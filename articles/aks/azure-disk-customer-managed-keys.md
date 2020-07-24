@@ -3,20 +3,17 @@ title: Szyfrowanie dysków platformy Azure w usłudze Azure Kubernetes Service (
 description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyjny AKS i dyski z danymi.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057294"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
 Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać [klucze zarządzane przez klienta][customer-managed-keys] , które będą używane do szyfrowania dla dysków systemu operacyjnego i danych dla klastrów AKS.
-
-> [!NOTE]
-> BYOK Linux i oparty na systemie Windows klastry AKS są dostępne w [regionach platformy Azure][supported-regions] , które obsługują szyfrowanie po stronie serwera dla usługi Azure Managed Disks.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -164,7 +161,6 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Usługa BYOK jest obecnie dostępna tylko w wersji zapoznawczej i w niektórych [regionach świadczenia usługi Azure][supported-regions]
 * Szyfrowanie dysków danych obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej   
 * Dostępne tylko w regionach, w których jest obsługiwany BYOK
 * Szyfrowanie z kluczami zarządzanymi przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów

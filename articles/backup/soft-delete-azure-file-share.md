@@ -3,15 +3,17 @@ title: Przypadkowe usuwanie ochrony udziałów plików platformy Azure
 description: Dowiedz się, jak usuwanie nietrwałe może chronić udziały plików platformy Azure przed przypadkowym usunięciem.
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 09d74a135fc43a7758004d77af2ec4c478345a2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84122409"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054375"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Przypadkowe usuwanie ochrony udziałów plików platformy Azure przy użyciu Azure Backup
 
-Aby zapewnić ochronę przed cyberattacks lub przypadkowym usunięciem, funkcja [usuwania nietrwałego](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) jest włączana dla wszystkich udziałów plików na koncie magazynu podczas konfigurowania kopii zapasowej dowolnego udziału plików na odpowiednim koncie magazynu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa udział plików, zawartość udziału plików i punkty odzyskiwania (migawki) są zachowywane przez co najmniej 14 dodatkowych dni, co pozwala na odzyskiwanie udziałów plików bez utraty danych.  
+Aby zapewnić ochronę przed cyberattacks lub przypadkowym usunięciem, funkcja [usuwania nietrwałego](../storage/files/storage-files-prevent-file-share-deletion.md) jest włączana dla wszystkich udziałów plików na koncie magazynu podczas konfigurowania kopii zapasowej dowolnego udziału plików na odpowiednim koncie magazynu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa udział plików, zawartość udziału plików i punkty odzyskiwania (migawki) są zachowywane przez co najmniej 14 dodatkowych dni, co pozwala na odzyskiwanie udziałów plików bez utraty danych.  
 
 Usuwanie nietrwałe jest obsługiwane tylko dla kont magazynu w warstwach Standardowa i Premium. obecnie jest to możliwe po stronie Azure Backup w [tych regionach](azure-file-share-support-matrix.md).
 
@@ -27,7 +29,7 @@ W przypadku skonfigurowania kopii zapasowej po raz pierwszy dla dowolnego udzia�
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-snapshots-and-restore-points-will-be-retained-in-soft-deleted-state-after-i-delete-the-file-share"></a>Czy można skonfigurować liczbę dni, dla których moje migawki i punkty przywracania będą przechowywane w stanie nieusuniętym, po usunięciu udziału plików?
 
-Tak, można ustawić okres przechowywania zgodnie z wymaganiami. W [tym dokumencie](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal) opisano kroki konfigurowania okresu przechowywania. W przypadku kont magazynu z udziałami plików z kopią zapasową minimalne ustawienie przechowywania powinno wynosić 14 dni.
+Tak, można ustawić okres przechowywania zgodnie z wymaganiami. W [tym dokumencie](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal) opisano kroki konfigurowania okresu przechowywania. W przypadku kont magazynu z udziałami plików z kopią zapasową minimalne ustawienie przechowywania powinno wynosić 14 dni.
 
 ### <a name="does-azure-backup-reset-my-retention-setting-because-i-configured-it-to-less-than-14-days"></a>Czy Azure Backup zresetować moje ustawienie przechowywania, ponieważ skonfigurowano je do mniej niż 14 dni?
 
@@ -39,14 +41,14 @@ W okresie nietrwałym usunięty koszt chronionego wystąpienia i koszt magazynu 
 
 ### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-deleted-state"></a>Czy można wykonać operację przywracania, gdy moje dane są w stanie usunięte nietrwałe?
 
-Musisz najpierw cofnąć usunięcie nietrwałego udziału plików, aby wykonać operacje przywracania. Operacja cofnięcia usunięcia spowoduje przeniesienie udziału plików do stanu kopii zapasowej, w którym można przywrócić do dowolnego punktu w czasie. Aby dowiedzieć się, jak anulować usuwanie udziału plików, odwiedź [ten link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) lub zobacz [skrypt cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md).
+Musisz najpierw cofnąć usunięcie nietrwałego udziału plików, aby wykonać operacje przywracania. Operacja cofnięcia usunięcia spowoduje przeniesienie udziału plików do stanu kopii zapasowej, w którym można przywrócić do dowolnego punktu w czasie. Aby dowiedzieć się, jak anulować usuwanie udziału plików, odwiedź [ten link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) lub zobacz [skrypt cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md).
 
 ### <a name="how-can-i-purge-the-data-of-a-file-share-in-a-storage-account-that-has-at-least-one-protected-file-share"></a>Jak można przeczyścić dane udziału plików na koncie magazynu, które ma co najmniej jeden chroniony udział plików?
 
 Jeśli masz co najmniej jeden chroniony udział plików na koncie magazynu, oznacza to, że usuwanie nietrwałe jest włączone dla wszystkich udziałów plików na tym koncie, a dane będą przechowywane przez 14 dni po operacji usuwania. Ale jeśli chcesz natychmiast przeczyścić dane i nie chcesz ich zachować, wykonaj następujące czynności:
 
-1. Jeśli udział plików został już usunięty, podczas gdy jest włączona funkcja usuwania nietrwałego, najpierw usuń ten udział plików z [portalu plików](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) lub za pomocą [skryptu cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md).
-2. Wyłącz usuwanie nietrwałe dla udziałów plików na koncie magazynu, wykonując czynności opisane w [tym dokumencie](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#disable-soft-delete).
+1. Jeśli udział plików został już usunięty, podczas gdy jest włączona funkcja usuwania nietrwałego, najpierw usuń ten udział plików z [portalu plików](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) lub za pomocą [skryptu cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md).
+2. Wyłącz usuwanie nietrwałe dla udziałów plików na koncie magazynu, wykonując czynności opisane w [tym dokumencie](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#disable-soft-delete).
 3. Teraz Usuń udział plików, którego zawartość ma zostać natychmiast przeczyszczona.
 
 >[!NOTE]
@@ -57,7 +59,7 @@ Jeśli masz co najmniej jeden chroniony udział plików na koncie magazynu, ozna
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Jakie zmiany są Azure Backup w kontekście ustawienia usuwania nietrwałego udziału plików? czy Wyrejestruj konto magazynu?
 
-Podczas wyrejestrowywania Azure Backup sprawdza ustawienia okresu przechowywania udziałów plików, a jeśli jest większa niż 14 dni lub mniej niż 14 dni, pozostawia przechowywanie w postaci, w jakiej jest. Jeśli jednak czas przechowywania wynosi 14 dni, uważamy go za włączany przez Azure Backup i uniemożliwiamy wyłączenie usuwania nietrwałego podczas procesu wyrejestrowywania. Jeśli chcesz wyrejestrować konto magazynu przy zachowaniu ustawienia przechowywania, należy włączyć je ponownie z poziomu okienka konta magazynu po zakończeniu wyrejestrowywania. Można odwołać się do [tego linku](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) w celu wykonania czynności konfiguracyjnych.
+Podczas wyrejestrowywania Azure Backup sprawdza ustawienia okresu przechowywania udziałów plików, a jeśli jest większa niż 14 dni lub mniej niż 14 dni, pozostawia przechowywanie w postaci, w jakiej jest. Jeśli jednak czas przechowywania wynosi 14 dni, uważamy go za włączany przez Azure Backup i uniemożliwiamy wyłączenie usuwania nietrwałego podczas procesu wyrejestrowywania. Jeśli chcesz wyrejestrować konto magazynu przy zachowaniu ustawienia przechowywania, należy włączyć je ponownie z poziomu okienka konta magazynu po zakończeniu wyrejestrowywania. Można odwołać się do [tego linku](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) w celu wykonania czynności konfiguracyjnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

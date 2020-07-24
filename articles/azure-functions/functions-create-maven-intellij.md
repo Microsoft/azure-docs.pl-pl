@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055789"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Tworzenie pierwszej funkcji platformy Azure przy użyciu języka Java i IntelliJ
 
@@ -44,7 +44,7 @@ Aby opracować funkcję przy użyciu języka Java i IntelliJ, Zainstaluj następ
 2. Aby zalogować się do konta platformy Azure, otwórz pasek boczny programu **Azure Explorer** i kliknij ikonę **Azure Sign In** (Logowanie do platformy Azure) w górnej części paska (lub z menu IDEA **Tools/Azure/Azure Sign in** [Narzędzia/Azure/Logowanie Azure]).
     ![Polecenie IntelliJ Azure Sign In (Logowanie Azure)][intellij-azure-login]
 
-3. W oknie **Azure Sign In** (Logowanie do platformy Azure) wybierz pozycję **Device Login** (Logowanie do urządzenia), a następnie kliknij pozycję **Sign in** (Zaloguj się) ([inne opcje logowania](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. W oknie **Azure Sign In** (Logowanie do platformy Azure) wybierz pozycję **Device Login** (Logowanie do urządzenia), a następnie kliknij pozycję **Sign in** (Zaloguj się) ([inne opcje logowania](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![Okno logowania do platformy Azure z wybraną opcją logowania do urządzenia][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ W tej sekcji użyto Azure Toolkit for IntelliJ do utworzenia projektu Azure Func
 Utworzono projekt funkcji języka Java z funkcją wyzwalaną przez protokół HTTP, uruchom go na komputerze lokalnym i wdrożony na platformie Azure. Teraz możesz rozłożyć funkcję przez...
 
 > [!div class="nextstepaction"]
-> [Dodawanie powiązania danych wyjściowych kolejki usługi Azure Storage](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Dodawanie powiązania danych wyjściowych kolejki usługi Azure Storage](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

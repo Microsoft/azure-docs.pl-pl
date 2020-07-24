@@ -4,11 +4,12 @@ description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054757"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
 
@@ -53,6 +54,17 @@ Aby wyświetlić maszyny wirtualne na pulpicie nawigacyjnym magazynu:
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Zarządzanie zasadami tworzenia kopii zapasowych dla maszyny wirtualnej
 
+### <a name="modify-backup-policy"></a>Modyfikowanie zasad tworzenia kopii zapasowych
+
+Aby zmodyfikować istniejące zasady tworzenia kopii zapasowych:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). Otwórz pulpit nawigacyjny magazynu.
+2. W obszarze **Zarządzanie zasadami tworzenia kopii zapasowych >** wybierz zasady tworzenia kopii zapasowej dla typu maszyny wirtualnej platformy Azure.
+3.  Kliknij przycisk Modyfikuj i Zmień ustawienia.
+
+
+### <a name="switch-backup-policy"></a>Przełącz zasady tworzenia kopii zapasowych 
+
 Aby zarządzać zasadami tworzenia kopii zapasowych:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). Otwórz pulpit nawigacyjny magazynu.
@@ -77,6 +89,9 @@ Można uruchomić kopię zapasową maszyny wirtualnej na żądanie po skonfiguro
 * Jeśli początkowa kopia zapasowa jest w stanie oczekiwania, kopia zapasowa na żądanie tworzy pełną kopię maszyny wirtualnej w magazynie Recovery Services.
 * Jeśli początkowa kopia zapasowa zostanie ukończona, kopia zapasowa na żądanie będzie wysyłać tylko zmiany z poprzedniej migawki do magazynu Recovery Services. Oznacza to, że późniejsze kopie zapasowe są zawsze przyrostowe.
 * Zakres przechowywania kopii zapasowej na żądanie jest wartością przechowywania określoną podczas wyzwalania kopii zapasowej.
+
+> [!NOTE]
+> Usługa Azure Backup obsługuje do dziewięciu kopii zapasowych na żądanie dziennie, ale firma Microsoft nie zaleca więcej niż czterech codziennych kopii zapasowych na żądanie w celu zapewnienia najlepszej wydajności.
 
 Aby wyzwolić kopię zapasową na żądanie:
 
@@ -125,6 +140,9 @@ Aby zatrzymać ochronę i usunąć dane maszyny wirtualnej:
 
     ![Usuwanie danych kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> Po zakończeniu operacji usuwania kopia zapasowa danych zostanie zachowana przez 14 dni w [stanie nietrwałego usunięcia](./soft-delete-virtual-machines.md). <br>Ponadto można również [włączyć lub wyłączyć usuwanie nietrwałe](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+
 ## <a name="resume-protection-of-a-vm"></a>Wznów ochronę maszyny wirtualnej
 
 W przypadku wybrania opcji [Zatrzymaj ochronę i Zachowaj dane kopii zapasowej](#stop-protection-and-retain-backup-data) podczas zatrzymywania ochrony maszyny wirtualnej możesz użyć przycisku **Wznów tworzenie kopii zapasowej**. Ta opcja jest niedostępna w przypadku wybrania opcji [Zatrzymaj ochronę i Usuń dane kopii](#stop-protection-and-delete-backup-data) zapasowej lub [Usuń dane kopii zapasowej](#delete-backup-data).
@@ -157,7 +175,7 @@ Istnieją dwa sposoby usuwania danych kopii zapasowej maszyny wirtualnej:
 
   * Aby usunąć dane kopii zapasowej dla elementu, wybierz pozycję **Usuń**. Komunikat z powiadomieniem informuje o tym, że dane kopii zapasowej zostały usunięte.
 
-Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przypadku usuwania nietrwałego nawet po usunięciu kopii zapasowej (wszystkie punkty odzyskiwania) maszyny wirtualnej dane kopii zapasowej są przechowywane przez 14 dodatkowych dni. Aby uzyskać więcej informacji, zobacz [dokumentację usuwania nietrwałego](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przypadku usuwania nietrwałego nawet po usunięciu kopii zapasowej (wszystkie punkty odzyskiwania) maszyny wirtualnej dane kopii zapasowej są przechowywane przez 14 dodatkowych dni. Aby uzyskać więcej informacji, zobacz [dokumentację usuwania nietrwałego](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > Usunięcie danych kopii zapasowej powoduje usunięcie wszystkich skojarzonych punktów odzyskiwania. Nie można wybrać określonych punktów odzyskiwania do usunięcia.
@@ -172,4 +190,4 @@ Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przyp
 
 * Dowiedz się, jak [utworzyć kopię zapasową maszyn wirtualnych platformy Azure z ustawień maszyny wirtualnej](backup-azure-vms-first-look-arm.md).
 * Dowiedz się, jak [przywrócić maszyny wirtualne](backup-azure-arm-restore-vms.md).
-* Dowiedz się, jak [monitorować kopie zapasowe maszyn wirtualnych platformy Azure](backup-azure-monitor-vms.md).
+* Dowiedz się, jak [monitorować kopie zapasowe maszyn wirtualnych platformy Azure](./backup-azure-monitoring-built-in-monitor.md).

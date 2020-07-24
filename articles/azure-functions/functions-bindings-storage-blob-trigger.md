@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056061"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
 
@@ -202,7 +203,7 @@ W [bibliotekach klas języka C#](functions-dotnet-class-library.md)Użyj następ
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  Konstruktor atrybutu przyjmuje ciąg ścieżki wskazujący, że kontener ma być obserwowany i opcjonalnie [wzorzec nazwy obiektu BLOB](#blob-name-patterns). Przykład:
+  Konstruktor atrybutu przyjmuje ciąg ścieżki wskazujący, że kontener ma być obserwowany i opcjonalnie [wzorzec nazwy obiektu BLOB](#blob-name-patterns). Oto przykład:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -300,7 +301,7 @@ Dostęp do danych obiektów BLOB przy użyciu `context.bindings.<NAME>` `<NAME>`
 
 # <a name="python"></a>[Python](#tab/python)
 
-Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
+Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Zapoznaj się z [przykładem wyzwalacza](#example) , aby uzyskać szczegółowe informacje.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,9 +412,9 @@ Wyzwalacz obiektów BLOB używa kolejki wewnętrznie, więc Maksymalna liczba ws
 
 [Plan zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work) ogranicza aplikację funkcji na jednej maszynie wirtualnej (VM) do 1,5 GB pamięci. Pamięć jest używana przez wszystkie jednocześnie wykonywane wystąpienia funkcji i przez sam czas wykonywania funkcji. Jeśli funkcja wyzwalana przez obiekt BLOB ładuje cały obiekt BLOB do pamięci, maksymalna ilość pamięci używana przez tę funkcję tylko dla obiektów BLOB to 24 * maksymalny rozmiar obiektu BLOB. Na przykład aplikacja funkcji mająca trzy funkcje wyzwalane przez obiekt BLOB i ustawienia domyślne byłyby w maksymalnym zakresie współbieżności maszyny wirtualnej równym 3 * 24 = 72 wywołań funkcji.
 
-Funkcje języka JavaScript i języka Java ładują cały obiekt BLOB do pamięci, a funkcje języka C# to w przypadku powiązania z `string` , `Byte[]` , lub poco.
+Funkcje języka JavaScript i języka Java ładują cały obiekt BLOB do pamięci, a funkcje języka C# to w przypadku powiązania z `string` , lub `Byte[]` .
 
-## <a name="polling"></a>Sondowania
+## <a name="polling"></a>Sondowanie
 
 Sondowanie działa jako hybrydowe między inspekcjami dzienników i uruchamiania okresowych skanowania kontenerów. Obiekty blob są skanowane w grupach 10 000 na raz z tokenem kontynuacji używanym między interwałami.
 

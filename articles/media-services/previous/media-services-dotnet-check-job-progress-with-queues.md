@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060322"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Używanie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
-Po uruchomieniu zadań kodowania często potrzebny jest sposób śledzenia postępów zadań. Media Services można skonfigurować w celu dostarczania powiadomień do [usługi Azure queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Postęp zadania można monitorować przez otrzymywanie powiadomień z magazynu kolejek. 
+Po uruchomieniu zadań kodowania często potrzebny jest sposób śledzenia postępów zadań. Media Services można skonfigurować w celu dostarczania powiadomień do [usługi Azure queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md). Postęp zadania można monitorować przez otrzymywanie powiadomień z magazynu kolejek. 
 
 Dostęp do komunikatów dostarczonych do usługi queue storage można uzyskać z dowolnego miejsca na świecie. Architektura obsługi komunikatów magazynu kolejki jest niezawodna i wysoce skalowalna. W przypadku korzystania z innych metod zalecane jest przełączenie magazynu kolejki sondowania pod kątem komunikatów.
 
@@ -34,13 +34,13 @@ Typowym scenariuszem nasłuchiwania Media Services powiadomień jest opracowanie
 
 W tym artykule przedstawiono sposób pobierania komunikatów powiadomień z usługi queue storage.  
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Podczas tworzenia aplikacji Media Services korzystających z magazynu kolejek należy wziąć pod uwagę następujące kwestie:
 
-* Usługa queue storage nie gwarantuje, że jest zamówione zamówienie First-In-First-Out (FIFO). Aby uzyskać więcej informacji, zobacz temat [kolejki platformy Azure i kolejki Azure Service Bus w porównaniu z kontrastem](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Usługa queue storage nie gwarantuje, że jest zamówione zamówienie First-In-First-Out (FIFO). Aby uzyskać więcej informacji, zobacz temat [kolejki platformy Azure i kolejki Azure Service Bus w porównaniu z kontrastem](/previous-versions/azure/hh767287(v=azure.100)).
 * Usługa queue storage nie jest usługą push. Musisz sondować kolejkę.
-* Możesz mieć dowolną liczbę kolejek. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Queue](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* W usłudze queue storage istnieją pewne ograniczenia i informacje, które należy znać. Są one opisane w [kolejkach platformy Azure i w Azure Service Busych kolejkach w porównaniu z kontrastem](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* Możesz mieć dowolną liczbę kolejek. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Queue](/rest/api/storageservices/queue-service-rest-api).
+* W usłudze queue storage istnieją pewne ograniczenia i informacje, które należy znać. Są one opisane w [kolejkach platformy Azure i w Azure Service Busych kolejkach w porównaniu z kontrastem](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ## <a name="net-code-example"></a>Przykład kodu platformy .NET
 

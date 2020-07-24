@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058766"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa maszyny wirtualnej platformy Azure
 
@@ -77,7 +77,7 @@ Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie
 
 Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie wirtualnej w tej samej sieci wirtualnej, możesz zastosować środki zaradcze przy użyciu innej maszyny wirtualnej.
 
-1.  Na maszynie wirtualnej Rozwiązywanie problemów Pobierz [program PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Pobierz [program PsTools](/sysinternals/downloads/pstools).
 
 2.  Otwórz wystąpienie programu CMD i uzyskaj dostęp do maszyny wirtualnej za pomocą wewnętrznego adresu IP (DIP). 
 

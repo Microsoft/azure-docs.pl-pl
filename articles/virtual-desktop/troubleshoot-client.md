@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059128"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Rozwiązywanie problemów z klientem Pulpit zdalny
 
@@ -61,7 +62,7 @@ Jeśli przeglądarka zacznie działać lub kończy pracę w trakcie korzystania 
 
 ## <a name="web-client-does-not-show-my-resources"></a>Klient sieci Web nie pokazuje moich zasobów
 
-Najpierw sprawdź konto Azure Active Directory, którego używasz. Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż to, które ma być używane na potrzeby Winodwsego pulpitu wirtualnego, należy je zarejestrować lub użyć prywatnego okna przeglądarki.
+Najpierw sprawdź konto Azure Active Directory, którego używasz. Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż te, które mają być używane dla pulpitu wirtualnego systemu Windows, należy podpisać nasze konto lub użyć prywatnego okna przeglądarki.
 
 Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019, Użyj linku klient sieci Web w [tym artykule](./virtual-desktop-fall-2019/connect-web-2019.md) , aby nawiązać połączenie z zasobami.
 

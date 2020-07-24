@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81380686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059421"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Informacje o przechowywaniu danych w Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Informacje o przechowywaniu danych w Azure Time Series Insights Gen1
 
 W tym artykule opisano dwa podstawowe ustawienia, które mają wpływ na przechowywanie danych w środowisku Azure Time Series Insightsu.
 
 ## <a name="video"></a>Wideo
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Poniższe wideo podsumowuje Time Series Insights przechowywanie danych i sposób ich planowania.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Poniższe wideo podsumowuje Azure Time Series Insights przechowywanie danych i sposób ich planowania.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ Ponadto środowisko Azure Time Series Insights ma ustawienie **zachowania przekr
 - **Wstrzymaj ruch przychodzący**
 
 > [!NOTE]
-> Domyślnie podczas tworzenia nowego środowiska przechowywanie jest skonfigurowane do **przeczyszczania starych danych**. To ustawienie może być przełączane w razie konieczności po czasie tworzenia przy użyciu Azure Portal na stronie **Konfigurowanie** środowiska Time Series Insights.
-> * Informacje o sposobie konfigurowania zasad przechowywania można znaleźć w artykule [Konfigurowanie przechowywania w Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> Domyślnie podczas tworzenia nowego środowiska przechowywanie jest skonfigurowane do **przeczyszczania starych danych**. To ustawienie może być przełączane w razie konieczności po czasie tworzenia przy użyciu Azure Portal na stronie **Konfigurowanie** środowiska Azure Time Series Insights.
+> * Informacje o sposobie konfigurowania zasad przechowywania można znaleźć w artykule [Konfigurowanie przechowywania w Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Zasady przechowywania danych są szczegółowo opisane poniżej.
 
 ## <a name="purge-old-data"></a>Przeczyść stare dane
 
 - **Przeczyść stare dane** jest domyślnym ustawieniem dla środowisk Azure Time Series Insightsych.  
-- Jeśli użytkownicy chcą zawsze korzystać z *najnowszych danych* w środowisku Time Series Insights, należy **przeczyścić stare dane** .
+- Jeśli użytkownicy chcą zawsze korzystać z *najnowszych danych* w środowisku Azure Time Series Insights, należy **przeczyścić stare dane** .
 - Ustawienie **Przeczyść stare dane** umożliwia *przeczyszczenie* danych po osiągnięciu limitów środowiska (czasu przechowywania, rozmiaru lub liczby, zależnie od tego, co nastąpi wcześniej). Wartość przechowywania jest domyślnie ustawiona na 30 dni.
 - Najstarsze dane pozyskiwane są czyszczone jako pierwsze (podejście "najpierw w pierwszej kolejności").
 
@@ -69,7 +69,7 @@ Za każdym razem, gdy dzienny wskaźnik transferu danych w danym środowisku prz
 - Pomaga ona w ochronie przed utratą danych, ale może utworzyć okazję do utraty najnowszych danych, jeśli ruch przychodzący zostanie wstrzymany poza okresem przechowywania źródła zdarzenia.
 - Jednak po osiągnięciu maksymalnej wydajności środowiska środowisko wstrzymuje ruch przychodzący do momentu wykonania następujących dodatkowych akcji:
 
-   - Maksymalną pojemność środowiska można zwiększyć, aby dodać więcej jednostek skalowania, zgodnie z opisem w temacie [Jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+   - Maksymalną pojemność środowiska można zwiększyć, aby dodać więcej jednostek skalowania, zgodnie z opisem w temacie [Jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
    - Zostanie osiągnięty okres przechowywania danych, a dane zostaną przeczyszczone, przez zwiększenie środowiska poniżej jego maksymalnej wydajności.
 
 ### <a name="example-three"></a>Przykład trzy
@@ -86,16 +86,16 @@ Po wznowieniu transferu danych przychodzących:
 > [!IMPORTANT]
 > Należy ustawić alerty, aby powiadomić o uniknięciu wstrzymania transferu danych przychodzących. Utrata danych jest możliwa od momentu domyślnego przechowywania dla źródeł zdarzeń platformy Azure. W związku z tym po wstrzymaniu transferu danych przychodzących prawdopodobnie utracisz najnowsze dane, chyba że zostanie podjęta dodatkowa akcja. Należy zwiększyć pojemność lub przełączać zachowanie w celu **przeczyszczenia starych danych** , aby uniknąć utraty danych.
 
-W Event Hubs, których dotyczy problem, Rozważ zmianę właściwości **przechowywania wiadomości** , aby zminimalizować utratę danych podczas wstrzymania ruchu przychodzącego w Time Series Insights.
+W Event Hubs, których dotyczy problem, Rozważ zmianę właściwości **przechowywania wiadomości** , aby zminimalizować utratę danych podczas wstrzymania ruchu przychodzącego w Azure Time Series Insights.
 
 [![Przechowywanie komunikatu centrum zdarzeń.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Jeśli nie skonfigurowano żadnych właściwości dla źródła zdarzeń ( `timeStampPropertyName` ), Time Series Insights domyślną sygnatura czasowa przybycia w centrum zdarzeń jako oś X. Jeśli `timeStampPropertyName` jest skonfigurowany jako inny, środowisko szuka skonfigurowanej `timeStampPropertyName` w pakiecie danych, gdy zdarzenia są analizowane.
+Jeśli nie skonfigurowano żadnych właściwości dla źródła zdarzeń ( `timeStampPropertyName` ), Azure Time Series Insights domyślną sygnatura czasowa przybycia w centrum zdarzeń jako oś X. Jeśli `timeStampPropertyName` jest skonfigurowany jako inny, środowisko szuka skonfigurowanej `timeStampPropertyName` w pakiecie danych, gdy zdarzenia są analizowane.
 
-Zapoznaj się z artykułem [Jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md) , aby skalować środowisko w celu zwiększenia pojemności lub zwiększyć czas przechowywania.
+Zapoznaj się z artykułem [Jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md) , aby skalować środowisko w celu zwiększenia pojemności lub zwiększyć czas przechowywania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje na temat konfigurowania lub zmieniania ustawień przechowywania danych, przejrzyj [Konfigurowanie przechowywania w Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Aby uzyskać informacje na temat konfigurowania lub zmieniania ustawień przechowywania danych, przejrzyj [Konfigurowanie przechowywania w Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Dowiedz się więcej o [ograniczeniu opóźnienia w Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

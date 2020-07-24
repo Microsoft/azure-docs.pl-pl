@@ -3,17 +3,18 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055021"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
 W tym artykule opisano sposób tworzenia kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST.
 
-W tym artykule przyjęto założenie, że utworzono już magazyn i zasady usługi Recovery Services w celu skonfigurowania kopii zapasowej udziału plików. Jeśli nie, zapoznaj się z samouczkiem [Tworzenie magazynu](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) i interfejs API REST [zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) , aby utworzyć nowe magazyny i zasady.
+W tym artykule przyjęto założenie, że utworzono już magazyn i zasady usługi Recovery Services w celu skonfigurowania kopii zapasowej udziału plików. Jeśli nie, zapoznaj się z samouczkiem [Tworzenie magazynu](./backup-azure-arm-userestapi-createorupdatevault.md) i interfejs API REST [zasad](./backup-azure-arm-userestapi-createorupdatepolicy.md) , aby utworzyć nowe magazyny i zasady.
 
 W tym artykule będziemy używać następujących zasobów:
 
@@ -31,7 +32,7 @@ W tym artykule będziemy używać następujących zasobów:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Odnajdywanie kont magazynu z niechronionymi udziałami plików platformy Azure
 
-Magazyn musi odnaleźć wszystkie konta usługi Azure Storage w ramach subskrypcji z udziałami plików, których kopie zapasowe mogą być tworzone w magazynie Recovery Services. Jest to wyzwalane przy użyciu [operacji odświeżania](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych udziałów plików platformy Azure w bieżącej subskrypcji i "pamięci podręcznej". Gdy udział plików jest buforowany, usługi odzyskiwania mogą uzyskać dostęp do udziału plików i chronić go.
+Magazyn musi odnaleźć wszystkie konta usługi Azure Storage w ramach subskrypcji z udziałami plików, których kopie zapasowe mogą być tworzone w magazynie Recovery Services. Jest to wyzwalane przy użyciu [operacji odświeżania](/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych udziałów plików platformy Azure w bieżącej subskrypcji i "pamięci podręcznej". Gdy udział plików jest buforowany, usługi odzyskiwania mogą uzyskać dostęp do udziału plików i chronić go.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -55,7 +56,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Odpowiedzi
 
-Operacja "Refresh" jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Operacja "Refresh" jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 200 (OK) po zakończeniu tej operacji.
 
@@ -107,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Pobierz listę kont magazynu, które mogą być chronione za pomocą magazynu Recovery Services
 
-Aby upewnić się, że "buforowanie" jest gotowe, Wyświetl listę wszystkich kont magazynu z ochroną w ramach subskrypcji. Następnie Znajdź odpowiednie konto magazynu w odpowiedzi. Odbywa się to przy użyciu operacji [Get ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) .
+Aby upewnić się, że "buforowanie" jest gotowe, Wyświetl listę wszystkich kont magazynu z ochroną w ramach subskrypcji. Następnie Znajdź odpowiednie konto magazynu w odpowiedzi. Odbywa się to przy użyciu operacji [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -159,7 +160,7 @@ Ponieważ firma Microsoft może zlokalizować konto magazynu *testvault2* w tre�
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Rejestrowanie konta magazynu w magazynie Recovery Services
 
-Ten krok jest wymagany tylko wtedy, gdy konto magazynu zostało wcześniej zarejestrowane w magazynie. Magazyn można zarejestrować za pomocą [operacji ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Ten krok jest wymagany tylko wtedy, gdy konto magazynu zostało wcześniej zarejestrowane w magazynie. Magazyn można zarejestrować za pomocą [operacji ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -208,7 +209,7 @@ Treść żądania Create jest następująca:
  }
 ```
 
-Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
 Jest to operacja asynchroniczna i zwraca dwie odpowiedzi: "202 zaakceptowane", gdy operacja zostanie zaakceptowana i "200 OK", gdy operacja zostanie ukończona.  Aby śledzić stan operacji, użyj nagłówka lokalizacji w celu uzyskania najnowszego stanu operacji.
 
@@ -240,7 +241,7 @@ Możesz sprawdzić, czy rejestracja zakończyła się pomyślnie z wartości par
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Zapytanie dotyczące wszystkich niechronionych udziałów plików w ramach konta magazynu
 
-Aby uzyskać informacje na temat elementów podlegających ochronie na koncie magazynu, należy wykonać operację zapytania dotyczącego [kontenerów ochrony](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) . Jest to operacja asynchroniczna, a wyniki powinny być śledzone przy użyciu nagłówka lokalizacji.
+Aby uzyskać informacje na temat elementów podlegających ochronie na koncie magazynu, należy wykonać operację zapytania dotyczącego [kontenerów ochrony](/rest/api/backup/protectioncontainers/inquire) . Jest to operacja asynchroniczna, a wyniki powinny być śledzone przy użyciu nagłówka lokalizacji.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -275,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Wybierz udział plików, dla którego chcesz utworzyć kopię zapasową
 
-Można wyświetlić listę wszystkich elementów podlegających ochronie w ramach subskrypcji i zlokalizować żądany udział plików, którego kopia zapasowa ma zostać utworzona przy użyciu operacji [Get backupprotectableItems](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) .
+Można wyświetlić listę wszystkich elementów podlegających ochronie w ramach subskrypcji i zlokalizować żądany udział plików, którego kopia zapasowa ma zostać utworzona przy użyciu operacji [Get backupprotectableItems](/rest/api/backup/backupprotectableitems/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -350,7 +351,7 @@ Odpowiedź zawiera listę wszystkich niechronionych udziałów plików i zawiera
 
 ### <a name="enable-backup-for-the-file-share"></a>Włącz tworzenie kopii zapasowej udziału plików
 
-Gdy odpowiedni udział plików jest "zidentyfikowany" z przyjazną nazwą, wybierz zasady do ochrony. Aby dowiedzieć się więcej na temat istniejących zasad w magazynie, zapoznaj się z tematem [interfejs API zasad listy](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) , odwołując się do nazwy zasad. Aby utworzyć zasady, zobacz [samouczek Tworzenie zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
+Gdy odpowiedni udział plików jest "zidentyfikowany" z przyjazną nazwą, wybierz zasady do ochrony. Aby dowiedzieć się więcej na temat istniejących zasad w magazynie, zapoznaj się z tematem [interfejs API zasad listy](/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady](/rest/api/backup/protectionpolicies/get) , odwołując się do nazwy zasad. Aby utworzyć zasady, zobacz [samouczek Tworzenie zasad](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Włączenie ochrony jest asynchroniczną operacją *Put* , która tworzy "chroniony element".
 
@@ -470,7 +471,7 @@ Aby wyzwolić kopię zapasową na żądanie, poniżej przedstawiono składniki t
 | ---------- | -------------------------- | --------------------------------- |
 | Właściwości | AzurefilesharebackupReques | Właściwości BackupRequestResource |
 
-Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](/rest/api/backup/backups/trigger#request-body).
 
 Przykład treści żądania
 
@@ -488,7 +489,7 @@ Przykład treści żądania
 
 ### <a name="responses"></a>Odpowiedzi
 
-Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja i 200 (OK) po zakończeniu tej operacji.
 
@@ -539,7 +540,7 @@ Po zakończeniu operacji zwraca 200 (OK) z IDENTYFIKATORem wynikowego zadania tw
 }
 ```
 
-Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, musi być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, musi być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Następne kroki
 

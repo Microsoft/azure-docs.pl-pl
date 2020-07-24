@@ -3,11 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na IoT Edge monitorowania i rejestrowania.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060448"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -97,7 +98,7 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
      }
    }
    ```
-Zdarzenia emitowane przez moduł są wysyłane do [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)i z tego powodu mogą być kierowane do innych miejsc docelowych. 
+Zdarzenia emitowane przez moduł są wysyłane do [centrum IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)i z tego powodu mogą być kierowane do innych miejsc docelowych. 
 
 ## <a name="controlling-events"></a>Kontrolowanie zdarzeń
 
@@ -109,7 +110,7 @@ Można użyć następujących właściwości sznurka modułu, zgodnie z opisem w
    
 Zdarzenia analizy są generowane przez węzły takie jak procesor wykrywania ruchu lub procesor rozszerzenia HTTP, a ujścia usługi IoT Hub służy do wysyłania ich do centrum IoT Edge. 
 
-[Routing wszystkich powyższych zdarzeń](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) można kontrolować za pośrednictwem odpowiedniej właściwości sznurka modułu $edgeHub (w manifeście wdrożenia):
+[Routing wszystkich powyższych zdarzeń](../../iot-edge/module-composition.md#declare-routes) można kontrolować za pośrednictwem odpowiedniej właściwości sznurka modułu $edgeHub (w manifeście wdrożenia):
 
 ```
  "$edgeHub": {
@@ -125,14 +126,14 @@ Zdarzenia analizy są generowane przez węzły takie jak procesor wykrywania ruc
  }
 ```
 
-W powyższym przykładzie lvaEdge jest nazwą na żywo analizy wideo w module IoT Edge, a reguła routingu jest zgodna ze schematem zdefiniowanym w temacie [DECLARE Routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+W powyższym przykładzie lvaEdge jest nazwą na żywo analizy wideo w module IoT Edge, a reguła routingu jest zgodna ze schematem zdefiniowanym w temacie [DECLARE Routes](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Aby zapewnić, że zdarzenia analizy docierają do centrum IoT Edge, musi to być węzeł ujścia usługi IoT Hub z dowolnego węzła procesora wykrywania ruchu i/lub dowolnego węzła procesora rozszerzenia HTTP.
 
 ## <a name="event-schema"></a>Schemat zdarzeń
 
-Zdarzenia pochodzą z urządzenia brzegowego i mogą być używane na brzegu lub w chmurze. Zdarzenia generowane przez usługę Azure Video Analytics na IoT Edge są zgodne ze [wzorcem komunikatów przesyłania strumieniowego](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) , który został ustanowiony przez IoT Hub na platformie Microsoft, z właściwościami systemu, właściwościami aplikacji i treścią.
+Zdarzenia pochodzą z urządzenia brzegowego i mogą być używane na brzegu lub w chmurze. Zdarzenia generowane przez usługę Azure Video Analytics na IoT Edge są zgodne ze [wzorcem komunikatów przesyłania strumieniowego](../../iot-hub/iot-hub-devguide-messages-construct.md) , który został ustanowiony przez IoT Hub na platformie Microsoft, z właściwościami systemu, właściwościami aplikacji i treścią.
 
 ### <a name="summary"></a>Podsumowanie
 
@@ -142,9 +143,9 @@ Każde zdarzenie, które jest zaobserwowane za pośrednictwem IoT Hub, będzie m
 |---|---|---|---|
 |Identyfikator komunikatu |System |guid|  Unikatowy identyfikator zdarzenia.|
 |temat| applicationProperty |ciąg|    Azure Resource Manager ścieżka do Media Services konta.|
-|Temat|   applicationProperty |ciąg|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
+|subject|   applicationProperty |ciąg|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
 |eventTime| applicationProperty|    ciąg| Godzina wygenerowania zdarzenia.|
-|Klasę| applicationProperty |ciąg|    Identyfikator typu zdarzenia (patrz poniżej).|
+|eventType| applicationProperty |ciąg|    Identyfikator typu zdarzenia (patrz poniżej).|
 |body|body  |object|    Dane określonego zdarzenia.|
 |dataVersion    |applicationProperty|   ciąg  |{Główna}. Średni|
 
@@ -160,7 +161,7 @@ Reprezentuje konto usługi Azure Media skojarzone z wykresem.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>Temat
+#### <a name="subject"></a>subject
 
 Jednostka, która emituje zdarzenie:
 
@@ -199,7 +200,7 @@ Czas zdarzenia jest opisany w ciągu ISO8601 i czas wystąpienia zdarzenia.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanalizować dzienniki kontenerów](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) na urządzeniu brzegowym. Informacje zapisane w dziennikach mogą być kontrolowane przez [następujące właściwości sznurka modułu](module-twin-configuration-schema.md) :
+Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanalizować dzienniki kontenerów](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) na urządzeniu brzegowym. Informacje zapisane w dziennikach mogą być kontrolowane przez [następujące właściwości sznurka modułu](module-twin-configuration-schema.md) :
 
 * logLevel
 
@@ -221,7 +222,7 @@ Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanaliz
 
 W niektórych przypadkach może być konieczne wygenerowanie bardziej szczegółowych dzienników niż opisane powyżej, aby pomóc pomocy technicznej platformy Azure rozwiązać problem. Istnieją dwa kroki, które należy wykonać.
 
-Najpierw należy [połączyć magazyn modułów z magazynem urządzeń](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) za pomocą funkcji. Jeśli przebadasz [szablon manifestu wdrożenia](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) z przewodnika Szybki Start, zobaczysz:
+Najpierw należy [połączyć magazyn modułów z magazynem urządzeń](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) za pomocą funkcji. Jeśli przebadasz [szablon manifestu wdrożenia](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) z przewodnika Szybki Start, zobaczysz:
 
 ```
 "createOptions": {

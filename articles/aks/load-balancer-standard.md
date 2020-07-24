@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056801"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>Tworzenie klastra przy użyciu własnego publicznego adresu IP lub prefiksów
 
-Możesz chcieć wprowadzić własne adresy IP lub prefiksy IP dla ruchu wychodzącego w czasie tworzenia klastra, aby obsługiwać scenariusze takie jak listy dozwolonyche punkty końcowe. Dołącz te same parametry, które podano powyżej, do kroku tworzenia klastra, aby zdefiniować własne publiczne adresy IP i prefiksy adresów IPv4 na początku cyklu życia klastra.
+Możesz chcieć wprowadzić własne adresy IP lub prefiksy IP dla ruchu wychodzącego w czasie tworzenia klastra, aby obsługiwać scenariusze, takie jak dodawanie punktów końcowych ruchu wychodzącego do listy dozwolonych. Dołącz te same parametry, które podano powyżej, do kroku tworzenia klastra, aby zdefiniować własne publiczne adresy IP i prefiksy adresów IPv4 na początku cyklu życia klastra.
 
 Użyj polecenia *AZ AKS Create* z parametrem *Load-wychodzące-IP* , aby utworzyć nowy klaster z publicznymi adresami IP na początku.
 
@@ -291,6 +291,24 @@ spec:
     app: azure-vote-front
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
+```
+
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Obsługuj adres IP klienta w połączeniach przychodzących
+
+Domyślnie usługa typu `LoadBalancer` [w Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) i w AKS nie będzie utrzymywać adresu IP klienta w połączeniu z usługą. Źródłowy adres IP pakietu, który jest dostarczany do elementu pod, będzie prywatnym adresem IP węzła. Aby zachować adres IP klienta, należy ustawić `service.spec.externalTrafficPolicy` na wartość `local` w definicji usługi. Poniższy Manifest przedstawia przykład:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
 ```
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Dodatkowe dostosowania za pośrednictwem adnotacji Kubernetes

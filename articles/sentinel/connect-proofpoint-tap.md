@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e4185de879fa6136531e6d4c64908befa1d3bc45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059905"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Połącz swoje Proofpoint z platformą Azure, korzystając z funkcji platformy Azure
+
+> [!IMPORTANT]
+> Łącznik danych Proofpoint TAP na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Łącznik Proofpointa ochrona przed atakami (TAP) umożliwia łatwe łączenie dzienników rozwiązań zabezpieczeń [PROOFPOINT TAP](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) z platformą Azure — do wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania badania. Integracja między programem Proofpoint TAP a platformą Azure — umożliwia korzystanie z Azure Functions ściągania danych dzienników przy użyciu interfejsu API REST.
 

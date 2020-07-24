@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44299a55424f9b0338ee49d2742aeedf16db22e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27bd52ad8794222d52d37032b0cd4fdf99f47b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057922"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Przypisywanie niestandardowych ról administratora przy użyciu interfejsu API Microsoft Graph w programie Azure Active Directory 
 
@@ -26,11 +26,11 @@ Można zautomatyzować sposób przypisywania ról do kont użytkowników przy u�
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Połącz się z organizacją usługi Azure AD przy użyciu konta administratora globalnego lub administratora tożsamości uprzywilejowanej, aby przypisać lub usunąć role.
+Połącz się z organizacją usługi Azure AD przy użyciu konta administratora globalnego lub administratora roli uprzywilejowanej, aby przypisać lub usunąć role.
 
 ## <a name="post-operations-on-roleassignment"></a>Operacje POST na RoleAssignment
 
-Żądanie HTTP do utworzenia przypisania roli między użytkownikiem a definicją roli.
+### <a name="example-1-create-a-role-assignment-between-a-user-and-a-role-definition"></a>Przykład 1: Tworzenie przypisania roli między użytkownikiem a definicją roli.
 
 POST
 
@@ -45,7 +45,7 @@ Treść
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  // Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -55,7 +55,7 @@ Odpowiedź
 HTTP/1.1 201 Created
 ```
 
-Żądanie HTTP do utworzenia przypisania roli, w którym podmiot zabezpieczeń lub definicja roli nie istnieje
+### <a name="example-2-create-a-role-assignment-where-the-principal-or-role-definition-does-not-exist"></a>Przykład 2: Tworzenie przypisania roli, w której podmiot zabezpieczeń lub definicja roli nie istnieje
 
 POST
 
@@ -69,7 +69,7 @@ Treść
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  //Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -78,11 +78,31 @@ Odpowiedź
 ``` HTTP
 HTTP/1.1 404 Not Found
 ```
+### <a name="example-3-create-a-role-assignment-on-a-single-resource-scope"></a>Przykład 3: Tworzenie przypisania roli dla pojedynczego zakresu zasobów
 
-Żądanie HTTP do utworzenia przypisania roli o pojedynczym zakresie zasobu dla wbudowanej definicji roli.
+POST
 
-> [!NOTE] 
-> Obecnie wbudowane role mają ograniczenie, w którym mogą być ograniczone do zakresu "/" całej organizacji lub zakresu "/AU/*". Określanie zakresu zasobów pojedynczego nie działa w przypadku ról wbudowanych, ale działa w przypadku ról niestandardowych.
+``` HTTP
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```
+
+Treść
+
+``` HTTP
+{
+    "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
+    "roleDefinitionId":"e9b2b976-1dea-4229-a078-b08abd6c4f84",    //role template ID of a custom role
+    "directoryScopeId":"/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"  //object ID of an application
+}
+```
+
+Odpowiedź
+
+``` HTTP
+HTTP/1.1 201 Created
+```
+
+### <a name="example-4-create-an-administrative-unit-scoped-role-assignment-on-a-built-in-role-definition-which-is-not-supported"></a>Przykład 4: Tworzenie przypisania roli w zakresie jednostki administracyjnej dla wbudowanej definicji roli, która nie jest obsługiwana
 
 POST
 
@@ -95,8 +115,8 @@ Treść
 ``` HTTP
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
+    "roleDefinitionId":"29232cdf-9323-42fd-ade2-1d097af3e4de",    //role template ID of Exchange Administrator
+    "directoryScopeId":"/administrativeUnits/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"    //object ID of an administrative unit
 }
 ```
 
@@ -110,23 +130,17 @@ HTTP/1.1 400 Bad Request
         "code":"Request_BadRequest",
         "message":
         {
-            "lang":"en",
-            "value":"Provided authorization scope is not supported for built-in role definitions."},
-            "values":
-            [
-                {
-                    "item":"scope",
-                    "value":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
-                }
-            ]
+            "message":"The given built-in role is not supported to be assigned to a single resource scope."
         }
     }
 }
 ```
 
+Tylko podzestaw wbudowanych ról jest włączony dla określania zakresu jednostek administracyjnych. Zapoznaj się z [tą dokumentacją](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-admin-units-assign-roles) , aby zapoznać się z listą wbudowanych ról obsługiwanych przez jednostkę administracyjną.
+
 ## <a name="get-operations-on-roleassignment"></a>Pobierz operacje na RoleAssignment
 
-Żądanie HTTP, aby uzyskać przypisanie roli dla danego podmiotu zabezpieczeń
+### <a name="example-5-get-role-assignments-for-a-given-principal"></a>Przykład 5: pobieranie przypisań ról dla danego podmiotu zabezpieczeń
 
 GET
 
@@ -138,21 +152,25 @@ Odpowiedź
 
 ``` HTTP
 HTTP/1.1 200 OK
-{ 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
-} ,
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/"  
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+        ]
 }
 ```
 
-Żądanie HTTP, aby uzyskać przypisanie roli dla danej definicji roli.
+### <a name="example-6-get-role-assignments-for-a-given-role-definition"></a>Przykład 6: pobieranie przypisań ról dla danej definicji roli.
 
 GET
 
@@ -165,14 +183,18 @@ Odpowiedź
 ``` HTTP
 HTTP/1.1 200 OK
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+     ]
 }
 ```
 
-Żądanie HTTP, aby uzyskać przypisanie roli według identyfikatora.
+### <a name="example-7-get-a-role-assignment-by-id"></a>Przykład 7: uzyskiwanie przypisania roli według identyfikatora.
 
 GET
 
@@ -188,13 +210,44 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"
+}
+```
+
+### <a name="example-8-get-role-assignments-for-a-given-scope"></a>Przykład 8: pobieranie przypisań ról dla danego zakresu
+
+
+GET
+
+``` HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+```
+
+Odpowiedź
+
+``` HTTP
+HTTP/1.1 200 OK
+{
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            }
+        ]
 }
 ```
 
 ## <a name="delete-operations-on-roleassignment"></a>Operacje usuwania na RoleAssignment
 
-Żądanie HTTP, aby usunąć przypisanie roli między użytkownikiem a definicją roli.
+### <a name="example-9-delete-a-role-assignment-between-a-user-and-a-role-definition"></a>Przykład 9: usuwanie przypisania roli między użytkownikiem a definicją roli.
 
 DELETE
 
@@ -207,7 +260,7 @@ Odpowiedź
 HTTP/1.1 204 No Content
 ```
 
-Żądanie HTTP, aby usunąć przypisanie roli, które już nie istnieje
+### <a name="example-10-delete-a-role-assignment-that-no-longer-exists"></a>Przykład 10: usuwanie przypisania roli, które już nie istnieje
 
 DELETE
 
@@ -221,7 +274,7 @@ Odpowiedź
 HTTP/1.1 404 Not Found
 ```
 
-Żądanie HTTP, aby usunąć przypisanie roli między definicją roli samodzielnej i wbudowanej
+### <a name="example-11-delete-a-role-assignment-between-self-and-global-administrator-role-definition"></a>Przykład 11: usuwanie przypisania roli między definicją roli administratora samodzielnego i globalnego
 
 DELETE
 
@@ -240,12 +293,14 @@ HTTP/1.1 400 Bad Request
         "message":
         {
             "lang":"en",
-            "value":"Cannot remove self from built-in role definitions."},
+            "value":"Removing self from Global Administrator built-in role is not allowed"},
             "values":null
         }
     }
 }
 ```
+
+Uniemożliwiamy użytkownikom usunięcie własnej roli administratora globalnego, aby uniknąć sytuacji, w której dzierżawa nie ma żadnych administratorów globalnych. Usuwanie innych ról przypisanych do siebie jest dozwolone.
 
 ## <a name="next-steps"></a>Następne kroki
 

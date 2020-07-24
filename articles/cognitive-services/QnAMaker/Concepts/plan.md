@@ -1,33 +1,33 @@
 ---
 title: Zaplanuj aplikację QnA Maker
-description: Planowanie aplikacji QnA Maker wymaga poznania sposobu, w jaki QnA Maker działa i współdziała z innymi usługami platformy Azure, a także z pewnymi pojęciami dotyczącymi bazy wiedzy.
+description: Dowiedz się, jak planować aplikację QnA Makerową. Dowiedz się, w jaki sposób QnA Maker działa i współdziała z innymi usługami platformy Azure, a niektóre koncepcje bazy wiedzy.
 ms.topic: conceptual
 ms.date: 07/2/2020
-ms.openlocfilehash: d19ec51aec7e71b6f040a03543f72af3aed09556
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 19499aceed96155fa42c78865b1d673a3830f5cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85875715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054200"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planowanie aplikacji QnA Maker
 
-Planowanie aplikacji QnA Maker wymaga poznania sposobu, w jaki QnA Maker działa i współdziała z innymi usługami platformy Azure, a także z pewnymi pojęciami dotyczącymi bazy wiedzy.
+Aby zaplanować aplikację QnA Maker, musisz zrozumieć, jak QnA Maker działa i współdziała z innymi usługami platformy Azure. Należy również mieć pełny opanujesz pojęć bazy wiedzy.
 
 ## <a name="azure-resources"></a>Zasoby platformy Azure
 
-Każdy [zasób platformy Azure](azure-resources.md#resource-purposes) utworzony przy użyciu QNA Maker ma określony cel. Ponieważ każdy zasób ma własne przeznaczenie, limity i [warstwę cenową](azure-resources.md#pricing-tier-considerations), ważne jest, aby zrozumieć, jakie zasoby są wykonywane w ramach procesu planowania.
+Każdy [zasób platformy Azure](azure-resources.md#resource-purposes) utworzony przy użyciu QNA Maker ma określony cel. Każdy zasób ma własne przeznaczenie, limity i [warstwę cenową](azure-resources.md#pricing-tier-considerations). Ważne jest, aby zrozumieć funkcję tych zasobów, dzięki czemu można użyć tej wiedzy w procesie planowania.
 
-|Zasób|Przeznaczenie|
+| Zasób | Przeznaczenie |
 |--|--|
-| Zasób [QNA Maker](azure-resources.md#qna-maker-resource)|Tworzenie i prognozowanie zapytań|
-| Zasób [Wyszukiwanie poznawcze](azure-resources.md#cognitive-search-resource)|Przechowywanie i wyszukiwanie danych|
-| Zasób [usługi App Service zasób i plan aplikacji](azure-resources.md#app-service-and-app-service-plan)|Punkt końcowy przewidywania zapytania|
-| Zasób [Application Insights](azure-resources.md#application-insights)|Dane telemetryczne przewidywania zapytań|
+| Zasób [QNA Maker](azure-resources.md#qna-maker-resource) | Tworzenie i prognozowanie zapytań |
+| Zasób [Wyszukiwanie poznawcze](azure-resources.md#cognitive-search-resource) | Przechowywanie i wyszukiwanie danych |
+| Zasób [usługi App Service zasób i plan aplikacji](azure-resources.md#app-service-and-app-service-plan) | Punkt końcowy przewidywania zapytania |
+| Zasób [Application Insights](azure-resources.md#application-insights) | Dane telemetryczne przewidywania zapytań |
 
 ### <a name="resource-planning"></a>Planowanie zasobów
 
-Podczas uczenia się tworzenia i przewidywania zapytań przy użyciu warstwy Bezpłatna, `F0` każdy z zasobów działa i zapewnia obsługę prognozowania tworzenia i zapytań. Po przejściu do środowiska produkcyjnego, na żywo, w scenariuszu należy przeprowadzić ponowną ocenę wybranego zasobu.
+Warstwa Bezpłatna, `F0` każdy zasób działa i może zapewnić zarówno środowisko tworzenia, jak i prognozowania zapytań. Możesz użyć tej warstwy, aby poznać tworzenie i prognozowanie zapytań. Po przejściu do scenariusza produkcyjnego lub na żywo Oceń wybrane zasoby.
 
 #### <a name="qna-maker-resource"></a>Zasób QnA Maker
 
@@ -35,7 +35,7 @@ Pojedynczy zasób QnA Maker może obsługiwać więcej niż jedną bazę wiedzy.
 
 #### <a name="knowledge-base-size-and-throughput"></a>Rozmiar bazy wiedzy i przepływność
 
-Planując tworzenie rzeczywistej aplikacji, Zaplanuj zasoby pod kątem rozmiaru bazy wiedzy oraz oczekiwane żądania prognozowania zapytań.
+Podczas tworzenia rzeczywistej aplikacji Zaplanuj wystarczającą ilość zasobów dla rozmiaru bazy wiedzy i oczekiwanego żądania prognozowania zapytań.
 
 Rozmiar bazy wiedzy jest kontrolowany przez:
 * Limity warstwy cenowej [zasobów wyszukiwanie poznawcze](../../../search/search-limits-quotas-capacity.md)
@@ -45,53 +45,53 @@ Rozmiar bazy wiedzy jest kontrolowany przez:
 
 ### <a name="resource-sharing"></a>Udostępnianie zasobów
 
-Jeśli masz już niektóre z tych zasobów, możesz rozważyć udostępnianie zasobów. Niektóre zasoby [mogą być udostępniane](azure-resources.md#share-services-with-qna-maker), ale jest to zaawansowany scenariusz.
+Jeśli masz już niektóre z tych zasobów, możesz rozważyć udostępnianie zasobów. Zapoznaj się z informacjami o zasobach, które [mogą być współużytkowane](azure-resources.md#share-services-with-qna-maker) przez zrozumienie, że udostępnianie zasobów jest zaawansowanym scenariuszem.
 
 Wszystkie bazy wiedzy utworzone w tym samym QnA Maker zasobów współużytkują ten sam punkt końcowy przewidywania zapytania **testowego** .
 
-### <a name="understanding-impact-of-resource-selection"></a>Zrozumienie wpływu wyboru zasobów
+### <a name="understand-the-impact-of-resource-selection"></a>Zrozumienie wpływu wyboru zasobów
 
 Wybór wybranego zasobu oznacza, że bazy wiedzy pomyślnie odpowiadają przewidywania zapytań.
 
-Jeśli baza wiedzy nie działa prawidłowo, zwykle przyczyną problemu jest niewłaściwe zarządzanie zasobami.
+Jeśli baza wiedzy nie działa prawidłowo, zwykle jest to problem z nieprawidłowym zarządzaniem zasobami.
 
 Niewłaściwy wybór zasobów wymaga zbadania, aby określić, który [zasób musi zostać zmieniony](azure-resources.md#when-to-change-a-pricing-tier).
 
 ## <a name="knowledge-bases"></a>Bazy wiedzy
 
-Baza wiedzy jest bezpośrednio związana z jej zasobem QnA Maker i zawiera pary pytań i odpowiedzi (QnA) używane do odpowiedzi na żądania prognozowania zapytań.
+Baza wiedzy jest bezpośrednio związana z jej zasobem QnA Maker. Przechowuje pary pytań i odpowiedzi (QnA), które są używane do odpowiedzi na żądania prognozowania zapytań.
 
 ### <a name="language-considerations"></a>Zagadnienia dotyczące języka
 
 Pierwsza baza wiedzy utworzona w ramach zasobu QnA Maker ustawia język dla zasobu. Dla zasobu QnA Maker można korzystać tylko z jednego języka.
 
-Strukturę zasobów QnA Maker według języka lub Użyj usługi [translator](../../translator/translator-info-overview.md) , aby zmienić zapytanie z innego języka do języka bazy wiedzy przed wysłaniem zapytania do punktu końcowego przewidywania zapytań.
+Możesz utworzyć strukturę zasobów QnA Maker według języka lub użyć [translatora](../../translator/translator-info-overview.md) do zmiany zapytania z innego języka do języka bazy wiedzy przed wysłaniem zapytania do punktu końcowego przewidywania zapytań.
 
-### <a name="ingesting-data-sources"></a>Pozyskiwanie źródeł danych
+### <a name="ingest-data-sources"></a>Pozyskiwanie źródeł danych
 
-Pozyskiwane [źródła danych](knowledge-base.md)używane do tworzenia bazy wiedzy mogą być następujące:
+Można użyć jednego z następujących pozyskiwanych [źródeł danych](knowledge-base.md) do utworzenia bazy wiedzy:
 
 * Publiczny adres URL
 * Prywatny adres URL programu SharePoint
 * Plik
 
-Proces pozyskiwania umożliwia konwersję [obsługiwanych typów zawartości](content-types.md) na potrzeby promocji. Wszelkie dalsze edytowanie *odpowiedzi* odbywa się z użyciem promocji. Po utworzeniu bazy wiedzy można edytować [pary QNA](question-answer-set.md) w portalu QNA Maker z [tworzeniem tekstu sformatowanego](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Proces pozyskiwania umożliwia konwersję [obsługiwanych typów zawartości](content-types.md) na potrzeby promocji. Wszelkie dalsze edytowanie *odpowiedzi* odbywa się z użyciem promocji. Po utworzeniu bazy wiedzy można edytować [pary QNA](question-answer-set.md) w portalu QNA Maker przy użyciu [tekstu sformatowanego](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Zagadnienia dotyczące formatu danych
 
-Ze względu na to, że ostatni format pary QnA jest w promocji, zrozumienie, że [Pomoc techniczna](../reference-markdown-format.md) jest ważna.
+Ze względu na to, że ostatni format pary QnA jest w promocji, ważne jest, aby zrozumieć [wsparcie promocji](../reference-markdown-format.md).
 
-Połączone obrazy muszą być dostępne z publicznego adresu URL, aby można je było wyświetlić w okienku testowania portalu QnA Maker oraz dowolnej aplikacji klienckiej, ponieważ QnA Maker nie zapewnia uwierzytelniania zawartości, w tym obrazów.
+Połączone obrazy muszą być dostępne z publicznego adresu URL, aby można je było wyświetlić w okienku testów portalu QnA Maker lub w aplikacji klienckiej. QnA Maker nie zapewnia uwierzytelniania zawartości, w tym obrazów.
 
 ### <a name="bot-personality"></a>Bot osobowość
 
 Dodaj bot osobowość do bazy wiedzy przy użyciu funkcji [Chit-Chat](../how-to/chit-chat-knowledge-base.md). Ta funkcja jest dostępna z odpowiedziami w określonym sygnale konwersacji, takim jak *profesjonalne* i *przyjazne*. Ta Chit — rozmowa jest udostępniana jako zestaw konwersacji, który ma całkowitą kontrolę do dodawania, edytowania i usuwania.
 
-Jeśli Twój bot nawiązuje połączenie z bazą wiedzy, zaleca się bot osobowości. W przypadku łączenia się z kilkoma usługami, z których jedna jest baza wiedzy, można nadal korzystać z funkcji Chit-Chat w bazie wiedzy, ale należy sprawdzić, jak działa usługa bot, jeśli jest to poprawny projekt architektury używany przez użytkownika.
+Jeśli Twój bot nawiązuje połączenie z bazą wiedzy, zaleca się bot osobowości. Możesz użyć funkcji Chit-Chat w bazie wiedzy nawet w przypadku łączenia się z innymi usługami, ale należy sprawdzić, jak działa usługa bot, jeśli jest to poprawny projekt architektoniczny do użytku.
 
 ### <a name="conversation-flow-with-a-knowledge-base"></a>Przepływ konwersacji z bazą wiedzy
 
-Przepływ konwersacji zwykle zaczyna się od powitania od użytkownika, takiego jak `Hi` lub `Hello` . Baza wiedzy może odpowiedzieć na ogólną odpowiedź, taką jak `Hi, how can I help you` , i może również udostępniać wybrane monity, aby kontynuować konwersację.
+Przepływ konwersacji zwykle zaczyna się od powitania od użytkownika, takiego jak `Hi` lub `Hello` . Twoja baza wiedzy może odpowiedzieć na ogólną odpowiedź, taką jak `Hi, how can I help you` , i może również udostępnić wybrane monity monitujące, aby kontynuować konwersację.
 
 Należy zaprojektować przepływ konwersacji przy użyciu pętli, aby użytkownik wie, jak korzystać z bot i nie został porzucony przez bot w konwersacji. [Monity monitujące](../how-to/multiturn-conversation.md) zapewniają łączenie między parami QNA, które zezwalają na przepływ konwersacji.
 
@@ -103,37 +103,37 @@ Tworzenie bazy wiedzy obsługuje kilka [uprawnień dostępu opartych na rolach](
 
 ## <a name="integration-with-client-applications"></a>Integracja z aplikacjami klienckimi
 
-Integracja z [aplikacjami klienckimi](integration-with-other-applications.md) oznacza Wysyłanie zapytań do punktu końcowego przewidywania środowiska uruchomieniowego. Zapytanie jest wysyłane do konkretnej bazy wiedzy z zestawem SDK lub żądaniem opartym na protokole REST do punktu końcowego aplikacji sieci Web QnA Maker.
+Integrację z [aplikacjami klienckimi](integration-with-other-applications.md) można przeprowadzić, wysyłając zapytanie do punktu końcowego przewidywania środowiska uruchomieniowego. Zapytanie jest wysyłane do konkretnej bazy wiedzy z zestawem SDK lub żądaniem opartym na protokole REST do punktu końcowego aplikacji sieci Web QnA Maker.
 
-Aby poprawnie uwierzytelnić żądanie klienta, aplikacja kliencka musi wysłać poprawne poświadczenia i identyfikator bazy wiedzy. Jeśli używasz Azure Bot Service, skonfiguruj ustawienie jako część konfiguracji bot w Azure Portal.
+Aby poprawnie uwierzytelnić żądanie klienta, aplikacja kliencka musi wysłać poprawne poświadczenia i identyfikator bazy wiedzy. Jeśli używasz Azure Bot Service, skonfiguruj te ustawienia jako część konfiguracji bot w Azure Portal.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Przepływ konwersacji w aplikacji klienckiej
 
 Przepływ konwersacji w [aplikacji klienckiej](integration-with-other-applications.md), na przykład na platformie Azure bot, może wymagać funkcjonalności przed i po współdziałaniu z bazą wiedzy.
 
-Jeśli aplikacja kliencka obsługuje przepływ konwersacji, należy zapewnić alternatywną metodę obsługi monitów lub Chit-Chit, zaprojektować te wczesne i upewnić się, że zapytanie używane w aplikacji klienckiej jest prawidłowo obsługiwane przez inną usługę lub wysłane do bazy wiedzy.
+Czy aplikacja kliencka obsługuje przepływ konwersacji, dostarczając alternatywny sposób obsługi monitów uzupełniających lub takich jak Chit-Chit? Jeśli tak, Zaprojektuj te wczesne i upewnij się, że zapytanie aplikacji klienta jest prawidłowo obsługiwane przez inną usługę lub w przypadku wysłania do bazy wiedzy.
 
-### <a name="dispatching-between-qna-maker-and-language-understanding-luis"></a>Wysyłanie między QnA Maker i Language Understanding (LUIS)
+### <a name="dispatch-between-qna-maker-and-language-understanding-luis"></a>Wysyłanie między QnA Maker i Language Understanding (LUIS)
 
 Aplikacja kliencka może udostępniać kilka funkcji, tylko jeden z nich jest odbierany przez bazę wiedzy. Inne funkcje nadal muszą zrozumieć tekst konwersacji i wyodrębnić jego znaczenie.
 
-Typową architekturą aplikacji klienckich jest użycie jednocześnie QnA Maker i [Language Understanding (Luis)](../../LUIS/what-is-luis.md) . LUIS zapewnia klasyfikację tekstu i wyodrębnianie dla dowolnego zapytania, w tym do innych usług, podczas gdy QnA Maker zapewnia odpowiedzi z bazy wiedzy.
+Typową architekturą aplikacji klienckich jest użycie jednocześnie QnA Maker i [Language Understanding (Luis)](../../LUIS/what-is-luis.md) . LUIS zapewnia klasyfikację tekstu i wyodrębnianie dla dowolnego zapytania, w tym do innych usług. QnA Maker oferuje odpowiedzi z bazy wiedzy.
 
-W [udostępnionej architekturze](../choose-natural-language-processing-service.md)wysyłanie między tymi dwiema usługami odbywa się przy użyciu narzędzia do [wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) z platformy bot Framework.
+W takim scenariuszu [udostępnionej architektury](../choose-natural-language-processing-service.md) wysyłanie między tymi dwiema usługami odbywa się za pomocą narzędzia do [wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) z platformy bot Framework.
 
 ### <a name="active-learning-from-a-client-application"></a>Aktywna nauka z aplikacji klienckiej
 
-QnA Maker używa _aktywnego uczenia_ do ulepszania bazy wiedzy, sugerując pytania alternatywne do odpowiedzi. Aplikacja kliencka jest odpowiedzialna za część tej [aktywnej nauki](active-learning-suggestions.md). Aplikacja kliencka, za pomocą kolejnych zapytań, może określić, że odpowiedź zwrócona z bazy wiedzy nie była odpowiedzią, której szuka użytkownik, i określić lepszą odpowiedź. Aplikacja kliencka musi [wysłać te informacje z powrotem do bazy wiedzy](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) , aby zwiększyć jakość przewidywania.
+QnA Maker używa _aktywnego uczenia_ do ulepszania bazy wiedzy, sugerując pytania alternatywne do odpowiedzi. Aplikacja kliencka jest odpowiedzialna za część tej [aktywnej nauki](active-learning-suggestions.md). Dzięki zapytaniami konwersacji aplikacja kliencka może określić, że baza wiedzy zwróciła odpowiedź, która nie jest przydatna dla użytkownika i może określić lepszą odpowiedź. Aplikacja kliencka musi [wysłać te informacje z powrotem do bazy wiedzy](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) , aby zwiększyć jakość przewidywania.
 
 ### <a name="providing-a-default-answer"></a>Dostarczanie odpowiedzi domyślnej
 
-Jeśli Twoja baza wiedzy nie znajdzie odpowiedzi, zwróci _domyślną odpowiedź_. Tę odpowiedź można skonfigurować w portalu QnA Maker, na stronie **Ustawienia** lub w [interfejsach API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Jeśli Twoja baza wiedzy nie znajdzie odpowiedzi, zwróci _domyślną odpowiedź_. Tę odpowiedź można skonfigurować na stronie **Ustawienia** w portalu QNA Maker lub w [interfejsach API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
-Ta domyślna odpowiedź różni się od domyślnej odpowiedzi usługi Azure bot. Domyślna odpowiedź Azure bot jest konfigurowana w Azure Portal, dla bot, jako część ustawień konfiguracji i jest zwracana, gdy próg wyniku nie zostanie spełniony.
+Ta domyślna odpowiedź różni się od domyślnej odpowiedzi usługi Azure bot. Domyślną odpowiedź dla bot platformy Azure można skonfigurować w Azure Portal w ramach ustawień konfiguracji. Jest zwracana, gdy próg wyniku nie jest spełniony.
 
-## <a name="prediction"></a>Prediction (Prognoza)
+## <a name="prediction"></a>Przewidywanie
 
-Prognoza jest odpowiedzią z bazy wiedzy i zawiera więcej informacji niż tylko odpowiedź. Aby uzyskać odpowiedź przewidywania zapytania, użyj [interfejsu API GeneateAnswer](query-knowledge-base.md).
+Prognoza jest odpowiedzią z bazy wiedzy i zawiera więcej informacji niż tylko odpowiedź. Aby uzyskać odpowiedź przewidywania zapytania, użyj [interfejsu API GenerateAnswer](query-knowledge-base.md).
 
 ### <a name="prediction-score-fluctuations"></a>Wahania oceny przewidywania
 
@@ -145,12 +145,12 @@ Ocena może ulec zmianie w zależności od kilku czynników:
 * Zapytanie wysyłane do programu `test` lub `production` bazy wiedzy
 
 Istnieje [dwufazowe klasyfikowanie odpowiedzi](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
-* Wyszukiwanie poznawcze pierwszej kolejności — aby odpowiedź zwracała się z Wyszukiwanie poznawcze, liczba _dozwolonych odpowiedzi_ musi być wystarczająco wysoka, że najlepsze odpowiedzi są zwracane przez wyszukiwanie poznawcze, aby mogły przejść do rangi QNA Maker
-* QnA Maker — druga ranga — Zastosuj cechowania i uczenie maszynowe, aby określić najlepszą odpowiedź.
+- Wyszukiwanie poznawcze — pierwsza ranga. Ustaw liczbę _odpowiedzi_ , która jest wystarczająco duża, że najlepsze odpowiedzi są zwracane przez wyszukiwanie poznawcze, a następnie przekazana do rangi QNA Maker.
+- QnA Maker — druga ranga. Zastosuj cechowania i uczenie maszynowe, aby określić najlepszą odpowiedź.
 
 ### <a name="service-updates"></a>Aktualizacje usług
 
-Aktualizacje usługi są automatycznie zarządzane przez zastosowanie [najnowszych aktualizacji środowiska uruchomieniowego](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Zastosuj [najnowsze aktualizacje środowiska uruchomieniowego](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) , aby automatycznie zarządzać aktualizacjami usługi.
 
 ### <a name="scaling-throughput-and-resiliency"></a>Skalowanie, przepływność i odporność
 
@@ -169,9 +169,9 @@ Wszystkie zapytania do bazy wiedzy są przechowywane w Application Insights. Uż
 [Pary QNA](question-answer-set.md) powinny być projektowane i tworzone w oparciu o użycie aplikacji klienckiej.
 
 Każda para może zawierać:
-* Filtrowanie metadanych przy wysyłaniu zapytań. Dzięki temu można oznakować pary QnA z dodatkowymi informacjami o źródle, zawartości, formacie i przeznaczeniu danych.
-* Monity monitujące — należy określić ścieżkę w bazie wiedzy, aby użytkownik dotarł do odpowiedniej odpowiedzi.
-* Pytania alternatywne — ważne jest, aby zezwolić na dopasowanie wyszukiwania do odpowiedzi z różnych form pytań. [Aktywne sugestie dotyczące uczenia](active-learning-suggestions.md) załączają się do innych pytań.
+* Filtrowanie metadanych w przypadku wykonywania zapytań w celu umożliwienia znakowania par QnA z dodatkowymi informacjami o źródle, zawartości, formacie i przeznaczeniu danych.
+* Monity uzupełniające — pomaga określić ścieżkę w bazie wiedzy, aby użytkownik dotarł do odpowiedniej odpowiedzi.
+* Pytania alternatywne — ważne, aby zezwolić na dopasowanie wyszukiwania do odpowiedzi z różnych form pytań. [Aktywne sugestie dotyczące uczenia](active-learning-suggestions.md) załączają się do innych pytań.
 
 ### <a name="devops-development"></a>Programowanie DevOps
 
@@ -179,9 +179,9 @@ Opracowywanie bazy wiedzy do wstawienia do potoku DevOps wymaga odizolowania baz
 
 Baza wiedzy udostępnia indeks Wyszukiwanie poznawcze ze wszystkimi innymi bazami wiedzy w ramach zasobu QnA Maker. Baza wiedzy jest izolowana przez partycję, więc udostępnianie indeksu może spowodować różnice w wyniku porównywania z opublikowanym bazą wiedzy.
 
-Aby można było korzystać z tego _samego wyniku_ w `test` `production` bazach wiedzy i, Izoluj zasób QNA Maker do pojedynczej bazy wiedzy. W tej architekturze zasób musi być aktywny tylko na czas trwania odizolowanego testu wsadowego.
+Aby uzyskać ten _sam wynik_ w `test` `production` bazach wiedzy i, Izoluj zasób QNA Maker do pojedynczej bazy wiedzy. W tej architekturze zasób musi tylko mieć wartość Live, tak długo, jak odizolowany test wsadowy.
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
 * [Zasoby platformy Azure](../how-to/set-up-qnamaker-service-azure.md)
 * [Pary pytań i odpowiedzi](question-answer-set.md)

@@ -1,25 +1,21 @@
 ---
-title: Dostarczanie zawartości klientom | Microsoft Docs
+title: Dostarczanie zawartości klientom
 description: Ten temat zawiera omówienie tego, co jest związane z dostarczaniem zawartości przy użyciu Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060359"
 ---
 # <a name="deliver-content-to-customers"></a>Dostarczanie zawartości klientom
 Gdy dostarczasz klientom zawartość przesyłania strumieniowego lub wideo na żądanie, celem jest dostarczanie wysokiej jakości wideo do różnych urządzeń w różnych warunkach sieciowych.
@@ -55,7 +51,7 @@ Filtry dla zasobów można definiować za pomocą Media Services. Te filtry są 
 
 Aby uzyskać więcej informacji, zobacz [filtry i manifesty dynamiczne](media-services-dynamic-manifest-overview.md).
 
-## <a name="locators"></a><a id="locators"/>Lokalizatory
+## <a name="locators"></a><a name="locators"></a>Lokalizatory
 Aby podać użytkownikowi adres URL, który może służyć do przesyłania strumieniowego lub pobierania zawartości, musisz najpierw opublikować swój zasób przez utworzenie lokalizatora. Lokalizator zapewnia punkt wejścia, aby uzyskać dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów:
 
 * Lokalizatory OnDemandOrigin. Są one używane do przesyłania strumieniowego multimediów (na przykład MPEG-KRESKowego, HLS lub Smooth Streaming) lub progresywnego pobierania plików.
@@ -70,9 +66,9 @@ Lokalizatory mają daty wygaśnięcia. Azure Portal ustawia datę wygaśnięcia 
 > 
 > 
 
-Do aktualizacji daty wygaśnięcia na lokalizatorze użyj interfejsu API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) lub [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Należy pamiętać, że po zaktualizowaniu daty wygaśnięcia lokalizatora SAS następuje zmiana adresu URL.
+Do aktualizacji daty wygaśnięcia na lokalizatorze użyj interfejsu API [REST](/rest/api/media/operations/locator#update_a_locator) lub [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Należy pamiętać, że po zaktualizowaniu daty wygaśnięcia lokalizatora SAS następuje zmiana adresu URL.
 
-Lokalizatory nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Różne prawa dostępu można nadać indywidualnym użytkownikom przy użyciu rozwiązań Digital Rights Management (DRM). Aby uzyskać więcej informacji, zobacz [Zabezpieczanie nośnika](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Lokalizatory nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Różne prawa dostępu można nadać indywidualnym użytkownikom przy użyciu rozwiązań Digital Rights Management (DRM). Aby uzyskać więcej informacji, zobacz [Zabezpieczanie nośnika](/previous-versions/azure/dn282272(v=azure.100)).
 
 Podczas tworzenia lokalizatora może wystąpić opóźnienie z 30 sekund wynikające z wymaganych procesów magazynu i propagacji w usłudze Azure Storage.
 
@@ -87,7 +83,7 @@ Aby zapewnić użytkownikom adresy URL przesyłania strumieniowego, należy najp
 
 Można przesyłać strumieniowo tylko przy użyciu protokołu TLS, jeśli punkt końcowy przesyłania strumieniowego, z którego dostarczasz zawartość, został utworzony po 10 września 2014. Jeśli adresy URL przesyłania strumieniowego są oparte na punktach końcowych przesyłania strumieniowego utworzonych po 10 września, 2014, adres URL zawiera "streaming.mediaservices.windows.net". Adresy URL przesyłania strumieniowego zawierające "origin.mediaservices.windows.net" (stary format) nie obsługują protokołu TLS. Jeśli Twój adres URL ma stary format i chcesz mieć możliwość przesyłania strumieniowego przy użyciu protokołu TLS, Utwórz nowy punkt końcowy przesyłania strumieniowego. Użyj adresów URL opartych na nowym punkcie końcowym przesyłania strumieniowego do przesyłania strumieniowego zawartości za pośrednictwem protokołu TLS.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>Formaty adresów URL przesyłania strumieniowego
+## <a name="streaming-url-formats"></a><a name="URLs"></a>Formaty adresów URL przesyłania strumieniowego
 
 ### <a name="mpeg-dash-format"></a>Format MPEG-KRESKOWANY
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest(format=mpd-time-csf)
@@ -155,7 +151,7 @@ Punkt końcowy przesyłania strumieniowego reprezentuje usługę przesyłania st
 
 ## <a name="known-issues"></a>Znane problemy
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Zmiany w wersji manifestu Smooth Streaming
-Przed wydaniem usługi 2016 lipca, gdy zasoby utworzone przez Media Encoder Standard, Media Encoder Premium Workflow lub wcześniejszy Azure Media Encoder były przesyłane strumieniowo przy użyciu dynamicznego tworzenia pakietów — zwracany manifest Smooth Streaming będzie zgodny z wersją 2,0. W wersji 2,0, czasy trwania fragmentacji nie są używane jako Tagi Repeat ("r"). Przykład:
+Przed wydaniem usługi 2016 lipca, gdy zasoby utworzone przez Media Encoder Standard, Media Encoder Premium Workflow lub wcześniejszy Azure Media Encoder były przesyłane strumieniowo przy użyciu dynamicznego tworzenia pakietów — zwracany manifest Smooth Streaming będzie zgodny z wersją 2,0. W wersji 2,0, czasy trwania fragmentacji nie są używane jako Tagi Repeat ("r"). Na przykład:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -170,7 +166,7 @@ Przed wydaniem usługi 2016 lipca, gdy zasoby utworzone przez Media Encoder Stan
 </SmoothStreamingMedia>
 ```
 
-W wersji 2016 usługi, wygenerowany manifest Smooth Streaming jest zgodny z wersją 2,2, z fragmentacjami powtarzania przy użyciu tagów REPEAT. Przykład:
+W wersji 2016 usługi, wygenerowany manifest Smooth Streaming jest zgodny z wersją 2,2, z fragmentacjami powtarzania przy użyciu tagów REPEAT. Na przykład:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -192,4 +188,3 @@ Niektóre starsze klienci Smooth Streaming mogą nie obsługiwać tagów powtarz
 
 ## <a name="related-topics"></a>Powiązane tematy
 [Aktualizowanie lokalizatorów Media Services po przeprowadzeniu wycofywania kluczy magazynu](media-services-roll-storage-access-keys.md)
-

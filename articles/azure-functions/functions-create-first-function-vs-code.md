@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 819fdec23d00929db34942434f66a6ffa5d4a1d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f13d3bbd3f5b9d8197c48822ea54f08d3d86bfc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833744"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056092"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
@@ -40,7 +40,7 @@ Istnieje również wersja tego artykułu [oparta na interfejsie wiersza poleceni
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Jeśli Visual Studio Code nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java przy użyciu pomysłów [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) i [IntelliJ](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> Jeśli Visual Studio Code nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java przy użyciu pomysłów [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) i [IntelliJ](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Konfigurowanie środowiska
@@ -60,7 +60,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 + Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [Program PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 + [Zestaw .NET Core SDK 2.2 +](https://www.microsoft.com/net/download)  
 ::: zone-end  

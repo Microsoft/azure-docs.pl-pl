@@ -13,11 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057899"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -47,6 +48,7 @@ Wiersze pobranego szablonu CSV są następujące:
 - Wymagane kolumny są wyświetlane jako pierwsze.
 - Nie zalecamy dodawania nowych kolumn do szablonu. Wszelkie dodatkowe dodawane kolumny są ignorowane i nie są przetwarzane.
 - Zalecamy pobranie najnowszej wersji szablonu CSV tak często, jak to możliwe.
+- Upewnij się, że nie ma żadnych niezamierzonych spacji przed żadnym polem lub po nim. W przypadku **nazwy głównej użytkownika**, jeśli takie odstępy spowodują Niepowodzenie importu.
 
 ## <a name="to-create-users-in-bulk"></a>Aby tworzyć użytkowników zbiorczo
 

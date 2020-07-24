@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055622"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Tworzenie pierwszej funkcji przy użyciu języka Java i przezaćmienie 
 
@@ -28,7 +28,7 @@ Aby opracować aplikację funkcji w języku Java i przezaćmieniu, musisz mieć 
 -  [Zestaw Java developer Kit](https://www.azul.com/downloads/zulu/), wersja 8.
 -  [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 -  [Przezaćmienie](https://www.eclipse.org/downloads/packages/)z obsługą języka Java i Maven.
--  [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
+-  [Interfejs wiersza polecenia platformy Azure](/cli/azure)
 
 > [!IMPORTANT] 
 > Aby wykonać wszystkie czynności opisane w tym przewodniku Szybki start, dla zmiennej środowiskowej JAVA_HOME należy ustawić lokalizację instalacji zestawu JDK.
@@ -43,7 +43,7 @@ Zdecydowanie zaleca się także zainstalowanie [Azure Functions Core Tools w wer
 1. Pamiętaj, aby wypełnić wartości dla wszystkich pól, takich jak `resourceGroup` , `appName` i `appRegion` (Użyj innego argumentu inna niż **fabrikam-Function-20170920120101928**) i ostatecznie **zakończyć**.
     ![Zaćmienie Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Narzędzie Maven tworzy pliki projektu w nowym folderze o nazwie wartości _artifactId_. Wygenerowany kod w projekcie jest prostą funkcją [wyzwalaną przez protokół http](/azure/azure-functions/functions-bindings-http-webhook) , która umożliwia echo treści wyzwalanego żądania HTTP.
+Narzędzie Maven tworzy pliki projektu w nowym folderze o nazwie wartości _artifactId_. Wygenerowany kod w projekcie jest prostą funkcją [wyzwalaną przez protokół http](./functions-bindings-http-webhook.md) , która umożliwia echo treści wyzwalanego żądania HTTP.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Uruchamianie funkcji lokalnie w środowisku IDE
 

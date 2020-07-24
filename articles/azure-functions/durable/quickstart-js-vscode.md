@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 7c6c105a2ef5fff2e05dd3ed37a0e7650626621a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056316"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Tworzenie pierwszej funkcji trwałej w języku Java Script
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono użycie rozszerzenia programu Visual Studio Code dl
 
 W celu ukończenia tego samouczka:
 
-* Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/download).
+* Zainstaluj [Visual Studio Code](https://code.visualstudio.com/download).
 
 * Instalowanie rozszerzenia [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) vs Code
 
@@ -185,7 +185,7 @@ Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokal
 
 ## <a name="test-your-function-in-azure"></a>Testowanie funkcji na platformie Azure
 
-1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:`http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Podczas korzystania z opublikowanej aplikacji powinna zostać zwrócona taka sama odpowiedź dotycząca stanu.
 

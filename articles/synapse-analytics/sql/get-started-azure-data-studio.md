@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Studio (wersja zapoznawcza): Connect i Query Synapse SQL'
+title: Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio (wersja zapoznawcza)
 description: Użyj Azure Data Studio (wersja zapoznawcza), aby nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 561ea1a4f3577e037708c3b090188c59bd3c4aad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187549"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059567"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio (wersja zapoznawcza)
 
@@ -38,7 +38,7 @@ Wybierz **Microsoft SQL Server** jako **Typ połączenia**.
 
 Połączenie wymaga następujących parametrów:
 
-* **Serwer:** Serwer w formie `<Azure Synapse workspace name>`OnDemand.SQL.azuresynapse.NET
+* **Serwer:** Serwer w formie `<Azure Synapse workspace name>` OnDemand.SQL.azuresynapse.NET
 * **Baza danych:** Nazwa bazy danych
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Poniższy zrzut ekranu przedstawia **szczegóły połączenia** przy użyciu **l
 
 ![Identyfikator logowania SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
-Po pomyślnym zalogowaniu powinien zostać wyświetlony pulpit nawigacyjny ![podobny do tego: pulpit nawigacyjny](./media/get-started-azure-data-studio/4-dashboard.png)
+Po pomyślnym zalogowaniu powinien zostać wyświetlony pulpit nawigacyjny podobny do tego: ![ pulpit nawigacyjny](./media/get-started-azure-data-studio/4-dashboard.png)
 
 ## <a name="query"></a>Zapytanie
 

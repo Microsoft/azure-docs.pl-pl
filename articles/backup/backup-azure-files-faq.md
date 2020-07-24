@@ -3,15 +3,16 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054968"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowej plików usługi Azure Files. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Możesz również ogłosić pytania dotyczące usługi Azure Backup na stronie pytań i odpowiedzi [Microsoft Q&na potrzeby dyskusji](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowej plików usługi Azure Files. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Możesz również ogłosić pytania dotyczące usługi Azure Backup na stronie pytań i odpowiedzi [Microsoft Q&na potrzeby dyskusji](/answers/topics/azure-backup.html).
 
 Aby szybko przeskanować sekcje znajdujące się w tym artykule, użyj linków z prawej strony w obszarze **W tym artykule**.
 
@@ -55,7 +56,7 @@ W dowolnym momencie możesz mieć maksymalnie 200 migawek na jeden udział plik�
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Czy można odzyskać dane z usuniętego udziału plików platformy Azure?
 
-Jeśli udział plików jest w stanie usunięte nietrwałe, musisz najpierw cofnąć usunięcie udziału plików, aby wykonać operację przywracania. Operacja cofnięcia usunięcia spowoduje udostępnienie udziału plików w stanie aktywnym, w którym można przywrócić wszystkie punkty w czasie. Aby dowiedzieć się, jak anulować usuwanie udziału plików, odwiedź [ten link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) lub zobacz [skrypt cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md). Jeśli udział plików zostanie trwale usunięty, nie będzie można przywrócić zawartości i migawek.
+Jeśli udział plików jest w stanie usunięte nietrwałe, musisz najpierw cofnąć usunięcie udziału plików, aby wykonać operację przywracania. Operacja cofnięcia usunięcia spowoduje udostępnienie udziału plików w stanie aktywnym, w którym można przywrócić wszystkie punkty w czasie. Aby dowiedzieć się, jak anulować usuwanie udziału plików, odwiedź [ten link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) lub zobacz [skrypt cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md). Jeśli udział plików zostanie trwale usunięty, nie będzie można przywrócić zawartości i migawek.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Czy można przywrócić dane z kopii zapasowych, jeśli zatrzymano ochronę udziału plików platformy Azure?
 
@@ -105,7 +106,7 @@ Oto przykład tego, jak to działa:
 | Codziennie          | Codziennie o godzinie 9 PM              | 50 dni   |
 | Co tydzień         | W niedzielę o godzinie 9 PM              | 3 tygodnie   |
 | Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM         | 1 miesiąc   |
-| Roczne         | W sty w trzeciej niedzielę o godzinie 9 PM | 4 lata   |
+| Rocznie         | W sty w trzeciej niedzielę o godzinie 9 PM | 4 lata   |
 
 #### <a name="impact"></a>Wpływ
 

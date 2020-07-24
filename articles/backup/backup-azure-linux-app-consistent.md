@@ -4,13 +4,14 @@ description: Twórz spójne z aplikacjami kopie zapasowe maszyn wirtualnych z sy
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054850"
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa spójna na poziomie aplikacji maszyn wirtualnych platformy Azure z systemem Linux
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji
 
 Podczas tworzenia migawek kopii zapasowych maszyn wirtualnych, spójność aplikacji oznacza, że aplikacje są uruchamiane po rozruchu maszyn wirtualnych po ich przywróceniu. Jak można wyobrazić, spójność aplikacji jest niezwykle ważna. Aby zapewnić spójność maszyn wirtualnych z systemem Linux, można użyć skryptów przedskryptowych i skryptów po skrypcie dla systemu Linux do tworzenia kopii zapasowych spójnych z aplikacjami. Środowisko poprzedzające skrypt i skrypt po skrypcie obsługują maszyny wirtualne z systemem Linux wdrożone Azure Resource Manager. Skrypty spójności aplikacji nie obsługują maszyn wirtualnych wdrożonych w Service Manager ani maszyn wirtualnych z systemem Windows.
 
@@ -64,7 +65,7 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
     - **ScriptsExecutionPollTimeSeconds**: Ustaw czas przejścia rozszerzenia do trybu uśpienia między każdą sondowaniem do wykonania skryptu. Na przykład jeśli wartość jest równa 2, rozszerzenie sprawdza, czy wykonanie skryptu przedniego jest zakończone co 2 sekundy. Minimalna i maksymalna wartość, którą może przyjmować odpowiednio 1 i 5. Wartość powinna być ściśle liczbą całkowitą.
 
-6. Struktura skryptów jest teraz skonfigurowana. Jeśli kopia zapasowa maszyny wirtualnej jest już skonfigurowana, kolejna kopia zapasowa wywołuje skrypty i wyzwala kopię zapasową spójną na poziomie aplikacji. Jeśli nie skonfigurowano kopii zapasowej maszyny wirtualnej, skonfiguruj ją przy użyciu [kopii zapasowych maszyn wirtualnych platformy Azure do magazynów Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. Struktura skryptów jest teraz skonfigurowana. Jeśli kopia zapasowa maszyny wirtualnej jest już skonfigurowana, kolejna kopia zapasowa wywołuje skrypty i wyzwala kopię zapasową spójną na poziomie aplikacji. Jeśli nie skonfigurowano kopii zapasowej maszyny wirtualnej, skonfiguruj ją przy użyciu [kopii zapasowych maszyn wirtualnych platformy Azure do magazynów Recovery Services.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -85,4 +86,4 @@ Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępne
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Konfigurowanie kopii zapasowej maszyny wirtualnej w magazynie Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Konfigurowanie kopii zapasowej maszyny wirtualnej w magazynie Recovery Services](./backup-azure-vms-first-look-arm.md)

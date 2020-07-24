@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056385"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Wdrażanie własnej bramy w usłudze Kubernetes
 
@@ -33,9 +33,9 @@ W tym artykule opisano kroki wdrażania składnika bramy samoobsługowego API Ma
 1. Wybierz pozycję **bramy** w obszarze **wdrażanie i infrastruktura**.
 2. Wybierz zasób bramy samoobsługowej, który chcesz wdrożyć.
 3. Wybierz pozycję **wdrożenie**.
-4. Token dostępu w polu tekstowym **tokenu** został automatycznie wygenerowany dla Ciebie, na podstawie domyślnych wartości kluczy **wygaśnięcia** i **tajnych** . W razie potrzeby wybierz wartości w jednej lub obu kontrolkach, aby wygenerować nowy token.
+4. Token dostępu w polu tekstowym **token** został automatycznie wygenerowany dla Ciebie, na podstawie domyślnych wartości kluczy **wygaśnięcia** i **tajnych** . W razie potrzeby wybierz wartości w jednej lub obu kontrolkach, aby wygenerować nowy token.
 5. Wybierz kartę **Kubernetes** w obszarze **Skrypty wdrażania**.
-6. Wybierz link **<Gateway-name>. yml** , a następnie Pobierz plik YAML.
+6. Wybierz łącze plik ** \<gateway-name\> . yml** i Pobierz plik YAML.
 7. Wybierz ikonę **kopiowania** w prawym dolnym rogu pola tekstowego **Wdróż** , aby zapisać `kubectl` polecenia do Schowka.
 8. Wklej polecenia do okna terminalu (lub polecenia). Pierwsze polecenie tworzy wpis tajny Kubernetes, który zawiera token dostępu wygenerowany w kroku 4. Drugie polecenie stosuje plik konfiguracji pobrany w kroku 6 do klastra Kubernetes i oczekuje, że plik znajduje się w bieżącym katalogu.
 9. Uruchom polecenia, aby utworzyć niezbędne obiekty Kubernetes w [domyślnej przestrzeni nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) i uruchomić własne witryny bramy z [obrazu kontenera](https://aka.ms/apim/sputnik/dhub) pobranego z Container Registry firmy Microsoft.
@@ -106,6 +106,12 @@ Funkcja rozpoznawania nazw DNS odgrywa rolę krytyczną w programie, która umo�
 Plik YAML podany w Azure Portal stosuje domyślne zasady [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Te zasady powodują, że żądania rozpoznawania nazw nie są rozpoznawane przez serwer DNS klastra do przekazania do nadrzędnego serwera DNS, który jest Dziedziczony z węzła.
 
 Aby dowiedzieć się więcej na temat rozpoznawania nazw w programie Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Należy rozważyć dostosowanie [zasad DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) lub [konfiguracji DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) zgodnie z potrzebami Instalatora.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Niestandardowe nazwy domen i certyfikaty SSL
+
+Jeśli używasz niestandardowych nazw domen dla punktów końcowych API Management, zwłaszcza jeśli używasz niestandardowej nazwy domeny dla punktu końcowego zarządzania, może być konieczne zaktualizowanie wartości `config.service.endpoint` w pliku ** \<gateway-name\> . YAML** , aby zastąpić domyślną nazwę domeny nazwą domeny niestandardowej. Upewnij się, że punkt końcowy zarządzania jest dostępny z poziomu usługi bramy samoobsługowej w klastrze Kubernetes.
+
+W tym scenariuszu, jeśli certyfikat SSL używany przez punkt końcowy zarządzania nie jest podpisany przez dobrze znany certyfikat urzędu certyfikacji, należy się upewnić, że certyfikat urzędu certyfikacji jest zaufany w ramach bramy samoobsługowej.
 
 ### <a name="configuration-backup"></a>Kopia zapasowa konfiguracji
 Aby dowiedzieć się więcej na temat zachowania bramy samoobsługowej w obecności tymczasowej awarii łączności platformy Azure, zobacz [Omówienie bramy samohostowanej](self-hosted-gateway-overview.md#connectivity-to-azure).

@@ -5,12 +5,12 @@ description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały z Azure File
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 78bcd4925451125d5ab56a1da08cc307dc0fc236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6735bba4a84a694e4cf6a58f695f2d89afe8994
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057266"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -78,7 +78,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: my-azurefile
+  storageClassName: azurefile
   resources:
     requests:
       storage: 5Gi

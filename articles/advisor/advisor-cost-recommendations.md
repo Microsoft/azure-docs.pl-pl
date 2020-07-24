@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078565"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057744"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -89,7 +89,7 @@ Aby zaoszczędzić 60% kosztów, zalecamy przechowywanie migawek w magazynie w w
 Korzystając z analizy o liczbie obiektów usługi Azure Blob Storage, łącznym rozmiarze i transakcjach, usługa Advisor wykrywa, czy należy włączyć zarządzanie cyklem życia w celu uzyskania warstwy danych na co najmniej jednym koncie magazynu. Zostanie wyświetlony komunikat z prośbą o utworzenie reguł zarządzania cyklem życia w celu automatycznej warstwy danych do magazynu chłodnego lub archiwum w celu zoptymalizowania kosztów magazynowania podczas zachowywania danych w usłudze Azure Blob Storage w celu zapewnienia zgodności aplikacji.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Zalecenie dotyczące tworzenia efemerycznego dysku systemu operacyjnego
-Dysk tymczasowej wersji [systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) pozwala: 
+Dysk tymczasowej wersji [systemu operacyjnego](../virtual-machines/windows/ephemeral-os-disks.md) pozwala: 
 - Oszczędzaj koszty magazynowania dysków systemu operacyjnego. 
 - Uzyskaj mniejsze opóźnienie odczytu/zapisu na dyskach systemu operacyjnego. 
 - Uzyskaj szybsze operacje na oddziałach maszyn wirtualnych przez zresetowanie systemu operacyjnego (i dysku tymczasowego) do jego oryginalnego stanu.
@@ -114,4 +114,3 @@ Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 * [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
-

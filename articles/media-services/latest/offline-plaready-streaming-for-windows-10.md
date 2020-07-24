@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060594"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3
 
@@ -44,7 +44,7 @@ Wyzwanie, z którego korzystamy w implementacji trybu offline, jest następując
 * Plik MP4 jest obsługiwany przez wielu graczy, narzędzi koderów, ale nie ma powiązania między kontenerem MP4 i DRM.
 * W długim czasie CFF z CENC jest sposobem na to, aby to zrobić. Jednak obecnie ekosystem pomocy technicznej Tools/Player nie jest jeszcze dostępny. Potrzebujemy już rozwiązania.
  
-Pomysłem jest: Format pliku o płynnej transmisji strumieniowej ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) z wielokrotna H264/AAC ma powiązanie z usługą PLAYREADY (AES-128). Indywidualny, płynny plik. ISMV (przy założeniu, że dźwięk jest muxed w filmie wideo) to fMP4 i może służyć do odtwarzania. Jeśli płynna zawartość przesyłana strumieniowo odbywa się za pomocą szyfrowania PlayReady, każdy plik. ISMV jest chronionym MP4. Możemy wybrać plik. ISMV z preferowaną szybkością transmisji bitów i zmienić jego nazwę na. mp4 do pobrania.
+Pomysłem jest: Format pliku o płynnej transmisji strumieniowej ([PIFF](/iis/media/smooth-streaming/protected-interoperable-file-format)) z wielokrotna H264/AAC ma powiązanie z usługą PLAYREADY (AES-128). Indywidualny, płynny plik. ISMV (przy założeniu, że dźwięk jest muxed w filmie wideo) to fMP4 i może służyć do odtwarzania. Jeśli płynna zawartość przesyłana strumieniowo odbywa się za pomocą szyfrowania PlayReady, każdy plik. ISMV jest chronionym MP4. Możemy wybrać plik. ISMV z preferowaną szybkością transmisji bitów i zmienić jego nazwę na. mp4 do pobrania.
 
 Dostępne są dwie opcje hostingu plików MP4 chronionych przy użyciu usługi PlayReady do pobrania progresywnego:
 

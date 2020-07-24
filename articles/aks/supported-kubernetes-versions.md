@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056545"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -135,7 +135,7 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 
 \*Oczekiwanie na potwierdzenie daty wydania nadrzędnego.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
@@ -162,13 +162,13 @@ Jeśli klaster jest nieobsługiwany przez więcej niż trzy (3) wersje pomocnicz
 
 Płaszczyzna kontroli musi znajdować się w oknie wersji ze wszystkich pul węzłów. Aby uzyskać szczegółowe informacje na temat uaktualniania płaszczyzny kontroli lub pul węzłów, zapoznaj się z dokumentacją dotyczącą [uaktualniania pul węzłów](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-**Czy mogę pominąć wersję podczas uaktualniania?**
+**Czy mogę pominąć wiele wersji AKS podczas uaktualniania klastra?**
 
-Nie, zgodnie z najlepszymi rozwiązaniami Kubernetes, AKS zezwala tylko na uaktualnienia do natychmiastowej następnej wersji poprawki lub pomocniczej. W Azure Portal będą wyświetlane tylko te wersje, które można uaktualnić do programu, a w interfejsie wiersza polecenia można uruchomić polecenie, `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` Aby wyświetlić dostępne uaktualnienia z bieżącej wersji.
+W przypadku uaktualniania obsługiwanego klastra AKS nie można pominąć wersji pomocniczych Kubernetes. Na przykład uaktualnienia między *1.12. x*  ->  *1.13. x* lub *1.13. x*  ->  *1.14. x* są dozwolone, jednak *1.12. x*  ->  *1.14. x* nie jest.
 
-**Jak można przeprowadzić uaktualnienie do obsługiwanej wersji, jeśli mam wiele wersji za najnowszą obsługiwaną wersją?**
+Aby przeprowadzić uaktualnienie, z wersji *1.12. x*  ->  *1.14. x*, najpierw Uaktualnij z wersji *1.12. x*  ->  *1.13. x*, a następnie Uaktualnij z *1.13. x*  ->  *1.14. x*.
 
-Aby pozostała w ramach pomocy technicznej, należy unikać przeniesieniu ich do wielu wersji z obecnie obsługiwanej listy, ale jeśli w tym przypadku jest to sytuacja, AKS zawsze zezwoli na uaktualnienie do minimalnej obsługiwanej wersji.
+Pomijanie wielu wersji można wykonać tylko w przypadku uaktualniania z nieobsługiwanej wersji z powrotem do obsługiwanej wersji. Na przykład uaktualnienie z nieobsługiwanej wersji *1.10. x* --> można ukończyć obsługiwane *1.15. x* .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124626"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057675"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
@@ -59,7 +59,7 @@ Jeśli profil Traffic Manager jest skonfigurowany pod kątem routingu geograficz
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Użyj nietrwałego usunięcia na koncie usługi Azure Storage, aby zapisać i odzyskać dane po przypadkowym zastąpieniu lub usunięciu
 
-Włącz [usuwanie nietrwałe](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na koncie magazynu, aby usunięte obiekty blob przechodzą do stanu nietrwałego usunięcia. Gdy dane są zastępowane, generowana jest migawka usuwania nietrwałego w celu zapisania stanu zastąpionych danych. Użycie funkcji usuwania nietrwałego umożliwia odzyskiwanie po przypadkowym usunięciu lub zastępowaniem. Usługa Advisor identyfikuje konta usługi Azure Storage, dla których nie włączono usuwania nietrwałego i sugeruje włączenie go.
+Włącz [usuwanie nietrwałe](../storage/blobs/soft-delete-overview.md) na koncie magazynu, aby usunięte obiekty blob przechodzą do stanu nietrwałego usunięcia. Gdy dane są zastępowane, generowana jest migawka usuwania nietrwałego w celu zapisania stanu zastąpionych danych. Użycie funkcji usuwania nietrwałego umożliwia odzyskiwanie po przypadkowym usunięciu lub zastępowaniem. Usługa Advisor identyfikuje konta usługi Azure Storage, dla których nie włączono usuwania nietrwałego i sugeruje włączenie go.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Skonfiguruj bramę sieci VPN do usługi Active-Active na potrzeby odporności połączeń
 
@@ -107,7 +107,7 @@ Od 1 lipca 2020 nie będzie można tworzyć nowych klastrów Kafka przy użyciu 
 Od 1 lipca 2020 nie będzie można tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,1 lub 2,2 w usłudze HDInsight 3,6. Nie będzie można tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać w obecnym stanie bez pomocy technicznej firmy Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Włącz replikację maszyn wirtualnych
-Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie są odporne na awarie regionalne. Replikowanie maszyn wirtualnych zmniejsza niekorzystny wpływ na działalność biznesową w trakcie awarii regionu platformy Azure. Program Advisor wykrywa maszyny wirtualne, na których replikacja nie jest włączona i zaleca włączenie tej funkcji. Po włączeniu replikacji, jeśli wystąpi awaria, można szybko przenieść maszyny wirtualne do zdalnego regionu platformy Azure. [Dowiedz się więcej o replikacji maszyny wirtualnej.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie są odporne na awarie regionalne. Replikowanie maszyn wirtualnych zmniejsza niekorzystny wpływ na działalność biznesową w trakcie awarii regionu platformy Azure. Program Advisor wykrywa maszyny wirtualne, na których replikacja nie jest włączona i zaleca włączenie tej funkcji. Po włączeniu replikacji, jeśli wystąpi awaria, można szybko przenieść maszyny wirtualne do zdalnego regionu platformy Azure. [Dowiedz się więcej o replikacji maszyny wirtualnej.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Jak uzyskać dostęp do rekomendacji o wysokiej dostępności w usłudze Advisor
 

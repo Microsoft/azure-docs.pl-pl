@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 079094965775c140c0343da98e40fd008995d45a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c4654ce175e64c375c96164aed274bf8078d196
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060126"
 ---
 # <a name="dynamic-packaging"></a>Dynamiczne tworzenie pakietów
 
@@ -26,7 +27,7 @@ ms.locfileid: "74901186"
 > * [Wersja 2](media-services-dynamic-packaging-overview.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services może służyć do dostarczania wielu formatów plików źródłowych multimediów, formatów przesyłania strumieniowego multimediów i formatów ochrony zawartości do różnych technologii klienta (na przykład iOS, XBOX, Silverlight i Windows 8). Ci klienci znają różne protokoły, na przykład system iOS wymaga formatu HTTP Live Streaming (HLS) v4, a technologia Silverlight i konsola Xbox wymagają Smooth Streaming. Jeśli masz zestaw plików MP4 z adaptacyjną szybkością transmisji bitów (z nośnikami ISO 14496-12) lub zestaw z adaptacyjną szybkością transmisji bitów Smooth Streaming plików, które mają być używane dla klientów, którzy wiedzą, że HLS lub Smooth Streaming, należy skorzystać z Media Services dynamicznego tworzenia pakietów.
 
@@ -69,4 +70,3 @@ Dynamiczne pakowanie obsługuje pliki MP4, które zawierają kodowanie audio z [
 ## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058739"
 ---
 # <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
 
@@ -110,7 +110,7 @@ Wirtualna sieć WAN zapewnia zaawansowane ulepszenia routingu. Możliwość konf
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Globalna komunikacja równorzędna sieci wirtualnych
 
-Globalna komunikacja równorzędna sieci wirtualnych zapewnia mechanizm łączenia dwóch sieci wirtualnych w różnych regionach. W obszarze wirtualna sieć WAN połączenia sieci wirtualnej łączą sieci wirtualnych z koncentratorami wirtualnymi. Użytkownik nie musi jawnie konfigurować globalnej komunikacji równorzędnej sieci wirtualnej. Sieci wirtualnych podłączony do koncentratora wirtualnego to ten sam region, w którym naliczane są opłaty za komunikację równorzędną sieci wirtualnej Sieci wirtualnych połączone z koncentratorem wirtualnym w innym regionie wiążą się z opłatami za globalne wirtualne sieci równorzędne.
+Globalna komunikacja równorzędna sieci wirtualnych zapewnia mechanizm łączenia dwóch sieci wirtualnych w różnych regionach. W obszarze wirtualna sieć WAN połączenia sieci wirtualnej łączą sieci wirtualnych z koncentratorami wirtualnymi. Użytkownik nie musi jawnie konfigurować globalnej komunikacji równorzędnej sieci wirtualnej. Sieci wirtualnych połączone z koncentratorem wirtualnym w tym samym regionie wiążą się z opłatami za wirtualne sieci równorzędne. Sieci wirtualnych połączone z koncentratorem wirtualnym w innym regionie wiążą się z opłatami za globalne wirtualne sieci równorzędne.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Szyfrowanie ruchu ExpressRoute
 

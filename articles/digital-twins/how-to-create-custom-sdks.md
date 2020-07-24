@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061863"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
-Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
+Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [*: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
 
 ## <a name="set-up-your-machine"></a>Konfigurowanie maszyny
 
@@ -37,23 +37,23 @@ npm install -g autorest@2.0.4413
 Aby uruchomić polecenie AutoRest dla pliku programu Azure Digital bliźniaczych reprezentacji Swagger, wykonaj następujące kroki:
 1. Skopiuj plik programu Azure Digital bliźniaczych reprezentacji Swagger i dołączony do niego folder przykładów do katalogu roboczego.
 2. Użyj okna wiersza polecenia, aby przełączyć się do tego katalogu roboczego.
-3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `--python` , `--java` ,, `--go` itd., możesz znaleźć pełną listę opcji w [pliku Readme AutoRest](https://github.com/Azure/autorest).)
+3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `--python` , `--java` , `--go` , i tak dalej. (Pełną listę opcji można znaleźć w [pliku Readme AutoRest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw, które będą nadal używane w pozostałej części przykładów użycia w tym artykule.
+W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
 
 AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Dodawanie zestawu SDK do projektu programu Visual Studio
 
-Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Ponieważ jednak prawdopodobnie potrzebujesz zestawu SDK usługi Azure Digital bliźniaczych reprezentacji w kilku oddzielnych projektach (aplikacje klienckie, Azure Functions aplikacje itd.), może być przydatne skompilowanie osobnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do kilku rozwiązań jako odwołanie do projektu.
+Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Istnieje jednak możliwość dołączenia zestawu SDK usługi Azure Digital bliźniaczych reprezentacji do kilku oddzielnych projektów (aplikacji klienckich, Azure Functions aplikacji itd.). Z tego powodu pomocne może być skompilowanie oddzielnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do kilku rozwiązań jako odwołanie do projektu.
 
 Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Te kroki są zależne od **programu Visual Studio** (można zainstalować najnowszą wersję z tego [miejsca](https://visualstudio.microsoft.com/downloads/)).
 
-Oto odpowiednie kroki:
+Oto konkretne kroki:
 
 1. Tworzenie nowego rozwiązania programu Visual Studio dla biblioteki klas
 2. Użyj *ADTApi* jako nazwy projektu
@@ -73,7 +73,7 @@ Aby je dodać, Otwórz *narzędzia > Menedżer pakietów nuget > zarządzanie pa
 
 1. Na panelu upewnij się, że wybrana jest karta *Przeglądaj*
 2. Wyszukaj *firmę Microsoft. REST*
-3. Wybierz pakiety *ClientRuntime* i *ClientRuntime. platformy Azure* , a następnie dodaj je do rozwiązania
+3. Wybierz `ClientRuntime` pakiety i `ClientRuntime.Azure` Dodaj je do rozwiązania
 
 Teraz można skompilować projekt i dołączyć go jako odwołanie do projektu w dowolnej zapisanej aplikacji Digital bliźniaczych reprezentacji systemu Azure.
 
@@ -87,7 +87,7 @@ Wszystkie funkcje zestawu SDK są w wersji synchronicznej i asynchronicznej.
 
 ### <a name="typed-and-untyped-data"></a>Dane wpisane i nietypu
 
-Wywołania interfejsu API REST zwykle zwracają obiekty o jednoznacznie określonym typie. Jednak ponieważ usługa Azure Digital bliźniaczych reprezentacji umożliwia użytkownikom Definiowanie własnych typów niestandardowych dla bliźniaczych reprezentacji, nie ma możliwości wstępnego definiowania statycznych danych zwrotnych dla wielu wywołań cyfrowych bliźniaczych reprezentacji platformy Azure. Zamiast tego interfejsy API zwracają typy otoki o jednoznacznie określonym typie, gdy ma to zastosowanie, a dane o niestandardowym typie są w Json.NET obiekty (używane wszędzie tam, gdzie typ danych "Object" pojawia się w sygnaturach interfejsu API). Te obiekty można rzutować odpowiednio w kodzie.
+Wywołania interfejsu API REST zwykle zwracają obiekty silnie wpisane. Jednak ponieważ usługa Azure Digital bliźniaczych reprezentacji umożliwia użytkownikom Definiowanie własnych typów niestandardowych dla bliźniaczych reprezentacji, nie ma możliwości wstępnego definiowania statycznych danych zwrotnych dla wielu wywołań cyfrowych bliźniaczych reprezentacji platformy Azure. Zamiast tego interfejsy API zwracają typy otoki o jednoznacznie określonym typie, gdy ma to zastosowanie, a dane o niestandardowym typie są w Json.NET obiekty (używane wszędzie tam, gdzie typ danych "Object" pojawia się w sygnaturach interfejsów API). Te obiekty można rzutować odpowiednio w kodzie.
 
 ### <a name="error-handling"></a>Obsługa błędów
 
@@ -115,7 +115,7 @@ AutoRest generuje dwa typy wzorców stronicowania dla zestawu SDK:
 
 W wzorcu stronicowania niezwiązanego z kwerendą istnieją dwie wersje każdego wywołania:
 * Wersja, która ma wykonać początkowe wywołanie (na przykład `DigitalTwins.ListEdges()` )
-* Wersja do pobrania kolejnych stron z sufiksem "Next" (na przykład `DigitalTwins.ListEdgesNext()` )
+* Wersja do pobrania następujących stron. Te wywołania mają sufiks "dalej" (na przykład `DigitalTwins.ListEdgesNext()` )
 
 Oto fragment kodu przedstawiający sposób pobierania stronicowanej listy relacji wychodzących z usługi Azure Digital bliźniaczych reprezentacji:
 ```csharp
@@ -188,4 +188,4 @@ try
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z instrukcjami, aby utworzyć aplikację kliencką, w której można korzystać z zestawu SDK:
-* [Samouczek: kod aplikacji klienckiej](tutorial-code.md)
+* [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056429"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Porównanie warstw API Management platformy Azure oparte na funkcjach
 
@@ -26,7 +26,7 @@ Każda [warstwa cenowa](https://aka.ms/apimpricing) API Management oferuje odrę
 > [!IMPORTANT]
 > Zwróć uwagę na to, że warstwa dewelopera dotyczy nieprodukcyjnych przypadków użycia i ocen. Nie oferuje umowy SLA.
 
-| Cecha                                                                                      | Zużycie | Deweloper | Podstawowa | Standardowa (Standard) | Premium |
+| Cechy                                                                                      | Zużycie | Deweloper | Podstawowa | Standardowa (Standard) | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integracja z usługą Azure AD<sup>1</sup>                                                             | Nie          | Yes       | Nie    | Tak      | Tak     |
 | Obsługa Virtual Network (VNet)                                                               | Nie          | Yes       | Nie    | Nie       | Yes     |
@@ -42,7 +42,7 @@ Każda [warstwa cenowa](https://aka.ms/apimpricing) API Management oferuje odrę
 | [Tworzenie kopii zapasowej i przywracanie](api-management-howto-disaster-recovery-backup-restore.md)               | Nie          | Tak       | Tak   | Tak      | Tak     |
 | [Zarządzanie za pośrednictwem usługi git](api-management-configuration-repository-git.md)                        | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Interfejs API zarządzania bezpośredniego                                                                        | Nie          | Tak       | Tak   | Tak      | Tak     |
-| Azure Monitor dzienników i metryk                                                               | Nie          | Yes       | Tak   | Tak      | Tak     |
+| Azure Monitor dzienników i metryk                                                               | Tak         | Tak       | Tak   | Tak      | Tak     |
 | Statyczny adres IP                                                                                    | Nie          | Yes       | Tak   | Tak      | Tak     |
 
 <sup>1</sup> umożliwia korzystanie z usługi Azure AD (i Azure AD B2C) jako dostawcy tożsamości na potrzeby logowania użytkownika w portalu dla deweloperów.<br/>

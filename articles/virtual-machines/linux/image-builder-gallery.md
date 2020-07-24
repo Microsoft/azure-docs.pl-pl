@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z programu Azure Image Builder z galerią obrazów dla maszyn wirtualnych z systemem Linux (wersja zapoznawcza)
+title: Korzystanie z programu Azure Image Builder & udostępnionej galerii obrazów dla maszyn wirtualnych z systemem Linux (wersja zapoznawcza)
 description: Tworzenie obrazów maszyn wirtualnych z systemem Linux za pomocą programu Azure Image Builder i udostępnionej galerii obrazów.
 author: cynthn
 ms.author: cynthn
@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918bb02de9a8003dfab76c436b3ec22cb540244
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059037"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Linux i dystrybuowanie go do galerii obrazów udostępnionych 
 
-W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
+W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](../windows/shared-image-galleries.md), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -92,7 +93,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Tworzenie tożsamości przypisanej do użytkownika i Ustawianie uprawnień do grupy zasobów
-Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) w celu dodania obrazu do galerii udostępnionych obrazów systemu Azure (SIG). W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu do SIG. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
+Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) w celu dodania obrazu do galerii udostępnionych obrazów systemu Azure (SIG). W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu do SIG. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located

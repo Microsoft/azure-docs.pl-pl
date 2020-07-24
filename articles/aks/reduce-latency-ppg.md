@@ -4,26 +4,27 @@ description: Dowiedz się, jak za pomocą grup umieszczania zbliżeniowe ogranic
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 06/22/2020
-ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/10/2020
+author: jluk
+ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056592"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
 
 > [!Note]
-> W przypadku używania grup umieszczania bliskości z AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
+> W przypadku korzystania z grup umieszczania zbliżeniowe w AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
 
-Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn wirtualnych (VM) między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. Grupa umieszczania bliskości jest grupą logiczną używaną do upewnienia się, że zasoby obliczeniowe platformy Azure znajdują się fizycznie blisko siebie. Niektóre aplikacje, takie jak gry, symulacje inżynieryjne i handel o wysokiej częstotliwości (HFT), wymagają krótkich opóźnień i zadań, które są szybko kompletne. W przypadku scenariuszy obliczeniowych o wysokiej wydajności (HPC), takich jak te, należy rozważyć użycie [grup umieszczania zbliżeniowe](../virtual-machines/linux/co-location.md#proximity-placement-groups) dla pul węzłów klastra.
+Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn wirtualnych (VM) między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. Grupa umieszczania bliskości jest grupą logiczną używaną do upewnienia się, że zasoby obliczeniowe platformy Azure znajdują się fizycznie blisko siebie. Niektóre aplikacje, takie jak gry, symulacje inżynieryjne i handel o wysokiej częstotliwości (HFT), wymagają krótkich opóźnień i zadań, które są szybko kompletne. W przypadku scenariuszy obliczeniowych o wysokiej wydajności (HPC), takich jak te, należy rozważyć użycie [grup umieszczania sąsiedztwa](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) dla pul węzłów klastra.
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Grupa umieszczania bliskości obejmuje pojedynczą strefę dostępności.
-* Nie ma bieżącej obsługi klastrów AKS korzystających z zestawów dostępności maszyn wirtualnych.
-* Nie można modyfikować istniejących pul węzłów, aby używać grupy umieszczania w sąsiedztwie.
+* Grupa położenia sąsiedztwa może mapować do najwyżej jednej strefy dostępności.
+* Pula węzłów musi używać Virtual Machine Scale Sets, aby skojarzyć grupę umieszczania sąsiedztwa.
+* Pula węzłów może skojarzyć grupę umieszczania bliskości w puli węzłów tylko do tworzenia czasu.
 
 > [!IMPORTANT]
 > Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
@@ -40,7 +41,7 @@ Wymagane są następujące zasoby:
 ### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Skonfiguruj funkcję w wersji zapoznawczej dla grup umieszczania w sąsiedztwie
 
 > [!IMPORTANT]
-> W przypadku używania grup umieszczania bliskości z AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
+> W przypadku używania grup umieszczania zbliżeniowe z pulami węzłów AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
 
 ```azurecli-interactive
 # register the preview feature
@@ -63,6 +64,7 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
 ## <a name="node-pools-and-proximity-placement-groups"></a>Pule węzłów i grupy umieszczania sąsiedztwa
 
 Pierwszy zasób wdrażany wraz z grupą umieszczania w sąsiedztwie dołącza do określonego centrum danych. Dodatkowe zasoby wdrożone z tą samą grupą położenia sąsiedztwa znajdują się w tym samym centrum danych. Po zatrzymaniu lub usunięciu wszystkich zasobów przy użyciu grupy umieszczania w sąsiedztwie nie jest już ona dołączona.
@@ -70,13 +72,23 @@ Pierwszy zasób wdrażany wraz z grupą umieszczania w sąsiedztwie dołącza do
 * Wiele pul węzłów może być skojarzonych z pojedynczą grupą położenia sąsiedztwa.
 * Pula węzłów może być skojarzona tylko z pojedynczą grupą położenia sąsiedztwa.
 
+### <a name="configure-proximity-placement-groups-with-availability-zones"></a>Konfigurowanie grup umieszczania zbliżeniowego ze strefami dostępności
+
+> [!NOTE]
+> Mimo że grupy umieszczania sąsiedztwa wymagają puli węzłów do korzystania z co najwyżej jednej strefy dostępności, [Umowa SLA maszyny wirtualnej platformy Azure w wysokości 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) nadal obowiązuje dla maszyn wirtualnych w pojedynczej strefie.
+
+Grupy umieszczania zbliżeniowe to koncepcja puli węzłów i skojarzona z każdą pulą poszczególnych węzłów. Korzystanie z zasobu PPG nie ma wpływu na dostępność płaszczyzny sterowania AKS. Może to mieć wpływ na sposób, w jaki klaster powinien być zaprojektowany ze strefami. Aby zapewnić rozproszenie klastra między wieloma strefami, zaleca się wykonanie następujących czynności.
+
+* Ustanów klaster z pierwszą pulą systemu przy użyciu 3 stref i bez skojarzonej grupy umieszczania sąsiedztwa. Pozwala to zagwarantować, że system ma być używany w dedykowanej puli węzłów, która będzie rozłożona na wiele stref.
+* Dodaj dodatkowe pule węzłów użytkowników z unikatową strefą i grupą umieszczania sąsiedztwa skojarzoną z każdą pulą. Przykładem jest nodepool1 w strefie 1 i PPG1, nodepool2 w strefie 2 i PPG2, nodepool3 w strefie 3 z PPG3. Dzięki temu na poziomie klastra węzły są rozproszone w wielu strefach, a każda z nich znajduje się w wyznaczonym obszarze przy użyciu dedykowanego zasobu PPG.
+
 ## <a name="create-a-new-aks-cluster-with-a-proximity-placement-group"></a>Tworzenie nowego klastra AKS z grupą położenia zbliżeniowe
 
-W poniższym przykładzie za pomocą polecenia [AZ Group Create][az-group-create] można utworzyć grupę zasobów o nazwie Moja *zasobów* w regionie *centralnym* . Klaster AKS o nazwie *myAKSCluster* jest tworzony przy użyciu polecenia [AZ AKS Create][az-aks-create] . 
+W poniższym przykładzie za pomocą polecenia [AZ Group Create][az-group-create] można utworzyć grupę zasobów o nazwie Moja *zasobów* w regionie *centralnym* . Klaster AKS o nazwie *myAKSCluster* jest tworzony przy użyciu polecenia [AZ AKS Create][az-aks-create] .
 
 Przyspieszona sieć znacznie poprawia wydajność sieci maszyn wirtualnych. Najlepiej używać grup umieszczania sąsiedztwa w połączeniu z przyspieszoną siecią. Domyślnie AKS korzysta z przyspieszonej sieci na [obsługiwanych wystąpieniach maszyn wirtualnych](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), które obejmują większość maszyn wirtualnych platformy Azure z co najmniej dwoma procesorów wirtualnych vCPU.
 
-Utwórz nowy klaster AKS z grupą położenia zbliżeniowe:
+Utwórz nowy klaster AKS z grupą położenia zbliżeniowe skojarzoną z pierwszą pulą węzłów systemu:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -110,7 +122,7 @@ Polecenie generuje dane wyjściowe, które obejmują wartość *identyfikatora* 
 Użyj identyfikatora zasobu grupy położenia zbliżeniowe dla wartości *myPPGResourceID* w poniższym poleceniu:
 
 ```azurecli-interactive
-# Create an AKS cluster that uses a proximity placement group for the initial node pool
+# Create an AKS cluster that uses a proximity placement group for the initial system node pool only. The PPG has no effect on the cluster control plane.
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \

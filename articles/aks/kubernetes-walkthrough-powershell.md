@@ -1,15 +1,15 @@
 ---
-title: 'Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service'
+title: 'Szybki Start: Wdrażanie klastra AKS przy użyciu programu PowerShell'
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację oraz monitorować wydajność w usłudze Azure Kubernetes Service (AKS) przy użyciu programu PowerShell.
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e786b64554b5fbaf5bb7051e09daca8fb1eaf049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 503011f2b9c595feb4d2f94a60e61dcd217c52b0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057005"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu programu PowerShell
 

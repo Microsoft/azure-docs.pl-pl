@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 9e9f9c71701ceb1c76bc162f22e166b4565e731b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3f5c7021461b407e90d61ed045c112aab3c1c4e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062677"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056004"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
@@ -39,15 +39,17 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 + [Python 3,8 (64-bitowy)](https://www.python.org/downloads/release/python-382/), [python 3,7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3,6 (64-bit)](https://www.python.org/downloads/release/python-368/), które są obsługiwane przez Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [Program PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 + [Zestaw .NET Core SDK 2.2 +](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8.
++ [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8. 
+
+    > [!IMPORTANT]
+    > + Obsługa języka Java 11 jest obecnie dostępna w wersji zapoznawczej, a Maven Archetype domyślnie tworzy wdrożenie języka Java 8. Jeśli chcesz zamiast tego uruchomić aplikację funkcji w środowisku Java 11, musisz ręcznie zaktualizować plik pom.xml przy użyciu wartości języka Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](../articles/azure-functions/functions-reference-java.md#java-versions). 
+    > + `JAVA_HOME`Aby ukończyć ten przewodnik Szybki Start, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.
 
 + [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 
-> [!IMPORTANT]
-> Aby wykonać wszystkie czynności opisane w tym przewodniku Szybki start, dla zmiennej środowiskowej JAVA_HOME należy ustawić lokalizację instalacji zestawu JDK.
 ::: zone-end

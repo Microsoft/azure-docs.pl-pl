@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy kontroler dla wewnętrznej, prywatnej sieci w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: eecf34c6ad622c374e6f43670972279e297662a9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: a20ef3155e41a438aed7cea7e7d9814b3add4d14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056970"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 Domyślnie kontroler transferu danych przychodzących NGINX jest tworzony z dynamicznym przypisaniem publicznego adresu IP. Typowym wymaganiem konfiguracji jest użycie wewnętrznej, prywatnej sieci i adresu IP. Takie podejście umożliwia ograniczenie dostępu do usług użytkownikom wewnętrznym bez dostępu zewnętrznego.
 
-Utwórz plik o nazwie *Internal-Ingres. YAML* przy użyciu następującego przykładowego pliku manifestu. Ten przykład przypisuje *10.240.0.42* do zasobu *loadBalancerIP* . Podaj własny wewnętrzny adres IP do użycia z kontrolerem transferu danych przychodzących. Upewnij się, że ten adres IP nie jest już używany w sieci wirtualnej.
+Utwórz plik o nazwie *Internal-Ingres. YAML* przy użyciu następującego przykładowego pliku manifestu. Ten przykład przypisuje *10.240.0.42* do zasobu *loadBalancerIP* . Podaj własny wewnętrzny adres IP do użycia z kontrolerem transferu danych przychodzących. Upewnij się, że ten adres IP nie jest już używany w sieci wirtualnej. Ponadto, jeśli używasz istniejącej sieci wirtualnej i podsieci, musisz skonfigurować klaster AKS z odpowiednimi uprawnieniami do zarządzania siecią wirtualną i podsiecią. Aby uzyskać więcej informacji, zobacz [Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)][aks-configure-kubenet-networking] lub [Konfigurowanie sieci CNI platformy Azure w usłudze Azure KUBERNETES Service (AKS)][aks-configure-advanced-networking] .
 
 ```yaml
 controller:
@@ -185,7 +185,7 @@ W poniższym przykładzie ruch do adresu `http://10.240.0.42/` jest kierowany do
 Utwórz plik o nazwie `hello-world-ingress.yaml` i skopiuj w poniższym przykładzie YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -358,3 +358,5 @@ Możesz również wykonać następujące czynności:
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md

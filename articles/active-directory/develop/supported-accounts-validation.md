@@ -4,18 +4,18 @@ description: Zapoznaj się z różnicami w walidacji różnych właściwości dl
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058344"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Różnice dotyczące walidacji według obsługiwanych typów kont (signInAudience)
 
@@ -35,11 +35,11 @@ Zapoznaj się z poniższą tabelą, aby poznać różnice między walidacją ró
 
 | Właściwość | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` i `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| Identyfikator URI identyfikatora aplikacji ( `identifierURIs` )  | Musi być unikatowa w dzierżawie <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs  | Musi ona być unikatowa w skali globalnej <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs | Musi ona być unikatowa w skali globalnej <br><br> schematy urn://nie są obsługiwane <br><br> Symbole wieloznaczne, fragmenty i ciągi zapytań nie są obsługiwane <br><br> Maksymalna długość 120 znaków <br><br> Maksymalnie 50 identifierURIs |
+| Identyfikator URI identyfikatora aplikacji ( `identifierURIs` )  | Musi być unikatowa w dzierżawie <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs  | Musi być globalnie unikatowa <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs | Musi być globalnie unikatowa <br><br> schematy urn://nie są obsługiwane <br><br> Symbole wieloznaczne, fragmenty i ciągi zapytań nie są obsługiwane <br><br> Maksymalna długość 120 znaków <br><br> Maksymalnie 50 identifierURIs |
 | Certyfikaty ( `keyCredentials` ) | Symetryczny klucz podpisywania | Symetryczny klucz podpisywania | Szyfrowanie i asymetryczne klucze podpisywania | 
 | Wpisy tajne klienta ( `passwordCredentials` ) | Bez limitu * | Bez limitu * | Jeśli liveSDK jest włączona: maksymalnie 2 wpisy tajne klienta | 
 | Identyfikatory URI przekierowania ( `replyURLs` ) | Aby uzyskać więcej informacji [, zobacz ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](reply-url.md) . | | | 
-| Uprawnienia interfejsu API ( `requiredResourceAccess` ) | Bez limitu * | Bez limitu * | Dozwolone maksimum 30 uprawnień na zasób (np. Microsoft Graph) | 
+| Uprawnienia interfejsu API ( `requiredResourceAccess` ) | Bez limitu * | Bez limitu * | Maksymalnie 50 zasobów na aplikację i 30 uprawnień dla każdego zasobu (np. Microsoft Graph). Łączny limit 200 dla aplikacji (uprawnienia x zasobów). | 
 | Zakresy zdefiniowane przez ten interfejs API ( `oauth2Permissions` ) | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów |  Maksymalna długość nazwy zakresu wynosząca 40 znaków <br><br> Zdefiniowano maksymalnie 100 zakresów | 
 | Autoryzowane aplikacje klienckie ( `preautorizedApplications` ) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
 | appRoles | Obsługiwane <br> Bez limitu * | Obsługiwane <br> Bez limitu * | Nieobsługiwane | 

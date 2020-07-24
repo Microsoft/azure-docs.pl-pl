@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054480"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Szybki Start: Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu szablonu ARM
 
-[Azure Backup](backup-overview.md) tworzyć kopie zapasowe maszyn i aplikacji lokalnych oraz maszyn wirtualnych platformy Azure. W tym artykule opisano sposób tworzenia kopii zapasowej maszyny wirtualnej platformy Azure z szablonem Azure Resource Manager (szablon ARM) i Azure PowerShell. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu ARM w celu utworzenia magazynu usługi Recovery Services. Aby uzyskać więcej informacji na temat opracowywania szablonów ARM, zapoznaj się z [dokumentacją Azure Resource Manager](/azure/azure-resource-manager/) i [odwołaniem do szablonu](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) tworzyć kopie zapasowe maszyn i aplikacji lokalnych oraz maszyn wirtualnych platformy Azure. W tym artykule opisano sposób tworzenia kopii zapasowej maszyny wirtualnej platformy Azure z szablonem Azure Resource Manager (szablon ARM) i Azure PowerShell. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu ARM w celu utworzenia magazynu usługi Recovery Services. Aby uzyskać więcej informacji na temat opracowywania szablonów ARM, zapoznaj się z [dokumentacją Azure Resource Manager](../azure-resource-manager/index.yml) i [odwołaniem do szablonu](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 [Magazyn Recovery Services](backup-azure-recovery-services-vault-overview.md) jest kontenerem logicznym, który przechowuje dane kopii zapasowej chronionych zasobów, takich jak maszyny wirtualne platformy Azure. Po uruchomieniu zadania tworzenia kopii zapasowej tworzy punkt odzyskiwania w magazynie Recovery Services. Następnie można użyć jednego z tych punktów odzyskiwania w celu przywrócenia danych do danego punktu w czasie. Alternatywnie można utworzyć kopię zapasową maszyny wirtualnej przy użyciu [Azure PowerShell](./quick-backup-vm-powershell.md), [interfejsu wiersza polecenia platformy Azure](quick-backup-vm-cli.md)lub [Azure Portal](quick-backup-vm-portal.md).
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-create-vm-and-configure-backup%2Fazuredeploy.json)
 
@@ -41,7 +41,7 @@ Zasoby zdefiniowane w szablonie są następujące:
 - [**Microsoft. RecoveryServices/magazyny**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
 - [**Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Aby wdrożyć szablon, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell, a następnie wklej następujący skrypt programu PowerShell do okna powłoki. Aby wkleić kod, kliknij prawym przyciskiem myszy okno powłoki, a następnie wybierz polecenie **Wklej**.
 

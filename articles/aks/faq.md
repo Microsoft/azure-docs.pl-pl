@@ -2,13 +2,13 @@
 title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275720"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057205"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Czy mogę modyfikować Tagi i inne właściwości zasobów AKS w grupie zasobów węzła?
 
-W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych utworzonych przez użytkowników końcowych. Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Można to osiągnąć, tworząc zasady platformy Azure z zakresem w zarządzanej grupie zasobów.
+W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych utworzonych przez użytkowników końcowych. te Tagi można dodać podczas [tworzenia puli węzłów](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Można to również osiągnąć, tworząc zasady platformy Azure z zakresem w zarządzanej grupie zasobów.
 
 Jednak modyfikowanie wszelkich **tagów utworzonych przez platformę Azure** w zasobach w ramach grupy zasobów węzła w klastrze AKS jest nieobsługiwaną akcją, która przerywa cel poziomu usługi (SLO). Aby uzyskać więcej informacji, zobacz [czy AKS oferuje umowę dotyczącą poziomu usług?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ Węzły agenta AKS są rozliczane jako standardowe maszyny wirtualne platformy A
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Czy mogę przenieść lub migrować mój klaster między dzierżawami platformy Azure?
 
-Za `az aks update-credentials` pomocą polecenia można przenieść klaster AKS między dzierżawami platformy Azure. Postępuj zgodnie z instrukcjami w temacie [Wybierz, aby zaktualizować lub utworzyć nazwę główną usługi](./update-credentials.md) , a następnie [zaktualizuj klaster AKS przy użyciu nowych poświadczeń](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Przeniesienie klastra AKS między dzierżawcami nie jest obecnie obsługiwane.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Czy mogę przenieść klaster między subskrypcjami?
 

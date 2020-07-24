@@ -1,14 +1,14 @@
 ---
-title: Poprawianie bazy wiedzy — QnA Maker
+title: Zasugerowane pytania w usłudze Active Learning — QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bb95ddc40e122e2589d0396b94f0de921aab9350
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053931"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -139,7 +139,7 @@ Treść JSON ma kilka ustawień:
 
 |Właściwość treści JSON|Typ|Przeznaczenie|
 |--|--|--|--|
-|`feedbackRecords`|tablica|Lista opinii.|
+|`feedbackRecords`|array|Lista opinii.|
 |`userId`|ciąg|Identyfikator użytkownika osoby akceptującej sugerowane pytania. Format identyfikatora użytkownika jest aktualny. Na przykład adres e-mail może być prawidłowym IDENTYFIKATORem użytkownika w danej architekturze. Opcjonalny.|
 |`userQuestion`|ciąg|Dokładny tekst zapytania użytkownika. Wymagany.|
 |`qnaID`|liczba|Identyfikator pytania znaleziony w [odpowiedzi GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059851"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Połącz maszynę wirtualną z programem Qualys z platformą Azure wskaźnikiem przy użyciu funkcji platformy Azure
+
+> [!IMPORTANT]
+> Łącznik danych maszyny wirtualnej Qualys na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Łącznik Qualysego zarządzania lukami w zabezpieczeniach pozwala łatwo połączyć wszystkie dzienniki rozwiązań zabezpieczeń [maszyn wirtualnych Qualys](https://www.qualys.com/apps/vulnerability-management/) z platformą Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie. Integracja między maszyną wirtualną Qualys i wskaźnikiem "Azure" wykorzystuje Azure Functions do ściągania danych dzienników przy użyciu interfejsu API REST.
 

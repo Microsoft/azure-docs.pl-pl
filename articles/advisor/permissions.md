@@ -3,15 +3,16 @@ title: Uprawnienia w Azure Advisor
 description: Uprawnienia usługi Advisor oraz sposób, w jaki mogą blokować możliwość konfigurowania subskrypcji lub odroczenia lub odrzucania zaleceń.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057593"
 ---
 # <a name="permissions-in-azure-advisor"></a>Uprawnienia w Azure Advisor
 
-Azure Advisor zapewnia zalecenia na podstawie użycia i konfiguracji zasobów i subskrypcji platformy Azure. W usłudze Advisor są używane [wbudowane role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) udostępniane przez [Access Control oparte na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) w celu zarządzania dostępem do zaleceń i funkcji usługi Advisor. 
+Azure Advisor zapewnia zalecenia na podstawie użycia i konfiguracji zasobów i subskrypcji platformy Azure. W usłudze Advisor są używane [wbudowane role](../role-based-access-control/built-in-roles.md) udostępniane przez [Access Control oparte na rolach](../role-based-access-control/overview.md) (RBAC) w celu zarządzania dostępem do zaleceń i funkcji usługi Advisor. 
 
 ## <a name="roles-and-their-access"></a>Role i ich dostęp
 
@@ -38,15 +39,15 @@ Brak prawidłowych uprawnień może blokować możliwość wykonywania działań
 
 ### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Nie można skonfigurować subskrypcji lub grup zasobów
 
-Podczas próby skonfigurowania subskrypcji lub grup zasobów w usłudze Advisor można zobaczyć, że opcja dołączania lub wykluczania jest wyłączona. Ten stan oznacza, że nie masz wystarczającego poziomu uprawnień dla tej grupy zasobów lub subskrypcji. Aby rozwiązać ten problem, Dowiedz się, jak [udzielić użytkownikowi dostępu](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Podczas próby skonfigurowania subskrypcji lub grup zasobów w usłudze Advisor można zobaczyć, że opcja dołączania lub wykluczania jest wyłączona. Ten stan oznacza, że nie masz wystarczającego poziomu uprawnień dla tej grupy zasobów lub subskrypcji. Aby rozwiązać ten problem, Dowiedz się, jak [udzielić użytkownikowi dostępu](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Nie można odłożyć lub odrzucić zalecenia
 
-Jeśli wystąpi błąd podczas próby odroczenia lub odrzucenia zalecenia, możesz nie mieć wystarczających uprawnień. Upewnij się, że masz co najmniej dostęp współautora do zasobu, którego to dotyczy, lub którego nie brakuje. Aby rozwiązać ten problem, Dowiedz się, jak [udzielić użytkownikowi dostępu](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Jeśli wystąpi błąd podczas próby odroczenia lub odrzucenia zalecenia, możesz nie mieć wystarczających uprawnień. Upewnij się, że masz co najmniej dostęp współautora do zasobu, którego to dotyczy, lub którego nie brakuje. Aby rozwiązać ten problem, Dowiedz się, jak [udzielić użytkownikowi dostępu](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Ten artykuł zawiera omówienie sposobu używania RBAC przez klasyfikatora do kontrolowania uprawnień użytkowników i rozwiązywania typowych problemów. Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
 
-- [Co to jest usługa Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Wprowadzenie do usługi Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Co to jest Azure Advisor?](./advisor-overview.md)
+- [Wprowadzenie do usługi Azure Advisor](./advisor-get-started.md)

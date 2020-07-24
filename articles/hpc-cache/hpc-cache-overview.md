@@ -4,14 +4,15 @@ description: Opisuje pamięć podręczną platformy Azure HPC, rozwiązanie dost
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 05/29/2020
+ms.date: 07/16/2020
 ms.author: v-erkel
-ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: references_regions
+ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053672"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Co to jest usługa Azure HPC Cache?
 
@@ -53,22 +54,16 @@ Wdrożenie pamięci podręcznej platformy Azure HPC może ułatwić przyspieszen
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Pamięć podręczna Azure HPC jest dostępna w następujących regionach platformy Azure:
+Odwiedź stronę [globalne infrastruktury platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) , aby dowiedzieć się, gdzie dostępna jest pamięć podręczna Azure HPC.
 
-| Ameryka Północna      | Europa         | Azja            | Australia      |
-|--------------------|----------------|-----------------|----------------|
-| Wschodnie stany USA            | Europa Północna   | Korea Środkowa   | Australia Wschodnia |
-| Wschodnie stany USA 2          | Europa Zachodnia    | Azja Południowo-Wschodnia  |               |
-| Południowo-środkowe stany USA | | | |
-| Zachodnie stany USA 2        | | | |
+[Funkcja kluczy zarządzanych przez klienta](customer-keys.md) jest obsługiwana tylko w tych regionach świadczenia usługi Azure:
 
-[Funkcja kluczy zarządzanych przez klienta](customer-keys.md) jest obsługiwana tylko w następujących regionach:
-
-* Wschodnie stany USA
-* Południowo-środkowe stany USA
+* East US
+* South Central US
 * Zachodnie stany USA 2
-
-Aby uzyskać najnowsze informacje o dostępności, należy zapoznać się ze [stroną produktu Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) .
+* Europa Zachodnia
+* US Gov Arizona
+* US Gov Wirginia
 
 ## <a name="service-availability"></a>Dostępność usługi
 
@@ -79,5 +74,5 @@ Zażądaj dostępu, wypełniając [ten formularz](https://aka.ms/onboard-hpc-cac
 ## <a name="next-steps"></a>Następne kroki
 
 * Przeczytaj [stronę produktu usługi Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) , aby dowiedzieć się więcej o jej możliwościach
-* Informacje o [wymaganiach wstępnych](hpc-cache-prereqs.md) dotyczących produktu
+* Informacje o [wymaganiach wstępnych](hpc-cache-prerequisites.md) dotyczących produktu
 * [Tworzenie pamięci podręcznej platformy Azure HPC](hpc-cache-create.md) z poziomu Azure Portal

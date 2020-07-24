@@ -4,11 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054983"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -22,7 +23,7 @@ Podczas modyfikowania zasad tworzenia kopii zapasowych można dodać nowe elemen
 - **Usuń elementy** Użyj tej opcji, aby usunąć elementy z kopii zapasowej.
   - Użyj **ustawień wykluczeń** , aby usunąć wszystkie elementy w woluminie zamiast **usuwać elementy**.
   - Czyszczenie wszystkich zaznaczeń w woluminie powoduje, że stare kopie zapasowe elementów są zachowywane zgodnie z ustawieniami przechowywania w czasie wykonywania ostatniej kopii zapasowej bez zakresu modyfikacji.
-  - Ponowne wybieranie tych elementów powoduje, że nowe kopie zapasowe nie są stosowane do starych kopii zapasowych.
+  - Ponowne wybór tych elementów powoduje, że nowe kopie zapasowe nie są stosowane do starych kopii w ramach programu.
   - Odwybór całego woluminu zachowuje poprzednią kopię zapasową bez żadnego zakresu modyfikowania zasad przechowywania.
 - **Ustawienia wykluczania** używają tej opcji, aby wykluczyć konkretne elementy z kopii zapasowej.
 
@@ -48,7 +49,7 @@ Podczas modyfikowania zasad tworzenia kopii zapasowych można dodać nowe elemen
 
     ![Wybierz elementy](./media/backup-azure-manage-mars/select-item.png)
 
-6. Wykonaj kolejne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+6. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Dodawanie reguł wykluczeń do istniejących zasad
 
@@ -70,7 +71,7 @@ Można dodać reguły wykluczeń, aby pominąć pliki i foldery, których kopie 
 
     ![Wybierz elementy](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Wykonaj kolejne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+5. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
 
 ### <a name="remove-items-from-existing-policy"></a>Usuń elementy z istniejących zasad
 
@@ -81,7 +82,7 @@ Można dodać reguły wykluczeń, aby pominąć pliki i foldery, których kopie 
     > [!NOTE]
     > Po całkowitym usunięciu woluminu z zasad należy zachować ostrożność.  Jeśli musisz dodać go ponownie, będzie on traktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona początkową kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli trzeba tymczasowo usunąć i dodać elementy później, zaleca się używanie **ustawień wykluczeń** zamiast **usuwać elementy** , aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
 
-2. Wykonaj kolejne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+2. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Zatrzymaj ochronę plików i folderów kopii zapasowych
 
@@ -108,10 +109,10 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 1. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj przy użyciu tego harmonogramu tworzenia kopii zapasowych, ale przechowuj przechowywane kopie zapasowe do momentu ponownego aktywowania harmonogramu**. Następnie wybierz przycisk **dalej**.
 
     ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową** Przejrzyj informacje i kliknij przycisk **Zakończ**.
+1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową**Przejrzyj informacje, a następnie kliknij przycisk **Zakończ**.
 
     ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. W obszarze **Modyfikuj proces tworzenia kopii zapasowej** Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie i kliknij przycisk **Zamknij** , aby zakończyć.
+1. W obszarze **Modyfikuj proces tworzenia kopii zapasowej**Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie, a następnie kliknij przycisk **Zamknij** , aby zakończyć.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Zatrzymywanie ochrony i usuwanie danych kopii zapasowej
 
@@ -155,17 +156,18 @@ Jeśli ochrona zostanie zatrzymana podczas zachowywania danych i podjęta zostan
 
 Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia kopii zapasowej lub przywracania lokalnego lub maszyny lokalnej przy użyciu agenta MARS na platformie lub z platformy Azure. Jeśli utracisz lub nie pamiętasz hasła, możesz ponownie wygenerować hasło (pod warunkiem, że maszyna jest nadal zarejestrowana w magazynie Recovery Services i jest konfigurowana kopia zapasowa), wykonując następujące czynności:
 
-- W konsoli agenta Mars przejdź do **okienka Akcje**  >  **Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
-- Zaznacz pole wyboru **Zmień hasło** .<br>
-- Wprowadź nowe hasło lub kliknij pozycję **Generuj hasło**.
-- Kliknij przycisk **Przeglądaj** , aby zapisać nowe hasło.
+1. W konsoli agenta Mars przejdź do **okienka Akcje**  >  **Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
+1. Zaznacz pole wyboru **Zmień hasło** .<br>
+1. Wprowadź nowe hasło lub kliknij pozycję **Generuj hasło**.
+1. Kliknij przycisk **Przeglądaj** , aby zapisać nowe hasło.
 
     ![Generuj hasło.](./media/backup-azure-manage-mars/passphrase.png)
-- Kliknij przycisk **OK** , aby zastosować zmiany.  Jeśli [Funkcja zabezpieczenia](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) jest włączona na Azure Portal magazynu Recovery Services, zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń. Aby odebrać kod PIN, wykonaj kroki opisane w tym [artykule](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Wklej zabezpieczający numer PIN z portalu, a następnie kliknij przycisk **OK** , aby zastosować zmiany.<br>
+
+1. Kliknij przycisk **OK** , aby zastosować zmiany.  Jeśli [Funkcja zabezpieczenia](./backup-azure-security-feature.md#enable-security-features) jest włączona na Azure Portal magazynu Recovery Services, zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń. Aby odebrać kod PIN, wykonaj kroki opisane w tym [artykule](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Wklej zabezpieczający numer PIN z portalu, a następnie kliknij przycisk **OK** , aby zastosować zmiany.<br>
 
     ![Generuj hasło.](./media/backup-azure-manage-mars/passphrase2.png)
-- Upewnij się, że hasło jest bezpiecznie zapisane w lokalizacji alternatywnej (innej niż maszyna źródłowa), najlepiej w Azure Key Vault. Śledź wszystkie hasła, jeśli masz kopię zapasową wielu maszyn z agentami MARS.
+1. Upewnij się, że hasło jest bezpiecznie zapisane w lokalizacji alternatywnej (innej niż maszyna źródłowa), najlepiej w Azure Key Vault. Śledź wszystkie hasła, jeśli masz kopię zapasową wielu maszyn z agentami MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Zarządzanie danymi kopii zapasowej dla niedostępnych maszyn
 
@@ -182,13 +184,14 @@ W przypadku tych maszyn usługa Azure Backup zapewnia, że ostatni punkt odzyski
 Zarządzanie zasadami tworzenia kopii zapasowych w usłudze MARS odbywa się za pomocą konsoli MARS, a nie za pomocą portalu. Jeśli musisz zwiększyć ustawienia przechowywania dla istniejących punktów odzyskiwania przed ich wygaśnięciem, należy przywrócić maszynę, zainstalować konsolę MARS i rozłożyć zasady.
 
 - Aby przywrócić maszynę, wykonaj następujące czynności:
-  - [Przywracanie maszyny wirtualnej na alternatywną maszynę docelową](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Utwórz ponownie maszynę docelową o tej samej nazwie hosta co maszyna źródłowa
-  - Zainstaluj agenta i zarejestruj się ponownie w tym samym magazynie i przy użyciu tego samego hasła
-  - Uruchom klienta MARS, aby zwiększyć czas przechowywania zgodnie z wymaganiami
+  1. [Przywracanie maszyny wirtualnej na alternatywną maszynę docelową](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Utwórz ponownie maszynę docelową o tej samej nazwie hosta co maszyna źródłowa
+  1. Zainstaluj agenta i zarejestruj się ponownie w tym samym magazynie i przy użyciu tego samego hasła
+  1. Uruchom klienta MARS, aby zwiększyć czas przechowywania zgodnie z wymaganiami
 - Nowo przywrócona maszyna chroniona przy użyciu usług MARS będzie nadal tworzyć kopie zapasowe.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje o obsługiwanych scenariuszach i ograniczeniach, zapoznaj się z [matrycą pomocy technicznej dla agenta Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Aby uzyskać informacje o obsługiwanych scenariuszach i ograniczeniach, zapoznaj się z [matrycą pomocy technicznej dla agenta Mars](./backup-support-matrix-mars-agent.md).
 - Dowiedz się więcej [na temat zachowania przechowywania zasad tworzenia kopii zapasowej na żądanie](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Aby uzyskać więcej często zadawanych pytań, zobacz [często zadawane pytania dotyczące agenta Mars](backup-azure-file-folder-backup-faq.md).

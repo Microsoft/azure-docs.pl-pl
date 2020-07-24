@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: 839f35faf4e96528a94ee237dd09aab6c1692162
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b637ef2be51ef2bbbe9fa7e1a2374927647ca382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061715"
 ---
 ## <a name="visualization"></a>Wizualizacja
 
 Chociaż głównym sposobem na współdziałanie z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji jest użycie [interfejsów API i zestawów SDK](../articles/digital-twins/how-to-use-apis-sdks.md), może być pomocne wyświetlenie wizualizacji bliźniaczych reprezentacji i grafów tworzonych w danym wystąpieniu.
 
-Program [**Azure Digital bliźniaczych reprezentacji Explorer**](https://github.com/Azure-Samples/digital-twins-explorer) to przykładowa aplikacja służąca do wizualizacji i pracy z usługą Azure Digital bliźniaczych reprezentacji. Postępuj zgodnie z instrukcjami podanymi w przykładzie, aby pobrać i uruchomić kod aplikacji. 
+Program [**Azure Digital bliźniaczych reprezentacji Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) to przykładowa aplikacja służąca do wizualizacji i pracy z usługą Azure Digital bliźniaczych reprezentacji. Postępuj zgodnie z instrukcjami podanymi w przykładzie, aby pobrać i uruchomić kod aplikacji. 
 
 Za pomocą tego przykładu można zobaczyć wizualną reprezentację cyfrowego bliźniaczych reprezentacji oraz tworzonego przez siebie grafu, między innymi działaniami tworzenia i zarządzania.
 

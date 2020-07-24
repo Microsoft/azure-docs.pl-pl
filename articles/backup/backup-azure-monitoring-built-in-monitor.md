@@ -4,11 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054538"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -27,7 +28,7 @@ Poniżej przedstawiono zadania z następujących rozwiązań Azure Backup:
 - Kopia zapasowa maszyny wirtualnej platformy Azure
 - Kopia zapasowa plików platformy Azure
 - Tworzenie kopii zapasowych platformy Azure, takich jak SQL i SAP HANA
-- Agent usługi Azure Backup (MAB)
+- Agent Microsoft Azure Recovery Services (MARS)
 
 NIE są wyświetlane zadania z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB).
 
@@ -43,7 +44,7 @@ Alerty są szczególnie sytuacje, w których użytkownicy są powiadamiani, aby 
 Poniższe scenariusze są definiowane przez usługę jako scenariusze z alertami.
 
 - Niepowodzenia wykonywania kopii zapasowej/przywracania
-- Wykonanie kopii zapasowej zakończyło się pomyślnie z ostrzeżeniami dla agenta usługi Azure Backup (MAB)
+- Tworzenie kopii zapasowej zakończyło się pomyślnie z ostrzeżeniami dla agenta Microsoft Azure Recovery Services (MARS)
 - Zatrzymaj ochronę z zachowaniem Zachowaj dane/Zatrzymaj ochronę przy użyciu danych usuwania
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Alerty z następujących rozwiązań Azure Backup są wyświetlane w tym miejscu
@@ -51,7 +52,7 @@ Poniższe scenariusze są definiowane przez usługę jako scenariusze z alertami
 - Kopie zapasowe maszyn wirtualnych platformy Azure
 - Kopie zapasowe plików platformy Azure
 - Kopie zapasowe obciążeń platformy Azure, takie jak SQL, SAP HANA
-- Agent usługi Azure Backup (MAB)
+- Agent Microsoft Azure Recovery Services (MARS) 
 
 > [!NOTE]
 > Alerty z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB) nie są wyświetlane w tym miejscu.

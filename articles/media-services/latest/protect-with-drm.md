@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206838"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060615"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: używanie dynamicznego szyfrowania DRM i usługi dostarczania licencji
 
 > [!NOTE]
-> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 Usługa Azure Media Services umożliwia dostarczanie strumieni zaszyfrowanych za pomocą licencji Microsoft PlayReady, Google Widevine i Apple FairPlay. Szczegółowe wyjaśnienie zawiera temat [Ochrona zawartości przy użyciu szyfrowania dynamicznego](content-protection-overview.md).
 
@@ -55,8 +55,8 @@ Do ukończenia tego samouczka są niezbędne następujące elementy:
 * Zapoznanie się z artykułem [Content protection overview (Omówienie ochrony zawartości)](content-protection-overview.md).
 * Zapoznaj się z tematem [Projektowanie systemu ochrony zawartości z użyciem technologii wielowątkowości z kontrolą dostępu](design-multi-drm-system-with-access-control.md).
 * Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
-* Utworzenie nowego konta usługi Azure Media Services zgodnie z opisem w [tym przewodniku Szybki start](create-account-cli-quickstart.md).
-* Uzyskanie poświadczeń potrzebnych do korzystania z interfejsów API usługi Media Services przez wykonanie kroków [uzyskiwania dostęp do interfejsów API](access-api-cli-how-to.md).
+* Utworzenie nowego konta usługi Azure Media Services zgodnie z opisem w [tym przewodniku Szybki start](./create-account-howto.md).
+* Uzyskanie poświadczeń potrzebnych do korzystania z interfejsów API usługi Media Services przez wykonanie kroków [uzyskiwania dostęp do interfejsów API](./access-api-howto.md).
 * Ustaw odpowiednie wartości w pliku konfiguracyjnym aplikacji (appsettings.json).
 
 ## <a name="download-code"></a>Pobieranie kodu
@@ -114,7 +114,7 @@ Klucz zawartości zapewnia bezpieczny dostęp do elementów zawartości. Należy
 
 Należy ustawić wymagania (ograniczenia) dotyczące **zasad kluczy zawartości** , które muszą zostać spełnione, aby dostarczyć klucze z określoną konfiguracją. W tym przykładzie ustawimy następujące konfiguracje i wymagania:
 
-* Konfiguracja
+* Konfigurowanie
 
     Licencje [PlayReady](playready-license-template-overview.md) i [Widevine](widevine-license-template-overview.md) są skonfigurowane tak, aby można było dostarczać je przy użyciu usługi dostarczania licencji w usłudze Media Services. Mimo że ta Przykładowa aplikacja nie konfiguruje licencji [FairPlay](fairplay-license-overview.md) , zawiera metodę, której można użyć do skonfigurowania FairPlay. Konfigurację FairPlay można dodać jako inną opcję.
 
@@ -144,7 +144,7 @@ Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić
 
 ## <a name="get-a-test-token"></a>Pobieranie tokenu testowego
 
-W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) i to, co konfigurujemy w przykładzie.
+W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) i to, co konfigurujemy w przykładzie.
 
 Element ContentKeyIdentifierClaim jest używany w zasadach ContentKeyPolicy, co oznacza, że token przedstawiany usłudze dostarczania kluczy musi zawierać identyfikator ContentKey. W przykładzie nie podasz klucza zawartości podczas tworzenia lokalizatora przesyłania strumieniowego, system tworzy losowo jeden dla nas. W celu wygenerowania tokenu testowego musimy uzyskać ContentKeyId do umieszczenia w ContentKeyIdentifierClaim.
 
@@ -152,7 +152,7 @@ Element ContentKeyIdentifierClaim jest używany w zasadach ContentKeyPolicy, co 
 
 ## <a name="build-a-streaming-url"></a>Tworzenie adresu URL przesyłania strumieniowego
 
-Teraz, po utworzeniu obiektu [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
+Teraz, po utworzeniu obiektu [StreamingLocator](/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

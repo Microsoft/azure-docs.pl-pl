@@ -1,5 +1,5 @@
 ---
-title: Używanie rozszerzonego serwera historii platformy Spark do debugowania aplikacji Apache Spark w usłudze Azure Synapse
+title: Debugowanie aplikacji przy użyciu rozszerzonego serwera historii platformy Spark
 description: Aby debugować i diagnozować aplikacje Spark w usłudze Azure Synapse Analytics, użyj rozszerzonego serwera historii platformy Spark.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059979"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Użyj serwera Apache Spark History, aby debugować i diagnozować aplikacje Apache Spark
 
@@ -122,11 +122,11 @@ Aby odtworzyć zadanie, wybierz pozycję **odtwarzanie**. W dowolnym momencie mo
 
 |Kolor|Znaczenie|
 |-|-|
-|Green|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
+|Green (Zielony)|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
 |Orange|Ponawianie próby: wystąpienia zadań, które zakończyły się niepowodzeniem, ale nie wpływają na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
-|Niebieski|Uruchomiono: zadanie jest uruchomione.|
-|Biały|Oczekiwanie lub pominięte: zadanie oczekuje na uruchomienie lub etap został pominięty.|
-|Red|Niepowodzenie: zadanie zakończyło się niepowodzeniem.|
+|Blue (Niebieski)|Uruchomiono: zadanie jest uruchomione.|
+|Biali|Oczekiwanie lub pominięte: zadanie oczekuje na uruchomienie lub etap został pominięty.|
+|Red (Czerwony)|Niepowodzenie: zadanie zakończyło się niepowodzeniem.|
 
 Na poniższej ilustracji przedstawiono kolor zielony, pomarańczowy i niebieski.
 

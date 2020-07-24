@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a84dda648ccc1dc73956aeb5d8364c4c3f31c9f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055280"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions monitorowania z dziennikami Azure Monitor
 
 Azure Functions oferuje integrację z [dziennikami Azure monitor](../azure-monitor/platform/data-platform-logs.md) do monitorowania funkcji. W tym artykule opisano sposób konfigurowania Azure Functions wysyłania dzienników generowanych przez system i generowanych przez użytkownika w celu Azure Monitor dzienników.
 
-Dzienniki Azure Monitor umożliwiają konsolidowanie dzienników z różnych zasobów w tym samym obszarze roboczym, dzięki czemu można je analizować przy użyciu [zapytań](../azure-monitor/log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Możesz tworzyć i testować zapytania przy użyciu [log Analytics](../azure-monitor/log-query/portals.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu tych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](../azure-monitor/visualizations.md) lub [regułami alertów](../azure-monitor/platform/alerts-overview.md).
+Dzienniki Azure Monitor umożliwiają konsolidowanie dzienników z różnych zasobów w tym samym obszarze roboczym, dzięki czemu można je analizować przy użyciu [zapytań](../azure-monitor/log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Możesz tworzyć i testować zapytania przy użyciu [log Analytics](../azure-monitor/log-query/log-query-overview.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu tych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](../azure-monitor/visualizations.md) lub [regułami alertów](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używanej przez platformę Azure Eksplorator danych, która jest odpowiednia dla prostych zapytań dzienników, ale również zawiera zaawansowane funkcje, takie jak agregacje, sprzężenia i Inteligentna analiza. Możesz szybko poznać język zapytań przy użyciu [wielu lekcji](../azure-monitor/log-query/get-started-queries.md).
 

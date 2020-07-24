@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058091"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
 
@@ -29,12 +29,13 @@ Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chm
 |   | Dotyczy wszystkich użytkowników w organizacji |
 | **Własność urządzeń** | Organizacja |
 | **Systemy operacyjne** | Wszystkie urządzenia z systemem Windows 10 |
+|   | [System Windows Server 2019 Virtual Machines uruchomiony na platformie Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core nie jest obsługiwany) |
 | **Inicjowanie obsługi** | Samoobsługowe: OOBE lub ustawienia systemu Windows |
 |   | Rejestrowanie zbiorcze |
 |   | Windows Autopilot |
 | **Opcje logowania urządzenia** | Konta organizacyjne przy użyciu: |
 |   | Hasło |
-|   | Windows Hello dla firm |
+|   | Windows Hello for Business |
 |   | Klucze zabezpieczeń FIDO 2.0 (wersja zapoznawcza) |
 | **Zarządzanie urządzeniami** | Zarządzanie urządzeniami przenośnymi (przykład: Microsoft Intune) |
 |   | Współzarządzanie z Microsoft Intune i Microsoft Endpoint Configuration Manager |
@@ -82,5 +83,5 @@ Dołączenie do usługi Azure AD można wdrożyć przy użyciu dowolnej z nastę
 
 - [Planowanie implementacji dołączania do usługi Azure AD](azureadjoin-plan.md)
 - [Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD](assign-local-admin.md)
-- [Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal](device-management-azure-portal.md)
+- [Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal](device-management-azure-portal.md)
 - [Zarządzanie nieaktywnymi urządzeniami w usłudze Azure AD](manage-stale-devices.md)

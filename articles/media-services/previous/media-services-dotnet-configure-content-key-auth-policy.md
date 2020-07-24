@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060153"
 ---
-# <a name="configure-a-content-key-authorization-policy"></a>Konfigurowanie zasad autoryzacji klucza zawartości
+# <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Konfigurowanie zasad autoryzacji klucza zawartości przy użyciu zestawu SDK platformy Media Services .NET
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -33,7 +34,7 @@ Jeśli chcesz, aby Media Services zaszyfrować element zawartości, musisz skoja
 
 Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik ma uprawnienia do uzyskiwania klucza, usługa szacuje zasady autoryzacji określone dla klucza.
 
-Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć co najmniej jedno ograniczenie autoryzacji. Opcje są ograniczeniami Open lub tokenem. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formacie prostego tokenu sieci Web ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) i formacie tokenu sieci Web JSON ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
+Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć co najmniej jedno ograniczenie autoryzacji. Opcje są ograniczeniami Open lub tokenem. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formacie prostego tokenu sieci Web ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) i formacie tokenu sieci Web JSON ([JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3)).
 
 Media Services nie zapewnia usługi STS. Możesz utworzyć niestandardową usługę STS lub użyć usługi Azure Access Control Service do wystawiania tokenów. Usługa STS musi być skonfigurowana w taki sposób, aby utworzyć token podpisany przy użyciu określonego klucza i wystawiać oświadczenia określone w konfiguracji ograniczeń tokenu (zgodnie z opisem w tym artykule). Jeśli token jest prawidłowy i oświadczenia w tokenie są zgodne z tymi skonfigurowanymi dla klucza zawartości, usługa dostarczania kluczy Media Services Zwraca klucz szyfrowania do klienta.
 
@@ -438,4 +439,3 @@ Aby uzyskać token testowy oparty na ograniczeniu tokenu, który został użyty 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, po skonfigurowaniu zasad autoryzacji klucza zawartości, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-dotnet-configure-asset-delivery-policy.md).
-

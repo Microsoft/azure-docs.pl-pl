@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 6/10/2020
-ms.openlocfilehash: 3ba7e4b73fb0ac8d6318b7bfee73300800d5b7ee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: b41e3d729fa6e5b0be9a55cc45de38f81bed494b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061127"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opcje wsparcia technicznego i pomocy usługi Azure IoT
 
@@ -26,7 +26,7 @@ Poniżej znajdują się sugestie dotyczące lokalizacji, w których można uzysk
 
 Poznaj zakres [opcji pomocy technicznej platformy Azure i wybierz plan](https://azure.microsoft.com/support/plans) , który najlepiej pasuje do tego, czy jesteś deweloperem, który właśnie rozpoczyna pracę w chmurze, czy też znaczną organizację wdrażających aplikacje o znaczeniu krytycznym dla działalności firmy. Klienci platformy Azure mogą tworzyć żądania pomocy technicznej i zarządzać nimi w Azure Portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Witryna Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal dla instytucji rządowych Stany Zjednoczone](https://portal.azure.us)
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Opublikuj pytanie w firmie Microsoft Q&A
@@ -77,7 +77,7 @@ Aby zażądać nowych funkcji, Opublikuj je na podstawie opinii na temat platfor
 
 | Usługa                       | Adres URL opinii platformy Azure |
 |-------------------------------|---------------|
-| Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
+| Azure IoT (centrum, DPS, zestawy SDK)                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
 | Wykaz urządzeń usługi Azure IoT      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |

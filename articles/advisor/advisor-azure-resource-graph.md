@@ -4,12 +4,12 @@ description: Tworzenie zapytań dotyczących danych klasyfikatora na wykresie za
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117838"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057768"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Zapytanie dotyczące danych klasyfikatora w Eksploratorze grafu zasobów (Wykres zasobów platformy Azure)
 
@@ -24,7 +24,7 @@ Zasoby klasyfikatora zostały teraz dołączone do [grafu zasobów platformy Azu
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Typy zasobów klasyfikatora w programie Azure Graph
 
-Dostępne typy zasobów klasyfikatora na [wykresie zasobów](https://docs.microsoft.com/azure/governance/resource-graph/): dostępne są 3 typy zasobów do wykonywania zapytań w ramach zasobów klasyfikatora. Poniżej znajduje się lista zasobów, które są teraz dostępne do wykonywania zapytań w grafie zasobów.
+Dostępne typy zasobów klasyfikatora na [wykresie zasobów](../governance/resource-graph/index.yml): dostępne są 3 typy zasobów do wykonywania zapytań w ramach zasobów klasyfikatora. Poniżej znajduje się lista zasobów, które są teraz dostępne do wykonywania zapytań w grafie zasobów.
 * Microsoft. Advisor/konfiguracje
 * Microsoft. Advisor/zalecenia
 * Microsoft. Advisor/tłumienie
@@ -42,4 +42,4 @@ Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
-* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [Interfejs API REST usługi Advisor](/rest/api/advisor/)

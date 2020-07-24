@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061220"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
 
@@ -61,8 +61,14 @@ Wykonaj następujące kroki:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Uruchom następujące polecenie. Spowoduje to połączenie uwierzytelnionego konta do użycia na potrzeby żądań usługi Azure AD
 
-6. Uruchom następujące polecenie. Spowoduje to pobranie skryptu do katalogu macierzystego.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Uruchom następujące polecenie. Spowoduje to pobranie skryptu do katalogu macierzystego.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Wykonaj następujące kroki:
 
     ```
 
-7. Uruchom następujący skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
+8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Wykonaj następujące kroki:
 
     ```
 
-8. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
+9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Tworzenie metadanych urządzenia lub czujnika

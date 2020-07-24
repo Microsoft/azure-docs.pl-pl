@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ea178655646f7f130476acaffc35c60181968ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058718"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Dostęp do rozwiązania VMware przez portal CloudSimple z poziomu Azure Portal
 
@@ -23,7 +23,7 @@ Logowanie jednokrotne jest obsługiwane w przypadku dostępu do portalu CloudSim
 
 Użytkownicy z rolami wbudowanego **właściciela** i **współautor** mogą uzyskać dostęp do portalu CloudSimple.  Role należy skonfigurować w grupie zasobów, w której wdrożono usługę CloudSimple.  Role można także skonfigurować w obiekcie usługi CloudSimple.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) . Tylko użytkownicy z wbudowanymi rolami **właściciela** i **współautorów** mogą uzyskać dostęp do portalu CloudSimple.  Role muszą być skonfigurowane w ramach subskrypcji.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) .
 
-Jeśli używasz ról niestandardowych, rola powinna mieć dowolną z następujących operacji w ```Actions``` .  Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).  Jeśli którakolwiek z operacji jest częścią ```NotActions``` , użytkownik nie może uzyskać dostępu do portalu CloudSimple.
+Jeśli używasz ról niestandardowych, rola powinna mieć dowolną z następujących operacji w ```Actions``` .  Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).  Jeśli którakolwiek z operacji jest częścią ```NotActions``` , użytkownik nie może uzyskać dostępu do portalu CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*

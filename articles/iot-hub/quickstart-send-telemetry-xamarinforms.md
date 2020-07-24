@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie danych telemetrycznych do usługi Azure IoT Hub — Szybki start | Microsoft Docs
-description: W tym przewodniku szybki start uruchomisz przykładową aplikację Xamarin. Forms w celu wysyłania symulowanych danych telemetrycznych do centrum IoT i odczytywania danych telemetrycznych z usługi IoT Hub na potrzeby przetwarzania w chmurze.
+title: Wysyłanie danych telemetrycznych do platformy Azure IoT Hub szybki start (Xamarin. Forms)
+description: Uruchom przykładową aplikację Xamarin. Forms, aby wysłać symulowane dane telemetryczne do usługi IoT Hub i odczytać dane telemetryczne z usługi IoT Hub na potrzeby przetwarzania w chmurze.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 07/01/2020
-ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 962dd35bd07e3ab542bdb8616b1cc2fda1441b36
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061530"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub (Xamarin. Forms)
 
@@ -39,7 +39,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 - Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-- Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+- Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -47,7 +47,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -73,7 +73,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myXamarinDevice --output table
    ```
 
-   Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+   Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=myXamarinDevice;SharedAccessKey={YourSharedAccessKey}`
 

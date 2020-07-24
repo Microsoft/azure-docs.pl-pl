@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc442886c4c4c26db5f5cde908ea647e2ee2f1bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059017"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i Konfigurowanie Pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure
 Maszyny wirtualne z systemem Linux na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia Secure Shell (SSH). W przypadku nowych do systemu Linux lub w celu szybkiego rozwiązywania problemów korzystanie z pulpitu zdalnego może być prostsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu ([pulpit Xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://xrdp.org)) dla maszyny wirtualnej z systemem Linux przy użyciu modelu wdrażania Menedżer zasobów.
@@ -104,7 +105,7 @@ Po uwierzytelnieniu środowisko pulpitu pulpit Xfce zostanie załadowane i będz
 Jeśli lokalny klient RDP korzysta z uwierzytelniania na poziomie sieci, może być konieczne wyłączenie tego ustawienia połączenia. XRDP obecnie nie obsługuje NLA. Możesz również zapoznać się z alternatywnymi rozwiązaniami RDP, które obsługują uwierzytelnianie NLA, takie jak [FreeRDP](https://www.freerdp.com).
 
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 Jeśli nie można nawiązać połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta Pulpit zdalny, użyj `netstat` maszyny wirtualnej z systemem Linux, aby sprawdzić, czy maszyna wirtualna nasłuchuje połączeń RDP w następujący sposób:
 
 ```bash
@@ -132,11 +133,10 @@ tail -f /var/log/syslog
 
 Inne dystrybucje systemu Linux, takie jak Red Hat Enterprise Linux i SUSE, mogą mieć różne sposoby ponownego uruchamiania usług i alternatywnych lokalizacji plików dziennika do przejrzenia.
 
-Jeśli nie otrzymasz żadnej odpowiedzi z klienta pulpitu zdalnego i nie widzisz żadnych zdarzeń w dzienniku systemu, to zachowanie wskazuje, że ruch pulpitu zdalnego nie może nawiązać połączenia z maszyną wirtualną. Przejrzyj reguły sieciowej grupy zabezpieczeń, aby upewnić się, że masz regułę zezwalającą na ruch TCP na porcie 3389. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z łącznością aplikacji](../windows/troubleshoot-app-connection.md).
+Jeśli nie otrzymasz żadnej odpowiedzi z klienta pulpitu zdalnego i nie widzisz żadnych zdarzeń w dzienniku systemu, to zachowanie wskazuje, że ruch pulpitu zdalnego nie może nawiązać połączenia z maszyną wirtualną. Przejrzyj reguły sieciowej grupy zabezpieczeń, aby upewnić się, że masz regułę zezwalającą na ruch TCP na porcie 3389. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z łącznością aplikacji](../troubleshooting/troubleshoot-app-connection.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat tworzenia i używania kluczy SSH z maszynami wirtualnymi z systemem Linux, zobacz [Tworzenie kluczy SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](mac-create-ssh-keys.md).
 
 Aby uzyskać informacje na temat korzystania z protokołu SSH w systemie Windows, zobacz [jak używać kluczy SSH w systemie Windows](ssh-from-windows.md).
-

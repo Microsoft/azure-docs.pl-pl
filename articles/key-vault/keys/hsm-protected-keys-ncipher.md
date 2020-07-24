@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 4eea0529e88e183ab517e8546e3ec1cb3cd0af7d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e67769d37b45a9e1344ce6aa72bd1e60e6bfe287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061285"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importuj klucze chronione przez moduł HSM dla Key Vault (oprogramowanie wspomagające nCipher)
 
@@ -62,7 +62,7 @@ Zapoznaj się z poniższą tabelą, aby uzyskać listę wymagań wstępnych doty
 | Subskrypcja platformy Azure |Aby utworzyć Azure Key Vault, musisz mieć subskrypcję platformy Azure: [zarejestruj się, aby skorzystać z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) |
 | Warstwa usługi Azure Key Vault Premium do obsługi kluczy chronionych przez moduł HSM |Więcej informacji o warstwach i możliwościach usługi dla Azure Key Vault można znaleźć w witrynie internetowej [cennika Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | Oprogramowanie wspomagające nCipher sprzętowego nshield sprzętowych modułów zabezpieczeń, karty inteligentne i oprogramowanie pomocy technicznej |Musisz mieć dostęp do oprogramowanie wspomagające nCipher sprzętowego modułu zabezpieczeń i podstawowej znajomości operacyjnej oprogramowanie wspomagające nCipher sprzętowego nshield sprzętowych modułów zabezpieczeń. Aby uzyskać listę zgodnych modeli lub kupić moduł HSM, jeśli go nie masz, zobacz [oprogramowanie wspomagające nCipher sprzętowego nshield Hardware Security module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) . |
-| Następujący sprzęt i oprogramowanie:<ol><li>Stacja robocza offline x64 z minimalnym systemem operacyjnym Windows w wersji Windows 7 i oprogramowanie wspomagające nCipher sprzętowego nshield, który ma co najmniej wersję 11,50.<br/><br/>Jeśli na tej stacji roboczej jest uruchomiony system Windows 7, należy [zainstalować Microsoft .NET Framework 4,5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Stacja robocza, która jest połączona z Internetem i ma minimalny system operacyjny Windows z systemem Windows 7 i [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) zainstalowaną **minimalną wersję 1.1.0** .</li><li>Dysk USB lub inne przenośne urządzenie magazynujące z co najmniej 16 MB wolnego miejsca.</li></ol> |Ze względów bezpieczeństwa odradza się podłączanie pierwszej stacji roboczej do sieci. Jednakże to zalecenie nie jest wymuszane programowo.<br/><br/>W poniższych instrukcjach stacja robocza jest określana jako odłączona stacja robocza.</p></blockquote><br/>Ponadto, jeśli klucz dzierżawy jest przeznaczony dla sieci produkcyjnej, zalecamy użycie drugiej oddzielnej stacji roboczej do pobrania zestawu narzędzi i przekazanie klucza dzierżawy. Do celów testowych można jednak użyć pierwszej stacji roboczej.<br/><br/>W poniższych instrukcjach druga stacja robocza jest określana mianem stacji roboczej podłączonej do Internetu.</p></blockquote><br/> |
+| Następujący sprzęt i oprogramowanie:<ol><li>Stacja robocza offline x64 z minimalnym systemem operacyjnym Windows w wersji Windows 7 i oprogramowanie wspomagające nCipher sprzętowego nshield, który ma co najmniej wersję 11,50.<br/><br/>Jeśli na tej stacji roboczej jest uruchomiony system Windows 7, należy [zainstalować Microsoft .NET Framework 4,5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Stacja robocza, która jest połączona z Internetem i ma minimalny system operacyjny Windows z systemem Windows 7 i [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) zainstalowaną **minimalną wersję 1.1.0** .</li><li>Dysk USB lub inne przenośne urządzenie magazynujące z co najmniej 16 MB wolnego miejsca.</li></ol> |Ze względów bezpieczeństwa odradza się podłączanie pierwszej stacji roboczej do sieci. Jednakże to zalecenie nie jest wymuszane programowo.<br/><br/>W poniższych instrukcjach stacja robocza jest określana jako odłączona stacja robocza.</p></blockquote><br/>Ponadto, jeśli klucz dzierżawy jest przeznaczony dla sieci produkcyjnej, zalecamy użycie drugiej oddzielnej stacji roboczej do pobrania zestawu narzędzi i przekazanie klucza dzierżawy. Do celów testowych można jednak użyć pierwszej stacji roboczej.<br/><br/>W poniższych instrukcjach druga stacja robocza jest określana mianem stacji roboczej podłączonej do Internetu.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generowanie i transferowanie klucza do Azure Key Vault modułu HSM
 
@@ -80,7 +80,7 @@ W pierwszym kroku wykonaj następujące procedury na stacji roboczej, która jes
 
 ### <a name="step-11-install-azure-powershell"></a>Krok 1,1: Zainstaluj Azure PowerShell
 
-Z poziomu stacji roboczej podłączonej do Internetu Pobierz i zainstaluj moduł Azure PowerShell, który zawiera polecenia cmdlet służące do zarządzania Azure Key Vault. Instrukcje instalacji znajdują się w temacie [How to Install and configure Azure PowerShell](/powershell/azure/overview).
+Z poziomu stacji roboczej podłączonej do Internetu Pobierz i zainstaluj moduł Azure PowerShell, który zawiera polecenia cmdlet służące do zarządzania Azure Key Vault. Instrukcje instalacji znajdują się w temacie [How to Install and configure Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Krok 1,2: uzyskiwanie identyfikatora subskrypcji platformy Azure
 

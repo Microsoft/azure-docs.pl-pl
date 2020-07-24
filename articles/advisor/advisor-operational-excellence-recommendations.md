@@ -3,12 +3,12 @@ title: Ulepszanie Excellency operacyjnego za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zoptymalizować i uzyskać doskonałą komfort działania w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057633"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Uzyskiwanie doskonałości operacyjnej przy użyciu Azure Advisor
 
@@ -63,4 +63,4 @@ Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
-* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [Interfejs API REST usługi Advisor](/rest/api/advisor/)

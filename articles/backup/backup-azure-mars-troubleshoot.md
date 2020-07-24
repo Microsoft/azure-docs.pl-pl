@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacj
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539061"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054643"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
 
@@ -75,6 +75,12 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 | Błąd  | Możliwa przyczyna | Zalecane akcje |
 | ---     | ---     | ---    |
 | <br /><ul><li>Agent usługi odzyskiwania Microsoft Azure nie mógł nawiązać połączenia z Microsoft Azure Backup. (IDENTYFIKATOR: 100050) Sprawdź ustawienia sieci i upewnij się, że możesz nawiązać połączenie z Internetem.<li>(407) wymagane jest uwierzytelnianie serwera proxy. |Serwer proxy blokuje połączenie. |  <ul><li>W programie Internet Explorer przejdź do pozycji **Narzędzia**  >  **Opcje internetowe**  >  **zabezpieczenia**  >  **internetowe Internet**. Wybierz pozycję **Poziom niestandardowy** i przewiń w dół do sekcji **Pobieranie pliku** . Wybierz pozycję **Włącz**.<p>Może być również konieczne dodanie adresów [URL i adresów IP](install-mars-agent.md#verify-internet-access) do zaufanych witryn w programie Internet Explorer.<li>Zmień ustawienia tak, aby korzystały z serwera proxy. Następnie podaj szczegóły serwera proxy.<li> Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na te [adresy URL i adresy IP](install-mars-agent.md#verify-internet-access). <li>Jeśli na serwerze jest zainstalowane oprogramowanie antywirusowe, Wyklucz te pliki ze skanowania antywirusowego: <ul><li>CBEngine.exe (zamiast dpmra.exe).<li>CSC.exe (powiązane z .NET Framework). Istnieje CSC.exe dla każdej wersji .NET Framework zainstalowanej na serwerze. Wyklucz CSC.exe pliki dla wszystkich wersji .NET Framework na serwerze, którego to dotyczy. <li>Folder tymczasowy lub lokalizacja pamięci podręcznej. <br>Domyślna lokalizacja folderu tymczasowego lub ścieżki pamięci podręcznej to C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Folder bin w katalogu C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Nie można użyć określonego pliku poświadczeń magazynu, ponieważ nie jest on pobrany z magazynu skojarzonego z tym serwerem.
+
+| Błąd  | Możliwa przyczyna | Zalecane akcje |
+| ---     | ---     | ---    |
+| Nie można użyć określonego pliku poświadczeń magazynu, ponieważ nie jest on pobrany z magazynu skojarzonego z tym serwerem. (IDENTYFIKATOR: 100110) Podaj odpowiednie poświadczenia magazynu. | Plik poświadczeń magazynu pochodzi z innego magazynu niż ten, na którym jest już zarejestrowany ten serwer. | Upewnij się, że maszyna docelowa i maszyna źródłowa są zarejestrowani do tego samego magazynu Recovery Services. Jeśli serwer docelowy został już zarejestrowany w innym magazynie, użyj opcji **zarejestruj serwer** , aby zarejestrować się w prawidłowym magazynie.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Zadania tworzenia kopii zapasowej zakończone z ostrzeżeniem
 

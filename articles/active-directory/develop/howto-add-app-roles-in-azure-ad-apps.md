@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058625"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -76,7 +76,7 @@ Poniższy przykład pokazuje `appRoles` , że można przypisać do `users` .
 > [!NOTE]
 >`displayName`Nie może zawierać spacji.
 
-Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
+Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w obszarze **zarządzaj** sekcja > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji**. Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Po dodaniu ról aplikacji w aplikacji można przypisać użytkowników i grupy d
 1. Wybierz rolę i naciśnij przycisk **Wybierz** .
 1. Naciśnij przycisk **Assign (Przypisz** ) u dołu, aby zakończyć przydziały użytkowników i grup do aplikacji.
 1. Upewnij się, że dodani Użytkownicy i grupy znajdują się na liście zaktualizowanych **użytkowników i grup** .
+
+### <a name="receive-roles-in-tokens"></a>Odbierz role w tokenach
+
+Gdy użytkownicy przypisani do różnych ról aplikacji logują się do aplikacji, ich tokeny będą mieć przypisane role w ramach tego `roles` żądania.
 
 ## <a name="more-information"></a>Więcej informacji
 
