@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080356"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 
@@ -32,7 +32,7 @@ Ten artykuł zawiera Omówienie rozszerzeń maszyn wirtualnych, wymagania wstęp
 Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretnym przypadkiem użycia. Oto niektóre przykłady:
 
 - Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Linux. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej Microsoft Monitoring Agent. Aby uzyskać więcej informacji, zobacz [Jak monitorować maszynę wirtualną z systemem Linux](../linux/tutorial-monitoring.md).
+- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej Microsoft Monitoring Agent. Aby uzyskać więcej informacji, zobacz [Jak monitorować maszynę wirtualną z systemem Linux](../linux/tutorial-monitor.md).
 - Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia Chef lub usługi Datadog. Aby uzyskać więcej informacji, zobacz blog [Chef](https://docs.chef.io/azure_portal.html) lub [usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Oprócz rozszerzeń specyficznych dla procesu, rozszerzenie niestandardowego skryptu jest dostępne zarówno dla maszyn wirtualnych z systemem Windows, jak i Linux. Rozszerzenie niestandardowego skryptu dla systemu Linux umożliwia uruchamianie dowolnego skryptu bash na maszynie wirtualnej. Skrypty niestandardowe są przydatne do projektowania wdrożeń platformy Azure, które wymagają konfiguracji poza możliwością dostarczania natywnych narzędzi platformy Azure. Aby uzyskać więcej informacji, zobacz [rozszerzenie niestandardowego skryptu maszyny wirtualnej systemu Linux](custom-script-linux.md).
@@ -65,7 +65,7 @@ Pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Stora
 > [!IMPORTANT]
 > Jeśli zablokowano dostęp do usługi *168.63.129.16* za pomocą zapory gościa, rozszerzenia nie powiodą się, niezależnie od powyższych.
 
-Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage, można zezwolić na dostęp za pomocą tagów usługi Azure sieciowej grupy zabezpieczeń dla [magazynu](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage, można zezwolić na dostęp za pomocą tagów usługi Azure sieciowej grupy zabezpieczeń dla [magazynu](../../virtual-network/security-overview.md#service-tags).
 
 Aby przekierować żądania ruchu agentów, Agent systemu Linux ma obsługę serwera proxy. Jednak ten serwer proxy nie stosuje rozszerzeń. Należy skonfigurować każde pojedyncze rozszerzenie, aby działało z serwerem proxy.
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 
@@ -220,12 +220,12 @@ Agenci i rozszerzenia korzystają z tego samego mechanizmu aktualizacji. Niektó
 
 Gdy aktualizacja jest dostępna, jest zainstalowana na maszynie wirtualnej tylko w przypadku zmiany rozszerzeń, a inne zmiany modelu maszyny wirtualnej, takie jak:
 
-- Dyski z danymi
+- Dyski danych
 - Rozszerzenia
 - Kontener diagnostyki rozruchu
 - Wpisy tajne systemu operacyjnego gościa
 - Rozmiar maszyny wirtualnej
-- Profil sieciowy
+- Profil sieci
 
 Wydawcy udostępniają aktualizacje regionom w różnym czasie, więc możliwe jest posiadanie maszyn wirtualnych w różnych regionach w różnych wersjach.
 
@@ -259,7 +259,7 @@ W poprzednim przykładzie danych wyjściowych element nadrzędny lub "wdrożony 
 
 "Agent stanu celu" jest wersją aktualizacji AutoUpdate.
 
-Zdecydowanie zaleca się, aby zawsze mieć automatyczne aktualizacje dla agenta, [Funkcja Aktualizacje automatyczne. włączone = y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Jeśli to ustawienie nie jest włączone, należy ręcznie zaktualizować agenta i nie pobrać poprawek błędów i zabezpieczeń.
+Zdecydowanie zaleca się, aby zawsze mieć automatyczne aktualizacje dla agenta, [Funkcja Aktualizacje automatyczne. włączone = y](./update-linux-agent.md). Jeśli to ustawienie nie jest włączone, należy ręcznie zaktualizować agenta i nie pobrać poprawek błędów i zabezpieczeń.
 
 #### <a name="extension-updates"></a>Aktualizacje rozszerzeń
 

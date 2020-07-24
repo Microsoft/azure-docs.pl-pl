@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080951"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom, `az --version` Aby znaleźć wersję i zainstalowane biblioteki zależne. Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowanie środowiska
 
 1. Zaloguj się.
 
@@ -95,7 +95,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Jeśli `--name` podane `az notification-hub namespace create` polecenie jest niedostępne lub nie spełnia [reguł nazewnictwa i ograniczeń dotyczących zasobów platformy Azure](/azure/azure-resource-manager/management/resource-name-rules), interfejs wiersza polecenia platformy Azure odpowie na następujące dane wyjściowe konsoli:
+   Jeśli `--name` podane `az notification-hub namespace create` polecenie jest niedostępne lub nie spełnia [reguł nazewnictwa i ograniczeń dotyczących zasobów platformy Azure](../azure-resource-manager/management/resource-name-rules.md), interfejs wiersza polecenia platformy Azure odpowie na następujące dane wyjściowe konsoli:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
 
 1. Wyświetlanie listy zasad dostępu dla centrum powiadomień.
 
-   Usługa Azure Notification Hubs używa [zabezpieczeń sygnatury dostępu współdzielonego](/azure/notification-hubs/notification-hubs-push-notification-security) za pomocą zasad dostępu.  Dwie zasady są tworzone automatycznie podczas tworzenia centrum powiadomień.  Parametry połączenia z tych zasad są konieczne do konfigurowania powiadomień wypychanych.  Polecenie [AZ Notification-Hub Authorization-Rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) zawiera listę nazw zasad i odpowiednich grup zasobów.
+   Usługa Azure Notification Hubs używa [zabezpieczeń sygnatury dostępu współdzielonego](./notification-hubs-push-notification-security.md) za pomocą zasad dostępu.  Dwie zasady są tworzone automatycznie podczas tworzenia centrum powiadomień.  Parametry połączenia z tych zasad są konieczne do konfigurowania powiadomień wypychanych.  Polecenie [AZ Notification-Hub Authorization-Rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) zawiera listę nazw zasad i odpowiednich grup zasobów.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
 
 3. Wyświetlanie listy kluczy i parametrów połączenia dla zasad dostępu centrum powiadomień
 
-   Istnieją dwa zestawy kluczy i parametrów połączenia dla każdej zasady dostępu.  Będziesz ich potrzebować później, aby [skonfigurować centrum powiadomień](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Aby wyświetlić listę kluczy i parametrów połączeń dla zasad dostępu centrum powiadomień, użyj polecenia [AZ Notification-Hub Authorization-Keys list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) .
+   Istnieją dwa zestawy kluczy i parametrów połączenia dla każdej zasady dostępu.  Będziesz ich potrzebować później, aby [skonfigurować centrum powiadomień](./configure-notification-hub-portal-pns-settings.md).  Aby wyświetlić listę kluczy i parametrów połączeń dla zasad dostępu centrum powiadomień, użyj polecenia [AZ Notification-Hub Authorization-Keys list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) .
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

@@ -1,5 +1,5 @@
 ---
-title: Ochrona Azure App Service aplikacji sieci Web i interfejsów API
+title: Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
 description: Ten artykuł pomaga rozpocząć ochronę Azure App Service aplikacji sieci Web i interfejsów API w programie Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -10,13 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080798"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Ochrona Azure App Service aplikacji sieci Web i interfejsów API
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
 
 Azure App Service to w pełni zarządzana platforma do tworzenia i hostowania aplikacji i interfejsów API sieci Web bez obaw o zarządzanie infrastrukturą. Umożliwia zarządzanie, monitorowanie i wgląd w dane operacyjne w celu spełnienia wymagań dotyczących wydajności, zabezpieczeń i zgodności klasy korporacyjnej. Aby uzyskać więcej informacji, zobacz [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
@@ -56,7 +57,7 @@ Aby wyłączyć monitorowanie i zalecenia dotyczące App Service, Powtórz ten p
 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat Azure Security Center, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania ustawień zabezpieczeń w usłudze Azure Security Center.

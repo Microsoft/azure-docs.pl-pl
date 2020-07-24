@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e682232afa401f443ffe8f14f617b075978117ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080050"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS
 
@@ -372,7 +372,7 @@ W naszym przykładzie przestrzeń adresowa wystąpienia usługi Azure Virtual Ne
 Aby ustawić wymagane adresy IP DNS, wykonaj następujące czynności:
 
 1. W Azure Portal w okienku **serwery DNS** upewnij się, że opcja **serwery DNS** sieci wirtualnej jest ustawiona na wartość **niestandardowy DNS**.
-2. Wybierz swoje ustawienia w zależności od typu sieci. Więcej informacji zawierają następujące zasoby:
+2. Wybierz swoje ustawienia w zależności od typu sieci. Więcej informacji można znaleźć w następujących zasobach:
    * Dodaj adresy IP lokalnych serwerów DNS.  
    Lokalne serwery DNS można rozłożyć na maszyny wirtualne, które są uruchomione na platformie Azure. W tym scenariuszu można dodać adresy IP maszyn wirtualnych platformy Azure, na których jest uruchomiona usługa DNS.
    * W przypadku wdrożeń maszyn wirtualnych izolowanych na platformie Azure: Wdróż dodatkową maszynę wirtualną w tym samym wystąpieniu Virtual Network, które służy jako serwer DNS. Dodaj adresy IP maszyn wirtualnych platformy Azure, które zostały skonfigurowane do uruchamiania usługi DNS.
@@ -555,7 +555,7 @@ Aby dodać wpisy rejestru na obu węzłach klastra wystąpienia SAP ASCS/SCS, na
 | Nazwa zmiennej |`KeepAliveTime` |
 | Typ zmiennej |REG_DWORD (liczba dziesiętna) |
 | Wartość |120000 |
-| Link do dokumentacji |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Link do dokumentacji |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 **Tabela 3:** Zmiana pierwszego parametru TCP/IP
 
@@ -566,7 +566,7 @@ Następnie Dodaj ten wpis rejestru systemu Windows na obu węzłach klastra syst
 | Nazwa zmiennej |`KeepAliveInterval` |
 | Typ zmiennej |REG_DWORD (liczba dziesiętna) |
 | Wartość |120000 |
-| Link do dokumentacji |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Link do dokumentacji |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 **Tabela 4:** Zmień drugi parametr TCP/IP
 

@@ -3,11 +3,12 @@ title: Zagadnienia dotyczące magazynu Azure Functions
 description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Functions i o szyfrowaniu przechowywanych danych.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079608"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
 
@@ -40,7 +41,7 @@ Każda aplikacja funkcji wymaga konta magazynu do działania. Jeśli to konto zo
 
 Połączenie konta magazynu jest obsługiwane w [ustawieniu aplikacji AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-Parametry połączenia konta magazynu należy zaktualizować, gdy zostaną ponownie wygenerowane klucze magazynu. [Przeczytaj więcej na temat zarządzania kluczami magazynu tutaj](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Parametry połączenia konta magazynu należy zaktualizować, gdy zostaną ponownie wygenerowane klucze magazynu. [Przeczytaj więcej na temat zarządzania kluczami magazynu tutaj](../storage/common/storage-account-create.md).
 
 ### <a name="shared-storage-accounts"></a>Konta magazynu udostępnionego
 
@@ -79,5 +80,3 @@ Dowiedz się więcej o opcjach hostingu Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Skalowanie i hosting usługi Azure Functions](functions-scale.md)
-
-

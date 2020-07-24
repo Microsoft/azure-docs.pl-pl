@@ -8,18 +8,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41157f26e4f87e59d5a0276ff72012ae20b70fbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 422f144f357d8f5af0c34e09eb7b995ab7a80896
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079778"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell
 
 Czasami ustawienia AddressPrefix lub GatewayIPAddress bramy sieci lokalnej. W tym artykule opisano sposób modyfikowania ustawień bramy sieci lokalnej. Możesz również zmodyfikować te ustawienia przy użyciu innej metody, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [Program PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
@@ -27,7 +28,7 @@ Czasami ustawienia AddressPrefix lub GatewayIPAddress bramy sieci lokalnej. W ty
 
 ## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
-Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell).
+Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Modyfikuj prefiksy adresów IP
 

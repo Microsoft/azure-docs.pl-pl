@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7fcde86c9bbf017ac3fca6025a025104b0d864
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081580"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agent Health rozwiązanie w Azure Monitor
 Agent Health rozwiązanie na platformie Azure pomaga zrozumieć, że wszyscy agenci są raportowani bezpośrednio do Log Analytics obszaru roboczego w Azure Monitor lub System Center Operations Manager grupie zarządzania połączonej z Azure Monitor, które nie odpowiadają i przesyłają dane operacyjne.  Można także śledzić liczbę wdrożonych agentów i ich geograficzne rozmieszczenie oraz wykonywać inne zapytania dające informacje na temat rozmieszczenia agentów wdrożonych na platformie Azure, w innych środowiskach w chmurze i lokalnie.    
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wdrożeniem tego rozwiązania upewnij się, że obecnie są obsługiwane raporty [agenci systemu Windows](../../log-analytics/log-analytics-windows-agent.md) w obszarze roboczym log Analytics lub raportowanie do [Operations Manager grupy zarządzania](../../azure-monitor/platform/om-agents.md) zintegrowanej z Twoim obszarem roboczym.
+Przed wdrożeniem tego rozwiązania upewnij się, że obecnie są obsługiwane raporty [agenci systemu Windows](../platform/agent-windows.md) w obszarze roboczym log Analytics lub raportowanie do [Operations Manager grupy zarządzania](../../azure-monitor/platform/om-agents.md) zintegrowanej z Twoim obszarem roboczym.
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 To rozwiązanie składa się z następujących zasobów, które są dodawane do Twojego obszaru roboczego, i bezpośrednio połączonych agentów lub grupy zarządzania połączonej z programem Operations Manager.
@@ -68,7 +69,7 @@ Tworzony jest rekord o typie **Heartbeat**.  Te rekordy mają właściwości pod
 
 | Właściwość | Opis |
 | --- | --- |
-| `Type` | *Heartbeat*|
+| `Type` | *Puls*|
 | `Category` | Wartością jest *Direct Agent*, *SCOM Agent* lub *SCOM Management Server*.|
 | `Computer` | Nazwa komputera.|
 | `OSType` | System operacyjny Windows lub Linux.|

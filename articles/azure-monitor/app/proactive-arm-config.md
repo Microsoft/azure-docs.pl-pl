@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081597"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Zarządzanie Application Insights regułami wykrywania inteligentnego przy użyciu szablonów Azure Resource Manager
 
@@ -22,7 +22,7 @@ Tej metody można użyć podczas wdrażania nowych zasobów Application Insights
 
 Dla reguły wykrywania inteligentnego można skonfigurować następujące ustawienia:
 - Jeśli reguła jest włączona (wartość domyślna to **true**).
-- Jeśli wiadomości e-mail powinny być wysyłane do użytkowników skojarzonych z [czytnikiem monitorowania](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) subskrypcji i [monitorować role współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) po znalezieniu wykrywania (wartość domyślna to **true**).
+- Jeśli wiadomości e-mail powinny być wysyłane do użytkowników skojarzonych z [czytnikiem monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) subskrypcji i [monitorować role współautor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) po znalezieniu wykrywania (wartość domyślna to **true**).
 - Wszyscy dodatkowi Adresaci poczty e-mail, którzy powinni otrzymać powiadomienie po znalezieniu wykrywania.
     -  Konfiguracja poczty e-mail nie jest dostępna dla reguł wykrywania inteligentnego oznaczonych jako _wersja zapoznawcza_.
 

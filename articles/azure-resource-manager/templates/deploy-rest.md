@@ -2,12 +2,13 @@
 title: Wdrażanie zasobów za pomocą interfejsu API REST i szablonu
 description: Użyj Azure Resource Manager i Menedżer zasobów interfejsu API REST do wdrażania zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 17ea7da3e0b581ed60d2db97d350a70d5250ef28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079491"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Menedżer zasobów
 
@@ -100,7 +101,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
    }
    ```
 
-    Jeśli chcesz rejestrować zawartość odpowiedzi, zażądać zawartości lub oba te elementy, Dołącz **debugSetting** do żądania.
+    Jeśli chcesz rejestrować zawartość odpowiedzi, zażądać zawartości lub oba te elementy, Dołącz `debugSetting` je do żądania.
 
    ```json
    {
@@ -193,6 +194,22 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
    ```HTTP
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
    ```
+
+## <a name="deployment-name"></a>Nazwa wdrożenia
+
+Można nadać wdrożenie nazwę, taką jak `ExampleDeployment` .
+
+Za każdym razem, gdy uruchamiasz wdrożenie, do historii wdrożenia grupy zasobów zostanie dodany wpis z nazwą wdrożenia. Jeśli zostanie uruchomione inne wdrożenie i nastąpi taka sama nazwa, wcześniejszy wpis zostanie zastąpiony bieżącym wdrożeniem. Jeśli chcesz zachować unikatowe wpisy w historii wdrożenia, nadaj każdemu wdrożeniu unikatową nazwę.
+
+Aby utworzyć unikatową nazwę, można przypisać liczbę losową. Lub Dodaj wartość daty.
+
+W przypadku uruchamiania współbieżnych wdrożeń w tej samej grupie zasobów o tej samej nazwie wdrożenia zostanie wykonane tylko ostatnie wdrożenie. Wszystkie wdrożenia o tej samej nazwie, które nie zostały zakończone, są zastępowane przez ostatnie wdrożenie. Jeśli na przykład zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` , a w tym samym czasie zostanie uruchomione inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , zostanie wdrożone tylko jedno konto magazynu. Utworzone konto magazynu ma nazwę `storage2` .
+
+Jeśli jednak zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` i natychmiast po jego zakończeniu uruchomisz inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , masz dwa konta magazynu. Jeden z nich ma nazwę `storage1` , a drugi o nazwie `storage2` . Jednak w historii wdrożenia znajduje się tylko jeden wpis.
+
+W przypadku określenia unikatowej nazwy dla każdego wdrożenia można uruchomić je współbieżnie bez konfliktu. W przypadku uruchomienia wdrożenia o nazwie, `newStorage1` które wdraża konto magazynu o nazwie `storage1` i w tym samym czasie, należy uruchomić inne wdrożenie o nazwie, `newStorage2` które wdraża konto magazynu o nazwie `storage2` , istnieją dwa konta magazynu i dwa wpisy w historii wdrażania.
+
+Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpisy w historii wdrożenia, należy nadać każdemu wdrożeniu unikatową nazwę.
 
 ## <a name="next-steps"></a>Następne kroki
 

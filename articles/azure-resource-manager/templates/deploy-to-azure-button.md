@@ -2,13 +2,13 @@
 title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079460"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
@@ -28,7 +28,11 @@ Obraz jest wyświetlany jako:
 
 ## <a name="create-url-for-deploying-template"></a>Utwórz adres URL do wdrożenia szablonu
 
-Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium:
+Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium. Aby wyświetlić nieprzetworzony adres URL, wybierz opcję **RAW**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Wybierz surowce":::
+
+Format adresu URL:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

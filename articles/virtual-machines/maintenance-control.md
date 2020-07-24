@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 950f4cfda73b40db0de8ba035868573cda1a5017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080016"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji 
 
@@ -22,12 +23,12 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 Za pomocą kontrolki konserwacji można:
 - Aktualizacje wsadowe w jednym pakiecie aktualizacji.
 - Zaczekaj do 35 dni, aby zastosować aktualizacje. 
-- Automatyzuj aktualizacje platformy dla Twojego okna obsługi przy użyciu Azure Functions.
+- Automatyzuj aktualizacje platformy dla Twojego okna obsługi przy użyciu [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Konfiguracje konserwacji działają w ramach subskrypcji i grup zasobów. 
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./linux/dedicated-hosts.md)lub być tworzone przy użyciu [IZOLOWANEGO rozmiaru maszyny wirtualnej](./linux/isolation.md).
+- Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./linux/dedicated-hosts.md)lub być tworzone przy użyciu [IZOLOWANEGO rozmiaru maszyny wirtualnej](isolation.md).
 - Po upływie 35 dni zostanie automatycznie zastosowana aktualizacja.
 - Użytkownik musi mieć dostęp **współautora zasobów** .
 
@@ -37,7 +38,9 @@ Konfiguracje konserwacji można tworzyć i zarządzać nimi przy użyciu dowolne
 
 - [Interfejs wiersza polecenia platformy Azure](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
-- [Azure Portal](maintenance-control-portal.md)
+- [Witryna Azure Portal](maintenance-control-portal.md)
+
+Aby uzyskać przykład Azure Functions, zobacz [Planowanie aktualizacji konserwacji przy użyciu sterowania konserwacją i Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
 ## <a name="next-steps"></a>Następne kroki
 

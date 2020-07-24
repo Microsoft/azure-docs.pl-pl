@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079248"
 ---
 # <a name="using-azure-batch-rendering"></a>Używanie renderowania Azure Batch
 
@@ -19,7 +19,7 @@ Istnieje kilka sposobów używania renderowania Azure Batch:
 * Interfejsy API:
   * Napisz kod przy użyciu dowolnego interfejsu API usługi Batch.  Deweloperzy mogą integrować możliwości Azure Batch z istniejącymi aplikacjami lub przepływami pracy, zarówno w chmurze, jak i lokalnie.
 * Narzędzia wiersza polecenia:
-  * W celu użycia wsadowego skryptu można użyć [wiersza polecenia platformy Azure](/cli/azure/) lub [programu PowerShell](/powershell/azure/overview) .
+  * W celu użycia wsadowego skryptu można użyć [wiersza polecenia platformy Azure](/cli/azure/) lub [programu PowerShell](/powershell/azure/) .
   * W szczególności [Obsługa szablonu interfejsu wiersza polecenia](./batch-cli-templates.md) w usłudze Batch ułatwia tworzenie pul i przesyłanie zadań.
 * Batch Explorer interfejsie użytkownika:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) to międzyplatformowe narzędzie klienta, które umożliwia również zarządzanie i monitorowanie kont wsadowych.

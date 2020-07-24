@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6b29125087bd60041f85b1b5023646b039bd6a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243e5eafd38a35b5afd89e765c3196efbfe5362f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079999"
 ---
 # <a name="nd-series"></a>Seria ND
 
@@ -27,7 +27,7 @@ Migracja na żywo: nieobsługiwane
 Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 > [!IMPORTANT]
-> Dla tej serii maszyn wirtualnych limit przydziału vCPU (rdzeń) na region w ramach subskrypcji jest początkowo ustawiony na 0. [Zażądaj zwiększenia limitu przydziału vCPU](../azure-supportability/resource-manager-core-quotas-request.md) dla tej serii w [dostępnym regionie](https://azure.microsoft.com/regions/services/).
+> Dla tej serii maszyn wirtualnych limit przydziału vCPU (rdzeń) na region w ramach subskrypcji jest początkowo ustawiony na 0. [Zażądaj zwiększenia limitu przydziału vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) dla tej serii w [dostępnym regionie](https://azure.microsoft.com/regions/services/).
 >
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych |
 |---|---|---|---|---|---|---|---|---|
@@ -52,7 +52,7 @@ W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU fir
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

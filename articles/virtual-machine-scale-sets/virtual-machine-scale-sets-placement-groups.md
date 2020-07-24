@@ -9,15 +9,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 001b5d803dedad8de407480e668c9ec40a004ace
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080390"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Praca z dużymi zestawami skalowania maszyn wirtualnych
-Możliwe jest teraz tworzenie [zestawów skalowania maszyn wirtualnych platformy Azure](/azure/virtual-machine-scale-sets/) o pojemności do 1000 maszyn wirtualnych. W tym dokumencie _duży zestaw skalowania maszyn wirtualnych_ jest zdefiniowany jako zestaw skalowania umożliwiający skalowanie do ponad 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania (_singlePlacementGroup=False_). 
+Możliwe jest teraz tworzenie [zestawów skalowania maszyn wirtualnych platformy Azure](./index.yml) o pojemności do 1000 maszyn wirtualnych. W tym dokumencie _duży zestaw skalowania maszyn wirtualnych_ jest zdefiniowany jako zestaw skalowania umożliwiający skalowanie do ponad 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania (_singlePlacementGroup=False_). 
 
 Niektóre aspekty dużych zestawów skalowania, na przykład równoważenie obciążenia i domeny błędów, działają inaczej niż w przypadku standardowych zestawów skalowania. Ten dokument zawiera wyjaśnienie charakterystyk dużych zestawów skalowania oraz informacje potrzebne, aby pomyślnie używać ich w ramach aplikacji. 
 
@@ -34,10 +34,10 @@ Aby zdecydować, czy aplikacja może w sposób efektywny używać dużych zestaw
 - Zestawy skalowania utworzone na podstawie obrazów niestandardowych (samodzielnie utworzone i przekazane obrazy maszyn wirtualnych) można aktualnie skalować w górę do 600 maszyn wirtualnych.
 - Duże zestawy skalowania wymagają użycia funkcji Dyski zarządzane platformy Azure. Zestawy skalowania, które nie zostaną utworzone za pomocą funkcji Dyski zarządzane, wymagają wielu kont magazynu (jednego dla każdych 20 maszyn wirtualnych). Duże zestawy skalowania są przeznaczone do użytku tylko z funkcją Dyski zarządzane w celu ograniczenia narzutu związanego z zarządzaniem magazynem oraz uniknięcia ryzyka przekroczenia limitów subskrypcji dla kont magazynu. 
 - Duża skala (SPG = false) nie obsługuje sieci InfiniBand
-- Równoważenie obciążenia w warstwie 4 za pomocą zestawów skalowania składających się z wielu grup umieszczania wymaga [jednostki SKU usługi Azure Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md). Jednostka SKU usługi Load Balancer w warstwie Standardowa zapewnia dodatkowe korzyści, takie jak możliwość równoważenia obciążenia między wieloma zestawami skalowania. Jednostka SKU w warstwie Standardowa wymaga również, aby zestaw skalowania miał skojarzoną sieciową grupę zabezpieczeń. W przeciwnym razie pule translatora adresów sieciowych nie będą działać poprawnie. Jeśli konieczne jest użycie jednostki SKU usługi Azure Load Balancer w warstwie Podstawowa, upewnij się, że zestaw skalowania jest skonfigurowany pod kątem używania pojedynczej grupy umieszczania (jest to ustawienie domyślne).
+- Równoważenie obciążenia w warstwie 4 za pomocą zestawów skalowania składających się z wielu grup umieszczania wymaga [jednostki SKU usługi Azure Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md). Jednostka SKU usługi Load Balancer w warstwie Standardowa zapewnia dodatkowe korzyści, takie jak możliwość równoważenia obciążenia między wieloma zestawami skalowania. Jednostka SKU w warstwie Standardowa wymaga również, aby zestaw skalowania miał skojarzoną sieciową grupę zabezpieczeń. W przeciwnym razie pule translatora adresów sieciowych nie będą działać poprawnie. Jeśli konieczne jest użycie jednostki SKU usługi Azure Load Balancer w warstwie Podstawowa, upewnij się, że zestaw skalowania jest skonfigurowany pod kątem używania pojedynczej grupy umieszczania (jest to ustawienie domyślne).
 - Równoważenie obciążenia w warstwie 7 za pomocą usługi Azure Application Gateway jest obsługiwane dla wszystkich zestawów skalowania.
 - Zestaw skalowania jest zdefiniowany z jedną podsiecią — upewnij się, że podsieć ma wystarczająco dużą przestrzeń adresową dla wszystkich wymaganych maszyn wirtualnych. Domyślnie zestaw skalowania w celu poprawy niezawodności i wydajności wdrożenia przeprowadza nadmiarową aprowizację, czyli tworzy dodatkowe maszyny wirtualne w czasie wdrażania lub skalowania w poziomie, za które nie są naliczane opłaty. Przestrzeń adresowa powinna być o 20% większa niż liczba maszyn wirtualnych, do której planowane jest skalowanie.
-- Domeny błędów i domeny uaktualnień są spójne tylko w ramach grupy umieszczania. Taka architektura nie zmienia ogólnej dostępności zestawu skalowania, ponieważ maszyny wirtualne są równomiernie rozpraszane na różnym sprzęcie fizycznym, ale w celu zagwarantowania, że dwie maszyny wirtualne znajdują się na różnym sprzęcie, upewnij się, że znajdują się one w różnych domenach błędów w tej samej grupie umieszczania. Zapoznaj się z tymi [opcjami dostępności](/azure/virtual-machines/windows/availability)linku. 
+- Domeny błędów i domeny uaktualnień są spójne tylko w ramach grupy umieszczania. Taka architektura nie zmienia ogólnej dostępności zestawu skalowania, ponieważ maszyny wirtualne są równomiernie rozpraszane na różnym sprzęcie fizycznym, ale w celu zagwarantowania, że dwie maszyny wirtualne znajdują się na różnym sprzęcie, upewnij się, że znajdują się one w różnych domenach błędów w tej samej grupie umieszczania. Zapoznaj się z tymi [opcjami dostępności](../virtual-machines/windows/availability.md)linku. 
 - Identyfikatory domeny błędów i grupy umieszczania są wyświetlane w _widoku wystąpienia_ maszyny wirtualnej zestawu skalowania. Widok wystąpienia maszyny wirtualnej zestawu skalowania można otworzyć w [Eksploratorze zasobów Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Tworzenie dużego zestawu skalowania
@@ -84,5 +84,3 @@ Aby możliwe było skalowanie istniejącego zestawu skalowania maszyn wirtualnyc
 
 > [!NOTE]
 > Zestaw skalowania można zmienić z obsługującego tylko pojedynczą grupę umieszczania (domyślne zachowanie) na obsługujący wiele grup umieszczania, ale nie odwrotnie. W związku z tym przed przeprowadzeniem konwersji zapoznaj się z właściwościami dużych zestawów skalowania.
-
-

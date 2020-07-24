@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081648"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w Azure Functions
 
@@ -54,7 +55,7 @@ Możesz również wyzwolić funkcję ze wszystkich innych zasobów w sieci wirtu
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Jak mogę wdrożyć aplikację funkcji w sieci wirtualnej?
 
-Wdrożenie do App Service Environment jest jedynym sposobem tworzenia aplikacji funkcji, która znajduje się w całości w sieci wirtualnej. Aby uzyskać szczegółowe informacje na temat używania wewnętrznego modułu równoważenia obciążenia z App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Wdrożenie do App Service Environment jest jedynym sposobem tworzenia aplikacji funkcji, która znajduje się w całości w sieci wirtualnej. Aby uzyskać szczegółowe informacje na temat używania wewnętrznego modułu równoważenia obciążenia z App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 W przypadku scenariuszy, w których potrzebujesz tylko jednokierunkowego dostępu do zasobów sieci wirtualnej lub mniej kompleksowej izolacji sieci, zobacz [Omówienie usługi Functions](functions-networking-options.md).
 

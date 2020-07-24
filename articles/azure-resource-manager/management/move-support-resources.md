@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079505"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -288,6 +288,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftapimanagement"></a>Microsoft. ApiManagement
 
+> [!IMPORTANT]
+> Nie można przenieść usługi API Management, która jest ustawiona na jednostkę SKU zużycia.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -298,9 +301,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | reportfeedback | Nie | Nie |
 > | usługa | Tak | Tak |
 > | validateservicename | Nie | Nie |
-
-> [!IMPORTANT]
-> Nie można przenieść usługi API Management, która jest ustawiona na jednostkę SKU zużycia.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
@@ -330,15 +330,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftappservice"></a>Microsoft. AppService
 
+> [!IMPORTANT]
+> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | apiapps | Nie | Nie |
 > | appidentities | Nie | Nie |
 > | bram | Nie | Nie |
-
-> [!IMPORTANT]
-> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftattestation"></a>Microsoft. zaświadczanie
 
@@ -375,6 +375,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
+> [!IMPORTANT]
+> Elementy Runbook muszą istnieć w tej samej grupie zasobów co konto usługi Automation.
+>
+> Aby uzyskać więcej informacji, zobacz [Przenoszenie konta Azure Automation do innej subskrypcji](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -388,11 +393,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | automationaccounts / softwareupdateconfigurations | Nie | Nie |
 > | automationaccounts/elementy webhook | Nie | Nie |
 > | operacje | Nie | Nie |
-
-> [!IMPORTANT]
-> Elementy Runbook muszą istnieć w tej samej grupie zasobów co konto usługi Automation.
->
-> Aby uzyskać więcej informacji, zobacz [Przenoszenie konta Azure Automation do innej subskrypcji](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft. Automatyczna synchronizacja
 
@@ -626,6 +626,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftcache"></a>Microsoft. cache
 
+> [!IMPORTANT]
+> Jeśli wystąpienie usługi Azure cache for Redis jest skonfigurowane przy użyciu sieci wirtualnej, nie można przenieść wystąpienia do innej subskrypcji. Zobacz [ograniczenia dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -638,9 +641,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Redis/eventgridfilters | Nie | Nie |
 > | Redis/privatelinkresources | Nie | Nie |
 > | redisenterprise | Nie | Nie |
-
-> [!IMPORTANT]
-> Jeśli wystąpienie usługi Azure cache for Redis jest skonfigurowane przy użyciu sieci wirtualnej, nie można przenieść wystąpienia do innej subskrypcji. Zobacz [ograniczenia dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcapacity"></a>Microsoft. Pojemność
 
@@ -700,6 +700,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
+> [!IMPORTANT]
+> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -707,9 +710,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | certificateorders/certyfikaty | Nie | Nie |
 > | operacje | Nie | Nie |
 > | validatecertificateregistrationinformation | Nie | Nie |
-
-> [!IMPORTANT]
-> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft. ChangeAnalysis
 
@@ -719,6 +719,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+
+> [!IMPORTANT]
+> Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -746,20 +749,20 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualmachines/metricdefinitions | Nie | Nie |
 > | virtualmachines/metryki | Nie | Nie |
 
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft. ClassicInfrastructureMigrate
+
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
-
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft. ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | classicinfrastructureresources | Nie | Nie |
 
+## <a name="microsoftclassicnetwork"></a>Microsoft. ClassicNetwork
+
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
-
-## <a name="microsoftclassicnetwork"></a>Microsoft. ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -776,10 +779,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualnetworks/remotevirtualnetworkpeeringproxies | Nie | Nie |
 > | virtualnetworks/virtualnetworkpeerings | Nie | Nie |
 
+## <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
+
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
-
-## <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -807,18 +810,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | storageaccounts/vmimages | Nie | Nie |
 > | vmimages | Nie | Nie |
 
+## <a name="microsoftclassicsubscription"></a>Microsoft. ClassicSubscription
+
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
-
-## <a name="microsoftclassicsubscription"></a>Microsoft. ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | operacje | Nie | Nie |
-
-> [!IMPORTANT]
-> Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
 
@@ -843,6 +843,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | usageaggregates | Nie | Nie |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
+
+> [!IMPORTANT]
+> Zobacz [Virtual Machines wskazówki dotyczące przenoszenia](./move-limitations/virtual-machines-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -888,9 +891,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualmachinescalesets/adresów publicipaddress | Nie | Nie |
 > | virtualmachinescalesets/virtualmachines | Nie | Nie |
 > | virtualmachinescalesets/virtualmachines/NetworkInterfaces | Nie | Nie |
-
-> [!IMPORTANT]
-> Zobacz [Virtual Machines wskazówki dotyczące przenoszenia](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftconsumption"></a>Microsoft. zużycie
 
@@ -1613,6 +1613,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsofthdinsight"></a>Microsoft. HDInsight
 
+> [!IMPORTANT]
+> Klastry usługi HDInsight można przenosić do nowej subskrypcji lub grupy zasobów. Nie jest jednak możliwe przechodzenie między subskrypcjami zasobów sieciowych połączonych z klastrem usługi HDInsight (takich jak sieć wirtualna, karta sieciowa lub moduł równoważenia obciążenia). Ponadto nie można przenieść do nowej grupy zasobów karty sieciowej podłączonej do maszyny wirtualnej w klastrze.
+>
+> Podczas przenoszenia klastra usługi HDInsight do nowej subskrypcji najpierw Przenieś inne zasoby (takie jak konto magazynu). Następnie należy przenieść klaster usługi HDInsight do samego siebie.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -1627,11 +1632,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/użycia | Nie | Nie |
 > | Lokalizacje/validatecreaterequest | Nie | Nie |
 > | operacje | Nie | Nie |
-
-> [!IMPORTANT]
-> Klastry usługi HDInsight można przenosić do nowej subskrypcji lub grupy zasobów. Nie jest jednak możliwe przechodzenie między subskrypcjami zasobów sieciowych połączonych z klastrem usługi HDInsight (takich jak sieć wirtualna, karta sieciowa lub moduł równoważenia obciążenia). Ponadto nie można przenieść do nowej grupy zasobów karty sieciowej podłączonej do maszyny wirtualnej w klastrze.
->
-> Podczas przenoszenia klastra usługi HDInsight do nowej subskrypcji najpierw Przenieś inne zasoby (takie jak konto magazynu). Następnie należy przenieść klaster usługi HDInsight do samego siebie.
 
 ## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
 
@@ -1699,6 +1699,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftinsights"></a>Microsoft. Insights
 
+> [!IMPORTANT]
+> Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -1754,9 +1757,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | skoroszyty | Tak | Tak |
 > | workbooktemplates | Tak | Tak |
 
-> [!IMPORTANT]
-> Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
-
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -1779,6 +1779,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftkeyvault"></a>Microsoft. kluczy — magazyn
 
+> [!IMPORTANT]
+> Magazyny kluczy używane do szyfrowania dysków nie mogą zostać przeniesione do grupy zasobów w tej samej subskrypcji lub w różnych subskrypcjach.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -1795,9 +1798,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | magazyny/accesspolicies | Nie | Nie |
 > | magazyny/eventgridfilters | Nie | Nie |
 > | magazyny/wpisy tajne | Nie | Nie |
-
-> [!IMPORTANT]
-> Magazyny kluczy używane do szyfrowania dysków nie mogą zostać przeniesione do grupy zasobów w tej samej subskrypcji lub w różnych subskrypcjach.
 
 ## <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
 
@@ -2115,6 +2115,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
+> [!IMPORTANT]
+> Zobacz [wskazówki dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -2237,9 +2240,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | vpnserverconfigurations | Nie | Nie |
 > | vpnsites (wirtualna sieć WAN) | Nie | Nie |
 
-> [!IMPORTANT]
-> Zobacz [wskazówki dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md).
-
 ## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -2272,6 +2272,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
+> [!IMPORTANT]
+> Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
+>
+> Nie można przenieść obszarów roboczych, które mają połączone konto usługi Automation. Przed rozpoczęciem operacji przenoszenia należy pamiętać o odłączeniu wszystkich kont usługi Automation.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -2289,11 +2294,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | obszary robocze/metadane | Nie | Nie |
 > | obszary robocze/zapytanie | Nie | Nie |
 > | obszary robocze/scopedprivatelinkproxies | Nie | Nie |
-
-> [!IMPORTANT]
-> Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
->
-> Nie można przenieść obszarów roboczych, które mają połączone konto usługi Automation. Przed rozpoczęciem operacji przenoszenia należy pamiętać o odłączeniu wszystkich kont usługi Automation.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 
@@ -2406,6 +2406,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
+> [!IMPORTANT]
+> Zobacz [Recovery Services wskazówki dotyczące przenoszenia](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -2426,9 +2429,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | replicationeligibilityresults | Nie | Nie |
 > | magazynów | Tak | Tak |
-
-> [!IMPORTANT]
-> Zobacz [Recovery Services wskazówki dotyczące przenoszenia](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft. RedHatOpenShift
 
@@ -2532,6 +2532,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftsearch"></a>Microsoft. Search
 
+> [!IMPORTANT]
+> Nie można przenieść kilku zasobów wyszukiwania w różnych regionach w jednej operacji. Zamiast tego należy przenieść je w osobnych operacjach.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -2540,9 +2543,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | resourcehealthmetadata | Nie | Nie |
 > | searchservices | Tak | Tak |
-
-> [!IMPORTANT]
-> Nie można przenieść kilku zasobów wyszukiwania w różnych regionach w jednej operacji. Zamiast tego należy przenieść je w osobnych operacjach.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -2748,6 +2748,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
+> [!IMPORTANT]
+> Baza danych i serwer muszą znajdować się w tej samej grupie zasobów. Podczas przenoszenia programu SQL Server wszystkie jego bazy danych również są przenoszone. To zachowanie ma zastosowanie do baz danych Azure SQL Database i usługi Azure Synapse Analytics.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -2922,9 +2925,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | serwery/vulnerabilityassessments | Nie | Nie |
 > | virtualclusters | Tak | Tak |
 
-> [!IMPORTANT]
-> Baza danych i serwer muszą znajdować się w tej samej grupie zasobów. Podczas przenoszenia programu SQL Server wszystkie jego bazy danych również są przenoszone. To zachowanie ma zastosowanie do baz danych Azure SQL Database i usługi Azure Synapse Analytics.
-
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
@@ -3012,6 +3012,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
 
+> [!IMPORTANT]
+> Nie można przenieść zadań Stream Analytics, gdy stan jest uruchomiony.
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -3020,9 +3023,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/przydziały | Nie | Nie |
 > | operacje | Nie | Nie |
 > | streamingjobs | Tak | Tak |
-
-> [!IMPORTANT]
-> Nie można przenieść zadań Stream Analytics, gdy stan jest uruchomiony.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft. StreamAnalyticsExplorer
 
@@ -3110,6 +3110,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftvisualstudio"></a>Microsoft. VisualStudio
 
+> [!IMPORTANT]
+> Aby zmienić subskrypcję usługi Azure DevOps, zobacz [zmiana subskrypcji platformy Azure używanej do rozliczania](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -3118,9 +3121,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | konto/projekt | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | operacje | Nie | Nie |
-
-> [!IMPORTANT]
-> Aby zmienić subskrypcję usługi Azure DevOps, zobacz [zmiana subskrypcji platformy Azure używanej do rozliczania](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmware"></a>Microsoft. VMware
 
@@ -3178,6 +3178,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 
+> [!IMPORTANT]
+> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
@@ -3232,9 +3235,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | staticsites | Nie | Nie |
 > | legalizacj | Nie | Nie |
 > | verifyhostingenvironmentvnet | Nie | Nie |
-
-> [!IMPORTANT]
-> Zobacz [App Service wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsesu"></a>Microsoft. WindowsESU
 

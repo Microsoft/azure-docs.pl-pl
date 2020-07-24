@@ -5,11 +5,12 @@ author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bddb6af777f36d04bae4a8b68c476789048be1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081784"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Odzyskiwanie po awarii i dystrybucja geograficzna na platformie Azure Durable Functions
 
@@ -82,4 +83,4 @@ Podobnie jak w przypadku innych scenariuszy, istnieją ważne zagadnienia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji na temat [projektowania aplikacji o wysokiej dostępności przy użyciu usługi RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)
+Więcej informacji na temat [projektowania aplikacji o wysokiej dostępności przy użyciu usługi RA-GRS](../../storage/common/geo-redundant-design.md)

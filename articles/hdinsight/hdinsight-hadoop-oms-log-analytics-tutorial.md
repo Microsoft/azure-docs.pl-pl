@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 05/13/2020
-ms.openlocfilehash: e4096b00ca1bbe1ad7d88c37a846d3f56b2860b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e523d468ae53e220cbda1c9748965110e82d48a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081087"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
@@ -23,7 +23,7 @@ Dowiedz się, jak włączyć dzienniki Azure Monitor, aby monitorować operacje 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
   Instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight można znaleźć w temacie [Rozpoczynanie pracy z usługą Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](https://docs.microsoft.com/powershell/azure/overview). Upewnij się, że masz najnowszą wersję. W razie potrzeby uruchom polecenie `Update-Module -Name Az` .
+* W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](https://docs.microsoft.com/powershell/azure/). Upewnij się, że masz najnowszą wersję. W razie potrzeby uruchom polecenie `Update-Module -Name Az` .
 
 * Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 558dd152aa1c6638155ad4215dc16f08d33d2e2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080543"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -143,7 +143,7 @@ Podczas uaktualniania systemu operacyjnego wystąpienia maszyn wirtualnych w zes
 
 Zestaw skalowania można opcjonalnie skonfigurować przy użyciu sond kondycji aplikacji, aby zapewnić platformę z dokładnymi informacjami o stanie trwającym aplikacji. Sondy kondycji aplikacji to niestandardowe sondy Load Balancer, które są używane jako sygnał kondycji. Aplikacja uruchomiona w wystąpieniu maszyny wirtualnej zestawu skalowania może odpowiadać na zewnętrzne żądania HTTP lub TCP, wskazując, czy jest w dobrej kondycji. Aby uzyskać więcej informacji na temat działania niestandardowych sond Load Balancer, zobacz Aby [zrozumieć sondy modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md). Sondy kondycji aplikacji nie są obsługiwane w przypadku zestawów skalowania Service Fabric. Zestawy skalowania inne niż Service Fabric wymagają Load Balancer sond kondycji aplikacji lub [rozszerzenia kondycji aplikacji](virtual-machine-scale-sets-health-extension.md).
 
-Jeśli zestaw skalowania jest skonfigurowany tak, aby korzystał z wielu grup umieszczania, sondy używające [Usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) muszą być używane.
+Jeśli zestaw skalowania jest skonfigurowany tak, aby korzystał z wielu grup umieszczania, sondy używające [Usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md) muszą być używane.
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Konfigurowanie sondy Load Balancer niestandardowego jako sondy kondycji aplikacji w zestawie skalowania
 Najlepszym rozwiązaniem jest tworzenie sondy modułu równoważenia obciążenia jawnie dla kondycji zestawu skalowania. Można użyć tego samego punktu końcowego dla istniejącej sondy HTTP lub sondy TCP, ale sonda kondycji może wymagać innego zachowania od tradycyjnej sondy modułu równoważenia obciążenia. Na przykład tradycyjna sonda modułu równoważenia obciążenia może zwracać stan w złej kondycji, jeśli obciążenie wystąpienia jest zbyt duże, ale nie jest to odpowiednie do określania kondycji wystąpienia podczas automatycznego uaktualniania systemu operacyjnego. Skonfiguruj sondę w taki sposób, aby miała wysoką częstotliwość sondowania mniejszą niż dwie minuty.
@@ -161,7 +161,7 @@ Sondcy równoważenia obciążenia można przywoływać w *networkProfile* zesta
 ```
 
 > [!NOTE]
-> W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest wdrażany w domenie aktualizacji w celu zapewnienia wysokiej dostępności usług działających w Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric klaster musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej. Aby uzyskać więcej informacji na temat właściwości trwałości klastrów Service Fabric, zobacz [tę dokumentację](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest wdrażany w domenie aktualizacji w celu zapewnienia wysokiej dostępności usług działających w Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric klaster musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej. Aby uzyskać więcej informacji na temat właściwości trwałości klastrów Service Fabric, zobacz [tę dokumentację](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Aktualizowanie poświadczeń na bieżąco
 Jeśli zestaw skalowania korzysta z dowolnych poświadczeń w celu uzyskania dostępu do zasobów zewnętrznych, takich jak rozszerzenie maszyny wirtualnej skonfigurowane do używania tokenu sygnatury dostępu współdzielonego dla konta magazynu, upewnij się, że poświadczenia zostały zaktualizowane. Po wygaśnięciu jakichkolwiek poświadczeń, w tym certyfikatów i tokenów, uaktualnienie zakończy się niepowodzeniem, a pierwsza partia maszyn wirtualnych zostanie pozostawiona w stanie niepowodzenia.

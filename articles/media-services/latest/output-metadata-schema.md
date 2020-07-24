@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080928"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
 
-Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na którym mają zostać wykonane pewne zadania kodowania. Na przykład Koduj plik MP4 do H. 264 zestawy adaptacyjnej szybkości transmisji bitów. Utwórz miniaturę; Utwórz nakładki. Po zakończeniu zadania tworzony jest wyjściowy element zawartości.  Element zawartości wyjściowej zawiera wideo, audio, miniatury i inne pliki. Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku JSON metadanych ma następujący format: `<source_file_name>_manifest.json` (na przykład `BigBuckBunny_manifest.json` ).  
+Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na którym mają zostać wykonane pewne zadania kodowania. Na przykład Koduj plik MP4 do H. 264 zestawy adaptacyjnej szybkości transmisji bitów. Utwórz miniaturę; Utwórz nakładki. Po zakończeniu zadania tworzony jest wyjściowy element zawartości.  Element zawartości wyjściowej zawiera wideo, audio, miniatury i inne pliki. Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku JSON metadanych ma następujący format: `<source_file_name>_manifest.json` (na przykład `BigBuckBunny_manifest.json` ). Aby znaleźć nazwę pliku źródłowego (bez obcięcia), należy przeprowadzić skanowanie w poszukiwaniu dowolnego znaku * _metadata.jsi zbadać ciąg FilePath w programie.
 
 Media Services nie zapobiegawczo do skanowania danych wejściowych w celu wygenerowania metadanych. Metadane wejściowe są generowane tylko jako artefakt, gdy wejściowy element zawartości jest przetwarzany w zadaniu. W związku z tym ten artefakt jest zapisywana w elemencie zawartości wyjściowej. Do generowania metadanych dla wejściowych zasobów i elementów zawartości wyjściowej są używane różne narzędzia. W związku z tym metadane wejściowe mają nieco inny schemat niż metadane wyjściowe.
 
@@ -52,7 +53,7 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 | **FourCC**<br />Wymagane | Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.  <br /><br />Przykład: `"FourCC": "avc1"`|
 | **Profil** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264).  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
-| **impulsów**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
+| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
 | **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Wymagane|Licznik współczynnik proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|

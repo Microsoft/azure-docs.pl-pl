@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ba95969d8bb6987d2e3685f937170f97e1af68f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078699"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blokuj połączenia utworzone przez łączniki w Azure Logic Apps
 
@@ -31,7 +31,7 @@ W tym temacie opisano sposób konfigurowania zasad, które blokują określone p
 
 Jeśli masz już aplikację logiki z połączeniem, które chcesz zablokować, postępuj zgodnie z instrukcjami [dotyczącymi Azure Portal](#connector-ID-portal). Jeśli nie, wykonaj następujące kroki:
 
-1. Odwiedź [listę łączników Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
+1. Odwiedź [listę łączników Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 1. Znajdź stronę referencyjną łącznika, który chcesz zablokować.
 
@@ -47,7 +47,7 @@ Jeśli masz już aplikację logiki z połączeniem, które chcesz zablokować, p
 
 <a name="connector-ID-portal"></a>
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz aplikację logiki.
 

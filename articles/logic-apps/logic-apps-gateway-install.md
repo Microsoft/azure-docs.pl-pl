@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078656"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -21,7 +22,7 @@ Przed [nawiązaniem połączenia z lokalnymi źródłami danych z Azure Logic Ap
 * [Lokalna Brama danych firmy Microsoft dla aplikacji zaawansowanych](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services lokalnej bramy danych](../analysis-services/analysis-services-gateway.md)
 
-W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną bramę danych, aby można było uzyskać dostęp do lokalnych źródeł danych z Azure Logic Apps. Możesz również dowiedzieć się więcej o tym [, jak Brama danych działa](#gateway-cloud-service) w dalszej części tego tematu. Aby uzyskać więcej informacji na temat bramy, zobacz [co to jest brama lokalna](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)? Aby zautomatyzować zadania związane z instalacją i zarządzaniem bramą, odwiedź Galerię programu PowerShell dla [poleceń cmdlet programu PowerShell dla usługi datagateway](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
+W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną bramę danych, aby można było uzyskać dostęp do lokalnych źródeł danych z Azure Logic Apps. Możesz również dowiedzieć się więcej o tym [, jak Brama danych działa](#gateway-cloud-service) w dalszej części tego tematu. Aby uzyskać więcej informacji na temat bramy, zobacz [co to jest brama lokalna](/data-integration/gateway/service-gateway-onprem)? Aby zautomatyzować zadania związane z instalacją i zarządzaniem bramą, odwiedź Galerię programu PowerShell dla [poleceń cmdlet programu PowerShell dla usługi datagateway](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 
@@ -79,7 +80,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
   * Brama ma dwa tryby: tryb standardowy i tryb osobisty, który ma zastosowanie tylko do Power BI. Na tym samym komputerze nie może znajdować się więcej niż jedna brama uruchomiona w tym samym trybie.
 
-  * Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy. Jednak te operacje mają [limity rozmiaru ładunku](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy. Jednak te operacje mają [limity rozmiaru ładunku](/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -142,8 +143,8 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
 Lokalna Brama danych zależy od [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych nawiązanie połączenia z usługą bramy w chmurze i Azure Service Bus. Brama ma kilka ustawień komunikacji, które można dostosować. Więcej informacji można znaleźć w następujących tematach:
 
-* [Dostosuj ustawienia komunikacji dla lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Dostosuj ustawienia komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
+* [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -155,7 +156,7 @@ Aby uniknąć pojedynczych punktów awarii w przypadku dostępu do danych lokaln
 
 * Brama podstawowa musi mieć uruchomioną aktualizację z listopada 2017 lub nowszą.
 
-Po skonfigurowaniu bramy podstawowej po przejściu do pozycji zainstaluj inną bramę wybierz opcję **Dodaj do istniejącego klastra bramy**, wybierz bramę podstawową, która jest pierwszą zainstalowaną bramą, i Podaj klucz odzyskiwania dla tej bramy. Aby uzyskać więcej informacji, zobacz [klastrów o wysokiej dostępności dla lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+Po skonfigurowaniu bramy podstawowej po przejściu do pozycji zainstaluj inną bramę wybierz opcję **Dodaj do istniejącego klastra bramy**, wybierz bramę podstawową, która jest pierwszą zainstalowaną bramą, i Podaj klucz odzyskiwania dla tej bramy. Aby uzyskać więcej informacji, zobacz [klastrów o wysokiej dostępności dla lokalnej bramy danych](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
@@ -185,7 +186,7 @@ Jeśli konieczna jest zmiana lokalizacji bramy, przeniesienie instalacji bramy n
 
 ## <a name="tenant-level-administration"></a>Administracja na poziomie dzierżawy
 
-Aby uzyskać wgląd we wszystkie lokalne bramy danych w dzierżawie usługi Azure AD, Administratorzy globalni w tej dzierżawie mogą zalogować się do [Centrum administracyjnego platformy na platformie zarządzania](https://powerplatform.microsoft.com) jako Administrator dzierżawy i wybrać opcję **bramy danych** . Aby uzyskać więcej informacji, zobacz [administrowanie na poziomie dzierżawy dla lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+Aby uzyskać wgląd we wszystkie lokalne bramy danych w dzierżawie usługi Azure AD, Administratorzy globalni w tej dzierżawie mogą zalogować się do [Centrum administracyjnego platformy na platformie zarządzania](https://powerplatform.microsoft.com) jako Administrator dzierżawy i wybrać opcję **bramy danych** . Aby uzyskać więcej informacji, zobacz [administrowanie na poziomie dzierżawy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
@@ -196,7 +197,7 @@ Domyślnie instalacja bramy na komputerze lokalnym działa jako konto usługi sy
 > [!NOTE]
 > Konto usługi systemu Windows różni się od konta używanego do łączenia się z lokalnymi źródłami danych i konta platformy Azure, które jest używane podczas logowania się do usług w chmurze.
 
-Podobnie jak w przypadku każdej innej usługi systemu Windows, można uruchomić i zatrzymać bramę na różne sposoby. Aby uzyskać więcej informacji, zobacz [Ponowne uruchamianie lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Podobnie jak w przypadku każdej innej usługi systemu Windows, można uruchomić i zatrzymać bramę na różne sposoby. Aby uzyskać więcej informacji, zobacz [Ponowne uruchamianie lokalnej bramy danych](/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
@@ -217,11 +218,11 @@ W tych krokach opisano, co się dzieje w przypadku korzystania z elementu połą
 
 1. Usługa w chmurze tworzy zapytanie wraz z zaszyfrowanymi poświadczeniami dla źródła danych. Następnie usługa wysyła zapytanie i poświadczenia do kolejki bramy w celu przetworzenia.
 
-1. Usługa bramy w chmurze analizuje zapytanie i wypycha żądanie do Azure Service Bus.
+1. Usługa bramy w chmurze analizuje zapytanie i wypycha żądanie do usługi Azure Service Bus.
 
-1. Azure Service Bus wysyła oczekujące żądania do bramy.
+1. Usługa Azure Service Bus wysyła żądania oczekujące do bramy.
 
-1. Brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie z jednym lub wieloma źródłami danych przy użyciu tych poświadczeń.
+1. Brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie z co najmniej jednym źródłem danych przy użyciu tych poświadczeń.
 
 1. Brama wysyła zapytanie do źródła danych w celu uruchomienia.
 
@@ -260,9 +261,9 @@ Poniżej przedstawiono sposoby dopasowywania lokalnych kont Active Directory za 
 
 ## <a name="faq-and-troubleshooting"></a>Często zadawane pytania i rozwiązywanie problemów
 
-* [Lokalna brama danych — często zadawane pytania](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Rozwiązywanie problemów z lokalną bramą danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorowanie i optymalizowanie wydajności bramy](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Lokalna brama danych — często zadawane pytania](/data-integration/gateway/service-gateway-onprem-faq)
+* [Rozwiązywanie problemów z lokalną bramą danych](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorowanie i optymalizowanie wydajności bramy](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Następne kroki
 

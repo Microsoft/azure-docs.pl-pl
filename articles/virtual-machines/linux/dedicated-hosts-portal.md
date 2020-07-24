@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 068f6e85a0b2a56bb20c8581ec4fa59d50009088
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79086756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080322"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu portalu
 
@@ -45,7 +46,7 @@ Możesz dodać maszynę wirtualną z wykończeniami do dedykowanego hosta, ale n
 
 - Rozmiar maszyny wirtualnej musi znajdować się w tej samej rodzinie rozmiarów co dedykowany host. Na przykład jeśli dedykowany host to DSv3, rozmiar maszyny wirtualnej może być Standard_D4s_v3, ale nie Standard_A4_v2. 
 - Maszyna wirtualna musi znajdować się w tym samym regionie co dedykowany host.
-- Maszyna wirtualna nie może być częścią grupy umieszczania sąsiedztwa. Usuń maszynę wirtualną z grupy położenia zbliżeniowe przed przeniesieniem jej do dedykowanego hosta. Aby uzyskać więcej informacji, zobacz [Przenoszenie maszyny wirtualnej z grupy umieszczania sąsiedztwa](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- Maszyna wirtualna nie może być częścią grupy umieszczania sąsiedztwa. Usuń maszynę wirtualną z grupy położenia zbliżeniowe przed przeniesieniem jej do dedykowanego hosta. Aby uzyskać więcej informacji, zobacz [Przenoszenie maszyny wirtualnej z grupy umieszczania sąsiedztwa](../windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - Maszyna wirtualna nie może znajdować się w zestawie dostępności.
 - Jeśli maszyna wirtualna znajduje się w strefie dostępności, musi to być ta sama strefa dostępności co grupa hostów. Ustawienia strefy dostępności dla maszyny wirtualnej i grupy hostów muszą być zgodne.
 
@@ -66,6 +67,3 @@ Przenieś maszynę wirtualną na dedykowanego hosta przy użyciu [portalu](https
 - Istnieje przykładowy szablon, który znajduje się w [tym miejscu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), który używa stref i domen błędów w celu uzyskania maksymalnej odporności w regionie.
 
 - Możesz również wdrożyć dedykowanego hosta za pomocą [interfejsu wiersza polecenia platformy Azure](dedicated-hosts-cli.md).
-
-
-

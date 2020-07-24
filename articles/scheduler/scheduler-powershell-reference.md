@@ -8,11 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 577e2128cf7e4e9f914ec5504917053acb3c19d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b82dba923db16e96cc0884b629723c4e8496c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080934"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Dokumentacja poleceń cmdlet programu PowerShell dla usługi Azure Scheduler
 
@@ -21,7 +22,7 @@ ms.locfileid: "78898494"
 >
 > Usługa Scheduler nie jest już dostępna w Azure Portal, ale polecenia cmdlet programu PowerShell dla [interfejsu API REST](/rest/api/scheduler) i [usługi Azure Scheduler](scheduler-powershell-reference.md) pozostają dostępne w tym momencie, aby można było zarządzać zadaniami i kolekcjami zadań.
 
-Aby tworzyć skrypty do tworzenia zadań harmonogramu i kolekcji zadań oraz zarządzania nimi, można użyć poleceń cmdlet programu PowerShell. Ten artykuł zawiera listę głównych poleceń cmdlet programu PowerShell dla usługi Azure Scheduler z linkami do artykułów referencyjnych. Aby zainstalować Azure PowerShell dla subskrypcji platformy Azure, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview). Więcej informacji o [poleceniach cmdlet Azure Resource Manager](/powershell/azure/overview)można znaleźć w temacie [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+Aby tworzyć skrypty do tworzenia zadań harmonogramu i kolekcji zadań oraz zarządzania nimi, można użyć poleceń cmdlet programu PowerShell. Ten artykuł zawiera listę głównych poleceń cmdlet programu PowerShell dla usługi Azure Scheduler z linkami do artykułów referencyjnych. Aby zainstalować Azure PowerShell dla subskrypcji platformy Azure, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/). Więcej informacji o [poleceniach cmdlet Azure Resource Manager](/powershell/azure/)można znaleźć w temacie [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

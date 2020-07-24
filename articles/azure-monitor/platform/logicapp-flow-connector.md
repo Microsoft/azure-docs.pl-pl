@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081563"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Łącznik Azure Monitor dzienników dla Logic Apps i przepływu
-[Azure Logic Apps](/azure/logic-apps/) i [Automatyzacja](https://ms.flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
+[Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://ms.flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
 
 Na przykład możesz utworzyć aplikację logiki, która będzie używać danych dziennika Azure Monitor w powiadomieniach e-mail z pakietu Office 365, utworzyć usterkę w usłudze Azure DevOps lub opublikować komunikat o zapasach.  Przepływ pracy można wyzwolić według prostego harmonogramu lub z niektórych akcji w połączonej usłudze, takiej jak w przypadku otrzymania wiadomości e-mail lub tweetu. 
 
@@ -31,16 +32,16 @@ W zależności od rozmiaru danych i użytego zapytania łącznik może trafić w
 W poniższej tabeli opisano akcje dołączone do łącznika dzienników Azure Monitor. Oba umożliwiają uruchamianie zapytania dziennika względem obszaru roboczego Log Analytics lub Application Insights aplikacji. Różnica polega na tym, jak dane są zwracane.
 
 > [!NOTE]
-> Łącznik Azure Monitor Logs zastępuje [Łącznik usługi azure log Analytics](https://docs.microsoft.com/connectors/azureloganalytics/) i [łącznik usługi Azure Application Insights](https://docs.microsoft.com/connectors/applicationinsights/). Ten łącznik zapewnia te same funkcje co inne i jest preferowaną metodą uruchamiania zapytania w obszarze roboczym Log Analytics lub aplikacji Application Insights.
+> Łącznik Azure Monitor Logs zastępuje [Łącznik usługi azure log Analytics](/connectors/azureloganalytics/) i [łącznik usługi Azure Application Insights](/connectors/applicationinsights/). Ten łącznik zapewnia te same funkcje co inne i jest preferowaną metodą uruchamiania zapytania w obszarze roboczym Log Analytics lub aplikacji Application Insights.
 
 
 | Akcja | Opis |
 |:---|:---|
-| [Uruchom zapytanie i Wyświetl wyniki](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Zwraca każdy wiersz jako własny obiekt. Użyj tej akcji, gdy chcesz współpracować z każdym wierszem oddzielnie w pozostałej części przepływu pracy. Akcja zazwyczaj następuje [dla każdego działania](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Uruchamianie zapytań i wizualizacji wyników](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Zwraca wszystkie wiersze w zestawie wyników jako jeden sformatowany obiekt. Użyj tej akcji, jeśli chcesz użyć zestawu wyników razem w pozostałej części przepływu pracy, na przykład wysyłając wyniki w wiadomości e-mail.  |
+| [Uruchom zapytanie i Wyświetl wyniki](/connectors/azuremonitorlogs/#run-query-and-list-results) | Zwraca każdy wiersz jako własny obiekt. Użyj tej akcji, gdy chcesz współpracować z każdym wierszem oddzielnie w pozostałej części przepływu pracy. Akcja zazwyczaj następuje [dla każdego działania](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Uruchamianie zapytań i wizualizacji wyników](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Zwraca wszystkie wiersze w zestawie wyników jako jeden sformatowany obiekt. Użyj tej akcji, jeśli chcesz użyć zestawu wyników razem w pozostałej części przepływu pracy, na przykład wysyłając wyniki w wiadomości e-mail.  |
 
 ## <a name="walkthroughs"></a>Wskazówki
-Poniższe samouczki ilustrują użycie łączników Azure Monitor w Azure Logic Apps. Ten sam przykład można wykonać przy użyciu automatyzacji, ale jedyną różnicą, jak utworzyć początkowy przepływ pracy i uruchomić go po zakończeniu. Konfiguracja przepływu pracy i akcji jest taka sama między nimi. Aby rozpocząć, zobacz [Tworzenie przepływu na podstawie szablonu w programie do automatyzacji](https://docs.microsoft.com/power-automate/get-started-logic-template) .
+Poniższe samouczki ilustrują użycie łączników Azure Monitor w Azure Logic Apps. Ten sam przykład można wykonać przy użyciu automatyzacji, ale jedyną różnicą, jak utworzyć początkowy przepływ pracy i uruchomić go po zakończeniu. Konfiguracja przepływu pracy i akcji jest taka sama między nimi. Aby rozpocząć, zobacz [Tworzenie przepływu na podstawie szablonu w programie do automatyzacji](/power-automate/get-started-logic-template) .
 
 
 ### <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
@@ -124,6 +125,5 @@ Po zakończeniu działania aplikacji logiki Sprawdź pocztę określonego adresa
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej [na temat zapytań dzienników w Azure monitor](../log-query/log-query-overview.md).
-- Dowiedz się więcej o [Logic Apps](/azure/logic-apps/)
+- Dowiedz się więcej o [Logic Apps](../../logic-apps/index.yml)
 - Dowiedz się więcej o [Microsoft Flow](https://ms.flow.microsoft.com).
-

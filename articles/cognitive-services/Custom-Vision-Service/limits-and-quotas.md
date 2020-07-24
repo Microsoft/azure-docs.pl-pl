@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391744"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079180"
 ---
 # <a name="limits-and-quotas"></a>Limity przydziału i ograniczenia
 
@@ -23,7 +23,7 @@ Istnieją dwie warstwy kluczy dla usługi Custom Vision. Możesz zarejestrować 
 
 Liczba obrazów szkoleniowych na projekt i Tagi dla projektu powinna wzrosnąć w czasie dla projektów S0.
 
-||**F0**|**S0**|
+|Czynnik|**F0**|**S0**|
 |-----|-----|-----|
 |Projekty|2|100|
 |Obrazy szkoleniowe na projekt |5000|100 000|

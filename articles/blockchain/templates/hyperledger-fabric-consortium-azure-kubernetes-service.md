@@ -4,12 +4,12 @@ description: Jak wdrożyć i skonfigurować sieć szkieletową z systemem webled
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081285"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 
@@ -28,9 +28,9 @@ Przed wybraniem użycia szablonu rozwiązania Porównaj swój scenariusz z typow
 
 Opcja | Model usług | Typowy przypadek użycia
 -------|---------------|-----------------
-Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
-[Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
+Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Architektura konsorcjum sieci szkieletowej
 
@@ -113,7 +113,7 @@ Aby rozpocząć wdrażanie składników sieciowych HLF, przejdź do [Azure Porta
     - **Prefiks DNS**: prefiks nazwy systemu nazw domen (DNS) dla klastra AKS. Usługa DNS umożliwia łączenie się z interfejsem API Kubernetes podczas zarządzania kontenerami po utworzeniu klastra.
     - **Rozmiar węzła**: rozmiar węzła Kubernetes można wybrać z listy jednostek składowania maszyn wirtualnych dostępnych na platformie Azure. W celu uzyskania optymalnej wydajności zalecamy użycie standardowego DS3 v2.
     - **Liczba węzłów**: liczba węzłów Kubernetes, które mają zostać wdrożone w klastrze. Zaleca się pozostawienie tej liczby węzłów co najmniej równej liczbie węzłów HLF określonych w ustawieniach sieci szkieletowej.
-    - **Identyfikator klienta nazwy głównej usługi**: Wprowadź identyfikator klienta istniejącej jednostki usługi lub Utwórz nową, która jest wymagana do uwierzytelniania AKS. Zobacz, kroki [tworzenia nazwy głównej usługi](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Identyfikator klienta nazwy głównej usługi**: Wprowadź identyfikator klienta istniejącej jednostki usługi lub Utwórz nową, która jest wymagana do uwierzytelniania AKS. Zobacz, kroki [tworzenia nazwy głównej usługi](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
     - **Klucz tajny klienta jednostki usługi**: Wprowadź klucz tajny klienta w jednostce usługi podanej w identyfikatorze klienta nazwy głównej usługi.
     - **Potwierdź klucz tajny klienta**: Potwierdź klucz tajny klienta podany w kluczu tajnym klienta jednostki usługi.
     - **Włącz monitorowanie kontenera**: Wybierz, aby włączyć monitorowanie AKS, które umożliwia wypychanie dzienników AKS do określonego obszaru roboczego log Analytics.
@@ -138,7 +138,7 @@ Aby skompilować łańcucha bloków konsorcjum do wdrożenia usługi porządkowa
 
 Wszystkie polecenia służące do uruchamiania skryptu Azure HLF można wykonać za pomocą wiersza polecenia usługi Azure bash. Interfejs (CLI). Możesz zalogować się do wersji sieci Web usługi Azure Shell za pomocą  ![Szablon sieci szkieletowej w usłudze Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) Opcja w prawym górnym rogu Azure Portal. W wierszu polecenia wpisz bash i ENTER, aby przełączyć się do interfejsu CLI bash.
 
-Aby uzyskać więcej informacji, zobacz temat [Azure Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+Aby uzyskać więcej informacji, zobacz temat [Azure Shell](../../cloud-shell/overview.md) .
 
 ![Szablon sieci szkieletowej w usłudze Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
@@ -285,7 +285,7 @@ Z poziomu klienta organizacji równorzędnej, wystaw poniżej polecenie, aby ust
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
 ```
 
-`<anchorPeersList>`jest rozdzielaną spacją listą węzłów równorzędnych, które mają być ustawiane jako zakotwiczenie elementu równorzędnego. Na przykład
+`<anchorPeersList>`jest rozdzielaną spacją listą węzłów równorzędnych, które mają być ustawiane jako zakotwiczenie elementu równorzędnego. Przykład:
 
   - Ustaw `<anchorPeersList>` jako "Peer1", jeśli chcesz ustawić tylko węzeł Peer1 jako zakotwiczenie elementu równorzędnego.
   - Ustaw `<anchorPeersList>` jako "Peer1" "peer3", jeśli chcesz ustawić zarówno węzeł Peer1, jak i peer3 jako zakotwiczenie elementu równorzędnego.
@@ -409,7 +409,7 @@ Wykonaj poniższe polecenie, aby wysłać zapytanie do chaincode:
 ```
 Przekaż listę argumentów Nazwa funkcji zapytania i rozdzieloną spacjami w  `<queryFunction>`   i  `<queryFuncArgs>`   odpowiednio. Ponownie, pobierając chaincode_example02. chaincode jako odwołanie, aby zbadać wartość "a" w stanie świecie ustawionym  `<queryFunction>`   na  `query` i  `<queryArgs>` na "a".  
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 **Aby sprawdzić wersję uruchomionego szablonu**
 
@@ -441,6 +441,6 @@ Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub z
 
 Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-- [Microsoft Q&strony pytania](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
-- [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Microsoft Q&strony pytania](/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+- [Witryna Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

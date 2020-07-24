@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078968"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
@@ -26,7 +26,7 @@ Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu pla
 
 * Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nazwa i klucz konta magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md).
-* W przypadku korzystania z programu PowerShell należy użyć polecenia AZ module.  Zobacz [omówienie Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* W przypadku korzystania z programu PowerShell należy użyć polecenia AZ module.  Zobacz [omówienie Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 ## <a name="how-it-works"></a>Jak to działa
 

@@ -4,11 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacjami przywracani
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aabf687fb1f21473c7239d3fab26819b2ea2bea6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079302"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
 
@@ -18,7 +19,7 @@ Dla każdej operacji przywracania należy najpierw zidentyfikować odpowiedni pu
 
 ## <a name="select-recovery-point"></a>Wybierz punkt odzyskiwania
 
-Dostępne punkty odzyskiwania elementu kopii zapasowej można wyświetlić za pomocą [interfejsu API REST punktu odzyskiwania](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). Jest to prosta operacja *pobrania* ze wszystkimi odpowiednimi wartościami.
+Dostępne punkty odzyskiwania elementu kopii zapasowej można wyświetlić za pomocą [interfejsu API REST punktu odzyskiwania](/rest/api/backup/recoverypoints/list). Jest to prosta operacja *pobrania* ze wszystkimi odpowiednimi wartościami.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -32,7 +33,7 @@ Identyfikator URI *Get* zawiera wszystkie wymagane parametry. Nie ma potrzeby do
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
+|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
 #### <a name="example-response"></a>Przykładowa odpowiedź
 
@@ -118,7 +119,7 @@ Punkt odzyskiwania jest identyfikowany z `{name}` polem w powyższej odpowiedzi.
 
 Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn usługi Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu.
 
-Wyzwalanie dysków przywracania to żądanie *post* . Aby dowiedzieć się więcej o operacji przywracania dysków, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](https://docs.microsoft.com/rest/api/backup/restores/trigger).
+Wyzwalanie dysków przywracania to żądanie *post* . Aby dowiedzieć się więcej o operacji przywracania dysków, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -132,9 +133,9 @@ Aby wyzwolić przywracanie dysku z kopii zapasowej maszyny wirtualnej platformy 
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-Pełną listę definicji treści żądania oraz inne szczegóły znajdują się w [dokumencie wyzwalacze przywracania interfejsu API REST](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Pełną listę definicji treści żądania oraz inne szczegóły znajdują się w [dokumencie wyzwalacze przywracania interfejsu API REST](/rest/api/backup/restores/trigger#request-body).
 
 #### <a name="example-request"></a>Przykładowe żądanie
 
@@ -160,7 +161,7 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 
 ### <a name="response"></a>Odpowiedź
 
-Wyzwalanie dysku przywracania jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Wyzwalanie dysku przywracania jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 200 (OK) po zakończeniu tej operacji.
 

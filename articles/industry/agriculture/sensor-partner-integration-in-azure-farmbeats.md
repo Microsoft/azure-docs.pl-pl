@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078918"
 ---
 # <a name="sensor-partner-integration"></a>Integracja z partnerami obsługującymi czujniki
 
@@ -43,7 +44,7 @@ Dane telemetryczne są mapowane na komunikat kanoniczny, który jest publikowany
 
 Interfejsy API zawierają dokumentację techniczną struktury Swagger. Aby uzyskać więcej informacji na temat interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsSwagger).
 
-**Authentication**
+**Uwierzytelnianie**
 
 FarmBeats używa uwierzytelniania Microsoft Azure Active Directory.Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji.
 
@@ -92,7 +93,7 @@ access_token = token_response.get('access_token')
 Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats Datahub.
 
 
-**Nagłówki** | **Opis i przykład**
+**Nagłówek** | **Opis i przykład**
 --- | ---
 Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
 Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
@@ -130,7 +131,7 @@ FarmBeats Datahub zawiera następujące interfejsy API, które umożliwiają par
 - /**SensorModel**: SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
 - /**Czujnik**: czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
 
-  **DeviceModel** |  |
+  DeviceModel | Opis |
   --- | ---
   Typ (węzeł, brama)  | Typ węzła urządzenia lub bramy |
   Producent  | Nazwa producenta |
@@ -139,7 +140,7 @@ FarmBeats Datahub zawiera następujące interfejsy API, które umożliwiają par
   Nazwa  | Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu. |
   Opis  | Podaj znaczący opis modelu. |
   Właściwości  | Dodatkowe właściwości producenta. |
-  **Urządzenie** |  |
+  **Urządzenie** | **Opis** |
   DeviceModelId  |Identyfikator skojarzonego modelu urządzenia. |
   HardwareId   |Unikatowy identyfikator urządzenia, na przykład adres MAC.  |
   ReportingInterval |Interwał raportowania (w sekundach). |
@@ -148,7 +149,7 @@ FarmBeats Datahub zawiera następujące interfejsy API, które umożliwiają par
   Nazwa  | Nazwa identyfikująca zasób. Partnerzy urządzeń muszą wysłać nazwę zgodną z nazwą urządzenia po stronie partnera urządzeń. Jeśli nazwa urządzenia jest zdefiniowana przez użytkownika po stronie partnera urządzeń, ta sama nazwa zdefiniowana przez użytkownika powinna być propagowana do FarmBeats.  |
   Opis  | Podaj znaczący opis.  |
   Właściwości  |Dodatkowe właściwości producenta.  |
-  **SensorModel** |  |
+  **SensorModel** | **Opis** |
   Typ (analogowy, cyfrowy)  |Wzmianka o czujniku analogowym lub cyfrowym.|
   Producent  | Nazwa producenta. |
   ProductCode  | Kod produktu lub nazwa modelu lub numer. Na przykład RS-CO2-N01.  |
@@ -162,7 +163,7 @@ FarmBeats Datahub zawiera następujące interfejsy API, które umożliwiają par
   Nazwa  | Nazwa identyfikująca zasób. Na przykład nazwa modelu lub nazwa produktu.
   Opis  | Podaj znaczący opis modelu.
   Właściwości  | Dodatkowe właściwości producenta.
-  **Czujnik**  |  |
+  **Czujnik**  | **Opis** |
   HardwareId  | Unikatowy identyfikator czujnika określonego przez producenta.
   SensorModelId  | Identyfikator skojarzonego modelu czujnika.
   Lokalizacja  | Czujnik Latitude (-90 do + 90), Długość geograficzna (-180 do 180) i podniesienie (w metrach).

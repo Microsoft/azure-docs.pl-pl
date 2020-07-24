@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f97b4877d87acec923812fd0289d5161529dbe7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081036"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight
 
@@ -99,7 +99,7 @@ Można połączyć się z węzłami, które nie są bezpośrednio dostępne za p
 
 |Metoda |Opis |
 |---|---|
-|Protokół SSH|Po nawiązaniu połączenia z węzłem głównym przy użyciu protokołu SSH można nawiązać połączenie z innymi węzłami w klastrze przy użyciu protokołu SSH z węzła głównego. Aby uzyskać więcej informacji, zobacz dokument [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|SSH|Po nawiązaniu połączenia z węzłem głównym przy użyciu protokołu SSH można nawiązać połączenie z innymi węzłami w klastrze przy użyciu protokołu SSH z węzła głównego. Aby uzyskać więcej informacji, zobacz dokument [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Tunel SSH|Jeśli musisz uzyskać dostęp do usługi sieci Web hostowanej na jednym z węzłów, które nie są uwidocznione w Internecie, musisz użyć tunelu SSH. Aby uzyskać więcej informacji, zobacz artykuł [Używanie tunelu SSH z usługą HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) .|
 |Azure Virtual Network|Jeśli klaster usługi HDInsight jest częścią Virtual Network platformy Azure, wszystkie zasoby w tym samym Virtual Network mogą bezpośrednio uzyskać dostęp do wszystkich węzłów w klastrze. Aby uzyskać więcej informacji, zapoznaj się z dokumentem [Planowanie sieci wirtualnej dla usługi HDInsight](hdinsight-plan-virtual-network-deployment.md) .|
 
@@ -231,7 +231,7 @@ curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CL
 
 ## <a name="how-to-access-log-files-on-the-head-nodes"></a>Jak uzyskać dostęp do plików dziennika w węzłach głównych
 
-### <a name="ssh"></a>Protokół SSH
+### <a name="ssh"></a>SSH
 
 W przypadku połączenia z węzłem głównym za pośrednictwem protokołu SSH pliki dzienników można znaleźć w obszarze **/var/log**. Na przykład **/var/log/Hadoop-Yarn/Yarn** zawiera dzienniki dla przędzy.
 
@@ -268,7 +268,7 @@ W interfejsie użytkownika sieci Web Ambari wybierz usługę, dla której chcesz
 
 Rozmiar węzła można wybrać tylko podczas tworzenia klastra. Listę różnych rozmiarów maszyn wirtualnych dostępnych dla usługi HDInsight można znaleźć na [stronie z cennikiem usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Podczas tworzenia klastra można określić rozmiar węzłów. Poniższe informacje zawierają wskazówki dotyczące sposobu określania rozmiaru przy użyciu [Azure Portal](https://portal.azure.com/), [Azure PowerShell module AZ](/powershell/azureps-cmdlets-docs)i [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Podczas tworzenia klastra można określić rozmiar węzłów. Poniższe informacje zawierają wskazówki dotyczące sposobu określania rozmiaru przy użyciu [Azure Portal](https://portal.azure.com/), [Azure PowerShell module AZ](/powershell/azure/)i [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 * **Azure Portal**: podczas tworzenia klastra można ustawić rozmiar węzłów używanych przez klaster:
 
@@ -284,6 +284,6 @@ Aby dowiedzieć się więcej na temat elementów omówionych w tym artykule, zob
 
 * [Dokumentacja REST Ambari Apache](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Instalowanie i Konfigurowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Zainstaluj i skonfiguruj moduł Azure PowerShell AZ](/powershell/azure/overview)
+* [Zainstaluj i skonfiguruj moduł Azure PowerShell AZ](/powershell/azure/)
 * [Zarządzanie usługą HDInsight przy użyciu usługi Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Inicjowanie obsługi klastrów usługi HDInsight opartych na systemie Linux](hdinsight-hadoop-provision-linux-clusters.md)

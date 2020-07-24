@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak śledzić i zarządzać zadaniami 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079319"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Śledzenie zadań tworzenia kopii zapasowej i przywracania za pomocą interfejsu API REST
 
@@ -33,7 +33,7 @@ Operacja, taka jak wyzwalanie kopii zapasowej, zawsze zwróci identyfikator zada
 }
 ```
 
-Zadanie kopii zapasowej maszyny wirtualnej platformy Azure jest identyfikowane w polu "jobId" i może być śledzone w sposób opisany w [tym miejscu](https://docs.microsoft.com/rest/api/backup/jobdetails/) przy użyciu prostego żądania *Get* .
+Zadanie kopii zapasowej maszyny wirtualnej platformy Azure jest identyfikowane w polu "jobId" i może być śledzone w sposób opisany w [tym miejscu](/rest/api/backup/jobdetails/) przy użyciu prostego żądania *Get* .
 
 ## <a name="tracking-the-job"></a>Śledzenie zadania
 
@@ -47,7 +47,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Przykładowa odpowiedź
 

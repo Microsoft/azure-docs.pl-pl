@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081104"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Łączenie platformy Azure z chmurami publicznymi
 
@@ -33,7 +34,7 @@ Dostawcy Layer3 są często nazywani dostawcami protokołu IP sieci VPN lub MPLS
  
 Podczas nawiązywania połączenia za pośrednictwem dostawcy usługi Layer3 firma Microsoft będzie ogłaszać trasy sieci wirtualnej klienta dla dostawcy usług za pośrednictwem protokołu BGP. Dostawca może mieć dwie różne implementacje.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagram przedstawiający dostawcę Layer3.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 Dostawca może obsłużyć każdego dostawcę chmury w osobnym VRF, jeśli ruch ze wszystkich dostawców chmury zostanie osiągnięty na routerze klienta. Jeśli klient korzysta z protokołu BGP z dostawcą usług, trasy te zostaną domyślnie ponownie ogłoszone dla innych dostawców chmury. 
 
@@ -44,7 +45,7 @@ Każda chmura publiczna ma inny limit prefiksów, dlatego podczas dystrybucji do
 ### <a name="layer2-provider-and-direct-connection"></a>Dostawca layer2 i połączenie bezpośrednie
 
 Chociaż łączność fizyczna w obu modelach jest różna, ale w Layer3 BGP jest ustanawiana bezpośrednio między MSEE i routerem klienta. Klient ExpressRoute Direct łączy się bezpośrednio z MSEE. W przypadku layer2 Usługa Service Provider rozszerza sieć VLAN z lokalizacji klienta do chmury. Klienci uruchamiają protokół BGP w oparciu o sieć layer2, aby połączyć ich kontrolery domen z chmurą.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagram przedstawiający dostawcę layer2 i bezpośrednie połączenie.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 W obu przypadkach klient będzie miał połączenia typu punkt-punkt z każdą chmurą publiczną. Klient nawiąże połączenie BGP z każdą chmurą publiczną. Trasy odebrane przez jednego dostawcę chmury będą domyślnie anonsowane innemu dostawcy chmury. Każdy dostawca chmury ma inny limit prefiksów, dlatego w przypadku anonsowania trasy klient powinien wziąć pod uwagę te limity. Klient może używać zwykłych pokręteł BGP z firmą Microsoft podczas anonsowania tras z innych chmur publicznych.
 
 ## <a name="direct-connection-with-expressroute"></a>Bezpośrednie połączenie z ExpressRoute

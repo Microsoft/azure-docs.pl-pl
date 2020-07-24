@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079846"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Uruchamianie maszyny wirtualnej jest zablokowane na "Trwa przygotowywanie systemu Windows. Nie wyłączaj komputera "na platformie Azure
 
@@ -45,7 +45,7 @@ Jeśli problem nie zostanie rozwiązany po oczekiwaniu na zmiany w procesie, nal
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Dołączanie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania
 
 1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
-2. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](./troubleshoot-recovery-disks-portal-windows.md).
 3. Pulpit zdalny do maszyny wirtualnej odzyskiwania. 
 4. Jeśli dysk systemu operacyjnego jest zaszyfrowany, przed przejściem do następnego kroku należy wyłączyć szyfrowanie. Aby uzyskać więcej informacji, zobacz [odszyfrowywanie zaszyfrowanego dysku systemu operacyjnego na maszynie wirtualnej, której nie można uruchomić](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -99,7 +99,7 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Odłącz dysk systemu operacyjnego, a następnie ponownie Dołącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Odłącz dysk systemu operacyjnego, a następnie ponownie Dołącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](./troubleshoot-recovery-disks-portal-windows.md).
 4. Uruchom maszynę wirtualną i uzyskaj dostęp do konsoli szeregowej.
 5. Wybierz pozycję **Wyślij niemaskowane przerwanie (NMI)** w celu wyzwolenia zrzutu pamięci.
     ![obraz dotyczący miejsca, w którym można wysyłać przerwanie bez maskowania](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)

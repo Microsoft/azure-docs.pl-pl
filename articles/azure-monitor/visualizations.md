@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4c5290d9f5ec47969ae43e5986d31484927a0ac5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081359"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -40,6 +40,8 @@ Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych m
 [Pulpity nawigacyjne platformy Azure](../azure-portal/azure-portal-dashboards.md) są podstawową technologią nawigacyjną dla platformy Azure. Są one szczególnie przydatne w przypadku udostępniania pojedynczego okienka Glass przez infrastrukturę i usługi platformy Azure, co pozwala na szybkie identyfikowanie ważnych problemów.
 
 ![Pulpit nawigacyjny](media/visualizations/dashboard.png)
+
+Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 

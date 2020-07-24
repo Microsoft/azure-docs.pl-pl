@@ -3,12 +3,12 @@ title: Integrowanie narzędzia Apache Kafka Connect z usługą Azure Event Hubs 
 description: W tym artykule opisano, jak korzystać z platformy Apache Spark z usługą Azure Event Hubs dla platformy Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c63d27549df40120a90b2594ab54337c11168b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079089"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrowanie obsługi narzędzia Apache Kafka Connect w usłudze Azure Event Hubs (wersja zapoznawcza)
 Wraz ze wzrostem ilości danych pozyskiwanych do celów biznesowych zwiększa się poziom wymagań dotyczących pozyskiwania dla różnych ujść i źródeł zewnętrznych. Narzędzie [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) udostępnia platformę do łączenia i importowania/eksportowania danych w dowolnym systemie zewnętrznym, takim jak MySQL, HDFS i system plików za pośrednictwem klastra platformy Kafka. Ten samouczek przeprowadzi Cię przez proces używania programu Kafka Connect Framework z Event Hubs.
@@ -31,10 +31,10 @@ W tym samouczku wykonasz następujące kroki:
 Aby ukończyć ten przewodnik, upewnij się, że dysponujesz następującymi elementami:
 
 - Subskrypcja platformy Azure. Jeśli jej nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- [Git](https://www.git-scm.com/downloads)
+- [Narzędzia](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Platforma Kafka (wersja 1.1.1, Scala w wersji 2.11), dostępna na stronie [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Przeczytaj artykuł z wprowadzeniem [Usługa Event Hubs dla platformy Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+- Przeczytaj artykuł z wprowadzeniem [Usługa Event Hubs dla platformy Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
 Przestrzeń nazw usługi Event Hubs jest wymagana do wysyłania i odbierania zdarzeń z dowolnej usługi Event Hubs. Aby uzyskać instrukcje dotyczące tworzenia przestrzeni nazw i centrum zdarzeń, zobacz [Tworzenie centrum zdarzeń](event-hubs-create.md) . Pobierz parametry połączenia usługi Event Hubs i w pełni kwalifikowaną nazwę domeny (FQDN) w celu późniejszego użycia. Aby uzyskać instrukcje, zobacz [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Pobieranie parametrów połączenia usługi Event Hubs). 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081614"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -31,7 +31,7 @@ Połączona z nim oferuje:
 
 * **Dostosowywalne** miejsce, w którym można zmienić metryki, które mają być wyświetlane, zmodyfikować lub ustawić progi, które są wyrównane wraz z limitami, i zapisać jako własny skoroszyt. Wykresy w skoroszycie można przypinać do pulpitu nawigacyjnego platformy Azure.  
 
-Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metryki magazynu z kont magazynu są domyślnie zbierane. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, zobacz opis i definicję w obszarze metryki usługi Azure Storage, przeglądając [metryki usługi Azure Storage](../../storage/common/storage-metrics-in-azure-monitor.md).
+Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metryki magazynu z kont magazynu są domyślnie zbierane. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, zobacz opis i definicję w obszarze metryki usługi Azure Storage, przeglądając [metryki usługi Azure Storage](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >Dostęp do tej funkcji nie jest naliczany, a opłaty są naliczane tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
@@ -198,7 +198,7 @@ Teraz Zmień motyw kolorów dla metryk pojemności w raporcie, tak aby używał 
 
 1. Wybierz pozycję **Ustawienia kolumny** w siatce metryk.
 
-2. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/storageaccounts-pojemność-UsedCapacity $ | Microsoft. Storage/storageaccounts/blobservices-pojemność-BlobCapacity $ | Microsoft. Storage**/storageaccounts/FileServices-pojemność-FileCapacity $ | Microsoft. Storage/storageaccounts/queueservices-pojemność-QueueCapacity $ | Microsoft. Storage/Storageaccounts/tableservices-pojemność-TableCapacity $. Na **palecie kolorów**listy rozwijanej wybierz pozycję **zielony**.
+2. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/storageaccounts-pojemność-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-pojemność-BlobCapacity $ Microsoft. Storage/storageaccounts/FileServices-pojemność-FileCapacity $ Microsoft. Storage/storageaccounts/queueservices-pojemność-QueueCapacity $ `|` `|` `|` Microsoft. Storage/storageaccounts/tableservices**-pojemność-TableCapacity $. Na **palecie kolorów**listy rozwijanej wybierz pozycję **zielony**.
 
 3. Wybierz pozycję **Zapisz i Zamknij,** aby zatwierdzić zmianę.
 
@@ -246,7 +246,7 @@ Szczegółowe instrukcje dotyczące sposobu zmiany kolorowania i progów dostęp
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Jak analizować i rozwiązywać problemy z danymi wyświetlanymi w Azure Monitor dla magazynu?
 
- Zapoznaj się z artykułem [monitorowanie, diagnozowanie i rozwiązywanie Microsoft Azure Storage problemów](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) , aby uzyskać szczegółowe informacje na temat sposobu analizowania i rozwiązywania problemów z danymi usługi Azure Storage przedstawionymi w temacie Azure monitor for Storage.
+ Zapoznaj się z artykułem [monitorowanie, diagnozowanie i rozwiązywanie Microsoft Azure Storage problemów](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) , aby uzyskać szczegółowe informacje na temat sposobu analizowania i rozwiązywania problemów z danymi usługi Azure Storage przedstawionymi w temacie Azure monitor for Storage.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Dlaczego nie widzę wszystkich typów błędów w metrykach?
 
@@ -269,7 +269,7 @@ Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
+* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 
 * Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
 

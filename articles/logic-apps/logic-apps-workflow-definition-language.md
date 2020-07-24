@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078137"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu definicji przepływu pracy w Azure Logic Apps
 
@@ -76,7 +76,7 @@ Oto ogólna struktura definicji parametru:
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*Nazwa parametru*> | Tak | String | Nazwa parametru, który ma zostać zdefiniowany |
+| <*Nazwa parametru*> | Tak | String (ciąg) | Nazwa parametru, który ma zostać zdefiniowany |
 | <*Typ parametru*> | Tak | int, float, String, bool, Array, Object, SecureString, secureobject <p><p>**Uwaga**: w przypadku wszystkich haseł, kluczy i wpisów tajnych Użyj `securestring` typów lub, `secureobject` ponieważ `GET` operacja nie zwraca tych typów. Aby uzyskać więcej informacji na temat zabezpieczania parametrów, zapoznaj się z [zaleceniami dotyczącymi zabezpieczeń i parametrami wejściowymi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Typ parametru |
 | <*wartość domyślna parametru-value*> | Tak | Tak samo jak`type` | Wartość domyślna parametru, która ma być używana, jeśli żadna wartość nie zostanie określona podczas tworzenia wystąpienia przepływu pracy. Ten `defaultValue` atrybut jest wymagany, aby projektant aplikacji logiki mógł poprawnie pokazać parametr, ale można określić wartość pustą. |
 | <*Array-z-dozwolone-wartości parametrów*> | Nie | Tablica | Tablica z wartościami, które parametr może zaakceptować |
@@ -114,11 +114,11 @@ W `staticResults` atrybucie Zdefiniuj makietę akcji `outputs` i `status` akcję
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*static-Result-definition-name*> | Tak | String | Nazwa statycznej definicji wyniku, którą definicja akcji może odwoływać się za pomocą `runtimeConfiguration.staticResult` obiektu. Aby uzyskać więcej informacji, zobacz [Ustawienia konfiguracji środowiska uruchomieniowego](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Możesz użyć dowolnej unikatowej nazwy. Domyślnie ta unikatowa nazwa jest dołączana do liczby, która jest zwiększana w miarę potrzeb. |
+| <*static-Result-definition-name*> | Tak | String (ciąg) | Nazwa statycznej definicji wyniku, którą definicja akcji może odwoływać się za pomocą `runtimeConfiguration.staticResult` obiektu. Aby uzyskać więcej informacji, zobacz [Ustawienia konfiguracji środowiska uruchomieniowego](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Możesz użyć dowolnej unikatowej nazwy. Domyślnie ta unikatowa nazwa jest dołączana do liczby, która jest zwiększana w miarę potrzeb. |
 | <*Output — zwrócone atrybuty i wartości*> | Tak | Różnie | Wymagania dotyczące tych atrybutów różnią się w zależności od różnych warunków. Na przykład, gdy `status` ma `Succeeded` , `outputs` atrybut zawiera atrybuty i wartości zwracane jako dane wyjściowe makiety przez akcję. Jeśli `status` jest `Failed` , `outputs` atrybut zawiera `errors` atrybut, który jest tablicą z co najmniej jednym obiektem błędu, `message` który zawiera informacje o błędzie. |
 | <*wartości nagłówka*> | Nie | JSON | Wszystkie wartości nagłówka zwrócone przez akcję |
-| <*Stan — zwrócony kod*> | Tak | String | Kod stanu zwracany przez akcję |
-| <*Akcja — stan*> | Tak | String | Stan akcji, na przykład `Succeeded` lub`Failed` |
+| <*Stan — zwrócony kod*> | Tak | String (ciąg) | Kod stanu zwracany przez akcję |
+| <*Akcja — stan*> | Tak | String (ciąg) | Stan akcji, na przykład `Succeeded` lub`Failed` |
 |||||
 
 Na przykład w tej definicji akcji HTTP odwołuje się do atrybutu, w `runtimeConfiguration.staticResult.name` `HTTP0` `staticResults` którym są zdefiniowane dane wyjściowe makiety dla akcji. Ten `runtimeConfiguration.staticResult.staticResultOptions` atrybut określa, że ustawienie wynik statyczny jest `Enabled` w akcji http.
@@ -178,7 +178,7 @@ Za pomocą formatu JSON można mieć wartości literałów, które istnieją w c
 "rainbowColorsCount": 7
 ```
 
-Można także mieć wartości, które nie istnieją do czasu uruchomienia. Aby przedstawić te wartości, można użyć *wyrażeń*, które są oceniane w czasie wykonywania. Wyrażenie jest sekwencją, która może zawierać jedną lub więcej [funkcji](#functions), [operatorów](#operators), [zmiennych](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), wartości jawnych lub stałych. W definicji przepływu pracy można użyć wyrażenia w dowolnym miejscu w wartości ciągu JSON przez dodanie prefiksu wyrażenia do znaku ( \@ ). Podczas oceniania wyrażenia, które reprezentuje wartość JSON, treść wyrażenia jest wyodrębniana przez usunięcie \@ znaku i zawsze daje w wyniku inną wartość JSON.
+Można także mieć wartości, które nie istnieją do czasu uruchomienia. Aby przedstawić te wartości, można użyć *wyrażeń*, które są oceniane w czasie wykonywania. Wyrażenie jest sekwencją, która może zawierać jedną lub więcej [funkcji](#functions), [operatorów](#operators), [zmiennych](./logic-apps-create-variables-store-values.md), wartości jawnych lub stałych. W definicji przepływu pracy można użyć wyrażenia w dowolnym miejscu w wartości ciągu JSON przez dodanie prefiksu wyrażenia do znaku ( \@ ). Podczas oceniania wyrażenia, które reprezentuje wartość JSON, treść wyrażenia jest wyodrębniana przez usunięcie \@ znaku i zawsze daje w wyniku inną wartość JSON.
 
 Na przykład dla właściwości poprzednio zdefiniowanej `customerName` można uzyskać wartość właściwości przy użyciu funkcji [Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w wyrażeniu i przypisać tę wartość do `accountName` Właściwości:
 
@@ -277,12 +277,12 @@ Oto ogólna struktura definicji danych wyjściowych:
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*Nazwa klucza*> | Tak | String | Nazwa klucza dla wyjściowej wartości zwracanej |
+| <*Nazwa klucza*> | Tak | String (ciąg) | Nazwa klucza dla wyjściowej wartości zwracanej |
 | <*Typ klucza*> | Tak | int, float, String, SecureString, bool, Array, obiekt JSON | Typ wyjściowej wartości zwracanej |
 | <*klucz-wartość*> | Tak | Analogicznie jak <*typu klucza*> | Zwracana wartość wyjściowa |
 |||||
 
-Aby uzyskać dane wyjściowe z przebiegu przepływu pracy, przejrzyj historię uruchamiania aplikacji logiki oraz szczegóły w Azure Portal lub Użyj [interfejsu API REST przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows). Możesz również przekazać dane wyjściowe do systemów zewnętrznych, na przykład Power BI, aby można było tworzyć pulpity nawigacyjne.
+Aby uzyskać dane wyjściowe z przebiegu przepływu pracy, przejrzyj historię uruchamiania aplikacji logiki oraz szczegóły w Azure Portal lub Użyj [interfejsu API REST przepływu pracy](/rest/api/logic/workflows). Możesz również przekazać dane wyjściowe do systemów zewnętrznych, na przykład Power BI, aby można było tworzyć pulpity nawigacyjne.
 
 <a name="operators"></a>
 
@@ -307,4 +307,4 @@ Niektóre wyrażenia pobierają wartości z akcji środowiska uruchomieniowego, 
 ## <a name="next-steps"></a>Następne kroki
 
 * Informacje o [akcjach i wyzwalaczach języka definicji przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md)
-* Informacje na temat programistycznego tworzenia aplikacji logiki i zarządzania nimi za pomocą [interfejsu API REST przepływu pracy](https://docs.microsoft.com/rest/api/logic/workflows)
+* Informacje na temat programistycznego tworzenia aplikacji logiki i zarządzania nimi za pomocą [interfejsu API REST przepływu pracy](/rest/api/logic/workflows)

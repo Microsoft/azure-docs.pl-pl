@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080526"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Wdrażanie aplikacji na zestawach skalowania maszyn wirtualnych
 
@@ -112,4 +113,4 @@ W przypadku korzystania z niestandardowego obrazu maszyny wirtualnej z wstępnie
 
 
 ## <a name="next-steps"></a>Następne kroki
-Podczas kompilowania i wdrażania aplikacji w zestawach skalowania można przejrzeć [projekt zestawu skalowania](virtual-machine-scale-sets-design-overview.md). Aby uzyskać więcej informacji na temat zarządzania zestawem skalowania, zobacz [Używanie programu PowerShell do zarządzania zestawem skalowania](virtual-machine-scale-sets-windows-manage.md).
+Podczas kompilowania i wdrażania aplikacji w zestawach skalowania można przejrzeć [projekt zestawu skalowania](virtual-machine-scale-sets-design-overview.md). Aby uzyskać więcej informacji na temat zarządzania zestawem skalowania, zobacz [Używanie programu PowerShell do zarządzania zestawem skalowania](./virtual-machine-scale-sets-manage-powershell.md).

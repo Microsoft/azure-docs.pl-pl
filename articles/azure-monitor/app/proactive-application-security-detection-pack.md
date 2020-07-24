@@ -3,17 +3,18 @@ title: Pakiet wykrywania zabezpieczeń z usługą Azure Application Insights
 description: Monitoruj aplikacje za pomocą usługi Azure Application Insights i inteligentnego wykrywania pod kątem potencjalnych problemów z zabezpieczeniami.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081631"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pakiet wykrywania zabezpieczeń aplikacji (wersja zapoznawcza)
 
 Application Insights automatycznie analizuje dane telemetryczne wygenerowane przez aplikację i wykrywa potencjalne problemy z zabezpieczeniami. Ta funkcja umożliwia zidentyfikowanie potencjalnych problemów z zabezpieczeniami i ich obsługę poprzez rozwiązanie aplikacji lub podjęcie niezbędnych środków bezpieczeństwa.
 
-Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż [Konfigurowanie aplikacji do wysyłania telemetrii](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
+Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż [Konfigurowanie aplikacji do wysyłania telemetrii](./usage-overview.md).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Kiedy mam ten typ powiadomienia inteligentnego wykrywania?
 Wykryto trzy typy problemów z zabezpieczeniami:

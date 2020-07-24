@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078613"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Zarządzanie aplikacjami logiki w Azure Portal
 
@@ -32,11 +32,11 @@ Aplikacjami logiki można zarządzać przy użyciu [Azure Portal](https://portal
 
 Aby znaleźć i otworzyć aplikację logiki, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta platformy Azure.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
 1. Na pasku wyszukiwania platformy Azure wprowadź wartość `logic apps` i wybierz pozycję **Logic Apps**.
 
-   ![Znajdź i wybierz pozycję "Logic Apps"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+   ![Zrzut ekranu przedstawiający menu Azure Portal z Logic Apps przeszukane i wybrane na pasku wyszukiwania.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
 1. Na stronie **Logic Apps** Znajdź i wybierz aplikację logiki, którą chcesz zarządzać.
 
@@ -100,19 +100,19 @@ Wyłączenie aplikacji logiki wpływa na wystąpienia przepływu pracy i przebie
 
    * Na pasku narzędzi wybierz pozycję **Wyłącz**.
 
-     ![Wyłącz pojedynczą aplikację logiki w Azure Portal](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     ![Zrzut ekranu przedstawiający pasek narzędzi aplikacji logiki, w którym zaznaczono przycisk Wyłącz.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
 
      Jeśli aplikacja logiki jest już wyłączona, zobaczysz tylko opcję **Włącz** .
 
    * Na pasku narzędzi wybierz pozycję **Włącz**.
 
-     ![Włączanie pojedynczej aplikacji logiki w Azure Portal](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+     ![Zrzut ekranu przedstawiający pasek narzędzi aplikacji logiki, w którym zaznaczono przycisk Włącz.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
 
      Jeśli aplikacja logiki jest już włączona, zobaczysz tylko opcję **Wyłącz** . 
 
    Azure Portal przedstawia powiadomienie na głównym pasku narzędzi platformy Azure, który potwierdza, czy operacja zakończyła się powodzeniem, czy niepowodzeniem.
 
-   ![Powiadomienie w celu potwierdzenia stanu operacji](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+   ![Zrzut ekranu przedstawiający Azure Portal, pokazujący powiadomienie o potwierdzeniu stanu operacji](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
@@ -122,15 +122,15 @@ Wyłączenie aplikacji logiki wpływa na wystąpienia przepływu pracy i przebie
 
 1. Aby sprawdzić, czy aplikacja logiki jest obecnie włączona, czy wyłączona, na stronie **Logic Apps** Sprawdź kolumnę **stan** tej aplikacji logiki. 
 
-   ![Kolumna stanu Logic Apps](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+   ![Zrzut ekranu strony Logic Apps Azure Portal, pokazujący listę aplikacji logiki posortowanych według kolumny stan.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
 
    Jeśli kolumna **stan** nie jest widoczna, na pasku narzędzi **Logic Apps** wybierz pozycję **Wypróbuj wersję zapoznawczą**.
 
-   ![Włącz podgląd](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+   ![Zrzut ekranu przedstawiający stronę Logic Apps Azure Portal, w którym zaznaczono przycisk Wypróbuj Podgląd.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
 
 1. W kolumnie CheckBox wybierz Aplikacje logiki, które chcesz wyłączyć lub włączyć. Na pasku narzędzi wybierz opcję **Wyłącz** lub **Włącz**.
 
-   ![Włączać lub wyłączać wiele aplikacji logiki w Azure Portal](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![Zrzut ekranu strony Logic Apps Azure Portal, w którym są wyświetlane przyciski włączania i wyłączania dla wielu aplikacji logiki.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
 1. Po wyświetleniu pola potwierdzenia wybierz pozycję **tak** , aby kontynuować.
 
@@ -158,11 +158,11 @@ Usunięcie aplikacji logiki wpływa na wystąpienia przepływu pracy w następuj
 
 1. W menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi aplikacji logiki wybierz pozycję **Usuń**.
 
-   ![Na pasku narzędzi aplikacji logiki wybierz pozycję "Usuń".](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
+   ![Zrzut ekranu przedstawiający pasek narzędzi aplikacji logiki z wybranym przyciskiem Usuń.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
 1. Gdy pojawi się okno potwierdzenia, wprowadź nazwę aplikacji logiki, a następnie wybierz pozycję **Usuń**.
 
-   ![Potwierdzenie usunięcia aplikacji logiki](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
+   ![Zrzut ekranu przedstawiający monit Logic Apps o potwierdzenie usunięcia pojedynczej aplikacji logiki.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
 
    Azure Portal przedstawia powiadomienie na głównym pasku narzędzi platformy Azure, który potwierdza, czy operacja zakończyła się powodzeniem, czy niepowodzeniem.
 
@@ -174,11 +174,11 @@ Usunięcie aplikacji logiki wpływa na wystąpienia przepływu pracy w następuj
 
 1. W kolumnie CheckBox wybierz Aplikacje logiki, które chcesz usunąć. Na pasku narzędzi wybierz pozycję **Usuń**.
 
-   ![Usuwanie wielu aplikacji logiki](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+   ![Zrzut ekranu przedstawiający stronę Logic Apps, pokazując wiele aplikacji logiki na liście wybranej do usunięcia.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
 1. Gdy pojawi się okno potwierdzenia, wprowadź `yes` i wybierz pozycję **Usuń**.
 
-   ![Potwierdzenie usunięcia aplikacji logiki](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
+   ![Zrzut ekranu przedstawiający monit Logic Apps o potwierdzenie usunięcia wielu aplikacji logiki.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Azure Portal przedstawia powiadomienie na głównym pasku narzędzi platformy Azure, który potwierdza, czy operacja zakończyła się powodzeniem, czy niepowodzeniem.
 
@@ -196,13 +196,13 @@ Azure Portal służy do kontroli wersji aplikacji logiki. Możesz znaleźć hist
 
 1. W menu aplikacji logiki w obszarze **Narzędzia programistyczne**wybierz pozycję **wersje**.
 
-   ![W menu aplikacji logiki wybierz pozycję "wersje" w obszarze "narzędzia programistyczne".](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![Zrzut ekranu aplikacji logiki w Azure Portal, który pokazuje wybór strony wersje w obszarze Narzędzia programistyczne.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
 1. Wybierz **wersję** aplikacji logiki, która ma być zarządzana z listy. Aby odfiltrować listę, możesz wprowadzić identyfikator **wersji** na pasku wyszukiwania.
 
 1. Na stronie **wersja historii** zobaczysz szczegóły poprzedniej wersji w trybie tylko do odczytu. Można wybrać między trybami **projektant** Logic Apps i **Widok kodu** .
 
-   ![Strona wersji historii dla aplikacji logiki korzystającej z widoku kodu i widoku projektanta aplikacji logiki](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![Zrzut ekranu przedstawiający stronę wersji historii Logic Apps, która zawiera widok kodu i opcje widoku projektanta.](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
@@ -212,11 +212,11 @@ Azure Portal służy do kontroli wersji aplikacji logiki. Możesz znaleźć hist
 
 1. Na stronie **wersja historii** wybierz pozycję **Podwyższ poziom**.
 
-   ![Przycisk promowania w historii wersji aplikacji logiki](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![Zrzut ekranu przedstawiający historię wersji aplikacji logiki, który pokazuje przycisk promowania poprzedniej wersji.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
 1. Na stronie **projektanta Logic Apps** , która zostanie otwarta, Edytuj wersję, która jest podwyższana, w razie konieczności. Można przełączać się między trybami **projektanta** i **widoku kodu** . Można także aktualizować **Parametry**, **Szablony**i **Łączniki**.
 
-   ![Strona projektanta Logic Apps na potrzeby promowania poprzedniej wersji](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   ![Zrzut ekranu programu Logic Apps Designer, pokazujący przycisk umożliwiający podwyższenie poziomu poprzedniej wersji aplikacji logiki.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
 1. Aby zapisać wszystkie aktualizacje i zakończenie promowania poprzedniej wersji, wybierz pozycję **Zapisz**. (Lub, aby anulować zmiany, wybierz pozycję **Odrzuć**.) 
 

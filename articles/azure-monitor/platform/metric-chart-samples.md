@@ -7,15 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 762264cfe7e0441671411e2c277a0796cd527399
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081529"
 ---
 # <a name="metric-chart-examples"></a>Przykłady wykresu metryki 
 
-Platforma Azure oferuje [tysiące metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), z których wiele ma wymiary. Przy użyciu [filtrów wymiarów](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), stosowania [dzielenia](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), kontroli typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono przykłady wykresów, które można skompilować przy użyciu [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
+Platforma Azure oferuje [tysiące metryk](./metrics-supported.md), z których wiele ma wymiary. Przy użyciu [filtrów wymiarów](./metrics-charts.md), stosowania [dzielenia](./metrics-charts.md), kontroli typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono przykłady wykresów, które można skompilować przy użyciu [Eksplorator metryk](./metrics-charts.md) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
 
 Chcesz udostępnić przykłady doskonałych wykresów? Współtworzenie tej strony w witrynie GitHub i udostępnianie własnych przykładów wykresów!
 
@@ -37,7 +38,7 @@ Wyświetl dostępność aplikacji według regionów, aby zidentyfikować lokaliz
 
 ### <a name="how-to-configure-this-chart"></a>Jak skonfigurować ten wykres?
 
-Najpierw należy włączyć monitorowanie [dostępności Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) dla witryny sieci Web. Po wybraniu tej opcji zaznacz zasób Application Insights i wybierz metrykę dostępności. Zastosuj podział w wymiarze **lokalizacji przebiegu** .
+Najpierw należy włączyć monitorowanie [dostępności Application Insights](../app/monitor-web-app-availability.md) dla witryny sieci Web. Po wybraniu tej opcji zaznacz zasób Application Insights i wybierz metrykę dostępności. Zastosuj podział w wymiarze **lokalizacji przebiegu** .
 
 ## <a name="volume-of-storage-account-transactions-by-api-name"></a>Ilość transakcji konta magazynu według nazwy interfejsu API
 

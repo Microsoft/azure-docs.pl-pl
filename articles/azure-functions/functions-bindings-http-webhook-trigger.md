@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d1b545129312e2954c76e296560d9476f37f4424
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081767"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -476,7 +476,7 @@ Aby uzyskać pełny przykład, zobacz [przykład wyzwalacza](#example).
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `HttpTrigger` atrybutu.
 
@@ -674,7 +674,7 @@ Te informacje można również odczytać z poziomu powiązań danych. Ta funkcja
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Informacje dotyczące uwierzytelnionych klientów są dostępne jako [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal jest dostępny jako część kontekstu żądania, jak pokazano w następującym przykładzie:
+Informacje dotyczące uwierzytelnionych klientów są dostępne jako [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal jest dostępny jako część kontekstu żądania, jak pokazano w następującym przykładzie:
 
 ```csharp
 using System.Net;
@@ -706,7 +706,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Informacje dotyczące uwierzytelnionych klientów są dostępne jako [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal jest dostępny jako część kontekstu żądania, jak pokazano w następującym przykładzie:
+Informacje dotyczące uwierzytelnionych klientów są dostępne jako [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal jest dostępny jako część kontekstu żądania, jak pokazano w następującym przykładzie:
 
 ```csharp
 using System.Net;
@@ -797,7 +797,7 @@ Aby w pełni zabezpieczyć punkty końcowe funkcji w środowisku produkcyjnym, n
 
 W wersji 1. x szablony elementów webhook zapewniają dodatkową weryfikację ładunków elementu webhook. W wersji 2. x i wyższych, podstawowy wyzwalacz HTTP nadal działa i jest zalecanym rozwiązaniem dla elementów webhook. 
 
-### <a name="github-webhooks"></a>Elementy webhook usługi GitHub
+### <a name="github-webhooks"></a>GitHub webhooks (Elementy webhook usługi GitHub)
 
 Aby odpowiedzieć na elementy webhook usługi GitHub, najpierw Utwórz funkcję z wyzwalaczem HTTP i ustaw właściwość **Webhooktype** na `github` . Następnie skopiuj swój adres URL i klucz interfejsu API na stronę **Dodawanie elementu webhook** w repozytorium GitHub. 
 

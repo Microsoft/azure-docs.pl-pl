@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080441"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
 
@@ -111,7 +112,7 @@ Po rozpoczęciu konserwacji odpowiednie maszyny wirtualne w zestawie skalowania 
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Sprawdzanie stanu konserwacji przy użyciu programu PowerShell
 
-Możesz użyć Azure PowerShell, aby sprawdzić, kiedy maszyny wirtualne w zestawach skalowania maszyn wirtualnych są zaplanowane do konserwacji. Informacje o planowanej konserwacji są dostępne za pomocą polecenia cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) przy użyciu `-InstanceView` parametru.
+Możesz użyć Azure PowerShell, aby sprawdzić, kiedy maszyny wirtualne w zestawach skalowania maszyn wirtualnych są zaplanowane do konserwacji. Informacje o planowanej konserwacji są dostępne za pomocą polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) przy użyciu `-InstanceView` parametru.
  
 Informacje o konserwacji są zwracane tylko wtedy, gdy konserwacja jest zaplanowana. Jeśli nie zaplanowano żadnej konserwacji, która ma wpływ na wystąpienie maszyny wirtualnej, polecenie cmdlet nie zwróci żadnych informacji o obsłudze. 
 

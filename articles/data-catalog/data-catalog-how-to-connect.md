@@ -4,13 +4,14 @@ description: Artykuł z instrukcje dotyczące nawiązywania połączenia ze źr�
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68976782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081257"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Jak nawiązywać połączenie ze źródłami danych
 ## <a name="introduction"></a>Wprowadzenie
@@ -58,5 +59,5 @@ Aby ułatwić użytkownikom, którzy odnajdują źródło danych, ale nie ma upr
 ## <a name="summary"></a>Podsumowanie
 Zarejestrowanie źródła danych za pomocą **Azure Data Catalog** umożliwia odnajdywanie danych przez kopiowanie strukturalnych i opisowych metadanych ze źródła danych do usługi katalogowej. Gdy źródło danych zostanie zarejestrowane i odnalezione, użytkownicy mogą nawiązywać połączenia ze źródłem danych z portalu **Azure Data Catalog** "Otwórz w..." " lub przy użyciu wybranych przez siebie narzędzi do pracy z danymi.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Zacznij korzystać z](data-catalog-get-started.md) samouczka Azure Data Catalog, aby uzyskać szczegółowe informacje na temat sposobu nawiązywania połączenia ze źródłami danych.

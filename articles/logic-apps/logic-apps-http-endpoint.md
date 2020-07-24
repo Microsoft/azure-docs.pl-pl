@@ -6,11 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078664"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -18,7 +19,7 @@ Aby umożliwić aplikacji logiki wywoływanie za pośrednictwem adresu URL, dzi�
 
 Aby skonfigurować możliwy do nadania punkt końcowy, można użyć dowolnego z tych typów wyzwalaczy, które umożliwiają aplikacjom logiki Odbieranie przychodzących żądań:
 
-* [Żądanie](../connectors/connectors-native-reqres.md)
+* [Request](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 * Wyzwalacze łączników zarządzanych, które mają [Typ ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać przychodzące żądania https
 
@@ -387,7 +388,7 @@ Aby wyświetlić definicję JSON dla akcji odpowiedzi i kompletnej definicji JSO
 
 #### <a name="q-what-about-url-security"></a>P: Jakie są zabezpieczenia adresów URL?
 
-Odp **.: usługa**Azure bezpiecznie generuje adresy URL wywołania zwrotnego aplikacji logiki przy użyciu [sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Ten podpis przechodzi przez parametr zapytania i musi być zweryfikowany, aby można było uruchomić aplikację logiki. Platforma Azure generuje podpis przy użyciu unikatowej kombinacji klucza tajnego na aplikację logiki, nazwę wyzwalacza i wykonywaną operację. Jeśli jednak ktoś nie ma dostępu do klucza aplikacji logiki tajnej, nie może wygenerować prawidłowego podpisu.
+Odp **.: usługa**Azure bezpiecznie generuje adresy URL wywołania zwrotnego aplikacji logiki przy użyciu [sygnatury dostępu współdzielonego (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Ten podpis przechodzi przez parametr zapytania i musi być zweryfikowany, aby można było uruchomić aplikację logiki. Platforma Azure generuje podpis przy użyciu unikatowej kombinacji klucza tajnego na aplikację logiki, nazwę wyzwalacza i wykonywaną operację. Jeśli jednak ktoś nie ma dostępu do klucza aplikacji logiki tajnej, nie może wygenerować prawidłowego podpisu.
 
 > [!IMPORTANT]
 > W przypadku systemów bezpieczeństwa i wyższych zabezpieczeń zdecydowanie odradzamy wywoływanie aplikacji logiki bezpośrednio z przeglądarki z następujących powodów:

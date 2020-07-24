@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
-ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e86a92c253bc1926386269e289cdb7ae578746
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76984593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080776"
 ---
 1. W [Azure Portal](https://ms.portal.azure.com/)wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
@@ -66,7 +66,7 @@ ms.locfileid: "76984593"
    > [!NOTE]
    > Możesz zamiast tego zaimportować certyfikat. W celu zwiększenia bezpieczeństwa zaleca się używanie certyfikatu. Aby użyć certyfikatu, wybierz opcję **Przekaż certyfikat**.
 
-1. Skojarz aplikację Azure Active Directory usługą Azure TIme Series Insights. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodawanie uprawnień**interfejsy API, które są  >  **wykorzystywane przez moją organizację**. 
+1. Skojarz Azure Time Series Insights aplikacji Azure Active Directory. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodawanie uprawnień**interfejsy API, które są  >  **wykorzystywane przez moją organizację**. 
 
     [![Kojarzenie interfejsu API z aplikacją Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

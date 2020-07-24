@@ -4,15 +4,16 @@ description: W tym artykule dowiesz się, jak zarządzać operacją tworzenia ko
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079336"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Tworzenie magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
-Procedurę tworzenia magazynu usługi Azure Recovery Services przy użyciu interfejsu API REST opisano w temacie Tworzenie dokumentacji [interfejsu API REST magazynu](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) . Pozwól nam używać tego dokumentu jako odniesienia do tworzenia magazynu o nazwie "testVault" w "zachodnie stany USA".
+Procedurę tworzenia magazynu usługi Azure Recovery Services przy użyciu interfejsu API REST opisano w temacie Tworzenie dokumentacji [interfejsu API REST magazynu](/rest/api/recoveryservices/vaults/createorupdate) . Pozwól nam używać tego dokumentu jako odniesienia do tworzenia magazynu o nazwie "testVault" w "zachodnie stany USA".
 
 Aby utworzyć lub zaktualizować magazyn usługi Azure Recovery Services, użyj następującej operacji *Put* .
 
@@ -29,7 +30,7 @@ Wymagane są następujące nagłówki:
 | Nagłówek żądania   | Opis |
 |------------------|-----------------|
 | *Content-Type:*  | Wymagany. Ustaw wartość `application/json`. |
-| *Authorization:* | Wymagany. Ustaw na prawidłowy  [token dostępu](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |
+| *Authorization:* | Wymagany. Ustaw na prawidłowy  [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |
 
 Aby uzyskać więcej informacji na temat sposobu tworzenia żądania, zobacz [składniki żądania/odpowiedzi interfejsu API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -39,10 +40,10 @@ Następujące typowe definicje są używane do kompilowania treści żądania:
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   String      |  Opcjonalny element eTag       |
-|location     |  true       |String         |   Lokalizacja zasobu      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
-|sku     |         |  [Magazyn](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identyfikuje unikatowy identyfikator systemowy dla poszczególnych zasobów platformy Azure     |
+|Element ETag     |         |   String (ciąg)      |  Opcjonalny element eTag       |
+|location     |  true       |String (ciąg)         |   Lokalizacja zasobu      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
+|sku     |         |  [Magazyn](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identyfikuje unikatowy identyfikator systemowy dla poszczególnych zasobów platformy Azure     |
 |tags     |         | Obiekt        |     Tagi zasobów    |
 
 Należy pamiętać, że nazwa magazynu i nazwa grupy zasobów są podane w identyfikatorze URI. Treść żądania definiuje lokalizację.
@@ -67,8 +68,8 @@ Istnieją dwie Pomyślne odpowiedzi na operację tworzenia lub aktualizowania ma
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     |   [Magazyn](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201 Utworzono     | [Magazyn](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Utworzone      |
+|200 OK     |   [Magazyn](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
+|201 Utworzono     | [Magazyn](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Utworzone      |
 
 Aby uzyskać więcej informacji na temat odpowiedzi interfejsu API REST, zobacz [Przetwarzanie komunikatu odpowiedzi](/rest/api/azure/#process-the-response-message).
 

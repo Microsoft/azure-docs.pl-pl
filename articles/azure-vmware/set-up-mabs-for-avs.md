@@ -3,12 +3,12 @@ title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby utworzyć kopię zapasową maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079540"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
@@ -309,7 +309,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
    * **Baza danych**: **DatabaseName** powinna być **reportserver \<SQLInstanceName> $**.
    * **Adres URL portalu sieci Web**: **katalog wirtualny** powinien być **Reports_ \<SQLInstanceName> **.
 
-   [Dowiedz się więcej](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) o konfiguracji usług SSRS.
+   [Dowiedz się więcej](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) o konfiguracji usług SSRS.
 
    > [!NOTE]
    > [Warunki użytkowania usług online firmy Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (ost) regulują licencjonowanie SQL Server używanych jako baza danych Azure Backup Server. Zgodnie z elementem OST SQL Server dołączone do Azure Backup Server może być używany tylko jako baza danych Azure Backup Server.
@@ -319,7 +319,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 1. Podaj lokalizację instalacji plików serwera Microsoft Azure Backup, a następnie wybierz pozycję **dalej**.
 
    > [!NOTE]
-   > Lokalizacja tymczasowa jest wymagana na potrzeby tworzenia kopii zapasowych na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych, których kopię zapasową zaplanowano do chmury. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Konfigurowanie pul magazynów i magazynu dyskowego](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > Lokalizacja tymczasowa jest wymagana na potrzeby tworzenia kopii zapasowych na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych, których kopię zapasową zaplanowano do chmury. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Konfigurowanie pul magazynów i magazynu dyskowego](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Ustawienia instalacji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować twor
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure](backup-avs-vms-with-mabs.md)
-

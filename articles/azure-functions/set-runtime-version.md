@@ -2,16 +2,17 @@
 title: Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 description: Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego aplikacji funkcji hostowanej na platformie Azure.
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77151959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079659"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 
-Aplikacja funkcji jest uruchamiana w określonej wersji środowiska uruchomieniowego Azure Functions. Istnieją trzy wersje główne: [1. x, 2. x i 3. x](functions-versions.md). Domyślnie aplikacje funkcji są tworzone w wersji 2. x środowiska uruchomieniowego. W tym artykule wyjaśniono, jak skonfigurować aplikację funkcji na platformie Azure do uruchamiania w wybranej wersji. Informacje o sposobie konfigurowania lokalnego środowiska projektowego dla określonej wersji znajdują się w temacie [kod i test Azure Functions lokalnie](functions-run-local.md).
+Aplikacja funkcji jest uruchamiana w określonej wersji środowiska uruchomieniowego Azure Functions. Istnieją trzy wersje główne: [1. x, 2. x i 3. x](functions-versions.md). Domyślnie aplikacje funkcji są tworzone w wersji 3. x środowiska uruchomieniowego. W tym artykule wyjaśniono, jak skonfigurować aplikację funkcji na platformie Azure do uruchamiania w wybranej wersji. Informacje o sposobie konfigurowania lokalnego środowiska projektowego dla określonej wersji znajdują się w temacie [kod i test Azure Functions lokalnie](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Aktualizacje automatyczne i ręczne
 

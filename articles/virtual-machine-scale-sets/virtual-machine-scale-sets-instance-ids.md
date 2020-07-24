@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84607350"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080458"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Opis identyfikatorów wystąpień maszyn wirtualnych zestawu skalowania maszyn wirtualnych platformy Azure
 W tym artykule opisano identyfikatory wystąpień dla zestawów skalowania i różne sposoby ich powierzchni.
@@ -22,19 +23,19 @@ W tym artykule opisano identyfikatory wystąpień dla zestawów skalowania i ró
 
 Każda maszyna wirtualna w zestawie skalowania Pobiera identyfikator wystąpienia, który jednoznacznie identyfikuje go. Ten identyfikator wystąpienia jest używany w interfejsach API zestawu skalowania do wykonywania operacji na określonej maszynie wirtualnej w zestawie skalowania. Na przykład można określić identyfikator określonego wystąpienia do odobrazowania podczas korzystania z interfejsu API odobrazu:
 
-Interfejs API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage)).
+Interfejs API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API REST](/rest/api/compute/virtualmachinescalesetvms/reimage)).
 
-PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)).
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](/powershell/module/az.compute/set-azvmssvm)).
 
-Interfejs wiersza polecenia: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+Interfejs wiersza polecenia: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia](/cli/azure/vmss?view=azure-cli-latest)).
 
 Listę identyfikatorów wystąpień można pobrać, wyświetlając listę wszystkich wystąpień w zestawie skalowania:
 
-Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list)).
+Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API REST](/rest/api/compute/virtualmachinescalesetvms/list)).
 
-PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)).
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](/powershell/module/az.compute/get-azvmssvm)).
 
-Interfejs wiersza polecenia: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+Interfejs wiersza polecenia: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia](/cli/azure/vmss?view=azure-cli-latest)).
 
 Możesz również użyć [resources.Azure.com](https://resources.azure.com) lub [zestawów Azure SDK](https://azure.microsoft.com/downloads/) , aby wyświetlić listę maszyn wirtualnych w zestawie skalowania.
 
@@ -65,7 +66,7 @@ Jak widać, właściwość "instanceId" ma tylko liczbę dziesiętną. Identyfik
 
 W przykładowych danych wyjściowych powyżej istnieje również "nazwa" dla maszyny wirtualnej. Ta nazwa przyjmuje postać "{Scale-Set-Name} _ {instance-ID}". Ta nazwa jest wyświetlana w Azure Portal podczas wyświetlania listy wystąpień w zestawie skalowania:
 
-![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
+![Zrzut ekranu przedstawiający listę wystąpień w zestawie skalowania maszyn wirtualnych w Azure Portal.](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
 Część nazwy {instance-ID} jest tą samą liczbą dziesiętną, która została omówiona wcześniej przez właściwość "instanceId".
 

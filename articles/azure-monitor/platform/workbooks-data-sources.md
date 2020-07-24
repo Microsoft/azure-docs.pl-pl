@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081427"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -61,7 +61,7 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Źr
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](/azure/kusto/query/index) .   
 
 ![Zrzut ekranu przedstawiający okno zapytania Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ Dostawca JSON umożliwia utworzenie wyniku zapytania ze statycznej zawartości J
 > [!NOTE]
 > Sugerowany sposób wykonywania zapytań dotyczących informacji o alertach platformy Azure polega na użyciu źródła danych [grafu zasobów platformy Azure](#azure-resource-graph) , badając `AlertsManagementResources` tabelę.
 >
-> Przykłady można znaleźć w temacie [odwołanie do tabeli grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)lub [szablon alertów](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
+> Przykłady można znaleźć w temacie [odwołanie do tabeli grafu zasobów platformy Azure](../../governance/resource-graph/reference/supported-tables-resources.md)lub [szablon alertów](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
 >
 > Źródło danych alertów pozostanie dostępne przez pewien czas podczas przejścia przez autorów do użycia argumentu ARG. Nie zaleca się używania tego źródła danych w szablonach. 
 
@@ -113,5 +113,5 @@ Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas 
 
 * [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
-* [Wskazówki dotyczące optymalizacji zapytań Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Wskazówki dotyczące optymalizacji zapytań Log Analytics](../log-query/query-optimization.md)
 * 

@@ -9,11 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078112"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine systemu Linux na platformie Azure
 
@@ -29,7 +30,7 @@ Przed użyciem DSVM systemu Linux należy spełnić następujące wymagania wst�
 
 * **Subskrypcja platformy Azure**. Aby uzyskać subskrypcję platformy Azure, zobacz artykuł [Tworzenie bezpłatnego konta platformy Azure już dzisiaj](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine systemu Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informacje o aprowizacji maszyny wirtualnej można znaleźć w temacie [Inicjowanie obsługi Data Science Virtual Machine systemu Linux](linux-dsvm-intro.md).
-* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](linux-dsvm-intro.md#x2go).
+* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](dsvm-ubuntu-intro.md#x2go).
 * Aby usprawnić przewijanie w przeglądarce sieci Web w programie DSVM, przełącz `gfx.xrender.enabled` flagę w `about:config` . [Dowiedz się więcej](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Należy również rozważyć `mousewheel.enable_pixel_scrolling` ustawienie `False` . [Dowiedz się więcej](https://support.mozilla.org/questions/981140).
 * **Konto Azure Machine Learning**. Jeśli jeszcze tego nie zrobiono, Utwórz nowe konto na [stronie głównej Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
@@ -495,7 +496,7 @@ Aby rozpocząć, w menu **aplikacje** Otwórz SQuirreL SQL. Aby skonfigurować s
 1. Kliknij prawym przyciskiem myszy pozycję **PostgreSQL** i wybierz pozycję **Modyfikuj sterownik**.
 1. Wybierz pozycję **dodatkowa ścieżka klasy**  >  **Dodaj**.
 1. W obszarze **Nazwa pliku**wprowadź **/usr/share/Java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
-1. Wybierz pozycję **Open** (Otwórz).
+1. Wybierz pozycję **Otwórz**.
 1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy**wybierz pozycję **org. PostgreSQL. Driver**, a następnie wybierz przycisk **OK**.
 
 Aby skonfigurować połączenie z serwerem lokalnym:

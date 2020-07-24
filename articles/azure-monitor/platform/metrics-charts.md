@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079557"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980902"
 
 ## <a name="metrics-in-azure"></a>Metryki na platformie Azure
 
-[Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)lub [interfejsu API REST Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](../app/api-custom-events-metrics.md), [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](./diagnostics-extension-overview.md)lub [interfejsu API REST Azure monitor](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Tworzenie widoków z wieloma metrykami i wykresami
 
@@ -175,5 +176,4 @@ Zapoznaj się z tym [artykułem](alerts-metric.md) , aby dowiedzieć się więce
 
 ## <a name="next-steps"></a>Następne kroki
 
-  Przeczytaj temat [Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) , aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących tworzenia pulpitów nawigacyjnych z możliwością podejmowania działań z
-
+  Przeczytaj temat [Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI](../learn/tutorial-app-dashboards.md) , aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących tworzenia pulpitów nawigacyjnych z możliwością podejmowania działań z

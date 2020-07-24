@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081733"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -111,6 +111,9 @@ Po wyświetleniu monitu podaj następujące wartości:
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
 Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
+
+Aby uruchomić program Java 11 na platformie Azure, należy zmodyfikować wartości w pliku pom.xml. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Przejdź do folderu projektu:
 
@@ -157,6 +160,8 @@ Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład przez zmianę `runtime.os` z `windows` na `linux` przed początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Jeśli chcesz uruchomić aplikację funkcji w środowisku Java 11 zamiast Java 8, musisz ręcznie zaktualizować plik pom.xml przy użyciu wartości języka Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). W przypadku uruchamiania w programie Java 11 upewnij się, że  
 
 #### <a name="functiontestjava"></a>FunctionTest. Java
 
@@ -368,7 +373,7 @@ Spowoduje to utworzenie następujących zasobów na platformie Azure:
 + Grupa zasobów. Nazwana jako _Java-Functions-Group_.
 + Konto magazynu. Wymagane przez funkcje. Nazwa jest generowana losowo na podstawie wymagań dotyczących nazw kont magazynu.
 + Plan hostingu. Hosting bezserwerowy dla aplikacji funkcji w regionie _zachodnim_ . Nazwa to _Java-Functions-App-Service-plan_.
-+ Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie tego, że _artifactId_jest dołączana do losowo wygenerowanego numeru. 
++ Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie _artifactId_, z uwzględnieniem losowo wygenerowanego numeru. 
 
 Wdrożenie pakuje pliki projektu i wdraża je w nowej aplikacji funkcji przy użyciu polecenia [zip Deployment](functions-deployment-technologies.md#zip-deploy). Kod jest uruchamiany z pakietu wdrożeniowego na platformie Azure.
 ::: zone-end

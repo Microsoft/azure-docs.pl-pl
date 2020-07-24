@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079863"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure
 
@@ -34,8 +34,8 @@ Aby uzyskać więcej informacji na temat systemów operacyjnych obsługiwanych w
 ## <a name="references"></a>Odwołania
 
 * [Dowiedz się więcej o bezpłatnych rozszerzonych aktualizacjach zabezpieczeń dla systemu Windows Server 2008/R2 na platformie Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Dowiedz się więcej o obsłudze systemu Windows Server 2008 z dodatkiem SP2 32-bitowym wyspecjalizowanym obrazom na platformie Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Dowiedz się więcej o obsłudze migracji obrazów systemu Windows Server 2008 na platformie Azure przy użyciu Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Dowiedz się więcej o obsłudze systemu Windows Server 2008 z dodatkiem SP2 32-bitowym wyspecjalizowanym obrazom na platformie Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Dowiedz się więcej o obsłudze migracji obrazów systemu Windows Server 2008 na platformie Azure przy użyciu Azure Site Recovery](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Dowiedz się więcej o obsługiwanych systemach operacyjnych rozszerzenia platformy Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Dowiedz się więcej o uruchamianiu systemu Windows Server 2003 na Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

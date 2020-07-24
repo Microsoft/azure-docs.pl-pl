@@ -4,13 +4,14 @@ description: Artykuł zawiera instrukcje dotyczące sposobu dodawania adnotacji 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68950257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081240"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Jak dodawać adnotacje do źródeł danych w Azure Data Catalog
 
@@ -59,5 +60,5 @@ Podobnie jak metadane wyodrębnione ze źródła danych podczas rejestracji są 
 ## <a name="summary"></a>Podsumowanie
 Zarejestrowanie źródła danych za pomocą Data Catalog umożliwia odnajdywanie danych przez kopiowanie strukturalnych i opisowych metadanych ze źródła danych do usługi katalogowej. Po zarejestrowaniu źródła danych użytkownicy mogą podawać adnotacje, aby ułatwić ich odnajdywanie i zrozumienie w portalu Data Catalog.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Zacznij korzystać z](data-catalog-get-started.md) samouczka Azure Data Catalog, aby uzyskać szczegółowe informacje na temat sposobu dodawania adnotacji do źródeł danych.

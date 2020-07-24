@@ -1,5 +1,5 @@
 ---
-title: Tworzenie konfiguracji protokołu SAP na platformie Azure | Microsoft Docs
+title: Tworzenie konfiguracji wielosid SAP o wysokiej dostępności na platformie Azure
 description: Przewodnik dotyczący wysokiej dostępności konfiguracji oprogramowania SAP NetWeaver na wiele identyfikatorów SID na maszynach wirtualnych z systemem Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cf62be1ad9d95ff20351966bf21af0cb3d9f0a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079880"
 ---
-# <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Tworzenie konfiguracji protokołu SAP NetWeaver z obsługą identyfikatorów SID
+# <a name="create-a-high-availability-sap-netweaver-multi-sid-configuration"></a>Tworzenie konfiguracji protokołu SAP NetWeaver o wysokiej dostępności
 
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [sap-ha-guide]:sap-high-availability-guide.md 

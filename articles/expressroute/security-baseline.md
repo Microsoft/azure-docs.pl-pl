@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e539e2a26e53ded8a2c42491c1e1e596a2180ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079051"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Podstawa zabezpieczeń platformy Azure dla ExpressRoute
 
@@ -246,7 +246,7 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 * [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Wykorzystanie RBAC w INTERFEJSie ExpressRoute Menedżer zasobów partnera](https://docs.microsoft.com/azure/expressroute/cross-connections-api-developmentment)
+* [Wykorzystanie RBAC w INTERFEJSie ExpressRoute Menedżer zasobów partnera](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitorowanie Azure Security Center**: tak
 

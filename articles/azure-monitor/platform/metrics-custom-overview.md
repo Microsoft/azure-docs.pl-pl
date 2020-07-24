@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081495"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
-Podczas wdrażania zasobów i aplikacji na platformie Azure należy rozpocząć zbieranie danych telemetrycznych w celu uzyskania szczegółowych informacji o wydajności i kondycji. Platforma Azure sprawia, że niektóre metryki są dostępne dla użytkownika. Te metryki są nazywane [standardem lub platformą](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Jednak są one ograniczone. 
+Podczas wdrażania zasobów i aplikacji na platformie Azure należy rozpocząć zbieranie danych telemetrycznych w celu uzyskania szczegółowych informacji o wydajności i kondycji. Platforma Azure sprawia, że niektóre metryki są dostępne dla użytkownika. Te metryki są nazywane [standardem lub platformą](./metrics-supported.md). Jednak są one ograniczone. 
 
 Możesz chcieć zebrać niektóre niestandardowe wskaźniki wydajności lub metryki specyficzne dla danej firmy, aby zapewnić dokładniejsze informacje. Te metryki **niestandardowe** można zbierać za pośrednictwem danych telemetrycznych aplikacji, agenta uruchamianego w zasobach platformy Azure, a nawet z zewnętrznego systemu monitorowania i przesyłanego bezpośrednio do Azure monitor. Po opublikowaniu w usłudze Azure Monitor można przeglądać, wysyłać zapytania i otrzymywać alerty dotyczące niestandardowych metryk dla zasobów platformy Azure i aplikacji obok standardowych metryk emitowanych przez platformę Azure.
 
@@ -37,23 +37,23 @@ Zapoznaj się ze [stroną cennika Azure monitor](https://azure.microsoft.com/pri
 Metryki niestandardowe są przechowywane przez ten [sam czas jako metryki platformy](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Metryki wysyłane do Azure Monitor za pośrednictwem Application Insights SDK są rozliczane jako pobrane dane dziennika. Naliczane są tylko opłaty za metryki, tylko wtedy, gdy wybrano funkcję Application Insights [Włącz alerty w przypadku wymiarów metryk niestandardowych](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) . To pole wyboru służy do przesyłania danych do bazy danych metryk Azure Monitor przy użyciu interfejsu API metryk niestandardowych, aby umożliwić bardziej skomplikowane generowanie alertów.  Dowiedz się więcej o [modelu cen Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) i [cenach w Twoim regionie](https://azure.microsoft.com/pricing/details/monitor/).
+> Metryki wysyłane do Azure Monitor za pośrednictwem Application Insights SDK są rozliczane jako pobrane dane dziennika. Naliczane są tylko opłaty za metryki, tylko wtedy, gdy wybrano funkcję Application Insights [Włącz alerty w przypadku wymiarów metryk niestandardowych](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) . To pole wyboru służy do przesyłania danych do bazy danych metryk Azure Monitor przy użyciu interfejsu API metryk niestandardowych, aby umożliwić bardziej skomplikowane generowanie alertów.  Dowiedz się więcej o [modelu cen Application Insights](../app/pricing.md#pricing-model) i [cenach w Twoim regionie](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="how-to-send-custom-metrics"></a>Jak wysyłać metryki niestandardowe
 
 W przypadku wysyłania niestandardowych metryk do Azure Monitor, każdy punkt danych lub wartość, raportowane muszą zawierać następujące informacje.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 Aby przesłać niestandardowe metryki do Azure Monitor, jednostka, która przesyła metrykę, musi być prawidłowym tokenem Azure Active Directory (Azure AD) w nagłówku **okaziciela** żądania. Istnieje kilka obsługiwanych metod uzyskiwania prawidłowego tokenu okaziciela:
-1. [Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Zwraca tożsamość do zasobu platformy Azure, na przykład maszynę wirtualną. Tożsamość usługi zarządzanej (MSI) jest zaprojektowana w celu przyznania zasobom uprawnień do wykonywania określonych operacji. Przykładem jest umożliwienie zasobowi emisji metryk dotyczących siebie. Do zasobu lub jego pliku MSI można przyznać uprawnienia **wydawcy metryk monitorowania** dla innego zasobu. Za pomocą tego uprawnienia plik MSI może również emitować metryki dla innych zasobów.
-2. Nazwa [główna usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). W tym scenariuszu aplikacja usługi Azure AD lub usługa może mieć przypisane uprawnienia do emisji metryk dotyczących zasobu platformy Azure.
+1. [Zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md). Zwraca tożsamość do zasobu platformy Azure, na przykład maszynę wirtualną. Tożsamość usługi zarządzanej (MSI) jest zaprojektowana w celu przyznania zasobom uprawnień do wykonywania określonych operacji. Przykładem jest umożliwienie zasobowi emisji metryk dotyczących siebie. Do zasobu lub jego pliku MSI można przyznać uprawnienia **wydawcy metryk monitorowania** dla innego zasobu. Za pomocą tego uprawnienia plik MSI może również emitować metryki dla innych zasobów.
+2. Nazwa [główna usługi Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). W tym scenariuszu aplikacja usługi Azure AD lub usługa może mieć przypisane uprawnienia do emisji metryk dotyczących zasobu platformy Azure.
 Aby uwierzytelnić żądanie, Azure Monitor sprawdza poprawność tokenu aplikacji przy użyciu kluczy publicznych usługi Azure AD. Istniejące rola **wydawcy metryk monitorowania** ma już to uprawnienie. Jest on dostępny w Azure Portal. Nazwa główna usługi, w zależności od tego, jakie zasoby emitują metryki niestandardowe, może mieć rolę **wydawcy metryk monitorowania** w wymaganym zakresie. Przykłady to subskrypcja, Grupa zasobów lub określony zasób.
 
 > [!TIP]  
 > Po zażądaniu tokenu usługi Azure AD do emitowania metryk niestandardowych upewnij się, że dla odbiorców lub zasobów jest żądany token `https://monitoring.azure.com/` . Pamiętaj, aby uwzględnić końcowy znak "/".
 
-### <a name="subject"></a>Podmiot
+### <a name="subject"></a>Temat
 Ta właściwość służy do przechwytywania identyfikatora zasobu platformy Azure, dla którego jest raportowana Metryka niestandardowa. Te informacje zostaną zakodowane w adresie URL wywoływanego wywołania interfejsu API. Każdy interfejs API może przesyłać tylko wartości metryk dla pojedynczego zasobu platformy Azure.
 
 > [!NOTE]  
@@ -68,7 +68,7 @@ Ta właściwość przechwytuje, w jakim regionie platformy Azure jest wdrażany 
 >
 >
 
-### <a name="timestamp"></a>Znacznik czasu
+### <a name="timestamp"></a>Timestamp
 Każdy punkt danych wysyłany do Azure Monitor musi być oznaczony sygnaturą czasową. Ta sygnatura czasowa przechwytuje datę i godzinę, o której wartość metryki jest mierzona lub zbierana. Azure Monitor akceptuje dane metryk z sygnaturami czasowymi w ciągu ostatnich i 5 minut w przyszłości. Sygnatura czasowa musi być w formacie ISO 8601.
 
 ### <a name="namespace"></a>Przestrzeń nazw
@@ -92,7 +92,7 @@ Podczas publikowania wartości metryki można określić tylko jedną wartość 
 Wymiary są opcjonalne, nie wszystkie metryki mogą mieć wymiary. Jeśli wpis metryki definiuje klucze wymiarów, odpowiednie wartości wymiarów są obowiązkowe.
 
 ### <a name="metric-values"></a>Wartości metryk
-Azure Monitor przechowuje wszystkie metryki w interwałach dokładności jednej minuty. Rozumiemy, że w ciągu danej minuty może być konieczne kilkakrotne Przepróbkowanie metryk. Przykładem jest użycie procesora CPU. Lub może być konieczne zmierzenie dla wielu dyskretnych zdarzeń. Przykładem są opóźnienia transakcji logowania. Aby ograniczyć liczbę nieprzetworzonych wartości, które mają być emitowane i płatne w Azure Monitor, można lokalnie agregować i emitować wartości:
+Azure Monitor przechowuje wszystkie metryki w interwałach dokładności jednej minuty. Rozumiemy, że w ciągu danej minuty może być konieczne kilkakrotne Przepróbkowanie metryk. Na przykład na podstawie użycia procesora CPU. Lub może być konieczne zmierzenie dla wielu dyskretnych zdarzeń. Przykładem są opóźnienia transakcji logowania. Aby ograniczyć liczbę nieprzetworzonych wartości, które mają być emitowane i płatne w Azure Monitor, można lokalnie agregować i emitować wartości:
 
 * **Minimum**: minimalna obserwowana wartość ze wszystkich próbek i pomiarów w ciągu minuty.
 * **Max**: Maksymalna obserwowana wartość ze wszystkich próbek i pomiarów w ciągu minuty.
@@ -176,7 +176,7 @@ Po przesłaniu metryk niestandardowych do Azure Monitor można je przeglądać z
 > Aby wyświetlić metryki niestandardowe, musisz być rolą czytelnika lub współautora.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Przeglądaj niestandardowe metryki za pomocą Azure Portal
-1.    Przejdź do [Azure Portal](https://portal.azure.com).
+1.    Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2.    Wybierz okienko **monitorowanie** .
 3.    Wybierz pozycję **Metryki**.
 4.    Wybierz zasób, względem którego wyemitowano metryki niestandardowe.
@@ -192,14 +192,14 @@ W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowy
 |Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com |
 |Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Północno-środkowe stany USA | https: \/ /northcentralus.Monitoring.Azure.com
-|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com |
-|Środkowe stany USA      | https: \/ /centralus.Monitoring.Azure.com |
+|South Central US| https: \/ /southcentralus.Monitoring.Azure.com |
+|Central US      | https: \/ /centralus.Monitoring.Azure.com |
 |Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.com |
-|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com |
+|East US| https: \/ /eastus.Monitoring.Azure.com |
 |Wschodnie stany USA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
 |Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com |
-|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com |
+|West Europe     | https: \/ /westeurope.Monitoring.Azure.com |
 |Południowe Zjednoczone Królestwo | https: \/ /uksouth.Monitoring.Azure.com
 |Francja Środkowa | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afryka** | |
@@ -207,8 +207,8 @@ W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowy
 | **Azja** | |
 |Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com |
 |Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com |
-|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com |
-|Azja Południowo-Wschodnia  | https: \/ /southeastasia.Monitoring.Azure.com |
+|Japan East | https: \/ /japaneast.Monitoring.Azure.com |
+|Southeast Asia  | https: \/ /southeastasia.Monitoring.Azure.com |
 |Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com |
 |Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com |
 

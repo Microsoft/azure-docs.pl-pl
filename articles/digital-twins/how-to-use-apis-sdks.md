@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079168"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -54,7 +54,7 @@ Aby używać interfejsów API płaszczyzny danych:
    - Źródło zestawu SDK, w tym folder przykładów, można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - można wyświetlić [dokumentację referencyjną zestawu SDK](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [zestawu SDK platformy .NET (C#)](#net-c-sdk-data-plane) w tym artykule.
-* Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest](how-to-create-custom-sdks.md).
+* Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 Możesz również wykonywać interfejsy API płaszczyzny danych, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [interfejsu wiersza polecenia](how-to-use-cli.md).
 
@@ -71,11 +71,11 @@ Aby użyć zestawu SDK, Dołącz pakiet NuGet **Azure. DigitalTwins. Core** z pr
 * Za pomocą narzędzia wiersza polecenia platformy .NET można uruchomić polecenie:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-Aby zapoznać się ze szczegółowym opisem użycia interfejsów API w programie, zobacz [Samouczek: Code a Client App](tutorial-code.md). 
+Aby zapoznać się ze szczegółowym opisem użycia interfejsów API w programie, zobacz [*Samouczek: Code a Client App*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>Przykłady użycia zestawu SDK dla platformy .NET
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-Zobacz [Samouczek: kod aplikacji klienckiej](tutorial-code.md) w celu przechodzenia do tego kodu przykładowej aplikacji. 
+Zobacz [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md) w celu przechodzenia do tego kodu przykładowej aplikacji. 
 
 Możesz również znaleźć dodatkowe przykłady w [repozytorium GitHub dla zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
@@ -290,8 +290,8 @@ W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki ni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz, jak używać interfejsów API do tworzenia wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
-* [Instrukcje: Tworzenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance.md)
+Zapoznaj się z tematem jak używać interfejsów API do konfigurowania wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji:
+* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md)
 
 Lub zapoznaj się z instrukcjami, aby utworzyć aplikację kliencką, taką jak ta, która jest używana w tym przewodniku:
-* [Samouczek: kod aplikacji klienckiej](tutorial-code.md)
+* [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

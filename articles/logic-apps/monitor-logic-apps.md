@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078190"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitoruj stan przebiegu, przejrzyj historię wyzwalacza i skonfiguruj alerty dla Azure Logic Apps
 
@@ -86,7 +86,7 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
      Teraz możesz wyświetlić informacje, takie jak dane wejściowe i wyjściowe dla tego kroku, na przykład:
 
    > [!NOTE]
-   > Wszystkie szczegóły i zdarzenia środowiska uruchomieniowego są szyfrowane w ramach usługi Logic Apps. Są one odszyfrowywane tylko wtedy, gdy użytkownik zażąda wyświetlania tych danych. Można [ukryć dane wejściowe i wyjściowe w historii uruchamiania](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) lub kontrolować dostęp użytkowników do tych informacji przy użyciu [Access Control opartego na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md).
+   > Wszystkie szczegóły i zdarzenia środowiska uruchomieniowego są szyfrowane w ramach usługi Logic Apps. Są one odszyfrowywane tylko wtedy, gdy użytkownik zażąda wyświetlania tych danych. Można [ukryć dane wejściowe i wyjściowe w historii uruchamiania](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) lub kontrolować dostęp użytkowników do tych informacji przy użyciu [kontroli dostępu opartej na ROLACH (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

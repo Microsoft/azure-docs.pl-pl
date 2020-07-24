@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 91980972dcbe7af28a1b222f6cd3002a7420145d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080849"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MySQL
 
@@ -23,6 +24,8 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach platformy Azure, w których wdrożono Azure Database for MySQL dla serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 > W przypadku komunikacji równorzędnej sieci wirtualnych, jeśli ruch odbywa się za pomocą wspólnej bramy sieci wirtualnej z punktami końcowymi usługi i powinien przepływać do elementu równorzędnego, Utwórz regułę listy ACL/sieci wirtualnej, aby umożliwić usłudze Azure Virtual Machines w sieci wirtualnej bramy dostęp do serwera Azure Database for MySQL.
+
+Możesz również rozważyć użycie [prywatnego linku](concepts-data-access-security-private-link.md) dla połączeń. Link prywatny zapewnia prywatny adres IP w sieci wirtualnej dla serwera Azure Database for MySQL.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -50,7 +53,7 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for MySQL, aby akceptow
 
 Do momentu podjęcia działania maszyny wirtualne w podsieciach nie mogą komunikować się z serwerem Azure Database for MySQL. Jedną z akcji, która ustanawia komunikację, jest utworzenie reguły sieci wirtualnej. Uzasadnienie wyboru podejścia reguły sieci wirtualnej wymaga dyskusji porównującej i kontrastowej obejmującej konkurencyjne opcje zabezpieczeń oferowane przez zaporę.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Zezwalaj na dostęp do usług platformy Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Zezwalanie na dostęp do usług platformy Azure
 
 W okienku zabezpieczenia połączenia jest dostępny przycisk **włączania/WYłączania** , który ma etykietę **Zezwalaj na dostęp do usług platformy Azure**. Ustawienie **on** umożliwia komunikację ze wszystkimi adresami IP platformy Azure i wszystkimi podsieciami platformy Azure. Te adresy IP lub podsieci platformy Azure mogą nie należeć do użytkownika. To **ustawienie jest** prawdopodobnie dłużej otwierane, niż chcesz, aby baza danych Azure Database for MySQL. Funkcja reguły sieci wirtualnej oferuje znacznie bardziej precyzyjną kontrolę.
 
@@ -61,12 +64,6 @@ Zapora Azure Database for MySQL umożliwia określenie zakresów adresów IP, z 
 Możesz odzyskać opcję IP, uzyskując *statyczny* adres IP dla maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali. Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania.
-
-### <a name="c-cannot-yet-have-azure-database-for-mysql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Nie można jeszcze mieć Azure Database for MySQL w podsieci bez definiowania punktu końcowego usługi
-
-Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, wszystkie węzły w sieci wirtualnej mogą komunikować się z serwerem Azure Database for MySQL. W takim przypadku maszyny wirtualne mogą komunikować się z Azure Database for MySQL bez konieczności używania reguł sieci wirtualnej ani reguł adresów IP.
-
-Jednak od sierpnia 2018 usługa Azure Database for MySQL nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -119,6 +116,8 @@ W przypadku Azure Database for MySQL funkcja reguł sieci wirtualnej ma następu
 
 - Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
+- Jeśli w podsieci jest włączona funkcja **Microsoft. SQL** , oznacza to, że do nawiązania połączenia mają być używane tylko reguły sieci wirtualnej. [Reguły zapory inne niż sieci wirtualnej](concepts-firewall-rules.md) w tej podsieci nie będą działały.
+
 - Na zaporze zakresy adresów IP dotyczą następujących elementów sieciowych, ale reguły sieci wirtualnej nie są:
     - [Wirtualna sieć prywatna (VPN) typu lokacja-lokacja (S2S)][vpn-gateway-indexmd-608y]
     - Lokalna za pośrednictwem [ExpressRoute][expressroute-indexmd-744v]
@@ -131,7 +130,7 @@ Aby umożliwić komunikację z obwodu do Azure Database for MySQL, należy utwor
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Dodawanie reguły zapory sieci wirtualnej do serwera bez włączania punktów końcowych usługi sieci wirtualnej
 
-Tylko ustawienie reguły zapory nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
+Tylko ustawienie reguły zapory sieci wirtualnej nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
 
 Flagę **IgnoreMissingServiceEndpoint** można ustawić za pomocą interfejsu wiersza polecenia platformy Azure lub portalu.
 

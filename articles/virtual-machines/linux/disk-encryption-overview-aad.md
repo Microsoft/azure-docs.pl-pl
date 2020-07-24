@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dbd44c5a90a656b804ff4e3bb9984a059ec3a89a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 30edd5b8e9fbfdce9fb3061c1891ff0a68a50cc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080254"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption z usługą Azure AD (poprzednia wersja)
+# <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Disk Encryption z Azure Active Directory (AD) (poprzednia wersja)
 
 Nowa wersja Azure Disk Encryption eliminuje konieczność podawania parametru aplikacji Azure Active Directory (Azure AD) w celu włączenia szyfrowania dysków maszyny wirtualnej. W nowej wersji nie jest już wymagane podanie poświadczeń usługi Azure AD podczas kroku włączania szyfrowania. Wszystkie nowe maszyny wirtualne muszą być szyfrowane bez parametrów aplikacji usługi Azure AD przy użyciu nowej wersji. Aby uzyskać instrukcje dotyczące włączania szyfrowania dysków maszyn wirtualnych przy użyciu nowej wersji, zobacz [Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](disk-encryption-overview.md). Maszyny wirtualne, które zostały już zaszyfrowane za pomocą parametrów aplikacji usługi Azure AD, są nadal obsługiwane i powinny być nadal utrzymywane przy użyciu składni usługi AAD.
 
@@ -47,9 +47,9 @@ Aby włączyć funkcję Azure Disk Encryption przy użyciu starszej składni par
   ```
 
 ### <a name="group-policy"></a>Zasady grupy
- - Rozwiązanie Azure Disk Encryption używa funkcji ochrony klucza zewnętrznego funkcji BitLocker dla maszyn wirtualnych z systemem Windows IaaS. W przypadku maszyn wirtualnych przyłączonych do domeny nie wypychanie żadnych zasad grupy, które wymuszają funkcje ochrony modułu TPM. Aby uzyskać informacje na temat zasady grupy opcji **Zezwalaj na funkcję BitLocker bez zgodnego modułu TPM**, zobacz [BitLocker zasady grupy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+ - Rozwiązanie Azure Disk Encryption używa funkcji ochrony klucza zewnętrznego funkcji BitLocker dla maszyn wirtualnych z systemem Windows IaaS. W przypadku maszyn wirtualnych przyłączonych do domeny nie wypychanie żadnych zasad grupy, które wymuszają funkcje ochrony modułu TPM. Aby uzyskać informacje na temat zasady grupy opcji **Zezwalaj na funkcję BitLocker bez zgodnego modułu TPM**, zobacz [BitLocker zasady grupy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-- Zasady funkcji BitLocker na maszynach wirtualnych przyłączonych do domeny z niestandardowym zasady grupy muszą zawierać następujące ustawienie: [Konfigurowanie magazynu użytkownika dla informacji odzyskiwania funkcji BitLocker — > Zezwalaj na 256-bitowy klucz odzyskiwania](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption nie powiedzie się, gdy niestandardowe ustawienia zasady grupy funkcji BitLocker są niezgodne. Na maszynach, które nie mają poprawnego ustawienia zasad, Zastosuj nowe zasady, Wymuś aktualizację nowych zasad (gpupdate.exe/Force), a następnie uruchom ponownie, jeśli jest to wymagane. 
+- Zasady funkcji BitLocker na maszynach wirtualnych przyłączonych do domeny z niestandardowym zasady grupy muszą zawierać następujące ustawienie: [Konfigurowanie magazynu użytkownika dla informacji odzyskiwania funkcji BitLocker — > Zezwalaj na 256-bitowy klucz odzyskiwania](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption nie powiedzie się, gdy niestandardowe ustawienia zasady grupy funkcji BitLocker są niezgodne. Na maszynach, które nie mają poprawnego ustawienia zasad, Zastosuj nowe zasady, Wymuś aktualizację nowych zasad (gpupdate.exe/Force), a następnie uruchom ponownie, jeśli jest to wymagane. 
 
 ## <a name="encryption-key-storage-requirements"></a>Wymagania dotyczące magazynu kluczy szyfrowania 
 

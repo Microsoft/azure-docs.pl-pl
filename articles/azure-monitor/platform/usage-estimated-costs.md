@@ -8,11 +8,12 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 22c7243cd966f458610c2abc67ed5540b37357b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081444"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorowanie użycia i szacowane koszty w Azure Monitor
 
@@ -27,7 +28,7 @@ Model rozliczeń w warstwie Podstawowa Azure Monitor jest przyjazny dla chmury, 
 
 Oprócz modelu płatność zgodnie z rzeczywistym użyciem dla danych dzienników Log Analytics ma rezerwacje pojemności, co pozwala zaoszczędzić do 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. Cennik rezerwacji zdolności produkcyjnych umożliwia zakupienie rezerwacji rozpoczynającej się o 100 GB/dzień. Każde użycie powyżej poziomu rezerwacji będzie rozliczane według stawki płatności zgodnie z rzeczywistym użyciem. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/monitor/) o cenach rezerwacji pojemności.
 
-Niektórzy klienci będą mieli dostęp do [starszych warstw cenowych log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers) i [starszej warstwy cenowej Application Insights Enterprise](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier). 
+Niektórzy klienci będą mieli dostęp do [starszych warstw cenowych log Analytics](./manage-cost-storage.md#legacy-pricing-tiers) i [starszej warstwy cenowej Application Insights Enterprise](../app/pricing.md#legacy-enterprise-per-node-pricing-tier). 
 
 ## <a name="understanding-your-azure-monitor-costs"></a>Informacje o kosztach Azure Monitor
 
@@ -43,15 +44,15 @@ Jeśli jeszcze nie korzystasz z dzienników Azure Monitor, możesz użyć [kalku
 
 W każdym z tych elementów Kalkulator cen pomoże ci oszacować przewidywane koszty na podstawie oczekiwanego użycia.
 
-Na przykład przy Log Analytics można wprowadzić liczbę maszyn wirtualnych i GB danych, które powinny być zbierane z każdej maszyny wirtualnej. Zwykle 1 GB do 3 GB danych miesiąc jest pobieranych z typowej maszyny wirtualnej platformy Azure. Jeśli już już oceniasz dzienniki Azure Monitor, możesz użyć statystyk danych z własnego środowiska. Poniżej znajdują się informacje na temat określania [liczby monitorowanych maszyn wirtualnych](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) i [ilości danych pobieranych przez obszar roboczy](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).
+Na przykład przy Log Analytics można wprowadzić liczbę maszyn wirtualnych i GB danych, które powinny być zbierane z każdej maszyny wirtualnej. Zwykle 1 GB do 3 GB danych miesiąc jest pobieranych z typowej maszyny wirtualnej platformy Azure. Jeśli już już oceniasz dzienniki Azure Monitor, możesz użyć statystyk danych z własnego środowiska. Poniżej znajdują się informacje na temat określania [liczby monitorowanych maszyn wirtualnych](./manage-cost-storage.md#understanding-nodes-sending-data) i [ilości danych pobieranych przez obszar roboczy](./manage-cost-storage.md#understanding-ingested-data-volume).
 
-Podobnie w przypadku Application Insights, jeśli włączysz funkcję "oszacowanie ilości danych opartych na działaniu aplikacji", możesz dostarczyć dane wejściowe dotyczące aplikacji (żądania miesięcznie i wyświetlenia stron miesięcznie), w przypadku zbierania danych telemetrycznych po stronie klienta, a następnie Kalkulator wskaże medianę i 90-procentową ilość uzyskaną przez podobne aplikacje. Te aplikacje obejmują zakres konfiguracji Application Insights (np. niektóre z próbkami domyślnymi, niektóre nie mają próbek itp.), dlatego nadal masz kontrolę, aby zmniejszyć ilość danych, które są znacznie mniejsze niż poziom średni przy użyciu próbkowania. Jest to jednak punkt początkowy, który umożliwia zapoznanie się z innymi, podobnym klientom. [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) o szacowaniu kosztów Application Insights.
+Podobnie w przypadku Application Insights, jeśli włączysz funkcję "oszacowanie ilości danych opartych na działaniu aplikacji", możesz dostarczyć dane wejściowe dotyczące aplikacji (żądania miesięcznie i wyświetlenia stron miesięcznie), w przypadku zbierania danych telemetrycznych po stronie klienta, a następnie Kalkulator wskaże medianę i 90-procentową ilość uzyskaną przez podobne aplikacje. Te aplikacje obejmują zakres konfiguracji Application Insights (np. niektóre z próbkami domyślnymi, niektóre nie mają próbek itp.), dlatego nadal masz kontrolę, aby zmniejszyć ilość danych, które są znacznie mniejsze niż poziom średni przy użyciu próbkowania. Jest to jednak punkt początkowy, który umożliwia zapoznanie się z innymi, podobnym klientom. [Dowiedz się więcej](../app/pricing.md#estimating-the-costs-to-manage-your-application) o szacowaniu kosztów Application Insights.
 
 ### <a name="understanding-your-usage-and-estimated-costs"></a>Zrozumienie użycia i szacowanych kosztów
 
 Ważne jest, aby zrozumieć i śledzić użycie za pomocą Azure Monitor, i istnieje bogaty zestaw narzędzi umożliwiających takie ułatwienia. 
 
-Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) . Po otwarciu Centrum **Rozliczeń Azure Cost Management** i kliknij przycisk **Cost Management** i wybierz [zakres](https://docs.microsoft.com/azure/cost-management/understand-work-scopes) (zestaw zasobów do zbadania). 
+Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) . Po otwarciu Centrum **Rozliczeń Azure Cost Management** i kliknij przycisk **Cost Management** i wybierz [zakres](../../cost-management-billing/costs/understand-work-scopes.md) (zestaw zasobów do zbadania). 
 
 Następnie, aby zobaczyć koszty Azure Monitor w ciągu ostatnich 30 dni, kliknij kafelek **dzienne koszty** , wybierz pozycję "ostatnie 30 dni" w polu względne daty i Dodaj filtr, który wybiera nazwy usług:
 
@@ -66,10 +67,10 @@ Spowoduje to wyświetlenie widoku, takiego jak:
 
 W tym miejscu możesz przejść do szczegółów z tego skumulowanego podsumowania kosztów, aby uzyskać bardziej szczegółowe informacje w widoku "koszt według zasobów". W bieżących warstwach cenowych dane dziennika platformy Azure są obciążane tym samym zestawem liczników, niezależnie od tego, czy pochodzą z Log Analytics czy Application Insights. Aby oddzielić koszty Log Analytics lub Application Insights użycie, można dodać filtr dla **typu zasobu**. Aby wyświetlić wszystkie Application Insights koszty, przefiltruj typ zasobu na "Microsoft. Insights/Components" i dla Log Analytics kosztów, filtr typu zasobu do "Microsoft. operationalinsights/Workspaces". 
 
-Więcej szczegółów dotyczących użycia można uzyskać, [pobierając użycie z Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). W pobranym arkuszu kalkulacyjnym można zobaczyć użycie na zasób platformy Azure dziennie. W tym arkuszu kalkulacyjnym programu Excel można sprawdzić użycie zasobów Application Insights przez pierwsze filtrowanie w kolumnie "kategoria licznika", aby pokazać "Application Insights" i "Log Analytics", a następnie dodać filtr w kolumnie "identyfikator wystąpienia", która jest "zawiera Microsoft. Insights/Components".  Większość Application Insights użycie jest raportowane na miernikach z kategorią licznika Log Analytics, ponieważ istnieje pojedyncze zaplecze dzienników dla wszystkich składników Azure Monitor.  Tylko zasoby Application Insights ze starszych warstw cenowych i wieloetapowych testów sieci Web są zgłaszane z kategorią miernika Application Insights.  Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Dostępne są więcej szczegółów, które ułatwiają [zrozumienie Microsoft Azure rachunku](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Więcej szczegółów dotyczących użycia można uzyskać, [pobierając użycie z Azure Portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). W pobranym arkuszu kalkulacyjnym można zobaczyć użycie na zasób platformy Azure dziennie. W tym arkuszu kalkulacyjnym programu Excel można sprawdzić użycie zasobów Application Insights przez pierwsze filtrowanie w kolumnie "kategoria licznika", aby pokazać "Application Insights" i "Log Analytics", a następnie dodać filtr w kolumnie "identyfikator wystąpienia", która jest "zawiera Microsoft. Insights/Components".  Większość Application Insights użycie jest raportowane na miernikach z kategorią licznika Log Analytics, ponieważ istnieje pojedyncze zaplecze dzienników dla wszystkich składników Azure Monitor.  Tylko zasoby Application Insights ze starszych warstw cenowych i wieloetapowych testów sieci Web są zgłaszane z kategorią miernika Application Insights.  Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Temat dotyczący [interpretacji rachunku za platformę Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md) zawiera więcej szczegółowych informacji. 
 
 > [!NOTE]
-> Używanie **Cost Management** w centrum **rozliczeniowym Azure Cost Management i** jest preferowanym podejściem do szerokiego analizowania kosztów monitorowania.  **Sposób użycia i szacowane koszty** dla [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) i [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) zapewniają dokładniejsze informacje dla każdej z tych części Azure monitor.
+> Używanie **Cost Management** w centrum **rozliczeniowym Azure Cost Management i** jest preferowanym podejściem do szerokiego analizowania kosztów monitorowania.  **Sposób użycia i szacowane koszty** dla [log Analytics](./manage-cost-storage.md#understand-your-usage-and-estimate-costs) i [Application Insights](../app/pricing.md#understand-your-usage-and-estimate-costs) zapewniają dokładniejsze informacje dla każdej z tych części Azure monitor.
 
 Kolejną opcją wyświetlania Azure Monitor użycia jest strona **użycie i szacowane koszty** w centrum monitora. Przedstawiono w nim użycie podstawowych funkcji monitorowania, takich jak [alerty, metryki, powiadomienia](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)i [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). W przypadku klientów korzystających z planów cenowych dostępnych przed 2018 kwietnia będzie to również Log Analytics użycie zakupione w ramach oferty usługi Insights i Analytics.
 
@@ -85,7 +86,7 @@ Wybierz łącze w kolumnie użycie miesięczne, aby otworzyć wykres pokazujący
 
 ## <a name="operations-management-suite-subscription-entitlements"></a>Uprawnienia do subskrypcji pakietu Operations Management Suite
 
-Klienci, którzy zakupili Microsoft Operations Management Suite E1 i E2, mają uprawnienia do pozyskiwania danych na węzłach dla [log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) i [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Aby otrzymywać te uprawnienia dla Log Analytics obszarów roboczych lub Application Insights zasobów w ramach danej subskrypcji: 
+Klienci, którzy zakupili Microsoft Operations Management Suite E1 i E2, mają uprawnienia do pozyskiwania danych na węzłach dla [log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) i [Application Insights](../app/pricing.md). Aby otrzymywać te uprawnienia dla Log Analytics obszarów roboczych lub Application Insights zasobów w ramach danej subskrypcji: 
 
 - Obszary robocze Log Analytics powinny korzystać z warstwy cenowej "na węzeł (OMS)".
 - Zasoby Application Insights powinny korzystać z warstwy cenowej "Enterprise".

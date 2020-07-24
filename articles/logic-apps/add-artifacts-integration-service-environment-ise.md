@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830030"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078721"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Dodaj zasoby do środowiska usługi integracji (ISE) w Azure Logic Apps
 
@@ -127,7 +127,7 @@ Aby używać łączników niestandardowych w ISE, Utwórz te łączniki niestand
 
    ![Wybieranie i edytowanie łącznika niestandardowego](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Kontynuuj, tworząc łącznik w zwykły sposób z [definicji openapi](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) lub [protokołu SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Kontynuuj, tworząc łącznik w zwykły sposób z [definicji openapi](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) lub [protokołu SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. Aby zarządzać łącznikami niestandardowymi w ISE, zobacz [Zarządzanie środowiskiem usługi integracji](../logic-apps/ise-manage-integration-service-environment.md).
 

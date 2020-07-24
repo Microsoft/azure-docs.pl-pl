@@ -3,19 +3,20 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079693"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
-Na wiele sposobów planowanie bezpiecznego programowania, wdrażania i działania funkcji bezserwerowych jest znacznie takie samo jak w przypadku dowolnej aplikacji hostowanej w sieci Web i w chmurze. [Azure App Service](/azure/app-service/) udostępnia infrastrukturę hostingu dla aplikacji funkcji. Ten artykuł zawiera strategie zabezpieczeń do uruchamiania kodu funkcji oraz sposób, w jaki App Service może pomóc w zabezpieczeniu funkcji. 
+Na wiele sposobów planowanie bezpiecznego programowania, wdrażania i działania funkcji bezserwerowych jest znacznie takie samo jak w przypadku dowolnej aplikacji hostowanej w sieci Web i w chmurze. [Azure App Service](../app-service/index.yml) udostępnia infrastrukturę hostingu dla aplikacji funkcji. Ten artykuł zawiera strategie zabezpieczeń do uruchamiania kodu funkcji oraz sposób, w jaki App Service może pomóc w zabezpieczeniu funkcji. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-Aby uzyskać zestaw zaleceń dotyczących zabezpieczeń, które są zgodne z [testem porównawczym zabezpieczeń platformy Azure](/azure/security/benchmarks/overview), zobacz [podstawy zabezpieczeń platformy Azure dla Azure Functions](security-baseline.md).
+Aby uzyskać zestaw zaleceń dotyczących zabezpieczeń, które są zgodne z [testem porównawczym zabezpieczeń platformy Azure](../security/benchmarks/overview.md), zobacz [podstawy zabezpieczeń platformy Azure dla Azure Functions](security-baseline.md).
 
 ## <a name="secure-operation"></a>Bezpieczna operacja 
 

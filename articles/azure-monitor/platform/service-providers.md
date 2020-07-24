@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340880"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081478"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -20,7 +21,7 @@ Duże przedsiębiorstwa współużytkują wiele podobieństw z dostawcami usług
 
 W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
 
-Log Analytics w Azure Monitor może być również używany przez dostawcę usług do zarządzania zasobami klienta za pomocą funkcji zarządzania zasobami delegowanymi platformy Azure w [usłudze Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
+Log Analytics w Azure Monitor może być również używany przez dostawcę usług do zarządzania zasobami klienta za pomocą funkcji zarządzania zasobami delegowanymi platformy Azure w [usłudze Azure Lighthouse](../../lighthouse/overview.md).
 
 ## <a name="architectures-for-service-providers"></a>Architektury dla dostawców usług
 
@@ -34,12 +35,12 @@ W tej architekturze obszar roboczy jest wdrażany w dzierżawie klienta, który 
 
 Istnieją dwa sposoby, które Administratorzy dostawcy usług mogą uzyskać dostęp do obszaru roboczego Log Analytics w dzierżawie klienta:
 
-- Klient może dodawać poszczególnych użytkowników od usługodawcy jako [Azure Active Directory użytkowników-Gości (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Administratorzy dostawcy usług będą musieli zalogować się do katalogu każdego klienta w Azure Portal, aby mogli uzyskać dostęp do tych obszarów roboczych. Wymaga to również od klientów zarządzania indywidualnym dostępem każdego administratora dostawcy usług.
-- Aby zapewnić lepszą skalowalność i elastyczność, dostawcy usług mogą korzystać z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) [Lighthouse na platformie Azure](https://docs.microsoft.com/azure/lighthouse/overview) w celu uzyskania dostępu do dzierżawy klienta. Ta metoda polega na tym, że Administratorzy dostawcy usług są włączeni do grupy użytkowników usługi Azure AD w dzierżawie dostawcy usług, a podczas procesu dołączania dla każdego klienta zostaje udzielony dostęp do tej grupy. Ci Administratorzy mogą następnie uzyskiwać dostęp do obszarów roboczych każdego klienta z własnej dzierżawy usługodawcy, zamiast logować się do każdej dzierżawy każdego klienta osobno. W ten sposób uzyskuje się dostęp do zasobów obszarów roboczych Log Analytics w ten sposób, co zmniejsza pracę wymaganą przez klienta i może ułatwić zbieranie i analizowanie danych przez wielu klientów zarządzanych przez tego samego dostawcę usług za pośrednictwem takich narzędzi, jak [Azure monitor skoroszytów](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview). Aby uzyskać więcej informacji, zobacz [monitorowanie zasobów klienta w odpowiedniej skali](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale).
+- Klient może dodawać poszczególnych użytkowników od usługodawcy jako [Azure Active Directory użytkowników-Gości (B2B)](../../active-directory/b2b/what-is-b2b.md). Administratorzy dostawcy usług będą musieli zalogować się do katalogu każdego klienta w Azure Portal, aby mogli uzyskać dostęp do tych obszarów roboczych. Wymaga to również od klientów zarządzania indywidualnym dostępem każdego administratora dostawcy usług.
+- Aby zapewnić lepszą skalowalność i elastyczność, dostawcy usług mogą korzystać z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) [Lighthouse na platformie Azure](../../lighthouse/overview.md) w celu uzyskania dostępu do dzierżawy klienta. Ta metoda polega na tym, że Administratorzy dostawcy usług są włączeni do grupy użytkowników usługi Azure AD w dzierżawie dostawcy usług, a podczas procesu dołączania dla każdego klienta zostaje udzielony dostęp do tej grupy. Ci Administratorzy mogą następnie uzyskiwać dostęp do obszarów roboczych każdego klienta z własnej dzierżawy usługodawcy, zamiast logować się do każdej dzierżawy każdego klienta osobno. W ten sposób uzyskuje się dostęp do zasobów obszarów roboczych Log Analytics w ten sposób, co zmniejsza pracę wymaganą przez klienta i może ułatwić zbieranie i analizowanie danych przez wielu klientów zarządzanych przez tego samego dostawcę usług za pośrednictwem takich narzędzi, jak [Azure monitor skoroszytów](../..//azure-monitor/platform/workbooks-overview.md). Aby uzyskać więcej informacji, zobacz [monitorowanie zasobów klienta w odpowiedniej skali](../../lighthouse/how-to/monitor-at-scale.md).
 
 Zalety architektury rozproszonej są następujące:
 
-* Klient może potwierdzić określone poziomy uprawnień za pośrednictwem funkcji [zarządzania zasobami delegowanymi przez platformę Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)lub zarządzać dostępem do dzienników przy użyciu własnego [dostępu opartego na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview).
+* Klient może potwierdzić określone poziomy uprawnień za pośrednictwem funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)lub zarządzać dostępem do dzienników przy użyciu własnego [dostępu opartego na rolach](../../role-based-access-control/overview.md).
 * Dzienniki mogą być zbierane z wszystkich typów zasobów, a nie tylko z danych maszyn wirtualnych opartych na agentach. Na przykład dzienniki inspekcji platformy Azure.
 * Każdy klient może mieć różne ustawienia dla swojego obszaru roboczego, takie jak przechowywanie danych i ich limit.
 * Izolacja klientów na potrzeby regulacji i zgodności.
@@ -74,7 +75,7 @@ Trzecia architektura między tymi dwiema opcjami. Jest on oparty na pierwszej ar
 
 Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
-1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](../../azure-monitor/platform/data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](../../azure-monitor/platform/data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md).
 
@@ -88,4 +89,4 @@ Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
 * Generowanie raportów podsumowujących przy użyciu [Power BI](../../azure-monitor/platform/powerbi.md)
 
-* Dołączanie klientów do [zarządzania zasobami delegowanymi przez platformę Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+* Dołączanie klientów do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).

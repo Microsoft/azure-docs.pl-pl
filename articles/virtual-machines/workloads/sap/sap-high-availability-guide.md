@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver | Microsoft Docs
+title: Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver
 description: Przewodnik wysokiej dostępności dla oprogramowania SAP NetWeaver na platformie Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbdbae3d310d6e4c3224663dd523cb124744dfbd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080186"
 ---
-# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver
+# <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Virtual Machines platformy Azure o wysokiej dostępności dla oprogramowania SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -35,7 +36,7 @@ ms.locfileid: "84557316"
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -170,7 +171,7 @@ Aby uprościć wdrażanie i konfigurację, w tym artykule używamy szablonów Me
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Wymagany
 Przed rozpoczęciem upewnij się, że spełniasz wymagania wstępne opisane w poniższych sekcjach. Upewnij się również, że wszystkie zasoby wymienione w sekcji [resources][sap-ha-guide-2] są zaznaczone.
 
-W tym artykule używamy szablonów Azure Resource Manager dla [trzech warstw SAP NetWeaver przy użyciu Managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Aby zapoznać się z przydatnym omówieniem szablonów, zobacz [szablony Azure Resource Manager SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+W tym artykule używamy szablonów Azure Resource Manager dla [trzech warstw SAP NetWeaver przy użyciu Managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Aby zapoznać się z przydatnym omówieniem szablonów, zobacz [szablony Azure Resource Manager SAP](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Produkcyjnych
 Te artykuły obejmują wdrożenia oprogramowania SAP na platformie Azure:
@@ -319,7 +320,7 @@ Wszystkie maszyny wirtualne obsługujące wystąpienia serwera aplikacji SAP nal
 * Wszystkie maszyny wirtualne są częścią tej samej domeny uaktualnienia. Na przykład domena uaktualnienia gwarantuje, że maszyny wirtualne nie są aktualizowane w tym samym czasie podczas planowanego przestoju konserwacji.
 * Wszystkie maszyny wirtualne są częścią tej samej domeny błędów. Domena błędów, na przykład, sprawdza, czy maszyny wirtualne są wdrożone, tak aby żadna single point of failure nie miała wpływu na dostępność wszystkich maszyn wirtualnych.
 
-Dowiedz się więcej na temat [zarządzania dostępnością maszyn wirtualnych][virtual-machines-manage-availability].
+Dowiedz się więcej o tym, jak [zarządzać dostępnością maszyn wirtualnych] [... /manage-availability.md].
 
 Tylko dysk niezarządzany: ponieważ konto usługi Azure Storage jest potencjalnym single point of failure, ważne jest, aby mieć co najmniej dwa konta magazynu platformy Azure, w którym są dystrybuowane co najmniej dwie maszyny wirtualne. W idealnym instalacji dyski każdej maszyny wirtualnej, na której działa wystąpienie okna dialogowego SAP, zostaną wdrożone na innym koncie magazynu.
 
@@ -587,7 +588,7 @@ W naszym przykładzie przestrzeń adresowa sieci wirtualnej platformy Azure to 1
 Aby ustawić wymagane adresy IP DNS, wykonaj następujące czynności.
 
 1. W Azure Portal w bloku **serwery DNS** upewnij się, że opcja **serwery DNS** sieci wirtualnej jest ustawiona na wartość **niestandardowy DNS**.
-2. Wybierz swoje ustawienia w zależności od typu sieci. Więcej informacji zawierają następujące zasoby:
+2. Wybierz swoje ustawienia w zależności od typu sieci. Więcej informacji można znaleźć w następujących zasobach:
    * Dodaj adresy IP lokalnych serwerów DNS.  
    Lokalne serwery DNS można rozłożyć na maszyny wirtualne, które są uruchomione na platformie Azure. W tym scenariuszu można dodać adresy IP maszyn wirtualnych platformy Azure, na których jest uruchomiona usługa DNS.
    * W przypadku wdrożeń maszyn wirtualnych izolowanych na platformie Azure: Wdróż dodatkową maszynę wirtualną w tym samym wystąpieniu Virtual Network, które służy jako serwer DNS. Dodaj adresy IP maszyn wirtualnych platformy Azure, które zostały skonfigurowane do uruchamiania usługi DNS.
@@ -770,7 +771,7 @@ Aby dodać wpisy rejestru na obu węzłach klastra wystąpienia SAP ASCS/SCS, na
 | Nazwa zmiennej |`KeepAliveTime` |
 | Typ zmiennej |REG_DWORD (liczba dziesiętna) |
 | Wartość |120000 |
-| Link do dokumentacji |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Link do dokumentacji |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 _**Tabela 3:** Zmiana pierwszego parametru TCP/IP_
 
@@ -781,7 +782,7 @@ Następnie Dodaj te wpisy rejestru systemu Windows na obu węzłach klastra syst
 | Nazwa zmiennej |`KeepAliveInterval` |
 | Typ zmiennej |REG_DWORD (liczba dziesiętna) |
 | Wartość |120000 |
-| Link do dokumentacji |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Link do dokumentacji |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 _**Tabela 4:** Zmień drugi parametr TCP/IP_
 

@@ -3,11 +3,12 @@ title: Automatyzacja procesów Application Insights platformy Azure przy użyciu
 description: Dowiedz się, jak szybko zautomatyzować powtarzalne procesy przez dodanie łącznika Application Insights do aplikacji logiki.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79473170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079625"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatyzacja procesów Application Insights przy użyciu Logic Apps
 
@@ -18,7 +19,7 @@ Czy na danych telemetrycznych można wielokrotnie uruchamiać te same zapytania,
 
 Dzięki tej integracji można zautomatyzować wiele procesów bez konieczności pisania jednego wiersza kodu. Można utworzyć aplikację logiki za pomocą łącznika Application Insights, aby szybko zautomatyzować każdy proces Application Insights. 
 
-Można również dodać dodatkowe akcje. Funkcja Logic Apps Azure App Service zapewnia setki dostępnych akcji. Na przykład za pomocą aplikacji logiki można automatycznie wysłać powiadomienie e-mail lub utworzyć usterkę w usłudze Azure DevOps. Możesz również użyć jednego z wielu dostępnych [szablonów](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) , aby przyspieszyć proces tworzenia aplikacji logiki. 
+Można również dodać dodatkowe akcje. Funkcja Logic Apps Azure App Service zapewnia setki dostępnych akcji. Na przykład za pomocą aplikacji logiki można automatycznie wysłać powiadomienie e-mail lub utworzyć usterkę w usłudze Azure DevOps. Możesz również użyć jednego z wielu dostępnych [szablonów](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) , aby przyspieszyć proces tworzenia aplikacji logiki. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Tworzenie aplikacji logiki dla Application Insights
 
@@ -117,7 +118,7 @@ Podczas tworzenia własnych zapytań Sprawdź, czy działają prawidłowo w anal
       ![Ekran konfiguracji poczty e-mail pakietu Office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Krok 7. Zapisywanie i testowanie aplikacji logiki
-* Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+* Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 Możesz poczekać na uruchomienie aplikacji logiki przez wyzwalacz lub uruchomić aplikację logiki natychmiast, wybierając pozycję **Uruchom**.
 
@@ -130,13 +131,8 @@ Po uruchomieniu aplikacji logiki adresaci określeni na liście wiadomości e-ma
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../../azure-monitor/log-query/get-started-queries.md).
-- Dowiedz się więcej na temat usługi [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
-

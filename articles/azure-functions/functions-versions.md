@@ -3,11 +3,12 @@ title: Przegląd wersji środowiska uruchomieniowego Azure Functions
 description: Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Poznaj różnice między nimi i wybierz odpowiedni dla siebie.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29dd4a1ea60c463655c5b9a17fedcf6d51eee927
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081682"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Przegląd wersji środowiska uruchomieniowego Azure Functions
 
@@ -90,7 +91,7 @@ Poniżej znajdują się informacje o zmianach, które należy znać przed uaktua
 
 #### <a name="net"></a>.NET
 
-* [Operacje serwera synchronicznego są domyślnie wyłączone](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Operacje serwera synchronicznego są domyślnie wyłączone](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### <a name="changing-version-of-apps-in-azure"></a>Zmiana wersji aplikacji na platformie Azure
 
@@ -194,7 +195,7 @@ W poniższej tabeli przedstawiono powiązania obsługiwane w poszczególnych wer
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Kodowanie i testowanie usługi Azure Functions lokalnie](functions-run-local.md)
 * [Jak docelowa Azure Functions wersje środowiska uruchomieniowego](set-runtime-version.md)

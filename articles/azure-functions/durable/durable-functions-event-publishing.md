@@ -3,15 +3,16 @@ title: Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
 description: Dowiedz się, jak skonfigurować automatyczne publikowanie Azure Event Grid dla Durable Functions.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081750"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
 
-W tym artykule przedstawiono sposób konfigurowania Durable Functions publikowania zdarzeń cyklu życia aranżacji (takich jak utworzone, ukończone i niepowodzenie) w temacie niestandardowym [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+W tym artykule przedstawiono sposób konfigurowania Durable Functions publikowania zdarzeń cyklu życia aranżacji (takich jak utworzone, ukończone i niepowodzenie) w temacie niestandardowym [Azure Event Grid](../../event-grid/overview.md).
 
 Poniżej przedstawiono kilka scenariuszy, w których ta funkcja jest przydatna:
 
@@ -25,7 +26,7 @@ Poniżej przedstawiono kilka scenariuszy, w których ta funkcja jest przydatna:
 
 * Zainstaluj [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) w projekcie Durable Functions.
 * Zainstaluj [emulator usługi Azure Storage](../../storage/common/storage-use-emulator.md) (tylko system Windows) lub Użyj istniejącego konta usługi Azure Storage.
-* Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) lub korzystanie z [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) lub korzystanie z [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Tworzenie niestandardowego tematu Event Grid
 
@@ -167,7 +168,7 @@ Korzystając z Azure Portal, Utwórz kolejną aplikację funkcji, aby nasłuchiw
 
 ### <a name="add-an-event-grid-subscription"></a>Dodawanie subskrypcji Event Grid
 
-Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. Aby uzyskać więcej informacji, zobacz [pojęcia w Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. Aby uzyskać więcej informacji, zobacz [pojęcia w Azure Event Grid](../../event-grid/concepts.md).
 
 1. W nowej funkcji wybierz pozycję **integracja** , a następnie wybierz pozycję **Event Grid wyzwalacz (eventGridEvent)**. 
 

@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078160"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
 
@@ -77,27 +77,27 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE
 
 ## <a name="connectors"></a>Łączniki
 
-Łączniki Azure Logic Apps pomagają aplikacji logiki uzyskiwać dostęp do aplikacji, usług i systemów w chmurze lub lokalnie, dostarczając [wyzwalacze](#triggers), [Akcje](#actions)lub obie te funkcje. Łączniki są klasyfikowane jako standardowe lub Enterprise. Aby zapoznać się z omówieniem tych łączników, zobacz [Łączniki dla Azure Logic Apps](../connectors/apis-list.md). Jeśli nie są dostępne wstępnie skompilowane łączniki dla interfejsów API REST, które mają być używane w aplikacjach logiki, można utworzyć [Łączniki niestandardowe](https://docs.microsoft.com/connectors/custom-connectors), które są tylko otokami otaczającymi te interfejsy API REST. Łączniki niestandardowe są rozliczane jako łączniki standardowe. Poniższe sekcje zawierają więcej informacji na temat sposobu działania rozliczeń dla wyzwalaczy i akcji.
+Łączniki Azure Logic Apps pomagają aplikacji logiki uzyskiwać dostęp do aplikacji, usług i systemów w chmurze lub lokalnie, dostarczając [wyzwalacze](#triggers), [Akcje](#actions)lub obie te funkcje. Łączniki są klasyfikowane jako standardowe lub Enterprise. Aby zapoznać się z omówieniem tych łączników, zobacz [Łączniki dla Azure Logic Apps](../connectors/apis-list.md). Jeśli nie są dostępne wstępnie skompilowane łączniki dla interfejsów API REST, które mają być używane w aplikacjach logiki, można utworzyć [Łączniki niestandardowe](/connectors/custom-connectors), które są tylko otokami otaczającymi te interfejsy API REST. Łączniki niestandardowe są rozliczane jako łączniki standardowe. Poniższe sekcje zawierają więcej informacji na temat sposobu działania rozliczeń dla wyzwalaczy i akcji.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Wyzwalacze
 
-Wyzwalacze to specjalne akcje, które tworzą wystąpienie aplikacji logiki, gdy wystąpi określone zdarzenie. Wyzwalacze działają na różne sposoby, które mają wpływ na sposób mierzenia aplikacji logiki. Oto różne rodzaje wyzwalaczy, które istnieją w Azure Logic Apps:
+Wyzwalacz jest zawsze pierwszym krokiem w przepływie pracy aplikacji logiki i jest specjalną akcją, która tworzy i uruchamia wystąpienie aplikacji logiki, gdy zostaną spełnione określone kryteria lub wystąpi określone zdarzenie. Wyzwalacze działają na różne sposoby, które mają wpływ na sposób mierzenia aplikacji logiki. Oto różne rodzaje wyzwalaczy, które istnieją w Azure Logic Apps:
 
-* **Wyzwalacz sondowania**: ten wyzwalacz stale sprawdza punkt końcowy dla komunikatów, które spełniają kryteria tworzenia wystąpienia aplikacji logiki i uruchamiania przepływu pracy. Nawet wtedy, gdy nie zostanie utworzone żadne wystąpienie aplikacji logiki, Logic Apps gazomierzy każde żądanie sondowania jako wykonanie. Aby określić interwał sondowania, skonfiguruj wyzwalacz za pomocą projektanta aplikacji logiki.
+* **Wyzwalacz cykliczny**: można użyć tego wyzwalacza generycznego, który nie jest specyficzny dla żadnej usługi lub systemu, aby uruchomić przepływ pracy aplikacji logiki i utworzyć wystąpienie aplikacji logiki, które jest uruchamiane na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Na przykład można skonfigurować wyzwalacz cykliczny, który jest uruchamiany co trzy dni lub bardziej skomplikowany harmonogram.
+
+* **Wyzwalacz sondowania**: można użyć tego bardziej wyspecjalizowanego wyzwalacza cyklu, który jest zazwyczaj skojarzony z zarządzanym łącznikiem dla określonej usługi lub systemu, aby sprawdzić, czy istnieją zdarzenia lub komunikaty spełniające kryteria tworzenia i uruchamiania wystąpienia aplikacji logiki na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Nawet wtedy, gdy nie zostanie utworzone wystąpienie aplikacji logiki, na przykład gdy wyzwalacze są pomijane, usługa Logic Apps liczników każdego żądania sondowania jako wykonanie. Aby określić interwał sondowania, skonfiguruj wyzwalacz za pomocą projektanta aplikacji logiki.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Wyzwalacz elementu webhook**: ten wyzwalacz czeka na wysłanie żądania do określonego punktu końcowego przez klienta. Każde żądanie wysyłane do punktu końcowego elementu webhook jest traktowane jako wykonanie akcji. Na przykład żądanie i wyzwalacz elementu webhook protokołu HTTP to wyzwalacze elementu webhook.
-
-* **Wyzwalacz cyklu**: ten wyzwalacz tworzy wystąpienie aplikacji logiki na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Na przykład można skonfigurować wyzwalacz cykliczny, który jest uruchamiany co trzy dni lub bardziej skomplikowany harmonogram.
+* **Wyzwalacz elementu webhook**: zamiast używać wyzwalacza sondowania, można użyć wyzwalacza elementu webhook, aby poczekać na wysłanie przez klienta żądania do aplikacji logiki przy użyciu adresu URL określonego punktu końcowego. Każde żądanie wysyłane do punktu końcowego elementu webhook jest traktowane jako wykonanie akcji. Na przykład żądanie i wyzwalacz elementu webhook protokołu HTTP to ogólne wyzwalacze elementu webhook. Niektóre łączniki dla usług lub systemów mają także wyzwalacze elementu webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Akcje
 
-Azure Logic Apps mierników "wbudowanych", takich jak HTTP, jako natywnych akcji. Na przykład akcje wbudowane obejmują wywołania HTTP, wywołania z Azure Functions lub API Management i kroki przepływu sterowania, takie jak warunki, pętle i instrukcje Switch. Każda akcja ma własny typ akcji. Na przykład akcje wywołujące [Łączniki](https://docs.microsoft.com/connectors) mają typ "ApiConnection". Te łączniki są klasyfikowane jako łączniki standardowe lub Enterprise, które są mierzone w oparciu o ich odpowiednie [ceny](https://azure.microsoft.com/pricing/details/logic-apps). Łączniki korporacyjne w *wersji zapoznawczej* są rozliczone jako łączniki standardowe.
+Azure Logic Apps mierników "wbudowanych", takich jak HTTP, jako natywnych akcji. Na przykład akcje wbudowane obejmują wywołania HTTP, wywołania z Azure Functions lub API Management i kroki przepływu sterowania, takie jak warunki, pętle i instrukcje Switch. Każda akcja ma własny typ akcji. Na przykład akcje wywołujące [Łączniki](/connectors) mają typ "ApiConnection". Te łączniki są klasyfikowane jako łączniki standardowe lub Enterprise, które są mierzone w oparciu o ich odpowiednie [ceny](https://azure.microsoft.com/pricing/details/logic-apps). Łączniki korporacyjne w *wersji zapoznawczej* są rozliczone jako łączniki standardowe.
 
 Azure Logic Apps Gazomierze wszystkie pomyślne i niepomyślne akcje jako wykonania. Niemniej jednak Logic Apps nie mierzą następujących działań:
 
@@ -122,7 +122,7 @@ Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virt
 
 Aby wybrać jedną z kont integracji bezpłatnej, podstawowej lub standardowej, zapoznaj się z następującymi opisami przypadków użycia:
 
-* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](https://docs.microsoft.com/azure/china/overview-operations) .
+* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](/azure/china/overview-operations) .
 
 * **Podstawowa**: w przypadku, gdy ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową
 

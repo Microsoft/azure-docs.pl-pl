@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079744"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Przegląd konfiguracji stanu Azure Automation
 
@@ -73,7 +73,7 @@ W przypadku węzłów z systemem Windows obsługiwane są następujące wersje:
 >[!NOTE]
 >Autonomiczna jednostka SKU produktu [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) nie zawiera implementacji DSC. Dlatego nie może być zarządzany przez program PowerShell DSC lub Azure Automation konfigurację stanu.
 
-W przypadku węzłów z systemem Linux rozszerzenie DSC Linux obsługuje wszystkie dystrybucje systemu Linux wymienione w obszarze [obsługiwane dystrybucje systemu Linux](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+W przypadku węzłów z systemem Linux rozszerzenie DSC Linux obsługuje wszystkie dystrybucje systemu Linux wymienione w [dokumentacji DSC programu PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 ### <a name="dsc-requirements"></a>Wymagania DSC
 
@@ -107,7 +107,7 @@ W przypadku węzłów systemu Linux Agent DSC obsługuje serwer proxy i używa `
 
 Zaleca się używanie adresów wymienionych w tabeli [rekordy DNS na region](how-to/automation-region-dns-records.md) podczas definiowania wyjątków.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
 - Aby dowiedzieć się, jak włączyć węzły, zobacz [Włączanie konfiguracji stanu Azure Automation](automation-dsc-onboarding.md).

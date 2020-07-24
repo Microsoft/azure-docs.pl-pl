@@ -7,15 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080730"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Używanie tożsamości do tworzenia kluczy zastępczych w puli Synapse SQL
 
@@ -23,7 +24,7 @@ W tym artykule znajdziesz zalecenia i przykłady dotyczące używania właściwo
 
 ## <a name="what-is-a-surrogate-key"></a>Co to jest klucz zastępczy
 
-Klucz zastępczy w tabeli jest kolumną o unikatowym identyfikatorze dla każdego wiersza. Klucz nie jest generowany na podstawie danych tabeli. Modele danych, takie jak tworzenie kluczy zastępczych w tabelach, podczas projektowania modeli magazynu danych. Można użyć właściwości IDENTITY do osiągnięcia tego celu po prostu i efektywnie bez wpływu na wydajność ładowania.  
+Klucz zastępczy w tabeli jest kolumną o unikatowym identyfikatorze dla każdego wiersza. Klucz nie jest generowany na podstawie danych tabeli. Modele danych, takie jak tworzenie kluczy zastępczych w tabelach, podczas projektowania modeli magazynu danych. Można użyć właściwości IDENTITY do osiągnięcia tego celu po prostu i efektywnie bez wpływu na wydajność ładowania. Właściwość IDENTITY ma pewne ograniczenia, które opisano szczegółowo w temacie [CREATE TABLE (Właściwość Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). Jedną z ograniczeń tożsamości jest to, że nie ma gwarancji, że jest ona unikatowa. Ustawienie wstawiania tożsamości i nie ponowne umieszczanie wartości tożsamości spowoduje powstanie bardziej unikatowych wartości, ale może nie zagwarantować unikatowości we wszystkich sytuacjach. Jeśli nie można użyć wartości tożsamości ze względu na ograniczenia dotyczące tożsamości, należy utworzyć osobną tabelę przechowującą bieżącą wartość i zarządzać dostępem do tabeli oraz przypisaniem liczby za pomocą aplikacji. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Tworzenie tabeli z kolumną tożsamości
 
@@ -49,7 +50,7 @@ W tym pozostałej części tej sekcji przedstawiono wszystkie szczegóły wdroż
 
 ### <a name="allocation-of-values"></a>Alokacja wartości
 
-Właściwość IDENTITY nie gwarantuje kolejności, w której są przyliczane wartości zastępcze, co odzwierciedla zachowanie SQL Server i Azure SQL Database. Jednak w puli SQL Synapse brak gwarancji jest bardziej wyraźny.
+Właściwość IDENTITY nie gwarantuje kolejności, w której wartości zastępcze są przydzielane ze względu na rozproszoną architekturę hurtowni danych. Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w puli SQL Synapse bez wpływu na wydajność ładowania. 
 
 Poniższy przykład jest ilustracją:
 

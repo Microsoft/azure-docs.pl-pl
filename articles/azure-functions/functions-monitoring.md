@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081801"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -58,7 +58,7 @@ Aby otworzyć Application Insights z aplikacji funkcji w Azure Portal, wybierz p
 
 ![Otwórz Application Insights na stronie przeglądu aplikacji funkcji](media/functions-monitoring/ai-link.png)
 
-Informacje o sposobach używania Application Insights można znaleźć w [dokumentacji Application Insights](https://docs.microsoft.com/azure/application-insights/). W tej sekcji przedstawiono kilka przykładów sposobu wyświetlania danych w Application Insights. Jeśli znasz już Application Insights, możesz przejść bezpośrednio do [sekcji dotyczącej sposobu konfigurowania i dostosowywania danych telemetrycznych](#configure-categories-and-log-levels).
+Informacje o sposobach używania Application Insights można znaleźć w [dokumentacji Application Insights](/azure/application-insights/). W tej sekcji przedstawiono kilka przykładów sposobu wyświetlania danych w Application Insights. Jeśli znasz już Application Insights, możesz przejść bezpośrednio do [sekcji dotyczącej sposobu konfigurowania i dostosowywania danych telemetrycznych](#configure-categories-and-log-levels).
 
 ![Karta przegląd Application Insights](media/functions-monitoring/metrics-explorer.png)
 
@@ -68,12 +68,12 @@ Następujące obszary Application Insights mogą być pomocne podczas oceny zach
 | ---- | ----------- |
 | **[Błędy](../azure-monitor/app/asp-net-exceptions.md)** |  Twórz wykresy i alerty na podstawie błędów funkcji i wyjątków serwera. **Nazwa operacji** to nazwa funkcji. Błędy w zależnościach nie są wyświetlane, chyba że zaimplementowano niestandardową telemetrię dla zależności. |
 | **[Wydajność](../azure-monitor/app/performance-counters.md)** | Analizuj problemy z wydajnością, wyświetlając wykorzystanie zasobów i przepływność dla **wystąpień ról w chmurze**. Te dane mogą być przydatne w scenariuszach debugowania, w których funkcje boggingją bazowe zasoby. |
-| **[Metryki](../azure-monitor/app/metrics-explorer.md)** | Tworzenie wykresów i alertów opartych na metrykach. Metryki obejmują liczbę wywołań funkcji, czas wykonywania i współczynnik sukcesu. |
+| **[Metryki](../azure-monitor/platform/metrics-charts.md)** | Tworzenie wykresów i alertów opartych na metrykach. Metryki obejmują liczbę wywołań funkcji, czas wykonywania i współczynnik sukcesu. |
 | **[Metryki na żywo](../azure-monitor/app/live-stream.md)** | Wyświetlanie danych metryk w miarę ich tworzenia niemal w czasie rzeczywistym. |
 
 ## <a name="query-telemetry-data"></a>Zapytanie danych telemetrycznych
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analiza zawiera język zapytań służący do wyodrębniania, manipulowania i wizualizacji danych. 
+[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analiza zawiera język zapytań służący do wyodrębniania, manipulowania i wizualizacji danych. 
 
 Wybierz pozycję **dzienniki** , aby zbadać lub zbadać zarejestrowane zdarzenia.
 
@@ -142,7 +142,7 @@ Rejestrator Azure Functions obejmuje również *poziom dziennika* z każdym dzie
 |Informacyjny | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczny    | 5 |
+|Krytyczne    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` został wyjaśniony w następnej sekcji. 
@@ -153,7 +153,7 @@ Poziom dziennika `None` został wyjaśniony w następnej sekcji.
 
 ### <a name="version-2x-and-higher"></a>Wersja 2. x lub nowsza
 
-Wersja V2. x i nowsze wersje środowiska uruchomieniowego funkcji używają [hierarchii filtrów rejestrowania programu .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Wersja V2. x i nowsze wersje środowiska uruchomieniowego funkcji używają [hierarchii filtrów rejestrowania programu .NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -246,7 +246,7 @@ Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane doty
 
 ## <a name="configure-sampling"></a>Konfiguruj próbkowanie
 
-Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Można skonfigurować próbkowanie w [host.jsna](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Oto przykład:
+Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Można skonfigurować próbkowanie w [host.jsna](./functions-host-json.md#applicationinsights).  Oto przykład:
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -285,9 +285,9 @@ Dzienniki można napisać w kodzie funkcji, który jest wyświetlany jako ślady
 
 ### <a name="ilogger"></a>ILogger
 
-Użyj parametru [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) w funkcjach, a nie `TraceWriter` parametru. Dzienniki utworzone za pomocą polecenia `TraceWriter` Przejdź do Application Insights, ale `ILogger` umożliwiają [Rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Użyj parametru [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) w funkcjach, a nie `TraceWriter` parametru. Dzienniki utworzone za pomocą polecenia `TraceWriter` Przejdź do Application Insights, ale `ILogger` umożliwiają [Rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Przy użyciu `ILogger` obiektu wywoływanie `Log<level>` [metod rozszerzających ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) umożliwia tworzenie dzienników. Poniższy kod zapisuje `Information` dzienniki z kategorią "Function. <YOUR_FUNCTION_NAME>. Użytkownik ".
+Przy użyciu `ILogger` obiektu wywoływanie `Log<level>` [metod rozszerzających ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) umożliwia tworzenie dzienników. Poniższy kod zapisuje `Information` dzienniki z kategorią "Function. <YOUR_FUNCTION_NAME>. Użytkownik ".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -553,7 +553,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -577,7 +577,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -679,14 +679,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Dzienniki przesyłania strumieniowego można włączyć za pomocą [Azure PowerShell](/powershell/azure/overview). W przypadku programu PowerShell Użyj następujących poleceń, aby dodać swoje konto platformy Azure, wybierz subskrypcję i pliki dziennika przesyłania strumieniowego:
+Dzienniki przesyłania strumieniowego można włączyć za pomocą [Azure PowerShell](/powershell/azure/). W przypadku programu PowerShell Użyj polecenia [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) , aby włączyć rejestrowanie w aplikacji funkcji, jak pokazano w poniższym fragmencie kodu: 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
-```
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
+
+Aby uzyskać więcej informacji, zobacz [kompletny przykład kodu](../app-service/scripts/powershell-monitor.md#sample-script). 
 
 ## <a name="scale-controller-logs-preview"></a>Dzienniki kontrolera skalowania (wersja zapoznawcza)
 

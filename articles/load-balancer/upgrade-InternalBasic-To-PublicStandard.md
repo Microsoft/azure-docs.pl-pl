@@ -1,5 +1,5 @@
 ---
-title: Uaktualnij z warstwy Podstawowa publicznie do standardowej Azure Load Balancer publicznej
+title: Uaktualnij z podstawowego wewnętrznego do standardu publicznego — Azure Load Balancer
 description: W tym artykule pokazano, jak uaktualnić Load Balancer wewnętrzny usługi Azure Basic do standardowego Load Balancer publicznego
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078748"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uaktualnianie wewnętrznego Load Balancer platformy Azure — wymagane jest połączenie wychodzące
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus). Ponieważ standardowa Load Balancer wewnętrzna nie zapewnia połączenia wychodzącego, udostępniamy rozwiązanie do utworzenia standardowego Load Balancer publicznego.

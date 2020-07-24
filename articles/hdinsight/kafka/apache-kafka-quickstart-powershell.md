@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57f9338841b599e10c8a1d7eec8fd4f371ceecb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73494753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081019"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu programu PowerShell
 
@@ -25,13 +25,13 @@ W tym samouczku szybkiego startu dowiesz się, jak utworzyć klaster [platformy 
 
 Dostęp do interfejsu API platformy Kafka mogą uzyskać tylko zasoby będące w tej samej sieci wirtualnej. W tym przewodniku Szybki start uzyskasz dostęp do klastra bezpośrednio przy użyciu protokołu SSH. Aby do platformy Kafka podłączyć inne usługi, sieci lub maszyny wirtualne, należy najpierw utworzyć sieć wirtualną, a następnie utworzyć zasoby w obrębie tej sieci. Aby uzyskać więcej informacji, zobacz dokument [Connect to Apache Kafka using a virtual network (Nawiązywanie połączenia z platformą Apache Kafka za pomocą sieci wirtualnej)](apache-kafka-connect-vpn-gateway.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/overview) został zainstalowany.
+* Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/) został zainstalowany.
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -67,7 +67,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 Platforma Kafka w usłudze HDInsight używa funkcji Dyski zarządzane platformy Azure do przechowywania danych platformy Kafka, natomiast klaster używa też usługi Azure Storage do przechowywania informacji, takich jak dzienniki. Użyj [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) , aby utworzyć nowe konto magazynu.
 
 > [!IMPORTANT]  
-> Rodzaj `BlobStorage` konta magazynu może być używany tylko jako magazyn pomocniczy dla klastrów usługi HDInsight.
+> Rodzaj konta magazynu `BlobStorage` może być używany tylko jako magazyn pomocniczy dla klastrów usługi HDInsight.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -317,7 +317,7 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
 
 Producentów i odbiorców można również utworzyć programowo. Przykład korzystania z tego interfejsu API znajduje się w dokumencie [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) (Interfejs API producenta i odbiorcy platformy Apache Kafka w usłudze HDInsight).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Usługa HDInsight i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 

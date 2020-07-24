@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080866"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
-Ten artykuł zawiera informacje dotyczące pracy z poprzednią wersją programu Azure Migrate.
+Ten artykuł zawiera informacje dotyczące pracy z poprzednią wersją programu Azure Migrate. 
 
 
 Istnieją dwie wersje usługi Azure Migrate:
 
 - **Bieżąca wersja**: Użyj tej wersji do tworzenia projektów Azure Migrate, odnajdywania maszyn lokalnych i organizowania ocen i migracji. [Dowiedz się więcej](whats-new.md) na temat Nowości w tej wersji.
-- **Poprzednia wersja**: Jeśli używasz starszej wersji Azure Migrate (obsługiwana jest tylko Ocena lokalnych maszyn wirtualnych programu VMware), należy teraz używać bieżącej wersji. Jeśli nadal musisz używać Azure Migrate projektów utworzonych w poprzedniej wersji, to to, co możesz zrobić, i nie możesz tego zrobić:
+- **Poprzednia wersja**: Jeśli używasz starszej wersji Azure Migrate (obsługiwana jest tylko Ocena lokalnych maszyn wirtualnych programu VMware), należy teraz używać bieżącej wersji. Poprzednie projekty wersji są nazywane projektami klasycznymi w tym artykule. Jeśli nadal musisz używać Azure Migrate projektów utworzonych w poprzedniej wersji, to to, co możesz zrobić, i nie możesz tego zrobić:
     - Nie można już tworzyć projektów migracji.
     - Zalecamy, aby nie wykonywać nowych odnajdywania.
     - Nadal możesz uzyskiwać dostęp do istniejących projektów.
@@ -31,7 +31,7 @@ Istnieją dwie wersje usługi Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Uaktualnianie między wersjami
 
-Nie można uaktualnić projektów lub składników w poprzedniej wersji do nowej wersji. Należy [utworzyć nowy projekt Azure Migrate](how-to-add-tool-first-time.md)i dodać do niego narzędzia do oceny i migracji.
+Nie można uaktualnić projektów lub składników w poprzedniej wersji do nowej wersji. Należy [utworzyć nowy projekt Azure Migrate](create-manage-projects.md)i dodać do niego [Narzędzia do oceny i migracji](how-to-add-tool-first-time.md) . Skorzystaj z samouczków, aby zrozumieć, jak korzystać z dostępnych narzędzi do oceny i migracji. Jeśli masz obszar roboczy Log Analytics dołączony do projektu klasycznego, możesz dołączyć go do projektu bieżącej wersji po usunięciu projektu klasycznego.
 
 ## <a name="find-projects-from-previous-version"></a>Znajdź projekty z poprzedniej wersji
 
@@ -39,7 +39,16 @@ Znajdź projekty z poprzedniej wersji w następujący sposób:
 
 1. W Azure Portal > **wszystkie usługi**, Wyszukaj i wybierz **Azure Migrate**. 
 2. Na pulpicie nawigacyjnym Azure Migrate istnieje powiadomienie i link umożliwiający dostęp do starych projektów Azure Migrate.
-3. Kliknij link, aby otworzyć projekt v1.
+3. Kliknij link, aby otworzyć projekty klasyczne.
+
+## <a name="delete-projects-from-previous-version"></a>Usuń projekty z poprzedniej wersji
+
+Znajdź i Usuń projekty z poprzedniej wersji w następujący sposób:
+
+1. W Azure Portal > **wszystkie usługi**, Wyszukaj i wybierz **Azure Migrate**. 
+2. Na pulpicie nawigacyjnym Azure Migrate istnieje powiadomienie i link umożliwiający dostęp do starych projektów Azure Migrate.
+3. Kliknij link, aby otworzyć projekty klasyczne.
+4. Wybierz projekt, który chcesz usunąć i usunąć. 
 
 
 ## <a name="create-an-assessment"></a>Tworzenie oceny
@@ -56,7 +65,7 @@ Utwórz ocenę w następujący sposób:
 3. Utwórz grupę i określ jej nazwę.
 4. Wybierz maszyny wirtualne, które chcesz dodać do grupy.
 5. Kliknij pozycję **Utwórz ocenę**, aby utworzyć grupę i ocenę.
-6. Po utworzeniu oceny sprawdź ją na **Overview**  >  **pulpicie nawigacyjnym**przegląd.
+6. Po utworzeniu oceny możesz wyświetlić ją w obszarze **Omówienie** > **Pulpit nawigacyjny**.
 7. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
 Jeśli chcesz zaktualizować istniejącą ocenę przy użyciu najnowszych danych wydajności, możesz użyć polecenia **Oblicz ponownie** w ramach oceny, aby ją zaktualizować.
@@ -76,7 +85,7 @@ Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprze
 
 Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej.
 
-**Gotowości** | **Stan** | **Szczegóły**
+**Gotowość** | **Stan** | **Szczegóły**
 --- | --- | ---
 Gotowa na platformę Azure | Brak problemów ze zgodnością. Maszynę można migrować na platformę Azure i uruchamiać ją na platformie Azure z pełną pomocą techniczną platformy Azure. | W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure.
 Warunkowo gotowa na platformę Azure | Komputer może przeprowadzić rozruch na platformie Azure, ale może nie mieć pełnej pomocy technicznej platformy Azure. Na przykład maszyna ze starszą wersją systemu Windows Server, która nie jest obsługiwana na platformie Azure. | Azure Migrate objaśnia problemy z gotowością i zawiera czynności zaradcze.
@@ -88,11 +97,11 @@ Nieznana gotowość | Azure Migrate nie może zidentyfikować gotowości platfor
 Gotowość uwzględnia wiele właściwości maszyn wirtualnych, aby określić, czy maszyna wirtualna może działać na platformie Azure.
 
 
-**Właściwość** | **Szczegóły** | **Gotowości**
+**Właściwość** | **Szczegóły** | **Gotowość**
 --- | --- | ---
 **Typ rozruchu** | Obsługiwane przez system BIOS. Interfejs UEFI nie jest obsługiwany. | Warunkowo gotowe, jeśli typ rozruchu to UEFI.
 **Rdzenie** | Komputery Core <= Maksymalna liczba rdzeni (128) obsługiwana przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie.<br/>Jeśli czynnik komfortu jest określony w ustawieniach oceny, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni, bez zastosowania współczynnika komfortu. | Gotowe, jeśli jest mniejsze lub równe limitom.
-**Memory (Pamięć)** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m &nbsp; <sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](../virtual-machines/windows/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
+**Pamięć** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m &nbsp; <sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](../virtual-machines/windows/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
 **Dysk magazynu** | Przydzielony rozmiar dysku musi mieć wartość 4 TB (4096 GB) lub mniejszą.<br/><br/> Liczba dysków dołączonych do maszyny musi być 65 lub mniejsza, łącznie z dyskiem systemu operacyjnego. | Gotowe, jeśli w ramach limitów.
 **Sieć** | Maszyna musi mieć dołączoną 32 lub mniej kart sieciowych. | Gotowe, jeśli w ramach limitów.
 
@@ -105,7 +114,7 @@ Wraz z właściwościami maszyny wirtualnej Azure Migrate również sprawdzać s
 
 Używana jest następująca logika.
 
-**System operacyjny** | **Szczegóły** | **Gotowości**
+**System operacyjny** | **Szczegóły** | **Gotowość**
 --- | --- | ---
 Windows Server 2016 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure
 Windows Server 2012 R2 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure

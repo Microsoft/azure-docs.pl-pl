@@ -3,11 +3,12 @@ title: Moduł programu PowerShell dla Azure Lab Services | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące modułu programu PowerShell, który ułatwia zarządzanie artefaktami w Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d9c184f3917be378eb77d1bf4096bfebb5ee1884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5809dcf981a1ecf30cda06af03d2b8a06d3694
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078826"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Moduł programu PowerShell Az.LabServices (wersja zapoznawcza)
 AZ. LabServices to moduł programu PowerShell, który upraszcza zarządzanie usługami laboratorium platformy Azure. Udostępnia funkcje umożliwiające tworzenie, wysyłanie zapytań, aktualizowanie i usuwanie kont laboratorium, laboratoriów, maszyn wirtualnych i obrazów. Aby uzyskać więcej informacji na temat tego modułu, zobacz [stronę główną AZ. LabServices w witrynie GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
@@ -23,7 +24,7 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
-1. Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) , jeśli nie istnieje na Twojej maszynie. 
+1. Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) , jeśli nie istnieje na Twojej maszynie. 
 2. Pobierz [AZ. LabServices. PSM1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) do komputera.
 3. Zaimportuj moduł:
 

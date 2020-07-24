@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080288"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
 
@@ -205,13 +205,13 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | forceUpdateTag | Przekazuj unikatową wartość, taką jak identyfikator GUID za każdym razem, gdy operacja musi zostać wymuszona. |
 | location | Lokalizacja dla wszystkich zasobów. |
 
-Aby uzyskać więcej informacji o konfigurowaniu szablonu szyfrowania dysku maszyny wirtualnej z systemem Linux, zobacz [Azure Disk Encryption dla systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Aby uzyskać więcej informacji o konfigurowaniu szablonu szyfrowania dysku maszyny wirtualnej z systemem Linux, zobacz [Azure Disk Encryption dla systemu Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Korzystanie z funkcji EncryptFormatAll w przypadku dysków z danymi na maszynach wirtualnych z systemem Linux
 
 **EncryptFormatAll** parametr skraca czas szyfrowania dysków danych systemu Linux. Partycje spełniające określone kryteria zostaną sformatowane wraz z ich bieżącymi systemami plików, a następnie ponownie zainstalowane w miejscu, w którym były przed wykonaniem polecenia. Jeśli chcesz wykluczyć dysk danych spełniający kryteria, możesz go odinstalować przed uruchomieniem polecenia.
 
- Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski zostaną sformatowane, a warstwa szyfrowania zostanie uruchomiona na pustym dysku. Po wybraniu tej opcji dysk tymczasowy dołączony do maszyny wirtualnej również będzie szyfrowany. Jeśli dysk tymczasowy jest resetowany, zostanie on zmieniony w formacie i ponownie zaszyfrowany dla maszyny wirtualnej przez rozwiązanie Azure Disk Encryption w następnej okazji. Po zaszyfrowaniu dysku zasobów [Agent Microsoft Azure systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nie będzie w stanie zarządzać dyskiem zasobów i włączać pliku wymiany, ale można ręcznie skonfigurować plik wymiany.
+ Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski zostaną sformatowane, a warstwa szyfrowania zostanie uruchomiona na pustym dysku. Po wybraniu tej opcji dysk tymczasowy dołączony do maszyny wirtualnej również będzie szyfrowany. Jeśli dysk tymczasowy jest resetowany, zostanie on zmieniony w formacie i ponownie zaszyfrowany dla maszyny wirtualnej przez rozwiązanie Azure Disk Encryption w następnej okazji. Po zaszyfrowaniu dysku zasobów [Agent Microsoft Azure systemu Linux](../extensions/agent-linux.md) nie będzie w stanie zarządzać dyskiem zasobów i włączać pliku wymiany, ale można ręcznie skonfigurować plik wymiany.
 
 >[!WARNING]
 > EncryptFormatAll nie należy używać w przypadku danych na woluminach danych maszyny wirtualnej. Dyski można wykluczać z szyfrowania, odinstalując je. Najpierw należy wypróbować EncryptFormatAll najpierw na testowej maszynie wirtualnej, zrozumieć parametr funkcji i jej implikacje przed podjęciem próby na produkcyjną maszynę wirtualną. Opcja EncryptFormatAll formatuje dysk danych i wszystkie jego dane zostaną utracone. Przed kontynuowaniem upewnij się, że dyski, które chcesz wykluczyć, zostały prawidłowo odinstalowane. </br></br>
@@ -262,7 +262,7 @@ Zalecamy instalację LVM-on-Crypt. We wszystkich poniższych przykładach Zastą
 
 1. Sformatuj, zainstaluj i Dodaj te dyski do pliku fstab.
 
-1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](troubleshoot-device-names-problems.md) .
+1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](../troubleshooting/troubleshoot-device-names-problems.md) .
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ Nowy dysk danych można dodać przy użyciu polecenia [AZ VM Disk Attach](add-di
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Włącz szyfrowanie na nowo dodanym dysku przy użyciu interfejsu wiersza polecenia platformy Azure
 
- Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu "All", parametr--type Wszystkie obejmują zarówno system operacyjny, jak i dyski danych. Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu typu woluminu "OS", należy zmienić parametr---type na "All", aby uwzględnić zarówno system operacyjny, jak i nowy dysk danych. Jeśli maszyna wirtualna została zaszyfrowana przy użyciu tylko typu woluminu "dane", może to pozostawać "dane", jak pokazano poniżej. Dodawanie i dołączanie nowego dysku z danymi do maszyny wirtualnej nie jest wystarczającym przygotowaniem do szyfrowania. Nowo dołączony dysk musi być również sformatowany i poprawnie zainstalowany na maszynie wirtualnej przed włączeniem szyfrowania. W systemie Linux dysk musi być zainstalowany w/etc/fstab z [trwałą nazwą urządzenia blokowego](troubleshoot-device-names-problems.md).  
+ Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu "All", parametr--type Wszystkie obejmują zarówno system operacyjny, jak i dyski danych. Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu typu woluminu "OS", należy zmienić parametr---type na "All", aby uwzględnić zarówno system operacyjny, jak i nowy dysk danych. Jeśli maszyna wirtualna została zaszyfrowana przy użyciu tylko typu woluminu "dane", może to pozostawać "dane", jak pokazano poniżej. Dodawanie i dołączanie nowego dysku z danymi do maszyny wirtualnej nie jest wystarczającym przygotowaniem do szyfrowania. Nowo dołączony dysk musi być również sformatowany i poprawnie zainstalowany na maszynie wirtualnej przed włączeniem szyfrowania. W systemie Linux dysk musi być zainstalowany w/etc/fstab z [trwałą nazwą urządzenia blokowego](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 W przeciwieństwie do składni programu PowerShell interfejs wiersza polecenia nie wymaga od użytkownika podania unikatowej wersji sekwencji podczas włączania szyfrowania. Interfejs wiersza polecenia automatycznie generuje i używa własną unikatową wartość wersji sekwencji.
 
@@ -413,7 +413,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 - Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
-- Stosowanie [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) do maszyn wirtualnych szyfrowanych przez program ADE i na odwrót.
+- Zastosowanie elementu ADE do maszyny wirtualnej, która ma dysk danych zaszyfrowany przy użyciu [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) (SSE + CMK) lub stosowanie SSE + CMK do dysku danych na maszynie wirtualnej zaszyfrowanej za pomocą programu ADE.
 - Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
 
 ## <a name="next-steps"></a>Następne kroki

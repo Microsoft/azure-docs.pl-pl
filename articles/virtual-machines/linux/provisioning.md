@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080152"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Inicjowanie obsługi maszyn wirtualnych z systemem Linux na platformie Azure
 Podczas tworzenia maszyny wirtualnej na podstawie uogólnionego obrazu (galerii obrazów udostępnionych lub zarządzanego obrazu) płaszczyzna kontroli umożliwi utworzenie maszyny wirtualnej i przekazanie parametrów i ustawień do maszyny wirtualnej. Ta nazwa jest nazywana *obsługą*maszyny wirtualnej. Podczas aprowizacji platforma wykonuje wymagane przez maszynę wirtualną Tworzenie wartości parametrów (nazwa hosta, nazwa użytkownika, hasło, klucze SSH, customData), które są dostępne dla maszyny wirtualnej w trakcie jej uruchamiania. 
 
 Agent aprowizacji rozszerzania wewnątrz obrazu będzie interfejsem z platformą, łącząc się z wieloma niezależnymi interfejsami aprowizacji), ustaw właściwości i sygnał na platformę, która została ukończona. 
 
-Agenci aprowizacji mogą być [agentem systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)lub funkcją [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Są to [wymagania wstępne](create-upload-generic.md) dotyczące tworzenia uogólnionych obrazów.
+Agenci aprowizacji mogą być [agentem systemu Azure Linux](../extensions/agent-linux.md)lub funkcją [Cloud-init](./using-cloud-init.md). Są to [wymagania wstępne](create-upload-generic.md) dotyczące tworzenia uogólnionych obrazów.
 
-Agenci aprowizacji oferują pomoc techniczną dla wszystkich poświadczonej [dystrybucji systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), a w wielu przypadkach dystrybucji obrazy będą dostarczane z programem Cloud-init i agentem systemu Linux. Dzięki temu można korzystać z usługi Cloud-init do obsługi aprowizacji, a następnie Agent systemu Linux zapewnia pomoc techniczną do obsługi [rozszerzeń platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Zapewnianie pomocy technicznej dla rozszerzeń oznacza, że maszyna wirtualna będzie kwalifikować się do obsługi dodatkowych usług platformy Azure, takich jak resetowanie hasła maszyny wirtualnej, monitorowanie platformy Azure, Azure Backup, szyfrowanie dysków Azure itp.
+Agenci aprowizacji oferują pomoc techniczną dla wszystkich poświadczonej [dystrybucji systemu Azure Linux](./endorsed-distros.md), a w wielu przypadkach dystrybucji obrazy będą dostarczane z programem Cloud-init i agentem systemu Linux. Dzięki temu można korzystać z usługi Cloud-init do obsługi aprowizacji, a następnie Agent systemu Linux zapewnia pomoc techniczną do obsługi [rozszerzeń platformy Azure](../extensions/features-windows.md). Zapewnianie pomocy technicznej dla rozszerzeń oznacza, że maszyna wirtualna będzie kwalifikować się do obsługi dodatkowych usług platformy Azure, takich jak resetowanie hasła maszyny wirtualnej, monitorowanie platformy Azure, Azure Backup, szyfrowanie dysków Azure itp.
 
 Po zakończeniu aprowizacji Usługa Cloud-init zostanie uruchomiona na każdym rozruchu. Usługa Cloud-init będzie monitorować zmiany w maszynie wirtualnej, takie jak zmiany w sieci, Instalowanie i formatowanie dysku tymczasowych oraz uruchamianie agenta systemu Linux. Agent systemu Linux jest ciągle uruchamiany na serwerze, szukając "stanu celu" (nowej konfiguracji) z platformy Azure, więc po każdym zainstalowaniu rozszerzeń agent będzie mógł je przetworzyć.
 

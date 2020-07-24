@@ -1,20 +1,17 @@
 ---
 title: Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 description: W tym artykule opisano sposób pracy z historią wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: dsc, powershell, azure, extension
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079761"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
@@ -23,6 +20,29 @@ Rozszerzenie maszyny wirtualnej konfiguracji żądanego stanu (DSC) platformy Az
 Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej usługi Azure DSC, obsługiwanych środowiskach oraz komentarzach i uwagach dotyczących nowych funkcji lub zmian.
 
 ## <a name="latest-version"></a>Najnowsza wersja
+
+### <a name="version-280"></a>Wersja 2,80
+
+- **Data wydania:**
+  - 26 września SEP-2019 (Azure) | 6 lipca 2020 (Chiny Vianet 21) | 20 lipca 2020 (Azure Government)
+- **Obsługa systemu operacyjnego:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 z dodatkiem R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Klient z systemem Windows 7/8.1/10
+  - Nano Server
+- **Obsługa WMF:**
+  - WMF 5.1
+  - WMF 5,0 RTM
+  - Aktualizacja WMF 4,0
+  - WMF 4.0
+- **Naturalne**
+  - Azure
+  - Azure Chiny Vianet 21
+  - Azure Government
+- **Uwagi:** W tej wersji nie ma żadnych nowych funkcji.
 
 ### <a name="version-276"></a>Wersja 2,76
 

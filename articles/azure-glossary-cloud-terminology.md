@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079574"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: Słownik terminologii w chmurze na platformie Azure
 
@@ -51,7 +51,7 @@ Interfejs wiersza polecenia, którego można użyć do zarządzania usługami pl
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Interfejs wiersza polecenia do zarządzania usługami platformy Azure za pośrednictwem wiersza polecenia z komputerów z systemem Windows. Niektóre usługi lub funkcje usługi mogą być zarządzane tylko za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia.
-Zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview)
+Zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure Resource Manager model wdrażania
 Jeden z dwóch [modeli wdrażania](resource-manager-deployment-model.md) używanych do wdrażania zasobów w Microsoft Azure (drugi to klasyczny model wdrażania). Niektóre usługi platformy Azure obsługują tylko Menedżer zasobów model wdrażania, ale niektóre obsługują tylko klasyczny model wdrażania, a niektóre obsługują obie te funkcje. Dokumentacja dla każdej usługi platformy Azure określa, które modele obsługują.
@@ -153,7 +153,7 @@ Zobacz [przegląd Virtual Network](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Aplikacja internetowa
 Inna nazwa [aplikacji App Service](#app-service-app).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Rozpoczynanie pracy z platformą Azure](https://azure.microsoft.com/get-started/)
 * [Centrum zasobów w chmurze](https://azure.microsoft.com/resources/)  

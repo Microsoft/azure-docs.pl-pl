@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e47ed9b5505966973644bee0578d5b13d1659766
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887880"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080560"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Tworzenie zestawu skalowania za pomocą wyspecjalizowanej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Utwórz zestaw skalowania z [wersji obrazu specjalistycznej](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć zestaw skalowania przy użyciu uogólnionej wersji obrazu, zobacz [Tworzenie zestawu skalowania na podstawie uogólnionego obrazu](instance-generalized-image-version-cli.md).
+Utwórz zestaw skalowania z [wersji obrazu specjalistycznej](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć zestaw skalowania przy użyciu uogólnionej wersji obrazu, zobacz [Tworzenie zestawu skalowania na podstawie uogólnionego obrazu](instance-generalized-image-version-cli.md).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -60,6 +60,3 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-
-
-

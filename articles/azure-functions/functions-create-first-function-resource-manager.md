@@ -1,24 +1,28 @@
 ---
 title: Tworzenie pierwszej funkcji przy użyciu szablonów Azure Resource Manager
-description: Tworzenie i wdrażanie na platformie Azure prostej wyzwalanej przez protokół HTTP funkcji bezserwerowej przy użyciu szablonu Azure Resource Manager.
+description: Tworzenie i wdrażanie na platformie Azure prostej wyzwalanej przez protokół HTTP funkcji bezserwerowej przy użyciu szablonu Azure Resource Manager (szablon ARM).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081716"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
 
-W tym artykule użyto szablonu Azure Resource Manager, aby utworzyć funkcję, która reaguje na żądania HTTP. 
+W tym artykule opisano tworzenie funkcji reagującej na żądania HTTP przy użyciu szablonu Azure Resource Manager (szablonu ARM). 
 
 W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +40,7 @@ Wybierz jedną z następujących kart, Użyj linku i wypełnij sekcję, aby utwo
 
 [Utwórz projekt funkcji lokalnych w Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [Tworzenie projektu funkcji lokalnych w programie Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
 
@@ -48,13 +52,11 @@ Wybierz jedną z następujących kart, Użyj linku i wypełnij sekcję, aby utwo
 
 Po utworzeniu projektu lokalnie należy utworzyć zasoby wymagane do uruchomienia nowej funkcji na platformie Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Tworzenie aplikacji funkcji bezserwerowej na platformie Azure
+## <a name="review-the-template"></a>Przegląd szablonu
 
-### <a name="review-the-template"></a>Przegląd szablonu
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Ten szablon tworzy następujące cztery zasoby platformy Azure:
 
@@ -63,7 +65,7 @@ Ten szablon tworzy następujące cztery zasoby platformy Azure:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
 + [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli-interactive
@@ -103,7 +105,7 @@ Aby opublikować projekt w nowych zasobach platformy Azure, wykonaj następując
 
 W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania funkcji działającej na platformie Azure. 
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
 
@@ -166,7 +168,7 @@ Teraz, po opublikowaniu pierwszej funkcji, Dowiedz się więcej, dodając powią
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md)
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs.md)

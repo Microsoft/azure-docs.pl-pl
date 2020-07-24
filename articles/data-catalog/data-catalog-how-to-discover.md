@@ -4,13 +4,14 @@ description: W tym artykule opisano sposób odnajdywania zarejestrowanych zasob�
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68736373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081206"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Jak odnajdywać źródła danych w Azure Data Catalog
 
@@ -32,7 +33,7 @@ Korzystając z kombinacji wyszukiwania i filtrowania, można szybko poruszać si
 
 Chociaż domyślne wyszukiwanie tekstu swobodnego jest proste i intuicyjne, można również użyć składni wyszukiwania Data Catalog, aby uzyskać większą kontrolę nad wynikami wyszukiwania. Data Catalog Search obsługuje następujące techniki:
 
-| Technika | Użycie | Przykład |
+| Technika | Zastosowanie | Przykład |
 | --- | --- | --- |
 | Wyszukiwanie podstawowe |Podstawowe wyszukiwanie używające co najmniej jednego wyszukiwanego terminu. Wyniki są dowolnymi zasobami, które pasują do dowolnej właściwości z co najmniej jednym określonym warunkiem. |`sales data` |
 | Określanie zakresu właściwości |Zwracaj tylko źródła danych, w których termin wyszukiwania jest dopasowywany do określonej właściwości. |`name:finance` |

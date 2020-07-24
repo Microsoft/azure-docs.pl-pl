@@ -4,15 +4,15 @@ description: Zarządzanie wydajnością aplikacji i śledzenie użycia działaj�
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 9e89de2af252ed6c4e2fcd23559bfbf871b0f99d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079642"
 ---
 # <a name="what-is-application-insights"></a>Co to jest usługa Application Insights?
-Application Insights, funkcja [Azure monitor](../overview.md), to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów i informatyków DevOps. Służy do monitorowania aplikacji na żywo. Automatycznie wykryje anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkownicy faktycznie są w tej aplikacji.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node. js, Java i Python hostowanych lokalnie, hybrydowej lub dowolnej chmurze publicznej. Integruje się ona z procesem DevOps i ma punkty połączenia z szeroką gamą narzędzi programistycznych. Może monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z usługą Visual Studio App Center.
+Application Insights, funkcja [Azure monitor](../overview.md), to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów i informatyków DevOps. Służy do monitorowania aplikacji na żywo. Automatycznie wykryje anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkownicy faktycznie są w tej aplikacji.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js, Java i Python hostowanych lokalnie, hybrydowych lub dowolnej chmurze publicznej. Integruje się ona z procesem DevOps i ma punkty połączenia z szeroką gamą narzędzi programistycznych. Może monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z usługą Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Jak działa usługa Application Insights?
 Zainstalujesz niewielki pakiet Instrumentacji (SDK) w aplikacji lub Włącz Application Insights przy użyciu agenta Application Insights, jeśli jest [obsługiwany](../../azure-monitor/app/platforms.md). Instrumentacja monitoruje aplikację i kieruje dane telemetryczne do zasobu usługi Azure Application Insights przy użyciu unikatowego identyfikatora GUID, który odwołuje się jako klucz Instrumentacji.
@@ -21,7 +21,7 @@ Instrumentacja może obejmować nie tylko aplikację usługi sieci Web, ale rów
 
 ![Instrumentacja usługi Application Insights w Twojej aplikacji wysyła dane telemetryczne do zasobu usługi Application Insights.](./media/app-insights-overview/diagram.png)
 
-Ponadto możesz ściągnąć dane telemetryczne ze środowisk hostów, takich jak liczniki wydajności, diagnostyka platformy Azure lub dzienniki platformy Docker. Możesz też skonfigurować testy sieci Web, które okresowo wysyłają syntetyczne żądania do usługi sieci Web.
+Ponadto możesz ściągnąć dane telemetryczne ze środowisk hostów, takich jak liczniki wydajności, diagnostyka platformy Azure lub dzienniki platformy Docker. Możesz też skonfigurować testy internetowe, które okresowo wysyłają syntetyczne żądania do usługi internetowej.
 
 Wszystkie te strumienie telemetrii są zintegrowane z Azure Monitor. W Azure Portal można zastosować zaawansowane narzędzia analityczne i wyszukiwania do danych pierwotnych.
 
@@ -57,8 +57,8 @@ Istnieje wiele sposobów eksploracji danych. Zapoznaj się z następującymi art
 | [**Eksplorator metryk dla danych zagregowanych**](../../azure-monitor/platform/metrics-charts.md)<br/>Eksploruj, filtruj i segmentuj zagregowane dane, takie jak liczby żądań, błędów i wyjątków, czasy reakcji, czasy ładowania stron. |![Metryki](./media/app-insights-overview/metrics-tn.png) |
 | [**Pulpity nawigacyjne**](../../azure-monitor/app/overview-dashboard.md)<br/>Połącz dane z wielu zasobów i udostępnij innym osobom. Opcja ta doskonale nadaje się dla aplikacji wieloskładnikowych i ciągłego wyświetlania w pomieszczeniu zespołu. |![Przykładowy pulpit nawigacyjny](./media/app-insights-overview/dashboard-tn.png) |
 | [**Transmisja strumieniowa metryk na żywo**](../../azure-monitor/app/live-stream.md)<br/>Podczas wdrażania nowej kompilacji obejrzyj te wskaźniki wydajności prawie w czasie rzeczywistym, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. |![Przykładowe metryki na żywo](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analiza**](../../azure-monitor/app/analytics.md)<br/>Odpowiedz na trudne pytania dotyczące wydajności i użycia Twojej aplikacji za pomocą tego zaawansowanego języka zapytań. |![Przykładowa analiza](./media/app-insights-overview/analytics-tn.png) |
-| [**Program Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Zobacz dane dotyczące wydajności w kodzie. Przejdź do kodu ze śladów stosu.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Analiza**](../log-query/log-query-overview.md)<br/>Odpowiedz na trudne pytania dotyczące wydajności i użycia Twojej aplikacji za pomocą tego zaawansowanego języka zapytań. |![Przykładowa analiza](./media/app-insights-overview/analytics-tn.png) |
+| [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Zobacz dane dotyczące wydajności w kodzie. Przejdź do kodu ze śladów stosu.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debuger migawek**](../../azure-monitor/app/snapshot-debugger.md)<br/>Debuguje próbki migawek pobrane z operacji na żywo, używając wartości parametrów.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>Integruje metryki użycia z innymi analizami biznesowymi.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**Interfejs API REST**](https://dev.applicationinsights.io/)<br/>Napisz kod, aby uruchamiać zapytania dla swoich metryk i danych pierwotnych.| ![Interfejs API REST](./media/app-insights-overview/rest-tn.png) |
@@ -66,7 +66,7 @@ Istnieje wiele sposobów eksploracji danych. Zapoznaj się z następującymi art
 
 ## <a name="how-do-i-use-application-insights"></a>Jak mogę używać usługi Application Insights?
 
-### <a name="monitor"></a>Monitorowanie
+### <a name="monitor"></a>Monitor
 Zainstaluj usługę Application Insights w swojej aplikacji, skonfiguruj [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md) oraz:
 
 * Sprawdź domyślny [pulpit nawigacyjny aplikacji](../../azure-monitor/app/overview-dashboard.md) dla pokoju zespołu, aby śledzić obciążenie, czas odpowiedzi oraz wydajność zależności, obciążeń stron i wywołań AJAX.
@@ -101,7 +101,7 @@ Istnieje kilka sposobów, aby rozpocząć. Zacznij od tego, co najlepiej sprawdz
   * [ASP.NET Core aplikacji](../../azure-monitor/app/asp-net-core.md)
   * [Aplikacje konsolowe platformy .NET](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node. js](../../azure-monitor/app/nodejs.md)
+  * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Python](../../azure-monitor/app/opencensus-python.md)
   * [Inne platformy](../../azure-monitor/app/platforms.md)
 * **[Instrumentacja stron internetowych](../../azure-monitor/app/javascript.md)** dla widoku strony, wywołań AJAX i innej telemetrii po stronie klienta.
@@ -113,22 +113,22 @@ Rozpocznij pracę w czasie wykonywania za pomocą rozwiązań:
 
 * [Maszyna wirtualna platformy Azure i zestaw skalowania maszyn wirtualnych platformy Azure — aplikacje hostowane](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Serwer usług IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Aplikacje internetowe platformy Azure](../../azure-monitor/app/azure-web-apps.md)
 
 Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node. js](../../azure-monitor/app/nodejs.md)
+* [Node.js](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 * Pytania i problemy:
   * [Rozwiązywanie problemów][qna]
-  * [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-monitor.html)
+  * [Witryna StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Twoje sugestie:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
@@ -146,5 +146,5 @@ Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ../../azure-monitor/app/platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md

@@ -2,16 +2,17 @@
 title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
 description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: af255e0248c029f42c9c2999ae7c0389d60c58fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 64993b526b67430266a8b3e85e3bcc233a3e28a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079523"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
-Dowiedz się, jak za Azure PowerShell pomocą szablonów Azure Resource Manager (ARM) wdrożyć swoje zasoby na platformie Azure. Aby uzyskać więcej informacji na temat pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
+W tym artykule wyjaśniono, jak używać Azure PowerShell z szablonami Azure Resource Manager (szablony ARM) do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
 
 ## <a name="deployment-scope"></a>Zakres wdrożenia
 
@@ -69,11 +70,40 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+New-AzResourceGroupDeployment -Name ExampleDeployment `
+  -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
 Wdrożenie może potrwać kilka minut.
+
+## <a name="deployment-name"></a>Nazwa wdrożenia
+
+W poprzednim przykładzie nazwa wdrożenia została nadana `ExampleDeployment` . Jeśli nie podano nazwy wdrożenia, zostanie użyta nazwa pliku szablonu. Na przykład jeśli wdrażasz szablon o nazwie `azuredeploy.json` i nie określisz nazwy wdrożenia, wdrożenie ma nazwę `azuredeploy` .
+
+Za każdym razem, gdy uruchamiasz wdrożenie, do historii wdrożenia grupy zasobów zostanie dodany wpis z nazwą wdrożenia. Jeśli zostanie uruchomione inne wdrożenie i nastąpi taka sama nazwa, wcześniejszy wpis zostanie zastąpiony bieżącym wdrożeniem. Jeśli chcesz zachować unikatowe wpisy w historii wdrożenia, nadaj każdemu wdrożeniu unikatową nazwę.
+
+Aby utworzyć unikatową nazwę, można przypisać liczbę losową.
+
+```azurepowershell-interactive
+$suffix = Get-Random -Maximum 1000
+$deploymentName = "ExampleDeployment" + $suffix
+```
+
+Lub Dodaj wartość daty.
+
+```azurepowershell-interactive
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="ExampleDeployment"+"$today"
+```
+
+W przypadku uruchamiania współbieżnych wdrożeń w tej samej grupie zasobów o tej samej nazwie wdrożenia zostanie wykonane tylko ostatnie wdrożenie. Wszystkie wdrożenia o tej samej nazwie, które nie zostały zakończone, są zastępowane przez ostatnie wdrożenie. Jeśli na przykład zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` , a w tym samym czasie zostanie uruchomione inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , zostanie wdrożone tylko jedno konto magazynu. Utworzone konto magazynu ma nazwę `storage2` .
+
+Jeśli jednak zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` i natychmiast po jego zakończeniu uruchomisz inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , masz dwa konta magazynu. Jeden z nich ma nazwę `storage1` , a drugi o nazwie `storage2` . Jednak w historii wdrożenia znajduje się tylko jeden wpis.
+
+W przypadku określenia unikatowej nazwy dla każdego wdrożenia można uruchomić je współbieżnie bez konfliktu. W przypadku uruchomienia wdrożenia o nazwie, `newStorage1` które wdraża konto magazynu o nazwie `storage1` i w tym samym czasie, należy uruchomić inne wdrożenie o nazwie, `newStorage2` które wdraża konto magazynu o nazwie `storage2` , istnieją dwa konta magazynu i dwa wpisy w historii wdrażania.
+
+Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpisy w historii wdrożenia, należy nadać każdemu wdrożeniu unikatową nazwę.
 
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
 

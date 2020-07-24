@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080594"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych w Azure Portal
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia.
@@ -48,8 +48,8 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
     | *Statystyka ziarna czasu* | Definiuje sposób agregowania zebranych metryk w poszczególnych ziarnach w celu analizy.                             | Średnia        |
     | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 70             |
-    | *Czas trwania*             | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 10 minut     |
-    | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                        | Zwiększ wartość procentową o |
+    | *Czas trwania*             | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową. Nie obejmuje okresu chłodzenia.                                   | 10 minut     |
+    | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, i według tego przyrostu.                        | Zwiększ wartość procentową o |
     | *Liczba wystąpień*       | Wartość procentowa liczby wystąpień maszyn wirtualnych, która powinna zostać zmieniona po wyzwoleniu reguły.                                            | 20             |
     | *Czas schładzania (minuty)*  | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 min      |
 

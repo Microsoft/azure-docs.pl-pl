@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 63f9441d4df9551405c2ab2bf8c0c67d7de5753c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 985aa094a2761483e682cdfc576891affab68547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080339"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -64,7 +65,7 @@ Aby sprawdzić, czy rozszerzenie zabezpieczeń firmy Symantec zostało zainstalo
 2. W przypadku systemu Windows Server 2008 R2 kliknij przycisk **Start > Symantec Endpoint Protection**. W przypadku systemu Windows Server 2012 lub Windows Server 2012 R2 na ekranie startowym wpisz **Symantec**, a następnie kliknij pozycję **Symantec Endpoint Protection**.
 3. Na karcie **stan** okna **stanu — Symantec Endpoint Protection** Zastosuj aktualizacje lub Uruchom ponownie, jeśli jest to wymagane.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 [Jak zalogować się do maszyny wirtualnej z systemem Windows Server][Logon]
 
 [Rozszerzenia i funkcje maszyny wirtualnej platformy Azure][Ext]
@@ -74,7 +75,7 @@ Aby sprawdzić, czy rozszerzenie zabezpieczeń firmy Symantec zostało zainstalo
 
 [Create]:../windows/classic/tutorial.md
 
-[PS]: /powershell/azureps-cmdlets-docs
+[PS]: /powershell/azure/
 
 [Agent]: https://go.microsoft.com/fwlink/p/?LinkId=403947
 

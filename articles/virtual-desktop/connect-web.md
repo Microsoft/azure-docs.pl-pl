@@ -1,5 +1,5 @@
 ---
-title: Podłączanie klienta sieci Web pulpitu wirtualnego systemu Windows — Azure
+title: Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb3a73566cd2477e493ca8621336fb3a51f3b3b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080628"
 ---
-# <a name="connect-with-the-web-client"></a>Łączenie się z klientem internetowym
+# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web
 
 >[!IMPORTANT]
 >Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-web-2019.md).

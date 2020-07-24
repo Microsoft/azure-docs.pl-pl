@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079353"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
 
@@ -48,7 +48,7 @@ Jeśli tworzysz magazyn Recovery Services, możesz użyć wszystkich funkcji zab
     ![Zrzut ekranu przedstawiający właściwości magazynu Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     Link aktualizacji otwiera blok **Ustawienia zabezpieczeń** , który zawiera podsumowanie funkcji i umożliwia ich włączenie.
-5. Z listy rozwijanej **zostały skonfigurowane Multi-Factor Authentication platformy Azure?** wybierz wartość, aby potwierdzić, że [usługa Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)została włączona. Jeśli jest włączona, zostanie wyświetlony monit o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do Azure Portal.
+5. Z listy rozwijanej **zostały skonfigurowane Multi-Factor Authentication platformy Azure?** wybierz wartość, aby potwierdzić, że [usługa Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)została włączona. Jeśli jest włączona, zostanie wyświetlony monit o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do Azure Portal.
 
    W przypadku wykonywania krytycznych operacji w usłudze Backup należy wprowadzić numer PIN zabezpieczeń, który jest dostępny na Azure Portal. Włączenie usługi Azure Multi-Factor Authentication powoduje dodanie warstwy zabezpieczeń. Dostęp do Azure Portal mają tylko autoryzowani użytkownicy z prawidłowymi poświadczeniami platformy Azure i uwierzytelniani z drugiego urządzenia.
 6. Aby zapisać ustawienia zabezpieczeń, wybierz pozycję **Włącz** , a następnie kliknij przycisk **Zapisz**. Możesz wybrać opcję **Włącz** tylko po wybraniu wartości z listy czy **skonfigurować usługę Azure Multi-Factor Authentication?** w poprzednim kroku.
@@ -88,7 +88,7 @@ W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych 
 
 Aby odebrać ten numer PIN:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 3. W obszarze **zabezpieczający numer PIN**kliknij przycisk **Generuj**. Spowoduje to otwarcie bloku zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
     Ten kod PIN jest prawidłowy tylko przez pięć minut i jest generowany automatycznie po upływie tego okresu.

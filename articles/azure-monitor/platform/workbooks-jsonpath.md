@@ -9,15 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081393"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Jak używać wykryto do przekształcania danych JSON w skoroszytach
 
-Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł. Niektóre punkty końcowe, takie jak [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) lub Custom Endpoint, mogą zwracać wyniki w formacie JSON. Jeśli dane JSON zwrócone przez przeszukiwany punkt końcowy nie są skonfigurowane w żądanym formacie, wykryto może służyć do przekształcania wyników.
+Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł. Niektóre punkty końcowe, takie jak [Azure Resource Manager](../../azure-resource-manager/management/overview.md) lub Custom Endpoint, mogą zwracać wyniki w formacie JSON. Jeśli dane JSON zwrócone przez przeszukiwany punkt końcowy nie są skonfigurowane w żądanym formacie, wykryto może służyć do przekształcania wyników.
 
 Wykryto to język zapytania dla formatu JSON, który jest podobny do XPath dla XML. Podobnie jak XPath, wykryto umożliwia ekstrakcję i filtrowanie danych poza strukturą JSON.
 
@@ -74,7 +75,7 @@ Załóżmy, że podano powyższy obiekt JSON jako reprezentację spisu magazynu.
    |:-----------|:-----------------|
    | Tytuł      | `$.title`        |
    | Autor     | `$.author`       |
-   | Price      | `$.price`        |
+   | Cena      | `$.price`        |
 
     Identyfikatory kolumn będą nagłówkami kolumn. Pola ścieżek JSON kolumny reprezentują ścieżkę z katalogu głównego tabeli do wartości kolumny.
 

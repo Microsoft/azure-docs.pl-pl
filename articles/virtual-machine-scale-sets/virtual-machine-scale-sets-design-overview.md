@@ -10,15 +10,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080509"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
-W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
+W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Kiedy używać zestawów skalowania zamiast maszyn wirtualnych?
 Ogólnie zestawy skalowania są przydatne do wdrażania infrastruktury o wysokiej dostępności, w której zestaw maszyn ma podobną konfigurację. Jednak niektóre funkcje są dostępne tylko w zestawach skalowania, a inne funkcje są dostępne tylko na maszynach wirtualnych. W celu podjęcia świadomej decyzji o tym, kiedy należy używać poszczególnych technologii, należy najpierw zapoznać się z najczęściej używanymi funkcjami, które są dostępne w zestawach skalowania, ale nie na maszynach wirtualnych:
@@ -27,8 +27,8 @@ Ogólnie zestawy skalowania są przydatne do wdrażania infrastruktury o wysokie
 
 - Po określeniu konfiguracji zestawu skalowania można zaktualizować właściwość *pojemności* , aby wdrożyć więcej maszyn wirtualnych równolegle. Ten proces jest lepszy niż pisanie skryptu w celu organizowania wdrożenia wielu pojedynczych maszyn wirtualnych równolegle.
 - Funkcja automatycznego [skalowania platformy Azure umożliwia automatyczne skalowanie zestawu skalowania,](./virtual-machine-scale-sets-autoscale-overview.md) ale nie poszczególnych maszyn wirtualnych.
-- Możesz odtworzyć [maszyny wirtualne zestawu skalowania](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) , ale [nie poszczególne maszyny wirtualne](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Za pośrednictwem maszyn wirtualnych z zestawem [skalowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) można nadmiernie zaalokować czas wdrażania. Nie można nadmiernie zainicjować obsługi administracyjnej poszczególnych maszyn wirtualnych, chyba że utworzysz kod niestandardowy w celu wykonania tej akcji.
+- Możesz odtworzyć [maszyny wirtualne zestawu skalowania](/rest/api/compute/virtualmachinescalesets/reimage) , ale [nie poszczególne maszyny wirtualne](/rest/api/compute/virtualmachines).
+- Za pośrednictwem maszyn wirtualnych z zestawem [skalowania](#overprovisioning) można nadmiernie zaalokować czas wdrażania. Nie można nadmiernie zainicjować obsługi administracyjnej poszczególnych maszyn wirtualnych, chyba że utworzysz kod niestandardowy w celu wykonania tej akcji.
 - Można określić [zasady uaktualniania](./virtual-machine-scale-sets-upgrade-scale-set.md) , aby ułatwić wdrażanie uaktualnień między maszynami wirtualnymi w zestawie skalowania. W przypadku pojedynczych maszyn wirtualnych należy samodzielnie zorganizować aktualizacje.
 
 ### <a name="vm-specific-features"></a>Funkcje specyficzne dla maszyny wirtualnej
@@ -39,7 +39,7 @@ Niektóre funkcje są obecnie dostępne tylko na maszynach wirtualnych:
 - Pojedynczą maszynę wirtualną można migrować z dysków natywnych do usługi Managed disks, ale nie można migrować wystąpień maszyn wirtualnych w zestawie skalowania.
 - Publiczne adresy IP można przypisać do poszczególnych kart interfejsów sieci wirtualnej (nic), ale nie można tego zrobić dla wystąpień maszyn wirtualnych w zestawie skalowania. Publiczne adresy IP można przypisać do modułów równoważenia obciążenia przed indywidualnymi maszynami wirtualnymi lub maszynami wirtualnymi zestawów skalowania.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Zestawy skalowania przy użyciu usługi Azure Managed Disks
 Zestawy skalowania można tworzyć przy użyciu [usługi azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) zamiast tradycyjnych kont usługi Azure Storage. Managed Disks zapewnić następujące korzyści:
@@ -68,4 +68,3 @@ Zestaw skalowania skonfigurowany przy użyciu kont magazynu zarządzanych przez 
 Zestaw skalowania zbudowany na obrazie niestandardowym (utworzonym przez Ciebie) może mieć pojemność do 600 maszyn wirtualnych po skonfigurowaniu usługi Azure Managed Disks. Jeśli zestaw skalowania jest skonfigurowany przy użyciu kont magazynu zarządzanych przez użytkownika, należy utworzyć wszystkie dyski VHD dysków systemu operacyjnego w ramach jednego konta magazynu. W związku z tym Maksymalna zalecana liczba maszyn wirtualnych w zestawie skalowania zbudowanym na obrazie niestandardowym i zarządzanym przez użytkownika magazynem wynosi 20. Jeśli wyłączysz opcję nadmiernej aprowizacji, możesz przejść do 40.
 
 W przypadku większej liczby maszyn wirtualnych niż te limity Zezwalaj na wdrożenie wielu zestawów skalowania, jak pokazano w [tym szablonie](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-

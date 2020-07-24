@@ -7,18 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078643"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów AS2 w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą Pakietu integracyjnego dla przedsiębiorstw
 
 > [!IMPORTANT]
-> Oryginalny łącznik AS2 jest przestarzały, więc upewnij się, że zamiast niego używasz łącznika **AS2 (v2)** . Ta wersja zapewnia te same możliwości co wersja oryginalna, jest natywna dla środowiska uruchomieniowego Logic Apps i zapewnia znaczną poprawę wydajności w zakresie przepływności i rozmiaru wiadomości. Dodatkowo łącznik macierzysty v2 nie wymaga utworzenia połączenia z kontem integracji. Zamiast tego, zgodnie z opisem w sekcji wymagania wstępne, należy się upewnić, że konto integracji zostało połączone z aplikacją logiki, w której zamierzasz korzystać z łącznika.
+> Oryginalny łącznik AS2 jest przestarzały, więc jeśli nie potrzebujesz możliwości śledzenia, użyj łącznika **AS2 (v2)** . Z wyjątkiem śledzenia, łącznik v2 zapewnia te same funkcje co wersja oryginalna, jest natywny dla środowiska uruchomieniowego Logic Apps i ma znaczący wzrost wydajności w zakresie rozmiaru komunikatów, przepływności i opóźnień. Ponadto łącznik v2 nie wymaga utworzenia połączenia z kontem integracji. Zamiast tego, zgodnie z opisem w sekcji wymagania wstępne, należy się upewnić, że konto integracji zostało połączone z aplikacją logiki, w której zamierzasz korzystać z łącznika.
 
 Aby pracować z komunikatami specyfikacji AS2 w usłudze Azure Logic Apps, można użyć łącznika AS2, który udostępnia wyzwalacze i akcje zarządzania komunikacją AS2. Aby na przykład nawiązać bezpieczeństwo i niezawodność podczas przesyłania komunikatów, możesz użyć następujących akcji:
 
@@ -119,7 +119,7 @@ Aby spróbować wdrożyć w pełni działającą aplikację logiki i przykład s
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne dotyczące tego łącznika, takie jak akcje i limity zgodnie z opisem w pliku struktury Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/as2/). 
+Aby uzyskać szczegółowe informacje techniczne dotyczące tego łącznika, takie jak akcje i limity zgodnie z opisem w pliku struktury Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/as2/). 
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wersja tego ŁĄCZNIKa ISE z oznaczeniem używa [limitów komunikatów B2B dla ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

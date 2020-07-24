@@ -8,11 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078204"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migruj swoje aplikacje i rozwiązania z BizTalk Services do Azure Logic Apps
 
@@ -34,7 +35,7 @@ Ta tabela mapuje BizTalk Services możliwości Logic Apps.
 | BizTalk Services   | Logic Apps            | Przeznaczenie                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Łącznik          | Łącznik             | Wyślij i Odbierz dane   |
-| Bridge             | Aplikacja logiki             | Procesor potoku           |
+| Mostek             | Aplikacja logiki             | Procesor potoku           |
 | Weryfikuj etap     | Akcja walidacji kodu XML | Sprawdzanie poprawności dokumentu XML względem schematu | 
 | Etap wzbogacania       | Tokeny danych           | Podwyższanie poziomu właściwości do komunikatów lub dla decyzji dotyczących routingu |
 | Przekształć etap    | Akcja przekształcenia      | Konwertowanie komunikatów XML z jednego formatu na inny |
@@ -52,13 +53,13 @@ BizTalk Services ma kilka rodzajów artefaktów.
 
 Łączniki BizTalk Services ułatwiają wysyłanie i odbieranie danych, w tym mostków dwukierunkowych, które umożliwiają interakcje żądania/odpowiedzi oparte na protokole HTTP. Logic Apps używa tej samej terminologii i ma setki łączników, które służą do tego samego celu, łącząc się z szeroką gamę technologii i usług. Na przykład łączniki są dostępne dla usług Cloud SaaS i PaaS, takich jak OneDrive, Office 365, Dynamics CRM i inne, a także lokalnych systemów za pomocą lokalnej bramy danych, która zastępuje usługę adaptera BizTalk dla BizTalk Services. Źródła w BizTalk Services są ograniczone do kolejki FTP, SFTP i Service Bus lub subskrypcji tematu.
 
-![](media/logic-apps-move-from-mabs/sources.png)
+![Diagram przedstawiający przepływ BizTalk Services.](media/logic-apps-move-from-mabs/sources.png)
 
 Domyślnie każdy mostek ma punkt końcowy HTTP, który jest skonfigurowany przy użyciu adresu środowiska uruchomieniowego i względnych właściwości adresu dla mostka. Aby osiągnąć te same wyniki przy użyciu Logic Apps, użyj akcji [żądania i odpowiedzi](../connectors/connectors-native-reqres.md) .
 
 ## <a name="xml-processing-and-bridges"></a>Przetwarzanie i mostki XML
 
-W BizTalk Services, most jest analogiczny do potoku przetwarzania. Mostek może pobrać dane z łącznika, wykonywać pewne prace z danymi i wysyłać wyniki do innego systemu. Logic Apps jest taka sama poprzez obsługę tych samych wzorców interakcji opartych na potoku jako BizTalk Services, a także udostępnia inne wzorce integracji. [Bridge żądanie-odpowiedź XML](https://msdn.microsoft.com/library/azure/hh689781.aspx) w BizTalk Services jest znany jako potok VETER, który składa się z etapów, które wykonują następujące zadania:
+W BizTalk Services, most jest analogiczny do potoku przetwarzania. Mostek może pobrać dane z łącznika, wykonywać pewne prace z danymi i wysyłać wyniki do innego systemu. Logic Apps jest taka sama poprzez obsługę tych samych wzorców interakcji opartych na potoku jako BizTalk Services, a także udostępnia inne wzorce integracji. [Bridge żądanie-odpowiedź XML](/previous-versions/azure/hh689781(v=azure.100)) w BizTalk Services jest znany jako potok VETER, który składa się z etapów, które wykonują następujące zadania:
 
 * (V) Weryfikuj
 * (E) wzbogacanie
@@ -68,7 +69,7 @@ W BizTalk Services, most jest analogiczny do potoku przetwarzania. Mostek może 
 
 Ten obraz pokazuje, jak przetwarzanie jest podzielone między żądaniem a odpowiedzią, która zapewnia kontrolę nad żądaniem i ścieżkami odpowiedzi oddzielnie, na przykład przy użyciu różnych map dla każdej ścieżki:
 
-![](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![Zrzut ekranu pokazujący sposób dzielenia przetwarzania między żądaniem a odpowiedzią.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 Ponadto jednokierunkowy mostek XML dodaje etapy dekodowania i kodowania na początku i na końcu przetwarzania. Mostek Pass-through zawiera jeden etap wzbogacania.
 
@@ -90,7 +91,7 @@ W BizTalk Services etap przekształcania konwertuje jeden format wiadomości XML
 
 BizTalk Services wykonuje decyzję routingu dotyczącą tego, który punkt końcowy lub łącznik ma wysyłać wiadomości przychodzące lub dane. Możliwość wyboru ze wstępnie skonfigurowanych punktów końcowych jest możliwa przy użyciu opcji filtrowania routingu:
 
-![](media/logic-apps-move-from-mabs/route-filter.png)
+![Zrzut ekranu pokazujący opcję Filtr routingu.](media/logic-apps-move-from-mabs/route-filter.png)
 
 W BizTalk Services, jeśli istnieją tylko dwie opcje, użycie *warunku* jest najlepszym sposobem na konwersję filtrów routingu w programie BizTalk Services. Jeśli jest więcej niż dwa, użyj **przełącznika**.
 
@@ -102,7 +103,7 @@ W trakcie przetwarzania BizTalk Services na etapie wzbogacania są dodawane wła
 
 ### <a name="run-custom-code"></a>Uruchamianie kodu niestandardowego
 
-BizTalk Services umożliwia [Uruchamianie kodu niestandardowego](https://msdn.microsoft.com/library/azure/dn232389.aspx) , który jest przekazywany we własnych zestawach. Ta funkcja jest implementowana przez interfejs [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) . Każdy etap w mostku zawiera dwie właściwości (na karcie Enter i w Inspektorze zakończenia), który udostępnia utworzony typ .NET, który implementuje ten interfejs. Kod niestandardowy umożliwia wykonywanie bardziej złożonego przetwarzania danych i umożliwia ponowne użycie istniejącego kodu w zestawach, które wykonują wspólną logikę biznesową. 
+BizTalk Services umożliwia [Uruchamianie kodu niestandardowego](/previous-versions/azure/dn232389(v=azure.100)) , który jest przekazywany we własnych zestawach. Ta funkcja jest implementowana przez interfejs [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs) . Każdy etap w mostku zawiera dwie właściwości (na karcie Enter i w Inspektorze zakończenia), który udostępnia utworzony typ .NET, który implementuje ten interfejs. Kod niestandardowy umożliwia wykonywanie bardziej złożonego przetwarzania danych i umożliwia ponowne użycie istniejącego kodu w zestawach, które wykonują wspólną logikę biznesową. 
 
 Logic Apps oferuje dwa podstawowe sposoby wykonywania kodu niestandardowego: Azure Functions i API Apps. Azure Functions można tworzyć i wywoływać z aplikacji logiki. Zobacz [Dodawanie i uruchamianie niestandardowego kodu dla aplikacji logiki za Azure Functions](../logic-apps/logic-apps-azure-functions.md). Użyj API Apps, część Azure App Service, aby utworzyć własne wyzwalacze i akcje. Dowiedz się więcej o [tworzeniu niestandardowego interfejsu API, który ma być używany z Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 

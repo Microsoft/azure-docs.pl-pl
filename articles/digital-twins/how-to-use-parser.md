@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a6f05835362dbcde36b1ab9cc3782b172b43f7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079154"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL Biblioteka parserów po stronie klienta
 
@@ -168,4 +169,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## <a name="next-steps"></a>Następne kroki
 
 Po zakończeniu pisania modeli zapoznaj się z tematem jak je przekazać (i wykonać inne operacje zarządzania) przy użyciu interfejsów API DigitalTwinsModels:
-* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)
+* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079235"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -37,29 +37,29 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 ## <a name="get-a-list-of-voices"></a>Pobieranie listy głosów
 
-`voices/list` Punkt końcowy umożliwia uzyskanie pełnej listy głosów dla określonego regionu/punktu końcowego.
+`voices/list`Punkt końcowy umożliwia uzyskanie pełnej listy głosów dla określonego regionu/punktu końcowego.
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
-| Region | Endpoint |
+| Region | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Środkowe stany USA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Wschodnie stany USA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Francja Środkowa | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japonia Wschodnia | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Korea Środkowa | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Północno-środkowe stany USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Północna | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Południowo-środkowe stany USA | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Azja Południowo-Wschodnia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa Zachodnia | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
@@ -69,7 +69,7 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 
 | Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
-| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer`. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagany |
+| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 
 ### <a name="request-body"></a>Treść żądania
 
@@ -155,7 +155,7 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
 ## <a name="convert-text-to-speech"></a>Zamiana tekstu na mowę
 
-`v1` Punkt końcowy umożliwia konwertowanie tekstu na mowę przy użyciu [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md).
+`v1`Punkt końcowy umożliwia konwertowanie tekstu na mowę przy użyciu [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
@@ -169,27 +169,27 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 
 | Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
-| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer`. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagany |
-| `Content-Type` | Określa typ zawartości dla podanego tekstu. Zaakceptowana `application/ssml+xml`wartość:. | Wymagany |
-| `X-Microsoft-OutputFormat` | Określa format danych wyjściowych audio. Aby uzyskać pełną listę zaakceptowanych wartości, zobacz [wyjście audio](#audio-outputs). | Wymagany |
-| `User-Agent` | Nazwa aplikacji. Podana wartość musi być krótsza niż 255 znaków. | Wymagany |
+| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
+| `Content-Type` | Określa typ zawartości dla podanego tekstu. Zaakceptowana wartość: `application/ssml+xml` . | Wymagane |
+| `X-Microsoft-OutputFormat` | Określa format danych wyjściowych audio. Aby uzyskać pełną listę zaakceptowanych wartości, zobacz [wyjście audio](#audio-outputs). | Wymagane |
+| `User-Agent` | Nazwa aplikacji. Podana wartość musi być krótsza niż 255 znaków. | Wymagane |
 
 ### <a name="audio-outputs"></a>Wyjście audio
 
 Jest to lista obsługiwanych formatów audio, które są wysyłane w każdym żądaniu jako `X-Microsoft-OutputFormat` nagłówek. Każda z nich obejmuje szybkość transmisji bitów i typ kodowania. Usługa mowy obsługuje 24 kHz, 16 kHz i 8 kHz danych wyjściowych audio.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> Jeśli wybrany format dźwięku i danych wyjściowych ma różne szybkości transmisji bitów, w razie potrzeby dźwięk zostanie ponownie próbkowany. Jednakże głosy 24 kHz nie obsługują `audio-16khz-16kbps-mono-siren` i `riff-16khz-16kbps-mono-siren` format wyjściowy.
+> Jeśli wybrany format dźwięku i danych wyjściowych ma różne szybkości transmisji bitów, w razie potrzeby dźwięk zostanie ponownie próbkowany. OGG-24khz-16bit-mono-Opus można zdekodować przy użyciu [kodera-dekoder Opus](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Treść żądania
 
@@ -233,11 +233,11 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 | 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
 | 401 | Brak autoryzacji | Żądanie nie ma autoryzacji. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w prawidłowym regionie. |
 | 413 | Jednostka żądania jest zbyt duża | Wartość wejściowa SSML jest dłuższa niż 1024 znaków. |
-| 415 | Nieobsługiwany typ nośnika | Możliwe, że podano nieprawidłowy `Content-Type` . `Content-Type`powinien być ustawiony na `application/ssml+xml`. |
+| 415 | Nieobsługiwany typ nośnika | Możliwe, że `Content-Type` podano nieprawidłowy. `Content-Type`powinien być ustawiony na `application/ssml+xml` . |
 | 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub częstotliwość żądań dozwolonych dla Twojej subskrypcji. |
 | 502 | Zła brama    | Problem z siecią lub po stronie serwera. Może także wskazywać nieprawidłowe nagłówki. |
 
-Jeśli stan HTTP to `200 OK`, treść odpowiedzi zawiera plik audio w żądanym formacie. Ten plik może być odtwarzany w trakcie jego przesyłania, zapisywania w buforze lub zapisywania w pliku.
+Jeśli stan HTTP to `200 OK` , treść odpowiedzi zawiera plik audio w żądanym formacie. Ten plik może być odtwarzany w trakcie jego przesyłania, zapisywania w buforze lub zapisywania w pliku.
 
 ## <a name="next-steps"></a>Następne kroki
 

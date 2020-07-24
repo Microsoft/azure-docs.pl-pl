@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080883"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta
 
@@ -23,7 +24,7 @@ Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest on
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Szyfrowanie danych dla Azure Database for MySQL zapewnia następujące korzyści:
 
@@ -51,7 +52,7 @@ Aby serwer MySQL mógł używać kluczy zarządzanych przez klienta przechowywan
 * **wrapKey**: aby można było zaszyfrować klucz szyfrowania danych.
 * **unwrapKey**: aby można było odszyfrować klucz szyfrowania danych.
 
-Administrator magazynu kluczy może również [włączyć rejestrowanie Key Vault zdarzeń inspekcji](../azure-monitor/insights/azure-key-vault.md), aby mogły być później poddane inspekcji.
+Administrator magazynu kluczy może również [włączyć rejestrowanie Key Vault zdarzeń inspekcji](../azure-monitor/insights/key-vault-insights-overview.md), aby mogły być później poddane inspekcji.
 
 Gdy serwer jest skonfigurowany do korzystania z klucza zarządzanego przez klienta przechowywanego w magazynie kluczy, serwer wysyła do magazynu kluczy, w którym są szyfrowane. Key Vault zwraca zaszyfrowany klucz szyfrowania danych, który jest przechowywany w bazie. Analogicznie, jeśli jest to konieczne, serwer wysyła chronione szyfrowanie szyfrowania danych do magazynu kluczy w celu odszyfrowania. Audytorzy mogą używać Azure Monitor do przeglądania dzienników zdarzeń inspekcji Key Vault, jeśli rejestrowanie jest włączone.
 

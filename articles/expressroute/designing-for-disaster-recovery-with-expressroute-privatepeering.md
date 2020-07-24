@@ -7,17 +7,22 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081172"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
 
 ExpressRoute jest przeznaczona do wysokiej dostępności w celu zapewnienia poufności łączności sieci prywatnej z zasobami firmy Microsoft. Innymi słowy, w ścieżce ExpressRoute w sieci firmy Microsoft nie ma single point of failure. Aby poznać zagadnienia dotyczące projektowania w celu zmaksymalizowania dostępności obwodu usługi ExpressRoute, zobacz [projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute][HA].
 
 Jednak dzięki Murphy popularnej powiedzeniem —*Jeśli coś się nie powiedzie, w tym artykule zauważamy*, że firma Microsoft koncentruje się na rozwiązaniach, które wykraczają poza awarie, które można rozwiązać za pomocą pojedynczego obwodu usługi ExpressRoute. Innymi słowy, w tym artykule poinformuj nas o architekturze sieci dotyczącej tworzenia niezawodnej łączności sieciowej zaplecza na potrzeby odzyskiwania po awarii za pomocą obwodów ExpressRoute geograficznie nadmiarowych.
+
+>[!NOTE]
+>Koncepcje opisane w tym artykule są równie stosowane, gdy obwód ExpressRoute jest tworzony w ramach wirtualnej sieci WAN lub poza nią.
+>
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Potrzebna do nadmiarowego rozwiązania łączności
 
@@ -75,7 +80,7 @@ Poniższy zrzut ekranu ilustruje konfigurację wagi połączenia ExpressRoute za
 
 Na poniższym diagramie przedstawiono wpływ wybierania ścieżki ExpressRoute przy użyciu wagi połączeń. Domyślna waga połączenia to 0. W poniższym przykładzie waga połączenia dla ExpressRoute 1 jest skonfigurowana jako 100. Gdy sieć wirtualna odbiera prefiks trasy anonsowany za pośrednictwem więcej niż jednego obwodu usługi ExpressRoute, Sieć wirtualna będzie preferować połączenie o najwyższej wadze.
 
-[![4]][4]
+[![czwart]][4]
 
 Jeśli oba połączenia ExpressRoute 1 przechodzą w dół, Sieć wirtualna zobaczy anons trasy 10.1.11.0/24 tylko za pośrednictwem ExpressRoute 2; w związku z tym w tym stanie awarii jest używany obwód gotowości.
 
@@ -123,7 +128,7 @@ Scenariusz 2 przedstawiono na poniższym diagramie. Na diagramie zielone linie w
 
 Rozwiązanie jest zilustrowane na poniższym diagramie. Jak widać, można zaprojektować scenariusz przy użyciu bardziej określonej trasy (opcja 1) lub ścieżki (opcja 2) w celu wpływu na wybór ścieżki sieci wirtualnej. Aby mieć wpływ na wybór trasy sieci lokalnej dla ruchu związanego z platformą Azure, należy skonfigurować połączenie między lokalizacją lokalną i bardziej preferowaną. Howe Konfigurowanie linku połączenia, zgodnie z preferowaną zależnością, zależy od protokołu routingu używanego w sieci lokalnej. Możesz użyć preferencji lokalnego z iBGP lub metryką z IGP (OSPF lub IS-IS).
 
-[![10]][10]
+[![dziesięć]][10]
 
 
 ## <a name="next-steps"></a>Następne kroki

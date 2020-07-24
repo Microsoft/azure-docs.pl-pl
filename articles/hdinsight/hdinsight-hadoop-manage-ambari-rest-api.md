@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 03ef1708f836eb016d8f2fce530b9588cc61cd35
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081070"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu API REST usługi Apache Ambari
 
@@ -39,7 +39,7 @@ Platforma Apache Ambari upraszcza zarządzanie i monitorowanie klastrów usługi
 
  Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST Ambari w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości**liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora URI ( `CLUSTERNAME.azurehdinsight.net` ) nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Połączenie z usługą Ambari w usłudze HDInsight wymaga protokołu HTTPS. Użyj nazwy konta administratora (wartość domyślna to **admin**) i hasła podanego podczas tworzenia klastra.
 
@@ -253,7 +253,7 @@ Wartość zwracana jest podobna do jednego z następujących przykładów:
     Wartość zwracana jest podobna do `/clusters/CLUSTERNAME/` . Ta wartość jest ścieżką w ramach konta Data Lake Storage. Ta ścieżka jest katalogiem głównym zgodnego systemu plików HDFS dla klastra.  
 
 > [!NOTE]  
-> Polecenie cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) zapewniane przez [Azure PowerShell](/powershell/azure/overview) również zwraca informacje o magazynie dla klastra.
+> Polecenie cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) zapewniane przez [Azure PowerShell](/powershell/azure/) również zwraca informacje o magazynie dla klastra.
 
 ### <a name="get-all-configurations"></a>Pobierz wszystkie konfiguracje
 

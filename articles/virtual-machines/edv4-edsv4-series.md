@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b69bb480112993c42a22c71227b64943f33585e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080373"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
-Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej i są idealnym rozwiązaniem dla różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504 GIB pamięci RAM, [ &reg; technologii Intel Turbo zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Obsługują one również [technologię Intel &reg; głębokiego uczenia](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [EV3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) z [maszynami wirtualnymi Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
+Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej i są idealnym rozwiązaniem dla różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504 GIB pamięci RAM, [ &reg; technologii Intel Turbo zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Obsługują one również [technologię Intel &reg; głębokiego uczenia](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [EV3/Esv3](./ev3-esv3-series.md) z [maszynami wirtualnymi Gen2](./linux/generation-2.md)
 
 ## <a name="edv4-series"></a>Seria Edv4
 
@@ -71,14 +71,14 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
 
-dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni)](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni)](./windows/constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

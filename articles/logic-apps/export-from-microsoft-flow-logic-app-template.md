@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078740"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
@@ -19,9 +20,9 @@ Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten prze
 > [!NOTE]
 > Nie wszystkie łączniki automatyzacji oszczędzają energię są dostępne w Azure Logic Apps. Można migrować tylko przepływy automatyzacji, które mają równoważne łączniki w Azure Logic Apps. Na przykład wyzwalacz przycisku, łącznik zatwierdzania i łącznik powiadomień są specyficzne dla automatyzacji. Obecnie przepływy oparte na OpenAPI w programie do automatyzacji nie są obsługiwane w przypadku eksportowania i wdrażania jako szablonów aplikacji logiki.
 >
-> * Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,7 +76,7 @@ Aby uzyskać więcej informacji, zobacz [zwiększanie do Azure Logic Apps](https
       | <*Nazwa połączenia*> | Jedna lub wiele nazw dla wszystkich wcześniej utworzonych połączeń, które mogą być używane przez aplikację logiki <p><p>**Uwaga**: Jeśli ta aplikacja logiki jest w pierwszej kolejności, wszystkie połączenia są tworzone jako nowe, więc można zaakceptować domyślne nazwy. W przeciwnym razie można określić nazwy dla wcześniej utworzonych połączeń, które mogą być używane w wielu aplikacjach logiki. |
       |||
 
-      Przykład:
+      Na przykład:
 
       ![Określ parametry wejściowe dla szablonu](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -155,7 +156,7 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    ![Edytuj parametry wdrożenia](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Przykład:
+   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Na przykład:
 
    ![Okno wyniku](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
