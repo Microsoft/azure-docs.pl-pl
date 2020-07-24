@@ -6,25 +6,25 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
-ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68dfdf5357d73cc3b01d19cad61525404ab955f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050155"
 ---
 # <a name="azure-cli-samples"></a>Przykłady interfejsu wiersza polecenia platformy Azure
 
 Poniższa tabela zawiera linki do skryptów bash dla konfiguracji aplikacji platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-| | |
+| Skrypt | Opis |
 |-|-|
 |**Utwórz**||
 | [Tworzenie magazynu konfiguracji aplikacji](./scripts/cli-create-service.md) | Tworzy grupę zasobów i wystąpienie magazynu konfiguracji aplikacji.  |
-|**Użycie**||
+|**Używanych**||
 | [Pracuj z wartościami klucza](./scripts/cli-work-with-keys.md) | Tworzy, przegląda, aktualizuje i usuwa wartości klucza. |
 | [Importuj wartości klucza](./scripts/cli-import.md) | Importuje wartości klucza z innych źródeł. |
 | [Eksportuj wartości klucza](./scripts/cli-export.md) | Eksportuje wartości klucza do innych elementów docelowych. |
-|**Usuwanie**||
+|**Usuń**||
 | [Usuwanie magazynu konfiguracji aplikacji](./scripts/cli-delete-service.md) | Usuwa wystąpienie magazynu konfiguracji aplikacji.  |
 | | |

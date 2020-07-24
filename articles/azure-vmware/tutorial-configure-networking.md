@@ -2,114 +2,117 @@
 title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: 6cac420fb77526746dbdbfef5a88b071c007d555
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 07/22/2020
+ms.openlocfilehash: aa4247f60c3e1ec54bfcde336d1ae8c8f70ff7a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079443"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 
-Chmura prywatna (Automatyczna synchronizacja) z rozwiązaniem VMware Azure wymaga sieci wirtualnej. Ponieważ wersja zapoznawcza nie obsługuje lokalnego programu vCenter w okresie zapoznawczym, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Konfigurowanie obwodu ExpressRoute i bramy Virtual Network są również wymagane i zostaną uwzględnione w tym samouczku.
+Chmura prywatna rozwiązania Azure VMware (Automatyczna synchronizacja) wymaga Virtual Network platformy Azure. Ponieważ wersja zapoznawcza nie obsługuje lokalnego programu vCenter w okresie zapoznawczym, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Skonfigurowanie obwodu ExpressRoute i bramy sieci wirtualnej jest również wymagane i jest ono omówione w tym samouczku.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
-> * Tworzenie bramy Virtual Network
+> * Tworzenie bramy sieci wirtualnej
 > * Łączenie obwodu ExpressRoute z bramą
 > * Lokalizowanie adresów URL dla programu vCenter i NSX Manager
 
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
-
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+## <a name="prerequisites"></a>Wymagania wstępne 
+Przed utworzeniem sieci wirtualnej upewnij się, że utworzono [chmurę prywatną](tutorial-create-private-cloud.md). 
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Przejdź do grupy zasobów utworzonej w [poprzednim samouczku](tutorial-create-private-cloud.md), a następnie wybierz pozycję **+ Dodaj** , aby zdefiniować nowy zasób.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-W polu tekstowym Wyszukaj wpisz Portal **Marketplace** **Virtual Network**. Znajdź zasób Virtual Network i wybierz go.
+1. Przejdź do grupy zasobów utworzonej w [samouczku tworzenie chmury prywatnej](tutorial-create-private-cloud.md) , a następnie wybierz pozycję **+ Dodaj** , aby zdefiniować nowy zasób. 
 
-Na stronie Virtual Network wybierz pozycję **Utwórz** , aby skonfigurować sieć wirtualną dla chmury prywatnej.
+1. W polu tekstowym **Wyszukaj w witrynie Marketplace** wpisz **Virtual Network**. Znajdź zasób Virtual Network i wybierz go.
 
-Na stronie **tworzenie Virtual Network** wprowadź odpowiednie szczegóły dotyczące sieci wirtualnej. w poniższej tabeli przedstawiono opis właściwości.
+1. Na stronie **Virtual Network** wybierz pozycję **Utwórz** , aby skonfigurować sieć wirtualną dla chmury prywatnej.
 
-> [!IMPORTANT]
-> Należy użyć przestrzeni adresowej, która **nie** nakłada się na przestrzeń adresową, która została użyta podczas tworzenia chmury prywatnej w poprzednim samouczku.
+1. Na stronie **tworzenie Virtual Network** wprowadź szczegóły sieci wirtualnej.
 
-Na karcie **podstawowe** wprowadź nazwę sieci wirtualnej i wybierz odpowiedni region, a następnie wybierz pozycję **Dalej: adresy IP**
+1. Na karcie **podstawowe** wprowadź nazwę sieci wirtualnej i wybierz odpowiedni region, a następnie wybierz pozycję **Dalej: adresy IP**.
 
-Na karcie **adresy IP** w obszarze **przestrzeń adresów IPv4**wprowadź przestrzeń adresową utworzoną w poprzednim samouczku.
+1. Na karcie **adresy IP** w obszarze **przestrzeń adresów IPv4**wprowadź przestrzeń adresową utworzoną w poprzednim samouczku.
 
-Wybierz pozycję **+ Dodaj podsieć**, a następnie na stronie **Dodawanie podsieci** Nadaj nazwę podsieci i odpowiedni zakres adresów. Po zakończeniu wybierz pozycję **Dodaj**.
+   > [!IMPORTANT]
+   > Należy użyć przestrzeni adresowej, która **nie** nakłada się na przestrzeń adresową, która została użyta podczas tworzenia chmury prywatnej w poprzednim samouczku.
 
-Wybieranie opcji **Recenzja + tworzenie**
+1. Wybierz pozycję **+ Dodaj podsieć**, a następnie na stronie **Dodawanie podsieci** Nadaj nazwę podsieci i odpowiedni zakres adresów. Po zakończeniu wybierz pozycję **Dodaj**.
 
-:::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Tworzenie sieci wirtualnej" border="true":::
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
-Sprawdź informacje i wybierz pozycję **Utwórz**. Po zakończeniu wdrażania zobaczysz sieć wirtualną w grupie zasobów.
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Tworzenie sieci wirtualnej" border="true":::
 
-## <a name="create-a-virtual-network-gateway"></a>Tworzenie bramy Virtual Network
+1. Sprawdź informacje i wybierz pozycję **Utwórz**. Po zakończeniu wdrażania zobaczysz sieć wirtualną w grupie zasobów.
 
-W poprzedniej sekcji została utworzona sieć wirtualna, teraz utworzysz bramę Virtual Network.
+## <a name="create-a-virtual-network-gateway"></a>Tworzenie bramy sieci wirtualnej
 
-W grupie zasobów wybierz pozycję **+ Dodaj** , aby dodać nowy zasób.
+Po utworzeniu sieci wirtualnej należy utworzyć bramę sieci wirtualnej.
 
-W polu tekstowym **Wyszukaj w witrynie Marketplace** , **Brama sieci wirtualnej**. Znajdź zasób Virtual Network i wybierz go.
+1. W grupie zasobów wybierz pozycję **+ Dodaj** , aby dodać nowy zasób.
 
-Na stronie **brama Virtual Network** wybierz pozycję **Utwórz**.
+1. W polu tekstowym **Wyszukaj w witrynie Marketplace** , **Brama sieci wirtualnej**. Znajdź zasób Virtual Network i wybierz go.
 
-Na karcie podstawowe strony **Tworzenie bramy sieci wirtualnej** podaj wartości pól. opisy pól przedstawiono w poniższej tabeli:
+1. Na stronie **brama Virtual Network** wybierz pozycję **Utwórz**.
 
-| Pole | Wartość |
-| --- | --- |
-| **Subskrypcja** | Ta wartość jest już wypełniona z subskrypcją, do której należy Grupa zasobów. |
-| **Grupa zasobów** | Ta wartość jest już wypełniona dla bieżącej grupy zasobów. Powinna to być grupa zasobów utworzona w poprzednim teście. |
-| **Nazwa** | Wprowadź unikatową nazwę bramy sieci wirtualnej. |
-| **Region** | Wybierz lokalizację geograficzną bramy sieci wirtualnej. |
-| **Typ bramy** | Wybierz pozycję **ExpressRoute**. |
-| **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
-| **SKU** | Pozostaw wartość domyślną: **standardowa**. |
-| **Sieć wirtualna** | Wybierz utworzoną wcześniej sieć wirtualną. Jeśli nie widzisz sieci wirtualnej, upewnij się, że region bramy jest zgodny z regionem sieci wirtualnej. |
-| **Zakres adresów podsieci bramy** | Ta wartość jest wypełniana po wybraniu sieci wirtualnej. Nie zmieniaj wartości domyślnej. |
-| **Publiczny adres IP** | Wybierz pozycję**Utwórz nowy**. |
+1. Na karcie podstawowe strony **Tworzenie bramy sieci wirtualnej** podaj wartości pól, a następnie wybierz pozycję **Przegląd + Utwórz**. 
 
-:::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Tworzenie bramy" border="true":::
+   | Pole | Wartość |
+   | --- | --- |
+   | **Subskrypcja** | Ta wartość jest już wypełniona z subskrypcją, do której należy Grupa zasobów. |
+   | **Grupa zasobów** | Ta wartość jest już wypełniona dla bieżącej grupy zasobów. Powinna to być grupa zasobów utworzona w poprzednim teście. |
+   | **Nazwa** | Wprowadź unikatową nazwę bramy sieci wirtualnej. |
+   | **Region** | Wybierz lokalizację geograficzną bramy sieci wirtualnej. |
+   | **Typ bramy** | Wybierz pozycję **ExpressRoute**. |
+   | **SKU** | Pozostaw wartość domyślną: **standardowa**. |
+   | **Sieć wirtualna** | Wybierz utworzoną wcześniej sieć wirtualną. Jeśli nie widzisz sieci wirtualnej, upewnij się, że region bramy jest zgodny z regionem sieci wirtualnej. |
+   | **Zakres adresów podsieci bramy** | Ta wartość jest wypełniana po wybraniu sieci wirtualnej. Nie zmieniaj wartości domyślnej. |
+   | **Publiczny adres IP** | Wybierz pozycję**Utwórz nowy**. |
 
-Wybierz pozycję **Recenzja + Utwórz**, na następnej stronie Sprawdź, czy szczegóły są poprawne, a następnie wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie bramy sieci wirtualnej. Po zakończeniu wdrażania przejdź do następnej sekcji tego samouczka, aby połączyć połączenie ExpressRoute z siecią wirtualną zawierającą chmurę prywatną.
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Tworzenie bramy" border="true":::
 
-## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Łączenie ExpressRoute z bramą Virtual Network
+1. Sprawdź, czy szczegóły są poprawne, a następnie wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie bramy sieci wirtualnej. 
+1. Po zakończeniu wdrażania przejdź do następnej sekcji, aby połączyć połączenie ExpressRoute z bramą sieci wirtualnej zawierającą chmurę prywatną.
 
-Ta sekcja zawiera opis sposobu dodawania połączenia między chmurą prywatną i utworzoną bramą sieci wirtualnej.
+## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Połącz ExpressRoute z bramą sieci wirtualnej
 
-Przejdź do chmury prywatnej utworzonej w poprzednim samouczku i wybierz pozycję **łączność** w obszarze **Zarządzanie**, wybierz kartę **ExpressRoute** .
+Po wdrożeniu bramy sieci wirtualnej należy dodać do niej połączenie i chmurę prywatną do automatycznej synchronizacji.
 
-Skopiuj klucz autoryzacji. Jeśli nie istnieje klucz autoryzacji, należy go utworzyć, aby wykonać to polecenie SELECT **+ żądanie klucza autoryzacji**
+1. Przejdź do chmury prywatnej utworzonej w poprzednim samouczku i wybierz pozycję **łączność** w obszarze **Zarządzanie**, wybierz kartę **ExpressRoute** .
 
-:::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Żądaj klucza autoryzacji" border="true":::
+1. Skopiuj klucz autoryzacji. Jeśli nie istnieje klucz autoryzacji, należy go utworzyć, aby wykonać to polecenie SELECT **+ żądanie klucza autoryzacji**
 
-Przejdź do bramy Virtual Network utworzonej w poprzednim kroku, a następnie w obszarze **Ustawienia**wybierz pozycję **połączenia**. Na stronie **połączenia** wybierz pozycję **+ Dodaj**.
+   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Żądaj klucza autoryzacji" border="true":::
 
-Na stronie **Dodawanie połączenia** podaj wartości pól. Opisy pól przedstawiono w poniższej tabeli:
+1. Przejdź do bramy Virtual Network utworzonej w poprzednim kroku, a następnie w obszarze **Ustawienia**wybierz pozycję **połączenia**. Na stronie **połączenia** wybierz pozycję **+ Dodaj**.
 
-| Pole | Wartość |
-| --- | --- |
-| **Nazwa**  | Wprowadź nazwę połączenia.  |
-| **Typ połączenia**  | Wybierz pozycję **ExpressRoute**.  |
-| **Zrealizuj autoryzację**  | Upewnij się, że to pole wyboru jest zaznaczone.  |
-| **Brama sieci wirtualnej** | Utworzona wcześniej Brama sieci wirtualnej  |
-| **Klucz autoryzacji**  | Skopiuj i Wklej klucz autoryzacji z karty ExpressRoute w grupie zasobów. |
-| **Identyfikator URI obwodu równorzędnego**  | Skopiuj i wklej identyfikator ExpressRoute z karty ExpressRoute dla grupy zasobów.  |
+1. Na stronie **Dodawanie połączenia** podaj wartości pól i wybierz **przycisk OK**. 
 
-Wybierz przycisk **OK**. Spowoduje to utworzenie połączenia między obwodem usługi ExpressRoute i siecią wirtualną.
+   | Pole | Wartość |
+   | --- | --- |
+   | **Nazwa**  | Wprowadź nazwę połączenia.  |
+   | **Typ połączenia**  | Wybierz pozycję **ExpressRoute**.  |
+   | **Zrealizuj autoryzację**  | Upewnij się, że to pole wyboru jest zaznaczone.  |
+   | **Brama sieci wirtualnej** | Utworzona wcześniej Brama Virtual Network.  |
+   | **Klucz autoryzacji**  | Skopiuj i Wklej klucz autoryzacji z karty ExpressRoute w grupie zasobów. |
+   | **Identyfikator URI obwodu równorzędnego**  | Skopiuj i wklej identyfikator ExpressRoute z karty ExpressRoute dla grupy zasobów.  |
 
-:::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="Dodawanie połączenia" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="Dodawanie połączenia" border="true":::
+
+Połączenie między obwodem usługi ExpressRoute a Virtual Network zostanie utworzone.
+
+
 
 ## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>Lokalizowanie adresów URL dla programu vCenter i NSX Manager
 
-Aby zalogować się do programu vVenter i NSX Manager, musisz mieć adresy URL dla klienta sieci Web vCenter i lokacji Menedżera NSX-T. Aby znaleźć adresy URL:
+Aby zalogować się do programu vCenter i NSX Manager, musisz mieć adresy URL dla klienta sieci Web vCenter i lokacji Menedżera NSX-T. 
 
 Przejdź do swojej chmury prywatnej automatycznej synchronizacji, w obszarze **Zarządzanie**wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
 
@@ -121,7 +124,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
-> * Tworzenie bramy Virtual Network
+> * Tworzenie bramy sieci wirtualnej
 > * Łączenie obwodu ExpressRoute z bramą
 > * Lokalizowanie adresów URL dla programu vCenter i NSX Manager
 

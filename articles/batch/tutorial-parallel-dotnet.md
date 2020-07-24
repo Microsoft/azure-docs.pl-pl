@@ -1,16 +1,16 @@
 ---
-title: Uruchamianie równoległego obciążenia
+title: Uruchamianie równoległego obciążenia przy użyciu interfejsu API platformy .NET
 description: Samouczek — Równoległe transkodowanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: d8a5db6c6c63d680514e21bef0e5a8bc6b3ea550
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062593"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -45,8 +45,8 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W witrynie Azure Portal dodaj narzędzie ffmpeg jako [pakiet aplikacji](batch-application-packages.md) do konta usługi Batch. Pakiety aplikacji ułatwiają zarządzanie aplikacjami zadań i wdrażanie ich w węzłach obliczeniowych w puli. 
 
-1. W Azure Portal kliknij pozycję **więcej usług usługa** > **Batch konta**, a następnie kliknij nazwę konta usługi Batch.
-3. Kliknij pozycję **aplikacje** > **Dodaj**.
+1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta**, a następnie kliknij nazwę konta usługi Batch.
+3. Kliknij pozycję **aplikacje**  >  **Dodaj**.
 4. W polu **Identyfikator aplikacji** wprowadź nazwę *ffmpeg* i podaj *3.4* jako wersję pakietu. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
 
 ![Dodawanie pakietu aplikacji](./media/tutorial-parallel-dotnet/add-application.png)
@@ -55,7 +55,7 @@ W witrynie Azure Portal dodaj narzędzie ffmpeg jako [pakiet aplikacji](batch-ap
 
 ## <a name="download-and-run-the-sample"></a>Pobieranie i uruchamianie aplikacji przykładowej
 
-### <a name="download-the-sample"></a>Pobierz przykład
+### <a name="download-the-sample"></a>Pobieranie przykładu
 
 [Pobierz lub sklonuj przykładową aplikację](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) z usługi GitHub. Aby sklonować repozytorium przykładowej aplikacji za pomocą klienta Git, użyj następującego polecenia:
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
 
 ```csharp
 // Batch account credentials
@@ -118,7 +118,7 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule** > *WinFFmpegPool*.
+Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule**  >  *WinFFmpegPool*.
 
 Podczas wykonywania zadań podrzędnych mapa cieplna może wyglądać następująco:
 
@@ -309,7 +309,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po wykonaniu zadań podrzędnych aplikacja automatycznie usuwa utworzony wejściowy kontener magazynu, a opcjonalnie także pulę i zadanie usługi Batch. Dla obu klas [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) i [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) klienta BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie. Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wyjściowe pozostają jednak na koncie magazynu.
 

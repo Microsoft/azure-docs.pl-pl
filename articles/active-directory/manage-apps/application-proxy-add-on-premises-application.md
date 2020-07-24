@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b225b6471dd59275b3963bc2de09607c97a21465
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019645"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -47,7 +47,7 @@ Aby użyć serwera proxy aplikacji, potrzebujesz serwera systemu Windows z syste
 Aby zapewnić wysoką dostępność w środowisku produkcyjnym, zalecamy użycie więcej niż jednego serwera systemu Windows. W tym samouczku wystarczy nam jeden serwer systemu Windows.
 
 > [!IMPORTANT]
-> W przypadku instalowania łącznika w systemie Windows Server 2019 należy wyłączyć obsługę protokołu HTTP2 w składniku WinHttp. Ta wartość jest domyślnie wyłączona we wcześniejszych wersjach obsługiwanych systemów operacyjnych. Dodanie następującego klucza rejestru i ponowne uruchomienie serwera spowoduje wyłączenie go w systemie Windows Server 2019. Należy pamiętać, że jest to klucz rejestru dla całego komputera.
+> W przypadku instalowania łącznika w systemie Windows Server 2019 należy wyłączyć obsługę protokołu HTTP2 w składniku WinHttp dla ograniczonego delegowania protokołu Kerberos. Ta wartość jest domyślnie wyłączona we wcześniejszych wersjach obsługiwanych systemów operacyjnych. Dodanie następującego klucza rejestru i ponowne uruchomienie serwera spowoduje wyłączenie go w systemie Windows Server 2019. Należy pamiętać, że jest to klucz rejestru dla całego komputera.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -95,6 +95,9 @@ Aby włączyć protokół TLS 1.2:
 
 Zacznij od włączenia komunikacji do centrów danych platformy Azure w celu przygotowania środowiska do serwer proxy aplikacji usługi Azure AD platformy Azure. Jeśli w ścieżce znajduje się zapora, upewnij się, że jest otwarta. Otwarta Zapora umożliwia łącznikowi wykonywanie żądań HTTPS (TCP) do serwera proxy aplikacji.
 
+> [!IMPORTANT]
+> Jeśli instalujesz łącznik dla Azure Government Cloud, postępuj zgodnie z [procedurami](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud) [wstępnymi](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) i instalacją. Wymaga to włączenia dostępu do innego zestawu adresów URL i dodatkowego parametru do uruchomienia instalacji.
+
 ### <a name="open-ports"></a>Otwieranie portów
 
 Otwórz następujące porty dla ruchu **wychodzącego**.
@@ -121,6 +124,7 @@ Można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows
 ## <a name="install-and-register-a-connector"></a>Instalowanie i rejestrowanie łącznika
 
 Aby użyć serwera proxy aplikacji, Zainstaluj łącznik na każdym serwerze z systemem Windows, który jest używany z usługą serwera proxy aplikacji. Łącznik to agent, który zarządza połączeniami wychodzącymi z lokalnych serwerów aplikacji do serwera proxy aplikacji w usłudze Azure AD. Łącznik można zainstalować na serwerach, na których zainstalowano również innych agentów uwierzytelniania, takich jak program Azure AD Connect.
+
 
 Aby zainstalować łącznik:
 

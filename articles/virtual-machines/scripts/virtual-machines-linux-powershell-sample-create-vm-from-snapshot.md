@@ -1,5 +1,5 @@
 ---
-title: Tworzenie maszyny wirtualnej na podstawie migawki — przykład programu PowerShell
+title: Tworzenie maszyny wirtualnej na podstawie migawki (Linux) — przykład programu PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie maszyny wirtualnej na podstawie migawki
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 21e31df7552dfe5e6368235173622695078626b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6bf74b9040ec3f677c23c84f8ece22befb35d56
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75463665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010295"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Tworzenie maszyny wirtualnej na podstawie migawki za pomocą programu PowerShell
+# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-linux"></a>Tworzenie maszyny wirtualnej na podstawie migawki przy użyciu programu PowerShell (Linux)
 
 Ten skrypt umożliwia utworzenie maszyny wirtualnej na podstawie migawki dysku systemu operacyjnego.
 
@@ -48,18 +48,18 @@ Ten skrypt używa następujących poleceń w celu uzyskania właściwości migaw
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | Pobiera migawkę przy użyciu nazwy migawki. |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | Tworzy konfigurację dysku. Ta konfiguracja jest używana podczas procesu tworzenia dysku. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | Tworzy dysk zarządzany. |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Tworzy konfigurację maszyny wirtualnej. Ta konfiguracja zawiera informacje, takie jak nazwa maszyny wirtualnej, system operacyjny i poświadczenia administracyjne. Jest ona używana podczas tworzenia maszyny wirtualnej. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Dołącza dysk zarządzany jako dysk systemu operacyjnego do maszyny wirtualnej |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Tworzy interfejs sieciowy. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Tworzy maszynę wirtualną. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Pobiera migawkę przy użyciu nazwy migawki. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Tworzy konfigurację dysku. Ta konfiguracja jest używana podczas procesu tworzenia dysku. |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Tworzy dysk zarządzany. |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Tworzy konfigurację maszyny wirtualnej. Ta konfiguracja zawiera informacje, takie jak nazwa maszyny wirtualnej, system operacyjny i poświadczenia administracyjne. Jest ona używana podczas tworzenia maszyny wirtualnej. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Dołącza dysk zarządzany jako dysk systemu operacyjnego do maszyny wirtualnej |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Tworzy interfejs sieciowy. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Tworzy maszynę wirtualną. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 
 Więcej przykładowych skryptów programu PowerShell na potrzeby maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080101"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Linux za pomocą usługi Azure Security Center
 
@@ -57,7 +57,7 @@ Następnie na wszystkich maszynach wirtualnych jest instalowany agent zbierania 
 
 ## <a name="set-up-a-security-policy"></a>Konfigurowanie zasad zabezpieczeń
 
-Zasady zabezpieczeń służą do definiowania elementów, dla których usługa Security Center zbiera dane i przygotowuje zalecenia. Różne zasady zabezpieczeń można stosować do różnych zestawów zasobów platformy Azure. Mimo że domyślnie zasoby platformy Azure są sprawdzane pod kątem wszystkich elementów zasad, można wyłączyć pojedyncze elementy zasad dla wszystkich zasobów platformy Azure lub dla grupy zasobów. Aby uzyskać szczegółowe informacje na temat zasad zabezpieczeń usługi Security Center, zobacz [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](../../security-center/security-center-policies.md). 
+Zasady zabezpieczeń służą do definiowania elementów, dla których usługa Security Center zbiera dane i przygotowuje zalecenia. Różne zasady zabezpieczeń można stosować do różnych zestawów zasobów platformy Azure. Mimo że domyślnie zasoby platformy Azure są sprawdzane pod kątem wszystkich elementów zasad, można wyłączyć pojedyncze elementy zasad dla wszystkich zasobów platformy Azure lub dla grupy zasobów. Aby uzyskać szczegółowe informacje na temat zasad zabezpieczeń usługi Security Center, zobacz [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Aby skonfigurować zasady zabezpieczeń dla całej subskrypcji:
 
@@ -109,7 +109,7 @@ Funkcja alertów zabezpieczeń wymaga podniesienia warstwy cenowej usługi Secur
 Aby zmienić warstwę cenową:  
 
 1. Na pulpicie nawigacyjnym usługi Security Center kliknij pozycję **Zasady zabezpieczeń**, a następnie wybierz swoją subskrypcję.
-2. Wybierz **warstwę cenową**.
+2. Wybierz pozycję **warstwa cenowa**.
 3. Wybierz pozycję **Standardowa**, a następnie kliknij przycisk **Zapisz** w górnej części bloku.
 
 
@@ -134,4 +134,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się więcej o tworzeniu poto
 
 > [!div class="nextstepaction"]
 > [Tworzenie infrastruktury ciągłej integracji/ciągłego dostarczania za pomocą platform Jenkins, GitHub i Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

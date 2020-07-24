@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77021291"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001829"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Samouczek: wdrażanie i Instruktaż szablonu aplikacji do monitorowania ciągłego pacjenta
 
@@ -85,13 +85,16 @@ Po kliknięciu karty **Szablony urządzeń** zobaczysz, że istnieją dwa różn
 >[!div class="mx-imgBorder"] 
 >![Szablon urządzenia z poprawkami inteligentnymi](media/smart-vitals-device-template.png)
 
-Jeśli klikniesz kartę **grupy urządzeń** , zobaczysz również, że te szablony urządzeń automatycznie mają utworzone grupy urządzeń.
+### <a name="device-groups"></a>Grupy urządzeń 
+Grupy urządzeń umożliwiają logiczne grupowanie zestawu urządzeń, a następnie wykonywanie zapytań zbiorczych lub operacji nad nimi. 
+
+Po kliknięciu karty grupy urządzeń zobaczymy, że dla każdego z szablonów urządzeń w aplikacji zostały utworzone domyślne grupy urządzeń. Zauważymy, że utworzono również dwie dodatkowe przykładowe grupy urządzeń o nazwie "Inicjowanie urządzeń" i "urządzenia z nieaktualnym oprogramowaniem układowym". Te przykładowe grupy urządzeń będą używane jako dane wejściowe do uruchamiania niektórych [zadań](#jobs).
 
 ### <a name="rules"></a>Reguły
 
 Gdy przejdziesz do karty reguły, zobaczysz trzy reguły, które istnieją w szablonie aplikacji:
 
-* **Temperatura nawiasu klamrowego**: Ta reguła jest wyzwalana, gdy temperatura urządzenia w nawiasach klamrowych jest większa niż&deg;95 F w przypadku 5-minutowego okna. Ta reguła może być używana do powiadamiania pacjenta i zespołu opieki i zdalnego urządzenia.
+* **Temperatura nawiasu klamrowego**: Ta reguła jest wyzwalana, gdy temperatura urządzenia w nawiasach klamrowych jest większa niż 95 &deg; F w przypadku 5-minutowego okna. Ta reguła może być używana do powiadamiania pacjenta i zespołu opieki i zdalnego urządzenia.
 
 * **Wykryto spadek**: Ta reguła jest wyzwalana w przypadku wykrycia pacjenta. Za pomocą tej reguły można skonfigurować akcję do wdrożenia zespołu operacyjnego, aby pomóc pacjenta, który spadł.
 
@@ -99,6 +102,13 @@ Gdy przejdziesz do karty reguły, zobaczysz trzy reguły, które istnieją w sza
 
 >[!div class="mx-imgBorder"] 
 >![Wysoka reguła temperatury nawiasów klamrowych](media/brace-temp-rule.png)
+
+### <a name="jobs"></a>Stanowiska
+
+Zadania umożliwiają uruchamianie operacji zbiorczych na zestawie urządzeń przy użyciu [grup urządzeń](#device-groups) jako danych wejściowych. Szablon aplikacji został rozsiany dwoma przykładowymi zadaniami, które mogą być konieczne do uruchomienia operatora rozwiązania w pewnym momencie cyklu życia urządzeń:
+* **Aktualizowanie oprogramowania układowego w nawiasach klamrowych**: to zadanie spowoduje znalezienie urządzeń w grupie urządzeń z nieaktualnym oprogramowaniem układowym i uruchomienie polecenia w celu zaktualizowania tych urządzeń do najnowszej wersji oprogramowania układowego w nawiasach kolanowych. W tym przykładowym zadaniu założono, że urządzenia mają możliwość otrzymywania polecenia "Update" i bezpośredniego pobierania plików oprogramowania układowego z chmury.  
+
+* **Ponowne Inicjowanie obsługi administracyjnej urządzeń**: Jeśli masz zestaw urządzeń, które zostały ostatnio zwrócone do szpitala i trzeba będzie ponownie zainicjować obsługę dla następnego zestawu pacjentów, możesz uruchomić to zadanie, aby zaktualizować zbiorczo urządzenia. W takim przypadku pobieramy wszystkie urządzenia z grupy urządzeń o nazwie "Inicjowanie urządzeń" i wykonujemy polecenie, aby udostępnić je. 
 
 ### <a name="devices"></a>Urządzenia
 
@@ -113,7 +123,11 @@ Karta **polecenia** umożliwia uruchamianie poleceń, które zostały modelowane
 >[!div class="mx-imgBorder"] 
 >![Widoki w nawiasach klamrowych](media/knee-brace-dashboard.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="data-export"></a>Eksportowanie danych
+
+Eksport danych umożliwia ciągłe eksportowanie danych z urządzenia IoT Central do innych usług platformy Azure, w tym [interfejsu API platformy Azure dla FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, odwiedzając pozycję **administracja > ustawienia aplikacji** , a następnie kliknij przycisk **Usuń**.
 

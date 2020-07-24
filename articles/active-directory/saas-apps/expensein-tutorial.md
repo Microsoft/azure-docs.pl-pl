@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7e3659aa3044a4453574a2cd171303d00abc19
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017520"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Samouczek: integracja wydatków z Azure Active Directory
 
@@ -42,7 +41,10 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Usługa wydatków obsługuje usługę **SP i dostawcy tożsamości** zainicjowane przez usługę SSO.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. 
+* Usługa wydatków obsługuje usługę **SP i dostawcy tożsamości** zainicjowane przez usługę SSO.
+* Po skonfigurowaniu wydatków można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 
 ## <a name="adding-expensein-from-the-gallery"></a>Dodawanie wydatków z galerii
 
@@ -55,20 +57,20 @@ Aby skonfigurować integrację kosztów w usłudze Azure AD, należy dodać wyda
 1. W sekcji **Dodaj z galerii** wpisz **wydatki** w polu wyszukiwania.
 1. Wybierz pozycję **Obpłaty** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-expensein"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla wydatków
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą wydatków przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w obrachunku.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą wydatków, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj wydatki](#configure-expensein)** , aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-3. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-4. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego usługi wydatków](#create-expensein-test-user)** , aby dysponować odpowiednikiem B. Simon w obstawce wydatków, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Konfigurowanie logowania jednokrotnego](#configure-expensein-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego usługi wydatków](#create-expensein-test-user)** , aby dysponować odpowiednikiem B. Simon w obstawce wydatków, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
@@ -78,14 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
-
-    W polu tekstowym **adres URL odpowiedzi** wpisz dowolny z adresów URL:
-
-    ```https
-    https://app.expensein.com/samlcallback
-    https://mobileapi.expensein.com/identity/samlcallback
-    ```
+4. W sekcji **Podstawowa konfiguracja języka SAML** użytkownik nie musi wykonywać żadnych czynności, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -98,38 +93,6 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Konfigurowanie wydatków** należy skopiować odpowiednie adresy URL zgodnie z wymaganiami.
 
    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
-
-### <a name="configure-expensein"></a>Konfigurowanie wydatków
-
-1. Aby zautomatyzować konfigurację w ramach wydatków, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
-
-    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
-
-2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Konfigurowanie wydatków** spowoduje przekierowanie do aplikacji wydatków. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do wydatków. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-5.
-
-    ![Konfiguracja konfiguracji](common/setup-sso.png)
-
-3. Jeśli chcesz ręcznie skonfigurować obpłaty wydatków, Otwórz nowe okno przeglądarki sieci Web i zaloguj się w firmowej witrynie firmy jako administrator i wykonaj następujące czynności:
-
-4. Kliknij pozycję **administrator** w górnej części strony, a następnie przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Dodaj dostawcę**.
-
-     ![Konfiguracja wydatków](./media/expenseIn-tutorial/config01.png)
-
-5. W oknie podręcznym **Nowy dostawca tożsamości** wykonaj następujące czynności:
-
-    ![Konfiguracja wydatków](./media/expenseIn-tutorial/config02.png)
-
-    a. W polu tekstowym **Nazwa dostawcy** wpisz nazwę, np.: Azure.
-
-    b. Wybierz pozycję **tak** jako **Zezwalaj dostawcy Intitated na logowanie**.
-
-    c. W polu tekstowym **docelowy adres URL** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
-
-    d. W polu tekstowym **wystawca** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
-
-    e. Otwórz certyfikat (base64) w Notatniku, skopiuj jego zawartość i wklej go w polu tekstowym **certyfikat** .
-
-    f. Kliknij pozycję **Utwórz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -161,6 +124,31 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
+
+## <a name="configure-expensein-sso"></a>Konfiguruj wydatki na logowanie jednokrotne
+
+1. Otwórz nowe okno przeglądarki sieci Web i zaloguj się do swojej firmy w usłudze wydatków jako administrator.
+
+1. Kliknij pozycję **administrator** w górnej części strony, a następnie przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Dodaj dostawcę**.
+
+     ![Konfiguracja wydatków](./media/expenseIn-tutorial/config01.png)
+
+1. W oknie podręcznym **Nowy dostawca tożsamości** wykonaj następujące czynności:
+
+    ![Konfiguracja wydatków](./media/expenseIn-tutorial/config02.png)
+
+    a. W polu tekstowym **Nazwa dostawcy** wpisz nazwę; na przykład platforma Azure.
+
+    b. Wybierz pozycję **tak** dla opcji **Zezwalaj na logowanie dostawcy Intitiated**.
+
+    c. W polu tekstowym **docelowy adres URL** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
+
+    d. W polu tekstowym **wystawca** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
+
+    e. Otwórz certyfikat (base64) w Notatniku, skopiuj jego zawartość i wklej go w polu tekstowym **certyfikat** .
+
+    f. Kliknij pozycję **Utwórz**.
+
 ### <a name="create-expensein-test-user"></a>Utwórz użytkownika testowego wydatków
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrowania się w usłudze, należy zalogować się do wydatków. W przypadku wydatków, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
@@ -185,7 +173,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrow
 
     d. Kliknij pozycję **Utwórz**.
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 Po wybraniu kafelka wydatki w panelu dostępu należy automatycznie zalogować się do wydatków, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -196,3 +184,9 @@ Po wybraniu kafelka wydatki w panelu dostępu należy automatycznie zalogować s
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Wypróbuj usługę Azure AD](https://aad.portal.azure.com/)
+
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Jak chronić wydatki przy użyciu zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

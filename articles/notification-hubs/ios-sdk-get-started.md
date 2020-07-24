@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bf6477fed1840daa326f411862a7304018f39e3c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022433"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs
 
@@ -185,7 +185,7 @@ Druga opcja ma wiele korzyści w porównaniu z użyciem certyfikatów, zgodnie z
 
    Jest to wartość tokenu, która będzie używana później w celu skonfigurowania Notification Hubs.
 
-Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotyczących [konfigurowania centrum powiadomień przy użyciu informacji dotyczących usługi APNs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
+Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotyczących [konfigurowania centrum powiadomień przy użyciu informacji dotyczących usługi APNs](#configure-the-notification-hub-with-apns-information):
 
 - **Identyfikator zespołu**   (zobacz krok 1)
 - **Identyfikator pakietu**   (zobacz krok 1)
@@ -235,7 +235,7 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
 
 2. W menu po lewej stronie wybierz pozycję **wszystkie usługi**   , a następnie wybierz pozycję **Notification Hubs**   w sekcji **mobilnej**   . Wybierz ikonę gwiazdki obok nazwy usługi, aby dodać usługę do sekcji **Ulubione**   w menu po lewej stronie. Po dodaniu **Notification Hubs**   do **ulubionych**wybierz ją.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure Portal":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Witryna Azure Portal":::
 
 3. Na stronie **Notification Hubs**   Wybierz pozycję **Dodaj**   na pasku narzędzi.
 
@@ -260,11 +260,11 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
    > [!IMPORTANT]
    > Nie należy używać zasad **DefaultFullSharedAccessSignatureymi** w aplikacji. Jest to przeznaczone tylko do użycia w zapleczu.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Parametry połączeń":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Parametry połączenia":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Konfigurowanie centrum powiadomień przy użyciu informacji dotyczących usługi APNS
 
-W obszarze **usługi powiadomień**wybierz pozycję **Apple (APNs)**, a następnie postępuj zgodnie z odpowiednimi instrukcjami w sekcji [Tworzenie certyfikatu dla Notification Hubs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs)   .
+W obszarze **usługi powiadomień**wybierz pozycję **Apple (APNs)**, a następnie postępuj zgodnie z odpowiednimi instrukcjami w sekcji [Tworzenie certyfikatu dla Notification Hubs](#create-a-certificate-for-notification-hubs)   .
 
 > [!NOTE]
 > Używaj środowiska **produkcyjnego** w **trybie aplikacji** tylko wtedy, gdy chcesz wysyłać powiadomienia wypychane do użytkowników, którzy kupili aplikację ze sklepu.
@@ -306,4 +306,4 @@ Twoje centrum powiadomień zostało już skonfigurowane za pomocą usługi APNS.
 
 W tym samouczku utworzono i skonfigurowano centrum powiadomień na platformie Azure i skonfigurowano go w taki sposób, aby zezwalał na wysyłanie powiadomień do aplikacji za pomocą Apple Push Notification Service (APNS). Następnie utworzymy przykładową aplikację dla systemu iOS i zintegrujemy zestaw SDK centrów powiadomień platformy Azure, dzięki czemu będzie można odbierać powiadomienia wypychane wysyłane przez Azure Portal. Przejdź do następującego samouczka w zależności od wybranego języka:
 
-- [Samouczek: integracja z aplikacją dla systemu iOS przy użyciu SWIFT](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+- [Samouczek: integracja z aplikacją dla systemu iOS przy użyciu SWIFT]()

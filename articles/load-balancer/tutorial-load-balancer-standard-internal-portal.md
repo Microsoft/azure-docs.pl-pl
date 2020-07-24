@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f7f16093074b48610c1db8fec7f05ee01e7ab1ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920847"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078775"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Samouczek: Równoważenie obciążenia ruchu wewnętrznego przy użyciu standardowego modułu równoważenia obciążenia w Azure Portal
 
@@ -32,25 +32,23 @@ Jeśli wolisz, możesz wykonać te kroki przy użyciu [interfejsu wiersza polece
 
 Aby wykonać kroki opisane w tym samouczku, zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
-## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>Tworzenie sieci wirtualnej, serwerów zaplecza i testowej maszyny wirtualnej
+## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
+W tej sekcji należy zamienić następujące parametry w krokach z poniższymi informacjami:
 
-Najpierw utwórz sieć wirtualną. W sieci wirtualnej Utwórz dwie maszyny wirtualne, które mają być używane dla puli zaplecza w ramach standardowego modułu równoważenia obciążenia, oraz trzecią maszynę wirtualną do użycia do testowania modułu równoważenia obciążenia. 
+| Parametr                   | Wartość                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Wschodnie stany USA 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0 \ 24          |
 
-### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
    
-1. W okienku **Tworzenie sieci wirtualnej** wpisz lub wybierz następujące wartości:
-   
-   - **Nazwa**: wpisz **MyVNet**.
-   - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź nazwę **MyResourceGroupLB** i wybierz przycisk **OK**. 
-   - **Podsieć**  >  **Nazwa**: wpisz **MyBackendSubnet**.
-   
-1. Wybierz pozycję **Utwórz**.
 
-   ![Tworzenie sieci wirtualnej](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
+## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
 1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2016 Datacenter**. 
    
@@ -76,7 +74,7 @@ Najpierw utwórz sieć wirtualną. W sieci wirtualnej Utwórz dwie maszyny wirtu
    
 1. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej** > **Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
    
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
    
 1. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**. 
 
@@ -99,7 +97,7 @@ Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia przy u
     | Nazwa                   | *myLoadBalancer*                                   |
     | Region         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **Standardowy**.                          |
+    | Jednostka SKU           | Wybierz pozycję **Standardowy**.                          |
     | Sieć wirtualna           | Wybierz pozycję *MyVNet*.                          |    
     | Przypisanie adresu IP              | Wybierz wartość **Statyczny**.   |
     | Prywatny adres IP|wpisz adres, który znajduje się w przestrzeni adresowej sieci wirtualnej i podsieci, na przykład *10.3.0.7*.  |

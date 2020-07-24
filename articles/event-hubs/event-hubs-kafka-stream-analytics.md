@@ -3,12 +3,12 @@ title: Azure Event Hubs — przetwarzanie zdarzeń Apache Kafka
 description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdarzeń Kafka, które są pozyskiwane za pośrednictwem centrów zdarzeń przy użyciu Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074908"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
 W tym artykule pokazano, jak przesłać strumieniowo dane do Event Hubs i przetworzyć je z Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
@@ -27,7 +27,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Zestaw Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
 * [Pobierz](https://maven.apache.org/download.cgi) i [zainstaluj](https://maven.apache.org/install.html) archiwum binarne Maven.
-* [Git](https://www.git-scm.com/)
+* [Narzędzia](https://www.git-scm.com/)
 * **Konto usługi Azure Storage**. Jeśli go nie masz, [Utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie Stream Analytics w tym instruktażu przechowuje dane wyjściowe w usłudze Azure Blob Storage. 
 
 
@@ -90,7 +90,7 @@ Zapytanie w Stream Analytics zadania przejdzie przez dane bez wykonywania żadne
 2. Wybierz pozycję **Analiza** w menu **portalu Azure Marketplace** , a następnie wybierz pozycję **Stream Analytics zadanie**. 
 3. Na stronie **nowy Stream Analytics** wykonaj następujące czynności: 
     1. Wprowadź **nazwę** zadania. 
-    2. Wybierz swoją **subskrypcję**.
+    2. Wybierz **subskrypcję**.
     3. Wybierz pozycję **Utwórz nowy** dla **grupy zasobów** , a następnie wprowadź nazwę. Można również **użyć istniejącej** grupy zasobów. 
     4. Wybierz **lokalizację** dla zadania.
     5. Wybierz pozycję **Utwórz** , aby utworzyć zadanie. 
@@ -120,7 +120,7 @@ Zapytanie w Stream Analytics zadania przejdzie przez dane bez wykonywania żadne
 2. Wybierz pozycję **+ Dodaj** na pasku narzędzi i wybierz pozycję **BLOB Storage**
 3. Na stronie Ustawienia wyjściowe magazynu obiektów BLOB wykonaj następujące czynności: 
     1. Określ **alias** dla danych wyjściowych. 
-    2. Wybierz swoją **subskrypcję** platformy Azure. 
+    2. Wybierz swoją **subskrypcję**platformy Azure. 
     3. Wybierz **konto usługi Azure Storage**. 
     4. Wprowadź **nazwę kontenera** , w którym są przechowywane dane wyjściowe z kwerendy Stream Analytics.
     5. Wybierz pozycję **Zapisz**.
@@ -129,7 +129,7 @@ Zapytanie w Stream Analytics zadania przejdzie przez dane bez wykonywania żadne
  
 
 ### <a name="define-a-query"></a>Definiowanie zapytania
-Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego strumienia danych następnym krokiem jest utworzenie przekształcenia, które analizuje dane w czasie rzeczywistym. Zapytanie przekształcenia należy zdefiniować przy użyciu [języka zapytań usługi Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). W tym instruktażu zdefiniujesz zapytanie, które przekazuje dane bez wykonywania transformacji.
+Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego strumienia danych następnym krokiem jest utworzenie przekształcenia, które analizuje dane w czasie rzeczywistym. Zapytanie przekształcenia należy zdefiniować przy użyciu [języka zapytań usługi Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). W tym instruktażu zdefiniujesz zapytanie, które przekazuje dane bez wykonywania transformacji.
 
 1. Wybierz **zapytanie**.
 2. W oknie zapytania Zastąp `[YourOutputAlias]` wartość utworzonym wcześniej aliasem wyjściowym.

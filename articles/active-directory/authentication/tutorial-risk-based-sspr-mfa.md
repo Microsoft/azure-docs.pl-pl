@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035000"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Samouczek: Użyj wykrywania ryzyka dla logowania użytkowników, aby wyzwolić zmiany w usłudze Azure Multi-Factor Authentication lub hasła
 
-Aby chronić użytkowników, można skonfigurować zasady oparte na ryzyku w Azure Active Directory (Azure AD), które automatycznie reagują na ryzykowne zachowania. Zasady Azure AD Identity Protection mogą automatycznie blokować próby logowania lub wymagać dodatkowych akcji, takich jak wymaganie zmiany hasła lub monitu o usługę Azure Multi-Factor Authentication. Te zasady współpracują z istniejącymi zasadami dostępu warunkowego usługi Azure AD jako dodatkową warstwą ochrony organizacji organizacyjnej. Użytkownicy mogą nigdy nie wyzwolić ryzykownego zachowania w ramach jednej z tych zasad, ale organizacja jest chroniona, jeśli zostanie podjęta próba złamania zabezpieczeń.
+Aby chronić użytkowników, można skonfigurować zasady oparte na ryzyku w Azure Active Directory (Azure AD), które automatycznie reagują na ryzykowne zachowania. Zasady Azure AD Identity Protection mogą automatycznie blokować próby logowania lub wymagać dodatkowych akcji, takich jak wymaganie zmiany hasła lub monitu o usługę Azure Multi-Factor Authentication. Te zasady współpracują z istniejącymi zasadami dostępu warunkowego usługi Azure AD jako dodatkową warstwą ochrony dla organizacji. Użytkownicy mogą nigdy nie wyzwolić ryzykownego zachowania w ramach jednej z tych zasad, ale organizacja jest chroniona, jeśli zostanie podjęta próba złamania zabezpieczeń.
+
+> [!IMPORTANT]
+> W tym samouczku pokazano, jak włączyć oparty na ryzyku Multi-Factor Authentication platformy Azure.
+>
+> Jeśli Twój zespół IT nie włączył możliwości korzystania z usługi Azure Multi-Factor Authentication lub masz problemy podczas logowania, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -56,11 +61,11 @@ Niektóre z następujących akcji mogą wyzwolić Azure AD Identity Protection w
 
 Poniższe trzy zasady są dostępne w Azure AD Identity Protection, aby chronić użytkowników i odpowiadać na podejrzane działania. Możesz włączyć lub wyłączyć wymuszanie zasad, wybierz opcję Użytkownicy lub grupy, dla których zasady mają być stosowane, i zdecyduj, czy chcesz zablokować dostęp przy logowaniu lub Monituj o dodatkową akcję.
 
-* Zasady ryzyka dla użytkowników
+* Zasady ryzyka związanego z użytkownikiem
     * Identyfikuje konta użytkowników, które mogą mieć naruszone poświadczenia, i odpowiada na nie. Może monitować użytkownika o utworzenie nowego hasła.
 * Zasady dotyczące ryzyka związanego z logowaniem
     * Identyfikuje i reaguje na podejrzane próby logowania. Może monitować użytkownika o dostarczenie dodatkowych form weryfikacji za pomocą usługi Azure Multi-Factor Authentication.
-* Zasady rejestracji usługi MFA
+* Zasady rejestracji uwierzytelniania wieloskładnikowego
     * Upewnij się, że użytkownicy są zarejestrowani do usługi Azure Multi-Factor Authentication. Jeśli zasady dotyczące ryzyka związanego z logowaniem w usłudze MFA są wyświetlane, użytkownik musi już być zarejestrowany dla Multi-Factor Authentication platformy Azure.
 
 Po włączeniu zasad dotyczących ryzyka związanego z użytkownikiem zasad lub logowaniem można również wybrać próg dla poziomu ryzyka — *niska i powyżej*, *średni i wyższy*lub *wysoki*. Ta elastyczność pozwala określić, jak agresywne ma być wymuszanie wszelkich kontroli nad podejrzanymi zdarzeniami logowania.
@@ -118,7 +123,7 @@ Większość zdarzeń logowania użytkownika nie wyzwala zasad opartych na ryzyk
 
 Aby przetestować zasady Azure AD Identity Protection utworzone w poprzednich krokach, trzeba zasymulować ryzykowne zachowanie lub potencjalne ataki. Kroki prowadzące do tych testów różnią się w zależności od zasad Azure AD Identity Protection, które chcesz zweryfikować. Aby uzyskać więcej informacji o scenariuszach i krokach, zobacz [symulowanie wykrywania ryzyka w Azure AD Identity Protection](../identity-protection/howto-identity-protection-simulate-risk.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zostały zakończone testy i nie chcesz już korzystać z zasad opartych na ryzyku, Wróć do poszczególnych zasad, które chcesz wyłączyć, a następnie ustaw ustawienie **Wymuszaj zasady** na *wyłączone*.
 

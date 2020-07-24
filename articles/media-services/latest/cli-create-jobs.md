@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71122389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023420"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Przykład interfejsu wiersza polecenia: tworzenie i przesyłanie zadania
 
@@ -27,7 +27,7 @@ W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-[Utwórz konto Media Services](create-account-cli-how-to.md).
+[Utwórz konto Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -87,4 +87,4 @@ Uzyskasz odpowiedź podobną do następującej:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[AZ AMS Job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[AZ AMS Job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)

@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053566"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
 
 > [!NOTE]
-> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 W tym samouczku przedstawiono sposób analizowania wideo za pomocą usługi Azure Media Services. Istnieje wiele scenariuszy, w przypadku których głęboka analiza zarejestrowanego wideo lub dźwięku może być przydatna. Na przykład organizacje mogą zamieniać mowę na tekst w celu przekształcenia nagrań rozmów działu obsługi klienta w katalog z możliwością wyszukiwania, indeksami i pulpitami nawigacyjnymi — aby dzięki jego wykorzystaniu zwiększyć zadowolenie klientów. Następnie mogą uzyskać wgląd w swoją firmę. Te informacje obejmują listę typowych zażaleń, źródeł takich zażaleń i innych przydatnych informacji.
 
@@ -45,8 +45,8 @@ Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów doty
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz zainstalowanego programu Visual Studio, Pobierz [program Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Utwórz konto Media Services](create-account-cli-how-to.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
-- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
+- [Utwórz konto Media Services](./create-account-howto.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
+- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
 
 ## <a name="download-and-configure-the-sample"></a>Pobieranie i konfigurowanie przykładu
 
@@ -58,7 +58,7 @@ Sklonuj repozytorium GitHub zawierające przykład dla platformy .NET na swoją 
 
 Przykład znajduje się w folderze [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
+Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](./access-api-howto.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Badanie kodu do analizy wybranego wideo
 
@@ -84,33 +84,33 @@ Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platfor
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Tworzenie zasobu wejściowego i przekazywanie do niego pliku lokalnego 
 
-Funkcja **CreateInputAsset** tworzy nowy [zasób](https://docs.microsoft.com/rest/api/media/assets) wejściowy i przekazuje do niego określony lokalny plik wideo. Ten zasób służy jako dane wejściowe zadania kodowania. W usłudze Media Services 3 danymi wejściowymi zadania może być zasób lub zawartość udostępniona dla konta usługi Media Services za pośrednictwem adresów URL protokołu HTTPS. Aby dowiedzieć się, jak kodować przy użyciu adresu URL HTTPS, zobacz [ten](job-input-from-http-how-to.md) artykuł.  
+Funkcja **CreateInputAsset** tworzy nowy [zasób](/rest/api/media/assets) wejściowy i przekazuje do niego określony lokalny plik wideo. Ten zasób służy jako dane wejściowe zadania kodowania. W usłudze Media Services 3 danymi wejściowymi zadania może być zasób lub zawartość udostępniona dla konta usługi Media Services za pośrednictwem adresów URL protokołu HTTPS. Aby dowiedzieć się, jak kodować przy użyciu adresu URL HTTPS, zobacz [ten](job-input-from-http-how-to.md) artykuł.  
 
 W usłudze Media Services 3 do przekazywania plików służą interfejsy API usługi Azure Storage. Przedstawia to poniższy fragment kodu dla platformy .NET.
 
 Następująca funkcja wykonuje następujące czynności:
 
 * Tworzy element zawartości.
-* Pobiera zapisywalny [adres URL sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) do [kontenera zasobów w magazynie](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+* Pobiera zapisywalny [adres URL sygnatury dostępu współdzielonego](../../storage/common/storage-sas-overview.md) do [kontenera zasobów w magazynie](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container).
 
-    W przypadku używania funkcji [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) zasobów do uzyskiwania adresów URL sygnatury dostępu współdzielonego należy zauważyć, że funkcja zwraca wiele adresów URL sygnatury dostępu współdzielonego, ponieważ istnieją dwa klucze konta magazynu dla każdego konta magazynu. Konto magazynu ma dwa klucze, ponieważ umożliwia bezproblemowe obracanie kluczy konta magazynu (na przykład zmiana jednego z nich, a następnie rozpoczęcie korzystania z nowego klucza i obracanie drugiego klucza). Pierwszy adres URL sygnatury dostępu współdzielonego reprezentuje Klucz1 magazynu i drugi klucz2 magazynu.
+    W przypadku używania funkcji [ListContainerSas](/rest/api/media/assets/listcontainersas) zasobów do uzyskiwania adresów URL sygnatury dostępu współdzielonego należy zauważyć, że funkcja zwraca wiele adresów URL sygnatury dostępu współdzielonego, ponieważ istnieją dwa klucze konta magazynu dla każdego konta magazynu. Konto magazynu ma dwa klucze, ponieważ umożliwia bezproblemowe obracanie kluczy konta magazynu (na przykład zmiana jednego z nich, a następnie rozpoczęcie korzystania z nowego klucza i obracanie drugiego klucza). Pierwszy adres URL sygnatury dostępu współdzielonego reprezentuje Klucz1 magazynu i drugi klucz2 magazynu.
 * Przekazuje plik do kontenera w magazynie przy użyciu adresu URL sygnatury dostępu współdzielonego.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Tworzenie zasobu wyjściowego do przechowywania wyników zadania
 
-[Zasób](https://docs.microsoft.com/rest/api/media/assets) wyjściowy przechowuje wynik zadania. Projekt definiuje funkcję **DownloadResults**, która pobiera wyniki z zasobu wyjściowego do folderu wyjściowego, umożliwiając zapoznanie się z nimi.
+[Zasób](/rest/api/media/assets) wyjściowy przechowuje wynik zadania. Projekt definiuje funkcję **DownloadResults**, która pobiera wyniki z zasobu wyjściowego do folderu wyjściowego, umożliwiając zapoznanie się z nimi.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Tworzenie przekształcenia i zadania analizującego wideo
 
-Podczas kodowania lub przetwarzania zawartości w Media Services jest to typowy wzorzec służący do konfigurowania ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesyłając nowe zadania dla każdego nowego filmu wideo, stosujesz ten przepis do wszystkich filmów wideo w bibliotece. Przepis w Media Services jest nazywany **przekształceniem**. Aby uzyskać więcej informacji, zobacz [transformacje i zadania](transform-concept.md). Przykład opisany w tym samouczku umożliwia zdefiniowanie przepisu, który analizuje określone wideo.
+Podczas kodowania lub przetwarzania zawartości w Media Services jest to typowy wzorzec służący do konfigurowania ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesyłając nowe zadania dla każdego nowego filmu wideo, stosujesz ten przepis do wszystkich filmów wideo w bibliotece. Przepis w Media Services jest nazywany **przekształceniem**. Aby uzyskać więcej informacji, zobacz [transformacje i zadania](./transforms-jobs-concept.md). Przykład opisany w tym samouczku umożliwia zdefiniowanie przepisu, który analizuje określone wideo.
 
-#### <a name="transform"></a>Przekształcenie
+#### <a name="transform"></a>Przekształcanie
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput** jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora ( `new VideoAnalyzerPreset("en-US")` ). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
+Podczas tworzenia nowego wystąpienia obiektu [Transform](/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput** jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora ( `new VideoAnalyzerPreset("en-US")` ). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
 
 Podczas tworzenia **przekształcenia**Sprawdź pierwsze, jeśli już istnieje przy użyciu metody **Get** , jak pokazano w poniższym kodzie. W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
 
@@ -118,7 +118,7 @@ Podczas tworzenia **przekształcenia**Sprawdź pierwsze, jeśli już istnieje pr
 
 #### <a name="job"></a>Zadanie
 
-Jak wspomniano powyżej, obiekt [Transform](https://docs.microsoft.com/rest/api/media/transforms) jest przepisem, a obiekt [Job](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych. Istnieje możliwość określenia lokalizacji pliku wideo za pomocą adresów URL protokołu HTTPS, adresów URL sygnatury dostępu współdzielonego lub zasobów znajdujących się na koncie usługi Media Service.
+Jak wspomniano powyżej, obiekt [Transform](/rest/api/media/transforms) jest przepisem, a obiekt [Job](/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych. Istnieje możliwość określenia lokalizacji pliku wideo za pomocą adresów URL protokołu HTTPS, adresów URL sygnatury dostępu współdzielonego lub zasobów znajdujących się na koncie usługi Media Service.
 
 W tym przykładzie dane wejściowe zadania to lokalny film wideo.  
 
@@ -126,7 +126,7 @@ W tym przykładzie dane wejściowe zadania to lokalny film wideo.
 
 ### <a name="wait-for-the-job-to-complete"></a>Oczekiwanie na zakończenie zadania
 
-Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomienia. Są dostępne różne opcje powiadamiania o ukończeniu [zadania](https://docs.microsoft.com/rest/api/media/jobs). Najprostszą opcją (wyświetlaną tutaj) jest użycie sondowania.
+Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomienia. Są dostępne różne opcje powiadamiania o ukończeniu [zadania](/rest/api/media/jobs). Najprostszą opcją (wyświetlaną tutaj) jest użycie sondowania.
 
 Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid.
 
@@ -138,11 +138,11 @@ Usługę Event Grid zaprojektowano pod kątem wysokiej dostępności, stałego p
 
 ### <a name="job-error-codes"></a>Kody błędów zadań
 
-Zobacz [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Zobacz [Kody błędów](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Pobieranie wyniku zadania
 
-Poniższa funkcja pobiera wyniki z wyjściowego [elementu zawartości](https://docs.microsoft.com/rest/api/media/assets) do folderu "output", aby można było przejrzeć wyniki zadania.
+Poniższa funkcja pobiera wyniki z wyjściowego [elementu zawartości](/rest/api/media/assets) do folderu "output", aby można było przejrzeć wyniki zadania.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
@@ -160,7 +160,7 @@ Po uruchomieniu programu zadanie tworzy miniatury dla każdej twarzy wykrytej w 
 
 ## <a name="examine-the-output"></a>Sprawdzanie danych wyjściowych
 
-Plik wyjściowy analizy wideo ma nazwę insights.json. Ten plik zawiera wyniki analiz wideo. Opis elementów znajdujących się w pliku json zawiera artykuł [Inteligentna analiza multimediów](intelligence-concept.md).
+Plik wyjściowy analizy wideo ma nazwę insights.json. Ten plik zawiera wyniki analiz wideo. Opis elementów znajdujących się w pliku json zawiera artykuł [Inteligentna analiza multimediów](./analyzing-video-audio-files-concept.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

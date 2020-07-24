@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae4a7335394f0e2f0bd0e3ac47c36b1f61026428
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77670359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079591"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Korzystanie z usługi Azure Application Insights, aby dowiedzieć się, jak klienci używają aplikacji
 
@@ -38,10 +38,10 @@ W celu ukończenia tego samouczka:
 - Pobierz i zainstaluj rozszerzenie [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - [Wyślij dane telemetryczne z aplikacji](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) w celu dodania niestandardowych zdarzeń/wyświetleń strony
-- Wyślij [kontekst użytkownika](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context), aby śledzić działania użytkownika w czasie i w pełni wykorzystać możliwości funkcji użycia.
+- Wyślij [kontekst użytkownika](../app/usage-send-user-context.md), aby śledzić działania użytkownika w czasie i w pełni wykorzystać możliwości funkcji użycia.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="get-information-about-your-users"></a>Pobieranie informacji o użytkownikach
 Panel **Użytkownicy** pozwala analizować na różne sposoby ważne informacje o użytkownikach. Można w nim znaleźć takie informacje jak lokalizacja, z której użytkownicy nawiązują połączenie, szczegóły klienta i obszary aplikacji, do których użytkownicy uzyskują dostęp. 
@@ -102,16 +102,16 @@ Powyższe panele dotyczą wykonanych działań użytkowników aplikacji, natomia
 
 1. Wybierz pozycję **Lejki** z menu, a następnie kliknij pozycję **Nowy**. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![Zrzut ekranu przedstawiający sposób tworzenia nowego lejka.](media/tutorial-users/funnelsnew.png)
 
 2. Wpisz **nazwę lejka**.
 3. Utwórz lejek z co najmniej dwoma krokami przez wybranie akcji dla każdego kroku.  Lista akcji została utworzona na podstawie danych użycia zebranych przez usługę Application Insights.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![Zrzut ekranu przedstawiający sposób tworzenia kroków w nowym lejku.](media/tutorial-users/funnelsedit.png)
 
 4. Kliknij pozycję **Zapisz**, aby zapisać lejek, a następnie wyświetl jego wyniki.  W oknie po prawej stronie lejka są wyświetlane najczęściej występujące zdarzenia przed pierwszym działaniem i po ostatnim działaniu, aby lepiej zrozumieć tendencje użytkowników dotyczące określonej sekwencji.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![Zrzut ekranu przedstawiający wyniki zdarzenia nowo utworzonego lejka.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Sprawdzanie, którzy klienci wracają
@@ -120,11 +120,11 @@ Panel **Przechowywanie** ułatwia sprawdzenie, którzy użytkownicy wrócą do a
 1. Wybierz pozycję **Przechowywanie** z menu.
 2. Domyślnie przeanalizowane informacje obejmują użytkowników, którzy wykonali dowolną akcję, a następnie wrócili do wykonywania dowolnych akcji.  Możesz zmienić ten filtr, aby uwzględnić dowolne dane, na przykład tylko użytkowników, którzy wrócili po ukończeniu zakupu.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![Zrzut ekranu przedstawiający sposób ustawienia filtru przechowywania.](media/tutorial-users/retentionquery.png)
 
 3. Wracający użytkownicy spełniający kryteria są wyświetlani w formie grafiki i tabeli dla różnych czasów trwania.  Typowy wzorzec dotyczy stopniowego spadku liczby wracających użytkowników w czasie.  Nagły spadek między okresami może wymagać uwagi. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![Zrzut ekranu przedstawiający wykres dla użytkowników, którzy są zgodni z kryteriami ustawionymi dla filtru przechowywania.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analizowanie nawigacji użytkowników
 **Przepływ użytkownika** wizualnie przedstawia, jak użytkownicy nawigują między stronami i funkcjami aplikacji.  Dzięki temu można na przykład dowiedzieć się, gdzie użytkownicy zwykle przechodzą z określonej strony, jak zazwyczaj zamykają aplikację oraz czy istnieją akcje powtarzane regularnie.
@@ -133,15 +133,15 @@ Panel **Przechowywanie** ułatwia sprawdzenie, którzy użytkownicy wrócą do a
 2.  Kliknij pozycję **Nowy**, aby utworzyć nowy przepływ użytkownika, a następnie kliknij pozycję **Edytuj**, aby edytować jego szczegóły.
 3.  Zwiększ **zakres czasu** do 7 dni, a następnie wybierz zdarzenie początkowe.  Przepływ będzie śledzić sesje użytkownika, które rozpoczynają się od tego zdarzenia.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![Zrzut ekranu przedstawiający sposób tworzenia nowego przepływu użytkownika.](media/tutorial-users/flowsedit.png)
 
 4.  Zostanie wyświetlony przepływ użytkownika wraz ze ścieżkami użytkowników i liczbami ich sesji.  Niebieskie linie wskazują akcję, którą użytkownik wykonał po bieżącej akcji.  Czerwona linia wskazuje koniec sesji użytkownika.
 
-    ![](media/tutorial-users/flows.png)
+    ![Zrzut ekranu przedstawiający wyświetlanie ścieżek użytkownika i liczby sesji dla przepływu użytkownika.](media/tutorial-users/flows.png)
 
 5.  Aby usunąć zdarzenie z przepływu, kliknij pozycję **x** w rogu akcji, a następnie kliknij pozycję **Utwórz wykres**.  Wykres zostanie narysowany ponownie z uwzględnieniem wystąpień usuniętego zdarzenia.  Kliknij pozycję **Edytuj**. Spowoduje to dodanie zdarzenia do listy **Wykluczone zdarzenia**.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![Zrzut ekranu przedstawiający listę wykluczonych zdarzeń dla przepływu użytkownika.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Konsolidowanie danych użycia
 **Skoroszyty** łączą wizualizacje danych, zapytania analityczne i tekst w interakcyjnych dokumentach.  Umożliwiają one grupowanie typowych danych użycia, konsolidowanie informacji dotyczących określonego zdarzenia oraz raportowanie zespołowi użycia aplikacji.
@@ -150,12 +150,12 @@ Panel **Przechowywanie** ułatwia sprawdzenie, którzy użytkownicy wrócą do a
 2.  Kliknij pozycję **Nowy**, aby utworzyć nowy skoroszyt.
 3.  Zostanie wyświetlone zapytanie zawierające wszystkie dane użycia z ostatniego dnia w formie wykresu słupkowego.  Możesz użyć tego zapytania, ręcznie je edytować lub kliknąć pozycję **Przykładowe zapytania**, aby wybrać inne przydatne zapytania.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![Zrzut ekranu przedstawiający listę przykładowych zapytań, których można użyć.](media/tutorial-users/samplequeries.png)
 
 4.  Kliknij przycisk **Zakończono edytowanie**.
 5.  Kliknij przycisk **Edytuj** w górnym okienku, aby edytować tekst u góry skoroszytu.  Jest on sformatowany za pomocą języka Markdown.
 
-    ![](media/tutorial-users/markdown.png)
+    ![Zrzut ekranu przedstawiający sposób edycji tekstu w górnej części skoroszytu.](media/tutorial-users/markdown.png)
 
 6.  Kliknij pozycję **Dodaj użytkowników**, aby dodać wykres z informacjami o użytkowniku.  Jeśli chcesz, edytuj szczegóły wykresu, a następnie kliknij pozycję **Zakończono edytowanie**, aby zapisać wykres.
 

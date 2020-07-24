@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b96f337b27e40c5eaec88e220ca3fee6904df905
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022280"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych użytkowników systemu Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
@@ -154,7 +154,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
 
     Twój układ graficzny pliku `main_activity.xml` powinien wyglądać teraz podobnie do poniższego:
 
-    ![][A1]
+    ![Zrzut ekranu aplikacji z polami dla nazwy użytkownika, hasła, adresata i wiadomości oraz z przyciskami służącymi do logowania i wysyłania powiadomień.][A1]
 3. Utwórz nową klasę o nazwie `RegisterClient` w tym samym pakiecie, w którym znajduje się klasa `MainActivity`. Użyj poniższego kodu dla nowego pliku klasy.
 
     ```java
@@ -406,7 +406,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
     }
     ```
 
-    Program obsługi przycisku **logowania** generuje podstawowy token uwierzytelniania przy użyciu nazwy użytkownika i hasła wejściowego (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa `RegisterClient` do wywoływania zaplecza do rejestracji. `login`
+    `login`Program obsługi przycisku **logowania** generuje podstawowy token uwierzytelniania przy użyciu nazwy użytkownika i hasła wejściowego (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa `RegisterClient` do wywoływania zaplecza do rejestracji.
 
     Metoda `sendPush` wywołuje zaplecze, aby wyzwolić bezpieczne powiadomienie do użytkownika w oparciu o tag użytkownika. Docelowa usługa powiadomień platformy dla metody `sendPush` zależy od przekazanego ciągu `pns`.
 
@@ -474,7 +474,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
 2. W aplikacji systemu Android wprowadź nazwę użytkownika i hasło. Oba muszą być taką samą wartością ciągu i nie mogą zawierać spacji ani znaków specjalnych.
 3. W aplikacji systemu Android kliknij przycisk **Zaloguj**. Poczekaj na komunikat wyskakujący z informacją **Logged in and registered** (Zalogowano i zarejestrowano). Spowoduje to włączenie przycisku **Send Notification** (Wyślij powiadomienie).
 
-    ![][A2]
+    ![Zrzut ekranu aplikacji. Wyświetlany jest komunikat z potwierdzeniem, że użytkownik jest zalogowany i jest widoczny, a przycisk Wyślij powiadomienie jest włączony.][A2]
 4. Kliknij przyciski przełączania, aby włączyć wszystkie platformy, na których uruchomiono aplikację i zarejestrowano użytkownika.
 5. Wprowadź nazwę użytkownika, który odbierze powiadomienie. Ten użytkownik musi być zarejestrowany na potrzeby otrzymywania powiadomień na urządzeniach docelowych.
 6. Wpisz wiadomość dla użytkownika, która zostanie odebrana w formie powiadomienia push.

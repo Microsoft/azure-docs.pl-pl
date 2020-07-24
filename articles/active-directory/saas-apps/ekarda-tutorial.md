@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Ekarda
 
@@ -151,12 +151,12 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **administrator**  ->  **Moje konto**.
 
-    ![Konfiguracja Ekarda](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Konfiguracja Ekarda](./media/ekarda-tutorial/ekarda.png)    
 
 1. W dolnej części strony znajduje się sekcja **Ustawienia protokołu SAML** , w której zostanie skonfigurowana integracja SAML.
 1. Na następującej stronie wykonaj następujące czynności:
 
-    ![Konfiguracja Ekarda](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Konfiguracja Ekarda](./media/ekarda-tutorial/ekarda1.png)
 
     a. Kliknij link **metadanych dostawcy usług** i Zapisz go jako plik na komputerze.
 
@@ -170,7 +170,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Otwórz pobrane **certyfikatu (base64)** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **certyfikatu x509 dostawcy tożsamości** .
 
-    g. Wybierz sekcję **Włączanie SLO** w **opcjach** .
+    przykład Wybierz sekcję **Włączanie SLO** w **opcjach** .
 
     h. Kliknij pozycję **Aktualizuj**.
 
@@ -184,17 +184,18 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Ekarda w panelu dostępu należy automatycznie zalogować się do Ekarda, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Ekarda z usługą Azure AD](https://aad.portal.azure.com/)
 
+- Użyj [rozwiązania Ekarda Enterprise eCard](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) , aby udostępnić dowolną liczbę pracowników do wysyłania eCards, które są oznaczone logo firmy dla swoich klientów i współpracowników. Dowiedz się więcej o aprowizacji [Ekarda jako rozwiązanie logowania jednokrotnego](https://support.ekarda.com/#SSO-Implementation).
+
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Jak chronić Ekarda z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

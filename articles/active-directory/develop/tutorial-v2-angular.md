@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ee7c95cc25e911ba0ffe1e2815f219e040aaca31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058273"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -31,7 +31,7 @@ W tym samouczku przedstawiono sposób, w jaki aplikacja jednostronicowa (SPA) mo
 
 ## <a name="how-the-sample-app-works"></a>Jak działa Przykładowa aplikacja
 
-![Diagram przedstawiający sposób działania przykładowej aplikacji wygenerowanej w tym samouczku](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram przedstawiający sposób działania przykładowej aplikacji wygenerowanej w tym samouczku](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### <a name="more-information"></a>Więcej informacji
 
@@ -148,7 +148,7 @@ Dodaj następujący kod, aby `AppComponent` zalogować użytkownika:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
-    
+
     ngOnInit() { }
 
     login() {
@@ -264,14 +264,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 W tym kodzie `scopes` zawiera zakresy wymagane do zwrócenia w tokenie dostępu dla interfejsu API.
 
-Przykład:
+Na przykład:
 
 * `["user.read"]`dla Microsoft Graph
 * `["<Application ID URL>/scope"]`w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykład:
+Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Na przykład:
 
 * Może być konieczne ponowne wprowadzenie poświadczeń przez użytkowników, ponieważ ich hasło wygasło.
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.

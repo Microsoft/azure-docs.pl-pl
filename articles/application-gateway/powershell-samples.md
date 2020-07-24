@@ -7,20 +7,19 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d45fd7bf88e6988b83a621eda2689c10356441a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 045009f695197277ab576c8ff41f36af43957be7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74129747"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067769"
 ---
-# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Przykłady Azure PowerShell dla platformy Azure Application Gateway
+# <a name="azure-powershell-examples-for-azure-application-gateway-ag"></a>Przykłady Azure PowerShell dla Application Gateway platformy Azure (AG)
 
 Poniższa tabela zawiera linki do Azure PowerShell przykładów skryptów dla Application Gateway platformy Azure.
 
-| | |
-|---|---|
+| Przykład | Opis |
+|-------- | ----------- |
 | [Zarządzanie ruchem internetowym](./scripts/create-vmss-powershell.md) | Tworzy Application Gateway i wszystkie powiązane zasoby.|
 | [Ograniczanie ruchu internetowego](./scripts/create-vmss-waf-powershell.md) | Tworzy Application Gateway, który ogranicza ruch przy użyciu reguł OWASP.|
-|[Reguły niestandardowe WAF v2](scripts/waf-custom-rules-powershell.md)|Tworzy zaporę aplikacji internetowej Application Gateway v2 z regułami niestandardowymi.
-| | |
+|[Reguły niestandardowe WAF v2](scripts/waf-custom-rules-powershell.md)|Tworzy zaporę aplikacji internetowej Application Gateway v2 z regułami niestandardowymi.|

@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e4517adb0e8fb623864076b6ab2ffde9f92698d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022246"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych urządzeń z systemem Android przy użyciu Google Cloud Messaging (przestarzałe)
 
@@ -120,7 +120,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
 
     Układ graficzny pliku `main_activity.xml` powinien wyglądać mniej więcej tak:
 
-    ![][A1]
+    ![Zrzut ekranu środowiska deweloperskiego z widocznym ekranem aplikacji. Aplikacja zawiera listę kategorii wiadomości, które zostały dodane do kodu.][A1]
 3. Utwórz klasę `Notifications` w tym samym pakiecie co klasa `MainActivity`.
 
     ```java
@@ -338,8 +338,8 @@ W tym samouczku wysłano rozgłoszone powiadomienia do określonych urządzeń z
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253

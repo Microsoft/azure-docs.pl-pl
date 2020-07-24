@@ -1,25 +1,25 @@
 ---
 title: Łączniki Video Indexer z aplikacją logiki i samouczekem automatyzacji.
 description: W tym samouczku pokazano, jak odblokować nowe środowiska i zysków szanse Video Indexer łączniki z aplikacją logiki i automatyzacją.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047093"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
 [Interfejs API REST usługi Azure Media Services Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) obsługuje komunikację między serwerami i klientami z serwerem oraz pozwala Video Indexer użytkownikom na łatwe Integrowanie danych wideo i audio z logiką aplikacji, odblokowywanie nowych środowisk i możliwości zysków.
 
-Aby ułatwić integrację, obsługujemy łączniki [Logic Apps](https://azure.microsoft.com/services/logic-apps/) i [automatyzacji](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) , które są zgodne z naszym interfejsem API. Łączników można użyć do skonfigurowania niestandardowych przepływów pracy w celu efektywnego indeksowania i wyodrębnienia szczegółowych informacji z dużej ilości plików wideo i audio, bez konieczności pisania jednego wiersza kodu. Ponadto przy użyciu łączników integracji zapewnia lepszy wgląd w kondycję przepływu pracy oraz łatwą możliwość jego debugowania.  
+Aby ułatwić integrację, obsługujemy łączniki [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   i [automatyzacji](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/),   które są zgodne z naszym interfejsem API. Łączników można użyć do skonfigurowania niestandardowych przepływów pracy w celu efektywnego indeksowania i wyodrębnienia szczegółowych informacji z dużej ilości plików wideo i audio, bez konieczności pisania jednego wiersza kodu. Ponadto przy użyciu łączników integracji zapewnia lepszy wgląd w kondycję przepływu pracy oraz łatwą możliwość jego debugowania.  
 
 Aby pomóc szybko rozpocząć pracę z łącznikami Video Indexer, zajmiemy się przykładową aplikacją logiki i rozwiązaniem automatyzacji, które można skonfigurować. 
 
@@ -64,7 +64,7 @@ Następnie przejdź do akcji "Tworzenie identyfikatora URI SAS według ścieżki
 
 ![Identyfikator URI SYGNATURy dostępu współdzielonego według ścieżki](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Podaj  [lokalizację i identyfikator konta,](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location)Aby uzyskać token konta Video Indexer.
+Podaj [lokalizację i identyfikator konta,](./video-indexer-use-apis.md#account-id)   Aby uzyskać token konta Video Indexer.
 
 ![Uzyskiwanie tokenu dostępu do konta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Aby skonfigurować ten przepływ, należy ponownie podać klucz interfejsu API V
 
 W przypadku wyzwalacza zostanie wyświetlone pole adres URL HTTP POST. Adres URL nie zostanie wygenerowany do momentu zapisania przepływu; Jednak adres URL będzie potrzebny w końcu. Powrócimy do tego. 
 
-Podaj  [lokalizację i identyfikator konta,](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location)Aby uzyskać token konta Video Indexer.  
+Podaj [lokalizację i identyfikator konta,](./video-indexer-use-apis.md#account-id)   Aby uzyskać token konta Video Indexer.  
 
 Przejdź do akcji "Pobierz indeks wideo" i Wypełnij wymagane parametry. Dla identyfikatora wideo wpisz następujące wyrażenie: triggerOutputs () ["zapytania"] ["ID"] 
 
@@ -116,7 +116,7 @@ Upewnij się, że oba przepływy są zapisane i że wszystko jest gotowe!
 
 Wypróbuj nowo utworzoną aplikację logiki lub rozwiązanie do automatyzowania, dodając wideo do kontenera obiektów blob platformy Azure i wróć kilka minut później, aby zobaczyć, że szczegółowe dane pojawiają się w folderze docelowym. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem możesz korzystać z tej aplikacji logiki lub rozwiązania do automatyzowania i działania w razie potrzeby. Jeśli jednak nie chcesz zachować tego działania i nie chcesz otrzymywać opłat, Wyłącz oba przepływy, jeśli używasz automatyzacji. Wyłącz oba przepływy, jeśli używasz Logic Apps. 
 

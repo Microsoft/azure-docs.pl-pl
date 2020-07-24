@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001404"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
 
@@ -48,13 +48,13 @@ Używane są następujące najnowsze wersje i koncepcje technologii. Zalecamy za
 Jest to opcjonalne, ale zalecane jest zapoznanie się z następującymi pojęciami przed rozpoczęciem pracy z tym samouczkiem:
 
 * Digital Rights Management (DRM)
-* [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Azure Media Services (AMS) v3](./media-services-overview.md)
 * [Zasady kluczy zawartości](content-key-policy-concept.md) usługi AMS przy użyciu interfejsu API usługi AMS v3, Azure Portal lub [Azure Media Services Explorer (AMSE)](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Punkty końcowe usługi Azure AD V2 na [platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-* Nowoczesne uwierzytelnianie w chmurze, takie jak [OAuth 2,0 i OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * [Przepływ kodu autoryzacji w OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) i dlaczego PKCE jest wymagany
-  * [Uprawnienie do delegowania uprawnień aplikacji](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [Token JWT](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), jego oświadczenia i Przerzucanie klucza podpisywania (uwzględnione w przykładzie).
+* Punkty końcowe usługi Azure AD V2 na [platformie tożsamości firmy Microsoft](../../active-directory/develop/index.yml)
+* Nowoczesne uwierzytelnianie w chmurze, takie jak [OAuth 2,0 i OpenID Connect Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * [Przepływ kodu autoryzacji w OAuth 2,0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) i dlaczego PKCE jest wymagany
+  * [Uprawnienie do delegowania uprawnień aplikacji](../../active-directory/develop/developer-glossary.md#permissions)
+* [Token JWT](../../active-directory/develop/access-tokens.md), jego oświadczenia i Przerzucanie klucza podpisywania (uwzględnione w przykładzie).
 
 ### <a name="prerequisite-code-and-installations"></a>Wstępnie wymagany kod i instalacje
 
@@ -63,7 +63,7 @@ Jest to opcjonalne, ale zalecane jest zapoznanie się z następującymi pojęcia
 * Instalacja Node.js. Pobierz Node.js tym miejscu [https://nodejs.org](https://nodejs.org) . NPM jest dostarczany z instalacją.
 * [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
 * Konto Azure Media Services (AMS).
-* @azure/msal-browserWersja 2.0 — jeden z członków rodziny SDK [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) dla różnych platform klienckich
+* @azure/msal-browserWersja 2.0 — jeden z członków rodziny SDK [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) dla różnych platform klienckich
 * Najnowsza wersja [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(uwzględnionych w przykładach).
 * Poświadczenia FPS od firmy Apple, jeśli chcesz dołączyć FairPlay DRM i certyfikat aplikacji hostowanej za pomocą mechanizmu CORS, który jest dostępny za pośrednictwem JavaScript po stronie klienta.
 
@@ -98,7 +98,7 @@ Projekt podsystemu jest przedstawiony na poniższym diagramie.  Ma trzy warstwy:
 
 ![ekran służący do analizowania tokenów JWT](media/aad-ams-content-protection/subsystem.svg)
 
-Zapoznaj się z artykułem [Projektowanie systemu ochrony zawartości z wieloma drmmi przy użyciu funkcji kontroli dostępu](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control) , aby uzyskać więcej szczegółowych informacji o podsystemie.
+Zapoznaj się z artykułem [Projektowanie systemu ochrony zawartości z wieloma drmmi przy użyciu funkcji kontroli dostępu](./design-multi-drm-system-with-access-control.md) , aby uzyskać więcej szczegółowych informacji o podsystemie.
 
 ## <a name="understand-the-single-page-app"></a>Zrozumienie aplikacji jednostronicowej
 
@@ -170,7 +170,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 | Opis zgody administratora * * | *Zakres zasobów zaplecza dostarczania licencji DRM* | Szczegółowy opis zakresu, który jest wyświetlany, gdy administratorzy dzierżawy rozszerzają zakres na ekranie wyrażania zgody. |
 | Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika | *Zastosowanie. License. Delivery* | Zakres, który zostanie wywołany na ekranie wyrażania zgody, gdy użytkownicy wyrażają zgodę na ten zakres. |
 | Opis na potrzeby wyrażenia zgody przez użytkownika | *Zakres zasobów zaplecza dostarczania licencji DRM* | Jest to szczegółowy opis zakresu, który jest wyświetlany, gdy użytkownicy rozszerzają zakres na ekranie wyrażania zgody. |
-| Stan | *Włączone* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
+| Stan | *Włączono* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
 
 ## <a name="register-the-client-app"></a>Rejestrowanie aplikacji klienckiej
 
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-Deklaracja *grup* jest członkiem [ograniczonego zestawu roszczeń](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) w usłudze Azure AD.
+Deklaracja *grup* jest członkiem [ograniczonego zestawu roszczeń](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) w usłudze Azure AD.
 
 #### <a name="test"></a>Test
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77597902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037103"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Samouczek: rozszerzanie serwerów plików systemu Windows przy użyciu usługi Azure File Sync
 
@@ -26,13 +26,13 @@ W tym artykule przedstawiono podstawowe kroki rozszerzania pojemności magazynu 
 > * Tworzenie grupy synchronizacji i punktu końcowego w chmurze
 > * Tworzenie punktu końcowego serwera
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowanie środowiska
 
 Na potrzeby tego samouczka konieczne jest wykonanie następujących czynności przed rozpoczęciem wdrażania usługi Azure File Sync:
 
@@ -102,8 +102,8 @@ Na tym etapie utworzono konto magazynu i udział plików zawierający jeden plik
       ![Szczegóły dysku z danymi](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
    1. Wybierz przycisk **OK**.
-1. Wybierz pozycję **Przegląd + utwórz**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Utwórz**.
 
    Możesz wybrać ikonę **Powiadomienia**, aby sprawdzić **postęp wdrażania**. Utworzenie nowej maszyny wirtualnej może zająć kilka minut.
 
@@ -154,19 +154,19 @@ Teraz można dodać dysk z danymi do maszyny wirtualnej.
 
 1. Na maszynie wirtualnej z systemem **Windows Server 2016 Datacenter** wybierz kolejno pozycje **Pliki i usługi magazynowania** > **Wolumin** > **Dyski**.
 
-    ![Dysk z danymi](media/storage-sync-files-extend-servers/your-disk.png)
+    ![Dysk danych](media/storage-sync-files-extend-servers/your-disk.png)
 
 1. Kliknij prawym przyciskiem myszy dysk o pojemności 1 GB o nazwie **Msft Virtual Disk** i wybierz pozycję **Nowy wolumin**.
 1. Wykonaj kroki kreatora. Użyj ustawień domyślnych i zapisz przypisaną literę dysku.
-1. Wybierz przycisk **Utwórz**.
-1. Wybierz polecenie **Zamknij**.
+1. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Close** (Zamknij).
 
    Na tym etapie przeniesiono dysk do trybu online i utworzono wolumin. Otwórz Eksploratora plików na maszynie wirtualnej z systemem Windows Server, aby potwierdzić obecność dodanego przed chwilą dysku z danymi.
 
 1. W Eksploratorze plików na maszynie wirtualnej rozwiń pozycję **Ten komputer** i otwórz nowy dysk. W tym przykładzie jest to dysk F:.
-1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Nowy** > **folder**. Nadaj folderowi nazwę _FilesToSync_.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Nowy**  >  **folder**. Nadaj folderowi nazwę _FilesToSync_.
 1. Otwórz folder **FilesToSync**.
-1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Nowy** > **dokument tekstowy**. Nadaj plikowi tekstowemu nazwę _MyTestFile_.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Nowy**  >  **dokument tekstowy**. Nadaj plikowi tekstowemu nazwę _MyTestFile_.
 
     ![Dodawanie nowego pliku tekstowego](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -197,7 +197,7 @@ Następnie na maszynie wirtualnej z systemem Windows Server 2016 Datacenter zain
    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
    ```
 
-1. Wybierz odpowiedź **Tak** lub **Tak na wszystkie**, aby kontynuować instalację.
+1. Odpowiedź **tak** lub **tak na wszystko** , aby kontynuować instalację.
 
 Moduł `Az` to zbiorczy moduł poleceń cmdlet programu Azure PowerShell. Po jego zainstalowaniu są pobierane wszystkie dostępne moduły usługi Azure Resource Manager i są udostępniane do użycia ich polecenia cmdlet.
 
@@ -220,7 +220,7 @@ Aby wdrożyć usługę Azure File Sync, zacznij od umieszczenia zasobu **Usługi
    | **Nazwa** | Unikatowa nazwa (na subskrypcję) dla usługi synchronizacji magazynu.<br><br>W tym samouczku użyj nazwy _afssyncservice02_. |
    | **Subskrypcja** | Subskrypcja platformy Azure używana na potrzeby tego samouczka. |
    | **Grupa zasobów** | Grupa zasobów, która zawiera usługę synchronizacji magazynu.<br><br>W tym samouczku użyj grupy zasobów _afsresgroup101918_. |
-   | **Lokalizacja** | Wschodnie stany USA |
+   | **Lokalizacja** | East US |
 
 1. Po zakończeniu wybierz pozycję **Utwórz** w celu wdrożenia **usługi synchronizacji magazynu**.
 1. Wybierz kartę **Powiadomienia**, a następnie pozycję **Przejdź do zasobu**.
@@ -238,7 +238,7 @@ Agent usługi Azure File Sync to możliwy do pobrania pakiet, który umożliwia 
 
    ![Wybieranie agenta](media/storage-sync-files-extend-servers/select-agent.png)
 
-1. Zaznacz **opcję Zezwalaj, gdy** > **uruchomisz** > polecenie**Otwórz**.
+1. Zaznacz opcję **Zezwalaj, gdy**  >  **uruchomisz**polecenie  >  **Otwórz**.
 1. Jeśli okno programu PowerShell nie zostało jeszcze zamknięte, wykonaj tę czynność.
 1. Zaakceptuj wartości domyślne w **Kreatorze instalacji agenta synchronizacji magazynu**.
 1. Wybierz pozycję **Zainstaluj**.
@@ -259,9 +259,8 @@ Interfejs użytkownika rejestracji serwera powinien zostać otwarty automatyczni
 
    ![Zrzut ekranu przedstawiający interfejs użytkownika rejestracji serwera](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Wartość | Opis |
+   | ----- | ----- |
    | **Subskrypcja platformy Azure** | Subskrypcja, która zawiera usługę synchronizacji magazynu na potrzeby tego samouczka. |
    | **Grupa zasobów** | Grupa zasobów, która zawiera usługę synchronizacji magazynu. W tym samouczku użyj grupy zasobów _afsresgroup101918_. |
    | **Usługa synchronizacji magazynu** | Nazwa usługi synchronizacji magazynu. W tym samouczku użyj nazwy _afssyncservice02_. |
@@ -287,7 +286,7 @@ Grupa synchronizacji definiuje topologię synchronizacji dla zestawu plików. Gr
    | **Konto magazynu** | Wybierz pozycję **Wybierz konto magazynu**. W wyświetlonym okienku wybierz konto magazynu, które zawiera utworzony udział plików platformy Azure. Na potrzeby tego samouczka użyj nazwy *afsstoracct101918*. |
    | **Udział plików platformy Azure** | Nazwa utworzonego udziału plików platformy Azure. Na potrzeby tego samouczka użyj nazwy *afsfileshare*. |
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Jeśli wybierzesz grupę synchronizacji, zobaczysz, że masz teraz jeden **punkt końcowy w chmurze**.
 
@@ -301,21 +300,20 @@ Punkt końcowy serwera reprezentuje określoną lokalizację na zarejestrowanym 
 
 1. W okienku **Dodawanie punktu końcowego serwera** wprowadź następujące informacje, aby utworzyć punkt końcowy serwera:
 
-   | | |
-   | ----- | ----- |
    | Wartość | Opis |
+   | ----- | ----- |
    | **Zarejestrowany serwer** | Nazwa utworzonego serwera. Na potrzeby tego samouczka użyj nazwy *afsvm101918*. |
    | **Ścieżka** | Ścieżka systemu Windows Server do utworzonego dysku. Na potrzeby tego samouczka użyj nazwy *f:\filestosync*. |
    | **Obsługa warstw w chmurze** | Pozostaw tę funkcję wyłączoną na potrzeby tego samouczka. |
    | **Wolne miejsce w woluminie** | Pozostaw to pole puste na potrzeby tego samouczka. |
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Pliki zostały teraz zsynchronizowane między udziałem plików platformy Azure i systemem Windows Server.
 
 ![Pomyślnie zsynchronizowana usługa Azure Storage](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

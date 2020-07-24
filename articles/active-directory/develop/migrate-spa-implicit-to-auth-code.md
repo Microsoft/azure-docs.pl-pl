@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 0c7fe0629724217f36d3b28e74aaafdfd15c9a61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027091"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrowanie aplikacji jednostronicowej JavaScript z niejawnego przydzielenia do przepływu kodu uwierzytelniania
-
-> [!IMPORTANT]
-> Ta funkcja jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre aspekty tej funkcji mogą ulec zmianie przed ogólnym udostępnieniem.
 
 Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) v 2.0 obsługuje przepływ kodu autoryzacji z PKCE i CORS do aplikacji jednostronicowych na platformie tożsamości firmy Microsoft. Wykonaj kroki opisane w poniższych sekcjach, aby przeprowadzić migrację aplikacji MSAL.js 1. x przy użyciu niejawnego przydzielenia do MSAL.js 2.0 + (poniżej *2. x*) i przepływu kodu uwierzytelniania.
 

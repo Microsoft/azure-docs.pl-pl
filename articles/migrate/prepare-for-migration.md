@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować maszyny lokalne do migracji za pomoc
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077973"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -59,7 +59,7 @@ Sprawdź Obsługiwane systemy operacyjne na potrzeby migracji:
 
 Sprawdź, które adresy URL i porty są dostępne podczas migracji.
 
-**Scenariusz** | **Szczegóły** |  **Adresy URL** | **Np**
+**Scenariusz** | **Szczegóły** |  **Adresy URL** | **Porty**
 --- | --- | --- | ---
 **Migracja bez agenta VMware** | Program używa [urządzenia Azure Migrate](migrate-appliance-architecture.md) do migracji. Nic nie jest zainstalowane na maszynach wirtualnych VMware. | Przejrzyj publiczną i służbową [adresy URL](migrate-appliance.md#url-access) do odnajdowania, oceny i migracji z urządzeniem. | [Przejrzyj](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) wymagania dotyczące portów dla migracji bez agentów.
 **Migracja oparta na agencie VMware** | Używa [urządzenia replikacji](migrate-replication-appliance.md) do migracji. Agent usługi mobilności jest instalowany na maszynach wirtualnych. | Przejrzyj [chmurę publiczną](migrate-replication-appliance.md#url-access) i adresy URL [Azure Government](migrate-replication-appliance.md#azure-government-url-access) , do których urządzenie replikacji musi uzyskać dostęp. | [Przejrzyj](migrate-replication-appliance.md#port-access) porty używane podczas migracji opartej na agencie.
@@ -127,6 +127,18 @@ W przypadku innych wersji Przygotuj maszyny zgodnie z podsumowaniem w tabeli.
 **Usuń regułę udev** | Usuń wszystkie reguły udev, które rezerwują nazwy interfejsów na podstawie adresu MAC itp. | Usuń ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Aktualizowanie interfejsów sieciowych** | Aktualizowanie interfejsów sieciowych do odbierania adresów IP na podstawie protokołu DHCP. NST | Aktualizuj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Włączanie protokołu SSH** | Upewnij się, że protokół SSH jest włączony i że usługa SSHD jest uruchomiona automatycznie po ponownym uruchomieniu.<br/><br/> Upewnij się, że przychodzące żądania połączenia SSH nie są blokowane przez zaporę systemu operacyjnego ani reguły obsługujące skrypty.| Włącz ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
+
+Poniższa tabela zawiera podsumowanie kroków wykonywanych automatycznie w przypadku systemów operacyjnych wymienionych powyżej.
+
+| Akcja                                      | \-Migracja VMware oparta na agencie | Migracja VMware bez agentów | Funkcja Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Zainstaluj usługi integracji funkcji Hyper-V w systemie \- Linux | Tak                           | Tak                        | Nie jest wymagany |
+| Włącz rejestrowanie w konsoli szeregowej platformy Azure         | Tak                           | Yes                        | Nie         |
+| Zaktualizuj plik mapy urządzeń                      | Yes                           | Nie                         | Nie         |
+| Aktualizowanie wpisów fstab                        | Tak                           | Yes                        | Nie         |
+| Usuń regułę udev                            | Tak                           | Yes                        | Nie         |
+| Aktualizowanie interfejsów sieciowych                   | Tak                           | Yes                        | Nie         |
+| Włączanie protokołu SSH                                  | Nie                            | Nie                         | Nie         |
 
 Dowiedz się więcej o krokach [uruchamiania maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/create-upload-generic.md)i uzyskaj instrukcje dotyczące niektórych popularnych dystrybucji systemu Linux.
 

@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu obciążeń ISO 27001 ASE/SQL
 description: Wdróż kroki przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database, w tym szczegóły parametru artefaktu.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74f2670b79d1968755e376d1f5a75bbb76e6e6c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072886"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Wdróż przykład planu obciążenia ISO 27001 App Service Environment/SQL Database
 
@@ -20,7 +20,7 @@ Aby wdrożyć przykładowy plan obciążeń ISO 27001 App Service Environment/SQ
 > - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
 > - Przypisz swoją kopię planu do istniejącej subskrypcji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Wdróż przykład strategii usług udostępnionych ISO 27001
 
@@ -111,12 +111,12 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-workload-log-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-log-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Log Analytics|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Warstwa usług|Ustawia warstwę obszaru roboczego Log Analytics. Wartość domyślna to _PerNode_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Lokalizacja|Region używany do tworzenia obszaru roboczego Log Analytics. Wartość domyślna to _zachodnie stany USA 2_.|
-|Grupa zasobów sieciowych|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-workload-net-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów sieciowych|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-net-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów sieciowych|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon sieciowej grupy zabezpieczeń|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Prywatny adres IP zapory platformy Azure|Konfiguruje prywatny adres IP [zapory platformy Azure](../../../../firewall/overview.md). Powinna być częścią notacji CIDR zdefiniowanej w _ISO 27001: usługi udostępnione_ parametr artefaktu **prefiks adresu podsieci zapory platformy Azure**. Wartość domyślna to _10.0.4.4_.|
@@ -124,21 +124,21 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Prefiks adresu Virtual Network|Notacja CIDR dla sieci wirtualnej. Wartość domyślna to _10.1.0.0/16_.|
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Domyślny prefiks adresu podsieci|Notacja CIDR dla domyślnej podsieci sieci wirtualnej. Wartość domyślna to _10.1.0.0/16_.|
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Dodaje adres IP|Adres IP pierwszej dodania maszyny wirtualnej. Ta wartość jest używana jako niestandardowa usługa DNS sieci wirtualnej.|
-|Grupa zasobów Key Vault|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-workload-kv-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów Key Vault|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-kv-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Key Vault|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Identyfikator obiektu usługi AAD|Identyfikator obiektu usługi AAD konta, które wymaga dostępu do wystąpienia Key Vault. Brak wartości domyślnej i nie można jej pozostawić pustej. Aby zlokalizować tę wartość z Azure Portal, Wyszukaj i wybierz pozycję "Użytkownicy" w obszarze _usługi_. Użyj pola _Nazwa_ , aby odfiltrować nazwę konta, a następnie wybierz to konto. Na stronie _profil użytkownika_ wybierz ikonę "kliknij, aby skopiować" obok _identyfikatora obiektu_.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Jednostka SKU Key Vault|Określa jednostkę SKU utworzonego Key Vault. Wartość domyślna to _Premium_.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Nazwa użytkownika administratora usługi Azure SQL Server|Nazwa użytkownika używana do uzyskiwania dostępu do usługi Azure SQL Server. Musi być zgodna z tą samą wartością właściwości w **szablonie Azure SQL Database**. Wartość domyślna to _SQL-admin-User_.|
-|Grupa zasobów Azure SQL Database|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-workload-azsql-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów Azure SQL Database|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-azsql-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Azure SQL Database|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Nazwa użytkownika administratora usługi Azure SQL Server|Nazwa użytkownika dla SQL Server platformy Azure. Musi być zgodna z tą samą wartością właściwości w **szablonie Key Vault**. Wartość domyślna to _SQL-admin-User_.|
-|Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" i Zastąp `{subscriptionId}` ciąg identyfikatorem subskrypcji `{orgName}` i parametrem " **Nazwa organizacji** ".|
+|Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" i Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{orgName}` parametrem " **Nazwa organizacji** ".|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (nazwa klucza tajnego Key Vault)|Nazwa użytkownika administratora SQL Server. Musi być zgodna wartość właściwości **szablonu Key Vault** **SQL Server Nazwa użytkownika administratora platformy Azure**.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Identyfikator obiektu administratora usługi AAD|Identyfikator obiektu usługi AAD, który zostanie przypisany jako administrator Active Directory. Brak wartości domyślnej i nie można jej pozostawić pustej. Aby zlokalizować tę wartość z Azure Portal, Wyszukaj i wybierz pozycję "Użytkownicy" w obszarze _usługi_. Użyj pola _Nazwa_ , aby odfiltrować nazwę konta, a następnie wybierz to konto. Na stronie _profil użytkownika_ wybierz ikonę "kliknij, aby skopiować" obok _identyfikatora obiektu_.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Logowanie administratora usługi AAD|Obecnie nie można ustawić kont Microsoft (takich jak live.com lub outlook.com) jako administrator. Jako administrator można ustawić tylko użytkowników i grupy zabezpieczeń w organizacji. Brak wartości domyślnej i nie można jej pozostawić pustej. Aby zlokalizować tę wartość z Azure Portal, Wyszukaj i wybierz pozycję "Użytkownicy" w obszarze _usługi_. Użyj pola _Nazwa_ , aby odfiltrować nazwę konta, a następnie wybierz to konto. Na stronie _profil użytkownika_ Skopiuj _nazwę użytkownika_.|
-|Grupa zasobów App Service Environment|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-workload-ase-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów App Service Environment|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-ase-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów App Service Environment|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon App Service Environment|Szablon usługi Resource Manager|Nazwa domeny|Nazwa Active Directory utworzonego przez przykład. Wartość domyślna to _contoso.com_.|
 |Szablon App Service Environment|Szablon usługi Resource Manager|Lokalizacja środowiska ASE|App Service Environment lokalizacji. Wartość domyślna to _zachodnie stany USA 2_.|
@@ -149,8 +149,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 Po przejrzeniu kroków w celu wdrożenia przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o architekturze i mapowaniu formantów:
 
 > [!div class="nextstepaction"]
-> [Plan obciążeń ISO 27001 App Service Environment/SQL Database — Omówienie](./index.md)
-> planu[obciążeń ISO 27001 App Service Environment/SQL Database](./control-mapping.md)
+> [Plan obciążeń ISO 27001 App Service Environment/SQL Database — Omówienie](./index.md) 
+>  [Plan obciążeń App Service Environment ISO 27001/SQL Database — Mapowanie formantów](./control-mapping.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

@@ -1,5 +1,5 @@
 ---
-title: Przykładowy skrypt Azure PowerShell — Tworzenie reguł niestandardowych WAF
+title: Przykładowy skrypt Azure PowerShell, który używa reguł niestandardowych WAF
 description: Przykładowy skrypt Azure PowerShell — tworzenie zapory aplikacji sieci Web na Application Gateway reguł niestandardowych
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: 950f71c284268a9aa2773eb57213e266622d85bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035591"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Tworzenie niestandardowych reguł WAF za pomocą Azure PowerShell
 
@@ -71,4 +71,4 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat reguł niestandardowych WAF, zobacz [reguły niestandardowe dla zapory aplikacji sieci Web](../ag/custom-waf-rules-overview.md)
-- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).

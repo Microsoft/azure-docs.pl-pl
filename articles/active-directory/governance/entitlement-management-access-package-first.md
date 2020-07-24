@@ -3,7 +3,7 @@ title: Samouczek — Tworzenie pakietu dostępu — Zarządzanie prawami w usłu
 description: Samouczek krok po kroku dotyczący sposobu tworzenia pierwszego pakietu dostępu w Azure Active Directory Zarządzanie uprawnieniami.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/30/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034580"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -46,7 +46,7 @@ Aby zapoznać się z krok po kroku procesu wdrażania Azure Active Directory Zar
 
 Aby móc korzystać z usługi Azure AD do zarządzania prawami, musisz mieć jedną z następujących licencji:
 
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 - Licencja na usługę Enterprise Mobility + Security (EMS) E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](entitlement-management-overview.md#license-requirements).
@@ -67,7 +67,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 
     | Nazwa | Rola katalogu |
     | --- | --- |
-    | **Admin1** | Administrator globalny<br/>— lub —<br/>Administrator użytkowników |
+    | **Admin1** | Administrator globalny<br/>-lub-<br/>Administrator użytkowników |
     | **Requestor1** | Użytkownik |
 
 1. Utwórz grupę zabezpieczeń usługi Azure AD o nazwie **zasoby marketingowe** z **przypisanym**typem członkostwa.

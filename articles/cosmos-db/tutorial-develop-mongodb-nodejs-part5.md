@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f77c20faa87adf28a2dda43412a59867309c7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066929"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — łączenie z usługą Cosmos DB za pomocą wtyczki Mongoose
 
@@ -30,7 +30,7 @@ W tej części samouczka zostaną wykonane następujące czynności:
 > * Tworzenie usługi hero w celu pobrania danych elementów hero.
 > * Uruchom aplikację lokalnie.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -226,11 +226,11 @@ Następnie należy skonfigurować trasy, które będą obsługiwać adresy URL d
 
 Poświęćmy teraz chwilę na zapoznanie się z wcześniejszym kodem. Najpierw wchodzimy do pliku index.js, który konfiguruje serwer węzłów. Zwróć uwagę, że ten plik konfiguruje i definiuje Twoje trasy. Następnie plik routes.js komunikuje się z usługą hero i informuje ją o konieczności pobrania funkcji, takich jak **getHeroes**, oraz przekazania żądania i odpowiedzi. Plik hero.service.js pobiera model i nawiązuje połączenie z bazą danych Mongo. Następnie po wywołaniu wykonuje funkcję **getHeroes** i zwraca odpowiedź 200. 
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Następnie uruchom aplikację, wykonując poniższe kroki:
 
-1. W programie Visual Studio Code zapisz wszystkie zmiany. Po lewej stronie wybierz przycisk **debugowania**![ikona debugowania w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), po czym wybierz przycisk **uruchamiania debugowania**![ikona debugowania w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. W programie Visual Studio Code zapisz wszystkie zmiany. Po lewej stronie wybierz przycisk **Debuguj** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png"::: , a następnie wybierz przycisk **Rozpocznij debugowanie** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png"::: .
 
 1. Teraz przełącz się na przeglądarkę. Otwórz **Narzędzia deweloperskie** i **kartę Sieć**. Przejdź do `http://localhost:3000` , a zobaczysz naszą aplikację.
 

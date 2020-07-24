@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 34cbba15f5798286be63171da0173f6214fe7822
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037121"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [AZ SQL DB Audit-Policy](/cli/azure/sql/db/audit-policy) | Ustawia zasady inspekcji dla bazy danych. |
 | [AZ SQL DB Threat-Policy](/cli/azure/sql/db/threat-policy) | Ustawia zasady zaawansowanej ochrony przed zagrożeniami w bazie danych. |

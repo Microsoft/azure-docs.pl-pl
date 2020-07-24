@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d5bd8f5e57e73fd0ff63394f119ecca678b17e60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022587"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
@@ -485,7 +485,7 @@ Ponadto upewnij się, że dodano konto Google do działającego emulatora w obsz
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych bezpośrednio z poziomu aplikacji
 
-Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych przypadkach warto wysyłać powiadomienia bezpośrednio z aplikacji klienta. W tej sekcji wyjaśniono sposób wysyłania powiadomień z klienta przy użyciu [interfejsu API REST usługi Azure Notification Hubs](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych przypadkach warto wysyłać powiadomienia bezpośrednio z aplikacji klienta. W tej sekcji wyjaśniono sposób wysyłania powiadomień z klienta przy użyciu [interfejsu API REST usługi Azure Notification Hubs](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 1. W widoku projektu Android Studio rozwiń węzeł **App**  >  **src**  >  **Main**  >  **res**  >  **layout**. Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
 
@@ -544,7 +544,7 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Utwórz token sygnatury dostępu współdzielonego w celu uwierzytelnienia żądania POST do wysyłania komunikatów do centrum powiadomień. Przeanalizuj dane klucza z parametrów połączenia, a następnie utwórz token sygnatury dostępu współdzielonego, jak określono w dokumentacji interfejsu API REST [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) (Wspólne pojęcia). Poniższy kod jest przykładem implementacji.
+6. Utwórz token sygnatury dostępu współdzielonego w celu uwierzytelnienia żądania POST do wysyłania komunikatów do centrum powiadomień. Przeanalizuj dane klucza z parametrów połączenia, a następnie utwórz token sygnatury dostępu współdzielonego, jak określono w dokumentacji interfejsu API REST [Common Concepts](/previous-versions/azure/reference/dn495627(v=azure.100)) (Wspólne pojęcia). Poniższy kod jest przykładem implementacji.
 
     W pliku `MainActivity.java` dodaj następującą metodę do klasy `MainActivity`, aby przeanalizować parametry połączenia.
 
@@ -741,7 +741,7 @@ W tym samouczku wysłano wyemitowane powiadomienia do wszystkich urządzeń z sy
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

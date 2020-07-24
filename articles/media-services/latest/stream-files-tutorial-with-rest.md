@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f12771e55ced3b8783b6c7497b83e6b041c66b75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79472037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074465"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST
 
 Usługa Azure Media Services umożliwia kodowanie plików multimedialnych do formatów, które można odtworzyć w różnych przeglądarkach i na różnych urządzeniach. Na przykład może zaistnieć potrzeba strumieniowego odtwarzania treści w formatach HLS lub MPEG DASH firmy Apple. Przed odtwarzaniem strumieniowym należy zakodować wysokiej jakości plik multimediów cyfrowych. Aby uzyskać wskazówki dotyczące kodowania, zobacz temat [Encoding concept](encoding-concept.md) (Koncepcja kodowania).
 
@@ -36,13 +36,13 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Konfigurowanie programu Postman
 > * Wysyłanie żądań przy użyciu programu Postman
 > * Testowanie adresu URL przesyłania strumieniowego
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md).
+- [Utwórz konto Media Services](./create-account-howto.md).
 
     Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services
 
@@ -125,7 +125,7 @@ W tej sekcji opisano wysyłanie żądań istotnych dla kodowania i tworzenia adr
 
 ### <a name="start-a-streaming-endpoint"></a>Uruchom punkt końcowy przesyłania strumieniowego
 
-Aby włączyć przesyłanie strumieniowe, należy najpierw uruchomić [punkt końcowy przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) , z którego chcesz przesłać strumieniowo wideo.
+Aby włączyć przesyłanie strumieniowe, należy najpierw uruchomić [punkt końcowy przesyłania strumieniowego](./streaming-endpoint-concept.md) , z którego chcesz przesłać strumieniowo wideo.
 
 > [!NOTE]
 > Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
@@ -141,17 +141,17 @@ Aby włączyć przesyłanie strumieniowe, należy najpierw uruchomić [punkt ko�
         ```
     * Jeśli żądanie zakończy się pomyślnie, `Status: 202 Accepted` zostanie zwrócone.
 
-        Ten stan oznacza, że żądanie zostało zaakceptowane do przetwarzania; jednak przetwarzanie nie zostało ukończone. Można wykonać zapytanie o stan operacji na podstawie wartości w nagłówku `Azure-AsyncOperation` odpowiedzi.
+        Ten stan oznacza, że żądanie zostało zaakceptowane do przetwarzania; jednak przetwarzanie nie zostało ukończone. Można wykonać zapytanie o stan operacji na podstawie wartości w `Azure-AsyncOperation` nagłówku odpowiedzi.
 
         Na przykład następująca operacja GET zwraca stan operacji:
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        W artykule [śledzenie asynchronicznych operacji na platformie Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) wyjaśniono, jak śledzić stan asynchronicznych operacji platformy Azure za pomocą wartości zwracanych w odpowiedzi.
+        W artykule [śledzenie asynchronicznych operacji na platformie Azure](../../azure-resource-manager/management/async-operations.md) wyjaśniono, jak śledzić stan asynchronicznych operacji platformy Azure za pomocą wartości zwracanych w odpowiedzi.
 
 ### <a name="create-an-output-asset"></a>Tworzenie zasobu wyjściowego
 
-Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/assets) przechowuje wynik zadania kodowania. 
+Wyjściowy element [zawartości](/rest/api/media/assets) przechowuje wynik zadania kodowania. 
 
 1. W lewym oknie aplikacji Poster wybierz pozycję "zasoby".
 2. Następnie wybierz opcję „Utwórz lub aktualizuj zasób”.
@@ -175,14 +175,14 @@ Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/asset
 
 ### <a name="create-a-transform"></a>Tworzenie przekształcenia
 
-W przypadku kodowania lub przetwarzania zawartości w usłudze Media Services typowym wzorcem postępowania jest skonfigurowanie ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesłanie nowego zadania dla każdego nowego wideo powoduje zastosowanie tego przepisu do wszystkich wideo w bibliotece. Przepis w usłudze Media Services nazywa się **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android. 
+W przypadku kodowania lub przetwarzania zawartości w usłudze Media Services typowym wzorcem postępowania jest skonfigurowanie ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesłanie nowego zadania dla każdego nowego wideo powoduje zastosowanie tego przepisu do wszystkich wideo w bibliotece. Przepis w usłudze Media Services nazywa się **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](./transforms-jobs-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android. 
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr to obiekt **TransformOutput**. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu **TransformOutput**. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Element Preset umożliwia kodowanie wejściowego wideo do automatycznie generowanej drabiny szybkości transmisji bitów (zestawu par „szybkość transmisji bitów-rozdzielczość”) na podstawie rozdzielczości wejściowej i szybkości transmisji bitów oraz tworzenie plików MP4 zgodnych ze standardem ISO, które zawierają wideo w formacie H.264 i dźwięk w formacie AAC, dla każdej pary „szybkość transmisji bitów-rozdzielczość”. Aby dowiedzieć się więcej na temat elementu Preset, zobacz informacje o [automatycznie generowanej drabinie szybkości transmisji bitów](autogen-bitrate-ladder.md).
+Podczas tworzenia nowego wystąpienia obiektu [Transform](/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr to obiekt **TransformOutput**. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu **TransformOutput**. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Element Preset umożliwia kodowanie wejściowego wideo do automatycznie generowanej drabiny szybkości transmisji bitów (zestawu par „szybkość transmisji bitów-rozdzielczość”) na podstawie rozdzielczości wejściowej i szybkości transmisji bitów oraz tworzenie plików MP4 zgodnych ze standardem ISO, które zawierają wideo w formacie H.264 i dźwięk w formacie AAC, dla każdej pary „szybkość transmisji bitów-rozdzielczość”. Aby dowiedzieć się więcej na temat elementu Preset, zobacz informacje o [automatycznie generowanej drabinie szybkości transmisji bitów](autogen-bitrate-ladder.md).
 
 Możesz użyć wbudowanych elementów EncoderNamedPreset lub użyć niestandardowych ustawień wstępnych. 
 
 > [!Note]
-> Podczas tworzenia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy najpierw sprawdzić, czy taki obiekt już istnieje, używając metody **Get**. W tym samouczku założono, że tworzysz przekształcenie o unikatowej nazwie.
+> Podczas tworzenia obiektu [Transform](/rest/api/media/transforms) należy najpierw sprawdzić, czy taki obiekt już istnieje, używając metody **Get**. W tym samouczku założono, że tworzysz przekształcenie o unikatowej nazwie.
 
 1. W lewym oknie aplikacji Poster wybierz pozycję "kodowanie i analiza".
 2. Następnie wybierz pozycję „Utwórz przekształcenie”.
@@ -215,9 +215,9 @@ Możesz użyć wbudowanych elementów EncoderNamedPreset lub użyć niestandardo
 
 ### <a name="create-a-job"></a>Tworzenie zadania
 
-Obiekt [Job](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie utworzonego obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. Obiekt **Job** określa informacje takie jak lokalizacja wejściowego pliku wideo oraz danych wyjściowych.
+Obiekt [Job](/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie utworzonego obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. Obiekt **Job** określa informacje takie jak lokalizacja wejściowego pliku wideo oraz danych wyjściowych.
 
-W tym przykładzie dane wejściowe zadania są oparte na adresie URL HTTPS ("https:\//nimbuscdn-nimbuspm.Streaming.MediaServices.Windows.NET/2b533311-b215-4409-80AF-529c3e853622/").
+W tym przykładzie dane wejściowe zadania są oparte na adresie URL HTTPS ("https: \/ /nimbuscdn-nimbuspm.Streaming.MediaServices.Windows.NET/2b533311-b215-4409-80AF-529c3e853622/").
 
 1. W lewym oknie aplikacji Poster wybierz pozycję "kodowanie i analiza".
 2. Następnie wybierz opcję „Utwórz lub aktualizuj zadanie”.
@@ -256,18 +256,18 @@ Ukończenie zadania zajmuje trochę czasu, a Ty chcesz otrzymać powiadomienie o
 
 #### <a name="job-error-codes"></a>Kody błędów zadań
 
-Zobacz [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Zobacz [Kody błędów](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Tworzenie lokalizatora przesyłania strumieniowego
 
-Po zakończeniu kodowania następnym krokiem jest udostępnienie wideo w **zasobie** wyjściowym klientom na potrzeby odtwarzania. Działanie to można wykonać w dwóch krokach: najpierw należy utworzyć obiekt [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), a następnie utworzyć adresy URL przesyłania strumieniowego, których mogą używać klienci. 
+Po zakończeniu kodowania następnym krokiem jest udostępnienie wideo w **zasobie** wyjściowym klientom na potrzeby odtwarzania. Działanie to można wykonać w dwóch krokach: najpierw należy utworzyć obiekt [StreamingLocator](/rest/api/media/streaminglocators), a następnie utworzyć adresy URL przesyłania strumieniowego, których mogą używać klienci. 
 
 Proces tworzenia lokalizatora przesyłania strumieniowego jest nazywany publikowaniem. Domyślnie lokalizator przesyłania strumieniowego jest ważny natychmiast po wykonaniu wywołania interfejsu API i obowiązuje do momentu jego usunięcia, chyba że zostanie skonfigurowany opcjonalny czas rozpoczęcia i zakończenia. 
 
-Podczas tworzenia obiektu [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) musisz określić żądany element **StreamingPolicyName**. W tym przykładzie będziesz przesyłać strumieniowo zawartość w postaci nieoczyszczonej (lub nieszyfrowanej), więc zostanie użyta wstępnie zdefiniowana zasada "Predefined_ClearStreamingOnly".
+Podczas tworzenia obiektu [StreamingLocator](/rest/api/media/streaminglocators) musisz określić żądany element **StreamingPolicyName**. W tym przykładzie będziesz przesyłać strumieniowo zawartość w postaci nieoczyszczonej (lub nieszyfrowanej), więc zostanie użyta wstępnie zdefiniowana zasada "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
-> W przypadku korzystania z niestandardowego elementu [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i używać ich ponownie dla obiektów StreamingLocator zawsze, gdy są potrzebne takie same opcje szyfrowania i protokoły. 
+> W przypadku korzystania z niestandardowego elementu [StreamingPolicy](/rest/api/media/streamingpolicies) należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i używać ich ponownie dla obiektów StreamingLocator zawsze, gdy są potrzebne takie same opcje szyfrowania i protokoły. 
 
 Twoje konto usługi multimediów ma limit przydziału liczby wpisów **zasad przesyłania strumieniowego** . Nie należy tworzyć nowych **zasad przesyłania strumieniowego** dla każdego lokalizatora przesyłania strumieniowego.
 
@@ -297,7 +297,7 @@ Twoje konto usługi multimediów ma limit przydziału liczby wpisów **zasad prz
 
 #### <a name="list-paths"></a>Ścieżki listy
 
-Teraz, po utworzeniu obiektu [Lokalizator przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego.
+Teraz, po utworzeniu obiektu [Lokalizator przesyłania strumieniowego](/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego.
 
 1. W lewym oknie aplikacji Poster wybierz pozycję "zasady przesyłania strumieniowego".
 2. Następnie wybierz opcję „Ścieżki listy”.
@@ -372,7 +372,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Player. 
 
-1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. W polu **URL:** wklej utworzony adres URL. 
 3. Naciśnij pozycję **Aktualizuj odtwarzacz**.
 
@@ -384,7 +384,7 @@ Zazwyczaj należy wyczyścić wszystko z wyjątkiem obiektów, których zamierza
 
 Aby usunąć zasób, wybierz operację „Usuń...” niezależnie od tego, który zasób chcesz usunąć.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie są już potrzebne żadne zasoby w grupie zasobów, w tym konto usługi Media Services i konta magazynu utworzone w ramach tego samouczka, usuń grupę zasobów utworzoną wcześniej.  
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006436"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Samouczek: Tworzenie kompleksowego potoku danych w celu uzyskania szczegółowych informacji o sprzedaży w usłudze Azure HDInsight
 
@@ -23,17 +23,17 @@ Ten potok danych łączy dane z różnych magazynów, usuwa wszelkie niechciane 
 
 ![Architektura ETL](./media/hdinsight-sales-insights-etl/architecture.png)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Interfejs wiersza polecenia platformy Azure — co najmniej wersja 2.2.0. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* JQ, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* JQ, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
 * Członek [wbudowanego właściciela roli platformy Azure](../role-based-access-control/built-in-roles.md).
 
-* Jeśli używasz programu PowerShell do wyzwalania potoku Data Factory, będziesz potrzebować polecenia [AZ module](https://docs.microsoft.com/powershell/azure/overview).
+* Jeśli używasz programu PowerShell do wyzwalania potoku Data Factory, będziesz potrzebować polecenia [AZ module](https://docs.microsoft.com/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) wizualizacji szczegółowych informacji o firmie na końcu tego samouczka.
 
@@ -106,7 +106,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Tworzenie klastra może trwać około 20 minut.
 
-Domyślne hasło dostępu SSH do klastrów to `Thisisapassword1`. Jeśli chcesz zmienić hasło `./templates/resourcesparameters_remainder.json` , przejdź do pliku i Zmień hasło dla parametrów `sparksshPassword`, `sparkClusterLoginPassword` `llapClusterLoginPassword`, i. `llapsshPassword`
+Domyślne hasło dostępu SSH do klastrów to `Thisisapassword1` . Jeśli chcesz zmienić hasło, przejdź do `./templates/resourcesparameters_remainder.json` pliku i Zmień hasło dla `sparksshPassword` parametrów,, `sparkClusterLoginPassword` `llapClusterLoginPassword` i `llapsshPassword` .
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Weryfikowanie wdrożenia i zbieranie informacji o zasobach
 
@@ -172,7 +172,7 @@ Ten skrypt wykonuje następujące czynności:
 
 1. Tworzy jednostkę usługi z `Storage Blob Data Contributor` uprawnieniami na koncie magazynu Data Lake Storage Gen2.
 1. Uzyskuje token uwierzytelniania w celu autoryzowania żądań POST do [interfejsu API REST systemu plików Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
-1. Wypełnia rzeczywistą nazwę konta magazynu Data Lake Storage Gen2 w plikach `sparktransform.py` i. `query.hql`
+1. Wypełnia rzeczywistą nazwę konta magazynu Data Lake Storage Gen2 w `sparktransform.py` `query.hql` plikach i.
 1. Uzyskuje klucze magazynu dla Data Lake Storage Gen2 i kont usługi BLOB Storage.
 1. Tworzy inne wdrożenie zasobów w celu utworzenia potoku Azure Data Factory przy użyciu skojarzonych z nim usług i działań. Przekazuje klucze magazynu jako parametry do pliku szablonu, dzięki czemu połączone usługi mogą prawidłowo uzyskiwać dostęp do kont magazynu.
 
@@ -190,7 +190,7 @@ cat resourcesoutputs_adf.json | jq -r '.properties.outputs.factoryName.value'
 
 Aby wyzwolić potok, można wykonać jedną z:
 
-* Wyzwalanie potoku Data Factory w programie PowerShell. Zamień `RESOURCEGROUP`i `DataFactoryName` z odpowiednimi wartościami, a następnie uruchom następujące polecenia:
+* Wyzwalanie potoku Data Factory w programie PowerShell. Zamień `RESOURCEGROUP` i `DataFactoryName` z odpowiednimi wartościami, a następnie uruchom następujące polecenia:
 
     ```powershell
     # If you have multiple subscriptions, set the one to use
@@ -219,7 +219,7 @@ Aby wyzwolić potok, można wykonać jedną z:
 Aby sprawdzić, czy potok został uruchomiony, można wykonać jedną z następujących czynności:
 
 * Przejdź do sekcji **monitorowanie** w fabryce danych za pomocą portalu.
-* W Eksplorator usługi Azure Storage przejdź do konta magazynu Data Lake Storage generacji 2. Przejdź do systemu `files` plików, a następnie przejdź do `transformed` folderu i sprawdź jego zawartość, aby sprawdzić, czy potok zakończył się pomyślnie.
+* W Eksplorator usługi Azure Storage przejdź do konta magazynu Data Lake Storage generacji 2. Przejdź do `files` systemu plików, a następnie przejdź do `transformed` folderu i sprawdź jego zawartość, aby sprawdzić, czy potok zakończył się pomyślnie.
 
 Aby uzyskać inne metody przekształcania danych za pomocą usługi HDInsight, zobacz [ten artykuł na temat korzystania z Jupyter Notebook](/azure/hdinsight/spark/apache-spark-load-data-run-query).
 
@@ -232,7 +232,7 @@ Aby uzyskać inne metody przekształcania danych za pomocą usługi HDInsight, z
     scp scripts/query.hql sshuser@$llapClusterName-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-    Przypomnienie: domyślne hasło to `Thisisapassword1`.
+    Przypomnienie: domyślne hasło to `Thisisapassword1` .
 
 1. Użyj protokołu SSH, aby uzyskać dostęp do klastra LLAP. Wprowadź polecenie:
 
@@ -252,26 +252,26 @@ Aby uzyskać inne metody przekształcania danych za pomocą usługi HDInsight, z
 
 1. Otwórz program Power BI Desktop.
 
-1. Z menu Przejdź, aby **uzyskać więcej danych** > **...**  > **Zapytanie interaktywne** **usługi Azure** > HDInsight.
+1. Z menu Przejdź, aby **uzyskać**  >  **więcej danych...**  >  **Platforma Azure**  >  **Zapytanie interaktywne usługi HDInsight**.
 
-1. Wybierz przycisk **Połącz**.
+1. Wybierz pozycję **Połącz**.
 
 1. W oknie dialogowym **interakcyjnego zapytania usługi HDInsight** :
-    1. W polu tekstowym **serwer** wprowadź nazwę klastra LLAP w formacie `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. W polu tekstowym **baza danych** wprowadź `default`.
+    1. W polu tekstowym **serwer** wprowadź nazwę klastra LLAP w formacie `https://LLAPCLUSTERNAME.azurehdinsight.net` .
+    1. W polu tekstowym **baza danych** wprowadź `default` .
     1. Wybierz przycisk **OK**.
 
 1. W oknie dialogowym **AzureHive** :
-    1. W polu tekstowym **Nazwa użytkownika** wprowadź `admin`.
-    1. W polu tekstowym **hasło** wprowadź `Thisisapassword1`.
-    1. Wybierz przycisk **Połącz**.
+    1. W polu tekstowym **Nazwa użytkownika** wprowadź `admin` .
+    1. W polu tekstowym **hasło** wprowadź `Thisisapassword1` .
+    1. Wybierz pozycję **Połącz**.
 
-1. Z poziomu **nawigatora**wybierz `sales`pozycję i/ `sales_raw` lub, aby wyświetlić podgląd danych. Po załadowaniu danych można eksperymentować z pulpitem nawigacyjnym, który ma zostać utworzony. Aby rozpocząć pracę z pulpitami nawigacyjnymi Power BI, zobacz następujące linki:
+1. Z poziomu **nawigatora**wybierz `sales` pozycję i/lub, `sales_raw` Aby wyświetlić podgląd danych. Po załadowaniu danych można eksperymentować z pulpitem nawigacyjnym, który ma zostać utworzony. Aby rozpocząć pracę z pulpitami nawigacyjnymi Power BI, zobacz następujące linki:
 
 * [Wprowadzenie do pulpitów nawigacyjnych dla projektantów usługi Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Samouczek: Rozpoczynanie pracy z usługa Power BI](https://docs.microsoft.com/power-bi/service-get-started)
+* [Samouczek: wprowadzenie do usługi Power BI](https://docs.microsoft.com/power-bi/service-get-started)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby przy użyciu następującego polecenia, aby nie były naliczone opłaty.
 

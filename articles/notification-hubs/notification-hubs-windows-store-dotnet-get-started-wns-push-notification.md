@@ -15,12 +15,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: f78f24ee68545b386169e29a5a52ccc572849ad7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 232bd96373f22957a88c94585f53237e05d5e5cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076692"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji przy użyciu usługi Azure Notification Hubs
 
@@ -43,7 +43,7 @@ Wykonaj następujące czynności:
 
 - **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Visual Studio 2017 lub nowszy. Przykład w tym samouczku używa [programu Visual Studio 2019](https://www.visualstudio.com/products).
-- [Zainstalowane narzędzia do programowania aplikacji platformy UWP](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+- [Zainstalowane narzędzia do programowania aplikacji platformy UWP](/windows/uwp/get-started/get-set-up)
 - Aktywne konto Sklepu Windows
 - Upewnij się, że opcja **Pobierz powiadomienia z aplikacji i innych nadawców** jest włączona. 
     - Uruchom okno **Ustawienia** na komputerze.
@@ -96,7 +96,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS. Ma
        ![Okno dialogowe Nowy projekt](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 
     3. W oknie dialogowym **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**i **lokalizację** plików projektu.
-    4. Wybierz przycisk **Utwórz**.
+    4. Wybierz pozycję **Utwórz**.
 
 3. Zaakceptuj wartości domyślne dla wersji platformy **docelowej** i **minimalnej**, a następnie wybierz pozycję **OK**.
 4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze sklepu Windows, wybierz pozycję **Publikuj**, a następnie wybierz pozycję **Skojarz aplikację ze sklepem**. Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows**.
@@ -116,7 +116,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS. Ma
     using Windows.UI.Popups;
     ```
 
-10. W `App.xaml.cs` pliku projektu Znajdź `App` klasę i Dodaj następującą `InitNotificationsAsync` definicję metody. Zamień `<your hub name>` na nazwę centrum powiadomień utworzonego w Azure Portal i Zamień `<Your DefaultListenSharedAccessSignature connection string>` na parametry `DefaultListenSharedAccessSignature` połączenia na stronie **zasady dostępu** w centrum powiadomień:
+10. W `App.xaml.cs` pliku projektu Znajdź `App` klasę i Dodaj następującą `InitNotificationsAsync` definicję metody. Zamień `<your hub name>` na nazwę centrum powiadomień utworzonego w Azure Portal i Zamień na `<Your DefaultListenSharedAccessSignature connection string>` `DefaultListenSharedAccessSignature` Parametry połączenia na stronie **zasady dostępu** w centrum powiadomień:
 
     ```csharp
     private async void InitNotificationsAsync()
@@ -165,7 +165,7 @@ Możesz szybko przetestować odbieranie powiadomień w aplikacji, wysyłając po
 2. W oknie **Wysyłanie testowe** wykonaj następujące czynności:
     1. W obszarze **Platformy** wybierz pozycję **Windows**.
     2. W obszarze **Typ powiadomienia** wybierz pozycję **Wyskakujące**.
-    3. Wybierz pozycję **Wyślij**.
+    3. Wybierz pozycję **Send** (Wyślij).
 
         ![Okienko Wysyłanie testowe](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 3. Zobacz wynik operacji wysyłania na liście **Wynik** w dolnej części okna. Możesz też zobaczyć komunikat alertu.
@@ -191,6 +191,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: /previous-versions/windows/apps/hh761494(v=win.10)
+[tile catalog]: /previous-versions/windows/apps/hh761491(v=win.10)
+[badge overview]: /previous-versions/windows/apps/hh779719(v=win.10)

@@ -4,16 +4,16 @@ description: 'Samouczek: w tym samouczku pokazano, jak przechwytywać dane z cen
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322497"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039501"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do SQL Data Warehouse przy użyciu Event Grid i Azure Functions
 
-Funkcja [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) usługi Event Hubs to najprostszy sposób, aby automatycznie dostarczać przesyłane strumieniowo dane z usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store. Następnie można przetwarzać te dane i dostarczać je do dowolnie wybranego magazynu docelowego, na przykład usługi SQL Data Warehouse lub Cosmos DB. W tym samouczku dowiesz się, w jaki sposób zapisać dane z centrum zdarzeń w magazynie danych SQL, korzystając z funkcji platformy Azure wyzwalanej przez usługę [Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Funkcja [Capture](./event-hubs-capture-overview.md) usługi Event Hubs to najprostszy sposób, aby automatycznie dostarczać przesyłane strumieniowo dane z usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store. Następnie można przetwarzać te dane i dostarczać je do dowolnie wybranego magazynu docelowego, na przykład usługi SQL Data Warehouse lub Cosmos DB. W tym samouczku dowiesz się, w jaki sposób zapisać dane z centrum zdarzeń w magazynie danych SQL, korzystając z funkcji platformy Azure wyzwalanej przez usługę [Event Grid](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -113,7 +113,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publikowanie aplikacji funkcji](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Wybierz polecenie **Publikuj**.
+1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Kliknij pozycję **Opublikuj**.
 
    ![Docelowa aplikacja funkcji](./media/store-captured-data-data-warehouse/pick-target.png)
 
@@ -130,7 +130,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Tworzenie subskrypcji usługi Event Grid na podstawie aplikacji usługi Functions
  
-1. Przejdź do [Azure Portal](https://portal.azure.com/). Wybierz swoją grupę zasobów i aplikację funkcji.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). Wybierz swoją grupę zasobów i aplikację funkcji.
 
    ![Wyświetlanie aplikacji funkcji](./media/store-captured-data-data-warehouse/view-function-app.png)
 
@@ -142,7 +142,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
 
    ![Dodawanie subskrypcji](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz przycisk **Utwórz**.
+1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie subskrypcji](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
@@ -178,7 +178,4 @@ Po kilku minutach wyślij zapytanie do tabeli w magazynie danych SQL. Zauważysz
 ## <a name="next-steps"></a>Następne kroki 
 Aby uzyskać praktyczne informacje, możesz użyć zaawansowanych narzędzi do wizualizacji danych w magazynie danych.
 
-W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
-
-
-
+W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)

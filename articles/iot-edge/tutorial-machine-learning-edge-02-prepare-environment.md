@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79296810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078939"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska do uczenia maszynowego na IoT Edge
 
@@ -38,13 +38,13 @@ Maszyna wirtualna programu Development zostanie skonfigurowana przy użyciu:
 * [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
 * [Rozszerzenia VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [S #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
-  * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
+  * [Program PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
 Maszyna wirtualna dla deweloperów nie jest ściśle wymagana — wszystkie narzędzia programistyczne można uruchomić na komputerze lokalnym. Jednak zdecydowanie zalecamy użycie maszyny wirtualnej w celu zagwarantowania pola poziomu odtwarzania.
 
@@ -52,7 +52,7 @@ Tworzenie i Konfigurowanie maszyny wirtualnej trwa około 30 minut.
 
 1. Sklonuj lub Pobierz [Machine Learning i IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) przykładowe repozytorium na komputer lokalny.
 
-1. Otwórz program PowerShell jako administrator i przejdź do katalogu **\IoTEdgeAndMlSample\DevVM** znajdującego się w katalogu głównym, do którego pobrano kod. Odwołujemy się do katalogu głównego źródła jako `srcdir`.
+1. Otwórz program PowerShell jako administrator i przejdź do katalogu **\IoTEdgeAndMlSample\DevVM** znajdującego się w katalogu głównym, do którego pobrano kod. Odwołujemy się do katalogu głównego źródła jako `srcdir` .
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
@@ -66,7 +66,7 @@ Tworzenie i Konfigurowanie maszyny wirtualnej trwa około 30 minut.
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-1. Uruchom Create-AzureDevVM. ps1.
+1. Uruchom Create-AzureDevVM.ps1.
 
     ```powershell
     .\Create-AzureDevVm.ps1
@@ -114,9 +114,9 @@ Po utworzeniu maszyny wirtualnej musimy zainstalować oprogramowanie wymagane do
 
 1. Podaj podane hasło administratora, aby utworzyć maszynę wirtualną, a następnie kliknij przycisk **OK**.
 
-1. Zostanie wyświetlony monit o zaakceptowanie certyfikatu dla maszyny wirtualnej. Wybierz pozycję **tak**.
+1. Zostanie wyświetlony monit o zaakceptowanie certyfikatu dla maszyny wirtualnej. Wybierz pozycję **Tak**.
 
-## <a name="install-visual-studio-code-extensions"></a>Zainstaluj rozszerzenia Visual Studio Code
+## <a name="install-visual-studio-code-extensions"></a>Instalowanie rozszerzeń programu Visual Studio Code
 
 Teraz, gdy masz połączenie z maszyną deweloperskią, Dodaj przydatne rozszerzenia, aby Visual Studio Code ułatwić programowanie.
 
@@ -181,7 +181,7 @@ W ramach tworzenia Centrum IoT, skrypt, który został uruchomiony w poprzedniej
 
 1. Otwórz [Azure Portal](https://portal.azure.com) i przejdź do grupy zasobów, która jest używana w tym samouczku.
 
-1. Na liście zasobów wybierz IoT Hub utworzoną przez skrypt. Nazwa będzie kończyć się znakami losowymi, takimi `IotEdgeAndMlHub-jrujej6de6i7w`jak.
+1. Na liście zasobów wybierz IoT Hub utworzoną przez skrypt. Nazwa będzie kończyć się znakami losowymi, takimi jak `IotEdgeAndMlHub-jrujej6de6i7w` .
 
 1. W menu po lewej stronie w obszarze **Obsługa wiadomości**wybierz pozycję **routing wiadomości**.
 
@@ -193,7 +193,7 @@ W ramach tworzenia Centrum IoT, skrypt, który został uruchomiony w poprzedniej
 
    Widzimy, że **turbofanDeviceStorage** znajduje się na liście niestandardowych punktów końcowych. Zwróć uwagę na następujące cechy tego punktu końcowego:
 
-   * Wskazuje on kontener magazynu obiektów blob, który został utworzony `devicedata` , zgodnie z **nazwą kontenera**.
+   * Wskazuje on kontener magazynu obiektów blob, który został utworzony, `devicedata` zgodnie z **nazwą kontenera**.
    * Jego **Format nazwy pliku** zawiera partycję jako ostatni element w nazwie. Ten format jest wygodniejszy dla operacji na plikach, które będziemy wykonywać, Azure Notebooks w dalszej części tego samouczka.
    * Jego **stan** powinien być w dobrej kondycji.
 

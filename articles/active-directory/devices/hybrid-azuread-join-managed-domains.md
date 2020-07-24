@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8c4a128d46ca1b3f84981f9732f86ff49f72cc18
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317633"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025833"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen zarządzanych
 
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie dołączenia hybrydowego do usługi Azure AD
 > * Włączanie urządzeń z systemem Windows niższego poziomu
 > * Weryfikowanie dołączonych urządzeń
-> * Rozwiązywanie problemów
+> * Rozwiąż problemy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -164,7 +164,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 ### <a name="locally-on-the-device"></a>Lokalnie na urządzeniu
 
 1. Otwórz program Windows PowerShell.
-2. Wprowadź polecenie `dsregcmd /status`.
+2. Wprowadź `dsregcmd /status`.
 3. Sprawdź, czy dla obu **AzureAdJoined** i **DomainJoined** ustawiono wartość **tak**.
 4. Można użyć **DeviceID** i porównać stan usługi przy użyciu Azure Portal lub programu PowerShell.
 
@@ -177,7 +177,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
-Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 Korzystając z polecenia cmdlet **Get-MSolDevice** , można sprawdzić szczegóły usługi:
 

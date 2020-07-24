@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows — Azure
+title: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows — jesień 2019 — Azure
 description: Jak skonfigurować Azure Service Health do odbierania powiadomień usługi dla pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b3a29e97fbdf2579e2ef6a86b8dadf91f679366
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085830"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Samouczek: Konfigurowanie alertów usługi
+# <a name="tutorial-set-up-service-alerts---fall-2019"></a>Samouczek: Konfigurowanie alertów usługi — jesień 2019
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../set-up-service-alerts.md).

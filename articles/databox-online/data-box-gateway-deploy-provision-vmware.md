@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054114"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -93,7 +93,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
   
 3. Przekaż dysk VMDK na serwer ESXi. W okienku Navigator (Nawigator) wybierz pozycję **Storage** (Magazyn).
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Zrzut ekranu strony w witrynie serwera ESXi, który pokazuje okienko Nawigator z wybraną opcją magazyn.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. W okienku po prawej stronie, w obszarze **Datastores** (Magazyny danych), wybierz magazyn danych, do którego chcesz przekazać dysk VMDK. 
 
@@ -120,7 +120,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
     ![Wybierz plik do przekazania](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
-10. Kliknij przycisk **Open** (Otwórz). Rozpocznie się przekazywanie pliku VMDK do określonego magazynu danych. Przekazanie pliku może zająć kilka minut.
+10. Kliknij przycisk **Otwórz**. Rozpocznie się przekazywanie pliku VMDK do określonego magazynu danych. Przekazanie pliku może zająć kilka minut.
 11. Po zakończeniu przekazywania plik będzie widoczny w magazynie danych w utworzonym folderze. Teraz przekaż drugi plik VMDK do tego samego magazynu danych. Po przekazaniu obu plików zostaną one scalone w jeden plik. Wtedy w katalogu będzie widoczny pojedynczy plik.
 
     ![Dwa pliki VMDK są scalane w jeden plik](./media/data-box-gateway-deploy-provision-vmware/image8.png)

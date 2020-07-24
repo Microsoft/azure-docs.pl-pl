@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079982"
 ---
 # <a name="restart-vms"></a>Ponowne uruchamianie maszyn wirtualnych
 
@@ -86,15 +86,15 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Tworzy maszyny wirtualne.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Używane z opcją `--query` w celu upewnienia się, że maszyny wirtualne zostaną aprowizowane przed ponownym uruchomieniem, i pobrania identyfikatorów maszyn wirtualnych na potrzeby ich ponownego uruchomiania. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Używane z opcją `--query` w celu pobrania identyfikatorów maszyn wirtualnych za pomocą tagu. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Ponownie uruchamia maszyny wirtualne. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
+| [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az vm create](/cli/azure/vm/availability-set) | Tworzy maszyny wirtualne.  |
+| [az vm list](/cli/azure/vm) | Używane z opcją `--query` w celu upewnienia się, że maszyny wirtualne zostaną aprowizowane przed ponownym uruchomieniem, i pobrania identyfikatorów maszyn wirtualnych na potrzeby ich ponownego uruchomiania. |
+| [az resource list](/cli/azure/vm) | Używane z opcją `--query` w celu pobrania identyfikatorów maszyn wirtualnych za pomocą tagu. |
+| [az vm restart](/cli/azure/vm) | Ponownie uruchamia maszyny wirtualne. |
+| [az group delete](/cli/azure/vm/extension) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

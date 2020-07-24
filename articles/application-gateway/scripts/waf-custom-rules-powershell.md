@@ -6,14 +6,14 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffbab992732c39054818b9b4f21871687b05dcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66743423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083144"
 ---
-# <a name="create-waf-custom-rules-with-azure-powershell"></a>Tworzenie niestandardowych reguł WAF za pomocą Azure PowerShell
+# <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Tworzenie reguł niestandardowych zapory aplikacji sieci Web (WAF) za pomocą Azure PowerShell
 
 Ten skrypt tworzy Application Gateway zaporę aplikacji sieci Web, która korzysta z reguł niestandardowych. Reguła niestandardowa blokuje ruch, jeśli nagłówek żądania zawiera *Evilbot*User-Agent.
 
@@ -70,5 +70,5 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat reguł niestandardowych WAF, zobacz [reguły niestandardowe dla zapory aplikacji sieci Web](../custom-waf-rules-overview.md)
-- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 - Dodatkowe przykładowe skrypty programu PowerShell dotyczące bramy aplikacji można znaleźć w [dokumentacji usługi Azure Application Gateway](../powershell-samples.md).

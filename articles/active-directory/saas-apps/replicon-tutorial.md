@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84a93d4fb8a6a3890ddd2c94b4f0a5c9114bd84d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67092765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058199"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Samouczek: integracja Replicon z usługą Azure Active Directory
 
@@ -39,6 +39,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Replicon.
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -113,9 +116,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     * Poniżej przedstawiono schemat kompletnego adresu URL:`https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-   b. Kliknij, **+** aby rozwinąć sekcję **v20Configuration** .
+   b. Kliknij, **+** Aby rozwinąć sekcję **v20Configuration** .
 
-   c. Kliknij, **+** aby rozwinąć sekcję **metaDataConfiguration** .
+   c. Kliknij, **+** Aby rozwinąć sekcję **metaDataConfiguration** .
 
    d. Wybierz **SHA256** dla xmlSignatureAlgorithm
 
@@ -129,9 +132,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -171,7 +174,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w Replicon.
 
     ![Profil użytkownika](./media/replicon-tutorial/ic777808.png "Profil użytkownika")
 
-    a. W polu tekstowym **Nazwa logowania** wpisz adres E-mail usługi Azure AD, który ma być udostępniany użytkownikowi usługi Azure AD `B.Simon@contoso.com`.
+    a. W polu tekstowym **Nazwa logowania** wpisz adres E-mail usługi Azure AD, który ma być udostępniany użytkownikowi usługi Azure AD `B.Simon@contoso.com` .
 
     > [!NOTE]
     > Nazwa logowania musi być zgodna z adresem e-mail użytkownika w usłudze Azure AD
@@ -199,4 +202,4 @@ Po wybraniu kafelka Replicon w panelu dostępu należy automatycznie zalogować 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 21cb7133bad27013895a5e717cb7729b71795ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078963"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -39,7 +39,7 @@ Aby uzyskać szczegółowe informacje na temat kontroli dostępu Key Vault, zoba
    - [Tworzenie magazynu kluczy za pomocą interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md)
    - [Tworzenie magazynu kluczy za pomocą Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Utwórz magazyn kluczy z Azure Portal](../secrets/quick-create-portal.md).
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/overview). Alternatywnie możesz użyć [Azure Portal](https://portal.azure.com).
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/). Alternatywnie możesz użyć [Azure Portal](https://portal.azure.com).
 
 ## <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 

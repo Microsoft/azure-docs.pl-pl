@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 008927d607ef2a14e30e8e2090692ccd2bb1e7eb
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043474"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -49,7 +49,7 @@ Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure 
 * Azure IoT Hub
 * Konto usługi Azure Storage
 * Konto Azure Media Services
-* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -231,7 +231,7 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 
 ## <a name="interpret-the-results"></a>Interpretacja wyników 
 
-Po uruchomieniu grafu multimediów na żywo analiza filmów wideo w IoT Edge module wysyła do centrum IoT Edge pewne zdarzenia diagnostyczne i operacyjne. Zdarzenia te są wyświetlane w oknie **dane wyjściowe** Visual Studio Code. Zawierają one sekcję treści i sekcję applicationProperties. Aby zrozumieć, co reprezentuje Ta sekcja, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Po uruchomieniu grafu multimediów na żywo analiza filmów wideo w IoT Edge module wysyła do centrum IoT Edge pewne zdarzenia diagnostyczne i operacyjne. Zdarzenia te są wyświetlane w oknie **dane wyjściowe** Visual Studio Code. Zawierają one sekcję treści i sekcję applicationProperties. Aby zrozumieć, co reprezentuje Ta sekcja, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 W poniższych komunikatach właściwości aplikacji i zawartość treści są zdefiniowane przez moduł analizy wideo na żywo.
 
@@ -375,4 +375,4 @@ Jeśli zamierzasz wypróbować inne samouczki, zaczekaj na utworzone zasoby. W p
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj [aparatu IP](https://en.wikipedia.org/wiki/IP_camera) z obsługą protokołu RTSP, zamiast korzystać z symulatora RTSP. W celu wyszukania kamer IP z obsługą protokołu RTSP na [stronie ONVIF zgodne produkty](https://www.onvif.org/conformant-products/) można wyszukać urządzenia zgodne z profilami G, S lub T.
-* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.
+* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](../../iot-edge/quickstart-linux.md) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.

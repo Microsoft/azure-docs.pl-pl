@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiego iterowania aplikacji Node.js w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: 3ee8ec8eb78ccb8a7405fd00654ee00ebba8b7c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 286f4f37b0f34614b560c9a1758c18f5f7c586bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044333"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Utwórz przestrzeń Kubernetes dev: Visual Studio Code i Node.js z Azure Dev Spaces
 
@@ -20,10 +20,10 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 - Iteracyjne tworzenie kodu w kontenerach przy użyciu programu VS Code i wiersza polecenia.
 - Efektywne tworzenie i testowanie kodu w środowisku zespołu.
 
-> [!Note]
+> [!NOTE]
 > Jeśli w dowolnym momencie **masz zablokowany dostęp** do programu, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) .
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+## <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 Usługa Azure Dev Spaces wymaga minimalnej konfiguracji komputera lokalnego. Większość ustawień obszaru deweloperskiego jest przechowywana w chmurze i udostępniana innym użytkownikom. Zacznij od pobrania i uruchomienia [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
@@ -33,7 +33,7 @@ Zaloguj się do platformy Azure. W oknie terminala wpisz następujące polecenie
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Jeśli masz wiele subskrypcji platformy Azure...
@@ -126,7 +126,7 @@ azds up
 - Wyświetlane są informacje o punktach końcowych kontenera. W tym przypadku spodziewamy się publicznego adresu URL HTTP.
 - Zakładając, że powyższe etapy zakończą się powodzeniem, podczas uruchamiania kontenera powinny być widoczne dane wyjściowe `stdout` (i `stderr`).
 
-> [!Note]
+> [!NOTE]
 > Te kroki będą trwać dłużej podczas pierwszego uruchomienia polecenia `up`, ale kolejne uruchomienia powinny być szybsze.
 
 ### <a name="test-the-web-app"></a>Testowanie aplikacji internetowej
@@ -142,7 +142,7 @@ Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostan
 
 Aby wyświetlić swoją aplikację internetową, Otwórz publiczny adres URL w przeglądarce. Ponadto informacja `stdout` i `stderr` wyjście są przesyłane strumieniowo do okna terminalu *śledzenia azds* podczas korzystania z aplikacji sieci Web. Zobaczysz również informacje o śledzeniu żądań HTTP, które przechodzą przez system. Ułatwia to śledzenie złożonych wywołań wielousługowych podczas opracowywania. Instrumentacja dodana przez funkcję Spaces dev udostępnia śledzenie tego żądania.
 
-> [!Note]
+> [!NOTE]
 > Oprócz publicznego adresu URL można użyć alternatywnego `http://localhost:<portnumber>` adresu URL, który jest wyświetlany w danych wyjściowych konsoli. Jeśli używasz adresu URL hosta lokalnego, może się wydawać, że kontener działa lokalnie, ale w rzeczywistości jest uruchomiony na platformie Azure. Azure Dev Spaces używa funkcji *przesyłania dalej portów* Kubernetes, aby mapować port localhost do kontenera działającego w AKS. Ułatwia to korzystanie z usługi z komputera lokalnego.
 
 ### <a name="update-a-content-file"></a>Aktualizowanie pliku zawartości
@@ -199,9 +199,9 @@ Oprócz tego dostępna jest jeszcze *szybsza metoda* opracowywania kodu. Omówim
 
 W tej sekcji użyjesz programu VS Code do bezpośredniego debugowania naszego kontenera uruchomionego na platformie Azure. Ponadto dowiesz się, jak uzyskać szybszą pętlę edycji, uruchamiania i testowania.
 
-![](media/common/edit-refresh-see.png)
+![Diagram przedstawia pętlę programowania z trzema etapami: Edytuj kod, odśwież kontener i zobacz Aktualizacja.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Jeśli utkniesz** w dowolnym momencie, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) lub prześlij komentarz na tej stronie.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicjowanie zasobów debugowania za pomocą rozszerzenia programu VS Code
@@ -211,15 +211,15 @@ Otwórz okno **Paleta poleceń** (za pomocą menu **Widok | Paleta poleceń**) i
 
 Spowoduje to dodanie konfiguracji debugowania dla usługi Azure Dev Spaces w obszarze folderu `.vscode`. Nie należy mylić tego polecenia z poleceniem `azds prep`, które umożliwia skonfigurowanie projektu na potrzeby wdrożenia.
 
-![](media/common/command-palette.png)
+![Zrzut ekranu pokazuje wybór polecenia "Azure Dev Spaces: Przygotuj pliki konfiguracyjne dla Azure Dev Spaces" z okna paleta poleceń.](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Wybieranie konfiguracji debugowania w rozwiązaniu AZDS
 1. Aby otworzyć widok debugowania, kliknij ikonę debugowania na **pasku działań** w bocznej części programu VS Code.
 1. Wybierz pozycję **Launch Program (AZDS)** (Uruchom program [AZDS]) jako aktywną konfigurację debugowania.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+![Zrzut ekranu znajduje się w lewym górnym rogu okna Visual Studio Code. Ikona debugowania zostanie wyróżniona, po lewej stronie zatytułowanej "Debugowanie" i lista rozwijana z prawej strony tytułu pokazuje "program do uruchamiania (z D S)](media/get-started-node/debug-configuration-nodejs2.png)
 
-> [!Note]
+> [!NOTE]
 > Jeśli nie widzisz żadnych poleceń Azure Dev Spaces w palecie poleceń, upewnij się, że [zainstalowano rozszerzenie vs Code dla Azure dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
 ### <a name="debug-the-container-in-kubernetes"></a>Debugowanie kontenera w środowisku Kubernetes
@@ -227,10 +227,10 @@ Naciśnij klawisz **F5** , aby debugować swój kod w Kubernetes!
 
 Podobnie jak w przypadku polecenia `up` po rozpoczęciu debugowania kod jest synchronizowany ze środowiskiem deweloperskim, a kontener jest kompilowany i wdrażany w środowisku Kubernetes. Tym razem debuger jest dołączany do zdalnego kontenera.
 
-> [!Tip]
+> [!TIP]
 > VS Code pasek stanu zmieni kolor na pomarańczowy, co oznacza, że debuger jest dołączony. Zostanie również wyświetlony adres URL, który można kliknąć, aby szybko otworzyć lokację.
 
-![](media/common/vscode-status-bar-url.png)
+![Zrzut ekranu przedstawia dolną część okna Visual Studio Code. Pomarańczowy pasek stanu jest ostatnim wierszem. Zawiera U R L, aby otworzyć witrynę sieci Web.](media/common/vscode-status-bar-url.png)
 
 Ustaw punkt przerwania w pliku kodu po stronie serwera, na przykład w `app.get('/api'...` [wierszu `server.js` 13 ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
@@ -255,7 +255,7 @@ app.get('/api', function (req, res) {
 
 Zapisz plik, a następnie w **okienku Akcje debugowania**kliknij przycisk **Uruchom ponownie** . 
 
-![](media/common/debug-action-refresh.png)
+![Okienko akcje debugowania jest małym okienkiem w górnej części strony (tuż poniżej tytułu strony). Przycisk restart wyświetla strzałkę kolistą i jest wyróżniony. Obraz aktywowany dla przycisku to "Uruchom ponownie (Control + Shift + F 5)".](media/common/debug-action-refresh.png)
 
 Zamiast ponownego kompilowania i wdrażania nowego obrazu kontenera przy każdej zmianie kodu, co często zajmuje dużo czasu, usługa Azure Dev Spaces ponownie uruchamia proces Node.js między sesjami debugowania, co przyspiesza działanie pętli edytowania/debugowania.
 

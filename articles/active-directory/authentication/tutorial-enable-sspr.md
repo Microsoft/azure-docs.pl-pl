@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035030"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
 Azure Active Directory (usługa Azure AD) funkcja samoobsługowego resetowania haseł (SSPR) umożliwia użytkownikom zmianę lub Resetowanie hasła bez konieczności korzystania z administratora ani skontaktuj się z pomocą techniczną. Jeśli konto użytkownika jest zablokowane lub zapomni swoje hasło, może wykonać monit o odblokowanie siebie i zawracanie do pracy. Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu ani w aplikacji.
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki Start zawiera informacje o tym, jak włączyć funkcję samoobsługowego resetowania hasła. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony https://aka.ms/sspr .
+> W tym samouczku pokazano, jak włączyć funkcję samoobsługowego resetowania hasła. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony https://aka.ms/sspr .
 >
 > Jeśli Twój zespół IT nie włączył możliwości resetowania własnego hasła, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
@@ -41,9 +41,9 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto z uprawnieniami *administratora globalnego* .
 * Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku przetestujesz środowisko SSPR użytkownika końcowego za pomocą tego konta.
-    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../add-users-azure-active-directory.md).
+    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Grupa, do której należy użytkownik niebędący administratorem, na przykład *SSPR-test-Group*. W tym samouczku włączysz SSPR dla tej grupy.
-    * Jeśli musisz utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Jeśli musisz utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Włączanie samoobsługowego resetowania hasła
 
@@ -78,8 +78,8 @@ Gdy użytkownicy muszą odblokować swoje konto lub zresetować swoje hasło, s�
     * *Kod aplikacji mobilnej*
     * *Poczta e-mail*
     * *Telefon komórkowy*
-    * *Telefon biurowy*
-    * *Pytania zabezpieczające*
+
+    Dodatkowe metody uwierzytelniania, takie jak *telefon biurowy* lub *pytania zabezpieczające*, można włączyć odpowiednio do potrzeb firmy.
 
 1. Aby zastosować metody uwierzytelniania, wybierz pozycję **Zapisz**.
 
@@ -95,7 +95,7 @@ Administrator może ręcznie podać te informacje kontaktowe, a użytkownicy mog
 
 ## <a name="configure-notifications-and-customizations"></a>Konfigurowanie powiadomień i dostosowań
 
-Aby zapewnić użytkownikom informacje o aktywności konta, można skonfigurować powiadomienia e-mail, które będą wysyłane po wystąpieniu zdarzenia SSPR. Powiadomienia te mogą dotyczyć zarówno zwykłych kont użytkowników, jak i kont administratorów. W przypadku kont administratorów to powiadomienie stanowi dodatkową warstwę świadomości w przypadku resetowania hasła do konta administratora uprzywilejowanego za pomocą SSPR.
+Aby zapewnić użytkownikom informacje o aktywności konta, można skonfigurować powiadomienia e-mail, które będą wysyłane po wystąpieniu zdarzenia SSPR. Powiadomienia te mogą dotyczyć zarówno zwykłych kont użytkowników, jak i kont administratorów. W przypadku kont administratorów to powiadomienie stanowi dodatkową warstwę świadomości w przypadku resetowania hasła do konta administratora uprzywilejowanego za pomocą SSPR. Wszyscy administratorzy globalni otrzymają powiadomienie, gdy SSPR jest używany na koncie administratora.
 
 1. Na stronie **powiadomienia** w menu po lewej stronie Skonfiguruj następujące opcje:
 

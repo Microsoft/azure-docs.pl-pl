@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e2edd7930ba4555748791210ad303c54f93c347
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 59874387b6dfc23fddbd6c6eed89263a54389649
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048007"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: przewidywanie ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
@@ -121,7 +121,7 @@ Gdy dane zostaną przekonwertowane do formatu CSV, należy przekazać je do Mach
 
 3. Kliknij pozycję **+ NEW** (+NOWY) w dolnej części okna.
 
-4. Wybierz pozycję **DATASET** (ZESTAW DANYCH).
+4. Wybierz pozycję **zestaw danych**.
 
 5. Wybierz pozycję **FROM LOCAL FILE** (Z PLIKU LOKALNEGO).
 
@@ -195,7 +195,7 @@ Aby użyć [edycji metadanych][edit-metadata], należy najpierw określić kolum
 
     ![Dodawanie modułu Edytowanie metadanych](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
 
-    Czerwony wykrzyknik wskazuje, że dla tego modułu nie ustawiono jeszcze właściwości. Zrobisz to w następnym kroku.
+    Czerwony wykrzyknik wskazuje, że dla tego modułu nie ustawiono jeszcze właściwości. Zrobisz to w następnej kolejności.
 
     > [!TIP]
     > Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W tym przypadku kliknij dwukrotnie moduł [Edit Metadata][edit-metadata] (Edytowanie metadanych) i wpisz komentarz „Dodawanie nagłówków kolumn”. Kliknij dowolne miejsce na kanwie, aby zamknąć pole tekstowe. Aby wyświetlić komentarz, kliknij strzałkę w dół na module.
@@ -311,6 +311,6 @@ Teraz możesz przystąpić do trenowania i ewaluowania modeli dla tych danych.
 > [Samouczek 2 — Trenowanie i ewaluowanie modeli](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
+[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data

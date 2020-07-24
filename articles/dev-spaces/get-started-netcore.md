@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiego iterowania aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c73c191054c9eee183a762d0a029d6c8dc431ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013644"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Utwórz przestrzeń Kubernetes dev: Visual Studio Code i .NET Core z Azure Dev Spaces
 
@@ -20,10 +20,10 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 - Iteracyjne tworzenie kodu w kontenerach przy użyciu programu VS Code i wiersza polecenia.
 - Efektywne tworzenie i testowanie kodu w środowisku zespołu.
 
-> [!Note]
+> [!NOTE]
 > Jeśli w dowolnym momencie **masz zablokowany dostęp** do programu, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) .
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+## <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 Usługa Azure Dev Spaces wymaga minimalnej konfiguracji komputera lokalnego. Większość ustawień obszaru deweloperskiego jest przechowywana w chmurze i udostępniana innym użytkownikom. Zacznij od pobrania i uruchomienia [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
@@ -33,7 +33,7 @@ Zaloguj się do platformy Azure. W oknie terminala wpisz następujące polecenie
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Jeśli masz wiele subskrypcji platformy Azure...
@@ -126,7 +126,7 @@ azds up
 - Wyświetlane są informacje o punktach końcowych kontenera. W tym przypadku spodziewamy się publicznego adresu URL HTTP.
 - Zakładając, że powyższe etapy zakończą się powodzeniem, podczas uruchamiania kontenera powinny być widoczne dane wyjściowe `stdout` (i `stderr`).
 
-> [!Note]
+> [!NOTE]
 > Te kroki będą trwać dłużej podczas pierwszego uruchomienia polecenia `up`, ale kolejne uruchomienia powinny być szybsze.
 
 ### <a name="test-the-web-app"></a>Testowanie aplikacji internetowej
@@ -151,14 +151,13 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostanie ona zakończona `.azds.io`. W powyższym przykładzie publiczny adres URL to `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostanie ona zakończona `.azds.io` . W powyższym przykładzie publiczny adres URL to `http://webfrontend.1234567890abcdef1234.eus.azds.io/` .
 
 Aby wyświetlić swoją aplikację internetową, Otwórz publiczny adres URL w przeglądarce. Ponadto informacja `stdout` i `stderr` wyjście są przesyłane strumieniowo do okna terminalu *śledzenia azds* podczas korzystania z aplikacji sieci Web. Zobaczysz również informacje o śledzeniu żądań HTTP, które przechodzą przez system. Ułatwia to śledzenie złożonych wywołań wielousługowych podczas opracowywania. Instrumentacja dodana przez funkcję Spaces dev udostępnia śledzenie tego żądania.
 
-![okno terminalu śledzenia azds](media/get-started-netcore/azds-trace.png)
+![okno terminalu śledzenia z d s](media/get-started-netcore/azds-trace.png)
 
-
-> [!Note]
+> [!NOTE]
 > Oprócz publicznego adresu URL można użyć alternatywnego `http://localhost:<portnumber>` adresu URL, który jest wyświetlany w danych wyjściowych konsoli. Jeśli używasz adresu URL hosta lokalnego, może się wydawać, że kontener działa lokalnie, ale faktycznie jest on uruchamiany w usłudze AKS. Azure Dev Spaces używa funkcji *przesyłania dalej portów* Kubernetes, aby mapować port localhost do kontenera działającego w AKS. Ułatwia to korzystanie z usługi z komputera lokalnego.
 
 ### <a name="update-a-content-file"></a>Aktualizowanie pliku zawartości
@@ -191,9 +190,9 @@ Oprócz tego dostępna jest jeszcze *szybsza metoda* opracowywania kodu. Omówim
 
 W tej sekcji użyjesz programu VS Code do bezpośredniego debugowania naszego kontenera uruchomionego na platformie Azure. Ponadto dowiesz się, jak uzyskać szybszą pętlę edycji, uruchamiania i testowania.
 
-![](media/common/edit-refresh-see.png)
+![Diagram przedstawia pętlę programowania z trzema etapami: Edytuj kod, odśwież kontener i zobacz Aktualizacja.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Jeśli utkniesz** w dowolnym momencie, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) lub prześlij komentarz na tej stronie.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicjowanie zasobów debugowania za pomocą rozszerzenia programu VS Code
@@ -203,16 +202,16 @@ Otwórz okno **Paleta poleceń** (za pomocą menu **Widok | Paleta poleceń**) i
 
 Spowoduje to dodanie konfiguracji debugowania dla usługi Azure Dev Spaces w obszarze folderu `.vscode`. Nie należy mylić tego polecenia z poleceniem `azds prep`, które umożliwia skonfigurowanie projektu na potrzeby wdrożenia.
 
-![](media/common/command-palette.png)
+![Ten zrzut ekranu pokazuje wybór polecenia "Azure Dev Spaces: Przygotuj pliki konfiguracyjne dla Azure Dev Spaces" z okna paleta poleceń.](media/common/command-palette.png)
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Wybieranie konfiguracji debugowania w rozwiązaniu AZDS
 1. Aby otworzyć widok debugowania, kliknij ikonę debugowania na **pasku działań** w bocznej części programu VS Code.
 1. Wybierz pozycję **.NET Core Launch (AZDS)** (Uruchamianie programu .NET Core [AZDS]) jako aktywną konfigurację debugowania.
 
-![](media/get-started-netcore/debug-configuration.png)
+![Zrzut ekranu znajduje się w lewym górnym rogu okna Visual Studio Code. Ikona debugowania zostanie wyróżniona, po lewej stronie jest zatytułowana "Debugowanie", a lista rozwijana po prawej stronie tytułu ukazuje wartość "uruchomienie" punktu końcowego netto (z D S).](media/get-started-netcore/debug-configuration.png)
 
-> [!Note]
+> [!NOTE]
 > Jeśli na palecie poleceń nie widać żadnych poleceń usługi Azure Dev Spaces, upewnij się, że masz zainstalowane rozszerzenie VS Code dla usługi Azure Dev Spaces. Upewnij się, że obszar roboczy otwarty w programie VS Code odpowiada folderowi zawierającemu plik azds.yaml.
 
 
@@ -221,10 +220,10 @@ Po naciśnięciu klawisza **F5** możesz debugować kod w środowisku Kubernetes
 
 Podobnie jak w przypadku polecenia `up` kod jest synchronizowany z obszarem deweloperskim, a kontener jest kompilowany i wdrażany w środowisku Kubernetes. Oczywiście tym razem debuger jest dołączany do zdalnego kontenera.
 
-> [!Tip]
+> [!TIP]
 > VS Code pasek stanu zmieni kolor na pomarańczowy, co oznacza, że debuger jest dołączony. Zostanie również wyświetlony adres URL, który można kliknąć, aby otworzyć lokację.
 
-![](media/common/vscode-status-bar-url.png)
+![Zrzut ekranu przedstawia dolną część okna Visual Studio Code. Pomarańczowy pasek stanu jest ostatnim wierszem. Zawiera U R L, aby otworzyć witrynę sieci Web.](media/common/vscode-status-bar-url.png)
 
 Ustaw punkt przerwania w pliku kodu po stronie serwera, na przykład w obrębie funkcji `About()` w pliku źródłowym `Controllers/HomeController.cs`. Odświeżenie strony w przeglądarce powoduje aktywowanie punktu przerwania.
 
@@ -243,7 +242,7 @@ public IActionResult About()
 
 Zapisz plik, a następnie w **okienku Akcje debugowania**kliknij przycisk **Uruchom ponownie** . 
 
-![](media/common/debug-action-refresh.png)
+![Okienko akcje debugowania jest małym okienkiem w górnej części strony (tuż poniżej tytułu strony). Zostanie wyróżniony przycisk Uruchom ponownie z okrągłą strzałką. Obraz aktywowany dla przycisku to "Uruchom ponownie (Control + Shift + F 5)".](media/common/debug-action-refresh.png)
 
 Zamiast ponownego kompilowania i wdrażania nowego obrazu kontenera przy każdej zmianie kodu, co często zajmuje dużo czasu, usługa Azure Dev Spaces przyrostowo ponownie kompiluje kod w istniejącym kontenerze, co przyspiesza działanie pętli edytowania/debugowania.
 

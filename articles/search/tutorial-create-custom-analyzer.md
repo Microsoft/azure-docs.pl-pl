@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 8d04099f2835102b8fdf63b26bd19b43b206cf6a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021889"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -38,7 +38,7 @@ W tym samouczku są wymagane następujące usługi i narzędzia.
 
 ## <a name="download-files"></a>Pobieranie plików
 
-Kod źródłowy tego samouczka znajduje się w folderze [Custom-analizatorers](https://github.com/Azure-Samples/azure-search-postman-samples/custom-analyzers) w repozytorium [Azure-Samples/Azure-Search-Poster](https://github.com/Azure-Samples/azure-search-postman-samples) .
+Kod źródłowy tego samouczka znajduje się w folderze [Custom-analizatorers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) w repozytorium [Azure-Samples/Azure-Search-Poster](https://github.com/Azure-Samples/azure-search-postman-samples) .
 
 ## <a name="1---create-azure-cognitive-search-service"></a>1 — Tworzenie usługi Azure Wyszukiwanie poznawcze
 
@@ -586,7 +586,7 @@ Analizator zdefiniowany w tym samouczku oferuje łatwe rozwiązanie do wyszukiwa
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy pracujesz nad własną subskrypcją, dobrym pomysłem jest usunięcie zasobów, które nie są już potrzebne na końcu projektu. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy pracujesz nad własną subskrypcją, dobrym pomysłem jest usunięcie zasobów, które nie są już potrzebne na końcu projektu. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

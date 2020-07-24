@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/15/2020
-ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 07/15/2020
+ms.openlocfilehash: 760624b06d00a873ff48c659ef65f9af62cd6454
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084028"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
@@ -42,7 +42,7 @@ Zacznijmy od najprostszego przypadku zaoferowania użytkownikowi alternatywy: li
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-2. Po ** &lt;zamknięciu&gt;tej zasady należy wprowadzić**ten skrypt. Ten skrypt korzysta z [widżetu Autouzupełnianie](https://api.jqueryui.com/autocomplete/) z biblioteki interfejsu użytkownika Open-Source w celu wyświetlenia listy rozwijanej sugerowanych wyników. 
+2. Po ** &lt; &gt; zamknięciu tej zasady należy wprowadzić**ten skrypt. Ten skrypt korzysta z [widżetu Autouzupełnianie](https://api.jqueryui.com/autocomplete/) z biblioteki interfejsu użytkownika Open-Source w celu wyświetlenia listy rozwijanej sugerowanych wyników. 
 
     ```javascript
     <script>
@@ -61,7 +61,7 @@ Zacznijmy od najprostszego przypadku zaoferowania użytkownikowi alternatywy: li
 
 ### <a name="add-references-to-jquery-scripts-to-the-view"></a>Dodawanie odwołań do skryptów jQuery do widoku
 
-1. Aby uzyskać dostęp do biblioteki jQuery, Zmień &lt;sekcję&gt; nagłówkową pliku widoku na następujący kod:
+1. Aby uzyskać dostęp do biblioteki jQuery, Zmień &lt; sekcję nagłówkową &gt; pliku widoku na następujący kod:
 
     ```cs
     <head>
@@ -308,7 +308,7 @@ Istnieją biblioteki, które oferują tę funkcję — często nazywane "wbudowa
 
     Jedna opcja autouzupełniania jest zwracana u góry listy **wyników** , a następnie wszystkie sugestie.
 
-2. W widoku najpierw implementujemy lewę, aby jasne, szare słowo uzupełniające jest renderowane bezpośrednio w obszarze tekstu pogrubionego przez użytkownika. Język HTML zawiera Pozycjonowanie względne do tego celu. Zmień instrukcję **TextBoxFor** (i jej otaczające &lt;instrukcje&gt; DIV) na następujące polecenie, zwracając uwagę, że drugie pole wyszukiwania identyfikowane jako **część jest bezpośrednio** pod naszym normalnym polem wyszukiwania, pobierając to pole wyszukiwania 39 pikseli z lokalizacji domyślnej.
+2. W widoku najpierw implementujemy lewę, aby jasne, szare słowo uzupełniające jest renderowane bezpośrednio w obszarze tekstu pogrubionego przez użytkownika. Język HTML zawiera Pozycjonowanie względne do tego celu. Zmień instrukcję **TextBoxFor** (i jej otaczające &lt; &gt; instrukcje DIV) na następujące polecenie, zwracając uwagę, że drugie pole wyszukiwania identyfikowane **underneath** jako część jest bezpośrednio pod naszym normalnym polem wyszukiwania, pobierając to pole wyszukiwania 39 pikseli z lokalizacji domyślnej.
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">

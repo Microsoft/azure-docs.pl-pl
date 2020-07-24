@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 94f8e80c7c5cb13646fbd284f2a2d7b2f6308614
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Samouczek: integracja Azure Active Directory z usługą Peakon
 
@@ -32,7 +32,7 @@ Integracja Peakon z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,6 +40,9 @@ Aby skonfigurować integrację usługi Azure AD z usługą Peakon, potrzebne są
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
 * Subskrypcja z włączonym logowaniem jednokrotnym w Peakon
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -162,7 +165,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Peakon, wyk
 
     e. Kliknij **ikonę** , aby skopiować **adres URL odpowiedzi (ACS)** i wkleić w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    f. Kliknij przycisk **Zapisz**
+    f. Kliknij pozycję **Zapisz**
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -187,7 +190,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -238,7 +241,7 @@ W przypadku Peakon, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym
 
     a. W polu tekstowym **Nazwa** wpisz imię i nazwisko jako **Britta** i nazwisko jako **Simon**.
 
-    b. W polu tekstowym **adres e-mail** wpisz adres e-mail, na **przykład\@Brittasimon contoso.com**.
+    b. W polu tekstowym **adres e-mail** wpisz adres e-mail, na przykład **Brittasimon \@ contoso.com**.
 
     c. Kliknij pozycję **Utwórz pracownika**.
 
@@ -254,5 +257,5 @@ Po kliknięciu kafelka Peakon w panelu dostępu należy automatycznie zalogować
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

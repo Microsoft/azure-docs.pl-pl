@@ -9,18 +9,21 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 03/04/2020
-ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/10/2020
+ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047865"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-W tym samouczku dowiesz się, jak utworzyć podstawowy model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu automatycznego interfejsu uczenia maszynowego Azure Machine Learning. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
+W tym samouczku dowiesz się, jak utworzyć podstawowy model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
+
+>[!IMPORTANT]
+> Automatyczne Uczenie maszynowe w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
 
 Dzięki zautomatyzowanej usłudze Machine Learning można zautomatyzować czasochłonne zadania. Automatyczne Uczenie maszynowe szybko iteruje wiele kombinacji algorytmów i parametrów, aby ułatwić znalezienie najlepszego modelu w oparciu o pomyślną metrykę wybrania.
 
@@ -36,26 +39,26 @@ W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://aka.ms/AMLFree).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 
-* Pobierz plik danych [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . Kolumna **y** wskazuje, czy klient subskrybuje stały termin wpłaty, który jest później zidentyfikowany jako kolumna docelowa dla prognoz w tym samouczku. 
+* Pobierz plik danych [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . Kolumna **y** wskazuje, czy klient subskrybuje stały termin wpłaty, który jest później zidentyfikowany jako kolumna docelowa dla prognoz w tym samouczku. 
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
 Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze. 
 
-Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za pośrednictwem Azure Portal konsoli internetowej.
+Utwórz obszar roboczy **wersji Enterprise Edition** za pośrednictwem Azure Portal konsoli internetowej do zarządzania zasobami platformy Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
-## <a name="create-and-run-the-experiment"></a>Tworzenie i uruchamianie eksperymentu
+## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
 
-Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków za pośrednictwem usługi Azure Machine Learning w systemie https://ml.azure.com , skonsolidowanego interfejsu sieci Web, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności. Ten interfejs nie jest obsługiwany w przeglądarkach programu Internet Explorer.
+Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków za pośrednictwem Azure Machine Learning Studio at https://ml.azure.com , skonsolidowanego interfejsu sieci Web zawierającego narzędzia uczenia maszynowego w celu przeprowadzenia scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 
-1. Zaloguj się do [Azure Machine Learning](https://ml.azure.com).
+1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
@@ -67,7 +70,11 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
    ![Strona Wprowadzenie](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Wybierz kolejno pozycje **Nowy zautomatyzowany przebieg**. 
+1. Wybierz pozycję **+ Nowy zautomatyzowany przebiegu ml**. 
+
+## <a name="create-and-load-dataset"></a>Utwórz i Załaduj zestaw danych
+
+Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w formie zestawu danych Azure Machine Learning. Dzięki temu można upewnić się, że dane są sformatowane odpowiednio do eksperymentu.
 
 1. Utwórz nowy zestaw danych, wybierając pozycję **z plików lokalnych** z listy rozwijanej **+ Utwórz zestaw danych** . 
 
@@ -79,7 +86,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
     1. Wybierz pozycję **Przeglądaj**.
     
-    1. Wybierz plik **csv bankmarketing_train** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+    1. Wybierz plik **bankmarketing_train.csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Nadaj zestawowi danych unikatową nazwę i podaj opcjonalny opis. 
 
@@ -93,52 +100,61 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
         Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
-        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Encoding|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz opcję **Dalej**.
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz przycisk **Dalej**.
 
         ![Konfiguracja karty podglądu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
+    1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach, magazynie danych i wyborze plików** oraz w formularzach **podglądu** .
+    
     1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
+    
     1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
+    
     1. Przejrzyj **Podgląd danych** , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK**.
 
     1. Wybierz pozycję **dalej**.
+
+## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
+
+Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta konfiguracja obejmuje eksperymentowe zadania projektowe, takie jak, wybranie rozmiaru środowiska obliczeniowego i określenie kolumny, która ma zostać przewidywalna. 
 
 1. Wypełnij formularz **konfigurowania przebiegu** w następujący sposób:
     1. Wprowadź nazwę tego eksperymentu:`my-1st-automl-experiment`
 
     1. Zaznacz opcję **y** jako kolumnę docelową, którą chcesz przewidzieć. Ta kolumna wskazuje, czy klient subskrybuje termin depozytowy.
+    
     1. Wybierz pozycję **Utwórz nowe obliczenie** i skonfiguruj obiekt docelowy obliczeń. Obiekt docelowy obliczeń to lokalne lub oparte na chmurze środowisko zasobów używane do uruchamiania skryptu szkoleniowego lub hostowania wdrożenia usługi. W przypadku tego eksperymentu używamy obliczeń opartych na chmurze. 
 
         Pole | Opis | Wartość dla samouczka
         ----|---|---
         Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|automl — obliczenia
+        &nbsp;Typ maszyny &nbsp; wirtualnej| Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
         &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
-        Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
-  
+        Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
+        Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
+        Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak
         1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
 
             **Wykonanie tej czynności może zająć kilka minut.** 
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz opcję **Dalej**.
+    1. Wybierz przycisk **Dalej**.
 
-1. W formularzu **Typ zadania i ustawienia** wybierz pozycję **Klasyfikacja** jako typ zadania Uczenie maszynowe.
+1. Na formularzu **Typ i ustawienia zadania** Ukończ konfigurację eksperymentu zautomatyzowanej sieci, określając typ zadania Uczenie maszynowe i ustawienia konfiguracji.
+    
+    1.  Wybierz pozycję **Klasyfikacja** jako typ zadania Uczenie maszynowe.
 
     1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
 
-        >[!NOTE]
-        > W tym samouczku nie ustawisz oceny metryki lub maksymalnej liczby rdzeni na wartość progową iteracji. Nie można natomiast blokować algorytmów.
-   
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|AUC_weighted
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
+        Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 1 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
         Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
@@ -161,7 +177,7 @@ Przejdź do karty **modele** , aby zobaczyć przetestowane algorytmy (modele). D
 
 Podczas oczekiwania na zakończenie wszystkich modeli eksperymentów wybierz **nazwę algorytmu** kompletnego modelu, aby poznać jego szczegóły wydajności. 
 
-Poniżej przedstawiono **Informacje o modelu** i kartach **wizualizacje** , aby wyświetlić właściwości, metryki i wykresy wydajności wybranego modelu. 
+Poniższe informacje umożliwiają nawigowanie po kartach **szczegóły** i **metryki** , aby wyświetlić właściwości, metryki i wykresy wydajności wybranego modelu. 
 
 ![Szczegóły przebiegu iteracji](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
@@ -171,11 +187,15 @@ Zautomatyzowany interfejs uczenia maszynowego umożliwia wdrożenie najlepszego 
 
 W przypadku tego eksperymentu wdrożenie do usługi sieci Web oznacza, że instytucja finansowa ma teraz iteracyjne i skalowalne rozwiązanie sieci Web służące do identyfikowania potencjalnych klientów z krótkoterminowymi wpłatami. 
 
-Po zakończeniu przebiegu Wróć do strony **szczegóły uruchamiania** i wybierz kartę **modele** .
+Sprawdź, czy Twoje uruchomienie eksperymentu zostało zakończone. Aby to zrobić, przejdź z powrotem do strony uruchomienia nadrzędnego, wybierając pozycję **Uruchom 1** w górnej części ekranu. Stan **ukończony** jest pokazywany w lewym górnym rogu ekranu. 
 
-W tym kontekście eksperymentu **VotingEnsemble** jest uznawany za najlepszy model na podstawie metryki **AUC_weighted** .  Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdrażania obejmuje kilka czynności, takich jak rejestrowanie modelu, Generowanie zasobów i konfigurowanie ich dla usługi sieci Web.
+Po zakończeniu eksperymentu na stronie **szczegółów** zostanie wypełniona **Najlepsza sekcja podsumowująca model** . W tym kontekście eksperymentu **VotingEnsemble** jest uznawany za najlepszy model na podstawie metryki **AUC_weighted** .  
 
-1. Wybierz przycisk **Wdróż najlepszy model** w lewym dolnym rogu.
+Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdrażania obejmuje kilka czynności, takich jak rejestrowanie modelu, Generowanie zasobów i konfigurowanie ich dla usługi sieci Web.
+
+1. Wybierz pozycję **VotingEnsemble** , aby otworzyć stronę specyficzną dla modelu.
+
+1. Wybierz przycisk **Wdróż** w lewym górnym rogu.
 
 1. Wypełnij okienko **Wdróż model** w następujący sposób:
 
@@ -191,7 +211,7 @@ W tym kontekście eksperymentu **VotingEnsemble** jest uznawany za najlepszy mod
 
 1. Wybierz pozycję **Wdróż**.  
 
-    Zielony komunikat o powodzeniu pojawia się u góry ekranu **uruchamiania** , a w okienku **zalecany model** zostanie wyświetlony komunikat o stanie w obszarze **Wdróż stan**. Należy okresowo wybierać pozycję **Odśwież** , aby sprawdzić stan wdrożenia.
+    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, a w okienku **Podsumowanie modelu** zostanie wyświetlony komunikat o stanie w obszarze **Wdróż stan**. Należy okresowo wybierać pozycję **Odśwież** , aby sprawdzić stan wdrożenia.
     
 Teraz masz działającą usługę sieci Web do generowania prognoz. 
 

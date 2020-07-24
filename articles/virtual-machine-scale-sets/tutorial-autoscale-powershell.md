@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011038"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell
 
@@ -70,13 +70,13 @@ W tej regule są używane następujące parametry:
 | *-Metricname*           | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
 | *-TimeGrain*            | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta       |
 | *-MetricStatistic*      | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
-| *-TimeWindow*           | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut      |
+| *-TimeWindow*           | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 min      |
 | *-— Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
-| *-Threshold*            | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%            |
+| *-Próg*            | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%            |
 | *-ScaleActionDirection* | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w górę czy w dół.                                             | Zwiększ       |
 | *-ScaleActionScaleType* | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian   |
 | *-ScaleActionValue*     | Wartość procentowa liczby wystąpień maszyn wirtualnych, która powinna zostać zmieniona po wyzwoleniu reguły.                                            | 3              |
-| *-ScaleActionCooldown*  | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut      |
+| *-ScaleActionCooldown*  | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 min      |
 
 W poniższym przykładzie utworzono obiekt o nazwie *myRuleScaleOut*, który przechowuje tę regułę skalowania w górę. Parametr *-MetricResourceId* używa zmiennych zdefiniowanych wcześniej dla identyfikatora subskrypcji, nazwy grupy zasobów i nazwy zestawu skalowania:
 
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>Tworzenie reguły skalowania automatycznego w pionie
 Wieczorami lub w weekendy zapotrzebowanie aplikacji może być mniejsze. Jeśli spadek obciążenia ma cechy stałego trendu w danym okresie, można skonfigurować reguły skalowania automatycznego umożliwiające zmniejszenie liczby wystąpień maszyn wirtualnych w zestawie skalowania. Akcja skalowania w pionie ogranicza koszt używania zestawu skalowania, ponieważ jest uruchomionych tylko tyle wystąpień, ile jest wymaganych do zaspokojenia bieżącego zapotrzebowania.
 
-Za pomocą polecenia [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) utwórz inną regułę, która zmniejsza liczbę wystąpień maszyn wirtualnych w zestawie skalowania, jeśli w okresie pięciu minut średnie obciążenie procesora CPU spadnie poniżej 30%. Wyzwolenie reguły powoduje zmniejszenie liczby wystąpień maszyn wirtualnych o jeden. W poniższym przykładzie utworzono obiekt o nazwie *myRuleScaleDown*, który przechowuje tę regułę skalowania w górę. Parametr *-MetricResourceId* używa zmiennych zdefiniowanych wcześniej dla identyfikatora subskrypcji, nazwy grupy zasobów i nazwy zestawu skalowania:
+Za pomocą polecenia [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) utwórz inną regułę, która zmniejsza liczbę wystąpień maszyn wirtualnych w zestawie skalowania, jeśli w okresie pięciu minut średnie obciążenie procesora CPU spadnie poniżej 30%. Gdy reguła jest wyzwalana, liczba wystąpień maszyn wirtualnych zostanie zmniejszona o jeden. Poniższy przykład tworzy obiekt o nazwie *myRuleScaleDown* , który przechowuje tę regułę skalowania w dół. Parametr *-MetricResourceId* używa zmiennych zdefiniowanych wcześniej dla identyfikatora subskrypcji, nazwy grupy zasobów i nazwy zestawu skalowania:
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `

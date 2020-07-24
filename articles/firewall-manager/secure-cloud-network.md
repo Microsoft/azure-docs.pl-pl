@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084708"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
 
@@ -27,16 +27,19 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej będącej szprychą
 > * Tworzenie bezpiecznego centrum wirtualnego
-> * Łączenie gwiazdy i sieci wirtualnych
-> * Tworzenie zasad zapory i zabezpieczanie centrum
+> * Łączenie sieci wirtualnych Hub i gwiazdy
 > * Kierowanie ruchu do centrum
+> * Wdrażanie serwerów
+> * Tworzenie zasad zapory i zabezpieczanie centrum
 > * Testowanie zapory
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Tworzenie architektury gwiazdy
 
-Najpierw Utwórz sieć wirtualną szprych, w której można umieścić serwery.
+Najpierw utwórz sieci wirtualne szprychy, w których można umieścić serwery.
 
-### <a name="create-a-spoke-virtual-network-and-subnets"></a>Tworzenie sieci wirtualnej i podsieci dla szprychy
+### <a name="create-two-spoke-virtual-networks-and-subnets"></a>Tworzenie dwóch sieci wirtualnych szprych i podsieci
+
+Każda z tych sieci wirtualnych będzie zawierać w nich serwer obciążenia i będzie chroniona przez zaporę.
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Sieć**wybierz pozycję **Sieć wirtualna**.
@@ -45,23 +48,20 @@ Najpierw Utwórz sieć wirtualną szprych, w której można umieścić serwery.
 2. W obszarze **Nazwa**wpisz polecenie **szprych-01**.
 3. W **obszarze region**wybierz pozycję **(US) Wschodnie stany USA**.
 4. Wybierz pozycję **Dalej: adresy IP**.
-1. W polu **przestrzeń adresowa**zaakceptuj domyślną wartość **10.0.0.0/16**.
-3. W obszarze **Nazwa podsieci**wybierz pozycję **domyślne**.
-4. Zmień nazwę podsieci na **obciążenie-SN**.
-5. W obszarze **zakres adresów podsieci**wpisz **10.0.1.0/24**.
-6. Wybierz pozycję **Zapisz**.
-
-Następnie Utwórz podsieć dla serwera skoku.
-
-1. Wybierz pozycję **Dodaj podsieć**.
-4. W obszarze **Nazwa podsieci**wpisz polecenie **skoku-SN**.
-5. W obszarze **zakres adresów podsieci**wpisz **10.0.2.0/24**.
+1. W **polu przestrzeń adresowa**wpisz **10.1.0.0/16**.
+3. Wybierz pozycję **Dodaj podsieć**.
+4. Typ **obciążenia-01-SN**.
+5. W obszarze **zakres adresów podsieci**wpisz **10.1.1.0/24**.
 6. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
+2. Wybierz pozycję **Utwórz**.
 
-Teraz Utwórz sieć wirtualną.
+Powtórz tę procedurę, aby utworzyć kolejną podobną sieć wirtualną:
 
-1. Wybierz pozycję **Przegląd + utwórz**.
-2. Wybierz przycisk **Utwórz**.
+Nazwa: **szprychy-02**<br>
+Przestrzeń adresowa: **10.2.0.0/16**<br>
+Nazwa podsieci: **obciążenie-02-SN**<br>
+Zakres adresów podsieci: **10.2.1.0/24**
 
 ### <a name="create-the-secured-virtual-hub"></a>Tworzenie bezpiecznego centrum wirtualnego
 
@@ -74,26 +74,93 @@ Utwórz bezpieczne centrum wirtualne przy użyciu Menedżera zapory.
 5. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W **obszarze region**wybierz pozycję **Wschodnie stany USA**.
 1. W polu **Nazwa zabezpieczonego koncentratora wirtualnego**wpisz **Hub-01**.
-2. W **polu przestrzeń adresowa usługi Hub**wpisz **10.1.0.0/16**.
+2. W **polu przestrzeń adresowa centrum**wpisz **10.0.0.0/16**.
 3. Dla nowej nazwy vWAN wpisz **vWAN-01**.
 4. Pozostaw zaznaczone pole wyboru **Uwzględnij bramę sieci VPN, aby włączyć zaufanych partnerów zabezpieczeń** .
 5. Wybierz pozycję **Dalej: Zapora platformy Azure**.
 6. Zaakceptuj domyślne ustawienie **zapory platformy Azure** **Enabled** , a następnie wybierz pozycję **Dalej: zaufany partner zabezpieczeń**.
 7. Zaakceptuj ustawienie domyślny **zaufany partner zabezpieczeń** **Disabled** , a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz**.
-8. Wybierz przycisk **Utwórz**. Wdrożenie zajmie około 30 minut.
+8. Wybierz pozycję **Utwórz**. Wdrożenie zajmie około 30 minut.
 
-### <a name="connect-the-hub-and-spoke-vnets"></a>Łączenie gwiazdy i sieci wirtualnych
+Teraz możesz uzyskać publiczny adres IP zapory.
 
-Teraz możesz połączyć się za pomocą elementu równorzędnego z koncentratorem i szprychą sieci wirtualnych.
+1. Po zakończeniu wdrażania na Azure Portal wybierz **wszystkie usługi**.
+1. Wpisz **Menedżer zapory** , a następnie wybierz pozycję **Menedżer zapory**.
+2. Wybierz pozycję **zabezpieczone centra wirtualne**.
+3. Wybierz pozycję **Hub-01**.
+7. Wybierz pozycję **Konfiguracja publicznego adresu IP**.
+8. Zanotuj publiczny adres IP do użycia później.
+
+### <a name="connect-the-hub-and-spoke-virtual-networks"></a>Łączenie sieci wirtualnych Hub i gwiazdy
+
+Teraz można połączyć równorzędne sieci wirtualne z koncentratorem i szprychą.
 
 1. Wybierz grupę zasobów **Menedżer zapory** , a następnie wybierz wirtualną sieć WAN **Vwan-01** .
 2. W obszarze **łączność**wybierz pozycję **połączenia sieci wirtualnej**.
 3. Wybierz pozycję **Dodaj połączenie**.
-4. W obszarze **Nazwa połączenia**wpisz **Hub-szprych**.
+4. W obszarze **Nazwa połączenia**wpisz **Hub-szprych-01**.
 5. W przypadku **centrów**wybierz pozycję **Hub-01**.
 6. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W obszarze **Sieć wirtualna**wybierz opcję **szprych-01**.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
+
+Powtórz, aby połączyć sieć wirtualną **szprych-02** : Connection Name- **Hub-02**
+
+### <a name="configure-the-hub-and-spoke-routing"></a>Konfigurowanie routingu Hub i gwiazdy
+
+W Azure Portal Otwórz Cloud Shell i uruchom następujące Azure PowerShell w celu skonfigurowania wymaganego routingu Hub i satelity.
+
+```azurepowershell
+$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
+                  -HubName hub-01 -Name noneRouteTable
+$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+             -ParentResourceName hub-01
+
+$vnetConn = $vnetConns[0]
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
+Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+   -ParentResourceName hub-01 -Name $vnetConn.Name `
+   -RoutingConfiguration $vnetConn.RoutingConfiguration
+
+$vnetConn = $vnetConns[1]
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
+Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
+```
+
+## <a name="deploy-the-servers"></a>Wdrażanie serwerów
+
+1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób**.
+2. Wybierz pozycję **Windows Server 2016 Datacenter** na **popularnej** liście.
+3. Wprowadź poniższe wartości dla maszyny wirtualnej:
+
+   |Ustawienie  |Wartość  |
+   |---------|---------|
+   |Grupa zasobów     |**PD — Menedżer**|
+   |Nazwa maszyny wirtualnej     |**SRV — obciążenie — 01**|
+   |Region     |**Prześlij Wschodnie stany USA)**|
+   |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
+   |Hasło     |Wpisz hasło|
+
+4. W obszarze **reguły portów ruchu przychodzącego**dla **publicznych portów przychodzących**wybierz opcję **Brak**.
+6. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dalej: dyski**.
+7. Zaakceptuj ustawienia domyślne dysku i wybierz pozycję **Dalej: sieć**.
+8. Wybierz opcję **szprych-01** dla sieci wirtualnej i wybierz pozycję **obciążenie — 01-SN** dla podsieci.
+9. W obszarze **publiczny adres IP**wybierz pozycję **Brak**.
+11. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dalej: Zarządzanie**.
+12. Wybierz pozycję **wyłączone** , aby wyłączyć diagnostykę rozruchu. Zaakceptuj inne ustawienia domyślne i wybierz pozycję **Recenzja + Utwórz**.
+13. Przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
+
+Skorzystaj z informacji podanych w poniższej tabeli, aby skonfigurować inną maszynę wirtualną o nazwie **SRV-obciążeń-02**. Pozostała część konfiguracji jest taka sama jak maszyna wirtualna **SRV-obciążeń-01** .
+
+|Ustawienie  |Wartość  |
+|---------|---------|
+|Sieć wirtualna|**Szprycha-02**|
+|Podsieć|**Obciążenie — 02-SN**|
+
+Po wdrożeniu serwerów wybierz zasób serwera, a w obszarze **Sieć** Zanotuj prywatny adres IP dla każdego serwera.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Tworzenie zasad zapory i zabezpieczanie centrum
 
@@ -102,31 +169,64 @@ Zasady zapory definiują kolekcje reguł, aby kierować ruchem do co najmniej je
 1. W Menedżerze zapory wybierz pozycję **Wyświetl zasady zapory platformy Azure**.
 2. Wybierz pozycję **Utwórz zasady zapory platformy Azure**.
 3. W obszarze **Szczegóły zasad**w polu **Nazwa** wpisz **zasady-01** , a dla **regionu** wybierz pozycję **Wschodnie stany USA**.
-4. Wybierz pozycję **Dalej: reguły**.
-5. Na karcie **reguły** wybierz pozycję **Dodaj kolekcję reguł**.
-6. Na stronie **Dodawanie kolekcji reguł** wpisz **RC-01** jako **nazwę**.
-7. W obszarze **Typ kolekcji reguł**wybierz pozycję **aplikacja**.
-8. Dla **priorytetu**wpisz **100**.
-9. Upewnij się, że **Akcja kolekcji reguł** to **Zezwalaj**.
-10. Dla **nazwy** reguły wpisz **Allow-MSFT**.
-11. W polu **Typ źródła**wybierz pozycję **adres IP**.
-12. Dla elementu **Source**wpisz **\*** .
-13. W obszarze **Protokół**wpisz **http i https**.
-14. Upewnij się, że **Typ docelowy** to **nazwa FQDN**.
-15. W obszarze **docelowy**wpisz ** \* . Microsoft.com**.
-16. Wybierz pozycję **Dodaj**.
-17. Wybierz pozycję **Dalej: analiza zagrożeń**.
-18. Wybierz pozycję **Dalej: centra**.
-19. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
-20. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
-21. Wybierz pozycję **Przegląd + utwórz**.
-22. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Dalej: ustawienia DNS (wersja zapoznawcza)**.
+1. Wybierz pozycję **Dalej: reguły**.
+2. Na karcie **reguły** wybierz pozycję **Dodaj kolekcję reguł**.
+3. Na stronie **Dodawanie kolekcji reguł** wpisz dla **nazwy** **App-RC-01** .
+4. W obszarze **Typ kolekcji reguł**wybierz pozycję **aplikacja**.
+5. Dla **priorytetu**wpisz **100**.
+6. Upewnij się, że **Akcja kolekcji reguł** to **Zezwalaj**.
+7. Dla **nazwy** reguły wpisz **Allow-MSFT**.
+8. W polu **Typ źródła**wybierz pozycję **adres IP**.
+9. Dla elementu **Source**wpisz **\*** .
+10. W obszarze **Protokół**wpisz **http i https**.
+11. Upewnij się, że **Typ docelowy** to **nazwa FQDN**.
+12. W obszarze **docelowy**wpisz ** \* . Microsoft.com**.
+13. Wybierz pozycję **Dodaj**.
+
+Dodaj regułę DNAT, aby można było połączyć pulpit zdalny z maszyną wirtualną **SRV-obciążeń-01** .
+
+1. Wybierz pozycję **Dodaj kolekcję reguł**.
+2. W obszarze **Nazwa**wpisz **DNAT-RDP**.
+3. W obszarze **Typ kolekcji reguł**wybierz pozycję **DNAT**.
+4. Dla **priorytetu**wpisz **100**.
+5. W polu **Nazwa** reguły wpisz **Allow-RDP**.
+6. W polu **Typ źródła**wybierz pozycję **adres IP**.
+7. Dla elementu **Source**wpisz **\*** .
+8. W polu **Protokół** wybierz **TCP**.
+9. W przypadku **portów docelowych**wpisz **3389**.
+10. W obszarze **Typ docelowy**wybierz pozycję **adres IP**.
+11. W polu **Lokalizacja docelowa**wpisz wcześniej zanotowany publiczny adres IP zapory.
+12. Dla **adresu przetłumaczonego**wpisz prywatny adres IP dla **SRV-obciążeń-01** zanotowanych wcześniej.
+13. W polu **Przekształcony port** wpisz **3389**.
+14. Wybierz pozycję **Dodaj**.
+
+Dodaj regułę sieciową, aby można było połączyć pulpit zdalny od **SRV-obciążeń-01** z **obciążeniem SRV-02**.
+
+1. Wybierz pozycję **Dodaj kolekcję reguł**.
+2. W obszarze **Nazwa**wpisz **VNET-RDP**.
+3. W obszarze **Typ kolekcji reguł**wybierz pozycję **Sieć**.
+4. Dla **priorytetu**wpisz **100**.
+5. W polu **Nazwa** reguły wpisz **Zezwalaj na sieć wirtualną**.
+6. W polu **Typ źródła**wybierz pozycję **adres IP**.
+7. Dla elementu **Source**wpisz **\*** .
+8. W polu **Protokół** wybierz **TCP**.
+9. W przypadku **portów docelowych**wpisz **3389**.
+9. W obszarze **Typ docelowy**wybierz pozycję **adres IP**.
+10. W polu **miejsce docelowe**wpisz wcześniej zanotowany prywatny adres IP **SRV-obciążenia-02** .
+11. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Dalej: analiza zagrożeń**.
+2. Wybierz pozycję **Dalej: centra**.
+3. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
+4. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
+6. Wybierz pozycję **Utwórz**.
 
 Ukończenie tego procesu może potrwać około pięciu minut.
 
 ## <a name="route-traffic-to-your-hub"></a>Kierowanie ruchu do centrum
 
-Teraz należy zadbać o to, aby ruch sieciowy był kierowany przez zaporę.
+Teraz musisz upewnić się, że ruch sieciowy jest kierowany przez zaporę.
 
 1. W Menedżerze zapory wybierz pozycję **zabezpieczone centra wirtualne**.
 2. Wybierz pozycję **Hub-01**.
@@ -139,82 +239,37 @@ Teraz należy zadbać o to, aby ruch sieciowy był kierowany przez zaporę.
 
 ## <a name="test-your-firewall"></a>Testowanie zapory
 
-Aby przetestować reguły zapory, należy wdrożyć kilka serwerów. W celu przetestowania reguł zapory i przechodzenia do usługi SRV można użyć Pulpit zdalny do nawiązania połączenia z Internetem, a następnie nawiązać połączenie z usługą obciążenia — w sieci SRV.
+Aby przetestować reguły zapory, Połącz się z pulpitem zdalnym przy użyciu publicznego adresu IP zapory, który jest **oparty na SRV-obciążeń-01**. Z tego miejsca będziesz używać przeglądarki do testowania reguły aplikacji i łączenia pulpitu zdalnego z usługą **SRV-obciążeń-02** w celu przetestowania reguły sieci.
 
-### <a name="deploy-the-servers"></a>Wdrażanie serwerów
-
-1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób**.
-2. Wybierz pozycję **Windows Server 2016 Datacenter** na **popularnej** liście.
-3. Wprowadź poniższe wartości dla maszyny wirtualnej:
-
-   |Ustawienie  |Wartość  |
-   |---------|---------|
-   |Grupa zasobów     |**PD — Menedżer**|
-   |Nazwa maszyny wirtualnej     |**Przejdź do SRV**|
-   |Region     |**Prześlij Wschodnie stany USA)**|
-   |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
-   |Hasło     |Wpisz hasło|
-
-4. W obszarze **reguły portów ruchu przychodzącego**dla **publicznych portów przychodzących**wybierz opcję **Zezwalaj na wybrane porty**.
-5. W obszarze **Wybierz porty wejściowe** wybierz pozycję **RDP (3389)**.
-6. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dalej: dyski**.
-7. Zaakceptuj ustawienia domyślne dysku i wybierz pozycję **Dalej: sieć**.
-8. Upewnij się, że dla sieci wirtualnej została wybrana wartość **szprych-01** , a podsieć jest **Przeskocz-SN**.
-9. Dla **publicznego adresu IP**zaakceptuj domyślną nową nazwę publicznego adresu IP (Przeskocz-SRV-IP).
-11. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dalej: Zarządzanie**.
-12. Wybierz pozycję **wyłączone** , aby wyłączyć diagnostykę rozruchu. Zaakceptuj inne ustawienia domyślne i wybierz pozycję **Recenzja + Utwórz**.
-13. Przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
-
-Skorzystaj z informacji podanych w poniższej tabeli, aby skonfigurować inną maszynę wirtualną o nazwie **obciążenie-SRV**. Pozostała część konfiguracji jest taka sama jak w przypadku maszyny wirtualnej Srv-Jump.
-
-|Ustawienie  |Wartość  |
-|---------|---------|
-|Podsieć|**Workload-SN**|
-|Publiczny adres IP|**Brak**|
-|Publiczne porty wejściowe|**Brak**|
-
-### <a name="add-a-route-table-and-default-route"></a>Dodawanie tabeli tras i trasy domyślnej
-
-Aby zezwolić na połączenie internetowe z przeskokiem SRV, należy utworzyć tabelę tras i domyślną trasę bramy do Internetu z podsieci **skoku-SN** .
-
-1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W polu wyszukiwania wpisz **tabelę tras** , a następnie wybierz pozycję **tabela tras**.
-3. Wybierz przycisk **Utwórz**.
-4. Wpisz **RT-01** jako **nazwę**.
-5. Wybierz swoją subskrypcję, usługi **PD-Manager** dla grupy zasobów i **(USA) dla regionu Wschodnie stany USA** .
-6. Wybierz przycisk **Utwórz**.
-7. Po zakończeniu wdrożenia wybierz tabelę tras **RT-01** .
-8. Wybierz pozycję **trasy** , a następnie wybierz pozycję **Dodaj**.
-9. Wpisz **Przeskocz do inet** dla **nazwy trasy**.
-10. Wpisz **0.0.0.0/0** dla **prefiksu adresu**.
-11. Wybierz pozycję **Internet** dla **typu następnego przeskoku**.
-12. Wybierz przycisk **OK**.
-13. Po zakończeniu wdrożenia wybierz pozycję **podsieci**, a następnie wybierz pozycję **Skojarz**.
-14. Wybierz opcję **szprych-01** dla **sieci wirtualnej**.
-15. Wybierz pozycję **skoku-SN** dla **podsieci**.
-16. Wybierz przycisk **OK**.
-
-### <a name="test-the-rules"></a>Testowanie reguł
+### <a name="test-the-application-rule"></a>Testowanie reguły aplikacji
 
 Teraz Przetestuj reguły zapory, aby upewnić się, że działa zgodnie z oczekiwaniami.
 
-1. W Azure Portal Sprawdź ustawienia sieci dla maszyny wirtualnej **obciążenia** i zanotuj prywatny adres IP.
-2. Połącz pulpit zdalny z maszyną **wirtualną i zaloguj się.** W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** .
+1. Połącz pulpit zdalny z publicznym adresem IP zapory i zaloguj się.
 
 3. Otwórz program Internet Explorer i przejdź do https://www.microsoft.com.
 4. Wybierz pozycję **OK**  >  **Zamknij** na stronie Alerty zabezpieczeń programu Internet Explorer.
 
    Powinna zostać wyświetlona strona główna firmy Microsoft.
 
-5. Przejdź do https://www.google.com.
+5. Przejdź na stronę https://www.google.com.
 
    Dostęp powinien zostać zablokowany przez zaporę.
 
-Teraz sprawdzono, że reguły zapory działają:
+Teraz sprawdzono, że reguła aplikacji zapory działa:
 
 * Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
+### <a name="test-the-network-rule"></a>Testowanie reguły sieci
 
+Teraz Przetestuj regułę sieci.
+
+- Otwórz pulpit zdalny dla prywatnego adresu IP **SRV-** obciążeniowego 02.
+
+   Pulpit zdalny powinien łączyć się z **obciążeniem SRV — 02**.
+
+Teraz sprawdzono, że reguła sieci zapory działa:
+* Pulpit zdalny można połączyć z serwerem znajdującym się w innej sieci wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

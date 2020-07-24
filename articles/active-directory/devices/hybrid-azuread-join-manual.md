@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025782"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Samouczek: ręczne konfigurowanie urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -25,7 +25,7 @@ Zarządzanie urządzeniami w usłudze Azure Active Directory (Azure AD) pozwala 
 > [!TIP]
 > Jeśli masz możliwość użycia usługi Azure AD Connect, zapoznaj się z odpowiednimi samouczkami dotyczącymi domen [zarządzanych](hybrid-azuread-join-managed-domains.md) lub [federacyjnych](hybrid-azuread-join-federated-domains.md). Użycie programu Azure AD Connect pozwala znacznie uprościć proces konfiguracji dołączenia hybrydowego do usługi Azure AD.
 
-Jeśli masz lokalne środowisko usługi Active Directory i chcesz dołączyć do usługi Azure AD urządzenia dołączone do domeny, możesz to zrobić przez skonfigurowanie urządzeń dołączonych hybrydowo do usługi Azure AD. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Jeśli masz lokalne środowisko usługi Active Directory i chcesz dołączyć do usługi Azure AD urządzenia dołączone do domeny, możesz to zrobić przez skonfigurowanie urządzeń dołączonych hybrydowo do usługi Azure AD. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Ręczne konfigurowanie dołączania do hybrydowej usługi Azure AD
@@ -527,13 +527,13 @@ W usługach AD FS musisz dodać regułę przekształcania wystawiania, która pr
 1. Kliknij prawym przyciskiem myszy obiekt relacji zaufania jednostki uzależnionej Platforma tożsamości usługi Microsoft Office 365, a następnie wybierz pozycję **Edytuj reguły oświadczeń**.
 1. Na karcie **Reguły przekształcania wystawiania** wybierz pozycję **Dodaj regułę**.
 1. Na liście szablonów **Reguła oświadczenia** wybierz pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. W polu **Nazwa reguły dotyczącej oświadczeń** wprowadź nazwę **Auth Method Claim Rule**.
 1. W polu **Reguła oświadczenia** wprowadź następującą regułę:
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. Na serwerze federacyjnym wprowadź następujące polecenie programu PowerShell. Zastąp ** \< RPObjectName \> ** nazwą obiektu jednostki uzależnionej dla obiektu zaufania jednostki uzależnionej usługi Azure AD. Ten obiekt zazwyczaj nosi nazwę **Platforma tożsamości usługi Microsoft Office 365**.
+1. Na serwerze federacyjnym wprowadź następujące polecenie programu PowerShell. Zamień na **\<RPObjectName\>** nazwę obiektu jednostki uzależnionej dla obiektu zaufania jednostki uzależnionej usługi Azure AD. Ten obiekt zazwyczaj nosi nazwę **Platforma tożsamości usługi Microsoft Office 365**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -554,7 +554,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 ### <a name="locally-on-the-device"></a>Lokalnie na urządzeniu
 
 1. Otwórz program Windows PowerShell.
-2. Wprowadź polecenie `dsregcmd /status`.
+2. Wprowadź `dsregcmd /status`.
 3. Sprawdź, czy dla obu **AzureAdJoined** i **DomainJoined** ustawiono wartość **tak**.
 4. Można użyć **DeviceID** i porównać stan usługi przy użyciu Azure Portal lub programu PowerShell.
 
@@ -567,7 +567,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
-Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Sprawdź stan rejestracji urządzenia w dzierżawie platformy Azure przy użyciu polecenia **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. To polecenie cmdlet znajduje się w [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 Korzystając z polecenia cmdlet **Get-MSolDevice** , można sprawdzić szczegóły usługi:
 
@@ -612,7 +612,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 Jeśli wystąpią problemy z ukończeniem hybrydowego łączenia z usługą Azure AD dla przyłączonych do domeny urządzeń z systemem Windows, zobacz:
 
 - [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
-- [Rozwiązywanie problemów z przyłączonymi urządzeniami hybrydowymi Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
+- [Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Następne kroki

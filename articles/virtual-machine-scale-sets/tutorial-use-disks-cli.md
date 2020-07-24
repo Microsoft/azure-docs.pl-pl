@@ -9,19 +9,19 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029631"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
 Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy operacyjne wystąpień maszyn wirtualnych na dyskach. Ważne jest, aby podczas tworzenia zestawu skalowania i zarządzania nim wybrać taki rozmiar dysku i konfigurację, które odpowiadają oczekiwanemu obciążeniu. W tym samouczku omówiono tworzenie dysków maszyn wirtualnych i zarządzanie nimi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i dyski tymczasowe
-> * Dyski z danymi
+> * Dyski danych
 > * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi
@@ -43,12 +43,12 @@ Podczas tworzenia lub skalowania zestawu skalowania do każdego wystąpienia mas
 ### <a name="temporary-disk-sizes"></a>Rozmiary dysków tymczasowych
 | Typ | Typowe rozmiary | Maksymalny rozmiar dysku tymczasowego (GiB) |
 |----|----|----|
-| [Zastosowania ogólne](../virtual-machines/linux/sizes-general.md) | Seria A, B i D | 1600 |
-| [Optymalizacja pod kątem obliczeń](../virtual-machines/linux/sizes-compute.md) | Seria F | 576 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines/linux/sizes-memory.md) | Seria D, E, G i M | 6144 |
-| [Optymalizacja pod kątem magazynu](../virtual-machines/linux/sizes-storage.md) | Seria L | 5630 |
-| [Procesor GPU](../virtual-machines/linux/sizes-gpu.md) | Seria N | 1440 |
-| [Wysoka wydajność](../virtual-machines/linux/sizes-hpc.md) | Seria A i H | 2000 |
+| [Ogólnego przeznaczenia](../virtual-machines/sizes-general.md) | Seria A, B i D | 1600 |
+| [Optymalizacja pod kątem obliczeń](../virtual-machines/sizes-compute.md) | Seria F | 576 |
+| [Optymalizacja pod kątem pamięci](../virtual-machines/sizes-memory.md) | Seria D, E, G i M | 6144 |
+| [Optymalizacja pod kątem magazynu](../virtual-machines/sizes-storage.md) | Seria L | 5630 |
+| [Procesor GPU](../virtual-machines/sizes-gpu.md) | Seria N | 1440 |
+| [Wysoka wydajność](../virtual-machines/sizes-hpc.md) | Seria A i H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Przygotowywanie dysków z danymi
 Utworzone dyski, które zostały dołączone do wystąpień maszyn wirtualnych w zestawie skalowania, są niesformatowane. Należy je przygotować, zanim będzie można ich używać z danymi i aplikacjami. Aby przygotować dyski, musisz utworzyć partycję oraz system plików oraz je zainstalować.
 
-Aby zautomatyzować ten proces w wielu wystąpieniach maszyn wirtualnych w zestawie skalowania, możesz użyć rozszerzenia niestandardowego skryptu platformy Azure. To rozszerzenie może wykonywać skrypty lokalnie na poszczególnych wystąpieniach maszyn wirtualnych, na przykład w celu przygotowania dołączonych dysków z danymi. Aby uzyskać więcej informacji, zobacz [Omówienie niestandardowego rozszerzenia skryptu](../virtual-machines/linux/extensions-customscript.md).
+Aby zautomatyzować ten proces w wielu wystąpieniach maszyn wirtualnych w zestawie skalowania, możesz użyć rozszerzenia niestandardowego skryptu platformy Azure. To rozszerzenie może wykonywać skrypty lokalnie na poszczególnych wystąpieniach maszyn wirtualnych, na przykład w celu przygotowania dołączonych dysków z danymi. Aby uzyskać więcej informacji, zobacz [Omówienie niestandardowego rozszerzenia skryptu](../virtual-machines/extensions/custom-script-linux.md).
 
 W poniższym przykładzie za pomocą polecenia [az vmss extension set](/cli/azure/vmss/extension) na każdym wystąpieniu maszyny wirtualnej jest wykonywany skrypt z przykładowego repozytorium GitHub, który przygotowuje wszystkie dołączone, niesformatowane dyski z danymi:
 
@@ -271,7 +271,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby pozbyć się zestawu skalowania i dysków, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [az group delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive
@@ -284,7 +284,7 @@ W tym samouczku omówiono tworzenie dysków i używanie ich z zestawami skalowan
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i dyski tymczasowe
-> * Dyski z danymi
+> * Dyski danych
 > * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi

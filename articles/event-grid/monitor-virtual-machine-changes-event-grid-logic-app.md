@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.topic: tutorial
-ms.date: 07/07/2020
-ms.openlocfilehash: 4edac3237f2eefaa98a6463bb0e720c0d884f0ca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 91ff67f886dbf54b93e9b91822b5f8535ea77e06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079194"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Samouczek: Monitorowanie zmian maszyn wirtualnych przy użyciu usług Azure Event Grid i Logic Apps
 
@@ -32,7 +32,7 @@ Na przykład poniżej przedstawiono niektóre zdarzenia, które wydawcy mogą wy
 
 W tym samouczku przedstawiono tworzenie aplikacji logiki, która monitoruje zmiany w maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. Podczas tworzenia aplikacji logiki z subskrypcją zdarzeń dla zasobu platformy Azure zdarzenia przepływają z tego zasobu za pośrednictwem usługi Event Grid do aplikacji logiki. Samouczek przeprowadzi Cię przez tworzenie tej aplikacji logiki:
 
-![Omówienie — monitorowanie maszyny wirtualnej za pomocą usługi Event Grid i aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Zrzut ekranu programu Logic Apps Designer pokazujący przepływ pracy służący do monitorowania maszyn wirtualnych przy użyciu Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -60,11 +60,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
-   ![Tworzenie aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
+   ![Zrzut ekranu przedstawiający Azure Portal, pokazujący przycisk służący do tworzenia zasobu aplikacji logiki.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
 1. W obszarze **aplikacja logiki**podaj informacje o zasobie aplikacji logiki. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
-   ![Podawanie szczegółów aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
+   ![Zrzut ekranu przedstawiający menu tworzenia aplikacji logiki, pokazujący szczegóły, takie jak nazwa, subskrypcja, Grupa zasobów i lokalizacja.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
@@ -78,7 +78,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**.
 
-   ![Wybieranie szablonu aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
+   ![Zrzut ekranu przedstawiający szablony Logic Apps, w którym jest wyświetlany wybór służący do tworzenia pustej aplikacji logiki.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
    Projektant Logic Apps wyświetla teraz [*wyzwalacze*](../logic-apps/logic-apps-overview.md#logic-app-concepts) , których można użyć do uruchomienia aplikacji logiki. Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywowany w momencie wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Za każdym razem, gdy wyzwala wyzwalacz, Azure Logic Apps tworzy wystąpienie przepływu pracy, które uruchamia aplikację logiki.
 
@@ -88,18 +88,18 @@ Teraz Dodaj wyzwalacz Event Grid, który służy do monitorowania grupy zasobów
 
 1. W projektancie w polu wyszukiwania wprowadź `event grid` jako filtr. Z listy Wyzwalacze wybierz wyzwalacz **gdy występuje zdarzenie zasobu** .
 
-   ![Wybierz ten wyzwalacz: "w zdarzeniu zasobu"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Zrzut ekranu programu Logic Apps Designer, który pokazuje wybór wyzwalacza Event Grid dla zdarzenia zasobu.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 1. Po wyświetleniu monitu zaloguj się, aby Azure Event Grid przy użyciu poświadczeń konta platformy Azure. Na liście **dzierżawców** , która zawiera Azure Active Directory dzierżawy skojarzonej z subskrypcją platformy Azure, sprawdź, czy jest wyświetlana prawidłowa dzierżawa, na przykład:
 
-   ![Logowanie przy użyciu poświadczeń platformy Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Zrzut ekranu programu Logic Apps Designer z wyświetlonym monitem logowania platformy Azure w celu nawiązania połączenia z Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
    > Jeśli logujesz się za pomocą osobistego konta Microsoft, takiego jak @outlook.com lub @hotmail.com, wyzwalacz usługi Event Grid może nie być wyświetlany poprawnie. Aby obejść ten krok, wybierz pozycję [Połącz z](../active-directory/develop/howto-create-service-principal-portal.md)jednostką usługi lub Uwierzytelnij się jako członek Azure Active Directory, który jest skojarzony z subskrypcją platformy Azure, na przykład *User-Name* @emailoutlook.onmicrosoft.com .
 
 1. Teraz Zasubskrybuj aplikację logiki do zdarzeń od wydawcy. Podaj szczegółowe informacje o subskrypcji zdarzeń zgodnie z opisem w poniższej tabeli, na przykład:
 
-   ![Podaj szczegóły subskrypcji zdarzeń](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Zrzut ekranu programu Logic Apps Designer, pokazujący Edytor szczegółów dla wyzwalacza w przypadku wystąpienia zdarzenia zasobu.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
@@ -112,7 +112,7 @@ Teraz Dodaj wyzwalacz Event Grid, który służy do monitorowania grupy zasobów
 
 1. Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**. Aby zwinąć i ukryć szczegóły akcji w aplikacji logiki, wybierz pasek tytułu akcji.
 
-   ![Zapisywanie aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
+   ![Zrzut ekranu programu Logic Apps Designer z widocznym przyciskiem Zapisz, aby zapisać zmiany przepływu pracy.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
    Podczas zapisywania aplikacji logiki z wyzwalaczem usługi Event Grid platforma Azure automatycznie tworzy dla tej aplikacji logiki subskrypcję zdarzeń wybranego zasobu. Dlatego gdy zasób publikuje zdarzenie w usłudze Event Grid, usługa ta automatycznie wypycha je do aplikacji logiki. Zdarzenie to wyzwala aplikację logiki, a następnie tworzy i uruchamia wystąpienie przepływu pracy, który zdefiniujesz w następnych krokach.
 
@@ -124,33 +124,33 @@ Jeśli chcesz, aby aplikacja logiki działała tylko wtedy, gdy wystąpi określ
 
 1. W Projektancie aplikacji logiki w obszarze wyzwalacza zdarzenia wybierz pozycję **nowy krok**.
 
-   ![Wybierz pozycję "nowy krok"](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
+   ![Zrzut ekranu programu Logic Apps Designer, pokazujący przycisk umożliwiający dodanie nowego kroku do przepływu pracy.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
 
 1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `condition` jako filtr. Z listy Akcje wybierz akcję **warunek** .
 
-   ![Dodawanie warunku](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
+   ![Zrzut ekranu programu Logic Apps Designer, pokazujący przycisk służący do dodawania akcji warunku.](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
    Projektant aplikacji logiki dodaje pusty warunek do przepływu pracy, w tym ścieżki akcji do wykonania na podstawie tego, czy warunek jest spełniony (wartość true), czy nie (wartość false).
 
-   ![Zostanie wyświetlony pusty warunek](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
+   ![Zrzut ekranu programu Logic Apps Designer, który pokazuje pusty warunek dodany do przepływu pracy.](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
 1. Zmień nazwę tytułu warunku na `If a virtual machine in your resource group has changed` . Na pasku tytułu warunku wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Zmień nazwę**.
 
-   ![Zmień nazwę warunku](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
+   ![Zrzut ekranu przedstawiający projektanta Logic Apps, pokazujący menu kontekstowe edytora warunków z wybraną opcją zmiany nazwy.](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
 1. Utwórz warunek, który sprawdza zdarzenie `body` dla obiektu, `data` w którym `operationName` Właściwość jest równa `Microsoft.Compute/virtualMachines/write` operacji. Dowiedz się więcej o [schemacie zdarzeń usługi Event Grid](../event-grid/event-schema.md).
 
-   1. W pierwszym wierszu w obszarze **I** kliknij wewnątrz pola po lewej stronie. Na wyświetlonej liście zawartości dynamicznej wybierz pozycję **wyrażenie**.
+   1. W pierwszym wierszu w obszarze **Oraz** kliknij wewnątrz pola po lewej stronie. Na wyświetlonej liście zawartości dynamicznej wybierz pozycję **wyrażenie**.
 
-      ![Wybierz pozycję "wyrażenie", aby otworzyć Edytor wyrażeń](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
+      ![Zrzut ekranu programu Logic Apps Designer, pokazujący warunek z wybranym edytorem wyrażeń.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
 
    1. W edytorze wyrażeń wprowadź wyrażenie, które zwraca nazwę operacji z wyzwalacza, a następnie wybierz **przycisk OK**:
 
       `triggerBody()?['data']['operationName']`
 
-      Przykład:
+      Na przykład:
 
-      ![Wprowadź wyrażenie, aby wyodrębnić nazwę operacji](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
+      ![Zrzut ekranu programu Logic Apps Designer, pokazujący Edytor warunków z wyrażeniem do wyodrębnienia nazwy operacji.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
    1. W środkowym polu zachowaj operator **jest równe**.
 
@@ -160,11 +160,11 @@ Jeśli chcesz, aby aplikacja logiki działała tylko wtedy, gdy wystąpi określ
 
    Gotowy warunek wygląda teraz następująco:
 
-   ![Warunek wykonany porównujący operację](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+   ![Zrzut ekranu programu Logic Apps Designer pokazujący warunek porównujący operację.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
    Jeśli przełączysz się z widoku projektu do widoku kodu i wrócisz do widoku projektu, wyrażenie określone w warunku jest rozpoznawane jako **Data. OperationName** token:
 
-   ![Rozpoznane tokeny w warunku](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+   ![Zrzut ekranu programu Logic Apps Designer pokazujący warunek z rozpoznanymi tokenami.](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
 
 1. Zapisz aplikację logiki.
 
@@ -172,11 +172,11 @@ Jeśli chcesz, aby aplikacja logiki działała tylko wtedy, gdy wystąpi określ
 
 Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) , aby otrzymać wiadomość e-mail, gdy określony warunek ma wartość true.
 
-1. W polu warunek w **przypadku wartości true** wybierz pozycję **Dodaj akcję**.
+1. W polu **W przypadku wartości true** warunku wybierz pozycję **Dodaj akcję**.
 
-   ![Dodawanie akcji do wykonania w przypadku wartości true warunku](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
+   ![Zrzut ekranu przedstawiający Edytor warunków projektanta Logic Apps, pokazujący przycisk służący do dodawania akcji, gdy warunek ma wartość true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `send an email` jako filtr. W oparciu o Twojego dostawcę poczty e-mail znajdź i wybierz zgodny łącznik. Następnie wybierz akcję „Wyślij wiadomość e-mail” dla Twojego łącznika. Przykład:
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `send an email` jako filtr. W oparciu o Twojego dostawcę poczty e-mail znajdź i wybierz zgodny łącznik. Następnie wybierz akcję „Wyślij wiadomość e-mail” dla Twojego łącznika. Na przykład:
 
    * Dla konta służbowego platformy Azure wybierz łącznik usługi Office 365 Outlook.
 
@@ -186,15 +186,15 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    Ten samouczek jest kontynuowany przy użyciu łącznika programu Outlook pakietu Office 365. Jeśli używasz innego dostawcy, kroki pozostają takie same, ale interfejs użytkownika może wyglądać nieco inaczej.
 
-   ![Wybieranie akcji „Wyślij wiadomość e-mail”](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
+   ![Zrzut ekranu programu Logic Apps Designer z informacjami o wyszukiwaniu akcji Wyślij wiadomość E-mail w programie Office 365 Outlook Connector.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
-1. Jeśli nie masz jeszcze połączenia z dostawcą poczty e-mail, zaloguj się na swoje konto poczty e-mail po wyświetleniu prośby o uwierzytelnienie.
+1. Jeśli nie masz jeszcze połączenia z dostawcą poczty e-mail, po wyświetleniu monitu o uwierzytelnienie zaloguj się do swojego konta e-mail.
 
 1. Zmień nazwę akcji Wyślij pocztą e-mail na ten tytuł:`Send email when virtual machine updated`
 
 1. Podaj informacje o wiadomości e-mail zgodnie z opisem w poniższej tabeli:
 
-   ![Podaj informacje o akcji poczty e-mail](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Zrzut ekranu przedstawiający projektanta Logic Apps, pokazujący, że zawartość dynamiczna jest dodany do wiersza tematu wiadomości e-mail w celu spełnienia warunków.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > Aby wybrać dane wyjściowe z poprzednich kroków w przepływie pracy, kliknij wewnątrz pola edycji, aby wyświetlić listę zawartości dynamicznej, lub wybierz pozycję **Dodaj zawartość dynamiczną**. Aby uzyskać więcej wyników, wybierz pozycję **Zobacz więcej** dla każdej sekcji na liście. Aby zamknąć listę zawartości dynamicznej, ponownie wybierz pozycję **Dodaj zawartość dynamiczną** .
@@ -202,8 +202,8 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
    | **Do** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
-   | **Temat** | Tak | `Resource updated:` **Temat** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
-   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:`**Typ zdarzenia**<p>`Event ID:` **ID**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
+   | **Podmiot** | Tak | `Resource updated:`**Temat** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
+   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:`**Typ zdarzenia**<p>`Event ID:`**Identyfikator**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
    ||||
 
    > [!NOTE]
@@ -211,11 +211,11 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    Teraz Twoja akcja wiadomości e-mail może wyglądać tak jak w tym przykładzie:
 
-   ![Wybieranie danych wyjściowych do uwzględnienia w wiadomości e-mail](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
+   ![Zrzut ekranu programu Logic Apps Designer prezentujący wybrane dane wyjściowe do wysłania w wiadomości e-mail po zaktualizowaniu maszyny wirtualnej.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
    Gotowa aplikacja logiki może wyglądać jak w tym przykładzie:
 
-   ![Ukończona aplikacja logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Zrzut ekranu przedstawiający projektanta Logic Apps, pokazujący utworzoną aplikację logiki ze szczegółowymi informacjami na temat wyzwalacza i akcji.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
 1. Zapisz aplikację logiki. Aby zwinąć i ukryć szczegóły każdej akcji w aplikacji logiki, wybierz pasek tytułu akcji.
 
@@ -227,17 +227,17 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    Możesz na przykład zmienić rozmiar maszyny wirtualnej w witrynie Azure Portal lub [zmienić rozmiar maszyny wirtualnej za pomocą programu Azure PowerShell](../virtual-machines/windows/resize-vm.md).
 
-   Po kilku chwilach powinna nadejść wiadomość e-mail. Przykład:
+   Po kilku chwilach powinna nadejść wiadomość e-mail. Na przykład:
 
-   ![Wiadomość e-mail o aktualizacji maszyny wirtualnej](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
+   ![Zrzut ekranu przedstawiający przykład wiadomości e-mail programu Outlook z informacjami o aktualizacji maszyny wirtualnej.](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
 1. Aby przejrzeć historię uruchamiania i wyzwalania dla aplikacji logiki, w menu aplikacji logiki wybierz pozycję **Przegląd**. Aby wyświetlić więcej szczegółów dotyczących przebiegu, wybierz wiersz dla tego przebiegu.
 
-   ![Historia przebiegów aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
+   ![Zrzut ekranu przedstawiający stronę omówienia aplikacji logiki, w której jest zaznaczone wybrane uruchomienie.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
 1. Aby wyświetlić dane wejściowe i wyjściowe dla każdego kroku, rozwiń krok, który chcesz przejrzeć. Te informacje ułatwiają diagnozowanie i debugowanie problemów w aplikacji logiki.
 
-   ![Szczegóły historii przebiegów aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
+   ![Zrzut ekranu historii przebiegów aplikacji logiki, pokazujący szczegóły dla każdego przebiegu.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
 Gratulujemy utworzenia i uruchomienia aplikacji logiki, która monitoruje zdarzenia zasobów za pomocą usługi Event Grid i wysyła Ci wiadomości e-mail w przypadku wystąpienia tych zdarzeń. Wiesz już, jak łatwe jest tworzenie przepływów pracy automatyzujących procesy oraz integrowanie systemów i usług w chmurze.
 
@@ -254,7 +254,7 @@ Ten samouczek używa zasobów i wykonuje akcje, które mogą spowodować nalicze
 
 * Aby zatrzymać aplikację logiki bez usuwania swojej pracy, wyłącz ją. W menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi wybierz pozycję **Wyłącz**.
 
-  ![Wyłączanie aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+  ![Zrzut ekranu przedstawiający przegląd aplikacji logiki, w którym jest wyświetlany przycisk Wyłącz wybrany, aby wyłączyć aplikację logiki.](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
   > Jeśli nie widzisz menu aplikacji logiki, spróbuj wrócić do pulpitu nawigacyjnego platformy Azure i ponownie otworzyć aplikację logiki.

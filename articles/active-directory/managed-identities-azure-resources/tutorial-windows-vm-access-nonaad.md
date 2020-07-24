@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Key Vault-Windows-Azure AD
+title: Samouczek `:` Korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Key Vault-Windows-Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75971903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018778"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Key Vault 
 
@@ -40,7 +40,7 @@ Omawiane kwestie:
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włącz
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
@@ -52,7 +52,7 @@ W tej sekcji pokazano, jak udzielić dostępu do maszyny wirtualnej do wpisu taj
 
 Najpierw musimy utworzyć usługę Key Vault i udzielić przypisanej przez system tożsamości zarządzanej naszej maszyny wirtualnej dostępu do usługi Key Vault.   
 
-1. W górnej części lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób** > **zabezpieczenia + tożsamość** > **Key Vault**.  
+1. W górnej części lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób**  >  **zabezpieczenia + tożsamość**  >  **Key Vault**.  
 2. Podaj **Nazwę** dla nowej usługi Key Vault. 
 3. Znajdź usługę Key Vault w tej samej subskrypcji i grupie zasobów co wcześniej utworzona maszyna wirtualna. 
 4. Wybierz opcję **Zasady dostępu** i kliknij opcję **Dodaj nową**. 
@@ -75,7 +75,7 @@ Następnie dodaj wpis tajny do usługi Key Vault, aby umożliwić późniejsze p
  
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych  
 
-W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości maszyny wirtualnej i użyć go do pobrania klucza tajnego z Key Vault. Jeśli nie masz zainstalowanego programu PowerShell 4.3.1 (lub nowszej wersji), musisz [pobrać i zainstalować najnowszą wersję](https://docs.microsoft.com/powershell/azure/overview).
+W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości maszyny wirtualnej i użyć go do pobrania klucza tajnego z Key Vault. Jeśli nie masz zainstalowanego programu PowerShell 4.3.1 (lub nowszej wersji), musisz [pobrać i zainstalować najnowszą wersję](https://docs.microsoft.com/powershell/azure/).
 
 Najpierw użyjemy przypisanej przez system tożsamości zarządzanej maszyny wirtualnej, aby uzyskać token dostępu i przeprowadzić uwierzytelnianie w usłudze Key Vault:
  
@@ -117,7 +117,7 @@ Najpierw użyjemy przypisanej przez system tożsamości zarządzanej maszyny wir
 Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnienia w usłudze wymagającej nazwy i hasła. 
 
 
-## <a name="disable"></a>Wyłączanie
+## <a name="disable"></a>Wyłącz
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
@@ -128,4 +128,4 @@ Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnie
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows w celu uzyskania dostępu do usługi Azure Key Vault.  Dowiedz się więcej o usłudze Azure Key Vault:
 
 > [!div class="nextstepaction"]
->[W usłudze Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[Usługa Azure Key Vault](/azure/key-vault/key-vault-overview)

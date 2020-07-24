@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fcedec126c925ff218b8a0fb17b81dbf5ac1d769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044224"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
-W tym samouczku przedstawiono przykładową aplikację, która implementuje aplikację kliencką wiersza polecenia, aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji. Aplikacja kliencka jest podobna do tej, która została zapisywana w [samouczku: kod aplikacji klienckiej](tutorial-code.md).
+W tym samouczku przedstawiono przykładową aplikację, która implementuje aplikację kliencką wiersza polecenia, aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji. Aplikacja kliencka jest podobna do tej, która została zapisywana w [*samouczku: kod aplikacji klienckiej*](tutorial-code.md).
 
 Możesz użyć tego przykładu, aby wykonać podstawowe akcje usługi Azure Digital bliźniaczych reprezentacji, takie jak przekazywanie modeli, tworzenie i modyfikowanie bliźniaczych reprezentacji oraz tworzenie relacji. Możesz również zapoznać się z kodem przykładu, aby dowiedzieć się więcej o interfejsie API Digital bliźniaczych reprezentacji platformy Azure, i ćwicz implementację własnych poleceń, modyfikując przykładowy projekt.
 
@@ -118,7 +118,7 @@ Sprawdź, czy modele zostały utworzone przez uruchomienie polecenia `GetModels 
 
 :::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Wyniki GetModels, pokazując zaktualizowany model pokoju":::
 
-#### <a name="errors"></a>Errors
+#### <a name="errors"></a>błędy
 
 Przykładowa aplikacja obsługuje także błędy usługi. 
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 Ponieważ modeli nie można zastąpić, spowoduje to zwrócenie błędu usługi.
-Aby uzyskać szczegółowe informacje na temat usuwania istniejących modeli, zobacz [How to: Manage Custom models](how-to-manage-model.md).
+Aby uzyskać szczegółowe informacje na temat usuwania istniejących modeli, zobacz [*How to: Manage Custom models*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -283,9 +283,9 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [Samouczek: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
+Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
 * W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
@@ -316,10 +316,10 @@ W tym samouczku przedstawiono rozpoczęcie pracy z usługą Azure Digital bliźn
 Przejdź do następnego samouczka, aby użyć przykładowej aplikacji wiersza polecenia w połączeniu z innymi usługami platformy Azure, aby ukończyć Scenariusz oparty na danych, kompleksowo:
 
 > [!div class="nextstepaction"]
-> [Samouczek: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md)
+> [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)
 
 Możesz też zacząć od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku:
-* [Koncepcje: modele niestandardowe](concepts-models.md)
+* [*Koncepcje: modele niestandardowe*](concepts-models.md)
 
 Więcej szczegółowych informacji na temat procesów w tym samouczku można również uzyskać, uruchamiając artykuły z przewodnikiem:
-* [Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)
+* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)

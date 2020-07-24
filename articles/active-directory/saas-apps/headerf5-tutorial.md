@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 341be30c30f7b4a2a53f70f18e1c2a3a30de1cb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034475"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
+# <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Samouczek: Konfigurowanie logowania jednokrotnego między Azure Active Directory i F5
 
 W tym samouczku dowiesz się, jak zintegrować F5 z Azure Active Directory (Azure AD). Po zintegrowaniu z usługą Azure AD za pomocą klawisza F5 można:
 
@@ -177,9 +177,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -221,7 +221,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Ponadto wymagany jest **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
-    >W przykładzie Nasza nazwa aplikacji jest `Headerapp.superdemo.live`używana jako certyfikat wieloznaczny nasz KeyName to. `WildCard-SuperDemo.live`
+    >W przykładzie Nasza nazwa aplikacji jest `Headerapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to `WildCard-SuperDemo.live` .
 
     ![Konfiguracja F5 (na podstawie nagłówka)](./media/headerf5-tutorial/configure13.png)
 
@@ -286,7 +286,7 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
 1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
-    >W przykładzie Nasza nazwa aplikacji jest `Headerapp.superdemo.live`używana jako certyfikat wieloznaczny nasz KeyName to. `WildCard-SuperDemo.live`
+    >W przykładzie Nasza nazwa aplikacji jest `Headerapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to `WildCard-SuperDemo.live` .
   
     ![Konfiguracja F5 (na podstawie nagłówka)](./media/headerf5-tutorial/configure17.png)
 
@@ -346,7 +346,7 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
  
     ![Konfiguracja F5 (na podstawie nagłówka)](./media/headerf5-tutorial/configure29.png)
 
-    a. Przejdź do pliku Metadata. XML pobranego z usługi Azure AD i podaj **nazwę dostawcy tożsamości**.
+    a. Przejdź do pliku metadata.xml pobranego z usługi Azure AD i podaj **nazwę dostawcy tożsamości**.
 
     b. Kliknij przycisk **OK**.
 
@@ -360,7 +360,7 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
 
     f. **Zgodne źródło =% {Session. Server. landinguri}** 
 
-    g. **Zgodna wartość =/***
+    przykład **Zgodna wartość =/***
 
     h. Kliknij przycisk **Aktualizuj**
 
@@ -394,7 +394,7 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
 
     ![Konfiguracja F5 (na podstawie nagłówka)](./media/headerf5-tutorial/configure35.png)
  
-    g. Kliknij **Edytor zasad wizualnych**, Edytuj **zasady dostępu dla** linku profilu.
+    przykład Kliknij **Edytor zasad wizualnych**, Edytuj **zasady dostępu dla** linku profilu.
 
     h. Kliknij znak + w edytorze zasad wizualnych i wybierz pozycję **uwierzytelnianie SAML**.
 
@@ -418,7 +418,7 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
 
 1. Przypisz Profil dostępu do serwera wirtualnego, aby w usłudze F5 BIG-IP APM zastosować ustawienia profilu do ruchu przychodzącego i uruchomić wcześniej zdefiniowane zasady dostępu.
 
-    a. Kliknij pozycję **główny** > **ruch** > lokalny lokalne**serwery wirtualne**.
+    a. Kliknij pozycję **główny**  >  **ruch lokalny lokalne**  >  **serwery wirtualne**.
 
     ![Konfiguracja F5 (na podstawie nagłówka)](./media/headerf5-tutorial/configure40.png)
  
@@ -438,11 +438,11 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
  
     gdy RULE_INIT {Set static::d ebug 0} podczas ACCESS_ACL_ALLOWED {
 
-    Ustaw AZUREAD_USERNAME [dostęp:: dane sesji Get "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] jeśli {$static::d ebug} {log local0. "AZUREAD_USERNAME = $AZUREAD _USERNAME"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_USERNAME"]) } {HTTP:: Header INSERT "AZUREAD_USERNAME" $AZUREAD _USERNAME}
+    Ustaw AZUREAD_USERNAME [dostęp:: dane sesji Get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name "] Jeśli {$static::d ebug} {log local0. "AZUREAD_USERNAME = $AZUREAD _USERNAME"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_USERNAME"]) } {HTTP:: Header INSERT "AZUREAD_USERNAME" $AZUREAD _USERNAME}
 
-    Ustaw AZUREAD_DISPLAYNAME [dostęp:: dane sesji Get "session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/displayname"] jeśli {$static::d ebug} {log local0. "AZUREAD_DISPLAYNAME = $AZUREAD _DISPLAYNAME"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_DISPLAYNAME"]) } {HTTP:: Header INSERT "AZUREAD_DISPLAYNAME" $AZUREAD _DISPLAYNAME}
+    Ustaw AZUREAD_DISPLAYNAME [dostęp:: dane sesji Get "session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/displayname "] Jeśli {$static::d ebug} {log local0. "AZUREAD_DISPLAYNAME = $AZUREAD _DISPLAYNAME"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_DISPLAYNAME"]) } {HTTP:: Header INSERT "AZUREAD_DISPLAYNAME" $AZUREAD _DISPLAYNAME}
 
-    Ustaw AZUREAD_EMAILADDRESS [dostęp:: dane sesji Get "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] jeśli {$static::d ebug} {log local0. "AZUREAD_EMAILADDRESS = $AZUREAD _EMAILADDRESS"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_EMAILADDRESS"]) } {HTTP:: Header INSERT "AZUREAD_EMAILADDRESS" $AZUREAD _EMAILADDRESS}}
+    Ustaw AZUREAD_EMAILADDRESS [dostęp:: dane sesji Get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress "] Jeśli {$static::d ebug} {log local0. "AZUREAD_EMAILADDRESS = $AZUREAD _EMAILADDRESS"} Jeśli {! ( [HTTP:: Header istnieje "AZUREAD_EMAILADDRESS"]) } {HTTP:: Header INSERT "AZUREAD_EMAILADDRESS" $AZUREAD _EMAILADDRESS}}
 
     **Przykładowe dane wyjściowe poniżej**
 
@@ -464,7 +464,7 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Azure AD](https://aad.portal.azure.com/)
 

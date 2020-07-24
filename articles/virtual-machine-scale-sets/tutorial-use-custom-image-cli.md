@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 22f3fd44fbeb3d951d4add7b90a0e9aebd863ebf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 159ded093f278672a8251263f7bab1050a945e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085847"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu i używanie go dla zestawów skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
 Podczas tworzenia zestawu skalowania należy wskazać obraz używany do wdrożenia wystąpień maszyn wirtualnych. Aby zmniejszyć liczbę zadań wykonywanych po wdrożeniu wystąpień maszyn wirtualnych, można użyć niestandardowego obrazu maszyny wirtualnej. Niestandardowy obraz maszyny wirtualnej obejmuje wszystkie wymagane instalacje i konfiguracje aplikacji. Wszystkie wystąpienia maszyn wirtualnych utworzone w zestawie skalowania używają niestandardowego obrazu maszyny wirtualnej i są gotowe do obsługi ruchu aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -22,7 +22,7 @@ Podczas tworzenia zestawu skalowania należy wskazać obraz używany do wdrożen
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie wyspecjalizowanej definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie zestawu skalowania na podstawie obrazu specjalistycznego
 > * Udostępnianie galerii obrazów
 
@@ -69,7 +69,7 @@ Aby dostosować maszynę wirtualną, należy zainstalować podstawowy serwer int
 sudo apt-get install -y nginx
 ```
 
-Gdy skończysz, wpisz `exit` polecenie, aby rozłączyć połączenie SSH.
+Gdy skończysz, wpisz polecenie, `exit` Aby rozłączyć połączenie SSH.
 
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów 
 
@@ -90,13 +90,13 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Upewnij się, że definicja obrazu jest odpowiednim typem. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć uogólnioną definicję obrazu przy użyciu `--os-state generalized`programu. Jeśli chcesz użyć maszyny wirtualnej bez usuwania istniejących kont użytkowników, Utwórz wyspecjalizowaną definicję obrazu za pomocą polecenia `--os-state specialized`.
+Upewnij się, że definicja obrazu jest odpowiednim typem. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć uogólnioną definicję obrazu przy użyciu programu `--os-state generalized` . Jeśli chcesz użyć maszyny wirtualnej bez usuwania istniejących kont użytkowników, Utwórz wyspecjalizowaną definicję obrazu za pomocą polecenia `--os-state specialized` .
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](../virtual-machines/linux/shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest dla [WYSPECJALIZOWANEGO](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj `--os-type Windows`polecenia. 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest dla [WYSPECJALIZOWANEGO](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -137,18 +137,18 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w usłudze Premium Storage przez dodanie `--storage-account-type  premium_lrs`lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w usłudze Premium Storage przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
 >
 
 
 
 
 ## <a name="create-a-scale-set-from-the-image"></a>Tworzenie zestawu skalowania na podstawie obrazu
-Utwórz zestaw skalowania z wyspecjalizowanego obrazu przy [`az vmss create`](/cli/azure/vmss#az-vmss-create)użyciu. 
+Utwórz zestaw skalowania z wyspecjalizowanego obrazu przy użyciu [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
-Utwórz zestaw skalowania przy [`az vmss create`](/cli/azure/vmss#az-vmss-create) użyciu parametru--wyspecjalizowanego w celu wskazania, że obraz jest wyspecjalizowanym obrazem. 
+Utwórz zestaw skalowania przy użyciu [`az vmss create`](/cli/azure/vmss#az-vmss-create) parametru--wyspecjalizowanego w celu wskazania, że obraz jest wyspecjalizowanym obrazem. 
 
-Użyj identyfikatora definicji obrazu do, `--image` aby utworzyć wystąpienia zestawu skalowania z najnowszej wersji dostępnego obrazu. Możesz również utworzyć wystąpienia zestawu skalowania na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image`. 
+Użyj identyfikatora definicji obrazu do, `--image` Aby utworzyć wystąpienia zestawu skalowania z najnowszej wersji dostępnego obrazu. Możesz również utworzyć wystąpienia zestawu skalowania na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image` . 
 
 Utwórz zestaw skalowania o nazwie *myScaleSet* Najnowsza wersja utworzonego wcześniej obrazu *myImageDefinition* .
 
@@ -208,7 +208,7 @@ az sig show \
    --query id
 ```
 
-Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. `<email-address>` Zastąp `<gallery iD>` i własnymi informacjami.
+Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. Zastąp `<email-address>` i `<gallery iD>` własnymi informacjami.
 
 ```azurecli-interactive
 az role assignment create \
@@ -217,10 +217,10 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby usunąć zestaw skalowania i dodatkowe zasoby, Usuń grupę zasobów i wszystkie jej zasoby za pomocą polecenie [AZ Group Delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive
@@ -234,7 +234,7 @@ W tym samouczku omówiono tworzenie niestandardowego obrazu maszyny wirtualnej i
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie wyspecjalizowanej definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie zestawu skalowania na podstawie obrazu specjalistycznego
 > * Udostępnianie galerii obrazów
 

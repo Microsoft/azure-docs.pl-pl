@@ -6,12 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071165"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Jak monitorować zasoby w chmurze wiosny przy użyciu alertów i grup akcji
 
@@ -93,7 +94,7 @@ Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitoro
 
 1. Ustaw **ważność**.
 
-1. Kliknij przycisk **Utwórz regułę alertu**.
+1. Kliknij pozycję **Utwórz regułę alertu**.
 
    ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-4.png)
 
@@ -110,7 +111,7 @@ Regułę można również utworzyć za pomocą strony **metryki** :
 W tym samouczku przedstawiono sposób konfigurowania alertów i grup akcji dla aplikacji w chmurze ze sprężyną na platformie Azure. Aby dowiedzieć się więcej na temat grup akcji, zobacz:
 
 > [!div class="nextstepaction"]
-> [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+> [Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 
 > [!div class="nextstepaction"]
 > [Zachowanie alertów SMS w grupach akcji](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

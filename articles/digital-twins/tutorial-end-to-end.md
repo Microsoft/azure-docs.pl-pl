@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032304"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
 
@@ -26,6 +26,9 @@ W tym samouczku będziesz...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Konfigurowanie sesji Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -177,7 +180,7 @@ Oto akcje, które należy wykonać w celu skonfigurowania tego połączenia urz�
 4. Uruchamianie symulowanego urządzenia i generowanie telemetrii
 5. Wysyłanie zapytań do usługi Azure Digital bliźniaczych reprezentacji w celu wyświetlenia wyników na żywo
 
-### <a name="create-an-iot-hub-instance"></a>Tworzenie wystąpienia IoT Hub
+### <a name="create-an-iot-hub-instance"></a>Tworzenie wystąpienia usługi IoT Hub
 
 Usługa Azure Digital bliźniaczych reprezentacji została zaprojektowana tak, aby działała wraz z [IoT Hub](../iot-hub/about-iot-hub.md), usługą platformy Azure do zarządzania urządzeniami i ich danymi. W tym kroku utworzysz Centrum IoT Hub, które będzie zarządzać przykładowym urządzeniem w tym samouczku.
 
@@ -433,7 +436,7 @@ Na koniec Usuń folder przykładowego projektu pobrany z komputera lokalnego.
 W tym samouczku opisano tworzenie kompleksowego scenariusza, który pokazuje, że usługa Azure Digital bliźniaczych reprezentacji jest obsługiwana przez dane urządzenia na żywo.
 
 Następnie zacznij od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku:
-* [Koncepcje: modele niestandardowe](concepts-models.md)
+* [*Koncepcje: modele niestandardowe*](concepts-models.md)
 
 Możesz też zapoznać się z bardziej szczegółowymi procesami w tym samouczku, uruchamiając artykuły z przewodnikiem:
-* [Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)
+* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)

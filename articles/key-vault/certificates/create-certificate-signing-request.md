@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043888"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -59,7 +59,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
     Żądanie certyfikatu zostało teraz pomyślnie scalone.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
 2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
@@ -81,7 +81,24 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
 Żądanie certyfikatu zostało teraz pomyślnie scalone.
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="adding-more-information-to-csr"></a>Dodawanie dodatkowych informacji do CSR
+
+Jeśli chcesz dodać więcej informacji podczas tworzenia usługi CSR, na przykład 
+    - Kraj:
+    - Miasto/miejscowość:
+    - Województwo:
+    - Podmiot
+    - Jednostka organizacyjna: możesz dodać wszystkie te informacje podczas tworzenia CSR, definiując je w SubjectName.
+
+Przykład
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>Jeśli żądasz certyfikatu DV ze wszystkimi szczegółami w CSR, urząd certyfikacji może odrzucić żądanie, ponieważ urząd certyfikacji może nie być w stanie zweryfikować wszystkich informacji zawartych w żądaniu. Jeśli żądasz certyfikatu OV, warto dodać wszystkie te informacje w CSR.
+
+
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie dla tego certyfikatu.
 

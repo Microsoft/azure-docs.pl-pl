@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 32a3ec0caae303c37cad771b2bbbd1b7840512a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075446"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python)
 
@@ -39,7 +39,7 @@ W tym samouczku wykonasz następujące czynności:
 
 Aby ukończyć ten samouczek, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). 
 
-Aby utworzyć subskrypcję konta Azure Maps, postępuj zgodnie z instrukcjami podanymi w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps). Potrzebna jest subskrypcja konta Azure Maps z warstwą cenową S1. 
+Aby utworzyć subskrypcję konta Azure Maps, postępuj zgodnie z instrukcjami podanymi w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account). Potrzebna jest subskrypcja konta Azure Maps z warstwą cenową S1. 
 
 Aby uzyskać podstawowy klucz subskrypcji dla konta, postępuj zgodnie z instrukcjami podanymi w temacie [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
@@ -62,7 +62,7 @@ Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt notes
  
     ![Okienko Utwórz nowy projekt](./media/tutorial-ev-routing/create-project-window.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po utworzeniu projektu Pobierz ten [plik dokumentu notesu Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) z [repozytorium Azure Maps Jupyter notesu](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
@@ -82,12 +82,12 @@ Spróbuj zrozumieć funkcjonalność zaimplementowaną w pliku notesu. Uruchom k
 
 Aby uruchomić kod w notesie, zainstaluj pakiety na poziomie projektu, wykonując następujące czynności:
 
-1. Pobierz plik [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) z [repozytorium Azure Maps Jupyter Notes](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), a następnie Przekaż go do projektu.
+1. Pobierz plik [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) z [repozytorium Azure Maps notesu Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), a następnie Przekaż go do projektu.
 1. Na pulpicie nawigacyjnym projektu wybierz pozycję **Ustawienia projektu**. 
 1. W okienku **Ustawienia projektu** wybierz kartę **środowisko** , a następnie wybierz pozycję **Dodaj**.
 1. W obszarze **czynności konfiguracyjne środowiska**wykonaj następujące czynności:   
-    a. Z pierwszej listy rozwijanej wybierz pozycję **Requirements. txt**.  
-    b. Z drugiej listy rozwijanej wybierz plik *Requirements. txt* .  
+    a. Z pierwszej listy rozwijanej wybierz pozycję **Requirements.txt**.  
+    b. Z drugiej listy rozwijanej wybierz plik *requirements.txt* .  
     c. Z trzeciej listy rozwijanej wybierz **wersję 3,6 języka Python** jako wersję.
 1. Wybierz pozycję **Zapisz**.
 

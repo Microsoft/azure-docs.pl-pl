@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: a1fdc9e37084b1e8064bf642ff84646149c32ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050667"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.locfileid: "84906126"
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -47,7 +47,7 @@ Jeśli program Visual Studio został już zainstalowany, Dodaj obciążenia w pr
 
 Przykładowy projekt zawiera podstawową aplikację [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete, tworzenie-odczytywanie-aktualizowanie-usuwanie) korzystającą z modelu [Code First platformy Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-### <a name="run-the-app"></a>Uruchomienie aplikacji
+### <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Otwórz plik *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* w programie Visual Studio.
 
@@ -108,8 +108,8 @@ Wygenerowaną nazwę aplikacji internetowej można zachować lub zmienić na inn
 
    | Ustawienie  | Sugerowana wartość | Więcej informacji |
    | ----------------- | ------------ | ----|
-   |**Plan App Service**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
-   |**Lokalizacja**| Europa Zachodnia | [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+   |**Plan usługi App Service**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
+   |**Lokalizacja**| West Europe | [Regiony platformy Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Rozmiar**| Bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-server"></a>Tworzenie serwera
@@ -415,3 +415,8 @@ Więcej zasobów:
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie aplikacji ASP.NET](configure-language-dotnet-framework.md)
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

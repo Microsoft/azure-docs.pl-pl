@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80393042191abc2a8eb74182cf18581d252222a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81392691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056462"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Samouczek: wdrażanie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,9 @@ Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.5
 
 Klastry usługi AKS mogą używać kontroli dostępu opartej na rolach (RBAC) rozwiązania Kubernetes. Te kontrolki umożliwiają zdefiniowanie dostępu do zasobów na podstawie ról przypisanych użytkownikom. Uprawnienia są łączone, jeśli użytkownikowi przypisano wiele ról, a zakres uprawnień można ograniczyć do jednej przestrzeni nazw lub do całego klastra. Domyślnie interfejs wiersza polecenia platformy Azure automatycznie włącza kontrolę dostępu opartą na rolach podczas tworzenia klastra usługi AKS.
 
-Utwórz klaster usługi AKS za pomocą polecenia [az aks create][]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. Ta grupa zasobów została utworzona w ramach [poprzedniego samouczka][aks-tutorial-prepare-acr]. Aby umożliwić klastrowi AKS współdziałanie z innymi zasobami platformy Azure, zostanie automatycznie utworzona jednostka usługi Azure Active Directory, ponieważ nie została ona określona. W tym miejscu ta jednostka usługi ma uprawnienia [do ściągania obrazów][container-registry-integration] z wystąpienia Azure Container Registry (ACR) utworzonego w poprzednim samouczku. Należy pamiętać, że w celu łatwiejszego zarządzania można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi.
+Utwórz klaster usługi AKS za pomocą polecenia [az aks create][]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. Ta grupa zasobów została utworzona w [poprzednim samouczku][aks-tutorial-prepare-acr] w regionie *wschodnim* . W poniższym przykładzie nie określono regionu, więc klaster AKS jest tworzony również w regionie *wschodnim* . Aby uzyskać więcej informacji na temat limitów zasobów i dostępności regionów [w usłudze Azure Kubernetes Service (AKS), zobacz temat limity przydziału, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów][quotas-skus-regions] .
+
+Aby umożliwić klastrowi AKS współdziałanie z innymi zasobami platformy Azure, zostanie automatycznie utworzona jednostka usługi Azure Active Directory, ponieważ nie została ona określona. W tym miejscu ta jednostka usługi ma uprawnienia [do ściągania obrazów][container-registry-integration] z wystąpienia Azure Container Registry (ACR) utworzonego w poprzednim samouczku. Należy pamiętać, że w celu łatwiejszego zarządzania można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi.
 
 ```azurecli
 az aks create \
@@ -108,3 +110,4 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak wdrożyć aplikacj�
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
+[quotas-skus-regions]: quotas-skus-regions.md

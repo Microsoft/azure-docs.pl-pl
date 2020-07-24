@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 07/20/2020
 ms.author: victorh
-ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f1501438c5fde5be401411ee51b212323427761
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74075146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068124"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Samouczek: Tworzenie i Konfigurowanie bramy aplikacji na potrzeby hostowania wielu witryn sieci Web przy użyciu Azure Portal
 
@@ -29,9 +29,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie reguł routingu
 > * Tworzenie rekordu CNAME w domenie
 
-![Przykład routingu obejmujący wiele witryn](./media/create-multiple-sites-portal/scenario.png)
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Application Gateway wiele lokacji":::
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -50,7 +50,7 @@ Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.co
    - **Grupa zasobów**: wybierz pozycję **myResourceGroupAG** dla grupy zasobów. Jeśli ta grupa nie istnieje, wybierz pozycję **Utwórz nową** w celu jej utworzenia.
    - **Nazwa bramy aplikacji**: wprowadź *myAppGateway* jako nazwę bramy aplikacji.
 
-     ![Utwórz nową bramę aplikacji: podstawowe](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Utwórz Application Gateway":::
 
 2.  Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirtualnej. Można utworzyć nową sieć wirtualną lub użyć istniejącej. W tym przykładzie utworzysz nową sieć wirtualną w tym samym czasie, podczas tworzenia bramy aplikacji. Wystąpienia Application Gateway są tworzone w różnych podsieciach. W tym przykładzie tworzysz dwie podsieci: jedną dla bramy aplikacji i drugą dla serwerów zaplecza.
 
@@ -66,7 +66,7 @@ Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.co
 
     Wybierz **przycisk OK** , aby zamknąć okno **Tworzenie sieci wirtualnej** i zapisać ustawienia sieci wirtualnej.
 
-     ![Utwórz nową bramę aplikacji: Sieć wirtualna](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Tworzenie sieci wirtualnej":::
     
 3. Na karcie **podstawy** zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Dalej: frontony**.
 
@@ -78,7 +78,7 @@ Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.co
 
 2. Wybierz opcję **Utwórz nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
 
-     ![Utwórz nową bramę aplikacji: frontony](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Tworzenie sieci wirtualnej":::
 
 3. Wybierz pozycję **Dalej: nadkończenie**.
 
@@ -96,7 +96,7 @@ Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsł
 3. W oknie **Dodawanie puli zaplecza** wybierz pozycję **Dodaj** , aby zapisać konfigurację puli zaplecza i powrócić **do karty** zaplecze.
 4. Teraz Dodaj kolejną pulę zaplecza o nazwie *fabrikamPool*.
 
-     ![Utwórz nową bramę aplikacji: zafrontony](./media/create-multiple-sites-portal/backend-pools.png)
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Utwórz zakończyło się":::
 
 4. Na karcie **zakończyło** się wybierz pozycję **Dalej: Konfiguracja**.
 
@@ -117,9 +117,12 @@ Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i pul zaple
    - **Typ odbiornika**: wiele lokacji
    - **Nazwa hosta**: **www.contoso.com**
 
+>[!NOTE]
+> W przypadku jednostki SKU Application Gateway lub WAF v2 można także skonfigurować maksymalnie 5 nazw hostów na odbiornik i można użyć symboli wieloznacznych w nazwie hosta. Aby uzyskać więcej informacji, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](multiple-site-overview.md#wildcard-host-names-in-listener-preview) . W Azure Portal można zdefiniować je w oddzielnych polach tekstowych w polu Nazwa hosta.
+
    Zaakceptuj wartości domyślne pozostałych ustawień na karcie **odbiornik** , a następnie wybierz kartę **cele zaplecza** , aby skonfigurować resztę reguły routingu.
 
-   ![Utwórz nową bramę aplikacji: odbiornik](./media/create-multiple-sites-portal/routing-rule.png)
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Tworzenie reguły routingu":::
 
 4. Na karcie **cele zaplecza** wybierz pozycję **contosoPool** dla **elementu docelowego zaplecza**.
 
@@ -128,7 +131,7 @@ Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i pul zaple
 6. W oknie **Dodawanie reguły routingu** wybierz pozycję **Dodaj** , aby zapisać regułę routingu, i wróć do karty **Konfiguracja** .
 7. Wybierz pozycję **Dodaj regułę** i Dodaj podobną regułę, odbiornik, cel zaplecza i ustawienie protokołu HTTP dla firmy Fabrikam.
 
-     ![Tworzenie nowej bramy aplikacji: reguła routingu](./media/create-multiple-sites-portal/fabrikamRule.png)
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Reguła fabrikam":::
 
 7. Wybierz pozycję **Dalej: Tagi** , a następnie kliknij przycisk **Dalej: przegląd + Utwórz**.
 
@@ -228,7 +231,7 @@ Po utworzeniu bramy aplikacji przy użyciu publicznego adresu IP można uzyskać
 
     ![Testowanie witryny fabrikam w bramy aplikacji](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów utworzonych za pomocą bramy aplikacji, usuń grupę zasobów. Po usunięciu grupy zasobów należy również usunąć bramę aplikacji i wszystkie powiązane z nią zasoby.
 

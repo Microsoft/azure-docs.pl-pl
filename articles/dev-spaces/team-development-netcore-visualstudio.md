@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i programu Visual Studio do opracowywania zespołu w aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072975"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Programowanie zespołowe za pomocą platformy .NET Core i programu Visual Studio z Azure Dev Spaces
 
@@ -36,7 +36,7 @@ W tej chwili przykładowa aplikacja nie jest skomplikowana. Jednak w rzeczywisty
 * Niektórzy deweloperzy uciekają się do symulowania lub budowania makiet wielu zależności swoich usług. Takie podejście może pomóc, jednak zarządzanie tymi makietami może szybko zwiększyć koszt programowania. Ponadto takie podejście prowadzi do tego, że środowisko deweloperskie jest inne, niż środowisko produkcyjne, co może prowadzić do występowania małych błędów.
 * Z tego względu przeprowadzenie jakiegokolwiek testu integracji staje się trudne. Testowanie integracji realnie może nastąpić po zatwierdzeniu, co oznacza, że problemy pojawią się na dalszych etapach cyklu programowania.
 
-    ![](media/common/microservices-challenges.png)
+    ![Obraz przedstawiający złożoność testowania integracji przez zilustrowanie relacji między usługą App Service i jej zależnościami.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Praca w udostępnionej przestrzeni deweloperskiej
 W usłudze Azure Dev Spaces możesz skonfigurować *udostępnione* przestrzenie deweloperskie na platformie Azure. Każdy deweloper może skupić się wyłącznie na swojej części aplikacji oraz iteracyjnie tworzyć *wstępnie zatwierdzony kod* w przestrzeni deweloperskiej zawierającej już wszystkie pozostałe usługi i zasoby w chmurze, od których zależą jego scenariusze. Zależności są zawsze aktualne, a deweloperzy pracują w sposób odzwierciedlający środowisko produkcyjne.
@@ -45,7 +45,7 @@ W usłudze Azure Dev Spaces możesz skonfigurować *udostępnione* przestrzenie 
 Kiedy tworzysz kod dla swojej usługi i nie jest on jeszcze gotowy do zaewidencjonowania, często znajduje się on w niezbyt dobrym stanie. Wciąż w sposób iteracyjny go kształtujesz, testujesz i eksperymentujesz z rozwiązaniami. Usługa Azure Dev Spaces wprowadza pojęcie **miejsca**, które umożliwia pracę w izolacji i bez obaw o przeszkadzanie członkom zespołu.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Programowanie zespołowe za pomocą usługi Dev Spaces
-Przedstawimy te pomysły w konkretnym przykładzie przy użyciu naszej aplikacji przykładowej *webfrontonu* -> *mywebapi* . Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
+Przedstawimy te pomysły w konkretnym przykładzie przy użyciu naszej aplikacji przykładowej *webfrontonu*  ->  *mywebapi* . Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
 
 _Bez_ używania usługi Dev Spaces Scott miałby kilka sposobów na opracowanie i przetestowanie swojej aktualizacji, jednak żaden z nich nie jest idealny:
 * Uruchomienie WSZYSTKICH składników lokalnie, co wymaga bardziej zaawansowanego komputera deweloperskiego z zainstalowaną platformą Docker i potencjalnie z rozwiązaniem MiniKube.
@@ -63,8 +63,8 @@ Najpierw musimy wdrożyć punkt odniesienia naszych usług. To wdrożenie będzi
 1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości**.
 1. Wybierz kartę **Debugowanie** po lewej stronie, aby wyświetlić ustawienia usługi Azure Dev Spaces.
 1. Wybierz pozycję **Zmień**, aby utworzyć przestrzeń, która będzie używana, gdy naciśniesz klawisz F5 lub klawisze Ctrl+F5 dla usługi.
-1. Na liście rozwijanej miejsce wybierz pozycję ** \<Utwórz nowe miejsce... \>**.
-1. Upewnij się, że w obszarze nadrzędnym jest ustawiona wartość ** \<brak\>**, a następnie wprowadź nazwę obszaru **dev**. Kliknij przycisk OK.
+1. Na liście rozwijanej miejsce wybierz pozycję **\<Create New Space…\>** .
+1. Upewnij się, że przestrzeń nadrzędna jest ustawiona na **\<none\>** , a następnie wprowadź nazwę obszaru **dev**. Kliknij przycisk OK.
 1. Naciśnij klawisze Ctrl+F5, aby uruchomić usługę _mywebapi_ bez w dołączonego debugera.
 1. Przełącz się na okno programu Visual Studio z projektem _webfrontend_, a następnie naciśnij klawisze Ctrl+F5, aby także go uruchomić.
 
@@ -88,17 +88,17 @@ Wykonaj następujące czynności, aby utworzyć nowe miejsce:
 2. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości**.
 3. Wybierz kartę **Debugowanie** po lewej stronie, aby wyświetlić ustawienia usługi Azure Dev Spaces.
 4. W tym miejscu możesz zmienić lub utworzyć klaster i/lub miejsce, które będzie używane po naciśnięciu klawiszy F5 lub Ctrl+F5. *Upewnij się, że jest wybrane utworzone wcześniej miejsce usługi Azure Dev Spaces*.
-5. Na liście rozwijanej miejsce wybierz pozycję ** \<Utwórz nowe miejsce... \>**.
+5. Na liście rozwijanej miejsce wybierz pozycję **\<Create New Space…\>** .
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Zrzut ekranu przedstawiający wybór opcji "Utwórz nowe miejsce" na liście rozwijanej miejsce na stronie właściwości debugowania projektu w programie Visual Studio Eksplorator rozwiązań.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. W oknie dialogowym **Dodaj przestrzeń** ustaw dla przestrzeni nadrzędnej wartość **dev**, a następnie wprowadź nazwę nowej przestrzeni. Jako nazwy nowego miejsca możesz użyć swojego imienia (na przykład „scott”), aby Twoi współpracownicy mogli łatwo zidentyfikować miejsce, w którym pracujesz. Kliknij przycisk **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie miejsca umożliwiające dodanie nowego miejsca deweloperskiego do tworzenia zespołu.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. Teraz powinien zostać wyświetlony klaster usługi AKS i nowy obszar wybrany na stronie właściwości projektu.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Zrzut ekranu przedstawiający klaster AKS "MyAKS" i przestrzeń "Scott" wybrane na stronie właściwości debugowania projektu w programie Visual Studio Eksplorator rozwiązań.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Zaktualizuj kod dla aplikacji *mywebapi*
 
@@ -117,14 +117,14 @@ Wykonaj następujące czynności, aby utworzyć nowe miejsce:
 
 Poniżej przedstawiono diagram, który pomoże Ci zrozumieć, jak działają różne miejsca. Fioletowa ścieżka przedstawia żądanie za pośrednictwem przestrzeni _dev_, która jest domyślną ścieżką używaną, gdy do adresu URL nie jest dołączona żadna przestrzeń. Różowa ścieżka przedstawia żądanie za pośrednictwem przestrzeni _dev/scott_.
 
-![](media/common/Space-Routing.png)
+![Diagram przedstawiający różnice nazw ścieżek i routingu żądań za pomocą nowo utworzonego obszaru "dev/Scott" i domyślnego obszaru "dev".](media/common/Space-Routing.png)
 
 Ta wbudowana funkcja usługi Azure Dev Spaces umożliwia kompleksowe testowanie kodu w udostępnionym środowisku bez konieczności ponownego tworzenia pełnych stosów usług przez wszystkich deweloperów w ich miejscach. Taki routing wymaga przekazywania nagłówków propagowania w kodzie aplikacji, jak pokazano w poprzednim kroku tego przewodnika.
 
 ### <a name="test-code-running-in-the-_devscott_-space"></a>Testowanie kodu uruchamianego w przestrzeni _dev/scott_
-Aby przetestować nową wersję *mywebapi* w połączeniu z *webfrontonem*, Otwórz przeglądarkę do adresu URL punktu dostępu publicznego dla *webfrontonu* (na przykład `http://dev.webfrontend.123456abcdef.eus.azds.io`) i przejdź do strony informacje. Powinien zostać wyświetlony pierwotny komunikat „Hello from webfrontend and Hello from mywebapi”.
+Aby przetestować nową wersję *mywebapi* w połączeniu z *webfrontonem*, Otwórz przeglądarkę do adresu URL punktu dostępu publicznego dla *webfrontonu* (na przykład `http://dev.webfrontend.123456abcdef.eus.azds.io` ) i przejdź do strony informacje. Powinien zostać wyświetlony pierwotny komunikat „Hello from webfrontend and Hello from mywebapi”.
 
-Teraz dodaj część „scott.s.” należy do adresu URL, który odczytuje coś, takiego\:jak http//Scott.s.dev.webfrontend.123456abcdef.EUS.azds.IO, i Odśwież przeglądarkę. Powinien zostać osiągnięty punkt przerwania ustawiony w projekcie *mywebapi*. Naciśnij klawisz F5, aby kontynuować. W przeglądarce powinien zostać wyświetlony nowy komunikat „Hello from webfrontend and mywebapi now says something new”. Jest to spowodowane tym, że ścieżka do zaktualizowanego kodu w aplikacji *mywebapi* jest uruchamiana w przestrzeni _dev/scott_.
+Teraz dodaj część „scott.s.” należy do adresu URL, który odczytuje coś, takiego jak http \: //Scott.s.dev.webfrontend.123456abcdef.EUS.azds.IO, i Odśwież przeglądarkę. Powinien zostać osiągnięty punkt przerwania ustawiony w projekcie *mywebapi*. Naciśnij klawisz F5, aby kontynuować. W przeglądarce powinien zostać wyświetlony nowy komunikat „Hello from webfrontend and mywebapi now says something new”. Jest to spowodowane tym, że ścieżka do zaktualizowanego kodu w aplikacji *mywebapi* jest uruchamiana w przestrzeni _dev/scott_.
 
 Mamy nadzieję, że po utworzeniu przestrzeni _dev_, która zawsze zawiera najnowsze zmiany, i zakładając, że aplikacja jest zaprojektowana tak, aby wykorzystywać oparty na przestrzeniach routing usługi DevSpace, łatwo będzie zobaczyć, że usługa Dev Spaces może znacznie ułatwić testowanie nowych funkcji w kontekście większej aplikacji. Zamiast wdrażać _wszystkie_ usługi w przestrzeni prywatnej, możesz utworzyć przestrzeń prywatną, która wywodzi się z przestrzeni _dev_, i uruchamiać tylko te usługi, nad którymi tak naprawdę pracujesz. Infrastruktura routingu usługi Dev Space zajmie się resztą, wykorzystując tyle usług spoza przestrzeni prywatnej, ile uda jej się znaleźć, jednocześnie przyjmując domyślnie najnowszą wersję uruchomioną w przestrzeni _dev_. A co najlepsze, _wielu_ deweloperów może aktywnie programować różne usługi w tym samym czasie we własnych przestrzeniach, nie przeszkadzając sobie nawzajem.
 

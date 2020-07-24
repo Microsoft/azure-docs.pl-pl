@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77154823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035064"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication
 
 Uwierzytelnianie wieloskładnikowe (MFA) to proces, w którym użytkownik jest monitowany podczas logowania w celu uzyskania dodatkowych form identyfikacji. Ten monit może być wprowadzeniem kodu w Cellphone lub w celu przeskanowania odcisku palca. Gdy wymagana jest druga forma uwierzytelniania, zabezpieczenia są zwiększane, ponieważ ten dodatkowy czynnik nie jest czymś, co jest łatwe do uzyskania lub zduplikowania przez osobę atakującą.
 
 Usługa Azure Multi-Factor Authentication i zasady dostępu warunkowego zapewniają elastyczność włączania uwierzytelniania wieloskładnikowego dla użytkowników podczas określonych zdarzeń związanych z logowaniem.
+
+> [!IMPORTANT]
+> W tym samouczku pokazano, jak włączyć usługę Azure Multi-Factor Authentication.
+>
+> Jeśli Twój zespół IT nie włączył możliwości korzystania z usługi Azure Multi-Factor Authentication lub masz problemy podczas logowania, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -38,9 +43,9 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto z uprawnieniami *administratora globalnego* .
 * Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku przetestujesz środowisko Multi-Factor Authentication platformy Azure dla użytkowników końcowych za pomocą tego konta.
-    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../add-users-azure-active-directory.md).
+    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Grupa, do której należy użytkownik niebędący administratorem, na przykład *MFA-test-Group*. W tym samouczku włączysz Multi-Factor Authentication platformy Azure dla tej grupy.
-    * Jeśli musisz utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Jeśli musisz utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -102,14 +107,14 @@ Zapoznaj się z zasadami dostępu warunkowego i Multi-Factor Authentication plat
 
 Teraz Zaloguj się do Azure Portal. Ponieważ Azure Portal została skonfigurowana w zasadach dostępu warunkowego, aby wymagać dodatkowej weryfikacji, uzyskasz monit dotyczący Multi-Factor Authentication platformy Azure.
 
-1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito i przejdź do [https://portal.azure.com](https://portal.azure.com).
+1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito i przejdź do [https://portal.azure.com](https://portal.azure.com) .
 1. Zaloguj się przy użyciu użytkownika testowego niebędącego administratorem, takiego jak *Użytkownik testowy*. Musisz zarejestrować się w usłudze i korzystać z usługi Azure Multi-Factor Authentication. Postępuj zgodnie z monitami, aby zakończyć proces i zweryfikować pomyślne zalogowanie się do Azure Portal.
 
     ![Postępuj zgodnie z monitami przeglądarki, a następnie zaloguj się przy użyciu monitu dotyczącego uwierzytelniania wieloskładnikowego, aby się zalogować](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 1. Zamknij okno przeglądarki.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać zasad dostępu warunkowego, aby włączyć usługę Azure Multi-Factor Authentication skonfigurowaną w ramach tego samouczka, Usuń zasady, wykonując następujące czynności:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5 | Microsoft Docs'
+title: 'Samouczek: integracja z logowaniem jednokrotnym w usłudze Azure AD za pomocą klawisza F5 | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i F5.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017452"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -282,45 +282,45 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (APM), aby określić kontrolery domeny i poświadczenia dla usługi APM, które będą używane do uwierzytelniania użytkowników.
 
-1.    Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
+1. Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
 
-2.    Kliknij pozycję **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
+2. Kliknij pozycję **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
 
-3.    W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
+3. W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
 
-4.    W polu **nazwa domeny** wpisz nazwę domeny systemu Windows.
+4. W polu **nazwa domeny** wpisz nazwę domeny systemu Windows.
 
-5.    Dla ustawienia **połączenie z serwerem** wybierz jedną z następujących opcji:
+5. Dla ustawienia **połączenie z serwerem** wybierz jedną z następujących opcji:
 
-    * Wybierz pozycję **Użyj puli** , aby skonfigurować wysoką dostępność serwera AAA.
+   * Wybierz pozycję **Użyj puli** , aby skonfigurować wysoką dostępność serwera AAA.
 
-    * Wybierz pozycję **Direct** , aby skonfigurować serwer AAA dla funkcjonalności autonomicznej.
+   * Wybierz pozycję **Direct** , aby skonfigurować serwer AAA dla funkcjonalności autonomicznej.
 
-6.    W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
+6. W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
 
-7.    Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
+7. Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
 
-    * Wpisz nazwę w polu **Nazwa puli kontrolera domeny** .
+   * Wpisz nazwę w polu **Nazwa puli kontrolera domeny** .
 
-    * Określ **kontrolery domeny** w puli, wpisując adres IP i nazwę hosta dla każdego z nich, a następnie klikając przycisk **Dodaj** .
+   * Określ **kontrolery domeny** w puli, wpisując adres IP i nazwę hosta dla każdego z nich, a następnie klikając przycisk **Dodaj** .
 
-    * Aby monitorować kondycję serwera AAA, można wybrać monitor kondycji: w tym przypadku jest odpowiedni tylko monitor **gateway_icmp** . można wybrać ją z listy **Monitor puli serwerów** .
+   * Aby monitorować kondycję serwera AAA, można wybrać monitor kondycji: w tym przypadku jest odpowiedni tylko monitor **gateway_icmp** . można wybrać ją z listy **Monitor puli serwerów** .
 
-8.    W polu **nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma Active Directory uprawnienia administracyjne. System APM używa informacji w polach **nazwa administratora** i **hasło administratora** dla kwerendy AD. Jeśli Active Directory jest skonfigurowany dla zapytań anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie system APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem Active Directory, pobierania informacji o grupie użytkowników i pobierania Active Directory zasad haseł w celu obsługi funkcji związanych z hasłami. (System APM musi pobrać zasady haseł, na przykład w przypadku wybrania opcji Monituj użytkownika o zmianę hasła przed wygaśnięciem w akcji kwerendy AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, system APM używa konta użytkownika do pobierania informacji. Ta wartość działa, jeśli konto użytkownika ma wystarczające uprawnienia.
+8. W polu **nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma Active Directory uprawnienia administracyjne. System APM używa informacji w polach **nazwa administratora** i **hasło administratora** dla kwerendy AD. Jeśli Active Directory jest skonfigurowany dla zapytań anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie system APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem Active Directory, pobierania informacji o grupie użytkowników i pobierania Active Directory zasad haseł w celu obsługi funkcji związanych z hasłami. (System APM musi pobrać zasady haseł, na przykład w przypadku wybrania opcji Monituj użytkownika o zmianę hasła przed wygaśnięciem w akcji kwerendy AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, system APM używa konta użytkownika do pobierania informacji. Ta wartość działa, jeśli konto użytkownika ma wystarczające uprawnienia.
 
-9.    W polu **hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
+9. W polu **hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
 
-10.    W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **nazwa domeny** .
+10. W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **nazwa domeny** .
 
-11.    W polu **okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
+11. W polu **okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-12.    W polu **okres istnienia pamięci podręcznej obiektu zabezpieczeń hasła** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
+12. W polu **okres istnienia pamięci podręcznej obiektu zabezpieczeń hasła** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-13.    Z listy **typ szyfrowania wstępnego uwierzytelniania Kerberos** wybierz typ szyfrowania. Wartość domyślna to **none**. W przypadku określenia typu szyfrowania system BIG-IP zawiera dane wstępnego uwierzytelniania Kerberos w ramach pierwszego żądania usługi uwierzytelniania (zgodnie z żądaniem).
+13. Z listy **typ szyfrowania wstępnego uwierzytelniania Kerberos** wybierz typ szyfrowania. Wartość domyślna to **none**. W przypadku określenia typu szyfrowania system BIG-IP zawiera dane wstępnego uwierzytelniania Kerberos w ramach pierwszego żądania usługi uwierzytelniania (zgodnie z żądaniem).
 
-14.    W polu **limit czasu** wpisz przedział czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
+14. W polu **limit czasu** wpisz przedział czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
 
-15.    Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
+15. Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 

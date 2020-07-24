@@ -6,19 +6,19 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 5433eeff4c01c136e62cb71a53fafcae3a81859b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945294"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081376"
 ---
 # <a name="azure-monitor-cli-samples"></a>Przykłady interfejsu wiersza polecenia Azure Monitor
 W tym artykule przedstawiono przykładowe polecenia interfejsu wiersza polecenia (CLI) ułatwiające dostęp do funkcji Azure Monitor. Azure Monitor pozwala na automatyczne skalowanie Cloud Services, Virtual Machines i Web Apps oraz wysyłanie powiadomień o alertach lub wywoływanie adresów URL sieci Web na podstawie wartości skonfigurowanych danych telemetrycznych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie zainstalowano jeszcze interfejsu wiersza polecenia platformy Azure, postępuj zgodnie z instrukcjami dotyczącymi [instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Azure Cloud Shell](/azure/cloud-shell) , aby uruchomić interfejs wiersza polecenia jako interaktywny w przeglądarce. Pełne odwołanie do wszystkich dostępnych poleceń znajduje się w [dokumentacji interfejsu wiersza polecenia Azure monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Jeśli nie zainstalowano jeszcze interfejsu wiersza polecenia platformy Azure, postępuj zgodnie z instrukcjami dotyczącymi [instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Azure Cloud Shell](/azure/cloud-shell) , aby uruchomić interfejs wiersza polecenia jako interaktywny w przeglądarce. Pełne odwołanie do wszystkich dostępnych poleceń znajduje się w [dokumentacji interfejsu wiersza polecenia Azure monitor](/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Pierwszym krokiem jest zalogowanie się do konta platformy Azure.
@@ -206,4 +206,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

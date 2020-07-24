@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998854"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Samouczek: Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą programu Azure PowerShell
 
@@ -30,11 +30,11 @@ Maszyny wirtualne platformy Azure oferują w pełni konfigurowalne i elastyczne 
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroupVM* zostanie utworzona w regionie *EastUS*:
 
@@ -50,13 +50,13 @@ Grupa zasobów jest określana podczas tworzenia lub modyfikowania maszyn wirtua
 
 Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, konfiguracja sieci i poświadczenia administracyjne. W tym przykładzie jest tworzona maszyna wirtualna o nazwie *myVM* z uruchomioną domyślną wersją systemu Windows Server 2016 Datacenter.
 
-Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Utwórz maszynę wirtualną za pomocą polecenia [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,13 +93,13 @@ W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a
 
 Witryna Azure Marketplace zawiera wiele obrazów, za pomocą których można utworzyć nową maszynę wirtualną. W poprzednich krokach utworzono maszynę wirtualną przy użyciu obrazu systemu Windows Server 2016 Datacenter. W tym kroku moduł PowerShell jest używany do wyszukiwania w witrynie Marketplace innych obrazów systemu Windows, które mogą być również używane jako podstawa nowych maszyn wirtualnych. Proces ten składa się z wyszukiwania wydawcy, oferty, jednostki SKU i opcjonalnie numeru wersji w celu [zidentyfikowania](cli-ps-findimage.md#terminology) obrazu.
 
-Użyj polecenia [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), aby uzyskać listę wydawców obrazów:
+Użyj polecenia [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), aby uzyskać listę wydawców obrazów:
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Użyj polecenia [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer), aby uzyskać listę ofert obrazów. To polecenie umożliwia filtrowanie zwracanej listy według określonego wydawcy o nazwie `MicrosoftWindowsServer`:
+Użyj polecenia [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer), aby uzyskać listę ofert obrazów. To polecenie umożliwia filtrowanie zwracanej listy według określonego wydawcy o nazwie `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -117,7 +117,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-Polecenie [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) spowoduje następnie odfiltrowanie według nazwy wydawcy i oferty w celu uzyskania listy nazw obrazów.
+Polecenie [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) spowoduje następnie odfiltrowanie według nazwy wydawcy i oferty w celu uzyskania listy nazw obrazów.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -175,16 +175,16 @@ W poniższej tabeli przedstawiono kategorie rozmiarów podzielone według przypa
 
 | Typ                     | Typowe rozmiary           |    Opis       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Zastosowania ogólne](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
-| [Optymalizacja pod kątem obliczeń](sizes-compute.md)   | Fsv2          | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
-| [Optymalizacja pod kątem pamięci](sizes-memory.md)    | Esv3, EV3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
-| [Optymalizacja pod kątem magazynu](sizes-storage.md)      | Lsv2, LS              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
-| [Procesor GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
-| [Wysoka wydajność](sizes-hpc.md) | H        | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). |
+| [Ogólnego przeznaczenia](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
+| [Optymalizacja pod kątem obliczeń](../sizes-compute.md)   | Fsv2          | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
+| [Optymalizacja pod kątem pamięci](../sizes-memory.md)    | Esv3, EV3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
+| [Optymalizacja pod kątem magazynu](../sizes-storage.md)      | Lsv2, LS              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
+| [Procesor GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
+| [Wysoka wydajność](../sizes-hpc.md) | H        | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). |
 
 ### <a name="find-available-vm-sizes"></a>Wyszukiwanie dostępnych rozmiarów maszyn wirtualnych
 
-Aby wyświetlić listę dostępnych rozmiarów maszyn wirtualnych w danym regionie, użyj polecenia [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
+Aby wyświetlić listę dostępnych rozmiarów maszyn wirtualnych w danym regionie, użyj polecenia [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -194,7 +194,7 @@ Get-AzVMSize -Location "EastUS"
 
 Po wdrożeniu maszyny wirtualnej można zmienić jej rozmiar w celu zwiększenia lub zmniejszenia alokacji zasobów.
 
-Przed zmianą rozmiaru maszyny wirtualnej sprawdź, czy wybrany rozmiar jest dostępny w bieżącym klastrze maszyny wirtualnej. Polecenie [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) zwraca listę rozmiarów.
+Przed zmianą rozmiaru maszyny wirtualnej sprawdź, czy wybrany rozmiar jest dostępny w bieżącym klastrze maszyny wirtualnej. Polecenie [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) zwraca listę rozmiarów.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -237,7 +237,7 @@ Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów
 | Stan zasilania | Opis
 |----|----|
 | Uruchamianie | Maszyna wirtualna jest uruchamiana. |
-| Działanie | Maszyna wirtualna została uruchomiona. |
+| Uruchomiono | Maszyna wirtualna została uruchomiona. |
 | Zatrzymywanie | Maszyna wirtualna jest zatrzymywana. |
 | Zatrzymano | Maszyna wirtualna została zatrzymana. Opłaty za operacje obliczeniowe są także naliczane w przypadku maszyn wirtualnych w stanie Zatrzymano.  |
 | Cofanie przydziału | Przydział maszyny wirtualnej jest cofany. |
@@ -245,7 +245,7 @@ Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów
 | - | Stan zasilania maszyny wirtualnej jest nieznany. |
 
 
-Aby pobrać stan określonej maszyny wirtualnej, użyj polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Pamiętaj, aby określić prawidłową nazwę maszyny wirtualnej i grupy zasobów.
+Aby pobrać stan określonej maszyny wirtualnej, użyj polecenia [Get-AzVM](/powershell/module/az.compute/get-azvm). Pamiętaj, aby określić prawidłową nazwę maszyny wirtualnej i grupy zasobów.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -268,7 +268,7 @@ W trakcie cyklu życia maszyny wirtualnej można uruchamiać zadania zarządzani
 
 ### <a name="stop-a-vm"></a>Zatrzymywanie maszyny wirtualnej
 
-Do zatrzymywania maszyny wirtualnej i cofania jej przydziału służy polecenie [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
+Do zatrzymywania maszyny wirtualnej i cofania jej przydziału służy polecenie [Stop-AzVM](/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
 Stop-AzVM `

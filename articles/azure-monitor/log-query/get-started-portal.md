@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798259"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075340"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
 
@@ -120,7 +120,7 @@ Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez filtrowa
    
 1. Wybierz pozycję **Filtr**.
    
-   ![Filtruj](media/get-started-portal/filter.png)
+   ![Filtr](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortuj, Grupuj i zaznaczaj kolumny
 Aby posortować wyniki zapytania według określonej kolumny, takiej jak **TimeGenerated [UTC]**, wybierz nagłówek kolumny. Ponownie wybierz nagłówek, aby przełączać się między rosnącą a malejącą kolejnością.
@@ -189,7 +189,7 @@ Aby zapisać zapytanie:
    
    Aby zapisać zapytanie jako funkcję, podaj **alias funkcji**, który jest krótką nazwą innych zapytań, które mają być używane do wywołania tego zapytania.
    
-1. Podaj **kategorię** **Eksploratora zapytań** do użycia w zapytaniu.
+1. Jeśli jesteś w obszarze roboczym Log Analytics, podaj **kategorię** **Eksploratora zapytań** do użycia w zapytaniu. (Kategorie nie są dostępne dla zapytań Application Insights)
    
 1. Wybierz pozycję **Zapisz**.
    
@@ -202,6 +202,10 @@ Aby załadować zapisane zapytanie, wybierz pozycję **Eksplorator zapytań** w 
 
 ### <a name="export-and-share-queries"></a>Eksportowanie i udostępnianie zapytań
 Aby wyeksportować zapytanie, wybierz pozycję **Eksportuj** na górnym pasku, a następnie wybierz pozycję **Eksportuj do pliku CSV — wszystkie kolumny**, **Eksportuj do pliku CSV — wyświetlane kolumny**lub **Eksportuj do Power BI (M Query)** z listy rozwijanej.
+
+Poniższy film wideo pokazuje, jak zintegrować Log Analytics z programem Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Aby udostępnić link do zapytania, wybierz pozycję **Kopiuj link** na górnym pasku, a następnie wybierz pozycję **Kopiuj link do zapytania**, **skopiuj tekst zapytania**lub **Skopiuj wyniki zapytania** , aby skopiować je do Schowka. Można wysłać link zapytania do innych osób, które mają dostęp do tego samego obszaru roboczego.
 

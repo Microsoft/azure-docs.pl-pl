@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 977f138fad1f2eb1eae95049d2bd8a730ba5687e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146523"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048726"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Samouczek: Tworzenie zautomatyzowanych, cyklicznych przepływów pracy opartych na harmonogramach przy użyciu Azure Logic Apps
 
@@ -36,12 +36,12 @@ Po ukończeniu aplikacja logiki będzie ogólnie wyglądać jak ten przepływ pr
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
-* Konto e-mail od dostawcy poczty e-mail obsługiwanego przez Logic Apps, takie jak Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](https://docs.microsoft.com/connectors/). Ten przewodnik Szybki Start używa konta programu Outlook w usłudze Office 365. Jeśli używasz innego konta e-mail, ogólne kroki pozostają takie same, ale interfejs użytkownika może się nieco różnić.
+* Konto e-mail od dostawcy poczty e-mail obsługiwanego przez Logic Apps, takie jak Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](/connectors/). Ten przewodnik Szybki Start używa konta programu Outlook w usłudze Office 365. Jeśli używasz innego konta e-mail, ogólne kroki pozostają takie same, ale interfejs użytkownika może się nieco różnić.
 
   > [!IMPORTANT]
-  > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Aby pobrać czas podróży dla danej trasy, potrzebny jest klucz dostępu dla interfejsu API usługi Mapy Bing. Aby pobrać ten klucz, postępuj zgodnie z instrukcjami [uzyskiwania klucza usługi Mapy Bing](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+* Aby pobrać czas podróży dla danej trasy, potrzebny jest klucz dostępu dla interfejsu API usługi Mapy Bing. Aby pobrać ten klucz, postępuj zgodnie z instrukcjami [uzyskiwania klucza usługi Mapy Bing](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -49,24 +49,24 @@ Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu po
 
 ## <a name="create-your-logic-app"></a>Tworzenie aplikacji logiki
 
-1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób** > **Integration** > **aplikacja logiki**.
+1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
    ![Tworzenie zasobu aplikacji logiki](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
-1. W obszarze **Tworzenie aplikacji logiki** wprowadź następujące informacje na temat aplikacji logiki. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. W obszarze **Tworzenie aplikacji logiki** wprowadź następujące informacje na temat aplikacji logiki. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    ![Podaj informacje o aplikacji logiki](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Nazwa** | LA-TravelTime | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry,`-`łączniki (), podkreślenia (`_`), nawiasy (`(`, `)`) i kropki (`.`). W tym przykładzie zastosowano "LA-TravelTime". |
+   | **Nazwa** | LA-TravelTime | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). W tym przykładzie zastosowano "LA-TravelTime". |
    | **Subskrypcja** | <*Twoja nazwa — subskrypcja — Azure*> | Nazwa subskrypcji platformy Azure |
    | **Grupa zasobów** | LA-TravelTime-RG | Nazwa [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md), która jest używana do organizowania powiązanych zasobów. W tym przykładzie zastosowano "LA-TravelTime-RG". |
    | **Lokalizacja** | Zachodnie stany USA | Region tnie, w którym mają być przechowywane informacje o aplikacji logiki. W tym przykładzie zastosowano "zachodnie stany USA". |
    | **Log Analytics** | Wyłączone | Ustawienie **Wyłączone** umożliwia rejestrowanie w celach diagnostycznych. |
    ||||
 
-1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia** > **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki.
+1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia**  >  **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki.
 
    ![Przejdź do nowego zasobu aplikacji logiki](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -94,7 +94,7 @@ Następnie Dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Dat** | Tak | 1 | Liczba interwałów do odczekania między sprawdzaniami |
+   | **Interwał** | Tak | 1 | Liczba interwałów do odczekania między sprawdzaniami |
    | **Częstotliwość** | Tak | Tydzień | Jednostka czasu cyklu |
    |||||
 
@@ -144,14 +144,14 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
    | **Nazwa połączenia** | Tak | BingMapsConnection | Podaj nazwę połączenia. W tym przykładzie zastosowano "BingMapsConnection". |
-   | **Klucz interfejsu API** | Tak | <*Twoje-Bing-Maps-Key*> | Wprowadź uzyskany wcześniej klucz usługi Mapy Bing. Jeśli nie masz klucza usługi Mapy Bing, dowiedz się [jak uzyskać klucz](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Klucz interfejsu API** | Tak | <*Twoje-Bing-Maps-Key*> | Wprowadź uzyskany wcześniej klucz usługi Mapy Bing. Jeśli nie masz klucza usługi Mapy Bing, dowiedz się [jak uzyskać klucz](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Zmień nazwę akcji na następujący opis: `Get route and travel time with traffic`
 
 1. Wewnątrz akcji Otwórz **listę Dodaj nowy parametr**i wybierz te właściwości, które mają zostać dodane do akcji.
 
-   * **Zoptymalizować**
+   * **Optymalizacja**
    * **Jednostka odległości**
    * **Tryb podróży**
 
@@ -165,12 +165,12 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
    |----------|----------|-------|-------------|
    | **Punkt nawigacyjny 1** | Tak | <*lokalizacja początkowa*> | Początek trasy |
    | **Punkt nawigacyjny 2** | Tak | <*Lokalizacja końcowa*> | Koniec trasy |
-   | **Zoptymalizować** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz parametr "timeWithTraffic". |
+   | **Optymalizacja** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz parametr "timeWithTraffic". |
    | **Jednostka odległości** | Nie | <*Twoje preferencje*> | Jednostka odległości trasy. Ten przykład używa "milowej" jako jednostki. |
    | **Tryb podróży** | Nie | Jazda samochodem | Tryb podróży dla trasy. Wybierz tryb "kierowanie". |
    ||||
 
-   Aby uzyskać więcej informacji na temat tych parametrów, zobacz [Calculate route (Obliczanie trasy)](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route).
+   Aby uzyskać więcej informacji na temat tych parametrów, zobacz [Calculate route (Obliczanie trasy)](/bingmaps/rest-services/routes/calculate-a-route).
 
 1. Zapisz aplikację logiki.
 
@@ -195,7 +195,7 @@ Domyślnie Poprzednia Akcja **Pobierz trasę** zwraca bieżący czas podróży z
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
    | **Nazwa** | Tak | travelTime | Nazwa zmiennej. W tym przykładzie zastosowano "travelTime". |
-   | **Typ** | Tak | Liczba całkowita | Typ danych dla zmiennej |
+   | **Typ** | Tak | Integer | Typ danych dla zmiennej |
    | **Wartość** | Nie| Wyrażenie, które konwertuje aktualny czas podróży z sekund na minuty (zobacz instrukcje pod tą tabelą). | Początkowa wartość zmiennej |
    ||||
 
@@ -351,13 +351,13 @@ Aby utworzyć inne aplikacje logiki, które używają wyzwalacza **cykl** , zapo
 * Usuwanie starszych obiektów blob na platformie Azure.
 * Dodawanie komunikatu do kolejki usługi Azure Storage.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przykładowa aplikacja logiki nie jest już potrzebna, Usuń grupę zasobów zawierającą aplikację logiki i powiązane zasoby. 
 
 1. W menu głównym platformy Azure przejdź do pozycji **Grupy zasobów** i wybierz grupę zasobów aplikacji logiki.
 
-1. W menu Grupa zasobów wybierz pozycję **Przegląd** > **Usuń grupę zasobów**. 
+1. W menu Grupa zasobów wybierz pozycję **Przegląd**  >  **Usuń grupę zasobów**. 
 
    ![„Omówienie” > „Usuń grupę zasobów”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 

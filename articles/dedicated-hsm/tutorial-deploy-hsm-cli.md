@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c5484c421807f5657fe5fc460342d39d442bcda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79454316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048580"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Samouczek: wdrażanie sprzętowych modułów zabezpieczeń w istniejącej sieci wirtualnej przy użyciu interfejsu wiersza polecenia
 
@@ -47,7 +47,7 @@ Założenia:
 - Masz utworzoną grupę zasobów dla tych zasobów i nowe zasoby wdrożone w ramach tego samouczka zostaną dołączone do tej grupy.
 - Masz utworzoną wymaganą sieć wirtualną, podsieć i maszyny wirtualne zgodnie z powyższym diagramem. Teraz chcesz zintegrować z tym wdrożeniem 2 moduły HSM.
 
-W poniższych instrukcjach przyjęto założenie, że użytkownik już przeszedł do Azure Portal i otwarto Cloud Shell (wybierz\>\_pozycję "" w prawym górnym rogu portalu).
+W poniższych instrukcjach przyjęto założenie, że użytkownik już przeszedł do Azure Portal i otwarto Cloud Shell (wybierz pozycję " \> \_ " w prawym górnym rogu portalu).
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Aprowizowanie dedykowanego modułu HSM
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-Poniższe polecenie weryfikuje funkcje sieciowe wymagane na potrzeby usługi dedykowanego modułu HSM.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Oba polecenia powinny zwracać stan "zarejestrowane" (jak pokazano poniżej). Jeśli tak się nie stanie, konieczne jest zarejestrowanie się w celu korzystania z tej usługi. Skontaktuj się z przedstawicielem firmy Microsoft.
+Polecenia powinny zwracać stan "zarejestrowane" (jak pokazano poniżej). Jeśli polecenia nie zwracają "zarejestrowanych", musisz zarejestrować się w tej usłudze, kontaktując się z przedstawicielem konto Microsoft.
 
 ![stan subskrypcji](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
@@ -126,7 +118,7 @@ Skojarzony plik szablonu usługi Azure Resource Manager utworzy sześć zasobów
 - Moduł HSM w zasobach sprzętowych 1
 - Moduł HSM w zasobach sprzętowych 2
 
-Po ustawieniu wartości parametrów należy przekazać pliki do udziału plików usługi Cloud Shell w witrynie Azure Portal w celu ich użycia. W Azure Portal kliknij "\>\_" symbol powłoki chmurowej w prawym górnym rogu, co spowoduje, że Dolna część ekranu jest środowiskiem poleceń. Opcje są następujące: powłoka BASH i program PowerShell. Należy wybrać powłokę BASH, jeśli nie zostało to wcześniej ustawione.
+Po ustawieniu wartości parametrów należy przekazać pliki do udziału plików usługi Cloud Shell w witrynie Azure Portal w celu ich użycia. W Azure Portal kliknij " \> \_ " symbol powłoki chmurowej w prawym górnym rogu, co spowoduje, że Dolna część ekranu jest środowiskiem poleceń. Opcje są następujące: powłoka BASH i program PowerShell. Należy wybrać powłokę BASH, jeśli nie zostało to wcześniej ustawione.
 
 Powłoka poleceń ma opcję przekazywania/pobierania na pasku narzędzi, którą należy wybrać, aby przekazać pliki szablonów i parametrów do udziału plików:
 
@@ -256,6 +248,6 @@ Zalecany jest projekt z dwoma modułami HSM w regionie podstawowym służącym d
 
 * [Wysoka dostępność](high-availability.md)
 * [Zabezpieczenia fizyczne](physical-security.md)
-* [Networking](networking.md)
+* [Sieć](networking.md)
 * [Możliwości obsługi](supportability.md)
 * [Monitorowanie](monitoring.md)

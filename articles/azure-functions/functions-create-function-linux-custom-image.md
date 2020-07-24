@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dd74c55f1f355c95da93d8d42e6637f1fa78fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056001"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -106,6 +106,8 @@ Po wyświetleniu monitu podaj następujące wartości:
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
 Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
+
+Aby uruchomić program Java 11 na platformie Azure, należy zmodyfikować wartości w pliku pom.xml. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions).
 ::: zone-end
 `--docker`Opcja generuje `Dockerfile` dla projektu, który definiuje odpowiedni kontener niestandardowy do użycia z Azure Functions i wybranym środowiskiem uruchomieniowym.
 
@@ -156,7 +158,15 @@ Użyj **klawisza Ctrl** - **C** , aby zatrzymać hosta.
 
 ## <a name="build-the-container-image-and-test-locally"></a>Kompiluj obraz kontenera i przetestuj go lokalnie
 
-Obowiązkowe W folderze głównym folderu projektu Przejrzyj wartość * pliku dockerfile. Pliku dockerfile opisuje środowisko wymagane do uruchomienia aplikacji funkcji w systemie Linux.  Pełną listę obsługiwanych obrazów podstawowych dla Azure Functions można znaleźć na [stronie Azure Functions Image Base](https://hub.docker.com/_/microsoft-azure-functions-base).
+Obowiązkowe Zapoznaj się z *pliku dockerfile* w folderze głównym folderu projektu. Pliku dockerfile opisuje środowisko wymagane do uruchomienia aplikacji funkcji w systemie Linux.  Pełną listę obsługiwanych obrazów podstawowych dla Azure Functions można znaleźć na [stronie Azure Functions Image Base](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+::: zone pivot="programming-language-java"  
+Jeśli używasz programu Java 11 (wersja zapoznawcza), Zmień `JAVA_VERSION` argument Build w wygenerowanym pliku dockerfile na następujący: 
+
+```docker
+ARG JAVA_VERSION=11
+```
+::: zone-end
     
 W folderze głównym projektu uruchom polecenie [Docker Build](https://docs.docker.com/engine/reference/commandline/build/) i podaj nazwę, `azurefunctionsimage` i tag `v1.0.0` . Zastąp ciąg `<DOCKER_ID>` identyfikatorem konta usługi Docker Hub. To polecenie powoduje skompilowanie obrazu platformy Docker dla kontenera.
 

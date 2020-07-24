@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067160"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — kompilowanie interfejsu użytkownika za pomocą aplikacji Angular
 
@@ -41,7 +41,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 ## <a name="build-the-ui"></a>Tworzenie interfejsu użytkownika
 
-1. W programie Visual Studio Code kliknij przycisk Zatrzymaj ![Przycisk Zatrzymaj w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) w celu zatrzymania aplikacji w języku Node.
+1. W Visual Studio Code kliknij przycisk Zatrzymaj, :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: Aby zatrzymać aplikację węzła. 
 
 2. W oknie wiersza polecenia systemu Windows lub oknie terminalu systemu Mac wprowadź następujące polecenie, aby wygenerować składnik heroes. W tym kodzie g = wygeneruj, c = składnik, heroes = nazwa składnika, a ponadto jest używana struktura prostych plików (— flat), aby dla tego składnika nie został utworzony podfolder.
 
@@ -474,7 +474,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
 6. Zapisz wszystkie pliki w programie Visual Studio Code.
 
-## <a name="build-the-app"></a>Kompilacja aplikacji
+## <a name="build-the-app"></a>Tworzenie aplikacji
 
 1. W wierszu polecenia wprowadź następujące polecenie, aby skompilować aplikację platformy Angular. 
 
@@ -486,7 +486,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
     Teraz uruchommy aplikację.
 
-2. W programie Visual Studio Code kliknij przycisk **Debugowanie**![ikona Debugowanie w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) po lewej stronie, następnie kliknij przycisk **Rozpocznij debugowanie**![ikona Debugowanie w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. W Visual Studio Code kliknij przycisk **Debuguj** po :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: lewej stronie, a następnie kliknij przycisk **Rozpocznij debugowanie** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png"::: .
 
 3. Teraz otwórz przeglądarkę internetową, przejdź pod adres **localhost:3000** i obejrzyj lokalnie uruchomioną aplikację.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 2103c93e553cc5e1e94941b1567bd3c0f168eabf
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 80a9a98043a39b654f0d62a84ae81e12797b15b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126491"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022365"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs (wersja 2.0.4)
 
@@ -491,7 +491,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Zarządzanie rejestracją](notification-hubs-push-notification-registration-management.md)
 - [Praca ze znacznikami](notification-hubs-tags-segment-push-message.md)
 - [Praca z szablonami niestandardowymi](notification-hubs-templates-cross-platform-push-messages.md)
-- [Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego](/azure/service-bus-messaging/service-bus-sas)
+- [Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego](../service-bus-messaging/service-bus-sas.md)
 - [Programowe generowanie tokenów SAS](/rest/api/eventhub/generate-sas-token)
 - [Zabezpieczenia firmy Apple: typowe Kryptografia](https://developer.apple.com/security/)
 - [Czas epoki systemu UNIX](https://en.wikipedia.org/wiki/Unix_time)

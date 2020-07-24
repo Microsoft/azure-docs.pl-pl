@@ -1,18 +1,18 @@
 ---
-title: Programowanie zespołowe za pomocą środowiska Node. js i Visual Studio Code
+title: Programowanie zespołowe przy użyciu Node.js i Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do tworzenia zespołu w aplikacji node. js w usłudze Azure Kubernetes Service
+description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do tworzenia zespołu w aplikacji Node.js w usłudze Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: abcf4934af056d508ac136f80758597294d40b1a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa168921f212f96f6e40ed062d2665e49202e86c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251933"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013596"
 ---
-# <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Programowanie zespołowe przy użyciu środowiska Node. js i Visual Studio Code z Azure Dev Spaces
+# <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Programowanie zespołowe przy użyciu Node.js i Visual Studio Code z Azure Dev Spaces
 
 Z tego samouczka dowiesz się, jak zespół deweloperów może równocześnie współpracować w tym samym klastrze Kubernetes przy użyciu usługi Dev Spaces.
 
@@ -31,7 +31,7 @@ W tej chwili przykładowa aplikacja nie jest zbyt skomplikowana. Jednak w rzeczy
 * Niektórzy deweloperzy uciekają się do symulowania lub budowania makiet wielu zależności swoich usług. Takie podejście może pomóc, jednak zarządzanie tymi makietami może szybko zwiększyć koszt programowania. Ponadto takie podejście prowadzi do tego, że środowisko deweloperskie jest inne, niż środowisko produkcyjne, co może prowadzić do występowania drobnych błędów.
 * Z tego względu przeprowadzenie jakiegokolwiek testu integracji staje się trudne. Testowanie integracji realnie może nastąpić po zatwierdzeniu, co oznacza, że problemy pojawią się na dalszych etapach cyklu programowania.
 
-    ![](media/common/microservices-challenges.png)
+    ![Obraz przedstawiający złożoność testowania integracji przez zilustrowanie relacji między usługą App Service i jej zależnościami.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Praca w udostępnionej przestrzeni deweloperskiej
 W usłudze Azure Dev Spaces możesz skonfigurować *udostępnione* przestrzenie deweloperskie na platformie Azure. Każdy deweloper może skupić się wyłącznie na swojej części aplikacji oraz iteracyjnie tworzyć *wstępnie zatwierdzony kod* w przestrzeni deweloperskiej zawierającej już wszystkie pozostałe usługi i zasoby w chmurze, od których zależą jego scenariusze. Zależności są zawsze aktualne, a deweloperzy pracują w sposób odzwierciedlający środowisko produkcyjne.
@@ -40,7 +40,7 @@ W usłudze Azure Dev Spaces możesz skonfigurować *udostępnione* przestrzenie 
 Kiedy tworzysz kod dla swojej usługi i nie jest on jeszcze gotowy do zaewidencjonowania, często znajduje się on w niezbyt dobrym stanie. Wciąż w sposób iteracyjny go kształtujesz, testujesz i eksperymentujesz z rozwiązaniami. Usługa Azure Dev Spaces wprowadza pojęcie **miejsca**, które umożliwia pracę w izolacji i bez obaw o przeszkadzanie członkom zespołu.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Programowanie zespołowe za pomocą usługi Dev Spaces
-Przedstawimy te pomysły w konkretnym przykładzie przy użyciu naszej aplikacji przykładowej *webfrontonu* -> *mywebapi* . Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
+Przedstawimy te pomysły w konkretnym przykładzie przy użyciu naszej aplikacji przykładowej *webfrontonu*  ->  *mywebapi* . Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
 
 _Bez_ używania usługi Dev Spaces Scott miałby kilka sposobów na opracowanie i przetestowanie swojej aktualizacji, jednak żaden z nich nie jest idealny:
 * Uruchomienie WSZYSTKICH składników w środowisku lokalnym. Wymaga to bardziej zaawansowanej maszyny deweloperskiej z zainstalowaną platformą Docker i potencjalnie z rozwiązaniem MiniKube.
@@ -53,7 +53,7 @@ Najpierw musimy wdrożyć punkt odniesienia naszych usług. To wdrożenie będzi
 
 1. Klonuj [przykładową aplikację do tworzenia miejsc dev](https://github.com/Azure/dev-spaces):`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Wyewidencjonuj gałąź zdalną *azds_updates*:`git checkout -b azds_updates origin/azds_updates`
-1. Wybierz przestrzeń _dev_: `azds space select --name dev`. Po wyświetleniu monitu o wybranie nadrzędnego obszaru deweloperskiego wybierz opcję _ \<brak\>_.
+1. Wybierz przestrzeń _dev_: `azds space select --name dev`. Po wyświetleniu monitu o wybranie nadrzędnego obszaru deweloperskiego wybierz opcję _\<none\>_ .
 1. Przejdź do katalogu _mywebapi_, a następnie wykonaj: `azds up -d`
 1. Przejdź do katalogu _webfrontend_, a następnie wykonaj: `azds up -d`
 1. Wykonaj `azds list-uris`, aby wyświetlić publiczny punkt końcowy usługi _webfrontend_
@@ -91,14 +91,14 @@ Po wyświetleniu monitu wybierz opcję _dev_ jako **nadrzędną przestrzeń dewe
 
 W naszym hipotetycznym wprowadzeniu używaliśmy nazwy _scott_ dla nowej przestrzeni, aby współpracownicy mogli zidentyfikować pracującą w niej osobę. Można jej jednak nadać dowolną nazwę i zastosować elastyczne podejście do jej znaczenia, używając nazw, takich jak _sprint4_ lub _demo_. W każdej sytuacji opcja _dev_ służy jako punkt odniesienia dla wszystkich deweloperów nad elementem tej aplikacji:
 
-![](media/common/ci-cd-space-setup.png)
+![Diagram przedstawiający prostą przestrzeń dev.](media/common/ci-cd-space-setup.png)
 
 Uruchom polecenie `azds space list`, aby wyświetlić listę wszystkich przestrzeni w środowisku deweloperskim. Kolumna _Wybrane_ wskazuje, która przestrzeń została aktualnie wybrana (true/false). W Twoim przypadku przestrzeń o nazwie _dev/scott_ została automatycznie wybrana po utworzeniu. W dowolnym momencie możesz wybrać inną przestrzeń, używając polecenia `azds space select`.
 
 Zobaczmy, jak to działa.
 
 ### <a name="make-a-code-change"></a>Wprowadzanie zmiany w kodzie
-Przejdź do okna VS Code dla programu `mywebapi` i Zmień kod na domyślny program obsługi get `/` w `server.js`, na przykład:
+Przejdź do okna VS Code dla programu `mywebapi` i Zmień kod na domyślny `/` program obsługi get w `server.js` , na przykład:
 
 ```javascript
 app.get('/', function (req, res) {
@@ -108,7 +108,7 @@ app.get('/', function (req, res) {
 
 ### <a name="run-the-service"></a>Uruchamianie usługi
 
-Aby uruchomić usługę, naciśnij klawisz F5 (lub wpisz `azds up` w oknie terminalu), aby uruchomić usługę. Usługa jest uruchamiana automatycznie w nowo wybranej przestrzeni _dev/scott_. Upewnij się, że usługa jest uruchomiona we własnym obszarze, uruchamiając następujące działania `azds list-up`:
+Aby uruchomić usługę, naciśnij klawisz F5 (lub wpisz `azds up` w oknie terminalu), aby uruchomić usługę. Usługa jest uruchamiana automatycznie w nowo wybranej przestrzeni _dev/scott_. Upewnij się, że usługa jest uruchomiona we własnym obszarze, uruchamiając `azds list-up` następujące działania:
 
 ```cmd
 $ azds list-up
@@ -120,7 +120,7 @@ webfrontend               dev       Service  26m ago  Running
 
 Zauważ, że wystąpienie elementu *mywebapi* jest teraz uruchomione w miejscu _dev/Scott_ . Wersja uruchomiona w środowisku _deweloperskim_ nadal działa, ale nie znajduje się na liście.
 
-Utwórz listę adresów URL dla bieżącego obszaru przez uruchomienie `azds list-uris`.
+Utwórz listę adresów URL dla bieżącego obszaru przez uruchomienie `azds list-uris` .
 
 ```cmd
 $ azds list-uris

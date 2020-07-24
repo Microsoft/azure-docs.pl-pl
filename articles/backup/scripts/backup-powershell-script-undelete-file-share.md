@@ -3,12 +3,12 @@ title: Skrypt programu PowerShell — cofanie usuwania usuniętego udziału plik
 description: Dowiedz się, jak usunąć przypadkowo usunięty udział plików przy użyciu skryptu Azure PowerShell.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007636"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Skrypt programu PowerShell w celu cofnięcia usunięcia przypadkowo usuniętego udziału plików
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Przed uruchomieniem skryptu Zainstaluj najnowsze Azure PowerShell AZ modułów z [tego linku](//powershell/azure/install-az-ps) .
+1. Przed uruchomieniem skryptu Zainstaluj najnowsze Azure PowerShell AZ modułów z [tego linku](/powershell/azure/install-az-ps) .
 2. Należy pamiętać o następujących szczegółach, jak należy przekazać je jako wartości dla różnych parametrów skryptu:
 
     * **-** Identyfikator subskrypcji, w której znajduje się udział plików.

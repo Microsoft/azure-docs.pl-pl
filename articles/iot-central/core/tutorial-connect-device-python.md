@@ -3,17 +3,17 @@ title: Samouczek — łączenie ogólnej aplikacji klienckiej Python z platform�
 description: W tym samouczku pokazano, jak deweloper urządzenia łączy urządzenie z uruchomioną aplikacją kliencką języka Python z aplikacją usługi Azure IoT Central. Szablon urządzenia można utworzyć przez zaimportowanie modelu możliwości urządzenia i dodanie widoków, które umożliwiają współpracę z podłączonym urządzeniem
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 98aa452e8b0b5cf04edd319298c2b35e6097148e
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f89a8caf5b91fb22cca020b1d146905b68c6ed96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971066"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002081"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Python)
 
@@ -38,7 +38,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do wykonania kroków opisanych w tym artykule potrzebne są:
 
-* Aplikacja IoT Central platformy Azure utworzona przy użyciu szablonu **aplikacji niestandardowej** . Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md).
+* Aplikacja IoT Central platformy Azure utworzona przy użyciu szablonu **aplikacji niestandardowej** . Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md). Aplikacja musi zostać utworzona w dniu lub po 07/14/2020.
 * Komputer deweloperski z zainstalowanym programem [Python](https://www.python.org/) w wersji 3,7 lub nowszej. `python3 --version`Aby sprawdzić swoją wersję, można uruchomić w wierszu polecenia. Język Python jest dostępny dla wielu różnych systemów operacyjnych. W instrukcjach przedstawionych w tym samouczku założono, że uruchomiono polecenie **python3** w wierszu polecenia systemu Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -214,18 +214,18 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
 
     Operator może wyświetlać ładunek odpowiedzi w historii poleceń.
 
-1. Dodaj następujące funkcje wewnątrz funkcji, `main` Aby obsłużyć aktualizacje właściwości wysyłane z aplikacji IoT Central:
+1. Dodaj następujące funkcje wewnątrz funkcji, `main` Aby obsłużyć aktualizacje właściwości wysyłane z aplikacji IoT Central. Komunikat wysyłany przez urządzenie w odpowiedzi na [aktualizację właściwości zapisywalnej](concepts-telemetry-properties-commands.md#writeable-property-types) musi zawierać `av` `ac` pola i. `ad`Pole jest opcjonalne:
 
     ```python
       async def name_setting(value, version):
         await asyncio.sleep(1)
         print(f'Setting name value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'name' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       async def brightness_setting(value, version):
         await asyncio.sleep(5)
         print(f'Setting brightness value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'brightness' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       settings = {
         'name': name_setting,
@@ -261,7 +261,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
 
       if device_client is not None and device_client.connected:
         print('Send reported properties on startup')
-        await device_client.patch_twin_reported_properties({'state': 'true'})
+        await device_client.patch_twin_reported_properties({'state': 'true', 'processorArchitecture': 'ARM', 'swVersion': '1.0.0'})
         tasks = asyncio.gather(
           send_telemetry(),
           command_listener(),
@@ -303,6 +303,10 @@ Możesz zobaczyć, że urządzenie nawiązuje połączenie z aplikacją IoT Cent
 Można sprawdzić, jak urządzenie reaguje na polecenia i aktualizacje właściwości:
 
 ![Obserwuj aplikację kliencką](media/tutorial-connect-device-python/run-application-2.png)
+
+## <a name="view-raw-data"></a>Wyświetlanie danych pierwotnych
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

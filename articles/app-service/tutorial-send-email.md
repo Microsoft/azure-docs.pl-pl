@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083246"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -17,18 +17,18 @@ W tym samouczku dowiesz się, jak zintegrować aplikację App Service z procesam
 
 - Wyślij wiadomość e-mail z potwierdzeniem dla transakcji
 - Dodawanie użytkownika do grupy w usłudze Facebook
-- Łączenie z systemami innych firm, takimi jak SAP, SalesForce itd.
+- Łączenie z systemami innych firm, takimi jak SAP, Salesforce itd.
 - Program Exchange Standard — komunikaty B2B
 
 W tym samouczku będziesz wysyłać wiadomości e-mail z użyciem usługi Gmail z aplikacji App Service przy użyciu [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Istnieją inne sposoby wysyłania wiadomości e-mail z aplikacji sieci Web, takiej jak konfiguracja SMTP udostępniona przez strukturę języka. Jednak Logic Apps zapewnia znacznie większą moc do aplikacji App Service bez konieczności zwiększania złożoności kodu. Logic Apps udostępnia prosty interfejs konfiguracji dla najpopularniejszych integracji z firmą, a aplikacja może wywoływać je w dowolnym momencie za pomocą żądania HTTP.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. Aby zapoznać się z samouczkiem dotyczącym wdrażania przykładowej aplikacji, zobacz poniżej:
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-[Samouczek: tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+[Samouczek: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
@@ -36,7 +36,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Samouczek: Tworzenie aplikacji node. js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
@@ -57,10 +57,10 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 1. W [Azure Portal](https://portal.azure.com)Utwórz pustą aplikację logiki, postępując zgodnie z instrukcjami w temacie [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Gdy zobaczysz **projektanta Logic Apps**, Wróć do tego samouczka.
 1. Na stronie powitalnej programu Logic Apps Designer wybierz opcję **gdy żądanie HTTP zostanie odebrane** w polu **Rozpocznij ze wspólnym wyzwalaczem**.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![Zrzut ekranu pokazujący stronę powitalną dla projektanta Logic Apps z wyświetloną żądaniem H T t P.](./media/tutorial-send-email/receive-http-request.png)
 1. W oknie dialogowym dla **momentu odebrania żądania HTTP**wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Zrzut ekranu, na którym jest wyświetlane okno dialogowe żądanie H T t P, a w polu Użyj przykładowego ładunku do wygenerowania wybranego schematu opion. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Skopiuj następujący przykładowy kod JSON do pola tekstowego i wybierz pozycję **gotowe**.
 
@@ -77,7 +77,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 
     Teraz można sprawdzić adres URL wyzwalacza żądania HTTP. Wybierz ikonę kopiowania, aby skopiować ją do późniejszego użycia.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![Zrzut ekranu, który podświetla ikonę kopiowania, aby skopiować U R L wyzwalacza żądania H T t P.](./media/tutorial-send-email/http-request-url.png)
 
     Ta definicja żądania HTTP jest wyzwalaczem do wszystkich elementów, które chcesz wykonać w tej aplikacji logiki, będzie to Gmail lub jakakolwiek inna. Później ten adres URL zostanie wywołany w aplikacji App Service. Aby uzyskać więcej informacji na temat wyzwalacza żądania, zobacz [odwołanie do żądania HTTP/odpowiedzi](../connectors/connectors-native-reqres.md).
 
@@ -87,18 +87,18 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
     > Można wyszukiwać inne typy integracji, takie jak SendGrid, MailChimp, Office 365 i SalesForce. Aby uzyskać więcej informacji, zobacz [dokumentację Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
 1. W oknie dialogowym usługi **Gmail** wybierz pozycję **Zaloguj** się i zaloguj się na koncie usługi Gmail, z którego chcesz wysłać wiadomość e-mail.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe Gmail używane do logowania się do konta usługi Gmail, z którego chcesz wysłać wiadomość e-mail.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. Po zalogowaniu kliknij w polu tekstowym **do** , a okno dialogowe zawartość dynamiczna zostanie automatycznie otwarte.
 
 1. Obok akcji **po odebraniu żądania HTTP** wybierz pozycję **Zobacz więcej**.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![Zrzut ekranu pokazujący przycisk Zobacz więcej obok momentu odebrania żądania H T t P.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     Teraz powinny zostać wyświetlone trzy właściwości z przykładowych danych JSON użytych wcześniej. W tym kroku użyjesz tych właściwości z żądania HTTP w celu utworzenia wiadomości e-mail.
 1. Ponieważ wybierasz wartość pola **do** , wybierz pozycję **e-mail**. Jeśli chcesz, przełącz się do okna dialogowego zawartość dynamiczna, klikając pozycję **Dodaj zawartość dynamiczną**.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![Zrzut ekranu pokazujący opcję poczty e-mail i opcję Dodaj zawartość dynamiczną.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. Z listy rozwijanej **Dodaj nowy parametr** wybierz pozycję **temat** i **treść**.
 
@@ -107,17 +107,17 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 1. Kliknij pozycję w **treści**i w ten sam sposób wybierz pozycję **termin**. Przesuń **kursor z lewej strony i wpisz** *ten element roboczy*.
 
     > [!TIP]
-    > Jeśli chcesz edytować zawartość HTML bezpośrednio w treści wiadomości e-mail, wybierz pozycję **Widok kodu** w górnej części okna projektanta Logic Apps. Upewnij się, że zachowasz dynamiczny kod zawartości (na przykład `@{triggerBody()?['due']}`).
+    > Jeśli chcesz edytować zawartość HTML bezpośrednio w treści wiadomości e-mail, wybierz pozycję **Widok kodu** w górnej części okna projektanta Logic Apps. Upewnij się, że zachowasz dynamiczny kod zawartości (na przykład `@{triggerBody()?['due']}` ).
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![Zrzut ekranu pokazujący widok kodu służący do wyświetlania zawartości H T M w treści wiadomości e-mail.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
 1. Następnie Dodaj asynchroniczną odpowiedź HTTP do wyzwalacza HTTP. Między wyzwalaczem HTTP i akcją Gmail kliknij **+** znak i wybierz pozycję **Dodaj gałąź równoległą**.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![Zrzut ekranu, który pokazuje wyróżnioną opcję + i Dodaj gałąź równoległą.](./media/tutorial-send-email/add-http-response.png)
 
 1. W polu wyszukiwania Wyszukaj **odpowiedź**, a następnie wybierz akcję **odpowiedź** .
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![Zrzut ekranu, który pokazuje wyróżniony pasek wyszukiwania i akcję odpowiedzi.](./media/tutorial-send-email/choose-response-action.png)
 
     Domyślnie akcja odpowiedzi wysyła komunikat HTTP 200. Jest to wystarczające dla tego samouczka. Aby uzyskać więcej informacji, zobacz [informacje na temat żądania HTTP/odpowiedzi](../connectors/connectors-native-reqres.md).
 
@@ -127,7 +127,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 
 Upewnij się, że został skopiowany adres URL wyzwalacza żądania HTTP ze starszej wersji. Ponieważ zawiera informacje poufne, najlepszym rozwiązaniem jest, aby nie umieścić go bezpośrednio w kodzie. Za pomocą App Service można odwołać się do niego jako zmienna środowiskowa, przy użyciu ustawień aplikacji. 
 
-W [Cloud Shell](https://shell.azure.com)Utwórz ustawienie aplikacji za pomocą następującego polecenia (Zastąp * \<ciąg App-Name>*, * \<Resource-Group-Name>* oraz * \<Logic-App-URL>*):
+W [Cloud Shell](https://shell.azure.com)Utwórz ustawienie aplikacji przy użyciu następującego polecenia (Zastąp *\<app-name>* , *\<resource-group-name>* i *\<logic-app-url>* ):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
@@ -145,14 +145,14 @@ W kodzie wprowadź standardowe HTTP post na adres URL przy użyciu dowolnego ję
     }
     ```
 
-- Żądanie zawiera nagłówek `Content-Type: application/json`. 
+- Żądanie zawiera nagłówek `Content-Type: application/json` . 
 - Aby zoptymalizować wydajność, należy wysłać żądanie asynchronicznie, jeśli to możliwe.
 
 Kliknij kartę preferowany język/struktura poniżej, aby zobaczyć przykład.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Przykład:
+W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Przykład:
+W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -201,11 +201,11 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > Ten kod jest przeznaczony dla prostoty demonstracji. W programie nie można utworzyć wystąpienia `HttpClient` obiektu dla każdego żądania. Postępuj zgodnie ze wskazówkami w temacie [use IHttpClientFactory, aby zaimplementować odporne żądania HTTP](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworzenie ASP.NET Core i SQL Database aplikacji w Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w ramach [akcji tworzenia](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)po dodaniu `Todo` elementu.
+Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworzenie ASP.NET Core i SQL Database aplikacji w Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w ramach [akcji tworzenia](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)po `Todo` dodaniu elementu.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-W programie Node. js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Przykład:
+W Node.js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Na przykład:
 
 ```javascript
 // Requires npm install --save axios
@@ -228,11 +228,11 @@ var jsonData = {
 
 ```
 
-Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworzenie aplikacji node. js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w [funkcji tworzenia](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)po [pomyślnym zapisaniu artykułu](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworzenie aplikacji Node.js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w [funkcji tworzenia](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)po [pomyślnym zapisaniu artykułu](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Przykład:
+W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Na przykład:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -264,7 +264,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="python"></a>[Python](#tab/python)
 
-W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Przykład:
+W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Na przykład:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -295,7 +295,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Uruch
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Przykład:
+W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Na przykład:
 
 ```ruby
 clnt = JSONClient.new
@@ -312,7 +312,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [tworzenia aplika
 
 ---
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Odwołanie żądania HTTP/odpowiedzi dla Logic Apps](../connectors/connectors-native-reqres.md)  

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100451"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065260"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Samouczek: tworzenie i wdrażanie maszyn wirtualnych o wysokiej dostępności za pomocą programu Azure PowerShell
 
@@ -41,13 +41,13 @@ Zestawy dostępności umożliwiają wdrażanie niezawodnych rozwiązań z użyci
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
 
 Sprzęt w jednej lokalizacji jest podzielony na wiele domen aktualizacji i domen błędów. **Domena aktualizacji** to grupa maszyn wirtualnych i używanego przez nie sprzętu fizycznego, które mogą być jednocześnie ponownie uruchamiane. Maszyny wirtualne w jednej **domenie błędów** korzystają ze wspólnego magazynu oraz ze wspólnego źródła zasilania i przełącznika sieciowego.  
 
-Aby utworzyć zestaw dostępności, użyj polecenia [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). W tym przykładzie liczba domen aktualizacji i domen błędów wynosi *2*, a zestaw dostępności ma nazwę *myAvailabilitySet*.
+Aby utworzyć zestaw dostępności, użyj polecenia [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). W tym przykładzie liczba domen aktualizacji i domen błędów wynosi *2*, a zestaw dostępności ma nazwę *myAvailabilitySet*.
 
 Utwórz grupę zasobów.
 
@@ -57,7 +57,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-Utwórz zarządzany zestaw dostępności przy użyciu polecenia [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) z parametrem `-sku aligned`.
+Utwórz zarządzany zestaw dostępności przy użyciu polecenia [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) z parametrem `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -73,15 +73,15 @@ New-AzAvailabilitySet `
 Aby zapewnić właściwe rozproszenie maszyn wirtualnych na sprzęcie, należy utworzyć je w ramach zestawu dostępności. Nie można dodać istniejącej, wcześniej utworzonej maszyny wirtualnej do zestawu dostępności. 
 
 
-Podczas tworzenia maszyny wirtualnej przy użyciu polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) parametr `-AvailabilitySetName` umożliwia określenie nazwy zestawu dostępności.
+Podczas tworzenia maszyny wirtualnej przy użyciu polecenia [New-AzVM](/powershell/module/az.compute/new-azvm) parametr `-AvailabilitySetName` umożliwia określenie nazwy zestawu dostępności.
 
-Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Następnie utwórz dwie maszyny wirtualne w zestawie dostępności, używając polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Następnie utwórz dwie maszyny wirtualne w zestawie dostępności, używając polecenia [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -101,13 +101,13 @@ for ($i=1; $i -le 2; $i++)
 
 Utworzenie i skonfigurowanie obu maszyn wirtualnych może potrwać kilka minut. Po zakończeniu powstaną dwie maszyny wirtualne rozproszone między wiele elementów sprzętowych. 
 
-Jeśli zapoznaj się z zestawem dostępności w portalu, przejdź do pozycji **grupy** > zasobów**myResourceGroupAvailability** > **myAvailabilitySet**, zobacz, jak maszyny wirtualne są dystrybuowane w ramach dwóch domen błędów i aktualizacji.
+Jeśli zapoznaj się z zestawem dostępności w portalu, przejdź do pozycji **grupy zasobów**  >  **myResourceGroupAvailability**  >  **myAvailabilitySet**, zobacz, jak maszyny wirtualne są dystrybuowane w ramach dwóch domen błędów i aktualizacji.
 
 ![Zestaw dostępności w portalu](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Sprawdzanie dostępnych rozmiarów maszyn wirtualnych 
 
-Podczas tworzenia maszyny wirtualnej w ramach zestawu dostępności należy wiedzieć, jakie rozmiary maszyn wirtualnych są dostępne na sprzęcie. Użyj polecenia [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) , aby uzyskać wszystkie dostępne rozmiary maszyn wirtualnych, które można wdrożyć w zestawie dostępności.
+Podczas tworzenia maszyny wirtualnej w ramach zestawu dostępności należy wiedzieć, jakie rozmiary maszyn wirtualnych są dostępne na sprzęcie. Użyj polecenia [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) , aby uzyskać wszystkie dostępne rozmiary maszyn wirtualnych, które można wdrożyć w zestawie dostępności.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -136,5 +136,3 @@ Przejdź do następnego samouczka, aby poznać zestawy skalowania maszyn wirtual
 
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu skalowania maszyn wirtualnych](tutorial-create-vmss.md)
-
-

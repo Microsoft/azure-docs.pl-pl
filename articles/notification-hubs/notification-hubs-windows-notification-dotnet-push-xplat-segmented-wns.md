@@ -17,12 +17,12 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 9151870836b1a616a79e54275ed185a425c11f0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be20cd583be7c9c87d9f3a3cebc6609764384c9a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72385599"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084232"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń z uruchomionymi platforma uniwersalna systemu Windows aplikacjami
 
@@ -81,7 +81,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
     </Grid>
     ```
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **klasę**. W obszarze **Dodaj nowy element**Nazwij pozycję *powiadomienia*, a następnie wybierz pozycję **Dodaj**. W razie potrzeby Dodaj `public` modyfikator do definicji klasy.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **klasę**. W obszarze **Dodaj nowy element**Nazwij pozycję *powiadomienia*, a następnie wybierz pozycję **Dodaj**. W razie potrzeby Dodaj `public` modyfikator do definicji klasy.
 
 1. Dodaj następujące `using` instrukcje do nowego pliku:
 
@@ -194,7 +194,7 @@ W tej sekcji rejestrujesz się w centrum powiadomień przy uruchamianiu przy uż
 > [!NOTE]
 > Ponieważ identyfikator URI kanału przypisany przez usługę powiadomień systemu Windows (WNS) może ulec zmianie w dowolnym momencie, należy często rejestrować się w celu otrzymywania powiadomień, aby uniknąć niepowodzeń ich dostarczania. Poniższy przykład przeprowadza rejestrację w celu otrzymywania powiadomień za każdym razem, gdy aplikacja jest uruchamiana. W przypadku aplikacji, które są uruchamiane często, powiedzmy, więcej niż raz dziennie, możesz prawdopodobnie pominąć rejestrację, aby zachować przepustowość, jeśli od czasu poprzedniej rejestracji upłynęło mniej niż jeden dzień.
 
-1. Aby użyć `notifications` klasy do subskrybowania na podstawie kategorii, otwórz plik *App.XAML.cs* , a następnie zaktualizuj `InitNotificationsAsync` metodę.
+1. Aby użyć `notifications` klasy do subskrybowania na podstawie kategorii, Otwórz plik *App.XAML.cs* , a następnie zaktualizuj `InitNotificationsAsync` metodę.
 
     ```csharp
     // *** Remove or comment out these lines ***
@@ -205,7 +205,7 @@ W tej sekcji rejestrujesz się w centrum powiadomień przy uruchamianiu przy uż
     var result = await notifications.SubscribeToCategories();
     ```
 
-    Ten proces zapewnia, że po uruchomieniu aplikacji pobiera kategorie z magazynu lokalnego. Następnie żąda rejestracji tych kategorii. W samouczku `InitNotificationsAsync` [wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji za pomocą usługi Azure Notification Hubs][get-started] można było utworzyć metodę.
+    Ten proces zapewnia, że po uruchomieniu aplikacji pobiera kategorie z magazynu lokalnego. Następnie żąda rejestracji tych kategorii. W `InitNotificationsAsync` samouczku [wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji za pomocą usługi Azure Notification Hubs][get-started] można było utworzyć metodę.
 2. W pliku projektu *MainPage.XAML.cs* Dodaj następujący kod do `OnNavigatedTo` metody:
 
     ```csharp
@@ -265,8 +265,8 @@ W tym artykule przedstawiono sposób rozgłaszania ważnych wiadomości według 
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
