@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013967"
 ---
 # <a name="common-alert-schema-definitions"></a>Definicje typowych schematów alertów
 
@@ -149,7 +149,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 ### <a name="log-alerts"></a>Alerty dotyczące dzienników
 
 > [!NOTE]
-> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy element tematu wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu powoduje przywrócenie tematu i/lub schematu ładunku poczty e-mail do opisanego w poniższej kolejności. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru wynoszący 256 KB na alert. Wyniki wyszukiwania nie są osadzane w ładunku alertów dziennika, jeśli powodują, że rozmiar alertu przekracza ten próg. Można to określić, sprawdzając flagę `IncludeSearchResults` . Gdy wyniki wyszukiwania nie zostaną uwzględnione, należy użyć zapytania wyszukiwania w połączeniu z [interfejsem API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy element tematu wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu powoduje przywrócenie tematu i/lub schematu ładunku poczty e-mail do opisanego w poniższej kolejności. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru wynoszący 256 KB na alert. Wyniki wyszukiwania nie są osadzane w ładunku alertów dziennika, jeśli powodują, że rozmiar alertu przekracza ten próg. Można to określić, sprawdzając flagę `IncludeSearchResults` . Gdy wyniki wyszukiwania nie zostaną uwzględnione, należy użyć zapytania wyszukiwania w połączeniu z [interfejsem API log Analytics](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [typowym schemacie alertów](https://aka.ms/commonAlertSchemaDocs).
-- Dowiedz się [, jak utworzyć aplikację logiki, która korzysta ze wspólnego schematu alertu do obsługi wszystkich alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Dowiedz się [, jak utworzyć aplikację logiki, która korzysta ze wspólnego schematu alertu do obsługi wszystkich alertów](./alerts-common-schema-integrations.md). 

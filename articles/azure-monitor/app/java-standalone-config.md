@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym miejscu — Azure Monitor Application
 description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu śledzenia rozproszonego i mapy aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014205"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -216,7 +216,7 @@ Oto przykład sposobu ustawiania próbkowania do **10% wszystkich transakcji** �
 
 ## <a name="http-proxy"></a>Serwer proxy HTTP
 
-Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), można skonfigurować Application Insights Java 3,0 Preview do korzystania z serwera proxy http:
+Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](./ip-addresses.md)), można skonfigurować Application Insights Java 3,0 Preview do korzystania z serwera proxy http:
 
 ```json
 {

@@ -4,11 +4,12 @@ description: Rozpocznij pracę z Application Insights. Analizowanie użycia, dos
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014169"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorowanie wydajności w aplikacjach internetowych
 
@@ -25,7 +26,7 @@ Jeśli Application Insights nie zostały jeszcze dodane do projektu (oznacza to,
 * [Aplikacje internetowe platformy ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Dodaj Monitorowanie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
   * [Dodaj monitorowanie zależności](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplikacje sieci Web Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Aplikacje sieci Web Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Eksplorowanie metryk wydajności
 W [Azure Portal](https://portal.azure.com)przejdź do zasobu Application Insights, który został skonfigurowany dla aplikacji. W bloku przeglądu są wyświetlane podstawowe dane dotyczące wydajności:
@@ -60,15 +61,15 @@ Poszukaj nietypowych szczytów. Ogólnie rzecz biorąc, oczekiwany jest czas odp
 
 Kliknij kafelek, aby uzyskać czasy dla określonych adresów URL.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Zrzut ekranu przedstawiający okienko kondycja aplikacji, w którym są wyświetlane wykresy liniowe względem czasu przechodzenia średniego żądań i czasu odpowiedzi.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Najwolniejsze żądania
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Zrzut ekranu przedstawiający listę najwolniejszych żądań i ich czasy odpowiedzi.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Pokazuje, które żądania mogą wymagać dostrajania wydajności.
 
 ### <a name="failed-requests"></a>Żądania zakończone niepowodzeniem
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![Zrzut ekranu przedstawiający wykres liniowy w czasie liczby żądań zakończonych niepowodzeniem; oznacza to, że żądania, które wywołały nieprzechwycone wyjątki.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Liczba żądań, które wywołały nieprzechwycone wyjątki.
 
@@ -86,7 +87,7 @@ Wybranie dowolnej metryki powoduje wyłączenie innych, które nie są wyświetl
 ## <a name="set-alerts"></a>Ustawianie alertów
 Aby otrzymywać powiadomienia pocztą e-mail o nietypowych wartościach dowolnej metryki, Dodaj alert. Możesz wybrać opcję wysłania wiadomości e-mail do administratorów konta lub do określonych adresów e-mail.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Zrzut ekranu przedstawiający okno dialogowe Dodawanie reguły alertów wraz z zrzutami ekranu, które pokazują, jak uzyskać dostęp do tego okna dialogowego z Eksplorator metryk.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Ustaw zasób przed innymi właściwościami. Nie wybieraj zasobów WebTest, jeśli chcesz ustawić alerty dotyczące wydajności lub metryk użycia.
 
@@ -144,12 +145,9 @@ Czasami problem nie będzie znajdował się w kodzie, ale raczej w zależności 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
-

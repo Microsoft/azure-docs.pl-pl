@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal'
+title: 'Szybki Start: Tworzenie puli Apache Spark przy użyciu Azure Portal'
 description: Utwórz nową pulę Apache Spark przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006079"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark przy użyciu Azure Portal
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie, analizowanie i dystrybuowanie danych. Pula Apache Spark zapewnia możliwości obliczeniowe Big Data dla programu Open Source. Po utworzeniu puli Apache Spark w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i rozpowszechniać w celu uzyskania szybszych szczegółowych informacji analitycznych.
 

@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011332"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,12 @@ ms.locfileid: "85833421"
 
 Usługa Azure Blob Storage jest zoptymalizowana pod kątem przechowywania dużych ilości danych bez struktury. Obiekty blob są obiektami, które mogą przechowywać dane tekstowe lub binarne, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. W tym przewodniku szybki start dowiesz się, jak zarządzać obiektami BLOB przy użyciu języka JavaScript w przeglądarce. Zostaną przekazane i wyświetlone obiekty blob, a będziesz tworzyć i usuwać kontenery.
 
-[Dokumentacja](/javascript/api/@azure/storage-blob)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Dodatkowe zasoby:
+
+* [Dokumentacja referencyjna interfejsu API](/javascript/api/@azure/storage-blob)
+* [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > Aby rozpocząć pracę z poprzednią wersją zestawu SDK, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK v10 języka JavaScript w Node.js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -155,7 +160,7 @@ Przykładowy kod przedstawia sposób wykonywania następujących zadań za pomoc
 * [Tworzenie i usuwanie kontenera magazynu](#create-and-delete-a-storage-container)
 * [Wyświetlanie listy obiektów blob](#list-blobs)
 * [Przekazywanie obiektów BLOB](#upload-blobs)
-* [Usuwanie obiektów blob](#delete-blobs)
+* [Usuwać obiekty blob](#delete-blobs)
 
 Kod zostanie uruchomiony po dodaniu wszystkich fragmentów kodu do pliku *index.js* .
 
@@ -215,7 +220,7 @@ Zapisz plik *index.js* .
 
 Ten kod łączy przycisk **Wybierz i przekaż pliki** do ukrytego `file-input` elementu. Zdarzenie przycisku `click` wyzwala zdarzenie wejściowe pliku `click` i wyświetla selektor plików. Po wybraniu plików i zamknięciu okna dialogowego `input` zdarzenie występuje, a `uploadFiles` Funkcja jest wywoływana. Ta funkcja tworzy obiekt [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , a następnie wywołuje funkcję [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) tylko przeglądarki dla każdego wybranego pliku. Każde wywołanie zwraca obiekt `Promise` . Każda z nich `Promise` jest dodawana do listy, dzięki czemu można oczekiwać, że pliki będą jednocześnie przesyłane równolegle.
 
-### <a name="delete-blobs"></a>Usuwanie obiektów blob
+### <a name="delete-blobs"></a>Usuwać obiekty blob
 
 Usuń pliki z kontenera magazynu po kliknięciu przycisku **Usuń wybrane pliki** . Dodaj następujący kod na końcu pliku *index.js* .
 
@@ -267,7 +272,7 @@ W [Azure Portal](https://portal.azure.com)można sprawdzić wyniki wywołań int
 #### <a name="step-1---create-a-container"></a>Krok 1. Tworzenie kontenera
 
 1. W aplikacji sieci Web wybierz pozycję **Utwórz kontener**. Stan wskazuje, że kontener został utworzony.
-2. Aby sprawdzić w Azure Portal, wybierz konto magazynu. W obszarze **BLOB Service**wybierz pozycję **Containers (kontenery**). Sprawdź, czy nowy kontener zostanie wyświetlony. (Może być konieczne wybranie opcji **Odśwież**).
+2. Aby sprawdzić w Azure Portal, wybierz konto magazynu. W obszarze **Blob service** wybierz pozycję **Kontenery**. Sprawdź, czy nowy kontener zostanie wyświetlony. (Może być konieczne wybranie opcji **Odśwież**).
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>Krok 2. przekazywanie obiektu BLOB do kontenera
 

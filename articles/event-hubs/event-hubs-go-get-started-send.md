@@ -3,12 +3,12 @@ title: 'Szybki Start: wysyłanie i odbieranie zdarzeń przy użyciu języka go-A
 description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji języka go, która wysyła zdarzenia z usługi Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002458"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z Event Hubs przy użyciu języka go
 Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -31,7 +31,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji języka go w celu wysyła
 
 ### <a name="install-go-package"></a>Zainstaluj pakiet języka go
 
-Pobierz pakiet języka go dla Event Hubs z `go get` lub `dep` . Przykład:
+Pobierz pakiet języka go dla Event Hubs z `go get` lub `dep` . Na przykład:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -126,7 +126,7 @@ Gratulacje! Wysłano komunikaty do centrum zdarzeń.
 
 ### <a name="create-a-storage-account-and-container"></a>Tworzenie konta magazynu i kontenera
 
-Stan, taki jak dzierżawy na partycjach i punkty kontrolne w strumieniu zdarzeń, jest współużytkowany przez odbiorniki przy użyciu kontenera usługi Azure Storage. Można utworzyć konto magazynu i kontener za pomocą zestawu SDK języka go, ale można go również utworzyć, wykonując instrukcje zawarte w [temacie Informacje o kontach usługi Azure Storage](../storage/common/storage-create-storage-account.md).
+Stan, taki jak dzierżawy na partycjach i punkty kontrolne w strumieniu zdarzeń, jest współużytkowany przez odbiorniki przy użyciu kontenera usługi Azure Storage. Można utworzyć konto magazynu i kontener za pomocą zestawu SDK języka go, ale można go również utworzyć, wykonując instrukcje zawarte w [temacie Informacje o kontach usługi Azure Storage](../storage/common/storage-account-create.md).
 
 Przykłady tworzenia artefaktów magazynu za pomocą zestawu SDK języka go są dostępne w [repozytorium przykłady](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) i w przykładach odpowiadających temu samouczkowi.
 

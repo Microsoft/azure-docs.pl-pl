@@ -4,11 +4,12 @@ description: Omówienie sposobu uwidaczniania interfejsu API hostowanego w App S
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115828"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015089"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Eksportowanie interfejsu API hostowanego na platformie Azure do usługi PowerApps i Microsoft Flow
 
@@ -59,7 +60,7 @@ Aby zakończyć eksport w trybie **Express** , wykonaj następujące kroki:
 
     |Ustawienie|Opis|
     |--------|------------|
-    |**Środowisko**|Wybierz środowisko, w którym ma zostać zapisany łącznik niestandardowy. Aby uzyskać więcej informacji, zobacz [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/) (Omówienie środowisk).|
+    |**Naturalne**|Wybierz środowisko, w którym ma zostać zapisany łącznik niestandardowy. Aby uzyskać więcej informacji, zobacz [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/) (Omówienie środowisk).|
     |**Nazwa niestandardowego interfejsu API**|Wprowadź nazwę, która będzie widoczna dla aplikacji PowerApps i Microsoft Flow builds na liście łączników.|
     |**Przygotuj konfigurację zabezpieczeń**|W razie potrzeby podaj szczegóły konfiguracji zabezpieczeń potrzebne do udzielenia użytkownikom dostępu do interfejsu API. Ten przykład przedstawia klucz interfejsu API. Aby uzyskać więcej informacji, zobacz [Określ typ uwierzytelniania](#auth) poniżej.|
  
@@ -145,9 +146,9 @@ W przypadku korzystania z usługi Azure AD wymagane są dwie rejestracje aplikac
 
 - Aby skonfigurować rejestrację dla interfejsu API, użyj funkcji [uwierzytelniania App Service/autoryzacji](../app-service/configure-authentication-provider-aad.md) .
 
-- Aby skonfigurować rejestrację łącznika, wykonaj kroki opisane w temacie [Dodawanie aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Rejestracja musi mieć delegowany dostęp do Twojego interfejsu API i adres URL odpowiedzi `https://msmanaged-na.consent.azure-apim.net/redirect` . 
+- Aby skonfigurować rejestrację łącznika, wykonaj kroki opisane w temacie [Dodawanie aplikacji usługi Azure AD](../active-directory/develop/quickstart-register-app.md). Rejestracja musi mieć delegowany dostęp do Twojego interfejsu API i adres URL odpowiedzi `https://msmanaged-na.consent.azure-apim.net/redirect` . 
 
-Aby uzyskać więcej informacji, zobacz przykłady rejestracji usługi Azure AD dla usług [powerapps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) i [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Te przykłady używają Azure Resource Manager jako interfejsu API; Zastąp interfejs API, jeśli wykonano kroki.
+Aby uzyskać więcej informacji, zobacz przykłady rejestracji usługi Azure AD dla usług [powerapps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) i [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication). Te przykłady używają Azure Resource Manager jako interfejsu API; Zastąp interfejs API, jeśli wykonano kroki.
 
 Wymagane są następujące wartości konfiguracji:
 - **Identyfikator klienta** — identyfikator klienta rejestracji usługi Azure AD łącznika
@@ -168,5 +169,3 @@ Wymagane są następujące wartości konfiguracji:
 - **Adres URL autoryzacji** — adres URL autoryzacji OAuth 2,0
 - **Adres URL tokenu** — adres URL tokenu OAuth 2,0
 - **Odśwież adres URL** — adres URL odświeżania protokołu OAuth 2,0
-
-

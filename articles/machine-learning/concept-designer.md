@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012947"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów dany
 
 Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
 
-+ [Potoki](#pipeline)
++ [Pipelines](#pipeline)
 + [Zestawy danych](#datasets)
 + [Zasoby obliczeniowe](#compute)
 + [Zarejestrowane modele](concept-azure-machine-learning-architecture.md#models)
@@ -90,7 +90,7 @@ Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algor
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Trenowanie | Wdrażanie |
+| Docelowy zasób obliczeniowy | Szkolenie | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
 | Wystąpienie obliczeniowe Azure Machine Learning | ✓ | |
@@ -98,7 +98,7 @@ Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostow
 
 Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 
@@ -115,25 +115,6 @@ Opublikowane potoki są elastyczne, ale mogą być używane do uczenia lub ponow
 Opublikowany potok jest uruchamiany na zasobach obliczeniowych zdefiniowanych w wersji roboczej potoku dla każdego modułu.
 
 Projektant tworzy ten sam obiekt [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) , co zestaw SDK.
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Przechodzenie z interfejsu wizualizacji do projektanta
-
-Interfejs wizualny (wersja zapoznawcza) został zaktualizowany i jest teraz Azure Machine Learning projektanta (wersja zapoznawcza). Projektant został przeprojektowany tak, aby korzystał z zaplecza opartego na potoku, który jest w pełni zintegrowany z innymi funkcjami Azure Machine Learning. 
-
-W wyniku tych aktualizacji niektóre koncepcje i terminy dla interfejsu wizualizacji zostały zmienione lub zmieniono ich nazwy. Zapoznaj się z poniższą tabelą, aby poznać najważniejsze zmiany pojęciowe. 
-
-| Koncepcja projektanta | Wcześniej w interfejsie wizualizacji |
-| ---- |:----:|
-| Wersja robocza potoku | Experiment |
-| Punkt końcowy w czasie rzeczywistym | Usługa internetowa |
-
-### <a name="migrating-to-the-designer"></a>Migrowanie do projektanta
-
-Istniejące eksperymenty interfejsu wizualizacji i usługi sieci Web można przekonwertować na potoki i punkty końcowe w czasie rzeczywistym w projektancie. Wykonaj następujące kroki, aby przeprowadzić migrację zasobów interfejsu wizualizacji:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>Następne kroki
 

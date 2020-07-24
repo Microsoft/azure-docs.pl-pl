@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015157"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integracja z dziennikami Azure Monitor
 
@@ -34,7 +34,7 @@ Dzienniki Azure Monitor zapewniają większą widoczność operacyjną danych ko
 
 Aby rozpocząć wysyłanie raportów konfiguracji stanu usługi Automation do dzienników Azure Monitor, potrzebne są:
 
-- Wydanie z listopada 2016 lub nowszą [Azure PowerShell](/powershell/azure/overview) (v 2.3.0).
+- Wydanie z listopada 2016 lub nowszą [Azure PowerShell](/powershell/azure/) (v 2.3.0).
 - Konto usługi Azure Automation. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Automation](automation-intro.md).
 - Obszar roboczy Log Analytics z ofertą usługi Automation & Control. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 - Co najmniej jeden węzeł konfiguracji stanu Azure Automation. Aby uzyskać więcej informacji, zobacz sekcję dołączanie [maszyn w celu zarządzania przez Azure Automation konfigurację stanu](automation-dsc-onboarding.md).
@@ -135,7 +135,7 @@ Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azur
 | --- | --- |
 | TimeGenerated |Data i godzina uruchomienia sprawdzania zgodności. |
 | OperationName |`DscNodeStatusData`. |
-| Result |Wartość wskazująca, czy węzeł jest zgodny. |
+| ResultType |Wartość wskazująca, czy węzeł jest zgodny. |
 | NodeName_s |Nazwa zarządzanego węzła. |
 | NodeComplianceStatus_s |Wartość stanu określająca, czy węzeł jest zgodny. |
 | DscReportStatus |Wartość stanu wskazująca, czy sprawdzanie zgodności zostało pomyślnie wykonane. |
@@ -166,7 +166,7 @@ Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azur
 | --- | --- |
 | TimeGenerated |Data i godzina uruchomienia sprawdzania zgodności. |
 | OperationName |`DscResourceStatusData`.|
-| Result |Czy zasób jest zgodny. |
+| ResultType |Czy zasób jest zgodny. |
 | NodeName_s |Nazwa zarządzanego węzła. |
 | Kategoria | DscNodeStatus. |
 | Zasób | Nazwa konta Azure Automation. |

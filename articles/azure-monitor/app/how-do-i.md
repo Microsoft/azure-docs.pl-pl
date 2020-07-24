@@ -3,12 +3,12 @@ title: Jak mogę... na platformie Azure Application Insights | Microsoft Docs
 description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 63a958e1d3fb784651043181bff0428666fad6db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014597"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymuj wiadomość e-mail, gdy...
@@ -74,7 +74,7 @@ Oto niektóre ważne kwestie:
 [Tworzenie nowych alertów za pomocą programu PowerShell](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Zarządzanie Application Insights przy użyciu programu PowerShell
-* [Tworzenie nowych zasobów](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Tworzenie nowych zasobów](./create-new-resource.md#creating-a-resource-automatically)
 * [Utwórz nowe alerty](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Oddzielna Telemetria od różnych wersji

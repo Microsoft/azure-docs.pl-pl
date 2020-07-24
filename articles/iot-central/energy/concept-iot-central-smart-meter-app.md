@@ -1,5 +1,5 @@
 ---
-title: Koncepcje dotyczące architektury w usłudze Azure IoT Central — energia | Microsoft Docs
+title: Koncepcje dotyczące architektury w usłudze Azure IoT Central — licznik inteligentny | Microsoft Docs
 description: W tym artykule przedstawiono najważniejsze pojęcia związane z architekturą szablonu aplikacji energetycznej usługi Azure IoT Central
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77024317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001846"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central — architektura aplikacji licznika inteligentnego
 

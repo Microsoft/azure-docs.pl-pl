@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: W tym przewodniku szybki start pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiej iteracji aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002781"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Szybki Start: debugowanie i iteracja na Kubernetes: Visual Studio Code i .NET Core — Azure Dev Spaces
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Zapisz plik. Kliknij pozycję *Debuguj* , a następnie *ponownie uruchom debugowanie* lub na *pasku narzędzi debugowania*kliknij przycisk *Uruchom ponownie debugowanie* .
 
-![Pasek narzędzi debugowania jest małym okienkiem w górnej części strony (tuż poniżej tytułu strony). Przycisk restart wyświetla strzałkę kolistą i jest wyróżniony. Obraz aktywowany dla przycisku to "Uruchom ponownie (Ctrl + Shift + F5)".](media/common/debug-action-refresh.png)
+![Pasek narzędzi debugowania jest małym okienkiem w górnej części strony (tuż poniżej tytułu strony). Przycisk restart wyświetla strzałkę kolistą i jest wyróżniony. Obraz aktywowany dla przycisku to "Uruchom ponownie (Control + Shift + f 5)".](media/common/debug-action-refresh.png)
 
 Otwórz usługę w przeglądarce i sprawdź, czy zostanie wyświetlony zaktualizowany komunikat.
 

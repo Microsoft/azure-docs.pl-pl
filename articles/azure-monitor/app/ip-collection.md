@@ -3,11 +3,12 @@ title: Kolekcja adresów IP Application Insights platformy Azure | Microsoft Doc
 description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pomocą usługi Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014443"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
@@ -26,7 +27,7 @@ Takie zachowanie jest zaprojektowane w celu uniknięcia niepotrzebnej kolekcji d
 
 ## <a name="overriding-default-behavior"></a>Zastępowanie zachowania domyślnego
 
-Mimo że domyślne zachowanie polega na zminimalizowaniu kolekcji danych osobowych, firma Microsoft oferuje elastyczność zbierania i przechowywania danych adresów IP. Przed wybraniem opcji przechowywania danych osobowych, takich jak adresy IP, zdecydowanie zalecamy sprawdzenie, czy nie są to wymagania dotyczące zgodności ani lokalne przepisy, które mogą podlegać. Aby dowiedzieć się więcej na temat obsługi danych osobowych w Application Insights, zapoznaj się ze [wskazówkami dotyczącymi danych osobowych](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+Mimo że domyślne zachowanie polega na zminimalizowaniu kolekcji danych osobowych, firma Microsoft oferuje elastyczność zbierania i przechowywania danych adresów IP. Przed wybraniem opcji przechowywania danych osobowych, takich jak adresy IP, zdecydowanie zalecamy sprawdzenie, czy nie są to wymagania dotyczące zgodności ani lokalne przepisy, które mogą podlegać. Aby dowiedzieć się więcej na temat obsługi danych osobowych w Application Insights, zapoznaj się ze [wskazówkami dotyczącymi danych osobowych](../platform/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Przechowywanie danych adresów IP
 
@@ -98,7 +99,7 @@ Jeśli musisz tylko zmodyfikować zachowanie dla pojedynczego zasobu Application
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Ładunek [interfejsu API REST](https://docs.microsoft.com/rest/api/azure/) , aby wprowadzić takie same modyfikacje, jest następujący:
+Ładunek [interfejsu API REST](/rest/api/azure/) , aby wprowadzić takie same modyfikacje, jest następujący:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -119,7 +120,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicjator telemetrii
 
-Jeśli potrzebujesz bardziej elastycznej alternatywy niż `DisableIpMasking` w przypadku rejestrowania wszystkich lub części adresów IP, możesz użyć [inicjatora telemetrii](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) , aby skopiować całość lub część adresu IP do pola niestandardowego. 
+Jeśli potrzebujesz bardziej elastycznej alternatywy niż `DisableIpMasking` w przypadku rejestrowania wszystkich lub części adresów IP, możesz użyć [inicjatora telemetrii](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) , aby skopiować całość lub część adresu IP do pola niestandardowego. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -232,6 +233,6 @@ Nowo zebrane adresy IP powinny pojawić się w `customDimensions_client-ip` kolu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [zbieraniu danych osobowych](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) w Application Insights.
+* Dowiedz się więcej o [zbieraniu danych osobowych](../platform/personal-data-mgmt.md) w Application Insights.
 
 * Dowiedz się więcej o sposobie działania [zbierania adresów IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) w Application Insights. (Jest to starszy wpis w blogu zewnętrznym zapisany przez jednego z naszych inżynierów. Jest to wstępnie bieżące zachowanie domyślne, w którym adres IP jest rejestrowany jako `0.0.0.0` , ale jest bardziej głębokością Mechanics wbudowanego `ClientIpHeaderTelemetryInitializer` .)

@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015225"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Wdrażanie w usłudze Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono procedurę wdrażania składnika bramy samoobsługo
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Wdrażanie bramy samohostowanej w usłudze AKS
 
-1. Wybierz pozycję **bramy** z sekcji **Ustawienia**.
+1. Wybierz pozycję **bramy** z sekcji **wdrażanie i infrastruktura**.
 2. Wybierz zasób bramy samoobsługowej, który ma zostać wdrożony.
 3. Wybierz pozycję **wdrożenie**.
 4. Należy zauważyć, że nowy token w polu tekstowym **token** został wygenerowany automatycznie przy użyciu domyślnych wartości kluczy **wygaśnięcia** i **tajnych** . Dostosuj jedną lub obie w razie potrzeby, a następnie wybierz pozycję **Generuj** , aby utworzyć nowy token.

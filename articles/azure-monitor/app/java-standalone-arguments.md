@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java działające w dowolnym środowisku — Azure Mo
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku z autonomicznym Agentem Java bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82508041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014245"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurowanie JVM args autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "82508041"
 
 ## <a name="azure-environments"></a>Środowiska platformy Azure
 
-Skonfiguruj [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Skonfiguruj [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## <a name="spring-boot"></a>Spring Boot
 

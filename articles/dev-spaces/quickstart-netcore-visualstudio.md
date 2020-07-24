@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007008"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Szybki Start: debugowanie i iteracja na Kubernetes: Visual Studio & .NET Core — Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 
 Azure Dev Spaces umożliwia również debugowanie i iterację przy użyciu:
 - [Java i Visual Studio Code](quickstart-java.md)
-- [Node. js i Visual Studio Code](quickstart-nodejs.md)
+- [Node.js i Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core i Visual Studio Code](quickstart-netcore.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -78,21 +78,21 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 1. Nadaj nazwę projekt *webfrontonu* , a następnie kliknij przycisk *Utwórz*.
 1. Po wyświetleniu monitu wybierz pozycję *aplikacja sieci Web (Model-View-Controller)* dla szablonu.
 1. Wybierz pozycję *.NET Core* i *ASP.NET Core 2,1* w górnej części strony.
-1. Kliknij przycisk *Utwórz*.
+1. Kliknij pozycję *Utwórz*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Połącz projekt z obszarem deweloperskim
 
 W projekcie wybierz **Azure dev Spaces** z listy rozwijanej ustawienia uruchamiania, jak pokazano poniżej.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![Zrzut ekranu przedstawiający interfejs użytkownika programu Visual Studio z opcją IIS Express wyróżnioną i wybraną oraz z wyróżnioną opcją Azure Dev Spaces.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 W oknie dialogowym Azure Dev Spaces wybierz *subskrypcję* i *klaster usługi Azure Kubernetes*. Pozostaw *miejsce* ustawione na *domyślne* i Włącz pole wyboru *dostępne publicznie* . Kliknij przycisk *OK*.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Zrzut ekranu przedstawiający okno dialogowe Azure Dev Spaces.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 Ten proces służy do wdrażania usługi w *domyślnym* obszarze deweloperskim z publicznie dostępnym adresem URL. Jeśli wybierzesz klaster, który nie został skonfigurowany do pracy z usługą Azure Dev Spaces, zobaczysz komunikat z pytaniem, czy chcesz go skonfigurować. Kliknij przycisk *OK*.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Zrzut ekranu przedstawiający okno dialogowe Dodawanie zasobu Azure Spaces.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Publiczny adres URL dla usługi uruchomionej w *domyślnym* obszarze dev jest wyświetlany w oknie *danych wyjściowych* :
 

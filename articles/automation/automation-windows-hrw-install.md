@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015021"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -173,7 +173,7 @@ W wynikach wyszukiwania powinny być widoczne rekordy pulsu dla maszyny, co ozna
 
 2. Aby potwierdzić wersję hybrydowego procesu roboczego elementu Runbook, przejdź do `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` podfolderu **wersji** i zanotuj go.
 
-### <a name="step-3---install-the-runbook-environment-and-connect-to-azure-automation"></a>Krok 3. Instalowanie środowiska Runbook i nawiązywanie połączenia z usługą Azure Automation
+### <a name="step-2---install-the-runbook-environment-and-connect-to-azure-automation"></a>Krok 2. Instalowanie środowiska Runbook i nawiązywanie połączenia z usługą Azure Automation
 
 W przypadku skonfigurowania agenta w celu raportowania do obszaru roboczego Log Analytics funkcja Azure Automation wypchnięcie `HybridRegistration` modułu programu PowerShell, który zawiera `Add-HybridRunbookWorker` polecenie cmdlet. To polecenie cmdlet służy do instalowania środowiska Runbook na komputerze i rejestrowania go w Azure Automation.
 
@@ -202,7 +202,7 @@ Możesz uzyskać informacje wymagane do parametrów `Url` i `Key` ze strony **kl
 
 * W razie potrzeby ustaw `Verbose` parametr, aby otrzymać szczegółowe informacje o instalacji.
 
-### <a name="step-4----install-powershell-modules"></a>Krok 4. Instalowanie modułów programu PowerShell
+### <a name="step-3----install-powershell-modules"></a>Krok 3 — Instalowanie modułów programu PowerShell
 
 Elementy Runbook mogą korzystać z dowolnych działań i poleceń cmdlet zdefiniowanych w modułach zainstalowanych w środowisku Azure Automation. Ponieważ te moduły nie są automatycznie wdrażane na maszynach lokalnych, należy je zainstalować ręcznie. Wyjątek jest modułem platformy Azure. Ten moduł jest instalowany domyślnie i zapewnia dostęp do poleceń cmdlet dla wszystkich usług i działań platformy Azure dla Azure Automation.
 

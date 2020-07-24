@@ -3,11 +3,12 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014069"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -33,7 +34,7 @@ Najlepsze środowisko jest uzyskiwane przez zainstalowanie Application Insights 
     </script>
     ```
 
-    Aby dowiedzieć się więcej na temat zaawansowanych konfiguracji monitorowania witryn sieci Web, zapoznaj się z [artykułem dotyczącym zestawu SDK języka JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Aby dowiedzieć się więcej na temat zaawansowanych konfiguracji monitorowania witryn sieci Web, zapoznaj się z [artykułem dotyczącym zestawu SDK języka JavaScript](./javascript.md).
 
 3. **Kod aplikacji mobilnej:** Użyj zestawu SDK App Center, aby zbierać zdarzenia z aplikacji, a następnie wysyłać kopie tych zdarzeń do Application Insights do analizy, [postępując zgodnie z tym przewodnikiem](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -44,7 +45,7 @@ Najlepsze środowisko jest uzyskiwane przez zainstalowanie Application Insights 
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Dołącz identyfikator użytkownika i sesji do telemetrii
 Aby śledzić użytkowników w czasie, Application Insights wymaga ich zidentyfikowania. Narzędzie zdarzenia jest jedynym narzędziem do użycia, które nie wymaga identyfikatora użytkownika lub identyfikatora sesji.
 
-Rozpocznij wysyłanie identyfikatorów użytkowników i sesji przy użyciu [tego procesu](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Rozpocznij wysyłanie identyfikatorów użytkowników i sesji przy użyciu [tego procesu](./usage-send-user-context.md).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Eksplorowanie danych demograficznych dotyczących użycia i statystyk
 Dowiedz się, w jaki sposób użytkownicy korzystają z Twojej aplikacji, jakie strony są najbardziej interesujące, w których znajdują się Twoje osoby, których przeglądarek i systemów operacyjnych używają. 

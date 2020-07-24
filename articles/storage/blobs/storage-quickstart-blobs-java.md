@@ -7,18 +7,23 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d30260f8718d061473dfa4b29b7c35e33b27390d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 41d6457986ac3c97b3e7a19d089e7ce6a15d1f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011281"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java
 
 W tym przewodniku szybki start nauczysz się zarządzać obiektami BLOB przy użyciu języka Java. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Będziesz przekazywać, pobierać i wyświetlać listy obiektów blob, a następnie tworzyć i usuwać kontenery.
 
-[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) |  | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)dokumentacji interfejsu API[(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
+Dodatkowe zasoby:
+
+* [Dokumentacja referencyjna interfejsu API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html)
+* [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
+* [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -101,7 +106,7 @@ Utwórz aplikację Java o nazwie *BLOB-Start-V12*.
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Otwórz plik *pliku pom. XML* w edytorze tekstów. Dodaj następujący element zależności do grupy zależności.
+Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujący element zależności do grupy zależności.
 
 ```xml
 <dependency>
@@ -160,7 +165,7 @@ Użyj następujących klas języka Java do korzystania z tych zasobów:
 * [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): `BlobServiceClientBuilder` Klasa udostępnia interfejs API programu Fluent Builder, który pomaga ułatwić konfigurację i Tworzenie wystąpień `BlobServiceClient` obiektów.
 * [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html): `BlobContainerClient` Klasa umożliwia manipulowanie kontenerami usługi Azure Storage i ich obiektami BLOB.
 * [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): `BlobClient` Klasa umożliwia manipulowanie obiektami BLOB usługi Azure Storage.
-* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` Klasa reprezentuje pojedyncze obiekty blob zwracane z wywołania do `listBlobsFlat`.
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` Klasa reprezentuje pojedyncze obiekty blob zwracane z wywołania do `listBlobsFlat` .
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -302,7 +307,7 @@ System.out.println("Done");
 
 Ta aplikacja tworzy plik testowy w folderze lokalnym i przekazuje go do magazynu obiektów BLOB. Przykład następnie wyświetla listę obiektów BLOB w kontenerze i pobiera plik z nową nazwą, aby można było porównać stare i nowe pliki.
 
-Przejdź do katalogu zawierającego plik *pliku pom. XML* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
+Przejdź do katalogu zawierającego plik *pom.xml* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
 
 ```console
 mvn compile

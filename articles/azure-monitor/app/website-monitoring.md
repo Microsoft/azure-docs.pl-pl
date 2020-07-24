@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start dowiesz się, jak skonfigurować mon
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: b47f3ce1ebed12d14dffd68e87dd013bb86218ea
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: fa2ecd5d953ec0411a122dc7107ce23de1ae5bc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014052"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania witryny sieci Web za pomocą Azure Monitor Application Insights
 
@@ -26,24 +26,24 @@ Usługa Azure Monitor Application Insights umożliwia łatwe monitorowanie dost�
 
 Application Insights może zbierać dane telemetryczne z dowolnej aplikacji połączonej z Internetem działającej lokalnie lub w chmurze. Aby wyświetlić te dane, wykonaj następujące kroki:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
-1. Wybierz **pozycję Utwórz** > **Management tools** > **Application Insights**narzędzia do zarządzania zasobami.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Wybierz pozycję **Utwórz**  >  **Application Insights narzędzia do zarządzania**zasobami  >  **Application Insights**.
 
    > [!NOTE]
-   >Jeśli po raz pierwszy utworzysz zasób Application Insights, zobacz [Tworzenie zasobu Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Jeśli po raz pierwszy utworzysz zasób Application Insights, zobacz [Tworzenie zasobu Application Insights](./create-new-resource.md).
 1. Gdy pojawi się okno Konfiguracja, użyj poniższej tabeli, aby ukończyć pola wejściowe:
 
     | Ustawienia        | Wartość           | Opis  |
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowaną aplikację. |
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, która będzie hostować Application Insights dane. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
-   | **Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
-1. Wybierz przycisk **Utwórz**.
+   | **Lokalizacja** | East US | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-an-html-file"></a>Tworzenie pliku HTML
 
-1. Na komputerze lokalnym utwórz plik o nazwie ``hello_world.html``. Na potrzeby tego przykładu Utwórz plik w katalogu głównym dysku C, aby wyglądał na to ``C:\hello_world.html``.
-1. Skopiuj i wklej następujący skrypt do ``hello_world.html``:
+1. Na komputerze lokalnym utwórz plik o nazwie ``hello_world.html``. Na potrzeby tego przykładu Utwórz plik w katalogu głównym dysku C, aby wyglądał na to ``C:\hello_world.html`` .
+1. Skopiuj i wklej następujący skrypt do ``hello_world.html`` :
 
     ```html
     <!DOCTYPE html>
@@ -60,11 +60,11 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
 ## <a name="configure-application-insights-sdk"></a>Konfigurowanie Application Insights SDK
 
-1. Wybierz pozycję **Przegląd** > **podstawowe**, a następnie skopiuj **klucz Instrumentacji**aplikacji.
+1. Wybierz pozycję **Przegląd**  >  **podstawowe**, a następnie skopiuj **klucz Instrumentacji**aplikacji.
 
    ![Formularz nowego zasobu usługi Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
-1. Dodaj następujący skrypt do ``hello_world.html`` pliku przed tagiem zamykającym: ``</head>``
+1. Dodaj następujący skrypt do ``hello_world.html`` pliku przed tagiem zamykającym ``</head>`` :
 
    ```javascript
    <script type="text/javascript">
@@ -86,7 +86,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
    Cztery domyślne wykresy na stronie przeglądu są ograniczone do danych aplikacji po stronie serwera. Ze względu na to, że Instrumentacja jest współdziałanie ze strony klienta/przeglądarki z zestawem JavaScript SDK, ten konkretny widok nie ma zastosowania, chyba że jest zainstalowany zestaw SDK po stronie serwera.
 
-1. Wybierz **Analytics** ![ikonę](media/website-monitoring/006.png)mapy aplikacji analizy.  Ta akcja powoduje otwarcie programu **Analytics**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. Aby wyświetlić dane związane z żądaniami przeglądarki po stronie klienta, uruchom następujące zapytanie:
+1. Wybierz **Analytics** ![ ikonę mapy aplikacji analizy ](media/website-monitoring/006.png) .  Ta akcja powoduje otwarcie programu **Analytics**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. Aby wyświetlić dane związane z żądaniami przeglądarki po stronie klienta, uruchom następujące zapytanie:
 
     ```kusto
     // average pageView duration by name
@@ -119,7 +119,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
 Aby dowiedzieć się więcej na temat zaawansowanych konfiguracji monitorowania witryn sieci Web, zobacz [Dokumentacja interfejsu API zestawu SDK języka JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lub samouczkami, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. W przeciwnym razie wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start w Azure Portal.
 
@@ -132,4 +132,4 @@ Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lu
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wyszukiwanie i diagnozowanie problemów z wydajnością](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Wyszukiwanie i diagnozowanie problemów z wydajnością](../log-query/log-query-overview.md)

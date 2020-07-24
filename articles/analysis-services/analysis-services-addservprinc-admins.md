@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077562"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015412"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
 
@@ -44,7 +44,7 @@ Administratorów serwera można skonfigurować przy użyciu SQL Server Managemen
 
 ## <a name="using-a-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 
-Administratorzy serwera można również skonfigurować, wdrażając serwer Analysis Services przy użyciu szablonu Azure Resource Manager. Tożsamość, w której działa wdrożenie, musi należeć do roli **współautor** dla zasobu w [Access Control opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md).
+Administratorzy serwera można również skonfigurować, wdrażając serwer Analysis Services przy użyciu szablonu Azure Resource Manager. Tożsamość, w której działa wdrożenie, musi należeć do roli **współautor** dla zasobu w [kontroli dostępu opartej na ROLACH (Azure RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > Nazwę główną usługi należy dodać przy użyciu formatu `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
@@ -119,5 +119,3 @@ Tego identyfikatora klienta można następnie użyć w połączeniu z IDENTYFIKA
 
 * [Pobierz moduł SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Pobierz narzędzie SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

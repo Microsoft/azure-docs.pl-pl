@@ -3,28 +3,28 @@ title: Ciągły eksport danych telemetrycznych z Application Insights | Microsof
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014528"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
 
 > [!NOTE]
-> Eksport ciągły jest obsługiwany tylko w przypadku klasycznych zasobów Application Insights. [Zasoby Application Insights oparte na obszarze roboczym](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) muszą używać [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+> Eksport ciągły jest obsługiwany tylko w przypadku klasycznych zasobów Application Insights. [Zasoby Application Insights oparte na obszarze roboczym](./create-workspace-resource.md) muszą używać [ustawień diagnostycznych](./create-workspace-resource.md#export-telemetry).
 >
 
 Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alternatywy:
 
 * Przycisk Eksportuj w górnej części metryk lub karty wyszukiwania umożliwia transfer tabel i wykresów do arkusza kalkulacyjnego programu Excel.
 
-* [Analiza](../../azure-monitor/app/analytics.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
+* [Analiza](../log-query/log-query-overview.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
 * Jeśli chcesz [eksplorować dane w Power BI](../../azure-monitor/app/export-power-bi.md ), możesz to zrobić bez korzystania z eksportu ciągłego.
 * [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/) umożliwia programistyczne uzyskiwanie dostępu do telemetrii.
-* Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal jest dostępny w Application Insights w przypadku normalnego [okresu przechowywania](../../azure-monitor/app/data-retention-privacy.md).
 
@@ -32,9 +32,9 @@ Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal
 
 Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi Azure Storage:
 
-* Korzystanie z [zapór sieci wirtualnej/Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) w połączeniu z usługą Azure Blob Storage.
+* Korzystanie z [zapór sieci wirtualnej/Azure Storage](../../storage/common/storage-network-security.md) w połączeniu z usługą Azure Blob Storage.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a>Tworzenie eksportu ciągłego
 
@@ -135,7 +135,7 @@ Czas trwania jest w taktach, gdzie 10 000 Takty = 1 ms. Na przykład te wartośc
 [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Przetwarzanie danych
-Na małą skalę można napisać kod, aby ściągnąć dane, odczytać je w arkuszu kalkulacyjnym itd. Przykład:
+Na małą skalę można napisać kod, aby ściągnąć dane, odczytać je w arkuszu kalkulacyjnym itd. Na przykład:
 
 ```csharp
 private IEnumerable<T> DeserializeMany<T>(string folderName)

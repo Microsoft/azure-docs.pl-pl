@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3d785edb82e62363dd96d9fd67447f1be7ffe8f5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013984"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Zarządzanie bazami danych w Azure SQL Database przy użyciu Azure Automation
 
@@ -34,7 +34,7 @@ Obniż koszty operacyjne i zwolnij personel IT/DevOps, aby skoncentrować się n
 
 ## <a name="how-azure-automation-can-help-manage-your-databases"></a>Jak Azure Automation może pomóc w zarządzaniu bazami danych
 
-Za pomocą Azure Automation można zarządzać bazami danych w Azure SQL Database za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) , które są dostępne w [narzędziach Azure PowerShell](/powershell/azure/overview). Azure Automation są dostępne następujące Azure SQL Database poleceń cmdlet programu PowerShell, dzięki czemu można wykonywać wszystkie SQL Database zadania zarządzania w ramach usługi. Możesz również sparować te polecenia cmdlet w Azure Automation z poleceniami cmdlet dla innych usług platformy Azure, aby zautomatyzować złożone zadania w ramach usług platformy Azure i systemów innych firm.
+Za pomocą Azure Automation można zarządzać bazami danych w Azure SQL Database za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/servicemanagement/azure.service/#sql) , które są dostępne w [narzędziach Azure PowerShell](/powershell/azure/). Azure Automation są dostępne następujące Azure SQL Database poleceń cmdlet programu PowerShell, dzięki czemu można wykonywać wszystkie SQL Database zadania zarządzania w ramach usługi. Możesz również sparować te polecenia cmdlet w Azure Automation z poleceniami cmdlet dla innych usług platformy Azure, aby zautomatyzować złożone zadania w ramach usług platformy Azure i systemów innych firm.
 
 Azure Automation ma także możliwość bezpośredniego komunikowania się z serwerami SQL przez wydawanie poleceń SQL przy użyciu programu PowerShell.
 

@@ -6,14 +6,14 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014142"
 ---
-# <a name="connection-strings"></a>Parametry połączeń
+# <a name="connection-strings"></a>Parametry połączenia
 
 ## <a name="overview"></a>Omówienie
 
@@ -31,12 +31,12 @@ Scenariusze klientów, które są wizualizowane z największym wpływem:
 
 - Wyjątki zapory lub przekierowania serwera proxy 
 
-    W przypadkach, gdy wymagane jest monitorowanie intranetowego serwera sieci Web, nasze wcześniejsze rozwiązanie poprosiło klientów o dodanie poszczególnych punktów końcowych usługi do konfiguracji. Aby uzyskać więcej informacji, zobacz [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    W przypadkach, gdy wymagane jest monitorowanie intranetowego serwera sieci Web, nasze wcześniejsze rozwiązanie poprosiło klientów o dodanie poszczególnych punktów końcowych usługi do konfiguracji. Aby uzyskać więcej informacji, zobacz [tutaj](../faq.md#can-i-monitor-an-intranet-web-server). 
     Parametry połączenia oferują lepszą alternatywę, skracając ten nakład pracy do jednego ustawienia. Prosty prefiks, zmiana sufiksu, umożliwia automatyczne zapełnianie i przekierowywanie wszystkich punktów końcowych do odpowiednich usług. 
 
 - Suwerenne lub hybrydowe środowiska chmury
 
-    Użytkownicy mogą wysyłać dane do zdefiniowanego [regionu Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+    Użytkownicy mogą wysyłać dane do zdefiniowanego [regionu Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights).
     Parametry połączeń umożliwiają definiowanie ustawień punktu końcowego dla serwerów intranetowych lub ustawień chmury hybrydowej. 
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -276,7 +276,7 @@ Rozpocznij pracę w czasie wykonywania za pomocą rozwiązań:
 
 * [Maszyna wirtualna platformy Azure i zestaw skalowania maszyn wirtualnych platformy Azure — aplikacje hostowane](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Serwer usług IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Aplikacje internetowe platformy Azure](../../azure-monitor/app/azure-web-apps.md)
 
 Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 

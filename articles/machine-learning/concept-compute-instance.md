@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/22/2020
-ms.openlocfilehash: b53a2c0cb3c709a6f22b57b45bef8b2894594a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3edb8da6d535ac7817c29db254aa84efd92321b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012981"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -30,7 +30,7 @@ W przypadku szkolenia modelu klasy produkcyjnej Użyj [Azure Machine Learning kl
 
 Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmurze zoptymalizowana pod kątem środowiska projektowego uczenia maszynowego. Zapewnia następujące korzyści:
 
-|Najważniejsze korzyści||
+|Najważniejsze korzyści|Opis|
 |----|----|
 |Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym. Możesz również skonfigurować VS Code zdalne Programowanie przy użyciu protokołu [SSH](how-to-set-up-vs-code-remote.md) |
 |Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
@@ -39,8 +39,11 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Narzędzia i środowiska
 
-Wystąpienie obliczeniowe Azure Machine Learning umożliwia tworzenie, uczenie i wdrażanie modeli w pełni zintegrowane środowisko notesu w obszarze roboczym.
+> [!IMPORTANT]
+> Narzędzia oznaczone poniżej (wersja zapoznawcza) są obecnie dostępne w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Wystąpienie obliczeniowe Azure Machine Learning umożliwia tworzenie, uczenie i wdrażanie modeli w pełni zintegrowane środowisko notesu w obszarze roboczym.
 
 Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym: 
 
@@ -59,7 +62,7 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 |----|:----:|
 |RStudio Server Open Source Edition (wersja zapoznawcza)||
 |Jądro języka R||
-|Zestaw SDK Azure Machine Learning dla języka R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Przykłady dla zestawu SDK|
+|Zestaw SDK Azure Machine Learning dla języka R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Przykłady zestawu SDK|
 
 |Środowiska **Python** Tools & Environments|Szczegóły|
 |----|----|

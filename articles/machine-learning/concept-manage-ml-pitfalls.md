@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012726"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Zapobiegaj przestępowaniu i niezrównoważonym danych za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -101,7 +101,7 @@ Następujące techniki są dodatkowymi opcjami obsługi niezrównoważonych dany
 
 - Ponowne próbkowanie do nawet nierównowagi klasy, przez zwiększenie próbkowania mniejszych klas lub próbkowanie w dół do większych klas. Te metody wymagają ekspertyzy do przetworzenia i analizowania.
 
-- Przejrzyj metryki wydajności dla niezrównoważonych danych. Na przykład, wynik F1 jest średnią ważoną dokładności i odwołania. Precyzja mierzy stopień dokładności klasyfikatora — niska precyzja wskazuje dużą liczbę fałszywych dodatnich--, podczas odwoływania miar klasyfikatora — niska funkcja odwoływania wskazuje dużą liczbę fałszywych wartości ujemnych.
+- Przejrzyj metryki wydajności dla niezrównoważonych danych. Na przykład, wynik F1 jest średnią harmoniczną precyzji i odwołania. Precyzja mierzy stopień dokładności klasyfikatora, gdzie wyższa precyzja wskazuje mniejszą liczbę fałszywie dodatnich, podczas gdy funkcja odwoływania mierzy kompletność klasyfikatora, gdzie wyższe odwołanie wskazuje na mniejszą liczbę fałszywych wartości ujemnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79461014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000962"
 ---
 # <a name="azure-media-services-v3-overview"></a>Omówienie usługi Azure Media Services w wersji 3
 
@@ -31,7 +31,7 @@ Azure Media Services to oparta na chmurze platforma umożliwiająca tworzenie ro
 Zestawy SDK Media Services V3 są oparte na [specyfikacji Media Services v3 openapi (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services [v3, Wyświetl](assets-concept.md)(nie Zarządzaj) v3, [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](access-api-portal.md). W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services [v3, Wyświetl](assets-concept.md)(nie Zarządzaj) v3, [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,8 +53,8 @@ Media Services pozwala tworzyć różne przepływy pracy multimedialnej w chmurz
 * Analizuj nagrania wideo lub zawartość audio. Aby na przykład osiągnąć wyższe zadowolenie klientów, organizacje mogą wyodrębnić mowę jako tekst i tworzyć indeksy wyszukiwania oraz pulpity nawigacyjne. Następnie mogą oni wyodrębnić informacje dotyczące typowych skarg, źródeł skarg i inne odpowiednie dane.
 * Utwórz serwis wideo subskrypcji i przesyłaj strumieniowo zawartość chronioną przez technologię DRM, gdy klient (na przykład studio filmowe) chce ograniczyć dostęp i używanie zastrzeżonych prac objętych prawami autorskimi.
 * Dostarczaj zawartość offline do odtwarzania w samolotach, pociągach i samochodach. Klient może pobrać zawartość do odtworzenia na swój telefon lub tablet, jeśli przewiduje, że zostanie odłączony od sieci.
-* Zaimplementuj platformę wideo edukacyjnej uczenia maszynowego za pomocą Azure Media Services i [platformy Azure interfejsy API usług Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) na potrzeby podpisania mowy i tekstu, tłumaczenia na wiele języków i tak dalej.
-* Dzięki usłudze Azure Media Services oraz [interfejsom API usług Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) możesz dodawać napisy i podpisy do filmów, aby spełnić potrzeby szerszego grona odbiorców (na przykład osób z wadami słuchu lub osób chcących jednocześnie czytać w innym języku).
+* Zaimplementuj platformę wideo edukacyjnej uczenia maszynowego za pomocą Azure Media Services i [platformy Azure interfejsy API usług Cognitive Services](../../index.yml?pivot=products&panel=ai) na potrzeby podpisania mowy i tekstu, tłumaczenia na wiele języków i tak dalej.
+* Dzięki usłudze Azure Media Services oraz [interfejsom API usług Cognitive Services](../../index.yml?pivot=products&panel=ai) możesz dodawać napisy i podpisy do filmów, aby spełnić potrzeby szerszego grona odbiorców (na przykład osób z wadami słuchu lub osób chcących jednocześnie czytać w innym języku).
 * Włącz usługę Azure CDN, aby osiągnąć wysoką skalowalność w celu zapewnienia lepszej obsługi błyskawicznego zwiększenia obciążenia (na przykład na początku wydarzenia prezentującego nowy produkt).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Jak można zacząć korzystać z wersji 3? 
@@ -88,14 +88,14 @@ W samouczkach przedstawiono procedury oparte na scenariuszu dla niektórych najw
 
 ### <a name="samples"></a>Samples
 
-Użyj [tej przeglądarki przykładów](https://docs.microsoft.com/samples/browse/?products=azure-media-services) do przeglądania przykładów kodu Azure Media Services.
+Użyj [tej przeglądarki przykładów](/samples/browse/?products=azure-media-services) do przeglądania przykładów kodu Azure Media Services.
 
 ### <a name="how-to-guides"></a>Przewodniki z instrukcjami
 
 Przewodniki z poradnikami zawierają przykłady kodu, które pokazują, jak wykonać zadanie. W tej sekcji znajdziesz wiele przykładów. Oto kilka z nich:
 
-* [Tworzenie konta — interfejs wiersza polecenia](create-account-cli-how-to.md)
-* [Dostęp do interfejsów API — interfejs wiersza polecenia](access-api-cli-how-to.md)
+* [Tworzenie konta — interfejs wiersza polecenia](./create-account-howto.md)
+* [Dostęp do interfejsów API — interfejs wiersza polecenia](./access-api-howto.md)
 * [Koduj przy użyciu protokołu HTTPS jako dane wejściowe zadania — .NET](job-input-from-http-how-to.md)  
 * [Monitorowanie zdarzeń — portal](monitor-events-portal-how-to.md)
 * [Szyfrowanie dynamiczne za pomocą technologii wielowątkowości platformy .NET](protect-with-drm.md) 

@@ -3,12 +3,12 @@ title: Eksplorowanie dzienników śledzenia .NET w Application Insights
 description: Wyszukaj dzienniki wygenerowane przez Trace, NLog lub Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014579"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
 
@@ -84,7 +84,7 @@ Jeśli wolisz log4net lub NLog, użyj:
 ```
 
 ## <a name="use-eventsource-events"></a>Korzystanie z zdarzeń EventSource
-Zdarzenia [System. Diagnostics. Trace. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,7 +135,7 @@ Dla każdego źródła można ustawić następujące parametry:
 ## <a name="use-the-trace-api-directly"></a>Bezpośrednie używanie interfejsu API śledzenia
 Interfejs API śledzenia Application Insights można wywołać bezpośrednio. Karty rejestrowania używają tego interfejsu API.
 
-Przykład:
+Na przykład:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -144,7 +144,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w komunikacie. Na przykład możesz kodować dane POST w tym miejscu.
 
-Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
+Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -190,7 +190,7 @@ Możesz na przykład:
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="how-do-i-do-this-for-java"></a>Jak mogę zrobić to w języku Java?
-W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj programu [Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj programu [Java 3,0 Agent](./java-in-process-agent.md).
 
 Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](../../azure-monitor/app/java-trace-logs.md).
 
@@ -200,7 +200,7 @@ Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>W narzędziu konfiguracji nie ma opcji karty dziennika
 * Najpierw zainstaluj platformę rejestrowania.
-* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config* ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Upewnij się, że masz najnowszą wersję Application Insights. W programie Visual Studio przejdź do pozycji **Narzędzia**  >  **rozszerzenia i aktualizacje**, a następnie otwórz kartę **aktualizacje** . Jeśli **Developer Analytics Tools** , wybierz ją, aby ją zaktualizować.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Otrzymuję komunikat o błędzie "klucz instrumentacji nie może być pusty"
@@ -228,5 +228,5 @@ Jeśli aplikacja wysyła Voluminous ilość danych i korzysta z zestawu SDK Appl
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

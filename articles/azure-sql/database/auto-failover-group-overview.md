@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ecc2925b52679c5807c9fa79a67d7b45411df526
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014035"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Ponadto grupy autotrybu failover udostępniają punkty końcowe odbiornika do od
 
 W przypadku korzystania z grup automatycznych trybu failover z automatycznymi zasadami trybu failover wszelkie awarie, które mają wpływ na bazy danych na serwerze lub wystąpieniu zarządzanym, są wykonywane automatycznie w trybie failover. Grupa autotrybu failover można zarządzać przy użyciu:
 
-- [Azure Portal](geo-distributed-application-configure-tutorial.md)
+- [Witryna Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Interfejs wiersza polecenia platformy Azure: Grupa trybu failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Grupa trybu failover](scripts/add-database-to-failover-group-powershell.md)
 - [Interfejs API REST: Grupa trybu failover](/rest/api/sql/failovergroups).
@@ -398,7 +398,7 @@ Należy pamiętać o następujących ograniczeniach:
 
 ## <a name="programmatically-managing-failover-groups"></a>Programowe zarządzanie grupami trybu failover
 
-Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](https://docs.microsoft.com/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Access Control oparte na rolach platformy Azure](../../role-based-access-control/overview.md).
+Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](https://docs.microsoft.com/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Access Control oparte na rolach platformy Azure](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Zarządzanie trybem failover SQL Database
 

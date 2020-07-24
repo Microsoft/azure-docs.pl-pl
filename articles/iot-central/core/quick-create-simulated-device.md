@@ -3,17 +3,17 @@ title: Szybki Start — Dodawanie symulowanego urządzenia do usługi Azure IoT 
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia szablonu urządzenia i dodawania symulowanego urządzenia do aplikacji IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001959"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki Start: Dodawanie symulowanego urządzenia do aplikacji IoT Central
 
@@ -64,14 +64,14 @@ Poniższe kroki pokazują, jak używać katalogu urządzeń do importowania mode
 
 ### <a name="add-cloud-properties"></a>Dodawanie właściwości chmury
 
-Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury istnieją tylko w aplikacji IoT Central i nigdy nie są wysyłane do ani odbierane z urządzenia.
+Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury istnieją tylko w aplikacji IoT Central i nigdy nie są wysyłane do ani odbierane z urządzenia. Aby dodać właściwość chmury:
 
 1. Wybierz pozycję **właściwości chmury** , a następnie **+ Dodaj właściwość chmury**. Skorzystaj z informacji podanych w poniższej tabeli, aby dodać dwie właściwości chmury do szablonu urządzenia:
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Date   |
-    | Nazwa klienta     | Brak          | String |
+    | Data ostatniego serwisowania | Brak          | Data   |
+    | Nazwa klienta     | Brak          | String (ciąg) |
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany:
 
@@ -128,23 +128,25 @@ Aby dodać symulowane urządzenie do aplikacji, należy użyć utworzonego szabl
 
 1. Aby dodać nowe urządzenie jako operator, wybierz pozycję **urządzenia** w lewym okienku. Na karcie **urządzenia** są wyświetlane **wszystkie urządzenia** i szablon urządzenia **zestawu deweloperskiego IoT DevKit** . Wybierz pozycję **zestawu deweloperskiego IoT DevKit**.
 
-1. Aby dodać symulowane urządzenie DevKit, wybierz opcję **+**. Użyj sugerowanego **identyfikatora urządzenia** lub wprowadź swój własny **Identyfikator**w postaci małych liter. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, że **symulowany** przełącznik jest **włączony** , a następnie wybierz pozycję **Utwórz**.
+1. Aby dodać symulowane urządzenie DevKit, wybierz opcję **+** . Użyj sugerowanego **identyfikatora urządzenia** lub wprowadź swój własny **Identyfikator**w postaci małych liter. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, że **symulowany** przełącznik jest **włączony** , a następnie wybierz pozycję **Utwórz**.
 
     ![Symulowane urządzenie](./media/quick-create-simulated-device/simulated-device.png)
 
 Teraz można korzystać z widoków, które zostały utworzone przez konstruktora dla szablonu urządzenia przy użyciu symulowanych danych:
 
-1. Na stronie **urządzenia** wybierz swoje symulowane urządzenie.
+1. Wybierz urządzenie symulowane na stronie **urządzenia**
 
-1. Widok **przeglądu** przedstawia wykres symulowanych danych telemetrycznych:
+    * Widok **przeglądu** przedstawia wykres symulowanych danych telemetrycznych:
 
-    ![Widok przeglądu](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Widok przeglądu](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. Widok **informacje** zawiera wartości właściwości, w tym właściwości chmury dodane do widoku.
+    * Widok **informacje** zawiera wartości właściwości, w tym właściwości chmury dodane do widoku.
 
-1. Widok **poleceń** umożliwia uruchamianie poleceń, takich jak **miganie** na urządzeniu.
+    * Widok **poleceń** umożliwia uruchamianie poleceń, takich jak **miganie** na urządzeniu.
 
-1. Widok **Zarządzanie urządzeniami** jest formularzem utworzonym dla operatora, który ma zarządzać urządzeniem.
+    * Widok **Zarządzanie urządzeniami** jest formularzem utworzonym dla operatora, który ma zarządzać urządzeniem.
+
+    * Widok **nieprzetworzonych danych** umożliwia wyświetlanie nieprzetworzonych wartości danych telemetrycznych i właściwości wysyłanych przez urządzenie. Ten widok jest przydatny w przypadku debugowania urządzeń.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>Ulepszanie widoków przy użyciu symulowanego urządzenia
 
@@ -154,7 +156,7 @@ Po utworzeniu nowego symulowanego urządzenia, Konstruktor może używać tego u
 
 1. Wybierz dowolne z widoków, które chcesz edytować, lub Utwórz nowy widok. Wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**, a następnie **Wybierz pozycję z uruchomionego urządzenia**. W tym miejscu możesz wybrać opcję braku urządzenia do wyświetlania podglądu, rzeczywistego urządzenia skonfigurowanego do testowania lub istniejącego urządzenia, które zostało dodane do IoT Central.
 
-1. Na liście Wybierz swoje symulowane urządzenie. Następnie wybierz pozycję **Zastosuj**. Teraz można zobaczyć to samo symulowane urządzenie w widokach szablonów urządzeń. Ten widok jest przydatny w przypadku wykresów i innych wizualizacji.
+1. Na liście Wybierz swoje symulowane urządzenie. Następnie wybierz przycisk **Zastosuj**. Teraz można zobaczyć to samo symulowane urządzenie w widokach szablonów urządzeń. Ten widok jest przydatny w przypadku wykresów i innych wizualizacji.
 
     ![Konfigurowanie urządzenia w wersji zapoznawczej](./media/quick-create-simulated-device/configure-preview.png)
 
