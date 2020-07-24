@@ -7,11 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092511"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB zgodność Gremlin
 Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przechodzenia [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ale istnieją różnice w implementacji, które są specyficzne dla Azure Cosmos DB. Aby zapoznać się z listą obsługiwanych kroków Gremlin, zobacz artykuł [Obsługa protokołu sieci interfejsu API Gremlin](gremlin-support.md) .
@@ -44,7 +45,7 @@ Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przech
 
 * **Użycie indeksu dla zapytań Gremlin z `.V()` etapami przechodzenia do częściowej**: obecnie tylko pierwsze `.V()` wywołanie przechodzenia spowoduje użycie indeksu w celu rozpoznania dowolnych filtrów lub predykatów, do których dołączono. Kolejne wywołania nie zapoznają się z indeksem, co może spowodować wydłużenie czasu oczekiwania i kosztów zapytania.
     
-    Przy założeniu domyślnego indeksowania, typowe zapytanie Gremlin odczytu, które rozpoczyna się od `.V()` kroku, będzie używać parametrów w dołączonych krokach filtrowania, takich jak `.has()` lub `.where()` w celu optymalizacji kosztu i wydajności zapytania. Przykład:
+    Przy założeniu domyślnego indeksowania, typowe zapytanie Gremlin odczytu, które rozpoczyna się od `.V()` kroku, będzie używać parametrów w dołączonych krokach filtrowania, takich jak `.has()` lub `.where()` w celu optymalizacji kosztu i wydajności zapytania. Na przykład:
 
     ```java
     g.V().has('category', 'A')
@@ -68,7 +69,7 @@ Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przech
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    Wydajność zapytań można sprawdzić za pomocą [Gremlin `executionProfile()` kroku] (Graph-Execution-profile.MD.
+    Wydajność zapytań można sprawdzić za pomocą [ `executionProfile()` kroku Gremlin](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * Odwiedź stronę [Cosmos DB User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) , aby udostępnić Opinie i ułatwić zespołowi skupienie się na funkcjach, które są dla Ciebie ważne.

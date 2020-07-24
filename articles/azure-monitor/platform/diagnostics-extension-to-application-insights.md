@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39f564bea8d300d2966afe27ff0239c527f038cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092817"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Wyślij usługę w chmurze, maszynę wirtualną lub Service Fabric dane diagnostyczne do Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets i Service Fabric wszystkie używają rozszerzenia Diagnostyka Azure do zbierania danych.  Diagnostyka Azure wysyła dane do tabel usługi Azure Storage.  Można jednak również potokować wszystkie lub podzbiór danych do innych lokalizacji przy użyciu rozszerzenia Diagnostyka Azure 1,5 lub nowszego.
@@ -65,7 +66,7 @@ Przykładowa konfiguracja ujścia dla Application Insights:
     - Atrybut *name* jednoznacznie odwołuje się do tego kanału.
     - Atrybut *LogLevel* umożliwia określenie poziomu dziennika, który umożliwia kanał. Dostępne poziomy dziennika są następujące:
         - Pełny
-        - Informacje
+        - Informacyjny
         - Ostrzeżenie
         - Błąd
         - Krytyczne
@@ -212,7 +213,6 @@ W poprzedniej konfiguracji następujące wiersze mają następujące znaczenie:
 - **Nie można wysłać danych obiektów BLOB zbieranych przez rozszerzenie diagnostyki platformy Azure do Application Insights.** Na przykład wszystkie elementy określone w węźle *katalogi* . W przypadku zrzutów awaryjnych rzeczywisty zrzut awaryjny jest wysyłany do usługi BLOB Storage i do Application Insights jest wysyłany tylko powiadomienie o wygenerowanym zrzucie awaryjnym.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak [wyświetlać informacje diagnostyczne platformy Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) w Application Insights.
+* Dowiedz się, jak [wyświetlać informacje diagnostyczne platformy Azure](../app/cloudservices.md) w Application Insights.
 * Użyj [programu PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) , aby włączyć rozszerzenie diagnostyki platformy Azure dla swojej aplikacji.
 * Korzystanie z [programu Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) w celu włączenia rozszerzenia diagnostyki platformy Azure dla aplikacji
-

@@ -4,11 +4,12 @@ description: W tym artykule opisano, jak używać Eksploratora kopii zapasowych 
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092800"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorowanie kopii zapasowych za pomocą Eksploratora kopii zapasowych
 
@@ -93,8 +94,8 @@ Możesz wybrać ikonę "PIN" w górnej części każdej tabeli lub wykresu, aby 
 
 ## <a name="cross-tenant-views"></a>Widoki między dzierżawcami
 
-Jeśli jesteś użytkownikiem usługi Azure Lighthouse z delegowanym dostępem do subskrypcji w wielu środowiskach dzierżawców, możesz użyć domyślnego filtru subskrypcji. Możesz wyświetlić subskrypcje, dla których chcesz wyświetlić dane, wybierając ikonę "filtr" w prawym górnym rogu Azure Portal. W przypadku korzystania z tej funkcji Program Backup Explorer agreguje informacje o wszystkich magazynach w wybranych subskrypcjach. Aby dowiedzieć się więcej, zobacz [co to jest usługa Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
+Jeśli jesteś użytkownikiem usługi Azure Lighthouse z delegowanym dostępem do subskrypcji w wielu środowiskach dzierżawców, możesz użyć domyślnego filtru subskrypcji. Możesz wyświetlić subskrypcje, dla których chcesz wyświetlić dane, wybierając ikonę "filtr" w prawym górnym rogu Azure Portal. W przypadku korzystania z tej funkcji Program Backup Explorer agreguje informacje o wszystkich magazynach w wybranych subskrypcjach. Aby dowiedzieć się więcej, zobacz [co to jest usługa Azure Lighthouse?](../lighthouse/overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się, jak używać Azure Monitor do uzyskiwania wglądu w dane kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Dowiedz się, jak używać Azure Monitor do uzyskiwania wglądu w dane kopii zapasowej](./backup-azure-monitoring-use-azuremonitor.md)

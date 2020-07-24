@@ -4,13 +4,14 @@ description: Jak używać Azure Key Vault z pamięcią podręczną platformy Azu
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092528"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC
 
@@ -18,6 +19,8 @@ Za pomocą Azure Key Vault można kontrolować własność kluczy używanych do 
 
 > [!NOTE]
 > Wszystkie dane przechowywane na platformie Azure, w tym na dyskach pamięci podręcznej, są szyfrowane domyślnie przy użyciu kluczy zarządzanych przez firmę Microsoft. Należy wykonać czynności opisane w tym artykule, jeśli chcesz zarządzać kluczami używanymi do szyfrowania danych.
+
+Pamięć podręczna Azure HPC jest również chroniona przez [szyfrowanie hosta maszyny wirtualnej](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) na dyskach zarządzanych, które przechowują dane w pamięci podręcznej, nawet jeśli zostanie dodany klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta do szyfrowania podwójnego zapewnia klientom dodatkowy poziom zabezpieczeń. Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem szyfrowanie po stronie serwera w usłudze Azure Disk Storage](../virtual-machines/linux/disk-encryption.md) .
 
 Ta funkcja jest dostępna tylko w niektórych regionach świadczenia usługi Azure, w których dostępna jest pamięć podręczna Azure HPC. Aby uzyskać szczegółowe informacje, zobacz listę [dostępności regionów](hpc-cache-overview.md#region-availability) .
 

@@ -3,11 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge przydziałów — Azure
 description: W tym artykule opisano przydziały i ograniczenia dotyczące usługi wideo na żywo w IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091814"
 ---
 # <a name="quotas-and-limitations"></a>Limity przydziału i ograniczenia
 
@@ -46,11 +47,8 @@ W wersji zapoznawczej istnieją ograniczenia w różnych węzłach, które możn
 * Procesor bramy sygnałów
    * Musi być natychmiast od źródła RTSP.
 * Ujścia zasobów 
-   * Może istnieć co najwyżej jeden taki węzeł na topologię grafu.
-      * Jeśli używany jest obiekt ujścia zasobów, obiekt ujścia pliku nie może być obecny lub odwrotnie.
    * Musi być od razu przypadać od źródła RTSP lub procesora bramy sygnałów.
 * Ujścia plików
-   * Może istnieć co najwyżej jeden taki węzeł na topologię grafu (Zobacz powyżej uwagi dotyczące ujścia zasobów).
    * Musi być natychmiast od procesora sygnałów bramy.
    * Nie można bezpośrednio przypadać na procesor rozszerzenia HTTP ani procesora wykrywania ruchu
 * IoT Hub ujścia

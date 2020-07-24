@@ -5,11 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18d3460804528d736cfc74c1c2d358eb08013513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092970"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Zasoby Application Insights oparte na obszarze roboczym (wersja zapoznawcza)
 
@@ -24,7 +25,7 @@ Aby przetestować nowe środowisko, zaloguj się do [Azure Portal](https://porta
 
 ![Zasób Application Insights oparty na obszarze roboczym](./media/create-workspace-resource/create-workspace-based.png)
 
-Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../learn/quick-create-workspace.md).
 
 W publicznej wersji zapoznawczej **zasoby na podstawie obszaru roboczego są obecnie ograniczone do zachodnich stanów USA 2, Wschodnie stany USA i Południowo-środkowe stany USA.**
 
@@ -39,7 +40,7 @@ Kliknięcie niebieskiego linku spowoduje przejście do skojarzonego obszaru robo
 
 ## <a name="copy-the-connection-string"></a>Kopiowanie parametrów połączenia
 
-[Parametry połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
+[Parametry połączenia](./sdk-connection-string.md?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 
 ## <a name="monitoring-configuration"></a>Konfiguracja monitorowania
 
@@ -51,14 +52,14 @@ W przypadku monitorowania aplikacji opartej na kodzie wystarczy zainstalować od
 
 Aby uzyskać szczegółową dokumentację dotyczącą konfigurowania zestawu SDK Application Insights dla monitorowania opartego na kodzie, zapoznaj się z dokumentacją dotyczącą języka/platformy:
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [Zadania w tle & nowoczesnych aplikacji konsolowych (.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [Klasyczne aplikacje konsolowe (.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Oprogramowania](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core](./asp-net-core.md)
+- [Zadania w tle & nowoczesnych aplikacji konsolowych (.NET/.NET Core)](./worker-service.md)
+- [Klasyczne aplikacje konsolowe (.NET)](./console.md) 
+- [Oprogramowania](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.js](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>Monitorowanie bezkodowe i tworzenie zasobów programu Visual Studio
 
@@ -101,7 +102,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącą tego przykładu, zapoznaj się z [dokumentacją interfejsu CLI platformy Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
+Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącą tego przykładu, zapoznaj się z [dokumentacją interfejsu CLI platformy Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -197,7 +198,7 @@ Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów o
 ## <a name="next-steps"></a>Następne kroki
 
 * [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
+* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092766"
 ---
 # <a name="rendering-using-azure"></a>Renderowanie przy użyciu platformy Azure
 
@@ -79,7 +79,7 @@ Istnieje kilka sposobów używania Azure Batch, które mają zastosowanie równi
 * Interfejsy API:
   * Napisz kod przy użyciu [rest](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch)lub innych obsługiwanych interfejsów API.  Deweloperzy mogą integrować możliwości Azure Batch z istniejącymi aplikacjami lub przepływami pracy, zarówno w chmurze, jak i lokalnie.  Na przykład [wtyczka Autodesk Maya](https://github.com/Azure/azure-batch-maya) wykorzystuje interfejs API usługi Batch Python do wywołania usługi Batch, tworzenia pul i zarządzania nimi, przesyłania zadań i zadań oraz monitorowania stanu.
 * Narzędzia wiersza polecenia:
-  * [Wiersz polecenia platformy Azure](/cli/azure/) lub [Azure PowerShell](/powershell/azure/overview) może służyć do tworzenia skryptów w usłudze Batch.
+  * [Wiersz polecenia platformy Azure](/cli/azure/) lub [Azure PowerShell](/powershell/azure/) może służyć do tworzenia skryptów w usłudze Batch.
   * W szczególności obsługa szablonu interfejsu wiersza polecenia w usłudze Batch ułatwia tworzenie pul i przesyłanie zadań.
 * Interfejsów użytkownika
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) to międzyplatformowe narzędzie klienta, które umożliwia również zarządzanie i monitorowanie kont wsadowych, ale zapewnia kilka bogatszych możliwości w porównaniu z interfejsem użytkownika Azure Portal.  Zestaw puli i szablonów zadań są udostępniane dla każdej obsługiwanej aplikacji i może służyć do łatwego tworzenia pul i przesyłania zadań.

@@ -10,11 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7522df94a0055af398f1fdbf2050e132f5519eb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77469769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092698"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services
 Zobacz [Diagnostyka Azure przegląd](../azure-diagnostics.md) dla tła na Diagnostyka Azure.
@@ -26,7 +27,7 @@ W tym przewodniku opisano sposób implementacji roli procesu roboczego platformy
 W tym artykule przyjęto założenie, że masz subskrypcję platformy Azure i korzystasz z programu Visual Studio z zestawem Azure SDK. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć konto [bezpłatnej wersji próbnej][Free Trial]. Upewnij się [, że instalujesz i konfigurujesz Azure PowerShell w wersji 0.8.7 lub nowszej][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Krok 1. Tworzenie roli procesu roboczego
-1. Uruchom program **Visual Studio**.
+1. Uruchom **program Visual Studio**.
 2. Utwórz projekt **usługi w chmurze platformy Azure** na podstawie szablonu w **chmurze** , który jest przeznaczony dla .NET Framework 4,5.  Nadaj projektowi nazwę "WadExample" i kliknij przycisk OK.
 3. Wybierz **rolę proces roboczy** , a następnie kliknij przycisk OK. Projekt zostanie utworzony.
 4. W **Eksplorator rozwiązań**kliknij dwukrotnie plik właściwości **WorkerRole1** .
@@ -199,7 +200,7 @@ Zapoznaj się z [listą artykułów diagnostycznych dotyczących maszyn wirtualn
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
 
 
 

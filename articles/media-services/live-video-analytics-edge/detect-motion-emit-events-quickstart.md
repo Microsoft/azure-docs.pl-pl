@@ -3,12 +3,12 @@ title: Wykrywaj ruch i Emituj zdarzenia — platforma Azure
 description: W tym przewodniku szybki start pokazano, jak za pomocą funkcji analizy filmów wideo na żywo na IoT Edge wykrywać ruch i emitować zdarzenia, programowo wywołując metody bezpośrednie.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091916"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Szybki Start: wykrywanie ruchu i emitowanie zdarzeń
 
@@ -33,10 +33,10 @@ Ten artykuł jest oparty na [przykładowym kodzie](https://github.com/Azure-Samp
 
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
-* Usługa IoT Hub
+* IoT Hub
 * Konto magazynu
 * Konto Azure Media Services
-* Maszyna wirtualna z systemem Linux na platformie Azure z zainstalowanym [IoT Edge środowiska uruchomieniowego](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Maszyna wirtualna z systemem Linux na platformie Azure z zainstalowanym [IoT Edge środowiska uruchomieniowego](../../iot-edge/how-to-install-iot-edge-linux.md)
 
 W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. Aby to zrobić, wykonaj następujące kroki:
 
@@ -228,7 +228,7 @@ Wykonaj następujące kroki, aby uruchomić przykładowy kod:
 
 ## <a name="interpret-results"></a>Interpretowanie wyników
 
-Po uruchomieniu grafu multimediów wyniki z węzła procesora wykrywania ruchu przechodzą przez węzeł ujścia IoT Hub do centrum IoT Hub. Komunikaty wyświetlane w oknie **dane wyjściowe** Visual Studio Code zawierają `body` sekcję i `applicationProperties` sekcję. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Po uruchomieniu grafu multimediów wyniki z węzła procesora wykrywania ruchu przechodzą przez węzeł ujścia IoT Hub do centrum IoT Hub. Komunikaty wyświetlane w oknie **dane wyjściowe** Visual Studio Code zawierają `body` sekcję i `applicationProperties` sekcję. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 W poniższych komunikatach moduł analizy wideo na żywo definiuje właściwości aplikacji i zawartość treści.
 

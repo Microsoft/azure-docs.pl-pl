@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811651"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092732"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure
 Podczas tworzenia usługi w chmurze platforma Azure przypisuje ją do poddomeny **cloudapp.NET**. Na przykład jeśli usługa w chmurze nosi nazwę "contoso", użytkownicy będą mogli uzyskiwać dostęp do aplikacji przy użyciu adresu URL, takiego jak `http://contoso.cloudapp.net` . Platforma Azure przypisuje również wirtualny adres IP.
@@ -62,7 +63,7 @@ Aby utworzyć rekord CNAME, należy dodać nowy wpis w tabeli DNS dla domeny nie
        ![Sekcja szybkiego wglądu pokazująca adres URL witryny][csurl]
 
        **ORAZ**
-   * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/overview), a następnie użyj następującego polecenia:
+   * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/), a następnie użyj następującego polecenia:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -95,7 +96,7 @@ Aby utworzyć rekord A, należy najpierw znaleźć wirtualny adres IP usługi w 
        ![Sekcja szybkiego wglądu pokazująca adres VIP][vip]
 
        **ORAZ**
-   * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/overview), a następnie użyj następującego polecenia:
+   * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/), a następnie użyj następującego polecenia:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -134,7 +135,7 @@ Ten przykład ilustruje tworzenie rekordu A dla domeny katalogu głównego. Jeś
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

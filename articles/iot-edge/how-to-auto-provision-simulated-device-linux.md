@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d6e60329f3c61811aa8a42528244b2883ff4b685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092392"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
-W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu moduł TPM (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń z Azure IoT Edgeą [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu samoobsługowego inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z [pojęciami autouzupełniania](../iot-dps/concepts-auto-provisioning.md) .
+W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu moduł TPM (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń Azure IoT Edge przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu samoobsługowego inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z [pojęciami autouzupełniania](../iot-dps/concepts-auto-provisioning.md) .
 
 Zadania są następujące:
 
@@ -55,7 +55,7 @@ Przełącznik wirtualny umożliwia maszynie wirtualnej łączenie się z siecią
 
 4. Nadaj nowemu przełącznikowi wirtualnemu nazwę, na przykład **EdgeSwitch**. Upewnij się, że typ połączenia to **Sieć zewnętrzna**, a następnie wybierz przycisk **OK**.
 
-5. Wyskakujące okienko ostrzega o tym, że łączność sieciowa może ulec zakłóceniu. Wybierz pozycję **tak** , aby kontynuować.
+5. Wyskakujące okienko ostrzega o tym, że łączność sieciowa może ulec zakłóceniu. Wybierz przycisk **Tak**, aby kontynuować.
 
 Jeśli podczas tworzenia nowego przełącznika wirtualnego pojawią się błędy, upewnij się, że żadne inne przełączniki nie używają adaptera Ethernet i że żadne inne przełączniki nie mają tej samej nazwy.
 
@@ -176,7 +176,7 @@ Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe
 
 ## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na maszynie wirtualnej.
+Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na maszynie wirtualnej.
 
 Przed rozpoczęciem artykułu, który jest zgodny z typem urządzenia, należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia. Jeśli zainstalowano przykładowy serwer Ubuntu, należy użyć instrukcji **x64** . Pamiętaj, aby skonfigurować środowisko uruchomieniowe IoT Edge automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej.
 

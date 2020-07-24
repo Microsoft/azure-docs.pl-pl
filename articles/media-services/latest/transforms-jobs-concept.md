@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091933"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
 
-Ten temat zawiera szczegółowe informacje o [transformacjech](https://docs.microsoft.com/rest/api/media/transforms) i [zadaniach](https://docs.microsoft.com/rest/api/media/jobs) oraz opis relacji między tymi jednostkami.
+Ten temat zawiera szczegółowe informacje o [transformacjech](/rest/api/media/transforms) i [zadaniach](/rest/api/media/jobs) oraz opis relacji między tymi jednostkami.
 
 ## <a name="overview"></a>Omówienie
 
@@ -57,7 +58,7 @@ Za pomocą **transformacji** można skonfigurować typowe zadania związane z ko
 
 ### <a name="viewing-schema"></a>Wyświetlanie schematu
 
-W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostkami w interfejsie API. Definicję "schemat" tych obiektów można znaleźć w temacie [Open API Specification (lub Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Możesz również wyświetlić wstępnie zdefiniowane definicje (takie jak **StandardEncoderPreset**) w [interfejsie API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [zestawie .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)lub Media Services innej dokumentacji dotyczącej zestawu SDK w wersji v3.
+W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostkami w interfejsie API. Definicję "schemat" tych obiektów można znaleźć w temacie [Open API Specification (lub Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Możesz również wyświetlić wstępnie zdefiniowane definicje (takie jak **StandardEncoderPreset**) w [interfejsie API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [zestawie .NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)lub Media Services innej dokumentacji dotyczącej zestawu SDK w wersji v3.
 
 ### <a name="creating-transforms"></a>Tworzenie transformacji
 
@@ -65,7 +66,7 @@ Przekształcenia można tworzyć przy użyciu REST, interfejsu wiersza polecenia
 
 ### <a name="updating-transforms"></a>Aktualizowanie przekształceń
 
-Jeśli musisz zaktualizować [transformację](https://docs.microsoft.com/rest/api/media/transforms), użyj operacji **Update** . Jest ona przeznaczona do wprowadzania zmian w opisie lub priorytetów bazowego TransformOutputs. Zaleca się, aby takie aktualizacje zostały wykonane po zakończeniu wszystkich zadań w toku. Jeśli zamierzasz ponownie napisać przepis, musisz utworzyć nowe przekształcenie.
+Jeśli musisz zaktualizować [transformację](/rest/api/media/transforms), użyj operacji **Update** . Jest ona przeznaczona do wprowadzania zmian w opisie lub priorytetów bazowego TransformOutputs. Zaleca się, aby takie aktualizacje zostały wykonane po zakończeniu wszystkich zadań w toku. Jeśli zamierzasz ponownie napisać przepis, musisz utworzyć nowe przekształcenie.
 
 ### <a name="transform-object-diagram"></a>Przekształć diagram obiektów
 
@@ -77,7 +78,7 @@ Wybierz obraz, aby wyświetlić go w pełnym rozmiarze.
 
 ## <a name="jobs"></a>Stanowiska
 
-**Zadanie** to rzeczywiste żądanie Media Services, aby zastosować **transformację** do danych wejściowych wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania przy użyciu interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych. Możesz określić lokalizację wejściowego wideo przy użyciu: adresy URL HTTPS, adresy URL SAS lub [zasoby](https://docs.microsoft.com/rest/api/media/assets).  
+**Zadanie** to rzeczywiste żądanie Media Services, aby zastosować **transformację** do danych wejściowych wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania przy użyciu interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych. Możesz określić lokalizację wejściowego wideo przy użyciu: adresy URL HTTPS, adresy URL SAS lub [zasoby](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Dane wejściowe zadania z protokołu HTTPS
 
@@ -93,7 +94,7 @@ Postęp i stan zadań można uzyskać przez monitorowanie zdarzeń za pomocą Ev
 
 ### <a name="updating-jobs"></a>Aktualizowanie zadań
 
-Operacja Update w jednostce [zadania](https://docs.microsoft.com/rest/api/media/jobs) może służyć do modyfikowania *opisu* i właściwości *priorytetu* po przesłaniu zadania. Zmiana właściwości *Priority* jest skuteczna tylko wtedy, gdy zadanie jest nadal w stanie w kolejce. Jeśli zadanie rozpoczęło przetwarzanie lub zostało zakończone, zmiana priorytetu nie ma żadnego wpływu.
+Operacja Update w jednostce [zadania](/rest/api/media/jobs) może służyć do modyfikowania *opisu* i właściwości *priorytetu* po przesłaniu zadania. Zmiana właściwości *Priority* jest skuteczna tylko wtedy, gdy zadanie jest nadal w stanie w kolejce. Jeśli zadanie rozpoczęło przetwarzanie lub zostało zakończone, zmiana priorytetu nie ma żadnego wpływu.
 
 ### <a name="job-object-diagram"></a>Diagram obiektu zadania
 
@@ -113,9 +114,9 @@ Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimed
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Kody błędów](/rest/api/media/jobs/get#joberrorcode)
 * [Filtrowanie, porządkowanie, stronicowanie jednostek Media Services](entities-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki

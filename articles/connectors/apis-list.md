@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c9ece4860f8babba110da8536e5028f337fbc772
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092953"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -235,7 +235,7 @@ Połącz się z kontem e-mail pakietu Office 365, aby można było tworzyć wiad
 
 Połącz się z usługą SharePoint Online, aby móc zarządzać plikami, załącznikami, folderami i innymi.
 
-[![Ikona interfejsu API ][dynamics-365-icon]<br> **Dynamics <br> 365**][dynamics-365-doc]
+[! [Ikona interfejsu API] [Dynamics-365-ikona]<br>**Dynamics 365 <br> **] [Dynamics-365-doc]
 
 Połącz się z kontem Dynamics 365, aby móc tworzyć rekordy, elementy i zarządzać nimi.
 
@@ -259,14 +259,9 @@ Używanie i publikowanie zdarzeń za poorednictwem centrum zdarzeń. Na przykła
 
 Monitoruj zdarzenia opublikowane przez Event Grid, na przykład w przypadku zmiany zasobów platformy Azure lub zasobów innych firm.
 
-
 [![Ikona interfejsu API ][salesforce-icon]<br> **Salesforce**][salesforce-doc]
 
 Połącz się z kontem usługi Salesforce, aby można było tworzyć i zarządzać elementami, takimi jak rekordy, zadania, obiekty i wiele innych.
-
-[![Ikona interfejsu API ][twitter-icon]<br> **Twitter**][twitter-doc]
-
-Połącz się z kontem usługi Twitter, aby móc zarządzać tweetami, obserwatorami, osią czasu i wieloma innymi. Zapisuj tweety w programie SQL, Excel lub SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -400,7 +395,7 @@ Więcej informacji można znaleźć w następujących tematach:
 
 ## <a name="triggers-and-action-types"></a>Wyzwalacze i typy akcji
 
-Łączniki mogą zapewniać *wyzwalacze*, *Akcje*lub oba te elementy. *Wyzwalacz* to pierwszy krok w dowolnej aplikacji logiki, zwykle określający zdarzenie, które wyzwala wyzwalacz i uruchamia aplikację logiki. Na przykład łącznik FTP ma wyzwalacz, który uruchamia aplikację logiki "po dodaniu lub zmodyfikowaniu pliku". Niektóre wyzwalacze regularnie sprawdzają obecność określonego zdarzenia lub danych, a następnie uruchamiają się po wykryciu określonego zdarzenia lub danych. Inne wyzwalacze oczekują, ale natychmiast po wystąpieniu określonego zdarzenia lub gdy nowe dane są dostępne. Wyzwalacze przekazują również wszystkie wymagane dane do aplikacji logiki. Aplikacja logiki może odczytywać i używać tych danych w ramach przepływu pracy. Na przykład łącznik usługi Twitter ma wyzwalacz "po opublikowaniu nowego tweetu", który przekazuje zawartość tweetu do przepływu pracy aplikacji logiki.
+Łączniki mogą zapewniać *wyzwalacze*, *Akcje*lub oba te elementy. *Wyzwalacz* to pierwszy krok w dowolnej aplikacji logiki, zwykle określający zdarzenie, które wyzwala wyzwalacz i uruchamia aplikację logiki. Na przykład łącznik FTP ma wyzwalacz, który uruchamia aplikację logiki "po dodaniu lub zmodyfikowaniu pliku". Niektóre wyzwalacze regularnie sprawdzają obecność określonego zdarzenia lub danych, a następnie uruchamiają się po wykryciu określonego zdarzenia lub danych. Inne wyzwalacze oczekują, ale natychmiast po wystąpieniu określonego zdarzenia lub gdy nowe dane są dostępne. Wyzwalacze przekazują również wszystkie wymagane dane do aplikacji logiki. Aplikacja logiki może odczytywać i używać tych danych w ramach przepływu pracy. Na przykład łącznik usługi Office 365 Outlook ma wyzwalacz "po nadejściu nowej wiadomości e-mail", który może przekazać zawartość z tej wiadomości e-mail do przepływu pracy aplikacji logiki.
 
 Po uruchomieniu wyzwalacza Azure Logic Apps tworzy wystąpienie aplikacji logiki i zacznie uruchamiać *Akcje* w przepływie pracy aplikacji logiki. Akcje to kroki, które obserwują wyzwalacz i wykonują zadania w przepływie pracy aplikacji logiki. Można na przykład utworzyć aplikację logiki, która pobiera dane klienta z bazy danych SQL i przetwarzać te dane w późniejszych akcjach.
 
@@ -416,7 +411,7 @@ Poniżej przedstawiono ogólne rodzaje wyzwalaczy, które Azure Logic Apps zapew
 
 ## <a name="connector-configuration"></a>Konfiguracja łącznika
 
-Wyzwalacze i akcje każdego łącznika zapewniają własne właściwości, które można skonfigurować. Wiele łączników wymaga również, aby najpierw utworzyć *połączenie* z usługą lub systemem docelowym oraz podać poświadczenia uwierzytelniania lub inne szczegóły konfiguracji, zanim będzie można użyć wyzwalacza lub akcji w aplikacji logiki. Na przykład trzeba autoryzować połączenie z kontem usługi Twitter w celu uzyskania dostępu do danych lub opublikowania w Twoim imieniu.
+Wyzwalacze i akcje każdego łącznika zapewniają własne właściwości, które można skonfigurować. Wiele łączników wymaga również, aby najpierw utworzyć *połączenie* z usługą lub systemem docelowym oraz podać poświadczenia uwierzytelniania lub inne szczegóły konfiguracji, zanim będzie można użyć wyzwalacza lub akcji w aplikacji logiki. Na przykład przed uzyskaniem dostępu do konta poczty e-mail programu Outlook w usłudze Office 365 i jego pracy należy autoryzować połączenie z tym kontem.
 
 W przypadku łączników korzystających z Azure Active Directory (Azure AD) OAuth Tworzenie połączenia oznacza zalogowanie się do usługi, takiej jak Office 365, Salesforce lub GitHub, gdzie token dostępu jest [szyfrowany](../security/fundamentals/encryption-overview.md) i bezpiecznie przechowywany w magazynie kluczy tajnych platformy Azure. Inne łączniki, takie jak FTP i SQL, wymagają połączenia, które ma szczegóły konfiguracji, takie jak adres serwera, nazwa użytkownika i hasło. Te szczegóły konfiguracji połączenia są również szyfrowane i bezpiecznie przechowywane. Dowiedz się więcej o [szyfrowaniu na platformie Azure](../security/fundamentals/encryption-overview.md).
 
@@ -479,6 +474,7 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-devops-icon]: ./media/apis-list/azure-devops.png
 [azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
@@ -497,15 +493,11 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [bitly-icon]: ./media/apis-list/bitly.png
 [biztalk-server-icon]: ./media/apis-list/biztalk.png
 [blogger-icon]: ./media/apis-list/blogger.png
-[box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/common-data-service.png
-[dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
-[facebook-icon]: ./media/apis-list/facebook.png
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
@@ -522,11 +514,9 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
 [jira-icon]: ./media/apis-list/jira.png
-[mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office-365-users.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -536,7 +526,6 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
-[rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
@@ -550,13 +539,9 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [sql-server-icon]: ./media/apis-list/sql.png
 [teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
-[trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
-[twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!-- Enterprise Integration Pack icons -->
@@ -614,15 +599,10 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Połącz się z Azure SQL Data Warehouse, aby móc wyświetlać dane"
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Połącz się z kontem usługi Azure Storage, aby można było tworzyć i aktualizować tabele oraz wykonywać do nich zapytania i nie tylko"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Połącz się z BizTalk Server, aby można było uruchamiać aplikacje oparte na systemie BizTalk obok siebie Azure Logic Apps"
-[box-doc]: ./connectors-create-api-box.md "Połącz z usługą Box. Przekazywanie, pobieranie, usuwanie i wyświetlanie listy plików itp."
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Połącz z usługą Dropbox. Przekazywanie, pobieranie, usuwanie i wyświetlanie listy plików itp."
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Łączenie z usługą Dynamics CRM Online, dzięki czemu możesz korzystać z danych usługi CRM Online"
-[facebook-doc]: ./connectors-create-api-facebook.md "Nawiąż połączenie z usługą Facebook. Publikowanie na osi czasu, uzyskiwanie kanału informacyjnego strony i nie tylko"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Łączenie z lokalnym systemem plików"
 [ftp-doc]: ./connectors-create-api-ftp.md "Łączenie z serwerem FTP/FTPS i wykonywanie zadań związanych z protokołem FTP, takich jak np. przekazywanie, pobieranie i usuwanie plików"
 [github-doc]: ./connectors-create-api-github.md "Łączenie z witryną GitHub i śledzenie problemów"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Nawiązuje połączenie z Kalendarzem Google i może zarządzać kalendarzem"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "Połącz się z usługą dyskiem Google, aby móc korzystać z danych"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Połącz się z arkuszami Google, aby móc modyfikować arkusze"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Nawiązuje połączenie z zadaniami Google, aby można było zarządzać zadaniami"
 [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Nawiązywanie połączenia z aplikacjami 3270 na komputerze mainframe firmy IBM"
@@ -630,18 +610,14 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Połącz się z usługą Informix w chmurze lub lokalnie. Odczytaj wiersz, Wyświetl listę tabel i więcej"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Nawiązywanie połączenia z programem IBM MQ lokalnie lub na platformie Azure w celu wysyłania i odbierania wiadomości"
 [instagram-doc]: ./connectors-create-api-instagram.md "Nawiązywanie połączenia z usługą usługi Instagram. Wyzwalacz lub działanie dotyczące zdarzeń"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Połącz się z kontem MailChimp. Zarządzanie i automatyzowanie wiadomości e-mail"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Łączenie z usługą Mandrill w celu komunikowania się"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Nawiąż połączenie z lokalną bazą danych MySQL, aby móc odczytywać i zapisywać dane"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Połącz się z kontem pakietu Office 365, aby móc wysyłać i odbierać wiadomości e-mail, zarządzać kalendarzem i kontaktami oraz nie tylko"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Połącz się z osobistą usługą Microsoft OneDrive, aby można było przekazywać, usuwać, wyświetlać pliki i nie tylko"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Połącz się z firmową usługą Microsoft OneDrive, aby można było przekazywać, usuwać, wyświetlać listę plików i nie tylko"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Łączenie się z bazą danych Oracle, aby można było dodawać, wstawiać, usuwać wiersze i nie tylko"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Połącz się ze skrzynką pocztową programu Outlook, aby móc zarządzać pocztą e-mail, kalendarzami, kontaktami i innymi"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Łączenie się z bazą danych PostgreSQL, dzięki czemu można odczytywać dane z tabel"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Połącz się z usługą Microsoft Project Online, aby móc zarządzać projektami, zadaniami, zasobami i innymi"
-[rss-doc]: ./connectors-create-api-rss.md "Publikowanie i pobieranie elementów kanału informacyjnego, wyzwalanie operacji po opublikowaniu nowego elementu w kanale informacyjnym RSS"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Nawiąż połączenie z kontem usługi Salesforce. Zarządzanie kontami, potencjalnymi klientami, szansami sprzedaży i wieloma innymi"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Łączenie z lokalnym systemem SAP"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Nawiązywanie połączenia z usługą SendGrid. Wyślij wiadomość e-mail i Zarządzaj listami adresatów"
@@ -653,10 +629,7 @@ Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami 
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Łączenie z usługą SparkPost w celu komunikowania się"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Połącz się z Azure SQL Database lub SQL Server. Tworzenie, aktualizowanie, pobieranie i usuwanie wpisów w tabeli bazy danych SQL"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Łączenie się z bazą danych programu Teradata w celu odczytu danych z tabel"
-[trello-doc]: ./connectors-create-api-trello.md "Nawiązywanie połączenia z usługą Trello. Zarządzaj projektami i Organizuj wszystkie osoby"
 [twilio-doc]: ./connectors-create-api-twilio.md "Nawiązywanie połączenia z usługą Twilio. Wysyłanie i pobieranie wiadomości, pobieranie dostępnych numerów, zarządzanie przychodzącymi numerami telefonów i nie tylko"
-[twitter-doc]: ./connectors-create-api-twitter.md "Nawiązywanie połączenia z usługą Twitter. Pobieranie osi czasu, publikowanie tweetów i nie tylko"
-[yammer-doc]: ./connectors-create-api-yammer.md "Nawiązywanie połączenia z usługą Yammer. Publikuj wiadomości, Pobieraj nowe wiadomości i nie tylko"
 [youtube-doc]: ./connectors-create-api-youtube.md "Połącz z usługą YouTube. Zarządzanie filmami wideo i kanałami"
 
 <!--Enterprise Intregation Pack doc links-->

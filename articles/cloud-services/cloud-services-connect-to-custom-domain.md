@@ -7,18 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa918a3a6894205ed36c4b576608e7a71e523a92
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75387024"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092715"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Łączenie ról Cloud Services platformy Azure z niestandardowym kontrolerem domeny usługi Active Directory hostowanym na platformie Azure
 Najpierw skonfigurujemy Virtual Network (VNet) na platformie Azure. Następnie dodamy kontroler domena usługi Active Directory (hostowany na maszynie wirtualnej platformy Azure) do sieci wirtualnej. Następnie dodamy istniejące role usługi w chmurze do wstępnie utworzonej sieci wirtualnej, a następnie nawiążesz połączenie z kontrolerem domeny.
 
 Przed rozpoczęciem należy pamiętać o kilku kwestiach:
 
-1. Ten samouczek używa programu PowerShell, dlatego upewnij się, że masz Azure PowerShell zainstalowane i gotowe do użycia. Aby uzyskać pomoc dotyczącą konfigurowania Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview).
+1. Ten samouczek używa programu PowerShell, dlatego upewnij się, że masz Azure PowerShell zainstalowane i gotowe do użycia. Aby uzyskać pomoc dotyczącą konfigurowania Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/).
 2. Wystąpienia roli kontroler domeny usługi AD i sieć Web/proces roboczy muszą znajdować się w sieci wirtualnej.
 
 Postępuj zgodnie z tym przewodnikiem krok po kroku, a jeśli napotkasz jakiekolwiek problemy, pozostaw komentarz na końcu artykułu. Ktoś powróci do Ciebie (tak, będziemy czytać komentarze).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 001d408eaa7ce637bd7cc1f1183dd8748cddf539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8e637cd3691e7b1acf1988efe40fc80561a183
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091678"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10  
 
@@ -28,7 +28,7 @@ ms.locfileid: "82189526"
 > * [Wersja 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services obsługiwać pobieranie/odtwarzanie w trybie offline przy użyciu ochrony DRM. W tym artykule omówiono obsługę Azure Media Services w przypadku klientów z systemem Windows 10/PlayReady w trybie offline. W następujących artykułach można zapoznać się z obsługą trybu offline dla urządzeń z systemami iOS/FairPlay i Android/Widevine:
 
@@ -48,7 +48,7 @@ Wyzwanie, z którego korzystamy w implementacji trybu offline, jest następując
 * Plik MP4 jest obsługiwany przez wielu graczy, narzędzi koderów, ale nie ma powiązania między kontenerem MP4 i DRM.
 * W długim czasie CFF z CENC jest sposobem na to, aby to zrobić. Jednak obecnie ekosystem pomocy technicznej Tools/Player nie jest jeszcze dostępny. Potrzebujemy już rozwiązania.
  
-Pomysłem jest: Format pliku o płynnej transmisji strumieniowej ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) z wielokrotna H264/AAC ma powiązanie z usługą PLAYREADY (AES-128). Indywidualny, płynny plik. ISMV (przy założeniu, że dźwięk jest muxed w filmie wideo) to fMP4 i może służyć do odtwarzania. Jeśli płynna zawartość przesyłana strumieniowo odbywa się za pomocą szyfrowania PlayReady, każdy plik. ISMV jest chronionym MP4. Możemy wybrać plik. ISMV z preferowaną szybkością transmisji bitów i zmienić jego nazwę na. mp4 do pobrania.
+Pomysłem jest: Format pliku o płynnej transmisji strumieniowej ([PIFF](/iis/media/smooth-streaming/protected-interoperable-file-format)) z wielokrotna H264/AAC ma powiązanie z usługą PLAYREADY (AES-128). Indywidualny, płynny plik. ISMV (przy założeniu, że dźwięk jest muxed w filmie wideo) to fMP4 i może służyć do odtwarzania. Jeśli płynna zawartość przesyłana strumieniowo odbywa się za pomocą szyfrowania PlayReady, każdy plik. ISMV jest chronionym MP4. Możemy wybrać plik. ISMV z preferowaną szybkością transmisji bitów i zmienić jego nazwę na. mp4 do pobrania.
 
 Dostępne są dwie opcje hostingu plików MP4 chronionych przy użyciu usługi PlayReady do pobrania progresywnego:
 

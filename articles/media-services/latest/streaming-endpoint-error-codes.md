@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091984"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (Źródło) 
+# <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło) 
 
 W tym temacie opisano błędy, które mogą pojawić się w [usłudze Azure Media Services Streaming Endpoint Service](streaming-endpoint-concept.md).
 
@@ -66,7 +66,7 @@ Operacja podejmuje próbę wykonania operacji na zasobie, który już nie istnie
 |MPE_METADATA_NOT_FOUND |0x80890257 |Nie można znaleźć pewnych metadanych w manifeście lub nie można odnaleźć bazy danych z magazynu. |
 |MPE_STORAGE_RESOURCE_NOT_FOUND |0x808900ED |Błąd operacji magazynu, nie znaleziono zasobu. |
 
-## <a name="409-conflict"></a>409 konflikt
+## <a name="409-conflict"></a>409 Konflikt
 
 Identyfikator podany dla zasobu w `PUT` operacji lub został `POST` podjęty przez istniejący zasób. Aby rozwiązać ten problem, użyj innego identyfikatora dla zasobu.
 
@@ -82,7 +82,7 @@ Identyfikator podany dla zasobu w `PUT` operacji lub został `POST` podjęty prz
 
 ## <a name="412-precondition-failure"></a>412 niepowodzenie warunku wstępnego
 
-W operacji określono element eTag, który jest inny niż wersja dostępna na serwerze, czyli błąd współbieżności optymistycznej. Ponów żądanie po zapoznaniu się z najnowszą wersją zasobu i zaktualizowania elementu eTag w żądaniu.
+W operacji określono element eTag, który jest inny niż wersja dostępna na serwerze, czyli błąd współbieżności optymistycznej. Ponów żądanie po odczytaniu najnowszej wersji zasobu i zaktualizowaniu elementu eTag dla żądania.
 
 |Kod błędu|Wartość szesnastkowa |Opis błędu|
 |---|---|---|
@@ -163,13 +163,13 @@ Aby zapoznać się z artykułami i przykładami na żywo, zobacz:
 - [Koncepcja: wydarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md)
 - [Przykład: samouczek dotyczący przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416 zakres nie niewłaściwego
+## <a name="416-range-not-satisfiable"></a>416 Niewłaściwy zakres
 
 |Kod błędu|Wartość szesnastkowa |Opis błędu|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Błąd operacji magazynu, zwrócony błąd HTTP 416, nieprawidłowy zakres.|
 
-## <a name="500-internal-server-error"></a>500 — wewnętrzny błąd serwera
+## <a name="500-internal-server-error"></a>500 Wewnętrzny błąd serwera
 
 Podczas przetwarzania żądania Media Services napotka jakiś błąd, który uniemożliwia kontynuowanie przetwarzania.  
 
@@ -184,7 +184,7 @@ Podczas przetwarzania żądania Media Services napotka jakiś błąd, który uni
 
 ## <a name="503-service-unavailable"></a>503 — usługa niedostępna
 
-Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany przez nadmierne żądania do usługi. Mechanizm ograniczania Media Services ogranicza użycie zasobów dla aplikacji, które zgłaszają nadmierne żądania do usługi.
+Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany przez nadmierną liczbę żądań do usługi. Mechanizm ograniczania usług Media Services ogranicza użycie zasobów dla aplikacji, które zgłaszają zbyt wiele żądań do usługi.
 
 > [!NOTE]
 > Sprawdź komunikat o błędzie i ciąg kodu błędu, aby uzyskać bardziej szczegółowe informacje na temat przyczyny błędu 503. Ten błąd nie zawsze oznacza ograniczenie przepustowości.
@@ -198,9 +198,9 @@ Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany p
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-- [Kody błędów kodowania](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Kody błędów kodowania](/rest/api/media/jobs/get#joberrorcode)
 - [Koncepcje Azure Media Services](concepts-overview.md)
 - [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
 

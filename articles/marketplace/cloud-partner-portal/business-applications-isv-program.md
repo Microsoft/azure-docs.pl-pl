@@ -3,15 +3,16 @@ title: Przewodnik dołączania do programu Microsoft Business Applications Indep
 description: Oto jak dołączyć do programu Business Applications ISV Connect.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
+ms.topic: article
+author: qianw211
 ms.author: dsindona
-ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 7/14/2020
+ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092222"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -38,7 +39,7 @@ Uczestnictwo w tym programie wymaga przejrzenia i zaakceptowania [uzupełnienia 
 
 1.  Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
 2.  Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera**.
-3.  Wybierz pozycję **umowy**. 
+3.  Wybierz pozycję **umowy**.
 4.  Wybierz łącze wersja i Wyświetl umowę.
 5.  Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę**.
 
@@ -69,15 +70,14 @@ Ostatnim krokiem rejestracji w programie Business Applications niezależnego dos
 - [Dla systemu Dynamics 365 dla finansów i operacji](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Musisz ponownie zaświadczać aplikacje co 6 miesięcy, aby zachować je na żywo w usłudze AppSource. Aby uzyskać szczegółowe informacje, zobacz zasady dotyczące witryny Marketplace [komercyjne zasady certyfikacji](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+> Musisz ponownie certyfikowanie aplikacji co 6 miesięcy, aby zachować je na żywo w usłudze AppSource. Aby uzyskać szczegółowe informacje, zobacz zasady dotyczące witryny Marketplace [komercyjne zasady certyfikacji](https://docs.microsoft.com/legal/marketplace/certification-policies). 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Poproś Menedżera kont lub skontaktuj się z [pomocą techniczną firmy Microsoft](https://aka.ms/marketplacepublishersupport) w celu uzyskania pomocy dotyczącej Twojego konta. Aby uzyskać ogólne informacje na temat programu Business Applications ISV Connect, zobacz:
 
-- **[Business Applications dla niezależnych dostawców oprogramowania (artykuł w trybie online)](https://aka.ms/bizappsisvweb)**
-
-- **[Przegląd nowego programu dla Business Applications niezależnych dostawców oprogramowania (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[Zasady łączenia programu ISV](https://aka.ms/bizappsisvpolicies)**
-
+- [Business Applications dla niezależnych dostawców oprogramowania](https://partner.microsoft.com/solutions/business-applications/isv-overview) (artykuł w trybie online)
+- [Przegląd nowego programu dla Business Applications niezależnych dostawców oprogramowania](https://aka.ms/BizAppsISVProgram) (PDF)
+- [Business Applications programu ISV Connect — często zadawane pytania](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Nadchodzący program dla Business Applications niezależnych dostawców oprogramowania](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (wpis w blogu)
+- [Program ISV Connect — zasady programu](https://aka.ms/bizappsisvpolicies) (PDF)

@@ -4,18 +4,19 @@ description: Zmodyfikuj domyślne Azure Monitor Application Insights punktów ko
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions
-ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a072cd7e509642c36c783e3cc0fd78e4d5adc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092868"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights Przesłanianie domyślnych punktów końcowych
 
 Aby wysłać dane z Application Insights do określonych regionów, należy zastąpić domyślne adresy punktów końcowych. Każdy zestaw SDK wymaga nieco różnych modyfikacji, które zostały opisane w tym artykule. Te zmiany wymagają dostosowania przykładowego kodu i zastąpienia wartości zastępczych dla `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` i `Profile_Query_Endpoint_address` z rzeczywistymi adresami punktów końcowych dla danego regionu. Koniec tego artykułu zawiera linki do adresów punktów końcowych dla regionów, w których ta konfiguracja jest wymagana.
 
 > [!NOTE]
-> [Parametry połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) to nowa preferowana metoda ustawiania niestandardowych punktów końcowych w Application Insights.
+> [Parametry połączenia](./sdk-connection-string.md?tabs=net) to nowa preferowana metoda ustawiania niestandardowych punktów końcowych w Application Insights.
 
 ---
 
@@ -76,7 +77,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-W przypadku Azure Functions teraz zaleca się używanie [parametrów połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) ustawionych w ustawieniach aplikacji funkcji. Aby uzyskać dostęp do ustawień aplikacji dla funkcji, w okienku funkcje wybierz pozycję **Ustawienia**  >  **Konfiguracja**  >  **aplikacji ustawienia**. 
+W przypadku Azure Functions teraz zaleca się używanie [parametrów połączenia](./sdk-connection-string.md?tabs=net) ustawionych w ustawieniach aplikacji funkcji. Aby uzyskać dostęp do ustawień aplikacji dla funkcji, w okienku funkcje wybierz pozycję **Ustawienia**  >  **Konfiguracja**  >  **aplikacji ustawienia**. 
 
 Nazwa: `APPLICATIONINSIGHTS_CONNECTION_STRING` wartość:`Connection String Value`
 
@@ -155,7 +156,7 @@ Aby uzyskać wskazówki dotyczące modyfikowania punktu końcowego pozyskiwania 
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiony wymagające modyfikacji punktu końcowego
 
-Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) i [Chiny platformy Azure](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) i [Chiny platformy Azure](/azure/china/resources-developer-guide).
 
 |Region |  Nazwa punktu końcowego | Wartość |
 |-----------------|:------------|:-------------|
@@ -179,5 +180,5 @@ Jeśli obecnie używasz [interfejsu API REST Application Insights](https://dev.a
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej na temat modyfikacji niestandardowych Azure Government, zapoznaj się ze szczegółowymi wskazówkami dotyczącymi [monitorowania i zarządzania platformą Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-- Aby dowiedzieć się więcej o Chinach platformy Azure, zapoznaj się z [element playbookem platformy Azure w Chinach](https://docs.microsoft.com/azure/china/).
+- Aby dowiedzieć się więcej na temat modyfikacji niestandardowych Azure Government, zapoznaj się ze szczegółowymi wskazówkami dotyczącymi [monitorowania i zarządzania platformą Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights).
+- Aby dowiedzieć się więcej o Chinach platformy Azure, zapoznaj się z [element playbookem platformy Azure w Chinach](/azure/china/).

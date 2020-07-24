@@ -2,13 +2,13 @@
 title: Przegląd Service Fabric i kontenerów
 description: Omówienie Service Fabric i używania kontenerów do wdrażania aplikacji mikrousług. Ten artykuł zawiera omówienie sposobu użycia kontenerów i dostępne możliwości w Service Fabric.
 ms.topic: conceptual
-ms.date: 8/8/2018
-ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/9/2020
+ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091661"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric i kontenery
 
@@ -53,7 +53,7 @@ Aby zapoznać się z samouczkiem opartym na systemie Linux, zobacz [Tworzenie pi
 
 #### <a name="windows-server-containers"></a>Kontenery systemu Windows Server
 
-System Windows Server 2016 oferuje dwa różne typy kontenerów, które różnią się w zależności od poziomu izolacji. Kontenery systemu Windows Server i kontenery platformy Docker są podobne, ponieważ zarówno mają przestrzeń nazw, jak i izolację systemu plików, jednocześnie udostępniając jądro na hoście, na którym są uruchomione. W systemie Linux ta izolacja jest tradycyjnie świadczona przez cgroup i przestrzenie nazw, a kontenery systemu Windows Server zachowują się podobnie.
+System Windows Server 2016 i nowsze oferują dwa różne typy kontenerów, które różnią się w zależności od poziomu izolacji. Kontenery systemu Windows Server i kontenery platformy Docker są podobne, ponieważ zarówno mają przestrzeń nazw, jak i izolację systemu plików, jednocześnie udostępniając jądro na hoście, na którym są uruchomione. W systemie Linux ta izolacja jest tradycyjnie świadczona przez cgroup i przestrzenie nazw, a kontenery systemu Windows Server zachowują się podobnie.
 
 Kontenery systemu Windows z obsługą funkcji Hyper-V zapewniają większą izolację i bezpieczeństwo, ponieważ żaden kontener nie udostępnia jądra systemu operacyjnego żadnym innym kontenerem lub hostem. W przypadku wyższego poziomu izolacji zabezpieczeń kontenery z obsługą funkcji Hyper-V są stosowane do potencjalnie nieszkodliwych scenariuszy z wieloma dzierżawcami.
 Aby zapoznać się z samouczkiem opartym na systemie Windows, zobacz [Tworzenie pierwszej Service Fabric aplikacji kontenera w systemie Windows](service-fabric-get-started-containers.md).
@@ -73,7 +73,10 @@ Oto typowe przykłady, w których kontener jest dobry wybór:
 
 ## <a name="service-fabric-support-for-containers"></a>Obsługa usługi Service Fabric dla kontenerów
 
-Service Fabric obsługuje wdrażanie kontenerów platformy Docker w systemach Linux i Windows Server w systemie Windows Server 2016 wraz z obsługą trybu izolacji funkcji Hyper-V. 
+Service Fabric obsługuje wdrażanie kontenerów platformy Docker w systemach Linux i kontenerów systemu Windows Server w systemie Windows Server 2016 lub nowszym wraz z obsługą trybu izolacji funkcji Hyper-V.
+
+> [!NOTE]
+> Kontenery nie są obsługiwane w lokalnym klastrze Service Fabric klastrów (ani w klastrach z systemem Linux w systemie jednopunktowy, ani w klastrach systemu Windows w instalacjach lokalnych Service Fabric).
 
 Service Fabric udostępnia [model aplikacji](service-fabric-application-model.md) , w którym kontener reprezentuje hosta aplikacji, w którym umieszczane są wiele replik usługi. Service Fabric obsługuje również [scenariusz wykonywalny gościa](service-fabric-guest-executables-introduction.md) , w którym nie można używać wbudowanych modeli programowania Service Fabric, ale zamiast tego pakuje istniejącą aplikację, korzystając z dowolnego języka lub platformy, wewnątrz kontenera. Ten scenariusz jest typowym przypadkiem użycia dla kontenerów.
 

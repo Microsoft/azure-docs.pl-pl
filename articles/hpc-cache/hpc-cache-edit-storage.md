@@ -4,25 +4,46 @@ description: Jak edytować cele magazynu pamięci podręcznej platformy Azure HP
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 1/08/2020
+ms.date: 07/02/2020
 ms.author: v-erkel
-ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f11e12c4f30977514e04b09c7e1c3012eb7888a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092460"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
-Można usunąć lub zmodyfikować miejsce docelowe magazynu z poziomu strony **miejsca docelowe magazynu** pamięci podręcznej.
+Możesz usunąć lub zmodyfikować miejsce docelowe magazynu z poziomu strony portalu **magazynu obiektów docelowych** pamięci podręcznej lub za pomocą interfejsu wiersza polecenia platformy Azure.
 
 > [!TIP]
-> W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) pokazano, jak edytować miejsce docelowe magazynu.
+> W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) pokazano, jak edytować miejsce docelowe magazynu w Azure Portal.
 
 ## <a name="remove-a-storage-target"></a>Usuń miejsce docelowe magazynu
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Aby usunąć miejsce docelowe magazynu, wybierz je z listy i kliknij przycisk **Usuń** .
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Użyj [AZ HPC-cache Storage-Target Remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) , aby usunąć miejsce docelowe magazynu z pamięci podręcznej.
+
+```azurecli
+$ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
+
+{- Finished ..
+  "endTime": "2020-07-09T21:45:06.1631571+00:00",
+  "name": "2f95eac1-aded-4860-b19c-3f089531a7ec",
+  "startTime": "2020-07-09T21:43:38.5461495+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
 
 Ta akcja powoduje usunięcie skojarzenia obiektu docelowego magazynu z tym systemem pamięci podręcznej platformy Azure HPC, ale nie powoduje zmiany systemu magazynu zaplecza. Na przykład jeśli użyto kontenera magazynu obiektów blob platformy Azure, kontener i jego zawartość nadal istnieją po usunięciu z pamięci podręcznej. Możesz dodać kontener do innej pamięci podręcznej platformy Azure HPC, dodać go ponownie do tej pamięci podręcznej lub usunąć za pomocą Azure Portal.
 
@@ -43,7 +64,7 @@ Można edytować cele magazynu w celu zmodyfikowania niektórych ich właściwo�
 
 Nie można edytować nazwy, typu lub systemu magazynu zaplecza magazynu (kontenera obiektów blob lub nazwy hosta lub adresu IP systemu plików NFS). Aby zmienić te właściwości, należy usunąć miejsce docelowe magazynu i utworzyć zamiennik z nową wartością.
 
-Aby zmodyfikować miejsce docelowe magazynu, kliknij nazwę obiektu docelowego magazynu, aby otworzyć jego stronę szczegółów. Niektóre pola na stronie można edytować.
+W Azure Portal można zobaczyć, które pola są edytowalne, klikając nazwę obiektu docelowego magazynu i otwierając jego stronę szczegółów. Możesz również modyfikować cele magazynu za pomocą interfejsu wiersza polecenia platformy Azure.
 
 ![zrzut ekranu przedstawiający stronę Edytowanie miejsca docelowego magazynu NFS](media/hpc-cache-edit-storage-nfs.png)
 
@@ -58,15 +79,69 @@ W przypadku miejsca docelowego magazynu NFS można zaktualizować kilka właści
 
 Każda ścieżka przestrzeni nazw musi mieć unikatową kombinację eksportu i podkatalogu. Oznacza to, że nie można wykonać dwóch różnych ścieżek związanych z klientem do dokładnie tego samego katalogu w systemie magazynu zaplecza.
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Użyj polecenia [AZ NFS-Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) , aby zmienić model użycia, ścieżkę wirtualnej przestrzeni nazw oraz wartości eksportowania lub podkatalogów systemu plików NFS dla miejsca docelowego magazynu.
+
+* Aby zmienić model użycia, użyj ``--nfs3-usage-model`` opcji. Przykład: ``--nfs3-usage-model WRITE_WORKLOAD_15``
+
+* Aby zmienić ścieżkę przestrzeni nazw, wyeksportować lub wyeksportować podkatalog, użyj ``--junction`` opcji.
+
+  ``--junction``Parametr używa tych wartości:
+
+  * ``namespace-path``-Ścieżka pliku wirtualnego po stronie klienta
+  * ``nfs-export``— Eksport systemu magazynu w celu skojarzenia ze ścieżką skierowaną do klienta
+  * ``target-path``(opcjonalnie) — podkatalog eksportu, w razie konieczności
+
+  Przykład: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
+
+Wszystkie polecenia aktualizacji wymagają nazwy pamięci podręcznej, nazwy docelowej magazynu i grupy zasobów.
+
+Przykład polecenia: <!-- having problem testing this -->
+
+```azurecli
+az hpc-cache nfs-storage-target update --cache-name mycache \
+    --name rivernfs0 --resource-group doc-rg0619 \
+    --nfs3-usage-model READ_HEAVY_INFREQ
+```
+
+Jeśli pamięć podręczna jest zatrzymana lub nie jest w dobrej kondycji, aktualizacja ma zastosowanie, gdy pamięć podręczna jest w dobrej kondycji.
+
+---
+
 ## <a name="update-an-azure-blob-storage-target"></a>Aktualizowanie celu usługi Azure Blob Storage
+
+Dla obiektu docelowego usługi BLOB Storage można zmodyfikować ścieżkę przestrzeni nazw wirtualnej.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Strona szczegóły obiektu docelowego usługi BLOB Storage umożliwia modyfikowanie ścieżki wirtualnej przestrzeni nazw.
 
 ![zrzut ekranu przedstawiający stronę Edytowanie elementu docelowego usługi BLOB Storage](media/hpc-cache-edit-storage-blob.png)
 
 Po zakończeniu kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Użyj [AZ HPC-cache BLOB-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) , aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego.
+
+```azurecli
+az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
+    --resource-group rg --storage-account "/subscriptions/<subscription_ID>/resourceGroups/erinazcli/providers/Microsoft.Storage/storageAccounts/rg"  \
+    --container-name "container-name" --virtual-namespace-path "/new-path"
+```
+
+Jeśli pamięć podręczna jest zatrzymana lub nie jest w dobrej kondycji, aktualizacja zostanie zastosowana, gdy pamięć podręczna będzie w dobrej kondycji.
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

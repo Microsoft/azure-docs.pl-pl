@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091950"
 ---
 # <a name="streaming-policies"></a>Zasady przesyłania strumieniowego
 
-W Azure Media Services v3 [zasady przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies) umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania dla [lokalizatorów przesyłania strumieniowego](streaming-locators-concept.md). Media Services v3 udostępnia wstępnie zdefiniowane zasady przesyłania strumieniowego, dzięki czemu można używać ich bezpośrednio do wersji próbnej lub produkcyjnej. 
+W Azure Media Services v3 [zasady przesyłania strumieniowego](/rest/api/media/streamingpolicies) umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania dla [lokalizatorów przesyłania strumieniowego](streaming-locators-concept.md). Media Services v3 udostępnia wstępnie zdefiniowane zasady przesyłania strumieniowego, dzięki czemu można używać ich bezpośrednio do wersji próbnej lub produkcyjnej. 
 
 Obecnie dostępne wstępnie zdefiniowane zasady przesyłania strumieniowego:<br/>
 * "Predefined_DownloadOnly"
@@ -44,11 +44,11 @@ Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.
 
 W przypadku szyfrowania zawartości należy utworzyć [zasady dotyczące kluczy zawartości](content-key-policy-concept.md). **Zasady kluczy zawartości** nie są wymagane do wyczyszczenia przesyłania strumieniowego ani pobierania. 
 
-Jeśli masz specjalne wymagania (na przykład jeśli chcesz określić różne protokoły, musisz użyć niestandardowej usługi dostarczania kluczy lub użyć jasnej ścieżki audio), możesz [utworzyć](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) niestandardowe zasady przesyłania strumieniowego. 
+Jeśli masz specjalne wymagania (na przykład jeśli chcesz określić różne protokoły, musisz użyć niestandardowej usługi dostarczania kluczy lub użyć jasnej ścieżki audio), możesz [utworzyć](/rest/api/media/streamingpolicies/create) niestandardowe zasady przesyłania strumieniowego. 
 
 ## <a name="get-a-streaming-policy-definition"></a>Pobierz definicję zasad przesyłania strumieniowego  
 
-Jeśli chcesz zobaczyć definicję zasad przesyłania strumieniowego, użyj [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) i określ nazwę zasad. Na przykład:
+Jeśli chcesz zobaczyć definicję zasad przesyłania strumieniowego, użyj [Get](/rest/api/media/streamingpolicies/get) i określ nazwę zasad. Na przykład:
 
 ### <a name="rest"></a>REST
 

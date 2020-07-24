@@ -4,13 +4,14 @@ description: Dowiedz się, jak skonfigurować klucze zarządzane przez klienta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092619"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
@@ -227,7 +228,15 @@ Rotacja klucza zarządzanego przez klienta używanego przez konto usługi Azure 
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Utwórz nową wersję klucza":::
 
-- Zamień klucz aktualnie używany z całkowicie innym z nich przez zaktualizowanie `keyVaultKeyUri` Właściwości konta. Oto jak to zrobić w programie PowerShell:
+- Zamień klucz aktualnie używany z całkowicie innym, aktualizując klucz URI na koncie. W Azure Portal przejdź do swojego konta usługi Azure Cosmos i wybierz pozycję **szyfrowanie danych** w menu po lewej stronie:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Wpis menu szyfrowania danych":::
+
+    Następnie zastąp **Identyfikator URI klucza** nowym kluczem, którego chcesz użyć, a następnie wybierz pozycję **Zapisz**:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Aktualizowanie identyfikatora URI klucza":::
+
+    Poniżej przedstawiono sposób osiągnięcia tego samego wyniku w programie PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -286,7 +295,11 @@ Obecnie nie są uwzględniane klucze poziomu kontenera.
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Jak mogę sprawdzić, czy na moim koncie usługi Azure Cosmos są włączone klucze zarządzane przez klienta?
 
-Można programowo pobrać szczegóły konta usługi Azure Cosmos i wyszukać obecność `keyVaultKeyUri` właściwości. Zobacz powyżej, aby dowiedzieć się, jak to zrobić [w programie PowerShell](#using-powershell) i [przy użyciu interfejsu wiersza polecenia platformy Azure](#using-azure-cli).
+W Azure Portal przejdź do konta usługi Azure Cosmos i obejrzyj wpis **szyfrowania danych** w menu po lewej stronie. Jeśli ten wpis istnieje, klucze zarządzane przez klienta są włączone na Twoim koncie:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Wpis menu szyfrowania danych":::
+
+Możesz również programowo pobrać szczegóły konta usługi Azure Cosmos i wyszukać obecność `keyVaultKeyUri` właściwości. Zobacz powyżej, aby dowiedzieć się, jak to zrobić [w programie PowerShell](#using-powershell) i [przy użyciu interfejsu wiersza polecenia platformy Azure](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Jak klucze zarządzane przez klienta wpływają na kopię zapasową?
 

@@ -3,15 +3,16 @@ title: Korzystanie z metod bezpośrednich w analizie wideo na żywo na IoT Edge 
 description: Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich. Metody bezpośrednie są oparte na konwencjach opisanych w tym temacie.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091831"
 ---
 # <a name="direct-methods"></a>Metody bezpośrednie
 
-Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich, które mogą być wywoływane z IoT Hub. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Takie podejście jest przydatne w scenariuszach, w których kurs natychmiastowego działania różni się w zależności od tego, czy urządzenie mogło reagować. Aby uzyskać więcej informacji, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich, które mogą być wywoływane z IoT Hub. Metody bezpośrednie reprezentują interakcję typu żądanie-odpowiedź z urządzeniem podobnym do wywołania HTTP, które powiodło się lub natychmiast kończą się niepowodzeniem (po upływie limitu czasu określonego przez użytkownika). Takie podejście jest przydatne w scenariuszach, w których kurs natychmiastowego działania różni się w zależności od tego, czy urządzenie mogło reagować. Aby uzyskać więcej informacji, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 W tym temacie opisano te metody i konwencje.
 
@@ -111,7 +112,7 @@ Szczegóły błędu sprawdzania poprawności, takie jak walidacje modułu grafu,
 
 Ta metoda Direct pobiera topologię pojedynczego wykresu.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -159,7 +160,7 @@ Kluczowe aspekty:
     * Żaden Graf nie odwołuje się do usuniętych parametrów
 * Aktualizacje topologii są niedozwolone, jeśli istnieją aktywne wykresy
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -203,7 +204,7 @@ Ogólne błędy serwera   |500 zakresu  ||
 
 Usuwa topologię pojedynczego wykresu.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -238,7 +239,7 @@ Usuwa topologię pojedynczego wykresu.
 
 Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtrowania.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -294,7 +295,7 @@ Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtro
 
 Pobiera pojedyncze wystąpienie grafu:
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -341,7 +342,7 @@ Kluczowe aspekty:
 * Aktualizacje wystąpienia grafu są częściowo ograniczone, gdy wykres nie jest w stanie "nieaktywny".
 * Aktualizacje wystąpienia grafu nie są dozwolone dla aktywnych wykresów.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -390,7 +391,7 @@ Kluczowe aspekty:
 
 * Można usuwać tylko wykresy dezaktywowane.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -426,7 +427,7 @@ Kluczowe aspekty:
 Jest to podobne do GraphTopologyList. Umożliwia użycie do wyliczenia wystąpień grafu.
 Pobiera listę wszystkich wystąpień grafów, które pasują do kryteriów filtrowania.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -492,7 +493,7 @@ Kluczowe aspekty
     * Uruchamianie grafu w stanie "Aktywowanie" działa tak samo jak wtedy, gdy wykres został zdezaktywowany (to jest: bloki wywołań do momentu aktywowania grafu)
     * Aktywowanie grafu w stanie "aktywny" powiodło się.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {
@@ -541,7 +542,7 @@ Kluczowe aspekty:
     * Dezaktywowanie wykresu w stanie "dezaktywowanie" ma taki sam sposób jak w przypadku dezaktywowania grafu (czyli bloków wywołań do momentu dezaktywowania grafu)
     * Dezaktywowanie wykresu w stanie "nieaktywny" powiodło się natychmiast.
 
-#### <a name="request"></a>Żądanie
+#### <a name="request"></a>Request
 
 ```
 {

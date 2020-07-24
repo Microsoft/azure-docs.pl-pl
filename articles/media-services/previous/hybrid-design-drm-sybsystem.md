@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091797"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM 
 
@@ -103,7 +103,7 @@ Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy 
 |AMS|Inne firmy|Dział|Nie|Nie|Przykład 4|
 |Inne firmy|Inne firmy|AMS|Yes|Nie|    
 
-W tych przykładach ochrona PlayReady działa w przypadku obu KRESek i płynnego przesyłania strumieniowego. Adresy URL wideo poniżej to płynne adresy URL przesyłania strumieniowego. Aby uzyskać odpowiednie KRESKi URL, po prostu Dołącz wartość "(format = MPD-Time-CSF)". Możesz użyć [odtwarzacza testowego multimediów Azure](https://aka.ms/amtest) do testowania w przeglądarce. Umożliwia skonfigurowanie używanego protokołu przesyłania strumieniowego, w którym należy przeprowadzić techniczne. IE11 i Microsoft Edge w systemie Windows 10 obsługują oprogramowanie PlayReady w EME. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o narzędziu testowym](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+W tych przykładach ochrona PlayReady działa w przypadku obu KRESek i płynnego przesyłania strumieniowego. Adresy URL wideo poniżej to płynne adresy URL przesyłania strumieniowego. Aby uzyskać odpowiednie KRESKi URL, po prostu Dołącz wartość "(format = MPD-Time-CSF)". Możesz użyć [odtwarzacza testowego multimediów Azure](https://aka.ms/amtest) do testowania w przeglądarce. Umożliwia skonfigurowanie używanego protokołu przesyłania strumieniowego, w którym należy przeprowadzić techniczne. IE11 i Microsoft Edge w systemie Windows 10 obsługują oprogramowanie PlayReady w EME. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o narzędziu testowym](/azure/media-services/previous/offline-playready-streaming-windows-10).
 
 ### <a name="sample-1"></a>Przykład 1
 
@@ -142,4 +142,3 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

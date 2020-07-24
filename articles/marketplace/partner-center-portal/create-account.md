@@ -3,21 +3,24 @@ title: Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 description: Dowiedz się, jak utworzyć konto komercyjnego portalu Microsoft Marketplace w centrum partnerskim.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
-ms.openlocfilehash: 4a178feb4bdf0bc361185e21e47ccdceac3a7f21
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: 5a55d66bfed19f6d88d4ff13a9f59d7e791664cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092188"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
 Aby opublikować oferty w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/) lub [Microsoft AppSource](https://appsource.microsoft.com/), musisz utworzyć konto w komercyjnym programie Marketplace w centrum partnerskim. W tym artykule opisano sposób tworzenia konta Centrum partnerskiego oraz dodawania nowych wydawców do komercyjnego programu Marketplace.
 
 >[!IMPORTANT]
->Jeśli masz konto w [Portal Cloud partner](https://cloudpartner.azure.com) , które zostało przeniesione do Centrum partnerskiego, nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Aby opublikować oferty w komercyjnej witrynie Marketplace, musisz użyć konta służbowego skojarzonego z firmą lub organizacją. Konta osobiste nie są obsługiwane.
+
+>[!IMPORTANT]
+>Jeśli masz konto w portal Cloud Partner (CPP), przeniesionomy je do Centrum partnerskiego; nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -43,7 +46,7 @@ Tej metody należy użyć, jeśli jesteś nowym centrum partnerskim i nie są on
 - [Podaj swój profil wydawcy](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Jeśli masz konto [Portal Cloud partner](https://cloudpartner.azure.com) , które zostało przeniesione do Centrum partnerskiego, nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Jeśli masz konto w portal Cloud Partner, przeniesiono je do Centrum partnerskiego; nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>Zarejestruj się na stronie rejestracji Centrum partnerskiego
 
@@ -94,7 +97,7 @@ W przypadku obu typów rejestracji:
 Upewnij się, że informacje o Twoim koncie są przydatne.
 
 >[!IMPORTANT]
->Jeśli masz konto w [Portal Cloud partner](https://cloudpartner.azure.com/) , które zostało przeniesione do Centrum partnerskiego, nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Jeśli masz konto w portal Cloud Partner, przeniesiono je do Centrum partnerskiego; nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [dla wydawców przenoszonych z Portal Cloud partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="what-if-im-already-enrolled-in-the-microsoft-partner-network"></a>Co zrobić, Jeśli zarejestrowano już w Microsoft Partner Network?
 
@@ -154,15 +157,13 @@ Po zalogowaniu się do Centrum partnerskiego Zakończ Konfigurowanie konta, wyko
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać więcej informacji, zobacz [komercyjne Omówienie witryny Marketplace](./commercial-marketplace-overview.md). Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## <a name="for-publishers-who-are-moving-from-the-cloud-partner-portal"></a>Dla wydawców przenoszonych z portal Cloud Partner
+## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Dla wydawców przenoszonych z portal Cloud Partner
 
-Jeśli Twoje konto zostało zmigrowane z [Portal Cloud partner](https://cloudpartner.azure.com), nie musisz tworzyć nowego konta Centrum partnerskiego. Po zalogowaniu się do istniejącego konta portal Cloud Partner powinien zostać wyświetlony dostosowany link do nowego konta Centrum partnerskiego w wiadomości e-mail i w ogłoszeniu transparentu.
+Jeśli masz konto portal Cloud Partner, przeniesiono je do Centrum partnerskiego. Nie musisz tworzyć nowego konta Centrum partnerskiego. Po zalogowaniu się do istniejącego konta portal Cloud Partner powinien zostać wyświetlony dostosowany link do nowego konta Centrum partnerskiego w wiadomości e-mail i w ogłoszeniu transparentu.
 
 Po wybraniu niestandardowego linku i włączeniu nowego konta Centrum partnerskiego możesz wrócić do swojego konta, przechodząc do [pulpitu nawigacyjnego portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) w centrum partnerskim.
 
-Informacje o umowie dotyczące publikowania i profilu firmy są migrowane do nowego konta Centrum partnerskiego wraz z wcześniej skonfigurowanymi informacjami o profilu wypłaty konta, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami skojarzonymi z Twoim kontem portal Cloud Partner.
-
-Po przeniesieniu informacji o koncie z portal Cloud Partner do Centrum partnerskiego nie będziesz już używać portal Cloud Partner do wprowadzania aktualizacji konta ani do zarządzania użytkownikami, uprawnieniami i rozliczeniami. Przez ograniczony czas wszystkie aktualizacje konta wprowadzane w centrum partnerskim są automatycznie aktualizowane na koncie portal Cloud Partner tylko do odczytu, dopóki nie zostanie ostatecznie zaniechane.
+Umowa dotycząca publikowania i informacje o profilu firmy przechodzą na nowe konto Centrum partnerskiego, wraz z wcześniej skonfigurowanymi informacjami o profilu wypłaty konta, kontami i uprawnieniami użytkowników oraz aktywnymi ofertami, które zostały skojarzone z Twoim kontem portal Cloud Partner.
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Dodaj nowych wydawców do komercyjnego programu Marketplace
 

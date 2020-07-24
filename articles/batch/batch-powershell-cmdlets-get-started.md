@@ -4,11 +4,12 @@ description: Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell,
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83779610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092783"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Zarządzanie zasobami usługi Batch za pomocą poleceń cmdlet programu PowerShell
 
@@ -20,7 +21,7 @@ Informacje w tym artykule dotyczą poleceń cmdlet modułu usługi Az Batch w we
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj i skonfiguruj [moduł programu Azure PowerShell](/powershell/azure/overview). Aby zainstalować określony moduł usługi Azure Batch, na przykład moduł w wersji wstępnej, zobacz [Galerię programu PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* Zainstaluj i skonfiguruj [moduł programu Azure PowerShell](/powershell/azure/). Aby zainstalować określony moduł usługi Azure Batch, na przykład moduł w wersji wstępnej, zobacz [Galerię programu PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Uruchom polecenie cmdlet **Connect-AzAccount**, aby połączyć się z subskrypcją (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
 
@@ -38,13 +39,13 @@ Informacje w tym artykule dotyczą poleceń cmdlet modułu usługi Az Batch w we
 
 ### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
 
-Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Przykład:
+Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Przykład:
+Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -78,7 +79,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Usuwanie konta usługi Batch
 
-Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Przykład:
+Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Na przykład:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -163,7 +164,7 @@ Parametr **Id** obsługuje tylko wyszukiwanie pełnych identyfikatorów, a nie s
 
 ### <a name="use-the-maxcount-parameter"></a>Korzystanie z parametru MaxCount
 
-Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Przykład:
+Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Na przykład:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
