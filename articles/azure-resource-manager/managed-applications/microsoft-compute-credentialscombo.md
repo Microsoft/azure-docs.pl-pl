@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063804"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft. COMPUTE. CredentialsCombo — element interfejsu użytkownika
 
@@ -19,15 +20,15 @@ Grupa kontrolek z wbudowaną walidacją haseł systemu Windows i Linux oraz kluc
 
 W przypadku systemu Windows użytkownicy widzą następujące tematy:
 
-![Microsoft. COMPUTE. CredentialsCombo — Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft. COMPUTE. CredentialsCombo — Windows](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
 
 Dla systemu Linux z wybranym hasłem użytkownicy zobaczą:
 
-![Hasło Microsoft. COMPUTE. CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Hasło Microsoft. COMPUTE. CredentialsCombo Linux](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
 
 Dla systemu Linux z wybranym kluczem publicznym SSH użytkownicy zobaczą:
 
-![Microsoft. COMPUTE. CredentialsCombo — klucz systemu Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft. COMPUTE. CredentialsCombo — klucz systemu Linux](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schemat
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 02cc2ddc793906ff79cbb8619a43d54d696b42ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8339ed5f6b570f392a76d8e4109f015c951b9df
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065610"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Tworzenie aplikacji usługi Azure AD do użycia z interfejsem API Azure Media Services przy użyciu programu PowerShell
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Dowiedz się, jak używać skryptu programu PowerShell do tworzenia aplikacji Azure Active Directory (Azure AD) i nazwy głównej usługi, aby uzyskać dostęp do zasobów Azure Media Services.  
 
@@ -32,7 +32,7 @@ Dowiedz się, jak używać skryptu programu PowerShell do tworzenia aplikacji Az
 - Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services w Azure Portal](media-services-portal-create-account.md).
 
-- Azure PowerShell. Aby uzyskać więcej informacji, zobacz [jak używać Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+- Azure PowerShell. Aby uzyskać więcej informacji, zobacz [jak używać Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

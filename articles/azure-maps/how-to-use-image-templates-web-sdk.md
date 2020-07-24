@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064702"
 ---
 # <a name="how-to-use-image-templates"></a>Jak używać szablonów obrazów
 
@@ -106,7 +106,7 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>znacznik HTML pióra p
 
 
 > [!TIP]
-> Szablony obrazów można używać poza mapą. GetImageTemplate ATANH zwraca ciąg SVG, który ma symbole zastępcze; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Zamień te wartości symboli zastępczych, aby utworzyć prawidłowy ciąg SVG. Następnie można dodać ciąg SVG bezpośrednio do modelu DOM HTML lub przekonwertować go na identyfikator URI danych i wstawić go do tagu obrazu. Przykład:
+> Szablony obrazów można używać poza mapą. GetImageTemplate ATANH zwraca ciąg SVG, który ma symbole zastępcze; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Zamień te wartości symboli zastępczych, aby utworzyć prawidłowy ciąg SVG. Następnie można dodać ciąg SVG bezpośrednio do modelu DOM HTML lub przekonwertować go na identyfikator URI danych i wstawić go do tagu obrazu. Na przykład:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -148,44 +148,337 @@ Ta tabela zawiera listę wszystkich szablonów obrazów dostępnych obecnie w Az
 
 **Szablony ikon symboli**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| obrys | znacznik — gruby | znacznik — okrąg | znacznik — Flat |
-|![ikona znacznika](./media/image-templates/marker.png)|![ikona o szerokim znaczniku](./media/image-templates/marker-thick.png)|![znacznik — ikona okręgu](./media/image-templates/marker-circle.png)|![znacznik — ikona płaska](./media/image-templates/marker-flat.png)|
-||||
-| znacznik — kwadrat | znacznik — kwadrat — klaster | znacznik — strzałka | znacznik — piłka — numer PIN | 
-|![znacznik — ikona kwadratu](./media/image-templates/marker-square.png)|![znacznik — prostokąt — ikona klastra](./media/image-templates/marker-square-cluster.png)|![ikona strzałki w dół](./media/image-templates/marker-arrow.png)|![znacznik — piłka — ikona pinezki](./media/image-templates/marker-ball-pin.png)|
-||||
-| znacznik — zaokrąglony kwadrat | znacznik — zaokrąglony do kwadratu — klaster | flag | Flaga-Trójkąt |
-| ![znacznik — ikona zaokrąglona kwadratowo](./media/image-templates/marker-square-rounded.png) | ![znacznik — zaokrąglony prostokąt-ikona klastra](./media/image-templates/marker-square-rounded-cluster.png) | ![ikona flagi](./media/image-templates/flag.png) | ![ikona trójkąta flaga](./media/image-templates/flag-triangle.png) |
-||||
-| trójkąt | Trójkąt — gruby | Trójkąt — Strzałka w górę | Trójkąt — Strzałka w lewo |
-| ![ikona trójkąta](./media/image-templates/triangle.png) | ![ikona o szerokim trójkącie](./media/image-templates/triangle-thick.png) | ![Trójkąt — ikona strzałki w górę](./media/image-templates/triangle-arrow-up.png) | ![Trójkąt-Strzałka w lewo](./media/image-templates/triangle-arrow-left.png) |
-||||
-| sześciokąt | sześciokątny | zaokrąglony | sześciokąt — zaokrąglony |
-| ![ikona sześciokątna](./media/image-templates/hexagon.png) | ![ikona o grubości sześciokątnej](./media/image-templates/hexagon-thick.png) | ![ikona z zaokrągleniem sześciokątnym](./media/image-templates/hexagon-rounded.png) | ![ikona z zaokrągleniem do grubości](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| przypinanie | kod PIN — Zaokrąglij | zaokrąglony kwadrat | zaokrąglona-kwadratowa |
-| ![ikona przypinania](./media/image-templates/pin.png) | ![ikona z zaokrągleniem numeru PIN](./media/image-templates/pin-round.png) | ![ikona zaokrąglony kwadrat](./media/image-templates/rounded-square.png) | ![ikona o zaokrąglonej grubości kwadratowej](./media/image-templates/rounded-square-thick.png) |
-||||
-| Strzałka w górę | Strzałka w górę — cienka | car ||
-| ![ikona strzałki w górę](./media/image-templates/arrow-up.png) | ![Strzałka w górę — ikona cienkiej](./media/image-templates/arrow-up-thin.png) | ![ikona samochodu](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      obrys
+   :::column-end:::
+   :::column span="":::
+      znacznik — gruby
+   :::column-end:::
+   :::column span="":::
+      znacznik — okrąg
+   :::column-end:::
+   :::column span="":::
+      znacznik — Flat
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona znacznika](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona o szerokim znaczniku](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![znacznik — ikona okręgu](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![znacznik — ikona płaska](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      znacznik — kwadrat
+   :::column-end:::
+   :::column span="":::
+      znacznik — kwadrat — klaster
+   :::column-end:::
+   :::column span="":::
+      znacznik — strzałka
+   :::column-end:::
+   :::column span="":::
+      znacznik — piłka — numer PIN
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![znacznik — ikona kwadratu](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![znacznik — prostokąt — ikona klastra](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona strzałki w dół](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![znacznik — piłka — ikona pinezki](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      znacznik — zaokrąglony kwadrat
+   :::column-end:::
+   :::column span="":::
+      znacznik — zaokrąglony do kwadratu — klaster
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      Flaga-Trójkąt
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![znacznik — ikona zaokrąglona kwadratowo](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![znacznik — zaokrąglony prostokąt-ikona klastra](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona flagi](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona trójkąta flaga](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      trójkąt
+   :::column-end:::
+   :::column span="":::
+      Trójkąt — gruby
+   :::column-end:::
+   :::column span="":::
+      Trójkąt — Strzałka w górę
+   :::column-end:::
+   :::column span="":::
+      Trójkąt — Strzałka w lewo
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona trójkąta](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona o szerokim trójkącie](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![Trójkąt — ikona strzałki w górę](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![Trójkąt-Strzałka w lewo](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      sześciokąt
+   :::column-end:::
+   :::column span="":::
+      sześciokątny
+   :::column-end:::
+   :::column span="":::
+      zaokrąglony
+   :::column-end:::
+   :::column span="":::
+      sześciokąt — zaokrąglony
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona sześciokątna](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona o grubości sześciokątnej](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona z zaokrągleniem sześciokątnym](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona z zaokrągleniem do grubości](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      przypinanie
+   :::column-end:::
+   :::column span="":::
+      kod PIN — Zaokrąglij
+   :::column-end:::
+   :::column span="":::
+      zaokrąglony kwadrat
+   :::column-end:::
+   :::column span="":::
+      zaokrąglona-kwadratowa
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona przypinania](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona z zaokrągleniem numeru PIN](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona zaokrąglony kwadrat](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona o zaokrąglonej grubości kwadratowej](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      Strzałka w górę
+   :::column-end:::
+   :::column span="":::
+      Strzałka w górę — cienka
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona strzałki w górę](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![Strzałka w górę — ikona cienkiej](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona samochodu](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Szablony deseni wypełnienia wielokąta**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| kwestionuj | pion — obrócony | kółek | koła — w odstępach |
-| ![Ikona narzędzia do sprawdzania](./media/image-templates/checker.png) | ![Narzędzie sprawdzania — obrócona ikona](./media/image-templates/checker-rotated.png) | ![ikona okręgów](./media/image-templates/circles.png) | ![kółka — ikona odstępu](./media/image-templates/circles-spaced.png) |
-|||||
-| ukośne linie — w górę | ukośne linie — w dół | ukośne paski — w górę | ukośne paski — w dół |
-| ![ikona ukośna w górę](./media/image-templates/diagonal-lines-up.png) | ![ikona ukośna w dół](./media/image-templates/diagonal-lines-down.png) | ![ikona przekątna](./media/image-templates/diagonal-stripes-up.png) | ![Przekątna — ikona w dół](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| linie siatki | obrócone — linie siatki | obrócony — paski siatki | x — wypełnienie |
-| ![ikona linii siatki](./media/image-templates/grid-lines.png) | ![ikona obrócona — linia siatki](./media/image-templates/rotated-grid-lines.png) | ![ikona obrócona-siatka](./media/image-templates/rotated-grid-stripes.png) | ![ikona wypełnienia x](./media/image-templates/x-fill.png) |
-|||||
-| Zygzak | Zygzak — pionowa | kropk |  |
-| ![ikona zygzaka](./media/image-templates/zig-zag.png) | ![Zygzak — ikona pionowa](./media/image-templates/zig-zag-vertical.png) | ![ikona kropek](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      kwestionuj
+   :::column-end:::
+   :::column span="":::
+      pion — obrócony
+   :::column-end:::
+   :::column span="":::
+      kółek
+   :::column-end:::
+   :::column span="":::
+      koła — w odstępach
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Ikona narzędzia do sprawdzania](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![Narzędzie sprawdzania — obrócona ikona](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona okręgów](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![kółka — ikona odstępu](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      ukośne linie — w górę
+   :::column-end:::
+   :::column span="":::
+      ukośne linie — w dół
+   :::column-end:::
+   :::column span="":::
+      ukośne paski — w górę
+   :::column-end:::
+   :::column span="":::
+      ukośne paski — w dół
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona ukośna w górę](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona ukośna w dół](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona przekątna](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![Przekątna — ikona w dół](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      linie siatki
+   :::column-end:::
+   :::column span="":::
+      obrócone — linie siatki
+   :::column-end:::
+   :::column span="":::
+      obrócony — paski siatki
+   :::column-end:::
+   :::column span="":::
+      x — wypełnienie
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona linii siatki](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona obrócona — linia siatki](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona obrócona-siatka](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona wypełnienia x](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      Zygzak
+   :::column-end:::
+   :::column span="":::
+      Zygzak — pionowa
+   :::column-end:::
+   :::column span="":::
+      kropk
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ikona zygzaka](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![Zygzak — ikona pionowa](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikona kropek](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Wstępnie załadowanych ikon obrazu**
 

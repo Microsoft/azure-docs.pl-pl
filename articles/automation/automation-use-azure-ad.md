@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać usługi Azure AD w ramach Azur
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9c81e3389f2cc96f2581b8edee5f528237cb9eca
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064396"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uwierzytelnianie na platformie Azure za pomocą usługi Azure AD
 
@@ -92,11 +92,11 @@ Za pomocą Azure Portal można utworzyć zasób poświadczenia. Wykonaj tę oper
 
 ### <a name="create-the-credential-asset-with-windows-powershell"></a>Tworzenie zasobu poświadczeń za pomocą programu Windows PowerShell
 
-Aby przygotować nowy zasób poświadczeń w programie Windows PowerShell, skrypt najpierw tworzy `PSCredential` Obiekt przy użyciu przypisanej nazwy użytkownika i hasła. Skrypt następnie używa tego obiektu do utworzenia zasobu za pośrednictwem wywołania polecenia cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternatywnie skrypt może wywołać polecenie cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) , aby monitować użytkownika o wpisanie nazwy i hasła. Zobacz [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md). 
+Aby przygotować nowy zasób poświadczeń w programie Windows PowerShell, skrypt najpierw tworzy `PSCredential` Obiekt przy użyciu przypisanej nazwy użytkownika i hasła. Skrypt następnie używa tego obiektu do utworzenia zasobu za pośrednictwem wywołania polecenia cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternatywnie skrypt może wywołać polecenie cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) , aby monitować użytkownika o wpisanie nazwy i hasła. Zobacz [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md). 
 
 ## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Zarządzanie zasobami platformy Azure z poziomu elementu Runbook Azure Automation
 
-Zasobami platformy Azure można zarządzać z poziomu elementów Runbook Azure Automation przy użyciu zasobu Credential. Poniżej znajduje się przykładowy element Runbook programu PowerShell, który zbiera zasoby poświadczeń do zatrzymywania i uruchamiania maszyn wirtualnych w ramach subskrypcji platformy Azure. Ten element Runbook najpierw używa `Get-AutomationPSCredential` do pobierania poświadczeń do uwierzytelniania na platformie Azure. Następnie wywołuje polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) w celu nawiązania połączenia z platformą Azure przy użyciu poświadczenia. Skrypt używa polecenia cmdlet [SELECT-AzureSubscription](/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) , aby wybrać subskrypcję, z którą chcesz współpracować. 
+Zasobami platformy Azure można zarządzać z poziomu elementów Runbook Azure Automation przy użyciu zasobu Credential. Poniżej znajduje się przykładowy element Runbook programu PowerShell, który zbiera zasoby poświadczeń do zatrzymywania i uruchamiania maszyn wirtualnych w ramach subskrypcji platformy Azure. Ten element Runbook najpierw używa `Get-AutomationPSCredential` do pobierania poświadczeń do uwierzytelniania na platformie Azure. Następnie wywołuje polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) w celu nawiązania połączenia z platformą Azure przy użyciu poświadczenia. Skrypt używa polecenia cmdlet [SELECT-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription?view=azuresmps-4.0.0) , aby wybrać subskrypcję, z którą chcesz współpracować. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 

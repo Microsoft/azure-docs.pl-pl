@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c350b10fb3db82af47551591d95e87cacd63a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065011"
 ---
 # <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 <a name="network-security-groups"></a>
@@ -30,17 +31,18 @@ W tym artykule opisano właściwości reguły sieciowej grupy zabezpieczeń, sto
 
 Grupa zabezpieczeń sieci nie zawiera żadnych reguł lub dowolną liczbę reguł zgodnie z potrzebami, w ramach [limitów](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) subskrypcji platformy Azure. Każda reguła określa następujące właściwości:
 
-|Właściwość  |Objaśnienie  |
+|Właściwość  |Wyjaśnienie  |
 |---------|---------|
-|Nazwa|Unikatowa nazwa w obrębie grupy zabezpieczeń sieci.|
+|Nazwa|Unikatowa nazwa w obrębie sieciowej grupy zabezpieczeń.|
 |Priorytet | Liczba z zakresu od 100 do 4096. Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.|
 |Obiekt źródłowy lub docelowy| Dowolny lub indywidualny adres IP, blok CIDR (na przykład 10.0.0.0/24), tag usługi lub grupa zabezpieczeń aplikacji. W przypadku określenia adresu dla zasobu platformy Azure należy określić prywatny adres IP przypisany do zasobu. W przypadku ruchu przychodzącego grupy zabezpieczeń sieci są przetwarzane po tym, jak platforma Azure przetłumaczy publiczny adres IP na prywatny adres IP, a w przypadku ruchu wychodzącego — zanim platforma Azure przetłumaczy prywatny adres IP na publiczny adres IP. . Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu poszczególnych adresów IP i zakresów (nie można określić wielu tagów usługi ani grup aplikacji) w regule nosi nazwę [rozszerzonych reguł zabezpieczeń](#augmented-security-rules). Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu adresów IP i zakresów adresów IP w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.|
 |Protokół     | TCP, UDP, ICMP lub dowolny.|
-|Kierunek| Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego.|
+|Kierunek| Określa, czy reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego.|
 |Zakres portów     |Można określić pojedynczy port lub zakres portów. Na przykład można określić port 80 lub 10000–10005. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu portów lub zakresów portów w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.   |
 |Akcja     | Zezwolenie lub zablokowanie        |
 
 Reguły zabezpieczeń grupy zabezpieczeń sieci są oceniane według priorytetu na podstawie krotki składającej się z pięciu informacji (źródło, port źródłowy, obiekt docelowy, port docelowy i protokół) w celu zezwolenia na ruch lub zablokowania go. Rekord przepływu tworzony jest dla istniejących połączeń. Komunikacja jest dozwolona lub zablokowana na podstawie stanu połączenia z rekordu przepływu. Dzięki rekordowi przepływu grupa zabezpieczeń sieci jest stanowa. Jeśli zostanie określona reguła zabezpieczeń dla ruchu wychodzącego do dowolnego adresu za pośrednictwem (na przykład) portu 80, nie trzeba określać żadnej reguły zabezpieczeń ruchu przychodzącego dla odpowiedzi na ruch wychodzący. Należy tylko określić regułę zabezpieczeń dla ruchu przychodzącego w przypadku, jeśli komunikacja jest inicjowana zewnętrznie. Jest to również prawdziwe w odwrotnym przypadku. Jeśli ruch przychodzący jest dozwolony przez port, nie trzeba określać reguły zabezpieczeń dla ruchu wychodzącego, aby odpowiadać na ruch przychodzący przez port.
+
 Istniejące połączenia mogą nie zostać przerwane po usunięciu reguły zabezpieczeń, która zezwoliła na przepływ. Przepływy ruchu są przerywane po zakończeniu połączenia, gdy przez co najmniej kilka minut nie ma ruchu z żadnej strony.
 
 Istnieją ograniczenia dotyczące liczby reguł zabezpieczeń, które można utworzyć w grupie zabezpieczeń sieci. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -49,7 +51,7 @@ Istnieją ograniczenia dotyczące liczby reguł zabezpieczeń, które można utw
 
 Platforma Azure tworzy następujące reguły domyślne w każdej tworzonej grupie zabezpieczeń sieci:
 
-#### <a name="inbound"></a>Przychodzący
+#### <a name="inbound"></a>Inbound
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
@@ -140,9 +142,7 @@ W przypadku ruchu wychodzącego platforma Azure przetwarza najpierw reguły w gr
 
 Należy pamiętać, że reguły zabezpieczeń w sieciowej grupy zabezpieczeń skojarzonej z podsiecią mogą mieć wpływ na łączność między MASZYNami wirtualnymi. Na przykład, jeśli reguła zostanie dodana do *NSG1* , która odmówi cały ruch przychodzący i wychodzący, *VM1* i *VM2* nie będą już mogły komunikować się ze sobą. Aby to umożliwić, należy dodać inną regułę. 
 
-
-
-Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić, wyświetlając [obowiązujące reguły zabezpieczeń](virtual-network-network-interface.md#view-effective-security-rules) dla interfejsu sieciowego. Możesz również skorzystać z możliwości [weryfikowania przepływu protokołu IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) w celu ustalenia, czy komunikacja z lub do interfejsu sieciowego jest dozwolona. Weryfikowanie przepływu adresów IP informuje, czy komunikacja jest dozwolona lub zablokowana, oraz która reguła zabezpieczeń sieci zezwala lub nie zezwala na ruch.
+Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić, wyświetlając [obowiązujące reguły zabezpieczeń](virtual-network-network-interface.md#view-effective-security-rules) dla interfejsu sieciowego. Możesz również skorzystać z możliwości [weryfikowania przepływu protokołu IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) w celu ustalenia, czy komunikacja z lub do interfejsu sieciowego jest dozwolona. Weryfikacja przepływu IP informuje o tym, czy komunikacja jest dozwolona, czy odmowa, oraz która reguła zabezpieczeń sieci zezwala na ruch lub go odmawia.
 
 > [!NOTE]
 > Sieciowe grupy zabezpieczeń są skojarzone z podsieciami lub do maszyn wirtualnych i usług w chmurze wdrożonych w klasycznym modelu wdrażania, a także do podsieci lub interfejsów sieciowych w Menedżer zasobów model wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure).
@@ -160,7 +160,7 @@ Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić
 
   Jeśli subskrypcja platformy Azure została utworzona przed 15 listopada 2017 r., oprócz używania usług przekazywania SMTP można wysłać wiadomości e-mail bezpośrednio za pośrednictwem portu 25 protokołu TCP. Jeśli subskrypcja została utworzona po 15 listopada 2017 r., wysyłanie wiadomości e-mail bezpośrednio przez port 25 może okazać się niemożliwe. Zachowanie komunikacji wychodzącej za pośrednictwem portu 25 zależy od typu Twojej subskrypcji w następujący sposób:
 
-     - **Umowa Enterprise Agreement**: komunikacja wychodząca przez port 25 jest dozwolona. Wychodzące wiadomości e-mail można wysyłać bezpośrednio z maszyn wirtualnych do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń powiązanych z platformą Azure. 
+     - **Umowa Enterprise Agreement**: komunikacja wychodząca przez port 25 jest dozwolona. Możesz wysyłać wychodzące wiadomości e-mail bezpośrednio z maszyn wirtualnych do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń platformy Azure. 
      - **Płatność zgodnie z rzeczywistym użyciem:** komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Jeśli musisz wysyłać wiadomości e-mail z maszyny wirtualnej bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz zgłosić wniosek o usunięcie ograniczenia. Wnioski są przeglądane i zatwierdzane według uznania firmy Microsoft, a odpowiednie prawa są przyznawane dopiero po pomyślnym zakończeniu kontroli mającej na celu zapobieganie oszustwom. Aby przesłać wniosek, otwórz zgłoszenie do pomocy technicznej z typem problemu *Techniczny*, *Łączność sieciowa*, *Nie można wysłać wiadomości e-mail (SMTP/port 25)*. W tym zgłoszeniu do pomocy technicznej szczegółowo opisz, dlaczego w ramach subskrypcji musisz wysyłać wiadomości e-mail bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekazywania protokołu SMTP. Jeśli subskrypcja zostanie uznana za wyjątek, tylko maszyny wirtualne utworzone po dacie uznania będą mogły obsługiwać komunikację wychodzącą przez port 25.
      - **MSDN, Azure — dostęp próbny, Azure w ramach programu licencjonowania Open, Education, BizSpark i bezpłatna wersja próbna**: komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Nie można wysyłać żadnych wniosków o usunięcie ograniczenia, ponieważ takie prawa nie są przyznawane. Aby wysyłać wiadomości e-mail z maszyny wirtualnej, musisz skorzystać z usługi przekazywania SMTP.
      - **Dostawca usług w chmurze**: klienci korzystający z zasobów platformy Azure za pośrednictwem dostawcy usług w chmurze mogą utworzyć zgłoszenie do pomocy technicznej za pomocą swojego dostawcy usług w chmurze i zażądać, aby dostawca utworzył przypadek odblokowania w ich imieniu, jeśli nie można użyć bezpiecznego przekazywania protokołu SMTP.

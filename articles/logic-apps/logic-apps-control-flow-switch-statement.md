@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066218"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Utwórz instrukcje Switch, które uruchamiają akcje przepływu pracy na podstawie określonych wartości w Azure Logic Apps
 
@@ -120,7 +121,7 @@ Teraz, po utworzeniu aplikacji logiki przy użyciu instrukcji switch, przyjrzyjm
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Aby przesłać lub zagłosować na temat funkcji lub sugestii, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

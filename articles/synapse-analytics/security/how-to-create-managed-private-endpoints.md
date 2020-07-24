@@ -1,5 +1,5 @@
 ---
-title: Utwórz zarządzany prywatny punkt końcowy, aby połączyć się z wynikami źródła danych.
+title: Utwórz zarządzany prywatny punkt końcowy, aby połączyć się z wynikami źródła danych
 description: W tym artykule omówiono sposób tworzenia zarządzanego prywatnego punktu końcowego dla źródeł danych w obszarze roboczym usługi Azure Synapse.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6f0054364e5bbfb80fc4c1b9db6a4c15f365a81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065480"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Utwórz zarządzany prywatny punkt końcowy ze źródłem danych (wersja zapoznawcza)
 

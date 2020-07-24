@@ -2,13 +2,13 @@
 title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066693"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Korzystanie z punktów końcowych usługi Virtual Network z platformą Azure Event Hubs
 
@@ -24,14 +24,13 @@ Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowia
 > Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku implementacji sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
-> - Azure Monitor (ustawienie diagnostyczne)
 > - Usługa Azure Stream Analytics
 > - Integracja z usługą Azure Event Grid
 > - Trasy usługi Azure IoT Hub
 > - Device Explorer usługi Azure IoT
 >
 > Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
-> - Azure Web Apps
+> - Aplikacje internetowe platformy Azure
 > - Azure Functions
 
 

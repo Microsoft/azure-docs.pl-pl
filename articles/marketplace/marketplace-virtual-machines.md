@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065648"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Przewodnik publikowania dla ofert maszyn wirtualnych
 
@@ -47,7 +47,7 @@ Typ oferty *maszyny wirtualnej* służy do wdrażania urządzenia wirtualnego w 
 > W tym momencie zobowiązania pieniężne związane z Umowa Enterprise mogą być używane w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie do opłat za Licencjonowanie oprogramowania.  
 > 
 > [!NOTE]
-> Możesz ograniczyć odnajdywanie i wdrażanie maszyny wirtualnej do określonego zestawu klientów, publikując obraz i ceny jako ofertę prywatną. W ofertach prywatnych można odblokować możliwość tworzenia ofert wyłącznych dla najbliższych klientów i oferowania niestandardowych programów oraz warunków. Dostosowane warunki umożliwiają wyróżnianie różnorodnych scenariuszy, w tym w przypadku, gdy użytkownik korzysta z wyspecjalizowanych cen i warunków oraz wczesnego dostępu do ograniczonej wersji oprogramowania. Oferty prywatne umożliwiają podanie określonych cen lub produktów do ograniczonego zestawu klientów przez utworzenie nowej jednostki SKU z tymi szczegółami.  
+> Możesz ograniczyć odnajdywanie i wdrażanie maszyny wirtualnej do określonego zestawu klientów, publikując obraz i ceny jako ofertę prywatną. W ofertach prywatnych można odblokować możliwość tworzenia ofert wyłącznych dla najbliższych klientów i oferowania niestandardowych programów oraz warunków. Dostosowane warunki umożliwiają wyróżnianie różnorodnych scenariuszy, w tym w przypadku, gdy użytkownik korzysta z wyspecjalizowanych cen i warunków oraz wczesnego dostępu do ograniczonej wersji oprogramowania. Oferty prywatne umożliwiają podanie określonych cen lub produktów do ograniczonego zestawu klientów przez utworzenie nowego planu z tymi szczegółami.  
 >
 > Aby uzyskać więcej informacji, zobacz [prywatne oferty w witrynie Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 

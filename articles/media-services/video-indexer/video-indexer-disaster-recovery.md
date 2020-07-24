@@ -1,5 +1,5 @@
 ---
-title: Video Indexer tryb failover i odzyskiwanie po awarii
+title: Tryb failover i odzyskiwanie po awarii w usłudze Video Indexer
 titleSuffix: Azure Media Services
 description: Dowiedz się, jak przełączeć w tryb failover do pomocniczego konta Video Indexer w przypadku wystąpienia awarii lub awarii centrum danych.
 services: media-services
@@ -14,17 +14,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab376c44065979de86e5c70b796be952fccffaa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065415"
 ---
-# <a name="video-indexer-failover-and-disaster-recovery"></a>Video Indexer tryb failover i odzyskiwanie po awarii
+# <a name="video-indexer-failover-and-disaster-recovery"></a>Tryb failover i odzyskiwanie po awarii w usłudze Video Indexer
 
-Azure Media Services Video Indexer nie zapewnia natychmiastowej pracy w trybie failover usługi, jeśli istnieje regionalna awaria lub awaria centrum danych. W tym artykule wyjaśniono, jak skonfigurować środowisko do pracy w trybie failover w celu zapewnienia optymalnej dostępności aplikacji i zminimalizowanego czasu odzyskiwania w przypadku wystąpienia awarii.
+Usługa Video Indexer w ramach usługi Azure Media Services nie zapewnia natychmiastowego trybu failover usługi w razie wystąpienia awarii lub błędu w regionalnym centrum danych. W tym artykule wyjaśniono, jak skonfigurować środowisko do pracy w trybie failover w celu zapewnienia optymalnej dostępności aplikacji i zminimalizowanego czasu odzyskiwania w przypadku wystąpienia awarii.
 
-Zalecamy skonfigurowanie odzyskiwania po awarii (BCDR) w różnych regionach regionalnych, aby korzystać z zasad izolacji i dostępności platformy Azure. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Zalecamy skonfigurowanie ciągłości działania i odzyskiwania po awarii (BCDR) w różnych parach regionalnych, aby móc korzystać z zasad dostępności i izolacji platformy Azure. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +39,7 @@ Aby zaimplementować BCDR, musisz mieć dwa konta Video Indexer, aby obsłużyć
 1. Jeśli wystąpi awaria w regionie podstawowym, przełącz się do indeksowania przy użyciu konta pomocniczego.
 
 > [!TIP]
-> Możesz zautomatyzować BCDR przez skonfigurowanie alertów dziennika aktywności dla powiadomień o kondycji usługi, jak na potrzeby [tworzenia alertów dziennika aktywności w powiadomieniach usługi](../../service-health/alerts-activity-log-service-notifications.md).
+> Możesz zautomatyzować BCDR przez skonfigurowanie alertów dziennika aktywności dla powiadomień o kondycji usługi, jak na potrzeby [tworzenia alertów dziennika aktywności w powiadomieniach usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Aby uzyskać informacje o używaniu wielu dzierżawców, zobacz [Zarządzanie wieloma dzierżawcami](manage-multiple-tenants.md). Aby zaimplementować BCDR, wybierz jedną z następujących opcji: [Video Indexer konto na dzierżawcę](manage-multiple-tenants.md#video-indexer-account-per-tenant) lub [subskrypcję platformy Azure dla dzierżawy](manage-multiple-tenants.md#azure-subscription-per-tenant).
 

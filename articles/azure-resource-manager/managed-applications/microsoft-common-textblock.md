@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba2c4d410891910c29ee1fda1065f8230ab171bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063880"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Microsoft. Common. TextBlock — element interfejsu użytkownika
 
@@ -17,7 +18,7 @@ Kontrolka, która może służyć do dodawania tekstu do interfejsu portalu.
 
 ## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
+![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft-common-textblock.png)
 
 ## <a name="schema"></a>Schemat
 

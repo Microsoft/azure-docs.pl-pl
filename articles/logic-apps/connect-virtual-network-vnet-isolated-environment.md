@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066486"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
-W przypadku scenariuszy, w których aplikacje logiki i konta integracji potrzebują dostępu do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md), Utwórz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
+W przypadku scenariuszy, w których aplikacje logiki i konta integracji potrzebują dostępu do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md), Utwórz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. Środowisko ISE zapewnia Ci także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
 
 Po utworzeniu ISE platforma Azure wprowadza tę ISE do sieci wirtualnej platformy Azure *, która następnie* wdraża usługę Logic Apps w sieci wirtualnej. Podczas tworzenia aplikacji logiki lub konta integracji wybierz swój ISE jako lokalizację. Aplikacja logiki lub konto integracji może następnie bezpośrednio uzyskać dostęp do zasobów, takich jak maszyny wirtualne, serwery, systemy i usługi, w sieci wirtualnej.
 
@@ -44,7 +44,7 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
   > [!IMPORTANT]
   > Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki, które działają w ISE, korzystają z planu cenowego innego niż plan cenowy oparty na zużyciu. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](../logic-apps/logic-apps-pricing.md).
 
-* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md). Sieć wirtualna musi mieć cztery *puste* podsieci, które nie są delegowane do żadnej usługi na potrzeby tworzenia i wdrażania zasobów w ISE. Każda podsieć obsługuje inny składnik Logic Apps używany w ISE. Podsieci można utworzyć z wyprzedzeniem. Możesz też poczekać, aż utworzysz ISE, w którym można tworzyć podsieci w tym samym czasie. Dowiedz się więcej o [wymaganiach podsieci](#create-subnet).
+* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md). Sieć wirtualna musi mieć cztery *puste* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. Podsieci można utworzyć z wyprzedzeniem. Możesz też poczekać, aż utworzysz ISE, tak aby można było utworzyć podsieci w tym samym czasie. Jednak przed utworzeniem podsieci zapoznaj się z [wymaganiami dotyczącymi podsieci](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -55,8 +55,6 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
   > * 127.0.0.0/8
   > * 168.63.129.16/32
   > * 169.254.169.254/32
-  > 
-  > Nazwy podsieci muszą zaczynać się znakiem alfabetycznym lub podkreśleniem i nie mogą używać następujących znaków:,,,,, `<` `>` `%` `&` `\\` `?` , `/` . Aby wdrożyć ISE za poorednictwem szablonu Azure Resource Manager, najpierw upewnij się, że delegowano jedną pustą podsieć do `Microsoft.Logic/integrationServiceEnvironment` . Nie musisz wykonywać tego delegowania podczas wdrażania za pomocą Azure Portal.
 
   * Upewnij się, że sieć wirtualna [umożliwia dostęp do usługi ISE](#enable-access) , dzięki czemu ISE może działać prawidłowo i pozostać dostępne.
 
@@ -126,14 +124,15 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
-| Usługa Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
-| Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
+| Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
+| Zależność usługi Azure Storage | **VirtualNetwork** | * | **Magazyn** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
 | Zależność SQL platformy Azure | **VirtualNetwork** | * | **SQL** | 1433 ||
 | Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Wymagane do opublikowania stanu kondycji w Resource Health. |
 | Zależność od dziennika do zasad usługi Event Hub i agenta monitorowania | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | Dostęp do pamięci podręcznej platformy Azure dla wystąpień Redis między wystąpieniami roli | **VirtualNetwork** | * | **VirtualNetwork** | 6379 – 6383, plus zobacz **uwagi**| Aby ISE współpracowały z usługą Azure cache for Redis, należy otworzyć te [porty wychodzące i przychodzące opisane w pamięci podręcznej platformy Azure w celu uzyskania często zadawanych pytań](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Rozpoznawanie nazw DNS | **VirtualNetwork** | * | Adresy IP dla wszelkich niestandardowych serwerów systemu nazw domen (DNS) w sieci wirtualnej | 53 | Wymagane tylko w przypadku korzystania z niestandardowych serwerów DNS w sieci wirtualnej |
 |||||||
 
 Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment (ASE)](../app-service/environment/intro.md):
@@ -168,18 +167,30 @@ Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment 
    | **Dodatkowa pojemność** | Premium: <br>Tak <p><p>Pisał <br>Nie dotyczy | Premium: <br>od 0 do 10 <p><p>Pisał <br>Nie dotyczy | Liczba dodatkowych jednostek przetwarzania, które mają być używane dla tego zasobu ISE. Aby dodać pojemność po utworzeniu, zobacz [Dodawanie pojemności ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Punkt końcowy dostępu** | Tak | **Wewnętrzne** lub **zewnętrzne** | Typ punktów końcowych dostępu, które mają być używane dla ISE. Te punkty końcowe określają, czy wyzwalacze żądań lub elementów webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej. <p><p>Wybór ma także wpływ na sposób wyświetlania i uzyskiwania dostępu do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki. Aby uzyskać więcej informacji, zobacz [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Ważne**: można wybrać punkt końcowy dostępu tylko podczas tworzenia ISE i nie można zmienić tej opcji później. |
    | **Sieć wirtualna** | Tak | <*Azure-Virtual-Network-Name*> | Sieć wirtualna platformy Azure, w której chcesz wstrzyknąć środowisko, aby aplikacje logiki w tym środowisku mogły uzyskiwać dostęp do sieci wirtualnej. Jeśli nie masz sieci, [najpierw Utwórz sieć wirtualną platformy Azure](../virtual-network/quick-create-portal.md). <p><p>**Ważne**: to iniekcja można wykonać *tylko* po utworzeniu ISE. |
-   | **Podsieci** | Tak | <*podsieć-Lista zasobów*> | ISE wymaga czterech *pustych* podsieci do tworzenia i wdrażania zasobów w środowisku. Aby utworzyć każdą podsieć, [wykonaj kroki opisane w tej tabeli](#create-subnet). |
+   | **Podsieci** | Tak | <*podsieć-Lista zasobów*> | ISE wymaga czterech *pustych* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. <p>**Ważne**: [przed wykonaniem tych kroków w celu utworzenia podsieci należy przejrzeć wymagania dotyczące podsieci](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
    **Tworzenie podsieci**
 
-   Aby tworzyć i wdrażać zasoby w danym środowisku, ISE muszą mieć cztery *puste* podsieci, które nie są delegowane do żadnej usługi. Każda podsieć obsługuje inny składnik Logic Apps używany w ISE. *Nie* można zmienić tych adresów podsieci po utworzeniu środowiska. Każda podsieć musi spełniać następujące wymagania:
+   ISE potrzebuje czterech *pustych* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. *Nie* można zmienić tych adresów podsieci po utworzeniu środowiska. Jeśli tworzysz i wdrażasz ISE za pomocą Azure Portal, upewnij się, że te podsieci nie zostały delegowane do żadnych usług platformy Azure. Jeśli jednak tworzysz i wdrażasz ISE za pomocą interfejsu API REST, Azure PowerShell lub szablonu Azure Resource Manager, musisz [delegować](../virtual-network/manage-subnet-delegation.md) jedną pustą podsieć do `Microsoft.integrationServiceEnvironment` . Aby uzyskać więcej informacji, zobacz [Dodawanie delegowania podsieci](../virtual-network/manage-subnet-delegation.md).
 
-   * Ma nazwę zaczynającą się od litery lub znaku podkreślenia (bez cyfr) i nie używa następujących znaków: `<` ,,,, `>` , `%` `&` `\\` `?` , `/` .
+   Każda podsieć musi spełniać następujące wymagania:
+
+   * Używa nazwy zaczynającej się od litery lub znaku podkreślenia (bez cyfr) i nie używa następujących znaków:,,,, `<` , `>` `%` `&` `\\` `?` , `/` .
 
    * Używa [formatu routingu bezklasowego (cidr)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) i przestrzeni adresowej klasy B.
+   
+     > [!IMPORTANT]
+     >
+     > Nie używaj następujących przestrzeni adresów IP dla sieci wirtualnej lub podsieci, ponieważ nie są one rozpoznawane przez Azure Logic Apps:<p>
+     > 
+     > * 0.0.0.0/8
+     > * 100.64.0.0/10
+     > * 127.0.0.0/8
+     > * 168.63.129.16/32
+     > * 169.254.169.254/32
 
    * Używa `/27` w przestrzeni adresowej, ponieważ każda podsieć wymaga 32 adresów. Na przykład `10.0.0.0/27` ma 32 adresów, ponieważ 2<sup>(32-27)</sup> jest 2<sup>5</sup> lub 32. Więcej adresów nie zapewnia dodatkowych korzyści. Aby dowiedzieć się więcej o obliczaniu adresów, zobacz [bloki protokołu IPv4 w protokole CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 

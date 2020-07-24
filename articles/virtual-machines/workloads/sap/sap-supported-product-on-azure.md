@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065089"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
 W tym artykule opisano sposób, w jaki można dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure oraz jakie są niezbędne wersje systemu operacyjnego lub wersje DBMS.
@@ -87,12 +87,12 @@ Znajomość wersji systemu DBMS, które są obsługiwane przez docelową infrast
 Na platformie Azure są dostępne dwie usługi, których można użyć do uruchomienia bazy danych HANA:
 
 - Azure Virtual Machines
-- [Duże wystąpienia HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Duże wystąpienia HANA](./hana-overview-architecture.md)
 
 W przypadku uruchamiania SAP HANA rozwiązanie SAP ma więcej i silniejsze warunki, które muszą spełniać infrastruktura niż w przypadku uruchamiania NetWeaver lub innych aplikacji SAP i systemu DBMS. W związku z tym mniejsza liczba maszyn wirtualnych platformy Azure kwalifikuje się do uruchamiania SAP HANA systemu DBMS. Listę obsługiwanych infrastruktury platformy Azure obsługiwaną dla SAP HANA można znaleźć w [katalogu sprzętowym SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> Jednostki zaczynające się od litery "są jednostkami [dużej liczby wystąpień Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) . 
+> Jednostki zaczynające się od litery "są jednostkami [dużej liczby wystąpień Hana](./hana-overview-architecture.md) . 
 
 > [!NOTE]
 > System SAP nie ma określonej certyfikacji zależnej od SAP HANA głównych wersji. W przeciwieństwie do typowej opinii **scenariusz certyfikacji** kolumny na [platformach IaaS Certified z certyfikatem Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) **nie zawiera żadnych instrukcji dotyczących głównych i pomocniczych wersji platformy Hana**. Należy założyć, że wszystkie jednostki wymienione na liście mogą być używane dla platformy HANA 1,0 i HANA 2,0, o ile certyfikowane wersje systemu operacyjnego dla określonych jednostek są również obsługiwane przez usługi HANA 1,0. 
@@ -138,12 +138,11 @@ Pomoc techniczna dla oprogramowania SAP BPC 10,1 SP08 jest opisana w artykule [d
 Pomoc techniczna dla platformy SAP Hybris Commerce platform na platformie Azure znajduje się szczegółowo w [dokumentacji Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). Jak w przypadku obsługiwanej platformy SAP Hybris Commerce platform system DBMS wygląda następująco:
 
 - SQL Server i Oracle na platformie systemu operacyjnego Windows. W przypadku oprogramowania SAP NetWeaver stosowane są te same wersje minimalne. Aby uzyskać szczegółowe informacje, zobacz [uwagi dotyczące pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
-- SAP HANA w systemach Red Hat i SUSE Linux. SAP HANA typy certyfikowanych maszyn wirtualnych są wymagane zgodnie z opisem we wcześniejszej części [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). Platforma SAP (Hybris) Commerce platform jest traktowana jako obciążenie OLTP
+- SAP HANA w systemach Red Hat i SUSE Linux. SAP HANA typy certyfikowanych maszyn wirtualnych są wymagane zgodnie z opisem we wcześniejszej części [tego dokumentu](#sap-hana-support). Platforma SAP (Hybris) Commerce platform jest traktowana jako obciążenie OLTP
 - Baza danych SQL Azure jako platformy SAP (Hybris) w wersji 1811
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj następne kroki w temacie [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-
+Przeczytaj następne kroki w temacie [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](./planning-guide.md)

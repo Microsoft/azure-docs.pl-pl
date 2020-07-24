@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 999ab77538a145189e0576c920216fa55d8508f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85366830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065136"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurowanie Pacemaker Red Hat Enterprise Linux na platformie Azure
 
@@ -120,7 +120,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    </code></pre>
 
    > [!IMPORTANT]
-   > Jeśli trzeba zaktualizować agenta usługi Azure ogrodzenia, a jeśli jest używana rola niestandardowa, należy zaktualizować rolę niestandardową w celu uwzględnienia akcji **wyłączenie**. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie roli niestandardowej dla agenta ogranicznika](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
+   > Jeśli trzeba zaktualizować agenta usługi Azure ogrodzenia, a jeśli jest używana rola niestandardowa, należy zaktualizować rolę niestandardową w celu uwzględnienia akcji **wyłączenie**. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie roli niestandardowej dla agenta ogranicznika](#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** rozpoznawanie nazw hostów
 
@@ -220,7 +220,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
-Jednostka usługi nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Należy nadać uprawnienia główne usługi, aby uruchomić i zatrzymać (wyłączyć) wszystkie maszyny wirtualne w klastrze. Jeśli rola niestandardowa nie została jeszcze utworzona, możesz ją utworzyć przy użyciu [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Jednostka usługi nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Należy nadać uprawnienia główne usługi, aby uruchomić i zatrzymać (wyłączyć) wszystkie maszyny wirtualne w klastrze. Jeśli rola niestandardowa nie została jeszcze utworzona, możesz ją utworzyć przy użyciu [programu PowerShell](../../../role-based-access-control/role-assignments-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](../../../role-based-access-control/role-assignments-cli.md)
 
 Użyj następującej zawartości dla pliku wejściowego. Musisz dostosować zawartość do swoich subskrypcji, zastępując c276fc76-9cd4-44c9-99a7-4fd71546436e i e91d47c4-76f3-4271-a796-21b4ecfe3624 identyfikatorami subskrypcji. Jeśli masz tylko jedną subskrypcję, Usuń drugą pozycję w AssignableScopes.
 
@@ -291,7 +291,7 @@ op monitor interval=3600
 </code></pre>
 
 > [!TIP]
->Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="next-steps"></a>Następne kroki
 

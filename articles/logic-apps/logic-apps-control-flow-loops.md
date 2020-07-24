@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066344"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
@@ -161,7 +162,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
 > [!NOTE]
 > W tych krokach jest używany pakiet Office 365 Outlook, ale można użyć dowolnego dostawcy poczty e-mail obsługiwanego przez Logic Apps. 
-> [Sprawdź tutaj listę łączników](https://docs.microsoft.com/connectors/). Jeśli używasz innego konta e-mail, ogólne kroki pozostają takie same, ale interfejs użytkownika może wyglądać nieco inaczej. 
+> [Sprawdź tutaj listę łączników](/connectors/). Jeśli używasz innego konta e-mail, ogólne kroki pozostają takie same, ale interfejs użytkownika może wyglądać nieco inaczej. 
 
 1. Tworzenia pustej aplikacji logiki. W Projektancie aplikacji logiki w polu wyszukiwania wybierz pozycję **wszystkie**. Wyszukaj ciąg "cykl". 
    Z listy Wyzwalacze wybierz pozycję Ten wyzwalacz: **cykliczny harmonogram**
@@ -174,7 +175,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
    | Właściwość | Wartość |
    | -------- | ----- |
-   | **Dat** | 1 | 
+   | **Interwał** | 1 | 
    | **Częstotliwość** | Dzień |
    | **W tych godzinach** | 8 |
    ||| 
@@ -232,7 +233,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
       | Właściwość | Wartość | Opis |
       | -------- | ----- | ----------- | 
       | **Do** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
-      | **Temat** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
+      | **Podmiot** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
       | **Treść** | <*Poczta e-mail — zawartość*> | Określ zawartość wiadomości e-mail, która ma zostać wysłana. Na potrzeby tego przykładu wpisz dowolny tekst. | 
       |||| 
 
@@ -248,7 +249,7 @@ Pętla "until" ma domyślne limity, które przerywają wykonywanie w przypadku w
 
 | Właściwość | Wartość domyślna | Opis | 
 | -------- | ------------- | ----------- | 
-| **Liczbą** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
+| **Liczba** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
 | **Limit czasu** | PT1H | Najwięcej czasu na uruchomienie pętli przed wyjściem z pętli. Wartość domyślna to jedna godzina i jest określona w formacie ISO 8601. <p>Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. | 
 |||| 
 
@@ -334,7 +335,7 @@ Ta przykładowa pętla "until" wywołuje punkt końcowy HTTP, który tworzy zas�
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Aby przesłać lub zagłosować na temat funkcji i sugestii, [Azure Logic Apps witrynie opinii użytkowników](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066526"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Ciągłość działania i odzyskiwanie po awarii dla Azure Logic Apps
 
@@ -157,7 +157,7 @@ Gdy aplikacja logiki zostanie wyzwolona i uruchomiona, stan aplikacji jest przec
 
 Aby zminimalizować liczbę porzuconych wystąpień przepływu pracy w toku, można wybrać spośród różnych wzorców komunikatów, które można zaimplementować, na przykład:
 
-* [Wzorzec dokumentu stałego routingu](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Wzorzec dokumentu stałego routingu](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Ten wzorzec komunikatu przedsiębiorstwa dzielący proces biznesowy na mniejsze etapy. Dla każdego etapu należy skonfigurować aplikację logiki, która obsługuje obciążenie dla tego etapu. Aby komunikować się ze sobą, Aplikacje logiki używają protokołu obsługi komunikatów asynchronicznych, takiego jak kolejki Azure Service Bus lub tematy. Podział procesu na mniejsze etapy zmniejsza liczbę procesów, które mogą zostać zablokowane w przypadku wystąpienia niepowodzenia aplikacji logiki. Aby uzyskać ogólne informacje na temat tego wzorca, zobacz [wzorce integracji przedsiębiorstwa — Routing](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Aby zminimalizować liczbę porzuconych wystąpień przepływu pracy w toku, mo�
 
   ![Podziel proces biznesowy na etapy reprezentowane przez aplikacje logiki, które komunikują się ze sobą za pomocą kolejek Azure Service Bus](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Jeśli podstawowe i pomocnicze wystąpienia aplikacji logiki są zgodne z tym samym wzorcem dokumentu routingu w swoich lokalizacjach, można zaimplementować [wzór konkurujących odbiorców](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) , konfigurując [Role Active-Active](#roles) dla tych wystąpień.
+  Jeśli podstawowe i pomocnicze wystąpienia aplikacji logiki są zgodne z tym samym wzorcem dokumentu routingu w swoich lokalizacjach, można zaimplementować [wzór konkurujących odbiorców](/azure/architecture/patterns/competing-consumers) , konfigurując [Role Active-Active](#roles) dla tych wystąpień.
 
 * [Wzorzec Menedżera procesów (Broker)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ W perspektywie odzyskiwania po awarii, podczas konfigurowania wystąpień głów
   Na przykład odczytywanie z kolejki komunikatów, takiej jak Kolejka Azure Service Bus, używa stanu po stronie serwera, ponieważ usługa kolejkowania zachowuje blokady komunikatów, aby uniemożliwić innym klientom odczytywanie tych samych komunikatów.
 
   > [!NOTE]
-  > Jeśli aplikacja logiki musi odczytywać wiadomości w określonej kolejności, na przykład z kolejki Service Bus, można użyć konkurencyjnego wzorca klienta, ale tylko w połączeniu z sesjami Service Bus, który jest również znany jako [ *sekwencyjny wzorzec konwoju* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). W przeciwnym razie należy skonfigurować wystąpienia aplikacji logiki przy użyciu ról aktywnych-pasywnych.
+  > Jeśli aplikacja logiki musi odczytywać wiadomości w określonej kolejności, na przykład z kolejki Service Bus, można użyć konkurencyjnego wzorca klienta, ale tylko w połączeniu z sesjami Service Bus, który jest również znany jako [ *sekwencyjny wzorzec konwoju* ](/azure/architecture/patterns/sequential-convoy). W przeciwnym razie należy skonfigurować wystąpienia aplikacji logiki przy użyciu ról aktywnych-pasywnych.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Z punktu widzenia odzyskiwania po awarii wyzwalacz żądania jest odbiornikiem p
 
 * [Aktywne-pasywne](#roles): tylko wystąpienie podstawowe jest aktywne i obsługuje całą pracę, podczas gdy wystąpienie pomocnicze czeka na zakłócenia lub awarię podstawowego środowiska. Obiekt wywołujący lub router określa, kiedy należy wywołać wystąpienie pomocnicze.
 
-W ramach zalecanej architektury można użyć usługi Azure API Management jako serwera proxy dla aplikacji logiki, które używają wyzwalaczy żądań. API Management zapewnia [wbudowaną elastyczność międzyregionalną oraz możliwość kierowania ruchu do wielu punktów końcowych](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+W ramach zalecanej architektury można użyć usługi Azure API Management jako serwera proxy dla aplikacji logiki, które używają wyzwalaczy żądań. API Management zapewnia [wbudowaną elastyczność międzyregionalną oraz możliwość kierowania ruchu do wielu punktów końcowych](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ W przypadku tego zadania w lokalizacji dodatkowej Utwórz aplikację logiki licz
 
 ### <a name="activate-your-secondary-instance"></a>Aktywuj wystąpienie pomocnicze
 
-Aby automatycznie aktywować wystąpienie pomocnicze, można utworzyć aplikację logiki, która wywołuje interfejs API zarządzania, taki jak [łącznik Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) , aby aktywować odpowiednie Aplikacje logiki w dodatkowej lokalizacji. Możesz rozszerzyć aplikację licznika alarmowego, aby wywołać tę aplikację logiki aktywacji po wystąpieniu określonej liczby błędów.
+Aby automatycznie aktywować wystąpienie pomocnicze, można utworzyć aplikację logiki, która wywołuje interfejs API zarządzania, taki jak [łącznik Azure Resource Manager](/connectors/arm/) , aby aktywować odpowiednie Aplikacje logiki w dodatkowej lokalizacji. Możesz rozszerzyć aplikację licznika alarmowego, aby wywołać tę aplikację logiki aktywacji po wystąpieniu określonej liczby błędów.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Istnieje możliwość skonfigurowania rejestrowania dla aplikacji logiki i wysł
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie odporności dla platformy Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Lista kontrolna dotycząca odporności dla określonych usług platformy Azure](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Zarządzanie danymi pod kątem odporności na platformie Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Odzyskiwanie po obejmujących cały region zakłóceniach usługi](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Omówienie odporności dla platformy Azure](/azure/architecture/framework/resiliency/overview)
+* [Lista kontrolna dotycząca odporności dla określonych usług platformy Azure](/azure/architecture/checklist/resiliency-per-service)
+* [Zarządzanie danymi pod kątem odporności na platformie Azure](/azure/architecture/framework/resiliency/data-management)
+* [Tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Odzyskiwanie po obejmujących cały region zakłóceniach usługi](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Umowy dotyczące poziomu usług (umowy SLA) firmy Microsoft dla usług platformy Azure](https://azure.microsoft.com/support/legal/sla/)

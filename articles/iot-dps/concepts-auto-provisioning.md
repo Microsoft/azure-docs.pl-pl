@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4755d3ac30a4f6fdc0568dd88fa0e362d7d140a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066564"
 ---
 # <a name="auto-provisioning-concepts"></a>Koncepcje autoaprowizacji
 
@@ -52,7 +53,7 @@ Seria przewodników Szybki Start znajduje się w spisie treści po lewej stronie
 | | Podaj tożsamość urządzenia | Jako podmiot nadawczy informacji o tożsamości urządzenia producent jest odpowiedzialny za komunikowanie się z operatorem (lub wskazanym agentem) lub bezpośrednio z rejestracją w usłudze Device Provisioning za pośrednictwem interfejsów API.<br><br>**Przewodniki Szybki Start**: od momentu symulowania urządzenia nie ma roli producenta. Zobacz rolę operatora, aby uzyskać szczegółowe informacje na temat sposobu uzyskiwania tożsamości urządzenia, która jest używana do rejestrowania symulowanego urządzenia w wystąpieniu usługi Device Provisioning. |
 | Operator | Konfigurowanie autoaprowizacji | Ta operacja odpowiada pierwszej fazie inicjowania obsługi.<br><br>**Przewodniki Szybki Start**: wykonywanie roli operatora, Konfigurowanie usługi Device Provisioning i wystąpień IoT Hub w ramach subskrypcji platformy Azure. |
 |  | Rejestrowanie tożsamości urządzenia | Ta operacja odpowiada drugiej fazie aprowizacji samoobsługowego.<br><br>**Przewodniki Szybki Start**: wykonujesz rolę operatora, rejestrując urządzenie symulowane w wystąpieniu usługi Device Provisioning. Tożsamość urządzenia jest określana przez metodę zaświadczania symulowaną w przewodniku szybki start (TPM lub X. 509). Szczegółowe informacje o zaświadczeniu można znaleźć w roli dewelopera. |
-| Usługa Device Provisioning,<br>Usługa IoT Hub | \<all operations\> | W przypadku wdrożenia produkcyjnego z urządzeniami fizycznymi i przewodników szybki start z symulowanymi urządzeniami te role są spełnione za pośrednictwem usług IoT skonfigurowanych w ramach subskrypcji platformy Azure. Role/operacje działają dokładnie tak samo, co usługi IoT różnią się w zależności od aprowizacji urządzeń fizycznych a symulowanych. |
+| Usługa Device Provisioning,<br>IoT Hub | \<all operations\> | W przypadku wdrożenia produkcyjnego z urządzeniami fizycznymi i przewodników szybki start z symulowanymi urządzeniami te role są spełnione za pośrednictwem usług IoT skonfigurowanych w ramach subskrypcji platformy Azure. Role/operacje działają dokładnie tak samo, co usługi IoT różnią się w zależności od aprowizacji urządzeń fizycznych a symulowanych. |
 | Deweloper | Kompiluj/Wdróż oprogramowanie rejestracyjne | Ta operacja odpowiada trzeciej fazie inicjowania obsługi. Deweloper jest odpowiedzialny za tworzenie i wdrażanie oprogramowania do rejestracji na urządzeniu przy użyciu odpowiedniego zestawu SDK.<br><br>**Przewodniki Szybki Start**: kompilacja przykładowej aplikacji do rejestracji symuluje rzeczywiste urządzenie dla wybranej platformy/języka, który działa na stacji roboczej (zamiast wdrażać ją na urządzeniu fizycznym). Aplikacja do rejestracji wykonuje te same operacje, które zostały wdrożone na urządzeniu fizycznym. Należy określić metodę zaświadczania (Certyfikat modułu TPM lub X. 509) oraz adres URL rejestracji i "zakres identyfikatorów" wystąpienia usługi Device Provisioning Service. Tożsamość urządzenia jest określana przez logikę zaświadczania zestawu SDK w czasie wykonywania na podstawie określonej metody: <ul><li>**Zaświadczanie modułu TPM** — na stacji roboczej deweloperskiej jest uruchomiona [aplikacja symulatora modułu TPM](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Po uruchomieniu oddzielna aplikacja jest używana do wyodrębnienia "klucza poręczenia" i "Identyfikator rejestracji" do użycia podczas rejestrowania tożsamości urządzenia. Logika zaświadczania zestawu SDK używa również symulatora podczas rejestracji, aby przedstawić podpisany token sygnatury dostępu współdzielonego w celu uwierzytelniania i weryfikacji rejestracji.</li><li>**Zaświadczanie** [o certyfikatach x509 — wygenerowanie certyfikatu](how-to-use-sdk-tools.md#x509-certificate-generator)jest możliwe za pomocą narzędzia. Po wygenerowaniu należy utworzyć plik certyfikatu wymagany do użycia podczas rejestracji. Logika zaświadczania zestawu SDK używa również certyfikatu podczas rejestracji, aby można było zaprezentować uwierzytelnianie i weryfikację rejestracji.</li></ul> |
 | Urządzenie | Rozruchu i zarejestruj | Ta operacja jest zgodna z trzecią fazą samoobsługowego inicjowania obsługi przez oprogramowanie do rejestracji urządzeń utworzone przez dewelopera. Aby uzyskać szczegółowe informacje, zobacz rolę dewelopera. Po pierwszym rozruchu: <ol><li>Aplikacja nawiązuje połączenie z wystąpieniem usługi Device Provisioning, używając globalnego adresu URL i usługi "Scope ID" określonego podczas tworzenia.</li><li>Po nawiązaniu połączenia urządzenie jest uwierzytelniane w oparciu o metodę zaświadczania i tożsamość określoną podczas rejestracji.</li><li>Po uwierzytelnieniu urządzenie zostanie zarejestrowane przy użyciu wystąpienia IoT Hub określonego przez wystąpienie usługi aprowizacji.</li><li>Po pomyślnej rejestracji unikatowy identyfikator urządzenia i punkt końcowy IoT Hub są zwracane do aplikacji rejestracji w celu komunikowania się z IoT Hub.</li><li> Z tego miejsca urządzenie może pobrać stan wstępnej [splotu urządzenia](~/articles/iot-hub/iot-hub-devguide-device-twins.md) w celu skonfigurowania i rozpocząć proces raportowania danych telemetrycznych.</li></ol>**Przewodniki Szybki Start**: ponieważ urządzenie jest symulowane, oprogramowanie do rejestracji działa na stacji roboczej deweloperskiej.|
 
@@ -102,10 +103,10 @@ Zacznij od wykonania kroku "Konfigurowanie automatycznej aprowizacji" przewodnik
 
 Następnie przejdź do przewodnika Szybki Start "Autouzupełnianie urządzenia symulowanego", który odpowiada mechanizmowi zaświadczania urządzenia i zestawie SDK/języka usługi aprowizacji urządzeń. W tym przewodniku szybki start przeprowadzisz etapy "rejestracja urządzeń" i "rejestracja urządzeń i konfiguracji": 
 
-|  | Mechanizm zaświadczania urządzenia symulowanego | Zestaw SDK/język szybkiego startu |  |
-|--|--|--|--|
-|  | Moduł TPM | [S](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certyfikat X. 509 | [S](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+| Mechanizm zaświadczania urządzenia symulowanego | Zestaw SDK/język szybkiego startu |
+| -------------------------------------- | ----------------------- |
+| Moduł TPM | [S](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| Certyfikat X. 509 | [S](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
 
 
 

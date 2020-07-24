@@ -1,18 +1,19 @@
 ---
 title: Najlepsze rozwiązania dotyczące Azure Maps Search Service | Mapy Microsoft Azure
 description: Dowiedz się, jak stosować najlepsze rozwiązania w przypadku korzystania z Search Service z map Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84264370"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064268"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Najlepsze rozwiązania dotyczące Azure Maps Search Service
 
@@ -27,7 +28,7 @@ W tym artykule wyjaśniono, jak stosować metody dźwiękowe podczas wywoływani
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wywołania do interfejsów API usługi Azure Maps, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+Aby wykonać wywołania do interfejsów API usługi Azure Maps, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
@@ -84,7 +85,7 @@ Zalecamy korzystanie z interfejsu API "Azure Maps [przeszukiwania rozmytego](htt
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Odwróć kod i filtr dla typu jednostki geografii
 
-W przypadku przeszukiwania odwrotnego kodu w [interfejsie API odwrotnego adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)usługa może zwracać wielokąty dla obszarów administracyjnych. Na przykład Yoi może chcieć pobrać Wielokąt obszaru dla miasta.Aby zawęzić wyszukiwanie do określonych typów jednostek geograficznych, Uwzględnij `entityType` parametr w żądaniach. 
+W przypadku przeszukiwania odwrotnego kodu w [interfejsie API odwrotnego adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)usługa może zwracać wielokąty dla obszarów administracyjnych. Na przykład możesz chcieć pobrać Wielokąt obszaru dla miasta.Aby zawęzić wyszukiwanie do określonych typów jednostek geograficznych, Uwzględnij `entityType` parametr w żądaniach. 
 
 Odpowiedź będąca wynikiem zawiera identyfikator geografii i typ jednostki, który został dopasowany. Jeśli podano więcej niż jedną jednostkę, punkt końcowy zwraca *najmniejszą dostępną jednostkę*. Możesz użyć zwróconego identyfikatora geometrii, aby uzyskać geometrię geografii za pomocą [usługi wyszukiwania wielokątów](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -948,7 +949,7 @@ Zwróć uwagę, że wyszukiwanie adresów nie zwraca punktów POI.
 }
 ```
 
-### <a name="geometry"></a>Geometrii
+### <a name="geometry"></a>Geometria
 
 Typ odpowiedzi *geometrycznej* może zawierać identyfikator geometrii, który jest zwracany w `dataSources` obiekcie w `geometry` i `id` . Na przykład można użyć [usługi wyszukiwania Wielokąt](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) , aby zażądać danych geometrycznych w formacie GEOJSON. Korzystając z tego formatu, można uzyskać szkic miasta lub lotniska dla zestawu jednostek. Następnie możesz użyć tych danych granicznych, aby [skonfigurować geoogrodzenie](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) lub [przeszukać punktów POI wewnątrz geometrii](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 

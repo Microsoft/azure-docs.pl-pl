@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83739536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066116"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Komunikaty programu Exchange X12 dla integracji z usługą B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
@@ -86,7 +87,7 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
 
 ![Schematy dla wiadomości przychodzących](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-schemas.png)
 
-W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) dla każdego typu transakcji (ST01) i aplikacji nadawcy (GS02). Potok odbierania EDI służy do rozbudowy komunikatu przychodzącego przez dopasowanie wartości i schematu ustawionych w tej sekcji wartościami dla ST01 i GS02 w komunikacie przychodzącym oraz ze schematem komunikatu przychodzącego. Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
+W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](./logic-apps-enterprise-integration-create-integration-account.md) dla każdego typu transakcji (ST01) i aplikacji nadawcy (GS02). Potok odbierania EDI służy do rozbudowy komunikatu przychodzącego przez dopasowanie wartości i schematu ustawionych w tej sekcji wartościami dla ST01 i GS02 w komunikacie przychodzącym oraz ze schematem komunikatu przychodzącego. Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
 
 | Właściwość | Opis |
 |----------|-------------|
@@ -173,7 +174,7 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
    * [Numer wersji kontrolki](#outbound-control-version-number)
    * [Numery kontrolne](#outbound-control-numbers)
    * [Zestawy znaków i separatory](#outbound-character-sets-separators)
-   * [Zatwierdzenia](#outbound-validation)
+   * [Walidacja](#outbound-validation)
 
 1. Gdy wszystko będzie gotowe, pamiętaj o zapisaniu ustawień, wybierając **przycisk OK**.
 
@@ -209,7 +210,7 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
 
 ![Schematy dla komunikatów wychodzących](./media/logic-apps-enterprise-integration-x12/x12-send-settings-schemas.png)
 
-W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) dla każdego typu transakcji (ST01). Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
+W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](./logic-apps-enterprise-integration-create-integration-account.md) dla każdego typu transakcji (ST01). Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
 
 | Właściwość | Opis |
 |----------|-------------|
@@ -235,7 +236,7 @@ W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-s
 
 ![Numer wersji kontrolki dla komunikatów wychodzących](./media/logic-apps-enterprise-integration-x12/x12-send-settings-control-version-number.png)
 
-W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) dla każdej wymiany. Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
+W tej sekcji Wybierz [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) z [konta integracji](./logic-apps-enterprise-integration-create-integration-account.md) dla każdej wymiany. Po zakończeniu każdego wiersza zostanie wyświetlony nowy pusty wiersz.
 
 | Właściwość | Opis |
 |----------|-------------|
@@ -380,7 +381,7 @@ Aby określić numery wersji i typy komunikatów tych dokumentów, wykonaj nast�
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Dodatkowe szczegóły techniczne dotyczące tego łącznika, takie jak akcje i limity, zgodnie z opisem w pliku struktury Swagger łącznika, można znaleźć na [stronie odniesienia łącznika](https://docs.microsoft.com/connectors/x12/).
+Dodatkowe szczegóły techniczne dotyczące tego łącznika, takie jak akcje i limity, zgodnie z opisem w pliku struktury Swagger łącznika, można znaleźć na [stronie odniesienia łącznika](/connectors/x12/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wersja tego ŁĄCZNIKa ISE z oznaczeniem używa [limitów komunikatów B2B dla ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

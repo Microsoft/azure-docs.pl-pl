@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065957"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
@@ -47,7 +48,7 @@ W Azure Logic Apps lokalna Brama danych obsługuje [Łączniki lokalne](../conne
 * SQL Server
 * Teradata
 
-Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. Jednak te operacje mają [limity rozmiaru ładunku](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Mimo że sama Brama nie wiąże się z dodatkowymi kosztami, [model cenowy Logic Apps](../logic-apps/logic-apps-pricing.md) ma zastosowanie do tych łączników i innych operacji w Azure Logic Apps.
+Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. Jednak te operacje mają [limity rozmiaru ładunku](/data-integration/gateway/service-gateway-onprem#considerations). Mimo że sama Brama nie wiąże się z dodatkowymi kosztami, [model cenowy Logic Apps](../logic-apps/logic-apps-pricing.md) ma zastosowanie do tych łączników i innych operacji w Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -152,7 +153,7 @@ Aby utworzyć inny zasób bramy, Połącz instalację bramy z innym zasobem bram
 
 1. Jeśli jeszcze tego nie zrobiono, w menu zasobów bramy wybierz pozycję **lokalna Brama danych**. Na pasku narzędzi zasobów bramy wybierz pozycję **Usuń**.
 
-   Przykład:
+   Na przykład:
 
    ![Usuwanie zasobu bramy na platformie Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

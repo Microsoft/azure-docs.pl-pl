@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 785054222dc3281b11b5e6abe1b82f67e2fc5ace
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066653"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu
 
@@ -40,7 +40,7 @@ Przykładowy szablon dostępny w repozytorium publicznym korzysta z pliku parame
 
 Aby wdrożyć pobrany szablon przy użyciu programu PowerShell, wykonaj poniższe kroki.
 
-1. Jeśli jeszcze nie korzystasz z Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) i postępować zgodnie z instrukcjami, aby zalogować się do platformy Azure i wybrać subskrypcję.
+1. Jeśli jeszcze nie korzystasz z Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) i postępować zgodnie z instrukcjami, aby zalogować się do platformy Azure i wybrać subskrypcję.
 2. Pobierz plik parametrów na lokalny dysk twardy.
 3. Edytuj plik i zapisz go.
 4. Uruchom polecenie cmdlet **New-AzResourceGroupDeployment** , aby utworzyć grupę zasobów przy użyciu szablonu.

@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066246"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Tworzenie przepływów pracy aplikacji logiki na podstawie wbudowanych szablonów
 
@@ -33,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
 
 ## <a name="create-logic-apps-from-templates"></a>Tworzenie aplikacji logiki przy użyciu szablonów
 
-1. Jeśli jeszcze tego nie zrobiono, zaloguj się do [Azure Portal](https://portal.azure.com "Azure Portal").
+1. Jeśli jeszcze tego nie zrobiono, zaloguj się do [Azure Portal](https://portal.azure.com "Witryna Azure Portal").
 
 2. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **integracja dla przedsiębiorstw**  >  **aplikacji logiki**.
 
@@ -49,7 +50,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
    | **Subskrypcja** | *nazwa_Twojej_susbkrypcji_Azure* | Wybierz subskrypcję platformy Azure, której chcesz użyć. | 
    | **Grupa zasobów** | *nazwa_Twojej_grupy_zasobów_Azure* | Utwórz lub wybierz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) dla tej aplikacji logiki i zorganizuj wszystkie zasoby skojarzone z tą aplikacją. | 
    | **Lokalizacja** | *region_Twojego_centrum_danych_Azure* | Wybierz region centrum danych do wdrożenia swojej aplikacji logiki, na przykład Zachodnie stany USA. | 
-   | **Log Analytics** | **Wyłączone** (domyślnie) lub **na** | Skonfiguruj [rejestrowanie diagnostyczne](../logic-apps/monitor-logic-apps-log-analytics.md) dla aplikacji logiki przy użyciu [dzienników Azure monitor](../log-analytics/log-analytics-overview.md). Wymaga, aby masz już obszar roboczy Log Analytics. | 
+   | **Log Analytics** | **Wyłączone** (domyślnie) lub **na** | Skonfiguruj [rejestrowanie diagnostyczne](../logic-apps/monitor-logic-apps-log-analytics.md) dla aplikacji logiki przy użyciu [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md). Wymaga, aby masz już obszar roboczy Log Analytics. | 
    |||| 
 
 4. Gdy wszystko będzie gotowe, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**. Dzięki temu aplikacja logiki automatycznie pojawi się na pulpicie nawigacyjnym platformy Azure i zostanie otwarta po wdrożeniu. Wybierz pozycję **Utwórz**.
@@ -60,7 +61,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
    Gdy platforma Azure wdroży aplikację logiki, zostanie otwarty Projektant aplikacji usługi Logic Apps wyświetlający stronę z wprowadzającym wideo. 
    Pod wideo znajdziesz szablony typowych wzorców aplikacji logiki. 
 
-5. Przewiń zawartość wideo z wprowadzeniem i typowe wyzwalacze do **szablonów**. Wybierz wstępnie utworzony szablon. Przykład:
+5. Przewiń zawartość wideo z wprowadzeniem i typowe wyzwalacze do **szablonów**. Wybierz wstępnie utworzony szablon. Na przykład:
 
    ![Wybieranie szablonu aplikacji logiki](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -68,7 +69,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
    > Aby utworzyć aplikację logiki od podstaw, wybierz pozycję **pusta aplikacja logiki**.
 
    Po wybraniu prekompilowanego szablonu można wyświetlić więcej informacji na temat tego szablonu. 
-   Przykład:
+   Na przykład:
 
    ![Wybieranie wstępnie skompilowanego szablonu](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -82,7 +83,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
 
    * Jeśli te połączenia zostały już skonfigurowane, wybierz pozycję **Kontynuuj**.
 
-   Przykład:
+   Na przykład:
 
    ![Tworzenie połączeń](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -98,18 +99,18 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
 
 ## <a name="update-logic-apps-with-templates"></a>Aktualizowanie aplikacji logiki za pomocą szablonów
 
-1. W [Azure Portal](https://portal.azure.com "Azure Portal")Znajdź i Otwórz aplikację logiki w programie Logic App Designer.
+1. W [Azure Portal](https://portal.azure.com "Witryna Azure Portal")Znajdź i Otwórz aplikację logiki w programie Logic App Designer.
 
-2. Na pasku narzędzi projektanta wybierz pozycję **Szablony**. Ta akcja odrzuca wszystkie niezapisane zmiany, dlatego zostanie wyświetlony komunikat ostrzegawczy, aby potwierdzić, że chcesz kontynuować. Aby potwierdzić, wybierz **przycisk OK**. Przykład:
+2. Na pasku narzędzi projektanta wybierz pozycję **Szablony**. Ta akcja odrzuca wszystkie niezapisane zmiany, dlatego zostanie wyświetlony komunikat ostrzegawczy, aby potwierdzić, że chcesz kontynuować. Aby potwierdzić, wybierz **przycisk OK**. Na przykład:
 
    ![Wybieranie "szablonów"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Przewiń zawartość wideo z wprowadzeniem i typowe wyzwalacze do **szablonów**. Wybierz wstępnie utworzony szablon. Przykład:
+3. Przewiń zawartość wideo z wprowadzeniem i typowe wyzwalacze do **szablonów**. Wybierz wstępnie utworzony szablon. Na przykład:
 
    ![Wybieranie szablonu aplikacji logiki](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Po wybraniu prekompilowanego szablonu można wyświetlić więcej informacji na temat tego szablonu. 
-   Przykład:
+   Na przykład:
 
    ![Wybieranie wstępnie skompilowanego szablonu](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -145,7 +146,7 @@ Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

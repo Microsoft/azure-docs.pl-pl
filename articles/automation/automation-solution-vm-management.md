@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064449"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -49,7 +49,7 @@ Nie musisz konfigurować uprawnień, jeśli jesteś współautorem subskrypcji i
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Uprawnienia do istniejącego już konta usługi Automation i obszaru roboczego Log Analytics
 
-Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours przy użyciu istniejącego konta usługi Automation i Log Analytics obszaru roboczego, wymagane są następujące uprawnienia do zakresu grupy zasobów. Aby dowiedzieć się więcej na temat ról, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
+Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours przy użyciu istniejącego konta usługi Automation i Log Analytics obszaru roboczego, wymagane są następujące uprawnienia do zakresu grupy zasobów. Aby dowiedzieć się więcej na temat ról, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
 
 | Uprawnienie | Zakres|
 | --- | --- |

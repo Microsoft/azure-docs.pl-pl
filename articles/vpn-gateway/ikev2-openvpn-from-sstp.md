@@ -2,16 +2,17 @@
 title: Przejście do OpenVPN lub IKEv2 z protokołu SSTP | VPN Gateway platformy Azure
 description: Ten artykuł zawiera informacje na temat sposobów pokonania współbieżnego limitu połączeń protokołu SSTP przez 128.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1531bca6c56c159b7535536fb31a577f0d7253ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983344"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064680"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Przejście do protokołu OpenVPN lub IKEv2 z SSTP
 

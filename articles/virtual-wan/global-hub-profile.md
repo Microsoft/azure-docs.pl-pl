@@ -2,17 +2,17 @@
 title: Pobierz globalne lub oparte na centrach profilów sieci VPN Azure Virtual WAN | Microsoft Docs
 description: Dowiedz się więcej o wirtualnej skalowalnej gałęzi sieci WAN, dostępnych regionach i partnerach.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 4/20/2020
 ms.author: alzam
-ms.openlocfilehash: be2ea92ddbcce7c1e0ab5ba7d172cda0e05984fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064792"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Pobieranie profilu globalnego lub opartego na centrum dla klientów sieci VPN użytkowników
 

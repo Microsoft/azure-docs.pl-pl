@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063979"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft. Common. Section — element interfejsu użytkownika
 
@@ -17,7 +18,7 @@ Kontrolka, która grupuje co najmniej jeden element w ramach nagłówka.
 
 ## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
+![Microsoft.Common.Section](./media/managed-application-elements/microsoft-common-section.png)
 
 ## <a name="schema"></a>Schemat
 
@@ -48,7 +49,7 @@ Kontrolka, która grupuje co najmniej jeden element w ramach nagłówka.
 - Ten element nie obsługuje `toolTip` właściwości.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
-Aby uzyskać dostęp do wartości wyjściowych elementów w `elements` , należy użyć [podstawowych ()](create-uidefinition-functions.md#basics) lub [czynności ()](create-uidefinition-functions.md#steps) i notacji kropkowej:
+Aby uzyskać dostęp do wartości wyjściowych elementów w `elements` , należy użyć [podstawowych ()](create-ui-definition-referencing-functions.md#basics) lub [czynności ()](create-ui-definition-referencing-functions.md#steps) i notacji kropkowej:
 
 ```json
 steps('configuration').section1.text1

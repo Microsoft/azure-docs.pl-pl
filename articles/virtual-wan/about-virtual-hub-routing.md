@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064918"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -33,7 +33,7 @@ W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtu
 
 Tabela tras koncentratora wirtualnego może zawierać jedną lub więcej tras. Trasa obejmuje jego nazwę, etykietę, typ docelowy, listę prefiksów docelowych oraz informacje o następnym przeskoku dla pakietu, który ma być kierowany. **Połączenie** zazwyczaj będzie miało konfigurację routingu skojarzoną lub propagowaną do tabeli tras
 
-### <a name="connection"></a><a name="connection"></a>Połączenie
+### <a name="connection"></a><a name="connection"></a>Połączenia
 
 Połączenia są Menedżer zasobów zasobach z konfiguracją routingu. Istnieją cztery typy połączeń:
 
@@ -59,6 +59,9 @@ Połączenia dynamicznie propagują trasy do tabeli tras. W przypadku połączen
 Dla każdego koncentratora wirtualnego jest również dostępna **tabela tras none** . Propagowanie do tabeli tras braku nie oznacza, że trasy nie są wymagane do propagowania z połączenia. Połączenia sieci VPN, ExpressRoute i VPN użytkowników propagują trasy do tego samego zestawu tabel tras.
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagacja":::
+
+### <a name="labels"></a><a name="static"></a>Etykiety
+Etykiety zapewniają mechanizm logicznego grupowania tabel tras. Jest to szczególnie przydatne podczas propagacji tras z połączeń do wielu tabel tras. Na przykład domyślna tabela tras ma wbudowaną etykietę o nazwie "default". Gdy użytkownicy propagują trasy połączeń do etykiety "default", automatycznie stosuje się do wszystkich domyślnych tabel tras w każdym centrum w wirtualnej sieci WAN. 
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurowanie tras statycznych w połączeniu sieci wirtualnej
 

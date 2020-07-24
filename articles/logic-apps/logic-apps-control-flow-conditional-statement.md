@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066355"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Tworzenie instrukcji warunkowych kontrolujących akcje przepływu pracy w Azure Logic Apps
 
@@ -35,7 +36,7 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele w
 
 1. Dodaj warunek w pożądanej lokalizacji. 
 
-   Aby dodać warunek między krokami, przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać warunek. Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj akcję**. Przykład:
+   Aby dodać warunek między krokami, przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać warunek. Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj akcję**. Na przykład:
 
    ![Dodaj akcję między krokami](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -68,7 +69,7 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele w
    Aby dodać grupę z podwarunkami, wybierz pozycję **Dodaj**  >  **Dodaj grupę**. 
    Aby zgrupować istniejące wiersze, zaznacz pola wyboru dla tych wierszy, wybierz przycisk wielokropka (...) dla każdego wiersza, a następnie wybierz polecenie **Utwórz grupę**.
 
-1. W obszarze **Jeśli prawda** i w **przypadku wartości false**Dodaj kroki do wykonania w zależności od tego, czy warunek jest spełniony. Przykład:
+1. W obszarze **Jeśli prawda** i w **przypadku wartości false**Dodaj kroki do wykonania w zależności od tego, czy warunek jest spełniony. Na przykład:
 
    ![Warunek z ścieżkami "If true" i "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
@@ -109,7 +110,7 @@ Oto definicja kodu wysokiego poziomu za instrukcją warunkową:
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Aby przesłać funkcje i sugestie lub zagłosować na nie, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

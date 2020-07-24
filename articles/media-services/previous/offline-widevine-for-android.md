@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065492"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Przesyłanie strumieniowe przy użyciu technologii Widevine w trybie offline dla systemu Android  
 
@@ -29,7 +29,7 @@ ms.locfileid: "80294332"
 > * [Wersja 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Oprócz ochrony zawartości w ramach przesyłania strumieniowego online, subskrypcji zawartości multimedialnej i usług najmu można pobrać zawartość, która działa, gdy nie masz połączenia z Internetem. Może być konieczne pobranie zawartości na telefonie lub tablecie do odtwarzania w trybie samolotowym, gdy napływa odłączony od sieci. Dodatkowe scenariusze, w których warto pobrać zawartość:
 
@@ -181,7 +181,7 @@ Oznacza to, że usługa Secure Token Service (STS) musi mieć informacje o logic
 
 ### <a name="question"></a>Pytanie
 
-W przypadku poziomów zabezpieczeń Widevine w dokumentacji doc dotyczącej [architektury DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) firmy Google definiujemy trzy różne poziomy zabezpieczeń. Jednak w [Azure Media Services dokumentacji dotyczącej szablonu licencji Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)są podane pięć różnych poziomów zabezpieczeń. Jaka jest relacja lub mapowanie między dwoma różnymi zestawami poziomów zabezpieczeń?
+W przypadku poziomów zabezpieczeń Widevine w dokumentacji doc dotyczącej [architektury DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) firmy Google definiujemy trzy różne poziomy zabezpieczeń. Jednak w [Azure Media Services dokumentacji dotyczącej szablonu licencji Widevine](./media-services-widevine-license-template-overview.md)są podane pięć różnych poziomów zabezpieczeń. Jaka jest relacja lub mapowanie między dwoma różnymi zestawami poziomów zabezpieczeń?
 
 ### <a name="answer"></a>Odpowiedź
 
@@ -191,7 +191,7 @@ W temacie [Omówienie architektury DRM Widevine](https://storage.googleapis.com/
 2.  Poziom zabezpieczeń 2: wykonuje kryptografię (ale nie przetwarzanie wideo) w TEE: odszyfrowane bufory są zwracane do domeny aplikacji i przetwarzane przez oddzielnego sprzętu wideo lub oprogramowania. Jednak na poziomie 2 informacje kryptograficzne są nadal przetwarzane tylko w ramach TEE.
 3.  Poziom zabezpieczeń 3 nie ma TEE na urządzeniu. Odpowiednie środki mogą być podejmowane w celu ochrony informacji kryptograficznych i odszyfrowanej zawartości w systemie operacyjnym hosta. Implementacja poziomu 3 może również obejmować sprzętowy aparat kryptograficzny, ale tylko podnosi wydajność, a nie zabezpieczenia.
 
-W tym samym czasie, w [Azure Media Services dokumentacji dotyczącej szablonu licencji Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), właściwość security_level content_key_specs może mieć następujące pięć różnych wartości (wymagania dotyczące niezawodności klienta na potrzeby odtwarzania):
+W tym samym czasie, w [Azure Media Services dokumentacji dotyczącej szablonu licencji Widevine](./media-services-widevine-license-template-overview.md), właściwość security_level content_key_specs może mieć następujące pięć różnych wartości (wymagania dotyczące niezawodności klienta na potrzeby odtwarzania):
 
 1.  Wymagana jest Kryptografia Whitebox oparta na oprogramowaniu.
 2.  Wymagane jest Kryptografia oprogramowania i niesłonięty dekoder.

@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065110"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Co to jest oprogramowanie SAP HANA na platformie Azure — duże wystąpienia?
 
@@ -38,8 +39,8 @@ Od lipca 2019 różnice między dwiema różnymi zmianami sygnatur dużych wyst�
 - "Poprawka 3" (Rev. 3): to sygnatury, które zostały udostępnione Klientowi do wdrożenia przed lipca 2019
 - "Wersja 4" (Rev. 4): nowy projekt sygnatury wdrożony w pobliżu hostów maszyn wirtualnych platformy Azure, które są w tej chwili udostępniane w regionach świadczenia usługi Azure:
     -  Zachodnie stany USA 2 
-    -  Wschodnie stany USA 
-    -  Europa Zachodnia
+    -  East US 
+    -  West Europe
     -  Europa Północna
 
 
@@ -53,8 +54,8 @@ Różne dokumenty dotyczące dużych wystąpień programu HANA obejmują następ
 - [Instalowanie i Konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (duże wystąpienia) Rozwiązywanie problemów i monitorowanie na platformie Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Wysoka dostępność skonfigurowana w SUSE przy użyciu STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Kopia zapasowa i przywracanie systemu operacyjnego dla jednostek SKU typu II poprawki 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Wysoka dostępność skonfigurowana w SUSE przy użyciu STONITH](./ha-setup-with-stonith.md)
+- [Kopia zapasowa i przywracanie systemu operacyjnego dla jednostek SKU typu II poprawki 3](./os-backup-type-ii-skus.md)
 
 **Następne kroki**
 - Zapoznaj się [z postanowieniami](hana-know-terms.md)

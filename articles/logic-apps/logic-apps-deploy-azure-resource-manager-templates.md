@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 814cc1116ca8ac924beaaea8c7bb3dbb8d6ae1ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066032"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Wdrażanie szablonów usługi Azure Resource Manager dla usługi Azure Logic Apps
 
 Po utworzeniu szablonu Azure Resource Manager dla aplikacji logiki można wdrożyć szablon w następujący sposób:
 
-* [Azure Portal](#portal)
-* [Program Visual Studio](#visual-studio)
+* [Witryna Azure Portal](#portal)
+* [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Interfejs wiersza polecenia platformy Azure](#cli)
 * [Interfejs API REST usługi Azure Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
@@ -64,8 +64,8 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 
 Więcej informacji można znaleźć w następujących tematach:
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md)
+* [`New-AzResourceGroupDeployment`](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 
 <a name="cli"></a>
 
@@ -80,23 +80,23 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 Więcej informacji można znaleźć w następujących tematach:
 
 * [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](../azure-resource-manager/templates/deploy-cli.md)
-* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
 
 ## <a name="deploy-with-azure-devops"></a>Wdrażanie za pomocą usługi Azure DevOps
 
-W celu wdrożenia szablonów aplikacji logiki i zarządzania środowiskami zespoły często używają narzędzia, takiego jak [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) w [usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines udostępnia [zadanie wdrażania grupy zasobów platformy Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) , które można dodać do dowolnego potoku kompilacji lub wydania. Aby można było przeprowadzić autoryzację w celu wdrożenia i wygenerowania potoku wydania, potrzebna jest również nazwa [główna usługi](../active-directory/develop/app-objects-and-service-principals.md)Azure Active Directory (AD). Dowiedz się więcej o [używaniu jednostek usługi z Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
+W celu wdrożenia szablonów aplikacji logiki i zarządzania środowiskami zespoły często używają narzędzia, takiego jak [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) w [usłudze Azure DevOps](/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines udostępnia [zadanie wdrażania grupy zasobów platformy Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) , które można dodać do dowolnego potoku kompilacji lub wydania. Aby można było przeprowadzić autoryzację w celu wdrożenia i wygenerowania potoku wydania, potrzebna jest również nazwa [główna usługi](../active-directory/develop/app-objects-and-service-principals.md)Azure Active Directory (AD). Dowiedz się więcej o [używaniu jednostek usługi z Azure Pipelines](/azure/devops/pipelines/library/connect-to-azure).
 
 Aby uzyskać więcej informacji na temat ciągłej integracji i ciągłego wdrażania (CI/CD) dla Azure Resource Manager szablonów z Azure Pipelines, zobacz następujące tematy i przykłady:
 
 * [Integrowanie szablonów Menedżer zasobów z Azure Pipelines](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
 * [Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
-* [Przykład: łączenie z kolejkami Azure Service Bus z Azure Logic Apps i wdrażania przy użyciu Azure Pipelines na platformie Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Przykład: łączenie z kontami usługi Azure Storage z Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Przykład: Konfigurowanie akcji aplikacji funkcji dla Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Przykład: Nawiązywanie połączenia z kontem integracji z Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [Przykład: organizowanie Azure Pipelines przy użyciu Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [Przykład: łączenie z kolejkami Azure Service Bus z Azure Logic Apps i wdrażania przy użyciu Azure Pipelines na platformie Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Przykład: łączenie z kontami usługi Azure Storage z Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Przykład: Konfigurowanie akcji aplikacji funkcji dla Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Przykład: Nawiązywanie połączenia z kontem integracji z Azure Logic Apps i wdrażanie za pomocą Azure Pipelines na platformie Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Przykład: organizowanie Azure Pipelines przy użyciu Azure Logic Apps](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Poniżej przedstawiono ogólne kroki wysokiego poziomu dotyczące korzystania z Azure Pipelines:
 
@@ -108,7 +108,7 @@ Poniżej przedstawiono ogólne kroki wysokiego poziomu dotyczące korzystania z 
 
    ![Dodawanie zadania "wdrożenie grupy zasobów platformy Azure"](./media/logic-apps-deploy-azure-resource-manager-templates/add-azure-resource-group-deployment-task.png)
 
-1. Skonfiguruj przy użyciu [nazwy głównej usługi](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
+1. Skonfiguruj przy użyciu [nazwy głównej usługi](/azure/devops/pipelines/library/connect-to-azure).
 
 1. Dodaj odwołania do szablonów aplikacji logiki i plików parametrów szablonu.
 
@@ -118,7 +118,7 @@ Poniżej przedstawiono ogólne kroki wysokiego poziomu dotyczące korzystania z 
 
 ## <a name="authorize-oauth-connections"></a>Autoryzuj połączenia OAuth
 
-Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Należy jednak nadal autoryzować wszystkie połączenia OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-scenarios.md). Poniżej przedstawiono sposoby autoryzacji połączeń uwierzytelniania OAuth:
+Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Należy jednak nadal autoryzować wszystkie połączenia OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md). Poniżej przedstawiono sposoby autoryzacji połączeń uwierzytelniania OAuth:
 
 * W przypadku zautomatyzowanych wdrożeń można użyć skryptu, który zapewnia zgodę na każde połączenie OAuth. Oto przykładowy skrypt w usłudze GitHub w projekcie [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 

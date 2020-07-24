@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065965"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
 
@@ -35,10 +35,10 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
 
 * Dostęp do komputera z systemem plików, który ma być używany. Na przykład w przypadku zainstalowania bramy danych na tym samym komputerze, na którym znajduje się system plików, potrzebne są poświadczenia konta dla tego komputera.
 
-* Konto e-mail dostawcy, który jest obsługiwany przez Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](https://docs.microsoft.com/connectors/). Ta aplikacja logiki korzysta z konta Office 365 Outlook. Jeśli korzystasz z innego konta e-mail, ogólne kroki będą takie same, ale interfejs użytkownika może się trochę różnić.
+* Konto e-mail dostawcy, który jest obsługiwany przez Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](/connectors/). Ta aplikacja logiki korzysta z konta Office 365 Outlook. Jeśli korzystasz z innego konta e-mail, ogólne kroki będą takie same, ale interfejs użytkownika może się trochę różnić.
 
   > [!IMPORTANT]
-  > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Na potrzeby tego przykładu potrzebujesz pustej aplikacji logiki.
 
@@ -73,7 +73,7 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
    | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa, która ma być używany dla połączenia |
    | **Folder główny** | Tak | <*Nazwa folderu głównego*> | Folder główny systemu plików, na przykład jeśli zainstalowano lokalną bramę danych, taką jak folder lokalny na komputerze, na którym jest zainstalowana lokalna Brama danych lub folder udziału sieciowego, do którego komputer ma dostęp. <p>Na przykład: `\\PublicShare\\DropboxFiles` <p>Folder główny jest głównym folderem nadrzędnym, który jest używany dla ścieżek względnych dla wszystkich akcji związanych z plikami. |
    | **Typ uwierzytelniania** | Nie | <*Typ uwierzytelniania*> | Typ uwierzytelniania używany przez system plików: **Windows** |
-   | **Uż** | Tak | <*domain* > \\ domena < *Nazwa użytkownika*> <p>-lub- <p><*komputer* > \\ lokalny < *Nazwa użytkownika*> | Nazwa użytkownika komputera, na którym znajduje się folder systemu plików. <p>Jeśli folder systemu plików znajduje się na tym samym komputerze co lokalna Brama danych, można użyć <*local-computer* > \\ < *nazwy użytkownika* lokalnego komputera>. |
+   | **Nazwa użytkownika** | Tak | <*domain* > \\ domena < *Nazwa użytkownika*> <p>-lub- <p><*komputer* > \\ lokalny < *Nazwa użytkownika*> | Nazwa użytkownika komputera, na którym znajduje się folder systemu plików. <p>Jeśli folder systemu plików znajduje się na tym samym komputerze co lokalna Brama danych, można użyć <*local-computer* > \\ < *nazwy użytkownika* lokalnego komputera>. |
    | **Hasło** | Tak | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
    | **punkt** | Tak | <*Instalacja bramy — nazwa*> | Nazwa zainstalowanej wcześniej bramy |
    |||||
@@ -96,7 +96,7 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/fileconnector/).
+Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/fileconnector/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .

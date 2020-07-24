@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066396"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Skonfiguruj pojedynczy adres IP dla co najmniej jednego środowiska usługi integracji w Azure Logic Apps
 
@@ -52,7 +53,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
    |----------|-------|-------------|
    | **Nazwa trasy** | <*Unikatowa nazwa trasy*> | Unikatowa nazwa trasy w tabeli tras |
    | **Prefiks adresu** | <*adres docelowy*> | Prefiks adresu dla systemu docelowego, do którego ma nastąpić ruch wychodzący. Upewnij się, że dla tego adresu jest używana [notacja CIDR (Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . W tym przykładzie ten prefiks adresu jest przeznaczony dla serwera SFTP, który jest opisany w sekcji [Konfigurowanie reguły sieci](#set-up-network-rule). |
-   | **Typ następnego skoku** | **Urządzenie wirtualne** | [Typ przeskoku](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) używany przez ruch wychodzący |
+   | **Typ następnego przeskoku** | **Urządzenie wirtualne** | [Typ przeskoku](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) używany przez ruch wychodzący |
    | **Adres następnego skoku** | <*Zapora-Private-IP-Address*> | Prywatny adres IP dla zapory |
    |||
 
@@ -95,8 +96,8 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
    * [Konfigurowanie reguły sieci](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Logika przetwarzania reguł usługi Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.md)
-   * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Interfejs wiersza polecenia platformy Azure: AZ Network firewall Network-Rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+   * [Interfejs wiersza polecenia platformy Azure: AZ Network firewall Network-Rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## <a name="next-steps"></a>Następne kroki
 

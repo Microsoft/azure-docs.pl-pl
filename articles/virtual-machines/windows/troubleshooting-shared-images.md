@@ -9,14 +9,14 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ef4cdb8c5cd8956f85dadba80d3dffec8d0e4730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40662ccef681eae3db51bcd966c5952b6147290c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065360"
 ---
-# <a name="troubleshooting-shared-image-galleries"></a>Troubleshooting shared image galleries (Rozwiązywanie problemów z galeriami obrazów udostępnionych)
+# <a name="troubleshooting-shared-image-galleries-windows"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów (Windows)
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]

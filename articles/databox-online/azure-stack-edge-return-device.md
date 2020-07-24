@@ -1,38 +1,40 @@
 ---
-title: Zwróć lub Zastąp urządzenie Azure Stack Edge | Microsoft Docs
-description: Opisuje sposób zwracania lub zamiany urządzenia Azure Stack Edge.
+title: Zwróć urządzenie Azure Stack Edge | Microsoft Docs
+description: Opisuje sposób zwracania Azure Stack urządzenia brzegowego.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067018"
 ---
-# <a name="return-or-replace-your-azure-stack-edge-device"></a>Zwróć lub Zastąp urządzenie Azure Stack Edge
+# <a name="return-your-azure-stack-edge-device"></a>Zwracanie urządzenia Azure Stack Edge
 
-W tym artykule opisano sposób czyszczenia danych, a następnie zwrócenia urządzenia Azure Stack Edge. Po zwróceniu urządzenia można także usunąć zasób skojarzony z urządzeniem lub zamówić urządzenie zamienne.
+W tym artykule opisano sposób czyszczenia danych, a następnie zwrócenia urządzenia Azure Stack Edge. Po zwróceniu urządzenia można także usunąć zasób skojarzony z urządzeniem.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 >
 > * Czyszczenie danych z dysków z danymi na urządzeniu
-> * Otwórz bilet pomocy technicznej, aby zwrócić urządzenie
+> * Inicjowanie powrotu urządzenia w Azure Portal
 > * Pakowanie urządzenia i planowanie odbioru
 > * Usuń zasób w Azure Portal
-> * Pobierz urządzenie zastępcze
 
 ## <a name="erase-data-from-the-device"></a>Wymazywanie danych z urządzenia
 
 Aby wyczyścić dane z dysków danych urządzenia, należy zresetować urządzenie. Możesz zresetować urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web lub interfejsu programu PowerShell.
 
 Przed zresetowaniem Utwórz kopię danych lokalnych na urządzeniu, jeśli jest to konieczne. Dane z urządzenia można skopiować do kontenera usługi Azure Storage.
+
+Możesz zainicjować zwracanie urządzenia nawet przed zresetowaniem urządzenia. 
 
 Aby zresetować urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web, wykonaj następujące czynności.
 
@@ -53,19 +55,50 @@ Alternatywnie można nawiązać połączenie z interfejsem programu PowerShell u
 > - Jeśli wymieniasz lub uaktualniasz nowe urządzenie, zalecamy zresetowanie urządzenia tylko po odebraniu nowego urządzenia.
 > - Zresetowanie urządzenia spowoduje usunięcie tylko tych danych z urządzenia. Dane znajdujące się w chmurze nie zostaną usunięte i nie będą zbierać [opłat](https://azure.microsoft.com/pricing/details/storage/). Te dane należy usunąć oddzielnie przy użyciu narzędzia do zarządzania magazynem w chmurze, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="open-a-support-ticket"></a>Otwórz bilet pomocy technicznej
+## <a name="initiate-device-return"></a>Inicjowanie powrotu urządzenia
 
 Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
-1. Otwórz bilet pomocy technicznej z pomoc techniczna firmy Microsoft wskazujący, że chcesz zwrócić urządzenie. Wybierz typ problemu jako **urządzenie Azure Stack Edge**.
+1. Przejdź do zasobu Azure Stack Edge/Data Box Gateway w Azure Portal. W oknie **Przegląd**przejdź do paska poleceń w okienku po prawej stronie i wybierz pozycję **Zwróć urządzenie**. 
 
-    ![Otwieranie biletu pomocy technicznej](media/azure-stack-edge-return-device/open-support-ticket-1.png)  
+    ![Zwróć urządzenie 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
-2. Inżynier pomoc techniczna firmy Microsoft skontaktuje się z Tobą. Podaj szczegóły dotyczące wysyłki.
-3. Jeśli potrzebujesz pola wysyłania zwrotnego, możesz je zażądać. Odpowiedź **tak** na pytanie **wymaga pustego pola do zwrócenia**.
+2. W bloku **urządzenia zwrotnego** w obszarze **podstawowe informacje**:
 
+    1. Podaj numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, przejdź do lokalnego interfejsu użytkownika sieci Web urządzenia, a następnie przejdź do **omówienia**.  
+    
+    ![Numer seryjny urządzenia 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+
+    2. Wprowadź numer tagu usługi, który jest co najmniej pięcioma identyfikatorem znaku, który jest unikatowy dla Twojego urządzenia. Tag usługi znajduje się w prawym dolnym rogu urządzenia (w przypadku urządzenia). Pobierz tag informacji (jest to panel etykiet z slajdem). Ten panel zawiera informacje o systemie, takie jak tag usługi, karta sieciowa, adres MAC i tak dalej. 
+    
+    ![Numer znacznika usługi 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+
+    3. Z listy rozwijanej wybierz przyczynę powrotu.
+
+    ![Zwróć urządzenie 2](media/azure-stack-edge-return-device/return-device-2.png) 
+
+3. W obszarze **Szczegóły wysyłki**:
+
+    1. Podaj imię i nazwisko, nazwę firmy oraz pełny adres firmy. Wprowadź numer telefonu służbowego, w tym numer kierunkowy i identyfikator e-mail powiadomienia.
+    2. Jeśli potrzebujesz pola wysyłania zwrotnego, możesz je zażądać. Odpowiedź **tak** na pytanie **wymaga pustego pola do zwrócenia**.
+
+    ![Zwróć urządzenie 3](media/azure-stack-edge-return-device/return-device-3.png)
+
+4. Zapoznaj się z **warunkami zachowania poufności** i zaznacz pole wyboru obok uwagi, że zostały przejrzane i zgadzasz się na warunki zachowania poufności informacji.
+
+5. Wybierz pozycję **Inicjuj zwrot**.
+
+    ![Zwróć urządzenie 4](media/azure-stack-edge-return-device/return-device-4.png) 
+
+6. Po przechwyceniu szczegółowych informacji na urządzeniu można powiadomić zespół operacji Azure Stack Edge za pośrednictwem poczty e-mail. Możesz użyć aplikacji poczty e-mail przy założeniu, że aplikacja poczty e-mail jest zainstalowana i skonfigurowana. Możesz również skopiować dane, aby utworzyć i wysłać wiadomość e-mail.
+
+    ![Zwróć urządzenie 5](media/azure-stack-edge-return-device/return-device-5.png) 
+
+7. Po otrzymaniu wiadomości e-mail przez zespół operacji Azure Stack Edge zostanie wysłana etykieta wysłanej przesyłki. Po otrzymaniu tej etykiety można zaplanować odbiór urządzenia za pomocą operatora. 
 
 ## <a name="schedule-a-pickup"></a>Planowanie odbioru
+
+Aby zaplanować odbiór, wykonaj następujące czynności.
 
 1. Zamknij urządzenie. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja > ustawienia zarządzania**.
 2. Wybierz pozycję **Zamknij**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **tak** , aby kontynuować. Aby uzyskać więcej informacji, zobacz [zarządzanie mocą](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
@@ -84,13 +117,14 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
 Gdy urządzenie zostanie odebrane w centrum danych platformy Azure, urządzenie jest sprawdzane pod kątem uszkodzenia lub wszelkich oznak naruszenia.
 
-- Jeśli urządzenie zostanie nienaruszone i w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Pomoc techniczna firmy Microsoft skontaktuje się z Tobą, aby upewnić się, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
+- Jeśli urządzenie zostanie nienaruszone i jest w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Pomoc techniczna firmy Microsoft skontaktuje się z Tobą, aby upewnić się, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
 - Jeśli urządzenie dotrze do znacznego uszkodzenia, mogą wystąpić grzywny. Aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania dotyczące zgubionych lub uszkodzonych urządzeń](https://azure.microsoft.com/pricing/details/databox/edge/) oraz [warunków użytkowania produktów](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Urządzenie można usunąć w Azure Portal:
--    Po złożeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
--    Po zwróceniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a pomoc techniczna firmy Microsofte wywołania, aby potwierdzić, że urządzenie zostało zwrócone.
+
+- Po złożeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
+- Po zwróceniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a pomoc techniczna firmy Microsofte wywołania, aby potwierdzić, że urządzenie zostało zwrócone.
 
 Jeśli urządzenie zostało aktywowane na inną subskrypcję lub lokalizację, firma Microsoft przeniesie zamówienie do nowej subskrypcji lub lokalizacji w ciągu jednego dnia roboczego. Po przeniesieniu zamówienia można usunąć ten zasób.
 
@@ -107,21 +141,7 @@ Wykonaj następujące kroki, aby usunąć urządzenie i zasób w Azure Portal.
 
 Po pomyślnym usunięciu urządzenia i skojarzonego z nim zasobu zostanie wyświetlone powiadomienie.
 
-## <a name="get-a-replacement-device"></a>Pobierz urządzenie zastępcze
-
-Urządzenie zamienne jest wymagane, gdy istniejące urządzenie ma awarię sprzętową lub wymaga uaktualnienia. Jeśli urządzenie ma problem sprzętowy, wykonaj następujące czynności:
-
-1. [Otwórz bilet pomocy technicznej na potrzeby problemu sprzętowego](#open-a-support-ticket). Pomoc techniczna firmy Microsoft ustali, że jednostka zamienna pola (FRU) nie jest dostępna dla tego wystąpienia lub urządzenie wymaga uaktualnienia sprzętowego. W obu przypadkach pomoc techniczna będzie zamawiać urządzenie zamienne.
-2. [Utwórz nowy zasób](azure-stack-edge-deploy-prep.md#create-a-new-resource) dla urządzenia zastępczego. Upewnij się, że pole wyboru jest zaznaczone z **urządzeniem Azure Stack Edge**. 
-3. Po otrzymaniu urządzenia zastępczego [Zainstaluj](azure-stack-edge-deploy-install.md) i [Aktywuj](azure-stack-edge-deploy-connect-setup-activate.md) urządzenie zamienne dla nowego zasobu.
-4. Wykonaj wszystkie kroki, aby zwrócić oryginalne urządzenie:
-    1. Otwórz kolejny bilet, aby przywrócić oryginalne urządzenie.
-    2. [Wymazywanie danych z urządzenia](#erase-data-from-the-device).
-    3. [Zaplanuj pobranie](#schedule-a-pickup).
-    5. [Usuń zasób](#delete-the-resource) skojarzony z zwróconym urządzeniem.
-
-
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [zarządzać przepustowością](azure-stack-edge-manage-bandwidth-schedules.md).
+- Dowiedz się [, jak uzyskać zamiennik Azure Stack urządzenia brzegowego](azure-stack-edge-replace-device.md).

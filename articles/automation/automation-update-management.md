@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/23/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 228a24fbc4fb68a72f2cb8abb7d4382127be2147
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064430"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -98,7 +98,7 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
+|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> do zarządzania aktualizacjami służy [Configuration Manager Microsoft Endpoint Protection](../virtual-desktop/configure-automatic-updates.md) for Windows 10 Client Patch Management. |
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
@@ -193,15 +193,15 @@ Poniższe adresy są wymagane dla Update Management. Komunikacja z tymi adresami
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
+Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor**. Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
 W przypadku maszyn z systemem Windows należy również zezwolić na ruch do wszystkich punktów końcowych wymaganych przez Windows Update. Zaktualizowaną listę wymaganych punktów końcowych można znaleźć w przypadku [problemów związanych z protokołem HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Jeśli masz lokalny [serwer Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), musisz również zezwolić na ruch do serwera określonego w [kluczu WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 W przypadku maszyn z systemem Red Hat Linux zapoznaj [się z tematem adresy IP dla serwerów RHUI Content Delivery](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for Required Endpoints. W przypadku innych dystrybucji systemu Linux zapoznaj się z dokumentacją dostawcy.
 
 Aby uzyskać więcej informacji na temat portów wymaganych dla hybrydowego procesu roboczego elementu Runbook, zobacz [adresy Update Management dla hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Zalecamy korzystanie z adresów wymienionych podczas definiowania wyjątków. W przypadku adresów IP można pobrać [Microsoft Azure zakresy adresów IP centrum](https://www.microsoft.com/download/details.aspx?id=41653)danych. Ten plik jest aktualizowany co tydzień i odzwierciedla aktualnie wdrożone zakresy oraz wszystkie nadchodzące zmiany w zakresach adresów IP.
-
-Postępuj zgodnie z instrukcjami w temacie [Connect Computers bez dostępu do Internetu](../azure-monitor/platform/gateway.md) , aby skonfigurować maszyny, które nie mają dostępu do Internetu.
+Jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem, można skonfigurować [bramę log Analytics](../azure-monitor/platform/gateway.md) , a następnie skonfigurować maszynę do nawiązywania połączeń za pomocą bramy w celu Azure Automation i Azure monitor.
 
 ## <a name="update-classifications"></a>Klasyfikacje aktualizacji
 
@@ -215,7 +215,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

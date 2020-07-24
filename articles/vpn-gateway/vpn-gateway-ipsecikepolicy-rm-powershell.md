@@ -8,11 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 504f4f2b2a0aa1fa8cd654c422e7ce8a00593b21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21c24fba2cbe03b17a057c09f95d9dd0d3665dc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064544"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna
 
@@ -117,7 +118,7 @@ Zobacz [Tworzenie połączenia S2S VPN](vpn-gateway-create-site-to-site-rm-power
 ### <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
-* Zainstaluj Azure Resource Manager polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/overview) .
+* Zainstaluj Azure Resource Manager polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/) .
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Krok 1. Tworzenie sieci wirtualnej, bramy sieci VPN i bramy sieci lokalnej
 
@@ -403,4 +404,4 @@ Możesz użyć tego samego skryptu, aby sprawdzić, czy zasady zostały usunięt
 
 Aby uzyskać więcej informacji na temat selektorów ruchu opartych na zasadach, zobacz [łączenie wielu lokalnych urządzeń sieci VPN opartych na zasadach](vpn-gateway-connect-multiple-policybased-rm-ps.md) .
 
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/windows/quick-create-portal.md).
