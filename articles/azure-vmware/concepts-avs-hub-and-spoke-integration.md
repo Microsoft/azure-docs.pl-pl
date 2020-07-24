@@ -3,16 +3,16 @@ title: Koncepcja — integruje wdrożenie rozwiązania Azure VMware (Automatyczn
 description: Zapoznaj się z zaleceniami dotyczącymi integracji wdrożenia programu Azure VMware Solution (Automatyczna synchronizacja) w istniejącej lub nowej architekturze Hub i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 82937e04fc0a5101c353702b92b6b068d027d7ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d95ed81c5188eab0dc508f5320549c4a402e151
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85375048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062933"
 ---
 # <a name="integrate-azure-vmware-solution-avs-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązania Azure VMware (Automatyczna synchronizacja) w architekturze gwiazdy i szprych
 
-W tym artykule udostępniamy zalecenia dotyczące integrowania wdrożenia programu Azure VMware Solution (Automatyczna synchronizacja) w istniejącej lub nowej [architekturze Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
+W tym artykule udostępniamy zalecenia dotyczące integrowania wdrożenia programu Azure VMware Solution (Automatyczna synchronizacja) w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
 
 Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami w:
 
@@ -24,7 +24,7 @@ Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami
 
 *Centrum* to Virtual Network platformy Azure, które działa jako centralny punkt łączności z chmurą prywatną i funkcją automatycznej synchronizacji. *Szprychy* są sieciami wirtualnymi równorzędnymi z koncentratorem, aby umożliwić komunikację między sieciami wirtualnymi.
 
-Ruch między lokalnym centrum danych a chmurą prywatną w chmurze, a centrum odbywa się za pomocą połączeń ExpressRoute. Sieci wirtualne szprych zazwyczaj zawierają obciążenia oparte na IaaS, ale mogą mieć usługi PaaS, takie jak [App Service Environment](../app-service/environment/intro.md), które mają bezpośrednią integrację z usługą Virtual Network lub innymi usługami PaaS z włączonym [łączem prywatnym platformy Azure](https://docs.microsoft.com/azure/private-link/) . 
+Ruch między lokalnym centrum danych a chmurą prywatną w chmurze, a centrum odbywa się za pomocą połączeń ExpressRoute. Sieci wirtualne szprych zazwyczaj zawierają obciążenia oparte na IaaS, ale mogą mieć usługi PaaS, takie jak [App Service Environment](../app-service/environment/intro.md), które mają bezpośrednią integrację z usługą Virtual Network lub innymi usługami PaaS z włączonym [łączem prywatnym platformy Azure](../private-link/index.yml) . 
 
 Na diagramie przedstawiono przykład wdrożenia centrum i szprych na platformie Azure połączonych z lokalnymi i automatyczna synchronizacja za pomocą ExpressRoute.
 
@@ -50,7 +50,7 @@ Architektura ma następujące główne składniki:
 
     -   **IaaS szprych:** IaaS szprych będzie hostować obciążenia oparte na usłudze Azure IaaS, w tym zestawy dostępności maszyn wirtualnych i zestawy skalowania maszyny wirtualnej oraz odpowiednie składniki sieciowe.
 
-    -   **PaaS szprych:** PaaS szprychy udostępnia usługi Azure PaaS Services przy użyciu adresów prywatnych, łącząc je z [prywatnym punktem końcowym](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) i [prywatnym](https://docs.microsoft.com/azure/private-link/private-link-overview).
+    -   **PaaS szprych:** PaaS szprychy udostępnia usługi Azure PaaS Services przy użyciu adresów prywatnych, łącząc je z [prywatnym punktem końcowym](../private-link/private-endpoint-overview.md) i [prywatnym](../private-link/private-link-overview.md).
 
 -   **Zapora platformy Azure:** Działa jako centralny element do segmentacji ruchu między szprychami, Premium i automatyczna synchronizacja.
 
@@ -58,7 +58,7 @@ Architektura ma następujące główne składniki:
 
 ## <a name="network-and-security-considerations"></a>Zagadnienia dotyczące sieci i zabezpieczeń
 
-Połączenia ExpressRoute umożliwiają przepływ ruchu między środowiskiem lokalnym, automatyczna synchronizacja i siecią szkieletową Azure. W celu zaimplementowania tej łączności funkcja automatycznej synchronizacji używa [Global REACH ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) .
+Połączenia ExpressRoute umożliwiają przepływ ruchu między środowiskiem lokalnym, automatyczna synchronizacja i siecią szkieletową Azure. W celu zaimplementowania tej łączności funkcja automatycznej synchronizacji używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) .
 
 Łączność lokalna może również korzystać z ExpressRoute Global Reach, ale nie jest to wymagane.
 
@@ -72,11 +72,11 @@ Połączenia ExpressRoute umożliwiają przepływ ruchu między środowiskiem lo
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Automatyczna synchronizacja z przepływem ruchu w sieci wirtualnej centrum":::
 
 
-Więcej szczegółowych informacji na temat automatycznej synchronizacji i koncepcji związanych z łącznością w programie można znaleźć w [dokumentacji produktu](https://docs.microsoft.com/azure/azure-vmware/concepts-networking).
+Więcej szczegółowych informacji na temat automatycznej synchronizacji i koncepcji związanych z łącznością w programie można znaleźć w [dokumentacji produktu](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentacja ruchu
 
-[Zapora systemu Azure](https://docs.microsoft.com/azure/firewall/) jest centralną częścią topologii gwiazdy, wdrożoną w centralnej sieci wirtualnej. Użyj zapory platformy Azure lub innego obsługiwanego sieciowego urządzenia wirtualnego platformy Azure do ustanowienia reguł ruchu i segmentacji komunikacji między różnymi szprychami, lokalnymi i AUTOMATYCZNAmi obciążeniami.
+[Zapora systemu Azure](../firewall/index.yml) jest centralną częścią topologii gwiazdy, wdrożoną w centralnej sieci wirtualnej. Użyj zapory platformy Azure lub innego obsługiwanego sieciowego urządzenia wirtualnego platformy Azure do ustanowienia reguł ruchu i segmentacji komunikacji między różnymi szprychami, lokalnymi i AUTOMATYCZNAmi obciążeniami.
 
 Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku sieci wirtualnych szprych Utwórz trasę, która ustawia domyślną trasę do wewnętrznego interfejsu zapory platformy Azure, w ten sposób, gdy obciążenie w Virtual Network musi dotrzeć do przestrzeni adresowej automatycznej synchronizacji, którą może oszacować Zapora, i zastosuj odpowiednią regułę ruchu, aby zezwolić na dostęp lub go zabronić.  
 
@@ -104,7 +104,7 @@ Platformy Azure Application Gateway V1 i v2 zostały przetestowane przy użyciu 
 
 Dostęp do środowiska automatycznej synchronizacji z programem serwera przesiadkowego, który jest maszyną wirtualną z systemem Windows 10 lub Windows Server wdrożoną w podsieci usługi udostępnionej w sieci wirtualnej centrum.
 
-Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azure bastionu](https://docs.microsoft.com/azure/bastion/) w ramach sieci wirtualnej centrum. Usługa Azure bastionu zapewnia bezproblemowe dostęp protokołu RDP i SSH do maszyn wirtualnych wdrożonych na platformie Azure bez konieczności aprowizacji publicznych adresów IP do tych zasobów. Po zainicjowaniu obsługi administracyjnej usługi Azure bastionu można uzyskać dostęp do wybranej maszyny wirtualnej z Azure Portal. Po nawiązaniu połączenia zostanie otwarta nowa karta, na której jest wyświetlany pulpit serwera przesiadkowego oraz z poziomu tego pulpitu, można uzyskać dostęp do płaszczyzny zarządzania chmurą prywatną w chmurze.
+Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azure bastionu](../bastion/index.yml) w ramach sieci wirtualnej centrum. Usługa Azure bastionu zapewnia bezproblemowe dostęp protokołu RDP i SSH do maszyn wirtualnych wdrożonych na platformie Azure bez konieczności aprowizacji publicznych adresów IP do tych zasobów. Po zainicjowaniu obsługi administracyjnej usługi Azure bastionu można uzyskać dostęp do wybranej maszyny wirtualnej z Azure Portal. Po nawiązaniu połączenia zostanie otwarta nowa karta, na której jest wyświetlany pulpit serwera przesiadkowego oraz z poziomu tego pulpitu, można uzyskać dostęp do płaszczyzny zarządzania chmurą prywatną w chmurze.
 
 > [!IMPORTANT]
 > Nie należy przydzielić publicznego adresu IP do maszyny wirtualnej serwera przesiadkowego lub uwidocznić Port 3389/TCP w publicznym Internecie. 
@@ -137,21 +137,19 @@ Serwery lokalne i automatyczna synchronizacja można skonfigurować za pomocą u
 
 ## <a name="identity-considerations"></a>Zagadnienia dotyczące tożsamości
 
-Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny usługi Active Directory w centrum przy użyciu podsieci usługi udostępnionej, idealnie do dwóch z nich w sposób dystrybuowany w ramach stref lub zestawu dostępności maszyn wirtualnych. Zobacz [centrum architektury platformy Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) , aby rozszerzyć lokalną domenę usługi AD na platformę Azure.
+Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny usługi Active Directory w centrum przy użyciu podsieci usługi udostępnionej, idealnie do dwóch z nich w sposób dystrybuowany w ramach stref lub zestawu dostępności maszyn wirtualnych. Zobacz [centrum architektury platformy Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) , aby rozszerzyć lokalną domenę usługi AD na platformę Azure.
 
 Ponadto Wdróż inny kontroler domeny na stronie automatycznej synchronizacji, aby działać jako tożsamość i źródło DNS w środowisku vSphere.
 
 W przypadku programu vCenter i logowania jednokrotnego ustaw źródło tożsamości w Azure Portal na stronie **Zarządzanie \> \> źródłami tożsamości tożsamości**.
 
-Najlepszym rozwiązaniem jest zintegrowanie [domeny usługi AD z Azure Active Directory](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad).
+Najlepszym rozwiązaniem jest zintegrowanie [domeny usługi AD z Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
-[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+[Azure Architecture Center]: /azure/architecture/
 
-[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Hub & Spoke topology]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 
-[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
+[Azure networking documentation]: ../networking/index.yml
 
 <!-- LINKS - internal -->
-
-

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: synteza mowy, usługa SWIFT-mowę'
+title: 'Szybki Start: synteza mowy w usłudze SWIFT w usłudze iOS-Speech'
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak przeprowadzić funkcję syntezy mowy w programie SWIFT w systemie iOS przy użyciu zestawu Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 8ce7d963e1d4a3514a0e60435634ba4f4a9cb009
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: e71717bdacbc3c6eb08fbdc8d56ec19c26a1d114
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062274"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Szybki Start: synteza mowy w programie SWIFT w systemie iOS przy użyciu zestawu Speech SDK
 

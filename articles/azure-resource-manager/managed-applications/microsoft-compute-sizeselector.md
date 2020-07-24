@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063616"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft. COMPUTE. SizeSelector — element interfejsu użytkownika
 
@@ -19,11 +20,11 @@ Kontrolka służąca do wybierania rozmiaru dla co najmniej jednego wystąpienia
 
 Użytkownik widzi selektor z wartościami domyślnymi z definicji elementu.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector.png)
 
 Po wybraniu kontrolki użytkownik zobaczy rozwinięty widok dostępnych rozmiarów.
 
-![Rozwinięto Microsoft. COMPUTE. SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Rozwinięto Microsoft. COMPUTE. SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector-expanded.png)
 
 ## <a name="schema"></a>Schemat
 

@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062600"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -16,7 +16,7 @@ Jednym z najważniejszych kroków, które można wykonać w celu ochrony danych,
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Zarządzanie tożsamościami i dostępem użytkowników oraz ich kontrola
 
-Konta magazynu używane przez magazyny usługi Recovery Services są izolowane i nie są dostępne dla użytkowników w przypadku jakichkolwiek złośliwych celów. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [Access Control opartego na rolach (RBAC) na platformie Azure](./backup-rbac-rs-vault.md). RBAC umożliwia rozdzielenie obowiązków w zespole i udzielanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
+Konta magazynu używane przez magazyny usługi Recovery Services są izolowane i nie są dostępne dla użytkowników w przypadku jakichkolwiek złośliwych celów. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC umożliwia rozdzielenie obowiązków w zespole i udzielanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
 
 Azure Backup udostępnia trzy [wbudowane role](../role-based-access-control/built-in-roles.md) do kontrolowania operacji zarządzania kopiami zapasowymi:
 

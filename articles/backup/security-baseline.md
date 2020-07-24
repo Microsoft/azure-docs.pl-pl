@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a7d12a2be7f2e3d3556d6c8c3303b2ddb8b8738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 999c443a63ceb2ebb59fc0de72ecb09d1ccc3905
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062618"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -480,7 +480,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaim
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Access Control oparte na ROLACH (RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
+**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
 
 Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi: współautor kopii zapasowej, operator kopii zapasowej i czytelnik kopii zapasowej. Wbudowane role kopii zapasowej można mapować na różne akcje zarządzania kopiami zapasowymi.
 

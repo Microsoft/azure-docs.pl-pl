@@ -1,5 +1,5 @@
 ---
-title: Link prywatny platformy Azure
+title: Azure Private Link
 description: Omówienie funkcji prywatnego punktu końcowego.
 author: rohitnayakmsft
 ms.author: rohitna
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063266"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatny link do platformy Azure dla Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ Wynik pokazuje, że jeden adres IP jest w użyciu. odpowiada adresowi IP dla pry
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Sprawdź łączność przy użyciu SQL Server Management Studio (SSMS)
 > [!NOTE]
-> Użyj w **pełni kwalifikowanej nazwy domeny (FQDN)** serwera w parametrach połączenia dla klientów. Wszystkie próby logowania wprowadzone bezpośrednio do adresu IP nie powiodą się. To zachowanie jest zgodne z projektem, ponieważ prywatny punkt końcowy kieruje ruch do bramy SQL w regionie i należy określić nazwę FQDN, aby logowanie powiodło się.
+> Użyj w **pełni kwalifikowanej nazwy domeny (FQDN)** serwera w parametrach połączenia dla klientów ( `<server>.database.windows.net` ). Wszystkie próby logowania dokonane bezpośrednio na adres IP lub za pomocą prywatnej nazwy FQDN ( `<server>.privatelink.database.windows.net` ) nie powiodą się. To zachowanie jest zgodne z projektem, ponieważ prywatny punkt końcowy kieruje ruch do bramy SQL w regionie i należy określić poprawną nazwę FQDN, aby logowania zakończyły się pomyślnie.
 
 Wykonaj kroki opisane tutaj, aby użyć programu [SSMS do nawiązania połączenia z SQL Database](connect-query-ssms.md). Po nawiązaniu połączenia z SQL Database przy użyciu programu SSMS Sprawdź, czy łączysz się z prywatnego adresu IP maszyny wirtualnej platformy Azure, uruchamiając następujące zapytanie:
 

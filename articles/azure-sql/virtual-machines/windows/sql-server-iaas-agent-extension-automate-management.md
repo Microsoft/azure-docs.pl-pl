@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 638a7fa96f4112f9805fd46618dc0acd1c2f382f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063230"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatyzowanie zadań zarządzania na maszynach wirtualnych platformy Azure przy użyciu rozszerzenia SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Rozszerzenie agenta SQL Server IaaS obsługuje następujące zadania administrac
 | --- | --- |
 | **SQL Server automatyczne kopie zapasowe** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla wystąpienia domyślnego lub [poprawnie zainstalowane](frequently-asked-questions-faq.md#administration) nazwane wystąpienie SQL Server na maszynie wirtualnej. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-backup-sql-2014.md). |
 | **SQL Server zautomatyzowane stosowanie poprawek** |Konfiguruje okno obsługi, w którym mogą być wykonywane ważne aktualizacje systemu Windows dla maszyny wirtualnej, dzięki czemu można uniknąć aktualizacji w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-patching.md). |
-| **Integracja magazynu kluczy Azure** |Umożliwia automatyczne instalowanie i Konfigurowanie Azure Key Vault na maszynie wirtualnej SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji Azure Key Vault dla SQL Server na platformie Azure Virtual Machines (Menedżer zasobów)](azure-key-vault-integration-configure.md). |
+| **Integracja Azure Key Vault** |Umożliwia automatyczne instalowanie i Konfigurowanie Azure Key Vault na maszynie wirtualnej SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji Azure Key Vault dla SQL Server na platformie Azure Virtual Machines (Menedżer zasobów)](azure-key-vault-integration-configure.md). |
 
 Po zainstalowaniu i uruchomieniu rozszerzenia SQL Server IaaS Agent udostępnia funkcje administracyjne:
 
@@ -71,7 +71,7 @@ Poniżej przedstawiono wymagania dotyczące używania SQL Server rozszerzenia ag
 
 **Azure PowerShell**:
 
-* [Pobieranie i Konfigurowanie najnowszych poleceń Azure PowerShell](/powershell/azure/overview)
+* [Pobieranie i Konfigurowanie najnowszych poleceń Azure PowerShell](/powershell/azure/)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

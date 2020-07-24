@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258211"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062057"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -23,7 +23,7 @@ W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki
 
 ## <a name="digital-twins"></a>Digital bliźniaczych reprezentacji
 
-Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [pojęcia: modele niestandardowe](concepts-models.md).
+Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [*pojęcia: modele niestandardowe*](concepts-models.md).
 
 Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi*można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi*o nazwie *GroundFloor*, inne o nazwie *Floor2*itp.). 
 
@@ -197,8 +197,8 @@ Oto przykład relacji sformatowanej jako obiekt JSON:
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak zarządzać elementami grafu za pomocą interfejsów API cyfrowych przędzy na platformie Azure:
-* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](how-to-manage-twin.md)
-* [Instrukcje: Zarządzanie wykresem bliźniaczym z relacjami](how-to-manage-graph.md)
+* [*Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym*](how-to-manage-twin.md)
+* [*Instrukcje: Zarządzanie wykresem bliźniaczym z relacjami*](how-to-manage-graph.md)
 
 Lub Dowiedz się więcej na temat wykonywania zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure w celu uzyskania informacji:
-* [Koncepcje: język zapytań](concepts-query-language.md)
+* [*Koncepcje: język zapytań*](concepts-query-language.md)

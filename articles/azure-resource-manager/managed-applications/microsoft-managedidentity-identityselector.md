@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
-ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063345"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft. ManagedIdentity. IdentitySelector — element interfejsu użytkownika
 
@@ -19,15 +20,15 @@ Kontrolka służąca do przypisywania [tożsamości zarządzanych](../../active-
 
 Kontrolka składa się z następujących elementów:
 
-![Microsoft. ManagedIdentity. IdentitySelector — pierwszy krok](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft. ManagedIdentity. IdentitySelector — pierwszy krok](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
 Gdy użytkownik wybierze pozycję **Dodaj**, zostanie otwarty poniższy formularz. Użytkownik może wybrać co najmniej jedną tożsamość przypisaną do użytkownika dla zasobu.
 
-![Microsoft. ManagedIdentity. IdentitySelector — drugi krok](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft. ManagedIdentity. IdentitySelector — drugi krok](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
 Wybrane tożsamości są wyświetlane w tabeli. Użytkownik może dodawać lub usuwać elementy z tej tabeli.
 
-![Microsoft. ManagedIdentity. IdentitySelector — trzeci krok](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft. ManagedIdentity. IdentitySelector — trzeci krok](./media/managed-application-elements/microsoft-managedidentity-identityselector-3.png)
 
 ## <a name="schema"></a>Schemat
 
