@@ -1,5 +1,5 @@
 ---
-title: Używanie Azure Policy do ograniczania instalacji rozszerzenia maszyny wirtualnej
+title: Używanie Azure Policy do ograniczania instalacji rozszerzenia maszyny wirtualnej (Windows)
 description: Użyj Azure Policy, aby ograniczyć wdrożenia rozszerzeń.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069764"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Użyj Azure Policy, aby ograniczyć instalację rozszerzeń na maszynach wirtualnych z systemem Windows
 
@@ -98,7 +98,7 @@ Gdy skończysz, naciśnij **klawisze CTRL + O** , a następnie **wprowadź** , a
 
 ## <a name="create-the-policy"></a>Tworzenie zasad
 
-Definicja zasad to obiekt służący do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa plików reguł i parametrów do definiowania zasad. Utwórz definicję zasad przy użyciu polecenia cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) .
+Definicja zasad to obiekt służący do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa plików reguł i parametrów do definiowania zasad. Utwórz definicję zasad przy użyciu polecenia cmdlet [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) .
 
  Zasady i parametry zasad są plikami utworzonymi i przechowywanymi jako pliki JSON w usłudze Cloud Shell.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Przypisywanie zasad
 
-Ten przykład przypisuje zasady do grupy zasobów przy użyciu polecenia [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). W przypadku wszystkich maszyn wirtualnych utworzonych w grupie zasobów moja **zasobów** nie będzie można zainstalować agenta dostępu do maszyny wirtualnej ani rozszerzeń niestandardowego skryptu. 
+Ten przykład przypisuje zasady do grupy zasobów przy użyciu polecenia [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). W przypadku wszystkich maszyn wirtualnych utworzonych w grupie zasobów moja **zasobów** nie będzie można zainstalować agenta dostępu do maszyny wirtualnej ani rozszerzeń niestandardowego skryptu. 
 
-Użyj [Get-AzSubscription | Polecenie cmdlet format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) , aby użyć identyfikatora subskrypcji zamiast takiego w przykładzie.
+Użyj [Get-AzSubscription | Polecenie cmdlet format-Table](/powershell/module/az.accounts/get-azsubscription) , aby użyć identyfikatora subskrypcji zamiast takiego w przykładzie.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

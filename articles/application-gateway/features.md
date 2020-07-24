@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067969"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
 
@@ -34,7 +35,7 @@ Application Gateway obejmuje następujące funkcje:
 - [Ruch protokołów WebSocket i HTTP/2](#websocket-and-http2-traffic)
 - [Opróżnianie połączeń](#connection-draining)
 - [Niestandardowe strony błędów](#custom-error-pages)
-- [Ponowne zapisywanie nagłówków HTTP](#rewrite-http-headers)
+- [Zapisz ponownie nagłówki HTTP i adres URL](#rewrite-http-headers-and-url)
 - [Ustalanie rozmiaru](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Zakończenie SSL (SSL/TLS)
@@ -82,13 +83,13 @@ Aby uzyskać więcej informacji, zobacz [Omówienie routingu opartego na ścież
 
 ## <a name="multiple-site-hosting"></a>Hostowanie wielu witryn
 
-Hostowanie wielu witryn pozwala na skonfigurowanie więcej niż jednej witryny internetowej w tym samym wystąpieniu bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednego Application Gateway (w celu uzyskania optymalnej wydajności). Każdą witrynę internetową można skierować do jej własnej puli. Na przykład brama aplikacji może obsługiwać ruch dla witryn `contoso.com` i `fabrikam.com` z dwóch pul serwerów o nazwie ContosoServerPool i FabrikamServerPool.
+Za pomocą Application Gateway można skonfigurować Routing na podstawie nazwy hosta lub nazwy domeny dla więcej niż jednej aplikacji sieci Web w tej samej bramie aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny, contoso.com, fabrikam.com i adatum.com wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki z wieloma lokacjami i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu. 
 
-Żądania dotyczące adresu `http://contoso.com` są kierowane do puli ContosoServerPool, a żądania dotyczące adresu `http://fabrikam.com` — do puli FabrikamServerPool.
+Żądania dla `http://contoso.com` są kierowane do puli contososerverpool, `http://fabrikam.com` są kierowane do puli fabrikamserverpool i tak dalej.
 
-Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane w ramach tego samego wdrożenia usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny `http://blog.contoso.com` i `http://app.contoso.com` hostowane w jednym wdrożeniu bramy Application Gateway.
+Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane w ramach tego samego wdrożenia usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny `http://blog.contoso.com` i `http://app.contoso.com` hostowane w jednym wdrożeniu bramy Application Gateway. Aby uzyskać więcej informacji, zobacz [Application Gateway obsługa wielu witryn](multiple-site-overview.md).
 
-Aby uzyskać więcej informacji, zobacz [Application Gateway obsługa wielu witryn](multiple-site-overview.md).
+Można również zdefiniować symbole wielolokacjowe i maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Przekierowania
 
@@ -130,7 +131,7 @@ Usługa Application Gateway umożliwia tworzenie niestandardowych stron błędó
 
 Aby uzyskać więcej informacji, zobacz [Błędy niestandardowe](custom-error.md).
 
-## <a name="rewrite-http-headers"></a>Ponowne zapisywanie nagłówków HTTP
+## <a name="rewrite-http-headers-and-url"></a>Zapisz ponownie nagłówki HTTP i adres URL
 
 Nagłówki HTTP umożliwiają klientowi i serwerowi przekazywanie dodatkowych informacji z żądaniem lub odpowiedzią. Ponowne Zapisywanie tych nagłówków HTTP pomaga wykonać kilka ważnych scenariuszy, takich jak:
 
@@ -138,9 +139,11 @@ Nagłówki HTTP umożliwiają klientowi i serwerowi przekazywanie dodatkowych in
 - Usuwanie pól nagłówka odpowiedzi, które mogą ujawniać poufne informacje.
 - Usuwanie informacji o porcie z X-Forwarded-For Headers.
 
-Application Gateway obsługuje możliwość dodawania, usuwania lub aktualizowania nagłówków żądań i odpowiedzi HTTP, podczas gdy pakiety żądań i odpowiedzi przechodzą między klientami a pulami zaplecza. Zapewnia także możliwość dodawania warunków, aby upewnić się, że określone nagłówki są zapisywane tylko wtedy, gdy są spełnione określone warunki.
+Jednostka SKU Application Gateway i WAF v2 obsługuje możliwość dodawania, usuwania lub aktualizowania nagłówków żądań i odpowiedzi HTTP, podczas gdy pakiety żądań i odpowiedzi przechodzą między klientami a pulami zaplecza. Możesz również ponownie napisać adresy URL, parametry ciągu zapytania i nazwę hosta. Przy użyciu ponownego zapisywania adresów URL i routingu opartego na ścieżkach URL można wybrać kierowanie żądań do jednej z pul zaplecza na podstawie oryginalnej ścieżki lub zapisanej ścieżki, za pomocą opcji ponownie Oceń ścieżkę ścieżki. 
 
-Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP](rewrite-http-headers.md).
+Zapewnia także możliwość dodawania warunków w celu zapewnienia, że określone nagłówki lub adresy URL są zapisywane tylko wtedy, gdy spełnione są określone warunki. Warunki te są oparte na informacjach o żądaniu i odpowiedzi.
+
+Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP i adresów URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Ustalanie rozmiaru
 

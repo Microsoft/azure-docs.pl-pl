@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 953e474eb5d160b38981d61fbfda051f1da9f968
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069582"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Jak zainstalować i skonfigurować MongoDB na maszynie wirtualnej z systemem Linux
 
@@ -213,5 +214,4 @@ W tych przykładach wdrożono podstawowe środowisko MongoDB na potrzeby program
 
 Aby uzyskać więcej informacji o tworzeniu przy użyciu szablonów, zobacz [omówienie Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-Szablony Azure Resource Manager używają niestandardowego rozszerzenia skryptu do pobierania i uruchamiania skryptów na maszynach wirtualnych. Aby uzyskać więcej informacji, zobacz [Korzystanie z rozszerzenia niestandardowego skryptu platformy Azure z Linux Virtual Machines](extensions-customscript.md).
-
+Szablony Azure Resource Manager używają niestandardowego rozszerzenia skryptu do pobierania i uruchamiania skryptów na maszynach wirtualnych. Aby uzyskać więcej informacji, zobacz [Korzystanie z rozszerzenia niestandardowego skryptu platformy Azure z Linux Virtual Machines](../extensions/custom-script-linux.md).

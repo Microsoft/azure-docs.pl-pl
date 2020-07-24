@@ -6,11 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537648"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068195"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -26,7 +27,7 @@ Po utworzeniu planu App Service w określonym regionie (na przykład Europa Zach
 _Warstwa cenowa_ planu App Service określa, jakie funkcje App Service uzyskasz i ile płacisz za plan. Warstwy cenowe dzielą się na kilka kategorii:
 
 - **Udostępnione obliczenia**: **bezpłatne** i **udostępnione**, dwie warstwy podstawowe, URUCHAMIAJĄ aplikację na tej samej maszynie wirtualnej platformy Azure, co inne App Service aplikacje, w tym aplikacje innych klientów. Te warstwy określają limity przydziałów procesora CPU dla każdej aplikacji uruchamianej na udostępnionych zasobach, a zasobów nie można skalować w poziomie.
-- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**i **PremiumV2** korzystają z aplikacji na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service współdzielą te same zasoby obliczeniowe. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
+- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**i **PremiumV2** korzystają z aplikacji na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service korzystają z tych samych zasobów obliczeniowych. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
 - **Izolowane**: Ta warstwa służy do uruchamiania dedykowanych maszyn wirtualnych platformy Azure w dedykowanych sieciach wirtualnych platformy Azure. Zapewnia izolację sieci na poziomie izolacji obliczeniowej dla aplikacji. Ta warstwa daje największe możliwości zwiększania skali w poziomie.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -78,8 +79,10 @@ Za korzystanie z funkcji App Service, które są dostępne dla użytkownika (Kon
 
 > [!NOTE]
 > Jeśli integrujesz App Service z inną usługą platformy Azure, może być konieczne naliczanie opłat za inne usługi. Na przykład, jeśli używasz platformy Azure Traffic Manager do skalowania aplikacji geograficznie, usługa Azure Traffic Manager również naliczane na podstawie użycia. Aby oszacować koszt międzyusług na platformie Azure, zobacz [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/). 
->
->
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Co zrobić, jeśli moja aplikacja potrzebuje więcej możliwości lub funkcji?
 

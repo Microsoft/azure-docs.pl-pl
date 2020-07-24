@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069145"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Rozwiązywanie problemów z błędem rozruchu — Wystąpił błąd odczytu dysku
 
@@ -26,7 +27,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów, w których ni
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) do wyświetlania zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla monit o komunikat "Wystąpił błąd odczytu dysku. Naciśnij klawisze Ctrl+Alt+Del, aby uruchomić ponownie”.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) do wyświetlania zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla monit o komunikat "Wystąpił błąd odczytu dysku. Naciśnij klawisze Ctrl+Alt+Del, aby uruchomić ponownie”.
 
    ![Komunikat o błędzie: Wystąpił błąd odczytu dysku. Naciśnij kombinację klawiszy Ctrl + Alt + Del, aby ponownie uruchomić system.](./media/disk-read-error-occurred/1.png)
 
@@ -50,7 +51,7 @@ Ten komunikat o błędzie wskazuje, że struktura dysku jest uszkodzona i nie mo
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystając z Podłączanie pulpitu zdalnego, Połącz się z maszyną wirtualną naprawy.
 
 ### <a name="set-partition-status-to-active"></a>Ustaw stan partycji na aktywny
@@ -142,4 +143,4 @@ Maszyny wirtualne generacji 1 powinny najpierw sprawdzić, czy partycja systemu 
    
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

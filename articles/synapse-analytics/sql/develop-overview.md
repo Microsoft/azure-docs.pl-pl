@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429020"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070043"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla funkcji SQL Synapse w usłudze Azure Synapse Analytics
 W tym artykule znajdziesz listę zasobów dla puli SQL i funkcji SQL na żądanie (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
@@ -25,8 +25,8 @@ Celem tych artykułów jest ułatwienie opracowywania optymalnego podejścia tec
 ## <a name="key-design-decisions"></a>Najważniejsze decyzje projektowe
 Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące programowania w programie SQL Synapse:
 
-|                                                          |   Pula SQL   | SQL na żądanie |
-| -----------------------------------------------------    | ---- | ---- |
+| Artykuł | Pula SQL | SQL na żądanie |
+| ------- | -------- | ------------- |
 | [Połączenia](connect-overview.md)                    | Tak | Tak |
 | [Klasy zasobów i współbieżność](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | Nie |
 | [Transakcje](develop-transactions.md)              | Yes | Nie |
@@ -44,8 +44,8 @@ Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące progr
 
 Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne techniki kodowania, porady i zalecenia dotyczące programowania:
 
-|                                            | Pula SQL | SQL na żądanie |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Artykuł | Pula SQL | SQL na żądanie |
+| ------- | -------- | ------------- |
 | [Procedury składowane](develop-stored-procedures.md)  | Yes                | Nie                      |
 | [Etykiety](develop-label.md)                           | Yes                | Nie                      |
 | [Widoki](develop-views.md)                             | Tak                | Tak                     |

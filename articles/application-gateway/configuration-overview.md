@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517845"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068029"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -286,7 +286,7 @@ Korzystając z reguł ponownego zapisywania, można dodawać, usuwać lub aktual
 W nagłówkach i parametrach adresu URL można ustawić wartości statyczne lub inne nagłówki i zmienne serwera. Pomaga to z ważnymi przypadkami użycia, takimi jak wyodrębnianie adresów IP klientów, usuwanie poufnych informacji o zapleczu, dodawanie dodatkowych zabezpieczeń i tak dalej.
 Aby uzyskać więcej informacji, zobacz:
 
- - [Przegląd ponownego zapisywania nagłówków HTTP](rewrite-http-headers-url.md)
+ - [Przegląd ponownego zapisywania nagłówków HTTP i adresów URL](rewrite-http-headers-url.md)
  - [Konfigurowanie ponownego zapisywania nagłówka HTTP](rewrite-http-headers-portal.md)
  - [Skonfiguruj ponowne zapisywanie adresów URL](rewrite-url-portal.md)
 

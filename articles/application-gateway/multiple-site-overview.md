@@ -4,21 +4,23 @@ description: Ten artykuł zawiera omówienie obsługi wielolokacjowej platformy 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/11/2020
+ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80257414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067925"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
-Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym porcie bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie maksymalnie 100 witryn internetowych do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. W poniższym przykładzie Brama Application Gateway obsługuje ruch dla `contoso.com` i `fabrikam.com` z dwóch pul serwera zaplecza o nazwie puli contososerverpool i puli fabrikamserverpool.
+Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym porcie bramy aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny, contoso.com, fabrikam.com i adatum.com wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki z wieloma lokacjami i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu. 
 
-![imageURLroute](./media/multiple-site-overview/multisite.png)
+Można również zdefiniować symbole wielolokacjowe i maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](#wildcard-host-names-in-listener-preview).
+
+:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Application Gateway wiele lokacji":::
 
 > [!IMPORTANT]
 > Reguły są przetwarzane w kolejności, w której są wyświetlane w portalu dla jednostki SKU w wersji 1. W przypadku jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewni to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
@@ -26,6 +28,56 @@ Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji s
 Żądania dotyczące adresu `http://contoso.com` są kierowane do puli ContosoServerPool, a żądania dotyczące adresu `http://fabrikam.com` — do puli FabrikamServerPool.
 
 Analogicznie, można hostować wiele poddomen w tej samej domenie nadrzędnej w ramach tego samego wdrożenia bramy aplikacji. Można na przykład hostować `http://blog.contoso.com` i obsługiwać `http://app.contoso.com` pojedyncze wdrożenie bramy aplikacji.
+
+## <a name="wildcard-host-names-in-listener-preview"></a>Nazwy hostów symboli wieloznacznych w odbiorniku (wersja zapoznawcza)
+
+Application Gateway umożliwia routing oparty na hoście przy użyciu odbiornika HTTP (S) z obsługą wiele witryn. Teraz można korzystać z symboli wieloznacznych, takich jak gwiazdka (*) i znak zapytania (?) w nazwie hosta oraz do 5 nazw hostów dla odbiornika HTTP (S) z jedną lokacją. Na przykład `*.contoso.com`.
+
+Używając symbolu wieloznacznego w nazwie hosta, można dopasować wiele nazw hostów w pojedynczym odbiorniku. Na przykład `*.contoso.com` może być zgodne z `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` i tak dalej. Korzystając z tablicy nazw hostów, można skonfigurować więcej niż jedną nazwę hosta dla odbiornika, aby kierować żądania do puli zaplecza. Może na przykład znajdować się odbiornik, `contoso.com, fabrikam.com` który akceptuje żądania dla nazwy hosta.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Odbiornik symboli wieloznacznych":::
+
+>[!NOTE]
+> Ta funkcja jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 SKU Application Gateway. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W [Azure Portal](create-multiple-sites-portal.md)można definiować je w oddzielnych polach tekstowych, jak pokazano na poniższym zrzucie ekranu.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Przykładowa konfiguracja odbiornika wieloznacznego":::
+
+>[!NOTE]
+>W przypadku tworzenia nowego odbiornika z wieloma lokacjami lub dodawania więcej niż jednej nazwy hosta do istniejącego odbiornika z wieloma lokacjami z Azure Portal zostanie ona domyślnie dodana do `HostNames` parametru konfiguracji odbiornika, który dodaje więcej możliwości do istniejącego `HostName` parametru w konfiguracji.
+
+W [Azure PowerShell](tutorial-multiple-sites-powershell.md)należy użyć `-HostNames` zamiast `-HostName` . Za pomocą nazw hostów można wspominać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład: `-HostNames "*.contoso.com,*.fabrikam.com"`
+
+W [interfejsie wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md)należy użyć `--host-names` zamiast `--host-name` . Nazwy hostów można wymieniać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład: `--host-names "*.contoso.com,*.fabrikam.com"`
+
+### <a name="allowed-characters-in-the-host-names-field"></a>Dozwolone znaki w polu nazwy hostów:
+
+* `(A-Z,a-z,0-9)`-znaki alfanumeryczne
+* `-`-myślnik lub minus
+* `.`-Period jako ogranicznik
+*   `*`-może być zgodne z wieloma znakami w dozwolonym zakresie
+*   `?`-może pasować do pojedynczego znaku w dozwolonym zakresie
+
+### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Warunki używania symboli wieloznacznych i wielu nazw hostów w odbiorniku:
+
+*   W pojedynczym odbiorniku można wymieniać maksymalnie 5 nazw hostów
+*   Gwiazdkę `*` można podać tylko raz w składniku nazwy stylu domeny lub nazwy hosta. Na przykład Component1 *. component2*. component3. `(*.contoso-*.com)`jest prawidłowy.
+*   Nazwa hosta może zawierać maksymalnie dwie gwiazdki `*` . Na przykład `*.contoso.*` jest prawidłowy i `*.contoso.*.*.com` nieprawidłowy.
+*   Nazwa hosta może zawierać maksymalnie 4 symbole wieloznaczne. Na przykład, `????.contoso.com` , `w??.contoso*.edu.*` są prawidłowe, ale `????.contoso.*` jest nieprawidłowy.
+*   Użycie gwiazdki `*` i znaku zapytania `?` razem w składniku nazwy hosta ( `*?` lub `?*` lub `**` ) jest nieprawidłowe. Na przykład `*?.contoso.com` i `**.contoso.com` są nieprawidłowe.
+
+### <a name="considerations-and-limitations-of-using-wildcard-or-multiple-host-names-in-a-listener"></a>Zagadnienia i ograniczenia dotyczące używania symboli wieloznacznych lub wielu nazw hostów w odbiorniku:
+
+*   [Zakończenie protokołu SSL i kompleksowe zabezpieczenia SSL](ssl-overview.md) wymagają skonfigurowania protokołu jako https i przekazania certyfikatu do użycia w konfiguracji odbiornika. Jeśli jest to odbiornik z obsługą wiele lokacji, można również wprowadzić nazwę hosta, zazwyczaj jest to nazwa POSPOLITa certyfikatu SSL. W przypadku określania wielu nazw hostów w odbiorniku lub używania symboli wieloznacznych należy wziąć pod uwagę następujące kwestie:
+    *   Jeśli jest to symbol wieloznaczny, taki jak *. contoso.com, należy przekazać certyfikat z symbolem wieloznacznym z nazwą POSPOLITą, taką jak *. contoso.com
+    *   Jeśli w tym samym odbiorniku wymieniono wiele nazw hostów, należy przekazać certyfikat sieci SAN (alternatywne nazwy podmiotu) przy użyciu CN zgodnych z wymienionymi nazwami hostów.
+*   Nie można użyć wyrażenia regularnego do wspominania o nazwie hosta. Można używać symboli wieloznacznych, takich jak gwiazdka (*) i znak zapytania (?), aby utworzyć wzorzec nazwy hosta.
+*   W przypadku kontroli kondycji zaplecza nie można skojarzyć wielu [niestandardowych sond](application-gateway-probe-overview.md) dla ustawień http. Zamiast tego można sondować jedną z witryn sieci Web w zapleczu lub użyć adresu "127.0.0.1" do sondowania hosta lokalnego serwera wewnętrznej bazy danych. Jednak w przypadku używania symboli wieloznacznych lub wielu nazw hostów w odbiorniku żądania dla wszystkich określonych wzorców domeny będą kierowane do puli zaplecza, w zależności od typu reguły (opartej na ścieżce podstawowej lub ścieżki).
+*   Właściwości "hostname" przyjmuje jeden ciąg jako dane wejściowe, gdzie można wspomnieć tylko jedną nazwę domeny niezawierającą symboli wieloznacznych i "Hostnames" pobiera tablicę ciągów jako dane wejściowe, gdzie można wymienić do 5 nazw domen wieloznacznych. Ale obu właściwości nie można używać jednocześnie.
+*   Nie można utworzyć reguły [przekierowania](redirect-overview.md) z odbiornikiem docelowym, który używa symboli wieloznacznych lub wielu nazw hostów.
+
+Aby zapoznać się z przewodnikiem krok po kroku na temat konfigurowania nazw hostów symboli wieloznacznych, zobacz [Tworzenie wiele witryn przy użyciu Azure Portal](create-multiple-sites-portal.md) lub [Korzystanie z Azure PowerShell](tutorial-multiple-sites-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md) .
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 
@@ -41,92 +93,8 @@ Application Gateway obsługuje wiele aplikacji, które nasłuchują na różnych
 
 Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Lokacje hostowane w usłudze Application Gateway mogą również obsługiwać odciążanie protokołu TLS przy użyciu rozszerzenia TLS Oznaczanie nazwy serwera (SNI). Ten scenariusz oznacza, że przeglądarka i farma sieci Web zaplecza klienta muszą obsługiwać protokół HTTP/1.1 i rozszerzenie TLS zgodnie ze standardem RFC 6066.
 
-## <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
-
-Istniejące elementy konfiguracji odbiornika HttpListener są rozszerzane do obsługi elementów wskazujących nazwę hosta i nazwę serwera. Jest on używany przez Application Gateway do kierowania ruchu do odpowiedniej puli zaplecza. 
-
-Poniższy przykład kodu jest fragmentem elementu HttpListeners z pliku szablonu:
-
-```json
-"httpListeners": [
-    {
-        "name": "appGatewayHttpsListener1",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-            },
-            "Protocol": "Https",
-            "SslCertificate": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-            },
-            "HostName": "contoso.com",
-            "RequireServerNameIndication": "true"
-        }
-    },
-    {
-        "name": "appGatewayHttpListener2",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-            },
-            "Protocol": "Http",
-            "HostName": "fabrikam.com",
-            "RequireServerNameIndication": "false"
-        }
-    }
-],
-```
-
-Możesz odwiedzić stronę [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) (Szablon usługi Resource Manager z zastosowaniem hostowania wielu witryn), aby zapoznać się z kompleksowym wdrożeniem opartym na szablonie.
-
-## <a name="routing-rule"></a>Reguła routingu
-
-W regule routingu nie jest wymagana żadna zmiana. Nadal należy wybierać podstawową regułę routingu „Basic” w celu powiązania odpowiedniego odbiornika witryny z właściwą pulą adresów zaplecza.
-
-```json
-"requestRoutingRules": [
-{
-    "name": "<ruleName1>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-},
-{
-    "name": "<ruleName2>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-}
-]
-```
-
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z informacjami o hostowaniu wielu witryn przejdź do [tworzenia bramy aplikacji przy użyciu hostowania wielu witryn](tutorial-multiple-sites-powershell.md), aby utworzyć bramę aplikacji z możliwością obsługi więcej niż jednej aplikacji internetowej.
+Po zapoznaniu się z obsługą wielu witryn przejdź do pozycji [Tworzenie wielu witryn przy użyciu Azure Portal](create-multiple-sites-portal.md) lub [korzystania Azure PowerShell](tutorial-multiple-sites-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md) w celu uzyskania przewodnika krok po kroku na temat tworzenia Application Gateway do hostowania wielu witryn sieci Web.
 
+Możesz odwiedzić stronę [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) (Szablon usługi Resource Manager z zastosowaniem hostowania wielu witryn), aby zapoznać się z kompleksowym wdrożeniem opartym na szablonie.

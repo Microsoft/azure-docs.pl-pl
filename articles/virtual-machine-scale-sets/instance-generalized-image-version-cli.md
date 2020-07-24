@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zestawu skalowania na podstawie uogólnionego obrazu
+title: Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Utwórz zestaw skalowania przy użyciu uogólnionego obrazu w galerii obrazów udostępnionych.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069845"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu
+# <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Utwórz zestaw skalowania na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](shared-image-galleries.md) za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz utworzyć zestaw skalowania za pomocą wyspecjalizowanej wersji obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-cli.md).
 

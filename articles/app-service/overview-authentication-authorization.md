@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068212"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
-
-> [!NOTE]
-> W tej chwili ASP.NET Core nie obsługuje obecnie wypełniania bieżącego użytkownika za pomocą funkcji uwierzytelniania/autoryzacji.
->
 
 Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji, dzięki czemu możesz zalogować użytkowników i uzyskać dostęp do danych, pisząc kod minimalny lub bez kodu w aplikacji sieci Web, interfejsie API RESTful i zapleczu mobilnego, a także [Azure Functions](../azure-functions/functions-overview.md). W tym artykule opisano sposób, w jaki App Service upraszczają uwierzytelnianie i autoryzację aplikacji.
 
@@ -28,6 +24,9 @@ Bezpieczne uwierzytelnianie i autoryzacja wymagają dokładnego poznania zabezpi
 >
 > W ASP.NET Core 2,1 i nowszych wersjach hostowanych przez App Service są już zainstalowane poprawki dla tej istotnej zmiany i obsługują odpowiednio program Chrome 80 i starsze przeglądarki. Ponadto ta sama poprawka dla ASP.NET Framework 4.7.2 jest wdrażana w App Service wystąpieniach w styczniu 2020. Aby uzyskać więcej informacji, w tym informacje o tym, czy aplikacja otrzymuje poprawkę, zobacz [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> Funkcja uwierzytelniania/autoryzacji jest również czasami określana jako "Łatwa autoryzacja".
 
 Aby uzyskać informacje specyficzne dla natywnych aplikacji mobilnych, zobacz [uwierzytelnianie użytkowników i autoryzacja dla aplikacji mobilnych za pomocą Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
@@ -53,6 +52,10 @@ W przypadku wszystkich platform językowych App Service wykonuje oświadczenia w
 W [Azure Functions](../azure-functions/functions-overview.md)przypadku Azure Functions `ClaimsPrincipal.Current` nie jest wypełniony dla kodu platformy .NET, ale nadal można znaleźć oświadczenia użytkownika w nagłówkach żądania lub pobrać `ClaimsPrincipal` obiekt z kontekstu żądania lub nawet za pośrednictwem parametru powiązania. Aby uzyskać więcej informacji, zobacz [Praca z tożsamościami klientów](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
 Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims).
+
+> [!NOTE]
+> W tej chwili ASP.NET Core nie obsługuje obecnie wypełniania bieżącego użytkownika za pomocą funkcji uwierzytelniania/autoryzacji. Niemniej jednak w przypadku niektórych [innych firm składniki pośredniczące programu Open Source](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) mają być przydatne do wypełnienia tej przerwy.
+>
 
 ### <a name="token-store"></a>Magazyn tokenów
 
@@ -134,10 +137,6 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 
 > [!CAUTION]
 > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być odpowiednie dla aplikacji, które chcą korzystać z publicznie dostępnej strony głównej, tak jak w przypadku aplikacji jednostronicowych.
-
-> [!NOTE]
-> Uwierzytelnianie/autoryzacja były wcześniej znane jako łatwe uwierzytelnianie.
->
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 

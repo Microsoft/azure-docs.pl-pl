@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068689"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure
 
@@ -113,7 +114,7 @@ Bezpośrednie miejsca do magazynowania jest używany jako dysk udostępniony dla
 Podczas wybierania Bezpośrednie miejsca do magazynowania należy wziąć pod uwagę następujące przypadki użycia:
 
 - Maszyny wirtualne używane do budowania klastra Bezpośrednie miejsca do magazynowania muszą zostać wdrożone w zestawie dostępności platformy Azure.
-- W przypadku odzyskiwania po awarii klastra Bezpośrednie miejsca do magazynowania można użyć [usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- W przypadku odzyskiwania po awarii klastra Bezpośrednie miejsca do magazynowania można użyć [usługi Azure Site Recovery](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - Nie jest obsługiwane rozciąganie klastra bezpośredniego miejsca do magazynowania między różnymi Strefy dostępności platformy Azure.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Wymagania wstępne dotyczące oprogramowania SAP dla udziałów plików skalowalnych w poziomie na platformie Azure

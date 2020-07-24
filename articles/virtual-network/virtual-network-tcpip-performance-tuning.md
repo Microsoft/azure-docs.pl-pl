@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068519"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure
 
@@ -125,9 +125,8 @@ W przypadku platformy Azure zaleca się ustawienie opcji Ogranicz ruch TCP do 1 
 
 Opóźnienie sieci zależy od szybkości sieci światłowodowej. Przepustowość sieci TCP jest również efektywnie określana przez czas błądzenia (RTT) między dwoma urządzeniami sieciowymi.
 
-| | | | |
-|-|-|-|-|
-|**Trasa**|**Miast**|**Czas jednorazowy**|**RTT**|
+| Trasa | Odległość | Czas jednorazowy | RTT |
+| ----- | -------- | ------------ | --- |
 |Nowy Jork do sieci San Francisco|4 148 km|21 MS|42 MS|
 |Nowy Jork do Londyn|5 585 km|28 MS|56 MS|
 |Nowy Jork do Sydney|15 993 km|80 MS|160 MS|
@@ -162,9 +161,8 @@ Oto formuła służąca do obliczania maksymalnej przepływności pojedynczego p
 
 W tej tabeli przedstawiono maksymalną przepływność (w megabajtach/na sekundę) jednego połączenia TCP. (Na potrzeby odczytywania, megabajtów jest używany dla jednostki miary).
 
-| | | | |
-|-|-|-|-|
-|**Rozmiar okna TCP (w bajtach)**|**Opóźnienie RTT (MS)**|**Maksymalna przepływność (MB/s)**|**Maksymalna przepływność w megabitach/sekundę**|
+| Rozmiar okna TCP (w bajtach) | Opóźnienie RTT (MS) | Maksymalna przepływność (MB/s) | Maksymalna przepływność w megabitach/sekundę |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|1|65,54|524,29|
 |65 535|30|2,18|17,48|
 |65 535|60|1.09|8,74|
@@ -179,9 +177,8 @@ Skalowanie okna TCP to technika, która dynamicznie zwiększa rozmiar okna TCP, 
 
 W tej tabeli przedstawiono relacje:
 
-| | | | |
-|-|-|-|-|
-|**Rozmiar okna TCP (w bajtach)**|**Opóźnienie RTT (MS)**|**Maksymalna przepływność (MB/s)**|**Maksymalna przepływność w megabitach/sekundę**|
+| Rozmiar okna TCP (w bajtach) | Opóźnienie RTT (MS) | Maksymalna przepływność (MB/s) | Maksymalna przepływność w megabitach/sekundę |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|30|2,18|17,48|
 |131 070|30|4,37|34,95|
 |262 140|30|8,74|69,91|
@@ -221,10 +218,9 @@ Set-NetTCPSetting
 
 Są to obowiązujące ustawienia protokołu TCP dla `AutoTuningLevel` :
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Współczynnik skalowania**|**Mnożnik skalowania**|**Formuła do <br/> obliczenia maksymalnego rozmiaru okna**|
-|Disabled (Wyłączony)|Brak|Brak|Rozmiar okna|
+| AutoTuningLevel | Współczynnik skalowania | Mnożnik skalowania | Formuła do<br/>Oblicz maksymalny rozmiar okna |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
+|Disabled|Brak|Brak|Rozmiar okna|
 |Z ograniczeniami|4|2 ^ 4|Rozmiar okna * (2 ^ 4)|
 |Wysoce ograniczone|2|2 ^ 2|Rozmiar okna * (2 ^ 2)|
 |Normalne|8|2 ^ 8|Rozmiar okna * (2 ^ 8)|

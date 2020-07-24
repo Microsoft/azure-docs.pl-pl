@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 054462834d2712b8db10b40f2d7befdf330eec48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069504"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu wielu kart interfejsu sieciowego
 
@@ -166,7 +167,7 @@ Szablony Azure Resource Manager używają deklaratywnych plików JSON do definio
 }
 ```
 
-Przeczytaj więcej na temat [tworzenia wielu wystąpień przy użyciu *kopii*](../../resource-group-create-multiple.md). 
+Przeczytaj więcej na temat [tworzenia wielu wystąpień przy użyciu *kopii*](../../azure-resource-manager/templates/copy-resources.md). 
 
 Można również użyć `copyIndex()` do dołączenia liczby do nazwy zasobu, co pozwala na tworzenie `myNic1` , `myNic2` itp. Poniżej przedstawiono przykład dołączania wartości indeksu:
 
