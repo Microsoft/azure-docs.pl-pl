@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902714"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133885"
 ---
 ## <a name="limitations"></a>Ograniczenia
 
 - Zestawy skalowania maszyn wirtualnych nie są obecnie obsługiwane na dedykowanych hostach.
 
-## <a name="benefits"></a>Zalety 
+## <a name="benefits"></a>Korzyści 
 
 Rezerwowanie całego hosta zapewnia następujące korzyści:
 
@@ -77,9 +77,17 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie aktualizacjami platform pr
 
 Po aprowizacji dedykowanego hosta platforma Azure przypisze ją do serwera fizycznego. Gwarantuje to dostępność pojemności, gdy trzeba zainicjować obsługę administracyjną maszyny wirtualnej. Platforma Azure używa całej pojemności w regionie (lub strefie), aby wybrać serwer fizyczny dla hosta. Oznacza to również, że klienci mogą być w stanie rozwijać dedykowane hosty bez obaw o wykorzystaniu miejsca w klastrze.
 
-## <a name="quotas"></a>Przydziały
+## <a name="quotas"></a>Limity przydziału
 
-Obowiązuje domyślny limit przydziału 3000 procesorów wirtualnych vCPU dla dedykowanych hostów na region. Jednak liczba hostów, które można wdrożyć, jest również ograniczona przez przydział dla rodziny rozmiaru maszyny wirtualnej używanej dla hosta. Na przykład subskrypcja z **opcją płatność zgodnie z rzeczywistym** użyciem może mieć przydział 10 procesorów wirtualnych vCPU dostępny dla serii rozmiaru Dsv3 w regionie Wschodnie stany USA. W takim przypadku należy poprosić o zwiększenie limitu przydziału na co najmniej 64 procesorów wirtualnych vCPU przed wdrożeniem dedykowanego hosta. Wybierz przycisk **Zwiększ żądanie** w prawym górnym rogu, aby wysłać żądanie w razie potrzeby.
+Istnieją dwa typy przydziałów, które są używane podczas wdrażania dedykowanego hosta.
+
+1. Dedykowany limit przydziału vCPU hosta. Domyślny limit przydziału to 3000 procesorów wirtualnych vCPU, na region.
+1. Przydział rodziny rozmiarów maszyn wirtualnych. Na przykład subskrypcja z **opcją płatność zgodnie z rzeczywistym** użyciem może mieć przydział 10 procesorów wirtualnych vCPU dostępny dla serii rozmiaru Dsv3 w regionie Wschodnie stany USA. Aby wdrożyć dedykowanego hosta Dsv3, należy poprosić o zwiększenie limitu przydziału na co najmniej 64 procesorów wirtualnych vCPU, zanim będzie można wdrożyć dedykowanego hosta. 
+
+Aby zażądać zwiększenia limitu przydziału, Utwórz żądanie obsługi w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Udostępnienie dedykowanego hosta będzie wymagało użycia dedykowanego vCPU hosta i przydziału rodziny maszyn wirtualnych vCPU, ale nie będzie on korzystał z regionu vCPU.
+
 
 ![Zrzut ekranu strony użycie i przydziały w portalu](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

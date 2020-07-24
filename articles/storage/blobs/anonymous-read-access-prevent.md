@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518728"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133167"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
 Anonimowy publiczny dostęp do odczytu do kontenerów i obiektów BLOB w usłudze Azure Storage to wygodny sposób udostępniania danych, ale może również stanowić zagrożenie bezpieczeństwa. Ważne jest, aby w rozsądny sposób zarządzać dostępem anonimowym i zrozumieć, jak oszacować anonimowy dostęp do danych. Złożoność operacyjna, błąd ludzki lub złośliwe ataki na dane, które są publicznie dostępne, mogą powodować kosztowne naliczanie danych. Firma Microsoft zaleca włączenie dostępu anonimowego tylko wtedy, gdy jest to konieczne w scenariuszu aplikacji.
 
-Domyślnie użytkownik z odpowiednimi uprawnieniami może skonfigurować dostęp publiczny do kontenerów i obiektów BLOB. Możesz uniemożliwić dostęp publiczny na poziomie konta magazynu. Gdy nie zezwalasz na publiczny dostęp do obiektu BLOB dla konta magazynu, nie można skonfigurować kontenerów na koncie do dostępu publicznego. Wszystkie kontenery, które zostały już skonfigurowane do dostępu publicznego, nie będą już akceptować żądań anonimowych. Aby uzyskać więcej informacji, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).
+Domyślnie publiczny dostęp do danych obiektów BLOB jest zawsze zabroniony. Jednak domyślna konfiguracja konta magazynu zezwala użytkownikowi z odpowiednimi uprawnieniami do konfigurowania publicznego dostępu do kontenerów i obiektów BLOB na koncie magazynu. W celu zwiększenia bezpieczeństwa można uniemożliwić dostęp publiczny do konta magazynu niezależnie od ustawień dostępu publicznego dla poszczególnych kontenerów. Niezezwalanie na publiczny dostęp do konta magazynu uniemożliwia użytkownikowi włączenie dostępu publicznego do kontenera na koncie. Firma Microsoft zaleca, aby nie zezwalać na publiczny dostęp do konta magazynu, chyba że wymaga tego scenariusz. Niezezwalanie na dostęp publiczny pomaga uniknąć naruszeń danych spowodowanych przez niepożądany dostęp anonimowy.
+
+Jeśli nie dołączysz publicznego dostępu do obiektów BLOB dla konta magazynu, usługa Azure Storage odrzuci wszystkie anonimowe żądania do tego konta. Gdy dostęp publiczny jest niedozwolony dla konta, kontenery w tym koncie nie mogą zostać skonfigurowane do dostępu publicznego. Wszystkie kontenery, które zostały już skonfigurowane do dostępu publicznego, nie będą już akceptować żądań anonimowych. Aby uzyskać więcej informacji, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).
 
 W tym artykule opisano, jak analizować anonimowe żądania na koncie magazynu oraz jak zapobiegać Anonimowemu dostępowi do całego konta magazynu lub dla danego kontenera.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Wykrywaj anonimowe żądania z aplikacji klienckich
 
-Jeśli użytkownik nie zezwala na publiczny dostęp do odczytu dla konta magazynu, ryzyko odrzuca żądania do kontenerów i obiektów blob, które są aktualnie skonfigurowane do dostępu publicznego. Niezezwalanie na dostęp publiczny do konta magazynu zastępuje ustawienia dostępu publicznego dla wszystkich kontenerów na tym koncie magazynu. Gdy dostęp publiczny jest niedozwolony dla konta magazynu, wszelkie przyszłe żądania anonimowe do tego konta będą kończyć się niepowodzeniem.
+Jeśli użytkownik nie zezwala na publiczny dostęp do odczytu dla konta magazynu, ryzyko odrzuca żądania do kontenerów i obiektów blob, które są aktualnie skonfigurowane do dostępu publicznego. Niezezwalanie na dostęp publiczny do konta magazynu zastępuje ustawienia dostępu publicznego dla poszczególnych kontenerów na tym koncie magazynu. Gdy dostęp publiczny jest niedozwolony dla konta magazynu, wszelkie przyszłe żądania anonimowe do tego konta będą kończyć się niepowodzeniem.
 
 Aby zrozumieć, jak nie zezwalać na dostęp publiczny do aplikacji klienckich, firma Microsoft zaleca włączenie rejestrowania i metryk dla tego konta oraz analizowanie wzorców żądań anonimowych w przedziale czasu. Użyj metryk, aby określić liczbę żądań anonimowych do konta magazynu, a następnie użyj dzienników, aby określić, które kontenery są dostępne anonimowo.
 

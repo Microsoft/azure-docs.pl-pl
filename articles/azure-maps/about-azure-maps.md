@@ -1,20 +1,20 @@
 ---
 title: Przegląd | Mapy Microsoft Azure
 description: Dowiedz się więcej o usługach i możliwościach w usłudze Microsoft Azure Maps i sposobach ich używania w aplikacjach.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56dce7f52c172255ae316a9171555b8687b7c683
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242881"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133422"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 
@@ -57,7 +57,7 @@ Użyj Android SDK Azure Maps, aby utworzyć aplikacje do mapowania aplikacji mob
 
 Azure Maps składa się z następujących dziewięciu usług, które mogą zapewnić kontekst geograficzny aplikacji platformy Azure.
 
-### <a name="data-service"></a>Usługa danych
+### <a name="data-service"></a>Usługa Data Service
 
 Dane są konieczne dla map. Usługa danych umożliwia przekazywanie i przechowywanie danych geoprzestrzennych do użycia z operacjami przestrzennymi i kompozycjami obrazów.  Przełączenie danych klienta bliżej usługi Azure Maps spowoduje skrócenie opóźnienia, zwiększenie produktywności i utworzenie nowych scenariuszy w aplikacjach. Aby uzyskać szczegółowe informacje na temat tej usługi, zobacz [dokumentację interfejsu API usługi danych](https://docs.microsoft.com/rest/api/maps/data).
 

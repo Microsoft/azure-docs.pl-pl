@@ -2,19 +2,17 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
-ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673445"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133886"
 ---
 Cognitive Services oferuje dwie usługi przetwarzania języka naturalnego, [Language Understanding](../luis/what-is-luis.md) i [QNA Maker](../qnamaker/overview/overview.md), z których każdy ma inny cel. Informacje o tym, kiedy należy używać każdej usługi i od siebie nawzajem.
 
@@ -43,7 +41,7 @@ Jeśli rozmowa bot odbiera tekst `How do I get to the Human Resources building o
 
 ## <a name="when-do-you-use-luis"></a>Kiedy używać LUIS?
 
-Użyj LUIS, gdy musisz znać zamiar wypowiedź w ramach procesu w usłudze Chat bot. Kontynuując przykładowy tekst, `How do I get to the Human Resources building on the Seattle North campus?` , Jeśli wiesz, że zamiarem użytkownika jest znalezienie lokalizacji, możesz przekazać szczegóły dotyczące wypowiedź (ściągając z jednostkami) do innej usługi, takiej jak serwer transportu, aby uzyskać odpowiedź.
+Używaj usługi LUIS, gdy musisz znać zamiar wypowiedzi w ramach procesu w czatbocie. Kontynuując przykładowy tekst, `How do I get to the Human Resources building on the Seattle North campus?` , Jeśli wiesz, że zamiarem użytkownika jest znalezienie lokalizacji, możesz przekazać szczegóły dotyczące wypowiedź (ściągając z jednostkami) do innej usługi, takiej jak serwer transportu, aby uzyskać odpowiedź.
 
 Nie musisz łączyć LUIS i QnA Maker, aby określić cel.
 
@@ -51,7 +49,7 @@ Możesz połączyć te dwie usługi dla tego wypowiedź, jeśli bot rozmowy musi
 
 ## <a name="when-do-you-use-qna-maker"></a>Kiedy używać QnA Maker?
 
-Użyj QnA Maker, jeśli masz statyczną bazę wiedzy z odpowiedzią. Ta baza wiedzy jest niestandardowa w Twoich potrzebach, które zostały skompilowane przy użyciu dokumentów, takich jak pliki PDF i adresy URL.
+Używaj usługi QnA Maker, jeśli masz statyczną bazę wiedzy z odpowiedziami. Ta baza wiedzy jest dostosowana do Twoich potrzebach i zawiera dokumenty, takie jak pliki PDF i adresy URL.
 
 Kontynuując przykład wypowiedź, `How do I get to the Human Resources building on the Seattle North campus?` Wyślij tekst w formie zapytania do opublikowanej usługi QNA Maker i otrzymasz najlepszą odpowiedź.
 
@@ -75,7 +73,7 @@ Jeśli rozmowa bot potrzebuje więcej informacji niż zapewnia usługa, aby kont
 
 Użyj narzędzia **[interfejsu wiersza polecenia do wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** bot Framework, aby pomóc w tworzeniu procesu do pracy z obiema usługami. To narzędzie służy do tworzenia najwyższej aplikacji LUIS, które są wysyłane między LUIS i QnA Maker jako aplikacje podrzędne. [Dowiedz się więcej](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) o integrowaniu z LUIS, QNA Maker i bot Framework.
 
-Użyj przykładu bot Builder, **NLP z wysyłaniem**w [języku C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) lub [Node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), aby zaimplementować ten typ rozmowy bot.
+Użyj przykładu bot Builder, **NLP z wysyłaniem**w [języku C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) lub [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), aby zaimplementować ten typ rozmowy bot.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -84,7 +82,7 @@ Zaimplementuj najlepsze rozwiązania dla każdej usługi:
 * Najlepsze rozwiązania [Luis](../luis/luis-concept-best-practices.md)
 * [QNA Maker](../qnamaker/concepts/best-practices.md) najlepszych praktyk
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Language Understanding (LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)

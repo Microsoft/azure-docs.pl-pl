@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833259"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133116"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
 
@@ -26,7 +26,7 @@ Dostawcy zasobów usługi Azure Storage można używać do wykonywania akcji, ta
 
 Firma Microsoft udostępnia dwa interfejsy API REST do pracy z zasobami usługi Azure Storage. Te interfejsy API stanowią podstawę wszystkich akcji, które można wykonać w odniesieniu do usługi Azure Storage. Interfejs API REST usługi Azure Storage umożliwia korzystanie z danych na koncie magazynu, w tym obiektów blob, kolejek, plików i tabel. Interfejs API REST dostawcy zasobów usługi Azure Storage umożliwia korzystanie z konta magazynu i powiązanych zasobów.
 
-Żądanie, które odczytuje lub zapisuje dane obiektów blob, wymaga innych uprawnień niż żądanie wykonujące operację zarządzania. RBAC zapewnia szczegółową kontrolę nad uprawnieniami do obu typów zasobów. W przypadku przypisywania roli RBAC do podmiotu zabezpieczeń upewnij się, że rozumiesz, jakie uprawnienia mają być przyznane podmiotowi zabezpieczenia. Aby uzyskać szczegółowe informacje dotyczące akcji skojarzonych z każdą wbudowaną rolą RBAC, zobacz [wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+Żądanie, które odczytuje lub zapisuje dane obiektów blob, wymaga innych uprawnień niż żądanie wykonujące operację zarządzania. RBAC zapewnia szczegółową kontrolę nad uprawnieniami do obu typów zasobów. W przypadku przypisywania roli RBAC do podmiotu zabezpieczeń upewnij się, że rozumiesz, jakie uprawnienia mają być przyznane podmiotowi zabezpieczenia. Aby uzyskać szczegółowe informacje dotyczące akcji skojarzonych z każdą wbudowaną rolą RBAC, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 Usługa Azure Storage obsługuje używanie usługi Azure AD do autoryzowania żądań względem obiektów blob i queue storage. Aby uzyskać informacje na temat ról RBAC dla operacji na danych obiektów blob i kolejek, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Active Directory](storage-auth-aad.md).
 
@@ -34,7 +34,7 @@ Usługa Azure Storage obsługuje używanie usługi Azure AD do autoryzowania ż�
 
 Każda subskrypcja platformy Azure ma skojarzoną Azure Active Directory, która zarządza użytkownikami, grupami i aplikacjami. Użytkownik, Grupa lub aplikacja jest również nazywana podmiotem zabezpieczeń w kontekście [platformy tożsamości firmy Microsoft](/azure/active-directory/develop/). Dostęp do zasobów w ramach subskrypcji można udzielić podmiotowi zabezpieczeń, który jest zdefiniowany w Active Directory przy użyciu kontroli dostępu opartej na rolach (RBAC).
 
-Po przypisaniu roli RBAC do podmiotu zabezpieczeń należy również wskazać zakres, w którym obowiązują uprawnienia przyznane przez rolę. W przypadku operacji zarządzania można przypisać rolę na poziomie subskrypcji, grupy zasobów lub konta magazynu. Rolę RBAC można przypisać do podmiotu zabezpieczeń za pomocą [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [programu PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsu API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp).
+Po przypisaniu roli RBAC do podmiotu zabezpieczeń należy również wskazać zakres, w którym obowiązują uprawnienia przyznane przez rolę. W przypadku operacji zarządzania można przypisać rolę na poziomie subskrypcji, grupy zasobów lub konta magazynu. Rolę RBAC można przypisać do podmiotu zabezpieczeń za pomocą [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [programu PowerShell](/powershell/azure/)lub [interfejsu API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp).
 
 Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) i role [administratora subskrypcji klasycznej, role RBAC platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -57,7 +57,7 @@ Trzecia kolumna w tabeli wskazuje, czy wbudowana rola obsługuje **Microsoft. St
 
 ### <a name="custom-roles-for-management-operations"></a>Role niestandardowe dla operacji zarządzania
 
-Platforma Azure obsługuje także Definiowanie niestandardowych ról RBAC na potrzeby dostępu do zasobów zarządzania. Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](../../role-based-access-control/custom-roles.md).
+Platforma Azure obsługuje także definiowanie ról niestandardowych platformy Azure na potrzeby dostępu do zasobów zarządzania. Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md).
 
 ## <a name="code-samples"></a>Przykłady kodu
 

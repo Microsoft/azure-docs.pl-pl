@@ -2,27 +2,25 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 237ba5ba390b4065a67f29611fbd43375c239578
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ddf16334830b64c57e9d09a75dfc80fc319a9ccd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188880"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133881"
 ---
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | | [Przykłady](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)dokumentacji referencyjnej[(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)
+[Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)  | referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Bieżąca wersja środowiska [Node. js](https://nodejs.org) i npm.
+* Bieżąca wersja [Node.js](https://nodejs.org) i npm.
 
 ## <a name="using-this-quickstart"></a>Korzystanie z tego przewodnika Szybki Start
 
@@ -47,15 +45,15 @@ W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla
 mkdir myapp && cd myapp
 ```
 
-Uruchom polecenie `npm init -y` , aby utworzyć `package.json` plik.
+Uruchom `npm init -y` polecenie, aby utworzyć `package.json` plik.
 
 ```console
 npm init -y
 ```
 
-## <a name="install-the-nodejs-library-for-personalizer"></a>Zainstaluj bibliotekę środowiska Node. js dla programu Personalizacja
+## <a name="install-the-nodejs-library-for-personalizer"></a>Zainstaluj bibliotekę Node.js dla programu Personalizacja
 
-Zainstaluj bibliotekę kliencką programu Personalizuj dla środowiska Node. js za pomocą następującego polecenia:
+Zainstaluj bibliotekę klienta Personalizuj dla Node.js przy użyciu następującego polecenia:
 
 ```console
 npm install @azure/cognitiveservices-personalizer --save
@@ -79,7 +77,7 @@ Ustalenie nagrody w tym przewodniku Szybki Start jest proste. W systemie produkc
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienckiej personalizacji dla środowiska Node. js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienckiej personalizacji dla Node.js:
 
 * [Tworzenie klienta programu Personalizacja](#create-a-personalizer-client)
 * [Interfejs API rangi](#request-the-best-action)
@@ -87,23 +85,23 @@ Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą bi
 
 ## <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
-Utwórz nową aplikację Node. js w preferowanym edytorze lub środowisku IDE o `sample.js`nazwie.
+Utwórz nową aplikację Node.js w preferowanym edytorze lub środowisku IDE o nazwie `sample.js` .
 
 ## <a name="add-the-dependencies"></a>Dodawanie zależności
 
-Otwórz **przykładowy plik. js** w preferowanym edytorze lub w środowisku IDE. Dodaj następujące elementy `requires` , aby dodać pakiety npm:
+Otwórz plik **sample.js** w preferowanym edytorze lub w środowisku IDE. Dodaj następujące elementy `requires` , aby dodać pakiety npm:
 
 [!code-javascript[Add module dependencies](~/samples-personalizer/quickstarts/node/sample.js?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Dodawanie informacji o zasobach personalizacji
 
-Utwórz zmienne dla klucza i punktu końcowego usługi Azure Resource ściągnięte ze zmiennych środowiskowych o nazwie `PERSONALIZER_KEY` i `PERSONALIZER_ENDPOINT`. Jeśli po uruchomieniu aplikacji zostały utworzone zmienne środowiskowe, Edytor, środowisko IDE lub powłoka, na których działa, będzie musiał zostać zamknięte i ponownie załadowane w celu uzyskania dostępu do zmiennej. Metody zostaną utworzone w dalszej części tego przewodnika Szybki Start.
+Utwórz zmienne dla klucza i punktu końcowego usługi Azure Resource ściągnięte ze zmiennych środowiskowych o nazwie `PERSONALIZER_KEY` i `PERSONALIZER_ENDPOINT` . Jeśli po uruchomieniu aplikacji zostały utworzone zmienne środowiskowe, Edytor, środowisko IDE lub powłoka, na których działa, będzie musiał zostać zamknięte i ponownie załadowane w celu uzyskania dostępu do zmiennej. Metody zostaną utworzone w dalszej części tego przewodnika Szybki Start.
 
 [!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Tworzenie klienta programu Personalizacja
 
-Następnie Utwórz metodę zwracającą klienta programu Personalizacja. Parametr do metody ma wartość, `PERSONALIZER_RESOURCE_ENDPOINT` a ApiKey jest. `PERSONALIZER_RESOURCE_KEY`
+Następnie Utwórz metodę zwracającą klienta programu Personalizacja. Parametr do metody ma wartość, `PERSONALIZER_RESOURCE_ENDPOINT` a ApiKey jest `PERSONALIZER_RESOURCE_KEY` .
 
 [!code-javascript[Create a Personalizer client](~/samples-personalizer/quickstarts/node/sample.js?name=Client)]
 
@@ -132,7 +130,7 @@ Dodaj następujące metody, które [pobierają Opcje zawartości](#get-content-c
 
 ## <a name="request-the-best-action"></a>Żądaj najlepszej akcji
 
-Aby ukończyć żądanie rangi, program prosi o preferencje użytkownika w celu utworzenia opcji zawartości. Proces może tworzyć zawartość, która ma zostać wykluczona z akcji, `excludeActions`pokazana jako. Żądanie rangi wymaga [działań](../concepts-features.md#actions-represent-a-list-of-options) i ich funkcji, funkcji CurrentContext, excludeActions i unikatowego identyfikatora zdarzenia rangi, aby otrzymać żądaną odpowiedź.
+Aby ukończyć żądanie rangi, program prosi o preferencje użytkownika w celu utworzenia opcji zawartości. Proces może tworzyć zawartość, która ma zostać wykluczona z akcji, pokazana jako `excludeActions` . Żądanie rangi wymaga [działań](../concepts-features.md#actions-represent-a-list-of-options) i ich funkcji, funkcji CurrentContext, excludeActions i unikatowego identyfikatora zdarzenia rangi, aby otrzymać żądaną odpowiedź.
 
 Ten przewodnik Szybki Start zawiera proste funkcje kontekstu o porze dnia i preferencjach żywności dla użytkowników. W systemach produkcyjnych określenie i [Ocena](../concept-feature-evaluation.md) [działań i funkcji](../concepts-features.md) może być nieuproszczona.
 
@@ -149,7 +147,7 @@ Ten przewodnik Szybki Start przypisuje prostą liczbę jako wynik nagrody, zero 
 
 ## <a name="run-the-program"></a>Uruchamianie programu
 
-Uruchom aplikację za pomocą środowiska Node. js z katalogu aplikacji.
+Uruchom aplikację z Node.js z katalogu aplikacji.
 
 ```console
 node sample.js

@@ -1,19 +1,19 @@
 ---
 title: Pokrycie pogodowe | Mapy Microsoft Azure
 description: Ten artykuł zawiera informacje na temat pokrycia pogody w Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c18a09b494de7ecb639fbc5639b7162bdb02d2a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d6e08f53fa6c5fbfa8e7f4569b7475c21e40dc05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241985"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133218"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps pokrycie pogodowe
 
@@ -28,7 +28,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 |*       |Obejmuje Pogoda na trasie, bieżące warunki, prognozę godzinową, prognozę kwartalną i dzienne interfejsy API prognozowania |
 
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 | Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
