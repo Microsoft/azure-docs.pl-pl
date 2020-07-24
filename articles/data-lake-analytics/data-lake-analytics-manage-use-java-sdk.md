@@ -3,18 +3,16 @@ title: Zarządzanie Azure Data Lake Analytics przy użyciu zestawu Azure Java SD
 description: W tym artykule opisano, jak używać zestawu Azure Java SDK do pisania aplikacji, które zarządzają Data Lake Analytics zadaniami, źródłami danych & użytkownikami.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6409ac10a524f75709cbbf185efb03359606e88c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e5ff12479333c4b36cc7712e0e363a055b9f6dc6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121371"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127659"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Zarządzanie Azure Data Lake Analytics przy użyciu aplikacji Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

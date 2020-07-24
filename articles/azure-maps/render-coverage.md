@@ -1,18 +1,19 @@
 ---
 title: Pokrycie renderowania | Mapy Microsoft Azure
 description: W tym artykule dowiesz się więcej na temat regionów, w których Microsoft Azure Maps renderuje pokrycie, oraz ich poziom renderowanych szczegółów.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123942"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127914"
 ---
 # <a name="azure-maps-render-coverage"></a>Pokrycie Azure Maps renderowania
 

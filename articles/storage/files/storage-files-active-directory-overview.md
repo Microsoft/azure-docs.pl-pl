@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263367"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127200"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -45,7 +46,7 @@ Warto zrozumieć niektóre kluczowe terminy związane z uwierzytelnianiem w usł
 
 -   **Access Control oparte na rolach (RBAC) na platformie Azure**
 
-    Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Za pomocą RBAC można zarządzać dostępem do zasobów, przyznając użytkownikom najmniejsze uprawnienia potrzebne do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (RBAC) na platformie Azure?](../../role-based-access-control/overview.md)
+    Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC można zarządzać dostępem do zasobów, przyznając użytkownikom najmniejsze uprawnienia potrzebne do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure?](../../role-based-access-control/overview.md)
 
 ## <a name="common-use-cases"></a>Typowe przypadki użycia
 
@@ -104,7 +105,7 @@ Na poniższym diagramie przedstawiono lokalne uwierzytelnianie AD DS do udział�
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="4b":::
 
-### <a name="azure-ad-ds"></a>AD DS platformy Azure
+### <a name="azure-ad-ds"></a>Azure AD DS
 
 W przypadku uwierzytelniania za pomocą usługi Azure AD DS należy włączyć Azure AD Domain Services i dołączanie domeny do maszyn wirtualnych, z których planujesz uzyskać dostęp do danych plików. Przyłączona do domeny maszyna wirtualna musi znajdować się w tej samej sieci wirtualnej co AD DS platformy Azure. 
 
@@ -145,7 +146,7 @@ Nie ma dodatkowej opłaty za usługę w celu włączenia uwierzytelniania oparte
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat Azure Files i uwierzytelniania opartego na tożsamościach za pośrednictwem protokołu SMB, zobacz następujące zasoby:
 
-- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 - [Włącz lokalne uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure](storage-files-identity-auth-active-directory-enable.md)
 - [Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [Często zadawane pytania](storage-files-faq.md)

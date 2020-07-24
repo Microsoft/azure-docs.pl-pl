@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cf964b8b5ebbfe5f790a1e325b48cd4179cf4ee
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598440"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127676"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Zarządzanie aplikacjami logiki w programie Visual Studio
 
@@ -35,9 +35,9 @@ Możesz również [zarządzać aplikacjami logiki w Azure Portal](manage-logic-a
 
     > [!IMPORTANT]
     > Po zainstalowaniu programu Visual Studio 2019 lub 2017 upewnij się, że wybrano obciążenie **Programowanie na platformie Azure** .
-    > Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami skojarzonymi z kontami platformy Azure w programie Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami skojarzonymi z kontami platformy Azure w programie Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
 
-    Aby zainstalować program Cloud Explorer dla programu Visual Studio 2015, [Pobierz program Cloud Explorer z Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami skojarzonymi z kontami platformy Azure w programie Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    Aby zainstalować program Cloud Explorer dla programu Visual Studio 2015, [Pobierz program Cloud Explorer z Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami skojarzonymi z kontami platformy Azure w programie Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
   * [Zestaw Azure SDK (2.9.1 lub nowszy)](https://azure.microsoft.com/downloads/)
 
@@ -51,44 +51,46 @@ Możesz również [zarządzać aplikacjami logiki w Azure Portal](manage-logic-a
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
-    Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Upewnij się, że po zakończeniu instalacji program Visual Studio zostanie ponownie uruchomiony.
+    Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Upewnij się, że po zakończeniu instalacji program Visual Studio zostanie ponownie uruchomiony.
+
+  * Aby skorzystać z subskrypcji Azure Government w programie Visual Studio, zobacz następujące tematy, aby uzyskać dodatkową konfigurację:
+
+    * Visual Studio 2019: [Szybki Start: łączenie się z Azure Government za pomocą programu Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [wprowadzenie do rozszerzenia programu Visual Studio selektora środowiska platformy Azure](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), które można pobrać i zainstalować z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 * Dostęp do sieci Web przy użyciu osadzonego projektanta Logic Apps
 
-  Projektant wymaga połączenia internetowego do tworzenia zasobów na platformie Azure oraz odczytywania właściwości i danych z łączników w aplikacji logiki. Jeśli na przykład używany jest łącznik usługi Dynamics CRM Online, projektant wyszukuje dostępne właściwości domyślne i niestandardowe w wystąpieniu CRM.
+  Projektant wymaga połączenia internetowego do tworzenia zasobów na platformie Azure oraz odczytywania właściwości i danych z łączników w aplikacji logiki.
 
 <a name="find-logic-apps-vs"></a>
 
-## <a name="find-your-logic-apps"></a>Znajdowanie aplikacji logiki
+## <a name="find-logic-apps"></a>Znajdowanie aplikacji logiki
 
 W programie Visual Studio można znaleźć wszystkie aplikacje logiki skojarzone z subskrypcją platformy Azure i wdrożone w Azure Portal przy użyciu programu Cloud Explorer.
 
 1. Otwórz program Visual Studio. W menu **Widok** wybierz opcję **Eksplorator chmury**.
 
-1. W programie Cloud Explorer wybierz pozycję **Zarządzanie kontem**. Wybierz subskrypcję platformy Azure skojarzoną z aplikacjami logiki, a następnie wybierz pozycję **Zastosuj**. Na przykład:
+1. W programie Cloud Explorer wybierz ikonę **Zarządzanie kontem** . Wybierz subskrypcję platformy Azure skojarzoną z aplikacjami logiki, a następnie wybierz pozycję **Zastosuj**. Na przykład:
 
    ![Wybierz pozycję "Zarządzanie kontami"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-1. W zależności od tego, czy wyszukujesz według **grup zasobów** czy **typów zasobów**, wykonaj następujące kroki:
+1. Obok ikony **Zarządzanie kontem** wybierz pozycję **typy zasobów**. W ramach subskrypcji platformy Azure rozwiń węzeł **Logic Apps** , aby wyświetlić wszystkie wdrożone Aplikacje logiki, które są skojarzone z Twoją subskrypcją.
 
-   * **Grupy zasobów**: w ramach subskrypcji platformy Azure w Eksploratorze chmury są wyświetlane wszystkie grupy zasobów skojarzone z tą subskrypcją. Rozwiń grupę zasobów zawierającą aplikację logiki, a następnie wybierz aplikację logiki.
-
-   * **Typy zasobów**: w ramach subskrypcji platformy Azure rozwiń węzeł **Logic Apps**. Po wyświetleniu wszystkich wdrożonych aplikacji logiki skojarzonych z subskrypcją w programie Cloud Explorer wybierz aplikację logiki.
+Następnie otwórz aplikację logiki w edytorze aplikacji logiki.
 
 <a name="open-designer"></a>
 
-## <a name="open-in-visual-studio"></a>Otwórz w programie Visual Studio
+## <a name="open-logic-apps-in-visual-studio"></a>Otwieranie aplikacji logiki w programie Visual Studio
 
 W programie Visual Studio można otwierać aplikacje logiki wcześniej utworzone i wdrożone bezpośrednio za pomocą Azure Portal lub projektów grupy zasobów platformy Azure z programem Visual Studio.
 
-1. Otwórz program Cloud Explorer i Znajdź aplikację logiki.
+1. [Otwórz program Cloud Explorer i Znajdź aplikację logiki](#find-logic-apps-vs).
 
-1. W menu skrótów aplikacji logiki wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
+1. Z menu skrótów aplikacji logiki wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
 
    > [!TIP]
    > Jeśli nie masz tego polecenia w programie Visual Studio 2019, sprawdź, czy masz najnowsze aktualizacje programu Visual Studio.
-
-   Ten przykład pokazuje Aplikacje logiki według typu zasobu, dzięki czemu Aplikacje logiki są wyświetlane w sekcji **Logic Apps** .
 
    ![Otwórz wdrożoną aplikację logiki z Azure Portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
@@ -100,14 +102,14 @@ W programie Visual Studio można otwierać aplikacje logiki wcześniej utworzone
 
 Aplikacje logiki można pobrać z [Azure Portal](https://portal.azure.com) i zapisać je jako szablony [Azure Resource Manager](../azure-resource-manager/management/overview.md) . Następnie można edytować szablony lokalnie za pomocą programu Visual Studio i dostosowywać Aplikacje logiki do różnych środowisk wdrażania.  Pobieranie aplikacji logiki automatycznie *parameterizes* ich definicje w [szablonach Menedżer zasobów](../azure-resource-manager/templates/overview.md), które również używają JavaScript Object Notation (JSON).
 
-1. W programie Visual Studio Otwórz program Cloud Explorer. Znajdź i wybierz aplikację logiki, którą chcesz pobrać z platformy Azure.
+1. W programie Visual Studio za pomocą programu Cloud Explorer [Otwórz aplikację logiki, którą chcesz pobrać z platformy Azure](#open-designer).
 
-1. W menu skrótów tej aplikacji wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
+1. Z menu skrótów aplikacji logiki wybierz pozycję **Otwórz za pomocą edytora aplikacji logiki**.
 
    > [!TIP]
    > Jeśli nie masz tego polecenia w programie Visual Studio 2019, sprawdź, czy masz najnowsze aktualizacje programu Visual Studio.
 
-   Zostanie otwarty projektant aplikacji logiki i zostanie wyświetlona aplikacja logiki. Aby przejrzeć podstawową definicję i strukturę aplikacji logiki, w dolnej części projektanta wybierz pozycję **Widok kodu**.
+   Aplikacja logiki zostanie otwarta w Projektancie aplikacji logiki.
 
 1. Na pasku narzędzi projektanta wybierz pozycję **Pobierz**.
 

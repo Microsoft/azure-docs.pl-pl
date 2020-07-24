@@ -7,17 +7,17 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860056"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129189"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
@@ -26,7 +26,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Node. js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/).
 * [Visual Studio Code](https://code.visualstudio.com/download) edytowania plików projektu lub [programu Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) , aby uruchomić projekt.
 
 > [!div renderon="docs"]
@@ -62,7 +62,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 
 #### <a name="step-2-download-the-code-sample"></a>Krok 2. Pobieranie przykładu kodu
 >[!div renderon="docs"]
->Aby uruchomić projekt z serwerem sieci Web przy użyciu środowiska Node. js, [Sklonuj przykładowe repozytorium](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) lub [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Otwórz pliki przy użyciu edytora, takiego jak Visual Studio Code.
+>Aby uruchomić projekt z serwerem sieci Web przy użyciu Node.js, [Sklonuj przykładowe repozytorium](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) lub [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Otwórz pliki przy użyciu edytora, takiego jak Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
@@ -107,9 +107,9 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > > [!TIP]
 > > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)** i **Obsługiwane typy kont**, przejdź do strony **Przegląd** w witrynie Azure Portal.
 
-Aby uzyskać więcej informacji na temat dostępnych opcji konfigurowalnych, zobacz [Inicjowanie aplikacji klienckich](msal-js-initializing-client-applications.md). 
+Aby uzyskać więcej informacji na temat dostępnych opcji konfigurowalnych, zobacz [Inicjowanie aplikacji klienckich](msal-js-initializing-client-applications.md).
 
-Kod źródłowy biblioteki MSAL. js można znaleźć w repozytorium [AzureAD/Microsoft-Authentication-Library-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w serwisie GitHub.
+Kod źródłowy biblioteki MSAL.js można znaleźć w repozytorium [AzureAD/Microsoft-Authentication-Library-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w witrynie GitHub.
 
 >[!div class="sxs-lookup" renderon="portal"]
 >#### <a name="step-3-run-the-project"></a>Krok 3. uruchamianie projektu
@@ -126,7 +126,7 @@ Jeśli używasz środowiska Node.js:
    npm start
    ```
 
-1. Przejdź do **http://localhost:4200/** .
+1. Przejdź do **http://localhost:4200/**.
 1. Wybierz pozycję **Zaloguj**.
 1. Wybierz **profil** , aby wywołać Microsoft Graph.
 
@@ -134,7 +134,7 @@ Po załadowaniu aplikacji przez przeglądarkę wybierz pozycję **Zaloguj**. Po 
 
 ## <a name="how-the-sample-works"></a>Jak działa przykład
 
-![Diagram pokazujący, jak działa Przykładowa aplikacja w tym przewodniku Szybki Start](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagram pokazujący, jak działa Przykładowa aplikacja w tym przewodniku Szybki Start](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>Następne kroki

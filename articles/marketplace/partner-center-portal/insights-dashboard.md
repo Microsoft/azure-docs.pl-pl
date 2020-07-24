@@ -1,20 +1,20 @@
 ---
-title: Szczegółowe informacje o portalu Marketplace — Microsoft Commercial Marketplace
+title: Marketplace Insights — Microsoft Commercial Marketplace, Microsoft AppSource i Azure Marketplace
 description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketplace, co pozwala mierzyć zaangażowanie klientów w Microsoft AppSource i Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+ms.openlocfilehash: c72f3c9cce19896557fa9f4114b935fcc5ca8dc2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120402"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128951"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie analizy sieci Web w portalu Marketplace, dzięki czemu wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony szczegółów produktów wymienione w witrynie witryny Marketplace: Microsoft AppSource i Azure Marketplace.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie informacji o analizie sieci Web w portalu Marketplace, dzięki którym wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony z informacjami szczegółowymi o produkcie, które znajdują się w witrynie komercyjne witryny Marketplace: Microsoft AppSource i Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
 
@@ -25,18 +25,20 @@ Można wyświetlić graficzne reprezentacje następujących elementów:
 - [Podsumowanie informacji o portalu Marketplace](#marketplace-insights-summary)
 - [Wizyty stron według położenia geograficznego](#page-visits-by-geography)  
 - [Liczba odwiedzin stron i trend unikatowych osób odwiedzających](#page-visits-versus-unique-visitors-trend)
-- [Wywoływanie akcji i unikatowych osób odwiedzających przy użyciu CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Wywoływanie akcji (CTA) i unikatowych osób odwiedzających z CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Odwiedziny stron i wywoływanie akcji przez oferty](#page-visits-and-calls-to-action-by-offers)
 - [Wywołaj trend wartości procentowej akcji](#call-to-action-percentage-trend)
 - [Odwiedziny stron i wywołania akcji według domen odwołań](#page-visits-and-calls-to-action-by-referral-domains)
 - [Tabela szczegółów szczegółowych informacji o portalu Marketplace](#marketplace-insights-details-table)
+
+Maksymalne opóźnienie między odwiedzanymi ofertami użytkowników w witrynie Azure Marketplace lub AppSource oraz raportowanie w centrum partnerskim wynosi 48 godzin.
 
 >[!NOTE]
 > Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Układ pulpitu nawigacyjnego wglądu w szczegółowe dane
 
-Metryki portalu Marketplace można przeglądać na wiele sposobów:
+Wyświetlaj komercyjne wskaźniki rynkowe na różne sposoby:
 
 - Karty witryny sklepu
 - Filtry stron
@@ -74,7 +76,7 @@ Ta liczba reprezentuje liczbę różnych odwiedzających w wybranym zakresie dat
 
 ### <a name="call-to-action"></a>Wywołanie akcji
 
-Ta liczba reprezentuje liczbę wywołań przycisku **akcji, które** zostały wykonane na stronie oferty (Strona szczegółów produktu). **Wywołania akcji** są zliczane, gdy są zaznaczone przyciski **Pobierz teraz**, **bezpłatna wersja próbna**, **kontakt ze mną**i **Test Drive** .
+Ta liczba reprezentuje liczbę wywołań przycisku **akcji, które** zostały wykonane na stronie oferty (Strona szczegółów produktu). **Wywołania akcji** są zliczane, gdy użytkownicy wybierają przyciski **Pobierz teraz**, **bezpłatna wersja próbna**, **kontakt ze mną**lub **Testuj dysk** .
 
 ![Podsumowanie akcji w usłudze Partner Center](./media/insights-summary.png)
 
@@ -128,7 +130,7 @@ Ta tabela zawiera widok listy wizyt stron oraz wywołania akcji wybranych ofert 
 
 - Dane można wyodrębnić do pliku CSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować, aby wyświetlić dane, które Cię interesują. Dane można filtrować według nazw ofert i nazw kampanii.  
+- Filtrowanie danych według nazw ofert i nazw kampanii, aby wyświetlić dane, które Cię interesują.
 
 ## <a name="next-steps"></a>Następne kroki
 

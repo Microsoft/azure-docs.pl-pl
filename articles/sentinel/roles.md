@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: a43b2282974e30cfcf9fa6950e32008c06da98d2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9f9a84726b54569d612a94f183531567b2242ff5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956801"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127166"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
 
@@ -78,14 +78,14 @@ Poniższa tabela zawiera Podsumowanie ról i dozwolonych akcji na platformie Azu
 
 | Rola | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
-| Czytnik wskaźnikowy platformy Azure | -- | -- | -- | &#10003; |
-| Obiekt odpowiadający wskaźnikowi platformy Azure | -- | -- | &#10003; | &#10003; |
-| Współautor wskaźnikowego platformy Azure | -- | &#10003; | &#10003; | &#10003; |
+| Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
+| Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |
+| Współautor usługi Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Współautor Azure wskaźnikowego i współautor aplikacji logiki | &#10003; | &#10003; | &#10003; | &#10003; |
 
 ## <a name="custom-roles-and-advanced-rbac"></a>Role niestandardowe i Zaawansowana kontrola RBAC
 
-- Oprócz lub zamiast, przy użyciu wbudowanych ról RBAC, można utworzyć niestandardowe role RBAC dla platformy Azure. Niestandardowe role kontroli dostępu do usługi Azure wskaźnikowego są tworzone w taki sam sposób, jak w przypadku tworzenia innych [niestandardowych ról RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) platformy Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów log Analytics platformy Azure](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- Oprócz, lub zamiast, przy użyciu wbudowanych ról RBAC, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure na potrzeby kontroli dostępu platformy Azure są tworzone w taki sam sposób, jak w przypadku innych [niestandardowych ról RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) platformy Azure, na podstawie [określonych uprawnień do platformy Azure](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) — [zasoby i usługi Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 - Możesz użyć zaawansowanej kontroli dostępu opartej na rolach Log Analytics w danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno RBAC opartego na typie danych, jak i opartego na zasobach RBAC. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 

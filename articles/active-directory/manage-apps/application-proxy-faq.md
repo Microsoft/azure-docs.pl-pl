@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386287"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128934"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -52,6 +52,9 @@ Zalecenia można znaleźć w temacie [wysoka dostępność i równoważenie obci
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Czy w ruchu z serwerów łączników do platformy Azure jest obsługiwana przerwa w zakresie protokołu TLS (inspekcja i przyspieszanie TLS/HTTPS).
 
 Łącznik serwera proxy aplikacji wykonuje uwierzytelnianie oparte na certyfikatach na platformie Azure. Zakończenie protokołu TLS (inspekcja lub przyspieszenie TLS/HTTPS) powoduje przerwanie tej metody uwierzytelniania i nie jest obsługiwana. Ruch z łącznika do platformy Azure musi pomijać wszystkie urządzenia, które wykonują zakończenie protokołu TLS.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>Czy protokół TLS 1,2 jest wymagany dla wszystkich połączeń?
+Tak. Aby zapewnić klientom najlepszą w swojej klasie szyfrowanie, usługa serwera proxy aplikacji ogranicza dostęp tylko do protokołów TLS 1,2. Te zmiany zostały stopniowo przeprowadzone i zaczęły obowiązywać od 31 sierpnia 2019. Upewnij się, że wszystkie kombinacje programu Client-Server i Browser-Server zostały zaktualizowane pod kątem używania protokołu TLS 1,2 do obsługi połączenia z usługą serwera proxy aplikacji. Obejmują one klientów używanych przez użytkowników do uzyskiwania dostępu do aplikacji opublikowanych za pośrednictwem serwera proxy aplikacji. Zobacz przygotowanie do [protokołu TLS 1,2 w pakiecie Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) , aby uzyskać przydatne informacje i zasoby.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Czy mogę umieścić urządzenie proxy przekazywania między serwerami łączników i serwerem aplikacji zaplecza?
 Tak, ten scenariusz jest obsługiwany, zaczynając od łącznika w wersji 1.5.1526.0. Zobacz temat [współpraca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -93,6 +96,9 @@ Na stronie rejestracje aplikacji można zmienić adres URL strony głównej na �
 
 Nie, nie ma wymagań dotyczących usług IIS dla opublikowanych aplikacji. Możesz publikować aplikacje sieci Web działające na serwerach innych niż system Windows Server. Nie można jednak używać uwierzytelniania wstępnego z serwerem innym niż Windows, w zależności od tego, czy serwer sieci Web obsługuje negocjowanie (uwierzytelnianie Kerberos). Program IIS nie jest wymagany na serwerze, na którym jest zainstalowany łącznik.
 
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>Czy mogę skonfigurować serwer proxy aplikacji w celu dodania nagłówka HSTS?
+Serwer proxy aplikacji nie dodaje automatycznie do odpowiedzi HTTPS nagłówka HTTP Strict-Transport-Security, ale zachowuje nagłówek, jeśli znajduje się w oryginalnej odpowiedzi wysyłanej przez opublikowaną aplikację. Określenie ustawienia umożliwiającego włączenie tej funkcji jest zależne od planu. Jeśli interesuje Cię Podgląd, który umożliwia dodawanie tego do odpowiedzi, skontaktuj się z, aby aadapfeedback@microsoft.com uzyskać szczegółowe informacje.
+
 ## <a name="integrated-windows-authentication"></a>Zintegrowane uwierzytelnianie systemu Windows
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Kiedy należy używać metody PrincipalsAllowedToDelegateToAccount podczas konfigurowania ograniczonego delegowania protokołu Kerberos (KCD)?
@@ -133,7 +139,7 @@ Tak, oczekiwano. Scenariusz przed uwierzytelnianiem wymaga formantu ActiveX, kt�
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Czy obsługiwana jest Pulpit zdalny klient sieci Web (HTML5)?
 
-Nie, ten scenariusz nie jest obecnie obsługiwany. Aby uzyskać aktualizacje dotyczące tej funkcji, postępuj zgodnie z naszym forum opinii usługi [UserVoice](https://aka.ms/aadapuservoice) .
+Tak, ten scenariusz jest obecnie w publicznej wersji zapoznawczej. Zapoznaj się z tematem [publikowanie pulpit zdalny za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Po skonfigurowaniu scenariusza wstępnego uwierzytelniania użytkownik stwierdził, że musi uwierzytelnić się dwa razy: najpierw w formularzu logowania do usługi Azure AD, a następnie w formularzu logowania RDWeb. Czy jest to oczekiwane? Jak można je zmniejszyć do jednego logowania?
 

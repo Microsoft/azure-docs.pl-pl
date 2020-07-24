@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654872"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128679"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor dla sieci (wersja zapoznawcza)
 Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji. Funkcja wyszukiwania zaawansowanego pomaga identyfikować zależności zasobów, umożliwiając takie scenariusze jak identyfikowanie zasobów, które są hostowane w witrynie sieci Web, a także w przypadku wyszukiwania nazwy witryny sieci Web.
@@ -29,7 +30,7 @@ Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich 
 
 Pole wyszukiwania może służyć do wyszukiwania zasobów i skojarzonych zasobów. Na przykład publiczny adres IP jest skojarzony z Application Gateway. Wyszukiwanie publicznych adresów IP nazwa DNS będzie identyfikować zarówno publiczny, jak i skojarzony Application Gateway.
 
-![Wyszukiwanie](media/network-insights-overview/search.png)
+![Wyszukaj](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health i metryka
@@ -47,7 +48,7 @@ Możesz kliknąć każdy element w widoku siatki. Kliknij ikonę kondycji, aby p
 Siatka **alertów** po prawej stronie zawiera widok wszystkich alertów wygenerowanych dla wybranych zasobów we wszystkich subskrypcjach. Kliknij liczbę alertów, aby przejść do strony szczegółów alertów.
 
 ## <a name="dependency-view"></a>Widok zależności
-Widok **zależności** pomaga wizualizować sposób konfiguracji zasobu. Obecnie widok zależności jest obsługiwany tylko w przypadku Application Gateway. Dostęp do widoku zależności można uzyskać, klikając nazwę zasobu Application Gateway w widoku siatki metryk.
+Widok **zależności** pomaga wizualizować sposób konfiguracji zasobu. Obecnie jest obsługiwany widok zależności dla Application Gateway, wirtualnej sieci WAN i Load Balancer. Na przykład w przypadku Application Gateway można uzyskać dostęp do widoku zależności, klikając nazwę zasobu Application Gateway w widoku siatki metryk. Dotyczy to również wirtualnych sieci WAN i Load Balancer. 
 
 ![Widok Application Gateway](media/network-insights-overview/application-gateway.png)
 
@@ -69,4 +70,4 @@ Kliknij pozycję **szczegółowy widok metryki** , aby uruchomić wstępnie skon
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- Dowiedz się więcej o monitorowaniu sieci na [platformie Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Dowiedz się więcej o monitorowaniu sieci na [platformie Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).

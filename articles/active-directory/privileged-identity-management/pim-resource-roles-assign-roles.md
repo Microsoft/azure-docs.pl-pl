@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023775"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128169"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Przypisywanie ról zasobów platformy Azure w Privileged Identity Management
 
@@ -33,7 +33,7 @@ Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) m
 - Menedżer zabezpieczeń
 
 > [!NOTE]
-> Użytkownicy lub członkowie grupy przypisani do ról subskrypcji administrator dostępu do właściciela lub użytkownika oraz Administratorzy globalni usługi Azure AD, którzy umożliwiają zarządzanie subskrypcjami w usłudze Azure AD, domyślnie mają uprawnienia administratora zasobów. Ci Administratorzy mogą przypisywać role, konfigurować ustawienia ról i przeglądać dostęp za pomocą Privileged Identity Management dla zasobów platformy Azure. Użytkownik nie może zarządzać Privileged Identity Management dla zasobów bez uprawnień administratora zasobów. Wyświetl listę [ról wbudowanych dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+> Użytkownicy lub członkowie grupy przypisani do ról subskrypcji administrator dostępu do właściciela lub użytkownika oraz Administratorzy globalni usługi Azure AD, którzy umożliwiają zarządzanie subskrypcjami w usłudze Azure AD, domyślnie mają uprawnienia administratora zasobów. Ci Administratorzy mogą przypisywać role, konfigurować ustawienia ról i przeglądać dostęp za pomocą Privileged Identity Management dla zasobów platformy Azure. Użytkownik nie może zarządzać Privileged Identity Management dla zasobów bez uprawnień administratora zasobów. Wyświetl listę [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Przypisywanie roli
 

@@ -3,17 +3,15 @@ title: Poszerzenie skryptów U-SQL przy użyciu języka R w Azure Data Lake Anal
 description: Dowiedz się, jak uruchomić kod języka R w skryptach U-SQL przy użyciu Azure Data Lake Analytics. Osadź kod języka R wewnątrz lub odwołuje się do plików.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
-ms.openlocfilehash: 40e79202f68a377597fbe144843edbbf38fd77c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1c054dcfe12ad1d2098fc5352183839704e39330
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110508"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127404"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Poszerzenie skryptów U-SQL przy użyciu kodu języka R w Azure Data Lake Analytics
 

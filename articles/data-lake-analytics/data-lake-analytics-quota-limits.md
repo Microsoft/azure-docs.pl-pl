@@ -5,16 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: b51fbfc15183fe5c8defafa6523835f938c1cf49
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121252"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127591"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
 
@@ -34,7 +34,7 @@ Jeśli chcesz wykraczać poza ten limit, możesz wypróbować następujące opcj
 
 **Maksymalna liczba jednostek analizy (Australia) dla konta:** 250, domyślnie 32
 
-Jest to maksymalna liczba jednostek, które mogą być uruchamiane współbieżnie na koncie. Jeśli łączna liczba uruchomionych jednostek w ramach wszystkich zadań przekracza ten limit, nowsze zadania są umieszczane w kolejce automatycznie. Przykład:
+Jest to maksymalna liczba jednostek, które mogą być uruchamiane współbieżnie na koncie. Jeśli łączna liczba uruchomionych jednostek w ramach wszystkich zadań przekracza ten limit, nowsze zadania są umieszczane w kolejce automatycznie. Na przykład:
 
 * Jeśli masz tylko jedno zadanie działające z 32, podczas przesyłania drugiego zadania zostanie ono zaczekać w kolejce zadań do momentu zakończenia pierwszego zadania.
 * Jeśli masz już cztery zadania, a każdy z nich korzysta z 8 jednostek zadanich, po przesłaniu piątego zadania wymagającego 8 jednostek, które zaczekają w kolejce zadań do momentu, gdy zostanie wydana 8 dostępnych jednostek.

@@ -3,14 +3,16 @@ title: Tworzenie oferty aplikacji platformy Azure — Microsoft Commercial Marke
 description: Zapoznaj się z instrukcjami i zagadnieniami dotyczącymi tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnej witryny Marketplace w centrum partnerskim. Możesz wyświetlić lub sprzedać swoją ofertę aplikacji platformy Azure w portalu Azure Marketplace lub za pomocą programu Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121978"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127438"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -65,7 +67,7 @@ Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji pl
 
 Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić zarządzanie aplikacją platformy Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
 
 Zalecamy dodanie następujących narzędzi do środowiska deweloperskiego:
@@ -308,7 +310,7 @@ Konfiguracja techniczna definiuje szczegóły (identyfikator dzierżawy i identy
 
 ## <a name="plan-overview"></a>Przegląd planu
 
-Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany te (określane jako jednostki SKU w portal Cloud Partner) mogą różnić się w zależności od typu planu (szablonu rozwiązania a aplikacji zarządzanej), zysków lub odbiorców.  Skonfiguruj co najmniej jeden plan w celu wyświetlenia oferty w portalu Marketplace.
+Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany te (dawniej nazywane jednostkami SKU) mogą różnić się od typu planu (szablonu rozwiązania a aplikacji zarządzanej), zysków lub odbiorców. Skonfiguruj co najmniej jeden plan w celu wyświetlenia oferty w portalu Marketplace.
 
 Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (Public lub private), bieżący stan publikowania i wszystkie dostępne akcje na tej karcie.
 
@@ -510,7 +512,7 @@ Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiw
 
 **Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../../role-based-access-control/overview.md).
+Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Mimo że użytkownik może dodać do 100 autoryzacji na chmurę, łatwiej jest utworzyć Active Directory grupę użytkowników i określić jej identyfikator w "Identyfikator podmiotu zabezpieczeń". Pozwoli to na dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie potrzeb aktualizacji planu tylko w celu dodania większej liczby autoryzacji.
@@ -571,7 +573,7 @@ Opisz środowisko testowe.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 

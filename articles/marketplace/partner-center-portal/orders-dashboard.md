@@ -1,16 +1,16 @@
 ---
-title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace
-description: Dowiedz się, jak uzyskać dostęp do raportów analitycznych zamówień oferowanych w portalu Marketplace w formacie graficznym i do pobrania.
+title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace, Microsoft AppSource i Azure Marketplace
+description: Dowiedz się, w jaki sposób uzyskiwać dostęp do raportów analitycznych zamówień komercyjnych portalu Marketplace w formacie graficznym i do pobrania.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 7a704936b35ba5c747ab5884c61f3f5413ac5f07
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536134"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127319"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
@@ -33,6 +33,8 @@ Aby uzyskać dostęp do **pulpitu nawigacyjnego Orders** w narzędziach do anali
 - [Trend zamówień i siedzeń](#orders-and-seats-trend)
 - [Tabela szczegółów zamówienia](#order-details-table)
 
+Maksymalne opóźnienie między tworzeniem i raportowaniem zamówień w centrum partnerskim wynosi 48 godzin.
+
 ## <a name="order-dashboard-details"></a>Szczegóły kolejności pulpitu nawigacyjnego
 
 W tej sekcji szczegółowo opisano raporty analityczne.
@@ -53,7 +55,7 @@ Wartość procentowa obok sumy zamówień reprezentuje stopień wzrostu wybraneg
 
 ### <a name="orders-by-geography"></a>Zamówienia według położenia geograficznego
 
-Mapę cieplną **Orders by geography** wyświetla liczbę zamówień na mapie światowej i pokazuje stanowiska zamapowane na podstawie kraju/regionu klienta. Ta mapę cieplną działa tak samo jak **[Klient według położenia geograficznego mapę cieplną](./customer-dashboard.md#customer-by-geography)**.
+Mapa cieplna " **zamówienia według lokalizacji geograficznej** " przedstawia liczbę zamówień na mapie światowej i zawiera stanowiska zamapowane na podstawie kraju/regionu klienta. Ta mapę cieplną działa tak samo jak **[Klient według położenia geograficznego mapę cieplną](./customer-dashboard.md#customer-by-geography)**.
 
 ![Centrum partnerskie — analizowanie zamówień według lokalizacji geograficznej](./media/orders-by-geography.png)
 
@@ -63,7 +65,7 @@ Wykres pierścieniowy **zamówienia według oferty** organizuje zamówienia (w t
 
 - Najważniejsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "REST All".
 - Możesz wybrać konkretne oferty w legendzie, aby wyświetlić tylko te oferty na grafie.
-- Umieszczenie kursora na wycinku na wykresie spowoduje wyświetlenie liczby zamówień i procentu oferty w porównaniu do łącznej liczby zamówień w ramach wszystkich ofert.
+- Umieszczenie kursora na wycinku na wykresie przedstawia liczbę zamówień i procent tej oferty w porównaniu do łącznej liczby zamówień w ramach wszystkich ofert.
 - **Trend zamówień według oferty** przedstawia trendy dotyczące wzrostu miesiąca. Kolumna month reprezentuje liczbę zamówień według nazwy oferty. Na wykresie liniowym jest wyświetlany trend procentu wzrostu wykreślony na osi z.
 - Możesz użyć suwaka w górnej części wykresu, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych.
 - Możesz wyświetlić wykres trendu, wybierając konkretny element w legendzie.
@@ -71,7 +73,7 @@ Wykres pierścieniowy **zamówienia według oferty** organizuje zamówienia (w t
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Trend zamówień na lokację, a na stanowisko
 
-Wykres pierścieniowy na lokację, a dla każdego **stanowiska na kanapie** reprezentuje podział na SaaSą witryny i zamówienia SaaS zakupione przez klientów (ten wykres zawiera anulowane zamówienia). Wykres kolumnowy reprezentuje trend dla SaaS lokacji i zamówień SaaS zamówionych przez klientów (ten wykres zawiera anulowane zamówienia).
+Wykres pierścieniowy dla **poszczególnych witryn (w przeciwieństwie** do poszczególnych stanowisk) reprezentuje podział zamówień na SaaS i SaaS zamówionych przez klientów (ten wykres obejmuje anulowane zamówienia). Wykres kolumnowy reprezentuje trend dla SaaS lokacji i zamówień SaaS zamówionych przez klientów (ten wykres zawiera anulowane zamówienia).
 
 ### <a name="orders-by-plans"></a>Zamówienia według planów
 
@@ -79,16 +81,16 @@ Wykres **order by Plans** reprezentuje trend zamówień na poziomie planu dla ws
 
 ### <a name="orders-and-seats-trend"></a>Trend zamówień i siedzeń
 
-Wykres **trendów zamówień i siedzeń** przedstawia najpopularniejsze oferty 50 o najwyższej liczbie zamówień. Są one wyświetlane na tablicy lidera i są posortowane według najwyższej liczby porządkowej i procentowej kolejności.
+Wykres **trendów zamówień i siedzeń** przedstawia najpopularniejsze oferty 50 o najwyższej liczbie zamówień. Są one wyświetlane na tablicy lidera i posortowane według najwyższej liczby porządkowej i procentowej kolejności.
 
 - **Zamówienia według planów** — wybierz ofertę, aby wyświetlić podział liczby zamówień dla pierwszych pięciu planów na wykresie.
-- **Stanowiska według planu** — miesięczny trend siedzeń dla pięciu najważniejszych planów. Jeśli wybrana oferta nie jest ofertą na stanowisko, na tym wykresie warstwowym nie będą widoczne żadne dane.
+- **Stanowiska według planu** — miesięczny trend siedzeń dla pięciu najważniejszych planów. Jeśli wybrana oferta nie jest ofertą na stanowisko, w tym miejscu nie będą wyświetlane żadne dane.
 
 ### <a name="canceled-orders-by-offers"></a>Zamówienia anulowane według ofert
 
 Wykres kołowy **anulowania zamówień według oferty** organizuje wszystkie anulowane zamówienia zgodnie z ich nazwami ofert. Najważniejsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "REST All". Możesz wybrać konkretne oferty w legendzie, aby wyświetlić je na wykresie.
 
-- Umieszczenie kursora na wycinku na wykresie spowoduje wyświetlenie liczby zamówień i procent wybranej oferty w porównaniu do łącznej liczby zamówień we wszystkich ofertach.
+- Umieszczenie kursora na wycinku na wykresie przedstawia liczbę zamówień i procent wybranej oferty w porównaniu do łącznej liczby zamówień we wszystkich ofertach.
 - Wykres kolumnowy zawiera trendy dotyczące miesiąca. Kolumny reprezentują liczbę anulowanych zamówień według nazwy oferty. Możesz użyć suwaka na górze wykresu, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych. Możesz wyświetlić wykres trendu, wybierając konkretny element w legendzie.
 
 ### <a name="order-details-table"></a>Tabela szczegółów zamówienia
@@ -98,8 +100,8 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju/regionu, typu licencji platformy Azure, typu licencji Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
-- Ponieważ oferty SaaS zakupione w witrynie Azure Marketplace lub AppSource nie wymagają subskrypcji platformy Azure, Identyfikator subskrypcji portalu Marketplace zostanie wyświetlony jako 00000000-0000-0000-0000-000000000000 w sekcji **szczegółowe dane zamówień** .
+- Zastosuj filtry do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Filtruj według kraju/regionu, typu licencji platformy Azure, typu licencji komercyjnej witryny Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, subskrypcji portalu Marketplace, identyfikatora klienta i nazwy firmy.
+- Ponieważ oferty SaaS zakupione w witrynie Azure Marketplace lub AppSource, nie wymagają subskrypcji platformy Azure, Identyfikator subskrypcji portalu Marketplace będzie wyświetlany jako 00000000-0000-0000-0000-000000000000 w sekcji **szczegółowe dane zamówień** .
 
 #### <a name="orders-page-filters"></a>Filtry stron zamówień
 

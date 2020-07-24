@@ -1,19 +1,19 @@
 ---
 title: Dodaj warstwę mapy Open Geospatial Consortium (OGC) | Mapy Microsoft Azure
 description: Dowiedz się, jak nałożyć warstwę mapy OGC na mapę oraz jak używać różnych opcji w klasie OgcMapLayer.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334297"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128560"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Dodaj warstwę mapy z Open Geospatial Consortium (OGC)
 
@@ -28,7 +28,7 @@ W poniższych sekcjach opisano funkcje usługi mapy sieci Web, które są obsłu
 - GetFeatureInfo wymaga, aby usługa obsługiwała `EPSG:4326` lub obsługiwała przedziały. 
 - Obsługiwane operacje:
 
-    | | |
+    | Operacja | Opis |
     | :-- | :-- |
     | GetCapabilities | Pobiera metadane dotyczące usługi z obsługiwanymi możliwościami |
     | GetMap | Pobiera obraz mapy dla określonego regionu |
@@ -42,7 +42,7 @@ W poniższych sekcjach opisano funkcje usługi mapy sieci Web, które są obsłu
 - Identyfikator TileMatrix musi być wartością całkowitą, która odpowiada poziomowi powiększenia na mapie. Na mapie platformy Azure poziom powiększenia jest wartością z zakresu od `"0"` do `"22"` . Jest to `"0"` obsługiwane, ale `"00"` nie jest obsługiwane.
 - Obsługiwane operacje:
 
-    | | |
+    | Operacja | Opis |
     | :-- | :-- |
     | GetCapabilities | Pobiera obsługiwane operacje i funkcje |
     | Getkafelk | Pobiera obraz dla określonego kafelka |

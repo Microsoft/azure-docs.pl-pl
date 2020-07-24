@@ -3,15 +3,16 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837416"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128000"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
-Zasoby, grupy zasobów, subskrypcje, grupy zarządzania i dzierżawcę zbiorowo tworzą hierarchię zasobów. Ustawienia w głównej grupie zarządzania, takie jak niestandardowe role RBAC lub przypisania zasad Azure Policy, mogą mieć wpływ na każdy zasób w hierarchii zasobów. Ważne jest, aby chronić hierarchię zasobów przed zmianami, które mogą mieć negatywny wpływ na wszystkie zasoby.
+Zasoby, grupy zasobów, subskrypcje, grupy zarządzania i dzierżawcę zbiorowo tworzą hierarchię zasobów. Ustawienia w głównej grupie zarządzania, takie jak role niestandardowe platformy Azure lub przypisania zasad Azure Policy, mogą mieć wpływ na każdy zasób w hierarchii zasobów. Ważne jest, aby chronić hierarchię zasobów przed zmianami, które mogą mieć negatywny wpływ na wszystkie zasoby.
 
 Grupy zarządzania mają teraz ustawienia hierarchii, które umożliwiają administratorowi dzierżawy sterowanie tymi zachowaniami. W tym artykule opisano wszystkie dostępne ustawienia hierarchii oraz sposób ich konfigurowania.
 
