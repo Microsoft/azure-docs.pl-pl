@@ -1104,6 +1104,8 @@
       items:
         - name: Przywracanie danych z kopii zapasowej
           href: how-to-backup-and-restore.md
+        - name: Żądanie zwiększenia limitu przydziału
+          href: create-support-request-quota-increase.md
     - name: Monitorowanie
       items:
         - name: Monitorowanie usługi Cosmos DB
@@ -1112,6 +1114,8 @@
           items:
             - name: Usługa Azure Monitor dla rozwiązania Cosmos (wersja zapoznawcza)
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Scenariusze do monitorowania
+              href: use-metrics.md
             - name: Monitorowanie opóźnienia po stronie serwera
               href: monitor-server-side-latency.md
             - name: Monitorowanie użycia jednostek żądań
@@ -1124,8 +1128,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Inspekcja dzienników płaszczyzny sterowania
               href: audit-control-plane-logs.md
-        - name: Wyświetlanie metryk z konta usługi Cosmos DB
-          href: use-metrics.md
+        - name: Konfigurowanie alertów
+          href: create-alerts.md
         - name: Dokumentacja danych monitorowania
           href: monitor-cosmos-db-reference.md
         - name: Rejestrowanie aplikacji za pomocą usługi Logic Apps

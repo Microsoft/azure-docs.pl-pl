@@ -11,7 +11,7 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Wymagania wstępne
-      href: hpc-cache-prereqs.md
+      href: hpc-cache-prerequisites.md
     - name: Tworzenie pamięci podręcznej
       href: hpc-cache-create.md
     - name: Dodawanie magazynu
@@ -46,6 +46,8 @@
   items:
     - name: Otwieranie biletu pomocy technicznej
       href: hpc-cache-support-ticket.md
+    - name: Konfigurowanie interfejsu wiersza polecenia platformy Azure dla usługi Azure HPC Cache
+      href: az-cli-prerequisites.md
     - name: Obchodzenie ustawień zapory konta magazynu obiektów blob
       href: hpc-cache-blob-firewall-fix.md
     - name: Rozwiązywanie problemów z tworzeniem lokalizacji docelowej magazynu NFS

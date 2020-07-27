@@ -83,10 +83,10 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Scenariusze SCIM i Graph
       href: scim-graph-scenarios.md
-    - name: Wybór metody aprowizacji
-      href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Aprowizacja w usłudze Cloud HR
       items:
+        - name: Integracja rozwiązania SuccessFactors
+          href: sap-successfactors-integration-reference.md
         - name: Dokumentacja atrybutów rozwiązania SuccessFactors
           href: sap-successfactors-attribute-reference.md
         - name: Dokumentacja atrybutów rozwiązania Workday

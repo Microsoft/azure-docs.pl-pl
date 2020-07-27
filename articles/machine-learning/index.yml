@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Machine Learning
-summary: Dowiedz się, jak trenować i wdrażać modele uczenia maszynowego, eksperymenty AutoML i potoki oraz zarządzać nimi na dużą skalę przy użyciu usługi Azure Machine Learning. Samouczki, przykłady kodu, dokumentacje interfejsów API i inne materiały przedstawiają, jak to zrobić.
+summary: Dowiedz się, jak trenować i wdrażać modele uczenia maszynowego oraz zarządzać nimi, używać zautomatyzowanego uczenia maszynowego oraz uruchamiać potoki na dużą skalę przy użyciu usługi Azure Machine Learning.  Samouczki, przykłady kodu, dokumentacje interfejsów API i inne materiały przedstawiają, jak to zrobić.
 metadata:
   title: Dokumentacja usługi Azure Machine Learning
-  description: Dowiedz się, jak trenować i wdrażać modele uczenia maszynowego, eksperymenty AutoML i potoki oraz zarządzać nimi na dużą skalę przy użyciu usługi Azure Machine Learning. Samouczki, przykłady kodu, dokumentacje interfejsów API i inne materiały przedstawiają, jak to zrobić.
+  description: Dowiedz się, jak trenować i wdrażać modele uczenia maszynowego oraz zarządzać nimi, używać zautomatyzowanego uczenia maszynowego oraz uruchamiać potoki na dużą skalę przy użyciu usługi Azure Machine Learning. Samouczki, przykłady kodu, dokumentacje interfejsów API i inne materiały przedstawiają, jak to zrobić.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593005"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047790"
 landingContent:
 - title: Wprowadzenie do uczenia maszynowego
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Korzystanie ze środowiska internetowego w studio
+- title: Korzystanie z projektanta i zautomatyzowanego uczenia maszynowego w środowisku Studio
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest projektant (przeciąganie i upuszczanie)?
-      url: concept-designer.md
     - text: Co to jest zautomatyzowane uczenie maszynowe?
       url: concept-automated-ml.md
+    - text: Co to jest projektant (z obsługą przeciągania i upuszczania)?
+      url: concept-designer.md
     - text: Jak wybrać algorytm
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Tworzenie projektu etykietowania obrazów
       url: tutorial-labeling.md
-- title: Używanie zestawu Python SDK
+- title: Trenowanie za pomocą zestawu Python SDK
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: Uczenie głębokie a uczenie maszynowe
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Trenowanie za pomocą programu Scikit-learn
+    - text: Trenowanie i rejestrowanie modeli Scikit-learn
       url: how-to-train-scikit-learn.md
-    - text: Trenowanie za pomocą programu TensorFlow
+    - text: Trenowanie i rejestrowanie modeli TensorFlow
       url: how-to-train-tensorflow.md
-    - text: Trenowanie za pomocą programu PyTorch
+    - text: Trenowanie i rejestrowanie modeli PyTorch
       url: how-to-train-pytorch.md
-    - text: Trenowanie za pomocą programu Keras
+    - text: Trenowanie i rejestrowanie modeli Keras
       url: how-to-train-keras.md
     - text: Uczenie przez wzmacnianie
       url: how-to-use-reinforcement-learning.md
     - text: Co to są potoki uczenia maszynowego?
       url: concept-ml-pipelines.md
-- title: Wdrażanie modeli i zarządzanie nimi (MLOps)
+- title: 'MLOps: Wdrażanie modeli i zarządzanie nimi'
   linkLists:
   - linkListType: how-to-guide
     links:

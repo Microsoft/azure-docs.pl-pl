@@ -40,9 +40,11 @@
       items:
         - name: Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
           href: how-to-use-cli.md
-        - name: Tworzenie wystąpienia usługi Azure Digital Twins
-          href: how-to-set-up-instance.md
-        - name: Uwierzytelnianie aplikacji klienckiej
+        - name: Konfigurowanie wystąpienia i uwierzytelniania (z użyciem skryptów)
+          href: how-to-set-up-instance-scripted.md
+        - name: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)
+          href: how-to-set-up-instance-manual.md
+        - name: Pisanie kodu uwierzytelniania aplikacji
           href: how-to-authenticate-client.md
     - name: Projektowanie modeli
       items:
@@ -50,6 +52,8 @@
           href: how-to-manage-model.md
         - name: Analizowanie i weryfikowanie modeli
           href: how-to-use-parser.md
+        - name: Dodawanie tagów
+          href: how-to-use-tags.md
     - name: Korzystanie ze środowiska wykonywania na żywo
       items:
         - name: Zarządzanie usługą Digital Twins
@@ -72,10 +76,16 @@
           href: how-to-manage-routes.md
         - name: Integracja z usługą Azure Maps
           href: how-to-integrate-maps.md
+        - name: Integracja z usługą Azure Time Series Insights
+          href: how-to-integrate-time-series-insights.md
     - name: Rozwiązywanie problemów
       items:
         - name: Znane problemy
           href: troubleshoot-known-issues.md
+        - name: Rozwiązywanie problemów
+          items:
+            - name: 403 (Zabronione)
+              href: troubleshoot-error-403.md
 - name: Dokumentacja
   items:
     - name: Limity usługi Digital Twins
@@ -145,7 +155,7 @@
         - name: Przykłady usługi Azure Digital Twins
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Eksplorator usługi Azure Digital Twins (przykład)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: Moduł sprawdzania poprawności DTDL (przykład)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Narzędzia platformy Azure

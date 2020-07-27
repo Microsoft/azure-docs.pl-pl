@@ -1,20 +1,28 @@
 - name: Ogólne
   href: index.yml
 - name: Omówienie
-  expanded: true
   items:
     - name: Informacje o usłudze Azure Key Vault
       href: overview.md
     - name: 'Informacje o kluczach, wpisach tajnych i certyfikatach'
       href: about-keys-secrets-certificates.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Interfejs wiersza polecenia
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portal
+      href: quick-create-portal.md
 - name: Samouczki
   items:
     - name: Maszyna wirtualna platformy Azure
       items:
-        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej na platformie .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej na platformie Python
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Integrowanie usługi Azure Key Vault z usługą Kubernetes
@@ -117,15 +125,11 @@
     - name: Przenoszenie magazynu kluczy
       items:
         - name: Przenoszenie magazynu kluczy do innej grupy zasobów
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Przenoszenie magazynu kluczy do innej subskrypcji
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Przenoszenie magazynu kluczy do innego regionu
-          href: keyvault-moveregion.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Dokumentacja
   items:
     - name: Kody błędów interfejsu API REST — Azure Key Vault

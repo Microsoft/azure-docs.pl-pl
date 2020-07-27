@@ -2,43 +2,45 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Informacje o usłudze Arc dla platformy Kubernetes
+    - name: Informacje o platformie Kubernetes z obsługą usługi Azure Arc
       href: ./kubernetes/overview.md
-    - name: Informacje o usłudze Azure Arc dla serwerów
+    - name: Informacje o serwerach z obsługą usługi Azure Arc
       href: ./servers/overview.md
 - name: Samples
   items:
     - name: Elementy wbudowane usługi Azure Policy
       items:
-        - name: Usługa Arc dla platformy Kubernetes
+        - name: Platforma Kubernetes z obsługą usługi Arc
           href: ./kubernetes/policy-samples.md
-        - name: Usługa Arc dla serwerów
+        - name: Serwery z obsługą usługi Arc
           href: ./servers/policy-samples.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Usługa Arc dla platformy Kubernetes
+    - name: Platforma Kubernetes z obsługą usługi Arc
       items:
-        - name: Operacje klastra
+        - name: Łączenie z usługą Azure Arc
           items:
             - name: Połączenie klastra
               href: ./kubernetes/connect-cluster.md
-            - name: Korzystanie z podejścia GitOps na potrzeby połączonego klastra
+            - name: Nazwa główna usługi dołączania
+              href: ./kubernetes/create-onboarding-service-principal.md
+        - name: Zarządzanie
+          items:
+            - name: Wdrażanie konfiguracji przy użyciu metodyki GitOps
               href: ./kubernetes/use-gitops-connected-cluster.md
-            - name: Korzystanie z podejścia GitOps przy użyciu narzędzia Helm
+            - name: Wdrażanie elementów chart programu Helm przy użyciu metodyki GitOps
               href: ./kubernetes/use-gitops-with-helm.md
             - name: Wymuś metodykę GitOps przy użyciu usługi Azure Policy
               href: ./kubernetes/use-azure-policy.md
-            - name: Monitorowanie za pomocą usługi Azure Monitor dla kontenerów
-              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            - name: Monitorowanie przy użyciu usługi Azure Monitor dla kontenerów
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
             - name: Zasady kontroli przyjmowania przy użyciu usługi Azure Policy
-              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
             - name: Wdrażanie obciążeń IoT
               href: ./kubernetes/deploy-azure-iot-edge-workloads.md
-            - name: Nazwa główna usługi dołączania
-              href: ./kubernetes/create-onboarding-service-principal.md
-            - name: Rozwiązywanie problemów
-              href: ./kubernetes/Troubleshooting.md
-    - name: Usługa Arc dla serwerów
+        - name: Rozwiązywanie problemów
+          href: ./kubernetes/Troubleshooting.md
+    - name: Serwery z obsługą usługi Arc
       items:
         - name: Łączenie z usługą Azure Arc
           items:

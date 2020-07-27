@@ -2,13 +2,16 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Migracja
+    - name: Migrate (Migracja)
       tocHref: /azure/
       topicHref: /azure/migrate/index
 - name: Azure
   tocHref: /sql/
   topicHref: /azure/index
   items:
-    - name: Migracja
+    - name: Migrate (Migracja)
       tocHref: /sql/dma/
+      topicHref: /azure/migrate/index
+    - name: Ocena migracji usługi AVS
+      tocHref: /azure/azure-vmware/
       topicHref: /azure/migrate/index

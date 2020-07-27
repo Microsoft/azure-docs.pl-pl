@@ -59,13 +59,15 @@
     - name: Planowanie
       items:
         - name: Wybieranie warstwy pamięci podręcznej
-          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
+          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
         - name: Rozproszenie pamięci podręcznej przez zastosowanie klastrowania
           href: cache-how-to-premium-clustering.md
         - name: Trwałość pamięci podręcznej dzięki funkcji trwałości danych Redis
           href: cache-how-to-premium-persistence.md
         - name: Ochrona pamięci podręcznej przy użyciu sieci wirtualnej
           href: cache-how-to-premium-vnet.md
+        - name: Prywatne połączenie z pamięcią podręczną
+          href: cache-private-link.md
         - name: Konfigurowanie replikacji geograficznej
           href: cache-how-to-geo-replication.md
         - name: Zapisywanie z użyciem pojemności zarezerwowanej
@@ -101,9 +103,9 @@
         - name: Importowanie/eksportowanie danych
           href: cache-how-to-import-export-data.md
         - name: Ponowne uruchamianie
-          href: 'cache-administration.md#reboot'
+          href: cache-administration.md#reboot
         - name: Aktualizacje harmonogramu
-          href: 'cache-administration.md#schedule-updates'
+          href: cache-administration.md#schedule-updates
         - name: Konfigurowanie dostępu do pliku redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
         - name: Usuwanie protokołów TLS 1.0 i 1.1
@@ -113,7 +115,7 @@
         - name: Monitorowanie w witrynie Azure Portal
           href: cache-how-to-monitor.md
         - name: Ustawianie alertów dla wyjątków
-          href: 'cache-how-to-monitor.md#operations-and-alerts'
+          href: cache-how-to-monitor.md#operations-and-alerts
     - name: Diagnozowanie i rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z serwerem Redis

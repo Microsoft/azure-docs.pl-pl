@@ -93,6 +93,12 @@
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Sieć wirtualna
               href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Serwer usługi Azure Database for PostgreSQL
+              href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Serwer usługi Azure Database for MariaDB
+              href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Serwer usługi Azure Database for MySQL
+              href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tagi
       items:
         - name: Przewodnik po decyzjach
@@ -105,7 +111,7 @@
           href: tag-support.md
     - name: Zarządzanie grupami zasobów
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Interfejs wiersza polecenia platformy Azure

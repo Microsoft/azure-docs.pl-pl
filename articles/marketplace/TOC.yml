@@ -60,6 +60,8 @@
         - name: Korzyści na platformie handlowej
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Korzyść z tytułu zobowiązania do użycia platformy Azure
+              href: ./azure-consumption-commitment-benefit.md
             - name: Współpraca między partnerami w zakresie sprzedaży
               href: ./marketplace-co-sell.md
             - name: Preferowane rozwiązania

@@ -89,6 +89,8 @@
           href: backup-azure-monitor-alert-faq.md
     - name: Architektura kopii zapasowych
       href: backup-architecture.md
+    - name: Wskazówki i najlepsze rozwiązania
+      href: guidance-best-practices.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Magazyn usługi Recovery Services
@@ -375,6 +377,9 @@
           href: encryption-at-rest-with-cmk.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: backup-security-controls.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Rozwiązywanie problemów

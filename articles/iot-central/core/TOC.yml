@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: Co to są szablony urządzeń?
       href: concepts-device-templates.md
+    - name: Ładunki komunikatów
+      href: concepts-telemetry-properties-commands.md
     - name: Łączność urządzeń
       href: concepts-get-connected.md
     - name: Łączenie urządzeń usługi IoT Edge

@@ -84,6 +84,8 @@
           href: troubleshoot-missing-data-download.md
         - name: Nie można uzyskać dostępu do interfejsów API programu Graph do raportowania
           href: troubleshoot-graph-api.md
+        - name: Inspekcja danych przy zmianie zweryfikowanej domeny
+          href: troubleshoot-audit-data-verified-domain.md
 - name: Dokumentacja
   expanded: true
   items:

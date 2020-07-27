@@ -60,7 +60,7 @@
       items:
         - name: Tworzenie bramy sieci VPN opartej na trasie
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: create-routebased-vpn-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -72,7 +72,7 @@
           href: vpn-gateway-resetgw-classic.md
         - name: Usuwanie bramy VPN Gateway
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -82,7 +82,7 @@
       items:
         - name: Konfigurowanie połączeń typu lokacja-lokacja
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -98,7 +98,7 @@
       items:
         - name: Konfigurowanie połączeń między sieciami wirtualnymi
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -106,7 +106,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -116,7 +116,7 @@
           items:
             - name: Konfigurowanie sieci VPN typu P2S
               items:
-                - name: Azure Portal
+                - name: Witryna Azure Portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
@@ -210,6 +210,8 @@
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: Monitorowanie i alerty
       items:
+        - name: Wyświetl metryki usługi VPN Gateway
+          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
         - name: Konfigurowanie alertów na podstawie metryk
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Konfigurowanie alertów na podstawie dzienników zasobów
@@ -260,9 +262,9 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#vpn'
+      href: /powershell/module/az.network#vpn
     - name: Azure PowerShell (wersja klasyczna)
-      href: '/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure'
+      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
     - name: REST
       href: /rest/api/network/virtualnetworkgateways
     - name: REST (klasyczny)

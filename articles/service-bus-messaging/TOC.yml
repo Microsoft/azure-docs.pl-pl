@@ -13,7 +13,7 @@
       items:
         - name: Tworzenie kolejki usługi Service Bus
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -110,6 +110,9 @@
                   href: authenticate-application.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: service-bus-messaging-security-controls.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Bezpieczeństwo sieci
           href: network-security.md
 - name: Przewodniki z instrukcjami

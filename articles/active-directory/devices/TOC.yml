@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Dokumentacja
   items:
+    - name: Wymuszanie protokołu TLS 1.2
+      href: reference-device-registration-tls-1-2.md
     - name: Ustawienia obiektu zasad grupy roamingu stanu dla przedsiębiorstw
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Ustawienia roamingu stanu dla przedsiębiorstw w systemie Windows

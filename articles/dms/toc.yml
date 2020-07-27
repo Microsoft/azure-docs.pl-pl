@@ -59,6 +59,10 @@
           href: tutorial-postgresql-azure-postgresql-online-portal.md
         - name: do usługi Azure DB for PostgreSQL (interfejs wiersza polecenia platformy Azure)
           href: tutorial-postgresql-azure-postgresql-online.md
+    - name: Migrowanie usługi Azure DB for PostgreSQL — pojedynczy serwer
+      items:
+        - name: do usługi Azure DB for PostgreSQL (portal)
+          href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - name: Migracja z usług pulpitu zdalnego bazy danych PostgreSQL
       items:
         - name: do usługi Azure DB for PostgreSQL

@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Zarządzanie grupami aplikacji za pomocą programu PowerShell
           href: manage-app-groups-powershell.md
+    - name: Usuwanie puli hostów
+      href: delete-host-pool.md
     - name: Tworzenie kontenera profilu
       items:
         - name: Używanie udziału plików opartego na maszynie wirtualnej
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Instalowanie pakietu Office w głównym obrazie wirtualnego dysku twardego
           href: install-office-on-wvd-master-image.md
+    - name: Automatyczne skalowanie hostów sesji
+      href: set-up-scaling-script.md
     - name: Dostosowywanie źródła
       href: customize-feed-for-virtual-desktop-users.md
     - name: Korzystanie z diagnostyki usługi
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Integracje partnerów
       href: partners.md
+    - name: Często zadawane pytania na temat usługi Windows Virtual Desktop
+      href: faq.md
     - name: Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
       href: windows-10-multisession-faq.md
     - name: Lokalizacje danych

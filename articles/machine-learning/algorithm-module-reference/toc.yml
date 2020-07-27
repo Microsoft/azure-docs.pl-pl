@@ -68,10 +68,14 @@
           href: boosted-decision-tree-regression.md
         - name: Regresja lasu decyzyjnego
           href: decision-forest-regression.md
+        - name: Szybka regresja kwantylowa lasu decyzyjnego
+          href: fast-forest-quantile-regression.md
         - name: Regresja liniowa
           href: linear-regression.md
         - name: Regresja sieci neuronowej
           href: neural-network-regression.md
+        - name: Regresja Poissona
+          href: poisson-regression.md
     - name: Klastrowanie
       items:
         - name: Klastrowanie metodą k-średnich

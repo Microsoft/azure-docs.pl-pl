@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Tworzenie modułu równoważenia obciążenia — szablon usługi ARM
       href: quickstart-load-balancer-standard-public-template.md
-    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — program Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Samouczki
   items:
+    - name: Wewnętrzny moduł równoważenia obciążenia
+      items:
+        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — program Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Równoważenie obciążenia maszyny wirtualnej w określonej strefie dostępności
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Zarządzanie pulą zaplecza
       href: backend-pool-management.md
+    - name: Usługa Load Balancer w warstwie Standardowa i usługa Virtual Machine Scale Sets
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Instrukcje
   items:
     - name: Zestawy skalowania maszyn wirtualnych

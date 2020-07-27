@@ -32,6 +32,8 @@
       href: msi-authorization.md
     - name: Osadzanie usługi Cloud Shell
       href: embed-cloud-shell.md
+    - name: Usługa Cloud Shell w usłudze Azure Virtual Network
+      href: private-vnet.md
 - name: Korzystanie z edytora usługi Cloud Shell
   href: using-cloud-shell-editor.md
 - name: Rozwiązywanie problemów i ograniczenia

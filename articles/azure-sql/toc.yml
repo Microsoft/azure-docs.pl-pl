@@ -44,6 +44,9 @@
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
             - name: Najlepsze rozwiązania
               href: database/security-best-practice.md
+            - name: Kontrole zabezpieczeń usługi Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./database/security-controls-policy.md
             - name: Punkt odniesienia zabezpieczeń
               href: database/security-baseline.md
             - name: Atrybuty zabezpieczeń
@@ -201,9 +204,11 @@
             - name: Java
               items:
                 - name: Używanie modułu Spring Data JDBC
-                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
                 - name: Używanie modułu Spring Data JPA
-                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Używanie modułu Spring Data R2DBC
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
 - name: Baza danych SQL (SQL DB)
   items:
     - name: Dokumentacja
@@ -230,8 +235,6 @@
               href: database/service-tier-hyperscale.md
             - name: Hiperskala — często zadawane pytania
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-            - name: Migrowanie z warstwy Premium RS
-              href: database/service-tiers-prs.md
     - name: Przewodniki Szybki start
       href: database/quickstart-content-reference-guide.md
       items:
@@ -392,6 +395,12 @@
                   href: database/connect-query-go.md
                 - name: Java
                   href: database/connect-query-java.md
+                - name: Język Java z modułem Spring Data JDBC
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Język Java z modułem Spring Data JPA
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                - name: Język Java z modułem Spring Data R2DBC
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
                 - name: Node.js
                   href: database/connect-query-nodejs.md
                 - name: PHP
@@ -680,16 +689,20 @@
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
     - name: Pojęcia
       items:
-        - name: Replikacja transakcyjna
-          href: managed-instance/replication-transactional-overview.md
-        - name: Dokumentacja interfejsu API zarządzania
-          href: managed-instance/api-references-create-manage-instance.md
         - name: Limity zasobów
           href: managed-instance/resource-limits.md
         - name: Architektura łączności
           href: managed-instance/connectivity-architecture-overview.md
         - name: Różnice w języku T-SQL
           href: managed-instance/transact-sql-tsql-differences-sql-server.md
+        - name: Replikacja transakcyjna
+          href: managed-instance/replication-transactional-overview.md
+        - name: Operacje zarządzania
+          items:
+            - name: Omówienie
+              href: managed-instance/management-operations-overview.md
+            - name: Dokumentacja interfejsu API
+              href: managed-instance/api-references-create-manage-instance.md
         - name: Machine Learning Services
           items:
             - name: Omówienie
@@ -708,6 +721,8 @@
                       href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
                     - name: Trenowanie i ocena modelu
                       href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: Wdrażanie modeli ONNX
+                      href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
                 - name: R
                   items:
                     - name: Uruchamianie skryptów języka R
@@ -866,6 +881,7 @@
             - name: PowerShell
               href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
             - name: Szablon ARM
+              displayName: Resource Manager
               href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
         - name: Pojęcia
           items:
@@ -952,8 +968,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Zawsze włączona grupa dostępności
                   items:
-                    - name: Interfejs wiersza polecenia maszyny wirtualnej Azure SQL
-                      href: virtual-machines/windows/availability-group-az-cli-configure.md
+                    - name: Program PowerShell lub interfejs wiersza polecenia AZ
+                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Szablony przewodników Szybki start platformy Azure
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Wiele regionów
@@ -995,7 +1011,7 @@
         - name: Dokumentacja
           items:
             - name: Azure PowerShell
-              href: /powershell/azure/overview
+              href: /powershell/azure/
             - name: Interfejs wiersza polecenia platformy Azure
               href: /cli/azure/
             - name: T-SQL
@@ -1010,6 +1026,8 @@
               href: virtual-machines/windows/frequently-asked-questions-faq.md
             - name: Cennik
               href: virtual-machines/windows/pricing-guidance.md
+            - name: Zarchiwizowana klasyczna dokumentacja usługi RM
+              href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
             - name: SQL Server Data Tools (SSDT)
               href: '/https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
             - name: SQL Server Management Studio (SSMS)

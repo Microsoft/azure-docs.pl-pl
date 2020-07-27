@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: 5be853f9e1f9778eb767aa93497c546cb35fa0df
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: f1e519c99bf55abb8a72ada83d59fa1e4c063998
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81422408"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87078884"
 landingContent:
 - title: Informacje o usłudze Azure Key Vault
   linkLists:
@@ -38,10 +38,10 @@ landingContent:
     links:
     - text: Usługa Key Vault z poziomu aplikacji internetowej
       url: tutorial-net-create-vault-azure-web-app.md
-    - text: Usługa Key Vault z maszyną wirtualną Azure z systemem Windows
-      url: tutorial-net-windows-virtual-machine.md
-    - text: Usługa Key Vault z językiem Python — Windows
-      url: tutorial-python-windows-virtual-machine.md
+    - text: Usługa Key Vault z maszyną wirtualną na platformie .NET
+      url: tutorial-net-virtual-machine.md
+    - text: Usługa Key Vault z maszyną wirtualną na platformie Python
+      url: tutorial-python-virtual-machine.md
 - title: Zabezpieczenia
   linkLists:
   - linkListType: overview

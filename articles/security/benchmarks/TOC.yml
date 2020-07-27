@@ -53,8 +53,10 @@
       href: ../../mysql/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Punkt odniesienia zabezpieczeń usługi Azure Database for PostgreSQL
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Database for PostgreSQL — pojedynczy serwer
       href: ../../postgresql/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Database for PostgreSQL — Hiperskala
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
@@ -79,6 +81,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń skrytki klienta
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi ExpressRoute
@@ -91,7 +95,15 @@
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Punkt odniesienia usługi Service Fabric
+      href: ../../service-fabric/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Virtual Machine Scale Sets
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Virtual Machines Linux
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Virtual Machines Windows
+      href: ../../virtual-machines/windows/security-baseline.md

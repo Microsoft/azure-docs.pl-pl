@@ -123,8 +123,10 @@
           href: azure-stack-edge-contact-microsoft-support.md
         - name: Monitorowanie
           href: azure-stack-edge-monitor.md
-        - name: Zwrot lub wymiana urządzenia
+        - name: Zwrot urządzenia
           href: azure-stack-edge-return-device.md
+        - name: Wymiana urządzenia
+          href: azure-stack-edge-replace-device.md
     - name: Informacje o wersji
       items:
         - name: 2007 — bieżąca
@@ -137,6 +139,14 @@
           href: data-box-gateway-1905-release-notes.md
         - name: Ogólna dostępność
           href: data-box-gateway-release-notes.md
+    - name: Dokumentacja
+      items:
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+        - name: Interfejs API REST
+          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+        - name: Zestaw SDK .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
 - name: Zasoby
   items:
     - name: Azure Stack Edge — przykłady modułów języka C# (.NET)

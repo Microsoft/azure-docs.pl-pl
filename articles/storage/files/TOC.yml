@@ -33,6 +33,8 @@
           href: storage-files-networking-overview.md
         - name: Zapobieganie przypadkowemu usuwaniu danych
           href: storage-files-prevent-file-share-deletion.md
+        - name: Tworzenie kopii zapasowej udziałów plików
+          href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Szyfrowanie danych magazynowanych
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Szyfrowanie magazynowanych danych przy użyciu kluczy zarządzanych przez klienta
@@ -83,6 +85,54 @@
           href: storage-files-how-to-create-large-file-share.md
         - name: Tworzenie udziału plików w warstwie Premium
           href: storage-how-to-create-premium-fileshare.md
+    - name: Ochrona danych
+      items:
+        - name: Włączanie usuwania nietrwałego
+          href: storage-files-enable-soft-delete.md
+        - name: Zmienianie sposobu replikowania danych
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Zarządzanie nadmiarowością danych
+          items:
+            - name: Zmienianie sposobu replikowania danych
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Projektowanie aplikacji o wysokiej dostępności
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Zarządzanie odzyskiwaniem po awarii
+          items:
+            - name: Sprawdzanie właściwości czasu ostatniej synchronizacji
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Inicjowanie trybu failover konta
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Tworzenie kopii zapasowej udziałów plików
+          items:
+            - name: Portal
+              href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs wiersza polecenia
+              href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs API REST
+              href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Przywracanie udziałów plików
+          items:
+            - name: Portal
+              href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs wiersza polecenia
+              href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs API REST
+              href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Zarządzanie udziałami plików
+          items:
+            - name: Portal
+              href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs wiersza polecenia
+              href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Interfejs API REST
+              href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Wdrażanie
       items:
         - name: Wdrażanie usługi Pliki Azure
@@ -125,26 +175,10 @@
           href: storage-sync-files-server-registration.md
         - name: Dodawanie punktu końcowego serwera usługi Azure File Sync
           href: storage-sync-files-server-endpoint.md
-        - name: Włączanie usuwania nietrwałego
-          href: storage-files-enable-soft-delete.md
         - name: Zarządzanie magazynem w chmurach niezależnych od platformy Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Zmienianie sposobu replikowania danych
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Inicjowanie trybu failover konta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Zarządzanie nadmiarowością danych
-          items:
-            - name: Zmienianie sposobu replikowania danych
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Projektowanie aplikacji o wysokiej dostępności
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Zarządzanie odzyskiwaniem po awarii
-          items:
-            - name: Sprawdzanie właściwości czasu ostatniej synchronizacji
-              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Inicjowanie trybu failover konta
-              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Uwierzytelnianie
       items:
         - name: Włączanie lokalnego uwierzytelniania i autoryzacji za pomocą usług AD DS
@@ -173,7 +207,7 @@
           href: storage-files-migration-overview.md
         - name: Wdrożenie hybrydowe jako cel
           items:
-            - name: Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure DataBox
+            - name: Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure Data Box
               href: storage-sync-offline-data-transfer.md
             - name: Migrowanie z systemu Linux do hybrydowego serwera plików za pomocą usługi Azure File Sync
               href: storage-files-migration-linux-hybrid.md
@@ -243,9 +277,11 @@
           href: storage-sync-files-troubleshoot.md
         - name: Rozwiązywanie problemów z usuwaniem w usłudze Azure Files
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: Rozwiązywanie problemów z tworzeniem kopii zapasowych udziałów plików
+          href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Dokumentacja
   items:
-    - name: Dokumentacja magazynu udziałów plików platformy Azure
+    - name: Dokumentacja usługi Azure Files
       href: ../files/reference.md
     - name: Szablon usługi Resource Manager
       displayName: arm

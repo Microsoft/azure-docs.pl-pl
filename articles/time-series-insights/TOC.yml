@@ -2,32 +2,58 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Time Series Insights — informacje
-      href: time-series-insights-update-overview.md
+    - name: Co to jest Time Series Insights Gen2
+      href: overview-what-is-tsi.md
+    - name: Przypadki zastosowań
+      href: overview-use-cases.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Ogólnie dostępna usługa Azure Time Series Insights
-      items:
-        - name: Poznawanie usługi Time Series Insights
-          href: time-series-quickstart.md
-    - name: Azure Time Series Insights (wersja zapoznawcza)
-      items:
-        - name: Poznawanie usługi Time Series Insights w wersji zapoznawczej
-          href: time-series-insights-update-quickstart.md
+    - name: Poznawanie usługi Time Series Insights Gen2
+      href: quickstart-explore-tsi.md
 - name: Samouczki
   items:
-    - name: Azure Time Series Insights (ogólna dostępność)
-      items:
-        - name: Tworzenie środowiska usługi Time Series Insights
-          href: tutorial-create-populate-tsi-environment.md
-    - name: Azure Time Series Insights (wersja zapoznawcza)
-      items:
-        - name: Konfigurowanie środowiska wersji zapoznawczej
-          href: time-series-insights-update-create-environment.md
+    - name: Konfigurowanie środowiska usługi Time Series Insights Gen2
+      href: tutorials-set-up-tsi-environment.md
 - name: Pojęcia
   items:
-    - name: Azure Time Series Insights (ogólna dostępność)
+    - name: Azure Time Series Insights Gen2
+      items:
+        - name: Ruch przychodzący i magazynowanie
+          items:
+            - name: Omówienie pozyskiwania danych
+              href: concepts-ingestion-overview.md
+            - name: Obsługiwane typy danych
+              href: concepts-supported-data-types.md
+            - name: Źródła zdarzeń pozyskiwania danych za pośrednictwem przesyłania strumieniowego
+              href: concepts-streaming-ingestion-event-sources.md
+            - name: Reguły pomijania i spłaszczania danych JSON
+              href: concepts-json-flattening-escaping-rules.md
+            - name: Limity przepływności strumieniowego ruchu przychodzącego
+              href: concepts-streaming-ingress-throughput-limits.md
+            - name: Storage
+              href: concepts-storage.md
+        - name: Model
+          items:
+            - name: Omówienie modelu
+              href: concepts-model-overview.md
+            - name: Zmienne
+              href: concepts-variables.md
+        - name: Zapytanie
+          items:
+            - name: Omówienie zapytania
+              href: concepts-query-overview.md
+        - name: Wizualizacja w eksploratorze
+          items:
+            - name: Panele środowiska użytkownika
+              href: concepts-ux-panels.md
+        - name: Zmiany powodujące niezgodność
+          items:
+            - name: Dodawanie obsługi dla typu danych long
+              href: breaking-changes-long-data-type.md
+            - name: Zmiany dotyczące spłaszczania i przechowywania danych JSON
+              href: ingestion-rules-update.md
+    - name: Azure Time Series Insights Gen1
       items:
         - name: Time Series Insights — informacje
           href: time-series-insights-overview.md
@@ -37,61 +63,61 @@
           href: time-series-insights-explorer.md
         - name: Omówienie przechowywania danych
           href: time-series-insights-concepts-retention.md
-        - name: Programowanie
-          items:
-            - name: Uwierzytelnianie i autoryzacja
-              href: time-series-insights-authentication-and-authorization.md
-            - name: Wykonywanie zapytań o dane za pomocą języka C#
-              href: time-series-insights-query-data-csharp.md
-            - name: Zarządzanie danymi referencyjnymi w języku C#
-              href: time-series-insights-manage-reference-data-csharp.md
-            - name: Udostępnianie widoku niestandardowego
-              href: time-series-insights-parameterized-urls.md
-    - name: Azure Time Series Insights (wersja zapoznawcza)
+    - name: Programowanie
       items:
-        - name: Przypadki zastosowań
-          href: time-series-insights-update-use-cases.md
-        - name: Planowanie środowiska
-          href: time-series-insights-update-plan.md
-        - name: Omówienie pozyskiwania danych
-          href: concepts-ingestion-overview.md
-        - name: Obsługiwane typy danych
-          href: concepts-supported-data-types.md
-        - name: Źródła zdarzeń pozyskiwania danych za pośrednictwem przesyłania strumieniowego
-          href: concepts-streaming-ingestion-event-sources.md
-        - name: Reguły pomijania i spłaszczania danych JSON
-          href: concepts-json-flattening-escaping-rules.md
-        - name: Limity przepływności strumieniowego ruchu przychodzącego
-          href: concepts-streaming-throughput-limitations.md
-        - name: Magazyn
-          href: concepts-storage.md
-        - name: Model szeregów czasowych
-          href: concepts-model-overview.md
-        - name: Zapytanie szeregów czasowych
-          href: concepts-query-overview.md
-        - name: Wizualizowanie danych w Eksploratorze (wersja zapoznawcza)
-          href: time-series-insights-update-explorer.md
-        - name: Programowanie
-          items:
-            - name: Uwierzytelnianie i autoryzacja
-              href: time-series-insights-authentication-and-authorization.md
-            - name: Wykonywanie zapytań o dane za pomocą języka C#
-              href: time-series-insights-update-query-data-csharp.md
-            - name: Integracja z usługą Power BI
-              href: concepts-power-bi.md
+        - name: Uwierzytelnianie i autoryzacja
+          href: time-series-insights-authentication-and-authorization.md
+        - name: Wykonywanie zapytań o dane za pomocą języka C#
+          href: time-series-insights-query-data-csharp.md
+        - name: Zarządzanie danymi referencyjnymi w języku C#
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Udostępnianie widoku niestandardowego
+          href: time-series-insights-parameterized-urls.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Przyznawanie dostępu do danych
-      href: time-series-insights-data-access.md
+      href: concepts-access-policies.md
     - name: Łączenie z usługą Event Hubs
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Łączenie z usługą IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
     - name: Zarządzanie zasobami za pomocą szablonów
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
-    - name: Azure Time Series Insights (ogólna dostępność)
+    - name: Azure Time Series Insights Gen2
       items:
-        - name: Tworzenie środowiska
+        - name: Najlepsze rozwiązania
+          items:
+            - name: Planowanie środowiska
+              href: how-to-plan-your-environment.md
+        - name: Zarządzanie środowiskiem
+          items:
+            - name: Jak aprowizować i zarządzać
+              href: how-to-provision-manage.md
+            - name: Jak diagnozować i rozwiązywać problemy
+              href: how-to-diagnose-troubleshoot.md
+        - name: Ruch przychodzący i magazynowanie
+          items:
+            - name: Jak wybrać identyfikator TSID
+              href: how-to-select-tsid.md
+        - name: Model
+          items:
+            - name: Jak edytować model
+              href: how-to-edit-your-model.md
+        - name: Łączniki
+          items:
+            - name: Jak nawiązać połączenie z usługą Power BI
+              href: how-to-connect-power-bi.md
+        - name: Migracje
+          items:
+            - name: Jak przeprowadzić migrację do nowych wersji interfejsu API
+              href: how-to-api-migration.md
+    - name: Azure Time Series Insights Gen1
+      items:
+        - name: Poznawanie usługi Time Series Insights
+          href: time-series-quickstart.md
+        - name: Tworzenie i wypełnianie środowiska
+          href: tutorial-create-populate-tsi-environment.md
+        - name: Tworzenie środowiska w witrynie Azure Portal
           href: time-series-insights-get-started.md
         - name: Konfigurowanie przechowywania danych
           href: time-series-insights-how-to-configure-retention.md
@@ -107,60 +133,86 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnozowanie i rozwiązywanie problemów
           href: time-series-insights-diagnose-and-solve-problems.md
-    - name: Azure Time Series Insights (wersja zapoznawcza)
-      items:
-        - name: Aprowizowanie i zarządzanie
-          href: time-series-insights-update-how-to-manage.md
-        - name: Wybieranie identyfikatora szeregów czasowych
-          href: time-series-insights-update-how-to-id.md
-        - name: Diagnozowanie i rozwiązywanie problemów
-          href: time-series-insights-update-how-to-troubleshoot.md
-        - name: Modelowanie danych
-          href: time-series-insights-update-how-to-tsm.md
-        - name: Dostosowywanie kodu JSON na potrzeby ruchu przychodzącego i zapytań
-          href: time-series-insights-update-how-to-shape-events.md
-        - name: Łączenie z usługą Power BI
-          href: how-to-connect-power-bi.md
-- name: Zmiany powodujące niezgodność
-  items:
-    - name: Azure Time Series Insights (wersja zapoznawcza)
-      items:
-        - name: Dodawanie obsługi dla typu danych long
-          href: time-series-insights-long-data-type.md
-        - name: Zmiany dotyczące spłaszczania i przechowywania danych JSON
-          href: ingestion-rules-update.md
 - name: Dokumentacja
   items:
     - name: Time Series Insights
       items:
-        - name: Azure Time Series Insights
-          href: /rest/api/time-series-insights/index
-        - name: Dostęp do danych — ogólna dostępność
-          href: /rest/api/time-series-insights/ga
+        - name: Omówienie interfejsów API REST
+          href: 'https://docs.microsoft.com/rest/api/time-series-insights/'
+        - name: Dostęp do danych — Gen2
           items:
-            - name: Zapytanie
-              href: /rest/api/time-series-insights/ga-query
+            - name: Omówienie
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/preview'
+            - name: Ustawienia modelu
               items:
+                - name: Omówienie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings'
+                - name: Get
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get'
+                - name: Aktualizacja
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update'
+            - name: Zapytanie
+              items:
+                - name: Omówienie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query'
+                - name: Realizacja
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute'
+                - name: Uzyskiwanie informacji o dostępności
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability'
+                - name: Uzyskiwanie schematu zdarzeń
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema'
+            - name: Hierarchie szeregów czasowych
+              items:
+                - name: Omówienie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies'
+                - name: Wykonywanie zadania wsadowego
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch'
+                - name: Get
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
+            - name: Wystąpienia szeregów czasowych
+              items:
+                - name: Omówienie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances'
+                - name: Wykonywanie zadania wsadowego
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch'
+                - name: Get
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
+                - name: Wyszukiwanie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search'
+                - name: Sugerowanie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest'
+            - name: Typy szeregów czasowych
+              items:
+                - name: Omówienie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes'
+                - name: Wykonywanie zadania wsadowego
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch'
+                - name: Get
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list'
+        - name: Dostęp do danych — Gen1
+          items:
+            - name: Omówienie
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
+            - name: Zapytanie
+              items:
+                - name: Zapytanie
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query'
                 - name: Interfejs API
-                  href: /rest/api/time-series-insights/ga-query-api
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api'
                 - name: Składnia
-                  href: /rest/api/time-series-insights/ga-query-syntax
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax'
             - name: Interfejs API danych referencyjnych
-              href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Omówienie pojęć dotyczących dostępu do danych
-          href: /rest/api/time-series-insights/preview
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api'
     - name: Zestaw SDK klienta
       items:
         - name: Zestaw SDK klienta środowiska JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
-      displayName: az iot
+      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest'
 - name: Zasoby
-  expanded: true
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: /azure/iot-fundamentals/iot-support-help
+      href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
     - name: Żądania danych klienta
       href: time-series-insights-customer-data-requests.md
     - name: Zasoby dla deweloperów
@@ -181,6 +233,22 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Dostępność w danym regionie
           href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opcje wsparcia technicznego i pomocy
+      items:
+        - name: Opcje pomocy technicznej platformy Azure
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Opcje wsparcia technicznego i pomocy usługi Azure IoT
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+    - name: Opinie i fora
+      items:
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Prośby i sugestie dotyczące produktu
+          href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Wideo dotyczące platformy Azure
       href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'
     - name: Filmy w witrynie Channel 9

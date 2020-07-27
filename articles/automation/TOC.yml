@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Włączanie platformy Desired State Configuration dla maszyny
       href: automation-quickstart-dsc-configuration.md
+    - name: Tworzenie konta usługi Automation — szablon usługi ARM
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Samouczki
   items:
     - name: Tworzenie graficznego elementu runbook
@@ -58,7 +61,7 @@
         - name: Tworzenie konta usługi Automation w witrynie Azure Portal
           href: automation-create-standalone-account.md
         - name: Tworzenie konta usługi Automation za pomocą szablonu usługi Resource Manager
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Amazon Web Services
           href: automation-config-aws-account.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Azure AD
@@ -177,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: Rozwiązywanie problemów z usługą State Configuration
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenariusze
+              items:
+                - name: Konfigurowanie danych w oparciu o metodologię STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Konfigurowanie danych na dużą skalę
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Tworzenie konfiguracji na podstawie istniejących serwerów
+                  href: automation-dsc-config-from-server.md
+                - name: Konwertowanie konfiguracji do zasobów złożonych
+                  href: automation-dsc-create-composite.md
+                - name: Korygowanie niezgodnych serwerów
+                  href: automation-dsc-remediate.md
         - name: Śledzenie zmian i spis
           items:
             - name: Omówienie

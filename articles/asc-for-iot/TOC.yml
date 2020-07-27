@@ -5,6 +5,8 @@
   items:
     - name: Architektura rozwiązania
       href: architecture.md
+    - name: Rozwiązanie zabezpieczeń dla usługi Azure RTOS
+      href: iot-security-azure-rtos.md
     - name: Agenci zabezpieczeń
       href: security-agent-architecture.md
     - name: Moduł zabezpieczeń usługi Edge
@@ -53,9 +55,9 @@
       items:
         - name: Wybieranie agenta do wdrożenia
           href: how-to-deploy-agent.md
-        - name: 'Wdrażanie agenta zabezpieczeń bazującego na języku C# na urządzeniu z systemem Windows'
+        - name: Wdrażanie agenta zabezpieczeń bazującego na języku C# na urządzeniu z systemem Windows
           href: how-to-deploy-windows-cs.md
-        - name: 'Wdrażanie agenta zabezpieczeń bazującego na języku C# na urządzeniu z systemem Linux'
+        - name: Wdrażanie agenta zabezpieczeń bazującego na języku C# na urządzeniu z systemem Linux
           href: how-to-deploy-linux-cs.md
         - name: Wdrażanie agenta zabezpieczeń bazującego na języku C na urządzeniu z systemem Linux
           href: how-to-deploy-linux-c.md
@@ -65,7 +67,7 @@
           href: troubleshoot-agent.md
         - name: Konfiguracja lokalna — C
           href: azure-iot-security-local-configuration-c.md
-        - name: 'Konfiguracja lokalna — C#'
+        - name: Konfiguracja lokalna — C#
           href: azure-iot-security-local-configuration-csharp.md
     - name: Wdrażanie modułu zabezpieczeń usługi Edge
       href: how-to-deploy-edge.md
