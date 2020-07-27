@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie migawkami przy użyciu Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób tworzenia migawek dla woluminu lub przywracania z migawki do nowego woluminu przy użyciu Azure NetApp Files.
+description: Opisuje sposób tworzenia migawek i zarządzania nimi za pomocą Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483605"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169753"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
-Za pomocą Azure NetApp Files można ręcznie utworzyć migawkę na żądanie dla woluminu lub przywrócić ją z migawki do nowego woluminu. Usługa Azure NetApp Files nie tworzy automatycznie migawek woluminów.  
+Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek.  Możesz również przywrócić migawkę do nowego woluminu.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Tworzenie migawki na żądanie dla woluminu
 
-Migawki można tworzyć tylko na żądanie. Zasady migawek nie są obecnie obsługiwane.
+Migawki woluminów można tworzyć na żądanie. 
 
-1.  W bloku wolumin kliknij pozycję **migawki**.
+1.  Przejdź do woluminu, dla którego chcesz utworzyć migawkę. Kliknij pozycję **migawki**.
 
     ![Przejdź do migawek](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
@@ -43,47 +43,109 @@ Migawki można tworzyć tylko na żądanie. Zasady migawek nie są obecnie obsł
 
 4. Kliknij przycisk **OK**. 
 
+## <a name="manage-snapshot-policies"></a>Zarządzanie zasadami migawek
+
+Można zaplanować automatyczne podejmowanie migawek woluminów przy użyciu zasad migawek. Możesz również zmodyfikować zasady migawek odpowiednio do potrzeb lub usunąć zasady migawek, które nie są już potrzebne.  
+
+### <a name="create-a-snapshot-policy"></a>Tworzenie zasad migawek 
+
+Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cyklach co godzinę, codziennie, co tydzień lub co miesiąc. Należy również określić maksymalną liczbę migawek do zachowania dla woluminu.  
+
+1.  W widoku konta NetApp kliknij pozycję **zasady migawek**.
+
+    ![Nawigacja zasad migawek](../media/azure-netapp-files/snapshot-policy-navigation.png)
+
+2.  W oknie Zasady migawek Ustaw stan zasady na **włączone**. 
+
+3.  Kliknij kartę **co godzinę**, **codziennie**, **co tydzień**lub **co miesiąc** , aby utworzyć zasady co godzinę, codziennie, co tydzień lub co miesiąc. Określ **liczbę migawek do zachowania**.  
+
+    Zapoznaj się z [limitami zasobów dla Azure NetApp Files](azure-netapp-files-resource-limits.md) o maksymalnej liczbie migawek dozwolonych dla woluminu. 
+
+    W poniższym przykładzie przedstawiono konfigurację zasad migawek co godzinę. 
+
+    ![Zasady migawek co godzinę](../media/azure-netapp-files/snapshot-policy-hourly.png)
+
+    Poniższy przykład przedstawia dzienną konfigurację zasad migawek.
+
+    ![Codzienne zasady migawek](../media/azure-netapp-files/snapshot-policy-daily.png)
+
+    W poniższym przykładzie pokazano cotygodniową konfigurację zasad migawek.
+
+    ![Zasady migawek co tydzień](../media/azure-netapp-files/snapshot-policy-weekly.png)
+
+    W poniższym przykładzie pokazano miesięczną konfigurację zasad migawek.
+
+    ![Zasady migawek miesięcznie](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+
+4.  Kliknij pozycję **Zapisz**.  
+
+Jeśli konieczne jest utworzenie dodatkowych zasad migawek, Powtórz krok 3.
+Utworzone zasady są wyświetlane na stronie zasady migawek.
+
+Jeśli wolumin ma używać zasad migawek, należy [zastosować zasady do woluminu](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
+
+### <a name="apply-a-snapshot-policy-to-a-volume"></a>Stosowanie zasad migawek do woluminu
+
+Jeśli chcesz, aby wolumin używał utworzonych zasad migawek, należy zastosować zasady do woluminu. 
+
+1.  Przejdź do strony **woluminy** , kliknij prawym przyciskiem myszy wolumin, do którego chcesz zastosować zasady migawek, a następnie wybierz polecenie **Edytuj**.
+
+    ![Woluminy menu po kliknięciu prawym przyciskiem myszy](../media/azure-netapp-files/volume-right-cick-menu.png) 
+
+2.  W oknie Edycja w obszarze **zasady migawek**wybierz zasady, które mają być używane dla woluminu.  Kliknij przycisk **OK** , aby zastosować zasady.  
+
+    ![Edytowanie zasad migawek](../media/azure-netapp-files/snapshot-policy-edit.png) 
+
+### <a name="modify-a-snapshot-policy"></a>Modyfikowanie zasad migawek 
+
+Istniejące zasady migawek można modyfikować, aby zmienić stan zasad, częstotliwość migawek (co godzinę, codziennie, co tydzień lub co miesiąc) lub liczbę migawek do zachowania.  
+ 
+1.  W widoku konta NetApp kliknij pozycję **zasady migawek**.
+
+2.  Kliknij prawym przyciskiem myszy zasady migawek, które chcesz zmodyfikować, a następnie wybierz pozycję **Edytuj**.
+
+    ![Menu po kliknięciu prawym przyciskiem myszy](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Wprowadź zmiany w oknie Zasady migawek, które zostanie wyświetlone, a następnie kliknij przycisk **Zapisz**. 
+
+### <a name="delete-a-snapshot-policy"></a>Usuwanie zasad migawek 
+
+Można usunąć zasady migawek, które nie powinny już być zachowywane.   
+
+1.  W widoku konta NetApp kliknij pozycję **zasady migawek**.
+
+2.  Kliknij prawym przyciskiem myszy zasady migawek, które chcesz zmodyfikować, a następnie wybierz pozycję **Usuń**.
+
+    ![Menu po kliknięciu prawym przyciskiem myszy](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Kliknij przycisk **tak** , aby potwierdzić, że chcesz usunąć zasady migawek.   
+
+    ![Potwierdzenie usunięcia zasad migawek](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Przywracanie migawki do nowego woluminu
 
 Obecnie można przywrócić migawkę tylko do nowego woluminu. 
-1. Przejdź do bloku **Zarządzanie migawkami** w bloku wolumin, aby wyświetlić listę migawek. 
-2. Wybierz migawkę do przywrócenia.  
-3. Kliknij prawym przyciskiem myszy nazwę migawki i wybierz polecenie **Przywróć do nowego woluminu** z opcji menu.  
+1. Wybierz opcję **migawki** z bloku wolumin, aby wyświetlić listę migawek. 
+2. Kliknij prawym przyciskiem myszy migawkę, która ma zostać przywrócona, a następnie wybierz polecenie **Przywróć do nowego woluminu** z opcji menu.  
 
     ![Przywróć migawkę do nowego woluminu](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. W oknie Nowy wolumin podaj informacje o nowym woluminie:  
+3. W oknie Tworzenie woluminu podaj informacje o nowym woluminie:  
     * **Nazwij**   
         Określ nazwę tworzonego woluminu.  
         
         Nazwa musi być unikatowa w obrębie grupy zasobów. Musi zawierać co najmniej trzy znaki.  Dozwolone są dowolne znaki alfanumeryczne.
 
-    * **Ścieżka pliku**     
-        Określ ścieżkę pliku, na podstawie której zostanie utworzona ścieżka eksportu dla nowego woluminu. Ścieżka eksportu służy do instalowania woluminu oraz uzyskiwania do niego dostępu.   
-        
-        Miejsce docelowe instalacji to punkt końcowy adresu IP usługi NFS. Ta wartość jest generowana automatycznie.   
-        
-        Nazwa ścieżki pliku może zawierać tylko litery, cyfry i łączniki („-”). Musi mieć długość od 16 do 40 znaków. 
+    * **Limit przydziału**  
+        Określ ilość pamięci logicznej, która ma zostać przydzielona do woluminu.  
 
-    * **limit przydziału**  
-        Określ wielkość magazynu logicznego, który zostanie przydzielony do woluminu.  
+    ![Przywróć do nowego woluminu](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-        W polu **Dostępny limit przydziału** jest wyświetlana ilość nieużywanego miejsca w wybranej puli pojemności, które można wykorzystać do utworzenia nowego woluminu. Rozmiar nowego woluminu nie może przekraczać dostępnego limitu przydziału.
-
-    *   **Sieć wirtualna**  
-        Określ sieć wirtualną platformy Azure, z której chcesz uzyskiwać dostęp do woluminu.  
-        W wybranej sieci wirtualnej musi znajdować się podsieć delegowana do usługi Azure NetApp Files. Dostęp do Azure NetApp Files można uzyskać tylko z tej samej sieci wirtualnej lub z sieci wirtualnej, która znajduje się w tym samym regionie co wolumin za pośrednictwem komunikacji równorzędnej sieci wirtualnej. Możesz uzyskać dostęp do woluminu z sieci lokalnej za pośrednictwem usługi Express Route. 
-
-    * **Podsieci**  
-        Określ podsieć, której chcesz użyć na potrzeby woluminu.  
-        Określona podsieć musi być delegowana do usługi Azure NetApp Files. Nową podsieć można utworzyć, wybierając pozycję **Utwórz nową** w polu podsieć.  
-   <!--
-    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-   -->
-
-5. Kliknij przycisk **OK**.   
+4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij przycisk **Utwórz**.   
+    Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie hierarchii magazynu usługi Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Omówienie hierarchii magazynu usługi Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

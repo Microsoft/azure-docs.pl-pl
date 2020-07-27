@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064918"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171873"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
-Możliwości routingu w koncentratorze wirtualnym są udostępniane przez router, który zarządza całą trasą między bramami przy użyciu Border Gateway Protocol (BGP). Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN typu lokacja-lokacja, Brama ExpressRoutea, Brama połączeń punkt-lokacja, Zapora platformy Azure. Ten router zapewnia również łączność między sieciami wirtualnymi, które łączą się z koncentratorem wirtualnym i obsługują zagregowaną przepływność wynoszącą 50 GB/s. Te możliwości routingu dotyczą standardowych wirtualnych klientów sieci WAN.
+Możliwości routingu w koncentratorze wirtualnym są udostępniane przez router, który zarządza całą trasą między bramami przy użyciu Border Gateway Protocol (BGP). Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN typu lokacja-lokacja, Brama ExpressRoutea, Brama połączeń punkt-lokacja, Zapora platformy Azure. Ten router zapewnia również łączność między sieciami wirtualnymi, które łączą się z koncentratorem wirtualnym i obsługują zagregowaną przepływność wynoszącą 50 GB/s. Te możliwości routingu dotyczą standardowych wirtualnych klientów sieci WAN. 
 
 Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md).
 
@@ -79,6 +80,15 @@ Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela 
 Aby skorzystać z nowych możliwości tabeli tras, zaczekaj, aż do ukończenia wdrożenia na platformie Azure z dniem tygodnia od trzeciej sierpnia. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
 
 * **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj na zakończenie tygodnia od trzeciej sierpnia dla wdrożenia na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Zagadnienia dotyczące routingu wirtualnej sieci WAN
+
+Podczas konfigurowania routingu wirtualnej sieci WAN należy wziąć pod uwagę następujące kwestie:
+
+* Wszystkie połączenia gałęzi (punkt-lokacja, lokacja-lokacja i ExpressRoute) muszą być skojarzone z domyślną tabelą tras. W ten sposób wszystkie gałęzie będą uczyć się tych samych prefiksów.
+* Wszystkie połączenia gałęzi muszą propagować trasy do tego samego zestawu tabel tras. Na przykład jeśli zdecydujesz, że gałęzie powinny być propagowane do domyślnej tabeli tras, ta konfiguracja powinna być spójna dla wszystkich gałęzi. W związku z tym wszystkie połączenia skojarzone z domyślną tabelą tras będą mogły dotrzeć do wszystkich gałęzi.
+* Rozgałęzienie do gałęzi za pośrednictwem zapory platformy Azure nie jest obecnie obsługiwane.
+* W przypadku korzystania z zapory platformy Azure w wielu regionach wszystkie sieci wirtualne szprych muszą być skojarzone z tą samą tabelą tras. Na przykład posiadanie podzestawu sieci wirtualnych przez zaporę platformy Azure, podczas gdy inne sieci wirtualnych pomijanie zapory platformy Azure w tym samym koncentratorze wirtualnym nie jest możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
 

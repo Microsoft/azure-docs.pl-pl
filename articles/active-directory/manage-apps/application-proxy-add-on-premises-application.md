@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019645"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129036"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -32,7 +32,7 @@ Ten samouczek umożliwia opanowanie następujących czynności:
 > * Dodawanie aplikacji lokalnej do dzierżawy usługi Azure AD
 > * Sprawdza, czy użytkownik testowy może zalogować się do aplikacji przy użyciu konta usługi Azure AD
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby dodać aplikację lokalną do usługi Azure AD, potrzebne są:
 
@@ -87,9 +87,6 @@ Aby włączyć protokół TLS 1.2:
    ```
 
 1. Uruchom ponownie serwer.
-
-> [!IMPORTANT]
-> Aby zapewnić klientom najlepszą w swojej klasie szyfrowanie, usługa serwera proxy aplikacji ogranicza dostęp tylko do protokołów TLS 1,2. Te zmiany zostały stopniowo przeprowadzone i zaczęły obowiązywać od 31 sierpnia 2019. Upewnij się, że wszystkie kombinacje programu Client-Server i Browser-Server zostały zaktualizowane pod kątem używania protokołu TLS 1,2 do obsługi połączenia z usługą serwera proxy aplikacji. Obejmują one klientów używanych przez użytkowników do uzyskiwania dostępu do aplikacji opublikowanych za pośrednictwem serwera proxy aplikacji. Zobacz przygotowanie do [protokołu TLS 1,2 w pakiecie Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) , aby uzyskać przydatne informacje i zasoby.
 
 ## <a name="prepare-your-on-premises-environment"></a>Przygotowywanie środowiska lokalnego
 

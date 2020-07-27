@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032304"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131756"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
 
@@ -93,7 +93,7 @@ Następnym krokiem jest skonfigurowanie [aplikacji Azure Functions](../azure-fun
 * *ProcessHubToDTEvents*: przetwarza przychodzące dane IoT Hub i aktualizuje odpowiednio usługę Azure Digital bliźniaczych reprezentacji
 * *ProcessDTRoutedData*: przetwarza dane z bliźniaczych reprezentacji Digital i aktualizuje odpowiednio bliźniaczych reprezentacji nadrzędny w usłudze Azure Digital bliźniaczych reprezentacji
 
-W tej sekcji zostanie opublikowana wstępnie zapisana aplikacja funkcji i upewnij się, że aplikacja funkcji może uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, przypisując jej tożsamość Azure Active Directory (AAD). Wykonanie tych kroków umożliwi pozostałej części samouczka Korzystanie z funkcji wewnątrz aplikacji funkcji. 
+W tej sekcji zostanie opublikowana wstępnie zapisana aplikacja funkcji i upewnij się, że aplikacja funkcji może uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, przypisując jej tożsamość Azure Active Directory (Azure AD). Wykonanie tych kroków umożliwi pozostałej części samouczka Korzystanie z funkcji wewnątrz aplikacji funkcji. 
 
 ### <a name="publish-the-app"></a>Publikowanie aplikacji
 
@@ -141,7 +141,7 @@ W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie 
 
 ### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
 
-Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości AAD zarządzanej przez system i nadanie uprawnień *właściciela* tożsamości w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tego uprawnienia *właściciela* tożsamości w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
 W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do Twojego wystąpienia Digital bliźniaczych reprezentacji.
 
@@ -410,7 +410,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
@@ -423,7 +423,7 @@ Za pomocą Azure Cloud Shell można usunąć wszystkie zasoby platformy Azure w 
 az group delete --name <your-resource-group>
 ```
 
-Następnie usuń rejestrację aplikacji usługi AAD utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
+Następnie usuń rejestrację aplikacji usługi Azure AD utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
 
 ```azurecli
 az ad app delete --id <your-application-ID>

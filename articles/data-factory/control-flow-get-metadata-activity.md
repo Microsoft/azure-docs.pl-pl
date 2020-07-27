@@ -10,13 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112635"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171249"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Działanie pobierania metadanych w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +41,7 @@ Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca info
 
 ### <a name="supported-connectors"></a>Obsługiwane łączniki
 
-**Magazyn plików**
+**File Storage**
 
 | Łącznik/metadane | itemName<br>(plik/folder) | itemType<br>(plik/folder) | size<br>rozszerzeniem | utworzony<br>(plik/folder) | lastModified<br>(plik/folder) |childItems<br>system32\drivers\etc |contentMD5<br>rozszerzeniem | — struktura<br/>rozszerzeniem | Kolumn<br>rozszerzeniem | istniejący<br>(plik/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -59,6 +60,7 @@ Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca info
 - W przypadku usługi Azure Blob Storage `lastModified` ma zastosowanie do kontenera i obiektu BLOB, ale nie do folderu wirtualnego.
 - `lastModified`Filtr dotyczy obecnie elementów podrzędnych filtru, ale nie do samego folderu lub samego pliku.
 - Filtr symboli wieloznacznych dla folderów/plików nie jest obsługiwany w przypadku działania pobierania metadanych.
+- `structure`i `columnCount` nie są obsługiwane w przypadku pobierania metadanych z plików binarnych, JSON lub XML.
 
 **Relacyjna baza danych**
 
@@ -110,7 +112,7 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 }
 ```
 
-**Dataset**
+**Zestaw danych**
 
 ```json
 {

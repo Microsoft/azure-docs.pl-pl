@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115979"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169337"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 
 Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia:
 
-1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
+1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
 1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatora** .
 1. Wybierz pozycję **Zapisz**.
 
@@ -96,7 +96,7 @@ Jeśli aplikacja wymienia kod autoryzacji dla tokenu dostępu, należy utworzyć
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
 1. Na stronie **Azure AD B2C rejestracje aplikacji** Wybierz utworzoną aplikację, na przykład *webapp1*.
-1. W obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**.
+1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**.
 1. Wybierz pozycję **Nowy wpis tajny klienta**.
 1. Wprowadź opis wpisu tajnego klienta w polu **Opis** . Na przykład *clientsecret1*.
 1. W obszarze **wygaśnięcie**wybierz czas trwania, dla którego wpis tajny jest prawidłowy, a następnie wybierz pozycję **Dodaj**.

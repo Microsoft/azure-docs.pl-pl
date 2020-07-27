@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085976"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172058"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -60,10 +60,10 @@ Jednak narzędzie ma również następujące ograniczenia:
 
 - To rozwiązanie dotyczy tylko maszyn wirtualnych hosta sesji wielosesyjnych w puli.
 - To rozwiązanie służy do zarządzania maszynami wirtualnymi w dowolnym regionie, ale mogą być używane tylko w tej samej subskrypcji, co konto Azure Automation i aplikacja logiki platformy Azure.
-- Maksymalne środowisko uruchomieniowe zadania w elemencie Runbook to 3 godziny. Jeśli uruchamianie lub zatrzymywanie maszyn wirtualnych w puli hostów trwa dłużej niż to, zadanie zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zasoby udostępnione](../../automation/automation-runbook-execution.md#fair-share)
+- Maksymalne środowisko uruchomieniowe zadania w elemencie Runbook to 3 godziny. Jeśli uruchamianie lub zatrzymywanie maszyn wirtualnych w puli hostów trwa dłużej niż to, zadanie zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zasoby udostępnione](../../automation/automation-runbook-execution.md#fair-share).
 
 >[!NOTE]
->Narzędzie skalowania kontroluje tryb równoważenia obciążenia puli hostów, która jest skalowana. Ustawia je na funkcję równoważenia obciążenia w pierwszej kolejności zarówno w godzinach szczytu, jak i poza szczytem.
+>Narzędzie skalowania kontroluje tryb równoważenia obciążenia puli hostów, który jest obecnie skalowany. Narzędzie używa trybu o szerokim zakresie równoważenia obciążenia dla godzin szczytu i godziny poza szczytem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -140,7 +140,7 @@ Teraz, gdy masz konto Azure Automation, musisz również utworzyć Azure Automat
 
 [Konto Uruchom jako Azure Automation](../../automation/manage-runas-account.md) zapewnia uwierzytelnianie na potrzeby zarządzania zasobami na platformie Azure za pomocą poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory i przypisuje rolę współautor do użytkownika jednostki usługi na poziomie subskrypcji. Konto Uruchom jako platformy Azure to doskonałe rozwiązanie bezpiecznego uwierzytelniania przy użyciu certyfikatów i nazwy głównej usługi bez konieczności przechowywania nazwy użytkownika i hasła w obiekcie Credential. Aby dowiedzieć się więcej o uwierzytelnianiu konta Uruchom jako, zobacz [ograniczanie uprawnień konta Uruchom jako](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Każdy użytkownik, który jest członkiem roli Administratorzy subskrypcji i administrator subskrypcji, może utworzyć konto Uruchom jako, postępując zgodnie z instrukcjami w następnej sekcji.
+Każdy użytkownik, który jest członkiem roli Administratorzy subskrypcji i administrator subskrypcji, może utworzyć konto Uruchom jako.
 
 Aby utworzyć konto Uruchom jako na koncie Azure Automation:
 

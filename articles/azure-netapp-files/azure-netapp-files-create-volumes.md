@@ -12,26 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483639"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169462"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Tworzenie woluminu NFS dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje woluminy NFS (NFSv3 i NFSv 4.1) i SMBv3. Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. Jeśli chcesz utworzyć wolumin SMB, zobacz [Tworzenie woluminu SMB dla Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
 [Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="considerations"></a>Istotne zagadnienia 
+## <a name="considerations"></a>Zagadnienia do rozważenia 
 
 * Wybór wersji systemu plików NFS do użycia  
   NFSv3 może obsługiwać wiele różnych przypadków użycia i jest często wdrażany w większości aplikacji dla przedsiębiorstw. Należy sprawdzić poprawność wersji (NFSv3 lub NFSv 4.1) wymaganej przez aplikację i utworzyć wolumin przy użyciu odpowiedniej wersji. Jeśli na przykład używasz platformy [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), zalecane jest blokowanie plików z nfsv 4.1 w NFSv3. 
@@ -42,7 +42,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 * Lokalna użytkownicy/Grupa i obsługa protokołu LDAP dla NFSv 4.1  
   Obecnie NFSv 4.1 obsługuje tylko dostęp do woluminów głównych. Zobacz [Konfigurowanie domyślnej domeny nfsv 4.1 dla Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Najlepsze rozwiązania
+## <a name="best-practice"></a>Najlepsze rozwiązanie
 
 * Należy upewnić się, że używasz odpowiednich instrukcji instalacji dla woluminu.  Zobacz [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
@@ -70,17 +70,17 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     * **Pula pojemności**  
         Określ pulę pojemności, w której ma zostać utworzony wolumin.
 
-    * **limit przydziału**  
+    * **Limit przydziału**  
         Określ wielkość magazynu logicznego, który zostanie przydzielony do woluminu.  
 
         W polu **Dostępny limit przydziału** jest wyświetlana ilość nieużywanego miejsca w wybranej puli pojemności, które można wykorzystać do utworzenia nowego woluminu. Rozmiar nowego woluminu nie może przekraczać dostępnego limitu przydziału.  
 
     * **Sieć wirtualna**  
-        Określ sieć wirtualną platformy Azure, z której chcesz uzyskiwać dostęp do woluminu.  
+        Określ sieć wirtualną platformy Azure, z której chcesz uzyskać dostęp do woluminu.  
 
         W wybranej sieci wirtualnej musi znajdować się podsieć delegowana do usługi Azure NetApp Files. Dostęp do usługi Azure NetApp Files można uzyskać tylko z tej samej sieci wirtualnej lub z sieci wirtualnej znajdującej się w tym samym regionie, co wolumin, za pośrednictwem komunikacji równorzędnej sieci wirtualnej. Możesz również uzyskać dostęp do woluminu z sieci lokalnej za pośrednictwem usługi Express Route.   
 
-    * **Podsieci**  
+    * **Podsieć**  
         Określ podsieć, której chcesz użyć na potrzeby woluminu.  
         Określana podsieć musi być delegowana do usługi Azure NetApp Files. 
         
@@ -89,6 +89,12 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
         ![Tworzenie woluminu](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Tworzenie podsieci](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Jeśli chcesz zastosować istniejące zasady migawek do woluminu, kliknij pozycję **Pokaż sekcję zaawansowaną** , aby ją rozwinąć, a następnie wybierz pozycję Zasady migawek w menu rozwijanym. 
+
+        Aby uzyskać informacje na temat tworzenia zasad migawek, zobacz [Zarządzanie migawkami](azure-netapp-files-manage-snapshots.md).
+
+        ![Pokaż zaznaczenie zaawansowane](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
     * Wybierz system **plików NFS** jako typ protokołu dla woluminu.   

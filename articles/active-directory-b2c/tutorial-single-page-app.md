@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd696b6aba96b06a7b84722d61eb40bbfa15c0ff
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447938"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169807"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -90,7 +90,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azure AD B2C i identyfikatora aplikacji zapisanego w poprzednim kroku.
 
-1. Otwórz plik *authConfig. js* w folderze *JavaScriptSPA* .
+1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
 1. W `msalConfig` obiekcie zaktualizuj:
     * `clientId`z wartością z **identyfikatorem aplikacji (klienta)** zapisanym we wcześniejszym kroku
     * `authority`Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1*)
@@ -119,7 +119,7 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Przykład:
+1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Na przykład:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -131,7 +131,7 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
     npm start
     ```
 
-    W oknie konsoli jest wyświetlany numer portu lokalnego uruchomionego serwera Node. js:
+    W oknie konsoli jest wyświetlany numer portu lokalnego uruchomionego serwera Node.js:
 
     ```console
     Listening on port 6420...

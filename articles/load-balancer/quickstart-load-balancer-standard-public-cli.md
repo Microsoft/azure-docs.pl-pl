@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f8da00e531a9712b7bbb459378e3c0448e3c028f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131518"
+ms.locfileid: "87172094"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -504,14 +504,14 @@ Dodaj interfejsy sieciowe maszyny wirtualnej do puli wychodzącej modułu równo
 #### <a name="vm1"></a>Maszyna wirtualna 1
 * W puli adresów zaplecza **myBackEndPoolOutbound**.
 * W grupie zasobów **myResourceGroupLB**.
-* Skojarzona z interfejsem sieciowym **myVMNic1** i **ipconfig1**.
+* Skojarzona z interfejsem sieciowym **myNicVM1** i **ipconfig1**.
 * Skojarzone z modułem równoważenia obciążenia **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic1 \
+   --nic-name myNicVM1 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -519,14 +519,14 @@ Dodaj interfejsy sieciowe maszyny wirtualnej do puli wychodzącej modułu równo
 #### <a name="vm2"></a>Maszyna wirtualna 2
 * W puli adresów zaplecza **myBackEndPoolOutbound**.
 * W grupie zasobów **myResourceGroupLB**.
-* Skojarzona z interfejsem sieciowym **myVMNic2** i **ipconfig1**.
+* Skojarzona z interfejsem sieciowym **myNicVM2** i **ipconfig1**.
 * Skojarzone z modułem równoważenia obciążenia **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic2 \
+   --nic-name myNicVM2 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -534,14 +534,14 @@ Dodaj interfejsy sieciowe maszyny wirtualnej do puli wychodzącej modułu równo
 #### <a name="vm3"></a>VM3
 * W puli adresów zaplecza **myBackEndPoolOutbound**.
 * W grupie zasobów **myResourceGroupLB**.
-* Skojarzona z interfejsem sieciowym **myVMNic3** i **ipconfig1**.
+* Skojarzona z interfejsem sieciowym **myNicVM3** i **ipconfig1**.
 * Skojarzone z modułem równoważenia obciążenia **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic3 \
+   --nic-name myNicVM3 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -932,7 +932,7 @@ Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testowanie modułu równoważenia obciążenia" border="true":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) , aby usunąć grupę zasobów, moduł równoważenia obciążenia i wszystkie powiązane zasoby.
 

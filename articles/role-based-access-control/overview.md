@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996491"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171566"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?
 
@@ -27,14 +27,18 @@ Zarządzanie dostępem do zasobów w chmurze to kluczowa funkcja dla każdej org
 
 Azure RBAC to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure.
 
+Ten film wideo zawiera krótkie omówienie RBAC platformy Azure.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
+
 ## <a name="what-can-i-do-with-azure-rbac"></a>Co mogę zrobić przy użyciu usługi Azure RBAC?
 
 Poniżej przedstawiono kilka przykładów tego, co można zrobić za pomocą usługi Azure RBAC:
 
-- Zezwalanie jednemu użytkownikowi na zarządzanie maszynami wirtualnymi w ramach subskrypcji, a innemu na zarządzanie sieciami wirtualnymi.
+- Zezwalanie jednemu użytkownikowi na zarządzanie maszynami wirtualnymi w ramach subskrypcji, a innemu na zarządzanie sieciami wirtualnymi
 - Zezwalanie grupie administratorów baz danych na zarządzanie bazami danych SQL w ramach subskrypcji.
-- Zezwalanie użytkownikowi na zarządzanie wszystkimi zasobami w grupie zasobów, w tym maszynami wirtualnymi, witrynami internetowymi i podsieciami.
-- Zezwalanie aplikacji na dostęp do wszystkich zasobów w grupie zasobów.
+- Zezwalanie użytkownikowi na zarządzanie wszystkimi zasobami w grupie zasobów, w tym maszynami wirtualnymi, witrynami internetowymi i podsieciami
+- Zezwalanie aplikacji na dostęp do wszystkich zasobów w grupie zasobów
 
 ## <a name="how-azure-rbac-works"></a>Jak działa usługa Azure RBAC
 
@@ -53,30 +57,34 @@ Sposób kontrolowania dostępu do zasobów przy użyciu funkcji RBAC platformy A
 
 ### <a name="role-definition"></a>Definicja roli
 
-*Definicja roli* to zbiór uprawnień. Zwykle jest nazywana *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Role mogą być ogólne, na przykład „właściciel”, lub szczegółowe, na przykład „czytelnik maszyny wirtualnej”.
+*Definicja roli* to kolekcja uprawnień. Zwykle jest nazywana *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Role mogą być ogólne, na przykład „właściciel”, lub szczegółowe, na przykład „czytelnik maszyny wirtualnej”.
 
 ![Definicja roli w przypisaniu roli](./media/overview/rbac-role-definition.png)
 
-Na platformie Azure można korzystać z kilku [ról wbudowanych](built-in-roles.md). Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
+Platforma Azure zawiera kilka [wbudowanych ról](built-in-roles.md) , których można użyć. Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
 
-- [Właściciel](built-in-roles.md#owner) — ma pełny dostęp do wszystkich zasobów i jest uprawniony do przydzielania dostępu innym osobom.
+- [Właściciel](built-in-roles.md#owner) — ma pełny dostęp do wszystkich zasobów, w tym prawo do delegowania dostępu do innych osób.
 - [Współautor](built-in-roles.md#contributor) — można tworzyć wszystkie typy zasobów platformy Azure i zarządzać nimi, ale nie mogą przyznawać dostępu innym osobom.
-- [Czytelnik](built-in-roles.md#reader) — może wyświetlać istniejące zasoby platformy Azure.
-- [Administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) — może zarządzać dostępem użytkowników do zasobów platformy Azure.
+- [Reader](built-in-roles.md#reader) — może wyświetlać istniejące zasoby platformy Azure.
+- [Administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) — umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure.
 
 Pozostałe role wbudowane umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola [współautora maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) umożliwia użytkownikowi tworzenie maszyn wirtualnych i zarządzanie nimi. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe platformy Azure](custom-roles.md).
+
+Ten film wideo zawiera krótkie omówienie wbudowanych ról i ról niestandardowych.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Platforma Azure zawiera operacje na danych, które umożliwiają udzielenie dostępu do danych w ramach obiektu. Jeśli na przykład użytkownik ma uprawnienie do odczytu na koncie magazynu, może odczytywać obiekty blob lub komunikaty na tym koncie magazynu. Aby uzyskać więcej informacji, zobacz informacje na temat [definicji ról platformy Azure](role-definitions.md).
 
 ### <a name="scope"></a>Zakres
 
-*Zakres* to zestaw zasobów, w ramach którego jest przydzielany dostęp. Podczas przypisywania roli możesz dodatkowo ograniczyć dozwolone czynności, określając zakres. Jest to przydatne na przykład wówczas, gdy chcesz przypisać użytkownikowi rolę [współautora witryny internetowej](built-in-roles.md#website-contributor), ale tylko w jednej grupie zasobów.
+*Zakres* to zestaw zasobów, w ramach którego jest przydzielany dostęp. Podczas przypisywania roli możesz dodatkowo ograniczyć dozwolone czynności, określając zakres. Jest to przydatne, jeśli chcesz, aby ktoś został [współautorem witryny sieci Web](built-in-roles.md#website-contributor), ale tylko dla jednej grupy zasobów.
 
-Na platformie Azure można określić zakres na różnych poziomach: [grupy zarządzania](../governance/management-groups/overview.md), subskrypcji, grupy zasobów lub zasobu. Zakresy mają strukturę relacji element nadrzędny-element podrzędny.
+Na platformie Azure można określić zakres na wielu poziomach: [grupy zarządzania](../governance/management-groups/overview.md), subskrypcji, grupy zasobów lub zasobu. Zakresy mają strukturę opartą na relacji nadrzędny-podrzędny.
 
 ![Zakres w przypisaniu roli](./media/overview/rbac-scope.png)
 
-Gdy udzielisz dostępu w zakresie nadrzędnym, te uprawnienia są dziedziczone przez zakresy podrzędne. Przykład:
+Gdy udzielisz dostępu w zakresie nadrzędnym, te uprawnienia są dziedziczone przez zakresy podrzędne. Na przykład:
 
 - Jeśli przypiszesz użytkownikowi rolę [Właściciel](built-in-roles.md#owner) w zakresie grupy zarządzania, ten użytkownik będzie mógł zarządzać wszystkimi elementami we wszystkich subskrypcjach w grupie zarządzania.
 - Jeśli przypiszesz rolę [czytelnika](built-in-roles.md#reader) do grupy na poziomie subskrypcji, członkowie tej grupy będą mogli wyświetlać wszystkie grupy zasobów i zasoby w ramach tej subskrypcji.

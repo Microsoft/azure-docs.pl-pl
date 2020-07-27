@@ -5,15 +5,15 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.openlocfilehash: 942789d5541e796247af2dbdf9371cce4701105e
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556358"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171894"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
+# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie usługi Azure Active Directory do uwierzytelniania za pomocą środowiska MySQL
 
 Uwierzytelnianie Microsoft Azure Active Directory (Azure AD) to mechanizm łączenia się z Azure Database for MySQL przy użyciu tożsamości zdefiniowanych w usłudze Azure AD.
 Uwierzytelnianie za pomocą usługi Azure AD umożliwia zarządzanie tożsamościami użytkowników bazy danych i innymi usługami firmy Microsoft w centralnej lokalizacji, co upraszcza zarządzanie uprawnieniami.

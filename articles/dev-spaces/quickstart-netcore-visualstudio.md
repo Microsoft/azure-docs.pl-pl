@@ -78,7 +78,7 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 1. Nadaj nazwę projekt *webfrontonu* , a następnie kliknij przycisk *Utwórz*.
 1. Po wyświetleniu monitu wybierz pozycję *aplikacja sieci Web (Model-View-Controller)* dla szablonu.
 1. Wybierz pozycję *.NET Core* i *ASP.NET Core 2,1* w górnej części strony.
-1. Kliknij pozycję *Utwórz*.
+1. Kliknij przycisk *Utwórz*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Połącz projekt z obszarem deweloperskim
 

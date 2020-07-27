@@ -7,31 +7,30 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: dcea83b9452b33baef8d563c7776aa9bd258a5f4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/23/2020
+ms.openlocfilehash: f0a5c3df2359add9f896e05af6c8c77d9e006a2a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389687"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171977"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka PHP
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Omówienie
-W tym przewodniku przedstawiono sposób wykonywania typowych zadań przy użyciu usługi Azure Storage Table oraz interfejsu API tabel usługi Azure Cosmos DB. Przykłady są napisane w języku PHP i korzystają z [biblioteki klienta usługi Azure Table Storage dla języka PHP][download]. Przedstawione scenariusze obejmują **tworzenie i usuwanie tabel**, **wstawianie i usuwanie jednostek w tabeli oraz wykonywanie zapytań dotyczących jednostek**. Aby uzyskać więcej informacji na temat usługi Azure Table Storage, zobacz sekcję [Następne kroki](#next-steps).
-
+W tym artykule przedstawiono sposób tworzenia tabel, przechowywania danych i wykonywania operacji CRUD na danych. Wybierz Azure Cosmos DB Table service platformy Azure lub interfejs API tabel. Przykłady są napisane w języku PHP i korzystają z [biblioteki klienta usługi Azure Table Storage dla języka PHP][download]. Przedstawione scenariusze obejmują **tworzenie i usuwanie tabel**, **wstawianie i usuwanie jednostek w tabeli oraz wykonywanie zapytań dotyczących jednostek**. Aby uzyskać więcej informacji na temat usługi Azure Table Storage, zobacz sekcję [Następne kroki](#next-steps).
 
 ## <a name="create-an-azure-service-account"></a>Tworzenie konta usługi Azure
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
+**Utwórz konto usługi Azure Storage**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Tworzenie konta interfejsu API tabel usługi Azure Cosmos DB
+**Tworzenie konta interfejsu API tabel usługi Azure Cosmos DB**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -58,8 +57,8 @@ W tym przewodniku wykorzystane zostaną funkcje usługi Azure Table Storage lub 
    ```
    Możesz też przejść do [biblioteki klienta usługi Azure Table Storage dla języka PHP](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) w witrynie GitHub i sklonować kod źródłowy.
 
-
 ## <a name="add-required-references"></a>Dodawanie wymaganych odwołań
+
 Aby korzystać z usługi Azure Table Storage lub interfejsów API usługi Azure Cosmos DB, należy:
 
 * Dodać odwołanie do pliku automatycznej ładowarki przy użyciu instrukcji [require_once][require_once].
@@ -74,25 +73,32 @@ use MicrosoftAzure\Storage\Table\TableRestProxy;
 
 Poniższe przykłady zawsze zawierają instrukcję `require_once`, ale dodawane są odwołania wyłącznie do klas niezbędnych do wykonania tego przykładu.
 
-## <a name="add-a-storage-table-service-connection"></a>Dodawanie połączenia z usługą Azure Table Storage
+## <a name="add-your-connection-string"></a>Dodaj parametry połączenia
+
+Możesz połączyć się z kontem usługi Azure Storage lub kontem Azure Cosmos DB interfejs API tabel. Pobierz parametry połączenia na podstawie typu konta, którego używasz.
+
+### <a name="add-a-storage-table-service-connection"></a>Dodawanie połączenia z usługą Azure Table Storage
+
 Aby zainicjować klienta usługi Azure Table Storage, wymagane są prawidłowe parametry połączenia. Format parametrów połączenia usługi Table Storage jest następujący:
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
-Aby zainicjować klienta usługi Azure Cosmos DB Table, wymagane są prawidłowe parametry połączenia. Format parametrów połączenia usługi Azure Cosmos DB jest następujący:
+### <a name="add-a-storage-emulator-connection"></a>Dodawanie połączenia z emulatorem usługi Azure Storage
 
-```php
-$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
-```
-
-## <a name="add-a-storage-emulator-connection"></a>Dodawanie połączenia z emulatorem usługi Azure Storage
 Aby uzyskać dostęp do emulatora usługi Azure Storage:
 
 ```php
 UseDevelopmentStorage = true
+```
+
+### <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
+
+Aby zainicjować klienta usługi Azure Cosmos DB Table, wymagane są prawidłowe parametry połączenia. Format parametrów połączenia usługi Azure Cosmos DB jest następujący:
+
+```php
+$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
 Aby utworzyć klienta usługi Azure Table Storage lub Azure Cosmos DB, należy użyć klasy **TableRestProxy**. Można:
@@ -113,6 +119,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
+
 Obiekt **TableRestProxy** umożliwia utworzenie tabeli przy użyciu metody **createTable**. Tworząc tabelę, możesz ustawić limit czasu dla usługi Table Storage. Aby uzyskać więcej informacji na temat limitu czasu usługi Table Storage, zobacz [Setting Timeouts for Table Service Operations (Ustawianie limitu czasu dla operacji usługi Table Storage)][table-service-timeouts].
 
 ```php
@@ -140,6 +147,7 @@ catch(ServiceException $e){
 Aby uzyskać szczegółowe informacje na temat ograniczeń dotyczących nazw tabel, zobacz [Understanding the Table Service Data Model (Omówienie modelu danych usługi Table Storage)][table-data-model].
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
+
 Aby dodać jednostkę do tabeli, utwórz nowy obiekt **Entity** i przekaż go do metody **TableRestProxy->insertEntity**. Pamiętaj, że podczas tworzenia jednostki należy określić wartości `PartitionKey` i `RowKey`. Są to unikatowe identyfikatory jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki. System używa wartości `PartitionKey`, aby automatycznie rozłożyć jednostki tabeli w wielu węzłach usługi Azure Storage. Jednostki z tą samą wartością `PartitionKey` są przechowywane w tym samym węźle. (Operacje na wielu jednostkach przechowywanych w tym samym węźle działają lepiej niż w przypadku jednostek przechowywanych w różnych węzłach). `RowKey`Jest unikatowym identyfikatorem jednostki w ramach partycji.
 
 ```php
@@ -219,6 +227,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Pobieranie pojedynczej jednostki
+
 Metoda **TableRestProxy->getEntity** umożliwia pobranie jednej jednostki przez wykonanie zapytania dotyczącego jej wartości `PartitionKey` i `RowKey`. W poniższym przykładzie klucz partycji `tasksSeattle` i klucz wiersza `1` są przekazywane do metody **getEntity**.
 
 ```php
@@ -248,6 +257,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Pobieranie wszystkich jednostek w partycji
+
 Zapytania dotyczące jednostek są konstruowane przy użyciu filtrów — aby uzyskać więcej informacji, zobacz [Querying Tables and Entities (Wykonywanie zapytań o tabele i jednostki)][filters]. Aby pobrać wszystkie jednostki w partycji, użyj filtru „PartitionKey eq *nazwa_partycji*”. Następujący przykład pokazuje, w jaki sposób pobrać wszystkie jednostki w partycji `tasksSeattle`, przekazując filtr do metody **queryEntities**.
 
 ```php
@@ -281,6 +291,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Pobieranie podzestawu jednostek w partycji
+
 Schemat użyty w poprzednim przykładzie umożliwia również pobranie dowolnego podzestawu jednostek z partycji. Podzestaw jednostek do pobrania jest określany przy użyciu odpowiedniego filtru — aby uzyskać więcej informacji, zobacz [Querying Tables and Entities (Wykonywanie zapytań o tabele i jednostki)][filters]. Poniższy przykład przedstawia sposób użycia filtru w celu pobrania wszystkich jednostek z określoną wartością `Location` i datą `DueDate` wcześniejszą niż określona data.
 
 ```php
@@ -314,6 +325,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Pobieranie podzestawu właściwości jednostki
+
 Zapytanie umożliwia także pobranie podzestawu właściwości jednostki. Ta technika, nazywana *projekcją*, zmniejsza przepustowość i może poprawić wydajność zapytań, szczególnie w przypadku dużych jednostek. Aby określić właściwość do pobrania, należy przekazać nazwę właściwości do metody **Query->addSelectField**. Tę metodę można wywołać wiele razy, aby dodać więcej właściwości. Po wykonaniu polecenia **TableRestProxy->queryEntities** zwrócone zostaną tylko wybrane właściwości jednostek. Jeśli chcesz zwrócić podzestaw jednostek tabeli, użyj filtru tak, jak pokazano w powyższych zapytaniach.
 
 ```php
@@ -353,6 +365,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>Aktualizowanie jednostki
+
 Możesz zaktualizować istniejącą jednostkę, używając metod **Entity->setProperty** i **Entity->addProperty** na tej jednostce, a następnie wywołując metodę **TableRestProxy->updateEntity**. W poniższym przykładzie po pobraniu jednostki jedna właściwość zostanie zmodyfikowana, inna usunięta, a do tego zostanie dodana nowa właściwość. Pamiętaj, że możesz usunąć właściwość, ustawiając jej wartość na **null**.
 
 ```php
@@ -387,6 +400,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
+
 Aby usunąć jednostkę, przekaż nazwę tabeli oraz wartości `PartitionKey` i `RowKey` jednostki do metody **TableRestProxy->deleteEntity**.
 
 ```php
@@ -415,6 +429,7 @@ catch(ServiceException $e){
 Na potrzeby kontroli współbieżności możesz ustawić element Etag dla jednostki, która ma zostać usunięta, używając metody **DeleteEntityOptions->setEtag** i przekazując obiekt **DeleteEntityOptions** do metody **deleteEntity** jako czwarty parametr.
 
 ## <a name="batch-table-operations"></a>Zbiorcze operacje na tabeli
+
 Metoda **TableRestProxy->batch** umożliwia wykonanie wielu operacji w ramach jednego żądania. Procedura polega na dodaniu operacji do obiektu **BatchRequest**, a następnie przekazaniu obiektu **BatchRequest** do metody **TableRestProxy->batch**. Aby dodać operację do obiektu **BatchRequest**, możesz wywołać dowolną z następujących metod (można to zrobić wiele razy):
 
 * **addInsertEntity** (dodaje operację insertEntity)
@@ -475,6 +490,7 @@ catch(ServiceException $e){
 Aby uzyskać więcej informacji na temat tworzenia partii operacji, zobacz [Performing Entity Group Transactions (Wykonywanie transakcji w grupach jednostek)][entity-group-transactions].
 
 ## <a name="delete-a-table"></a>Usuwanie tabeli
+
 Można usunąć tabelę, przekazując nazwę tabeli do metody **TableRestProxy->deleteTable**.
 
 ```php
@@ -501,6 +517,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
 Teraz, kiedy znasz już podstawy usług Azure Table Storage i Azure Cosmos DB, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.

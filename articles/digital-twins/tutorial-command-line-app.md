@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: fcedec126c925ff218b8a0fb17b81dbf5ac1d769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce3f775b7a72239fba7eb7c1538ec4f0831f1c74
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044224"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124572"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -78,7 +78,7 @@ Pamiętaj, aby zapisać plik przed przechodzeniem.
 > Jeśli chcesz spróbować utworzyć własny model, możesz wkleić kod modelu *pokoju* do nowego pliku zapisanego przy użyciu rozszerzenia *JSON* w folderze *AdtSampleApp\SampleClientApp\Models* . Następnie zapoznaj się z dodawaniem właściwości i relacji, aby reprezentować wszystko, co chcesz. W przypadku pomysłów można także zapoznać się z innymi przykładowymi modelami w tym folderze.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
+> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-use-parser.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Wprowadzenie do aplikacji wiersza polecenia
 
@@ -283,7 +283,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
 * W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.

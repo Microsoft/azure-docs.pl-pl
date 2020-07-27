@@ -618,6 +618,14 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnozowanie błędów podczas uwierzytelniania
           href: vs-active-directory-error.md
+    - name: Wprowadzanie aplikacji na rynek
+      items:
+        - name: Publikowanie w źródle aplikacji
+          href: v2-howto-get-appsource-certified.md
+        - name: Publikowanie w galerii aplikacji usługi Azure AD
+          href: v2-howto-app-gallery-listing.md
+        - name: Publikowanie na pulpicie nawigacyjnym sprzedawcy usługi Office 365
+          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
 - name: Dokumentacja
   items:
     - name: Manifest aplikacji

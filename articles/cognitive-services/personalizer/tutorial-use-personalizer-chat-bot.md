@@ -3,13 +3,12 @@ title: Korzystanie z programu Personalizacja w programie Chat bot — Personaliz
 description: Dostosuj bot rozmowy .NET do języka C# przy użyciu pętli personalizacji, aby zapewnić poprawną zawartość użytkownikowi na podstawie akcji (z funkcjami) i funkcji kontekstu.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.author: diberry
-ms.openlocfilehash: d269dbf95356d1d8d0fb7c2f27e0828d016d0ac6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101580"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131671"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot
 
@@ -423,7 +422,7 @@ Jeśli zamierzasz użyć personalizacji w bot produkcyjnym, Zaplanuj:
 * Obliczanie na podstawie wielkości liter dla nagrody: w tym przykładzie pokazano dwa nagrody równe zero i jeden bez zakresu od i brak wartości ujemnej dla wyniku. System musiał być bardziej szczegółowym ocenianiem.
 * Kanały bot: Ten przykład korzysta z pojedynczego kanału, ale jeśli zamierzasz używać więcej niż jednego kanału lub odmian botów w jednym kanale, które mogą być traktowane jako część funkcji kontekstu modelu personalizowania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Oczyść następujące zasoby:
 
