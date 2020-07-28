@@ -17,7 +17,7 @@ Istnieje możliwość, aby organizacja wymagała dodatkowych akcji od właścici
 Poniżej przedstawiono niektóre typowe potencjalne działania, które może potrzebować właściciel. Te i inne operacje można wykonać na stronie [*rejestracje aplikacja usługi Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal.
 * Przyznaj zgodę administratora na rejestrację aplikacji. Twoja organizacja może mieć *zgodę administratora* , która została zadana globalnie włączona w usłudze Azure AD dla wszystkich rejestracji aplikacji w ramach subskrypcji. Jeśli tak, właściciel będzie musiał wybrać ten przycisk dla swojej firmy na stronie *uprawnień interfejsu API* rejestracji aplikacji, aby Rejestracja aplikacji była prawidłowa:
 
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/grant-admin-consent.png" alt-text="Widok portalu przycisku "Udziel zgody administratora" w obszarze uprawnienia interfejsu API":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/grant-admin-consent.png" alt-text="Widok portalu przycisku Udziel zgody administratora w obszarze uprawnienia interfejsu API":::
   - Jeśli zgoda została udzielona pomyślnie, wpis dla usługi Azure Digital bliźniaczych reprezentacji powinien zawierać wartość *stanu* _przyznany dla **(Twoja firma)** _
    
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/granted-admin-consent.png" alt-text="Widok portalu zgody administratora udzielonego dla firmy w ramach uprawnień interfejsu API":::
