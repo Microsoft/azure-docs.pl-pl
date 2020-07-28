@@ -329,7 +329,7 @@
         - name: Dyski udostępnione
           href: disks-shared.md
         - name: Efemeryczne dyski systemu operacyjnego
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Networking
       href: ../network-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Zestawy skalowania

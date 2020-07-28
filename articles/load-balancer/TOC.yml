@@ -95,14 +95,6 @@
           href: upgrade-basicInternal-standard.md
         - name: Uaktualnianie wewnętrznego modułu równoważenia obciążenia — wymagane jest połączenie wychodzące
           href: upgrade-InternalBasic-To-PublicStandard.md
-    - name: Konfigurowanie reguł dla ruchu wychodzącego
-      items:
-        - name: Portal
-          href: configure-load-balancer-outbound-portal.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: configure-load-balancer-outbound-cli.md
-        - name: Azure PowerShell
-          href: configure-load-balancer-outbound-powershell.md
     - name: Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6
       items:
         - name: Interfejs wiersza polecenia platformy Azure

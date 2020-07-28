@@ -291,7 +291,7 @@
     - name: PowerShell — przykładowy moduł Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: Interfejs API REST
-      href: 'https://docs.microsoft.com/rest/api/dtl/'
+      href: /rest/api/dtl/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.devtestlab/allversions
 - name: Zasoby
@@ -301,7 +301,7 @@
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-devtestlabs.html'
+      href: /answers/topics/azure-devtestlabs.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
     - name: Filmy wideo
