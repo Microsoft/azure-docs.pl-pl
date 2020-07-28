@@ -8,6 +8,8 @@
       href: overview.md
     - name: Porównanie usług obsługi wiadomości
       href: compare-messaging-services.md
+    - name: Informacje o wersji
+      href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

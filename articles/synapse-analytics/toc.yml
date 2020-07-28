@@ -10,19 +10,19 @@
       items:
         - name: Wprowadzenie
           href: get-started.md
-        - name: Krok 1. Tworzenie obszaru roboczego usługi Synapse
+        - name: 1. Tworzenie obszaru roboczego usługi Synapse
           href: get-started-create-workspace.md
-        - name: Krok 2. Analizowanie przy użyciu puli SQL
+        - name: 2. Analizowanie przy użyciu puli SQL
           href: get-started-analyze-sql-pool.md
-        - name: Krok 3. Analizowanie przy użyciu platformy Spark
+        - name: 3. Analizowanie przy użyciu platformy Spark
           href: get-started-analyze-spark.md
-        - name: Krok 4. Analizowanie przy użyciu usługi SQL na żądanie
+        - name: 4. Analizowanie przy użyciu usługi SQL na żądanie
           href: get-started-analyze-sql-on-demand.md
-        - name: Krok 5. Analizowanie danych na koncie magazynu
+        - name: 5. Analizowanie danych na koncie magazynu
           href: get-started-analyze-storage.md
-        - name: Krok 6. Orkiestracja przy użyciu potoków
+        - name: 6. Orkiestracja przy użyciu potoków
           href: get-started-pipelines.md
-        - name: Krok 7. Wizualizowanie przy użyciu usługi Power BI
+        - name: 7. Wizualizowanie przy użyciu usługi Power BI
           href: get-started-visualize-power-bi.md
     - name: Ściągawka
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Buforowanie zestawu wyników
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Przewidywania uczenia maszynowego
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: Tabele
               items:
                 - name: Omówienie

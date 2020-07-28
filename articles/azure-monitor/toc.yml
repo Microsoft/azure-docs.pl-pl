@@ -1020,6 +1020,10 @@
           href: insights/resource-group-insights.md
         - name: Rozwiązywanie problemów z analizami
           href: insights/troubleshoot-workbooks.md
+    - name: Analiza zmian
+      items:
+        - name: Analiza zmian
+          href: app/change-analysis.md
     - name: Rozwiązania
       items:
         - name: Omówienie
@@ -1073,30 +1077,6 @@
               href: insights/vmware.md
             - name: Rozwiązanie Dane o komunikacji sieciowej
               href: insights/wire-data.md
-        - name: Widoki
-          items:
-            - name: Konwertowanie widoków na skoroszyty
-              items:
-                - name: Omówienie konwersji
-                  href: platform/view-designer-conversion-overview.md
-                - name: Opcje konwersji
-                  href: platform/view-designer-conversion-options.md
-                - name: Omówienie i dostęp
-                  href: platform/view-designer-conversion-access.md
-                - name: Typowe zadania
-                  href: platform/view-designer-conversion-tasks.md
-                - name: Konwertowanie kafelka
-                  href: platform/view-designer-conversion-tiles.md
-                - name: Przykłady
-                  href: platform/view-designer-conversion-examples.md
-            - name: Projektant widoków
-              href: platform/view-designer.md
-            - name: Dokumentacja dotycząca kafelków
-              href: platform/view-designer-tiles.md
-            - name: Dokumentacja części wizualizacji
-              href: platform/view-designer-parts.md
-            - name: Filtry
-              href: platform/view-designer-filters.md
     - name: Skoroszyty
       items:
         - name: Omówienie
@@ -1124,6 +1104,20 @@
                   href: platform/workbooks-time.md
                 - name: Parametry tekstu
                   href: platform/workbooks-text.md
+        - name: Konwertowanie widoków na skoroszyty
+          items:
+            - name: Omówienie konwersji
+              href: platform/view-designer-conversion-overview.md
+            - name: Opcje konwersji
+              href: platform/view-designer-conversion-options.md
+            - name: Omówienie i dostęp
+              href: platform/view-designer-conversion-access.md
+            - name: Typowe zadania
+              href: platform/view-designer-conversion-tasks.md
+            - name: Konwertowanie kafelka
+              href: platform/view-designer-conversion-tiles.md
+            - name: Przykłady
+              href: platform/view-designer-conversion-examples.md
     - name: Inne wizualizacje
       items:
         - name: Power BI
@@ -1217,6 +1211,8 @@
           href: app/azure-functions-supported-features.md
         - name: Informacje o wersji
           items:
+            - name: Zestawy SDK monitorowania opartego na kodzie
+              href: app/release-notes.md
             - name: Rozszerzenie aplikacji internetowej
               href: app/web-app-extension-release-notes.md
         - name: Model danych
@@ -1297,6 +1293,16 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics (przestarzałe)
           href: insights/azure-key-vault-deprecated.md
+        - name: Widoki
+          items:
+            - name: Projektant widoków
+              href: platform/view-designer.md
+            - name: Dokumentacja dotycząca kafelków
+              href: platform/view-designer-tiles.md
+            - name: Dokumentacja części wizualizacji
+              href: platform/view-designer-parts.md
+            - name: Filtry
+              href: platform/view-designer-filters.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

@@ -64,6 +64,8 @@
       href: manage-recording-policy-how-to.md
     - name: Analizowanie wideo na żywo przy użyciu wybranej sztucznej inteligencji
       href: analyze-with-ai-your-choice-how-to.md
+    - name: Wywoływanie metod bezpośrednich przy użyciu portalu
+      href: use-azure-portal-to-invoke-direct-methods.md
     - name: Rozwiązywanie problemów
       href: troubleshoot-how-to.md
 - name: Dokumentacja

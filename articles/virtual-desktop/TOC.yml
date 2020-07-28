@@ -1,4 +1,4 @@
-- name: 'Windows Virtual Desktop, wersja Wiosna 2020'
+- name: Windows Virtual Desktop
   href: index.yml
 - name: Omówienie
   items:
@@ -6,7 +6,7 @@
       href: overview.md
     - name: Co nowego?
       href: whats-new.md
-    - name: Dokumentacja wersji Jesień 2019
+    - name: Dokumentacja usługi Windows Virtual Desktop (klasycznej)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Samouczki
   items:

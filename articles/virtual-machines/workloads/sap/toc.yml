@@ -84,6 +84,8 @@
           href: hana-setup-smt.md
         - name: Migracja z funkcji HANA — duże wystąpienia na maszynę wirtualną platformy Azure
           href: hana-large-instance-virtual-machine-migration.md
+        - name: Kupowanie rezerwacji oprogramowania SAP HANA — duże wystąpienia
+          href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
 - name: Oprogramowanie SAP HANA na maszynach wirtualnych platformy Azure
   items:
     - name: Instalacja oprogramowania SAP HANA na maszynach wirtualnych platformy Azure

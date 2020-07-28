@@ -416,6 +416,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Dodawanie szablonów generowania języka na potrzeby odpowiedzi mowy
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Używanie głosu niestandardowego
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integracja
               items:
                 - name: Integracja z aplikacją kliencką przy użyciu zestawu SDK usługi Mowa
@@ -452,6 +454,8 @@
               href: faq-voice-assistants.md
             - name: Zestaw SDK rozpoznawania mowy
               href: speech-sdk.md
+            - name: Szyfrowanie danych magazynowanych przy użyciu poleceń niestandardowych
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Mowa Direct Line
       items:
         - name: Co to jest mowa Direct Line?

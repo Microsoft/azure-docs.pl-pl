@@ -31,6 +31,8 @@
       href: powershell-create-instance.md
     - name: Tworzenie domeny zarządzanej przy użyciu szablonu
       href: template-create-instance.md
+    - name: Konfigurowanie synchronizacji o określonym zakresie przy użyciu programu PowerShell usługi Azure AD
+      href: powershell-scoped-synchronization.md
 - name: Pojęcia
   items:
     - name: Podstawy administracji

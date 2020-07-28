@@ -156,6 +156,8 @@
       href: customer-managed-keys.md
     - name: Tworzenie zdarzeń na podstawie alertów
       href: create-incidents-from-alerts.md
+    - name: Lepsze zarządzanie centrum operacji zabezpieczeń przy użyciu metryk zdarzeń
+      href: manage-soc-with-incident-metrics.md
     - name: Wyszukiwanie zagrożeń
       href: hunting.md
       items:

@@ -121,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Często zadawane pytania na temat zasobów technicznych maszyny wirtualnej platformy Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certyfikowanie obrazu maszyny wirtualnej platformy Azure
+                - name: Testowanie maszyny wirtualnej wdrożonej z dysku VHD
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: Identyfikator URI sygnatury dostępu współdzielonego
                   items:

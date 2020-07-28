@@ -302,6 +302,8 @@
         - name: Skrypt wdrażania
           displayName: custom script
           href: deployment-script-template.md
+        - name: Tworzenie środowiska deweloperskiego na potrzeby skryptów wdrażania
+          href: deployment-script-template-configure-dev.md
         - name: Modularyzowanie szablonów
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

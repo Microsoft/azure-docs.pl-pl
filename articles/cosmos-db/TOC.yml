@@ -574,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Zaawansowana ochrona przed zagrożeniami
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Gotowość przedsiębiorstwa
@@ -988,7 +991,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Definiowanie unikatowych kluczy
           href: how-to-define-unique-keys.md
-    - name: Wydajność i rozwiązywanie problemów
+    - name: Wydajność
       items:
         - name: Zapytanie
           items:
@@ -996,28 +999,20 @@
               href: profile-sql-api-query.md
             - name: Dostosowywanie wydajności zapytań
               href: sql-api-query-metrics.md
-            - name: Rozwiązywanie problemów z wydajnością zapytań
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: Porady dotyczące wydajności dla zestawu .NET SDK 3
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: Porady dotyczące wydajności dla zestawu .NET SDK 2
               href: performance-tips.md
-            - name: Rozwiązywanie problemów z zestawem .NET SDK
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: Porady dotyczące wydajności dla zestawu Java SDK w wersji 4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Rozwiązywanie problemów z zestawem Java SDK w wersji 4
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: Async Java SDK 2
               href: performance-tips-async-java.md
             - name: Sync Java SDK 2
               href: performance-tips-java.md
-            - name: Rozwiązywanie problemów — Async Java SDK 2
-              href: troubleshoot-java-async-sdk.md
         - name: Test wydajnościowy — przykładowa aplikacja
           href: performance-testing.md
         - name: Ekonomiczne odczyty i zapisy
@@ -1026,6 +1021,36 @@
       items:
         - name: Migracja do zestawu SDK języka Java w wersji 4
           href: migrate-java-v4-sdk.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Typowe błędy
+          items:
+            - name: Rozwiązywanie problemów z wydajnością zapytań
+              href: troubleshoot-query-performance.md
+            - name: Rozwiązywanie problemów z przekraczaniem limitu czasu żądania usługi
+              href: troubleshoot-request-timeout.md
+            - name: Rozwiązywanie problemów ze zbyt dużą liczbą żądań
+              href: troubleshoot-request-rate-too-large.md
+            - name: Rozwiązywanie problemów z nieznalezieniem elementu
+              href: troubleshoot-not-found.md
+            - name: Rozwiązywanie problemów z brakiem autoryzacji
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Ogólne wskazówki dotyczące rozwiązywania problemów z zestawem .NET SDK
+              href: troubleshoot-dot-net-sdk.md
+            - name: Rozwiązywanie problemów ze zbyt dużym nagłówkiem żądania
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Rozwiązywanie problemów z przekraczaniem limitu czasu żądania
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Rozwiązywanie problemów z niedostępnością usługi
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: Rozwiązywanie problemów z zestawem Java SDK w wersji 4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Rozwiązywanie problemów — Async Java SDK 2
+              href: troubleshoot-java-async-sdk.md
     - name: Zestawienie zmian
       items:
         - name: Dzienniki wyzwalacza usługi Azure Cosmos DB
