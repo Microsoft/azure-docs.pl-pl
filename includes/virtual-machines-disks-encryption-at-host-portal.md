@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5ea31217bd3088ec123281b36f8578b08ea25b2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f0a706cc51027bc503da9ee3bc637216e9e52853
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136234"
+ms.locfileid: "87171376"
 ---
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -50,12 +50,12 @@ Aby włączyć szyfrowanie na hoście, należy wdrożyć nową maszynę wirtualn
 1. Utwórz nową maszynę wirtualną, wybierz odpowiedni region i rozmiar obsługiwanej maszyny wirtualnej.
 1. Wypełnij pozostałe wartości w bloku **podstawowe** , a następnie wybierz pozycję **dyski** w bloku.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Przykładowy tekst":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Zrzut ekranu przedstawiający blok podstawy tworzenia maszyn wirtualnych, rozmiar regionu i rozmiaru V M są wyróżnione.":::
 
 1. W bloku **dyski** wybierz opcję **tak** , aby włączyć **szyfrowanie na hoście**.
 1. Wprowadź pozostałe wybrane opcje.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Przykładowy tekst":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok dysków tworzenia maszyn wirtualnych, szyfrowanie na hoście jest wyróżnione.":::
 
 1. Zakończ proces wdrażania maszyny wirtualnej, wybierz odpowiednie opcje, które pasują do Twojego środowiska.
 

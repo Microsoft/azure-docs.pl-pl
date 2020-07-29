@@ -1,35 +1,37 @@
 ---
-title: Skonfiguruj minimalną wymaganą wersję Transport Layer Security (TLS) dla konta magazynu
+title: Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań przychodzących
 titleSuffix: Azure Storage
 description: Skonfiguruj konto magazynu, aby wymagać minimalnej wersji Transport Layer Security (TLS) dla klientów wysyłających żądania do usługi Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 07/24/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ab83f0ee656dfc717284c1e26d10dcb814fe1c9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: eaa00716e8f86552a077fb527993f619fc9756b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209864"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275801"
 ---
-# <a name="configure-minimum-required-version-of-transport-layer-security-tls-for-a-storage-account"></a>Skonfiguruj minimalną wymaganą wersję Transport Layer Security (TLS) dla konta magazynu
+# <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
 Komunikacja między aplikacją kliencką a kontem usługi Azure Storage jest zaszyfrowana przy użyciu usługi Transport Layer Security (TLS). TLS jest standardowym protokołem kryptograficznym, który zapewnia prywatność i integralność danych między klientami i usługami przez Internet. Aby uzyskać więcej informacji na temat protokołu TLS, zobacz [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
-Usługa Azure Storage obecnie obsługuje trzy wersje protokołu TLS: 1,0, 1,1 i 1,2. TLS 1,2 to najbezpieczniejsza wersja protokołu TLS. Usługa Azure Storage używa protokołu TLS 1,2 na publicznych punktach końcowych HTTPs, ale protokoły TLS 1,0 i TLS 1,1 są nadal obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami
+Usługa Azure Storage obecnie obsługuje trzy wersje protokołu TLS: 1,0, 1,1 i 1,2. Usługa Azure Storage używa protokołu TLS 1,2 na publicznych punktach końcowych HTTPS, ale protokoły TLS 1,0 i TLS 1,1 są nadal obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami
 
-Domyślnie konta usługi Azure Storage pozwalają klientom wysyłać i odbierać dane przy użyciu najstarszej wersji protokołu TLS, TLS 1,0 lub nowszej. Aby wymusić bardziej rygorystyczne środki bezpieczeństwa, można skonfigurować konto magazynu, aby wymagać, aby klienci wysyłali i odbierali dane przy użyciu nowszej wersji protokołu TLS. Jeśli konto magazynu wymaga minimalnej wersji protokołu TLS, wszelkie żądania wykonane ze starszą wersją zakończą się niepowodzeniem.
+Domyślnie konta usługi Azure Storage pozwalają klientom wysyłać i odbierać dane przy użyciu najstarszej wersji protokołu TLS, TLS 1,0 lub nowszej. Aby wymusić bardziej rygorystyczne środki bezpieczeństwa, można skonfigurować konto magazynu, aby wymagać, aby klienci wysyłali i odbierali dane przy użyciu nowszej wersji protokołu TLS. Jeśli konto magazynu wymaga minimalnej wersji protokołu TLS, wszystkie żądania wykonane ze starszą wersją zakończą się niepowodzeniem.
 
-W tym artykule opisano sposób konfigurowania konta magazynu w celu wymagania, aby klienci wysyłali żądania z użyciem minimalnej wersji protokołu TLS. Aby uzyskać informacje dotyczące sposobu określania określonej wersji protokołu TLS podczas wysyłania żądania z aplikacji klienckiej, zobacz [konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej](transport-layer-security-configure-client-version.md).
+W tym artykule opisano, jak używać platformy przeciągania (wykrywania-korygowania-Audit-ładu) do ciągłego zarządzania bezpiecznym protokołem TLS dla kont magazynu.
+
+Aby uzyskać informacje dotyczące sposobu określania określonej wersji protokołu TLS podczas wysyłania żądania z aplikacji klienckiej, zobacz [konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej](transport-layer-security-configure-client-version.md).
 
 ## <a name="detect-the-tls-version-used-by-client-applications"></a>Wykrywanie wersji protokołu TLS używanej przez aplikacje klienckie
 
-Po wymuszeniu minimalnej wersji protokołu TLS dla konta magazynu użytkownik jest narażony na Odrzucanie żądań od klientów wysyłających dane przy użyciu wcześniejszej wersji protokołu TLS. Aby zrozumieć, jak konfigurowanie minimalnej wersji protokołu TLS może mieć wpływ na aplikacje klienckie, firma Microsoft zaleca włączenie rejestrowania dla konta usługi Azure Storage i przeanalizowanie dzienników po upływie interwału czasu, aby określić, które wersje aplikacji klienckich TLS są używane.
+Po wymuszeniu minimalnej wersji protokołu TLS dla konta magazynu ryzyko odrzucenia żądań od klientów wysyłających dane przy użyciu starszej wersji protokołu TLS. Aby zrozumieć, jak konfigurowanie minimalnej wersji protokołu TLS może mieć wpływ na aplikacje klienckie, firma Microsoft zaleca włączenie rejestrowania dla konta usługi Azure Storage i przeanalizowanie dzienników po upływie interwału czasu w celu wykrycia, które wersje aplikacji klienckich TLS są używane.
 
 Aby rejestrować żądania na koncie usługi Azure Storage i określać wersję protokołu TLS używaną przez klienta, można użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](monitor-storage.md).
 
@@ -57,7 +59,7 @@ Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure St
 
 Dzienniki usługi Azure Storage w Azure Monitor obejmują wersję protokołu TLS używaną do wysyłania żądania do konta magazynu. Użyj właściwości **TlsVersion** , aby sprawdzić wersję protokołu TLS zarejestrowanego żądania.
 
-Aby pobrać dzienniki z ostatnich 7 dni i określić liczbę żądań dotyczących usługi BLOB Storage z każdą wersją protokołu TLS, Otwórz obszar roboczy Log Analytics. Następnie wklej następujące zapytanie do nowego zapytania dziennika i uruchom je. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+Aby określić liczbę żądań dla magazynu obiektów blob z różnymi wersjami protokołu TLS w ciągu ostatnich siedmiu dni, Otwórz obszar roboczy Log Analytics. Następnie wklej następujące zapytanie do nowego zapytania dziennika i uruchom je. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```kusto
 StorageBlobLogs
@@ -73,7 +75,7 @@ Wyniki przedstawiają liczbę żądań wykonanych z każdą wersją protokołu T
 
 Dzienniki usługi Azure Storage w Azure Monitor zawierają również adres IP i nagłówek agenta użytkownika wywołującego, aby ułatwić ocenę, które aplikacje klienckie uzyskują dostęp do konta magazynu. Można analizować te wartości, aby zdecydować, czy należy zaktualizować aplikacje klienckie, aby korzystały z nowszej wersji protokołu TLS, czy też jeśli nie są wysyłane z użyciem minimalnej wersji protokołu TLS.
 
-Aby pobrać dzienniki z ostatnich 7 dni i określić klientów, którzy wykonali żądania z użyciem wersji TLS przed protokołem TLS 1,2, wklej następujące zapytanie do nowego zapytania dziennika i uruchom je. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+Aby określić klientów, którzy przetworzyli żądania z użyciem wersji TLS starszej niż TLS 1,2 w ciągu ostatnich siedmiu dni, wklej następujące zapytanie do nowego zapytania dziennika i uruchom je. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```kusto
 StorageBlobLogs
@@ -81,9 +83,16 @@ StorageBlobLogs
 | project TlsVersion, CallerIpAddress, UserAgentHeader
 ```
 
-## <a name="configure-the-minimum-tls-version-for-an-account"></a>Skonfiguruj minimalną wersję protokołu TLS dla konta
+## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>Koryguj zagrożenia bezpieczeństwa przy użyciu minimalnej wersji protokołu TLS
 
-Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, użyj Azure Portal lub interfejsu wiersza polecenia platformy Azure w celu ustawienia wersji **minimumTlsVersion** dla tego konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
+Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji protokołu TLS jest minimalny lub że jest akceptowalny do niepowodzenia żądań z użyciem starszej wersji protokołu TLS, możesz zacząć wymuszać użycie minimalnej wersji protokołu TLS na koncie magazynu. Wymaganie, aby klienci korzystali z minimalnej wersji protokołu TLS, aby żądania dotyczące konta magazynu były częścią strategii, aby zminimalizować zagrożenia dla bezpieczeństwa danych.
+
+### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Konfigurowanie minimalnej wersji protokołu TLS dla konta magazynu
+
+Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
+
+> [!NOTE]
+> Właściwość **minimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -95,41 +104,54 @@ Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z Azure 
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania minimalnej wersji protokołu TLS w Azure Portal":::
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, należy najpierw uzyskać identyfikator zasobu dla konta magazynu, wywołując polecenie [AZ Resource show](/cli/azure/resource#az-resource-show) . Następnie Wywołaj polecenie [AZ Resource Update](/cli/azure/resource#az-resource-update) , aby ustawić właściwość **minimumTlsVersion** dla konta magazynu. Prawidłowe wartości dla **minimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
+Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą programu PowerShell, zainstaluj [Azure PowerShell w wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **MinimumTLSVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **MinimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
-W poniższym przykładzie ustawiono minimalną wersję protokołu TLS na 1,2. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+Poniższy przykład tworzy konto magazynu i ustawia **MinimumTLSVersion** na TLS 1,1, a następnie aktualizuje konto i ustawia **MinimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
-```azurecli-interactive
-storage_account_id=$(az resource show \
-  --name <storage-account> \
-  --resource-group <resource-group> \
-  --resource-type Microsoft.Storage/storageAccounts \
-  --query id \
-  --output tsv)
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$location = "<location>"
 
-az resource update \
-  --ids $storage_account_id \
-  --set properties.minimumTlsVersion="TLS1_2"
+# Create a storage account with MinimumTlsVersion set to TLS 1.1.
+New-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Location $location -SkuName Standard_GRS -MinimumTlsVersion TLS1_1
+# Read the MinimumTlsVersion property.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
+
+# Update the MinimumTlsVersion version for the storage account to TLS 1.2.
+Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -MinimumTlsVersion TLS1_2
+# Read the MinimumTlsVersion property.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 ```
 
----
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-> [!NOTE]
-> Po zaktualizowaniu minimalnej wersji protokołu TLS dla konta magazynu może upłynąć do 30 sekund, zanim zmiana zostanie w pełni rozpropagowana.
+Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Następnie skonfiguruj Właściwość **minimumTlsVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **minimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
-## <a name="check-the-minimum-required-tls-version-for-an-account"></a>Sprawdź minimalną wymaganą wersję protokołu TLS dla konta
-
-Aby określić minimalną wymaganą wersję protokołu TLS skonfigurowaną dla konta magazynu, należy sprawdzić Właściwość Azure Resource Manager **minimumTlsVersion** . Aby sprawdzić tę właściwość dla dużej liczby kont magazynu jednocześnie, użyj Eksploratora Azure Resource Graph.
-
-Właściwość **minimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu domyślnie zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest równa null.
-
-### <a name="check-the-minimum-required-tls-version-for-a-single-storage-account"></a>Sprawdź minimalną wymaganą wersję protokołu TLS dla jednego konta magazynu
-
-Aby sprawdzić minimalną wymaganą wersję protokołu TLS dla jednego konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Resource show](/cli/azure/resource#az-resource-show) i zapytanie dla właściwości **minimumTlsVersion** :
+Poniższy przykład tworzy konto magazynu i ustawia **minimumTLSVersion** na TLS 1,1. Następnie aktualizuje konto i ustawia właściwość **minimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```azurecli-interactive
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --kind StorageV2 \
+    --location <location> \
+    --min-tls-version TLS1_1
+
+az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query properties.minimumTlsVersion \
+    --output tsv
+
+az storage account update \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --min-tls-version TLS1_2
+
 az resource show \
     --name <storage-account> \
     --resource-group <resource-group> \
@@ -138,7 +160,50 @@ az resource show \
     --output tsv
 ```
 
-### <a name="check-the-minimum-required-tls-version-for-a-set-of-storage-accounts"></a>Sprawdź minimalną wymaganą wersję protokołu TLS dla zestawu kont magazynu
+# <a name="template"></a>[Szablon](#tab/template)
+
+Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z szablonem, Utwórz szablon z właściwością **MinimumTLSVersion** ustawioną na wartość `TLS1_0` , `TLS1_1` lub `TLS1_2` . Poniższe kroki opisują sposób tworzenia szablonu w Azure Portal.
+
+1. W Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**, wybierz pozycję **Utwórz**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
+1. W edytorze szablonów wklej poniższy kod JSON, aby utworzyć nowe konto i ustawić minimalną wersję protokołu TLS na TLS 1,2. Pamiętaj, aby zastąpić symbole zastępcze w nawiasach kątowe własnymi wartościami.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        },
+        "resources": [
+            {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "<location>",
+            "properties": {
+                "minimumTlsVersion": "TLS1_2"
+            },
+            "dependsOn": [],
+            "tags": {}
+            }
+        ]
+    }
+    ```
+
+1. Zapisz szablon.
+1. Określ parametr grupy zasobów, a następnie wybierz przycisk **Recenzja + Utwórz** , aby wdrożyć szablon i utworzyć konto magazynu przy użyciu skonfigurowanej właściwości **MinimumTLSVersion** .
+
+---
+
+> [!NOTE]
+> Po zaktualizowaniu minimalnej wersji protokołu TLS dla konta magazynu może upłynąć do 30 sekund, zanim zmiana zostanie w pełni rozpropagowana.
+
+Skonfigurowanie minimalnej wersji protokołu TLS wymaga wersji 2019-04-01 lub nowszej dostawcy zasobów usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [interfejs API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp/).
+
+### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>Sprawdź minimalną wymaganą wersję protokołu TLS dla wielu kont
 
 Aby sprawdzić minimalną wymaganą wersję protokołu TLS w zestawie kont magazynu z optymalną wydajnością, można użyć Eksploratora Azure Resource Graph w Azure Portal. Aby dowiedzieć się więcej o korzystaniu z Eksploratora grafów zasobów, zobacz [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
 
@@ -153,11 +218,118 @@ resources
 
 ---
 
-## <a name="test-the-minimum-tls-version-from-a-client"></a>Testowanie minimalnej wersji protokołu TLS z poziomu klienta
+### <a name="test-the-minimum-tls-version-from-a-client"></a>Testowanie minimalnej wersji protokołu TLS z poziomu klienta
 
-Aby sprawdzić, czy minimalna wymagana wersja protokołu TLS dla konta magazynu zabrania wywołań wykonanych w starszej wersji, można skonfigurować klienta do korzystania ze starszej wersji protokołu TLS. Aby uzyskać więcej informacji o konfigurowaniu klienta do korzystania z określonej wersji protokołu TLS, zobacz [konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej](transport-layer-security-configure-client-version.md).
+Aby sprawdzić, czy minimalna wymagana wersja protokołu TLS dla konta magazynu zabrania wywołań wykonanych za pomocą starszej wersji, można skonfigurować klienta do korzystania ze starszej wersji protokołu TLS. Aby uzyskać więcej informacji o konfigurowaniu klienta do korzystania z określonej wersji protokołu TLS, zobacz [konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej](transport-layer-security-configure-client-version.md).
 
 Gdy klient uzyskuje dostęp do konta magazynu przy użyciu wersji TLS, która nie spełnia wymagań dotyczących minimalnej wersji protokołu TLS skonfigurowanej dla tego konta, usługa Azure Storage zwraca kod błędu 400 (Nieprawidłowe żądanie) i komunikat informujący o tym, że używana wersja protokołu TLS nie jest dozwolona w przypadku wysyłania żądań do tego konta magazynu.
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Użyj Azure Policy, aby przeprowadzić inspekcję zgodności
+
+Jeśli masz dużą liczbę kont magazynu, możesz wykonać inspekcję, aby upewnić się, że wszystkie konta są skonfigurowane dla minimalnej wersji protokołu TLS wymaganej przez organizację. Aby przeprowadzić inspekcję zestawu kont magazynu pod kątem zgodności, użyj Azure Policy. Azure Policy to usługa, za pomocą której można tworzyć i przypisywać zasady stosujące reguły do zasobów platformy Azure oraz zarządzać nimi. Azure Policy pomaga zachować zgodność tych zasobów ze standardami firmy i umowami dotyczącymi poziomu usług. Aby uzyskać więcej informacji, zobacz [omówienie Azure Policy](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Tworzenie zasad z efektem inspekcji
+
+Azure Policy obsługuje efekty, które określają, co się dzieje, gdy reguła zasad zostanie oceniona względem zasobu. Efekt inspekcji tworzy ostrzeżenie, gdy zasób nie jest zgodny, ale nie zatrzymuje żądania. Aby uzyskać więcej informacji na temat efektów, zobacz [opis efektów Azure Policy](../../governance/policy/concepts/effects.md).
+
+Aby utworzyć zasady z efektem inspekcji dla minimalnej wersji protokołu TLS z Azure Portal, wykonaj następujące czynności:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. W sekcji **Tworzenie** wybierz pozycję **definicje**.
+1. Wybierz pozycję **Dodaj definicję zasad** , aby utworzyć nową definicję zasad.
+1. W polu **Lokalizacja definicji** wybierz przycisk **więcej** , aby określić, gdzie znajduje się zasób zasady inspekcji.
+1. Określ nazwę zasad. Opcjonalnie można określić opis i kategorię.
+1. W obszarze **reguła zasad**Dodaj następującą definicję zasad do sekcji **Klasa policyrule** .
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/minimumTlsVersion",
+              "equals": "TLS1_2"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Zapisz zasady.
+
+### <a name="assign-the-policy"></a>Przypisywanie zasad
+
+Następnie przypisz zasady do zasobu. Zakres zasad odpowiada ten zasób i wszystkie znajdujące się w nim zasoby. Aby uzyskać więcej informacji na temat przypisywania zasad, zobacz [Azure Policy struktury przypisywania](../../governance/policy/concepts/assignment-structure.md).
+
+Aby przypisać zasady do Azure Portal, wykonaj następujące kroki:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. W sekcji **Tworzenie** wybierz pozycję **przypisania**.
+1. Wybierz pozycję **Przypisz zasady** , aby utworzyć nowe przypisanie zasad.
+1. Dla pola **zakres** wybierz zakres przypisania zasad.
+1. W polu **Definicja zasad** wybierz przycisk **więcej** , a następnie wybierz zasady zdefiniowane w poprzedniej sekcji z listy.
+1. Podaj nazwę przypisania zasad. Opis jest opcjonalny.
+1. Pozostaw ustawienie **wymuszania zasad** ustawiony na *włączone*. To ustawienie nie ma wpływu na zasady inspekcji.
+1. Wybierz pozycję **Przegląd + Utwórz** , aby utworzyć przypisanie.
+
+### <a name="view-compliance-report"></a>Wyświetl raport zgodności
+
+Po przypisaniu zasad można wyświetlić raport o zgodności. Raport zgodności dla zasad inspekcji zawiera informacje o tym, które konta magazynu nie są zgodne z zasadami. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie danych dotyczących zgodności z zasadami](../../governance/policy/how-to/get-compliance-data.md).
+
+Po utworzeniu przypisania zasad może upłynąć kilka minut, zanim raport zgodności stanie się dostępny.
+
+Aby wyświetlić raport zgodności w Azure Portal, wykonaj następujące kroki:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. Wybierz pozycję **zgodność**.
+1. Filtruje wyniki dla nazwy przypisania zasad utworzonego w poprzednim kroku. Raport przedstawia, ile zasobów nie jest zgodnych z zasadami.
+1. Możesz przejść do raportu, aby uzyskać dodatkowe szczegóły, w tym listę kont magazynu, które nie są zgodne.
+
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający raport zgodności dla zasad inspekcji dla minimalnej wersji protokołu TLS":::
+
+## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Użyj Azure Policy, aby wymusić minimalną wersję protokołu TLS
+
+Azure Policy obsługuje zarządzanie chmurą dzięki zapewnieniu, że zasoby platformy Azure są zgodne z wymaganiami i standardami. Aby wymusić minimalne wymagania dotyczące wersji protokołu TLS dla kont magazynu w organizacji, można utworzyć zasady, które uniemożliwiają utworzenie nowego konta magazynu, które ustawia minimalny wymóg protokołu TLS dla starszej wersji protokołu TLS niż ta, która jest określana przez zasady. Te zasady będą również zapobiegać wszystkim zmianom konfiguracji istniejącego konta, jeśli ustawienie minimalnej wersji protokołu TLS dla tego konta nie jest zgodne z zasadami.
+
+Zasady wymuszania używają efektu Odmów, aby zapobiec żądaniu, które mogłoby utworzyć lub zmodyfikować konto magazynu, aby minimalna wersja protokołu TLS nie była już zgodna ze standardami organizacji. Aby uzyskać więcej informacji na temat efektów, zobacz [opis efektów Azure Policy](../../governance/policy/concepts/effects.md).
+
+Aby utworzyć zasady z efektem odmowy dla minimalnej wersji protokołu TLS, która jest niższa niż TLS 1,2, wykonaj te same kroki opisane w temacie [Use Azure Policy, aby przeprowadzić inspekcję pod kątem zgodności](#use-azure-policy-to-audit-for-compliance), ale podaj następujący kod JSON w sekcji **Klasa policyrule** definicji zasad:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/minimumTlsVersion",
+          "equals": "TLS1_2"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie może utworzyć konta magazynu o minimalnej wersji protokołu TLS starszej niż 1,2. Użytkownik nie może wprowadzać żadnych zmian konfiguracji na istniejącym koncie magazynu, które obecnie wymaga minimalnej wersji protokołu TLS starszej niż 1,2. Próba wykonania tej czynności spowoduje wystąpienie błędu. Wymagana minimalna wersja protokołu TLS dla konta magazynu musi być ustawiona na 1,2, aby kontynuować tworzenie lub Konfigurowanie konta.
+
+Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu z minimalną wersją protokołu TLS ustawioną na TLS 1,0 (wartość domyślna dla nowego konta), gdy zasady z efektem odmowy wymagają ustawienia minimalnej wersji protokołu TLS na TLS 1,2.
+
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
 
 ## <a name="next-steps"></a>Następne kroki
 

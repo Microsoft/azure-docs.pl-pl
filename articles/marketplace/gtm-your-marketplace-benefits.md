@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287885"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -41,7 +41,7 @@ Szczegółowe opisy wszystkich korzyści z programu można znaleźć w tej [prez
 Wprowadzenie jest proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
-2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
+2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
 3. Aby aktywować korzyści związane z sprzedażą i marketingiem, przypisz kontakt z działu marketingu firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
 4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
 

@@ -4,15 +4,15 @@ description: Interfejs API służący do anulowania operacji obecnie w toku dla 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 462ca525be9cf46c87acdf4025223a98afaf8e3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 095d9cf68374ee81cafdb6e7a32df29a57d122cb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287918"
 ---
 # <a name="cancel-operation"></a>Anuluj operację
 
@@ -29,8 +29,8 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 
 |  **Nazwa**    |      **Opis**                                  |    **Typ danych**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identyfikator wydawcy, na przykład`contoso`         |   String (ciąg)          |
-| offerId      |  Identyfikator oferty                                     |   String (ciąg)          |
+| publisherId  |  Identyfikator wydawcy, na przykład`contoso`         |   String          |
+| offerId      |  Identyfikator oferty                                     |   String          |
 | api-version  |  Bieżąca wersja interfejsu API                               |    Data           |
 |  |  |  |
 
@@ -46,7 +46,7 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 ## <a name="body-example"></a>Przykład treści
 ------------
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ``` json
 {
@@ -77,7 +77,7 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 
 |  **Nazwa**             |    **Wartość**                       |
 |  ---------            |    ----------                      |
-| Lokalizacja    | Ścieżka względna do pobrania stanu tej operacji. |
+| Location    | Ścieżka względna do pobrania stanu tej operacji. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi

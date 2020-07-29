@@ -4,16 +4,16 @@ description: Zawiera listę poprzednich generacji rozmiarów dostępnych dla mas
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289711"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -96,7 +96,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 Rozmiary warstwy Podstawowa są przeznaczone głównie dla obciążeń związanych z tworzeniem aplikacji i innych aplikacji, które nie wymagają równoważenia obciążenia, automatycznego skalowania ani maszyn wirtualnych korzystających z dużej ilości pamięci.
 
-| Rozmiar — rozmiar\nazwa | Procesor wirtualny | Memory (Pamięć)|Karty sieciowe (maks.)| Maksymalny rozmiar dysku tymczasowego | Maksymalnie z dyski z danymi (1023 GB każdego)| Maksymalnie z liczba operacji we/wy na sekundę (300 na dysk) |
+| Rozmiar — rozmiar\nazwa | Procesor wirtualny | Pamięć|Karty sieciowe (maks.)| Maksymalny rozmiar dysku tymczasowego | Maksymalnie z dyski z danymi (1023 GB każdego)| Maksymalnie z liczba operacji we/wy na sekundę (300 na dysk) |
 |---|---|---|---|---|---|---|
 | A0\Podstawowa_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Podstawowa_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |
@@ -370,7 +370,7 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-* [Zastosowania ogólne](sizes-general.md)
+* [Ogólnego przeznaczenia](sizes-general.md)
 * [Optymalizacja pod kątem obliczeń](sizes-compute.md)
 * [Optymalizacja pod kątem pamięci](sizes-memory.md)
 * [Optymalizacja pod kątem magazynu](sizes-storage.md)

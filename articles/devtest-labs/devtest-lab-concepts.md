@@ -3,12 +3,12 @@ title: Koncepcje dotyczące DevTest Labs | Microsoft Docs
 description: Zapoznaj się z podstawowymi pojęciami dotyczącymi usługi DevTest Labs oraz możliwością tworzenia i monitorowania maszyn wirtualnych platformy Azure oraz zarządzania nimi
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283847"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs — pojęcia
 ## <a name="overview"></a>Omówienie
@@ -20,7 +20,7 @@ Laboratorium to infrastruktura obejmująca grupę zasobów, na przykład Virtual
 ## <a name="virtual-machine"></a>Maszyna wirtualna
 Maszyna wirtualna platformy Azure jest jednym z kilku typów [skalowalnych zasobów obliczeniowych dostępnych na żądanie,](/azure/architecture/guide/technology-choices/compute-decision-tree) które są oferowane przez platformę Azure. Maszyny wirtualne platformy Azure zapewniają elastyczność wirtualizacji bez konieczności kupowania i konserwowania fizycznego sprzętu, który go uruchamia, chociaż nadal trzeba obsługiwać maszynę wirtualną przez wykonywanie określonych zadań, takich jak konfigurowanie, stosowanie poprawek i instalowanie oprogramowania, które jest na nim uruchomione.
 
-[Omówienie maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) zawiera informacje o tym, co należy wziąć pod uwagę przed utworzeniem maszyny wirtualnej, sposobie jej tworzenia oraz sposobie zarządzania nią.
+[Omówienie maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/overview.md) zawiera informacje o tym, co należy wziąć pod uwagę przed utworzeniem maszyny wirtualnej, sposobie jej tworzenia oraz sposobie zarządzania nią.
 
 ## <a name="claimable-vm"></a>Maszyna wirtualna do zajmowania
 Maszyna wirtualna z funkcją domaganą na platformie Azure jest maszyną wirtualną, która jest dostępna do użycia przez dowolnego użytkownika laboratorium z uprawnieniami. Administrator laboratorium może przygotować maszyny wirtualne z określonymi obrazami podstawowymi i artefaktami, a następnie zapisać je w udostępnionej puli. Użytkownik laboratorium może następnie przejąć działającą maszynę wirtualną z puli, gdy potrzebują ich z tą określoną konfiguracją.
@@ -28,7 +28,7 @@ Maszyna wirtualna z funkcją domaganą na platformie Azure jest maszyną wirtual
 Maszyna wirtualna, do której można uzyskać dostęp, nie jest początkowo przypisana do żadnego konkretnego użytkownika, ale będzie wyświetlana na liście każdego użytkownika w obszarze "maszyny wirtualne objęte usługą". Gdy użytkownik zostanie przejęty przez użytkownika, jest on przenoszony do obszaru "moje maszyny wirtualne" i nie jest już możliwy do zajmowania przez żadnego innego użytkownika.
 
 ## <a name="environment"></a>Środowisko
-W DevTest Labs środowisko odnosi się do kolekcji zasobów platformy Azure w laboratorium. [Ten wpis w blogu](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) omawia sposób tworzenia środowisk z obsługą wielu maszyn wirtualnych na podstawie szablonów Azure Resource Manager.
+W DevTest Labs środowisko odnosi się do kolekcji zasobów platformy Azure w laboratorium. [Ten wpis w blogu](./devtest-lab-faq.md#blog-post) omawia sposób tworzenia środowisk z obsługą wielu maszyn wirtualnych na podstawie szablonów Azure Resource Manager.
 
 ## <a name="base-images"></a>Obrazy podstawowe
 Obrazy podstawowe są obrazami maszyn wirtualnych ze wszystkimi narzędziami i ustawieniami wstępnie zainstalowanymi i skonfigurowanymi do szybkiego tworzenia maszyn wirtualnych. Możesz zainicjować obsługę maszyny wirtualnej, wybierając istniejącą bazę i dodając artefakt, aby zainstalować agenta testowego. Można następnie zapisać zainicjowaną maszynę wirtualną jako podstawową, aby można było użyć podstawy bez konieczności ponownej instalacji agenta testowego dla każdej aprowizacji maszyny wirtualnej.
@@ -74,7 +74,7 @@ Ponieważ zakresy są hierarchiczne, gdy użytkownik ma uprawnienia w określony
 ## <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 Wszystkie koncepcje omówione w tym artykule można skonfigurować za pomocą szablonów Azure Resource Manager, które umożliwiają zdefiniowanie infrastruktury/konfiguracji rozwiązania platformy Azure i wielokrotne wdrożenie w spójnym stanie.
 
-[Zrozumienie struktury i składni szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) opisuje strukturę szablonu Azure Resource Manager i właściwości, które są dostępne w różnych sekcjach szablonu.
+[Zrozumienie struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#template-format) opisuje strukturę szablonu Azure Resource Manager i właściwości, które są dostępne w różnych sekcjach szablonu.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
