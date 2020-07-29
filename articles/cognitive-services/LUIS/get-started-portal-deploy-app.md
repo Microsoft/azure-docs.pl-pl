@@ -3,12 +3,12 @@ title: 'Szybki Start: wdrażanie aplikacji za pomocą portalu LUIS'
 description: W tym przewodniku szybki start pokazano, jak wdrożyć aplikację, tworząc zasób punktu końcowego przewidywania, przypisując zasób, szkolenie i publikację aplikacji.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653228"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336376"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Szybki Start: wdrażanie aplikacji w portalu LUIS
 
@@ -19,7 +19,7 @@ W tym przewodniku szybki start dowiesz się, jak wdrożyć aplikację. Tworzysz 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Uzyskaj [subskrypcję platformy Azure](https://azure.microsoft.com/free).
-* Wykonaj [poprzedni Przewodnik Szybki Start](get-started-portal-build-app.md) lub [Pobierz i zaimportuj aplikację](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Wykonaj [poprzedni Przewodnik Szybki Start](get-started-portal-build-app.md) lub [Pobierz i zaimportuj aplikację](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * Jeśli masz aplikacje, które mają przestarzałe uwierzytelnianie zasobów platformy Azure, [Migruj do zasobu platformy Azure](luis-migration-authoring.md). Niektóre strony portalu wyglądają inaczej, gdy obowiązuje uwierzytelnianie poczty e-mail.
 
 <a name="create-the-endpoint-resource"></a>
@@ -112,7 +112,7 @@ Aby wyświetlić ten sam poziom informacji w okienku testów, należy opublikowa
 
 [![Porównanie obecnie edytowanej i opublikowanej wersji aplikacji](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Zaznacz pole wyboru aplikacji z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi kontekstowego nad listą.
 

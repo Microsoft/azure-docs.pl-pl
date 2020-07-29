@@ -4,12 +4,12 @@ description: Access Control oparte na rolach umożliwiają zarządzanie dostępe
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: dd6930a0228829f376140d515a3035afebad0f27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032429"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371706"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Zarządzanie Azure Backup punktów odzyskiwania przy użyciu Access Control opartych na rolach
 
@@ -18,7 +18,7 @@ Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia p
 > [!IMPORTANT]
 > Role udostępniane przez Azure Backup są ograniczone do akcji, które mogą być wykonywane w Azure Portal lub za pośrednictwem interfejsu API REST lub poleceń cmdlet programu PowerShell dla magazynu Recovery Services lub interfejsu wiersza polecenia. Akcje wykonywane w interfejsie użytkownika klienta agenta usługi Azure Backup lub w interfejsie użytkownika programu System Center Data Protection Manager lub Azure Backup Server interfejsie użytkownika nie kontrolują tych ról.
 
-Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi. Aby dowiedzieć się więcej, zobacz [Wbudowane role RBAC na platformie Azure](../role-based-access-control/built-in-roles.md).
+Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi. Dowiedz się więcej o [rolach wbudowanych platformy Azure](../role-based-access-control/built-in-roles.md)
 
 * [Współautor kopii zapasowych](../role-based-access-control/built-in-roles.md#backup-contributor) — ta rola ma wszystkie uprawnienia do tworzenia kopii zapasowych i zarządzania nimi z wyjątkiem usuwania magazynu Recovery Services i udzielania dostępu innym osobom. Wyobraź sobie tę rolę jako administrator zarządzania kopiami zapasowymi, który może wykonywać każdą operację zarządzania kopiami zapasowymi.
 * [Operator kopii zapasowych](../role-based-access-control/built-in-roles.md#backup-operator) — ta rola ma uprawnienia do wszystkich elementów współautora, z wyjątkiem usuwania kopii zapasowych i zarządzania zasadami tworzenia kopii zapasowych. Ta rola jest równoznaczna z współautorem, z wyjątkiem sytuacji, w której nie może wykonać operacji niszczących, takich jak zatrzymanie wykonywania kopii zapasowej z usuwaniem danych lub usuwanie rejestracji zasobów lokalnych.

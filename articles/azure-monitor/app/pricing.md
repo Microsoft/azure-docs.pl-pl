@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ff7d088a80ceaf01e9434ef62beb0e771cdf6b55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309685"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -24,9 +24,9 @@ Jeśli masz pytania dotyczące sposobu działania cen dla Application Insights, 
 
 ## <a name="pricing-model"></a>Model cen
 
-Cennik [usługi Azure Application Insights][start] to model z **płatnością zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Każdy zasób Application Insights jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość danych jest mierzona jako rozmiar nieskompresowanego pakietu danych JSON, który jest odbierany przez Application Insights z aplikacji. Za korzystanie z [Live Metrics Stream](../../azure-monitor/app/live-stream.md)nie jest naliczana opłata za ilość danych.
+Cennik [usługi Azure Application Insights][start] to model z **płatnością zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Każdy zasób Application Insights jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość danych jest mierzona jako rozmiar nieskompresowanego pakietu danych JSON, który jest odbierany przez Application Insights z aplikacji. Za korzystanie z [Live Metrics Stream](./live-stream.md)nie jest naliczana opłata za ilość danych.
 
-[Wieloetapowe testy sieci Web](../../azure-monitor/app/availability-multistep.md) wiążą się z dodatkowymi opłatami. Wieloetapowe testy sieci Web to testy sieci Web, które wykonują sekwencję akcji. Nie ma oddzielnej opłaty za *testy ping* dla pojedynczej strony. Dane telemetryczne z testów ping i testów wieloetapowych są rozliczone tak samo jak inne dane telemetryczne z aplikacji.
+[Wieloetapowe testy sieci Web](./availability-multistep.md) wiążą się z dodatkowymi opłatami. Wieloetapowe testy sieci Web to testy sieci Web, które wykonują sekwencję akcji. Nie ma oddzielnej opłaty za *testy ping* dla pojedynczej strony. Dane telemetryczne z testów ping i testów wieloetapowych są rozliczone tak samo jak inne dane telemetryczne z aplikacji.
 
 Opcja Application Insights [włączania alertów w niestandardowych wymiarach metryk](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) można również generować w dodatkowych kosztach, ponieważ może to spowodować utworzenie dodatkowych metryk przed agregacją. [Dowiedz się więcej](./pre-aggregated-metrics-log-metrics.md) o metrykach opartych na dzienniku i wstępnie zagregowanych informacjach w Application Insights i o [cenach](https://azure.microsoft.com/pricing/details/monitor/) Azure monitor metryk niestandardowych.
 
@@ -48,7 +48,7 @@ W przypadku zestawów SDK, które nie obsługują próbkowania adaptacyjnego, mo
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Dowiedz się, co zbiera podobne odbiorcy
 
-W kalkulatorze cen usługi Azure Monitoring dla Application Insights, jeśli włączysz funkcję "oszacowanie ilości danych opartych na działaniu aplikacji", możesz dostarczyć dane wejściowe dotyczące aplikacji (żądania miesięcznie i wyświetlenia stron miesięcznie), a następnie Kalkulator wskaże medianę i 90% ilość danych zbieranych przez podobne aplikacje. Te aplikacje obejmują zakres konfiguracji Application Insights (np. niektóre z [próbkami](../../azure-monitor/app/sampling.md)domyślnymi, niektóre nie mają próbek itp.), dlatego nadal masz kontrolę, aby zmniejszyć ilość danych, które są znacznie mniejsze niż poziom średni przy użyciu próbkowania. Jest to jednak punkt początkowy, który umożliwia zapoznanie się z innymi, podobnym klientom.
+W kalkulatorze cen usługi Azure Monitoring dla Application Insights, jeśli włączysz funkcję "oszacowanie ilości danych opartych na działaniu aplikacji", możesz dostarczyć dane wejściowe dotyczące aplikacji (żądania miesięcznie i wyświetlenia stron miesięcznie), a następnie Kalkulator wskaże medianę i 90% ilość danych zbieranych przez podobne aplikacje. Te aplikacje obejmują zakres konfiguracji Application Insights (np. niektóre z [próbkami](./sampling.md)domyślnymi, niektóre nie mają próbek itp.), dlatego nadal masz kontrolę, aby zmniejszyć ilość danych, które są znacznie mniejsze niż poziom średni przy użyciu próbkowania. Jest to jednak punkt początkowy, który umożliwia zapoznanie się z innymi, podobnym klientom.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Zapoznaj się z użyciem i szacunkowymi kosztami
 
@@ -56,10 +56,10 @@ Application Insights ułatwia zrozumienie, jakie koszty są prawdopodobnie opart
 
 ![Wybierz Cennik](./media/pricing/pricing-001.png)
 
-A. Przejrzyj ilość danych w danym miesiącu. Obejmuje to wszystkie dane, które zostały odebrane i zachowane (po każdym [próbkowaniu](../../azure-monitor/app/sampling.md)) z serwera i aplikacji klienckich oraz z testów dostępności.  
-B. Dla [wieloetapowych testów sieci Web](../../azure-monitor/app/availability-multistep.md)dokonywana jest oddzielna opłata. (Nie obejmuje to prostych testów dostępności, które są uwzględnione w opłacie ilości danych).  
+A. Przejrzyj ilość danych w danym miesiącu. Obejmuje to wszystkie dane, które zostały odebrane i zachowane (po każdym [próbkowaniu](./sampling.md)) z serwera i aplikacji klienckich oraz z testów dostępności.  
+B. Dla [wieloetapowych testów sieci Web](./availability-multistep.md)dokonywana jest oddzielna opłata. (Nie obejmuje to prostych testów dostępności, które są uwzględnione w opłacie ilości danych).  
 C. Wyświetlanie trendów ilości danych w ostatnim miesiącu.  
-D. Włącz [próbkowanie](../../azure-monitor/app/sampling.md)pozyskiwania danych.
+D. Włącz [próbkowanie](./sampling.md)pozyskiwania danych.
 E. Ustaw dzienny limit ilości danych.  
 
 (Należy pamiętać, że wszystkie ceny wyświetlane na zrzutach ekranu w tym artykule są tylko na przykład. W przypadku bieżących cen w walucie i regionie zobacz [cennik Application Insights][pricing].)
@@ -183,11 +183,11 @@ W pobranym arkuszu kalkulacyjnym można zobaczyć użycie na zasób platformy Az
 
 Ilość wysyłanych danych może być zarządzana przy użyciu następujących technik:
 
-* **Próbkowanie**: możesz użyć próbkowania, aby zmniejszyć ilość danych telemetrycznych wysyłanych z serwera i aplikacji klienckich przy minimalnym zniekształceniu metryk. Próbkowanie to podstawowe narzędzie, za pomocą którego można dostroić ilość wysyłanych danych. Dowiedz się więcej o [funkcjach pobierania próbek](../../azure-monitor/app/sampling.md).
+* **Próbkowanie**: możesz użyć próbkowania, aby zmniejszyć ilość danych telemetrycznych wysyłanych z serwera i aplikacji klienckich przy minimalnym zniekształceniu metryk. Próbkowanie to podstawowe narzędzie, za pomocą którego można dostroić ilość wysyłanych danych. Dowiedz się więcej o [funkcjach pobierania próbek](./sampling.md).
 
-* **Ogranicz wywołania AJAX**: można [ograniczyć liczbę wywołań AJAX, które mogą być zgłaszane](../../azure-monitor/app/javascript.md#configuration) w każdym widoku strony, lub wyłączyć raportowanie AJAX.
+* **Ogranicz wywołania AJAX**: można [ograniczyć liczbę wywołań AJAX, które mogą być zgłaszane](./javascript.md#configuration) w każdym widoku strony, lub wyłączyć raportowanie AJAX.
 
-* **Wyłącz niepotrzebne moduły**: [Edytuj ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , aby wyłączyć niepotrzebne moduły kolekcji. Na przykład można zdecydować, że liczniki wydajności lub dane zależności są nieistotne.
+* **Wyłącz niepotrzebne moduły**: [Edytuj ApplicationInsights.config](./configuration-with-applicationinsights-config.md) , aby wyłączyć niepotrzebne moduły kolekcji. Na przykład można zdecydować, że liczniki wydajności lub dane zależności są nieistotne.
 
 * **Metryki przed agregacją**: w przypadku umieszczenia wywołań TrackMetric w aplikacji można zredukować ruch przy użyciu przeciążenia, które akceptuje Obliczanie średniej i odchylenia standardowego partii pomiarów. Lub można użyć [wstępnie agregowanego pakietu](https://www.myget.org/gallery/applicationinsights-sdk-labs).
  
@@ -207,7 +207,7 @@ Ilość wysyłanych danych może być zarządzana przy użyciu następujących t
 
 Możesz użyć dziennego limitu ilości, aby ograniczyć zbierane dane. Jeśli jednak zostanie osiągnięty limit, utracisz wszystkie dane telemetryczne wysyłane z aplikacji dla pozostałej części dnia. *Nie zaleca* się, aby aplikacja osiągnęła dzienny limit. Nie można śledzić kondycji i wydajności aplikacji po osiągnięciu dziennego limitu.
 
-Zamiast używać dziennego limitu ilości, użyj [próbkowania](../../azure-monitor/app/sampling.md) , aby dostosować ilość danych do żądanego poziomu. Następnie użyj dziennego limitu tylko jako "ostatniej", jeśli aplikacja nieoczekiwanie zacznie wysyłać znacznie wyższe ilości danych telemetrycznych.
+Zamiast używać dziennego limitu ilości, użyj [próbkowania](./sampling.md) , aby dostosować ilość danych do żądanego poziomu. Następnie użyj dziennego limitu tylko jako "ostatniej", jeśli aplikacja nieoczekiwanie zacznie wysyłać znacznie wyższe ilości danych telemetrycznych.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Określ dzienny limit danych do zdefiniowania
 
@@ -219,7 +219,7 @@ Aby zmienić dzienny limit, w sekcji **Konfigurowanie** zasobu Application Insig
 
 ![Dostosuj dzienny limit ilości danych telemetrycznych](./media/pricing/pricing-003.png)
 
-Aby [zmienić dzienny limit za pośrednictwem Azure Resource Manager](../../azure-monitor/app/powershell.md), właściwość do zmiany jest `dailyQuota` .  Za pomocą Azure Resource Manager można również ustawić `dailyQuotaResetTime` i dzienny limit `warningThreshold` .
+Aby [zmienić dzienny limit za pośrednictwem Azure Resource Manager](./powershell.md), właściwość do zmiany jest `dailyQuota` .  Za pomocą Azure Resource Manager można również ustawić `dailyQuotaResetTime` i dzienny limit `warningThreshold` .
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Tworzenie alertów dla dziennego limitu
 
@@ -230,13 +230,13 @@ Application Insights dzienny tworzy zdarzenie w dzienniku aktywności platformy 
 * Osiągnięto dzienny limit Application Insights składnika
 
 ## <a name="sampling"></a>Próbkowanie
-[Próbkowanie](../../azure-monitor/app/sampling.md) to metoda zmniejszania szybkości, z jaką dane telemetryczne są wysyłane do aplikacji, przy zachowaniu możliwości wyszukiwania pokrewnych zdarzeń podczas wyszukiwania diagnostycznego. Należy również zachować poprawne liczby zdarzeń.
+[próbkowanie](./sampling.md) to metoda zmniejszania szybkości, z jaką dane telemetryczne są wysyłane do aplikacji, przy zachowaniu możliwości wyszukiwania pokrewnych zdarzeń podczas wyszukiwania diagnostycznego. Należy również zachować poprawne liczby zdarzeń.
 
 Próbkowanie jest efektywnym sposobem zredukowania opłat i pozostawania w ramach miesięcznego limitu przydziału. Algorytm próbkowania zachowuje powiązane elementy telemetrii, dlatego na przykład podczas korzystania z wyszukiwania można znaleźć żądanie dotyczące konkretnego wyjątku. Algorytm zachowuje również poprawne liczby, aby zobaczyć poprawne wartości w Eksploratorze metryk dla stawek żądań, stawek wyjątków i innych liczników.
 
 Istnieje kilka rodzajów próbkowania.
 
-* [Próbkowanie adaptacyjne](../../azure-monitor/app/sampling.md) jest wartością domyślną dla zestawu SDK ASP.NET. Próbkowanie adaptacyjne automatycznie dostosowuje się do ilości danych telemetrycznych wysyłanych przez aplikację. Działa automatycznie w zestawie SDK w aplikacji sieci Web, dzięki czemu ruch telemetrii w sieci jest zmniejszany. 
+* [Próbkowanie adaptacyjne](./sampling.md) jest wartością domyślną dla zestawu SDK ASP.NET. Próbkowanie adaptacyjne automatycznie dostosowuje się do ilości danych telemetrycznych wysyłanych przez aplikację. Działa automatycznie w zestawie SDK w aplikacji sieci Web, dzięki czemu ruch telemetrii w sieci jest zmniejszany. 
 * *Próbkowanie* do pozyskiwania jest alternatywą, która działa w punkcie, w którym dane telemetryczne z aplikacji stają się usługą Application Insights. Pobieranie próbek nie ma wpływu na ilość danych telemetrycznych wysyłanych z aplikacji, ale zmniejsza wolumin, który jest zachowywany przez usługę. Możesz użyć próbkowania pozyskiwania, aby zmniejszyć przydział, który jest używany przez dane telemetryczne z przeglądarek i innych zestawów SDK.
 
 Aby ustawić próbkowanie pozyskiwania, przejdź do okienka **Cennik** :
@@ -310,7 +310,7 @@ Ponieważ ta warstwa ma zastosowanie tylko do klientów z subskrypcją pakietu O
   * *Węzeł* jest maszyną fizyczną lub wirtualną lub wystąpieniem roli "platforma jako usługa", które hostuje aplikację.
   * Komputery deweloperskie, przeglądarki klienta i urządzenia przenośne nie są liczone jako węzły.
   * Jeśli aplikacja zawiera kilka składników, które wysyłają dane telemetryczne, takie jak usługa sieci Web i proces roboczy zaplecza, składniki są zliczane osobno.
-  * Dane [Live Metrics Stream](../../azure-monitor/app/live-stream.md) nie są uwzględniane w celach cenowych. Opłaty są naliczane za każdy węzeł, a nie za aplikację. Jeśli masz pięć węzłów, które wysyłają dane telemetryczne dla 12 aplikacji, opłata dotyczy pięciu węzłów.
+  * Dane [Live Metrics Stream](./live-stream.md) nie są uwzględniane w celach cenowych. Opłaty są naliczane za każdy węzeł, a nie za aplikację. Jeśli masz pięć węzłów, które wysyłają dane telemetryczne dla 12 aplikacji, opłata dotyczy pięciu węzłów.
 * Mimo że opłaty są naliczane miesięcznie, opłata jest naliczana tylko za godzinę, w której węzeł wysyła dane telemetryczne z aplikacji. Opłata godzinowa to płatna opłata miesięczna podzielona przez 744 (liczba godzin w ciągu 31 dni).
 * Przydział ilości danych 200 MB dziennie jest podawany dla każdego wykrytego węzła (z dokładnością co godzinę). Nieużywane alokacje danych nie są przenoszone z jednego dnia do następnego.
   * W przypadku wybrania warstwy cenowej na węzeł Każda subskrypcja pobiera dzienny limit danych na podstawie liczby węzłów, które wysyłają dane telemetryczne do Application Insights zasobów w ramach tej subskrypcji. Dlatego jeśli masz pięć węzłów, które wysyłają dane codziennie, będziesz mieć przynależność do puli o pojemności 1 GB do wszystkich zasobów Application Insights w tej subskrypcji. Nie ma znaczenia, czy niektóre węzły wysyłają więcej danych niż inne węzły, ponieważ zawarte dane są współużytkowane przez wszystkie węzły. Jeśli w danym dniu Application Insights zasoby otrzymają więcej danych niż jest uwzględniona w dziennej alokacji danych dla tej subskrypcji, zostaną naliczone opłaty za użycie nadwyżkowe za GB danych. 
@@ -333,16 +333,17 @@ Ponieważ ta warstwa ma zastosowanie tylko do klientów z subskrypcją pakietu O
   * Jeśli aplikacja używa zestawu SDK do ustawiania **roleInstance** na wartość niestandardową, domyślnie ta sama wartość jest używana do określenia liczby węzłów.
   * W przypadku korzystania z nowej wersji zestawu SDK z aplikacją uruchomioną z poziomu komputerów klienckich lub urządzeń przenośnych liczba węzłów może zwracać liczbę, która jest duża (z powodu dużej liczby komputerów klienckich lub urządzeń przenośnych).
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Resource Management. [Dowiedz się, jak](powershell.md#price).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Próbkowanie](../../azure-monitor/app/sampling.md)
+* [sond](./sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+

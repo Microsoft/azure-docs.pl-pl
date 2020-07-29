@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: aaf974eca4b307fc122cf0ee5fdb0ddbcf75088a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242614"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285717"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
 
@@ -87,12 +87,12 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
 | `['get', string]` | wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['get', string, object]` | wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['has', string]` | wartość logiczna | Określa, czy właściwości funkcji mają określoną właściwość. |
-| `['has', string, object]` | wartość logiczna | Określa, czy właściwości obiektu mają określoną właściwość. |
+| `['has', string]` | boolean | Określa, czy właściwości funkcji mają określoną właściwość. |
+| `['has', string, object]` | boolean | Określa, czy właściwości obiektu mają określoną właściwość. |
 | `['id']` | wartość | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
-| `['in', boolean | string | number, array]` | wartość logiczna | Określa, czy element istnieje w tablicy |
-| `['in', substring, string]` | wartość logiczna | Określa, czy podciąg istnieje w ciągu |
+| `['in', boolean | string | number, array]` | boolean | Określa, czy element istnieje w tablicy |
+| `['in', substring, string]` | boolean | Określa, czy podciąg istnieje w ciągu |
 
 **Przykłady**
 
@@ -198,15 +198,15 @@ Porównując wartości, porównanie jest ściśle wpisane. Wartości różnych t
 
 | Wyrażenie | Typ zwracany | Opis |
 |------------|-------------|-------------|
-| `['! ', boolean]` | wartość logiczna | Negacja logiczna. Zwraca wartość `true` , jeśli dane wejściowe to `false` , i `false` Jeśli dane wejściowe to `true` . |
-| `['!= ', value, value]` | wartość logiczna | Zwraca wartość `true` , jeśli wartości wejściowe nie są równe `false` . w przeciwnym razie. |
-| `['<', value, value]` | wartość logiczna | Zwraca `true` czy pierwsze dane wejściowe są absolutnie mniejsze od drugiego, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
-| `['<=', value, value]` | wartość logiczna | Zwraca wartość `true` , jeśli pierwsze dane wejściowe są mniejsze lub równe sekundzie, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
-| `['==', value, value]` | wartość logiczna | Zwraca wartość `true` , jeśli wartości wejściowe są równe `false` . w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
-| `['>', value, value]` | wartość logiczna | Zwraca `true` czy pierwsze dane wejściowe są absolutnie większe od drugiego, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
-| `['>=' value, value]` | wartość logiczna | Zwraca wartość `true` , jeśli pierwsze dane wejściowe są większe lub równe drugiemu `false` . w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
-| `['all', boolean, boolean, …]` | wartość logiczna | Zwraca `true` czy wszystkie dane wejściowe są `true` , `false` w przeciwnym razie. |
-| `['any', boolean, boolean, …]` | wartość logiczna | Zwraca wartość `true` , jeśli którekolwiek z danych wejściowych nie są `true` , `false` w przeciwnym razie. |
+| `['! ', boolean]` | boolean | Negacja logiczna. Zwraca wartość `true` , jeśli dane wejściowe to `false` , i `false` Jeśli dane wejściowe to `true` . |
+| `['!= ', value, value]` | boolean | Zwraca wartość `true` , jeśli wartości wejściowe nie są równe `false` . w przeciwnym razie. |
+| `['<', value, value]` | boolean | Zwraca `true` czy pierwsze dane wejściowe są absolutnie mniejsze od drugiego, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
+| `['<=', value, value]` | boolean | Zwraca wartość `true` , jeśli pierwsze dane wejściowe są mniejsze lub równe sekundzie, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
+| `['==', value, value]` | boolean | Zwraca wartość `true` , jeśli wartości wejściowe są równe `false` . w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
+| `['>', value, value]` | boolean | Zwraca `true` czy pierwsze dane wejściowe są absolutnie większe od drugiego, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
+| `['>=' value, value]` | boolean | Zwraca wartość `true` , jeśli pierwsze dane wejściowe są większe lub równe drugiemu `false` . w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
+| `['all', boolean, boolean, …]` | boolean | Zwraca `true` czy wszystkie dane wejściowe są `true` , `false` w przeciwnym razie. |
+| `['any', boolean, boolean, …]` | boolean | Zwraca wartość `true` , jeśli którekolwiek z danych wejściowych nie są `true` , `false` w przeciwnym razie. |
 
 ## <a name="conditional-expressions"></a>Wyrażenia warunkowe
 
@@ -403,7 +403,7 @@ Wyrażenia typu dostarczają narzędzia do testowania i konwertowania różnych 
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | Array — \| obiekt | Zwraca tablicę literałową lub wartość obiektu. Użyj tego wyrażenia, aby zapobiec ocenie tablicy lub obiektu jako wyrażenia. Jest to konieczne, gdy tablica lub obiekt musi zostać zwrócony przez wyrażenie. |
 | `['image', string]` | ciąg | Sprawdza, czy określony identyfikator obrazu jest ładowany do Sprite obrazu mapy. Jeśli jest, zwracany jest identyfikator, w przeciwnym razie zwracana jest wartość null. |
-| `['to-boolean', value]` | wartość logiczna | Konwertuje wartość wejściową do wartości logicznej. Wynikiem jest to, `false` że dane wejściowe są ciągiem pustym, `0` ,, `false` `null` lub `NaN` ; w przeciwnym razie `true` . |
+| `['to-boolean', value]` | boolean | Konwertuje wartość wejściową do wartości logicznej. Wynikiem jest to, `false` że dane wejściowe są ciągiem pustym, `0` ,, `false` `null` lub `NaN` ; w przeciwnym razie `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Konwertuje wartość wejściową na kolor. Jeśli podano wiele wartości, każda z nich jest szacowana w kolejności do momentu uzyskania pierwszej pomyślnej konwersji. Jeśli żadne dane wejściowe nie mogą być konwertowane, wyrażenie jest błędem. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | liczba | Konwertuje wartość wejściową na liczbę, jeśli jest to możliwe. Jeśli dane wejściowe to `null` lub `false` , wynik wynosi 0. Jeśli dane wejściowe to `true` , wynik wynosi 1. Jeśli dane wejściowe są ciągami, są konwertowane na liczbę przy użyciu funkcji [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) String specyfikacji języka ECMAScript. Jeśli podano wiele wartości, każda z nich jest szacowana w kolejności do momentu uzyskania pierwszej pomyślnej konwersji. Jeśli żadne dane wejściowe nie mogą być konwertowane, wyrażenie jest błędem. |
 | `['to-string', value]` | ciąg | Konwertuje wartość wejściową na ciąg. Jeśli dane wejściowe to `null` , wynik jest `""` . Jeśli dane wejściowe są wartością logiczną, wynikiem jest `"true"` lub `"false"` . Jeśli dane wejściowe są liczbami, są konwertowane na ciąg przy użyciu funkcji [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) Number specyfikacji języka ECMAScript. Jeśli dane wejściowe są kolorem, są konwertowane na ciąg koloru CSS RGBA `"rgba(r,g,b,a)"` . W przeciwnym razie dane wejściowe są konwertowane na ciąg przy użyciu funkcji [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) specyfikacji języka ECMAScript. |

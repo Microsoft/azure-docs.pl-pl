@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320055"
 ---
 # <a name="managed-application-metered-billing"></a>Rozliczenia taryfowe zarządzanej aplikacji 
 
@@ -109,21 +111,13 @@ Maksymalna liczba wymiarów, które można skonfigurować dla jednej oferty, to 
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-W przypadku zastosowania jednego z następujących przypadków można otworzyć bilet pomocy technicznej.
+Jeśli masz jeden z następujących problemów, możesz otworzyć bilet pomocy technicznej.
 
 * Problemy techniczne z interfejsem API usługi pomiaru w portalu Marketplace.
 * Problem, który należy eskalować ze względu na błąd lub usterkę na stronie (np. nieprawidłowe zdarzenie użycia).
 * Wszystkie inne problemy związane z naliczaniem opłat.
 
-Wykonaj poniższe kroki, aby przesłać bilet pomocy technicznej:
-
-1. Przejdź do [strony pomocy technicznej](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Pierwsze niektóre menu rozwijane są wypełniane automatycznie. Aby uzyskać pomoc techniczną, zidentyfikuj rodzinę produktów jako **usługi w chmurze i online**, czyli produkt jako **wydawcę w portalu Marketplace**. Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
-2. W obszarze "Wybierz wersję produktu" Wybierz pozycję **zarządzanie ofertami na żywo**.
-3. W obszarze "Wybierz kategorię, która najlepiej opisz problem", wybierz pozycję **aplikacje platformy Azure**.
-4. W obszarze "Wybierz problem, który najlepiej opisuje problem" Wybierz pozycję **naliczanie opłat**.
-5. Po wybraniu przycisku **dalej** nastąpi przekierowanie do strony **szczegółów problemu** , na której można wprowadzić więcej szczegółów dotyczących problemu.
-
-Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
+Postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](./support.md) , aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

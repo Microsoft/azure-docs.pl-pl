@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202526"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372030"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -35,7 +35,7 @@ W tym artykule zawarto następujące samouczki:
 
 Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet dla pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft korzysta z tego pakietu podczas rozwiązywania problemów. Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
 
-1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Kontakt z pomocą techniczną** i kliknij przycisk **Tworzenie pakietu pomocy technicznej**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **skontaktuj się z pomocą techniczną** i wybierz pozycję **Utwórz pakiet pomocy technicznej**.
 
     ![Tworzenie pakietu dla pomocy technicznej 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
     ![Tworzenie pakietu dla pomocy technicznej 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Po zakończeniu tworzenia pakietu dla pomocy technicznej kliknij przycisk **Pobierz pakiet dla pomocy technicznej**. 
+3. Po zakończeniu tworzenia pakietu dla pomocy technicznej wybierz pozycję **Pobierz pakiet pomocy technicznej**.
 
     ![Tworzenie pakietu dla pomocy technicznej 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Przejrzyj i wybierz lokalizację pobierania. Otwórz folder, aby wyświetlić jego zawartość.
 
     ![Tworzenie pakietu dla pomocy technicznej 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Zamykanie lub ponowne uruchamianie urządzenia
 
@@ -59,7 +58,7 @@ Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego int
 Aby zamknąć urządzenie, wykonaj następujące czynności.
 
 1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
-2. Kliknij przycisk **Zamknij**.
+2. Wybierz pozycję **Zamknij**.
 
     ![Zamykanie urządzenia Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Aby ponownie włączyć wyłączone urządzenie, użyj przycisku zasilania na pa
 Aby ponownie uruchomić urządzenie Data Box, wykonaj następujące czynności.
 
 1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
-2. Kliknij przycisk **Uruchom ponownie**.
+2. Wybierz pozycję **Uruchom ponownie**.
 
     ![Ponowne uruchamianie urządzenia Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**, aby kontynuować.
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby wykonać operację.
 
    Urządzenie zostaje wyłączone i uruchomione ponownie.
 
@@ -90,9 +89,9 @@ Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowa
 
     ![Urządzenie gotowe do wysyłki](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Kliknij pozycję **Pobierz listę plików**, aby pobrać listę plików, które zostały skopiowane na urządzenie Data Box.
+2. Wybierz pozycję **Pobierz listę plików** , aby pobrać listę plików, które zostały skopiowane do urządzenie Data Box.
 
-    ![Kliknij pozycję Pobierz listę plików](media/data-box-portal-admin/download-list-of-files.png)
+    ![Wybierz pozycję Pobierz listę plików](media/data-box-portal-admin/download-list-of-files.png)
 
 3. W Eksploratorze plików zauważysz, że jest generowana oddzielna lista plików w zależności od protokołu użytego do nawiązania połączenia z urządzeniem i od użytego typu magazynu usługi Azure Storage.
 
@@ -179,10 +178,51 @@ Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej gen
     ![Wyłączanie sumy kontrolnej](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Wyłącz** weryfikację sumy kontrolnej.
-3. Kliknij pozycję **Zastosuj**.
+3. Wybierz przycisk **Zastosuj**.
 
 > [!NOTE]
 > Opcja obliczenia pominięcia sum kontrolnych jest dostępna tylko wtedy, gdy Azure Data Box jest odblokowany. Nie zobaczysz tej opcji, gdy urządzenie jest zablokowane.
 
-- Dowiedz się, jak [zarządzać urządzenie Data Box i Data Box Heavy za pośrednictwem Azure Portal](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Włączanie podpisywania protokołu SMB
 
+Podpisywanie bloku komunikatów serwera (SMB) to funkcja, za pomocą której komunikacja przy użyciu protokołu SMB może być podpisana cyfrowo na poziomie pakietu. Podpisywanie zapobiega atakom, które modyfikują pakiety SMB podczas przesyłania.
+
+Aby uzyskać więcej informacji dotyczących podpisywania protokołu SMB, zobacz [Omówienie podpisywania bloku komunikatów serwera](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Aby włączyć podpisywanie protokołu SMB na urządzeniu platformy Azure:
+
+1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
+
+    ![Otwórz ustawienia](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Włącz** Podpisywanie SMB.
+
+    ![Włączanie podpisywania protokołu SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Wybierz przycisk **Zastosuj**.
+4. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
+5. Wybierz pozycję **Uruchom ponownie**.
+
+## <a name="enable-tls-11"></a>Włącz protokół TLS 1,1
+
+Domyślnie Azure Data Box używa Transport Layer Security (TLS) 1,2 do szyfrowania, ponieważ jest bezpieczniejsze niż TSL 1,1. Jeśli jednak klient korzysta z przeglądarki w celu uzyskania dostępu do danych, które nie obsługują protokołu TLS 1,2, można włączyć protokół TLS 1,1.
+
+Aby uzyskać więcej informacji dotyczących protokołu TLS, zobacz [Azure Data Box Gateway zabezpieczenia](../databox-online/data-box-gateway-security.md).
+
+Aby włączyć protokół TLS 1,1 na urządzeniu platformy Azure:
+
+1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
+
+    ![Otwórz ustawienia](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Włącz** TLS 1,1.
+
+    ![Włącz protokół TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Wybierz przycisk **Zastosuj**.
+4. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
+5. Wybierz pozycję **Uruchom ponownie**.
+
+## <a name="next-steps"></a>Następne kroki
+
+- Dowiedz się, jak [zarządzać urządzenie Data Box i Data Box Heavy za pośrednictwem Azure Portal](data-box-portal-admin.md).

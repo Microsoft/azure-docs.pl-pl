@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539707"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326192"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -134,7 +134,7 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 |:---|:---|
 | Omówienie | Przedstawia [metryki platformy](../platform/data-platform-metrics.md) dla hosta maszyny wirtualnej. Kliknij wykres, aby korzystać z tych danych w [Eksploratorze metryk](../platform/metrics-getting-started.md). |
 | Dziennik aktywności | Wpisy [dziennika aktywności](../platform/activity-log.md#view-the-activity-log) odfiltrowane dla bieżącej maszyny wirtualnej. |
-| Insights | Otwiera [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
+| Insights | Otwiera [Azure monitor dla maszyn wirtualnych](./vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
 | Alerty | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
 | Metryki | Otwórz [Eksploratora metryk](../platform/metrics-getting-started.md) z zakresem ustawionym na bieżącą maszynę wirtualną. |
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
@@ -242,3 +242,4 @@ Zobacz [łączenie Operations Manager, aby Azure monitor](../platform/om-agents.
 
 * [Dowiedz się, jak analizować dane w dziennikach Azure Monitor przy użyciu zapytań dzienników.](../log-query/get-started-queries.md)
 * [Dowiedz się więcej o alertach korzystających z metryk i dzienników w Azure Monitor.](../platform/alerts-overview.md)
+

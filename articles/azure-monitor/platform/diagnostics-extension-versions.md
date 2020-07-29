@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007915"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305095"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Wersje i historia schematu konfiguracji rozszerzenia Diagnostyka Azure systemu Windows (funkcji wad)
 Ten artykuł zawiera informacje o historii wersji [Diagnostyka Azure rozszerzeń schematu dla systemu Windows (funkcji wad)](diagnostics-extension-overview.md) , które zostały wysłane jako część zestawu Microsoft Azure SDK.  
@@ -47,7 +47,7 @@ Różne wersje usługi Azure Diagnostics używają różnych schematów konfigur
 ### <a name="diagnostics-extension-111"></a>Rozszerzenie diagnostyki 1,11
 Dodano obsługę ujścia Azure Monitor. Ten obiekt ujścia ma zastosowanie tylko do liczników wydajności. Umożliwia wysyłanie liczników wydajności zebranych w ramach maszyny wirtualnej, VMSS lub usługi w chmurze w celu Azure Monitor jako metryki niestandardowych. Azure Monitor sink obsługuje:
 * Pobieranie wszystkich liczników wydajności wysyłanych do Azure Monitor za pośrednictwem [interfejsów API metryk Azure monitor.](/rest/api/monitor/metrics/list)
-* Alerty dotyczące wszystkich liczników wydajności wysyłanych do Azure Monitor za pomocą nowych [ujednoliconych alertów](../../azure-monitor/platform/alerts-overview.md) w programie Azure monitor
+* Alerty dotyczące wszystkich liczników wydajności wysyłanych do Azure Monitor za pomocą nowych [ujednoliconych alertów](./alerts-overview.md) w programie Azure monitor
 * Sposób traktowania operatora wieloznacznego w licznikach wydajności jako wymiar "wystąpienie" w metryce. Na przykład jeśli zebrano licznik "dysk logiczny ( \* )/DiskWrites/SEC", można filtrować i dzielić na wymiarze "wystąpienie", aby wykreślić lub alertować na dyskach zapisy/s dla każdego dysku logicznego (C:, D:, itp.)
 
 Zdefiniuj Azure Monitor jako nowy ujścia w konfiguracji rozszerzenia diagnostyki
@@ -155,7 +155,7 @@ Dodano typ magazynu do PublicConfig. StorageType może być *Table*, *BLOB*, *Ta
 Dodano możliwość kierowania do centrum EventHub.
 
 ### <a name="diagnostics-extension-15"></a>Rozszerzenie diagnostyki 1,5
-Dodano element ujścia oraz możliwość wysyłania danych diagnostycznych do [Application Insights](../../azure-monitor/app/cloudservices.md) , co ułatwia diagnozowanie problemów w aplikacji oraz na poziomie systemu i infrastruktury.
+Dodano element ujścia oraz możliwość wysyłania danych diagnostycznych do [Application Insights](../app/cloudservices.md) , co ułatwia diagnozowanie problemów w aplikacji oraz na poziomie systemu i infrastruktury.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Zestaw Azure SDK 2,6 i rozszerzenie diagnostyki 1,3
 W przypadku projektów usług w chmurze w programie Visual Studio wprowadzono następujące zmiany. (Te zmiany mają zastosowanie również do nowszych wersji zestawu Azure SDK).
@@ -190,3 +190,4 @@ Jeśli uaktualniasz projekt z zestawu Azure SDK 2,4 do zestawu Azure SDK 2,5 lub
 * **Diagnostykę aplikacji usługi w chmurze można skonfigurować tylko na poziomie roli, a nie na poziomie wystąpienia.**
 * Za **każdym razem, gdy wdrażana jest aplikacja, konfiguracja diagnostyki zostaje zaktualizowana** — może to spowodować problemy z parzystością w przypadku zmiany konfiguracji diagnostyki z Eksplorator serwera, a następnie ponownego wdrożenia aplikacji.
 * **W zestawie Azure sdk 2,5 i nowszych Zrzuty awaryjne są konfigurowane w pliku konfiguracji diagnostyki, a nie w kodzie** — w przypadku braku zrzutów awaryjnych skonfigurowanych w kodzie trzeba ręcznie przetransferować konfigurację z kodu do pliku konfiguracji, ponieważ Zrzuty awaryjne nie są transferowane podczas migracji do zestawu Azure SDK 2,6.
+

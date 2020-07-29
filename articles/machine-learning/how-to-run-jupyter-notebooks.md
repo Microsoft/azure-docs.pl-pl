@@ -8,14 +8,15 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601461"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319596"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +50,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz pozycję **Notes Python** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
@@ -149,7 +150,7 @@ Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchom
 
 1. Wybierz **+** na pasku narzędzi Notes. 
 2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.
@@ -200,9 +201,9 @@ Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest r
 
 |Kolor |Stan obliczeń |
 |---------|---------| 
-| Green | Uruchomione obliczenia |
-| Red |Obliczanie nie powiodło się | 
-| Czarny | Obliczenia zatrzymane |
+| Green (Zielony) | Uruchomione obliczenia |
+| Red (Czerwony) |Obliczanie nie powiodło się | 
+| Czarnoskórzy | Obliczenia zatrzymane |
 |  Jasnoniebieski |Tworzenie, uruchamianie, ponowne uruchamianie, Konfigurowanie |
 |  Szary |Usuwanie i zatrzymywanie obliczeń |
 
@@ -210,7 +211,7 @@ Wskaźnik obok menu rozwijanego **jądra** pokazuje jego stan.
 
 |Kolor |Stan jądra |
 |---------|---------|
-|  Green |Jądro połączone, bezczynne, zajęte|
+|  Green (Zielony) |Jądro połączone, bezczynne, zajęte|
 |  Szary |Jądro niepołączone |
 
 ## <a name="find-compute-details"></a>Znajdź szczegóły obliczeń 

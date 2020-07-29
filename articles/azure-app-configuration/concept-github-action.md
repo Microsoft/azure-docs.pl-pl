@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197065"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371825"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchronizowanie repozytorium GitHub z konfiguracją aplikacji
 
@@ -24,7 +25,7 @@ Zespoły, które chcą nadal korzystać z istniejących zasad kontroli źródła
 [Dokumentacja](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) usługi GitHub zawiera szczegółowy widok przepływów pracy i akcji usługi GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Włączanie akcji usługi GitHub w repozytorium
-Aby rozpocząć korzystanie z tej akcji usługi GitHub, przejdź do repozytorium i wybierz kartę **Akcje** . kliknij pozycję **Nowy przepływ pracy**, a następnie **samodzielnie Skonfiguruj przepływ pracy**. Na koniec Wyszukaj ciąg "Azure App Configuration Sync" w portalu Marketplace.
+Aby rozpocząć korzystanie z tej akcji usługi GitHub, przejdź do repozytorium i wybierz kartę **Akcje** . Wybierz pozycję **Nowy przepływ pracy**, a następnie **samodzielnie Skonfiguruj przepływ pracy**. Na koniec Wyszukaj ciąg "Azure App Configuration Sync" w portalu Marketplace.
 > [!div class="mx-imgBorder"]
 > ![Wybierz kartę Akcja](media/find-github-action.png)
 

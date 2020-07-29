@@ -4,14 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii Lsv2.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675982"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284816"
 ---
 # <a name="lsv2-series"></a>Seria Lsv2
 
@@ -36,14 +37,14 @@ Migracja na żywo: nieobsługiwane
 
 Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć (GiB) | Dysk tymczasowy<sup>1</sup> (GIB) | Dyski interfejsu NVMe<sup>2</sup> | Przepływność dysków interfejsu NVMe<sup>3</sup> (odczyt operacji we/wy/s) | Przepływność dysku danych w pamięci podręcznej (IOPs/MB/s)<sup>4</sup> | Maksymalna przepływność dysku danych w niebuforowanej pamięci (IOPs/MB/s)<sup>5</sup>| Maksymalna liczba dysków danych | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 m/8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6X 1.92 TB  | 2.2 m/14000   | 48000/960  | 48000/2000 | 32 | 8/16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8/16000 + |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8/16000 + |
+| Rozmiar | Procesor wirtualny | Pamięć (GiB) | Dysk tymczasowy<sup>1</sup> (GIB) | Dyski interfejsu NVMe<sup>2</sup> | Przepływność dysków interfejsu NVMe<sup>3</sup> (odczyt operacji we/wy/s) | Przepływność dysku danych w pamięci podręcznej (IOPs/MB/s)<sup>4</sup> | Maksymalna przepływność dysku danych w niebuforowanej pamięci (IOPs/MB/s)<sup>5</sup>| Maksymalna liczba dysków danych | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 m/8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6X 1.92 TB  | 2.2 m/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000 + |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000 + |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000 + |
 
 <sup>1</sup> maszyny wirtualne z serii Lsv2 mają standardowy dysk zasobów oparty na interfejsie SCSI na potrzeby STRONICOWANIA systemu operacyjnego/użycia pliku wymiany (D: w systemie Windows,/dev/sdb on Linux). Ten dysk udostępnia 80 GiB magazynu, 4 000 IOPS i 80 liczbę MB/s dla każdego 8 procesorów wirtualnych vCPU (np. Standard_L80s_v2 zapewnia 800 GiB w przypadku operacji wejścia/wyjścia na sekundę i 40 000 MB/s). Dzięki temu dyski interfejsu NVMe mogą być w pełni przeznaczone do użytku aplikacji. Ten dysk jest nieulotny i wszystkie dane zostaną utracone przy zatrzymaniu/cofnięciu przydziału.
 
@@ -73,6 +74,21 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 - Przepływność dysku mierzona jest jako liczba operacji wejścia/wyjścia na sekundę i MB/s, gdzie 1 MB/s = 10^6 bajtów/s.
 - Jeśli chcesz uzyskać najlepszą wydajność dla maszyn wirtualnych, należy ograniczyć liczbę dysków danych do 2 dysków na vCPU.
 - **Oczekiwana przepustowość sieci** to maksymalna zagregowana [przepustowość przyalokowana na typ maszyny wirtualnej](../virtual-network/virtual-machine-network-throughput.md) dla wszystkich kart sieciowych dla wszystkich miejsc docelowych. Górne limity nie są gwarantowane, ale mają stanowić wskazówkę do wybierania właściwego typu maszyny wirtualnej dla planowanej aplikacji. Rzeczywista wydajność sieci będzie zależeć od wielu czynników, takich jak przeciążenie sieci, obciążenie aplikacji oraz ustawienia sieci. Aby uzyskać informacje na temat optymalizowania przepływności sieci, zobacz [Optimizing network throughput for Windows and Linux (Optymalizowanie przepływności sieci dla systemów Windows i Linux)](../virtual-network/virtual-network-optimize-network-bandwidth.md). Aby uzyskać oczekiwaną wydajność sieci w systemie Linux lub Windows, konieczne może być wybranie konkretnej wersji maszyny wirtualnej lub jej zoptymalizowanie. Aby uzyskać więcej informacji, zobacz [How to reliably test for virtual machine throughput (Jak wiarygodnie przetestować przepływność maszyny wirtualnej)](../virtual-network/virtual-network-bandwidth-testing.md).
+
+
+## <a name="other-sizes-and-information"></a>Inne rozmiary i informacje
+
+- [Ogólnego przeznaczenia](sizes-general.md)
+- [Optymalizacja pod kątem pamięci](sizes-memory.md)
+- [Optymalizacja pod kątem magazynu](sizes-storage.md)
+- [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)
+- [Obliczenia o wysokiej wydajności](sizes-hpc.md)
+- [Poprzednie generacje](sizes-previous-gen.md)
+
+Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+
+Więcej informacji na temat typów dysków: [typy dysków](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

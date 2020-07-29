@@ -1,6 +1,6 @@
 ---
-title: Narzędzie do zarządzania pulpitami wirtualnymi systemu Windows — Azure
-description: Jak rozwiązywać problemy z narzędziem do zarządzania pulpitami wirtualnymi systemu Windows.
+title: Narzędzie do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) — Azure
+description: Jak rozwiązywać problemy z narzędziem do zarządzania pulpitem wirtualnym systemu Windows (klasycznym).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614800"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283371"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Rozwiązywanie problemów z narzędziem zarządzania Windows Virtual Desktop
+# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Rozwiązywanie problemów z narzędziem do zarządzania pulpitem wirtualnym systemu Windows (klasycznym)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 W tym artykule opisano problemy, które mogą wystąpić podczas wdrażania narzędzia do zarządzania pulpitami wirtualnymi systemu Windows i sposoby ich naprawiania.
 

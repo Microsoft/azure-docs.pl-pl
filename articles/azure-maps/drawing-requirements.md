@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242478"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374324"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -34,7 +34,7 @@ Słownik terminów użytych w tym dokumencie.
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg) dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Obiekt feature | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Cechy | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład jednostka jest klasą funkcji, a pakiet Office jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
@@ -279,7 +279,7 @@ Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

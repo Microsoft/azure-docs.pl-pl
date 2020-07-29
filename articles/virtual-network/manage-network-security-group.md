@@ -1,7 +1,7 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie grupy zabezpieczeń sieci platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak utworzyć, zmienić lub usunąć sieciową grupę zabezpieczeń.
+description: Dowiedz się, gdzie znaleźć informacje o regułach zabezpieczeń i sposobach tworzenia, zmieniania lub usuwania sieciowej grupy zabezpieczeń.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,17 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708284"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281263"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
 
 Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Omówienie grup zabezpieczeń sieci](security-overview.md). Następnie Ukończ samouczek [Filtruj ruch sieciowy](tutorial-filter-network-traffic.md) , aby uzyskać pewne doświadczenie z sieciowymi grupami zabezpieczeń.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +46,7 @@ Można tworzyć, [wyświetlać wszystkie](#view-all-network-security-groups), [w
 
 Istnieje ograniczenie dotyczące liczby grup zabezpieczeń sieci, które można utworzyć dla każdej lokalizacji i subskrypcji platformy Azure. Aby dowiedzieć się więcej, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 2. Wybierz pozycję **Sieć**, a następnie wybierz pozycję **sieciowa Grupa zabezpieczeń**.
 
@@ -56,9 +57,9 @@ Istnieje ograniczenie dotyczące liczby grup zabezpieczeń sieci, które można 
     | **Subskrypcja** | Wybierz subskrypcję. |
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. |
     | **Nazwa** | Wprowadź unikatowy ciąg tekstowy w grupie zasobów. |
-    | **Okolicy** | Wybierz żądaną lokalizację. |
+    | **Region** | Wybierz żądaną lokalizację. |
 
-4. Wybierz pozycję **Przegląd + utwórz**.
+4. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 5. Po wyświetleniu komunikatu o **przekazaniu walidacji** wybierz pozycję **Utwórz**.
 
@@ -166,11 +167,11 @@ Istnieje ograniczenie liczby reguł na grupę zabezpieczeń sieci, które można
     | **Tag usługi źródłowej** | Tag usługi z listy rozwijanej | To ustawienie opcjonalne pojawia się, jeśli ustawisz **tag** **Source** to Service dla reguły zabezpieczeń dla ruchu przychodzącego. Tag usługi jest wstępnie zdefiniowanym identyfikatorem dla kategorii adresów IP. Aby dowiedzieć się więcej na temat dostępnych tagów usługi i informacje o tym, co reprezentuje każdy tag, zobacz [Tagi usług](security-overview.md#service-tags). |
     | **Grupa zabezpieczeń aplikacji źródłowej** | Istniejąca Grupa zabezpieczeń aplikacji | To ustawienie pojawia się, jeśli ustawisz **Źródło** na **grupę zabezpieczeń aplikacji**. Wybierz grupę zabezpieczeń aplikacji, która istnieje w tym samym regionie co interfejs sieciowy. Dowiedz się, jak [utworzyć grupę zabezpieczeń aplikacji](#create-an-application-security-group). |
     | **Zakresy portów źródłowych** | Jeden z:<ul><li>Pojedynczy port, taki jak`80`</li><li>Zakres portów, taki jak`1024-65535`</li><li>Rozdzielana przecinkami lista pojedynczych portów i/lub zakresów portów, takich jak`80, 1024-65535`</li><li>Gwiazdka ( `*` ), aby zezwolić na ruch na dowolnym porcie</li></ul> | To ustawienie określa porty, na których reguła zezwala na ruch lub odmówi go. Istnieją limity liczby portów, które można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
-    | **Punktu** | Jeden z:<ul><li>**Dowolne**</li><li>**Adresy IP**</li><li>**Tag usługi** (reguła zabezpieczeń wychodzących) lub **VirtualNetwork** (reguła zabezpieczeń dla ruchu przychodzącego)</li><li>**&nbsp;Grupa zabezpieczeń &nbsp; aplikacji**</li></ul> | <p>W przypadku wybrania opcji **adresy IP**Określ także **docelowe adresy IP/zakresy CIDR**.</p><p>W przypadku wybrania opcji **VirtualNetwork**ruch będzie dozwolony dla wszystkich adresów IP w przestrzeni adresowej sieci wirtualnej. **VirtualNetwork** to tag usługi.</p><p>W przypadku wybrania **grupy zabezpieczeń aplikacji**należy wybrać istniejącą grupę zabezpieczeń aplikacji. Dowiedz się, jak [utworzyć grupę zabezpieczeń aplikacji](#create-an-application-security-group).</p> |
+    | **Element docelowy** | Jeden z:<ul><li>**Dowolne**</li><li>**Adresy IP**</li><li>**Tag usługi** (reguła zabezpieczeń wychodzących) lub **VirtualNetwork** (reguła zabezpieczeń dla ruchu przychodzącego)</li><li>**&nbsp;Grupa zabezpieczeń &nbsp; aplikacji**</li></ul> | <p>W przypadku wybrania opcji **adresy IP**Określ także **docelowe adresy IP/zakresy CIDR**.</p><p>W przypadku wybrania opcji **VirtualNetwork**ruch będzie dozwolony dla wszystkich adresów IP w przestrzeni adresowej sieci wirtualnej. **VirtualNetwork** to tag usługi.</p><p>W przypadku wybrania **grupy zabezpieczeń aplikacji**należy wybrać istniejącą grupę zabezpieczeń aplikacji. Dowiedz się, jak [utworzyć grupę zabezpieczeń aplikacji](#create-an-application-security-group).</p> |
     | **Docelowe adresy IP/zakresy CIDR** | Rozdzielana przecinkami lista adresów IP i zakresów CIDR | <p>To ustawienie pojawia się, jeśli zmienisz **miejsce docelowe** na **adresy IP**. Podobnie jak **źródłowe** i **źródłowe adresy IP/zakresy CIDR**, można określić jeden lub wiele adresów lub zakresów. Istnieją limity dotyczące liczby, którą można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).</p><p>Jeśli określony adres IP jest przypisany do maszyny wirtualnej platformy Azure, upewnij się, że określisz jego prywatny adres IP, a nie jego publicznych adresów IP. Usługa Azure przetwarza reguły zabezpieczeń po przetłumaczeniu publicznego adresu IP na prywatny adres IP dla reguł zabezpieczeń dla ruchu przychodzącego, ale przed przekazaniem prywatnego adresu IP do publicznego adresu IP dla reguł ruchu wychodzącego przez platformę Azure. Aby dowiedzieć się więcej na temat publicznych i prywatnych adresów IP na platformie Azure, zobacz [typy adresów IP](virtual-network-ip-addresses-overview-arm.md).</p> |
     | **Docelowy tag usługi** | Tag usługi z listy rozwijanej | To ustawienie opcjonalne pojawia się, jeśli zmienisz **miejsce docelowe** na **tag usługi** dla reguły zabezpieczeń dla ruchu wychodzącego. Tag usługi jest wstępnie zdefiniowanym identyfikatorem dla kategorii adresów IP. Aby dowiedzieć się więcej na temat dostępnych tagów usługi i informacje o tym, co reprezentuje każdy tag, zobacz [Tagi usług](security-overview.md#service-tags). |
     | **Grupa zabezpieczeń aplikacji docelowej** | Istniejąca Grupa zabezpieczeń aplikacji | To ustawienie jest wyświetlane, jeśli ustawisz **miejsce docelowe** dla **grupy zabezpieczeń aplikacji**. Wybierz grupę zabezpieczeń aplikacji, która istnieje w tym samym regionie co interfejs sieciowy. Dowiedz się, jak [utworzyć grupę zabezpieczeń aplikacji](#create-an-application-security-group). |
-    | **Docelowe zakresy portów** | Jeden z:<ul><li>Pojedynczy port, taki jak`80`</li><li>Zakres portów, taki jak`1024-65535`</li><li>Rozdzielana przecinkami lista pojedynczych portów i/lub zakresów portów, takich jak`80, 1024-65535`</li><li>Gwiazdka ( `*` ), aby zezwolić na ruch na dowolnym porcie</li></ul> | Podobnie jak w przypadku **zakresów portów źródłowych**, można określić jeden lub wiele portów i zakresów. Istnieją limity dotyczące liczby, którą można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
+    | **Zakresy portów docelowych** | Jeden z:<ul><li>Pojedynczy port, taki jak`80`</li><li>Zakres portów, taki jak`1024-65535`</li><li>Rozdzielana przecinkami lista pojedynczych portów i/lub zakresów portów, takich jak`80, 1024-65535`</li><li>Gwiazdka ( `*` ), aby zezwolić na ruch na dowolnym porcie</li></ul> | Podobnie jak w przypadku **zakresów portów źródłowych**, można określić jeden lub wiele portów i zakresów. Istnieją limity dotyczące liczby, którą można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
     | **Protokół** | **Dowolny**, **TCP**, **UDP**lub **ICMP** | Możesz ograniczyć regułę do Transmission Control Protocol (TCP), User Datagram Protocol (UDP) lub protokołu komunikacyjnego sterowania Internetem (ICMP). Wartość domyślna to reguła, która ma być stosowana do wszystkich protokołów. |
     | **Akcja** | **Zezwalaj** lub **Odmów** | To ustawienie określa, czy ta reguła zezwala na dostęp do podanej konfiguracji źródłowej i docelowej. |
     | **Priority** | Wartość z zakresu od 100 do 4096, która jest unikatowa dla wszystkich reguł zabezpieczeń w sieciowej grupie zabezpieczeń | Platforma Azure przetwarza reguły zabezpieczeń w kolejności priorytetów. Im niższa wartość, tym wyższy priorytet. Zaleca się pozostawienie przerwy między numerami priorytetu podczas tworzenia reguł, takich jak 100, 200 i 300. Pozostawienie przerw w ułatwia dodawanie reguł w przyszłości, dzięki czemu można przyznać im wyższy lub niższy priorytet niż istniejące reguły. |
@@ -261,7 +262,7 @@ Grupa zabezpieczeń aplikacji zawiera co najmniej jeden interfejs sieciowy. Aby 
 
 ### <a name="create-an-application-security-group"></a>Tworzenie grupy zabezpieczeń aplikacji
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 2. W polu wyszukiwania wprowadź *grupę zabezpieczeń aplikacji*.
 
@@ -274,9 +275,9 @@ Grupa zabezpieczeń aplikacji zawiera co najmniej jeden interfejs sieciowy. Aby 
     | **Subskrypcja** | Wybierz subskrypcję. |
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. |
     | **Nazwa** | Wprowadź unikatowy ciąg tekstowy w grupie zasobów. |
-    | **Okolicy** | Wybierz żądaną lokalizację. |
+    | **Region** | Wybierz żądaną lokalizację. |
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Na karcie **Recenzja i tworzenie** kliknij przycisk **Utwórz**, gdy zobaczysz komunikat o **przekazaniu walidacji** .
 

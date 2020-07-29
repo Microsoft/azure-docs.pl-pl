@@ -3,12 +3,12 @@ title: Testowanie aplikacji na platformie Azure | Microsoft Docs
 description: Dowiedz się, jak utworzyć udział plików w laboratorium i zainstalować go na maszynie lokalnej i maszynie wirtualnej w laboratorium, a następnie wdrożyć aplikacje pulpitu/sieci Web w udziale plików i przetestować je.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476499"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282249"
 ---
 # <a name="test-your-app-in-azure"></a>Testowanie aplikacji na platformie Azure 
 Ten artykuł zawiera kroki testowania aplikacji na platformie Azure przy użyciu DevTest Labs. Najpierw należy skonfigurować udział plików w środowisku laboratoryjnym i zainstalować go jako dysk na lokalnym komputerze deweloperskim i maszynie wirtualnej w laboratorium. Następnie możesz użyć programu Visual Studio 2019 do wdrożenia aplikacji w udziale plików, aby można było uruchomić aplikację na maszynie wirtualnej w laboratorium.  
@@ -18,7 +18,7 @@ Ten artykuł zawiera kroki testowania aplikacji na platformie Azure przy użyciu
 ## <a name="prerequisites"></a>Wymagania wstępne 
 1. [Utwórz subskrypcję platformy Azure](https://azure.microsoft.com/free/) , jeśli jeszcze jej nie masz, i zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Postępuj zgodnie z instrukcjami w [tym artykule](devtest-lab-create-lab.md) , aby utworzyć laboratorium przy użyciu Azure DevTest Labs. Przypnij laboratorium do pulpitu nawigacyjnego, aby można je było łatwo znaleźć przy następnym logowaniu. Azure DevTest Labs umożliwia szybkie tworzenie zasobów na platformie Azure przez zminimalizowanie ilości odpadów i sterowanie nimi. Aby dowiedzieć się więcej na temat DevTest Labs, zobacz [Omówienie](devtest-lab-overview.md). 
-3. Utwórz konto usługi Azure Storage w grupie zasobów laboratorium, wykonując instrukcje przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md) . Na stronie **Tworzenie konta magazynu** wybierz pozycję **Użyj istniejącej** **grupy zasobów**, a następnie wybierz **grupę zasobów laboratorium**. 
+3. Utwórz konto usługi Azure Storage w grupie zasobów laboratorium, wykonując instrukcje przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md) . Na stronie **Tworzenie konta magazynu** wybierz pozycję **Użyj istniejącej** **grupy zasobów**, a następnie wybierz **grupę zasobów laboratorium**. 
 4. Utwórz udział plików w usłudze Azure Storage, wykonując instrukcje przedstawione w artykule [Tworzenie udziału plików w Azure Files](../storage/files/storage-how-to-create-file-share.md) . 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Zainstaluj udział plików na komputerze lokalnym

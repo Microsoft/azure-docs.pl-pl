@@ -4,16 +4,16 @@ description: Ten artykuł zawiera kolekcję przykładowych poleceń AzCopy, któ
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513770"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282453"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB
 
@@ -31,7 +31,7 @@ Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w
 >
 > Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy.
 >
-> Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -62,8 +62,8 @@ Ta sekcja zawiera następujące przykłady:
 >
 > |Scenariusz|Flaga|
 > |---|---|
-> |Przekazywanie plików jako dołączanie obiektów blob lub stronicowych obiektów BLOB.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
-> |Przekaż do określonej warstwy dostępu (na przykład warstwy archiwum).|**--Block-BLOB-warstw** = \[ Brak \| aktywnego \| archiwum chłodnego \|\]|
+> |Przekaż pliki jako uzupełnialne lub stronicowe obiekty blob.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Przekaż dane do określonej warstwy dostępu (na przykład warstwy Archiwum).|**--Block-BLOB-warstw** = \[ Brak \| aktywnego \| archiwum chłodnego \|\]|
 > 
 > Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-copy.md#options).
 
@@ -111,7 +111,7 @@ Zawartość katalogu można przekazać bez kopiowania samego katalogu zawierają
 
 ### <a name="upload-specific-files"></a>Przekazywanie określonych plików
 
-Możesz określić pełne nazwy plików lub użyć częściowych nazw z symbolami wieloznacznymi (*).
+Można przekazać określone pliki przy użyciu pełnych nazw plików, częściowych nazw z symbolami wieloznacznymi (*) lub przy użyciu dat i godzin.
 
 #### <a name="specify-multiple-complete-file-names"></a>Określ wiele pełnych nazw plików
 
@@ -140,6 +140,18 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` 
 Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby dowiedzieć się więcej, zobacz [AzCopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw plików, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe, które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Przekaż pliki, które zostały zmodyfikowane po dacie i godzinie 
+
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Składnia** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Przykład** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
 
 ## <a name="download-files"></a>Pobieranie plików
 
@@ -202,7 +214,7 @@ Zawartość katalogu można pobrać bez kopiowania samego katalogu zawierająceg
 
 ### <a name="download-specific-files"></a>Pobieranie określonych plików
 
-Możesz określić pełne nazwy plików lub użyć częściowych nazw z symbolami wieloznacznymi (*).
+Określone pliki można pobrać przy użyciu pełnych nazw plików, częściowych nazw z symbolami wieloznacznymi (*) lub przy użyciu dat i godzin. 
 
 #### <a name="specify-multiple-complete-file-names"></a>Określ wiele pełnych nazw plików
 
@@ -231,6 +243,18 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` 
 Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby dowiedzieć się więcej, zobacz [AzCopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw plików, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe, które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Pobierz pliki, które zostały zmodyfikowane po dacie i godzinie 
+
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Kopiowanie obiektów blob między kontami magazynu
 
@@ -332,14 +356,14 @@ Jeśli ustawisz `--delete-destination` flagę na `true` AzCopy usuwa pliki bez w
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aktualizowanie kontenera ze zmianami w lokalnym systemie plików
 
-W takim przypadku kontener jest miejscem docelowym, a lokalny system plików jest źródłem. 
+W tym przypadku kontener jest miejscem docelowym, a lokalny system plików jest źródłem. 
 
 |    |     |
 |--------|-----------|
 | **Składnia** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Przykład** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Aktualizowanie lokalnego systemu plików przy użyciu zmian w kontenerze
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Aktualizowanie lokalnego systemu plików ze zmianami w kontenerze
 
 W takim przypadku lokalny system plików jest miejscem docelowym, a kontener jest źródłem.
 
@@ -374,7 +398,7 @@ Więcej przykładów znajdziesz w jednym z następujących artykułów:
 
 - [Samouczek: Migracja danych lokalnych do magazynu w chmurze za pomocą narzędzia AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 
 - [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
 

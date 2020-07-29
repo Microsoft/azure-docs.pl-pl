@@ -2,19 +2,16 @@
 title: Rozwiązywanie problemów dotyczących Azure Automation elementu Runbook
 description: W tym artykule opisano sposób rozwiązywania problemów z elementami Runbook Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337300"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -511,6 +508,24 @@ Jeśli chcesz użyć więcej niż 500 minut przetwarzania miesięcznie, Zmień s
 1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Cennik**.
 1. Wybierz pozycję **Włącz** na dole strony, aby uaktualnić konto do warstwy Podstawowa.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenariusz: strumień wyjściowy elementu Runbook o rozmiarze większym niż 1 MB
+
+### <a name="issue"></a>Problem
+
+Element Runbook uruchomiony w piaskownicy platformy Azure nie powiedzie się z powodu następującego błędu:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Przyczyna
+
+Ten błąd występuje, ponieważ element Runbook podjął próbę zapisania zbyt dużej ilości danych wyjątku w strumieniu wyjściowym.
+
+### <a name="resolution"></a>Rozwiązanie
+
+W strumieniu wyjściowym zadania istnieje limit 1 MB. Upewnij się, że element Runbook ujmuje wywołania do pliku wykonywalnego lub podprocesu przy użyciu `try` `catch` bloków i. Jeśli operacje zgłaszają wyjątek, kod Zapisz komunikat z wyjątku do zmiennej automatyzacji. Ta technika uniemożliwia zapisanie komunikatu w strumieniu wyjściowym zadania. W przypadku wykonanych hybrydowych zadań roboczych elementu Runbook strumień wyjściowy jest obcinany do 1 MB, a komunikat o błędzie nie jest wyświetlany.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Scenariusz: rozpoczęto próbę uruchomienia zadania elementu Runbook trzy razy, ale uruchamianie nie powiedzie się za każdym razem
 
 ### <a name="issue"></a>Problem
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Ten błąd występuje z powodu jednego z następujących problemów:
 
 * **Limit pamięci.** Zadanie może zakończyć się niepowodzeniem, jeśli używa więcej niż 400 MB pamięci. Udokumentowane limity dotyczące pamięci przydzieloną do piaskownicy znajdują się w [granicach usługi Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Gniazda sieciowe.** Piaskownice platformy Azure są ograniczone do 1 000 współbieżnych gniazd sieciowych. Aby uzyskać więcej informacji, zobacz [limity usługi Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Moduł jest niezgodny.** Zależności modułu mogą nie być poprawne. W takim przypadku element Runbook zwykle zwraca `Command not found` `Cannot bind parameter` komunikat lub.
+
 * **Brak uwierzytelniania w Active Directory dla piaskownicy.** Element Runbook próbował wywołać plik wykonywalny lub podproces, który jest uruchamiany w piaskownicy platformy Azure. Konfigurowanie elementów Runbook do uwierzytelniania za pomocą usługi Azure AD przy użyciu biblioteki uwierzytelniania Azure Active Directory (ADAL) nie jest obsługiwane.
-* **Zbyt dużo danych wyjątku.** Element Runbook podjął próbę zapisania zbyt dużej ilości danych wyjątku w strumieniu wyjściowym.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 * **Limit pamięci, gniazda sieciowe.** Sugerowane sposoby pracy w ramach limitów pamięci to dzielenie obciążenia między wiele elementów Runbook, przetwarzanie mniejszej ilości danych w pamięci, unikanie zapisywania niepotrzebnych danych wyjściowych z elementów Runbook i Dowiedz się, ile punktów kontrolnych jest zapisywanych w elementach Runbook przepływu pracy programu PowerShell. Użyj metody Clear, takiej jak `$myVar.clear` , aby wyczyścić zmienne i użyć `[GC]::Collect` do natychmiastowego uruchomienia wyrzucania elementów bezużytecznych. Te akcje zmniejszają rozmiar pamięci elementu Runbook w czasie wykonywania.
+
 * **Moduł jest niezgodny.** Zaktualizuj moduły platformy Azure, wykonując kroki opisane w temacie [jak zaktualizować moduły Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+
 * **Brak uwierzytelniania w Active Directory dla piaskownicy.** Podczas uwierzytelniania w usłudze Azure AD za pomocą elementu Runbook upewnij się, że moduł usługi Azure AD jest dostępny na Twoim koncie usługi Automation. Upewnij się, że konto Uruchom jako ma odpowiednie uprawnienia do wykonywania zadań, które są automatyzuje przez element Runbook.
 
   Jeśli element Runbook nie może wywołać pliku wykonywalnego lub podprocesu działającego w piaskownicy platformy Azure, użyj elementu Runbook w [hybrydowym procesie roboczym elementu Runbook](../automation-hrw-run-runbooks.md). Hybrydowe procesy robocze nie są ograniczone przez limity pamięci i sieci dla piaskownic platformy Azure.
-
-* **Zbyt dużo danych wyjątku.** W strumieniu wyjściowym zadania istnieje limit 1 MB. Upewnij się, że element Runbook ujmuje wywołania do pliku wykonywalnego lub podprocesu przy użyciu `try` `catch` bloków i. Jeśli operacje zgłaszają wyjątek, kod Zapisz komunikat z wyjątku do zmiennej automatyzacji. Ta technika uniemożliwia zapisanie komunikatu w strumieniu wyjściowym zadania.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Scenariusz: zadanie programu PowerShell kończy się niepowodzeniem z komunikatem o błędzie "nie można wywołać metody"
 
