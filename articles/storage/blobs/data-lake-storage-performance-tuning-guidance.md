@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: bf22ce87ed3d535a7c1bd03a8d7f747bee3ab13a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f38dc72a45d84b549baa17c34f2c64ac35b83e3e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106394"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285394"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
@@ -45,9 +45,9 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie               | Ustawienia     | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Pomocą distcp            | -m (mapowanie)   | [Łącze](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Łącze](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Łącze](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Pomocą distcp            | -m (mapowanie)   | [Powiązań](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Powiązań](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Powiązań](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -133,10 +133,10 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 
 | Obciążenie | Parametr do ustawiania zadań |
 |----------|------------------------|
-| [Usługa Spark w usłudze HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>NUM-wykonawcy</li><li>Wykonawca pamięci</li><li>Program wykonujący rdzenie</li></ul> |
+| [Platforma Spark w usłudze HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>NUM-wykonawcy</li><li>Wykonawca pamięci</li><li>Program wykonujący rdzenie</li></ul> |
 | [Usługa Hive w usłudze HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>Hive. tez. Container. size</li></ul> |
 | [MapReduce w usłudze HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

@@ -3,12 +3,12 @@ title: Lista kontrolna gotowości produkcyjnej platformy Azure Service Fabric
 description: Zapoznaj się z Service Fabric aplikacji i środowiska produkcyjnego klastra, wykonując następujące najlepsze rozwiązania.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282062"
 ---
 # <a name="production-readiness-checklist"></a>Lista kontrolna gotowości do produkcji
 
@@ -22,7 +22,7 @@ Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? U
 1. Użyj jednostki SKU D2v2 lub wyższej dla typu węzła podstawowego. Zalecane jest wybranie jednostki SKU z co najmniej 50 GB miejsca na dysku twardym.
 1. Klastry produkcyjne muszą być [bezpieczne](service-fabric-cluster-security.md). Aby zapoznać się z przykładem konfigurowania bezpiecznego klastra, zapoznaj się z tym [szablonem klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Używaj typowych nazw dla certyfikatów i Unikaj używania certyfikatów z podpisem własnym.
 1. Dodaj [ograniczenia zasobów do kontenerów i usług](service-fabric-resource-governance.md), aby nie korzystały z więcej niż 75% zasobów węzła. 
-1. Zrozumienie i Ustawianie [poziomu trwałości](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Zalecany jest poziom trwałości srebra lub wyższej dla typów węzłów uruchamiających obciążenia stanowe. Typ węzła podstawowego powinien mieć ustawioną wartość Silver lub wyższą.
+1. Zrozumienie i Ustawianie [poziomu trwałości](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Zalecany jest poziom trwałości srebra lub wyższej dla typów węzłów uruchamiających obciążenia stanowe.
 1. Zrozumienie i wybór [poziomu niezawodności](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) typu węzła. Zalecana jest niezawodność Silver lub wyższą.
 1. Załaduj i Skaluj swoje obciążenia, aby identyfikować [wymagania dotyczące pojemności](service-fabric-cluster-capacity.md) dla klastra. 
 1. Twoje usługi i aplikacje są monitorowane, a Dzienniki aplikacji są generowane i przechowywane z alertami. Na przykład zobacz [Dodawanie rejestrowania do aplikacji Service Fabric](service-fabric-how-to-diagnostics-log.md) i [monitorowanie kontenerów za pomocą dzienników Azure monitor](service-fabric-diagnostics-oms-containers.md).

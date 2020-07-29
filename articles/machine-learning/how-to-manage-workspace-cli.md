@@ -5,16 +5,17 @@ description: Dowiedz się, jak utworzyć nowy obszar roboczy Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319698"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,14 +60,20 @@ az extension add -n azure-cli-ml
 Obszar roboczy Azure Machine Learning opiera się na następujących usługach lub jednostkach platformy Azure:
 
 > [!IMPORTANT]
-> Jeśli nie określisz istniejącej usługi platformy Azure, zostanie ona utworzona automatycznie podczas tworzenia obszaru roboczego. Zawsze należy określić grupę zasobów. Podczas dołączania własnego konta magazynu upewnij się, że jest włączona funkcja Azure BLOB i usługa Azure File oraz że hierarchiczna przestrzeń nazw (ADLS Gen 2) jest wyłączona. Możesz zawsze dołączyć własne konto magazynu później po utworzeniu obszaru roboczego jako magazynów danych.
+> Jeśli nie określisz istniejącej usługi platformy Azure, zostanie ona utworzona automatycznie podczas tworzenia obszaru roboczego. Zawsze należy określić grupę zasobów. Podczas dołączania własnego konta magazynu upewnij się, że spełnia ono następujące kryteria:
+>
+> * Konto magazynu _nie_ jest kontem premium (Premium_LRS i Premium_GRS)
+> * Włączono zarówno funkcję Azure Blob, jak i usługę Azure File
+> * Hierarchiczna przestrzeń nazw (ADLS Gen 2) jest wyłączona
+>
+> Te wymagania dotyczą tylko _domyślnego_ konta magazynu używanego przez obszar roboczy.
 
 | Usługa | Parametr określający istniejące wystąpienie |
 | ---- | ---- |
 | **Grupa zasobów platformy Azure** | `-g <resource-group-name>`
 | **Konto usługi Azure Storage** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
-| **W usłudze Azure Key Vault** | `--keyvault <service-id>` |
+| **Usługa Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -147,6 +154,9 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem konta magazynu:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). _W przypadku konta magazynu w_ warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
 
 + **Application Insights platformy Azure**:
 

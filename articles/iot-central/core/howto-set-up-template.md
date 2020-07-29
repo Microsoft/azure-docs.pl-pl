@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562859"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337215"
 ---
-# <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji IoT Central platformy Azure
+# <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
-Szablon urządzenia jest planem, który definiuje cechy i zachowania typu urządzenia, które nawiązuje połączenie z aplikacją IoT Central platformy Azure.
+Szablon urządzenia jest konspektem, który definiuje cechy i zachowania typu urządzenia łączącego się z aplikacją usługi Azure IoT Central.
 
 Na przykład Konstruktor może utworzyć szablon urządzenia dla połączonego wentylatora o następujących cechach:
 
@@ -36,9 +36,7 @@ Z tego szablonu urządzenia operator może tworzyć i łączyć urządzenia went
 > [!NOTE]
 > Tylko konstruktory i Administratorzy mogą tworzyć, edytować i usuwać szablony urządzeń. Każdy użytkownik może tworzyć urządzenia na stronie **urządzenia** z istniejących szablonów urządzeń.
 
-Program [IoT Plug and Play (wersja zapoznawcza)](../../iot-pnp/overview-iot-plug-and-play.md) umożliwia IoT Central integrację urządzeń bez konieczności pisania kodu urządzenia osadzonego. Na początku Plug and Play IoT (wersja zapoznawcza) to schemat modelu możliwości urządzenia, który opisuje możliwości urządzeń. W aplikacji IoT Central szablony urządzeń używają następujących modeli możliwości urządzenia IoT Plug and Play (wersja zapoznawcza).
-
-Jako Konstruktor można utworzyć szablony urządzeń za pomocą kilku opcji:
+W aplikacji IoT Central szablon urządzenia używa modelu możliwości urządzenia do opisywania możliwości urządzenia. Jako Konstruktor można utworzyć szablony urządzeń za pomocą kilku opcji:
 
 - Zaprojektuj szablon urządzenia w IoT Central, a następnie Zaimplementuj jego model możliwości urządzenia w kodzie urządzenia.
 - Zaimportuj model możliwości urządzenia z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://aka.ms/iotdevcat). Następnie Dodaj wszystkie właściwości i dostosowania chmury oraz pulpity nawigacyjne, których potrzebujesz IoT Central aplikacji.
@@ -68,7 +66,7 @@ Aby utworzyć szablon urządzenia w IoT Central:
 1. Przejdź do strony **Szablony urządzeń** w aplikacji IoT Central.
 1. Wybierz pozycję **+ Nowy**  >  **niestandardowy**.
 1. Wprowadź nazwę szablonu, na przykład **czujnik środowiska**.
-1. Naciśnij klawisz **Enter**. IoT Central tworzy pusty szablon urządzenia.
+1.  Naciśnij klawisz **Enter**. IoT Central tworzy pusty szablon urządzenia.
 
 ## <a name="manage-a-device-template"></a>Zarządzanie szablonem urządzenia
 
@@ -110,7 +108,7 @@ Aby utworzyć interfejs:
 
 1. Jeśli zdecydujesz się utworzyć interfejs niestandardowy od podstaw, możesz dodać możliwości urządzenia. Możliwości urządzenia to dane telemetryczne, właściwości i polecenia.
 
-### <a name="telemetry"></a>Telemetria
+### <a name="telemetry"></a>Telemetry
 
 Telemetrię jest strumieniem wartości wysyłanych z urządzenia, zazwyczaj z czujnika. Na przykład czujnik może zgłosić temperaturę otoczenia.
 

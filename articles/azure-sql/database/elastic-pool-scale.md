@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045718"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372097"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skalowanie zasobów puli elastycznej w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +56,17 @@ Szacowane opóźnienie zmiany warstwy usług lub ponowne skalowanie wielkości o
 >
 > - W przypadku zmiany warstwy usług lub ponownego skalowania obliczeń dla puli elastycznej w celu obliczenia oszacowania należy użyć podsumowania miejsca używanego dla wszystkich baz danych w puli.
 > - W przypadku przeniesienia bazy danych do/z puli elastycznej tylko miejsce używane przez bazę danych wpływa na opóźnienie, a nie miejsce używane przez pulę elastyczną.
->
+> - W przypadku pul elastycznych w warstwie Standardowa i Ogólnego przeznaczenia opóźnienie przeniesienia bazy danych do puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli Pula elastyczna korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Aby określić, czy pula korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście każdej bazy danych w puli. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` , Pula korzysta z magazynu PFS.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > Aby monitorować operacje w toku, zobacz: [Zarządzanie operacjami przy użyciu interfejsu API REST usługi SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Zarządzanie operacjami przy użyciu wiersza polecenia](/cli/azure/sql/db/op), [monitorowanie operacji przy użyciu języka T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) i tych dwóch poleceń programu PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) i [stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

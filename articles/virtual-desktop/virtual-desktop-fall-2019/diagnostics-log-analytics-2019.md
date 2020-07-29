@@ -1,6 +1,6 @@
 ---
-title: Analiza dzienników diagnostyki usług pulpitu wirtualnego systemu Windows (jesień 2019) — Azure
-description: Dowiedz się, jak używać usługi log Analytics z funkcją diagnostyki systemu Windows Virtual Desktop (jesień 2019 Release).
+title: Analiza dzienników diagnostycznych Windows Virtual Desktop (Classic) — Azure
+description: Jak używać usługi log Analytics z funkcją diagnostyki pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077610"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285071"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Użyj Log Analytics dla funkcji diagnostyki (jesień 2019 wydania)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Używanie Log Analytics dla funkcji diagnostyki na pulpicie wirtualnym systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../diagnostics-log-analytics.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../diagnostics-log-analytics.md).
 
 Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Ta funkcja rejestruje informacje diagnostyczne za każdym razem, gdy ktoś przypisany do roli pulpitu wirtualnego systemu Windows używa usługi. Każdy dziennik zawiera informacje o tym, które role pulpitu wirtualnego systemu Windows dotyczyły działania, wszystkich komunikatów o błędach, które pojawiają się podczas sesji, informacje o dzierżawie i informacje o użytkowniku. Funkcja diagnostyki tworzy dzienniki aktywności zarówno dla użytkownika, jak i akcji administracyjnych. Każdy dziennik aktywności znajduje się poniżej trzech głównych kategorii:
 

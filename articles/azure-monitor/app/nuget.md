@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights pakietów NuGet
 description: Azure Monitor Application Insights listy pakietów NuGet dla ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27a3d89b4a64de159535d346641c21616833e21b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807166"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309957"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights pakietów NuGet
 
@@ -79,7 +79,7 @@ Poniżej znajduje się bieżąca lista stabilnych pakietów NuGet wydania dla Ap
 | Microsoft. ApplicationInsights. Agent_x64 | 2.2.1 |  Włącza zbieranie danych środowiska uruchomieniowego dla aplikacji x64 | [Pobierz pakiet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft. ApplicationInsights. Agent_x86 | 2.2.1 |  Włącza zbieranie danych środowiska uruchomieniowego dla aplikacji x86. | [Pobierz pakiet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Te pakiety składają się na część podstawowych funkcji monitorowania środowiska uruchomieniowego w [Monitor stanu](../../azure-monitor/app/monitor-performance-live-website-now.md). Nie musisz bezpośrednio pobierać tych pakietów, korzystając z Instalatora monitor stanu. Jeśli chcesz dowiedzieć się więcej o tym, jak te pakiety działają na wyciągu, ten [wpis w blogu](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) z jednego z naszych deweloperów jest dobrym startem.
+Te pakiety składają się na część podstawowych funkcji monitorowania środowiska uruchomieniowego w [Monitor stanu](./monitor-performance-live-website-now.md). Nie musisz bezpośrednio pobierać tych pakietów, korzystając z Instalatora monitor stanu. Jeśli chcesz dowiedzieć się więcej o tym, jak te pakiety działają na wyciągu, ten [wpis w blogu](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) z jednego z naszych deweloperów jest dobrym startem.
 
 ## <a name="additional-packages"></a>Dodatkowe pakiety
 
@@ -90,6 +90,7 @@ Te pakiety składają się na część podstawowych funkcji monitorowania środo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Monitoruj [ASP.NET Core](../../azure-monitor/app/asp-net-core.md).
-- Profile ASP.NET Core [aplikacje sieci Web platformy Azure](../../azure-monitor/app/profiler-aspnetcore-linux.md)w systemie Linux.
-- Debuguj [migawki](../../azure-monitor/app/snapshot-debugger.md)ASP.NET.
+- Monitoruj [ASP.NET Core](./asp-net-core.md).
+- Profile ASP.NET Core [aplikacje sieci Web platformy Azure](./profiler-aspnetcore-linux.md)w systemie Linux.
+- Debuguj [migawki](./snapshot-debugger.md)ASP.NET.
+

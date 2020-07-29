@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285632"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze praktyki dotyczące konfiguracji klastra (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Technicznie klaster z trzema węzłami może przetrwać utratę jednego węzła 
 
 Zasób kworum chroni klaster przed każdym z tych problemów. 
 
-Aby skonfigurować zasób kworum przy użyciu SQL Server na maszynach wirtualnych platformy Azure, można użyć następujących typów monitora: 
+Poniższa tabela zawiera listę opcji kworum dostępnych w kolejności zalecanej do użycia z maszyną wirtualną platformy Azure z wybranym monitorem dysku: 
 
 
 ||[Monitor dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Monitor w chmurze](/windows-server/failover-clustering/deploy-cloud-witness)  |[Monitor udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Obsługiwane systemy operacyjne**| Wszystko |Windows Server 2016 +| Windows Server 2012 +|
-|**Obsługiwana wersja SQL Server**|SQL Server 2019|SQL Server 2016 +|SQL Server 2016 +|
+|**Obsługiwane systemy operacyjne**| Wszystkie |Windows Server 2016 +| Windows Server 2012 +|
+
 
 
 
 ### <a name="disk-witness"></a>Monitor dysku
 
-Monitor dysku to niewielki dysk klastrowany w grupie magazynów dostępnego klastra. Ten dysk jest wysoce dostępny i może przechodzić w tryb failover między węzłami. Zawiera kopię bazy danych klastra o domyślnym rozmiarze, który jest zwykle mniejszy niż 1 GB. 
+Monitor dysku to niewielki dysk klastrowany w grupie magazynów dostępnego klastra. Ten dysk jest wysoce dostępny i może przechodzić w tryb failover między węzłami. Zawiera kopię bazy danych klastra o domyślnym rozmiarze, który jest zwykle mniejszy niż 1 GB. Monitor dysku jest preferowaną opcją kworum dla maszyny wirtualnej platformy Azure, ponieważ może ona rozwiązać problem w czasie, w przeciwieństwie do monitora chmury i monitora udziału plików. 
 
 Skonfiguruj dysk udostępniony platformy Azure jako monitor dysku. 
 
 Aby rozpocząć, zobacz [Konfigurowanie monitora dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Obsługiwany system operacyjny**: wszystkie    
-**Obsługiwana wersja programu SQL**: SQL Server 2019   
+**Obsługiwany system operacyjny**: wszystkie   
 
 
 ### <a name="cloud-witness"></a>Monitor w chmurze
@@ -73,21 +72,18 @@ Aby rozpocząć, zobacz [Configure a Cloud monitor](/windows-server/failover-clu
 
 
 **Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
-**Obsługiwana wersja programu SQL**: SQL Server 2016 i nowsze     
 
 
 ### <a name="file-share-witness"></a>Monitor udziału plików
 
 Monitor udziału plików to udział plików SMB, który jest zazwyczaj konfigurowany na serwerze plików z systemem Windows Server. Przechowuje informacje o klastrach w pliku monitora. log, ale nie przechowuje kopii bazy danych klastra. Na platformie Azure można skonfigurować [udział plików platformy Azure](../../../storage/files/storage-how-to-create-file-share.md) do użycia jako monitor udostępniania plików lub użyć udziału plików na oddzielnej maszynie wirtualnej.
 
-Jeśli zamierzasz użyć innego udziału plików platformy Azure, możesz go zainstalować przy użyciu tego samego procesu, który jest używany do [instalowania udziału plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Jeśli zamierzasz korzystać z udziału plików platformy Azure, możesz go zainstalować przy użyciu tego samego procesu, który jest używany do [instalowania udziału plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Aby rozpocząć, zobacz [Konfigurowanie monitora udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
-**Obsługiwana wersja programu SQL**: SQL Server 2016 i nowsze   
-
 
 ## <a name="connectivity"></a>Łączność
 

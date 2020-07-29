@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129308"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372845"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
 >[!IMPORTANT]
->Optymalizacja multimediów dla programu Microsoft Teams jest obecnie dostępna w publicznej wersji zapoznawczej. Zalecamy przeprowadzenie oceny środowiska użytkownika zoptymalizowanego dla zespołów przed wdrożeniem zespołów dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+>Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku Microsoft 365 środowisk dla instytucji rządowych.
 
 >[!NOTE]
 >Optymalizacja multimediów dla programu Microsoft Teams jest dostępna tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10. Optymalizacje multimediów wymagają klienta klasycznego systemu Windows w wersji 1.2.1026.0 lub nowszej.
@@ -53,15 +53,21 @@ Aby włączyć optymalizację multimediów dla zespołów, należy dla hosta ust
 
 ### <a name="install-the-teams-websocket-service"></a>Instalowanie usługi WebSocket zespołów
 
-Zainstaluj [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
+Zainstaluj najnowszą [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
 
 #### <a name="latest-websocket-service-versions"></a>Najnowsze wersje usługi WebSocket
 
-W poniższej tabeli wymieniono bieżące wersje dostępne dla każdej grupy użytkowników:
+W poniższej tabeli wymieniono najnowsze wersje usługi WebSocket:
 
-|Wersja    |Data wydania  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|Wersja        |Data wydania  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Aktualizacje dla wersji 1.0.2006.11001
+
+- Rozwiązano problem polegający na tym, że aplikacja Teams jest zminimalizowana podczas rozmowy lub spotkania z powodu przychodzącego wideo do porzucenia.
+- Dodano obsługę wybierania jednego monitora, który ma zostać udostępniony w sesjach pulpitu z obsługą wielu monitorów.
 
 ### <a name="install-microsoft-teams"></a>Zainstaluj program Microsoft Teams
 
@@ -117,7 +123,7 @@ Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następują
 
 3. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
 
-      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, Wróć do pozycji [Zainstaluj program Microsoft Teams](#install-microsoft-teams) i upewnij się, że ukończono proces instalacji.
+      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź ustawienia prywatności na komputerze lokalnym. Upewnij się, że w obszarze **Ustawienia**  >  uprawnienia do aplikacji**ochrony prywatności**  >  **App permissions** ustawienie **Zezwalaj aplikacjom na dostęp do mikrofonu** jest **włączone**. Rozłącz się z sesją zdalną, a następnie ponownie połącz i sprawdź urządzenia audio i wideo. Aby dołączyć wywołania i spotkania z wideo, należy również udzielić aplikacji dostępu do aparatu.
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
@@ -133,9 +139,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 ### <a name="calls-and-meetings"></a>Wywołania i spotkania
 
 - Klient Team Desktop w środowiskach klasycznych systemu Windows nie obsługuje zdarzeń na żywo. Na razie zalecamy dołączenie wydarzeń na żywo z [klienta sieci Web zespołów](https://teams.microsoft.com) w sesji zdalnej.
-- Minimalizacja aplikacji zespołów podczas rozmowy lub spotkania może spowodować, że przychodzące źródło wideo znika po rozszerzeniu aplikacji.
 - Wywołania lub spotkania nie obsługują obecnie udostępniania aplikacji. Sesje pulpitu obsługują udostępnianie pulpitu.
-- Po udostępnieniu pulpitu w konfiguracji z obsługą kilku monitorów wszystkie monitory są udostępniane.
 - Nadaj formantowi kontrolę i Przejmij kontrolę nie są obecnie obsługiwane.
 - Zespoły w systemie Windows Virtual Desktop obsługują tylko jedno przychodzące dane wejściowe wideo w danym momencie. Oznacza to, że za każdym razem, gdy ktoś podejmie próbę udostępnienia ekranu, pojawi się jego ekran zamiast ekranu lidera spotkania.
 - Ze względu na ograniczenia protokołu WebRTC rozwiązanie przychodzące i wychodzące strumień wideo jest ograniczone do 720.

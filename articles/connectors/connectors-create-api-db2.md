@@ -7,11 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651386"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284051"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Dostęp do zasobów IBM DB2 i zarządzanie nimi przy użyciu Azure Logic Apps
 
@@ -85,11 +86,11 @@ Aby skonfigurować połączenie, podaj te szczegóły połączenia po wyświetle
 | **Nazwa połączenia** | Tak | Nazwa połączenia, na przykład "MyLogicApp-DB2-Connection" |
 | **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server.cloudapp.net:50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
 | **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
-| **Uż** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
+| **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
 ||||
 
-Przykład:
+Na przykład:
 
 ![Szczegóły połączenia dla baz danych opartych na chmurze](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -106,12 +107,12 @@ Przed utworzeniem połączenia należy zainstalować lokalną bramę danych. W p
 | **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server: 50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
 | **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Authentication** | Tak | Typ uwierzytelniania dla połączenia, na przykład "podstawowa" <p><p>**Uwaga**: Wybierz tę wartość z listy, która zawiera podstawowe lub Windows (Kerberos). |
-| **Uż** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
+| **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
 | **Punkt** | Tak | Nazwa zainstalowanej lokalnej bramy danych <p><p>**Uwaga**: Wybierz tę wartość z listy, która obejmuje wszystkie zainstalowane bramy danych w ramach subskrypcji i grupy zasobów platformy Azure. |
 ||||
 
-Przykład:
+Na przykład:
 
 ![Szczegóły połączenia dla lokalnych baz danych](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -238,7 +239,7 @@ Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wier
    | **Identyfikator regionu** | Tak | Identyfikator regionu do dodania, na przykład "102" |
    |||| 
 
-   Przykład:
+   Na przykład:
 
    ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -286,7 +287,7 @@ Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Akt
    | **Identyfikator regionu** | Tak | Nowy identyfikator regionu, taki jak "102" |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -331,7 +332,7 @@ Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wie
    | **Identyfikator wiersza** | Tak | Identyfikator rekordu do usunięcia, na przykład "99999" |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
@@ -358,7 +359,7 @@ Rozwiń akcję **Usuń wiersz** .
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/db2/).
+Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/db2/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -366,3 +367,4 @@ Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego �
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

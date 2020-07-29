@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207050"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284255"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -24,7 +24,7 @@ Firma Microsoft interfejs API przetwarzania obrazów obejmuje funkcje optycznego
 
 ## <a name="read-api"></a>Odczytaj interfejs API 
 
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR firmy Microsoft, która wyodrębnia drukowany tekst (siedem języków), tekst napisany ręcznie (tylko w języku angielskim), cyfry i symbole walut z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów w formacie wieloznacznego i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje wykrywanie wydrukowanych i odpisanych tekstu (tylko w języku angielskim) w tym samym obrazie lub dokumencie. Zapoznaj się z pełną listą stron [obsługiwanych przez OCR w języku](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR firmy Microsoft, która wyodrębnia tekst drukowany w kilku językach, tekstach pisanych ręcznie (tylko w języku angielskim), cyfry i symbole walut z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów w formacie wieloznacznego i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje wykrywanie wydrukowanych i odpisanych tekstu (tylko w języku angielskim) w tym samym obrazie lub dokumencie. Zapoznaj się z pełną listą stron [obsługiwanych przez OCR w języku](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
 
 ### <a name="how-ocr-works"></a>Jak działa OCR
 
@@ -123,7 +123,7 @@ Teraz operacja odczytu obsługuje Wyodrębnianie tekstu odręcznego wyłącznie 
 
 ### <a name="printed-text-in-supported-languages"></a>Tekst drukowany w obsługiwanych językach
 
-Interfejs API odczytu obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz Omówienie interfejsu API OCR w tym dokumencie. Zapoznaj się z listą wszystkich [języków obsługiwanych przez OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+Interfejs API odczytu 3,0 obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim. [Przeczytaj 3,1-Preview. 1 interfejs API w publicznej wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) dodaje obsługę języka chińskiego uproszczonego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz Omówienie interfejsu API OCR w tym dokumencie. Zapoznaj się z listą wszystkich [języków obsługiwanych przez OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/supported-languages-example.png)
 
@@ -137,7 +137,7 @@ Interfejs API odczytu obsługuje obrazy i dokumenty z wieloma językami, często
 
 Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usługi odczytu powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Aby dowiedzieć się więcej, zobacz stronę Cognitive Services w [Centrum zaufania firmy Microsoft](https://www.microsoft.com/en-us/trust-center/product-overview) .
 
-### <a name="deploy-on-premises"></a>Wdrażanie lokalnie
+### <a name="containers-for-on-premise-deployment"></a>Kontenery dla wdrożenia lokalnego
 
 Funkcja Read jest również dostępna jako kontener platformy Docker (wersja zapoznawcza) w celu umożliwienia wdrożenia nowych funkcji OCR w Twoim środowisku. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. Zobacz [temat Instalowanie i uruchamianie kontenerów odczytu.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
@@ -149,4 +149,5 @@ Funkcja Read jest również dostępna jako kontener platformy Docker (wersja zap
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [interfejsie API REST do odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Dowiedz się więcej o [interfejsie API REST do odczytu 3,1-Preview. 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego.
 - Postępuj zgodnie z przewodnikiem Szybki Start [tekstu](./QuickStarts/CSharp-hand-text.md) , aby zaimplementować OCR przy użyciu języka C#, Java, JavaScript lub Python wraz z interfejsem API REST.

@@ -10,11 +10,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ce3ab92be33b378aeb6694efe181ee19da5d3f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669515"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284357"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Inicjowanie obsługi administracyjnej maszyny wirtualnej z systemem Linux SQL Server w Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +59,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    > [!TIP]
    > Wersja Developer umożliwia testowanie lub programowanie przy użyciu funkcji wersji Enterprise, ale bez kosztów licencjonowania programu SQL Server. Ponosisz tylko koszty obsługi maszyny wirtualnej z systemem Linux.
 
-1. Wybierz pozycję **Utwórz**. 
+1. Wybierz przycisk **Utwórz**. 
 
 
 ### <a name="set-up-your-linux-vm"></a>Konfigurowanie maszyny wirtualnej z systemem Linux
@@ -71,7 +72,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 1. Następnie wpisz lub wybierz następujące wartości:
    * **Region**: wybierz odpowiedni region platformy Azure.
    * **Opcje dostępności**: wybierz opcję dostępność i nadmiarowość, która jest Najlepsza dla aplikacji i danych.
-   * **Zmień rozmiar**: Wybierz tę opcję, aby wybrać rozmiar maszyny, a następnie wybierz **pozycję Wybierz**. Aby uzyskać więcej informacji na temat rozmiarów maszyn wirtualnych, zobacz [Linux VM sizes (Rozmiary maszyn wirtualnych z systemem Linux)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Zmień rozmiar**: Wybierz tę opcję, aby wybrać rozmiar maszyny, a następnie wybierz **pozycję Wybierz**. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [rozmiary maszyn](../../../virtual-machines/sizes.md)wirtualnych.
 
      ![Wybieranie rozmiaru maszyny wirtualnej](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
@@ -81,7 +82,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    * **Typ uwierzytelniania**: wybierz opcję **klucz publiczny SSH**.
 
      > [!Note]
-     > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
    * **Nazwa użytkownika**: Wprowadź nazwę administratora maszyny wirtualnej.
    * **Klucz publiczny SSH**: Wprowadź klucz publiczny RSA.
@@ -96,7 +97,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     * **Konfiguracja gościa**
     * **Tagi**
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
 ## <a name="connect-to-the-linux-vm"></a><a id="connect"></a> Łączenie z maszyną wirtualną z systemem Linux
@@ -121,7 +122,7 @@ Jeśli używasz systemu Windows i nie masz powłoki BASH, zainstaluj klienta SSH
 
 1. Wybierz przycisk **Open** (Otwórz), a następnie po wyświetleniu monitów wprowadź nazwę użytkownika i hasło.
 
-Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami wirtualnymi z systemem Linux, zobacz [Create a Linux VM on Azure using the Portal (Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu portalu)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami wirtualnymi z systemem Linux, zobacz [Create a Linux VM on Azure using the Portal (Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu portalu)](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > Jeśli w programie PuTTY zostanie wyświetlony alert dotyczący zabezpieczeń z informacją „server’s host key not cached in the registry” (klucz hosta serwera nie jest buforowany w rejestrze), wybierz jedną z następujących opcji. Jeśli host jest zaufany, wybierz pozycję **Yes** (Tak), aby dodać ten klucz do pamięci podręcznej programu PuTTy i kontynuować nawiązywanie połączenia. Jeśli chcesz nawiązać połączenie tylko raz, bez dodawania klucza do pamięci podręcznej, wybierz pozycję **No** (Nie). Jeśli host nie jest zaufany, wybierz pozycję **Cancel** (Anuluj), aby przerwać nawiązywanie połączenia.

@@ -5,11 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281229"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -19,7 +20,7 @@ Definiując pule węzłów w klastrze w celu rozdzielenia wielu stref, węzły w
 
 W tym artykule pokazano, jak utworzyć klaster AKS i rozesłać składniki węzła w strefach dostępności.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -29,13 +30,13 @@ Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następuj
 
 * Środkowe stany USA
 * Wschodnie stany USA 2
-* Wschodnie stany USA
+* East US
 * Francja Środkowa
-* Japonia Wschodnia
+* Japan East
 * Europa Północna
 * Azja Południowo-Wschodnia
 * Południowe Zjednoczone Królestwo
-* Europa Zachodnia
+* West Europe
 * Zachodnie stany USA 2
 
 Podczas tworzenia klastra AKS przy użyciu stref dostępności są stosowane następujące ograniczenia:
@@ -98,7 +99,7 @@ Najpierw pobierz poświadczenia klastra AKS za pomocą polecenia [AZ AKS Get-Cre
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Następnie użyj polecenia [polecenia kubectl opisywania][kubectl-describe] , aby wyświetlić listę węzłów w klastrze. Odfiltruj wartość *Failure-Domain.beta.Kubernetes.IO/Zone* , jak pokazano w następującym przykładzie:
+Następnie użyj polecenia [polecenia kubectl opisywania][kubectl-describe] , aby wyświetlić listę węzłów w klastrze i odfiltrować wartość *Failure-Domain.beta.Kubernetes.IO/Zone* . Poniższy przykład dotyczy powłoki bash.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -130,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-Po zakończeniu operacji skalowania po kilku minutach polecenie `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` powinno dać wynik podobny do tego przykładu:
+Gdy operacja skalowania kończy się po kilku minutach, polecenie `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` w powłoce bash powinno dać dane wyjściowe podobne do tego przykładu:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -151,7 +152,7 @@ Mamy teraz dwa dodatkowe węzły w strefach 1 i 2. Można wdrożyć aplikację s
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Oglądając węzły, w których są uruchomione Twoje zasobniki, zobaczysz, że na węzłach odpowiadających trzema różnymi strefami dostępności są uruchomione na podst. Na przykład za pomocą polecenia `kubectl describe pod | grep -e "^Name:" -e "^Node:"` można uzyskać dane wyjściowe podobne do następujących:
+Oglądając węzły, w których są uruchomione Twoje zasobniki, zobaczysz, że na węzłach odpowiadających trzema różnymi strefami dostępności są uruchomione na podst. Na przykład przy użyciu polecenia `kubectl describe pod | grep -e "^Name:" -e "^Node:"` w powłoce bash można uzyskać dane wyjściowe podobne do następujących:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267119"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372573"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
@@ -33,50 +33,25 @@ Maszyny wirtualne z serii H platformy Azure zaprojektowano w celu zapewnienia wy
 
 ## <a name="rdma-capable-instances"></a>Wystąpienia z obsługą technologii RDMA
 
-Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i A9) ma interfejs sieciowy do łączności z funkcją zdalnego bezpośredniego dostępu do pamięci (RDMA). Wybrane rozmiary [serii N](./nc-series.md) oznaczone przy użyciu opcji "r", takie jak konfiguracje NC24rs (NC24rs_v3, NC24rs_v2 i NC24r), są również zgodne z funkcją RDMA. Ten interfejs jest poza standardowym interfejsem sieciowym platformy Azure dostępnym w innych rozmiarach maszyn wirtualnych.
+Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i A9) ma interfejs sieciowy do łączności z funkcją zdalnego bezpośredniego dostępu do pamięci (RDMA). Wybrane rozmiary [serii N](./nc-series.md) oznaczone przy użyciu funkcji "r" (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 i NC24r) również obsługują funkcję RDMA. Ten interfejs jest poza standardowym interfejsem sieciowym platformy Azure dostępnym w innych rozmiarach maszyn wirtualnych.
 
-Ten interfejs umożliwia wyciągom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), które działają według stawek za HBv2, EDR stawek za HB, HC, FDR dla H16r, H16mr i funkcji RDMA, które obsługują maszyny wirtualne z serii N, i szybkość QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface). Aby uzyskać więcej informacji na temat szybkości, zobacz szczegóły w tabelach na tej stronie.
+Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), co pozwala na korzystanie z stawek za HBv2, EDR stawek za HB, HC, NDv2, FDR dla H16r, H16mr i innych maszyn wirtualnych z serii N z obsługą funkcji RDMA, a następnie częstotliwości QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface). Aby uzyskać więcej informacji na temat szybkości, zobacz szczegóły w tabelach na tej stronie.
 
 > [!NOTE]
-> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie obsługują funkcji SR-IOV.
+> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie mają obecnie włączonej funkcji SR-IOV.
 > Funkcja RDMA przez IB jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
 > Protokół IP over IB jest obsługiwany tylko na maszynach wirtualnych z włączoną funkcją SR-IOV.
 
 - **System operacyjny** — Linux jest bardzo dobrze obsługiwany dla maszyn wirtualnych HPC; dystrybucje, takie jak CentOS, RHEL, Ubuntu, SUSE są powszechnie używane. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 i nowsze wersje są obsługiwane we wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV (H16r, H16mr, A8 i A9). Należy pamiętać, że [system Windows Server 2012 R2 nie jest obsługiwany na HBv2 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
+- **Sterowniki InfiniBand i RDMA** — na maszynach wirtualnych z włączoną funkcją InfiniBand wymagane są odpowiednie sterowniki, aby włączyć funkcję RDMA. W systemie Linux obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Na maszynach wirtualnych z serii H i N z obsługą wirtualizacji SR-IOV [rozszerzenia maszyny wirtualnej InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) można użyć do zainstalowania sterowników Mellanox OFED i włączenia funkcji InfiniBand. Dowiedz się więcej na temat włączania funkcji InfiniBand w przypadku maszyn wirtualnych obsługujących funkcję [RDMA.](./workloads/hpc/overview.md)
+
+W systemie Windows [rozszerzenie maszyny wirtualnej InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instaluje sterowniki bezpośrednie sieci systemu Windows (na maszynach wirtualnych innych niż SR-IOV) lub sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA. W niektórych wdrożeniach wystąpień A8 i A9 rozszerzenie HpcVmDrivers jest dodawane automatycznie. Należy pamiętać, że rozszerzenie maszyny wirtualnej HpcVmDrivers jest przestarzałe; nie zostanie ona zaktualizowana.
+
+Aby dodać rozszerzenie maszyny wirtualnej do maszyny wirtualnej, można użyć poleceń cmdlet [Azure PowerShell](/powershell/azure/) . Aby uzyskać więcej informacji, zobacz [rozszerzenia i funkcje maszyny wirtualnej](./extensions/overview.md). Możesz również korzystać z rozszerzeń dla maszyn wirtualnych wdrożonych w [klasycznym modelu wdrażania](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+
 - **MPI** — rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure (HBV2, HB, HC, Seria NCV3, NDv2) pozwalają na używanie niemal wszelkich wersji MPI do użycia z interfejsem Mellanox OFED.
 W przypadku maszyn wirtualnych z obsługą funkcji SR-IOV obsługiwane implementacje MPI używają interfejsu Microsoft Network Direct (ND) do komunikacji między maszynami wirtualnymi. W związku z tym obsługiwane są tylko programy Microsoft MPI (MS-MPI) 2012 R2 lub nowsze i Intel MPI 5. x. Nowsze wersje (2017, 2018) biblioteki środowiska uruchomieniowego Intel MPI mogą być niezgodne ze sterownikami usługi Azure RDMA.
-
-- **InfiniBandDriver<Linux | Rozszerzenie maszyny wirtualnej z systemem Windows>** — na maszynach wirtualnych z obsługą funkcji RDMA Dodaj InfiniBandDriver<Linux | Rozszerzenie> systemu Windows umożliwiające włączenie InfiniBand. W systemie Linux rozszerzenie maszyny wirtualnej InfiniBandDriverLinux instaluje sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA. W systemie Windows rozszerzenie maszyny wirtualnej InfiniBandDriverWindows instaluje sterowniki bezpośrednie sieci systemu Windows (na maszynach wirtualnych innych niż SR-IOV) lub sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA.
-W niektórych wdrożeniach wystąpień A8 i A9 rozszerzenie HpcVmDrivers jest dodawane automatycznie. Należy pamiętać, że rozszerzenie maszyny wirtualnej HpcVmDrivers jest przestarzałe; nie zostanie ona zaktualizowana.
-Aby dodać rozszerzenie maszyny wirtualnej do maszyny wirtualnej, można użyć poleceń cmdlet [Azure PowerShell](/powershell/azure/) . 
-
-  Następujące polecenie instaluje najnowszą wersję 1,0 rozszerzenia InfiniBandDriverWindows na istniejącej maszynie wirtualnej obsługującej funkcję RDMA o nazwie *myVM* wdrożonej w grupie zasobów o nazwie Moja *zasobów* w regionie *zachodnie stany USA* :
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  ```
-
-  Alternatywnie rozszerzenia maszyn wirtualnych można dołączać do szablonów Azure Resource Manager, aby ułatwić wdrażanie, z następującym elementem JSON:
-
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverWindows",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-
-  Poniższe polecenie instaluje najnowszą wersję 1,0 rozszerzenia InfiniBandDriverWindows na wszystkich maszynach wirtualnych z obsługą funkcji RDMA w istniejącym zestawie skalowania maszyn wirtualnych o nazwie *myVMSS* wdrożonych w grupie zasobów o nazwie Moja *zasobów*:
-
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-
-  Aby uzyskać więcej informacji, zobacz [rozszerzenia i funkcje maszyny wirtualnej](./extensions/overview.md). Możesz również korzystać z rozszerzeń dla maszyn wirtualnych wdrożonych w [klasycznym modelu wdrażania](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **Przestrzeń adresów sieciowych RDMA** — sieć RDMA na platformie Azure rezerwuje przestrzeń adresową 172.16.0.0/16. Aby uruchamiać aplikacje MPI w wystąpieniach wdrożonych w sieci wirtualnej platformy Azure, upewnij się, że przestrzeń adresowa sieci wirtualnej nie nakłada się na sieć RDMA.
 
@@ -86,7 +61,7 @@ Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z sys
 
 - **Maszyny wirtualne** — Wdróż maszyny wirtualne z obsługą funkcji RDMA w tym samym zestawie skalowania lub zestawie dostępności (w przypadku korzystania z Azure Resource Manager modelu wdrażania). W przypadku korzystania z klasycznego modelu wdrażania należy wdrożyć maszyny wirtualne w tej samej usłudze w chmurze.
 
-- **Zestawy skalowania maszyn wirtualnych** — w zestawie skalowania maszyn wirtualnych (VMSS) Upewnij się, że wdrożenie jest ograniczone do pojedynczej grupy umieszczania na potrzeby komunikacji InfiniBand w ramach VMSS. Na przykład w szablonie Menedżer zasobów Ustaw `singlePlacementGroup` Właściwość na `true` . Należy pamiętać, że maksymalny rozmiar VMSS, który może być przypadany z `singlePlacementGroup` właściwością do `true` jest domyślnie ustawiony na maszyny wirtualne 100. Jeśli Twoje wymagania dotyczące skalowania zadań HPC są większe niż 100 maszyn wirtualnych w ramach jednej dzierżawy VMSS, możesz poprosić o zwiększenie, a bezpłatnie [otworzyć żądanie pomocy technicznej online](../azure-portal/supportability/how-to-create-azure-support-request.md) . Limit liczby maszyn wirtualnych w jednym VMSS można zwiększyć do 300. Należy pamiętać, że podczas wdrażania maszyn wirtualnych przy użyciu zestawów dostępności maksymalny limit wynosi 200 maszyn wirtualnych na zestaw dostępności.
+- **Zestawy skalowania maszyn wirtualnych** — w zestawie skalowania maszyn wirtualnych upewnij się, że wdrożenie jest ograniczone do pojedynczej grupy umieszczania na potrzeby komunikacji InfiniBand w ramach zestawu skalowania. Na przykład w szablonie Menedżer zasobów Ustaw `singlePlacementGroup` Właściwość na `true` . Należy zauważyć, że maksymalny rozmiar zestawu skalowania, który może być przypadający z `singlePlacementGroup` właściwością do `true` jest domyślnie ustawiony na 100 maszyn wirtualnych. Jeśli Twoje wymagania dotyczące skalowania zadań HPC są większe niż 100 maszyn wirtualnych w ramach jednej dzierżawy, możesz poprosić o zwiększenie, a bezpłatnie [otworzyć żądanie pomocy technicznej online](../azure-portal/supportability/how-to-create-azure-support-request.md) . Limit liczby maszyn wirtualnych w pojedynczym zestawie skalowania można zwiększyć do 300. Należy pamiętać, że podczas wdrażania maszyn wirtualnych przy użyciu zestawów dostępności maksymalny limit wynosi 200 maszyn wirtualnych na zestaw dostępności.
 
 - **MPI między maszynami wirtualnymi** — Jeśli na maszynach wirtualnych jest wymagana funkcja RDMA (np. Używanie komunikacji MPI), upewnij się, że maszyny wirtualne znajdują się w tym samym zestawie skalowania maszyn wirtualnych lub zestawie dostępności.
 
@@ -109,7 +84,7 @@ Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z sys
   
 - **Sieć wirtualna** — [Sieć wirtualna](https://azure.microsoft.com/documentation/services/virtual-network/) platformy Azure nie jest wymagana do korzystania z wystąpień intensywnie korzystających z obliczeń. Jednak w przypadku wielu wdrożeń potrzebna jest co najmniej oparta na chmurze usługa Azure Virtual Network lub połączenie lokacja-lokacja, jeśli trzeba uzyskać dostęp do zasobów lokalnych. W razie potrzeby utwórz nową sieć wirtualną, aby wdrożyć wystąpienia. Dodawanie maszyn wirtualnych intensywnie korzystających z obliczeń do sieci wirtualnej w grupie koligacji nie jest obsługiwane.
 
-- Zmiana **rozmiaru** — ze względu na ich wyspecjalizowany sprzęt można zmienić tylko wystąpienia intensywnie korzystające z obliczeń w obrębie tej samej rodziny (serii H lub serii A). Na przykład można zmienić rozmiar maszyny wirtualnej serii H tylko z jednego rozmiaru serii H na inny. Ponadto nie jest obsługiwane Zmienianie rozmiaru z intensywnie korzystającej z wielkości obliczeniowej na rozmiar intensywnie korzystający z obliczeń.  
+- Zmiana **rozmiaru** — ze względu na wyspecjalizowany sprzęt można zmienić tylko wystąpienia intensywnie korzystające z mocy obliczeniowej w tej samej rodzinie wielkości (seria H lub seria N). Na przykład można zmienić rozmiar maszyny wirtualnej serii H tylko z jednego rozmiaru serii H na inny. Dodatkowe zagadnienia dotyczące obsługi sterowników InfiniBand i dysków interfejsu NVMe mogą być brane pod uwagę w przypadku niektórych maszyn wirtualnych.
 
 
 ## <a name="other-sizes"></a>Inne rozmiary

@@ -10,25 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309260"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database zapewnia kilka metod tworzenia niespójnej na stałe kopii istniejącej [bazy danych](single-database-overview.md) na tym samym serwerze lub na innym serwerze. Bazę danych można skopiować za pomocą Azure Portal, PowerShell lub T-SQL.
+Azure SQL Database oferuje kilka metod tworzenia kopii istniejącej [bazy danych](single-database-overview.md) na tym samym lub innym serwerze. Bazę danych można skopiować za pomocą Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub języka T-SQL.
 
 ## <a name="overview"></a>Omówienie
 
-Kopia bazy danych jest migawką źródłowej bazy danych w czasie żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer. Można również wybrać opcję utrzymania warstwy usługi i rozmiaru obliczeń lub użyć innego rozmiaru obliczeniowego w ramach tej samej warstwy usług (Edition). Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. W tym momencie można go uaktualnić lub zmienić na starszą wersję. Logowania, użytkownicy i uprawnienia mogą być zarządzane niezależnie. Kopia jest tworzona przy użyciu technologii replikacji geograficznej, a po zakończeniu umieszczania zostanie wykonane automatyczne działanie łącza replikacji geograficznej. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
-
-> [!NOTE]
-> [Automatyczne kopie zapasowe bazy danych](automated-backups-overview.md) są używane podczas tworzenia kopii bazy danych.
+Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Możesz również wybrać, aby zachować warstwę usług i rozmiar obliczeniowy źródłowej bazy danych, lub użyć innego rozmiaru obliczeniowego w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozpełniania replik łącze replikacji geograficznej jest automatycznie przerywane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
 
 ## <a name="logins-in-the-database-copy"></a>Nazwy logowania w kopii bazy danych
 

@@ -4,16 +4,16 @@ description: Dowiedz się, jak utworzyć maszynę wirtualną z systemem Linux z 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 054462834d2712b8db10b40f2d7befdf330eec48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c6b6dcf748b0c6ef6162e9f20726123673abb33
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069504"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283269"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu wielu kart interfejsu sieciowego
 

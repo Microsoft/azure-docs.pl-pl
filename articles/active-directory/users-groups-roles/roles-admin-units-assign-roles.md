@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578fb481ec858e65ede49bdce2d8bc26470aa2ca
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284391"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -53,10 +53,12 @@ Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dod
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$AdminUser = Get-AzureADUser -ObjectId 'janedoe@fabidentity.onmicrosoft.com'
-$uaRoleMemberInfo = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo -Property @{ObjectId = $AdminUser.ObjectId}
-Add-AzureADScopedRoleMembership -RoleObjectId $UserAdminRole.ObjectId -ObjectId $administrative unitObj.ObjectId -RoleMemberInfo  $uaRoleMemberInfo
+$AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
+$Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
+$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
+$RoleMember.ObjectId = $AdminUser.ObjectId
+Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
@@ -85,8 +87,8 @@ Wszystkie przypisania ról wykonane z zakresem jednostki administracyjnej można
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADScopedRoleMembership -ObjectId $administrative unitObj.ObjectId | fl *
+$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.

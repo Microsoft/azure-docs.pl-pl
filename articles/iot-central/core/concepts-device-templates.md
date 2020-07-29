@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337113"
 ---
 # <a name="what-are-device-templates"></a>Co to są szablony urządzeń?
 
@@ -28,6 +28,9 @@ Szablon urządzenia zawiera następujące sekcje:
 - _Właściwości chmury_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania określenie wszelkich metadanych urządzeń do przechowywania. Właściwości chmury nigdy nie są synchronizowane z urządzeniami i istnieją tylko w aplikacji. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
 - _Dostosowania_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania zastąpienie niektórych definicji w DCM. Dostosowania są przydatne, jeśli deweloper rozwiązania chce udoskonalić, jak aplikacja obsługuje wartość, na przykład zmieniając nazwę wyświetlaną właściwości lub kolor używany do wyświetlania wartości telemetrii. Dostosowania nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
 - _Widoki_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania Definiowanie wizualizacji do wyświetlania danych z urządzenia oraz formularzy służących do zarządzania urządzeniami i ich kontrolowania. Widoki używają właściwości DCM, Cloud i customizations. Widoki nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
+
+> [!NOTE]
+> [Wersja zapoznawcza publicznej wersji zapoznawczej usługi IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) jest przeznaczona dla deweloperów urządzeń i producentów OEM, aby rozpocząć tworzenie urządzeń, które mogą być certyfikowane na potrzeby usługi IoT Plug and Play przed rozpoczęciem.
 
 ## <a name="device-capability-models"></a>Modele możliwości urządzeń
 
@@ -176,7 +179,7 @@ Nie używaj właściwości, aby wysyłać dane telemetryczne z urządzenia. Na p
 
 W przypadku właściwości zapisywalnych aplikacja urządzenia zwraca kod stanu żądanego stanu, wersję i opis, aby wskazać, czy został on odebrany i zastosował wartość właściwości.
 
-### <a name="telemetry"></a>Telemetria
+### <a name="telemetry"></a>Telemetry
 
 IoT Central umożliwia wyświetlanie danych telemetrycznych na pulpitach nawigacyjnych i na wykresach oraz stosowanie reguł do wyzwalania akcji po osiągnięciu progów. IoT Central używa informacji w DCM, takich jak typy danych, jednostki i nazwy wyświetlane, aby określić sposób wyświetlania wartości telemetrii.
 

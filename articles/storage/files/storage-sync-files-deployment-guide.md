@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337351"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -29,7 +30,7 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
     $PSVersionTable.PSVersion
     ```
 
-    Jeśli wartość PSVersion jest mniejsza niż 5,1. \* , podobnie jak w przypadku większości świeżych instalacji systemu Windows Server 2012 R2, można łatwo przeprowadzić uaktualnienie, pobierając i instalując program [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
+    Jeśli wartość **PSVersion** jest mniejsza niż 5,1. \* , podobnie jak w przypadku większości świeżych instalacji systemu Windows Server 2012 R2, można łatwo przeprowadzić uaktualnienie, pobierając i instalując program [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
 
     Program PowerShell 6 może być używany z dowolnym obsługiwanym systemem i można go pobrać za pośrednictwem [strony usługi GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -214,6 +215,8 @@ Zarejestrowanie systemu Windows Server za pomocą usługi synchronizacji magazyn
 
 > [!Note]
 > Rejestracja serwera korzysta z poświadczeń platformy Azure, aby utworzyć relację zaufania między usługą synchronizacji magazynu i systemem Windows Server, jednak następnie serwer tworzy i używa własnej tożsamości, która jest ważna, dopóki serwer pozostaje zarejestrowany, a bieżący token sygnatury dostępu współdzielonego (SAS Storage) jest prawidłowy. Nie można wystawić nowego tokenu sygnatury dostępu współdzielonego na serwerze po wyrejestrowaniu serwera, co eliminuje możliwość uzyskiwania dostępu do udziałów plików platformy Azure w celu zatrzymywania synchronizacji.
+
+Administrator, który zarejestruje serwer, musi być członkiem roli **zarządzania** lub **współautorem** dla danej usługi synchronizacji magazynu. Można to skonfigurować w obszarze **Access Control (IAM)** w Azure Portal dla usługi synchronizacji magazynu.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Interfejs użytkownika rejestracji serwera powinien zostać otwarty automatycznie po zainstalowaniu agenta Azure File Sync. W przeciwnym razie można otworzyć go ręcznie w lokalizacji jego pliku: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Gdy zostanie otwarty interfejs użytkownika rejestracji serwera, wybierz pozycję **Zaloguj** się, aby rozpocząć.

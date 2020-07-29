@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695338"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337147"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
 
@@ -29,7 +30,7 @@ Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzen
 - Wysyłaj pomiary, takie jak Telemetria.
 - Zsynchronizuj ustawienia z aplikacją.
 
-Na platformie Azure IoT Central dane, które urządzenie może wymieniać z aplikacją, są określone w szablonie urządzenia. Aby uzyskać więcej informacji na temat szablonów urządzeń, zobacz [Zarządzanie metadanymi](#metadata-management).
+W usłudze Azure IoT Central dane, które urządzenie może wymieniać z aplikacją, są określone w szablonie urządzenia. Aby uzyskać więcej informacji na temat szablonów urządzeń, zobacz [Zarządzanie metadanymi](#metadata-management).
 
 Aby dowiedzieć się więcej o tym, jak urządzenia nawiązują połączenie z aplikacją IoT Central platformy Azure, zobacz [łączność urządzeń](concepts-get-connected.md).
 
@@ -134,7 +135,7 @@ W aplikacji IoT Central platformy Azure szablony urządzeń określają zachowan
 
 Szablon urządzenia aplikacji IoT Central zawiera następujące:
 
-- **Modele możliwości urządzeń** określają możliwości urządzenia, takie jak dane telemetryczne, które wysyła, właściwości definiujące stan urządzenia i polecenia, na które odpowiada urządzenie. Możliwości urządzenia są zorganizowane w jeden lub więcej interfejsów. Aby uzyskać więcej informacji na temat modeli możliwości urządzeń, zobacz dokumentację usługi [IoT Plug and Play (wersja zapoznawcza)](../../iot-pnp/overview-iot-plug-and-play.md) .
+- **Modele możliwości urządzeń** określają możliwości urządzenia, takie jak dane telemetryczne, które wysyła, właściwości definiujące stan urządzenia i polecenia, na które odpowiada urządzenie. Możliwości urządzenia są zorganizowane w jeden lub więcej interfejsów.
 - **Właściwości chmury** określają właściwości IoT Central magazynów dla urządzenia. Te właściwości są przechowywane tylko w IoT Central i nigdy nie są wysyłane do urządzenia.
 - **Widoki** umożliwiają określanie pulpitów nawigacyjnych i formularzy tworzonych przez konstruktora, aby umożliwić operatorowi monitorowanie urządzeń i zarządzanie nimi.
 - **Dostosowania** pozwalają konstruktorowi zastąpić niektóre definicje w modelu możliwości urządzenia, aby zwiększyć ich znaczenie do aplikacji IoT Central.

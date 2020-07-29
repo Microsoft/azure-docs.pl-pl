@@ -11,11 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336865"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336926"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -48,7 +49,7 @@ Poniżej znajduje się przykładowy przegląd cyklu życia ciągłej integracji/
 
 1.  Gdy żądanie ściągnięcia zostanie zatwierdzone, a zmiany zostaną scalone w gałęzi głównej, zmiany te zostaną opublikowane do fabryki programistycznej.
 
-1.  Gdy zespół jest gotowy do wdrożenia zmian w fabryce test lub przeprowadzających, zespół przechodzi do Azure Pipelines wydania i wdraża żądaną wersję fabryki deweloperskiej do przeprowadzających. To wdrożenie jest wykonywane w ramach zadania Azure Pipelines i używa Menedżer zasobów szablonu parametrów do zastosowania odpowiedniej konfiguracji.
+1.  Gdy zespół jest gotowy do wdrożenia zmian w fabryce test lub przeprowadzających (testowanie akceptacji użytkowników), zespół przechodzi do swojej wersji Azure Pipelines i wdraża żądaną wersję fabryki deweloperskiej do przeprowadzających. To wdrożenie jest wykonywane w ramach zadania Azure Pipelines i używa Menedżer zasobów szablonu parametrów do zastosowania odpowiedniej konfiguracji.
 
 1.  Po sprawdzeniu zmian w fabryce testowej należy wdrożyć w fabryce produkcyjnej przy użyciu następnego zadania w wersji potoków.
 
@@ -304,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Potoki
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.

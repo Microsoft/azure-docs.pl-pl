@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: a03ef316b409fdeff687f0ee7bbbf6316857c54b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319919"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
 

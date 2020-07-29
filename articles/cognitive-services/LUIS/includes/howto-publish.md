@@ -4,18 +4,18 @@ description: Plik dyrektywy include
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: include file
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 52a1e0f2691a9b60cc60ed866fc6e316c94e47cd
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0e00845684ab44b94b3c6823452e85c967cb9e3c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336377"
 ---
 Aby otrzymywać prognozę LUIS w programie Chat bot lub innej aplikacji klienckiej, należy opublikować aplikację w punkcie końcowym przewidywania.
 

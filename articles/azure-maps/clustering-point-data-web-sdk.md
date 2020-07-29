@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
-ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 05e21e63b104a21757c63b9ad8d2954ed778d4b8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804575"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285751"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
 
@@ -93,7 +94,7 @@ Gdy zdarzenia myszy wystąpią na warstwie zawierającej klastrowane punkty dany
 
 | Nazwa właściwości             | Typ    | Opis   |
 |---------------------------|---------|---------------|
-| `cluster`                 | wartość logiczna | Wskazuje, czy funkcja reprezentuje klaster. |
+| `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |
 | `point_count`             | liczba  | Liczba punktów, które zawiera klaster.  |
 | `point_count_abbreviated` | ciąg  | Ciąg, który skraca wartość, `point_count` Jeśli jest długi. (na przykład 4 000 to 4K)  |

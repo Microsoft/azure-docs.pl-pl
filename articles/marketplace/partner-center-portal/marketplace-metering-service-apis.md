@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319987"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace
 
@@ -43,7 +45,7 @@ Dla każdej godziny dnia kalendarzowego dla każdego zasobu może być emitowane
 
 *Nagłówki żądania:*
 
-| Typ zawartości       | Użycie rozszerzenia `application/json`  |
+| Typ zawartości       | Korzystanie z polecenia `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -155,7 +157,7 @@ Interfejs API zdarzeń użycia usługi Batch umożliwia emitowanie zdarzeń uży
 
 *Nagłówki żądania:*
 
-| Typ zawartości       | Użycie rozszerzenia `application/json`       |
+| Typ zawartości       | Korzystanie z polecenia `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie określona, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |

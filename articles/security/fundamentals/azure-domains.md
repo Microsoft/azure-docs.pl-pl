@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: f12a137d4cf182837e2f2212923b97cb7dc5f34a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d1a11ac42a7fb280ba96229f0f67b9c45999b310
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285377"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Lista referencyjna domen platformy Azure (niepełna)
 
@@ -42,11 +42,11 @@ Ta strona jest częściową listą używanych domen platformy Azure. Niektóre z
 |Usługi zarządzania platformy Azure|*. management.core.windows.net|
 |[Azure Media Services](https://azure.microsoft.com/services/media-services/)|*. origin.mediaservices.windows.net|
 |[Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)|*. azure-mobile.net|
-|[Usługa Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/)|*. queue.core.windows.net|
+|[Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/)|*. queue.core.windows.net|
 |[Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview)|*.servicebus.windows.net|
 |[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)|*. database.windows.net|
 |[Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) i [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
 |[Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*. table.core.windows.net|
 |[Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
-|[Azure Websites](https://azure.microsoft.com/resources/videos/playlists/websites/)|*. azurewebsites.net|
+|[Azure Websites](https://azure.microsoft.com/resources/videos/home/)|*. azurewebsites.net|
 |[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|*.visualstudio.com|

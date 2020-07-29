@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781620"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283099"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej
 
@@ -114,4 +115,4 @@ Protokół SAML JIT używa informacji o oświadczeniach w tokenie SAML do tworze
 
 * [Prześlij swoją listę aplikacji](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) i partnera do firmy Microsoft, aby utworzyć dokumentację witryny firmy Microsoft.
 
-* [Dołącz do Microsoft Partner Network (bezpłatnie) i Utwórz plan na rynku](https://partner.microsoft.com/en-us/explore/commercial).
+* [Dołącz do Microsoft Partner Network (bezpłatnie) i Utwórz plan na rynku](https://partner.microsoft.com/explore/commercial).

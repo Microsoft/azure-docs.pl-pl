@@ -6,12 +6,13 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: devx-track-java
+ms.openlocfilehash: 2340e728933cc230fb53b9581f4b02b41a9438b6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774021"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372063"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -40,7 +41,7 @@ Biblioteki zarządzania funkcją rozruchu sprężynowego umożliwiają rozbudowa
 
 Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy projekt z rozruchem sprężyny.
 
-1. Przejdź do <https://start.spring.io/>.
+1. Przejdź na stronę <https://start.spring.io/>.
 
 1. Określ następujące opcje:
 
@@ -53,9 +54,9 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 ## <a name="add-feature-management"></a>Dodawanie funkcji zarządzania funkcjami
 
-1. Po wyodrębnieniu plików w systemie lokalnym aplikacja do rozruchowego sprężyny jest gotowa do edycji. Zlokalizuj *pliku pom. XML* w katalogu głównym aplikacji.
+1. Po wyodrębnieniu plików w systemie lokalnym aplikacja do rozruchowego sprężyny jest gotowa do edycji. Znajdź *pom.xml* w katalogu głównym aplikacji.
 
-1. Otwórz plik *pliku pom. XML* w edytorze tekstów i Dodaj następujący tekst do listy `<dependencies>` :
+1. Otwórz plik *pom.xml* w edytorze tekstów i Dodaj następujący tekst do listy `<dependencies>` :
 
     **Chmura Wiosenna 1.1. x**
 
@@ -184,7 +185,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     }
     ```
 
-1. Utwórz nowy plik HTML o nazwie *Welcome. html* w katalogu templates aplikacji.
+1. Utwórz nowy plik HTML o nazwie *welcome.html* w katalogu szablonów aplikacji.
 
     ```html
     <!DOCTYPE html>
@@ -289,15 +290,15 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 1. W portalu konfiguracji aplikacji wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** **na:**
 
-    | Klucz | Stan |
+    | Klucz | State |
     |---|---|
-    | Beta | Włączone |
+    | Beta | On |
 
 1. Odśwież stronę przeglądarki, aby zobaczyć nowe ustawienia konfiguracji.
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

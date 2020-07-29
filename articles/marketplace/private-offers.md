@@ -4,15 +4,15 @@ description: Prywatne oferty w komercyjnej witrynie Microsoft Marketplace dla wy
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 8fac0fa18e0332f8295ecdd287e80810b5d9c671
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087357"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319868"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Oferty prywatne w portalu komercyjnym firmy Microsoft
 

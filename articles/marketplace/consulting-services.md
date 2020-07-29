@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280957"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 

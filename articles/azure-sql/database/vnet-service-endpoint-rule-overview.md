@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ed9e9e4ec658fc506ad2bd449ee1a49d510503f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081342"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371774"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ Baza danych wielobase jest często używana do ładowania do usługi Azure Synap
 1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę RBAC **współautor danych obiektów blob magazynu** do serwera obsługującego usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD) jak w kroku #1.
 
    > [!NOTE]
-   > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. Aby uzyskać różne wbudowane role dla zasobów platformy Azure, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Połączenie z kontem usługi Azure Storage:**
 

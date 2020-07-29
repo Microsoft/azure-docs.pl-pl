@@ -1,6 +1,5 @@
 ---
-title: Sieć neuronowych — niestandardowe sieci
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): net # Custom neuronowych Networks — Azure'
 description: 'Przewodnik dotyczący składni języka NET # neuronowych Network Specification. Dowiedz się, jak tworzyć niestandardowe modele sieci neuronowych w Azure Machine Learning Studio (klasyczne).'
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92fd68be6f2611b01be7f2b262de53597c452596
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85129521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282572"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Przewodnik dotyczący języka specyfikacji sieci NET # neuronowych dla Azure Machine Learning Studio (klasyczny)
+# <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Przewodnik dotyczący języka specyfikacji sieci NET # neuronowych dla Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 NET # to język opracowany przez firmę Microsoft, który służy do definiowania złożonych architektur sieci neuronowych, takich jak głębokie sieci neuronowych lub convolutions z dowolnych wymiarów. Możesz użyć złożonych struktur, aby zwiększyć uczenie się na danych, takich jak obraz, wideo lub dźwięk.
 
@@ -56,7 +57,7 @@ Ponadto NET # obsługuje cztery następujące rodzaje zaawansowanych pakietów p
 
 ## <a name="supported-customizations"></a>Obsługiwane dostosowania
 
-Architektura modeli sieci neuronowych utworzonych w Azure Machine Learning Studio (klasyczny) może być szeroko dostosowywana przy użyciu usługi net #. Dostępne możliwości:
+Architektura modeli sieci neuronowych utworzonych w Azure Machine Learning Studio (klasyczny) może być szeroko dostosowywana przy użyciu usługi net #. Można:
 
 + Utwórz ukryte warstwy i kontroluj liczbę węzłów w każdej warstwie.
 + Określ, w jaki sposób warstwy mają być połączone ze sobą.
@@ -89,17 +90,17 @@ Na przykład następująca instrukcja definiuje stałą `x` :
 
 `Const X = 28;`
 
-Aby zdefiniować dwie lub więcej stałych jednocześnie, należy ująć nazwy i wartości identyfikatorów w nawiasach klamrowych i oddzielić je średnikami. Przykład:
+Aby zdefiniować dwie lub więcej stałych jednocześnie, należy ująć nazwy i wartości identyfikatorów w nawiasach klamrowych i oddzielić je średnikami. Na przykład:
 
 `Const { X = 28; Y = 4; }`
 
-Prawa strona każdego wyrażenia przypisania może być liczbą całkowitą, liczbą rzeczywistą, wartością logiczną (true lub false) lub wyrażeniem matematycznym. Przykład:
+Prawa strona każdego wyrażenia przypisania może być liczbą całkowitą, liczbą rzeczywistą, wartością logiczną (true lub false) lub wyrażeniem matematycznym. Na przykład:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Deklaracja warstwy
 
-Deklaracja warstwy jest wymagana. Definiuje rozmiar i źródło warstwy, łącznie z pakietami połączeń i atrybutami. Instrukcja deklaracji zaczyna się od nazwy warstwy (dane wejściowe, ukryte lub wyjściowe), po której następuje wymiary warstwy (spójna kolekcja liczb całkowitych). Przykład:
+Deklaracja warstwy jest wymagana. Definiuje rozmiar i źródło warstwy, łącznie z pakietami połączeń i atrybutami. Instrukcja deklaracji zaczyna się od nazwy warstwy (dane wejściowe, ukryte lub wyjściowe), po której następuje wymiary warstwy (spójna kolekcja liczb całkowitych). Na przykład:
 
 ```Net#
 input Data auto;

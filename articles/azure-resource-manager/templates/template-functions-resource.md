@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044957"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372386"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -665,7 +665,7 @@ Właściwość **zarządzane** jest zwracana tylko dla grup zasobów zawierając
 
 ### <a name="remarks"></a>Uwagi
 
-`resourceGroup()`Nie można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+`resourceGroup()`Nie można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
 
 Typowym zastosowaniem funkcji resourceing jest utworzenie zasobów w tej samej lokalizacji co grupa zasobów. Poniższy przykład używa lokalizacji grupy zasobów dla domyślnej wartości parametru.
 
@@ -680,7 +680,7 @@ Typowym zastosowaniem funkcji resourceing jest utworzenie zasobów w tej samej l
 
 Można również użyć funkcji grupy zasobów, aby zastosować do zasobu Tagi ze źródła danych. Aby uzyskać więcej informacji, zobacz [stosowanie tagów z grupy zasobów](../management/tag-resources.md#apply-tags-from-resource-group).
 
-W przypadku użycia szablonów zagnieżdżonych do wdrożenia w wielu grupach zasobów można określić zakres oceniania funkcji ResourceManager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+W przypadku użycia szablonów zagnieżdżonych do wdrożenia w wielu grupach zasobów można określić zakres oceniania funkcji ResourceManager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
 
 ### <a name="resource-group-example"></a>Przykład grupy zasobów
 
@@ -864,10 +864,10 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| sameRGOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String (ciąg) | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subskrypcja
 
@@ -890,7 +890,7 @@ Funkcja zwraca następujący format:
 
 ### <a name="remarks"></a>Uwagi
 
-W przypadku używania szablonów zagnieżdżonych do wdrażania w wielu subskrypcjach można określić zakres oceniania funkcji subskrypcji. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+W przypadku używania szablonów zagnieżdżonych do wdrażania w wielu subskrypcjach można określić zakres oceniania funkcji subskrypcji. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
 
 ### <a name="subscription-example"></a>Przykład subskrypcji
 

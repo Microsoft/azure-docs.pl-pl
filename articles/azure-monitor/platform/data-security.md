@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539350"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319800"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -69,8 +69,8 @@ W poniższej tabeli przedstawiono przykłady typów danych:
 | **Typ danych** | **Pola** |
 | --- | --- |
 | Alerty |Nazwa alertu, opis alertu, identyfikatorze basemanagedentityid, identyfikator problemu, IsMonitorAlert, RuleId, stanu rozpoznania, priorytet, ważność, Kategoria, właściciel, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Konfiguracja |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Zdarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
+| Konfigurowanie |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Wydarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
 | Metadane |Identyfikatorze basemanagedentityid, upewnić, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, networkname, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, adres IP, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Wydajność |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -148,7 +148,7 @@ W przypadku Operations Manager Grupa zarządzania Operations Manager nawiązuje 
 
 Cała komunikacja między połączonymi systemami a usługą Log Analytics jest zaszyfrowana. Protokół TLS (HTTPS) jest używany do szyfrowania.  Proces Microsoft SDL jest używany w celu zapewnienia aktualności Log Analytics z najnowszymi postępami w protokołach kryptograficznych.
 
-Każdy typ agenta zbiera dane dla Log Analytics. Typ zbieranych danych zależy od typów używanych rozwiązań. Możesz zobaczyć podsumowanie zbierania danych w [obszarze dodawanie log Analytics rozwiązań z Galeria rozwiązań](../../azure-monitor/insights/solutions.md). Ponadto w przypadku większości rozwiązań dostępne są bardziej szczegółowe informacje dotyczące zbierania danych. Rozwiązanie to pakiet wstępnie zdefiniowanych widoków, zapytań przeszukiwania dzienników, reguł zbierania danych i logiki przetwarzania. Tylko Administratorzy mogą zaimportować rozwiązanie przy użyciu Log Analytics. Po zaimportowaniu rozwiązania jest ono przenoszone do serwerów zarządzania Operations Manager (jeśli są używane), a następnie do wybranych agentów. Następnie Agenci zbierają dane.
+Każdy typ agenta zbiera dane dla Log Analytics. Typ zbieranych danych zależy od typów używanych rozwiązań. Możesz zobaczyć podsumowanie zbierania danych w [obszarze dodawanie log Analytics rozwiązań z Galeria rozwiązań](../insights/solutions.md). Ponadto w przypadku większości rozwiązań dostępne są bardziej szczegółowe informacje dotyczące zbierania danych. Rozwiązanie to pakiet wstępnie zdefiniowanych widoków, zapytań przeszukiwania dzienników, reguł zbierania danych i logiki przetwarzania. Tylko Administratorzy mogą zaimportować rozwiązanie przy użyciu Log Analytics. Po zaimportowaniu rozwiązania jest ono przenoszone do serwerów zarządzania Operations Manager (jeśli są używane), a następnie do wybranych agentów. Następnie Agenci zbierają dane.
 
 ## <a name="2-send-data-from-agents"></a>2. Wyślij dane z agentów
 Należy zarejestrować wszystkie typy agentów z kluczem rejestracji i nawiązać bezpieczne połączenie między agentem a usługą Log Analytics przy użyciu uwierzytelniania opartego na certyfikatach i protokołu TLS z portem 443. Log Analytics używa magazynu wpisów tajnych do generowania kluczy i zarządzania nimi. Klucze prywatne są obracane co 90 dni i są przechowywane na platformie Azure i zarządzane przez operacje na platformie Azure, które przestrzegają rygorystycznych rozwiązań regulacyjnych i zgodności.
@@ -172,6 +172,7 @@ Okres przechowywania zebranych danych przechowywanych w bazie danych zależy od 
 Aby uzyskać dostęp do obszaru roboczego Log Analytics, zaloguj się do Azure Portal przy użyciu konta organizacyjnego lub konto Microsoft utworzonego wcześniej. Cały ruch między portalem a usługą Log Analytics jest przesyłany za pośrednictwem bezpiecznego kanału HTTPS. W przypadku korzystania z portalu identyfikator sesji jest generowany przez klienta użytkownika (przeglądarki sieci Web), a dane są przechowywane w lokalnej pamięci podręcznej, dopóki sesja nie zostanie zakończona. Po zakończeniu pamięć podręczna zostanie usunięta. Pliki cookie po stronie klienta, które nie zawierają informacji umożliwiających identyfikację użytkownika, nie są automatycznie usuwane. Pliki cookie sesji są oznaczone jako HTTPOnly i są zabezpieczone. Po upływie wstępnie ustalonego okresu bezczynności sesja Azure Portal zostanie zakończona.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+* Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../learn/quick-collect-azurevm.md).  
 
-*  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../../azure-monitor/learn/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../learn/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../learn/quick-collect-windows-computer.md)
+

@@ -169,6 +169,14 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Tworzenie oferty SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Uwierzytelnianie usługi Azure AD dla SaaS
+              items:
+                - name: Azure AD i SaaS — omówienie
+                  href: ./azure-ad-saas.md
+                - name: Strona docelowa dla ofert transakcyjnych
+                  href: ./azure-ad-transactable-saas-landing-page.md
+                - name: Strona docelowa dla ofert bezpłatnych i wersji próbnych
+                  href: ./azure-ad-free-or-trial-landing-page.md
             - name: Interfejsy API realizacji SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:

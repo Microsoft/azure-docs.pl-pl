@@ -9,14 +9,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282385"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion
 Przepływ potwierdzenia elementu "OAuth 2,0 SAML" umożliwia żądanie tokenu dostępu OAuth przy użyciu potwierdzenia SAML, gdy klient musi używać istniejącej relacji zaufania. Sygnatura zastosowana do potwierdzenia SAML zapewnia uwierzytelnianie autoryzowanej aplikacji. Potwierdzenie SAML to token zabezpieczający XML wystawiony przez dostawcę tożsamości i używany przez dostawcę usług. Dostawca usług opiera się na swojej zawartości, aby zidentyfikować podmiot potwierdzenia dla celów związanych z zabezpieczeniami.

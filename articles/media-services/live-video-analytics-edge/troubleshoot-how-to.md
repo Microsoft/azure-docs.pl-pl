@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043192"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285462"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -266,6 +266,9 @@ Zalecamy, aby metody bezpośrednie *nie* były wywoływane równolegle. Wywoływ
 
 Gdy Samodzielne rozwiązywanie problemów nie rozwiąże problemu, przejdź do Azure Portal i [Otwórz bilet pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+> [!WARNING]
+> Dzienniki mogą zawierać dane osobowe, takie jak adres IP. Wszystkie lokalne kopie dzienników zostaną usunięte natychmiast po sprawdzeniu ich i zamknięciu biletu pomocy technicznej.  
+
 Aby zebrać odpowiednie dzienniki, które należy dodać do biletu, postępuj zgodnie z instrukcjami podanymi w następnych sekcjach. Pliki dziennika można przekazać w okienku **szczegółów** żądania obsługi.
 
 ### <a name="use-the-support-bundle-command"></a>Korzystanie z polecenia support-Binding
@@ -309,7 +312,7 @@ Aby skonfigurować usługę Live Video Analytics na IoT Edge module do generowan
 
 1. Wybierz pozycję **Aktualizuj**.
 1. Wybierz pozycję **Recenzja + Utwórz**. Komunikat o pomyślnym sprawdzeniu poprawności jest ogłaszany na zielonym banerze.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zaktualizuj **sznury identyfikacyjne modułu** , aby wskazywały na DebugLogsDirectory parametr, który wskazuje katalog, w którym zbierane są dzienniki:
 
     a. W obszarze tabela **modułów** wybierz pozycję **lvaEdge**.  

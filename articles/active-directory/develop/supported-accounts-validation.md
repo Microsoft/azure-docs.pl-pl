@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058344"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336348"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Różnice dotyczące walidacji według obsługiwanych typów kont (signInAudience)
 
@@ -41,7 +41,7 @@ Zapoznaj się z poniższą tabelą, aby poznać różnice między walidacją ró
 | Identyfikatory URI przekierowania ( `replyURLs` ) | Aby uzyskać więcej informacji [, zobacz ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](reply-url.md) . | | | 
 | Uprawnienia interfejsu API ( `requiredResourceAccess` ) | Bez limitu * | Bez limitu * | Maksymalnie 50 zasobów na aplikację i 30 uprawnień dla każdego zasobu (np. Microsoft Graph). Łączny limit 200 dla aplikacji (uprawnienia x zasobów). | 
 | Zakresy zdefiniowane przez ten interfejs API ( `oauth2Permissions` ) | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów |  Maksymalna długość nazwy zakresu wynosząca 40 znaków <br><br> Zdefiniowano maksymalnie 100 zakresów | 
-| Autoryzowane aplikacje klienckie ( `preautorizedApplications` ) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
+| Autoryzowane aplikacje klienckie ( `preAuthorizedApplications` ) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
 | appRoles | Obsługiwane <br> Bez limitu * | Obsługiwane <br> Bez limitu * | Nieobsługiwane | 
 | Adres URL wylogowywania | http://localhostjest dozwolony <br><br> Maksymalna długość 255 znaków | http://localhostjest dozwolony <br><br> Maksymalna długość 255 znaków | <br><br> https://localhostjest dozwolony, http://localhost kończy się niepowodzeniem dla MSA <br><br> Maksymalna długość 255 znaków <br><br> Schemat HTTP jest niedozwolony <br><br> Symbole wieloznaczne nie są obsługiwane | 
 

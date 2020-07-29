@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+zone_pivot_groups: programming-languages-set-twenty-two
+ms.openlocfilehash: 14f87dff680fb72654d1d3e20fe2f0516f9709aa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585027"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282749"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Korzystanie z kodera-dekoder skompresowanego audio przy użyciu zestawu Speech SDK
 
 Interfejs API **strumienia danych wejściowych audio** usługi Speech Service SDK umożliwia przesyłanie strumieniowe skompresowanego dźwięku do usługi mowy przy użyciu `PullStream` lub `PushStream` .
 
-Przesyłane strumieniowo skompresowane audio wejściowe jest obecnie obsługiwane dla języków C#, C++, Java w systemie Windows (platformy UWP aplikacje nie są obsługiwane) i Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). Jest ona również obsługiwana w przypadku języka Java w systemach Android i C na platformie iOS.
+Przesyłane strumieniowo skompresowane audio wejściowe jest obecnie obsługiwane dla języków C#, C++, Java i Python w systemie Windows (platformy UWP aplikacje nie są obsługiwane) i Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). Jest ona również obsługiwana dla języka Java w systemie Android.
 * Zestaw Speech SDK w wersji 1.10.0 lub nowszej jest wymagany dla RHEL 8 i CentOS 8
 * Dla systemu Windows wymagany jest pakiet Speech SDK w wersji 1.11.0 lub nowszej.
 
@@ -42,8 +42,8 @@ Przesyłane strumieniowo skompresowane audio wejściowe jest obecnie obsługiwan
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Przykładowy kod przy użyciu kodera skompresowanego sygnału audio
@@ -60,8 +60,8 @@ Przesyłane strumieniowo skompresowane audio wejściowe jest obecnie obsługiwan
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki

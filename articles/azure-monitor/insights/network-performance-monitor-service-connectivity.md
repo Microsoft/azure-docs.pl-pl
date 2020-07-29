@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498869"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326107"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
 
@@ -29,7 +29,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
@@ -133,4 +133,5 @@ W przypadku regionu Wirginia dla instytucji rządowych Stanów Zjednoczonych tyl
 | Zespoły firmy Microsoft | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Następne kroki
-[Wyszukaj dzienniki](../../azure-monitor/log-query/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
+[Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
+

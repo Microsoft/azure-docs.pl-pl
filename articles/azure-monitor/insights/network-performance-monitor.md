@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117203"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326090"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
@@ -113,7 +113,7 @@ Network Performance Monitor używa transakcji syntetycznych do monitorowania wyd
 
 ### <a name="configure-the-solution"></a>Skonfiguruj rozwiązanie 
 
-1. Dodaj rozwiązanie Network Performance Monitor do obszaru roboczego z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Można również użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md). 
+1. Dodaj rozwiązanie Network Performance Monitor do obszaru roboczego z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Można również użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md). 
 2. Otwórz obszar roboczy Log Analytics i wybierz kafelek **Przegląd** . 
 3. Wybierz kafelek **Network Performance Monitor** z *rozwiązaniem wiadomości wymaga dodatkowej konfiguracji*.
 
@@ -291,3 +291,4 @@ Informacje o cenach są dostępne w [trybie online](network-performance-monitor-
 
 ## <a name="next-steps"></a>Następne kroki 
 Dowiedz się więcej na temat [monitora wydajności](network-performance-monitor-performance-monitor.md), [monitora łączności usług](network-performance-monitor-performance-monitor.md)i [monitora ExpressRoute](network-performance-monitor-expressroute.md). 
+

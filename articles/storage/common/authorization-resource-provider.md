@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133116"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372301"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
 
@@ -26,7 +26,7 @@ Dostawcy zasobów usługi Azure Storage można używać do wykonywania akcji, ta
 
 Firma Microsoft udostępnia dwa interfejsy API REST do pracy z zasobami usługi Azure Storage. Te interfejsy API stanowią podstawę wszystkich akcji, które można wykonać w odniesieniu do usługi Azure Storage. Interfejs API REST usługi Azure Storage umożliwia korzystanie z danych na koncie magazynu, w tym obiektów blob, kolejek, plików i tabel. Interfejs API REST dostawcy zasobów usługi Azure Storage umożliwia korzystanie z konta magazynu i powiązanych zasobów.
 
-Żądanie, które odczytuje lub zapisuje dane obiektów blob, wymaga innych uprawnień niż żądanie wykonujące operację zarządzania. RBAC zapewnia szczegółową kontrolę nad uprawnieniami do obu typów zasobów. W przypadku przypisywania roli RBAC do podmiotu zabezpieczeń upewnij się, że rozumiesz, jakie uprawnienia mają być przyznane podmiotowi zabezpieczenia. Aby uzyskać szczegółowe informacje dotyczące akcji skojarzonych z każdą wbudowaną rolą RBAC, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
+Żądanie, które odczytuje lub zapisuje dane obiektów blob, wymaga innych uprawnień niż żądanie wykonujące operację zarządzania. RBAC zapewnia szczegółową kontrolę nad uprawnieniami do obu typów zasobów. W przypadku przypisywania roli RBAC do podmiotu zabezpieczeń upewnij się, że rozumiesz, jakie uprawnienia mają być przyznane podmiotowi zabezpieczenia. Aby uzyskać szczegółowe informacje dotyczące akcji skojarzonych z każdą wbudowaną rolą platformy Azure, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 Usługa Azure Storage obsługuje używanie usługi Azure AD do autoryzowania żądań względem obiektów blob i queue storage. Aby uzyskać informacje na temat ról RBAC dla operacji na danych obiektów blob i kolejek, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Active Directory](storage-auth-aad.md).
 

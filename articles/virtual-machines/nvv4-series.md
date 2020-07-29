@@ -5,15 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e12124ee2d87a14c6e7cb1704fbe50c6300c1240
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 3eaaad036403cf8e5285f3345b52be976e381dd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045726"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284748"
 ---
 # <a name="nvv4-series"></a>Seria NVv4 
 
@@ -48,7 +48,7 @@ Aby ręcznie zainstalować sterowniki procesora GPU AMD, zobacz [Instalator ster
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

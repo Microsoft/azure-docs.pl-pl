@@ -2,7 +2,7 @@
 title: Typy roszczeń & tokenów usługi Azure AD
 description: Przewodnik dotyczący interpretacji i oceny oświadczeń w tokenach tokenów sieci Web SAML 2,0 i JSON (JWT) wystawionych przez Azure Active Directory (AAD)
 documentationcenter: na
-author: rwike77
+author: kenwith
 services: active-directory
 manager: CelesteDG
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 06/22/2018
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 27582bf7f06a659a26f67c455cb9e196a9996781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ba97ccc0bc4a1a273873d638ef3f519b91e530
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830336"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284442"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Odwołanie do tokenu SAML usługi Azure AD
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) emituje kilka typów tokenów zabezpieczający
 > |Nazwa | `unique_name` |Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość nie gwarantuje, że jest unikatowa w dzierżawie i jest przeznaczona do użycia tylko w celach wyświetlania. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Identyfikator obiektu | `oid` |Zawiera unikatowy identyfikator obiektu w usłudze Azure AD. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Identyfikator obiektu służy do identyfikowania obiektu w zapytaniach do usługi Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Role | `roles` |Reprezentuje wszystkie role aplikacji, których podmiot został przyznany zarówno bezpośrednio, jak i pośrednio za pośrednictwem członkostwa w grupie i może służyć do wymuszania kontroli dostępu opartej na rolach. Role aplikacji są definiowane dla poszczególnych aplikacji, przez `appRoles` Właściwość manifestu aplikacji. `value`Właściwość każdej roli aplikacji jest wartością, która pojawia się w ramach żądania role. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Podmiot | `sub` |Identyfikuje podmiot zabezpieczeń, w którym token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie może zostać ponownie przypisana ani ponownie użyta, dlatego może być używana do bezpiecznego wykonywania kontroli autoryzacji. Ponieważ podmiot jest zawsze obecny w tokenach, których dotyczy problem z usługą Azure AD, zalecamy użycie tej wartości w systemie autoryzacji ogólnego przeznaczenia. <br> `SubjectConfirmation`nie jest zgłoszeniem. Opisano sposób weryfikacji tematu tokenu. `Bearer`wskazuje, że podmiot został potwierdzony przez ich posiadanie tokenu. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Temat | `sub` |Identyfikuje podmiot zabezpieczeń, w którym token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie może zostać ponownie przypisana ani ponownie użyta, dlatego może być używana do bezpiecznego wykonywania kontroli autoryzacji. Ponieważ podmiot jest zawsze obecny w tokenach, których dotyczy problem z usługą Azure AD, zalecamy użycie tej wartości w systemie autoryzacji ogólnego przeznaczenia. <br> `SubjectConfirmation`nie jest zgłoszeniem. Opisano sposób weryfikacji tematu tokenu. `Bearer`wskazuje, że podmiot został potwierdzony przez ich posiadanie tokenu. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |Identyfikator dzierżawy | `tid` |Niezmienny identyfikator, który nie jest wielokrotnego użytku, który identyfikuje dzierżawcę katalogu, który wystawił token. Możesz użyć tej wartości, aby uzyskać dostęp do zasobów katalogu specyficznych dla dzierżawy w aplikacji wielodostępnej. Na przykład możesz użyć tej wartości, aby zidentyfikować dzierżawcę w wywołaniu interfejs API programu Graph. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Czas życia tokenu | `nbf`, `exp` |Definiuje przedział czasu, przez który token jest prawidłowy. Usługa, która sprawdza poprawność tokenu, powinna sprawdzić, czy bieżąca data jest w okresie istnienia tokenu, w przeciwnym razie należy odrzucić token. Usługa może zezwalać na maksymalnie pięć minut poza zakresem czasu istnienia tokenu, aby uwzględnić różnice w czasie zegara ("pochylenie") między usługą Azure AD i usługami. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

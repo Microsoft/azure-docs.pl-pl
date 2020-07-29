@@ -3,7 +3,7 @@ title: SQL Server Konfigurowanie zawsze włączonych grup dostępności w różn
 description: W tym artykule wyjaśniono, jak skonfigurować grupę dostępności programu SQL Server zawsze włączona na maszynach wirtualnych platformy Azure z repliką w innym regionie.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669311"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284272"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -182,10 +183,10 @@ Aby przetestować łączność odbiornika z regionem zdalnym, można przełączy
 
 Po przetestowaniu łączności należy przenieść replikę podstawową z powrotem do głównego centrum danych i ustawić tryb dostępności z powrotem na normalne ustawienia operacyjne. W poniższej tabeli przedstawiono normalne ustawienia operacyjne dla architektury opisanej w tym dokumencie:
 
-| Lokalizacja | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
+| Location | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
 | ----- | ----- | ----- | ----- | -----
-| Podstawowe centrum danych | SQL — 1 | Podstawowe | Synchroniczny | Automatyczny
-| Podstawowe centrum danych | SQL — 2 | Pomocniczy | Synchroniczny | Automatyczny
+| Podstawowe centrum danych | SQL — 1 | Podstawowe | Synchronous | Automatyczny
+| Podstawowe centrum danych | SQL — 2 | Pomocniczy | Synchronous | Automatyczny
 | Pomocnicze lub zdalne centrum danych | SQL — 3 | Pomocniczy | Asynchroniczny | Ręcznie
 
 

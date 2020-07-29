@@ -3,19 +3,19 @@ title: Szyfruj Źródło aplikacji w stanie spoczynku
 description: Szyfruj dane aplikacji w usłudze Azure Storage i wdróż je jako plik pakietu.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081886"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282334"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Szyfruj dane aplikacji w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta
 
 Szyfrowanie danych aplikacji funkcji w spoczynku wymaga konta usługi Azure Storage i Azure Key Vault. Te usługi są używane podczas uruchamiania aplikacji z pakietu wdrożeniowego.
 
   - [Usługa Azure Storage udostępnia szyfrowanie w stanie spoczynku](../storage/common/storage-service-encryption.md). Możesz użyć kluczy dostarczonych przez system lub własnych, zarządzanych przez klienta kluczy. Jest to miejsce, w którym dane aplikacji są przechowywane, gdy nie są uruchomione w aplikacji funkcji na platformie Azure.
-  - [Uruchamianie z pakietu wdrożeniowego] ((run-functions-from-deployment-package.md) to funkcja wdrażania App Service. Dzięki temu można wdrożyć zawartość witryny na koncie usługi Azure Storage przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
+  - [Uruchamianie z pakietu wdrożeniowego](run-functions-from-deployment-package.md) jest funkcją wdrażania App Service. Dzięki temu można wdrożyć zawartość witryny na koncie usługi Azure Storage przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
   - [Odwołania Key Vault](../app-service/app-service-key-vault-references.md) są funkcją zabezpieczeń App Service. Umożliwia importowanie wpisów tajnych w środowisku uruchomieniowym jako ustawienia aplikacji. Służy do szyfrowania adresu URL sygnatury dostępu współdzielonego konta usługi Azure Storage.
 
 ## <a name="set-up-encryption-at-rest"></a>Konfigurowanie szyfrowania w stanie spoczynku

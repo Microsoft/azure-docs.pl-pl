@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337096"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -213,13 +213,13 @@ Jedną z najważniejszych funkcji IoT Central jest możliwość automatycznego k
 
 Poniższe fragmenty kodu pokazują format dodatkowego ładunku, który urządzenie musi wysłać podczas wywołania rejestracji usługi DPS, aby można było automatycznie skojarzyć skojarzenie.
 
-Jest to format urządzeń korzystających z ogólnie dostępnego zestawu SDK urządzeń, który nie obsługuje Plug and Play IoT:
+Jest to format urządzeń korzystających z ogólnie dostępnego zestawu SDK urządzeń:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Jest to format urządzeń korzystających z zestawu SDK urządzeń w wersji zapoznawczej, który obsługuje Plug and Play IoT:
+Jest to format urządzeń korzystających z zestawu SDK publicznej wersji zapoznawczej:
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ Poniższa tabela zawiera podsumowanie sposobu mapowania funkcji usługi Azure Io
 | Właściwość | Właściwości zgłoszone przez urządzenie |
 | Właściwość (zapisywalny) | Wymagane i zgłoszone właściwości dotyczące sznurka urządzenia |
 | Polecenie | Metody bezpośrednie |
-
-Aby dowiedzieć się więcej o korzystaniu z zestawów SDK urządzeń, zobacz [łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją IoT Central platformy Azure](howto-connect-devkit.md) w celu uzyskania przykładowego kodu.
 
 ### <a name="protocols"></a>Protokoły
 

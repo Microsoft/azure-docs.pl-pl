@@ -5,15 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f9fbaff76b390fe76ed79aeba9fecaa0602e6fbe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ea48eedf03c34e5269e65c70f04b45bd73172cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284765"
 ---
 # <a name="nvv3-series"></a>Seria NVv3
 

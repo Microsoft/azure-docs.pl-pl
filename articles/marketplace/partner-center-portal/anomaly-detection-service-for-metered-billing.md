@@ -4,17 +4,17 @@ description: Opisuje sposób działania wykrywania anomalii, gdy powiadomienia s
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320089"
 ---
-# <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń naliczanych
+# <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń taryfowych
 
 [Usługa pomiarów w portalu Marketplace](marketplace-metering-service-apis-faq.md) umożliwia tworzenie ofert w komercyjnym programie Marketplace, który jest naliczany zgodnie z jednostkami niestandardowymi. Korzystając z naliczanych rozliczeń, możesz wysyłać do firmy Microsoft zdarzenia użycia dotyczące użycia klienta i przygotować rozliczenia na podstawie tego użycia.
 
@@ -58,7 +58,7 @@ Jeśli użytkownik potwierdzi, że wykryte anomalie są normalnym użyciem, nie 
 
 ## <a name="when-and-how-to-get-support"></a>Kiedy i jak uzyskać pomoc techniczną
 
-Jeśli w firmie Microsoft zostało wysłane nieprawidłowe użycie, a to nastąpi naliczenie opłaty od klienta, firma Microsoft nie będzie inicjować rachunku dla klienta w ramach zgłoszonego użycia lub uiszczania tego użycia. Konieczne będzie ponieść utratę przychodu ze względu na raportowanie.
+Jeśli w firmie Microsoft zostało wysłane nieprawidłowe użycie, a to nastąpi naliczenie opłaty od klienta, firma Microsoft nie będzie inicjować rachunku dla klienta w ramach zgłoszonego użycia lub uiszczania tego użycia. Twoim obowiązkiem będzie wyrównanie straty przychodu powstałej z powodu zaniżenia raportowanych wartości.
 
 Jeśli jeden z następujących przypadków ma zastosowanie, możesz otworzyć bilet pomocy technicznej w celu zażądania zwrotu lub korekty rozliczeń dla klientów:
 

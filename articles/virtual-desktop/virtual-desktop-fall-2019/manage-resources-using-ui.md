@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie narzędzia do zarządzania z szablonem Azure Resource Manager — Azure
-description: Jak zainstalować narzędzie interfejsu użytkownika z szablonem Azure Resource Manager w celu zarządzania zasobami pulpitu wirtualnego systemu Windows.
+description: Jak zainstalować narzędzie interfejsu użytkownika z szablonem Azure Resource Manager w celu zarządzania zasobami pulpitu wirtualnego systemu Windows (klasycznym).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514238"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284952"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania przy użyciu szablonu Azure Resource Manager
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu szablonu Azure Resource Manager
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 Instrukcje zawarte w tym artykule przedstawiają sposób wdrażania interfejsu użytkownika przy użyciu szablonu Azure Resource Manager.
 

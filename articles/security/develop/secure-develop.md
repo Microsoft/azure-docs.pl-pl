@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283490"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -62,7 +62,7 @@ Wykonaj tę czynność na serwerze, a nie po stronie klienta (lub na serwerze i 
 
 ### <a name="verify-your-applications-outputs"></a>Weryfikowanie danych wyjściowych aplikacji
 
-Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych*, służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
+Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych*, służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
 
 Ucieczki upewnia się, że wszystkie elementy są wyświetlane jako *dane wyjściowe.* Ucieczki pozwala również interpreterowi wiedzieć, że dane nie są przeznaczone do wykonania i uniemożliwiają one ataki. Jest to inna typowa technika ataków nazywana *skryptami między lokacjami* (XSS).
 

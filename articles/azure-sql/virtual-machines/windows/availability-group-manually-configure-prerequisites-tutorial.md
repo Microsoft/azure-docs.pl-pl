@@ -3,7 +3,7 @@ title: 'Samouczek: wymagania wstępne dla grupy dostępności'
 description: W tym samouczku pokazano, jak skonfigurować wymagania wstępne dotyczące tworzenia grupy dostępności programu SQL Server zawsze włączone na platformie Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284306"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -53,7 +54,7 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
    ![Grupa zasobów](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Wybierz pozycję **Grupa zasobów**.
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 6. W polu **Nazwa grupy zasobów**wpisz nazwę grupy zasobów. Na przykład wpisz **SQL-ha-RG**.
 7. Jeśli masz wiele subskrypcji platformy Azure, sprawdź, czy subskrypcja jest subskrypcją platformy Azure, w której chcesz utworzyć grupę dostępności.
 8. Wybierz lokalizację. Lokalizacja jest regionem świadczenia usługi Azure, w którym chcesz utworzyć grupę dostępności. Ten artykuł kompiluje wszystkie zasoby w jednej lokalizacji platformy Azure.
@@ -98,7 +99,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
 
    W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny.
 
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 
    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -191,11 +192,11 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Grupa zasobów** |SQL-HA — RG |
 | **Lokalizacja** |*Twoja lokalizacja* |
 | **Rozmiar** |DS1_V2 |
-| **Storage** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
+| **Magazyn** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
 | **Sieć wirtualna** |autoHAVNET |
-| **Podsieci** |administrator |
+| **Podsieć** |administrator |
 | **Publiczny adres IP** |*Taka sama nazwa jak maszyna wirtualna* |
-| **Sieciowa Grupa zabezpieczeń** |*Taka sama nazwa jak maszyna wirtualna* |
+| **Sieciowa grupa zabezpieczeń** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Zestaw dostępności** |adavailabilityset </br>**Domeny błędów**: 2 </br>**Domeny aktualizacji**: 2|
 | **Diagnostyka** |Enabled (Włączony) |
 | **Konto magazynu diagnostyki** |*Utworzone automatycznie* |

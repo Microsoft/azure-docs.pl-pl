@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
-ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088006"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281161"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -75,7 +75,7 @@ W przypadku korzystania z Azure Active Directory z replikacją geograficzną adm
 
 Wystąpienie zarządzane SQL wymaga uprawnień do odczytu usługi Azure AD w celu pomyślnego wykonania zadań, takich jak uwierzytelnianie użytkowników za pomocą przynależności do grupy zabezpieczeń lub tworzenie nowych użytkowników. Aby to umożliwić, należy przyznać uprawnienia wystąpienia zarządzanego SQL do odczytu usługi Azure AD. Można to zrobić przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu Azure Portal, zaloguj się jako Administrator globalny/firmowy w usłudze Azure AD i wykonaj następujące kroki:
 
@@ -234,11 +234,9 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 W poniższych dwóch procedurach pokazano, jak udostępnić administratorowi Azure Active Directory serwera w Azure Portal i przy użyciu programu PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) w prawym górnym rogu wybierz swoje połączenia, aby wyświetlić listę rozwijaną możliwych usług Active Directory. Wybierz odpowiednią usługę Active Directory jako domyślną usługę Azure AD. Ten krok łączy Active Directory skojarzone z subskrypcją z serwerem, upewniając się, że ta sama subskrypcja jest używana zarówno w przypadku usługi Azure AD, jak i serwera.
-
-    ! [Wybierz-AD] 0,8
 
 2. Wyszukaj i wybierz pozycję **SQL Server**.
 
@@ -538,8 +536,11 @@ Wskazówki dotyczące rozwiązywania problemów z uwierzytelnianiem za pomocą u
 - Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](https://msdn.microsoft.com/library/ms181127.aspx) (Podmioty zabezpieczeń).
 - Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) (Role bazy danych).
 - Aby uzyskać więcej informacji na temat reguł zapory w usłudze SQL Database, zobacz [Omówienie reguł zapory usługi SQL Database](firewall-configure.md).
+- Aby uzyskać informacje na temat sposobu ustawiania użytkownika gościa usługi Azure AD jako administratora usługi Azure AD, zobacz [Tworzenie użytkowników Gości usługi Azure AD i Ustawianie ich jako administratora usługi Azure AD](authentication-aad-guest-users.md).
+- Aby uzyskać informacje na temat sposobu obsługi jednostek głównych przy użyciu usługi Azure SQL, zobacz [Tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759102"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337079"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń Azure IoT Edge z aplikacją IoT Central platformy Azure
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń usługi Azure IoT Edge z aplikacją usługi Azure IoT Central
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
@@ -57,7 +58,7 @@ Na platformie Azure IoT Central można zaimportować manifest wdrożenia w celu 
 
 ![Schemat blokowy cyklu życia manifestu wdrożenia](./media/concepts-iot-edge/dmflow.png)
 
-Plug and Play IoT (wersja zapoznawcza) modeluje urządzenie IoT Edge w następujący sposób:
+IoT Central modeluje urządzenie IoT Edge w następujący sposób:
 
 * Każdy szablon urządzenia IoT Edge ma model możliwości urządzenia.
 * Dla każdego modułu niestandardowego wymienionego w manifeście wdrożenia jest generowany model możliwości modułu.

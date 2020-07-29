@@ -3,7 +3,7 @@ title: Konfigurowanie odbiorników grup dostępności i modułu równoważenia o
 description: Skonfiguruj odbiorniki grup dostępności w modelu Azure Resource Manager przy użyciu wewnętrznego modułu równoważenia obciążenia z co najmniej jednym adresem IP.
 services: virtual-machines
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f2a2ecb499a88ac8e33b6d281ccde4e5adffebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f9c664623294311b8a5f8e32f572ad4841bb024
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284323"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Skonfiguruj co najmniej jeden odbiornik grupy dostępności — Menedżer zasobów
 
@@ -72,7 +73,7 @@ W przykładach w tym artykule określono moduł równoważenia obciążenia w wa
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Aby utworzyć podstawowy moduł równoważenia obciążenia, Usuń `-sku Standard` z wiersza, który tworzy moduł równoważenia obciążenia. Przykład:
+Aby utworzyć podstawowy moduł równoważenia obciążenia, Usuń `-sku Standard` z wiersza, który tworzy moduł równoważenia obciążenia. Na przykład:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe

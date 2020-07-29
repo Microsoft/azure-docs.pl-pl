@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525946"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284680"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Rozruch maszyny wirtualnej z systemem Linux w usłudze grub
 
@@ -35,7 +35,7 @@ Postępuj zgodnie z poniższą procedurą zaradczą w zależności od otrzymaneg
 * Jeśli zostanie wyświetlony błąd **nieznany system plików**, ten błąd może wynikać z uszkodzenia systemu plików na partycji rozruchowej lub nieprawidłowej konfiguracji jądra.
 
    * W przypadku problemów z systemem plików wykonaj kroki opisane w artykule [odzyskiwanie systemu Linux: nie można przeprowadzić połączenia z maszyną wirtualną z systemem Linux z powodu błędów systemu plików (fsck, węzłów i)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * W przypadku problemów jądra postępuj zgodnie z instrukcjami w artykule [odzyskiwanie systemu Linux: Ręczne rozwiązywanie problemów z rozruchem, związanych z problemami jądra](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems)lub [odzyskiwaniem systemu Linux: Rozwiązywanie problemów z rozruchem z powodu problemów z jądrem za pomocą chroot](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
+   * W przypadku problemów jądra postępuj zgodnie z instrukcjami w artykule [odzyskiwanie systemu Linux: Ręczne rozwiązywanie problemów z rozruchem, związanych z problemami jądra](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)lub [odzyskiwaniem systemu Linux: Rozwiązywanie problemów z rozruchem z powodu problemów z jądrem za pomocą chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Błąd — nie znaleziono pliku
 

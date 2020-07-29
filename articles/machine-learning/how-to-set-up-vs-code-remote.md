@@ -5,16 +5,17 @@ description: Skonfiguruj VS Code zdalnie, aby interaktywnie debugować kod przy 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 07/09/2020
-ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: dfb8dac1b9027acd01b3c13c919d9c3cd8368819
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203456"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320123"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Interaktywna debugowanie w wystąpieniu Azure Machine Learning wystąpienia obliczeniowego za pomocą VS Code zdalnego (wersja zapoznawcza)
 
@@ -91,7 +92,7 @@ Poniżej przedstawiono niektóre szczegóły dotyczące pól:
 |Host|Używaj dowolnych skrótów dla wystąpienia obliczeniowego |
 |HostName|Jest to adres IP wystąpienia obliczeniowego |
 |Port|Jest to port wyświetlany w oknie dialogowym SSH powyżej |
-|User|Musi to być `azureuser` |
+|Użytkownik|Musi to być `azureuser` |
 |IdentityFile|Powinien wskazywać plik, w którym zapisano klucz prywatny |
 
 Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1` . 
