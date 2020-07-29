@@ -3,12 +3,13 @@ title: Monitoruj aplikacje Java działające w dowolnym środowisku — Azure Mo
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku z autonomicznym Agentem Java bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014245"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374307"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurowanie JVM args autonomiczny Agent Java dla Azure Monitor Application Insights
 

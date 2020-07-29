@@ -4,14 +4,15 @@ description: Rozwiązywanie sporadycznych błędów połączeń i związanych z 
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289150"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
@@ -36,6 +37,8 @@ Główną przyczyną tych objawów jest fakt, że wystąpienie aplikacji nie mo�
 Gdy aplikacje lub funkcje szybko otwierają nowe połączenie, mogą szybko wyczerpać wstępnie przydzieloną liczbę portów 128. Są one następnie blokowane do momentu udostępnienia nowego portu protokołu reportowego, poprzez dynamiczne przydzielanie dodatkowych portów lub ponowne użycie odnoszącego się do niego portu. Aplikacje lub funkcje, które są blokowane z powodu niemożności utworzenia nowych połączeń, zostaną uruchomione co najmniej jednego problemu opisanego w sekcji **objawy** tego artykułu.
 
 ## <a name="avoiding-the-problem"></a>Unikanie problemu
+
+Jeśli lokalizacja docelowa to usługa platformy Azure, która obsługuje punkty końcowe usługi, można uniknąć problemów z wyczerpaniem portów z użyciem sieci [wirtualnej](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) i punktów końcowych usługi. W przypadku korzystania z integracji sieci wirtualnej i umieszczania punktów końcowych usługi w podsieci integracji, ruch wychodzący aplikacji do tych usług nie będzie miał ograniczeń portów wychodzących adresów integracyjnych.
 
 Unikanie problemu z portem podłączania adresów sieciowych oznacza uniknięcie tworzenia nowych połączeń wielokrotnie na tym samym hoście i porcie.
 

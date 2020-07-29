@@ -3,16 +3,16 @@ title: Dostarcz potwierdzenie koncepcji — Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak dostarczać weryfikację koncepcji, aby Azure DevTest Labs można było pomyślnie włączyć w środowisku przedsiębiorstwa.
 ms.topic: article
 ms.date: 06/2/2020
-ms.openlocfilehash: b0178d412154de556f25ab71bb30eed7be5e9ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481361"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288026"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Dostarczenie dowodu koncepcji 
 
-Jednym z kluczowych scenariuszy dla Azure DevTest Labs jest włączenie środowisk deweloperskich i testowych w chmurze. Przykłady obejmują:
+Jednym z kluczowych scenariuszy dla Azure DevTest Labs jest włączenie środowisk deweloperskich i testowych w chmurze. Przykłady:
 
 * Tworzenie pulpitów deweloperów w chmurze.
 * Konfigurowanie środowisk do testowania.
@@ -114,8 +114,8 @@ Oczekujemy, że rozwiązanie będzie miało następujące składniki:
 
 Przed udostępnieniem pełnego rozwiązania DevTest Labs należy podjąć pewne ważne decyzje dotyczące planowania i projektowania. Środowisko pracy z weryfikacją koncepcji może ułatwić podejmowanie tych decyzji. Dalsze zagadnienia obejmują: 
 
-* **Topologia subskrypcji**: wymagania poziomu przedsiębiorstwa dla zasobów platformy Azure mogą wykraczać poza [dostępne przydziały w ramach jednej subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Wymaga to wielu subskrypcji platformy Azure i/lub żądań obsługi, aby zwiększyć początkowe limity subskrypcji. Ważne jest, aby podjąć decyzję o sposobie dystrybucji zasobów między subskrypcjami. Jeden cenny zasób to [Przewodnik po decyzji subskrypcji](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) , ponieważ trudno jest przenieść zasoby do innej subskrypcji później. Na przykład nie można przenieść laboratorium do innej subskrypcji po jej utworzeniu.  
-* **Topologia sieci**: [Domyślna infrastruktura sieci](../app-service/networking-features.md) tworzona automatycznie przez usługi DevTest Labs może nie być wystarczająca do spełnienia wymagań i ograniczeń dla użytkowników w przedsiębiorstwie. Często można zobaczyć, jak [usługa Azure ExpressRoute połączone sieci wirtualne](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) w celu łączności między subskrypcjami, a nawet [wymuszone Routing](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) , aby zapewnić tylko łączność lokalną. DevTest Labs umożliwia podłączenie istniejących sieci wirtualnych do laboratorium, aby umożliwić ich używanie podczas tworzenia nowych maszyn wirtualnych w laboratorium. 
+* **Topologia subskrypcji**: wymagania poziomu przedsiębiorstwa dla zasobów platformy Azure mogą wykraczać poza [dostępne przydziały w ramach jednej subskrypcji](../azure-resource-manager/management/azure-subscription-service-limits.md). Wymaga to wielu subskrypcji platformy Azure i/lub żądań obsługi, aby zwiększyć początkowe limity subskrypcji. Ważne jest, aby podjąć decyzję o sposobie dystrybucji zasobów między subskrypcjami. Jeden cenny zasób to [Przewodnik po decyzji subskrypcji](/azure/architecture/cloud-adoption/decision-guides/subscriptions/) , ponieważ trudno jest przenieść zasoby do innej subskrypcji później. Na przykład nie można przenieść laboratorium do innej subskrypcji po jej utworzeniu.  
+* **Topologia sieci**: [Domyślna infrastruktura sieci](../app-service/networking-features.md) tworzona automatycznie przez usługi DevTest Labs może nie być wystarczająca do spełnienia wymagań i ograniczeń dla użytkowników w przedsiębiorstwie. Często można zobaczyć, jak [usługa Azure ExpressRoute połączone sieci wirtualne](/azure/architecture/reference-architectures/hybrid-networking/), [Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) w celu łączności między subskrypcjami, a nawet [wymuszone Routing](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) , aby zapewnić tylko łączność lokalną. DevTest Labs umożliwia podłączenie istniejących sieci wirtualnych do laboratorium, aby umożliwić ich używanie podczas tworzenia nowych maszyn wirtualnych w laboratorium. 
 * **Zdalny dostęp do maszyn wirtualnych**: istnieje wiele opcji zdalnego dostępu do maszyn wirtualnych znajdujących się w DevTest Labs. Najłatwiej jest używać publicznych adresów IP lub udostępnionych publicznych adresów IP. Są to [Ustawienia dostępne w środowisku laboratoryjnym](devtest-lab-shared-ip.md). Jeśli te opcje nie są wystarczające, użycie bramy dostępu zdalnego jest również opcją. Ta opcja jest wyświetlana na [architekturze referencyjnej DevTest Labs Enterprise](devtest-lab-reference-architecture.md) i opisana dokładniej w [dokumentacji bramy usług pulpitu zdalnego DevTest Labs](configure-lab-remote-desktop-gateway.md). Przedsiębiorstwa mogą również używać ExpressRoute lub sieci VPN typu lokacja-lokacja do łączenia ich laboratoriów z siecią lokalną. Ta opcja umożliwia bezpośrednie połączenia pulpitu zdalnego lub SSH z maszynami wirtualnymi na podstawie ich prywatnego adresu IP bez narażania się na Internet. 
 * **Obsługa uprawnień**: dwa kluczowe uprawnienia często używane w DevTest Labs są [użytkownikami właściciela i laboratorium](devtest-lab-add-devtest-user.md). Ważne jest, aby podjąć decyzję przed przeprowadzeniem DevTestych laboratoriów w szerokim stopniu, którzy będą powierzać każdy poziom dostępu w laboratorium. Typowym modelem jest właściciel budżetu (np. lider zespołu) jako właściciel laboratorium i członkowie zespołu jako użytkownicy laboratorium. Ten model umożliwia osobie (liderowi zespołu) odpowiedzialny za budżet na dostosowanie ustawień zasad i utrzymanie zespołu w ramach budżetu.  
 

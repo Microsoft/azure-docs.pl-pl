@@ -4,14 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii NC.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9df68d76c9a06a8391c301fa13b6a0d1ac6529a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd62d7f7c04896a8a62ab1290ddbc9370934d333
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726654"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286244"
 ---
 # <a name="nc-series"></a>Seria NC
 
@@ -48,7 +49,7 @@ W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU fir
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

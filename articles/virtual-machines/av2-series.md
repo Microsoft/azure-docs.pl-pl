@@ -4,15 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii Av2.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085779"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288595"
 ---
 # <a name="av2-series"></a>Seria Av2
 
@@ -28,7 +28,6 @@ Migracja na żywo: obsługiwane
 
 Aktualizacje z zachowaniem pamięci: obsługiwane
 
-Kalkulator cen i informacje o dostępności regionu: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Kalkulator cen</a>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s)
 |---|---|---|---|---|---|---|---|
@@ -51,9 +50,9 @@ Kalkulator cen i informacje o dostępności regionu: <a href="https://azure.micr
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 - [Poprzednie generacje](sizes-previous-gen.md)
 
-Kalkulator cen i informacje o dostępności regionu: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Kalkulator cen</a>
+Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">typy dysków</a>
+Więcej informacji na temat typów dysków: [typy dysków](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Następne kroki
 

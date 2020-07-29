@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 8b35b281f6a70d5485004dc61563271132734a87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276060"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374154"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Szybki Start: korzystanie z programu Synapse Studio (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Możesz tworzyć nowe foldery i przekazywać pliki przy użyciu linków na pasku
 ## <a name="query-files-on-storage-account"></a>Pliki zapytań na koncie magazynu
 
 > [!IMPORTANT]
-> Musisz być członkiem `Storage Blob Reader` roli w magazynie bazowym, aby można było wykonywać zapytania dotyczące plików. Dowiedz się, jak [przypisać do usługi Azure Storage uprawnienia kontroli dostępu do magazynu **danych obiektów BLOB** lub **magazynu obiektów BLOB** ](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+> Musisz być członkiem `Storage Blob Reader` roli w magazynie bazowym, aby można było wykonywać zapytania dotyczące plików. Dowiedz się, jak [przypisać do usługi Azure Storage uprawnienia kontroli dostępu do magazynu **danych obiektów BLOB** lub **magazynu obiektów BLOB** ](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role).
 
 1. Przekaż niektóre `PARQUET` pliki.
 2. Wybierz co najmniej jeden plik, a następnie utwórz nowy skrypt SQL lub Notes Spark, aby zobaczyć zawartość plików. Jeśli chcesz utworzyć Notes, musisz utworzyć [pulę Apache Spark w obszarze roboczym Synapse](quickstart-create-apache-spark-pool-studio.md).
@@ -64,7 +64,7 @@ Możesz tworzyć nowe foldery i przekazywać pliki przy użyciu linków na pasku
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włącz użytkownikom usługi Azure AD wykonywanie zapytań [dotyczących plików, przypisując im uprawnienia kontrola dostępu do **magazynu danych** lub **Magazyn danych obiektów BLOB** w usłudze Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Włącz użytkownikom usługi Azure AD wykonywanie zapytań [dotyczących plików, przypisując im uprawnienia kontrola dostępu do **magazynu danych** lub **Magazyn danych obiektów BLOB** w usłudze Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role)
 - [Wysyłanie zapytań do plików w usłudze Azure Storage przy użyciu programu SQL na żądanie](sql/on-demand-workspace-overview.md)
 - [Tworzenie puli zadań platformy Apache Spark przy użyciu witryny Azure Portal](quickstart-create-apache-spark-pool-portal.md)
 - [Tworzenie raportu Power BI dla plików przechowywanych w usłudze Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

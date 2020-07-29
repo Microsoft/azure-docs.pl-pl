@@ -7,13 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78926054"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374808"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją Java. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
 
@@ -121,7 +122,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Jeśli projekt został utworzony za pomocą narzędzia Maven, ten pakiet powinien być już zadeklarowany. W przeciwnym razie zadeklaruj pakiet teraz. Przykład:
+Jeśli projekt został utworzony za pomocą narzędzia Maven, ten pakiet powinien być już zadeklarowany. W przeciwnym razie zadeklaruj pakiet teraz. Na przykład:
 
 ```java
 package com.bingwebsearch.app

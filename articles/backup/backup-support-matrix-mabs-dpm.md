@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 938fb751de90112dc206779a36b88f95f1d7d508
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289452"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -24,7 +24,7 @@ SERWERA usługi MAB jest oparta na programie System Center DPM i oferuje podobn�
 
 - Do uruchomienia serwera usługi MAB nie jest wymagana żadna licencja programu System Center.
 - W przypadku programów serwera usługi MAB i DPM platforma Azure zapewnia długoterminowe przechowywanie kopii zapasowych. Ponadto program DPM umożliwia tworzenie kopii zapasowych danych w celu przechowywania długoterminowego na taśmie. SERWERA usługi MAB nie zapewnia tej funkcji.
-- Można utworzyć kopię zapasową podstawowego serwera DPM przy użyciu pomocniczego serwera programu DPM. Serwer pomocniczy będzie chronić bazę danych serwera podstawowego i repliki źródła danych przechowywane na serwerze podstawowym. W razie awarii serwera podstawowego serwer pomocniczy może nadal chronić obciążenia chronione przez serwer podstawowy do czasu, aż serwer podstawowy stanie się ponownie dostępny.  SERWERA usługi MAB nie zapewnia tej funkcji.
+- [Można utworzyć kopię zapasową podstawowego serwera DPM przy użyciu pomocniczego serwera programu DPM](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Serwer pomocniczy będzie chronić bazę danych serwera podstawowego i repliki źródła danych przechowywane na serwerze podstawowym. W razie awarii serwera podstawowego serwer pomocniczy może nadal chronić obciążenia chronione przez serwer podstawowy do czasu, aż serwer podstawowy stanie się ponownie dostępny.  SERWERA usługi MAB nie zapewnia tej funkcji.
 
 Pobierasz serwera usługi MAB z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Może być uruchamiany lokalnie lub na maszynie wirtualnej platformy Azure.
 

@@ -5,17 +5,17 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527238"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374103"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
 
@@ -65,7 +65,7 @@ Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK
 | Klucz publiczny SSH dla użytkownika administratora | Klucz publiczny SSH używany do logowania do maszyny wirtualnej — nie może mieć hasła |
 | Subskrypcja | Subskrypcja platformy Azure do wdrożenia klastra |
 | Grupa zasobów | Utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów dla zasobów klastra |
-| Lokalizacja | Region platformy Azure, w którym ma zostać wdrożony klaster |
+| Location | Region platformy Azure, w którym ma zostać wdrożony klaster |
 
    ![Blok podstawy oferty](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -191,7 +191,7 @@ Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Na
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 

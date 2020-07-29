@@ -1,23 +1,23 @@
 ---
-title: Konfigurowanie procesora GPU dla pulpitów wirtualnych systemu Windows 2019 — Azure
-description: Jak włączyć procesor GPU w szybszym wyrenderowaniu i kodowaniu na pulpicie wirtualnym systemu Windows.
+title: Konfigurowanie procesora GPU dla pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Sposób włączania i kodowania procesora GPU w systemie Windows Virtual Desktop (klasyczny).
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e6c8fe95508937604c53d817d60dd637352fb6fa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288686"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Konfigurowanie przyspieszenia procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows 2019
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Konfigurowanie przyspieszenia procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../configure-vm-gpu.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../configure-vm-gpu.md).
 
 Pulpit wirtualny systemu Windows obsługuje renderowanie i kodowanie procesora GPU w celu zwiększenia wydajności i skalowalności aplikacji. Przyspieszenie GPU jest szczególnie istotne dla aplikacji intensywnie korzystających z grafiki.
 

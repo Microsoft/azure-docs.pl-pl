@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a30874a14a1c2c44ec04b17b9ebddb52a9e9fb58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8433242ffe44b8deab62314af386f1a82e2e0017
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020546"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374120"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -54,7 +54,7 @@ Zapoznaj się z artykułem [pliki Parquet zapytania](query-parquet-files.md) , a
 
 ## <a name="query-csv-files"></a>Pliki CSV zapytania
 
-Aby zbadać dane źródłowe Parquet, użyj formatu "CSV". Możesz określić schemat pliku CSV jako część `OPENROWSET` funkcji podczas wykonywania zapytania dotyczącego plików CSV:
+Aby wykonać zapytanie dotyczące danych źródłowych woluminu CSV, użyj formatu "CSV". Możesz określić schemat pliku CSV jako część `OPENROWSET` funkcji podczas wykonywania zapytania dotyczącego plików CSV:
 
 ```sql
 SELECT * FROM
@@ -219,7 +219,7 @@ Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtór
 
 Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danych przy użyciu przykładowych zapytań.
 
-### <a name="tools"></a>Narzędzia
+### <a name="tools"></a>narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
     - Azure Synapse Studio (wersja zapoznawcza)

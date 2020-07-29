@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074335"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374069"
 ---
 # <a name="azure-serial-console"></a>Konsola szeregowa platformy Azure
 
@@ -27,8 +27,7 @@ Konsola szeregowa w Azure Portal zapewnia dostęp do konsoli opartej na tekście
 
 Konsola szeregowa działa w taki sam sposób w przypadku maszyn wirtualnych i wystąpień zestawów skalowania maszyn wirtualnych. W tym dokumencie wszystkie wzmianki dotyczące maszyn wirtualnych będą niejawnie obejmować wystąpienia zestawu skalowania maszyn wirtualnych, chyba że określono inaczej.
 
-> [!NOTE]
-> Konsola szeregowa jest ogólnie dostępna w globalnych regionach platformy Azure i w publicznej wersji zapoznawczej w Azure Government. Nie jest jeszcze dostępna w chmurze platformy Azure w Chinach.
+Konsola szeregowa jest ogólnie dostępna w globalnych regionach platformy Azure i w publicznej wersji zapoznawczej w Azure Government. Nie jest jeszcze dostępna w chmurze platformy Azure w Chinach.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Wymagania wstępne dotyczące uzyskiwania dostępu do konsoli szeregowej platformy Azure
 Aby uzyskać dostęp do konsoli szeregowej na maszynie wirtualnej lub wystąpieniu zestawu skalowania maszyn wirtualnych, potrzebne są następujące elementy:
@@ -36,9 +35,10 @@ Aby uzyskać dostęp do konsoli szeregowej na maszynie wirtualnej lub wystąpien
 - Diagnostyka rozruchu musi być włączona dla maszyny wirtualnej
 - Konto użytkownika, które używa uwierzytelniania hasła, musi istnieć na maszynie wirtualnej. Można utworzyć użytkownika opartego na hasłach za pomocą funkcji [resetowania hasła](../extensions/vmaccess.md#reset-password) rozszerzenia dostępu do maszyny wirtualnej. Wybierz pozycję **zresetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów** .
 - Konto platformy Azure z dostępem do konsoli szeregowej musi mieć [rolę współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) zarówno dla maszyny wirtualnej, jak i konta magazynu [diagnostyki rozruchu](boot-diagnostics.md) .
+- Wdrożenia klasyczne nie są obsługiwane. W maszynie wirtualnej lub wystąpieniu zestawu skalowania maszyn wirtualnych musi być używany Azure Resource Manager model wdrażania.
 
 > [!NOTE]
-> Wdrożenia klasyczne nie są obsługiwane. W maszynie wirtualnej lub wystąpieniu zestawu skalowania maszyn wirtualnych musi być używany Azure Resource Manager model wdrażania.
+> Konsola szeregowa jest obecnie niezgodna z zarządzanym kontem magazynu diagnostyki rozruchu. Aby korzystać z konsoli szeregowej, upewnij się, że korzystasz z niestandardowego konta magazynu.
 
 ## <a name="get-started-with-the-serial-console"></a>Wprowadzenie do konsoli szeregowej
 Konsola szeregowa dla maszyn wirtualnych i zestawu skalowania maszyn wirtualnych jest dostępna tylko za pośrednictwem Azure Portal:

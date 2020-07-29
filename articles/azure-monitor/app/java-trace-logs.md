@@ -3,12 +3,13 @@ title: Eksplorowanie dzienników śledzenia Java na platformie Azure Application
 description: Wyszukaj ślady Log4J lub Logback w Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
-ms.openlocfilehash: 417462da431d8fe2ba878c93c6f4b467bdde2670
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: fca5c9b1bde8429d829ab6113804602c8baa2ebe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324169"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374273"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Eksplorowanie dzienników śledzenia Java w Application Insights
 Jeśli używasz programu Logback lub Log4J (w wersji 1.2 lub 2.0) do śledzenia, dzienniki śledzenia mogą być automatycznie wysyłane do Application Insights, w którym można eksplorować i wyszukiwać.

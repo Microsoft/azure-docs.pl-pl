@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
 ms.date: 01/27/2020
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: ffbb0e4bd2eec3299b4d5b2b38477edf611db1a2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4d4e09bed1350a59848ef6853efe2a301d7357e9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375203"
 ---
 Wprowadzenie do biblioteki klienta Content Moderator dla środowiska Java. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Content Moderator to usługa poznawczej, która sprawdza zawartość tekstu, obrazu i wideo dla materiałów, które są potencjalnie obraźliwe, ryzykowne lub w inny sposób niepożądane. W przypadku znalezienia takich treści usługa stosuje odpowiednie etykiety (flagi) do zawartości. Aplikacja może następnie obsłużyć oflagowaną zawartość w celu zachowania zgodności z przepisami lub zapewnienia odpowiedniego środowiska dla użytkowników.
 
@@ -23,11 +24,11 @@ Użyj biblioteki klienta Content Moderator dla języka Java, aby:
 
 * Umiarkowane obrazy dotyczące zawartości dla dorosłych lub erotycznej, tekstu lub ludzkich twarzy.
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator) artefaktów dokumentacji referencyjnej[(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | 
+[Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable)  |  referencyjna [Artefakt (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator)  |  [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności.
 
@@ -37,10 +38,9 @@ Użyj biblioteki klienta Content Moderator dla języka Java, aby:
 
 Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla Content Moderator przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym. Możesz również wykonać następujące czynności:
 
-* Uzyskaj [klucz wersji próbnej](https://azure.microsoft.com/try/cognitive-services/#decision) ważny przez siedem dni bezpłatnie. Po utworzeniu konta będzie ono dostępne w [witrynie sieci Web systemu Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Wyświetl zasób na [Azure Portal](https://portal.azure.com/).
 
-Po uzyskaniu klucza z subskrypcji próbnej lub zasobu [Utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie `AZURE_CONTENTMODERATOR_KEY`.
+Po uzyskaniu klucza z zasobu [Utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie `AZURE_CONTENTMODERATOR_KEY` .
 
 ### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
 
@@ -111,7 +111,7 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 > [!NOTE]
-> W tym kroku przyjęto założenie, że dla klucza Content Moderator została [utworzona zmienna środowiskowa](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) o nazwie `AZURE_CONTENTMODERATOR_KEY`.
+> W tym kroku przyjęto założenie, że dla klucza Content Moderator została [utworzona zmienna środowiskowa](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) o nazwie `AZURE_CONTENTMODERATOR_KEY` .
 
 W `main` metodzie aplikacji Utwórz obiekt [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) przy użyciu wartości punktu końcowego subskrypcji i zmiennej środowiskowej klucza subskrypcji. 
 
@@ -124,7 +124,7 @@ W `main` metodzie aplikacji Utwórz obiekt [ContentModeratorClient](https://docs
 
 ### <a name="get-images"></a>Pobieranie obrazów
 
-W folderze **src/Main/** folder projektu Utwórz folder **zasobów** i przejdź do niego. Następnie utwórz nowy plik tekstowy, *ImageFiles. txt*. W tym pliku należy dodać adresy URL obrazów do analizowania&mdash;jednego adresu URL w każdym wierszu. Możesz użyć następujących przykładowych obrazów:
+W folderze **src/Main/** folder projektu Utwórz folder **zasobów** i przejdź do niego. Następnie utwórz nowy plik tekstowy *ImageFiles.txt*. W tym pliku należy dodać adresy URL obrazów do analizowania &mdash; jednego adresu URL w każdym wierszu. Możesz użyć następujących przykładowych obrazów:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -139,7 +139,7 @@ Następnie w pliku *ContentModeratorQuickstart. Java* Dodaj następującą defin
 
 ### <a name="iterate-through-images"></a>Wykonaj iterację obrazów
 
-Następnie Dodaj następujący kod na końcu `main` metody. Można też dodać go do oddzielnej metody, która jest wywoływana z `main`. Ten kod jest wykonywany przez każdy wiersz pliku _ImageFiles. txt_ .
+Następnie Dodaj następujący kod na końcu `main` metody. Można też dodać go do oddzielnej metody, która jest wywoływana z `main` . Ten kod jest wykonywany w każdym wierszu pliku _ImageFiles.txt_ .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
 
@@ -164,7 +164,7 @@ Na koniec Zapisz zwrócone informacje na `EvaluationData` liście.
 
 ### <a name="print-results"></a>Drukuj wyniki
 
-Po `while` pętli Dodaj następujący kod, który drukuje wyniki do konsoli programu i do pliku wyjściowego, *src/Main/sources/ModerationOutput. JSON*.
+Po `while` pętli Dodaj następujący kod, który drukuje wyniki do konsoli programu i do pliku wyjściowego, *src/Main/sources/ModerationOutput.json*.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_printdata)]
 
@@ -186,7 +186,7 @@ Uruchom aplikację za pomocą `gradle run` polecenia:
 gradle run
 ```
 
-Następnie przejdź do pliku *src/Main/sources/ModerationOutput. JSON* i Wyświetl wyniki moderowania zawartości.
+Następnie przejdź do pliku *src/Main/sources/ModerationOutput.js* , a następnie Wyświetl wyniki moderowania zawartości.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

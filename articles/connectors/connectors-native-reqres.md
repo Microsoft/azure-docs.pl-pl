@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289432"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -24,7 +24,7 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej
 
 * Odbieraj i odpowiadaj na wywołanie HTTPS z innej aplikacji logiki.
 
-Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](/azure/active-directory/develop/) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](../active-directory/develop/index.yml) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +36,7 @@ Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie]
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-* Wywołania przychodzące obsługują *tylko* Transport Layer Security (TLS) 1,2. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem). Wywołania wychodzące obsługują protokoły TLS 1,0, 1,1 i 1,2 na podstawie możliwości docelowego punktu końcowego.
+* Wywołania przychodzące obsługują *tylko* Transport Layer Security (TLS) 1,2. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](/security/solving-tls1-problem). Wywołania wychodzące obsługują protokoły TLS 1,0, 1,1 i 1,2 na podstawie możliwości docelowego punktu końcowego.
 
 * Wywołania przychodzące obsługują następujące mechanizmy szyfrowania:
 
@@ -287,3 +287,4 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 ## <a name="next-steps"></a>Następne kroki
 
 * [Łączniki dla usługi Logic Apps](../connectors/apis-list.md)
+

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261950"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288161"
 ---
-# <a name="add-a-bar-chart-layer"></a>Dodaj warstwę wykresu słupkowego
+# <a name="add-a-bar-chart-layer"></a>Dodawanie warstwy wykresu słupkowego
 
-**Warstwa wykresu słupkowego** jest przydatna do pobierania danych do następnego wymiaru przez umożliwienie wizualizacji danych lokalizacji jako słupków 3W lub cylindrów na mapie. Podobnie jak w przypadku warstwy bąbelków, wykres słupkowy później może łatwo wizualizować dwie metryki w tym samym czasie, używając koloru i wysokości względnej. Aby słupki miały wysokość, należy dodać miarę do zasobnika **rozmiar** okienka **pola** . Jeśli nie podano miary, słupki bez wysokości jako płaskie kwadraty lub okręgi w zależności od opcji **kształtu paska** .
+**Warstwa wykresu słupkowego** jest przydatna do pobierania danych do następnego wymiaru przez umożliwienie wizualizacji danych lokalizacji jako słupków 3W lub cylindrów na mapie. Podobnie jak w przypadku warstwy bąbelków, wykres słupkowy później może łatwo wizualizować dwie metryki w tym samym czasie, używając koloru i wysokości względnej. Aby słupki miały wysokość, należy dodać miarę do zasobnika **rozmiar** okienka **pola** . Jeśli nie podano miary, słupki bez wysokości są wyświetlane jako płaskie kwadraty lub okręgi w zależności od opcji **kształtu paska** .
 
 > [!div class="mx-imgBorder"]
 > ![Mapa wyświetlająca dane punktu przy użyciu warstwy wykresu słupkowego](media/power-bi-visual/bar-chart-layer-styled.png)
@@ -60,13 +60,13 @@ Poniżej znajdują się wszystkie ustawienia w okienku **Format** , które są d
 Dodaj więcej kontekstu do mapy:
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę referencyjną](power-bi-visual-add-reference-layer.md)
+> [Dodawanie warstwy odwołania](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Dodawanie warstwy kafelków](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Pokaż ruch w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
+> [Pokazywanie ruchu w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
 
 Dostosuj wizualizację:
 

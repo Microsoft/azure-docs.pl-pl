@@ -3,13 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
+ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: e0c2554162d54af6c0a483e26f708838c3045a03
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f83c2078358c7f35c5de45a5ac17d43750457562
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80986247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375521"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,12 +41,12 @@ import java.util.Scanner;
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
-Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
 
 > [!NOTE]
 > Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
 
-Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
+Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) :
 
 * Z subskrypcją: Przekaż klucz i skojarzony region.
 * Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
@@ -65,9 +66,9 @@ public class Program
 
 ## <a name="synthesize-speech-to-a-file"></a>Wyrównać mowę do pliku
 
-Następnie utworzysz [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable) obiekt, który wykonuje konwersje zamiany tekstu na mowę i wyjście na głośniki, pliki lub inne strumienie wyjściowe. [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable) Akceptuje jako params [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) obiekt utworzony w poprzednim kroku oraz [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) obiekt, który określa sposób obsługi wyników.
+Następnie utworzysz [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable) obiekt, który wykonuje konwersje zamiany tekstu na mowę i wyjście na głośniki, pliki lub inne strumienie wyjściowe. [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable)Akceptuje jako params [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) obiekt utworzony w poprzednim kroku oraz [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) obiekt, który określa sposób obsługi wyników.
 
-Aby rozpocząć, Utwórz element `AudioConfig` , aby automatycznie zapisywać dane wyjściowe do `.wav` pliku przy użyciu `fromWavFileOutput()` funkcji statycznej.
+Aby rozpocząć, Utwórz element, `AudioConfig` Aby automatycznie zapisywać dane wyjściowe do `.wav` pliku przy użyciu `fromWavFileOutput()` funkcji statycznej.
 
 ```java
 public static void main(String[] args) {
@@ -88,11 +89,11 @@ public static void main(String[] args) {
 }
 ```
 
-Uruchom program, a `.wav` plik z syntezą jest zapisywana w określonej lokalizacji. Jest to dobry przykład typowego użycia, ale następnym zapoznaj się z tematem dostosowywania danych wyjściowych i obsługi odpowiedzi wyjściowej jako strumienia znajdującego się w pamięci na potrzeby pracy z niestandardowymi scenariuszami.
+Uruchom program, a plik z syntezą `.wav` jest zapisywana w określonej lokalizacji. Jest to dobry przykład typowego użycia, ale następnym zapoznaj się z tematem dostosowywania danych wyjściowych i obsługi odpowiedzi wyjściowej jako strumienia znajdującego się w pamięci na potrzeby pracy z niestandardowymi scenariuszami.
 
 ## <a name="synthesize-to-speaker-output"></a>Synteza danych wyjściowych prezentera
 
-W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu Utwórz wystąpienie `AudioConfig` przy użyciu funkcji `fromDefaultSpeakerOutput()` statycznej. To wyjście do bieżącego aktywnego urządzenia wyjściowego.
+W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu Utwórz wystąpienie `AudioConfig` przy użyciu `fromDefaultSpeakerOutput()` funkcji statycznej. To wyjście do bieżącego aktywnego urządzenia wyjściowego.
 
 ```java
 public static void main(String[] args) {
@@ -115,9 +116,9 @@ W przypadku wielu scenariuszy tworzenia aplikacji mowy potrzebne są wyniki dany
 Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `null` `AudioConfig` w `SpeechSynthesizer` konstruktorze. 
 
 > [!NOTE]
-> W `null` przypadku, `AudioConfig`gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
+> W `null` przypadku `AudioConfig` , gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
 
-Tym razem można zapisać wynik w [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-java-stable) zmiennej. `SpeechSynthesisResult.getAudioData()` Funkcja zwraca `byte []` dane wyjściowe. Możesz korzystać z tego `byte []` ręcznie lub użyć [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) klasy do zarządzania strumieniem znajdującym się w pamięci. W tym przykładzie użyto funkcji `AudioDataStream.fromResult()` statycznej w celu uzyskania strumienia z wyniku.
+Tym razem można zapisać wynik w [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-java-stable) zmiennej. `SpeechSynthesisResult.getAudioData()`Funkcja zwraca `byte []` dane wyjściowe. Możesz korzystać z tego `byte []` ręcznie lub użyć [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) klasy do zarządzania strumieniem znajdującym się w pamięci. W tym przykładzie użyto `AudioDataStream.fromResult()` funkcji statycznej w celu uzyskania strumienia z wyniku.
 
 ```java
 public static void main(String[] args) {
@@ -130,7 +131,7 @@ public static void main(String[] args) {
 }
 ```
 
-W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu obiektu `stream` wyniku.
+W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu `stream` obiektu wyniku.
 
 ## <a name="customize-audio-format"></a>Dostosuj format audio
 
@@ -140,11 +141,11 @@ W poniższej sekcji pokazano, jak dostosować atrybuty wyjściowe audio, w tym:
 * Szybkość próbkowania
 * Bit — Głębokość
 
-Aby zmienić format dźwięku, należy użyć `setSpeechSynthesisOutputFormat()` funkcji dla `SpeechConfig` obiektu. Ta funkcja oczekuje `enum` typu [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable), którego można użyć do wybrania formatu danych wyjściowych. [Listę dostępnych formatów audio](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet) można znaleźć w dokumentacji referencyjnej.
+Aby zmienić format dźwięku, należy użyć `setSpeechSynthesisOutputFormat()` funkcji dla `SpeechConfig` obiektu. Ta funkcja oczekuje `enum` typu [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable) , którego można użyć do wybrania formatu danych wyjściowych. [Listę dostępnych formatów audio](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet) można znaleźć w dokumentacji referencyjnej.
 
-Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją `Raw24Khz16BitMonoPcm` , formaty nieprzetworzone, takie jak nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
+Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją, formaty nieprzetworzone, takie jak `Raw24Khz16BitMonoPcm` nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
 
-W tym przykładzie należy określić format `Riff24Khz16BitMonoPcm` RIFF o wysokiej wierności, ustawiając `SpeechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, należy [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) użyć, aby uzyskać strumień w pamięci wyniku, a następnie zapisać go do pliku.
+W tym przykładzie należy określić format RIFF o wysokiej wierności, `Riff24Khz16BitMonoPcm` ustawiając `SpeechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, należy użyć [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) , aby uzyskać strumień w pamięci wyniku, a następnie zapisać go do pliku.
 
 ```java
 public static void main(String[] args) {
@@ -167,7 +168,7 @@ Ponowne uruchomienie programu spowoduje zapisanie `.wav` pliku w określonej śc
 Język znaczników syntezy mowy (SSML) umożliwia precyzyjne dostosowanie wielkości liter, wymowy, liczby głosu i większej liczby danych wyjściowych zamiany tekstu na mowę przez przesłanie żądań ze schematu XML. W tej sekcji przedstawiono kilka praktycznych przykładów użycia, ale w celu uzyskania bardziej szczegółowego przewodnika zapoznaj się z [artykułem How to SSML](../../../speech-synthesis-markup.md).
 
 Aby rozpocząć korzystanie z SSML do dostosowywania, należy wprowadzić prostą zmianę, która przełącza głos.
-Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml`. Element główny jest zawsze `<speak>`, a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Ten przykład zmienia głos na styk brytyjski (Zjednoczone Królestwo). Należy zauważyć, że ten głos jest **standardowym** głosem, który ma inne ceny i dostępność niż **neuronowych** głosów. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) obsługiwanych głosów **standardowych** .
+Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml` . Element główny jest zawsze `<speak>` , a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Ten przykład zmienia głos na styk brytyjski (Zjednoczone Królestwo). Należy zauważyć, że ten głos jest **standardowym** głosem, który ma inne ceny i dostępność niż **neuronowych** głosów. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) obsługiwanych głosów **standardowych** .
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -177,7 +178,7 @@ Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projek
 </speak>
 ```
 
-Następnie musisz zmienić żądanie syntezy mowy, aby odwołać się do pliku XML. Żądanie jest w większości takie samo, ale zamiast przy użyciu `SpeakText()` funkcji, używasz. `SpeakSsml()` Ta funkcja oczekuje ciągu XML, więc najpierw należy utworzyć funkcję do załadowania pliku XML i zwrócić ją jako ciąg.
+Następnie musisz zmienić żądanie syntezy mowy, aby odwołać się do pliku XML. Żądanie jest w większości takie samo, ale zamiast przy użyciu `SpeakText()` funkcji, używasz `SpeakSsml()` . Ta funkcja oczekuje ciągu XML, więc najpierw należy utworzyć funkcję do załadowania pliku XML i zwrócić ją jako ciąg.
 
 ```java
 private static String xmlToString(String filePath) {
@@ -225,7 +226,7 @@ Dane wyjściowe działają, ale wprowadzono kilka prostych dodatkowych zmian, kt
 
 Głosy neuronowych są algorytmami syntezy mowy obsługiwanymi przez głębokie sieci neuronowych. W przypadku korzystania z głosu neuronowych, synteza mowy jest niemal nieczytelna w odróżnieniu od nagrań ludzkich. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania, gdy użytkownicy współpracują z systemami AI.
 
-Aby przełączyć się na głos neuronowych, Zmień `name` na jedną z [opcji głosu neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Następnie Dodaj przestrzeń nazw XML dla `mstts`i zawiń tekst w `<mstts:express-as>` tagu. Użyj parametru `style` , aby dostosować styl mówiący. Ten przykład używa `cheerful`, ale spróbuje ustawić `customerservice` lub `chat` , aby zobaczyć różnicę w stylu mówiącym.
+Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji głosu neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Następnie Dodaj przestrzeń nazw XML dla `mstts` i zawiń tekst w `<mstts:express-as>` tagu. Użyj `style` parametru, aby dostosować styl mówiący. Ten przykład używa `cheerful` , ale spróbuje ustawić `customerservice` lub, `chat` Aby zobaczyć różnicę w stylu mówiącym.
 
 > [!IMPORTANT]
 > Głosy neuronowych są obsługiwane **tylko** w przypadku zasobów mowy utworzonych w regionach *Wschodnie stany usa*, *Południowe Azja Wschodnia*i *Europa Zachodnia* .

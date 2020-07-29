@@ -4,15 +4,15 @@ description: AzCopy to narzędzie wiersza polecenia, za pomocą którego można 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289232"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -57,7 +57,7 @@ Aby znaleźć szczegółową dokumentację referencyjną dla każdego polecenia 
 > [!NOTE] 
 > Jako właściciel konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych. Przed wprowadzeniem jakichkolwiek istotnych informacji w usłudze AzCopy należy określić sposób dostarczania poświadczeń autoryzacji do usługi magazynu. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Wybierz sposób dostarczania poświadczeń autoryzacji
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Wybór sposobu dostarczania poświadczeń autoryzacji
 
 Poświadczenia autoryzacji można podawać przy użyciu Azure Active Directory (AD) lub tokenu sygnatury dostępu współdzielonego (SAS).
 
@@ -65,9 +65,9 @@ Użyj tej tabeli jako przewodnika:
 
 | Typ magazynu | Obecnie obsługiwana metoda autoryzacji |
 |--|--|
-|**Blob Storage** | Usługa Azure AD & SAS |
-|**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD & SAS |
-|**File Storage** | Tylko SAS |
+|**Blob Storage** | Usługa Azure AD i sygnatura dostępu współdzielonego |
+|**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD i sygnatura dostępu współdzielonego |
+|**File Storage** | Tylko sygnatura dostępu współdzielonego |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opcja 1: Użyj Azure Active Directory
 
@@ -111,7 +111,7 @@ Po sprawdzeniu, czy tożsamość użytkownika ma wymagany poziom autoryzacji, Ot
 azcopy login
 ```
 
-Jeśli użytkownik należy do więcej niż jednej organizacji, Uwzględnij identyfikator dzierżawy organizacji, do której należy konto magazynu.
+Jeśli wystąpi błąd, spróbuj uwzględnić identyfikator dzierżawy organizacji, do której należy konto magazynu.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

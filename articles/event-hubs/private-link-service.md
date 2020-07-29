@@ -3,12 +3,12 @@ title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków pla
 description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512263"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287957"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrowanie Event Hubs platformy Azure z prywatnym łączem platformy Azure
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
@@ -26,9 +26,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 > Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku korzystania z sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
-> - Azure Monitor (ustawienie diagnostyczne)
 > - Usługa Azure Stream Analytics
-> - Integracja z usługą Azure Event Grid
 > - Trasy usługi Azure IoT Hub
 > - Device Explorer usługi Azure IoT
 >
@@ -206,7 +204,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .
@@ -217,7 +215,7 @@ Istnieją cztery Stany aprowizacji:
 2. Wybierz **prywatny punkt końcowy** , który chcesz zatwierdzić
 3. Wybierz przycisk **Zatwierdź** .
 
-    ![Obraz](./media/private-link-service/approve-private-endpoint.png)
+    ![Image (Obraz)](./media/private-link-service/approve-private-endpoint.png)
 4. Na stronie **zatwierdzanie połączenia** Dodaj komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 5. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **zatwierdzone**. 
 
@@ -225,7 +223,7 @@ Istnieją cztery Stany aprowizacji:
 
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk **Odrzuć** .
 
-    ![Obraz](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Image (Obraz)](./media/private-link-service/private-endpoint-reject-button.png)
 2. Na stronie **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 3. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **odrzucony**. 
 

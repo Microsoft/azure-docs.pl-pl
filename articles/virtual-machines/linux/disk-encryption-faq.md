@@ -4,16 +4,16 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0bdc5b9f3d43075cbeba664a5cfb4277c20de57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082549"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374046"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux — często zadawane pytania
 

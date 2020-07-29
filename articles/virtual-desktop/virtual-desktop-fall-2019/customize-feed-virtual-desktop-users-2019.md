@@ -1,6 +1,6 @@
 ---
-title: Dostosowywanie kanału informacyjnego dla pulpitów wirtualnych systemu Windows 2019 użytkowników — Azure
-description: Jak dostosować źródło danych dla użytkowników pulpitu wirtualnego systemu Windows za pomocą poleceń cmdlet programu PowerShell.
+title: Dostosowywanie kanału informacyjnego dla użytkowników pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Jak dostosować źródło danych dla użytkowników pulpitu wirtualnego systemu Windows (klasyczny) za pomocą poleceń cmdlet programu PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288662"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników usługi Windows Virtual Desktop
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników pulpitu wirtualnego systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../customize-feed-for-virtual-desktop-users.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../customize-feed-for-virtual-desktop-users.md).
 
 Możesz dostosować źródło danych, tak aby zasoby usługi RemoteApp i pulpitu zdalnego pojawiały się w rozpoznawanym sposobie dla użytkowników.
 

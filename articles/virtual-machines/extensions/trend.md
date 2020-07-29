@@ -1,25 +1,19 @@
 ---
 title: Instalowanie Trend Micro głębokich zabezpieczeń na maszynie wirtualnej
 description: W tym artykule opisano sposób instalowania i konfigurowania Trend Micro Security na maszynie wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania na platformie Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082682"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288514"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows
 
@@ -88,7 +82,7 @@ Uruchomienie agenta po jego zainstalowaniu może potrwać kilka minut. Po tym ce
 * [Przykładowy skrypt programu Windows PowerShell](https://go.microsoft.com/fwlink/?LinkId=404100) służący do konfigurowania maszyny wirtualnej
 * [Instrukcje](https://go.microsoft.com/fwlink/?LinkId=404099) dotyczące przykładu
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Jak zalogować się do maszyny wirtualnej z systemem Windows Server]
 
 [Rozszerzenia i funkcje maszyny wirtualnej platformy Azure]
@@ -100,4 +94,4 @@ Uruchomienie agenta po jego zainstalowaniu może potrwać kilka minut. Po tym ce
 
 <!-- Link references -->
 [Jak zalogować się do maszyny wirtualnej z systemem Windows Server]:../windows/classic/connect-logon.md
-[Rozszerzenia i funkcje maszyny wirtualnej platformy Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Rozszerzenia i funkcje maszyny wirtualnej platformy Azure]: features-windows.md

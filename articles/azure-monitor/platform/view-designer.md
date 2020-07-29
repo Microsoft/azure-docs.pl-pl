@@ -6,18 +6,28 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505094"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289105"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. W tym artykule przedstawiono omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
 
 > [!IMPORTANT]
-> Widoki w Azure Monitor są wycofywane i zastępowane [skoroszytami](workbooks-overview.md) , które zapewniają dodatkową funkcjonalność. Aby uzyskać szczegółowe informacje na temat konwertowania istniejących widoków do skoroszytów, zobacz [Azure monitor View Designer to skoroszyts Guide](view-designer-conversion-overview.md) .
+> Widoki w Azure Monitor są wycofywane i zastępowane [skoroszytami](workbooks-overview.md) , które zapewniają dodatkową funkcjonalność. Aby uzyskać szczegółowe informacje na temat konwertowania istniejących widoków do skoroszytów, zobacz [Azure monitor View Designer to skoroszyts Guide](view-designer-conversion-overview.md) . W poniższej tabeli przedstawiono kroki, które zostaną wykonane w ciągu następnych kilku miesięcy.
+> 
+> | Zmiana | Co to oznacza | Oczekiwana data |
+> |:---|:---|:---|
+> | Wyłącz tworzenie nowych widoków utworzonych za pomocą projektanta widoków. | Nie będzie już można tworzyć i zapisywać nowych widoków niestandardowych w Azure Portal.| Listopad 2020 |
+> | Wyłącz funkcję Edytuj dla istniejących widoków z projektantem widoku. | Nie będzie już można modyfikować ani zapisywać zmian w istniejących niestandardowych widokach. | Listopad 2020 |
+> | Wyłącz wdrażanie widoków do Log Analytics obszarów roboczych | Nie będzie już można wdrażać widoków niestandardowych przy użyciu usługi ARM do Log Analytics obszarów roboczych. | Marzec 2021 |
+> | Projektant widoków nie jest już dostępny w Azure Portal | Środowisko portalu nie będzie już obsługiwało projektanta widoków. | Czerwiec 2021 |
+> | Niestandardowe widoki usunięte z obszaru roboczego podsumowania | Dostęp do danych widoku niestandardowego nie będzie już możliwy. | Grudzień 2021 |
+ 
+
 
 Aby uzyskać więcej informacji na temat projektanta widoków, zobacz:
 

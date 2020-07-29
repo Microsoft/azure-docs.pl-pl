@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833676"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289088"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,16 +80,16 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Australia Central2   | 20.36.113.0 |
 | Australia Wschodnia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia Południowo-Wschodnia | 191.239.192.109, 13.73.109.251 |
-| Brazylia Południowa         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166      |
-| Środkowe stany USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Chiny Wschodnie           | 139.219.130.35     |
 | Chiny Wschodnie 2         | 40.73.82.1         |
 | Chiny Północne          | 139.219.15.17      |
 | Chiny Północne 2        | 40.73.50.0         |
 | Azja Wschodnia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Wschodnie stany USA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Wschodnie stany USA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | Francja Środkowa       | 40.79.137.0, 40.79.129.1 |
 | Niemcy Środkowe      | 51.4.144.100       |
@@ -97,7 +97,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Indie Środkowe        | 104.211.96.159     |
 | Indie Południowe          | 104.211.224.146    |
 | Indie Zachodnie           | 104.211.160.80     |
-| Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Korea Środkowa        | 52.231.32.42       |
 | Korea Południowa          | 52.231.200.86      |
@@ -107,7 +107,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Norwegia Zachodnia          | 51.120.216.0       |
 | Północna Republika Południowej Afryki   | 102.133.152.0      |
 | Zachodnia Republika Południowej Afryki    | 102.133.24.0       |
-| Południowo-środkowe stany USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
+| South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Azja Południowo-Wschodnia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Szwajcaria Północna    | 51.107.56.0, 51.107.57.0 |
 | Szwajcaria Zachodnia     | 51.107.152.0, 51.107.153.0 |
@@ -116,9 +116,9 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Południowe Zjednoczone Królestwo             | 51.140.184.11      |
 | Zachodnie Zjednoczone Królestwo              | 51.141.8.11        |
 | Zachodnio-środkowe stany USA      | 13.78.145.25       |
-| Europa Zachodnia          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | Zachodnie stany USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8  |
+| Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Następne kroki

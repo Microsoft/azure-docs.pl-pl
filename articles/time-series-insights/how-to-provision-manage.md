@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d067d4a7fff385deea946ffa5475e1eb83548a50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098762"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288813"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Inicjowanie obsługi administracyjnej Azure Time Series Insights Gen2 i zarządzanie nimi
 
@@ -93,7 +93,7 @@ Azure Time Series Insights środowisku Gen2 można zarządzać przy użyciu Azur
 
 * Blok **konfigurowania** Azure Portal jest usuwany, ponieważ jednostki skalowania nie mają zastosowania do Azure Time Series Insights środowisk Gen2. Można jednak użyć **konfiguracji magazynu** w celu skonfigurowania nowo wprowadzonego magazynu w postaci ciepłej.
 
-* Blok **danych referencyjnych** Azure portal został usunięty w Azure Time Series Insights Gen2, ponieważ koncepcja danych referencyjnych została zastąpiona przez [model szeregów czasowych (TSM)](./time-series-insights-update-how-to-tsm.md).
+* Blok **danych referencyjnych** Azure portal został usunięty w Azure Time Series Insights Gen2, ponieważ koncepcja danych referencyjnych została zastąpiona przez [model szeregów czasowych (TSM)](/azure/time-series-insights/concepts-model-overview).
 
 [![Azure Time Series Insights środowisko Gen2 w Azure Portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 

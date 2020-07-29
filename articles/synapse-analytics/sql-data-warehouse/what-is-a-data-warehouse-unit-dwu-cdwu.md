@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210630"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374137"
 ---
 # <a name="data-warehouse-units-dwus"></a>Jednostki magazynu danych (jednostek dwu)
 
@@ -44,7 +44,7 @@ Zwiększanie jednostek dwu:
 - Zwiększa liczbę czytników i autorów dla operacji ładowania bazowego
 - Zwiększa maksymalną liczbę współbieżnych zapytań i miejsc współbieżności.
 
-## <a name="service-level-objective"></a>Cel poziomu usług
+## <a name="service-level-objective"></a>Service Level Objective
 
 Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla Gen2 są mierzone w jednostkach obliczeniowych magazynu danych (cDWU), na przykład DW2000c. Poziomy usługi Gen1 są mierzone w jednostek dwu, na przykład DW2000.
 
@@ -100,7 +100,7 @@ Aby wyświetlić prawdziwe możliwości skalowania, szczególnie w przypadku wi�
 
 Zmiana jednostek magazynu danych wymaga uprawnień opisanych w temacie [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Wbudowane role dla zasobów platformy Azure, takie jak współautor bazy danych SQL i współautor SQL Server, mogą zmieniać ustawienia jednostek dwu.
+Wbudowane role platformy Azure, takie jak współautor bazy danych SQL i współautor SQL Server, mogą zmieniać ustawienia jednostek dwu.
 
 ## <a name="view-current-dwu-settings"></a>Wyświetlanie bieżących ustawień jednostek dwu
 

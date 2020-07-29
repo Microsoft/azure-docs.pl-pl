@@ -1,6 +1,6 @@
 ---
-title: Skalowanie hostów sesji Azure Automation — Azure
-description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu Windows przy użyciu Azure Automation.
+title: Skalowanie hostów sesji Azure Automation Windows Virtual Desktop (klasyczny) — Azure
+description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu Windows (klasycznego) przy użyciu Azure Automation.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172058"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288637"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji pulpitu wirtualnego systemu Windows (klasycznych) przy użyciu Azure Automation
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 Możesz zmniejszyć łączny koszt wdrożenia pulpitu wirtualnego systemu Windows, przeskalując maszyny wirtualne. Oznacza to wyłączenie i cofnięcie przydziału maszyn wirtualnych hosta sesji w godzinach użycia poza szczytem, a następnie włączenie ich z powrotem i ich ponowne przypisanie w godzinach szczytu.
 

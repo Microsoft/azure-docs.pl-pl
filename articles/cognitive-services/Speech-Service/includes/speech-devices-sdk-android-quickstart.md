@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 04c31a12348fe0059bcfd417682647676dbc8948
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637550"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375310"
 ---
 W tym przewodniku szybki start dowiesz się, jak utworzyć produkt z obsługą mowy przy użyciu zestawu Speech Devices SDK dla systemu Android lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) .
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
 
 - Jeśli planujesz używać usługi mowy do identyfikowania intencji (lub działań) z wyrażenia długości użytkownika, będziesz potrzebować subskrypcji [usługi Language Understanding Service (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Aby dowiedzieć się więcej na temat LUIS i rozpoznawania intencji, zobacz [rozpoznawanie mowy w języku Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Można [utworzyć prosty model Luis](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu LUIS, Luis-example. JSON. Przykładowy model LUIS jest dostępny w [witrynie pobierania zestawu SDK urządzeń mowy](https://aka.ms/sdsdk-luis). Aby przekazać plik JSON modelu do [portalu Luis](https://www.luis.ai/home), wybierz pozycję **Importuj nową aplikację**, a następnie wybierz plik JSON.
+  Można [utworzyć prosty model Luis](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu LUIS, LUIS-example.json. Przykładowy model LUIS jest dostępny w [witrynie pobierania zestawu SDK urządzeń mowy](https://aka.ms/sdsdk-luis). Aby przekazać plik JSON modelu do [portalu Luis](https://www.luis.ai/home), wybierz pozycję **Importuj nową aplikację**, a następnie wybierz plik JSON.
 
 - Zainstaluj [Android Studio](https://developer.android.com/studio/) i [Vysor](https://vysor.io/download/) na komputerze.
 
@@ -96,7 +96,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
     Zaktualizuj program **Build. Gradle (module: App)** , dodając ten wiersz do sekcji zależności. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
     ```
     
 1. Dodaj swój klucz subskrypcji mowy do kodu źródłowego. Jeśli chcesz wypróbować funkcję rozpoznawania intencji, Dodaj również klucz subskrypcji [usługi Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) i identyfikator aplikacji.
@@ -124,7 +124,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
    > [!TIP]
    > Możesz również [utworzyć niestandardowe słowo kluczowe](../speech-devices-sdk-create-kws.md).
 
-   Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java` i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" ze słowa kluczowego KWS-Machine. zip:
+   Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java` i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" z pakietu słowa kluczowego kws-machine.zip:
 
    - Skopiuj pakiet słowa kluczowego do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    - Zaktualizuj `MainActivity.java` za pomocą słowa kluczowego i nazwy pakietu:
@@ -177,6 +177,6 @@ Jeśli nie możesz nawiązać połączenia z urządzeniem mowy. Wpisz następuj�
 ```
 
 > [!NOTE]
-> To polecenie używa Android Debug Bridge, `adb.exe` , który jest częścią instalacji Android Studio. To narzędzie znajduje się w \[ nazwie użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb` . W przeciwnym razie należy określić pełną ścieżkę do instalacji programu ADB. exe w każdym poleceniu, które wywołuje `adb` .
+> To polecenie używa Android Debug Bridge, `adb.exe` , który jest częścią instalacji Android Studio. To narzędzie znajduje się w \[ nazwie użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb` . W przeciwnym razie należy określić pełną ścieżkę do instalacji adb.exe w każdym poleceniu, które wywołuje `adb` .
 >
 > Jeśli zobaczysz błąd, `no devices/emulators found` Sprawdź, czy kabel USB jest podłączony, i upewnij się, że jest używany kabel wysokiej jakości.

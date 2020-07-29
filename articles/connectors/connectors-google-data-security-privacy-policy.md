@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194978"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288105"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Zasady zabezpieczeń i ochrony danych dla łączników Google w Azure Logic Apps
 
-Od **1 maja 2020**zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com ), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors).
+Od **1 maja 2020**zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com ), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors).
 
 > [!NOTE]
 > Jeśli aplikacje logiki korzystają z łącznika usługi Gmail z kontem biznesowym usługi G (adres e-mail z domeną niestandardową), nie ma to wpływu na aplikacje logiki ani nie mają ograniczeń dotyczących używania łącznika usługi Gmail.
@@ -62,7 +62,7 @@ Poniżej przedstawiono kilka przykładów użycia łącznika usługi Gmail z wbu
 
   ![Niezgodna aplikacja logiki — przykład 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
-Aby uzyskać najnowsze informacje, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/).
+Aby uzyskać najnowsze informacje, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](/connectors/gmail/).
 
 <a name="update-affected-workflows"></a>
 
@@ -74,11 +74,11 @@ Jeśli musisz używać łącznika usługi Gmail z kontem konsumenta usługi Gmai
 
 1. W łączniku usługi Gmail Użyj wartości identyfikator klienta i klucz tajny klienta z aplikacji klienckiej Google.
 
-Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 ### <a name="create-google-client-app"></a>Tworzenie aplikacji klienckiej Google
 
-Aby skonfigurować projekt dla aplikacji klienckiej, użyj [Kreatora konsoli interfejsu API Google](https://console.developers.google.com/start/api?id=gmail&credential=client_key) i postępuj zgodnie z instrukcjami. Lub, aby uzyskać szczegółowe instrukcje, zapoznaj się z instrukcjami w [dokumentacji Technical Reference łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Aby skonfigurować projekt dla aplikacji klienckiej, użyj [Kreatora konsoli interfejsu API Google](https://console.developers.google.com/start/api?id=gmail&credential=client_key) i postępuj zgodnie z instrukcjami. Lub, aby uzyskać szczegółowe instrukcje, zapoznaj się z instrukcjami w [dokumentacji Technical Reference łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 Gdy skończysz, Twój ekran będzie wyglądać podobnie do tego przykładu, z tą różnicą, że będziesz mieć własny **Identyfikator klienta** i wartości **klucza tajnego klienta** , których później używasz w aplikacji logiki.
 
@@ -102,7 +102,7 @@ Aby użyć identyfikatora klienta i klucza tajnego klienta z aplikacji klienckie
    |----------|-------|-------------|
    | **Typ uwierzytelniania** | **Przenoszenie własnej aplikacji** | Określa, że do uwierzytelniania będzie używana Twoja aplikacja kliencka. |
    | **Identyfikator klienta** | <*Identyfikator klienta*> | Identyfikator klienta z aplikacji klienckiej Google |
-   | **Client Secret (Wpis tajny klienta)** | <*Klient-klucz tajny*> | Wpis tajny klienta z aplikacji klienckiej Google |
+   | **Klucz tajny klienta** | <*Klient-klucz tajny*> | Wpis tajny klienta z aplikacji klienckiej Google |
    ||||
 
 1. Gdy skończysz, wybierz pozycję **Zaloguj**.
@@ -117,4 +117,5 @@ Aby użyć identyfikatora klienta i klucza tajnego klienta z aplikacji klienckie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [łączniku usługi Gmail](https://docs.microsoft.com/connectors/gmail/)
+Dowiedz się więcej o [łączniku usługi Gmail](/connectors/gmail/)
+

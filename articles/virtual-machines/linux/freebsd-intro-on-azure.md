@@ -3,16 +3,16 @@ title: Wprowadzenie do systemu FreeBSD na platformie Azure
 description: Dowiedz się więcej o korzystaniu z maszyn wirtualnych FreeBSD na platformie Azure
 author: thomas1206
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: c7ca47e0fbb9acbac67f2cc9af6e1e7555690046
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2959904029643e5345590bd49f81b231c49771d4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286312"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Wprowadzenie do systemu FreeBSD na platformie Azure
 Ten artykuł zawiera omówienie uruchamiania maszyny wirtualnej FreeBSD na platformie Azure.

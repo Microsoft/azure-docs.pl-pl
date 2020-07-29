@@ -3,12 +3,12 @@ title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | 
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288003"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Korzystanie z punktów końcowych usługi Virtual Network z platformą Azure Event Hubs
 
@@ -25,7 +25,6 @@ Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowia
 >
 > Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
 > - Usługa Azure Stream Analytics
-> - Integracja z usługą Azure Event Grid
 > - Trasy usługi Azure IoT Hub
 > - Device Explorer usługi Azure IoT
 >
@@ -60,7 +59,7 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 2. W menu po lewej stronie wybierz opcję **Sieć** . W przypadku wybrania opcji **wszystkie sieci** centrum zdarzeń akceptuje połączenia z dowolnego adresu IP. To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
     ![Zapora — wybrana opcja Wszystkie sieci](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Aby restrct dostęp do określonych sieci, wybierz opcję **wybrane sieci** w górnej części strony.
+1. Aby ograniczyć dostęp do określonych sieci, wybierz opcję **wybrane sieci** w górnej części strony.
 2. W sekcji **Virtual Network** strony wybierz pozycję * * + Dodaj istniejącą sieć wirtualną * * *. Aby utworzyć nową sieć wirtualną, wybierz pozycję **+ Utwórz nową** . 
 
     ![dodawanie istniejącej sieci wirtualnej](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -85,9 +84,9 @@ Poniższy szablon Menedżer zasobów umożliwia dodanie reguły sieci wirtualnej
 
 Parametry szablonu:
 
-* **przestrzeń nazw**: Event Hubs przestrzeń nazw.
-* **vnetRuleName**: nazwa reguły Virtual Network, która ma zostać utworzona.
-* **virtualNetworkingSubnetId**: w pełni kwalifikowana ścieżka Menedżer zasobów dla podsieci sieci wirtualnej; na przykład `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` dla domyślnej podsieci sieci wirtualnej.
+* `namespaceName`: Event Hubs przestrzeń nazw.
+* `vnetRuleName`: Nazwa reguły Virtual Network, która ma zostać utworzona.
+* `virtualNetworkingSubnetId`: W pełni kwalifikowana ścieżka Menedżer zasobów dla podsieci sieci wirtualnej; na przykład `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` dla domyślnej podsieci sieci wirtualnej.
 
 > [!NOTE]
 > Chociaż nie ma możliwych reguł Odmów, szablon Azure Resource Manager ma ustawioną akcję domyślną **"Zezwalaj"** , która nie ogranicza połączeń.
