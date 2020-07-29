@@ -3,12 +3,12 @@ title: Monitorowanie witryny programu SharePoint za pomocą usługi Application 
 description: Rozpocznij monitorowanie nowej aplikacji przy użyciu nowego klucza instrumentacji
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 392c0e0ee46e8acd540d498cbda1d240611d182e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516893"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326532"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorowanie witryny programu SharePoint za pomocą usługi Application Insights
 
@@ -137,7 +137,8 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Testy sieci Web](../../azure-monitor/app/monitor-web-app-availability.md) do monitorowania dostępności witryny.
-* [Usługa Application Insights](../../azure-monitor/app/app-insights-overview.md) dla innych typów aplikacji.
+* [Testy sieci Web](./monitor-web-app-availability.md) do monitorowania dostępności witryny.
+* [Usługa Application Insights](./app-insights-overview.md) dla innych typów aplikacji.
 
 <!--Link references-->
+

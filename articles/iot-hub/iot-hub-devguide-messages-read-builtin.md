@@ -8,13 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: amqp
-ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327705"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
 
@@ -53,7 +55,7 @@ W portalu pole punkt końcowy zgodny z centrum zdarzeń zawiera pełne parametry
 
 | Nazwa | Wartość |
 | ---- | ----- |
-| Endpoint | sb://abcd1234namespace.servicebus.windows.net/ |
+| Punkt końcowy | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nazwa hosta | abcd1234namespace.servicebus.windows.net |
 | Przestrzeń nazw | abcd1234namespace |
 

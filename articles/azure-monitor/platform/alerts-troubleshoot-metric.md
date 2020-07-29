@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327484"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -108,7 +108,7 @@ Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Zdefiniuj regułę alertu na niestandardową metrykę, która nie jest jeszcze emitowana
 
-Podczas tworzenia reguły alertu metryki Nazwa metryki jest sprawdzana pod kątem [interfejsu API definicji metryk](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) , aby upewnić się, że istnieje. W niektórych przypadkach chcesz utworzyć regułę alertu dla metryki niestandardowej nawet przed emisją. Na przykład podczas tworzenia (przy użyciu szablonu ARM) Application Insights zasobu, który będzie emitować metrykę niestandardową, wraz z regułą alertu, która monitoruje tę metrykę.
+Podczas tworzenia reguły alertu metryki Nazwa metryki jest sprawdzana pod kątem [interfejsu API definicji metryk](/rest/api/monitor/metricdefinitions/list) , aby upewnić się, że istnieje. W niektórych przypadkach chcesz utworzyć regułę alertu dla metryki niestandardowej nawet przed emisją. Na przykład podczas tworzenia (przy użyciu szablonu ARM) Application Insights zasobu, który będzie emitować metrykę niestandardową, wraz z regułą alertu, która monitoruje tę metrykę.
 
 Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji metryk niestandardowych, można użyć parametru *skipMetricValidation* w sekcji kryteria reguły alertu, co spowoduje Pominięcie sprawdzania poprawności metryki. Zapoznaj się z poniższym przykładem, jak używać tego parametru w szablonie ARM (Aby uzyskać pełne przykłady szablonów usługi ARM do tworzenia reguł alertów dotyczących metryk, zobacz [tutaj]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
 
@@ -247,3 +247,4 @@ Na przykład:
 ## <a name="next-steps"></a>Następne kroki
 
 - Ogólne informacje dotyczące rozwiązywania problemów dotyczących alertów i powiadomień znajdują się [w temacie Rozwiązywanie problemów w alertach Azure monitor](alerts-troubleshoot.md).
+

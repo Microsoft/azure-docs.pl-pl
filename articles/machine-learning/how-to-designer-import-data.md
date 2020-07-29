@@ -5,17 +5,17 @@ description: Dowiedz się, jak importować dane do programu Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
-ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207526"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327008"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -23,6 +23,8 @@ W tym artykule dowiesz się, jak zaimportować własne dane do projektanta w cel
 
 * **Azure Machine Learning zestawy danych** — umożliwia rejestrowanie [zestawów danych](concept-data.md#datasets) w programie Azure Machine Learning, aby umożliwić zaawansowane funkcje, które ułatwiają zarządzanie danymi.
 * **Importuj moduł danych** — Użyj modułu [Import danych](algorithm-module-reference/import-data.md) , aby uzyskać bezpośredni dostęp do danych ze źródeł DataSources.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-azure-machine-learning-datasets"></a>Korzystanie z Azure Machine Learning zestawów danych
 

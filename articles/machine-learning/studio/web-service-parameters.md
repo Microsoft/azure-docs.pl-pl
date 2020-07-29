@@ -1,6 +1,5 @@
 ---
-title: Parametry usługi sieci Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): parametry usługi sieci Web — Azure'
 description: Jak używać parametrów usługi sieci Web Azure Machine Learning, aby modyfikować zachowanie modelu podczas uzyskiwania dostępu do usługi sieci Web.
 services: machine-learning
 author: likebupt
@@ -12,13 +11,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3fb4a0dab08a13327c910d1e09ecbf0afcec8c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705869"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326260"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Użyj Azure Machine Learning Studio (klasyczne) parametrów usługi sieci Web
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Usługa sieci Web Azure Machine Learning jest tworzona przez opublikowanie eksperymentu zawierającego moduły z konfigurowalnymi parametrami. W niektórych przypadkach warto zmienić zachowanie modułu, gdy usługa sieci Web jest uruchomiona. *Parametry usługi sieci Web* umożliwiają wykonanie tego zadania. 
 
@@ -52,7 +55,7 @@ Załóżmy na przykład, że mamy eksperyment z modułem [danych eksportu][write
    * W obszarze **Określ typ uwierzytelniania**wybierz pozycję "konto".
    * Wprowadź informacje o koncie dla magazynu obiektów blob platformy Azure. 
 
-3. Kliknij ikonę z prawej strony **ścieżki do obiektu BLOB rozpoczynającego się od parametru kontenera**. Wygląda to w ten sposób:
+3. Kliknij ikonę z prawej strony **ścieżki do obiektu BLOB rozpoczynającego się od parametru kontenera**. Wygląda ona następująco:
    
    ![Ikona parametru usługi sieci Web](./media/web-service-parameters/icon.png)
    

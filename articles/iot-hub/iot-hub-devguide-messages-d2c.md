@@ -8,11 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327722"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych
 
@@ -52,7 +55,7 @@ Możesz użyć standardowej [integracji i zestawów sdk Event Hubs,](iot-hub-dev
 
 Istnieją dwa usługi magazynu IoT Hub mogą kierować wiadomości do kont [usługi Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) i [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Konta Azure Data Lake Storage to [hierarchiczne](../storage/blobs/data-lake-storage-namespace.md)konta magazynu z obsługą nazw oparte na usłudze BLOB Storage. Oba te elementy używają obiektów BLOB dla ich magazynu.
 
-IoT Hub obsługuje zapisywanie danych w usłudze Azure Storage w formacie [Apache Avro](https://avro.apache.org/) oraz w formacie JSON. Wartość domyślna to AVRO. Format kodowania można ustawić tylko w przypadku skonfigurowania punktu końcowego magazynu obiektów BLOB. Nie można edytować formatu dla istniejącego punktu końcowego. W przypadku korzystania z kodowania JSON należy ustawić wartość ContentType na **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](iot-hub-devguide-routing-query-syntax.md#system-properties)komunikatów. W obu tych wartościach jest rozróżniana wielkość liter. Jeśli kodowanie zawartości nie jest ustawione, IoT Hub będzie zapisywać komunikaty w standardowym formacie 64. Można wybrać format kodowania za pomocą IoT Hub tworzenia lub aktualizacji interfejsu API REST, w tym [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)lub [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Na poniższym diagramie przedstawiono sposób wybierania formatu kodowania w Azure Portal.
+IoT Hub obsługuje zapisywanie danych w usłudze Azure Storage w formacie [Apache Avro](https://avro.apache.org/) oraz w formacie JSON. Wartość domyślna to AVRO. Format kodowania można ustawić tylko w przypadku skonfigurowania punktu końcowego magazynu obiektów BLOB. Nie można edytować formatu dla istniejącego punktu końcowego. W przypadku korzystania z kodowania JSON należy ustawić wartość ContentType na **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](iot-hub-devguide-routing-query-syntax.md#system-properties)komunikatów. W obu tych wartościach jest rozróżniana wielkość liter. Jeśli kodowanie zawartości nie jest ustawione, IoT Hub będzie zapisywać komunikaty w standardowym formacie 64. Można wybrać format kodowania za pomocą IoT Hub tworzenia lub aktualizacji interfejsu API REST, w tym [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)lub [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Na poniższym diagramie przedstawiono sposób wybierania formatu kodowania w Azure Portal.
 
 ![Kodowanie punktu końcowego magazynu obiektów BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505605"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327501"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
 
@@ -77,8 +77,8 @@ Termin **alert dziennika** zawiera informacje o alertach, w których są ocenian
 1. Wybierz **częstotliwość uruchamiania alertu.** 
 
     **Alerty dzienników** mogą opierać się na:
-    - [Liczba rekordów](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): tworzony jest alert, jeśli liczba rekordów zwróconych przez zapytanie jest większa lub mniejsza od podanej wartości.
-    - [Pomiar metryki](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): tworzony jest alert, jeśli każda *wartość zagregowana* w wynikach przekroczy podaną wartość progową i zostanie *pogrupowana według* wybranej wartości. Liczba naruszeń alertu to liczba przypadków przekroczenia progu w wybranym okresie. Możesz określić całkowite naruszenia dla każdej kombinacji naruszeń w zestawie wyników lub kolejne naruszenia, aby wymagać, aby naruszenia mogły wystąpić w kolejnych próbkach.
+    - [Liczba rekordów](./alerts-unified-log.md#number-of-results-alert-rules): tworzony jest alert, jeśli liczba rekordów zwróconych przez zapytanie jest większa lub mniejsza od podanej wartości.
+    - [Pomiar metryki](./alerts-unified-log.md#metric-measurement-alert-rules): tworzony jest alert, jeśli każda *wartość zagregowana* w wynikach przekroczy podaną wartość progową i zostanie *pogrupowana według* wybranej wartości. Liczba naruszeń alertu to liczba przypadków przekroczenia progu w wybranym okresie. Możesz określić całkowite naruszenia dla każdej kombinacji naruszeń w zestawie wyników lub kolejne naruszenia, aby wymagać, aby naruszenia mogły wystąpić w kolejnych próbkach.
 
 
 1. Kliknij pozycję **Gotowe**. 
@@ -100,7 +100,7 @@ Termin **alert dziennika** zawiera informacje o alertach, w których są ocenian
     Dostępne są pewne dodatkowe funkcje, które przesłonią domyślne akcje:
 
     - **Powiadomienie e-mail**: zastępuje *temat wiadomości e-mail* w wiadomości E-mail wysyłanej przez grupę akcji. Nie można zmodyfikować treści poczty, a to pole **nie** jest przeznaczone dla adresu e-mail.
-    - **Uwzględnij niestandardowy ładunek JSON**: przesłania kod JSON elementu webhook używany przez grupy akcji, przy założeniu, że grupa akcji zawiera typ elementu webhook. Aby uzyskać więcej informacji na temat formatów elementu webhook, zobacz [Akcja elementu webhook dla alertów dziennika](../../azure-monitor/platform/alerts-log-webhook.md). Wyświetl opcję elementu webhook w celu sprawdzenia formatu przy użyciu przykładowych danych JSON.
+    - **Uwzględnij niestandardowy ładunek JSON**: przesłania kod JSON elementu webhook używany przez grupy akcji, przy założeniu, że grupa akcji zawiera typ elementu webhook. Aby uzyskać więcej informacji na temat formatów elementu webhook, zobacz [Akcja elementu webhook dla alertów dziennika](./alerts-log-webhook.md). Wyświetl opcję elementu webhook w celu sprawdzenia formatu przy użyciu przykładowych danych JSON.
 
         ![Zastąpienia akcji dla alertów dziennika](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ Przykładowy kod JSON można zapisać jako (Powiedz) sampleScheduledQueryRule.js
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Rejestruj alert za pomocą zapytania między zasobami przy użyciu szablonu zasobów platformy Azure
 
-Poniżej znajduje się struktura szablonów zasobów opartych na [tworzeniu zaplanowanych reguł zapytania](/rest/api/monitor/scheduledqueryrules/createorupdate) przy użyciu [kwerendy przeszukiwania dzienników wielu zasobów](../../azure-monitor/log-query/cross-workspace-query.md) [, z przykładowymi](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)danymi ustawionymi jako zmienne.
+Poniżej znajduje się struktura szablonów zasobów opartych na [tworzeniu zaplanowanych reguł zapytania](/rest/api/monitor/scheduledqueryrules/createorupdate) przy użyciu [kwerendy przeszukiwania dzienników wielu zasobów](../log-query/cross-workspace-query.md) [, z przykładowymi](./alerts-unified-log.md#metric-measurement-alert-rules)danymi ustawionymi jako zmienne.
 
 ```json
 
@@ -319,7 +319,7 @@ Azure Monitor — [interfejs API reguł zaplanowanych zapytań](/rest/api/monito
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : polecenie cmdlet programu PowerShell służące do tworzenia lub aktualizowania obiektu określającego parametry akcji dla alertu dziennika. Używane jako dane wejściowe za pomocą polecenia cmdlet [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) i [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : polecenie cmdlet programu PowerShell służące do tworzenia lub aktualizowania obiektu określającego parametry grup akcji dla alertu dziennika. Używane jako dane wejściowe przez polecenie cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : polecenie cmdlet programu PowerShell służące do tworzenia lub aktualizowania obiektu określającego parametry warunku wyzwalacza dla alertu dziennika. Używane jako dane wejściowe przez polecenie cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : polecenie cmdlet programu PowerShell służące do tworzenia lub aktualizowania obiektu określającego parametry warunku wyzwalacza metryki dla [alertu dziennika typu pomiaru metryki](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Używane jako dane wejściowe przez polecenie cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : polecenie cmdlet programu PowerShell służące do tworzenia lub aktualizowania obiektu określającego parametry warunku wyzwalacza metryki dla [alertu dziennika typu pomiaru metryki](./alerts-unified-log.md#metric-measurement-alert-rules). Używane jako dane wejściowe przez polecenie cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : polecenie cmdlet programu PowerShell, aby wyświetlić listę istniejących reguł alertów dziennika lub konkretnej reguły alertu dziennika
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : polecenie cmdlet programu PowerShell do włączania lub wyłączania reguły alertów dziennika
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): polecenie cmdlet programu PowerShell, aby usunąć istniejącą regułę alertu dziennika
@@ -363,7 +363,8 @@ Po pomyślnym wykonaniu operacji 201 zostanie zwrócona wartość stanu Nowa reg
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje o [alertach dzienników w usłudze Azure alertach](../../azure-monitor/platform/alerts-unified-log.md)
-* Informacje [o akcjach elementu webhook dla alertów dziennika](../../azure-monitor/platform/alerts-log-webhook.md)
+* Informacje o [alertach dzienników w usłudze Azure alertach](./alerts-unified-log.md)
+* Informacje [o akcjach elementu webhook dla alertów dziennika](./alerts-log-webhook.md)
 * Dowiedz się więcej o [Application Insights](../log-query/log-query-overview.md)
 * Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).
+

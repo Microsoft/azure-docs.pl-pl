@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325971"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Włącz Azure Monitor dla maszyn wirtualnych środowiska hybrydowego
 
@@ -24,7 +24,7 @@ Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](vminsights
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../../azure-monitor/platform/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
+>Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../platform/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
 
 Kroki umożliwiające wykonanie tego zadania są podsumowane w następujący sposób:
 
@@ -79,7 +79,7 @@ Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, 
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| Files | Lokalizacja |
+| Pliki | Location |
 |:--|:--|
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>Włącz liczniki wydajności
 
 Jeśli obszar roboczy Log Analytics, do którego odwołuje się rozwiązanie, nie jest już skonfigurowany do zbierania liczników wydajności wymaganych przez rozwiązanie, należy je włączyć. Można to zrobić na jeden z dwóch sposobów:
-* Ręczne, zgodnie z opisem w temacie [źródła danych wydajności systemu Windows i Linux w log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Ręczne, zgodnie z opisem w temacie [źródła danych wydajności systemu Windows i Linux w log Analytics](../platform/data-sources-performance-counters.md)
 * Pobierając i uruchamiając skrypt programu PowerShell, który jest dostępny z [galerii Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Wdróż Azure Monitor dla maszyn wirtualnych
@@ -259,3 +259,4 @@ Po włączeniu monitorowania dla maszyn wirtualnych te informacje są dostępne 
 - Aby wyświetlić odnalezione zależności aplikacji, zobacz [view Azure monitor dla maszyn wirtualnych map](vminsights-maps.md).
 
 - Aby identyfikować wąskie gardła i ogólne wykorzystanie z wydajnością maszyny wirtualnej, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md).
+

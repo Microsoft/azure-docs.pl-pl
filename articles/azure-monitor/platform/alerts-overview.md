@@ -4,12 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539571"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327127"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -52,11 +52,11 @@ Poniżej przedstawiono kluczowe atrybuty reguły alertu:
 - Ważność 3 = informacyjny
 - Ważność 4 = pełne 
 
-**Akcja**: określona Akcja podejmowana po wyzwoleniu alertu. Aby uzyskać więcej informacji, zobacz [grupy akcji](../../azure-monitor/platform/action-groups.md).
+**Akcja**: określona Akcja podejmowana po wyzwoleniu alertu. Aby uzyskać więcej informacji, zobacz [grupy akcji](./action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Co można ostrzec
 
-Można generować alerty dotyczące metryk i dzienników, zgodnie z opisem w temacie [monitorowanie źródeł danych](../../azure-monitor/platform/data-sources.md). Są to między innymi następujące kwestie:
+Można generować alerty dotyczące metryk i dzienników, zgodnie z opisem w temacie [monitorowanie źródeł danych](./data-sources.md). Są to między innymi następujące kwestie:
 
 - Wartości metryk
 - Zapytania przeszukiwania dzienników
@@ -69,7 +69,7 @@ Wcześniej Azure Monitor metryki, Application Insights, Log Analytics i Service 
 | **Źródło monitora** | **Typ sygnału**  | **Opis** |
 |-------------|----------------|-------------|
 | Kondycja usługi | Dziennik aktywności  | Nieobsługiwane. Zobacz [tworzenie alertów dziennika aktywności dla powiadomień dotyczących usług](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Testy dostępności sieci Web | Nieobsługiwane. Zobacz [alerty testu sieci Web](../../azure-monitor/app/monitor-web-app-availability.md). Dostępne dla każdej witryny sieci Web, która jest Instrumentacją do wysyłania danych do Application Insights. Otrzymuj powiadomienie, gdy dostępność lub czas odpowiedzi witryny sieci Web jest poniżej oczekiwań. |
+| Application Insights | Testy dostępności sieci Web | Nieobsługiwane. Zobacz [alerty testu sieci Web](../app/monitor-web-app-availability.md). Dostępne dla każdej witryny sieci Web, która jest Instrumentacją do wysyłania danych do Application Insights. Otrzymuj powiadomienie, gdy dostępność lub czas odpowiedzi witryny sieci Web jest poniżej oczekiwań. |
 
 ## <a name="manage-alerts"></a>Zarządzanie alertami
 Można ustawić stan alertu, aby określić, gdzie znajduje się w procesie rozwiązywania. Po spełnieniu kryteriów określonych w regule alertu jest tworzony lub uruchamiany alert, który ma stan *Nowy*. Stan można zmienić po potwierdzeniu alertu i po jego zamknięciu. Wszystkie zmiany stanu są przechowywane w historii alertu.
@@ -80,7 +80,7 @@ Obsługiwane są następujące stany alertów.
 |:---|:---|
 | Nowy | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
 | Potwierdzony | Administrator sprawdził alert i rozpoczął jego pracę. |
-| Zamknięty | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
+| Zamknięte | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
 
 *Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiany na wartość *wyzwolone*. Gdy podstawowy warunek, który spowodował wyczyszczenie alertu, zostanie ustawiony jako *rozwiązany*. Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](https://aka.ms/managing-alert-smart-group-states).
 
@@ -137,9 +137,9 @@ Oto jak utworzyć nową regułę alertu:
  
 Ten uproszczony proces tworzenia nie wymaga już znajomości źródła monitorowania lub sygnałów, które są obsługiwane przed wybraniem zasobów platformy Azure. Lista dostępnych sygnałów jest automatycznie filtrowana na podstawie wybranych zasobów docelowych. W oparciu o ten obiekt docelowy jest przeprowadzana automatyczna Definiowanie logiki reguły alertu.  
 
-Więcej informacji o sposobie tworzenia reguł alertów można znaleźć w temacie [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+Więcej informacji o sposobie tworzenia reguł alertów można znaleźć w temacie [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](./alerts-metric.md).
 
-Alerty są dostępne w ramach kilku usług monitorowania platformy Azure. Informacje o tym, jak i kiedy należy używać poszczególnych usług, można znaleźć w temacie [monitorowanie aplikacji i zasobów platformy Azure](../../azure-monitor/overview.md). 
+Alerty są dostępne w ramach kilku usług monitorowania platformy Azure. Informacje o tym, jak i kiedy należy używać poszczególnych usług, można znaleźć w temacie [monitorowanie aplikacji i zasobów platformy Azure](../overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Strona wszystkie alerty 
@@ -208,7 +208,8 @@ Użyj [interfejsu API REST alert Management](https://aka.ms/alert-management-api
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups)
-- [Więcej informacji na temat grup akcji](../../azure-monitor/platform/action-groups.md)
+- [Więcej informacji na temat grup akcji](./action-groups.md)
 - [Zarządzanie wystąpieniami alertów na platformie Azure](https://aka.ms/managing-alert-instances)
 - [Zarządzanie grupami inteligentnymi](https://aka.ms/managing-smart-groups)
 - [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)
+

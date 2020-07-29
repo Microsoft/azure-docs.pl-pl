@@ -7,12 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: robinsh
-ms.custom: amqp
-ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+- 'Role: Technical Support'
+ms.openlocfilehash: 140bbc698db773f851cf03d80e8e51be9c2a21c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792046"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327552"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów
 

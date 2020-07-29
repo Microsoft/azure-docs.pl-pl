@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049544"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325614"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
 
@@ -32,7 +32,7 @@ W poniższej tabeli wymieniono różne sposoby używania danych metryk w Azure M
 |  | Opis |
 |:---|:---|
 | **Analiza** | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
-| **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
+| **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](./workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | **Alert** | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
 | **Automatyzacja** |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
 | **Eksportowanie** | [Kierowanie metryk do dzienników](./resource-logs.md#send-to-azure-storage) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
@@ -89,7 +89,7 @@ Istnieją trzy podstawowe źródła metryk zbieranych przez Azure Monitor. Po ze
 
 **Metryki platformy** są tworzone przez zasoby platformy Azure i zapewniają wgląd w ich kondycję i wydajność. Każdy typ zasobu tworzy [odrębny zestaw metryk](metrics-supported.md) , nie wymaga żadnej konfiguracji. Metryki platformy są zbierane z zasobów platformy Azure w częstotliwości jednej minuty, chyba że określono inaczej w definicji metryki. 
 
-**Metryki systemu operacyjnego gościa** są zbierane z systemu operacyjnego gościa maszyny wirtualnej. Włącz metryki systemu operacyjnego gościa dla maszyn wirtualnych z systemem Windows z [rozszerzeniem diagnostyki systemu Windows (funkcji wad)](../platform/diagnostics-extension-overview.md) i maszyn wirtualnych z systemem Linux przy użyciu [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
+**Metryki systemu operacyjnego gościa** są zbierane z systemu operacyjnego gościa maszyny wirtualnej. Włącz metryki systemu operacyjnego gościa dla maszyn wirtualnych z systemem Windows z [rozszerzeniem diagnostyki systemu Windows (funkcji wad)](./diagnostics-extension-overview.md) i maszyn wirtualnych z systemem Linux przy użyciu [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
 
 **Metryki aplikacji** są tworzone przez Application Insights dla monitorowanych aplikacji i pomagają wykrywać problemy z wydajnością oraz śledzić trendy w sposobie używania aplikacji. Obejmuje to takie wartości jak _czas odpowiedzi serwera_ i _wyjątki przeglądarki_.
 
@@ -99,7 +99,7 @@ Istnieją trzy podstawowe źródła metryk zbieranych przez Azure Monitor. Po ze
 W przypadku większości zasobów na platformie Azure metryki są przechowywane przez 93 dni. Istnieją pewne wyjątki:
 
 **Metryki systemu operacyjnego gościa**
--   **Metryki klasycznych systemów operacyjnych gościa**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](../platform/diagnostics-extension-overview.md) lub [rozszerzenie diagnostyki Linux (lad)](../../virtual-machines/extensions/diagnostics-linux.md) i kierowane do konta usługi Azure Storage. Przechowywanie tych metryk wynosi 14 dni.
+-   **Metryki klasycznych systemów operacyjnych gościa**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](./diagnostics-extension-overview.md) lub [rozszerzenie diagnostyki Linux (lad)](../../virtual-machines/extensions/diagnostics-linux.md) i kierowane do konta usługi Azure Storage. Przechowywanie tych metryk wynosi 14 dni.
 -   **Metryki systemu operacyjnego gościa wysyłane do metryk Azure monitor**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](diagnostics-extension-overview.md) i wysyłane do [ujścia danych Azure monitor](diagnostics-extension-overview.md#data-destinations)lub za pośrednictwem [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/) na maszynach z systemem Linux. Przechowywanie tych metryk to 93 dni.
 -   **Metryki systemu operacyjnego gościa zebrane przez agenta log Analytics**. Są to liczniki wydajności zbierane przez agenta Log Analytics i wysyłane do Log Analytics obszaru roboczego. Przechowywanie tych metryk wynosi 31 dni i można je przedłużyć do 2 lat.
 
@@ -119,3 +119,4 @@ W przypadku większości zasobów na platformie Azure metryki są przechowywane 
 - Dowiedz się więcej o [platformie danych Azure monitor](data-platform.md).
 - Dowiedz się więcej o [danych dziennika w Azure monitor](data-platform-logs.md).
 - Poznaj [dane monitorowania dostępne](data-sources.md) dla różnych zasobów na platformie Azure.
+

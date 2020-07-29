@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105930"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327892"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
 Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze roboczym log Analytics. Obszar roboczy to kontener zawierający dane i informacje o konfiguracji. Aby zarządzać dostępem do danych dziennika, należy wykonać różne zadania administracyjne związane z obszarem roboczym.
 
@@ -300,7 +300,7 @@ Alternatywnym podejściem do zarządzania dostępem do dzienników niestandardow
 
 Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośrednio skojarzone z określonym zasobem. W takim przypadku należy utworzyć grupę zasobów tylko w celu zarządzania dostępem do tych dzienników. Grupa zasobów nie wiąże się z żadnym kosztem, ale zapewnia prawidłowy identyfikator zasobu do kontrolowania dostępu do dzienników niestandardowych. Na przykład jeśli określona Zapora wysyła dzienniki niestandardowe, Utwórz grupę zasobów o nazwie "MyFireWallLogs" i upewnij się, że żądania interfejsu API zawierają identyfikator zasobu "MyFireWallLogs". Rekordy dziennika zapory są następnie dostępne tylko dla użytkowników, którym udzielono dostępu do MyFireWallLogs lub z pełnymi prawami dostępu do obszaru roboczego.          
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Jeśli użytkownik otrzymuje globalne uprawnienie do odczytu ze standardowym czytnikiem lub rolą współautor, które zawiera akcję _ \* /Read_ , zastąpi kontrolę dostępu do tabeli i przekaże im dostęp do wszystkich danych dziennika.
 * Jeśli użytkownik uzyska dostęp do tabeli, ale nie ma żadnych innych uprawnień, może uzyskać dostęp do danych dziennika z interfejsu API, ale nie z Azure Portal. Aby zapewnić dostęp z Azure Portal, Użyj czytnika Log Analytics jako roli podstawowej.
@@ -310,6 +310,7 @@ Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Omówienie agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md) , aby zebrać dane z komputerów w centrum danych lub w innym środowisku chmury.
+* Zobacz [Omówienie agenta log Analytics](./log-analytics-agent.md) , aby zebrać dane z komputerów w centrum danych lub w innym środowisku chmury.
 
-* Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md) .
+* Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../learn/quick-collect-azurevm.md) .
+

@@ -5,17 +5,17 @@ description: Dowiedz się, jak utworzyć nowy obszar roboczy Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: db0b87787e34796e9dd7c91d6e4b53738145a25a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031120"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326379"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -39,7 +39,7 @@ Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalog
 Ten szablon umożliwia utworzenie następujących usług platformy Azure:
 
 * Konto usługi Azure Storage
-* Azure Key Vault
+* W usłudze Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Obszar roboczy usługi Azure Machine Learning
@@ -118,6 +118,9 @@ New-AzResourceGroupDeployment `
 ---
 
 Domyślnie wszystkie zasoby utworzone w ramach szablonu są nowe. Istnieje również możliwość korzystania z istniejących zasobów. Podając dodatkowe parametry szablonu, można użyć istniejących zasobów. Na przykład jeśli chcesz użyć istniejącego konta magazynu, ustaw wartość **storageAccountOption** na **istniejąca** i podaj nazwę konta magazynu w parametrze **storageAccountName** .
+
+> [!IMPORTANT]
+> Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). W przypadku konta magazynu w warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 
@@ -374,7 +377,7 @@ Ustawiając `vnetOption` wartość parametru na `new` lub `existing` , można ut
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Wdrażaj tylko obszar roboczy za prywatnym punktem końcowym
 
-Jeśli skojarzone zasoby nie znajdują się za siecią wirtualną, można ustawić parametr **privateEndpointType** na `AutoAproval` lub `ManualApproval` wdrożyć obszar roboczy za prywatnym punktem końcowym.
+Jeśli skojarzone zasoby nie znajdują się za siecią wirtualną, można ustawić parametr **privateEndpointType** na `AutoAproval` lub `ManualApproval` wdrożyć obszar roboczy za prywatnym punktem końcowym. Można to zrobić w przypadku nowych i istniejących obszarów roboczych. Podczas aktualizowania istniejącego obszaru roboczego Wypełnij parametry szablonu informacjami z istniejącego obszaru roboczego.
 
 > [!IMPORTANT]
 > Wdrożenie jest prawidłowe tylko w regionach, które obsługują prywatne punkty końcowe.
@@ -753,3 +756,4 @@ Aby uniknąć tego problemu, zalecamy zastosowanie jednej z następujących meto
 
 * [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Menedżer zasobów interfejsu API REST](../azure-resource-manager/templates/deploy-rest.md).
 * [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Aby poznać inne szablony dotyczące Azure Machine Learning, zobacz repozytorium szablonów szybkiego startu platformy Azure.](https://github.com/Azure/azure-quickstart-templates)

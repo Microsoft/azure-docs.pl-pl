@@ -1,6 +1,5 @@
 ---
-title: Importowanie/Eksportowanie danych w usługach sieci Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): importowanie/eksportowanie danych w usługach sieci Web — Azure'
 description: Dowiedz się, jak wysyłać i odbierać dane z usługi sieci Web za pomocą modułów Importuj dane i Eksportuj dane.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326226"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.
 
@@ -90,7 +92,7 @@ Gdy wszystko będzie gotowe, eksperyment powinien wyglądać podobnie do poniżs
 
 Teraz można wdrożyć eksperyment jako usługę sieci Web.
 
-## <a name="deploy-the-web-service"></a>Wdrażanie usługi sieci Web
+## <a name="deploy-the-web-service"></a>Wdrażanie usługi internetowej
 Można je wdrożyć w klasycznej lub nowej usłudze sieci Web.
 
 ### <a name="deploy-a-classic-web-service"></a>Wdrażanie klasycznej usługi sieci Web

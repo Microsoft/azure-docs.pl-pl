@@ -2,17 +2,18 @@
 title: Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4 (com. Azure. Cosmos)
 description: Dowiedz się, w jaki sposób uaktualnić istniejącą aplikację Java przy użyciu Azure Cosmos DB starszych zestawów SDK Java do nowszej wersji 4,0 (com. Azure. Cosmos Package) dla interfejsu API Core (SQL).
 author: anfeldma-ms
+ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 29b3ca267e22c8d1f349cb127efb7d2fd71e1477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263504"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327858"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 
@@ -30,11 +31,11 @@ W tym artykule wyjaśniono, jak uaktualnić istniejącą aplikację Java, która
 
 W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę pakietu i informacje o wersji:
 
-| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Odwołanie do biblioteki API   | Informacje o wersji  |
+| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Czerwiec 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
+| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
 | Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
-| 3. x. x    | Lipiec 2019    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4.0   | Czerwiec 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [Interfejs API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
 ## <a name="sdk-level-implementation-changes"></a>Zmiany implementacji poziomu zestawu SDK

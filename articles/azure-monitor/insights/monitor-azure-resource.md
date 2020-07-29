@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326175"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorowanie zasobów platformy Azure za pomocą Azure Monitor
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez zasoby platformy Azure oraz sposób używania funkcji Azure Monitor do analizowania i generowania alertów dotyczących tych danych.
@@ -96,7 +96,7 @@ Wiele usług będzie obejmować dane monitorowania na stronie **przeglądowej** 
 
 
 ### <a name="insights-and-solutions"></a>Szczegółowe informacje i rozwiązania 
-Niektóre usługi udostępniają narzędzia wykraczające poza standardowe funkcje programu Azure Monitor. [Szczegółowe informacje](../insights/insights-overview.md) zapewniają dostosowane środowisko monitorowania, oparte na platformie danych Azure monitor i standardowych funkcjach. [Rozwiązania](../insights/solutions.md) zapewniają wstępnie zdefiniowaną logikę monitorowania utworzoną na Azure monitor dziennikach. 
+Niektóre usługi udostępniają narzędzia wykraczające poza standardowe funkcje programu Azure Monitor. [Szczegółowe informacje](./insights-overview.md) zapewniają dostosowane środowisko monitorowania, oparte na platformie danych Azure monitor i standardowych funkcjach. [Rozwiązania](./solutions.md) zapewniają wstępnie zdefiniowaną logikę monitorowania utworzoną na Azure monitor dziennikach. 
 
 Jeśli usługa ma Azure Monitor wgląd, możesz uzyskać do niej dostęp z poziomu **monitorowania** w menu każdego zasobu. Uzyskaj dostęp do wszystkich szczegółowych informacji i rozwiązań z menu **Azure monitor** .
 
@@ -164,3 +164,4 @@ Użyj **alertów** z menu zasobów, aby wyświetlić alerty i zarządzać reguł
 ## <a name="next-steps"></a>Następne kroki
 
 * Szczegóły dzienników zasobów dla różnych usług platformy Azure można znaleźć w temacie [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../platform/resource-logs-schema.md) .  
+

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067569"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326039"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
 
@@ -139,9 +139,10 @@ Bieżący projekt przedstawia następujące problemy i ograniczenia:
 Aby uzyskać oficjalną dokumentację platformy Azure dotyczącą tworzenia nazwy głównej usługi, zobacz:
 
 * [Tworzenie jednostki usługi przy użyciu programu PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 * [Tworzenie jednostki usługi przy użyciu Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestie
 
 Czy masz jakieś opinie o integracji z funkcją mapy Azure Monitor dla maszyn wirtualnych lub z tą dokumentacją? Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zagłosować na istniejące sugestie.
+

@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674958"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327756"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
 
@@ -121,7 +124,7 @@ Komunikat powiadomienia dla urządzenia:
 |operationTimestamp | ISO8601 sygnatura czasowa operacji |
 |iothub — komunikat-schemat | deviceLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Na przykład
+Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Przykład:
 
 ```json
 {
@@ -157,7 +160,7 @@ moduleId | Identyfikator modułu |
 operationTimestamp | ISO8601 sygnatura czasowa operacji |
 iothub — komunikat-schemat | moduleLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Na przykład
+Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Przykład:
 
 ```json
 {

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f82eec5979bd1642e30e52bf6325f7b8f210371c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325665"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania Node.js aplikacji sieci Web za pomocą platformy Azure Application Insights
 
@@ -46,7 +46,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych AppInsights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | East US | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
 ## <a name="configure-appinsights-sdk"></a>Konfigurowanie zestawu SDK AppInsights
 
@@ -112,13 +112,13 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    </script>
    ```
 
-5. Po lewej stronie wybierz pozycję **Metryki**. Użyj Eksploratora metryk do zbadania kondycji i wykorzystania zasobu. Możesz wybrać opcję **Dodaj nowy wykres** , aby utworzyć dodatkowe widoki niestandardowe lub wybrać pozycję **Edytuj** , aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowania i metryki. Na przykład można utworzyć wykres, który wyświetla średni czas ładowania strony w przeglądarce, wybierając pozycję "czas ładowania strony w przeglądarce" z listy rozwijanej metryki i "Średnia" z agregacji. Aby dowiedzieć się więcej o usłudze Azure Eksplorator metryk, odwiedź stronę [wprowadzenie do usługi azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md).
+5. Po lewej stronie wybierz pozycję **Metryki**. Użyj Eksploratora metryk do zbadania kondycji i wykorzystania zasobu. Możesz wybrać opcję **Dodaj nowy wykres** , aby utworzyć dodatkowe widoki niestandardowe lub wybrać pozycję **Edytuj** , aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowania i metryki. Na przykład można utworzyć wykres, który wyświetla średni czas ładowania strony w przeglądarce, wybierając pozycję "czas ładowania strony w przeglądarce" z listy rozwijanej metryki i "Średnia" z agregacji. Aby dowiedzieć się więcej o usłudze Azure Eksplorator metryk, odwiedź stronę [wprowadzenie do usługi azure Eksplorator metryk](../platform/metrics-getting-started.md).
 
    ![Wykres metryk serwera Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Aby dowiedzieć się więcej na temat monitorowania Node.js, zapoznaj się z [dodatkową dokumentacją Node.js AppInsights](../../azure-monitor/app/nodejs.md).
+Aby dowiedzieć się więcej na temat monitorowania Node.js, zapoznaj się z [dodatkową dokumentacją Node.js AppInsights](../app/nodejs.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
 
@@ -132,3 +132,4 @@ Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązan
 
 > [!div class="nextstepaction"]
 > [Wyszukiwanie i diagnozowanie problemów z wydajnością](../log-query/log-query-overview.md)
+

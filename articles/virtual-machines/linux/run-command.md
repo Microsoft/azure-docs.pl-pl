@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0210b3bf13bc852e2ace0e8b490b3ddf952dc288
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 254832344e4e38ace7d315f9ff958d22864ba91a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028978"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326940"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Uruchamianie skryptów powłoki na maszynie wirtualnej z systemem Linux przy użyciu polecenia Run
 
@@ -59,13 +59,13 @@ The entity was not found in this Azure location
 W poniższym przykładzie za pomocą polecenia [AZ VM Run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) można uruchomić skrypt powłoki na maszynie wirtualnej platformy Azure z systemem Linux.
 
 ```azurecli-interactive
-az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
 ```
 
 > [!NOTE]
 > Aby uruchomić polecenia jako inny użytkownik, wprowadź, `sudo -u` Aby określić konto użytkownika.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 Przejdź do maszyny wirtualnej w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Uruchom polecenie** w obszarze **operacje**. Zostanie wyświetlona lista dostępnych poleceń do uruchomienia na maszynie wirtualnej.
 

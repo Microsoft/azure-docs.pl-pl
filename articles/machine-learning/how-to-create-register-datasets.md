@@ -5,18 +5,19 @@ description: Dowiedz się, jak tworzyć zestawy danych Azure Machine Learning, a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031171"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326396"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych Azure Machine Learning
 
@@ -53,7 +54,7 @@ Głównym czynnikiem jest to, jak duży zestaw danych znajduje się w pamięci, 
  
 Jeśli używasz Pandas, nie ma potrzeby używania więcej niż 1 vCPU, ponieważ będzie on używany przez cały siebie. W razie potrzeby można łatwo zrównoleglanie wiele procesorów wirtualnych vCPU na jednym Azure Machine Learning wystąpienia obliczeniowego/węźle za pośrednictwem Modin i Dask/ray oraz skalować w poziomie do dużego klastra, po prostu zmieniając opcję `import pandas as pd` na `import modin.pandas as pd` . 
  
-Jeśli nie możesz uzyskać wystarczającej ilości danych wirtualnych na dużą skalę, masz dwie opcje: Użyj struktury, takiej jak Spark lub Dask, do przeprowadzenia przetwarzania danych "Brak pamięci", tj. element Dataframe jest ładowany do partycji RAM przez partycję i przetworzone, a końcowy wynik jest zbierany na końcu. Jeśli jest za mała, platforma Spark lub Dask umożliwia skalowanie w poziomie do klastra, który nadal może być używany interaktywnie. 
+Jeśli nie możesz uzyskać dużej ilości wystarczającej maszyny wirtualnej dla danych, masz dwie opcje: Użyj struktury, takiej jak Spark lub Dask, do przeprowadzenia przetwarzania danych "Brak pamięci", tj. element Dataframe jest ładowany do partycji RAM przez partycję i przetworzone, a końcowy wynik jest zbierany na końcu. Jeśli jest za mała, platforma Spark lub Dask umożliwia skalowanie w poziomie do klastra, który nadal może być używany interaktywnie. 
 
 ## <a name="dataset-types"></a>Typy zestawów danych
 
@@ -82,7 +83,7 @@ Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) 
 
 #### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
 
-Użyj [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) metody `TabularDatasetFactory` klasy, aby odczytać pliki w formacie CSV lub TSV oraz utworzyć niezarejestrowane TabularDataset. W przypadku odczytywania z wielu plików wyniki zostaną zagregowane w jednej reprezentacji tabelarycznej. 
+Użyj [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) metody `TabularDatasetFactory` klasy, aby odczytać pliki w formacie CSV lub TSV oraz utworzyć niezarejestrowane TabularDataset. W przypadku odczytywania z wielu plików wyniki zostaną zagregowane w jednej reprezentacji tabelarycznej. 
 
 Poniższy kod pobiera istniejący obszar roboczy i żądany magazyn danych według nazwy. Następnie przekazuje magazyn danych i lokalizacje plików do `path` parametru, aby utworzyć nowy TabularDataset `weather_ds` .
 
@@ -264,7 +265,7 @@ Wybierz zestaw danych, wybierając jego kafelek. (Istnieje możliwość filtrowa
 
 ![Wybierz zestaw danych](./media/how-to-create-register-datasets/open-datasets-2.png)
 
-Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych dni wolnych, należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz pozycję **Utwórz**.
+Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych dni wolnych, należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz przycisk **Utwórz**.
 
 ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-register-datasets/open-datasets-3.png)
 

@@ -4,15 +4,15 @@ description: Migawki debugowania są automatycznie zbierane, gdy wyjątki są zg
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325648"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
-Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](../../azure-monitor/app/asp-net-exceptions.md) w portalu Application Insights.
+Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](./app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](./asp-net-exceptions.md) w portalu Application Insights.
 
 Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Aby uzyskać bardziej zaawansowane środowisko debugowania z kodem źródłowym, Otwórz migawki w programie Visual Studio 2019 Enterprise. W programie Visual Studio można także [ustawić punkty przyciągania, aby interaktywnie podejmować migawki](https://aka.ms/snappoint) bez oczekiwania na wyjątek.
 
@@ -62,7 +62,7 @@ Gdy w aplikacji wystąpił wyjątek, a migawka została utworzona, należy utwor
 
 ![Strona błędów](./media/snapshot-debugger/failures-page.png)
 
-Wybierz operację lub wyjątek w okienku po prawej stronie, aby otworzyć okienko **szczegóły końca transakcji** , a następnie wybierz zdarzenie wyjątku. Jeśli dla danego wyjątku dostępna jest migawka, w okienku po prawej stronie zostanie wyświetlony przycisk **Otwórz migawkę debugowania** z szczegółowymi informacjami dotyczącymi [wyjątku](../../azure-monitor/app/asp-net-exceptions.md).
+Wybierz operację lub wyjątek w okienku po prawej stronie, aby otworzyć okienko **szczegóły końca transakcji** , a następnie wybierz zdarzenie wyjątku. Jeśli dla danego wyjątku dostępna jest migawka, w okienku po prawej stronie zostanie wyświetlony przycisk **Otwórz migawkę debugowania** z szczegółowymi informacjami dotyczącymi [wyjątku](./asp-net-exceptions.md).
 
 ![Przycisk otwierania migawki debugowania dla wyjątku](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -85,8 +85,8 @@ Pobrana migawka zawiera pliki symboli, które zostały znalezione na serwerze ap
 
 ## <a name="how-snapshots-work"></a>Jak działają migawki
 
-Snapshot Collector jest implementowana jako [procesor Telemetria usługi Application Insights](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Gdy aplikacja zostanie uruchomiona, procesor telemetrii Snapshot Collector zostanie dodany do potoku telemetrii aplikacji.
-Za każdym razem, gdy aplikacja wywołuje element [trackexception](../../azure-monitor/app/asp-net-exceptions.md#exceptions), Snapshot Collector oblicza identyfikator problemu na podstawie typu zgłaszanego wyjątku i metody zgłaszania.
+Snapshot Collector jest implementowana jako [procesor Telemetria usługi Application Insights](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Gdy aplikacja zostanie uruchomiona, procesor telemetrii Snapshot Collector zostanie dodany do potoku telemetrii aplikacji.
+Za każdym razem, gdy aplikacja wywołuje element [trackexception](./asp-net-exceptions.md#exceptions), Snapshot Collector oblicza identyfikator problemu na podstawie typu zgłaszanego wyjątku i metody zgłaszania.
 Za każdym razem, gdy aplikacja wywołuje metodę Trackexception, licznik jest zwiększany dla odpowiedniego identyfikatora problemu. Gdy licznik osiągnie `ThresholdForSnapshotting` wartość, identyfikator problemu zostanie dodany do planu kolekcji.
 
 Snapshot Collector również monitoruje wyjątki, ponieważ są zgłaszane przez zasubskrybowanie zdarzenia [AppDomain. CurrentDomain —. FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) . Gdy zdarzenie zostanie wyzwolone, identyfikator problemu wyjątku jest obliczany i porównywany z identyfikatorami problemów w planie kolekcji.
@@ -139,5 +139,6 @@ Włącz Snapshot Debugger Application Insights dla aplikacji:
 Poza Application Insights Snapshot Debugger:
  
 * [Ustaw punkty przyciągania w kodzie](/visualstudio/debugger/debug-live-azure-applications) , aby uzyskać migawki bez oczekiwania na wyjątek.
-* [Diagnozuj wyjątki w aplikacjach sieci Web](../../azure-monitor/app/asp-net-exceptions.md) wyjaśnia, jak zwiększyć liczbę wyjątków widocznych dla Application Insights.
-* [Inteligentne wykrywanie](../../azure-monitor/app/proactive-diagnostics.md) automatycznie wykrywa anomalie wydajności.
+* [Diagnozuj wyjątki w aplikacjach sieci Web](./asp-net-exceptions.md) wyjaśnia, jak zwiększyć liczbę wyjątków widocznych dla Application Insights.
+* [Inteligentne wykrywanie](./proactive-diagnostics.md) automatycznie wykrywa anomalie wydajności.
+
