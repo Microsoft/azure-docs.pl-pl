@@ -7,15 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997102"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284119"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service przy użyciu Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](https://docs.microsoft.com/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w bazie danych [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w bazie danych [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
 
 W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord zadania za każdym razem, gdy zostanie utworzony nowy rekord potencjalnego klienta.
 
@@ -23,10 +24,10 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord z
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* [Środowisko Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), czyli miejsce, w którym organizacja przechowuje i udostępnia dane biznesowe oraz Common Data Service bazę danych. Aby uzyskać więcej informacji, zobacz następujące zasoby:<p>
+* [Środowisko Common Data Service](/power-platform/admin/environments-overview), czyli miejsce, w którym organizacja przechowuje i udostępnia dane biznesowe oraz Common Data Service bazę danych. Aby uzyskać więcej informacji, zobacz następujące zasoby:<p>
 
-  * [Dowiedz się: Rozpoczynanie pracy z usługą Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Platforma energetyczna — Omówienie środowisk](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Dowiedz się: Rozpoczynanie pracy z usługą Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Platforma energetyczna — Omówienie środowisk](/power-platform/admin/environments-overview)
 
 * Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) i aplikacji logiki z lokalizacji, w której chcesz uzyskać dostęp do rekordów w bazie danych Common Data Service. Aby uruchomić aplikację logiki z wyzwalaczem Common Data Service, musisz mieć pustą aplikację logiki. Jeśli dopiero zaczynasz Azure Logic Apps, zobacz [Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -50,7 +51,7 @@ Na potrzeby tego przykładu Dodaj wyzwalacz Common Data Service, który jest uru
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Środowisko** | Tak | Środowisko do monitorowania, na przykład "produkcja Fabrikam Sales". Aby uzyskać więcej informacji, zobacz [platformę PowerShell — Omówienie](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Środowisko** | Tak | Środowisko do monitorowania, na przykład "produkcja Fabrikam Sales". Aby uzyskać więcej informacji, zobacz [platformę PowerShell — Omówienie](/power-platform/admin/environments-overview). |
    | **Nazwa jednostki** | Tak | Jednostka do monitorowania, na przykład "potencjalni klienci" |
    | **Zakres** | Tak | Źródło, które utworzyło nowy rekord, na przykład użytkownik w jednostce biznesowej lub dowolny użytkownik w organizacji. W tym przykładzie zastosowano "jednostkę biznesową". |
    ||||
@@ -125,7 +126,7 @@ W przypadku akcji, które zwracają rekordy, takie jak Akcja **listy rekordów**
 
    ![Wprowadź zapytanie filtru ODATA dla rekordów filtrowania](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Aby uzyskać więcej informacji na temat `$filter` opcji zapytania systemowego, zobacz [Common Data Service-Filter Results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Aby uzyskać więcej informacji na temat `$filter` opcji zapytania systemowego, zobacz [Common Data Service-Filter Results](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Wyświetlanie listy rekordów na podstawie zamówienia
 
@@ -139,7 +140,7 @@ W przypadku akcji, które zwracają rekordy, takie jak działanie **list Records
 
    ![Wprowadzanie zapytania filtru ODATA w celu uporządkowania rekordów](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Aby uzyskać więcej informacji na temat `$orderby` opcji zapytania systemowego, zobacz [wyniki Common Data Service kolejności](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Aby uzyskać więcej informacji na temat `$orderby` opcji zapytania systemowego, zobacz [wyniki Common Data Service kolejności](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Typy danych pola
 
@@ -165,7 +166,7 @@ Ten przykład pokazuje, jak Akcja **Utwórz nowy rekord** powoduje utworzenie no
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Informacje techniczne na podstawie opisu struktury Swagger łącznika, takie jak wyzwalacze, akcje, limity i inne szczegóły, znajdują się na [stronie odniesienia łącznika](https://docs.microsoft.com/connectors/commondataservice/).
+Informacje techniczne na podstawie opisu struktury Swagger łącznika, takie jak wyzwalacze, akcje, limity i inne szczegóły, znajdują się na [stronie odniesienia łącznika](/connectors/commondataservice/).
 
 ## <a name="next-steps"></a>Następne kroki
 

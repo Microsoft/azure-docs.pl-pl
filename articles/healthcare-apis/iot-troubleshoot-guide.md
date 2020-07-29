@@ -8,22 +8,22 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: e74e3475256858955a5ab0dc99e7b858548e2485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285581"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide-and-how-to"></a>Przewodnik rozwiązywania problemów z usługą IoT Connector (wersja zapoznawcza) i instrukcje
+# <a name="iot-connector-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z programem IoT Connector (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak rozwiązywać problemy z typowymi komunikatami o błędach i postanowieniami programu IoT Connector (wersja zapoznawcza).
+W tym artykule przedstawiono kroki rozwiązywania typowych komunikatów o błędach i warunków programu IoT Connector (wersja zapoznawcza).  
 
-Dowiesz się również, jak utworzyć kopie mapowania JSON łącznika IoT (wersja zapoznawcza).
+Dowiesz się również, jak tworzyć kopie plików mapowania JSON łącznika usługi IoT (wersja zapoznawcza) w celu edytowania i archiwizowania poza Azure Portal.
 
 ## <a name="error-messages-and-fixes"></a>Komunikaty o błędach i poprawki
 
-|Komunikat   |Warunek  |Wprowadzanie poprawek         |
+|Wiadomość   |Warunek  |Wprowadzanie poprawek         |
 |----------|-----------|------------|
 |Nieprawidłowa nazwa mapowania, nazwa mapowania powinna być urządzeniem lub FHIR|Dostarczony typ mapowania nie jest urządzeniem ani FHIR|Użyj jednego z dwóch obsługiwanych typów mapowania (na przykład: Device lub FHIR)|
 |Nie zdefiniowano ponownie parametrów klucza|Żądanie ponownego wygenerowania klucza|Uwzględnij parametry w żądaniu klucza regeneracji|

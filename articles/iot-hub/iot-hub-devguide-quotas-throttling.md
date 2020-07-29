@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322962"
+ms.locfileid: "87335566"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -30,9 +30,9 @@ Każde centrum IoT jest aprowizowane za pomocą określonej liczby jednostek w o
 
 Warstwa określa również limity ograniczania, które IoT Hub wymuszane we wszystkich operacjach.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
-W publicznej wersji zapoznawczej urządzenia IoT Plug and Play będą wysyłać osobne komunikaty dla poszczególnych interfejsów, co może zwiększyć liczbę komunikatów zliczane do limitu przydziału wiadomości.
+Urządzenia IoT Plug and Play wysyłają co najmniej jeden komunikat telemetrii dla każdego interfejsu, łącznie z elementem głównym, co może zwiększyć liczbę komunikatów zliczane do przydziału wiadomości.
 
 ## <a name="operation-throttles"></a>Ograniczenia operacji
 

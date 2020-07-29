@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045692"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326056"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizowanie środowiska za pomocą rozwiązania System Center Operations Manager Health Check (wersja zapoznawcza)
 
@@ -203,7 +203,7 @@ Każde zalecenie zawiera wskazówki dotyczące przyczyny tego znaczenia. Skorzys
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Użyj zaleceń dotyczących obszaru fokusu sprawdzania kondycji
 
-Aby móc korzystać z rozwiązania sprawdzania kondycji w Log Analytics, musisz mieć zainstalowane rozwiązanie. Aby dowiedzieć się więcej o instalowaniu rozwiązań, zobacz [Instalowanie rozwiązania do zarządzania](../../azure-monitor/insights/solutions.md). Po zainstalowaniu programu można wyświetlić podsumowanie zaleceń przy użyciu kafelka System Center Operations Manager Health Check na stronie **Przegląd** dla obszaru roboczego w Azure Portal.
+Aby móc korzystać z rozwiązania sprawdzania kondycji w Log Analytics, musisz mieć zainstalowane rozwiązanie. Aby dowiedzieć się więcej o instalowaniu rozwiązań, zobacz [Instalowanie rozwiązania do zarządzania](./solutions.md). Po zainstalowaniu programu można wyświetlić podsumowanie zaleceń przy użyciu kafelka System Center Operations Manager Health Check na stronie **Przegląd** dla obszaru roboczego w Azure Portal.
 
 Wyświetl podsumowanie ocen zgodności dla infrastruktury, a następnie zapoznaj się z zaleceniami.
 
@@ -229,7 +229,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     ```
 
     >[!NOTE]
-    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../../azure-monitor/log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
+    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     ```
 
     >[!NOTE]
-    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../../azure-monitor/log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
+    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyszukaj dzienniki](../../azure-monitor/log-query/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe System Center Operations Manager Health Check dane i zalecenia.
+- [Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe System Center Operations Manager Health Check dane i zalecenia.
+

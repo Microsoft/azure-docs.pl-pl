@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: e24dcdc2de94fe73f6bb83dcc03bbd1139503784
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319970"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
 
@@ -72,7 +74,7 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 |  `Resource`         |   Prawda         | Zasób docelowy, dla którego zażądano tokenu. Użyj witryny `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 
 |  **Nazwa**    |  **Typ**  |  **Opis**          |
 |  ------------------ |--------------- | ----------------------  |

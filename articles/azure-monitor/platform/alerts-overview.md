@@ -4,12 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327127"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371604"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -178,7 +178,7 @@ Strona szczegóły alertu zawiera następujące sekcje:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Kontrola dostępu oparta na rolach (RBAC) dla wystąpień alertów
 
-Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role RBAC lub [czytelnik](../../role-based-access-control/built-in-roles.md#monitoring-reader) [monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) . Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
+Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowaną rolę platformy Azure dla [współautora](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader). Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Programowe Zarządzanie wystąpieniami alertów
 
@@ -212,4 +212,3 @@ Użyj [interfejsu API REST alert Management](https://aka.ms/alert-management-api
 - [Zarządzanie wystąpieniami alertów na platformie Azure](https://aka.ms/managing-alert-instances)
 - [Zarządzanie grupami inteligentnymi](https://aka.ms/managing-smart-groups)
 - [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)
-

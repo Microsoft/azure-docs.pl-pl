@@ -16,13 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282929"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj linki stałe dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj trwale kodowane linki dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
 Usługa Azure serwer proxy aplikacji usługi Azure AD udostępnia aplikacje lokalne użytkownikom zdalnie lub na ich własnych urządzeniach. Niektóre aplikacje zostały jednak opracowane przy użyciu lokalnych linków osadzonych w kodzie HTML. Te linki nie działają prawidłowo, gdy aplikacja jest używana zdalnie. Gdy masz kilka aplikacji lokalnych, użytkownicy oczekują linków do działania, gdy nie znajdują się one w biurze. 
 
@@ -34,11 +35,11 @@ Jeśli w dzierżawie nie można używać domen niestandardowych, istnieje kilka 
 > [!NOTE]
 > Tłumaczenie linków nie jest obsługiwane w przypadku zakodowanych wewnętrznych adresów URL generowanych za poorednictwem języka JavaScript.
 
-**Opcja 1: użyj Managed Browser lub Microsoft Edge** — to rozwiązanie ma zastosowanie tylko wtedy, gdy planujesz lub zalecić użytkownikom dostęp do aplikacji za pomocą Intune Managed Browser lub przeglądarki Microsoft Edge. Będzie obsługiwać wszystkie opublikowane adresy URL. 
+**Opcja 1. Korzystanie z przeglądarki Microsoft Edge** — to rozwiązanie jest stosowane tylko wtedy, gdy planujesz zalecić lub wymagać, aby użytkownicy mieli dostęp do aplikacji za pomocą przeglądarki Microsoft Edge. Będzie obsługiwać wszystkie opublikowane adresy URL. 
 
 **Opcja 2: korzystanie z rozszerzenia moje aplikacje** — to rozwiązanie wymaga od użytkowników zainstalowania rozszerzenia przeglądarki po stronie klienta, ale będzie obsługiwać wszystkie opublikowane adresy URL i współpracuje z najpopularniejszymi przeglądarkami. 
 
-**Opcja 3: Użyj ustawienia tłumaczenia linku** — jest to ustawienie po stronie administratora, które jest niewidoczne dla użytkowników. Będzie jednak obsługiwać tylko adresy URL w formacie HTML i CSS.   
+**Opcja 3: Użyj ustawienia tłumaczenia linku** — jest to ustawienie po stronie administratora, które jest niewidoczne dla użytkowników. Będą jednak obsługiwać adresy URL tylko w formacie HTML i CSS.   
 
 Te trzy funkcje przechowują swoje linki niezależnie od tego, gdzie znajdują się użytkownicy. Jeśli masz aplikacje, które wskazują bezpośrednio na wewnętrzne punkty końcowe lub porty, możesz mapować te wewnętrzne adresy URL na opublikowane adresy URL serwera proxy aplikacji zewnętrznych. 
 
@@ -49,11 +50,11 @@ Te trzy funkcje przechowują swoje linki niezależnie od tego, gdzie znajdują s
 > Lub, jeśli aplikacja, którą chcesz skonfigurować przy użyciu translacji łączy, to SharePoint, zobacz [Konfigurowanie mapowań dostępu alternatywnego dla programu sharepoint 2013](https://technet.microsoft.com/library/cc263208.aspx) , aby uzyskać inne podejście do mapowania linków. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opcja 1: Intune Managed Browser i integracja z programem Microsoft Edge 
+### <a name="option-1-microsoft-edge-integration"></a>Opcja 1: integracja z programem Microsoft Edge 
 
-Możesz użyć Intune Managed Browser lub Microsoft Edge, aby zapewnić lepszą ochronę aplikacji i zawartości. Aby można było korzystać z tego rozwiązania, należy wymagać/zalecać użytkownikom dostęp do aplikacji za pomocą Intune Managed Browser. Wszystkie wewnętrzne adresy URL opublikowane przy użyciu serwera proxy aplikacji zostaną rozpoznane przez Managed Browser i przekierowane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają i jeśli użytkownik przejdzie do przeglądarki i bezpośrednio wpisze wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
+Aby zapewnić lepszą ochronę aplikacji i zawartości, możesz użyć przeglądarki Microsoft Edge. Aby można było korzystać z tego rozwiązania, należy wymagać/zalecać użytkownikom dostęp do aplikacji za pomocą przeglądarki Microsoft Edge. Wszystkie wewnętrzne adresy URL opublikowane przy użyciu serwera proxy aplikacji zostaną rozpoznane przez brzeg i przekierowane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają i jeśli użytkownik przejdzie do przeglądarki i bezpośrednio wpisze wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
 
-Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zapoznaj się z dokumentacją [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) .  
+Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz artykuł [Zarządzanie dostępem do sieci Web za pomocą programu Edge dla systemów iOS i Android z Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) dokumentacją.  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opcja 2: rozszerzenie przeglądarki Moje aplikacje 
 
@@ -72,7 +73,7 @@ Po włączeniu translacji łączy usługa serwera proxy aplikacji przeszukuje ko
 
 ## <a name="how-link-translation-works"></a>Jak działa tłumaczenie linków
 
-Po uwierzytelnieniu, gdy serwer proxy przekazuje dane aplikacji do użytkownika, serwer proxy aplikacji skanuje aplikację pod kątem linków stałe i zastępuje je odpowiednimi opublikowanymi zewnętrznymi adresami URL.
+Po uwierzytelnieniu, gdy serwer proxy przekazuje dane aplikacji do użytkownika, serwer proxy aplikacji skanuje aplikację pod kątem stałych linków i zastępuje je odpowiednimi opublikowanymi zewnętrznymi adresami URL.
 
 Serwer proxy aplikacji zakłada, że aplikacje są kodowane w formacie UTF-8. Jeśli tak się nie dzieje, określ typ kodowania w nagłówku odpowiedzi HTTP, np `Content-Type:text/html;charset=utf-8` ..
 
@@ -83,7 +84,7 @@ Funkcja tłumaczenia łączy wyszukuje tylko linki, które znajdują się w taga
 Istnieją dwa popularne typy linków wewnętrznych w aplikacjach lokalnych:
 
 - **Względne linki wewnętrzne** wskazujące na zasób udostępniony w strukturze plików lokalnych, takich jak `/claims/claims.html` . Te linki automatycznie pracują w aplikacjach publikowanych za pomocą serwera proxy aplikacji i nadal pracują z tłumaczeniem linków lub bez niego. 
-- **Stałe wewnętrzne linki** do innych aplikacji lokalnych, takich jak `http://expenses` lub opublikowanych plików, takich jak `http://expenses/logo.jpg` . Funkcja tłumaczenia łączy działa na łączach wewnętrznych stałe i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
+- **Stałe kodowane linki wewnętrzne** do innych aplikacji lokalnych, takich jak `http://expenses` lub pliki opublikowane, takie jak `http://expenses/logo.jpg` . Funkcja tłumaczenia łączy działa na stałych kodowanych łączach wewnętrznych i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
 
 Kompletna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłumaczenie linków dla:
 * a
@@ -144,7 +145,7 @@ Wprowadzenie do tłumaczenia linków jest tak proste, jak kliknięcie przycisku:
 
 Teraz, gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy automatycznie przeskanuje pod kątem wewnętrznych adresów URL, które zostały opublikowane za pomocą serwera proxy aplikacji w dzierżawie.
 
-## <a name="send-feedback"></a>Przesyłanie opinii
+## <a name="send-feedback"></a>Wyślij opinię
 
 Chcemy, aby Twoja funkcja działała we wszystkich aplikacjach. Przeszukiwane są ponad 30 tagów w formacie HTML i CSS. Jeśli masz przykład wygenerowanych linków, które nie są tłumaczone, Wyślij fragment kodu do [opinii serwera proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
 

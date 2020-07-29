@@ -4,15 +4,15 @@ description: W tym artykule opisano typowe komunikaty o błędach dla obrazów m
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: v-miegge
-ms.author: v-krmall
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120657"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319902"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
 
@@ -129,7 +129,7 @@ W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będ
 |3|Klaster trybu failover|Funkcja klaster trybu failover systemu Windows Server nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |4|If|Protokół IPv6 nie jest jeszcze obsługiwany w środowisku platformy Azure. Aplikacja nie powinna być zależna od tej funkcji.|
 |5|DHCP|Rola serwera Dynamic Host Configuration Protocol nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
-|6|Funkcja Hyper-V|Rola serwera funkcji Hyper-V nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
+|6|Hyper-V|Rola serwera funkcji Hyper-V nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |7|Dostęp zdalny|Rola serwera dostępu zdalnego (bezpośredni dostęp) nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |8|Usługi Rights Management|Rights Management Services. Rola serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |9|Usługi wdrażania systemu Windows|Usługi wdrażania systemu Windows. Rola serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
