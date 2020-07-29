@@ -1,6 +1,6 @@
 ---
 title: Omówienie usług sieciowych platformy Azure
-description: Dowiedz się więcej o usługach sieciowych na platformie Azure i ich możliwościach — usługach łączności, usługach ochrony aplikacji, usługach dostarczania aplikacji i monitorowaniu sieci.
+description: Dowiedz się więcej na temat usług sieciowych na platformie Azure, w tym usług łączności, usług ochrony aplikacji, usług dostarczania aplikacji i monitorowania sieci.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851642"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282164"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
 
@@ -34,8 +34,8 @@ W tej sekcji opisano usługi, które zapewniają łączność między zasobami p
 |[Sieć wirtualna](#vnet)|Umożliwia zasobom platformy Azure bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi.| <p>[Filtrowanie ruchu sieciowego](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Routing ruchu sieciowego](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Ograniczenie dostępu przez sieć do zasobów](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Łączenie sieci wirtualnych](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Rozszerza sieci lokalne do chmury firmy Microsoft przez połączenie prywatne obsługiwane przez dostawcę połączenia.|<p>[Tworzenie i modyfikowanie obwodu usługi ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Konfigurowanie filtrów tras dla obwodów usługi ExpressRoute i zarządzanie nimi](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|Wysyła zaszyfrowany ruch sieciowy między siecią wirtualną platformy Azure a lokalizacją lokalną za pośrednictwem publicznego Internetu.|<p>[Połączenia międzylokacyjne](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Połączenia punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtual WAN](#virtualwan)|Optymalizuje i automatyzuje połączenia gałęzi z, i za pośrednictwem platformy Azure. Regiony platformy Azure służą jako centra, do których można połączyć gałęzie.|<p>[Połączenia lokacja-lokacja](../virtual-wan/virtual-wan-site-to-site-portal.md), [Połączenia ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
-|[System DNS platformy Azure](#dns)|Hostuje domeny DNS, które zapewniają rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure.|<p>[Hostowanie własnej domeny w usłudze Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Tworzenie rekordów DNS dla aplikacji sieci Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Utwórz rekord aliasu dla Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Utwórz rekord aliasu dla publicznego adresu IP](../dns/tutorial-alias-pip.md)</p> <p>[Utwórz rekord aliasu dla rekordu zasobu strefy](../dns/tutorial-alias-rr.md)</p>|
+|[Wirtualna sieć WAN](#virtualwan)|Optymalizuje i automatyzuje połączenia gałęzi z, i za pośrednictwem platformy Azure. Regiony platformy Azure służą jako centra, do których można połączyć gałęzie.|<p>[Połączenia lokacja-lokacja](../virtual-wan/virtual-wan-site-to-site-portal.md), [Połączenia ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
+|[Azure DNS](#dns)|Hostuje domeny DNS, które zapewniają rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure.|<p>[Hostowanie własnej domeny w usłudze Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Tworzenie rekordów DNS dla aplikacji sieci Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Utwórz rekord aliasu dla Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Utwórz rekord aliasu dla publicznego adresu IP](../dns/tutorial-alias-pip.md)</p> <p>[Utwórz rekord aliasu dla rekordu zasobu strefy](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Skonfiguruj bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu TLS. Po nawiązaniu połączenia za pośrednictwem usługi Azure bastionu maszyny wirtualne nie potrzebują publicznego adresu IP|<p>[Tworzenie hosta usługi Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Nawiązywanie połączenia przy użyciu protokołu SSH z maszyną wirtualną z systemem Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Nawiązywanie połączenia przy użyciu protokołu RDP z maszyną wirtualną z systemem Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Brama translatora adresów sieciowych sieci wirtualnej](#nat)|Utwórz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej.|<p>[Tworzenie bramy translatora adresów sieciowych](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Usługa komunikacji równorzędnej Azure (wersja zapoznawcza)](#azurepeeringservice)|Współpracuj z dostawcami usług w celu uzyskania optymalnego i niezawodnego routingu do chmury firmy Microsoft przez sieć publiczną.|<p>[Rejestrowanie usługi Komunikacja równorzędna Azure](../peering-service/azure-portal.md)</p>|
@@ -53,7 +53,7 @@ Usługa Azure Virtual Network (VNet) to podstawowy blok konstrukcyjny dla sieci 
 Aby uzyskać więcej informacji, zobacz [co to jest platforma Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-Usługa ExpressRoute umożliwia rozbudowa sieci lokalnych do chmury firmy Microsoft przez połączenie prywatne przez dostawcę połączenia. To połączenie jest prywatne. Ruch nie przechodzi przez Internet. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.  Aby uzyskać więcej informacji, zobacz [co to jest ExpressRoute?](../expressroute/expressroute-introduction.md).
+Usługa ExpressRoute umożliwia rozbudowa sieci lokalnych do chmury firmy Microsoft przez połączenie prywatne przez dostawcę połączenia. To połączenie jest prywatne. Ruch nie przechodzi przez Internet. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.  Aby uzyskać więcej informacji, zobacz [co to jest ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -65,13 +65,13 @@ Na poniższym diagramie przedstawiono wiele połączeń sieci VPN typu lokacja-l
 
 Aby uzyskać więcej informacji na temat różnych typów połączeń sieci VPN, zobacz [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>Wirtualna sieć WAN
 Wirtualna sieć WAN platformy Azure to usługa sieciowa, która zapewnia zoptymalizowaną i zautomatyzowaną łączność z gałęzią z usługami i i za pośrednictwem platformy Azure. Regiony platformy Azure służą jako centra, do których można połączyć gałęzie. Korzystając ze szkieletu platformy Azure, można również łączyć gałęzie i korzystać z połączeń między sieciami wirtualnymi. Wirtualna sieć WAN platformy Azure oferuje wiele usług łączności w chmurze platformy Azure, takich jak sieci VPN typu lokacja-lokacja, Sieć VPN typu punkt-lokacja w jednym interfejsie operacyjnym. Połączenie z usługą Azure sieci wirtualnych jest nawiązywane przy użyciu połączeń sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [co to jest Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
 ![Diagram usługi Virtual WAN](./media/networking-overview/virtualwan1.png)
 
 ### <a name="azure-dns"></a><a name="dns"></a>System DNS platformy Azure
-Azure DNS to usługa hostingowa przeznaczona dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest Azure DNS?](../dns/dns-overview.md).
+Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest Azure DNS?](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 Usługa Azure bastionu to nowa w pełni oparta na platformie usługa PaaS, która jest dostarczana w ramach sieci wirtualnej. Zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu TLS. Gdy łączysz się za pomocą usługi Azure Bastion, maszyny wirtualne nie muszą mieć publicznego adresu IP. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure bastionu?](../bastion/bastion-overview.md).
@@ -93,24 +93,24 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 |Usługa|Dlaczego warto używać?|Scenariusz|
 |---|---|---|
 |[Ochrona DDoS](#ddosprotection) |Wysoka dostępność dla aplikacji z ochroną przed nadmiernymi opłatami za ruch IP|[Zarządzaj Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
-|[Web Application Firewall](#waf)|<p>[Usługa Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) zapewnia ochronę regionalną jednostek w publicznych i prywatnych przestrzeni adresowej</p><p>[Usługa Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) zapewnia ochronę w granicach sieci z publicznymi punktami końcowymi.</p>|<p>[Konfigurowanie reguł ochrony bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurowanie niestandardowego kodu odpowiedzi](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurowanie reguł ograniczeń adresów IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurowanie reguły limitu szybkości](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Zapora aplikacji internetowej](#waf)|<p>[Usługa Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) zapewnia ochronę regionalną jednostek w publicznych i prywatnych przestrzeni adresowej</p><p>[Usługa Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) zapewnia ochronę w granicach sieci z publicznymi punktami końcowymi.</p>|<p>[Konfigurowanie reguł ochrony bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurowanie niestandardowego kodu odpowiedzi](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurowanie reguł ograniczeń adresów IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurowanie reguły limitu szybkości](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze.|<p>[Wdrażanie zapory platformy Azure w sieci wirtualnej](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-Wdrażanie zapory platformy Azure w sieci hybrydowej](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrowanie ruchu przychodzącego za pomocą usługi Azure firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
-|[Grupy zabezpieczeń sieci](#nsg)|Pełny szczegółowy formant węzła końcowego rozproszonego na maszynie wirtualnej/podsieci dla wszystkich przepływów ruchu sieciowego|[Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)|
+|[Sieciowe grupy zabezpieczeń](#nsg)|Pełny szczegółowy formant węzła końcowego rozproszonego na maszynie wirtualnej/podsieci dla wszystkich przepływów ruchu sieciowego|[Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Punkty końcowe usługi dla sieci wirtualnej](#serviceendpoints)|Umożliwia ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej|[Ograniczanie dostępu sieciowego do zasobów PaaS](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 [Link prywatny](#privatelink)|Umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych przez klienta usług partnerskich/partnerów platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej.|<p>[Tworzenie prywatnego punktu końcowego](../private-link/create-private-endpoint-portal.md)</p><p>[Tworzenie usługi łącza prywatnego](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) zapewnia środki zaradcze względem najbardziej zaawansowanych zagrożeń DDoS. Usługa zapewnia ulepszone możliwości ograniczania DDoS dla aplikacji i zasobów wdrożonych w sieciach wirtualnych. Ponadto klienci korzystający z usługi Azure DDoS Protection mają dostęp do DDoSej szybkiej odpowiedzi, aby skontaktować się z ekspertami DDoS podczas aktywnego ataku.
 
-![DDoS Protection](./media/networking-overview/ddos-protection.png)
+![Ochrona przed atakami DDoS](./media/networking-overview/ddos-protection.png)
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
+### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
 
 [Zapora aplikacji sieci Web](../web-application-firewall/overview.md) (WAF) platformy Azure zapewnia ochronę aplikacji sieci Web przed typowymi atakami sieci Web i lukami w zabezpieczeniach, takimi jak iniekcja SQL i wykonywanie skryptów między lokacjami. Usługa Azure WAF zapewnia ochronę poza Box od OWASP 10 najważniejszych luk w zabezpieczeniach za pośrednictwem reguł zarządzanych. Dodatkowo klienci mogą również konfigurować reguły niestandardowe, które są regułami zarządzanymi przez klienta, aby zapewnić dodatkową ochronę na podstawie źródłowego zakresu adresów IP, a także atrybuty żądania, takie jak nagłówki, pliki cookie, pola danych formularza lub parametry ciągu zapytania.
 
 Klienci mogą wybrać wdrożenie [usługi Azure WAF z Application Gateway](../application-gateway/waf-overview.md) , która zapewnia ochronę regionalną jednostek w publicznej i prywatnej przestrzeni adresowej. Klienci mogą również wybrać wdrożenie [usługi Azure WAF z przednimi drzwiami](../frontdoor/waf-overview.md) , które zapewniają ochronę w granicach sieci z publicznymi punktami końcowymi.
 
-![Web Application Firewall](./media/networking-overview/waf-overview.png)
+![Zapora aplikacji internetowej](./media/networking-overview/waf-overview.png)
 
 
 ### <a name="azure-firewall"></a><a name="firewall"></a>Azure Firewall
@@ -120,7 +120,7 @@ Aby uzyskać więcej informacji na temat zapory platformy Azure, zobacz [dokumen
 
 ![Omówienie zapory](./media/networking-overview/firewall-threat.png)
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
+### <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
 Ruch sieciowy przychodzący do zasobów platformy Azure i wychodzący z nich w sieci wirtualnej platformy Azure można filtrować za pomocą grupy zabezpieczeń sieci. Aby uzyskać więcej informacji, zobacz [Omówienie zabezpieczeń](../virtual-network/security-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Punkty końcowe usługi
@@ -144,14 +144,14 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które pomagają dost
 |[Content Delivery Network](#cdn)|Dostarcza użytkownikom zawartość o wysokiej przepustowości. Sieci CDN Przechowuj zawartość pamięci podręcznej na serwerach brzegowych w lokalizacjach punktów obecności (POP), które znajdują się blisko użytkowników końcowych, aby zminimalizować opóźnienia|<p>[Dodawanie usługi CDN do aplikacji sieci Web](../cdn/cdn-add-to-web-app.md)</p> <p>[Dostęp do obiektów blob magazynu przy użyciu Azure CDN domeny niestandardowej za pośrednictwem protokołu HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Dodawanie domeny niestandardowej do punktu końcowego usługi Azure CDN](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Umożliwia definiowanie i monitorowanie globalnego routingu dla ruchu w sieci Web oraz zarządzanie nim przez optymalizację w celu uzyskania najlepszej wydajności i natychmiastowego globalnego trybu failover w celu zapewnienia wysokiej dostępności.|<p>[Dodawanie domeny niestandardowej do usługi Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door](../frontdoor/front-door-custom-domain-https.md)</p><p>[Konfigurowanie zasad zapory aplikacji sieci Web do filtrowania geograficznego](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Dystrybuuje ruch oparty na systemie DNS do usług w globalnych regionach platformy Azure, zapewniając wysoką dostępność i czas odpowiedzi|<p> [Kierowanie ruchem w celu uzyskania niskich opóźnień](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Kierowanie ruchu do priorytetowego punktu końcowego](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Kontrolowanie ruchu za pomocą punktów końcowych z wagami](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Kierowanie ruchu na podstawie lokalizacji geograficznej punktu końcowego](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Kierowanie ruchem na podstawie podsieci użytkownika](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Load Balancer](#loadbalancer)|Zapewnia regionalne Równoważenie obciążenia przez kierowanie ruchu między strefami dostępności i sieci wirtualnych. Zapewnia wewnętrzne równoważenie obciążenia przez kierowanie ruchu między zasobami i między nimi w celu skompilowania aplikacji regionalnej.|<p> [Równoważenie obciążenia ruchem internetowym przez skierowanie go do maszyn wirtualnych](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Równoważenie obciążenia ruchu między maszynami wirtualnymi w sieci wirtualnej](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Ruch przekazujący port do określonego portu na określonych maszynach wirtualnych](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Moduł równoważenia obciążenia](#loadbalancer)|Zapewnia regionalne Równoważenie obciążenia przez kierowanie ruchu między strefami dostępności i sieci wirtualnych. Zapewnia wewnętrzne równoważenie obciążenia przez kierowanie ruchu między zasobami i między nimi w celu skompilowania aplikacji regionalnej.|<p> [Równoważenie obciążenia ruchem internetowym przez skierowanie go do maszyn wirtualnych](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Równoważenie obciążenia ruchu między maszynami wirtualnymi w sieci wirtualnej](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Ruch przekazujący port do określonego portu na określonych maszynach wirtualnych](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Application Gateway](#applicationgateway)|Azure Application Gateway to moduł równoważenia obciążenia ruchu internetowego, który umożliwia zarządzanie ruchem kierowanym do aplikacji internetowych.|<p>[Bezpośredni ruch internetowy w usłudze Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure Portal](../application-gateway/create-ssl-portal.md)</p><p>[Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 
 ### <a name="content-delivery-network"></a><a name="cdn"></a>Content Delivery Network
 Usługa Azure Content Delivery Network (CDN) oferuje deweloperom globalne rozwiązanie umożliwiające szybkie dostarczanie użytkownikom zawartości wymagającej wysokiej przepustowości przez zapisywanie zawartości w pamięci podręcznej w węzłach fizycznych strategicznie rozmieszczonych na całym świecie. Aby uzyskać więcej informacji na temat Azure CDN, zobacz [Azure Content Delivery Network](../cdn/cdn-overview.md)
 
-![Usługa Azure CDN](./media/networking-overview/cdn-overview.png)
+![Azure CDN](./media/networking-overview/cdn-overview.png)
 
 ### <a name="azure-front-door-service"></a><a name="frontdoor"></a>Usługa frontonu platformy Azure
 Usługa Azure Front Door Service umożliwia definiowanie i monitorowanie globalnego routingu ruchu internetowego oraz zarządzanie nim przez optymalizowanie pod kątem uzyskiwania najlepszej wydajności i natychmiastowego przechodzenia w tryb failover w celu zapewnienia wysokiej dostępności. Dzięki usłudze Front Door można przekształcić globalne usługi dla konsumentów (wiele regionów) i aplikacji w niezawodne, spersonalizowane, nowoczesne, wysokowydajne aplikacje, interfejsy API i zawartość, które dotrą do odbiorców globalnych za pomocą platformy Azure. Aby uzyskać więcej informacji, zobacz [zewnętrzne drzwi platformy Azure](../frontdoor/front-door-overview.md).
@@ -167,7 +167,7 @@ Na poniższym diagramie przedstawiono routing oparty na priorytetach punktów ko
 
 Aby uzyskać więcej informacji na temat Traffic Manager, zobacz [co to jest usługa Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-### <a name="load-balancer"></a><a name="loadbalancer"></a>Load Balancer
+### <a name="load-balancer"></a><a name="loadbalancer"></a>Moduł równoważenia obciążenia
 Azure Load Balancer w przypadku wszystkich protokołów UDP i TCP zapewnia wysoką wydajność i niskie opóźnienie warstwy 4. Służy do zarządzania połączeniami przychodzącymi i wychodzącymi. Można skonfigurować publiczne i wewnętrzne punkty końcowe ze zrównoważonym obciążeniem. Można zdefiniować reguły mapowania połączeń przychodzących do miejsc docelowych puli zaplecza przy użyciu opcji badania kondycji protokołów TCP i HTTP w celu zarządzania dostępnością usługi. Aby dowiedzieć się więcej na temat Load Balancer, przeczytaj artykuł [omówienie Load Balancer](../load-balancer/load-balancer-overview.md) .
 
 Na poniższej ilustracji przedstawiono wielowarstwową aplikację internetową, która wykorzystuje zarówno zewnętrzne, jak i wewnętrzne moduły równoważenia obciążenia:

@@ -7,23 +7,26 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e7533b87e28fa2bb95aaaddd31f7871e8ccdb600
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285615"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
-Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [*: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
+Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [*: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule przedstawiono sposób generowania własnego zestawu SDK płaszczyzny danych w wybranym języku przy użyciu funkcji AutoRest.
+
+>[!NOTE]
+> Możesz również użyć AutoRest do wygenerowania zestawu SDK płaszczyzny kontroli, jeśli chcesz. Aby to zrobić, wykonaj kroki opisane w tym artykule przy użyciu [pliku płaszczyzny kontroli Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) , a nie płaszczyzny danych.
 
 ## <a name="set-up-your-machine"></a>Konfigurowanie maszyny
 
 Aby wygenerować zestaw SDK, potrzebne są:
 * [AutoRest](https://github.com/Azure/autorest), wersja 2.0.4413 (wersja 3 nie jest obecnie obsługiwana)
 * [Node.js](https://nodejs.org) jako warunek wstępny do AutoRest
-* [Plik usługi Azure Digital bliźniaczych reprezentacji Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) zatytułowany *digitaltwins.json*i dołączony do niego folder przykładów. Pobierz plik Swagger i jego folder przykładów na komputer lokalny.
+* [Plik struktury Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) Digital bliźniaczych reprezentacji na platformie Azure zatytułowany *digitaltwins.json*i dołączony do niego folder przykładów. Pobierz plik Swagger i jego folder przykładów na komputer lokalny.
 
 Gdy Twoja maszyna jest wyposażona w wszystko z powyższej listy, możesz użyć AutoRest do utworzenia zestawu SDK.
 
@@ -53,7 +56,7 @@ Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozw
 
 Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Te kroki są zależne od **programu Visual Studio** (można zainstalować najnowszą wersję z tego [miejsca](https://visualstudio.microsoft.com/downloads/)).
 
-Oto konkretne kroki:
+Oto odpowiednie kroki:
 
 1. Tworzenie nowego rozwiązania programu Visual Studio dla biblioteki klas
 2. Użyj *ADTApi* jako nazwy projektu

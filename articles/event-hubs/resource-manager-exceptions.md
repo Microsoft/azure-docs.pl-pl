@@ -3,12 +3,12 @@ title: Event Hubs platformy Azure — Menedżer zasobów wyjątki | Microsoft Do
 description: Lista wyjątków Event Hubs platformy Azure, które zostały podane przez Azure Resource Manager i zalecane akcje.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1a3ca647bbf9e6590446549455a9853411fd7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281042"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Event Hubs platformy Azure — wyjątki Menedżer zasobów
 W tym artykule wymieniono wyjątki generowane podczas korzystania z usługi Azure Event Hubs przy użyciu szablonów Azure Resource Manager i bezpośrednich wywołań.
@@ -44,7 +44,7 @@ W poniższych sekcjach przedstawiono różne wyjątki/błędy, które są przeds
 | BadRequest | brak | Nie można zaktualizować przestrzeni nazw, która jest pomocnicza | Nie można zaktualizować przestrzeni nazw, ponieważ jest to pomocnicza przestrzeń nazw w [GeoDR parowania](event-hubs-geo-dr.md). | W razie potrzeby wprowadź zmiany w podstawowej przestrzeni nazw w tym parowanie. W przeciwnym razie Przerwij parowanie GeoDR, aby wprowadzić zmiany. |
 | BadRequest | brak | Nie można ustawić autodostrajania w podstawowej jednostce SKU | Nie można włączyć autodostrajania w warstwie Podstawowa Event Hubs przestrzenie nazw. | Aby [włączyć funkcję autodostrajania](event-hubs-auto-inflate.md) w przestrzeni nazw, upewnij się, że jest ona w warstwie Standardowa. |
 | BadRequest | brak | Nie ma wystarczającej pojemności, aby utworzyć przestrzeń nazw. Skontaktuj się z administratorem Event Hubs. | Wybrany region jest w pojemności i nie można utworzyć więcej przestrzeni nazw. | Wybierz inny region, w którym znajduje się Twoja przestrzeń nazw. |
-| BadRequest | brak | Nie można wykonać operacji dla typu jednostki "odbiorca", ponieważ w przestrzeni nazw "name" jest używana warstwa "Basic".  | W warstwie Podstawowa Event Hubs przestrzenie nazw ma wartość [limit przydziału] ((Event-Hubs. MD # Event-Hub-Basic-and-Standard---przydziałów i-limitów) jednej grupy konsumentów (wartość domyślna). Tworzenie większej liczby grup odbiorców nie jest obsługiwane. | Kontynuuj korzystanie z domyślnej grupy odbiorców ($Default) lub jeśli potrzebujesz więcej informacji, rozważ użycie w zamian Event Hubs przestrzeni nazw warstwy Standardowa. | 
+| BadRequest | brak | Nie można wykonać operacji dla typu jednostki "odbiorca", ponieważ w przestrzeni nazw "name" jest używana warstwa "Basic".  | Przestrzeń nazw Event Hubs warstwy Podstawowa ma [limit przydziału](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) jednej grupy odbiorców (wartość domyślna). Tworzenie większej liczby grup odbiorców nie jest obsługiwane. | Kontynuuj korzystanie z domyślnej grupy odbiorców ($Default) lub jeśli potrzebujesz więcej informacji, rozważ użycie w zamian Event Hubs przestrzeni nazw warstwy Standardowa. | 
 | BadRequest | brak | Przestrzeń nazw "Namespace Name" nie istnieje. | Nie można znaleźć podanej przestrzeni nazw. | Sprawdź, czy nazwa przestrzeni nazw jest poprawna i czy można ją znaleźć w subskrypcji. Jeśli nie, [Utwórz przestrzeń nazw Event Hubs](event-hubs-create.md). | 
 | BadRequest | brak | Właściwość Location zasobu nie pasuje do zawartej w nim przestrzeni nazw. | Utworzenie centrum zdarzeń w określonym regionie nie powiodło się, ponieważ nie jest on zgodny z regionem przestrzeni nazw. | Spróbuj utworzyć centrum zdarzeń w tym samym regionie, w którym znajduje się obszar nazw. | 
 

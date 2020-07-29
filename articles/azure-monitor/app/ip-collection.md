@@ -3,12 +3,13 @@ title: Kolekcja adresów IP Application Insights platformy Azure | Microsoft Doc
 description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pomocą usługi Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 28a7fa50a06dc8b80c7d8dd284cd88ebe4645da6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014443"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371655"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 

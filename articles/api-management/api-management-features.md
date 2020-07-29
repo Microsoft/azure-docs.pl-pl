@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284340"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Porównanie warstw API Management platformy Azure oparte na funkcjach
 
@@ -31,7 +31,7 @@ Każda [warstwa cenowa](https://aka.ms/apimpricing) API Management oferuje odrę
 | Integracja z usługą Azure AD<sup>1</sup>                                                             | Nie          | Yes       | Nie    | Tak      | Tak     |
 | Obsługa Virtual Network (VNet)                                                               | Nie          | Yes       | Nie    | Nie       | Yes     |
 | Wdrażanie w wielu regionach                                                                      | Nie          | Nie        | Nie    | Nie       | Yes     |
-| Wiele niestandardowych nazw domen                                                                 | Nie          | Nie        | Nie    | Nie       | Yes     |
+| Wiele niestandardowych nazw domen                                                                 | Nie          | Yes        | Nie    | Nie       | Yes     |
 | Portal dla deweloperów<sup>2</sup>                                                                 | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Wbudowana pamięć podręczna                                                                               | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Wbudowana analiza                                                                           | Nie          | Tak       | Tak   | Tak      | Tak     |

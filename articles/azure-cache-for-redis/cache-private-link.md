@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099662"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337266"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (wersja zapoznawcza)
 Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. 
@@ -45,7 +45,7 @@ W tym artykule opisano sposób tworzenia pamięci podręcznej platformy Azure, s
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
    | **Warstwa cenowa** | Lista rozwijana i wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
    
-1. Wybierz pozycję **Utwórz**. 
+1. Wybierz przycisk **Utwórz**. 
    
     :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Utwórz pamięć podręczną platformy Azure dla Redis.":::
    
@@ -97,7 +97,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 9. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-10. Wybierz pozycję **Utwórz**.
+10. Wybierz przycisk **Utwórz**.
 
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
@@ -149,3 +149,9 @@ W tej sekcji utworzysz prywatny punkt końcowy i nawiążesz połączenie z utwo
 11. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty **Recenzja + tworzenie**, w   której platforma Azure weryfikuje konfigurację.
 
 12. Po wyświetleniu komunikatu o **przekazaniu** zielonych weryfikacji kliknij przycisk **Utwórz**.
+
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby dowiedzieć się więcej na temat linku prywatnego, zapoznaj się z [dokumentacją prywatnego linku do platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+

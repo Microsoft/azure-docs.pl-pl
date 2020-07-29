@@ -6,11 +6,12 @@ ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 7f922275e5541baabc77a1efb19e48fa8be4c5ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f325280cb4b18def603410464a06fddaed09c78a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289428"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285411"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL partnerów migracji
 Aby szeroko wspierać rozwiązanie Azure Database for MySQL, możesz wybierać spośród wielu wiodących w branży partnerów i narzędzi. W tym artykule przedstawiono partnerów firmy Microsoft z rozwiązaniami do migracji, które obsługują Azure Database for MySQL.
@@ -26,7 +27,7 @@ Aby szeroko wspierać rozwiązanie Azure Database for MySQL, możesz wybierać s
 | ![Pactera][6] |**Pactera**<br>Pactera to globalna firma oferująca konsultacje, cyfrowe, technologie i usługi operacyjne w wiodących na świecie przedsiębiorstwach. Od ich korzeni w inżynierów do najnowszej transformacji cyfrowej zapewniają klientom konkurencyjną granicę. Sprawdzone metody i narzędzia zapewniają, że dane są bezpieczne, autentyczne i dokładne.|[witryna sieci web][pactera_website]<br>[Twitter][pactera_twitter]<br>[Proś][pactera_contact] | |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat innych partnerów firmy Microsoft, zobacz [witrynę partnerów firmy Microsoft](https://partner.microsoft.com/en-US/).
+Aby dowiedzieć się więcej na temat innych partnerów firmy Microsoft, zobacz [witrynę partnerów firmy Microsoft](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-mysql/SNP_Logo.png

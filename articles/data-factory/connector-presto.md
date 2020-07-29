@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 261bdedee56bb4de2dfbbef27358fae5ae8fdc3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416747"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372505"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiowanie danych z Presto za pomocą Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +50,7 @@ Dla połączonej usługi Presto są obsługiwane następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Presto** | Tak |
-| host | Adres IP lub nazwa hosta serwera Presto. (tj. 192.168.222.160)  | Tak |
+| host | Adres IP lub nazwa hosta serwera Presto. (np. 192.168.222.160)  | Tak |
 | serverVersion | Wersja serwera Presto. (np. 0,148-t)  | Tak |
 | pełnotekstowy | Kontekst wykazu dla wszystkich żądań względem serwera.  | Tak |
 | port | Port TCP, którego serwer Presto używa do nasłuchiwania połączeń klientów. Wartość domyślna to 8080.  | Nie |
@@ -97,8 +97,8 @@ Aby skopiować dane z Presto, ustaw właściwość Type zestawu danych na **Pres
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **PrestoObject** | Tak |
-| schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| table | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -129,7 +129,7 @@ Aby skopiować dane z Presto, ustaw typ źródła w działaniu Copy na **PrestoS
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **PrestoSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

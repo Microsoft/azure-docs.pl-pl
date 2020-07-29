@@ -4,18 +4,16 @@ description: Dowiedz się, jak usuwanie nietrwałe może chronić udziały plik�
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282708"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Przypadkowe usuwanie ochrony udziałów plików platformy Azure przy użyciu Azure Backup
 
-Aby zapewnić ochronę przed cyberattacks lub przypadkowym usunięciem, funkcja [usuwania nietrwałego](../storage/files/storage-files-prevent-file-share-deletion.md) jest włączana dla wszystkich udziałów plików na koncie magazynu podczas konfigurowania kopii zapasowej dowolnego udziału plików na odpowiednim koncie magazynu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa udział plików, zawartość udziału plików i punkty odzyskiwania (migawki) są zachowywane przez co najmniej 14 dodatkowych dni, co pozwala na odzyskiwanie udziałów plików bez utraty danych.  
-
-Usuwanie nietrwałe jest obsługiwane tylko dla kont magazynu w warstwach Standardowa i Premium. obecnie jest to możliwe po stronie Azure Backup w [tych regionach](azure-file-share-support-matrix.md).
+Aby zapewnić ochronę przed cyberattacks lub przypadkowym usunięciem, funkcja [usuwania nietrwałego](../storage/files/storage-files-prevent-file-share-deletion.md) jest włączana dla wszystkich udziałów plików na koncie magazynu podczas konfigurowania kopii zapasowej dowolnego udziału plików na odpowiednim koncie magazynu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa udział plików, zawartość udziału plików i punkty odzyskiwania (migawki) są zachowywane przez co najmniej 14 dodatkowych dni, co pozwala na odzyskiwanie udziałów plików bez utraty danych.  Usuwanie nietrwałe jest obsługiwane dla kont magazynu w warstwach Standardowa i Premium, a ustawienie jest włączone, Azure Backup dla wszystkich kont magazynu obsługujących kopie zapasowe udziałów plików.
 
 Poniższy wykres przepływu przedstawia różne kroki i Stany elementu kopii zapasowej po włączeniu usuwania nietrwałego dla udziałów plików na koncie magazynu:
 

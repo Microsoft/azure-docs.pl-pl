@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
+ms.custom: devx-track-java
 ms.author: juliako
-ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001217"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319834"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
 
@@ -119,7 +120,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
    ```
 1. Uruchom aplikację.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Koncepcje Media Services](concepts-overview.md)
 - [Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)

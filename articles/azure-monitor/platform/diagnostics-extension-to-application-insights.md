@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 39f564bea8d300d2966afe27ff0239c527f038cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092817"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305809"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Wyślij usługę w chmurze, maszynę wirtualną lub Service Fabric dane diagnostyczne do Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets i Service Fabric wszystkie używają rozszerzenia Diagnostyka Azure do zbierania danych.  Diagnostyka Azure wysyła dane do tabel usługi Azure Storage.  Można jednak również potokować wszystkie lub podzbiór danych do innych lokalizacji przy użyciu rozszerzenia Diagnostyka Azure 1,5 lub nowszego.
@@ -59,8 +59,8 @@ Przykładowa konfiguracja ujścia dla Application Insights:
 - Atrybut **Sink** *nazwy* ujścia jest wartością ciągu, która jednoznacznie identyfikuje ujścia.
 
 - Element **ApplicationInsights** określa klucz Instrumentacji zasobu usługi Application Insights, w którym są wysyłane dane diagnostyczne platformy Azure.
-    - Jeśli nie masz istniejącego zasobu Application Insights, zobacz [Tworzenie nowego zasobu Application Insights](../../azure-monitor/app/create-new-resource.md ) , aby uzyskać więcej informacji na temat tworzenia zasobu i uzyskiwania klucza Instrumentacji.
-    - Jeśli tworzysz usługę w chmurze przy użyciu zestawu Azure SDK 2,8 lub nowszego, ten klucz Instrumentacji jest wypełniany automatycznie. Wartość jest określana na podstawie ustawienia konfiguracji usługi **APPINSIGHTS_INSTRUMENTATIONKEY** podczas pakowania projektu usługi w chmurze. Zobacz [używanie Application Insights z Cloud Services](../../azure-monitor/app/cloudservices.md).
+    - Jeśli nie masz istniejącego zasobu Application Insights, zobacz [Tworzenie nowego zasobu Application Insights](../app/create-new-resource.md) , aby uzyskać więcej informacji na temat tworzenia zasobu i uzyskiwania klucza Instrumentacji.
+    - Jeśli tworzysz usługę w chmurze przy użyciu zestawu Azure SDK 2,8 lub nowszego, ten klucz Instrumentacji jest wypełniany automatycznie. Wartość jest określana na podstawie ustawienia konfiguracji usługi **APPINSIGHTS_INSTRUMENTATIONKEY** podczas pakowania projektu usługi w chmurze. Zobacz [używanie Application Insights z Cloud Services](../app/cloudservices.md).
 
 - Element **Channels** zawiera jeden lub więcej elementów **kanału** .
     - Atrybut *name* jednoznacznie odwołuje się do tego kanału.
@@ -216,3 +216,4 @@ W poprzedniej konfiguracji następujące wiersze mają następujące znaczenie:
 * Dowiedz się, jak [wyświetlać informacje diagnostyczne platformy Azure](../app/cloudservices.md) w Application Insights.
 * Użyj [programu PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) , aby włączyć rozszerzenie diagnostyki platformy Azure dla swojej aplikacji.
 * Korzystanie z [programu Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) w celu włączenia rozszerzenia diagnostyki platformy Azure dla aplikacji
+

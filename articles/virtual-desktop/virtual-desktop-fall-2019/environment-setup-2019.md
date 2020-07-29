@@ -1,6 +1,6 @@
 ---
-title: Środowisko pulpitu wirtualnego systemu Windows (2019) — Azure
-description: Zapoznaj się z podstawowymi elementami środowiska pulpitu wirtualnego systemu Windows (w wersji 2019), takimi jak dzierżawcy i pule hostów.
+title: Środowisko pulpitu wirtualnego systemu Windows (klasyczne) — platforma Azure
+description: Podstawowe elementy środowiska pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082651"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285020"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Środowisko pulpitu wirtualnego systemu Windows (w wersji 2019)
+# <a name="windows-virtual-desktop-classic-environment"></a>Środowisko pulpitu wirtualnego systemu Windows (klasycznego)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../environment-setup.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../environment-setup.md).
 
 Windows Virtual Desktop to usługa zapewniająca użytkownikom łatwy i bezpieczny dostęp do swoich zwirtualizowanych pulpitów i programów RemoteApp. W tym temacie przedstawiono nieco więcej informacji na temat ogólnej struktury środowiska pulpitu wirtualnego systemu Windows.
 

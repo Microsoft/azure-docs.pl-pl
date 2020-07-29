@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656416"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337181"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
@@ -63,11 +63,8 @@ Ten szablon urządzenia obejmuje następujące:
 
 ### <a name="create-device-templates"></a>Tworzenie szablonów urządzeń
 
-Program [IoT Plug and Play (wersja zapoznawcza)](../../iot-pnp/overview-iot-plug-and-play.md) umożliwia IoT Central integrację urządzeń bez konieczności pisania kodu urządzenia osadzonego. Podstawą Plug and Play IoT (wersja zapoznawcza) jest schemat modelu możliwości urządzenia, który opisuje możliwości urządzeń. W aplikacji IoT Central szablony urządzeń używają następujących modeli możliwości urządzenia IoT Plug and Play (wersja zapoznawcza).
-
 Jako Konstruktor rozwiązań masz kilka opcji tworzenia szablonów urządzeń:
 
-- Zaimportuj model możliwości urządzenia z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://aka.ms/iotdevcat) , a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje IoT Central aplikacji.
 - Zaprojektuj szablon urządzenia w IoT Central a następnie Zaimplementuj jego model możliwości urządzenia w kodzie urządzenia.
 - Utwórz model możliwości urządzenia przy użyciu programu Visual Studio Code i Opublikuj model w repozytorium. Zaimplementuj swój kod urządzenia z modelu i Połącz urządzenie z aplikacją IoT Central. IoT Central odnajduje model możliwości urządzenia z repozytorium i tworzy prosty szablon urządzenia.
 - Utwórz model możliwości urządzenia przy użyciu programu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model możliwości urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
@@ -145,11 +142,10 @@ Każda subskrypcja platformy Azure ma domyślne przydziały, które mogą mieć 
 - GEOJSON nie jest obecnie obsługiwany.
 - Kafelek mapy nie jest obecnie obsługiwany.
 - Typy schematów tablicy nie są obsługiwane.
-- Obsługiwane są tylko zestawy SDK dla urządzeń C i Node. js.
+- Obsługiwane są tylko zestawy SDK urządzeń C i Node.js.
 - IoT Central jest obecnie dostępna w lokalizacjach Stany Zjednoczone, Europy, Azja i Pacyfik, Australii, Wielkiej Brytanii i Japonii.
 - Nie można użyć szablonu aplikacji **aplikacja niestandardowa (starsza wersja)** w lokalizacjach w Zjednoczonym Królestwie i w Japonii.
 - Modele możliwości urządzeń muszą mieć wszystkie interfejsy zdefiniowane wewnętrznie w tym samym pliku.
-- Obsługa [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) jest dostępna w wersji zapoznawczej i jest obsługiwana tylko w wybranych regionach.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -158,7 +154,6 @@ Teraz, gdy masz przegląd IoT Central, Oto kilka sugerowanych następnych krokó
 - Zapoznaj się z dostępnymi [technologiami i usługami platformy Azure służącymi do tworzenia rozwiązań IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Zapoznanie się z [interfejsem użytkownika usługi Azure IoT Central](overview-iot-central-tour.md).
 - Rozpoczęcie pracy przez [utworzenie aplikacji usługi Azure IoT Central](quick-deploy-iot-central.md).
-- Dowiedz się więcej o usłudze [IoT Plug and Play (wersja zapoznawcza)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Dowiedz się, jak [połączyć urządzenie Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Dowiedz się więcej na temat [technologii i usług Azure IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 

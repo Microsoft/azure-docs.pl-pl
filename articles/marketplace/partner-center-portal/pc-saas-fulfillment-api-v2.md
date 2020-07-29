@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-ms.openlocfilehash: f501e84e988d340ba710e49d30caddbe56006c8a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109420"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305146"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
 
@@ -149,7 +151,7 @@ Po odebraniu wywołania elementu webhook anulowania Wydawca powinien zachować d
 
 Subskrypcję usługi SaaS można anulować w dowolnym momencie jej cyklu życia. Po anulowaniu subskrypcji nie można ponownie aktywować.
 
-## <a name="api-reference"></a>Odwołanie API
+## <a name="api-reference"></a>Dokumentacja interfejsu API
 
 Ta sekcja dokumentuje interfejsy API subskrypcji i operacji SaaS.
 
@@ -313,7 +315,7 @@ Pobiera listę wszystkich zakupionych subskrypcji SaaS dla wszystkich ofert opub
 
 Ten interfejs API zwraca wyniki z podziałem na strony. Rozmiar strony wynosi 100.
 
-##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 

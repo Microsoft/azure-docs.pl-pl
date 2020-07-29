@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć, konfigurować i publikować oferty modu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053659"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320038"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -312,7 +312,7 @@ W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazw�
 > [!NOTE]
 > Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
 
-Wybierz pozycję **Utwórz**.
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 

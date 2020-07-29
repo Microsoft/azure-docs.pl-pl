@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077273"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305214"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -89,7 +89,7 @@ Brama Log Analytics jest dostępna w następujących językach:
 
 Brama Log Analytics obsługuje tylko Transport Layer Security (TLS) 1,0, 1,1 i 1,2.  Nie obsługuje SSL (SSL).  Aby zapewnić bezpieczeństwo danych podczas przesyłania do Log Analytics, skonfiguruj bramę do użycia co najmniej protokołu TLS 1,2. Starsze wersje protokołu TLS lub SSL są narażone na ataki. Chociaż obecnie dopuszczają zgodność z poprzednimi wersjami, unikaj ich używania.  
 
-Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Obsługiwana liczba połączeń agentów
 
@@ -350,7 +350,7 @@ Aby zbierać zdarzenia zarejestrowane przez bramę, należy zainstalować agenta
 
 W poniższej tabeli przedstawiono identyfikatory i opisy zdarzeń dotyczących zdarzeń dziennika bramy Log Analytics.
 
-| **#C1** | **Opis** |
+| **ID** | **Opis** |
 | --- | --- |
 | 400 |Dowolny błąd aplikacji, który nie ma określonego identyfikatora. |
 | 401 |Nieprawidłowa konfiguracja. Na przykład, listenPort = "text" zamiast liczby całkowitej. |
@@ -388,4 +388,5 @@ Aby uzyskać pomoc, wybierz ikonę znaku zapytania w prawym górnym rogu portalu
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dodawanie źródeł danych](../../azure-monitor/platform/agent-data-sources.md) w celu zbierania danych z połączonych źródeł i przechowywania danych w obszarze roboczym log Analytics.
+[Dodawanie źródeł danych](./agent-data-sources.md) w celu zbierania danych z połączonych źródeł i przechowywania danych w obszarze roboczym log Analytics.
+

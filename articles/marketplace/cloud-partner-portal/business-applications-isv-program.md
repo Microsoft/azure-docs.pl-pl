@@ -4,15 +4,15 @@ description: Oto jak dołączyć do programu Business Applications ISV Connect.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8bcb6bde7ec7ec3e3f7f60213dbbc641cfa127
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281671"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 

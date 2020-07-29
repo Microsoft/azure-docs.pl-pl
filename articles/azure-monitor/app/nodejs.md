@@ -3,16 +3,17 @@ title: Monitorowanie usług Node.js za pomocą usługi Azure Application Insight
 description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za pomocą usługi Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024388"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371621"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje usługi i składniki zaplecza po wdrożeniu, aby ułatwić odnajdywanie i Szybkie diagnozowanie wydajności i innych problemów. Application Insights dla usług Node.js, które są hostowane w centrum danych, na maszynach wirtualnych platformy Azure i aplikacjach sieci Web, a nawet w innych chmurach publicznych.
+[Application Insights](./app-insights-overview.md) monitoruje usługi i składniki zaplecza po wdrożeniu, aby ułatwić odnajdywanie i Szybkie diagnozowanie wydajności i innych problemów. Application Insights dla usług Node.js, które są hostowane w centrum danych, na maszynach wirtualnych platformy Azure i aplikacjach sieci Web, a nawet w innych chmurach publicznych.
 
 Aby móc odbierać, przechowywać i eksplorować dane monitorowania, uwzględnij zestaw SDK w kodzie, a następnie skonfiguruj odpowiedni zasób usługi Application Insights na platformie Azure. Zestaw SDK wysyła dane do zasobu na potrzeby przyszłej analizy i eksploracji.
 
@@ -80,8 +81,8 @@ Zestaw SDK przesyła dane partiami, dlatego niektóre elementy w portalu mogą b
 
 * Kontynuuj korzystanie z aplikacji. Wykonaj więcej akcji, aby wygenerować więcej telemetrii.
 * Kliknij przycisk **Odśwież** w widoku zasobu portalu. Wykresy są okresowo odświeżane samoczynnie, ale odświeżanie ręczne jest wykonywane od razu.
-* Upewnij się, że [wymagane porty wychodzące](../../azure-monitor/app/ip-addresses.md) zostały otwarte.
-* Użyj pozycji [Wyszukaj](../../azure-monitor/app/diagnostic-search.md), aby znaleźć określone zdarzenia.
+* Upewnij się, że [wymagane porty wychodzące](./ip-addresses.md) zostały otwarte.
+* Użyj pozycji [Wyszukaj](./diagnostic-search.md), aby znaleźć określone zdarzenia.
 * Zapoznaj się z sekcją [Często zadawane pytania][FAQ].
 
 ## <a name="basic-usage"></a>Podstawowe użycie
@@ -216,7 +217,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>Interfejs API TelemetryClient
 
-Pełny opis interfejsu API TelemetryClient można znaleźć w temacie [Application Insights API for custom events and metrics (Interfejs API usługi Application Insights na potrzeby metryk i zdarzeń niestandardowych)](../../azure-monitor/app/api-custom-events-metrics.md).
+Pełny opis interfejsu API TelemetryClient można znaleźć w temacie [Application Insights API for custom events and metrics (Interfejs API usługi Application Insights na potrzeby metryk i zdarzeń niestandardowych)](./api-custom-events-metrics.md).
 
 Zestaw Node.js SDK usługi Application Insights umożliwia śledzenie dowolnego żądania, zdarzenia, metryki lub wyjątku. W poniższym przykładzie kodu pokazano niektóre z interfejsów API, których możesz użyć:
 
@@ -414,10 +415,11 @@ Te właściwości są specyficzne dla klienta, dlatego można je skonfigurować 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Monitorowanie telemetrii w portalu](../../azure-monitor/app/overview-dashboard.md)
-* [Zapisywanie zapytań analizy za pośrednictwem danych telemetrycznych](../../azure-monitor/log-query/get-started-portal.md)
+* [Monitorowanie telemetrii w portalu](./overview-dashboard.md)
+* [Zapisywanie zapytań analizy za pośrednictwem danych telemetrycznych](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
+

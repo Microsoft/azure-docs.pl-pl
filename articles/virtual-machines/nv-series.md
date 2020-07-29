@@ -4,14 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii NV.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e7fdc232d698e3eb2038bb6ec7a4c47a9c49944a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726603"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284782"
 ---
 # <a name="nv-series"></a>Seria NV
 
@@ -47,7 +48,7 @@ W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU fir
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

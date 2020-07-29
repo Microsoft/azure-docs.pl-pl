@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325886"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372114"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,6 +34,8 @@ Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, kt
 
 * Utwórz klaster AKS przy użyciu zestawu SDK Azure Machine Learning, interfejsu wiersza polecenia Machine Learning lub [Azure Machine Learning Studio](https://ml.azure.com). Ten proces automatycznie łączy klaster z obszarem roboczym.
 * Dołącz istniejący klaster AKS do obszaru roboczego Azure Machine Learning. Klaster może być dołączany przy użyciu zestawu SDK Azure Machine Learning, Machine Learning interfejsu wiersza polecenia lub Azure Machine Learning Studio.
+
+Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasobów.
 
 > [!IMPORTANT]
 > Proces tworzenia lub załączników to zadanie jednorazowe. Gdy klaster AKS jest połączony z obszarem roboczym, można go użyć do wdrożeń. Możesz odłączyć lub usunąć klaster AKS, jeśli nie jest już potrzebny. Po odłączeniu lub usunięciu nie będzie już można wdrażać w klastrze.
@@ -61,11 +63,28 @@ Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, kt
 
 - W fragmentach __interfejsu wiersza polecenia__ w tym artykule przyjęto założenie, że dokument został utworzony `inferenceconfig.json` . Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
+- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny Contol AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. Użyj [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla [sparowanych regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) podczas włączania zakresów adresów IP w klastrze AKS
+ 
+ - Nazwa obliczeniowa musi być unikatowa w obszarze roboczym
+   - Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.
+   - Prawidłowe znaki to wielkie i małe litery, cyfry i znaki.
+   - Nazwa musi rozpoczynać się od litery
+   - Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert
+   
+ - Jeśli chcesz wdrożyć modele na węzłach GPU lub węzłach FPGA (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
+ 
+ - Jeśli potrzebujesz usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia) wdrożonego w klastrze zamiast podstawowego Load Balancer (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie dołącz go do obszaru roboczego AML. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra AKS
 
-**Szacowany czas**: około 20 minut.
+**Szacowany czas**: około 10 minut.
 
 Tworzenie i dołączanie klastra AKS jest jednym procesem czasu dla Twojego obszaru roboczego. Można ponownie użyć tego klastra dla wielu wdrożeń. W przypadku usunięcia klastra lub grupy zasobów, która zawiera tę usługę, należy utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego można dołączyć wiele klastrów AKS.
+ 
+Azure Machine Learning teraz obsługuje korzystanie z usługi Azure Kubernetes, która ma włączone łącze prywatne.
+Aby utworzyć prywatny klaster AKS, Skorzystaj z witryny docs [tutaj](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > Jeśli chcesz zabezpieczyć klaster AKS przy użyciu Virtual Network platformy Azure, musisz najpierw utworzyć sieć wirtualną. Aby uzyskać więcej informacji, zobacz temat [bezpieczne eksperymentowanie i wnioskowanie za pomocą usługi Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).

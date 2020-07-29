@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281467"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Wywoływanie punktów końcowych REST przy użyciu Azure Logic Apps
 
@@ -27,11 +28,11 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowaneg
 
   * Plik struktury Swagger musi być hostowany na adresie URL protokołu HTTPS, który jest dostępny publicznie.
 
-  * Plik struktury Swagger musi mieć włączoną funkcję [udostępniania zasobów między źródłami (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
+  * Plik struktury Swagger musi mieć włączoną funkcję [udostępniania zasobów między źródłami (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
 
   Aby odwołać się do pliku struktury Swagger, który nie jest hostowany lub który nie spełnia wymagań dotyczących zabezpieczeń i między źródłami danych, można [przekazać plik Swagger do kontenera obiektów BLOB na koncie usługi Azure Storage](#host-swagger)i włączyć funkcję CORS dla tego konta magazynu, aby można było odwołać się do pliku.
 
-  W przykładach w tym temacie użyto [interfejs API rozpoznawania twarzy Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/face/overview), który wymaga [Cognitive Services konta i klucza dostępu](../cognitive-services/cognitive-services-apis-create-account.md).
+  W przykładach w tym temacie użyto [interfejs API rozpoznawania twarzy Cognitive Services](../cognitive-services/face/overview.md), który wymaga [Cognitive Services konta i klucza dostępu](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -117,7 +118,7 @@ Ta wbudowana akcja wysyła żądanie HTTP do adresu URL pliku struktury Swagger 
 
 Można odwołać się do pliku struktury Swagger, który nie jest hostowany lub który nie spełnia wymagań dotyczących zabezpieczeń i między źródłami, przekazując ten plik do kontenera obiektów BLOB na koncie usługi Azure Storage i włączając funkcję CORS na tym koncie magazynu. Aby tworzyć, konfigurować i przechowywać pliki struktury Swagger w usłudze Azure Storage, wykonaj następujące kroki:
 
-1. [Utwórz konto usługi Azure Storage](../storage/common/storage-create-storage-account.md).
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md).
 
 1. Teraz Włącz funkcję CORS dla obiektu BLOB. W menu konta magazynu wybierz pozycję **CORS**. Na karcie **BLOB Service** Określ te wartości, a następnie wybierz pozycję **Zapisz**.
 
@@ -165,3 +166,4 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

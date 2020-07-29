@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie narzędzia diagnostycznego dla pulpitu wirtualnego systemu Windows — Azure
-description: Jak wdrożyć narzędzie do diagnostyki środowiska użytkownika dla pulpitu wirtualnego systemu Windows.
+title: Wdrażanie narzędzia diagnostycznego dla pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Jak wdrożyć narzędzie do diagnostyki środowiska użytkownika dla pulpitu wirtualnego systemu Windows (klasyczny).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285105"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 >[!IMPORTANT]
 >Od 16 marca 2020, tymczasowo wyłączono zapytania diagnostyczne, które mają wpływ na środowisko użytkownika ze względu na zwiększone zapotrzebowanie na usługę. Spowoduje to, że narzędzie przestanie działać, ponieważ polega na tym, że te zapytania działają. Po ponownym udostępnieniu zapytań diagnostycznych będziemy aktualizować ten artykuł.
@@ -193,7 +193,7 @@ Aby ustawić identyfikator URI przekierowania:
 4.  W lewym panelu w obszarze Zarządzaj wybierz pozycję **uwierzytelnianie**.
 5.  Wprowadź żądany identyfikator URI przekierowania do pola tekstowego **Identyfikator URI przekierowania** , a następnie wybierz pozycję **Zapisz** w lewym górnym rogu menu.
 6. W menu rozwijanym w obszarze Typ wybierz pozycję **Sieć Web** .
-7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Na przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Strona URI przekierowania](../media/redirect-uri-page.png)

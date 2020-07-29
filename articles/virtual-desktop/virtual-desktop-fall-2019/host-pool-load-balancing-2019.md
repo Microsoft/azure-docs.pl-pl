@@ -1,6 +1,6 @@
 ---
-title: Równoważenie obciążenia puli hostów usług pulpitu wirtualnego systemu Windows (2019) — Azure
-description: Informacje o metodach równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows (w wersji 2019).
+title: Równoważenie obciążenia puli hostów z systemem Windows Virtual Desktop (klasycznym) — Azure
+description: Metody równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3854471b2e74bd7c3315ae622a36588af0270d8c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046273"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285003"
 ---
-# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Metody równoważenia obciążenia puli hostów (jesień 2019 wydania)
+# <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Metody równoważenia obciążenia puli hostów w programie Virtual Desktop systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../host-pool-load-balancing.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../host-pool-load-balancing.md).
 
 Pulpit wirtualny systemu Windows obsługuje dwie metody równoważenia obciążenia. Każda metoda określa, który Host sesji będzie hostować sesję użytkownika, gdy łączą się z zasobem w puli hostów.
 

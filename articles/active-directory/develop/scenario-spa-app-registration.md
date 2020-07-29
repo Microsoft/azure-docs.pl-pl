@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026513"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311572"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
 Aby zarejestrować aplikację jednostronicową (SPA) na platformie tożsamości firmy Microsoft, wykonaj następujące czynności. Kroki rejestracji różnią się w zależności od MSAL.js 1,0, która obsługuje przepływ niejawnego udzielenia i MSAL.js 2,0, który obsługuje przepływ kodu autoryzacji z PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Utwórz rejestrację aplikacji
 
@@ -67,7 +69,7 @@ Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla jed
 
 Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Wybranie jednego lub obu **tokenów identyfikatorów** i **tokenów dostępu**umożliwiło włączenie niejawnego przepływu dotacji.
 
-Postępuj zgodnie z [samouczkiem](tutorial-v2-javascript-spa.md) , aby uzyskać dalsze wskazówki. 
+Postępuj zgodnie z [samouczkiem](tutorial-v2-javascript-spa.md) , aby uzyskać dalsze wskazówki.
 
 ## <a name="note-about-authorization-flows"></a>Uwaga dotycząca przepływów autoryzacji
 

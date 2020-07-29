@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067018"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283864"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Zwracanie urządzenia Azure Stack Edge
 
@@ -117,14 +117,14 @@ Aby zaplanować odbiór, wykonaj następujące czynności.
 
 Gdy urządzenie zostanie odebrane w centrum danych platformy Azure, urządzenie jest sprawdzane pod kątem uszkodzenia lub wszelkich oznak naruszenia.
 
-- Jeśli urządzenie zostanie nienaruszone i jest w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Pomoc techniczna firmy Microsoft skontaktuje się z Tobą, aby upewnić się, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
+- Jeśli urządzenie zostanie nienaruszone i jest w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Zespół operacyjny Azure Stack Edge skontaktuje się z Tobą w celu potwierdzenia, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
 - Jeśli urządzenie dotrze do znacznego uszkodzenia, mogą wystąpić grzywny. Aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania dotyczące zgubionych lub uszkodzonych urządzeń](https://azure.microsoft.com/pricing/details/databox/edge/) oraz [warunków użytkowania produktów](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Urządzenie można usunąć w Azure Portal:
 
 - Po złożeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
-- Po zwróceniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a pomoc techniczna firmy Microsofte wywołania, aby potwierdzić, że urządzenie zostało zwrócone.
+- Po dodaniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a Azure Stacky zespołu operacji brzegowych wzywa do potwierdzenia, że urządzenie zostało zwrócone.
 
 Jeśli urządzenie zostało aktywowane na inną subskrypcję lub lokalizację, firma Microsoft przeniesie zamówienie do nowej subskrypcji lub lokalizacji w ciągu jednego dnia roboczego. Po przeniesieniu zamówienia można usunąć ten zasób.
 

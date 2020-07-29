@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375817"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -233,9 +233,17 @@ Jeśli koncentrator wirtualny nauczy się tej samej trasy z wielu centrów zdaln
 
 Przesyłanie między elementami ER-a-ER jest zawsze realizowane za pośrednictwem globalnego zasięgu. Bramy koncentratora wirtualnego są wdrażane w regionach DC lub Azure. Gdy dwa obwody usługi ExpressRoute łączą się za pośrednictwem globalnego zasięgu, nie ma potrzeby, aby ruch był cały sposób od routerów brzegowych do kontrolera domeny koncentratora wirtualnego.
 
-### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>Czy istnieje koncepcja wagi wirtualnych obwodów sieci Azure lub połączeń sieci VPN
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-expressroute-circuits-or-vpn-connections"></a>Czy istnieje koncepcja wagi obwodów usługi Azure Virtual ExpressRoute lub połączeń sieci VPN
 
 Gdy wiele obwodów usługi ExpressRoute jest podłączonych do koncentratora wirtualnego, Waga routingu w ramach połączenia zapewnia mechanizm dla ExpressRoute w koncentratorze wirtualnym do preferowania jednego obwodu. Nie ma mechanizmu ustawiania wagi dla połączenia sieci VPN. Platforma Azure zawsze preferuje połączenie ExpressRoute za pośrednictwem połączenia sieci VPN w ramach jednego centrum.
+
+### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Czy wirtualne sieci WAN preferują ExpressRoute za pośrednictwem sieci VPN dla ruchu wychodzącego z platformy Azure
+
+Tak 
+
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Gdy wirtualny koncentrator sieci WAN ma obwód usługi ExpressRoute oraz podłączoną do niej lokację sieci VPN, co spowodowałoby preferowanie trasy połączenia sieci VPN za pośrednictwem ExpressRoute?
+
+Gdy obwód usługi ExpressRoute jest podłączony do koncentratora wirtualnego, routery Microsoft Edge są pierwszym węzłem komunikacji między środowiskiem lokalnym i platformą Azure. Routery brzegowe komunikują się z wirtualnymi bramami ExpressRoute sieci WAN, które z kolei łączą trasy z routera koncentratora wirtualnego, który kontroluje wszystkie trasy między bramami w wirtualnej sieci WAN. Routery Microsoft Edge przetwarzają wirtualne centra ExpressRoute tras z wyższym priorytetem w oparciu o trasy pochodzące z lokalnego. Z dowolnego powodu, jeśli połączenie sieci VPN stanie się podstawowym nośnikiem dla koncentratora wirtualnego, aby poznać trasy z programu (np. scenariusze trybu failover między usługą ExpressRoute i siecią VPN), chyba że lokacja sieci VPN nie ma dłuższej długości ścieżki, koncentrator wirtualny będzie nadal współużytkować trasy sieci VPN z bramą usługi ExpressRoute, powodując, że routery Microsoft Edge mają preferować trasy VPN za pośrednictwem 
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Gdy są połączone dwa centra (koncentrator 1 i 2), a istnieje obwód usługi ExpressRoute podłączony jako dziob do obu centrów, co to jest ścieżka do sieci wirtualnej podłączonej do centrum 1 w celu połączenia z siecią wirtualną podłączoną do koncentratora 2?
 
@@ -244,6 +252,10 @@ Bieżące zachowanie polega na wybraniu ścieżki obwodu ExpressRoute za pośred
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Czy w wirtualnej sieci WAN jest obsługiwane protokół IPv6?
 
 Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego sieci WAN i jego bram. Jeśli masz sieć wirtualną z obsługą protokołu IPv6 i chcesz połączyć sieć wirtualną z wirtualna sieci WAN, ten scenariusz nie jest obecnie obsługiwany.
+
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Jaka jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzowania różnych wirtualnych funkcji sieci WAN?
+
+Wymagana jest minimalna wersja 05-01-2020 (może 1 2020). 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Jakie są różnice między wirtualnymi typami sieci WAN (podstawowa i standardowa)?
 

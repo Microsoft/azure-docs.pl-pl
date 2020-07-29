@@ -4,15 +4,15 @@ description: Zapoznaj się z tematem tworzenie i przekazywanie wirtualnego dysku
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: guybo
-ms.openlocfilehash: 187362dcbb30c94425edc76724c042a0e4bc5045
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 97fd61614eff05ddc542dbe17cf199663ab4cf1b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510314"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371910"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Przygotuj Oracle Linux maszynę wirtualną dla platformy Azure
 

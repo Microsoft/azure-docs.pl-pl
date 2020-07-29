@@ -7,15 +7,16 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79247295"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284102"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorowanie, odbieranie i wysyłanie zdarzeń za pomocą usług Azure Event Hubs i Azure Logic Apps
 
-W tym artykule pokazano, jak można monitorować zdarzenia wysyłane do [usługi azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) i zarządzać nimi z poziomu aplikacji logiki za pomocą łącznika usługi Azure Event Hubs. Dzięki temu możesz tworzyć aplikacje logiki, które automatyzują zadania i przepływy pracy służące do sprawdzania, wysyłania i otrzymywania zdarzeń z centrum zdarzeń. Informacje techniczne dotyczące konkretnego łącznika można znaleźć w [dokumentacji łącznika usługi Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/) </a> .
+W tym artykule pokazano, jak można monitorować zdarzenia wysyłane do [usługi azure Event Hubs](../event-hubs/event-hubs-about.md) i zarządzać nimi z poziomu aplikacji logiki za pomocą łącznika usługi Azure Event Hubs. Dzięki temu możesz tworzyć aplikacje logiki, które automatyzują zadania i przepływy pracy służące do sprawdzania, wysyłania i otrzymywania zdarzeń z centrum zdarzeń. Informacje techniczne dotyczące konkretnego łącznika można znaleźć w [dokumentacji łącznika usługi Azure Event Hubs](/connectors/eventhubs/) </a> .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -79,7 +80,7 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
    | **Typ zawartości** | Nie | Typ zawartości zdarzenia. Wartość domyślna to `application/octet-stream`. |
    | **Nazwa grupy konsumentów** | Nie | [Nazwa grupy konsumentów centrum zdarzeń](../event-hubs/event-hubs-features.md#consumer-groups) , która ma być używana do odczytywania zdarzeń. Jeśli nie zostanie określony, zostanie użyta domyślna grupa odbiorców. |
    | **Maksymalna liczba zdarzeń** | Nie | Maksymalna liczba zdarzeń. Wyzwalacz zwraca między jedną i liczbą zdarzeń określonych przez tę właściwość. |
-   | **Dat** | Tak | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości |
+   | **Interwał** | Tak | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości |
    | **Częstotliwość** | Tak | Jednostka czasu dla cyklu |
    ||||
 
@@ -157,7 +158,7 @@ Z listy Akcje wybierz pozycję Ta akcja: **Wyślij Zdarzenie — Event Hubs**
    | **Event Hubs przestrzeń nazw** | Tak | <*Event-Hubs — przestrzeń nazw*> | Wybierz przestrzeń nazw Event Hubs, której chcesz użyć. |
    |||||  
 
-   Przykład:
+   Na przykład:
 
    ![Utwórz połączenie centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
@@ -172,7 +173,7 @@ Z listy Akcje wybierz pozycję Ta akcja: **Wyślij Zdarzenie — Event Hubs**
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/eventhubs/).
+Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/eventhubs/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .

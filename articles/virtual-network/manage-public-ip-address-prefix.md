@@ -1,7 +1,7 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie prefiksu publicznego adresu IP platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak utworzyć, zmienić lub usunąć prefiks publicznego adresu IP.
+description: Dowiedz się więcej na temat prefiksów publicznych adresów IP i miejsca, w których można znaleźć dodatkowe informacje, jeśli nie są one znane. Dowiedz się również, jak utworzyć, zmienić lub usunąć jeden z nich.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 4eac4a7ecc6febedd205fcde45ea550dd15a6b93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e649944b155fc9e51fe01c282fc7f34f8a00d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283167"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Tworzenie, zmienianie i usuwanie prefiksu publicznego adresu IP
 
 Dowiedz się więcej na temat prefiksu publicznego adresu IP oraz sposobu tworzenia, zmieniania i usuwania jednego z nich. Prefiks publicznego adresu IP to ciągły zakres adresów na podstawie liczby określonych publicznych adresów IP. Adresy są przypisywane do subskrypcji. Podczas tworzenia zasobu publicznego adresu IP można przypisać statyczny publiczny adres IP z prefiksu i skojarzyć go z maszynami wirtualnymi, modułami równoważenia obciążenia lub innymi zasobami, aby umożliwić łączność z Internetem. Jeśli nie znasz publicznych prefiksów adresów IP, zobacz temat [prefiks publicznego adresu IP — Omówienie](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

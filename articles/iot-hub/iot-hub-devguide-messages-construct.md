@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 07/22/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327739"
+ms.locfileid: "87336722"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -61,6 +61,8 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 | iothub-Connection-module-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **moduleId** urządzenia, które wysłało wiadomość. | Nie | connectionModuleId |
 | iothub-Connection-auth-Generation-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **connectionDeviceGenerationId** (zgodnie z [właściwościami tożsamości urządzenia](iot-hub-devguide-identity-registry.md#device-identity-properties)) urządzenia, które wysłało komunikat. | Nie |connectionDeviceGenerationId |
 | iothub-Connection-auth-Metoda |Metoda uwierzytelniania ustawiona przez IoT Hub w komunikatach z urządzenia do chmury. Ta właściwość zawiera informacje na temat metody uwierzytelniania używanej do uwierzytelniania urządzenia wysyłającego wiadomość.| Nie | connectionAuthMethod |
+| DT — schemat elementu | Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). | Nie | Brak |
+| DT — temat | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). | Tak | Brak |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Właściwości systemowe komunikatów **C2D** IoT Hub
 
@@ -89,8 +91,9 @@ Nazwy właściwości systemu różnią się w zależności od punktu końcowego,
 |contentType|Typ zawartości|contentType|ContentType|iothub-Content-Type|
 |contentEncoding|Kodowanie zawartości|contentEncoding|ContentEncoding|iothub — kodowanie zawartości|
 |iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Brak |iothub — enqueuedtime|
-|iothub-Interface-Name|iothub-Interface-Name|interfaceName|Iothub-Interface-Name|iothub-Interface-Name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
+|DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|
+|DT — temat|DT — temat|DT — temat|DT — temat|DT — temat|
 
 ## <a name="message-size"></a>Rozmiar komunikatu
 

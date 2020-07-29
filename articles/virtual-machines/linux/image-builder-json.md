@@ -4,16 +4,16 @@ description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Im
 author: danielsollondon
 ms.author: danis
 ms.date: 07/09/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: d48153fa747ed9757eb8467eaf1d7c17cde3630e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283303"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -60,7 +60,7 @@ Jest to podstawowy format szablonu:
     "apiVersion": "2020-02-14",
 ```
 
-## <a name="location"></a>Lokalizacja
+## <a name="location"></a>Location
 
 Lokalizacja to region, w którym zostanie utworzony obraz niestandardowy. W przypadku wersji zapoznawczej programu Image Builder obsługiwane są następujące regiony:
 

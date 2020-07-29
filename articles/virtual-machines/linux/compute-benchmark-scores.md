@@ -2,15 +2,15 @@
 title: Oblicz wyniki testów porównawczych dla maszyn wirtualnych systemu Linux platformy Azure
 description: Porównaj wyniki testów porównawczych dla maszyn wirtualnych platformy Azure z systemem Linux.
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: afe1bddd5822b506dcf2c177fc308b717ddc2129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580449"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373423"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Linux
 Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w przypadku wysokiej wydajności zestawienia maszyn wirtualnych platformy Azure z systemem Ubuntu. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -169,15 +169,15 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standardowa_DS1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 3.4 | 14 642 | 600 | 4,10% | 259 |
 | Standardowa_DS1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 3.4 | 14 808 | 904 | 6,10% | 434 |
-| Standardowa_DS2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 6.8 | 28 654 | 877 | 3,06% | 301 |
-| Standardowa_DS2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 6.8 | 29 089 | 1 421 | 4,89% | 406 |
+| Standard_DS2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 6.8 | 28 654 | 877 | 3,06% | 301 |
+| Standard_DS2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 6.8 | 29 089 | 1 421 | 4,89% | 406 |
 | Standardowa_DS3_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 4 | 1 | 13,7 | 57 255 | 1 633 | 2,85% | 238 |
 | Standardowa_DS3_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 4 | 1 | 13,7 | 57 255 | 2 265 | 3,96% | 462 |
 | Standardowa_DS4_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 8 | 1 | 27,5 | 116 681 | 1 097 | 0,94% | 231 |
 | Standardowa_DS4_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 8 | 1 | 27,5 | 112 512 | 1 261 | 1,12% | 462 |
-| Standardowa_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 1 | 55,0 | 225 661 | 2 370 | 1,05% | 189 |
-| Standardowa_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 2 | 55,0 | 229 145 | 2 878 | 1,26% | 21 |
-| Standardowa_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 16 | 1 | 55,0 | 226 818 | 1 797 | 0,79% | 497 |
+| Standard_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 1 | 55,0 | 225 661 | 2 370 | 1,05% | 189 |
+| Standard_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 2 | 55,0 | 229 145 | 2 878 | 1,26% | 21 |
+| Standard_DS5_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 16 | 1 | 55,0 | 226 818 | 1 797 | 0,79% | 497 |
 | Standardowa_DS11_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 13,7 | 28 571 | 920 | 3,22% | 238 |
 | Standardowa_DS11_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 13,7 | 29 049 | 1 614 | 5,56% | 469 |
 | Standard_DS11 — 1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 13,7 | 14 594 | 617 | 4,23% | 287 |

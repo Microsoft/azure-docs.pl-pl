@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036475"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284714"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika
 Całkowite, ujednolicone program inicjujący (GRUB) jest prawdopodobnie pierwszym elementem w przypadku uruchamiania maszyny wirtualnej (VM). Ponieważ jest ona wyświetlana przed uruchomieniem systemu operacyjnego, GRUB nie jest dostępna za pośrednictwem protokołu SSH. W programie GRUB można zmodyfikować konfigurację rozruchu w taki sposób, aby uruchamiała się w trybie jednego użytkownika między innymi.
@@ -241,7 +241,7 @@ Aby włączyć tryb jednego użytkownika w Oracle Linux, postępuj zgodnie z wcz
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat konsoli szeregowej, zobacz:
 * [Dokumentacja konsoli szeregowej systemu Linux](serial-console-linux.md)
-* [Używanie konsoli szeregowej do włączania GRUB w różnych dystrybucjach](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
+* [Używanie konsoli szeregowej do włączania GRUB w różnych dystrybucjach](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Korzystanie z konsoli szeregowej dla wywołań NMI i SysRq](serial-console-nmi-sysrq.md)
 * [Konsola szeregowa dla maszyn wirtualnych z systemem Windows](serial-console-windows.md)
 * [Diagnostyka rozruchu](boot-diagnostics.md)

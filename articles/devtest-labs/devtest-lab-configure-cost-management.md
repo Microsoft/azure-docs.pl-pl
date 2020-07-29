@@ -3,12 +3,12 @@ title: Wyświetl szacunkowy miesięczny trend kosztów laboratorium w Azure DevT
 description: Ten artykuł zawiera informacje na temat sposobu śledzenia kosztów laboratorium (miesięcznego szacunku trendu kosztu) w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283830"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Śledź koszty związane z laboratorium w Azure DevTest Labs
 Ten artykuł zawiera informacje dotyczące śledzenia kosztów laboratorium. Przedstawiono w nim sposób wyświetlania szacowanego trendu kosztu dla bieżącego miesiąca kalendarzowego dla laboratorium. W tym artykule przedstawiono również sposób wyświetlania kosztu miesiąca na zasób w laboratorium.
@@ -28,7 +28,7 @@ Aby wyświetlić wykres trendu szacowanych miesięcznych kosztów, wykonaj nast�
 
     **Szacowana wartość kosztu** jest szacowanym kosztem bieżącego miesiąca kalendarzowego. **Przewidywany koszt** jest szacowanym kosztem całego miesiąca kalendarzowego, obliczonym przy użyciu kosztu Lab dla ostatnich pięciu dni.
 
-    Kwoty kosztów są zaokrąglane w górę do najbliższej liczby całkowitej. Przykład: 
+    Kwoty kosztów są zaokrąglane w górę do najbliższej liczby całkowitej. Na przykład: 
 
    * 5,01 zaokrągla do 6 
    * 5,50 zaokrągla do 6
@@ -69,7 +69,7 @@ Usługa DevTest Labs umożliwia lepsze zarządzanie kosztami w laboratorium prze
      - Analogicznie, jeśli zdefiniujesz adres URL elementu webhook, w okienku próg kosztu **należy ustawić wartość** **włączone** .
      - Musisz utworzyć element webhook przed wprowadzeniem go w tym miejscu.  
 
-       Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
 ## <a name="view-cost-by-resource"></a>Wyświetl koszt według zasobu 
 Funkcja trendu kosztu miesięcznego w laboratoriach pozwala zobaczyć, jak dużo spędzasz w bieżącym miesiącu kalendarzowym. Przedstawia także rzutowanie wydatków do końca miesiąca, na podstawie wydatków w ciągu ostatnich siedmiu dni. Aby ułatwić zrozumienie, dlaczego wydatki w laboratorium są wczesne progi spotkań, można użyć funkcji **Koszt według zasobów** , która pokazuje, jaki jest miesięczny koszt **na zasób** w tabeli.
@@ -93,4 +93,3 @@ Oto kilka rzeczy, aby spróbować dalej:
 * [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) — podczas tworzenia maszyny wirtualnej należy określić podstawową, która może być obrazem niestandardowym lub obrazem portalu Marketplace. W tym artykule pokazano, jak utworzyć obraz niestandardowy na podstawie pliku VHD.
 * [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md) — DevTest Labs obsługuje tworzenie maszyn wirtualnych na podstawie obrazów portalu Azure Marketplace. W tym artykule pokazano, jak określić, w jaki sposób można używać obrazów portalu Azure Marketplace podczas tworzenia maszyn wirtualnych w środowisku laboratoryjnym.
 * [Tworzenie maszyny wirtualnej w laboratorium](devtest-lab-add-vm.md) — pokazuje, jak utworzyć maszynę wirtualną na podstawie obrazu podstawowego (niestandardowego lub Marketplace) oraz jak korzystać z artefaktów na maszynie wirtualnej.
-

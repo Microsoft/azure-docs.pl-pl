@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900368"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284408"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -50,11 +51,11 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-| Zarejestrowane w usłudze Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
+| Zarejestrowane w usłudze Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie dotyczy |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie dotyczy |
 |   |   |   | Nietrwałe | Nie |
 
 \*Środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.

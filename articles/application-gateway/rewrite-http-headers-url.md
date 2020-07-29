@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099299"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281195"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
@@ -109,25 +109,25 @@ Brama aplikacji obsługuje następujące zmienne serwera:
 | add_x_forwarded_for_proxy | Wartość pola nagłówka żądania X-Forward-for Client ze `client_ip` zmienną (zobacz wyjaśnienie w dalszej części tej tabeli), w formacie IP1, IP2, IP3 i tak dalej. Jeśli pole X-Forward-for nie znajduje się w nagłówku żądania klienta, `add_x_forwarded_for_proxy` zmienna jest równa `$client_ip` zmiennej.   Ta zmienna jest szczególnie przydatna w przypadku ponownego zapisania nagłówka X-forwardd-for, który jest ustawiony przez Application Gateway tak, aby nagłówek zawierał tylko adres IP bez informacji o porcie. |
 | ciphers_supported         | Lista szyfrów obsługiwanych przez klienta.               |
 | ciphers_used              | Ciąg szyfrów użyty dla ustanowionego połączenia TLS. |
-| client_ip                 | Adres IP klienta, z którego Brama aplikacji otrzymała żądanie. Jeśli istnieje zwrotny serwer proxy przed bramą aplikacji i klientem inicjującym, *client_ip* zwróci adres IP zwrotnego serwera proxy. |
+| client_ip                 | Adres IP klienta, z którego Brama aplikacji otrzymała żądanie. Jeśli istnieje zwrotny serwer proxy przed bramą aplikacji i klientem inicjującym, `client_ip` zwróci adres IP zwrotnego serwera proxy. |
 | client_port               | Port klienta.                                             |
 | client_tcp_rtt            | Informacje o połączeniu TCP klienta. Dostępne w systemach obsługujących opcję TCP_INFO gniazda. |
 | client_user               | Gdy używane jest uwierzytelnianie przy użyciu protokołu HTTP, nazwa użytkownika podana na potrzeby uwierzytelniania. |
-| host                      | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* wartość hosta będzie *contoso.com* |
+| host                      | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` wartość hosta będzie równa`contoso.com` |
 | *nazwa* cookie_             | *Nazwa* pliku cookie.                                           |
 | http_method               | Metoda używana do żądania adresu URL. Na przykład Pobierz lub Opublikuj. |
 | http_status               | Stan sesji. Na przykład 200, 400 lub 403.           |
 | http_version              | Protokół żądania. Zazwyczaj HTTP/1.0, HTTP/1.1 lub HTTP/2.0. |
-| query_string              | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING wartość będzie równa *ID = 123&title = Fabrikam* |
+| query_string              | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING wartość zostanie`id=123&title=fabrikam` |
 | received_bytes            | Długość żądania (w tym wiersza żądania, nagłówka i treści żądania). |
 | request_query             | Argumenty w wierszu żądania.                           |
 | request_scheme            | Schemat żądania: http lub https.                           |
-| request_uri               | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI wartość będzie */article.aspx? id = 123&title = Fabrikam* |
+| request_uri               | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI wartość zostanie`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Liczba bajtów wysłanych do klienta.                        |
 | server_port               | Port serwera, który zaakceptował żądanie.              |
 | ssl_connection_protocol   | Protokół ustanowionego połączenia TLS.               |
 | ssl_enabled               | "Włączone", jeśli połączenie działa w trybie TLS. W przeciwnym razie pusty ciąg. |
-| uri_path                  | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path wartość zostanie */article.aspx* |
+| uri_path                  | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path wartość zostanie`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ Teraz, jeśli użytkownik zażąda *contoso.com/Listing?Category=any*, zostanie 
 
 Rozważmy scenariusz witryny internetowej do kupowania, gdzie link widoczny dla użytkownika powinien być prosty i czytelny, ale serwer zaplecza potrzebuje parametrów ciągu zapytania, aby wyświetlić odpowiednią zawartość.
 
-W takim przypadku Application Gateway może przechwytywać parametry z adresu URL i dodawać pary klucz-wartość ciągu zapytania z adresów URL. Załóżmy na przykład, że użytkownik chce ponownie napisać, https://www.contoso.com/fashion/shirts Aby https://www.contoso.com/buy.aspx?category=fashion&product=shirts można go było osiągnąć za pomocą następującej konfiguracji ponownego zapisywania adresu URL.
+W takim przypadku Application Gateway może przechwytywać parametry z adresu URL i dodawać pary klucz-wartość ciągu zapytania z adresów URL. Załóżmy na przykład, że użytkownik chce ponownie napisać, `https://www.contoso.com/fashion/shirts` Aby `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` można go było osiągnąć za pomocą następującej konfiguracji ponownego zapisywania adresu URL.
 
 **Warunek** — Jeśli zmienna serwera `uri_path` jest równa wzorzec`/(.+)/(.+)`
 

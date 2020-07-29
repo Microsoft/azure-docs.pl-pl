@@ -13,12 +13,12 @@ ms.date: 07/16/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ea207a4584d9f4fad5dee45b3633c306a8d98b3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282963"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -184,6 +184,59 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
+
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>Potwierdzenia SAML uzyskane przy użyciu przepływu OBO protokołu OAuth 2.0
+
+Niektóre usługi sieci Web oparte na protokole OAuth muszą uzyskiwać dostęp do innych interfejsów API usługi sieci Web, które akceptują potwierdzenia SAML w nieinteraktywnych przepływach. Azure Active Directory może zapewnić potwierdzenie SAML w odpowiedzi na w imieniu przepływu, który używa usługi sieci Web opartej na protokole SAML jako zasobu docelowego.
+
+>[!NOTE]
+>Jest to niestandardowe rozszerzenie dla przepływu OAuth 2,0 w imieniu użytkownika, które umożliwia aplikacji opartej na OAuth2 dostęp do punktów końcowych interfejsu API usługi sieci Web, które używają tokenów SAML.
+
+> [!TIP]
+> Po wywołaniu usługi sieci Web chronionej przy użyciu protokołu SAML z aplikacji sieci Web frontonu można po prostu wywołać interfejs API i zainicjować normalny przepływ uwierzytelniania interaktywnego za pomocą istniejącej sesji użytkownika. Należy używać przepływu OBO tylko wtedy, gdy wywołanie usługi Service to Service wymaga tokenu języka SAML do zapewnienia kontekstu użytkownika.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Uzyskiwanie tokenu SAML przy użyciu żądania OBO ze wspólnym kluczem tajnym
+
+Żądanie Service-Service dla potwierdzenia SAML zawiera następujące parametry:
+
+| Parametr | Typ | Opis |
+| --- | --- | --- |
+| grant_type |wymagane | Typ żądania tokenu. Dla żądania, które używa tokenu JWT, wartość musi być **urn: IETF: params: OAuth: Grant-Type: JWT**. |
+| twierdz |wymagane | Wartość tokenu dostępu używanego w żądaniu.|
+| client_id |wymagane | Identyfikator aplikacji przypisany do usługi wywołującej podczas rejestracji w usłudze Azure AD. Aby znaleźć identyfikator aplikacji w Azure Portal, wybierz pozycję **Active Directory**, wybierz katalog, a następnie wybierz nazwę aplikacji. |
+| client_secret |wymagane | Klucz zarejestrowany dla usługi wywołującej w usłudze Azure AD. Ta wartość powinna zostać zanotowana w chwili rejestracji. |
+| zasób |wymagane | Identyfikator URI identyfikatora aplikacji usługi odbiorczej (zabezpieczony zasób). Jest to zasób, który będzie odbiorcami tokenu SAML. Aby znaleźć identyfikator URI aplikacji w Azure Portal, wybierz pozycję **Active Directory** i wybierz katalog. Wybierz nazwę aplikacji, wybierz pozycję **wszystkie ustawienia**, a następnie wybierz pozycję **Właściwości**. |
+| requested_token_use |wymagane | Określa, w jaki sposób żądanie powinno być przetwarzane. W imieniu przepływu wartość musi być **on_behalf_of**. |
+| requested_token_type | wymagane | Określa typ żądanego tokenu. Wartość może być **urn: IETF: params: OAuth: token-Type: SAML2** lub **urn: IETF: params: OAuth: token-Type: saml1** , w zależności od wymagań zasobu, do którego uzyskiwany jest dostęp. |
+
+Odpowiedź zawiera token języka SAML zakodowany w formacie UTF8 i Base64url.
+
+- **Danych SubjectConfirmationData dla potwierdzenia SAML pochodzącego z wywołania OBO**: Jeśli aplikacja docelowa wymaga wartości odbiorcy w **danych SubjectConfirmationData**, wartość musi być adresem URL odpowiedzi innego niż symbol wieloznaczny w konfiguracji aplikacji zasobów.
+- **Węzeł danych SubjectConfirmationData**: węzeł nie może zawierać atrybutu **InResponseTo** , ponieważ nie jest częścią odpowiedzi SAML. Aplikacja, która otrzymała token SAML, musi być w stanie zaakceptować potwierdzenie SAML bez atrybutu **InResponseTo** .
+
+- **Wyrażanie zgody**: należy przyznać zgodę na otrzymywanie tokenu SAML zawierającego dane użytkownika w przepływie protokołu OAuth. Aby uzyskać informacje na temat uprawnień i uzyskiwania zgody administratora, zobacz [uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Odpowiedź z potwierdzeniem SAML
+
+| Parametr | Opis |
+| --- | --- |
+| token_type |Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD **jest znak**. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |Zakres dostępu udzielony w tokenie. |
+| expires_in |Czas ważności tokenu dostępu (w sekundach). |
+| expires_on |Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczba sekund od 1970-01-01T0:0: 0Z UTC do czasu wygaśnięcia. Ta wartość służy do określenia okresu istnienia buforowanych tokenów. |
+| zasób |Identyfikator URI identyfikatora aplikacji usługi odbiorczej (zabezpieczony zasób). |
+| access_token |Parametr, który zwraca potwierdzenie SAML. |
+| refresh_token |Token odświeżania. Usługa wywołująca może używać tego tokenu do żądania innego tokenu dostępu po wygaśnięciu bieżącego potwierdzenia SAML. |
+
+- token_type: Okazicielaer
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- zasoby`https://api.contoso.com`
+- access_token:\<SAML assertion\>
+- issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
+- refresh_token:\<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Uzyskanie zgody na aplikację warstwy środkowej
 

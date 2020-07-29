@@ -4,15 +4,16 @@ description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia S
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221055"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285207"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -32,16 +33,16 @@ Polecenie Sync różni się od polecenia copy na kilka sposobów:
 
 1. Domyślnie flaga cykliczna to true, a Sync kopiuje wszystkie podkatalogi. Synchronizacja kopiuje tylko pliki najwyższego poziomu znajdujące się w katalogu, jeśli flaga cykliczna ma wartość false.
 2. Podczas synchronizowania katalogów wirtualnych Dodaj końcowy ukośnik do ścieżki (Zobacz przykłady), jeśli istnieje obiekt BLOB o takiej samej nazwie jak jeden z katalogów wirtualnych.
-3. Jeśli flaga "deleteDestination" ma wartość true lub Prompt, wówczas synchronizacja spowoduje usunięcie plików i obiektów BLOB w miejscu docelowym, które nie znajdują się w źródle.
+3. Jeśli `deleteDestination` flaga ma wartość true lub Prompt, wówczas synchronizacja spowoduje usunięcie plików i obiektów BLOB w miejscu docelowym, które nie znajdują się w źródle.
 
 ## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
 - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Zaawansowany
+### <a name="advanced"></a>Zaawansowane
 
 Jeśli nie określisz rozszerzenia pliku, AzCopy automatycznie wykryje typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
@@ -65,16 +66,13 @@ Synchronizuj pojedynczy plik:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-> [!NOTE]
-> Docelowy obiekt BLOB *musi* istnieć. Służy `azcopy copy` do kopiowania pojedynczego pliku, który nie istnieje jeszcze w miejscu docelowym. W przeciwnym razie wystąpi następujący błąd: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
-
-Analogicznie jak powyżej, ale ten czas również oblicza skrót MD5 zawartości pliku i zapisuje go jako właściwość Content-MD5 obiektu BLOB:
+Tak samo jak powyżej, ale również oblicza skrót MD5 zawartości pliku, a następnie Zapisz ten skrót MD5 jako właściwość Content-MD5 obiektu BLOB. 
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
 ```
 
-Zsynchronizuj cały katalog wraz z jego podkatalogami (należy zauważyć, że rekursywa jest domyślnie włączona):
+Zsynchronizuj cały katalog, w tym jego podkatalogi (należy pamiętać, że rekursywa jest domyślnie włączona):
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
@@ -86,22 +84,22 @@ lub
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-Synchronizuj tylko najważniejsze pliki znajdujące się w katalogu, ale nie jego podkatalogach:
+Zsynchronizuj tylko pliki znajdujące się w katalogu, ale nie w podkatalogach lub w plikach znajdujących się w podkatalogach:
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Zsynchronizuj podzbiór plików w katalogu (na przykład: tylko pliki jpg i PDF, lub jeśli nazwa pliku to "exactname"):
+Zsynchronizuj podzestaw plików w katalogu (na przykład: tylko pliki jpg i PDF lub nazwa pliku `exactName` ):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
 Zsynchronizuj cały katalog, ale Wyklucz określone pliki z zakresu (na przykład: każdy plik, który rozpoczyna się od foo lub kończąc z paskiem):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude-pattern="foo*;*bar"
 ```
 
 Synchronizuj pojedynczy obiekt BLOB:
@@ -133,29 +131,31 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options"></a>Opcje
 
-**--rozmiar bloku-MB** zmiennoprzecinkowy Użyj tego rozmiaru bloku (określonego w MIB) podczas przekazywania do usługi Azure Storage lub pobierania z usługi Azure Storage. Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Dozwolone są ułamki dziesiętne (na przykład: 0,25).
+**--rozmiar bloku-MB** zmiennoprzecinkowy Użyj tego rozmiaru bloku (określonego w MIB) podczas przekazywania do usługi Azure Storage lub pobierania z usługi Azure Storage. Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Ułamki dziesiętne są dozwolone (na przykład: `0.25` ).
 
-**--check-MD5** ciąg Określa, jak ściśle skróty MD5 powinny być sprawdzane podczas pobierania. Ta opcja jest dostępna tylko podczas pobierania. Dostępne wartości to: NOCHECK, LogOnd, FailIfDifferent, FailIfDifferentOrMissing. (wartość domyślna to "FailIfDifferent"). (domyślnie "FailIfDifferent")
+**--check-MD5** ciąg Określa, jak ściśle skróty MD5 powinny być sprawdzane podczas pobierania. Ta opcja jest dostępna tylko podczas pobierania. Dostępne wartości to: `NoCheck` , `LogOnly` , `FailIfDifferent` , `FailIfDifferentOrMissing` . (wartość domyślna `FailIfDifferent` ). (ustawienie domyślne `FailIfDifferent` )
 
-**--delete-Destination** ciąg definiuje, czy usunąć dodatkowe pliki z miejsca docelowego, które nie są obecne w źródle. Może być ustawiona na wartość true, false lub Prompt. Jeśli ustawiono opcję Monituj, użytkownik zostanie poproszony o podanie pytania przed zaplanowaniem plików i obiektów BLOB do usunięcia. (wartość domyślna to "false"). (wartość domyślna to "false")
+**--delete-Destination** ciąg definiuje, czy usunąć dodatkowe pliki z miejsca docelowego, które nie są obecne w źródle. Może być ustawiona na `true` , `false` , lub `prompt` . Jeśli ta wartość jest ustawiona na `prompt` , użytkownik zostanie poproszony o podanie pytania przed zaplanowaniem plików i obiektów BLOB do usunięcia. (wartość domyślna `false` ). (ustawienie domyślne `false` )
 
-**--exclude-Attribute** (tylko system Windows) wyklucza pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
+**--exclude-Attribute** (tylko system Windows) wyklucza pliki, których atrybuty pasują do listy atrybutów. Na przykład: `A;S;R`
 
-**--exclude-Path** ciąg Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: moje folderu; folder/subDirName/file.pdf). W przypadku użycia w połączeniu z przechodzeniem konta ścieżki nie uwzględniają nazwy kontenera.
+**--exclude-Path** ciąg Wyklucz te ścieżki podczas porównywania źródła z miejscem docelowym. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: `myFolder;myFolder/subDirName/file.pdf` ).
 
-**--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: \* . jpg; \* . PDF; exactname
+**--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: `*.jpg;*.pdf;exactName`
 
-**-h,--** Pomoc dotycząca synchronizacji
+**--** pomoc dla synchronizacji.
 
-**--include — ciąg atrybutów** (tylko system Windows) Uwzględnij tylko pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
+**--include — ciąg atrybutów** (tylko system Windows) zawiera tylko pliki, których atrybuty pasują do listy atrybutów. Na przykład: `A;S;R`
 
-**--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: \* . jpg; \* . PDF; exactname
+**--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: `*.jpg;*.pdf;exactName`
 
-**--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania i odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (informacje domyślne). (wartość domyślna: "INFO")
+**--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: `INFO` (wszystkie żądania i odpowiedzi), `WARNING` (wolne odpowiedzi), `ERROR` (tylko Nieudane żądania) i `NONE` (bez dzienników wyjściowych). (wartość domyślna `INFO` ). 
 
-**--Put-MD5**                     Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu BLOB lub pliku. (Domyślnie skrót nie jest tworzony). Dostępne tylko podczas przekazywania.
+**--Put-MD5**     Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu BLOB lub pliku. (Domyślnie skrót nie jest tworzony). Dostępne tylko podczas przekazywania.
 
-**--rekursywnie**                   Domyślnie wartość true powoduje cykliczne poszukiwanie katalogów podrzędnych podczas synchronizacji między katalogami. (wartość domyślna to true). (wartość domyślna to true)
+**--rekursywnie** `True` Domyślnie poszukaj podkatalogów cyklicznie podczas synchronizacji między katalogami.     (wartość domyślna `True` ). 
+
+**--S2S-Preserve-dostęp-warstwa**  Zachowaj warstwę dostępu podczas kopiowania usługi do usługi. Zapoznaj się z [usługą Azure Blob Storage: warstwami dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) , aby upewnić się, że docelowe konto magazynu obsługuje ustawienie Warstwa dostępu. W przypadkach, gdy ustawienie warstwy dostępu nie jest obsługiwane, użyj s2sPreserveAccessTier = false, aby obejść kopiowanie warstwy dostępu. (wartość domyślna `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
@@ -167,4 +167,4 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="see-also"></a>Zobacz także
 
-- [AzCopy](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

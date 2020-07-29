@@ -1,6 +1,6 @@
 ---
 title: Sieć globalna firmy Microsoft — Azure
-description: Opisuje, w jaki sposób firma Microsoft tworzy swoją szybką i niezawodną sieć globalną
+description: Dowiedz się, w jaki sposób firma Microsoft kompiluje i operuje jednym z największych sieci szkieletowych na świecie oraz o tym, dlaczego jest to centralne rozwiązanie w chmurze.
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280906"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 

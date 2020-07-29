@@ -3,12 +3,12 @@ title: Uruchamianie maszyn przy użyciu elementów Runbook usługi Automation w 
 description: Dowiedz się, jak uruchamiać maszyny wirtualne w laboratorium w Azure DevTest Labs przy użyciu Azure Automation elementów Runbook.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481905"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282266"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Uruchamianie maszyn wirtualnych w laboratorium w kolejności przy użyciu Azure Automation elementów Runbook
 Funkcja [Autostart](devtest-lab-set-lab-policy.md#set-autostart) programu DevTest Labs umożliwia skonfigurowanie maszyn wirtualnych do automatycznego uruchamiania w określonym czasie. Jednak ta funkcja nie obsługuje maszyn do uruchomienia w określonej kolejności. Istnieje kilka scenariuszy, w których ten typ automatyzacji będzie przydatny.  Jeden scenariusz polega na tym, że przed innymi maszynami wirtualnymi serwera przesiadkowego maszynę wirtualną w środowisku laboratoryjnym, jako punkt dostępu do innych maszyn wirtualnych.  W tym artykule opisano sposób konfigurowania konta Azure Automation za pomocą elementu Runbook programu PowerShell, który wykonuje skrypt. Skrypt używa tagów na maszynach wirtualnych w laboratorium, aby umożliwić sterowanie kolejnością uruchamiania bez konieczności zmiany skryptu.
@@ -20,7 +20,7 @@ W tym przykładzie maszyny wirtualne w laboratorium muszą mieć dodany tag **St
 Utwórz konto Azure Automation, wykonując instrukcje przedstawione w [tym artykule](../automation/automation-create-standalone-account.md). Wybierz opcję **konta Uruchom jako** podczas tworzenia konta. Po utworzeniu konta usługi Automation Otwórz stronę **moduły** , a następnie wybierz pozycję **Aktualizuj moduły platformy Azure** na pasku menu. Domyślne moduły mają kilka wersji starych i bez aktualizacji skrypt może nie działać.
 
 ## <a name="add-a-runbook"></a>Dodawanie elementu Runbook
-Teraz, aby dodać element Runbook do konta usługi Automation, wybierz pozycję **elementy Runbook** w menu po lewej stronie. Wybierz pozycję **Dodaj element Runbook** w menu i postępuj zgodnie z instrukcjami, aby [utworzyć element Runbook programu PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+Teraz, aby dodać element Runbook do konta usługi Automation, wybierz pozycję **elementy Runbook** w menu po lewej stronie. Wybierz pozycję **Dodaj element Runbook** w menu i postępuj zgodnie z instrukcjami, aby [utworzyć element Runbook programu PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>Skrypt programu PowerShell
 Następujący skrypt przyjmuje nazwę subskrypcji, nazwę laboratorium jako parametry. Przepływ skryptu pozwala uzyskać wszystkie maszyny wirtualne w laboratorium, a następnie analizować informacje o znacznikach w celu utworzenia listy nazw maszyn wirtualnych i ich kolejności uruchamiania. Skrypt przechodzi przez maszyny wirtualne w kolejności i uruchamia maszyny wirtualne. Jeśli istnieje wiele maszyn wirtualnych o określonym numerze zamówienia, są one uruchamiane asynchronicznie przy użyciu zadań programu PowerShell. Dla tych maszyn wirtualnych, które nie mają znacznika, ustaw wartość startową jako ostatnią (10), zostaną one domyślnie uruchomione jako ostatnie.  Jeśli laboratorium nie chce, aby maszyna wirtualna była uruchamiana jako Autostart, ustaw wartość tagu na 11 i zostanie ona zignorowana.

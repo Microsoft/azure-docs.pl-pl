@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539180"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281501"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,8 +42,8 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 |Procesor CPU|Nis.|Niski, średni, wysoki|Średni, wysoki|
 |Przepływność we/wy (przybliżona) |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
 |Opóźnienie we/wy (przybliżone)|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
-|Indeksowanie magazynu kolumn |Nie dotyczy|S3 i nowsze|Obsługiwane|
-|Przetwarzanie OLTP w pamięci|Nie dotyczy|Nie dotyczy|Obsługiwane|
+|Indeksowanie magazynu kolumn |Brak|S3 i nowsze|Obsługiwane|
+|Przetwarzanie OLTP w pamięci|Brak|Brak|Obsługiwane|
 |||||
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 
 Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych (DTU) dla pojedynczych baz danych i jednostek transakcji Elastic Database (jednostek eDTU) dla pul elastycznych. Aby uzyskać więcej informacji na temat DTU i jednostek eDTU, zobacz [model zakupów oparty na](purchasing-models.md#dtu-based-purchasing-model)jednostkach DTU.
 
-|Podstawowa|Standardowa (Standard)|Premium|
+||Podstawowa|Standardowa (Standard)|Premium|
 | :-- | --: | --: | --: |
 | Maksymalny rozmiar magazynu | 2 GB | 1 TB | 4 TB  |
 | Maksymalna DTU | 5 | 3000 | 4000 | 
@@ -70,7 +70,7 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Limity liczby jednostek eDTU puli elastycznej, magazynu i bazy danych w puli
 
-| **Podstawowa** | **Standardowa** | **Tytułu** |
+|| **Podstawowa** | **Standardowa** | **Tytułu** |
 | :-- | --: | --: | --: |
 | Maksymalny rozmiar magazynu na bazę danych  | 2 GB | 1 TB | 1 TB |
 | Maksymalny rozmiar magazynu na pulę | 156 GB | 4 TB | 4 TB |

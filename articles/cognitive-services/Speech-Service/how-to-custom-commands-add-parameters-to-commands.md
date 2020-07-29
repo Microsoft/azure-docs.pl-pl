@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284153"
 ---
 # <a name="add-parameters-to-commands"></a>Dodawanie parametrów do poleceń
 
@@ -47,25 +47,24 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
        > [!div class="mx-imgBorder"]
        > ![Utwórz wymaganą odpowiedź parametru](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Teraz skonfigurujemy właściwości parametrów. Aby uzyskać wyjaśnienie wszystkich właściwości konfiguracji polecenia, przejdź do pozycji [odwołania](./custom-commands-references.md). Skonfiguruj pozostałe właściwości parametru w następujący sposób:
+   1. Teraz skonfigurujemy właściwości parametrów. Aby uzyskać wyjaśnienie wszystkich właściwości konfiguracji polecenia, przejdź do pozycji [odwołania](./custom-commands-references.md). Skonfiguruj właściwości parametru w następujący sposób:
       
 
-       | Konfiguracja      | Sugerowana wartość     | Opis                                                      |
+       | Konfigurowanie      | Sugerowana wartość     | Opis                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nazwa               | `OnOff`           | Nazwa opisowa parametru                                                                           |
        | Jest globalny          | unchecked       | Pole wyboru wskazujące, czy wartość tego parametru jest stosowana globalnie do wszystkich poleceń w aplikacji|
        | Wymagane           | checked         | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru |
        | Odpowiedź dotycząca wymaganego parametru      |> edytora prostego`On or Off?`      | Monit o podanie wartości tego parametru, gdy nie jest on znany |
-       | Typ               | String (ciąg)          | Typ parametru, taki jak Number, String, Data Time lub geography   |
-       | Konfiguracja      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | W przypadku ciągów, to ogranicza dane wejściowe do zestawu możliwych wartości |
+       | Typ               | String          | Typ parametru, taki jak Number, String, Data Time lub geography   |
+       | Konfigurowanie      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | W przypadku ciągów, to ogranicza dane wejściowe do zestawu możliwych wartości |
        | Wstępnie zdefiniowane wartości wejściowe     | `on`, `off`           | Zestaw możliwych wartości i ich aliasów         |
        
         
-   1. Aby dodać wstępnie zdefiniowane wartości wejściowe, wybierz opcję **Dodaj wstępnie zdefiniowane dane wejściowe** i w oknie **nowy element** , wpisz **nazwę** w powyższej tabeli. W tym przypadku nie używamy aliasów, więc można pozostawić to pole puste. 
-
-    > [!div class="mx-imgBorder"]
-
-    > ![Utwórz parametr](media/custom-commands/create-on-off-parameter.png)
+   1. Aby dodać wstępnie zdefiniowane wartości wejściowe, wybierz opcję **Dodaj wstępnie zdefiniowane dane wejściowe** i w oknie **nowy element** , wpisz **nazwę** w powyższej tabeli. W tym przypadku nie używamy aliasów, więc można pozostawić to pole puste.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Utwórz parametr](media/custom-commands/create-on-off-parameter.png)
 
    1. Wybierz pozycję **Zapisz** , aby zapisać wszystkie konfiguracje parametru.
  
@@ -80,8 +79,8 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
        | Jest globalny          | unchecked             |
        | Wymagane           | checked               |
        | Odpowiedź dotycząca wymaganego parametru     | > edytora prostego`Which device do you want to control?`    | 
-       | Typ               | String (ciąg)                |          |
-       | Konfiguracja      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | 
+       | Typ               | String                |          |
+       | Konfigurowanie      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | 
        | Wstępnie zdefiniowane wartości wejściowe | `tv`, `fan`               |
        | Aliasy ( `tv` )      | `television`, `telly`     |
 
@@ -118,7 +117,8 @@ Zmodyfikuj istniejącą regułę ukończenia **ConfirmationResponse**.
 
 1. W sekcji **warunki** wybierz pozycję **Dodaj warunek**.
 1. W oknie **Nowy warunek** na liście **Typ** wybierz pozycję **wymagane parametry**. Na poniższej liście kontrolnej Sprawdź zarówno **OnOff** , jak i **SubjectDevice**.
-1. Wybierz pozycję **Utwórz**.
+1. Pozostaw **Isglobalną** jako niesprawdzoną.
+1. Wybierz przycisk **Utwórz**.
 1. W sekcji **Akcje** Edytuj istniejącą akcję **Wyślij odpowiedź na mowę** , umieszczając kursor nad akcją i wybierając przycisk Edytuj. Tym razem użyj nowo utworzonych parametrów **OnOff** i **SubjectDevice**
 
     ```
@@ -127,7 +127,7 @@ Zmodyfikuj istniejącą regułę ukończenia **ConfirmationResponse**.
 1. Wybierz pozycję **Zapisz**.
 
 ### <a name="try-it-out"></a>Czas to wypróbować
-1. Wybierz ikonę **szkolenia** znajdującą się u góry okienka po prawej stronie.
+1. Wybierz ikonę **szkolenia** w górnej części okienka po prawej stronie.
 
 1. Po zakończeniu szkolenia wybierz pozycję **Testuj**. Zostanie wyświetlone okno **Test aplikacji** .
  Wypróbuj kilka interakcji.
@@ -147,7 +147,7 @@ Zmodyfikuj polecenie **Settemperaturę** , aby umożliwić jej ustawienie temper
 
 Dodaj nową **temperaturę** parametru z następującą konfiguracją
 
-| Konfiguracja      | Sugerowana wartość     |
+| Konfigurowanie      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | Nazwa               | `Temperature`           |
 | Wymagane           | checked         |
@@ -166,7 +166,7 @@ change the temperature
 
 Edytuj istniejące reguły uzupełniania zgodnie z następującą konfiguracją.
 
-| Konfiguracja      | Sugerowana wartość     |
+| Konfigurowanie      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | Warunki         | Wymagana > temperatura parametru           |
 | Akcje           | Wysyłanie odpowiedzi na mowę >`Ok, setting temperature to {Temperature} degrees` |

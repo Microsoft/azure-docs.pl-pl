@@ -5,16 +5,17 @@ description: Dowiedz się, jak ponownie szkolić modele z opublikowanymi potokam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.custom: designer
-ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319630"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 * Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
 * Ukończ część 1 tej serii jak to zrobić, [Przekształć dane w projektancie](how-to-designer-transform-data.md).
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 W tym artykule założono również, że masz podstawową wiedzę na temat tworzenia potoków w projektancie. Aby zapoznać się z przewodnikiem, Ukończ [samouczek](tutorial-designer-automobile-price-train-score.md). 
 
@@ -92,7 +95,7 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
    > [!NOTE]
    > Można opublikować wiele potoków w jednym punkcie końcowym. Każdy potok w danym punkcie końcowym ma numer wersji, który można określić podczas wywoływania punktu końcowego potoku.
 
-1. Wybierz polecenie **Publikuj**.
+1. Kliknij pozycję **Opublikuj**.
 
 ## <a name="retrain-your-model"></a>Ponowne uczenie modelu
 

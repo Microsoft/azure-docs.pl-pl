@@ -5,11 +5,13 @@ author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
-ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75459023"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372471"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Wtyczka Maven dla Service Fabric siatki
 
@@ -52,7 +54,7 @@ ms.locfileid: "75459023"
 - Wdraża wszystkie zasoby w klastrze Service Fabric
  
 
-## <a name="usage"></a>Użycie
+## <a name="usage"></a>Sposób użycia
 
 Aby używać wtyczki programu Maven w aplikacji Java programu Maven, dodaj poniższy fragment kodu do pliku pom.xml:
 
@@ -151,7 +153,7 @@ mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/
 
 - Utwórz element secretvalue YAML w folderze `servicefabric->appresources` o nazwie`secretvalue_secret1_v1`
 
-### <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+### <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 
 Aby uzyskać pomoc dotyczącą celu `azure-sfmesh:deploytocluster` , możesz uruchomić aplikację lokalnie przy użyciu poniższego polecenia:
 

@@ -8,14 +8,14 @@ ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: tracking-python
-ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 7af69b90228514db14ce3feecd4ad5cc8a84f567
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206780"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307084"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ W tym przewodniku używasz usługi Azure Machine Learning, aby:
 > * Wdróż zaszyfrowaną usługę sieci Web inferencing
 > * Przygotowywanie danych testowych
 > * Przekształć zaszyfrowane przewidywania
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 ACI to doskonałe rozwiązanie do testowania i analizowania przepływu pracy wdrażania modelu. W przypadku skalowalnych wdrożeń produkcyjnych rozważ skorzystanie z usługi Azure Kubernetes Service. Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
@@ -319,7 +319,7 @@ Aby wykonać zaszyfrowane przewidywania:
     print ( ' Actual Label : ', y_test[sample_index])
     ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Usuń usługę sieci Web utworzoną w tym przykładzie:
 

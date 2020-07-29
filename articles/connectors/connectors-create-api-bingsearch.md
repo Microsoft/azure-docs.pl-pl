@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75665891"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284068"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Znajdź wyniki w Wyszukiwanie Bing przy użyciu Azure Logic Apps
 
@@ -20,7 +21,7 @@ W tym artykule pokazano, jak można znaleźć wiadomości, klipy wideo i inne el
 Na przykład można znaleźć elementy wiadomości na podstawie kryteriów wyszukiwania i ogłosić te elementy jako tweety w kanale usługi Twitter.
 
 Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Informacje techniczne dotyczące konkretnego łącznika znajdują się w [dokumentacji dotyczącej łącznika wyszukiwanie Bing](https://docs.microsoft.com/connectors/bingsearch/).
+Informacje techniczne dotyczące konkretnego łącznika znajdują się w [dokumentacji dotyczącej łącznika wyszukiwanie Bing](/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,7 +59,7 @@ Lub, jeśli połączenie już istnieje, podaj niezbędne informacje dla wyzwalac
    | Przesunięcie | Nie | <*Pomiń wartość*> | Liczba wyników do pominięcia przed zwróceniem wyników |
    |||||
 
-   Przykład:
+   Na przykład:
 
    ![Konfigurowanie wyzwalacza](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -154,7 +155,7 @@ Z listy Akcje wybierz żądaną akcję.
    | Klucz interfejsu API | Tak | <*Klucz interfejsu API*> | Wcześniej pobrano klucz interfejsu API Wyszukiwanie Bing. Jeśli nie masz klucza, Pobierz [klucz interfejsu API teraz](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Przykład:
+   Na przykład:
 
    ![Tworzenie połączenia](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -167,3 +168,4 @@ Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

@@ -1,41 +1,45 @@
 ---
 title: Biblioteki i zestawy SDK Plug and Play IoT
 description: Informacje o bibliotekach urządzeń i usług dostępne do opracowania rozwiązań z obsługą Plug and Play IoT.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/08/2020
+author: rido-min
+ms.author: rmpablos
+ms.date: 07/22/2020
 ms.topic: reference
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 394edc24cfeefb96cb2f412985cb990a2306bb09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3331a0a9a8d3fb5d028d801d334daf2dbfa25235
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80064325"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337334"
 ---
 # <a name="iot-plug-and-play-libraries-and-sdks"></a>Biblioteki i zestawy SDK Plug and Play IoT
 
 Biblioteki Plug and Play IoT i zestawy SDK umożliwiają deweloperom tworzenie rozwiązań IoT przy użyciu różnych języków programowania na wielu platformach. Poniższa tabela zawiera linki do przykładów i przewodników Szybki Start, które ułatwiają rozpoczęcie pracy:
 
-## <a name="microsoft-supported-libraries-and-sdks"></a>Biblioteki i zestawy SDK obsługiwane przez firmę Microsoft
+## <a name="microsoft-sdks-for-iot-plug-and-play"></a>Zestawy Microsoft SDK dla IoT Plug and Play
 
-| Platforma | Biblioteka/pakiet | Kod źródłowy | Przykład | Szybki start | Odwołanie |
-| -------- | ------- | ----------- | ------ | ---------- | --------- |
-| C/Linux  | [Zestaw SDK urządzeń w systemie apt — get](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#aptgetpackage) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Przykłady klienta Digital bliźniaczy](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [Łączenie z usługą IoT Hub](./quickstart-connect-pnp-device-c-linux.md) | [Tematy pomocy](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/Windows  | [Zestaw SDK urządzeń w systemie Vcpkg](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/doc/setting_up_vcpkg.md#setup-c-sdk-vcpkg-for-windows-development-environment) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Przykłady klienta Digital bliźniaczy](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [Łączenie z usługą IoT Hub](./quickstart-connect-pnp-device-c-windows.md) | [Tematy pomocy](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/mbed  | [Zestaw SDK urządzeń przy OSADZAniu](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#mbed) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Przykłady klienta Digital bliźniaczy](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [Tematy pomocy](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/Arduino  | [Zestaw SDK urządzeń w środowisku IDE Arduino](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#arduino) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Przykłady klienta Digital bliźniaczy](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [Tematy pomocy](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/iOS  | [Zestaw SDK urządzeń w systemie CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [Przykłady klienta Digital bliźniaczy](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [Tematy pomocy](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C#    | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.DigitalTwin.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [Cyfrowe próbki dwuosiowe](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/digitaltwin/Samples) | [Łączenie z usługą IoT Hub](./quickstart-connect-pnp-device-csharp.md) | [Tematy pomocy](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet) |
-| Java   | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/digital-twin-device-client-preview/1.0.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [Cyfrowe próbki dwuosiowe](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/digital-twin/Samples) | [Łączenie z usługą IoT Hub](./quickstart-connect-pnp-device-java.md) | [Tematy pomocy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device) |
-| Node.js | [NPM](https://www.npmjs.com/package/azure-iot-digitaltwins-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview) | [Cyfrowe próbki dwuosiowe](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview/digitaltwins/samples) | [Łączenie z usługą IoT Hub](./quickstart-connect-pnp-device-node.md) | [Tematy pomocy](https://docs.microsoft.com/javascript/api/azure-iot-device/) |
+**Zestawy SDK urządzeń**
 
-## <a name="iot-hub-support"></a>Obsługa IoT Hub
+| Język | Pakiet | Repozytorium kodu | Samples | Szybki start | Dokumentacja |
+|---|---|---|---|---|---|
+| C-urządzenie | [vcpkg 1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/releases/tag/2020-07-19) | [Samples](https://github.com/Azure/azure-iot-sdk-c/tree/2020-07-19/iothub_client/samples/pnp) | [Łączenie z usługą IoT Hub](quickstart-connect-device-c.md) | [Odwołanie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
+| .NET — urządzenie | [1.27.0 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.27.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples/PnpDeviceSamples) | [Łączenie z usługą IoT Hub](quickstart-connect-device-csharp.md) | [Odwołanie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client?view=azure-dotnet) |
+| Java — urządzenie | [Maven 1.24.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.24.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample) | [Łączenie z usługą IoT Hub](quickstart-connect-device-java.md) | [Odwołanie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device?view=azure-java-stable) |
+| Python — urządzenie | [PIP 2.1.4](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Łączenie z usługą IoT Hub](quickstart-connect-device-python.md) | [Odwołanie](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device?view=azure-python) |
+| Węzeł-urządzenie | [npm 1.17.0](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Łączenie z usługą IoT Hub](quickstart-connect-device-node.md) | [Odwołanie](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-node-latest) |
 
-Możliwości urządzenia IoT Plug and Play są obsługiwane tylko przez [centra IoT i warstwa standardowa warstwy Bezpłatna](../iot-hub/iot-hub-scaling.md).
+**Zestawy SDK usługi (wersja zapoznawcza)**
+
+| Język | Pakiet | Repozytorium kodu | Samples | Szybki start | Dokumentacja |
+|---|---|---|---|---|---|
+| .NET — wersja zapoznawcza usługi IoT Hub | [NuGet 1.27.1 — wersja zapoznawcza — 002](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.27.1-preview-002 ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples) | nie dotyczy | [Odwołanie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet) |
+| Java — wersja zapoznawcza usługi IoT Hub | [Maven 1.1.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client-preview/1.1.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample) | nie dotyczy | [Odwołanie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable) |
+| Python — IoT Hub/wersja zapoznawcza usługi Digital bliźniaczych reprezentacji | [PIP 2.2.1 RC1](https://pypi.org/project/azure-iot-hub/2.2.1rc1/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh/azure-iot-hub/samples) | [Posługiwanie się IoT Hub interfejsem API Digital bliźniaczych reprezentacji](quickstart-service-python.md) | [Odwołanie](https://docs.microsoft.com/python/api/azure-iot-hub/?view=azure-python) |
+| Node-IoT Hub/Digital bliźniaczych reprezentacji Service Preview | [npm 1.0.0-PnP-Refresh. 3](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.3) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/digitaltwins/samples/service/javascript) | [Posługiwanie się IoT Hub interfejsem API Digital bliźniaczych reprezentacji](quickstart-service-node.md) | [Odwołanie](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-node-latest) |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oprócz zestawów SDK i bibliotek urządzeń można używać interfejsów API REST do korzystania z repozytoriów modelu.
+Aby wypróbować zestawy SDK i biblioteki, zapoznaj się z [przewodnikiem dla deweloperów](concepts-developer-guide.md) oraz [Szybki Start](quickstart-connect-device-c.md) i [przewodniki po usłudze](quickstart-service-node.md).

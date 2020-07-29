@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 51a25b66968f43facddb9187a6793b2e39e0fdbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281025"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
 
@@ -26,7 +26,7 @@ Aby uzyskać dane pogodowe, upewnij się, że [zainstalowano FarmBeats](https://
 
 Aby rozpocząć pobieranie danych pogody z FarmBeats Datahub:
 
-1. Przejdź do FarmBeats Datahub [Swagger](https://farmbeatswebsite-api.azurewebsites.net/swagger).
+1. Przejdź do FarmBeats Datahub Swagger `https://farmbeatswebsite-api.azurewebsites.net/swagger` .
 
 2. Przejdź do interfejsu API/partner, a następnie wprowadź żądanie POST. Użyj następującego ładunku wejściowego:
 
@@ -223,7 +223,7 @@ Aby rozwiązać problemy z błędami zadań, [Sprawdź dzienniki zadań](trouble
 | DockerDetails - partnerCredentials | Poświadczenia do wywoływania interfejsu API partnera w platformie Docker. Partner zawiera te informacje na podstawie obsługiwanego mechanizmu autoryzacji; na przykład nazwa użytkownika i hasło lub klucze interfejsu API. |
 | partnertype | "Pogoda". Inne typy partnerów w FarmBeats to "czujnik" i "obraz".  |
 |  name   |   Wymagana nazwa partnera w systemie FarmBeats.   |
-|  opis |  Opis   |
+|  description (opis) |  Opis   |
 
 ## <a name="next-steps"></a>Następne kroki
 
