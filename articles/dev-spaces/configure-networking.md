@@ -7,6 +7,7 @@ description: Opisuje wymagania sieciowe dotyczące uruchamiania Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, CNI, korzystającą wtyczki kubenet, SDN, Network
 ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300695"

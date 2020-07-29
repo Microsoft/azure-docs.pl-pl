@@ -7,6 +7,7 @@ description: Dowiedz się, jak włączyć Azure Dev Spaces w klastrze AKS i zain
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996265"
