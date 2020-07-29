@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109233"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304194"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klasyfikacja & przeglądy pulpit nawigacyjny analizy w centrum partnerskim
 
@@ -24,7 +26,7 @@ Ten artykuł zawiera informacje na temat oceny & przeglądów na pulpicie nawiga
 
 ## <a name="access-the-dashboard"></a>Dostęp do pulpitu nawigacyjnego
 
-Na [pulpicie nawigacyjnym komercyjnego portalu Marketplace](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) w centrum partnerskim rozwiń sekcję **[Analizowanie](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** i wybierz pozycję **klasyfikacje & Recenzje**.
+Na [pulpicie nawigacyjnym komercyjnego portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) w centrum partnerskim rozwiń sekcję **[Analizowanie](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** i wybierz pozycję **klasyfikacje & Recenzje**.
 
 Na pulpicie nawigacyjnym zostanie wyświetlona graficzna reprezentacja następującej aktywności klienta:
 

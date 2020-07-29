@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386372"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371179"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -67,6 +67,21 @@ Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączony
 >[!NOTE]
 > Powyższe akcje nie dotyczą użytkowników, którzy nie zarejestrowali się na odpowiednim urządzeniu wcześniej. W takim przypadku uprawnienia administratora są stosowane natychmiast po pierwszym zalogowaniu się do urządzenia. 
 
+## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Zarządzanie uprawnieniami administratora przy użyciu grup usługi Azure AD (wersja zapoznawcza)
+
+>[!NOTE]
+> Ta funkcja jest obecnie w wersji zapoznawczej.
+
+Począwszy od aktualizacji systemu Windows 10 2004, można użyć grup usługi Azure AD do zarządzania uprawnieniami administratora na urządzeniach dołączonych do usługi Azure AD za pomocą zasad zarządzania urządzeniami przenośnymi [grupy z ograniczeniami] (Windows/Client-Management/MDM/Policy-CSP-restrictedgroups). Te zasady umożliwiają przypisanie poszczególnych użytkowników lub grup usługi Azure AD do lokalnej grupy administratorów na urządzeniu przyłączonym do usługi Azure AD, co zapewnia stopień szczegółowości konfigurowania różnych administratorów dla poszczególnych grup urządzeń. 
+
+Obecnie nie ma interfejsu użytkownika w usłudze Intune do zarządzania tymi zasadami i należy go skonfigurować przy użyciu [niestandardowych ustawień OMA-URI] (MEM/Intune/Configuration/Custom-Settings-Windows-10). Poniżej wymieniono zagadnienia dotyczące tych zasad: 
+
+- Dodawanie grup usługi Azure AD za pomocą zasad wymaga, aby identyfikator SID grupy można było uzyskać przez wykonanie interfejsu API grup. Identyfikator SID jest definiowany przez właściwość `securityIdentifier` w interfejsie API grup.
+- Gdy zasady grupy ograniczone są wymuszane, wszystkie bieżące elementy członkowskie grupy, która nie znajduje się na liście członków, zostaną usunięte. Aby wymusić te zasady dla nowych członków lub grup, należy usunąć istniejących administratorów, a także użytkowników, którzy przyłączyły urządzenie, rolę administratora urządzenia i rolę administratora globalnego z urządzenia. Aby uniknąć usuwania istniejących członków, należy je skonfigurować jako część listy członków w zasadach grup z ograniczeniami. 
+- Te zasady mają zastosowanie tylko do następujących dobrze znanych grup na urządzeniach z systemem Windows 10 — Administratorzy, użytkownicy, Goście, użytkownicy zaawansowani, użytkownicy Pulpit zdalny i użytkownicy zdalnego zarządzania. 
+- Zarządzanie administratorami lokalnymi przy użyciu zasad grupy z ograniczeniami nie ma zastosowania do hybrydowej usługi Azure AD przyłączonej lub zarejestrowanych urządzeń usługi Azure AD.
+- Zasady grup z ograniczeniami istnieją przed aktualizacją systemu Windows 10 2004, ale nie obsługują grup usługi Azure AD jako członków lokalnej grupy administratorów na urządzeniu. 
+
 ## <a name="manage-regular-users"></a>Zarządzanie regularnymi użytkownikami
 
 Domyślnie usługa Azure AD dodaje użytkownika wykonującego usługę Azure AD Join do grupy administratorów na urządzeniu. Aby uniemożliwić regularnym użytkownikom administratorów lokalnych, dostępne są następujące opcje:
@@ -85,7 +100,7 @@ Dodatkowo można również dodać użytkowników przy użyciu wiersza polecenia:
 - Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj programu `net localgroup administrators /add "Contoso\username"` .
 - Jeśli w usłudze Azure AD są tworzone użytkownicy dzierżawy, użyj`net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>Istotne zagadnienia 
+## <a name="considerations"></a>Zagadnienia do rozważenia 
 
 Nie można przypisać grup do roli administratora urządzenia. dozwolone są tylko indywidualni użytkownicy.
 

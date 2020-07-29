@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fa4610c925429ea59eae7399094230c1370bf2a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371196"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ W tym przykładowym samouczku przedstawiono wskazówki dotyczące integrowania A
 
 Ta integracja służy do profilowania w oparciu o kilka informacji o użytkownikach, które są udostępniane przez użytkownika podczas przepływu rejestracji. ThreatMetrix określa, czy użytkownik powinien mieć możliwość dalszej rejestracji. Następujące atrybuty są brane pod uwagę w ThreatMetrixej analizie ryzyka:
 
-- E-mail
+- Poczta e-mail
 - Numer telefonu
 - Informacje profilowania zbierane z komputera użytkownika
 
@@ -147,7 +147,7 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directo
 
 6. Przejdź przez przepływ logowania  
 
-7. CrossCore układanki zostanie wyświetlona po wprowadzeniu **dalej**.
+7. ThreatMetrix układanki zostanie wyświetlona po wprowadzeniu **dalej**.
 
 ## <a name="next-steps"></a>Następne kroki
 

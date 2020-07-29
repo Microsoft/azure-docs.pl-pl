@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565906"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371417"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -123,7 +123,7 @@ Mimo że przepływność zapytań jest dodawana podczas dodawania replik, nie je
 
 Jest to bardziej powszechne w przypadku dodawania replik, ale w przypadku ograniczenia magazynu można dodać partycje, aby uzyskać więcej pojemności. Warstwa, w której zainicjowano obsługę partycji, określa, czy można dodać partycje. Warstwa Podstawowa jest zablokowana na jednej partycji. Warstwy Standardowa i nowsze obsługują dodatkowe partycje.
 
-Partycje są dodawane w wielokrotnościach 12 (w odróżnieniu od 1, 2, 3, 4, 6 lub 12). To jest artefakt fragmentowania. Indeks jest tworzony w 12 fragmentów, który może być przechowywany na 1 partycji lub równo podzielony na 2, 3, 4, 6 lub 12 partycji (jedną fragmentu na partycję).
+Partycje są dodawane w dzielnikach 12 (w odróżnieniu od 1, 2, 3, 4, 6 lub 12). To jest artefakt fragmentowania. Indeks jest tworzony w 12 fragmentów, który może być przechowywany na 1 partycji lub równo podzielony na 2, 3, 4, 6 lub 12 partycji (jedną fragmentu na partycję).
 
 ### <a name="remove-replicas"></a>Usuwanie replik
 

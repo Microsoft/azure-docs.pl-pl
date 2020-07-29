@@ -5,21 +5,22 @@ description: Konfigurowanie aplikacji opartych na zdarzeniach, procesów lub prz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319494"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak skonfigurować aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania, na podstawie zdarzeń Azure Machine Learning, takich jak wiadomości e-mail z powiadomieniami o błędach lub uruchomienia potoku ML, w przypadku wykrycia określonych warunków przez [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+W tym artykule dowiesz się, jak skonfigurować aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania, na podstawie zdarzeń Azure Machine Learning, takich jak wiadomości e-mail z powiadomieniami o błędach lub uruchomienia potoku ML, w przypadku wykrycia określonych warunków przez [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning zarządza całym cyklem życia procesu uczenia maszynowego, w tym szkolenia modelu, wdrażanie modeli i monitorowanie. Za pomocą Event Grid można reagować na zdarzenia Azure Machine Learning, takie jak ukończenie przebiegów szkoleniowych, rejestrowanie i wdrażanie modeli oraz wykrywanie dryfowania danych przy użyciu nowoczesnych architektur bezserwerowych. Następnie można subskrybować i wykorzystywać zdarzenia, takie jak zmiana stanu uruchomienia, zakończenie przebiegu, rejestracja modelu, wdrożenie modelu i wykrywanie dryfowania danych w obszarze roboczym.
 

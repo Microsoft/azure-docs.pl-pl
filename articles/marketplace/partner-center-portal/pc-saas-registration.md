@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109267"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304177"
 ---
 # <a name="register-a-saas-application"></a>Rejestrowanie aplikacji SaaS
 
@@ -85,7 +87,7 @@ Wpis<br>
 |  `client_secret`   |  Prawda      |  Wpis tajny skojarzony z aplikacją usługi Azure AD. |
 |  `resource`        |  Prawda      |  Zasób docelowy, dla którego zażądano tokenu. Użyj `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` , ponieważ interfejs API SaaS Marketplace jest zawsze zasobem docelowym w tym przypadku. |
 
-##### <a name="response"></a>*Reakcji*
+##### <a name="response"></a>*Odpowiedź*
 
 |  Nazwa     |  Typ         |  Opis |
 |  ------   |  ---------------  | ------------ |

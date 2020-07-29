@@ -3,11 +3,12 @@ title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
 description: Ograniczanie dostępu do usługi Azure Container Registry przy użyciu punktu końcowego usług w sieci wirtualnej platformy Azure. Dostęp do punktu końcowego usługi jest funkcją warstwy Premium usługi.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509291"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371434"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -26,6 +27,7 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 * Nie można użyć Azure Portal w celu skonfigurowania punktów końcowych usługi w rejestrze.
 * Tylko klaster [usługi Azure Kubernetes](../aks/intro-kubernetes.md) lub [maszyna wirtualna](../virtual-machines/linux/overview.md) platformy Azure może być używany jako host do uzyskiwania dostępu do rejestru kontenerów za pomocą punktu końcowego usługi. *Inne usługi platformy Azure, w tym Azure Container Instances nie są obsługiwane.*
 * Każdy rejestr obsługuje maksymalnie 100 reguł dostępu do sieci.
+* Punkty końcowe usługi dla Azure Container Registry nie są obsługiwane w chmurze platformy Azure dla instytucji rządowych lub platformy Azure w Chinach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +35,7 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 
 * Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i wypchnij przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr. 
 
-* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
+* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Na przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -151,7 +153,7 @@ Aby wyświetlić listę reguł sieci skonfigurowanych dla rejestru, uruchom nast
 az acr network-rule list --name mycontainerregistry 
 ```
 
-Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Przykład:
+Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Na przykład:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -169,7 +171,7 @@ Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update]
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 

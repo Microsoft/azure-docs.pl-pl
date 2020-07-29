@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089332"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370278"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Podstawowa usługa Azure Security Synapse Analytics
 
@@ -314,7 +314,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę administrator serwera. Można zidentyfikować konta administratorów dla bazy danych, otwierając Azure Portal i przechodząc do karty właściwości serwera lub wystąpienia zarządzanego. Istnieje również możliwość skonfigurowania konta administratora usługi Azure AD z pełnymi uprawnieniami administracyjnymi, co jest wymagane, jeśli chcesz włączyć uwierzytelnianie Azure Active Directory.
 
-W przypadku operacji zarządzania Użyj wbudowanej funkcji kontroli dostępu opartej na rolach platformy Azure (RBAC), która musi być jawnie przypisana. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+W przypadku operacji zarządzania Użyj wbudowanych ról platformy Azure, które muszą być jawnie przypisane. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
 * [Uwierzytelnianie dla SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ W przypadku operacji zarządzania Użyj wbudowanej funkcji kontroli dostępu opa
 
 * [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Wbudowane role RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Wbudowane role platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1026,7 +1026,7 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 Jeśli używasz klucza zarządzanego przez klienta do szyfrowania klucza szyfrowania bazy danych, upewnij się, że utworzono kopię zapasową klucza.
 
-* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Jak utworzyć kopię zapasową kluczy Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

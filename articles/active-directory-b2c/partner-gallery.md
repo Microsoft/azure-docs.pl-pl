@@ -1,7 +1,7 @@
 ---
-title: Galeria partnerów dla Azure AD B2C
+title: Galeria partnerów niezależnych dostawców oprogramowania dla Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak zintegrować z naszymi partnerami, aby dostosować środowisko użytkownika końcowego do Twoich potrzeb. Nasza sieć partnerskia rozszerza możliwości rozwiązania. Włączenie usługi MFA, bezpieczne uwierzytelnianie klienta, Access Control oparte na rolach; zwalczanie oszustw przy użyciu weryfikacji tożsamości.
+description: Dowiedz się, jak zintegrować się z partnerami niezależnego dostawcy oprogramowania, aby dostosować środowisko użytkownika końcowego do Twoich potrzeb. Nasza sieć partnerskia rozszerza możliwości rozwiązania. Włączenie usługi MFA, bezpieczne uwierzytelnianie klienta, Access Control oparte na rolach; zwalczanie oszustw przy użyciu weryfikacji tożsamości.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2336916f7d47b38a12ee0418353a249b5eaa3801
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 986abbe6c124ce1323add5b8e854973416dfcbf4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042440"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371213"
 ---
-# <a name="azure-active-directory-b2c-partners"></a>Partnerzy Azure Active Directory B2C
+# <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
-Nasza sieć partnerskia rozszerza możliwości rozwiązania, które ułatwiają tworzenie bezproblemowe środowiska użytkownika końcowego. Za pomocą Azure AD B2C można zintegrować z partnerami, aby włączyć metody uwierzytelniania wieloskładnikowego, włączyć bezpieczne uwierzytelnianie klienta (SCA), przeprowadzić Access Control oparte na rolach i zwalczać oszustwo poprzez weryfikację tożsamości i sprawdzanie poprawności. Skorzystaj z naszych szczegółowych przykładów, aby dowiedzieć się, jak zintegrować aplikacje z partnerami wymienionymi poniżej.
+Nasza sieć partnera niezależnego dostawcy oprogramowania rozszerza możliwości rozwiązań, które ułatwiają tworzenie bezproblemowe środowiska użytkownika końcowego. Za pomocą Azure AD B2C można zintegrować z partnerami niezależnego dostawcy oprogramowania, aby włączyć metody uwierzytelniania wieloskładnikowego, włączyć bezpieczne uwierzytelnianie klienta (SCA), przeprowadzić Access Control oparte na rolach i zwalczać oszustwo poprzez weryfikację tożsamości i sprawdzanie poprawności. Skorzystaj z naszych szczegółowych przykładów, aby dowiedzieć się, jak zintegrować aplikacje z partnerami ISV wymienionymi poniżej.
 
 >[!NOTE]
 >[Witryna społeczności Azure Active Directory B2C w serwisie GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) udostępnia także przykładowe zasady niestandardowe społeczności.
 
-## <a name="integration-partners"></a>Partnerzy integracji
+## <a name="integration-isv-partners"></a>Partnerzy niezależnego dostawcy oprogramowania
 
-| Partner | Wskazówki dotyczące opisu i integracji  |
+| Partner niezależnego dostawcy oprogramowania | Wskazówki dotyczące opisu i integracji  |
 | :--- | :--- |
 | ![znaku](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) to dostawca rozwiązań zapobiegania oszustwom, który pomaga organizacjom chronić przed atakami bot, atakami polegającymi na przejęciu kont i nieuczciwych otwartych kontach.
 | ![znaku](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) jest weryfikacją tożsamości i dostawcą sprawdzającym, który przeprowadza ocenę ryzyka na podstawie atrybutów użytkownika w celu zapobiegania oszustwom.|

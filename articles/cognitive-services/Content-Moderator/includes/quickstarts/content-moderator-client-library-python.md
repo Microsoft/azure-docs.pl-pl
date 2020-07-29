@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a925aab3fb864643a873433b6df4f2275cae365
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9b246734e454e4ca93e0f3176c124cd8869bd015
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187364"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298885"
 ---
 Rozpocznij pracę z biblioteką klienta Content Moderator dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Content Moderator to usługa poznawczej, która sprawdza zawartość tekstu, obrazu i wideo dla materiałów, które są potencjalnie obraźliwe, ryzykowne lub w inny sposób niepożądane. W przypadku znalezienia takich treści usługa stosuje odpowiednie etykiety (flagi) do zawartości. Aplikacja może następnie obsłużyć oflagowaną zawartość w celu zachowania zgodności z przepisami lub zapewnienia odpowiedniego środowiska dla użytkowników.
 
@@ -27,11 +27,11 @@ Użyj biblioteki klienta Content Moderator dla języka Python, aby:
 * [Używanie niestandardowej listy obrazów](#use-a-custom-image-list)
 * [Utwórz recenzję](#create-a-review)
 
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) |  | [Przykłady](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator)dokumentacji referencyjnej[(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/)
+[Dokumentacja](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator)  |  źródłowy biblioteki [Pakiet (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -40,10 +40,9 @@ Użyj biblioteki klienta Content Moderator dla języka Python, aby:
 
 Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla Content Moderator przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym. Możesz również wykonać następujące czynności:
 
-* Uzyskaj [klucz wersji próbnej](https://azure.microsoft.com/try/cognitive-services/#decision) ważny przez siedem dni bezpłatnie. Po utworzeniu konta będzie ono dostępne w [witrynie sieci Web systemu Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Wyświetl zasób na [Azure Portal](https://portal.azure.com/)
 
-Po otrzymaniu klucza z subskrypcji próbnej lub zasobu [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego, odpowiednio `CONTENT_MODERATOR_SUBSCRIPTION_KEY` nazwane `CONTENT_MODERATOR_ENDPOINT`i.
+Po otrzymaniu klucza z zasobu [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego, odpowiednio nazwane `CONTENT_MODERATOR_SUBSCRIPTION_KEY` i `CONTENT_MODERATOR_ENDPOINT` .
  
 ### <a name="create-a-python-script"></a>Tworzenie skryptu w języku Python
 
@@ -99,7 +98,7 @@ Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt [Cogn
 
 ## <a name="moderate-text"></a>Tekst umiarkowany
 
-Poniższy kod używa klienta Content Moderator, aby analizować treść tekstu i drukować wyniki w konsoli programu. Najpierw Utwórz **text_files/** folder w katalogu głównym projektu i dodaj plik *content_moderator_text_moderation. txt* . Dodaj własny tekst do tego pliku lub użyj następującego przykładowego tekstu:
+Poniższy kod używa klienta Content Moderator, aby analizować treść tekstu i drukować wyniki w konsoli programu. Najpierw Utwórz **text_files/** folder w katalogu głównym projektu i dodaj plik *content_moderator_text_moderation.txt* . Dodaj własny tekst do tego pliku lub użyj następującego przykładowego tekstu:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
@@ -120,7 +119,7 @@ Poniższy kod pokazuje, jak zarządzać listą niestandardowych terminów na pot
 
 ### <a name="get-sample-text"></a>Pobierz przykładowy tekst
 
-Aby użyć tego przykładu, należy utworzyć **text_files/** folder w katalogu głównym projektu i dodać plik *content_moderator_term_list. txt* . Ten plik powinien zawierać tekst organiczny, który zostanie sprawdzony względem listy warunków. Możesz użyć następującego przykładowego tekstu:
+Aby użyć tego przykładu, należy utworzyć **text_files/** folder w katalogu głównym projektu i dodać plik *content_moderator_term_list.txt* . Ten plik powinien zawierać tekst organiczny, który zostanie sprawdzony względem listy warunków. Możesz użyć następującego przykładowego tekstu:
 
 ```
 This text contains the terms "term1" and "term2".

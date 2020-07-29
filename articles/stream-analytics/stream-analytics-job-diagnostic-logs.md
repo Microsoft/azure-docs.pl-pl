@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044519"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319358"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 
@@ -59,7 +59,7 @@ Dzienniki aktywności są domyślnie włączone i zapewniają szczegółowe info
 
 Zdecydowanie zaleca się włączenie dzienników zasobów i wysłanie ich do dzienników Azure Monitor. Domyślnie są one **wyłączone** . Aby je włączyć, wykonaj następujące kroki:
 
-1.  [Utwórz obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) , jeśli jeszcze go nie masz. Zaleca się, aby obszar roboczy Log Analytics w tym samym regionie co Stream Analytics zadanie.
+1.  Utwórz obszar roboczy Log Analytics, jeśli jeszcze go nie masz. Zaleca się, aby obszar roboczy Log Analytics w tym samym regionie co Stream Analytics zadanie.
 
 2.  Zaloguj się do Azure Portal i przejdź do zadania Stream Analytics. W obszarze **monitorowanie**wybierz pozycję **dzienniki diagnostyczne**. Następnie wybierz pozycję **Włącz diagnostykę**.
 
@@ -115,7 +115,7 @@ Każdy błąd, który występuje, gdy zadanie przetwarza dane, jest w tej katego
 Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
-Komunikat | Komunikat skojarzony z błędem.
+Wiadomość | Komunikat skojarzony z błędem.
 Typ | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
 Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
@@ -136,14 +136,11 @@ Zdarzenia ogólne obejmują wszystko inne.
 Nazwa | Opis
 -------- | --------
 Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
-Komunikat| Komunikat dziennika.
+Wiadomość| Komunikat dziennika.
 Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
-Identyfikator korelacji | [Identyfikator GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) , który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
+Identyfikator korelacji | Identyfikator GUID, który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do Stream Analytics](stream-analytics-introduction.md)
-* [Wprowadzenie do usługi Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Skalowanie zadań usługi Stream Analytics](stream-analytics-scale-jobs.md)
-* [Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Błędy danych Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

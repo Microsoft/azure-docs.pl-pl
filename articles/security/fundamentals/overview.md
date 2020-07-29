@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371400"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -47,7 +47,7 @@ Ponadto platforma Azure oferuje szeroką gamę konfigurowalnych opcji zabezpiecz
 ### <a name="features-to-secure-the-azure-platform"></a>Funkcje zabezpieczające platformę Azure
 Poniższe funkcje są możliwościami, które można sprawdzić, aby zapewnić gwarancję, że platforma Azure jest zarządzana w bezpieczny sposób. Udostępniono linki umożliwiające dalsze przechodzenie do szczegółowych informacji na temat sposobu, w jaki firma Microsoft rozwiązuje pytania zaufania klientów w czterech obszarach: bezpieczna platforma, kontrola & prywatności, zgodność i przejrzystość.
 
-| [Bezpieczna platforma](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [Kontrola & prywatności](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[Zgodność](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [Przezroczystość](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [Bezpieczna platforma](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [Kontrola & prywatności](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[Zgodność](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [Przejrzystość](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Cykl rozwoju zabezpieczeń](https://www.microsoft.com/sdl/), audyty wewnętrzne | [Zarządzaj danymi przez cały czas](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) | [Centrum zaufania](https://www.microsoft.com/trustcenter/default.aspx) |[Jak firma Microsoft zabezpiecza dane klientów w usługach platformy Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | [Obowiązkowe szkolenia w zakresie zabezpieczeń, kontrole w tle](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Kontrola lokalizacji danych](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Centrum formantów wspólnych](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Jak firma Microsoft zarządza lokalizacją danych w usługach platformy Azure](https://azuredatacentermap.azurewebsites.net/)|
@@ -142,7 +142,7 @@ W diagnostyce aplikacji można wyświetlać zdarzenia pogrupowane w następując
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń usługi Azure Storage oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
-Konto magazynu można zabezpieczyć za pomocą Access Control opartego na rolach (RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli RBAC do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról RBAC](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pośrednictwem Access Control opartych na ROLACH (RBAC).
+Konto magazynu można zabezpieczyć za pomocą Access Control opartego na rolach (RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli RBAC do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pośrednictwem Access Control opartych na ROLACH (RBAC).
 
 ### <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 [Sygnatura dostępu współdzielonego (SAS, shared access signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Sygnatura dostępu współdzielonego oznacza, że można udzielić klientowi ograniczonych uprawnień do obiektów na koncie magazynu przez określony czas i z określonym zestawem uprawnień. Można przyznać te ograniczone uprawnienia bez konieczności udostępniania kluczy dostępu do konta.
@@ -239,10 +239,10 @@ Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między r
 
 Aplikacja oferuje wiele funkcji kontrolera dostarczania aplikacji (ADC), w tym Równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, [odciążanie protokołu TLS](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), niestandardowe sondy kondycji, obsługę wielu witryn i wiele innych.
 
-### <a name="web-application-firewall"></a>Web Application Firewall
+### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
 Zapora aplikacji sieci Web to funkcja [platformy Azure Application Gateway](../../application-gateway/overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają usługi Application Gateway do standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji internetowej realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach w Internecie OWASP.
 
-![Web Application Firewall](./media/overview/azure-security-fig1.png)
+![Zapora aplikacji internetowej](./media/overview/azure-security-fig1.png)
 
 -   Ochrona przed atakami polegającymi na iniekcji SQL
 
@@ -288,7 +288,7 @@ Następujące kategorie dzienników diagnostycznych można włączyć dla siecio
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/security-center-recommendations.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji w tym obszarze oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="antimalware--antivirus"></a>Złośliwe oprogramowanie & antywirusowe

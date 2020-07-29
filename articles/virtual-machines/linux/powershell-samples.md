@@ -3,16 +3,16 @@ title: Przykłady programu PowerShell dla maszyny wirtualnej platformy Azure
 description: Przykłady programu PowerShell dla maszyny wirtualnej platformy Azure
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: a9d68527a44d78a702e00d3b6ce910c2e9473dac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 23dd47df33ef6571fefbf1c1964324bea5ca4488
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527017"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369938"
 ---
 # <a name="azure-virtual-machine-powershell-samples-for-creating-and-managing-linux-vms"></a>Przykłady programu PowerShell dla maszyn wirtualnych platformy Azure na potrzeby tworzenia maszyn wirtualnych z systemem Linux i zarządzania nimi
 

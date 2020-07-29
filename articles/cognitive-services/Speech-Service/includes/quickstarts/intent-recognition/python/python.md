@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d819eaa5c90e304a642efd3a6f2458cab4eefe7f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298837"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">Zainstaluj zestaw Speech SDK dla środowiska programistycznego i Utwórz pusty przykładowy projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">Zainstaluj zestaw Speech SDK dla środowiska programistycznego i Utwórz pusty przykładowy projekt <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Tworzenie aplikacji LUIS na potrzeby rozpoznawania intencji
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem:
 ## <a name="open-your-project"></a>Otwórz projekt
 
 1. Otwórz preferowany IDE.
-2. Utwórz nowy projekt i Utwórz plik o nazwie `quickstart.py`, a następnie otwórz go.
+2. Utwórz nowy projekt i Utwórz plik o nazwie `quickstart.py` , a następnie otwórz go.
 
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
@@ -38,7 +38,7 @@ Dodajmy kod, który działa jako szkielet dla projektu.
 
 Aby można było zainicjować `IntentRecognizer` obiekt, należy utworzyć konfigurację, która używa klucza i lokalizacji dla zasobu przewidywania Luis.
 
-Wstaw ten kod w `quickstart.py`. Upewnij się, że te wartości są aktualizowane:
+Wstaw ten kod w `quickstart.py` . Upewnij się, że te wartości są aktualizowane:
 
 * Zamień `"YourLanguageUnderstandingSubscriptionKey"` na klucz predykcyjny Luis.
 * Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis. Użyj **identyfikatora regionu** z [regionu](https://aka.ms/speech/sdkregion)
@@ -54,7 +54,7 @@ Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu u
 
 ## <a name="initialize-an-intentrecognizer"></a>Inicjowanie elementu IntentRecognizer
 
-Teraz Utwórzmy `IntentRecognizer`. Wstaw ten kod bezpośrednio poniżej konfiguracji mowy.
+Teraz Utwórzmy `IntentRecognizer` . Wstaw ten kod bezpośrednio poniżej konfiguracji mowy.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
 
@@ -62,12 +62,14 @@ Teraz Utwórzmy `IntentRecognizer`. Wstaw ten kod bezpośrednio poniżej konfigu
 
 Musisz skojarzyć `LanguageUnderstandingModel` z aparatem zamierzania i dodać żądane intencje. Będziemy używać intencji z prekompilowanej domeny dla automatyzacji domowej.
 
-Wstaw ten kod poniżej `IntentRecognizer`. Upewnij się, że zastąpisz `"YourLanguageUnderstandingAppId"` za pomocą identyfikatora aplikacji Luis. 
+Wstaw ten kod poniżej `IntentRecognizer` . Upewnij się, że zastąpisz `"YourLanguageUnderstandingAppId"` za pomocą identyfikatora aplikacji Luis. 
 
 >[!TIP]
 > Jeśli potrzebujesz pomocy w znalezieniu tej wartości, zobacz [Tworzenie aplikacji Luis na potrzeby rozpoznawania intencji](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
+
+Ten przykład używa `add_intents()` funkcji, aby dodać listę jawnie zdefiniowanych intencji. Jeśli chcesz dodać wszystkie intencje z modelu, użyj `add_all_intents(model)` i przekaż model.
 
 ## <a name="recognize-an-intent"></a>Rozpoznawanie zamiaru
 
@@ -81,7 +83,7 @@ Wstaw ten kod pod modelem.
 
 Gdy usługa mowy zwróci wynik rozpoznawania, należy wykonać coś z nim. Zajmiemy się tym, że będzie on prosty i będzie drukował wynik do konsoli.
 
-Poniżej Zadzwoń do `recognize_once()`, Dodaj ten kod.
+Poniżej Zadzwoń do `recognize_once()` , Dodaj ten kod.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 

@@ -1,6 +1,5 @@
 ---
-title: Wyświetl & ponowne uruchomienie eksperymentów
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Wyświetl & ponownie uruchom eksperymenty — Azure'
 description: Zarządzaj przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny). Możesz sprawdzić poprzednie uruchomienia eksperymentów w dowolnym momencie, aby zakwestionować, odwiedzać i ostatecznie potwierdzić lub uściślić poprzednie założenia.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687399"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318525"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Zarządzanie przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Tworzenie modelu analizy predykcyjnej jest procesem iteracyjnym — w miarę modyfikowania różnych funkcji i parametrów eksperymentu wyniki są zbieżne do momentu, gdy masz nauczone, skuteczny model. Kluczem do tego procesu jest śledzenie różnych iteracji parametrów i konfiguracji eksperymentu.
 

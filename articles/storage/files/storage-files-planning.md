@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659638"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370363"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -63,7 +64,7 @@ Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure
 ## <a name="encryption"></a>Szyfrowanie
 Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych przechowywanych na dysku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 Domyślnie wszystkie konta usługi Azure Storage mają włączone szyfrowanie podczas przesyłania. Oznacza to, że podczas instalowania udziału plików przez protokół SMB lub uzyskiwania dostępu do niego za pośrednictwem protokołu FileREST (na przykład za pośrednictwem Azure Portal, PowerShell/interfejsu wiersza polecenia lub zestawów SDK platformy Azure), Azure Files będzie zezwalać tylko na połączenie, jeśli zostało wykonane przy użyciu protokołu SMB 3.0 + z szyfrowaniem lub HTTPS. Klienci, którzy nie obsługują protokołu SMB 3,0 ani klientów obsługujących protokół SMB 3,0, ale nie szyfrowania SMB, nie będą mogli zainstalować udziału plików platformy Azure, jeśli szyfrowanie jest włączone. Więcej informacji o tym, które systemy operacyjne obsługują protokół SMB 3,0 z szyfrowaniem, można znaleźć w naszej szczegółowej dokumentacji dotyczącej [systemów Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)i [Linux](storage-how-to-use-files-linux.md). Wszystkie bieżące wersje programu PowerShell, interfejsu wiersza polecenia i zestawów SDK obsługują protokół HTTPS.  
 
 Można wyłączyć szyfrowanie podczas przesyłania dla konta usługi Azure Storage. Gdy szyfrowanie jest wyłączone, Azure Files również zezwala na SMB 2,1, SMB 3,0 bez szyfrowania i niezaszyfrowane wywołania interfejsu API FileREST za pośrednictwem protokołu HTTP. Podstawowym powodem wyłączenia szyfrowania podczas przesyłania jest obsługa starszej aplikacji, która musi być uruchomiona w starszym systemie operacyjnym, takim jak Windows Server 2008 R2 lub starsza dystrybucja systemu Linux. Azure Files zezwala tylko na połączenia SMB 2,1 w tym samym regionie świadczenia usługi Azure co udział plików platformy Azure; klient SMB 2,1 spoza regionu platformy Azure udziału plików platformy Azure, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, nie będzie mógł uzyskać dostępu do udziału plików.
@@ -74,6 +75,30 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="data-protection"></a>Ochrona danych
+Azure Files ma wielowarstwowe podejście do zapewnienia, że kopie zapasowe danych są tworzone, odzyskiwalne i chronione przed zagrożeniami bezpieczeństwa.
+
+### <a name="soft-delete"></a>Usuwanie nietrwałe
+Usuwanie nietrwałe dla udziałów plików (wersja zapoznawcza) to ustawienie poziomu konta magazynu, które pozwala na odzyskanie udziału plików po jego przypadkowym usunięciu. Po usunięciu udziału plików przechodzi do nietrwałego stanu usuniętego, a nie na stałe wymazywanie. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty, i Cofnij usunięcie udziału w dowolnym momencie w tym okresie przechowywania. 
+
+Zalecamy włączenie usuwania nietrwałego dla większości udziałów plików. W przypadku przepływu pracy, w którym jest używane usuwanie udziałów i oczekiwanie, możesz zdecydować, że masz bardzo krótki okres przechowywania lub nie masz włączonego usuwania nietrwałego.
+
+Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [zapobieganie przypadkowemu](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion)usuwaniu danych.
+
+### <a name="backup"></a>Backup
+Można utworzyć kopię zapasową udziału plików platformy Azure za pośrednictwem [migawek udziałów](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), które są tylko do odczytu i są kopiami danego udziału. Migawki są przyrostowe, co oznacza, że zawierają one tylko ilość danych, które uległy zmianie od poprzedniej migawki. Na udział plików można uzyskać maksymalnie 200 migawek i przechowywać je przez maksymalnie 10 lat. Można ręcznie wykonać te migawki w Azure Portal za pomocą programu PowerShell lub interfejsu wiersza polecenia (CLI) lub użyć [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Migawki są przechowywane w udziale plików, co oznacza, że jeśli usuniesz udział plików, migawki również zostaną usunięte. Aby chronić kopie zapasowe migawki przed przypadkowym usunięciem, upewnij się, że w danym udziale jest włączona funkcja usuwania nietrwałego.
+
+[Azure Backup dla udziałów plików platformy Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) obsługuje planowanie i przechowywanie migawek. Jej możliwości dla dziadka-ojciec-syn (GFS) oznaczają, że możesz wykonywać migawki codziennie, co tydzień, co miesiąc i co roku, z których każdy ma własny odrębny okres przechowywania. Azure Backup również organizuje włączenie usuwania nietrwałego i przyjmuje blokadę usuwania na koncie magazynu zaraz po skonfigurowaniu wszystkich udziałów plików w ramach tej kopii zapasowej. Na koniec Azure Backup zapewnia pewne kluczowe funkcje monitorowania i alertów, które umożliwiają klientom skonsolidowany widok ich kopii zapasowej.
+
+Można wykonywać zarówno przywracanie na poziomie elementu, jak i na poziomie udziału w Azure Portal przy użyciu Azure Backup. Wystarczy wybrać punkt przywracania (konkretną migawkę), określony plik lub katalog, jeśli ma zastosowanie, a następnie lokalizację (oryginalną lub alternatywną), do której chcesz przywrócić. Usługa Backup obsługuje kopiowanie danych migawek do i pokazuje postęp przywracania w portalu.
+
+Aby uzyskać więcej informacji na temat kopii zapasowej, zobacz [Informacje o kopii zapasowej udziału plików platformy Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### <a name="advanced-threat-protection-for-azure-files-preview"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Files (wersja zapoznawcza)
+Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która zapewnia alerty w przypadku wykrycia nietypowej aktywności na koncie magazynu, na przykład nietypowe próby dostępu do konta magazynu. ATP uruchamia również analizę reputacji skrótu złośliwego oprogramowania i alertuje o znanym złośliwym oprogramowaniu. ATP można skonfigurować na poziomie subskrypcji lub konta magazynu za pośrednictwem Azure Security Center. 
+
+Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
 
 ## <a name="storage-tiers"></a>Warstwy magazynowania
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

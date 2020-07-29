@@ -3,15 +3,16 @@ title: Łączenie z usługą Office 365 Outlook
 description: Automatyzowanie zadań i przepływów pracy, które zarządzają pocztą e-mail, kontaktami i kalendarzami w programie Office 365 Outlook przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75732713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319239"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
@@ -28,9 +29,9 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Konto pakietu Office 365](https://www.office.com/)
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
+* [Konto pakietu Office 365](https://www.office.com/)
 
 * Aplikacja logiki, do której chcesz uzyskać dostęp do konta programu Outlook w usłudze Office 365. Aby uruchomić przepływ pracy przy użyciu wyzwalacza programu Outlook pakietu Office 365, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję programu Outlook pakietu Office 365 do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
 
@@ -45,6 +46,9 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
    ![Wybierz wyzwalacz, aby uruchomić aplikację logiki](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza.
+
+   > [!NOTE]
+   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    Ten przykład wybiera kalendarz sprawdzany przez wyzwalacz, na przykład:
 
@@ -76,6 +80,9 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 
 1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
 
+   > [!NOTE]
+   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+
    Ten przykład wybiera folder Kontakty, w którym akcja tworzy nowy kontakt, na przykład:
 
    ![Konfigurowanie właściwości akcji](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -84,9 +91,9 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 
 1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
+## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/office365connector/). 
+Aby uzyskać szczegółowe informacje techniczne dotyczące tego łącznika, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Następne kroki
 

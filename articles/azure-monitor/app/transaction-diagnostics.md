@@ -4,11 +4,12 @@ description: Application Insights kompleksowej diagnostyki transakcji
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671141"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318916"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Ujednolicona Diagnostyka transakcji między składnikami
 
@@ -63,7 +64,7 @@ To okienko zwijane pokazuje inne wyniki, które spełniają kryteria filtrowania
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler i debuger migawek
 
-[Application Insights profilerem](../../azure-monitor/app/profiler.md) lub [debugerem migawek](snapshot-debugger.md) pomoc w diagnostyce na poziomie kodu problemów z wydajnością i błędami. Korzystając z tego środowiska, można wyświetlać ślady profilera lub migawki z dowolnego składnika za pomocą jednego kliknięcia.
+[Application Insights profilerem](./profiler.md) lub [debugerem migawek](snapshot-debugger.md) pomoc w diagnostyce na poziomie kodu problemów z wydajnością i błędami. Korzystając z tego środowiska, można wyświetlać ślady profilera lub migawki z dowolnego składnika za pomocą jednego kliknięcia.
 
 Jeśli nie możesz uzyskać pracy profilera, skontaktuj się z firmą **serviceprofilerhelp \@ Microsoft.com**
 
@@ -94,3 +95,4 @@ Osie czasu są dostosowywane pod kątem obchylania zegara na wykresie transakcji
 *Dlaczego nowe środowisko nie ma większości zapytań dotyczących elementów pokrewnych?*
 
 Jest to celowe. Wszystkie powiązane elementy, we wszystkich składnikach, są już dostępne po lewej stronie (sekcje górne i dolne). Nowe środowisko zawiera dwa pokrewne elementy, które nie obejmują: wszystkie dane telemetryczne z pięciu minut przed tym zdarzeniem i po nim.
+

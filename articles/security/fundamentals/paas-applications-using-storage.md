@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128407"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371383"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu usługi Azure Storage
 W tym artykule omówiono zbiór najlepszych rozwiązań z zakresu bezpieczeństwa usługi Azure Storage na potrzeby zabezpieczania aplikacji internetowych i mobilnych platformy jako usługi (PaaS). Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z platformą Azure i klientami.
@@ -58,7 +58,7 @@ Aby dowiedzieć się więcej na temat sygnatury dostępu współdzielonego, zoba
 ## <a name="use-role-based-access-control"></a>Korzystanie z kontroli dostępu opartej na rolach
 Innym sposobem zarządzania dostępem jest użycie [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) (RBAC). Dzięki RBAC można skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień w oparciu o konieczność znajomości i najniższych zasad zabezpieczeń. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. Kontrola RBAC pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem na platformie Azure. Jest to konieczne w przypadku organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych.
 
-Do przypisywania uprawnień użytkownikom można używać wbudowanych ról RBAC na platformie Azure. Na przykład współautor konta magazynu dla operatorów chmury, które muszą zarządzać kontami magazynu i rolą współautor klasycznego konta magazynu, aby zarządzać kontami klasycznego magazynu. W przypadku operatorów chmury, które muszą zarządzać maszynami wirtualnymi, ale nie z siecią wirtualną lub kontem magazynu, z którym są połączone, można je dodać do roli współautor maszyny wirtualnej.
+Do przypisywania uprawnień użytkownikom można używać wbudowanych ról platformy Azure na platformie Azure. Na przykład współautor konta magazynu dla operatorów chmury, które muszą zarządzać kontami magazynu i rolą współautor klasycznego konta magazynu, aby zarządzać kontami klasycznego magazynu. W przypadku operatorów chmury, które muszą zarządzać maszynami wirtualnymi, ale nie z siecią wirtualną lub kontem magazynu, z którym są połączone, można je dodać do roli współautor maszyny wirtualnej.
 
 Organizacje, które nie wymuszają kontroli dostępu do danych za pomocą funkcji, takich jak RBAC, mogą uzyskać więcej uprawnień niż jest to konieczne dla swoich użytkowników. Może to prowadzić do złamania danych przez umożliwienie niektórym użytkownikom dostępu do danych, które nie powinny znajdować się w pierwszym miejscu.
 

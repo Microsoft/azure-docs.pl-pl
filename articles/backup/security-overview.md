@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319307"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -42,13 +42,17 @@ Możesz teraz używać [prywatnych punktów końcowych](../private-link/private-
 
 Przeczytaj więcej na temat prywatnych punktów końcowych Azure Backup [tym miejscu](./private-endpoints.md).
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>Szyfrowanie danych podczas przesyłania i przechowywania
+## <a name="encryption-of-data"></a>Szyfrowanie danych
 
-Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń i zgodności w organizacji. W ramach platformy Azure dane przesyłane między usługą Azure Storage i magazynem są chronione za pośrednictwem protokołu HTTPS. Te dane pozostają w sieci szkieletowej platformy Azure.
+Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń i zgodności w organizacji. Szyfrowanie danych odbywa się w wielu etapach Azure Backup:
 
-* Dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Można także szyfrować kopie zapasowe maszyn wirtualnych z dyskami zarządzanymi w magazynie Recovery Services przy użyciu [kluczy zarządzanych przez klienta](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) przechowywanych w Azure Key Vault. Aby włączyć szyfrowanie, nie trzeba podejmować żadnych jawnych akcji. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
+* W ramach platformy Azure dane przesyłane między usługą Azure Storage i magazynem są [chronione za pośrednictwem protokołu HTTPS](backup-support-matrix.md#network-traffic-to-azure). Te dane pozostają w sieci szkieletowej platformy Azure.
 
-* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](./backup-azure-vms-encryption.md).
+* Dane kopii zapasowej są automatycznie szyfrowane przy użyciu [kluczy zarządzanych przez firmę Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)i nie trzeba podejmować żadnych jawnych akcji, aby je włączyć. Dane kopii zapasowej można także szyfrować przy użyciu [kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md) przechowywanych w Azure Key Vault. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
+
+* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) i [maszyn wirtualnych z dyskami szyfrowanymi CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Aby uzyskać więcej informacji, [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](./backup-azure-vms-encryption.md).
+
+* W przypadku tworzenia kopii zapasowej danych z serwerów lokalnych przy użyciu agenta MARS dane są szyfrowane przy użyciu hasła przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup. Dowiedz [się więcej na temat funkcji zabezpieczeń, aby chronić hybrydowe kopie zapasowe](#security-features-to-help-protect-hybrid-backups).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Ochrona danych kopii zapasowej przed przypadkowym usunięciem
 

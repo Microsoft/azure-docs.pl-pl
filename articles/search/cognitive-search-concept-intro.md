@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564424"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319052"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -59,7 +59,7 @@ Ponadto możesz rozważyć dodanie niestandardowej umiejętności, jeśli masz k
 
 Umiejętności niestandardowe mogą obsługiwać bardziej złożone scenariusze, takie jak rozpoznawanie formularzy lub wykrywanie jednostek niestandardowych przy użyciu udostępnianego modelu i zawijania w [niestandardowym interfejsie sieci Web](cognitive-search-custom-skill-interface.md). Kilka przykładów umiejętności niestandardowych obejmuje [aparat rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/overview), integrację [interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)i [niestandardowego rozpoznawania jednostek](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-<a name="enrichment-steps">Kroki # # w potoku wzbogacania</a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Kroki potoku wzbogacania<a name="enrichment-steps"></a>
 
 Potok wzbogacania jest oparty na [*indeksatorach*](search-indexer-overview.md). Indeksatory wypełniają indeks na podstawie mapowań pola do pola między indeksem a źródłem danych na potrzeby łamania dokumentów. Umiejętności, które są teraz dołączone do indeksatorów, przechwytuje i wzbogacają dokumenty zależnie od zdefiniowanych zestawu umiejętności. Po indeksowaniu możesz uzyskać dostęp do zawartości za pośrednictwem żądań wyszukiwania przez wszystkie [typy zapytań obsługiwane przez usługę Azure wyszukiwanie poznawcze](search-query-overview.md).  Jeśli jesteś nowym indeksatorem, ta sekcja przeprowadzi Cię przez kroki.
 

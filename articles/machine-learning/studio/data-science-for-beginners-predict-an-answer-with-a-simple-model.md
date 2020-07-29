@@ -1,6 +1,5 @@
 ---
-title: Przewidywania odpowiedzi przy użyciu modeli regresji
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): przewidywania odpowiedzi z modelami regresji — Azure'
 description: Jak utworzyć prosty model regresji, aby przewidzieć cenę w nauce danych dla początkujących wideo 4. Obejmuje regresję liniową z danymi docelowymi.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ac9f4262d614b1e413f4283d3c459e60fc6634e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930237"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318746"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prognozowanie odpowiedzi za pomocą prostego modelu
+
+
 ## <a name="video-4-data-science-for-beginners-series"></a>Wideo 4: Analiza danych dla początkujących serii
 Dowiedz się, jak utworzyć prosty model regresji, aby przewidzieć cenę rombu w nauce danych dla początkujących filmów wideo 4. Narysujemy model regresji z danymi docelowymi.
 

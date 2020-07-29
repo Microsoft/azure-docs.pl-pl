@@ -8,15 +8,15 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/23/2020
-ms.custom: tracking-python
-ms.openlocfilehash: c7229aaeef8b756b244e55920263eb046ed87f13
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: c1c146783d54bf2df25a130b73ab430c6edeaef7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129495"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319460"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ W przykładach w tym artykule przedstawiono sposób wykonywania tych operacji:
 * Użyj środowiska do uczenia się.
 * Użyj środowiska do wdrożenia usługi sieci Web.
 
-Aby uzyskać ogólne omówienie sposobu działania środowisk w Azure Machine Learning, zobacz [co to są środowiska ml?](concept-environments.md)
+Aby uzyskać ogólne omówienie sposobu działania środowisk w Azure Machine Learning, zobacz [co to są środowiska ml?](concept-environments.md) Informacje o konfigurowaniu środowisk programistycznych znajdują się [tutaj](how-to-configure-environment.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

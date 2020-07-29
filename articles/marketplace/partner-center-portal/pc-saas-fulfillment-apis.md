@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109301"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304143"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace
 
@@ -45,7 +47,7 @@ W scenariuszu Odsprzedawcy (CSP) dostawca CSP kupuje ofertę SaaS w imieniu klie
 
 W tym scenariuszu Wydawca nie musi implementować żadnego z przepływów wywołań interfejsu API.
 
-Aby uzyskać więcej informacji na temat dostawcy usług kryptograficznych, zapoznaj się z tematem https://partner.microsoft.com/en-us/licensing .
+Aby uzyskać więcej informacji na temat dostawcy usług kryptograficznych, zapoznaj się z tematem https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >Bieżąca wersja tego interfejsu API jest w wersji 2, która powinna być używana dla wszystkich nowych ofert SaaS. Wersja 1 interfejsu API jest przestarzała i jest utrzymywana do obsługi istniejących ofert.

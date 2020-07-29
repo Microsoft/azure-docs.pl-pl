@@ -5,18 +5,18 @@ description: AutoMLStep umożliwia korzystanie z zautomatyzowanej uczenia maszyn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 1b8dfa37047113d84470f86cd67c601ebf48f793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 698fdf1295ec38fc7eca9a58e681d7fe13ec32fc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319511"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

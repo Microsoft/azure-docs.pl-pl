@@ -3,12 +3,12 @@ title: Dostarczanie zdarzeń przy użyciu tożsamości usługi zarządzanej
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119195"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371264"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
 W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
@@ -42,7 +42,7 @@ W poprzedniej sekcji przedstawiono sposób włączania tożsamości zarządzanej
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez system dla tematu. Kroki umożliwiające włączenie tożsamości dla domeny są podobne. 
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Wyszukaj **Tematy usługi Event Grid** na pasku wyszukiwania u góry.
 3. Wybierz **temat** , dla którego chcesz włączyć zarządzaną tożsamość. 
 4. Przejdź do karty **tożsamość** . 
@@ -70,8 +70,8 @@ Obecnie usługa Azure Event Grid obsługuje tematy lub domeny skonfigurowane prz
 
 | Element docelowy | Rola RBAC | 
 | ----------- | --------- | 
-| Service Bus kolejki i tematy | [Nadawca danych Azure Service Bus](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Nadawca danych Event Hubs platformy Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Service Bus kolejki i tematy | [Nadawca danych Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure Event Hubs | [Nadawca danych Event Hubs platformy Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Azure Blob Storage | [Współautor danych obiektu blob magazynu](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
 | Azure Queue Storage |[Nadawca komunikatu o danych kolejki magazynu](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 

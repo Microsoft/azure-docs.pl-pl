@@ -3,17 +3,18 @@ title: Wdrażanie rozwiązania do monitorowania zdalnego lokalnie-IntelliJ IDE �
 description: Ten przewodnik przedstawia sposób wdrażania akceleratora rozwiązania do monitorowania zdalnego na maszynie lokalnej przy użyciu IntelliJ do testowania i opracowywania.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319171"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Wdróż lokalnie Akcelerator rozwiązania do monitorowania zdalnego — IntelliJ
 
@@ -33,8 +34,8 @@ Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka
 
 Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainstalowane na lokalnym komputerze deweloperskim:
 
-* [Git](https://git-scm.com/)
-* [Docker](https://www.docker.com)
+* [Narzędzia](https://git-scm.com/)
+* [Platforma Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 * [Wtyczka IntelliJ Scala](https://plugins.jetbrains.com/plugin/1347-scala)
@@ -199,7 +200,7 @@ Aby uzyskać dostęp do stanu usług, przejdź do następujących adresów URL:
 
 Wykonaj następujące kroki, aby uruchomić zadanie Stream Analytics:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 1. Przejdź do **grupy zasobów** utworzonej dla Twojego rozwiązania. Nazwa grupy zasobów jest nazwą wybraną dla rozwiązania po uruchomieniu skryptu **Start. cmd** .
 1. Wybierz **zadanie Stream Analytics** na liście zasobów.
 1. Na stronie **Przegląd** zadania Stream Analytics wybierz przycisk **Start** , a następnie wybierz polecenie **Uruchom** , aby uruchomić zadanie.

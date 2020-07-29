@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8d0e965360caab704bcf6c8f7d29e7bba421207e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2d5ce0bc988badc6f25726206a953d87de7eaa2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125891"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371463"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-manual"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (ręczne)
 
@@ -35,7 +35,7 @@ W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych r
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Region wdrożenia. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Nazwa wystąpienia. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu (co oznacza, że jeśli inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tym regionie już używa wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
+* Nazwa wystąpienia. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
 
 Użyj tych wartości w poniższym poleceniu, aby utworzyć wystąpienie:
 
@@ -68,9 +68,8 @@ W tej sekcji przedstawiono sposób tworzenia przypisania roli dla użytkownika w
 
 Aby przyznać użytkownikowi uprawnienia do zarządzania wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, należy przypisać im rolę " _**wersja zapoznawcza" usługi Azure Digital bliźniaczych reprezentacji**_ . 
 
-Należy zauważyć, że ta rola różni się od...
-* rola *właściciela* w całej subskrypcji platformy Azure. *Usługa Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* jest rolą w ramach usługi Azure Digital bliźniaczych reprezentacji i jest objęta zakresem tego indywidualnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-* rola *właściciela* w usłudze Azure Digital bliźniaczych reprezentacji. Są to dwie różne role usługi Azure Digital bliźniaczych reprezentacji Management, a *usługa Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* to rola, która powinna być używana do zarządzania w ramach wersji zapoznawczej.
+> [!NOTE]
+> Należy zauważyć, że ta rola różni się od roli *właściciela* usługi Azure AD, która również może być przypisana w zakresie wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Są to dwie odrębne role zarządzania, a *właściciel* usługi Azure AD nie udziela dostępu do funkcji płaszczyzny danych, które są udzielane za pomocą *usługi Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)*.
 
 Użyj następującego polecenia, aby przypisać rolę (musi być uruchomiona przez właściciela subskrypcji platformy Azure):
 
@@ -100,7 +99,7 @@ Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacj
 Ta rejestracja aplikacji to miejsce, w którym można skonfigurować uprawnienia dostępu do [interfejsów API Digital bliźniaczych reprezentacji platformy Azure](how-to-use-apis-sdks.md). Później aplikacja kliencka będzie uwierzytelniana względem rejestracji aplikacji i w wyniku przyznania skonfigurowanych uprawnień dostępu do interfejsów API.
 
 >[!TIP]
-> Właściciel subskrypcji może chcieć skonfigurować nową rejestrację aplikacji dla każdego nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji *lub* zrobić to tylko raz i nawiązać rejestrację pojedynczej aplikacji, która będzie współużytkowana przez wszystkie wystąpienia usługi Azure Digital bliźniaczych reprezentacji w ramach subskrypcji. Jest to tak samo jak w przypadku własnej dzierżawy firmy Microsoft.
+> Właściciel subskrypcji może chcieć skonfigurować nową rejestrację aplikacji dla każdego nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji *lub* zrobić to tylko raz i nawiązać rejestrację pojedynczej aplikacji, która będzie współużytkowana przez wszystkie wystąpienia usługi Azure Digital bliźniaczych reprezentacji w ramach subskrypcji.
 
 ### <a name="create-the-registration"></a>Utwórz rejestrację
 

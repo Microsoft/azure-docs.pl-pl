@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319001"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Dokumentacja interfejsu API agenta Application Insights Azure Monitor
 
@@ -638,14 +638,15 @@ Timeout Reached. Stopping...
 
   Wyświetlanie telemetrii:
  - [Poznaj metryki](../platform/metrics-charts.md) , aby monitorować wydajność i użycie.
-- [Wyszukaj zdarzenia i dzienniki](../../azure-monitor/app/diagnostic-search.md) , aby zdiagnozować problemy.
+- [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md) , aby zdiagnozować problemy.
 - Użyj [analizy](../log-query/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
-- [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).
+- [Tworzenie pulpitów nawigacyjnych](./overview-dashboard.md).
  
  Dodawanie kolejnych funkcji telemetrii:
  - [Tworzenie testów sieci Web](monitor-web-app-availability.md), aby upewnić się, że witryna pozostaje aktywna.
-- [Dodaj telemetrię klienta sieci Web](../../azure-monitor/app/javascript.md) , aby zobaczyć wyjątki z kodu strony sieci Web i włączyć wywołania śledzenia.
-- [Dodaj do kodu zestaw SDK Application Insights](../../azure-monitor/app/asp-net.md) , aby móc wstawiać wywołania śledzenia i rejestrowania.
+- [Dodaj telemetrię klienta sieci Web](./javascript.md) , aby zobaczyć wyjątki z kodu strony sieci Web i włączyć wywołania śledzenia.
+- [Dodaj do kodu zestaw SDK Application Insights](./asp-net.md) , aby móc wstawiać wywołania śledzenia i rejestrowania.
  
  Zrób więcej dzięki Application Insights agentowi:
  - Skorzystaj z naszego przewodnika, aby [rozwiązać problemy z](status-monitor-v2-troubleshoot.md) agentem Application Insights.
+

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098095"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371462"
 ---
 >[!NOTE]
 >Te operacje mają zostać wykonane przez użytkownika z rolą *właściciela* w ramach subskrypcji platformy Azure. Chociaż niektóre elementy można wykonać bez tego podwyższonego poziomu uprawnień, współpraca właściciela będzie wymagała całkowitego skonfigurowania użytecznego wystąpienia. Więcej informacji na ten temat znajduje się w sekcji [*wymagania wstępne: wymagane uprawnienia*](#prerequisites-permission-requirements) poniżej.
@@ -38,6 +38,6 @@ Jeśli jesteś właścicielem, `roleDefinitionName` wartość w danych wyjściow
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Okno Cloud Shell pokazujące dane wyjściowe polecenia AZ role przypisania list":::
 
-Jeśli okaże się, że wartość to *współautor* lub coś innego niż *właściciel*, możesz skontaktować się z właścicielem subskrypcji i wykonać jedną z następujących czynności:
-* Poproś właściciela o wykonanie kroków opisanych w tym artykule w Twoim imieniu
-* Poproś właściciela o podniesienie poziomu właściciela do subskrypcji, aby uzyskać uprawnienia do samodzielnego wykonywania tych czynności. Niezależnie od tego, czy jest to odpowiednie, zależy od organizacji i Twojej roli.
+Jeśli okaże się, że wartość to *współautor* lub coś innego niż *właściciel*, można wykonać jedną z następujących czynności:
+* Skontaktuj się z właścicielem subskrypcji i poproś właściciela o wykonanie kroków opisanych w tym artykule w Twoim imieniu
+* Skontaktuj się z właścicielem subskrypcji lub osobą z rolą administratora dostępu użytkowników w ramach subskrypcji i poproś o podniesienie uprawnień do właściciela subskrypcji, aby móc kontynuować pracę. Niezależnie od tego, czy jest to odpowiednie, zależy od organizacji i Twojej roli.

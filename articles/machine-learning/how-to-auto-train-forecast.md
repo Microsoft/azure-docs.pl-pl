@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f27fc9542d6c4e9027c7a1a0d4daeb7cb079e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321557"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371519"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ W przypadku zadań prognozowania automatyczne Uczenie maszynowe korzysta z krok�
 
 * Wykrywaj częstotliwość próbkowania szeregów czasowych (na przykład co godzinę, codziennie, co tydzień) i Utwórz nowe rekordy dla nieobecnych punktów czasowych, aby zapewnić ciągłość serii.
 * Nie ma wartości w elemencie docelowym (za pośrednictwem przekazywania) i kolumn funkcji (przy użyciu wartości kolumn mediany).
-* Tworzenie funkcji opartych na ziarnach w celu włączenia stałych efektów w różnych seriach
+* Tworzenie funkcji opartych na identyfikatorach szeregów czasowych w celu włączenia stałych efektów w różnych seriach
 * Tworzenie funkcji opartych na czasie, które ułatwiają uczenie wzorców sezonowych
 * Koduj zmienne kategorii na liczby liczbowe
 
@@ -139,21 +139,21 @@ W przypadku zadań prognozowania automatyczne Uczenie maszynowe korzysta z krok�
 | &nbsp;Nazwa parametru | Opis | Wymagane |
 |-------|-------|-------|
 |`time_column_name`|Służy do określania kolumny DateTime w danych wejściowych używanych do kompilowania szeregów czasowych i wywnioskowania jej częstotliwości.|✓|
-|`grain_column_names`|Nazwy definiujące poszczególne grupy serii w danych wejściowych. Jeśli ziarno nie jest zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową.||
-|`max_horizon`|Definiuje maksymalny żądany zakres prognozy w jednostkach częstotliwości szeregów czasowych. Jednostki są oparte na przedziale czasu na dane szkoleniowe, na przykład co miesiąc, co tydzień, co Prognoza powinna przewidzieć.|✓|
+|`time_series_id_column_names`|Nazwy kolumn używane do unikatowego identyfikowania szeregów czasowych w danych, które mają wiele wierszy z tą samą sygnaturą czasową. Jeśli identyfikatory szeregów czasowych nie są zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową.||
+|`forecast_horizon`|Definiuje, ile okresów ma być prognozowanie. Horyzont jest w jednostkach częstotliwości szeregów czasowych. Jednostki są oparte na przedziale czasu na dane szkoleniowe, na przykład co miesiąc, co tydzień, co Prognoza powinna przewidzieć.|✓|
 |`target_lags`|Liczba wierszy do rozłożeniu wartości docelowych na podstawie częstotliwości danych. Opóźnienie jest reprezentowane jako lista lub jedna liczba całkowita. Zwłoki należy używać, gdy relacja między zmiennymi niezależnymi i zmienną zależną nie jest zgodna ani nie jest domyślnie skorelowana. Na przykład podczas próby prognozowania zapotrzebowania na produkt zapotrzebowanie w dowolnym miesiącu może zależeć od ceny określonych cen w ciągu 3 miesięcy. W tym przykładzie możesz chcieć zażądać negatywnego opóźnienia (popytu) przez 3 miesiące, aby model był szkoleniowy dla poprawnej relacji.||
 |`target_rolling_window_size`|*n* okresy historyczne używane do generowania prognozowanych wartości, <= rozmiar zestawu szkoleniowego. W przypadku pominięcia *n* to pełny rozmiar zestawu szkoleniowego. Określ ten parametr, jeśli chcesz wziąć pod uwagę tylko określoną ilość historii podczas uczenia modelu.||
 |`enable_dnn`|Włącz prognozowanie DNNs.||
 
 Aby uzyskać więcej informacji, zobacz [dokumentację referencyjną](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) .
 
-Utwórz ustawienia szeregów czasowych jako obiekt słownika. Ustaw wartość `time_column_name` na `day_datetime` pole w zestawie danych. Zdefiniuj `grain_column_names` parametr, aby upewnić się, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** ; jeden dla sklepu a i B. na koniec ustaw wartość `max_horizon` na 50, aby przewidzieć cały zestaw testów. Ustaw okno prognozy na 10 okresów `target_rolling_window_size` , a następnie określ pojedyncze opóźnienie dla wartości docelowych dla dwóch okresów, z których ma zostać przewidziany `target_lags` parametr. Zalecane jest ustawienie opcji `max_horizon` `target_rolling_window_size` i na wartość `target_lags` "automatycznie", która automatycznie będzie wykrywać te wartości. W poniższym przykładzie dla tych parametrów użyto ustawień "Auto". 
+Utwórz ustawienia szeregów czasowych jako obiekt słownika. Ustaw wartość `time_column_name` na `day_datetime` pole w zestawie danych. Zdefiniuj `time_series_id_column_names` parametr, aby upewnić się, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** ; jeden dla sklepu a i B. na koniec ustaw wartość `forecast_horizon` na 50, aby przewidzieć cały zestaw testów. Ustaw okno prognozy na 10 okresów `target_rolling_window_size` , a następnie określ pojedyncze opóźnienie dla wartości docelowych dla dwóch okresów, z których ma zostać przewidziany `target_lags` parametr. Zalecane jest ustawienie opcji `forecast_horizon` `target_rolling_window_size` i na wartość `target_lags` "automatycznie", która automatycznie będzie wykrywać te wartości. W poniższym przykładzie dla tych parametrów użyto ustawień "Auto". 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > Zautomatyzowane kroki wstępnego przetwarzania w usłudze Machine Learning (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Przy użyciu modelu dla prognoz te same kroki przetwarzania wstępnego zastosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
 
-Definiując `grain_column_names` w powyższym fragmencie kodu, AutoML utworzy dwie osobne grupy szeregów czasowych, znane także jako wiele szeregów czasowych. Jeśli nie zdefiniowano żadnego ziarna, AutoML założenie, że zestaw danych jest pojedynczą serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Definiując `time_series_id_column_names` w powyższym fragmencie kodu, AutoML utworzy dwie osobne grupy szeregów czasowych, znane także jako wiele szeregów czasowych. Jeśli nie zdefiniowano identyfikatorów szeregów czasowych, AutoML założono, że zestaw danych jest pojedynczą serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 Teraz `AutoMLConfig` można utworzyć obiekt standardowy, określić `forecasting` Typ zadania i przesłać eksperyment. Po zakończeniu działania modelu Pobierz iterację najlepszego przebiegu.
 
@@ -221,6 +221,32 @@ Aby uzyskać więcej informacji o rozmiarach obliczeniowych i maszyn wirtualnych
 
 Aby zapoznać się ze szczegółowym przykładem kodu korzystającego z DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
 
+### <a name="customize-featurization"></a>Dostosuj cechowania
+Możesz dostosować ustawienia cechowania, aby upewnić się, że dane i funkcje, które są używane do uczenia modelu ML, powodują odpowiednie przewidywania. 
+
+Aby dostosować featurizations, określ `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zapoznaj się z [artykułem jak to zrobić](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+Obsługiwane dostosowania obejmują:
+
+|Dostosowywanie|Definicja|
+|--|--|
+|**Aktualizacja celu kolumny**|Przesłoń automatyczne wykrywanie typu funkcji dla określonej kolumny.|
+|**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący program (fill_value i mediana).|
+|**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
+
+Utwórz `FeaturizationConfig` obiekt, definiując konfiguracje cechowania:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>Agregacja stopniowego okna docelowego
 Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego. Tworzenie statystyk zbiorczych dla elementu docelowego może zwiększyć dokładność prognoz. Agregacje przedziałów kroczących w przedziale czasu umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Aby włączyć ruchome okna docelowej, ustaw `target_rolling_window_size` dla ustawienia rozmiar okna z żądanymi liczbami całkowitymi. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Teraz, gdy ogólna dokładność modelu została określona, najbardziej realistycznym następnym krokiem jest użycie modelu do prognozowania nieznanych przyszłych wartości. Podaj zestaw danych w tym samym formacie co zestaw testów `test_data` , ale z przyszłymi datetimemi, a wynikający z nich zestaw prognoz to prognozowane wartości dla każdego kroku szeregów czasowych. Załóżmy, że ostatnie rekordy szeregów czasowych w zestawie danych były 12/31/2018. Aby prognozować zapotrzebowanie na następny dzień (lub wiele okresów potrzebnych do prognozowania, <= `max_horizon` ), Utwórz pojedynczy rekord szeregu czasowego dla każdego magazynu dla 01/01/2019.
+Teraz, gdy ogólna dokładność modelu została określona, najbardziej realistycznym następnym krokiem jest użycie modelu do prognozowania nieznanych przyszłych wartości. Podaj zestaw danych w tym samym formacie co zestaw testów `test_data` , ale z przyszłymi datetimemi, a wynikający z nich zestaw prognoz to prognozowane wartości dla każdego kroku szeregów czasowych. Załóżmy, że ostatnie rekordy szeregów czasowych w zestawie danych były 12/31/2018. Aby prognozować zapotrzebowanie na następny dzień (lub wiele okresów potrzebnych do prognozowania, <= `forecast_horizon` ), Utwórz pojedynczy rekord szeregu czasowego dla każdego magazynu dla 01/01/2019.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 Powtórz kroki niezbędne do załadowania tych przyszłych danych do ramki Dataframe, a następnie uruchom polecenie `best_run.predict(test_data)` , aby przewidzieć przyszłe wartości.
 
 > [!NOTE]
-> Wartości nie mogą być przewidywane dla liczby okresów większej niż `max_horizon` . Model musi być przeszkolony z większym horyzontem, aby przewidzieć przyszłe wartości poza bieżącym horyzontem.
+> Wartości nie mogą być przewidywane dla liczby okresów większej niż `forecast_horizon` . Model musi być przeszkolony z większym horyzontem, aby przewidzieć przyszłe wartości poza bieżącym horyzontem.
 
 ## <a name="next-steps"></a>Następne kroki
 

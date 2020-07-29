@@ -1,6 +1,5 @@
 ---
-title: Wdrażanie i użycie
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): wdrażanie i użycie — Azure'
 description: Azure Machine Learning Studio (klasyczny) służy do wdrażania przepływów pracy i modeli uczenia maszynowego jako usług sieci Web. Te usługi sieci Web mogą być następnie używane do wywoływania modeli uczenia maszynowego z aplikacji przez Internet, aby wykonywać przewidywania w czasie rzeczywistym lub w trybie wsadowym.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4c6c73d29e04889b390bc071511eef8591da1543
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318695"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klasyczne) usługi sieci Web: wdrażanie i użycie
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 Azure Machine Learning Studio (klasyczny) służy do wdrażania przepływów pracy i modeli uczenia maszynowego jako usług sieci Web. Te usługi sieci Web mogą być następnie używane do wywoływania modeli uczenia maszynowego z aplikacji przez Internet, aby wykonywać przewidywania w czasie rzeczywistym lub w trybie wsadowym. Ponieważ usługi sieci Web są RESTful, możesz je wywoływać z różnych języków programowania i platform, takich jak .NET i Java, oraz z aplikacji, takich jak program Excel.
 
@@ -68,7 +69,7 @@ Uruchomienie aplikacji tworzy szablon JSON usługi sieci Web. Aby użyć szablon
 
 Dodaj je do szablonu JSON jako elementy podrzędne węzła *Właściwości* na tym samym poziomie, co węzeł *MachineLearningWorkspace* .
 
-Przykład:
+Oto przykład:
 
 ```json
 "StorageAccount": {

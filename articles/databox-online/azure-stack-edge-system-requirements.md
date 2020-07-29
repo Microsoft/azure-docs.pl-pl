@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569084"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371310"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Wymagania systemowe Azure Stack Edge
 

@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083858"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371247"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -78,7 +78,7 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
 3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Gdzie mogę znaleźć adres IP klienta wysyłającego/otrzymującego komunikaty do/z przestrzeni nazw? 
-Nie rejestrujemy adresów IP klientów wysyłających lub otrzymujących komunikaty do/z przestrzeni nazw. Wygeneruj ponownie klucze, aby uniemożliwić wszystkim istniejącym klientom uwierzytelnianie i przeglądanie ustawień kontroli dostępu opartej na rolach ([RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)), aby upewnić się, że tylko użytkownicy lub aplikacje mają dostęp do przestrzeni nazw. 
+Nie rejestrujemy adresów IP klientów wysyłających lub otrzymujących komunikaty do/z przestrzeni nazw. Wygeneruj ponownie klucze, aby uniemożliwić wszystkim istniejącym klientom uwierzytelnianie i przeglądanie ustawień kontroli dostępu opartej na rolach ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)), aby upewnić się, że tylko użytkownicy lub aplikacje mają dostęp do przestrzeni nazw. 
 
 Jeśli używasz przestrzeni nazw **Premium** , użyj funkcji [filtrowania adresów IP](service-bus-ip-filtering.md), [punktów końcowych usługi sieci wirtualnej](service-bus-service-endpoints.md)i [prywatnych punktów końcowych](private-link-service.md) , aby ograniczyć dostęp do przestrzeni nazw. 
 
@@ -117,7 +117,7 @@ Opłaty te przedstawiają podstawową opłatę za subskrypcję platformy Azure, 
 
 Należy pamiętać, że opłaty te nie są nowe, czyli istniejące w poprzednim modelu rozliczeń. Jedyną zmianą jest to, że są one teraz wymienione w obszarze "$system". Jest to spowodowane ograniczeniami w nowym systemie rozliczeniowym, które grupuje opłaty na poziomie subskrypcji, które nie są powiązane z określonym zasobem w ramach identyfikatora zasobu "$system".
 
-## <a name="quotas"></a>Limity przydziału
+## <a name="quotas"></a>Przydziały
 
 Aby uzyskać listę limitów Service Bus i przydziałów, zobacz [Omówienie przydziałów Service Bus][Quotas overview].
 
