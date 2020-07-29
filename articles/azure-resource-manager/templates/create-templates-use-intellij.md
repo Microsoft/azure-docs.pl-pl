@@ -4,12 +4,13 @@ description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040733"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321823"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
@@ -69,7 +70,7 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
 1. Po zakończeniu wdrażania aktualizacji można sprawdzić, czy w portalu została zmieniona wartość utworzone konto magazynu `Standard_GRS` .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 1. Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Można to zrobić za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. W Eksploratorze Azure z POMYSŁu IntelliJ kliknij prawym przyciskiem myszy utworzoną **grupę zasobów** i wybierz pozycję Usuń.
 

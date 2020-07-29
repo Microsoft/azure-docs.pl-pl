@@ -1,20 +1,20 @@
 ---
 title: 'Samouczek: wyszukiwanie lokalizacji w pobliżu mapy | Mapy Microsoft Azure'
 description: W tym samouczku dowiesz się, jak wyszukiwać punkty orientacyjne na mapie przy użyciu Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 0b0cb92cd6b4918e28e143178a5cdbbbb19ac9af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281535"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Samouczek: Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą Azure Maps
 
@@ -26,7 +26,7 @@ W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Ma
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
 > * Wyszukiwanie pobliskiego punktu orientacyjnego przy użyciu usługi wyszukiwania Maps
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -116,7 +116,7 @@ Interfejs API kontrolka mapy jest wygodną biblioteką klienta. Ten interfejs AP
     </html>
     ```
 
-   Zwróć uwagę, że nagłówek HTML zawiera pliki zasobów CSS i JavaScript obsługiwane przez bibliotekę kontrolek mapy platformy Azure. Zwróć uwagę na zdarzenie `onload` w treści strony, które spowoduje wywołanie funkcji `GetMap` po załadowaniu treści strony. `GetMap` Funkcja będzie zawierać wbudowany kod JavaScript, aby uzyskać dostęp do interfejsów API Azure Maps.
+   Zwróć uwagę, że nagłówek HTML zawiera pliki zasobów CSS i JavaScript obsługiwane przez bibliotekę kontrolek mapy platformy Azure. Zwróć uwagę na zdarzenie `onload` w treści strony, które spowoduje wywołanie funkcji `GetMap` po załadowaniu treści strony. `GetMap`Funkcja będzie zawierać wbudowany kod JavaScript, aby uzyskać dostęp do interfejsów api Azure Maps.
 
 3. Dodaj następujący kod JavaScript do funkcji `GetMap` w pliku HTML. Zastąp ciąg `<Your Azure Maps Key>` kluczem podstawowym, który został skopiowany z konta Maps.
 
@@ -163,7 +163,7 @@ Interfejs API kontrolka mapy jest wygodną biblioteką klienta. Ten interfejs AP
     });
     ```
 
-   W tym segmencie kodu do mapy `ready` zostanie dodane zdarzenie, które zostanie wywołane po załadowaniu zasobów mapy, a mapa jest gotowa do uzyskania dostępu. W programie obsługi `ready` zdarzeń mapy tworzone jest źródło danych do przechowywania danych wynikowych. Tworzona jest warstwa symboli, która jest następnie dołączana do źródła danych. Ta warstwa określa, w jaki sposób mają być renderowane dane wynikowe w źródle danych. W takim przypadku wynik jest renderowany przy użyciu ciemnej niebieskiej ikony pinezki, wyśrodkowany przez współrzędne wyniki i zezwala na nakładanie się innych ikon. Warstwa wynikowa zostanie dodana do warstw mapy.
+   W tym segmencie kodu `ready` do mapy zostanie dodane zdarzenie, które zostanie wywołane po załadowaniu zasobów mapy, a mapa jest gotowa do uzyskania dostępu. W programie `ready` obsługi zdarzeń mapy tworzone jest źródło danych do przechowywania danych wynikowych. Tworzona jest warstwa symboli, która jest następnie dołączana do źródła danych. Ta warstwa określa, w jaki sposób mają być renderowane dane wynikowe w źródle danych. W takim przypadku wynik jest renderowany przy użyciu ciemnej niebieskiej ikony pinezki, wyśrodkowany przez współrzędne wyniki i zezwala na nakładanie się innych ikon. Warstwa wynikowa zostanie dodana do warstw mapy.
 
 <a id="usesearch"></a>
 
@@ -173,7 +173,7 @@ W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](https://docs.m
 
 ### <a name="service-module"></a>Moduł usługi
 
-1. W programie obsługi `ready` zdarzeń mapy Utwórz adres URL usługi wyszukiwania, dodając następujący kod JavaScript.
+1. W programie `ready` obsługi zdarzeń mapy Utwórz adres URL usługi wyszukiwania, dodając następujący kod JavaScript.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -186,7 +186,7 @@ W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](https://docs.m
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential` Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()` Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `searchURL` Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
+   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
 
 2. Następnie dodaj poniższy blok skryptu w celu utworzenia zapytania wyszukiwania. Ten fragment kodu używa usługi Fuzzy Search Service — podstawowego interfejsu API wyszukiwania usługi Search Service. Usługa Fuzzy Search Service obsługuje większość rozmytych danych wejściowych, takich jak adresy, miejsca i punkty orientacyjne (POI). Ten kod szuka w pobliżu stacji benzyny w określonym promieniu o podanej wartości szerokości i długości geograficznej. Kolekcje funkcji GEOJSON z odpowiedzi są następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych, co powoduje automatyczne wyniki renderowania danych na mapie za pośrednictwem warstwy symboli. Ostatnia część skrypt ustawia widok kamery mapy za pomocą pola ograniczenia wyników z wykorzystaniem właściwości mapy [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 
@@ -219,7 +219,7 @@ W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](https://docs.m
 
    ![Wyświetlanie mapy z wynikami wyszukiwania](./media/tutorial-search-location/pins-map.png)
 
-4. Wprowadzenie następującego żądania HTTP w przeglądarce spowoduje wyświetlenie danych pierwotnych renderowanych przez mapę. Ciąg \<Your Azure Maps Key\> zastąp kluczem podstawowym.
+4. Wprowadzenie następującego żądania HTTP w przeglądarce spowoduje wyświetlenie danych pierwotnych renderowanych przez mapę. Zamień \<Your Azure Maps Key\> na klucz podstawowy.
 
    ```http
    https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -231,7 +231,7 @@ Na stronie MapSearch można teraz wyświetlić lokalizacje punktów orientacyjny
 
 W wynikach wyszukiwania na utworzonej mapie są używane tylko dane o długości i szerokości geograficznej. Jednak nieprzetworzony kod JSON, który zwraca usługa Maps Search, zawiera dodatkowe informacje o każdej stacji gazowej. Dołączenie nazwy i ulica adresu. Dane te można zintegrować z mapą za pomocą interaktywnych wyskakujących okienek.
 
-1. Dodaj następujące wiersze kodu w programie obsługi zdarzeń mapy `ready` po kodzie, aby wykonać zapytanie do usługi wyszukiwania rozmytego. Ten kod spowoduje utworzenie wystąpienia okna podręcznego i dodanie zdarzenia mouseOver do warstwy symboli.
+1. Dodaj następujące wiersze kodu w programie `ready` obsługi zdarzeń mapy po kodzie, aby wykonać zapytanie do usługi wyszukiwania rozmytego. Ten kod spowoduje utworzenie wystąpienia okna podręcznego i dodanie zdarzenia mouseOver do warstwy symboli.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

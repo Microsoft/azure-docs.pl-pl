@@ -3,12 +3,12 @@ title: Automatyzacja procesów Application Insights platformy Azure przy użyciu
 description: Dowiedz się, jak szybko zautomatyzować powtarzalne procesy przez dodanie łącznika Application Insights do aplikacji logiki.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079625"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323200"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatyzacja procesów Application Insights przy użyciu Logic Apps
 
@@ -130,9 +130,10 @@ Po uruchomieniu aplikacji logiki adresaci określeni na liście wiadomości e-ma
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../../azure-monitor/log-query/get-started-queries.md).
+- Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../log-query/get-started-queries.md).
 - Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
+

@@ -3,12 +3,12 @@ title: Liczniki wydajności w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardowe liczniki wydajności .NET w Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024422"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322520"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
 
@@ -131,7 +131,7 @@ Podobnie jak w przypadku innych telemetrii, **liczniki wydajności** ma także k
 
 * *Częstotliwość wyjątków* to licznik wydajności systemu. Środowisko CLR zlicza wszystkie zgłoszone i Nieobsłużone wyjątki, a następnie dzieli sumę w interwale próbkowania o długość interwału. Zestaw Application Insights SDK zbiera ten wynik i wysyła go do portalu.
 
-* *Wyjątki* to liczba raportów licznikaexception odebranych przez portal w interwale próbkowania wykresu. Zawiera tylko obsłużone wyjątki, w przypadku których w kodzie Zapisano wywołania Trackexception, i nie są uwzględniane wszystkie [Nieobsłużone wyjątki](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Wyjątki* to liczba raportów licznikaexception odebranych przez portal w interwale próbkowania wykresu. Zawiera tylko obsłużone wyjątki, w przypadku których w kodzie Zapisano wywołania Trackexception, i nie są uwzględniane wszystkie [Nieobsłużone wyjątki](./asp-net-exceptions.md). 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Liczniki wydajności dla aplikacji działających na platformie Azure Web Apps
 
@@ -147,9 +147,10 @@ Obsługa liczników wydajności w ASP.NET Core jest ograniczona:
 * Wersje SDK 2.8.0 i nowsze obsługują licznik procesora/pamięci w systemie Linux. Żaden inny licznik nie jest obsługiwany w systemie Linux. Zalecanym sposobem uzyskiwania liczników systemowych w systemie Linux (i innych środowiskach innych niż Windows) jest użycie [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alerty
-Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/platform/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
+Podobnie jak w przypadku innych metryk, można [ustawić alert](../platform/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 
-* [Śledzenie zależności](../../azure-monitor/app/asp-net-dependencies.md)
-* [Śledzenie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
+* [Śledzenie zależności](./asp-net-dependencies.md)
+* [Śledzenie wyjątków](./asp-net-exceptions.md)
+

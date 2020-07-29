@@ -3,12 +3,12 @@ title: Application Insights platformy Azure dla aplikacji ASP.NET Core | Microso
 description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517233"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321398"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -221,7 +221,7 @@ Zobacz [ustawienia konfigurowalne w `ApplicationInsightsServiceOptions` programi
 
 Zestaw Application Insights SDK dla ASP.NET Core obsługuje próbkowanie stałe i adaptacyjne. Próbkowanie adaptacyjne jest domyślnie włączone. 
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie adaptacyjnego próbkowania dla aplikacji ASP.NET Core](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie adaptacyjnego próbkowania dla aplikacji ASP.NET Core](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Dodawanie TelemetryInitializers
 
@@ -459,8 +459,9 @@ Ten zestaw SDK wymaga `HttpContext` , a więc nie działa w żadnej aplikacji in
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksploruj przepływy użytkowników](../../azure-monitor/app/usage-flows.md) , aby zrozumieć, jak użytkownicy nawigują przez aplikację.
+* [Eksploruj przepływy użytkowników](./usage-flows.md) , aby zrozumieć, jak użytkownicy nawigują przez aplikację.
 * [Skonfiguruj kolekcję migawek](./snapshot-debugger.md) , aby zobaczyć stan kodu źródłowego i zmiennych w momencie zgłaszania wyjątku.
-* [Użyj interfejsu API,](../../azure-monitor/app/api-custom-events-metrics.md) aby wysyłać własne zdarzenia i metryki w celu uzyskania szczegółowego widoku wydajności i użycia aplikacji.
-* Korzystaj z [testów dostępności](../../azure-monitor/app/monitor-web-app-availability.md) , aby stale sprawdzać swoją aplikację na całym świecie.
+* [Użyj interfejsu API,](./api-custom-events-metrics.md) aby wysyłać własne zdarzenia i metryki w celu uzyskania szczegółowego widoku wydajności i użycia aplikacji.
+* Korzystaj z [testów dostępności](./monitor-web-app-availability.md) , aby stale sprawdzać swoją aplikację na całym świecie.
 * [Wstrzykiwanie zależności w ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+

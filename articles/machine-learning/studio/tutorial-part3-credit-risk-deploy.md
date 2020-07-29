@@ -1,25 +1,25 @@
 ---
-title: 'Samouczek 3: Wdrażanie modelu ryzyka kredytowego'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'ML Studio (klasyczny) — samouczek 3: Wdrażanie modeli ryzyka kredytowego — Azure'
 description: Szczegółowy Samouczek przedstawiający sposób tworzenia rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny). Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. Przedstawia on sposób wdrażania modelu w postaci usługi internetowej.
 keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka, wdrażanie, usługa internetowa
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/27/2020
+ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324866"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Samouczek 3: Wdrażanie modelu ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Tworzysz prosty model w Machine Learning Studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **trzecią częścią serii samouczków**.
 
@@ -37,7 +37,7 @@ W tej części samouczka zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie do wdrożenia
-> * Wdrażanie usługi sieci Web
+> * Wdrażanie usługi internetowej
 > * Testowanie usługi internetowej
 > * Zarządzanie usługą internetową
 > * Uzyskiwanie dostępu do usługi sieci Web
@@ -126,7 +126,7 @@ Nasz eksperyment powinien teraz wyglądać następująco:
 
 Uruchom eksperyment po raz ostatni (kliknij przycisk **Uruchom**). Jeśli chcesz sprawdzić, czy model nadal działa, kliknij dane wyjściowe modułu [model oceny][score-model] i wybierz pozycję **Wyświetl wyniki**. Zobaczysz, że są wyświetlane oryginalne dane wraz z wartością ryzyka kredytowego („Scored Labels”, Wyliczone wyniki dla etykiet) i wartością generowania wyniku dla prawdopodobieństwa („Scored Probabilities”, Wyliczone wyniki dla prawdopodobieństw). 
 
-## <a name="deploy-the-web-service"></a>Wdrażanie usługi sieci Web
+## <a name="deploy-the-web-service"></a>Wdrażanie usługi internetowej
 Możesz wdrożyć eksperyment jako klasyczną usługę internetową albo jako nową usługę internetową, która jest oparta na usłudze Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Wdrażanie w postaci klasycznej usługi internetowej
@@ -153,7 +153,7 @@ Aby wdrożyć nową usługę internetową pochodzącą z naszego eksperymentu:
 
 1. Aby uzyskać **plan cenowy**, możesz wybrać istniejący plan cenowy lub wybrać pozycję „Create new” (Utwórz nową) oraz nadać nowemu planowi nazwę i wybrać opcję planu miesięcznego. Plan domyślnie jest dzielony na warstwy planów dla domyślnego regionu, a usługi internetowe są wdrażane dla tego regionu.
 
-1. Kliknij przycisk **Deploy (Wdróż)**.
+1. Kliknij pozycję **Wdróż**.
 
 Po kilku minutach zostanie otwarta strona **Quickstart (Szybki start)** Twojej usługi internetowej.
 
@@ -227,7 +227,10 @@ W poprzednim kroku tego samouczka została wdrożona usługa internetowa, która
 Usługa internetowa to usługa internetowa platformy Azure, która może odbierać i zwracać dane przy użyciu interfejsów API REST na jeden z dwóch sposobów:  
 
 * **Żądanie/odpowiedź** — użytkownik wysyła co najmniej jeden wiersz danych kredytowych do usługi przy użyciu protokołu HTTP, a usługa odpowiada za pomocą co najmniej jednego zestawu wyników.
-* **Wykonywanie wsadowe** — użytkownik przechowuje jeden lub więcej wierszy danych kredytowych w obiekcie blob platformy Azure, a następnie wysyła lokalizację obiektu blob do usługi. Usługa generuje wyniki dla wszystkich wierszy danych w wejściowym obiekcie blob, zapisuje wyniki w innym obiekcie blob, a następnie zwraca adres URL tego kontenera.  
+* **Wykonywanie wsadowe** — użytkownik przechowuje jeden lub więcej wierszy danych kredytowych w obiekcie blob platformy Azure, a następnie wysyła lokalizację obiektu blob do usługi. Usługa generuje wyniki dla wszystkich wierszy danych w wejściowym obiekcie blob, zapisuje wyniki w innym obiekcie blob, a następnie zwraca adres URL tego kontenera. 
+
+> [!NOTE]
+> Nazwy kolumn funkcji w programie Studio (klasyczne) uwzględniają **wielkość**liter. Upewnij się, że dane wejściowe do wywoływania usługi sieci Web mają takie same nazwy kolumn jak w zestawie danych szkoleniowych.
 
 Aby uzyskać więcej informacji na temat uzyskiwania dostępu do usługi sieci Web i korzystania z niej, zobacz temat [Korzystanie z usługi sieci web Azure Machine Learning z szablonem aplikacji sieci Web](/azure/machine-learning/studio/consume-web-services).
 
@@ -243,7 +246,7 @@ W tym samouczku zostały wykonane następujące kroki:
 
 > [!div class="checklist"]
 > * Przygotowanie do wdrożenia
-> * Wdrażanie usługi sieci Web
+> * Wdrażanie usługi internetowej
 > * Testowanie usługi internetowej
 > * Zarządzanie usługą internetową
 > * Uzyskiwanie dostępu do usługi sieci Web

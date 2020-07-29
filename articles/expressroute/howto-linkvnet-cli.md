@@ -5,20 +5,21 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/21/2019
+ms.date: 07/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729246"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325257"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 
 W tym artykule opisano łączenie sieci wirtualnych (sieci wirtualnych) z obwodymi usługi Azure ExpressRoute przy użyciu interfejsu wiersza polecenia. Aby utworzyć łącze przy użyciu interfejsu wiersza polecenia platformy Azure, należy utworzyć sieci wirtualne przy użyciu Menedżer zasobów model wdrażania. Mogą one znajdować się w tej samej subskrypcji lub części innej subskrypcji. Jeśli chcesz użyć innej metody do łączenia sieci wirtualnej z obwodem usługi ExpressRoute, możesz wybrać artykuł z poniższej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -152,7 +153,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 Zakres *RoutingWeight* ma wartość od 0 do 32000. Wartość domyślna to 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Konfigurowanie ExpressRoute FastPath 
-Możesz włączyć [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) , jeśli obwód ExpressRoute jest na [ExpressRoute Direct](expressroute-erdirect-about.md) , a wirtualna Brama sieć to Ultra Performance lub ErGw3AZ. FastPath poprawia zgodność ścieżki danych, takie jak pakiety na sekundę i połączenia na sekundę między siecią lokalną i siecią wirtualną. 
+Jeśli Brama sieci wirtualnej jest niezwykle wydajna lub ErGw3AZ, można włączyć [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) . FastPath poprawia zgodność ścieżki danych, takie jak pakiety na sekundę i połączenia na sekundę między siecią lokalną i siecią wirtualną. 
 
 **Skonfiguruj FastPath na nowym połączeniu**
 

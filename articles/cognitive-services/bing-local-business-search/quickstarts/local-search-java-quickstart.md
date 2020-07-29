@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: eb236c77fb9b5e2d5da16ff980693d1c9fce3d8d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 8780caae20b779997e32750ed7829afd7d969a02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320242"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Szybki Start: wysyłanie zapytania do lokalnego interfejsu API wyszukiwania biznesowego Bing przy użyciu języka Java
 
@@ -54,7 +55,7 @@ Poniższy kod używa interfejsu API lokalnego wyszukiwania biznesowego Bing do z
 2. Utwórz nowy projekt języka Java w ulubionym środowisku IDE lub edytorze.
 3. Dodaj kod przedstawiony poniżej.
 4. Zastąp wartość `subscriptionKey` kluczem dostępu właściwym dla Twojej subskrypcji.
-5. Uruchom program.
+5. Uruchomisz program.
 
 ```java
 package localSearch;

@@ -5,16 +5,16 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93a86bc035803517ff61c79ae4b8a7fc46dd811f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045590"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322384"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Twórz i wyświetlaj klasyczne alerty metryk i zarządzaj nimi za pomocą Azure Monitor
 
-Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekracza próg. Klasyczne alerty metryk są starszą funkcją, która umożliwia generowanie alertów tylko w przypadku metryk niewymiarowych. Istnieje już nowa funkcja, nazywana alertami metryk, która oferuje ulepszone funkcje w porównaniu z klasycznymi alertami metryk. Więcej informacji o nowych funkcjach alertów metryk można znaleźć w temacie [Omówienie alertów dotyczących metryk](../../azure-monitor/platform/alerts-metric-overview.md). W tym artykule opisano sposób tworzenia i wyświetlania klasycznych reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
+Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekracza próg. Klasyczne alerty metryk są starszą funkcją, która umożliwia generowanie alertów tylko w przypadku metryk niewymiarowych. Istnieje już nowa funkcja, nazywana alertami metryk, która oferuje ulepszone funkcje w porównaniu z klasycznymi alertami metryk. Więcej informacji o nowych funkcjach alertów metryk można znaleźć w temacie [Omówienie alertów dotyczących metryk](./alerts-metric-overview.md). W tym artykule opisano sposób tworzenia i wyświetlania klasycznych reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
 
 ## <a name="with-azure-portal"></a>Z Azure Portal
 
@@ -130,5 +130,6 @@ W tych sekcjach pokazano, jak za pomocą poleceń programu PowerShell tworzyć i
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz klasyczny alert dotyczący metryki z szablonem Menedżer zasobów](../../azure-monitor/platform/alerts-enable-template.md).
-- [Zawiadom klasyczny alert dotyczący metryki systemu spoza platformy Azure przy użyciu elementu webhook](../../azure-monitor/platform/alerts-webhooks.md).
+- [Utwórz klasyczny alert dotyczący metryki z szablonem Menedżer zasobów](./alerts-enable-template.md).
+- [Zawiadom klasyczny alert dotyczący metryki systemu spoza platformy Azure przy użyciu elementu webhook](./alerts-webhooks.md).
+

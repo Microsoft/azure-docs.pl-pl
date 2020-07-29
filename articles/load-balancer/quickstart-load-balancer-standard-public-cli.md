@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: aa0d29c5c2a4cf8eebbf530b42a25d8924e031bc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172094"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290266"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -418,11 +418,17 @@ Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wych
 
 Aby uzyskać więcej informacji na temat połączeń wychodzących, zobacz [połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md).
 
-### <a name="create-outbound-public-ip-address"></a>Tworzenie wychodzącego publicznego adresu IP
+### <a name="create-outbound-public-ip-address-or-public-ip-prefix"></a>Tworzenie wychodzącego publicznego adresu IP lub publicznego prefiksu adresu IP.
 
-Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) , aby utworzyć pojedynczy adres IP dla połączenia wychodzącego.  
 
-* Utwórz strefę Standard nadmiarowy publiczny adres IP o nazwie **myPublicIPOutbound**.
+Użyj [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) , aby utworzyć publiczny prefiks IP dla połączenia wychodzącego.
+
+Aby uzyskać więcej informacji na temat skalowania ruchu wychodzącego NAT i łączności wychodzącej, zobacz [skalowanie ruchu NAT z wieloma adresami IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+
+#### <a name="public-ip"></a>Publiczny adres IP
+
+* O nazwie **myPublicIPOutbound**.
 * W **myResourceGroupLB**.
 
 ```azurecli-interactive
@@ -441,9 +447,35 @@ Aby utworzyć strefowo nadmiarowy publiczny adres IP w Strefa 1:
     --sku Standard \
     --zone 1
 ```
+#### <a name="public-ip-prefix"></a>Prefiks publicznego adresu IP
+
+* O nazwie **myPublicIPPrefixOutbound**.
+* W **myResourceGroupLB**.
+* Długość prefiksu **28**.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28
+```
+Aby utworzyć strefowo nadmiarowy publiczny adres IP w Strefa 1:
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28 \
+    --zone 1
+```
+
 ### <a name="create-outbound-frontend-ip-configuration"></a>Utwórz konfigurację wychodzącego adresu IP frontonu
 
 Utwórz nową konfigurację adresu IP frontonu za pomocą [AZ Network lb fronton-IP Create ](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create):
+
+Wybierz polecenia publicznego adresu IP lub publicznego prefiksu adresu IP w oparciu o decyzję w poprzednim kroku.
+
+#### <a name="public-ip"></a>Publiczny adres IP
 
 * O nazwie **myFrontEndOutbound**.
 * W grupie zasobów **myResourceGroupLB**.
@@ -456,6 +488,21 @@ Utwórz nową konfigurację adresu IP frontonu za pomocą [AZ Network lb fronton
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
+```
+
+#### <a name="public-ip-prefix"></a>Prefiks publicznego adresu IP
+
+* O nazwie **myFrontEndOutbound**.
+* W grupie zasobów **myResourceGroupLB**.
+* Skojarzone z publicznym prefiksem adresu IP **myPublicIPPrefixOutbound**.
+* Skojarzone z modułem równoważenia obciążenia **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb frontend-ip create \
+    --resource-group myResourceGroupLB \
+    --name myFrontEndOutbound \
+    --lb-name myLoadBalancer \
+    --public-ip-prefix myPublicIPPrefixOutbound 
 ```
 
 ### <a name="create-outbound-pool"></a>Utwórz pulę wychodzącą
@@ -498,7 +545,7 @@ Utwórz nową regułę ruchu wychodzącego dla puli zaplecza wychodzącego za po
 ```
 ### <a name="add-virtual-machines-to-outbound-pool"></a>Dodawanie maszyn wirtualnych do puli wychodzącej
 
-Dodaj interfejsy sieciowe maszyny wirtualnej do puli wychodzącej modułu równoważenia obciążenia za pomocą [AZ Network nic IP-config Address-Pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Dodaj maszyny wirtualne do puli wychodzącej za pomocą [AZ Network nic IP-config Address-Pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
 
 #### <a name="vm1"></a>Maszyna wirtualna 1

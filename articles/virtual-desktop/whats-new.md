@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374784"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291244"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -29,7 +29,7 @@ Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu cz�
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
-W ciągu ostatniego miesiąca wprowadziliśmy aktualizację 2020 pulpitu wirtualnego z systemem Windows w wersji zapoznawczej. Ta aktualizacja ma wiele ciekawych nowych funkcji, które chcielibyśmy poznać. Oto nowe nowości do aktualizacji ze sprężyną 2020.
+W ciągu ostatniego miesiąca wprowadziliśmy pulpit wirtualny systemu Windows z integracją Azure Resource Manager w wersji zapoznawczej. Ta aktualizacja ma wiele ciekawych nowych funkcji, które chcielibyśmy poznać. W tym miejscu nowości nowe dla tej wersji pulpitu wirtualnego systemu Windows.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Pulpit wirtualny systemu Windows jest teraz zintegrowany z usługą Azure Resource Manager (wersja zapoznawcza)
 
@@ -39,22 +39,22 @@ Oto, co to jest ta zmiana:
 
 - Pulpit wirtualny systemu Windows jest teraz zintegrowany z Azure Portal. Oznacza to, że możesz zarządzać wszystko bezpośrednio w portalu, nie musisz mieć wymaganych narzędzi PowerShell, Web Apps ani innych firm. Aby rozpocząć, zapoznaj się z naszym samouczkiem w witrynie [Tworzenie puli hostów za pomocą Azure Portal](create-host-pools-azure-marketplace.md).
 
-- Przed aktualizacją 2020 można publikować tylko usługi RemoteApp i pulpity dla poszczególnych użytkowników. Za pomocą Azure Resource Manager można teraz publikować zasoby w Azure Active Directory grupach.
+- Przed tą aktualizacją można publikować tylko usługi RemoteApp i pulpity dla poszczególnych użytkowników. Za pomocą Azure Resource Manager można teraz publikować zasoby w Azure Active Directory grupach.
 
 - Starsza wersja pulpitu wirtualnego systemu Windows ma cztery wbudowane role administracyjne, które można przypisać do dzierżawy lub puli hostów. Role te działają teraz w [kontroli dostępu opartej na rolach](../role-based-access-control/overview.md)platformy Azure. Te role można zastosować do każdego obiektu Azure Resource Manager pulpitu wirtualnego systemu Windows, który umożliwia posiadanie pełnego, rozbudowanego modelu delegowania.
 
-- W ramach aktualizacji ze sprężyną 2020 nie trzeba wielokrotnie uruchamiać usługi Azure Marketplace ani szablonu GitHub, aby rozszerzyć pulę hostów. Wystarczy rozszerzyć pulę hostów, aby przejść do puli hostów w Azure Portal i wybrać pozycję **+ Dodaj** , aby wdrożyć dodatkowe hosty sesji.
+- W ramach tej aktualizacji nie jest już konieczne wielokrotne uruchamianie szablonu Azure Marketplace lub GitHub, aby rozszerzyć pulę hostów. Wystarczy rozszerzyć pulę hostów, aby przejść do puli hostów w Azure Portal i wybrać pozycję **+ Dodaj** , aby wdrożyć dodatkowe hosty sesji.
 
 - Wdrożenie puli hostów jest obecnie w pełni zintegrowane z [galerią udostępnionych obrazów systemu Azure](../virtual-machines/windows/shared-image-galleries.md). Galeria obrazów udostępnionych to oddzielna usługa platformy Azure, która przechowuje definicje obrazów maszyn wirtualnych (VM), w tym przechowywanie wersji obrazu. Można również użyć replikacji globalnej do kopiowania i wysyłania obrazów do innych regionów świadczenia usługi Azure na potrzeby lokalnego wdrożenia.
 
 - Funkcje monitorowania, które zostały użyte do wykonania za pomocą programu PowerShell lub aplikacji internetowej usługi diagnostycznej, zostały przeniesione do Log Analytics w Azure Portal. Dostępne są również dwie opcje wizualizacji raportów. Można uruchamiać zapytania Kusto i używać skoroszytów do tworzenia raportów wizualnych.
 
-- Nie musisz już wykonywać Azure Active Directory (Azure AD), aby wyrazić zgodę na korzystanie z pulpitu wirtualnego systemu Windows. W ramach aktualizacji ze sprężyną 2020 dzierżawa usługi Azure AD w ramach subskrypcji platformy Azure uwierzytelnia użytkowników i udostępnia formanty RBAC dla administratorów.
+- Nie musisz już wykonywać Azure Active Directory (Azure AD), aby wyrazić zgodę na korzystanie z pulpitu wirtualnego systemu Windows. W tej aktualizacji dzierżawa usługi Azure AD w ramach subskrypcji platformy Azure uwierzytelnia użytkowników i udostępnia formanty RBAC dla administratorów.
 
 
 ### <a name="powershell-support"></a>Obsługa programu PowerShell
 
-Dodaliśmy nowe polecenia cmdlet AzWvd do Azure PowerShell AZ module ze sprężyną aktualizacji 2020. Ten nowy moduł jest obsługiwany w programie PowerShell Core, który działa na platformie .NET Core.
+Dodaliśmy nowe polecenia cmdlet AzWvd do Azure PowerShell AZ module z tą aktualizacją. Ten nowy moduł jest obsługiwany w programie PowerShell Core, który działa na platformie .NET Core.
 
 Aby zainstalować moduł, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows](powershell-module.md).
 

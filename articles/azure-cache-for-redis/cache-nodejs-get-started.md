@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą środowiska Node. js'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis z Node.js'
 description: W tym przewodniku Szybki start dowiesz się, jak używać usługi Azure Cache for Redis w środowisku Node.js oraz node_redis.
 author: yegu-ms
 ms.service: cache
@@ -7,22 +7,22 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 88703581c507b79c1b10e0f8741c99e64d204a7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: 89a5a911cc0de82afa704c43226d7dca0c9f98a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281178"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą środowiska Node. js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z Node.js
 
-W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji node. js w celu uzyskania dostępu do bezpiecznej, dedykowanej pamięci podręcznej, która jest dostępna z dowolnej aplikacji na platformie Azure.
+W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji Node.js, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), którą można zainstalować za pomocą polecenia `npm install redis`. 
+- [node_redis](https://github.com/mranney/node_redis), którą można zainstalować za pomocą polecenia `npm install redis` . 
 
 Przykłady użycia innych klientów Node.js można znaleźć w dokumentacji poszczególnych klientów Node.js wymienionych na stronie [klientów Node.js usługi Redis](https://redis.io/clients#nodejs).
 
@@ -55,7 +55,7 @@ Nie należy tworzyć nowych połączeń dla każdej operacji w kodzie. Zamiast t
 
 ## <a name="create-a-new-nodejs-app"></a>Tworzenie nowej aplikacji na platformie Node.js
 
-Utwórz nowy plik skryptu o nazwie *redistest.js*. Użyj polecenia `npm install redis bluebird` , aby zainstalować wymagane pakiety.
+Utwórz nowy plik skryptu o nazwie *redistest.js*. Użyj polecenia, `npm install redis bluebird` Aby zainstalować wymagane pakiety.
 
 Dodaj do pliku poniższy przykład kodu JavaScript. W tym kodzie pokazano sposób podłączania do wystąpienia usługi Azure Cache for Redis przy użyciu nazwy hosta w pamięci podręcznej i kluczowych zmiennych środowiskowych. W kodzie jest również przechowywana i pobierana wartość ciągu w pamięci podręcznej. Następuje wykonanie poleceń `PING` i `CLIENT LIST`. Aby uzyskać więcej przykładów użycia usługi Redis z klientem [node_redis](https://github.com/mranney/node_redis), zobacz [https://redis.js.org/](https://redis.js.org/).
 

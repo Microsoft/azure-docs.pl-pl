@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: Poznaj pojęcia związane z usługą Azure Virtual Network i jej funkcje.
+description: Dowiedz się więcej na temat pojęć i funkcji usługi Azure Virtual Network, takich jak przestrzeń adresowa, podsieci, regiony i subskrypcje.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 237361c6a519fea4dde7f1fe85f91d97ce0365b1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281586"
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest usługa Azure Virtual Network?
 
@@ -46,7 +47,7 @@ Wszystkie zasoby w sieci wirtualnej mogą domyślnie komunikować się z Interne
 >[!NOTE]
 >W przypadku korzystania tylko z wewnętrznej [usługi Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md) łączność wychodząca nie jest dostępna, dopóki nie zdefiniujesz współdziałania [połączeń wychodzących](../load-balancer/load-balancer-outbound-connections.md) z publicznym adresem IP na poziomie wystąpienia lub publicznym modułem równoważenia obciążenia.
 
-## <a name="communicate-between-azure-resources"></a>Komunikacja pomiędzy zasobami platformy Azure
+## <a name="communicate-between-azure-resources"></a>Komunikacja między zasobami platformy Azure
 
 Zasoby platformy Azure komunikują się bezpiecznie ze sobą nawzajem, korzystając z jednego z następujących sposobów:
 

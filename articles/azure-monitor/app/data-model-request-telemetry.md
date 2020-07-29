@@ -4,15 +4,16 @@ description: Application Insights model danych dla telemetrii żądania
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807659"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320565"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Dane telemetryczne żądania: Application Insights model danych
 
-Element telemetrii żądania (w [Application Insights](../../azure-monitor/app/app-insights-overview.md)) reprezentuje sekwencję logiczną wykonywania wyzwalaną przez zewnętrzne żądanie do aplikacji. Każde wykonanie żądania jest identyfikowane przez unikatową `ID` i `url` zawierającą wszystkie parametry wykonania. Żądania można grupować według logicznej `name` i zdefiniować dla `source` tego żądania. Wykonanie kodu może skutkować `success` lub `fail` i mieć pewne `duration` . Zarówno wykonanie sukcesu, jak i niepowodzenie może być pogrupowane w dalszej postaci `resultCode` . Godzina rozpoczęcia dla danych telemetrycznych żądania zdefiniowanej na poziomie koperty.
+Element telemetrii żądania (w [Application Insights](./app-insights-overview.md)) reprezentuje sekwencję logiczną wykonywania wyzwalaną przez zewnętrzne żądanie do aplikacji. Każde wykonanie żądania jest identyfikowane przez unikatową `ID` i `url` zawierającą wszystkie parametry wykonania. Żądania można grupować według logicznej `name` i zdefiniować dla `source` tego żądania. Wykonanie kodu może skutkować `success` lub `fail` i mieć pewne `duration` . Zarówno wykonanie sukcesu, jak i niepowodzenie może być pogrupowane w dalszej postaci `resultCode` . Godzina rozpoczęcia dla danych telemetrycznych żądania zdefiniowanej na poziomie koperty.
 
 Dane telemetryczne żądania obsługują standardowy model rozszerzalności przy użyciu niestandardowych `properties` i `measurements` .
 
@@ -26,7 +27,7 @@ Maksymalna długość: 1024 znaków
 
 ## <a name="id"></a>ID
 
-Identyfikator wystąpienia wywołania żądania. Służy do korelacji między żądaniem a innymi elementami telemetrii. Identyfikator powinien być globalnie unikatowy. Aby uzyskać więcej informacji, zobacz stronę [korelacji](../../azure-monitor/app/correlation.md) .
+Identyfikator wystąpienia wywołania żądania. Służy do korelacji między żądaniem a innymi elementami telemetrii. Identyfikator powinien być globalnie unikatowy. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 
 Maksymalna długość: 128 znaków
 
@@ -38,7 +39,7 @@ Maksymalna długość: 2048 znaków
 
 ## <a name="source"></a>Element źródłowy
 
-Źródło żądania. Przykłady to klucz Instrumentacji obiektu wywołującego lub adres IP obiektu wywołującego. Aby uzyskać więcej informacji, zobacz stronę [korelacji](../../azure-monitor/app/correlation.md) .
+Źródło żądania. Przykłady to klucz Instrumentacji obiektu wywołującego lub adres IP obiektu wywołującego. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 
 Maksymalna długość: 1024 znaków
 
@@ -72,7 +73,8 @@ Więcej informacji na temat kodu wyniku żądania i kodu stanu można znaleźć 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapisz dane telemetryczne żądania niestandardowego](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Zapisz dane telemetryczne żądania niestandardowego](./api-custom-events-metrics.md#trackrequest)
 - Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
-- Dowiedz się, jak [skonfigurować aplikację ASP.NET Core](../../azure-monitor/app/asp-net.md) przy użyciu Application Insights.
-- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.
+- Dowiedz się, jak [skonfigurować aplikację ASP.NET Core](./asp-net.md) przy użyciu Application Insights.
+- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+

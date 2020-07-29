@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eae11e2157904b47582f78a601c8d2900e61247
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753211"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324594"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Śledź przychodzące żądania przy użyciu języka Python OpenCensus
 
 Dane żądania przychodzącego są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Śledź przychodzące dane żądania wysyłane do aplikacji sieci Web utworzonych na podstawie popularnych struktur sieci Web `django` `flask` i `pyramid` . Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako dane `requests` telemetryczne.
 
-Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zestawu SDK języka Python OpenCensus](../../azure-monitor/app/opencensus-python.md).
+Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zestawu SDK języka Python OpenCensus](./opencensus-python.md).
 
 ## <a name="tracking-django-applications"></a>Śledzenie aplikacji Django
 
@@ -119,8 +119,9 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Mapa aplikacji](../../azure-monitor/app/app-map.md)
-* [Dostępność](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Wyszukiwanie](../../azure-monitor/app/diagnostic-search.md)
-* [Zapytanie log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnostyka transakcji](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapa aplikacji](./app-map.md)
+* [Dostępność](./monitor-web-app-availability.md)
+* [Wyszukiwanie](./diagnostic-search.md)
+* [Zapytanie log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnostyka transakcji](./transaction-diagnostics.md)
+

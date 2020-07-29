@@ -11,12 +11,13 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- devx-track-java
+ms.openlocfilehash: d40ab7a7173265812483e29127e9f8fd919dc4a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323336"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
 
@@ -68,28 +69,28 @@ W poniższych krokach przedstawiono sposób tworzenia projektu modułu usługi I
 
 Utwórz szablon rozwiązania w języku Java, który można dostosować przy użyciu własnego kodu.
 
-1. W Visual Studio Code wybierz pozycję **Widok** > **paleta poleceń** , aby otworzyć paletę poleceń vs Code.
+1. W Visual Studio Code wybierz pozycję **Widok**  >  **paleta poleceń** , aby otworzyć paletę poleceń vs Code.
 
 2. W palecie poleceń wprowadź i uruchom polecenie **Azure IoT Edge: nowe rozwiązanie usługi IoT Edge**. Postępuj zgodnie z monitami wyświetlanymi na palecie poleceń, aby utworzyć rozwiązanie.
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Wybierz folder | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
+   | Wybieranie folderu | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
    | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania lub zaakceptuj nazwę domyślną **EdgeSolution**. |
    | Wybierz szablon modułu | Wybierz moduł **Java Module**. |
    | Podaj wartość identyfikatora grupy groupId | Podaj wartość identyfikatora grupy lub zaakceptuj wartość domyślną **com.edgemodule**. |
    | Podaj nazwę modułu | Nadaj modułowi nazwę **JavaModule**. |
-   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany na podstawie nazwy podanej w ostatnim kroku. Zastąp ciąg **localhost:5000** wartością serwera logowania z rejestru kontenerów platformy Azure. Serwer logowania możesz pobrać ze strony Przegląd rejestru kontenerów w witrynie Azure Portal. <br><br>Ostateczne repozytorium obrazów wygląda następująco: \<nazwa rejestru\>.azurecr.io/javamodule. |
+   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany na podstawie nazwy podanej w ostatnim kroku. Zastąp ciąg **localhost:5000** wartością serwera logowania z rejestru kontenerów platformy Azure. Serwer logowania możesz pobrać ze strony Przegląd rejestru kontenerów w witrynie Azure Portal. <br><br>Finalne repozytorium obrazów wygląda jak \<registry name\> . azurecr.IO/javamodule. |
 
    ![Udostępnianie repozytorium obrazów platformy Docker](./media/tutorial-java-module/repository.png)
 
 Jeśli tworzysz moduł Java po raz pierwszy, pobranie pakietów Maven może potrwać kilka minut. Gdy rozwiązanie jest gotowe, okno VS Code ładuje obszar roboczy rozwiązania IoT Edge. Obszar roboczy rozwiązania zawiera pięć składników najwyższego poziomu:
 
 * Folder **modułów** zawiera kod Java dla modułu i plików platformy Docker, aby skompilować moduł jako obraz kontenera.
-* Plik ** \.ENV** przechowuje poświadczenia rejestru kontenerów.
+* Plik ** \. ENV** przechowuje poświadczenia rejestru kontenerów.
 * Plik **deployment.template.json** zawiera informacje, których środowisko uruchomieniowe usługi IoT Edge używa do wdrażania modułów na urządzeniu.
-* Plik **Deployment. Debug. Template. JSON** konteneruje wersję debugowania modułów.
-* W tym samouczku nie będziesz edytować folderu ** \.programu vscode** ani ** \.pliku GITIGNORE** .
+* **deployment.debug.template.jsw** kontenerach plików jest debugowana wersja modułów.
+* W tym samouczku nie będziesz edytować folderu ** \. programu vscode** ani pliku ** \. GITIGNORE** .
 
 Jeśli podczas tworzenia własnego rozwiązania nie określisz rejestru kontenerów, ale zaakceptujesz wartość domyślną localhost:5000, nie będziesz mieć pliku \.env.
 
@@ -111,7 +112,7 @@ Obecnie Visual Studio Code mogą opracowywać moduły Java dla urządzeń z syst
 
 ### <a name="update-the-module-with-custom-code"></a>Aktualizowanie modułu przy użyciu kodu niestandardowego
 
-1. W Eksploratorze vs Code Otwórz pozycję **moduły** > **JavaModule** > **src** > **Main** > **Java** > **com** > **edgemodule**edgemodule > **App. Java**.
+1. W Eksploratorze vs Code Otwórz pozycję **moduły**  >  **JavaModule**  >  **src**  >  **Main**  >  **Java**  >  **com**  >  **edgemodule**  >  **App. Java**.
 
 2. Dodaj następujący kod w górnej części pliku, aby zaimportować nowe przywoływane klasy.
 
@@ -234,7 +235,7 @@ Obecnie Visual Studio Code mogą opracowywać moduły Java dla urządzeń z syst
 
 W poprzedniej sekcji utworzono rozwiązanie usługi IoT Edge i dodano kod do modułu **JavaModule**, aby filtrować komunikaty, w których zgłoszona temperatura maszyny jest niższa od akceptowalnego limitu. Teraz należy skompilować to rozwiązanie jako obraz kontenera i wypchnąć go do rejestru kontenerów.
 
-1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl** > **Terminal**.
+1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl**  >  **Terminal**.
 
 1. Zaloguj się do platformy Docker, wprowadzając następujące polecenie w terminalu. Zaloguj się przy użyciu nazwy użytkownika, hasła i serwera logowania z usługi Azure Container Registry. Te wartości można pobrać z sekcji **klucze dostępu** rejestru w Azure Portal.
 
@@ -242,7 +243,7 @@ W poprzedniej sekcji utworzono rozwiązanie usługi IoT Edge i dodano kod do mod
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin`. Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin` . Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 1. W eksploratorze programu VS Code kliknij prawym przyciskiem myszy plik **deployment.template.json** i wybierz polecenie **Skompiluj i wypchnij rozwiązanie usługi IoT Edge**.
 
@@ -250,7 +251,7 @@ W poprzedniej sekcji utworzono rozwiązanie usługi IoT Edge i dodano kod do mod
 
 ## <a name="deploy-modules-to-device"></a>Wdrażanie modułów na urządzeniu
 
-Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Masz już manifest wdrożenia przygotowany dla danego scenariusza, plik **Deployment. JSON** w folderze config. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
+Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, **deployment.jsna** pliku w folderze konfiguracyjnym. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
 
 Upewnij się, że urządzenie IoT Edge zostało uruchomione.
 
@@ -303,7 +304,7 @@ W tym samouczku utworzono moduł IoT Edge, który filtruje dane pierwotne wygene
 Przejdź do kolejnych samouczków, aby dowiedzieć się, jak Azure IoT Edge pomaga wdrożyć usługi Azure Cloud Services w celu przetwarzania i analizowania danych na krawędzi.
 
 > [!div class="nextstepaction"]
-> [Functions](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)Stream Analytics
-> [Machine Learning](tutorial-deploy-machine-learning.md)funkcji Machine Learning
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Funkcje](tutorial-deploy-function.md) 
+>  [Stream Analytics](tutorial-deploy-stream-analytics.md) 
+>  [Machine Learning](tutorial-deploy-machine-learning.md) 
+>  [Custom Vision Service](tutorial-deploy-custom-vision.md)

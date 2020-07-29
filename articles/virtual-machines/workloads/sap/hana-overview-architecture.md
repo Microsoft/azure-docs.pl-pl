@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065110"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171138"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Co to jest oprogramowanie SAP HANA na platformie Azure — duże wystąpienia?
 
@@ -56,6 +56,7 @@ Różne dokumenty dotyczące dużych wystąpień programu HANA obejmują następ
 - [SAP HANA (duże wystąpienia) Rozwiązywanie problemów i monitorowanie na platformie Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Wysoka dostępność skonfigurowana w SUSE przy użyciu STONITH](./ha-setup-with-stonith.md)
 - [Kopia zapasowa i przywracanie systemu operacyjnego dla jednostek SKU typu II poprawki 3](./os-backup-type-ii-skus.md)
+- [Zapisz na SAP HANA — duże wystąpienia przy użyciu rezerwacji platformy Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Następne kroki**
 - Zapoznaj się [z postanowieniami](hana-know-terms.md)

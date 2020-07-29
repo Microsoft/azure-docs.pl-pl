@@ -5,16 +5,18 @@ description: Dowiedz się, jak skonfigurować podziały międzyprocesowe i zesta
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 9f8c45b39c0a027735643464d8e936f3039bdeff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100816"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321500"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i wzajemnego sprawdzania poprawności w ramach automatycznego uczenia maszynowego
 

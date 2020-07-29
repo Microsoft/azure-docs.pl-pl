@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d281b8a438710cc98307e41210c3435b26483acd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b01d88a097b8b05188242109c27c696be179eb5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013372"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282232"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 
@@ -206,7 +206,7 @@ Podobnie jak klucze, wpisy tajne są zarządzane przy użyciu własnych poleceń
 
 Można zarządzać certyfikatami za pomocą poniższych poleceń:
 
-- Usuwanie certyfikatu o nazwie SQLPassword: 
+- Usuń certyfikat: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```

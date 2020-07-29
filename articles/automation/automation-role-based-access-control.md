@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób korzystania z kontroli dostępu opar
 keywords: automation rbac, kontrola dostępu oparta na rolach, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186150"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279886"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
@@ -69,7 +69,12 @@ Czytelnik może wyświetlać wszystkie zasoby na koncie usługi Automation, ale 
 
 ### <a name="automation-operator"></a>Operator usługi
 
-Operator usługi Automation może tworzyć zadania i zarządzać nimi oraz odczytywać nazwy elementów Runbook i właściwości wszystkich elementów Runbook w ramach konta usługi Automation.  Uwaga: Jeśli chcesz kontrolować dostęp operatorów do poszczególnych elementów Runbook, nie ustawiaj tej roli, a zamiast tego użyj ról operatora zadań automatyzacji i operator elementu Runbook usługi Automation w połączeniu. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
+Operator usługi Automation może tworzyć zadania i zarządzać nimi oraz odczytywać nazwy elementów Runbook i właściwości wszystkich elementów Runbook w ramach konta usługi Automation.
+
+>[!NOTE]
+>Jeśli chcesz kontrolować dostęp operatorów do poszczególnych elementów Runbook, nie ustawiaj tej roli. Zamiast tego należy użyć **operatora zadania automatyzacji** i ról **operatora elementu Runbook usługi Automation** w połączeniu.
+
+W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
 
 |**Akcje**  |**Opis**  |
 |---------|---------|
@@ -96,7 +101,9 @@ Operator usługi Automation może tworzyć zadania i zarządzać nimi oraz odczy
 
 ### <a name="automation-job-operator"></a>Operator zadania automatyzacji
 
-Rola operatora zadań automatyzacji jest przyznawana w zakresie konta usługi Automation.Umożliwia to uprawnienia operatora do tworzenia zadań dla wszystkich elementów Runbook w ramach konta i zarządzania nimi. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
+Rola operatora zadań automatyzacji jest przyznawana w zakresie konta usługi Automation.Umożliwia to uprawnienia operatora do tworzenia zadań dla wszystkich elementów Runbook w ramach konta i zarządzania nimi. Jeśli rola operatora zadań ma przyznane uprawnienia do odczytu w grupie zasobów zawierającej konto usługi Automation, członkowie roli mają możliwość uruchamiania elementów Runbook. Jednak nie mają możliwości tworzenia, edytowania ani usuwania.
+
+W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
 
 |**Akcje**  |**Opis**  |
 |---------|---------|
@@ -114,7 +121,7 @@ Rola operatora zadań automatyzacji jest przyznawana w zakresie konta usługi Au
 
 ### <a name="automation-runbook-operator"></a>Operator elementu Runbook usługi Automation
 
-Rola operatora elementu Runbook usługi Automation jest przyznawana w zakresie elementu Runbook. Operator elementu Runbook usługi Automation może wyświetlać nazwę i właściwości elementu Runbook.Ta rola w połączeniu z rolą "operator zadania automatyzacji" umożliwia operatorowi tworzenie zadań dla elementu Runbook i zarządzanie nimi. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
+Rola operatora elementu Runbook usługi Automation jest przyznawana w zakresie elementu Runbook. Operator elementu Runbook usługi Automation może wyświetlać nazwę i właściwości elementu Runbook.Ta rola w połączeniu z rolą **operatora zadań automatyzacji** umożliwia operatorowi tworzenie zadań dla elementu Runbook i zarządzanie nimi. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
 
 |**Akcje**  |**Opis**  |
 |---------|---------|
@@ -290,6 +297,7 @@ W poniższej sekcji pokazano, jak skonfigurować kontrolę RBAC na koncie usług
    ![Wyświetlanie użytkowników](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Możesz także przypisać rolę użytkownikowi na stronie Role.
+
 4. Kliknij pozycję **role** na stronie kontroli dostępu (IAM), aby otworzyć stronę role. Można wyświetlić nazwę roli oraz liczbę użytkowników i grup przypisanych do tej roli.
 
     ![Przypisywanie roli na stronie użytkowników](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Użyj polecenie [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) , aby przypisać dostęp do użytkowników, grup i aplikacji do określonego zakresu.
-    
+
 **Przykład:** Użyj poniższego polecenia, aby przypisać rolę "operator usługi" dla użytkownika w zakresie konta usługi Automation.
 
 ```azurepowershell-interactive

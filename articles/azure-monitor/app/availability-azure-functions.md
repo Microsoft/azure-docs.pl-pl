@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008408"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320633"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
-W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger z własną logiką biznesową. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dzięki temu można tworzyć niestandardowe testy podobne do tego, co można zrobić za pośrednictwem [monitorowania dostępności](../../azure-monitor/app/monitor-web-app-availability.md) w portalu. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, nawet jeśli ta funkcja nie jest dostępna w Twoim regionie.
+W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger z własną logiką biznesową. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dzięki temu można tworzyć niestandardowe testy podobne do tego, co można zrobić za pośrednictwem [monitorowania dostępności](./monitor-web-app-availability.md) w portalu. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, nawet jeśli ta funkcja nie jest dostępna w Twoim regionie.
 
 > [!NOTE]
 > Ten przykład został zaprojektowany wyłącznie w celu pokazywania Mechanics sposobu, w jaki wywołanie interfejsu API TrackAvailability () działa w ramach funkcji platformy Azure. Nie sposób pisania bazowego kodu testu HTTP/logiki biznesowej, które byłyby wymagane do przeprowadzenia tego w pełni funkcjonalnego testu dostępności. Domyślnie jeśli przejdziesz przez ten przykład, utworzysz Test dostępności, który będzie zawsze generował błąd.
@@ -177,7 +177,7 @@ Jeśli uruchomiono wszystko (bez dodawania logiki biznesowej), zobaczysz, że te
 
 ## <a name="query-in-logs-analytics"></a>Zapytanie w dziennikach (analiza)
 
-Dzienników (analiz) można używać do wyświetlania wyników dostępności, zależności i innych. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie zapytania dziennika](../../azure-monitor/log-query/log-query-overview.md).
+Dzienników (analiz) można używać do wyświetlania wyników dostępności, zależności i innych. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie zapytania dziennika](../log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Wyniki dostępności](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ Dzienników (analiz) można używać do wyświetlania wyników dostępności, za
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Mapa aplikacji](../../azure-monitor/app/app-map.md)
-- [Diagnostyka transakcji](../../azure-monitor/app/transaction-diagnostics.md)
+- [Mapa aplikacji](./app-map.md)
+- [Diagnostyka transakcji](./transaction-diagnostics.md)
+

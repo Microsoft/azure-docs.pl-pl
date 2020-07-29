@@ -1,7 +1,7 @@
 ---
 title: Skojarz publiczny adres IP z maszyną wirtualną
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak skojarzyć publiczny adres IP z maszyną wirtualną.
+description: Skojarz publiczny adres IP z maszyną wirtualną za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: ''
 author: asudbring
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: cc09cec1e6df9ec671fa98ae35562a639dce4cd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4ca5b067a1afe4225fe0e2e4c42c827e1eaedf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707620"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265232"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Skojarz publiczny adres IP z maszyną wirtualną
 

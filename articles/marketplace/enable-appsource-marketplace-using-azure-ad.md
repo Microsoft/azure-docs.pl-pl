@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323268"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory
 
@@ -33,17 +33,18 @@ Różne [Opcje i typy ofert](determine-your-listing-type.md) dostępne w komercy
 
 | Typ oferty    | Logowanie jednokrotne usługi Azure AD jest wymagane do skontaktowania się ze mną  | Usługa Azure AD SSO jest wymagana w przypadku wersji próbnej? | Usługa Azure AD SSO jest wymagana dla dysku testowego?  | Logowanie jednokrotne usługi Azure AD jest wymagane dla języka Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Maszyna wirtualna | Nie dotyczy | Nie | Nie | Nie |
-| Aplikacje platformy Azure (szablon rozwiązania)  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
-| Aplikacje zarządzane  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
+| Maszyna wirtualna | Brak | Nie | Nie | Nie |
+| Aplikacje platformy Azure (szablon rozwiązania)  | Brak | Brak | Brak | Brak |
+| Aplikacje zarządzane  | Brak | Brak | Brak | Nie |
 | SaaS  | Nie | Yes | Tak | Tak |
-| Kontenery  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
-| Usługi konsultingowe  | Nie | Nie dotyczy | Nie dotyczy | Nie dotyczy |
+| Containers  | Brak | Brak | Brak | Nie |
+| Usługi konsultingowe  | Nie | Brak | Brak | Brak |
 
-Więcej informacji o wymaganiach technicznych SaaS można znaleźć w temacie [SaaS Applications oferują Podręcznik publikowania](marketplace-saas-applications-technical-publishing-guide.md).
+Aby uzyskać więcej informacji o wymaganiach technicznych SaaS, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Integracja z usługą Azure AD
 
+- Aby uzyskać szczegółowe informacje na temat sposobu integrowania usługi Azure AD z ofertami SaaS (Software as a Service), zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](./azure-ad-saas.md).
 - Aby uzyskać informacje na temat włączania logowania jednokrotnego przez integrację usługi Azure AD z listą, zobacz [Azure Active Directory dla deweloperów](../active-directory/develop/index.yml).
 - Aby uzyskać szczegółowe informacje na temat logowania jednokrotnego w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

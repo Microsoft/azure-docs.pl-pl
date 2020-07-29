@@ -3,12 +3,12 @@ title: Adnotacje wydania dla Application Insights | Microsoft Docs
 description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora metryk w Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320667"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
@@ -34,7 +34,7 @@ Wystarczy zainstalować rozszerzenie tylko raz dla organizacji usługi Azure Dev
 
 Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów wydań.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i otwórz zasób Application Insights, który monitoruje aplikację. Lub jeśli go nie masz, [Utwórz nowy zasób Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i otwórz zasób Application Insights, który monitoruje aplikację. Lub jeśli go nie masz, [Utwórz nowy zasób Application Insights](./app-insights-overview.md).
    
 1. Otwórz kartę **dostęp do interfejsu API** i skopiuj **Identyfikator Application Insights**.
    
@@ -115,5 +115,6 @@ Możesz zmodyfikować skrypt, na przykład aby utworzyć adnotacje dla przeszło
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie elementów roboczych](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automatyzacja przy użyciu programu PowerShell](../../azure-monitor/app/powershell.md)
+* [Tworzenie elementów roboczych](./diagnostic-search.md#create-work-item)
+* [Automatyzacja przy użyciu programu PowerShell](./powershell.md)
+

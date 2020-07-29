@@ -1,26 +1,19 @@
 ---
 title: Omówienie agenta maszyny wirtualnej platformy Azure z systemem Linux
 description: Dowiedz się, jak zainstalować i skonfigurować agenta systemu Linux (waagent) w celu zarządzania interakcją maszyny wirtualnej z kontrolerem sieci szkieletowej Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029080"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269125"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure
 
@@ -72,7 +65,7 @@ Przepływ informacji z platformy do agenta odbywa się za pośrednictwem dwóch 
 Następujące systemy zostały przetestowane i wiadomo, że współpracują z agentem systemu Azure Linux:
 
 > [!NOTE]
-> Ta lista może się różnić od oficjalnej listy obsługiwanych systemów na platformie Microsoft Azure, zgodnie z opisem w tym miejscu:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Ta lista może się różnić od oficjalnych list [obsługiwanych dystrybucje](../linux/endorsed-distros.md).
 > 
 > 
 

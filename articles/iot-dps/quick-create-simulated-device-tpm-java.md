@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
-ms.custom: mvc
-ms.openlocfilehash: ce67b5e254a62def5f8b024e960cea7f8780e8b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: a51799334749963a4771108857f448c5d081e7ea
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77605498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323098"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie symulowanego urządzenia TPM za pomocą zestawu SDK urządzenia Java dla platformy Azure IoT Hub Device Provisioning Service
 
@@ -72,7 +72,7 @@ W tym przewodniku szybki start utworzysz symulowane urządzenie IoT na komputerz
 
     ![Informacje o usłudze Device Provisioning Service](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Edytuj `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` , aby uwzględnić _zakres identyfikatorów_ i _globalny punkt końcowy usługi aprowizacji_ zgodnie z wcześniejszym opisem.  
+1. Edytuj, `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` Aby uwzględnić _zakres identyfikatorów_ i _globalny punkt końcowy usługi aprowizacji_ zgodnie z wcześniejszym opisem.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";

@@ -1,6 +1,5 @@
 ---
-title: Ponowne uczenie klasycznej usługi sieci Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): ponowne uczenie klasycznej usługi sieci Web — Azure'
 description: Dowiedz się, jak ponownie nauczyć model i zaktualizować klasyczną usługę sieci Web, aby korzystała z nowo przeszkolonego modelu w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080316"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324951"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ponowne uczenie i wdrażanie klasycznej usługi sieci Web (klasycznej)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Przeszkolenie modeli uczenia maszynowego jest jednym ze sposobów upewnienia się, że są one dokładne i oparte na najbardziej przydatnych dostępnych danych. W tym artykule przedstawiono sposób ponownego uczenia klasycznej usługi sieci Web (klasycznej). Aby zapoznać się z przewodnikiem dotyczącym ponownego uczenia nowej usługi sieci Web programu Studio (klasycznej), [Zobacz ten artykuł.](retrain-machine-learning-model.md)
 

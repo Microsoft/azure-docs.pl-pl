@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248615"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292589"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -143,9 +143,9 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli używasz pulpitu wirtualnego systemu Windows, użyj wersji 2019, możesz rozpocząć pracę z naszym samouczkiem w temacie [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), możesz rozpocząć pracę z naszym samouczkiem w temacie [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-W przypadku korzystania z systemu Windows Virtual Desktop w wersji 2020, należy zamiast tego utworzyć pulę hostów. Przejdź do następującego samouczka, aby rozpocząć pracę.
+Jeśli używasz pulpitu wirtualnego systemu Windows z integracją Azure Resource Manager, musisz najpierw utworzyć pulę hostów. Przejdź do następującego samouczka, aby rozpocząć pracę.
 
 > [!div class="nextstepaction"]
 > [Tworzenie puli hostów za pomocą witryny Azure Portal](create-host-pools-azure-marketplace.md)

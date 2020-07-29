@@ -4,15 +4,15 @@ description: Odpowiedzi na często zadawane pytania dotyczące przechodzenia ofe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: eafa6c4911e934d391a380e5eb494ca8f7766959
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012063"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279308"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -107,19 +107,19 @@ Oferty utworzone w portal Cloud Partner są dostępne w centrum partnerskim w ra
 
     Jeśli nie widzisz komercyjnego programu Marketplace w okienku nawigacji po lewej stronie, może to być na niewłaściwym koncie. Postępuj zgodnie z instrukcjami w następnej sekcji, aby uzyskać dostęp do odpowiedniego konta.
 
-    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+    [![Zrzut ekranu pokazujący menu omówienia Centrum partnerskiego](media/cpp-pc-faq/overview-menu.png "Pokazuje menu omówienia Centrum partnerskiego")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
 ### <a name="access-the-right-account-in-partner-center"></a>Dostęp do odpowiedniego konta w centrum partnerskim
 
 Jeśli jesteś częścią wielu kont, w centrum partnerskim zostanie wyświetlony przycisk selektora konta oznaczony przez dwie strzałki w menu nawigacji po lewej stronie. Wybierz przycisk wyboru konta, aby wyświetlić listę wszystkich kont, do których należysz. Wybierz dowolne konto na liście, aby przejść do niego i zobaczyć wszystkie programy i informacje dotyczące tego konta. Jeśli nie widzisz przycisku selektora kont w menu nawigacji, jesteś członkiem jednego konta.
 
-[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+[![Zrzut ekranu przedstawia przycisk selektora konta Centrum partnerskiego.](media/cpp-pc-faq/picker-button.png "Pokazuje przycisk selektora konta Centrum partnerskiego")](media/cpp-pc-faq/picker-button.png#lightbox)
 
 ## <a name="how-do-i-create-new-offers"></a>Jak mogę utworzyć nowe oferty?
 
 Uzyskaj dostęp do komercyjnego programu Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć nowe oferty. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**.
 
-[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+[![Zrzut ekranu przedstawia menu przegląd Centrum partnerskiego.](media/cpp-pc-faq/new-offer.png "Pokazuje menu omówienia Centrum partnerskiego")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## <a name="i-cant-sign-in-and-need-to-open-a-support-ticket"></a>Nie mogę się zalogować i musisz otworzyć bilet pomocy technicznej
 
@@ -127,7 +127,7 @@ Jeśli nie możesz zalogować się do konta, możesz otworzyć [bilet pomocy tec
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Gdzie znajdują się instrukcje dotyczące korzystania z Centrum partnerskiego?
 
-Przejdź do [dokumentacji komercyjnej witryny Marketplace](index.yml), a następnie rozwiń pozycję **komercyjny Portal Marketplace w centrum partnerskim**. Aby zapoznać się z artykułami dotyczącymi tworzenia ofert w centrum partnerskim, rozwiń pozycję **Utwórz nową ofertę**.
+Przejdź do [dokumentacji komercyjnej](index.yml)portalu Marketplace, a następnie rozwiń pozycję **komercyjny Portal w witrynie Marketing w centrum partnerskim**. Aby zapoznać się z artykułami dotyczącymi tworzenia ofert w centrum partnerskim, rozwiń pozycję **Utwórz nową ofertę**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Jakie są różnice w publikowaniu i ofercie dotyczące zarządzania?
 
@@ -137,7 +137,7 @@ Poniżej przedstawiono kilka różnic między portal Cloud Partner a centrum par
 
 Centrum partnerskie udostępnia opcję publikowania modularnego, która pozwala wybrać zmiany, które mają zostać opublikowane, zamiast zawsze publikować wszystkie aktualizacje jednocześnie. Na przykład na poniższym ekranie widać, że jedyne zmiany wybrane do opublikowania to zmiany **Właściwości** i **oferty**. Zmiany wprowadzone na stronie podglądu nie zostaną opublikowane.
 
-[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+[![Zrzut ekranu przedstawia stronę przegląd i publikowanie Centrum partnerskiego.](media/cpp-pc-faq/review-page.png "Pokazuje stronę przeglądu i publikowania Centrum partnerskiego")](media/cpp-pc-faq/review-page.png#lightbox)
 
 Aktualizacje, które nie są publikowane, są zapisywane jako wersje robocze. Kontynuuj korzystanie z wersji zapoznawczej oferty w celu zweryfikowania oferty przed jej udostępnieniem publicznie.
 
@@ -145,24 +145,24 @@ Aktualizacje, które nie są publikowane, są zapisywane jako wersje robocze. Ko
 
 Centrum partnerskie zawiera [funkcję Compare](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) z ulepszonymi opcjami filtrowania. Dzięki temu można porównać z wersjami zapoznawczymi i na żywo oferty.
 
-[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+[![Zrzut ekranu przedstawia funkcję porównania Centrum partnerskiego.](media/cpp-pc-faq/compare.png "Pokazuje funkcję porównania Centrum partnerskiego")](media/cpp-pc-faq/compare.png#lightbox)
 
 ### <a name="branding-and-navigation-changes"></a>Zmiany znakowania i nawigacji
 
 Zauważysz pewne zmiany znakowania. Na przykład *jednostki SKU* są oznaczone jako *plany* w centrum partnerskim:
 
-[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+[![Zrzut ekranu przedstawia stronę plany Centrum partnerskiego.](media/cpp-pc-faq/plans.png "Pokazuje stronę plany Centrum partnerskiego")](media/cpp-pc-faq/plans.png#lightbox)
 
 Ponadto informacje, które wcześniej podano w **witrynie Marketplace** lub **szczegółowej** (usługa doradcza, aplikacja Power BI) w Portal Cloud partner, są teraz zbierane na stronie z **listą ofert** w centrum partnerskim:
 
-[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Zrzut ekranu przedstawia stronę z listą ofert Centrum partnerskiego.](media/cpp-pc-faq/offer-listing.png "Pokazuje stronę z listą ofert Centrum partnerskiego")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Informacje podane wcześniej dla jednostek SKU na jednej stronie portal Cloud Partner mogą być teraz zbierane na kilku stronach w centrum partnerskim:
 
 - Strona konfigurowania planu
 - Strona aukcji planu
 - Zaplanuj stronę dostępności
-- Zaplanuj stronę konfiguracji technicznej, jak pokazano tutaj: ![ ! [] (Media/CPP — często zadawane pytania/technical-configuration.png "zawiera stronę konfiguracji technicznej Centrum partnerskiego")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Zaplanuj stronę konfiguracji technicznej, jak pokazano poniżej: ![ ! [ Zrzut ekranu przedstawia stronę konfiguracji technicznej Centrum partnerskiego.] (Media/CPP — często zadawane pytania/technical-configuration.png "zawiera stronę konfiguracji technicznej Centrum partnerskiego")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Identyfikator oferty jest teraz pokazywany na pasku nawigacyjnym po lewej stronie oferty:
 
@@ -172,7 +172,7 @@ Identyfikator oferty jest teraz pokazywany na pasku nawigacyjnym po lewej stroni
 
 Możesz poprosić o [zaprzestanie sprzedaży oferty](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) w witrynie Marketplace bezpośrednio z poziomu portalu Centrum partnerskiego. Ta opcja jest dostępna na stronie **Przegląd oferty** oferty.
 
-[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Zrzut ekranu przedstawia stronę Centrum partnerskiego, aby zrezygnować z sprzedaży oferty.](media/cpp-pc-faq/stop-sell.png "Pokazuje stronę Centrum partnerskiego, aby zrezygnować z sprzedaży oferty")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>Czy interfejsy API REST portal Cloud Partner nadal są obsługiwane?

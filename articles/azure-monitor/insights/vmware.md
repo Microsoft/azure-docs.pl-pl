@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091185"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322911"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
 
@@ -27,7 +27,7 @@ Rozwiązanie używa natywnej funkcji dziennika systemu hosta ESXi do wypychania 
 ## <a name="install-and-configure-the-solution"></a>Instalowanie i Konfigurowanie rozwiązania
 Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiązanie.
 
-* Dodaj rozwiązanie VMware Monitoring do subskrypcji przy użyciu procesu opisanego w artykule [Instalowanie rozwiązania monitorowania](../insights/solutions.md#install-a-monitoring-solution).
+* Dodaj rozwiązanie VMware Monitoring do subskrypcji przy użyciu procesu opisanego w artykule [Instalowanie rozwiązania monitorowania](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Obsługiwane hosty VMware ESXi
 vSphere ESXi host 5,5, 6,0 i 6,5
@@ -81,7 +81,7 @@ W poniższej tabeli przedstawiono metody zbierania danych oraz inne szczegóły 
 
 W poniższej tabeli przedstawiono przykłady pól danych zbieranych przez rozwiązanie VMware Monitoring:
 
-| Nazwa pola | description |
+| Nazwa pola | description (opis) |
 | --- | --- |
 | Device_s |Urządzenia magazynujące VMware |
 | ESXIFailure_s |typy błędów |
@@ -200,3 +200,4 @@ Może istnieć wiele przyczyn:
 * Użyj [zapytań dzienników](../log-query/log-query-overview.md) w log Analytics, aby wyświetlić szczegółowe dane hosta VMware.
 * [Utwórz własne pulpity nawigacyjne](../learn/tutorial-logs-dashboards.md) przedstawiające dane hosta VMware.
 * [Utwórz alerty](../platform/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń hosta VMware.
+

@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cf1ede2db8dbdc7557775cf7b22dde53b69280da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 0e1723854d18172f28a43aacb86ab9c29656cf0d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81314235"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322248"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Samouczek: Tworzenie aplikacji przy użyciu usługi frontonu Java API i stanowej usługi zaplecza na platformie Azure Service Fabric
 
@@ -40,7 +40,7 @@ Część pierwsza serii zawiera informacje na temat wykonywania następujących 
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Skonfiguruj środowisko projektowe dla komputera [Mac](service-fabric-get-started-mac.md) lub systemu [Linux](service-fabric-get-started-linux.md). Postępuj zgodnie z instrukcjami, aby zainstalować wtyczkę programu Eclipse, program Gradle, zestaw Service Fabric SDK i interfejs wiersza polecenia usługi Service Fabric (sfctl).
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Tworzenie bezstanowej usługi Java frontonu
@@ -49,7 +49,7 @@ Najpierw utwórz fronton internetowy aplikacji do głosowania. Internetowy inter
 
 1. Otwórz program Eclipse.
 
-2. Utwórz projekt z **plikiem** > **New** > **other** > **Service Fabric** > **Service Fabric Project**.
+2. Utwórz projekt z **plikiem**  >  **New**  >  **other**  >  **Service Fabric**  >  **Service Fabric Project**.
 
     ![Nowy projekt Service Fabric w programie zaćmienie](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
@@ -70,7 +70,7 @@ W tabeli przedstawiono krótki opis każdego elementu narzędzia Package Explore
 | **Element narzędzia Package Explorer** | **Opis** |
 | --- | --- |
 | PublishProfiles | Zawiera pliki w formacie JSON opisujące szczegóły profilu lokalnego i klastrów usługi Azure Service Fabric. Zawartość tych plików jest używana przez wtyczkę podczas wdrażania aplikacji. |
-| Scripts | Zawiera skrypty pomocnika, których można użyć z poziomu wiersza polecenia do szybkiego zarządzania aplikacjami z klastrem. |
+| Skrypty | Zawiera skrypty pomocnika, których można użyć z poziomu wiersza polecenia do szybkiego zarządzania aplikacjami z klastrem. |
 | VotingApplication | Zawiera aplikację usługi Service Fabric wypychaną do klastra usługi Service Fabric. |
 | VotingWeb | Zawiera pliki źródłowe usługi bezstanowej frontonu oraz powiązany plik kompilacji narzędzia Gradle. |
 | build.gradle | Plik narzędzia Gradle używany do zarządzania projektem. |
@@ -82,7 +82,7 @@ Aby dodać interfejs użytkownika, który może być renderowany przez usługę 
 
 1. Rozwiń katalog *VotingApplication*, aby przejść do katalogu *VotingApplication/VotingWebPkg/Code*.
 
-2. Kliknij prawym przyciskiem myszy katalog *kod* , a następnie wybierz pozycję **Nowy** > **folder**.
+2. Kliknij prawym przyciskiem myszy katalog *kod* , a następnie wybierz pozycję **Nowy**  >  **folder**.
 
 3. Nazwij folder *wwwroot* i wybierz pozycję **Zakończ**.
 
@@ -219,7 +219,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Dodawanie pliku HTTPCommunicationListener.java
 
-Odbiornik komunikacji HTTP działa jako kontroler, który konfiguruje serwer HTTP i uwidacznia interfejsy API definiujące akcje głosowania. Kliknij prawym przyciskiem myszy pakiet *statelessservice* w folderze *VotingWeb/src/statelessservice* , a następnie wybierz pozycję **Nowy** > **plik**.  Nazwij plik *HttpCommunicationListener. Java* i wybierz pozycję **Zakończ**.
+Odbiornik komunikacji HTTP działa jako kontroler, który konfiguruje serwer HTTP i uwidacznia interfejsy API definiujące akcje głosowania. Kliknij prawym przyciskiem myszy pakiet *statelessservice* w folderze *VotingWeb/src/statelessservice* , a następnie wybierz pozycję **Nowy**  >  **plik**.  Nazwij plik *HttpCommunicationListener. Java* i wybierz pozycję **Zakończ**.
 
 Zastąp zawartość tego pliku następującym kodem i zapisz zmiany.  Dalej w sekcji „Aktualizowanie pliku HttpCommunicationListener.java” ten plik zostanie zmodyfikowany na potrzeby renderowania i odczytywania danych głosowania z usługi zaplecza oraz ich zapisywania.  Obecnie odbiornik po prostu zwraca statyczny kod HTML dla aplikacji do głosowania.
 
@@ -399,7 +399,7 @@ Po ukończeniu szkieletu internetowej usługi interfejsu API w języku Java spr�
 
 Usługa Service Fabric umożliwia spójne i niezawodne przechowywanie danych bezpośrednio w usłudze przy użyciu niezawodnych kolekcji. Elementy Reliable Collections to zestaw wysoko dostępnych i niezawodnych klas kolekcji. Sposób użycia tych klas jest znany wszystkim osobom, które korzystały z kolekcji Java.
 
-1. W Eksploratorze pakietów kliknij prawym przyciskiem myszy pozycję **głos** w projekcie aplikacji i wybierz pozycję **Service Fabric** > **Dodaj usługę Service Fabric**.
+1. W Eksploratorze pakietów kliknij prawym przyciskiem myszy pozycję **głos** w projekcie aplikacji i wybierz pozycję **Service Fabric**  >  **Dodaj usługę Service Fabric**.
 
 2. W oknie dialogowym **Dodawanie usługi** wybierz pozycję **Usługa stanowa** i nazwij usługę **VotingDataService** i wybierz pozycję **Dodaj usługę**.
 
@@ -546,7 +546,7 @@ Został utworzony szkielet usługi bezstanowej frontonu i usługi zaplecza.
 
  Następnym krokiem jest połączenie usługi bezstanowej frontonu i usługi zaplecza. Usługi te wykorzystują interfejs o nazwie VotingRPC definiujący operacje aplikacji do głosowania. Ten interfejs jest implementowany przez usługi frontonu i zaplecza w celu umożliwienia zdalnych wywołań procedur (RPC) między dwoma usługami. Niestety, program Eclipse nie obsługuje dodawania projektów podrzędnych narzędzia Gradle, więc pakiet zawierający ten interfejs należy dodać ręcznie.
 
-1. Kliknij prawym przyciskiem myszy projekt **głosowania** w Eksploratorze pakietów i wybierz pozycję **Nowy** > **folder**. Nadaj folderowi nazwę **VotingRPC/src/rpcmethods**.
+1. Kliknij prawym przyciskiem myszy projekt **głosowania** w Eksploratorze pakietów i wybierz pozycję **Nowy**  >  **folder**. Nadaj folderowi nazwę **VotingRPC/src/rpcmethods**.
 
     ![Utwórz pakiet VotingRPC w Eksploratorze pakietów w przezaćmieniu](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
@@ -882,7 +882,7 @@ W tej sekcji konfigurowane są skrypty narzędzia Gradle dla projektu.
 
 Na tym etapie aplikacja jest gotowa do wdrożenia w lokalnym klastrze usługi Service Fabric.
 
-1. Kliknij prawym przyciskiem myszy projekt **głosowania** w Eksploratorze pakietów i wybierz polecenie **Service Fabric** > **kompilowania** aplikacji, aby skompilować aplikację.
+1. Kliknij prawym przyciskiem myszy projekt **głosowania** w Eksploratorze pakietów i wybierz polecenie **Service Fabric**  >  **kompilowania** aplikacji, aby skompilować aplikację.
 
 2. Uruchom lokalny klaster usługi Service Fabric. Ten krok zależy od środowiska projektowego (Mac lub Linux).
 
@@ -900,9 +900,9 @@ Na tym etapie aplikacja jest gotowa do wdrożenia w lokalnym klastrze usługi Se
     ```
     Zobacz szczegółowe instrukcje w [przewodniku konfiguracji dla systemu Linux.](service-fabric-get-started-linux.md)
 
-4. W Eksploratorze pakietów do przepakowania kliknij prawym przyciskiem myszy projekt **głosowania** i wybierz polecenie **Service Fabric** > **publikowanie aplikacji** 
-5. W oknie **publikowanie aplikacji** wybierz z listy rozwijanej plik **Local. JSON** , a następnie wybierz pozycję **Publikuj**.
-6. Przejdź do przeglądarki sieci Web i uzyskaj dostęp do\/aplikacji http:/localhost: 8080, aby wyświetlić działającą aplikację w lokalnym klastrze Service Fabric. 
+4. W Eksploratorze pakietów do przepakowania kliknij prawym przyciskiem myszy projekt **głosowania** i wybierz polecenie **Service Fabric**  >  **publikowanie aplikacji** 
+5. W oknie **publikowanie aplikacji** wybierz pozycję **Local.jsna** liście rozwijanej, a następnie wybierz pozycję **Publikuj**.
+6. Przejdź do przeglądarki sieci Web i uzyskaj dostęp do \/ aplikacji http:/localhost: 8080, aby wyświetlić działającą aplikację w lokalnym klastrze Service Fabric. 
 
 ## <a name="next-steps"></a>Następne kroki
 

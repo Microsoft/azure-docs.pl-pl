@@ -3,19 +3,20 @@ title: Eksportuj do Power BI z poziomu platformy Azure Application Insights | Mi
 description: Zapytania analityczne mogą być wyświetlane w Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664001"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324373"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI kanału informacyjnego z Application Insights
-[Power BI](https://www.powerbi.com/) to pakiet narzędzi firmy, który ułatwia analizowanie danych i udostępnianie szczegółowych informacji. Rozbudowane pulpity nawigacyjne są dostępne na każdym urządzeniu. Możesz połączyć dane z wielu źródeł, w tym zapytania analityczne z [usługi Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) to pakiet narzędzi firmy, który ułatwia analizowanie danych i udostępnianie szczegółowych informacji. Rozbudowane pulpity nawigacyjne są dostępne na każdym urządzeniu. Możesz połączyć dane z wielu źródeł, w tym zapytania analityczne z [usługi Azure Application Insights](./app-insights-overview.md).
 
 Istnieją trzy metody eksportowania danych Application Insights do Power BI:
 
 * [**Eksportuj zapytania analityczne**](#export-analytics-queries). Jest to preferowana metoda. Napisz dowolne zapytanie i wyeksportuj je do Power BI. To zapytanie można umieścić na pulpicie nawigacyjnym wraz z innymi danymi.
-* [**Eksport ciągły i Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Ta metoda jest przydatna, jeśli chcesz przechowywać dane przez długi czas. Jeśli nie masz wymagania rozszerzonego przechowywania danych, użyj metody zapytania Export Analytics. Eksport ciągły i Stream Analytics obejmuje więcej pracy w celu skonfigurowania i dodatkowego narzutu za magazyn.
+* [**Eksport ciągły i Azure Stream Analytics**](./export-stream-analytics.md). Ta metoda jest przydatna, jeśli chcesz przechowywać dane przez długi czas. Jeśli nie masz wymagania rozszerzonego przechowywania danych, użyj metody zapytania Export Analytics. Eksport ciągły i Stream Analytics obejmuje więcej pracy w celu skonfigurowania i dodatkowego narzutu za magazyn.
 * **Adapter Power BI**. Zestaw wykresów jest wstępnie zdefiniowany, ale możesz dodać własne zapytania z innych źródeł.
 
 > [!NOTE]
@@ -30,7 +31,7 @@ Aby zaimportować zapytanie Application Insights, należy użyć wersji programu
 Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Eksportowanie zapytania analitycznego
-1. [Otwórz analizę i napisz zapytanie](../../azure-monitor/log-query/get-started-portal.md).
+1. [Otwórz analizę i napisz zapytanie](../log-query/get-started-portal.md).
 2. Przetestuj i Uściślij zapytanie do momentu, aż będziesz zadowolony z wyników. Przed wyeksportowaniem zapytania upewnij się, że zostało prawidłowo uruchomione w analizie.
 3. W menu **Eksportuj** wybierz **Power BI (M)**. Zapisz plik tekstowy.
    
@@ -55,7 +56,7 @@ Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Odśwież raport ręcznie w określonych odstępach czasu lub Skonfiguruj zaplanowane odświeżanie na stronie Opcje.
 
 ### <a name="export-a-funnel"></a>Eksportowanie lejka
-1. [Ustaw swój lejek](../../azure-monitor/app/usage-funnels.md).
+1. [Ustaw swój lejek](./usage-funnels.md).
 2. Wybierz **Power BI**.
 
    ![Zrzut ekranu przedstawiający przycisk Power BI](./media/export-power-bi/button.png)
@@ -111,7 +112,7 @@ Jeśli zmniejszenie zestawu danych pochodzącego z zapytania analitycznego nie s
  ```
 
 ## <a name="about-sampling"></a>Informacje o próbkowaniu
-W zależności od ilości danych wysyłanych przez aplikację możesz chcieć użyć funkcji próbkowania adaptacyjnego, która wysyła tylko wartość procentową telemetrii. To samo jest prawdziwe, jeśli ręcznie ustawiono próbkowanie w zestawie SDK lub w trybie pozyskiwania. [Dowiedz się więcej na temat próbkowania](../../azure-monitor/app/sampling.md).
+W zależności od ilości danych wysyłanych przez aplikację możesz chcieć użyć funkcji próbkowania adaptacyjnego, która wysyła tylko wartość procentową telemetrii. To samo jest prawdziwe, jeśli ręcznie ustawiono próbkowanie w zestawie SDK lub w trybie pozyskiwania. [Dowiedz się więcej na temat próbkowania](./sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adapter Power BI (przestarzałe)
 Ta metoda umożliwia utworzenie kompletnego pulpitu nawigacyjnego telemetrii. Początkowy zestaw danych jest wstępnie zdefiniowany, ale można dodać do niego więcej danych.
@@ -145,5 +146,5 @@ Po początkowym imporcie pulpit nawigacyjny i raporty są nadal aktualizowane co
 
 ## <a name="next-steps"></a>Następne kroki
 * [Power BI — informacje](https://www.powerbi.com/learning/)
-* [Samouczek analizy](../../azure-monitor/log-query/get-started-portal.md)
+* [Samouczek analizy](../log-query/get-started-portal.md)
 

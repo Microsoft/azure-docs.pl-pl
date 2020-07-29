@@ -4,12 +4,12 @@ description: Tworzenie alertów dziennika aktywności przy użyciu Azure Portal,
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322418"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
 
@@ -92,7 +92,7 @@ Wykonaj poniższą procedurę.
     - **Opis**: Opis nowej reguły alertu.
     - **Zapisz alert w grupie zasobów**: Wybierz grupę zasobów, w której chcesz zapisać nową regułę.
 
-5. W obszarze **Grupa akcji**z menu rozwijanego wybierz grupę akcji, która ma zostać przypisana do nowej reguły alertu. Lub [Utwórz nową grupę akcji](../../azure-monitor/platform/action-groups.md) i przypisz ją do nowej reguły. Aby utworzyć nową grupę, wybierz pozycję **+ Nowa grupa**.
+5. W obszarze **Grupa akcji**z menu rozwijanego wybierz grupę akcji, która ma zostać przypisana do nowej reguły alertu. Lub [Utwórz nową grupę akcji](./action-groups.md) i przypisz ją do nowej reguły. Aby utworzyć nową grupę, wybierz pozycję **+ Nowa grupa**.
 
 6. Aby włączyć reguły po ich utworzeniu, wybierz opcję **tak** dla opcji **Włącz regułę przy tworzeniu** .
 7. Wybierz pozycję **Utwórz regułę alertu**.
@@ -285,7 +285,8 @@ Zasoby reguły alertu dziennika aktywności można usunąć przy użyciu polecen
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o [schemacie elementu webhook dla dzienników aktywności](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Zapoznaj się z [omówieniem dzienników aktywności](../../azure-monitor/platform/activity-log-alerts.md).
-- Dowiedz się więcej na temat [grup akcji](../../azure-monitor/platform/action-groups.md).  
+- Informacje o [schemacie elementu webhook dla dzienników aktywności](./activity-log-alerts-webhook.md).
+- Zapoznaj się z [omówieniem dzienników aktywności](./activity-log-alerts.md).
+- Dowiedz się więcej na temat [grup akcji](./action-groups.md).  
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../service-health/service-notifications.md).
+

@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
-ms.date: 01/22/2019
-ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101430"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171316"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -205,7 +205,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
 * Języku
   * DBD:: MySQL: obsługiwane
   * NET:: MySQL: nieobsługiwane
-* Go
+* Przejdź
   * go-SQL-Driver: obsługiwane, Dodaj `?tls=true&allowCleartextPasswords=true` do parametrów połączenia
 
 ## <a name="next-steps"></a>Następne kroki

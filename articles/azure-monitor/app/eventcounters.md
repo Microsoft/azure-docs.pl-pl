@@ -3,12 +3,12 @@ title: Liczniki zdarzeń w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardową platformę .NET/.NET Core EventCounters w Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539945"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324407"
 ---
 # <a name="eventcounters-introduction"></a>Wprowadzenie do EventCounters
 
@@ -124,7 +124,7 @@ customMetrics
 Podobnie jak w przypadku innych telemetrii, **customMetrics** ma także kolumnę `cloud_RoleInstance` , która wskazuje tożsamość wystąpienia serwera hosta, na którym działa aplikacja. Powyższe zapytanie pokazuje wartość licznika na wystąpienie i może służyć do porównywania wydajności różnych wystąpień serwera.
 
 ## <a name="alerts"></a>Alerty
-Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/platform/alerts-log.md) ostrzegający o tym, czy licznik zdarzeń wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
+Podobnie jak w przypadku innych metryk, można [ustawić alert](../platform/alerts-log.md) ostrzegający o tym, czy licznik zdarzeń wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -148,4 +148,5 @@ EventCounter nie wymaga żadnych specjalnych uprawnień i jest obsługiwana we w
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 
-* [Śledzenie zależności](../../azure-monitor/app/asp-net-dependencies.md)
+* [Śledzenie zależności](./asp-net-dependencies.md)
+

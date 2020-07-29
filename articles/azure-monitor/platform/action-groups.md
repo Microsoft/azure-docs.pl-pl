@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516179"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321857"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -26,7 +26,7 @@ Każda akcja składa się z następujących właściwości:
 * **Typ akcji**: wykonaną akcję. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
 * **Szczegóły**: odpowiednie szczegóły, które różnią się w zależności od *typu akcji*.
 
-Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu szablonów Azure Resource Manager, zobacz [Group action Menedżer zasobów templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu szablonów Azure Resource Manager, zobacz [Group action Menedżer zasobów templates](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Tworzenie grupy akcji przy użyciu Azure Portal
 
@@ -80,18 +80,18 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./alerts-rate-limiting.md) .
 
 ### <a name="email-azure-resource-manager-role"></a>Wyślij wiadomość e-mail do roli usługi Azure Resource Manager
 Wyślij wiadomość e-mail do członków roli subskrypcji. Poczta e-mail będzie wysyłana tylko do członków roli **użytkownika usługi Azure AD** . Wiadomość e-mail nie zostanie wysłana do grup lub jednostek usługi Azure AD.
 
-W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./alerts-rate-limiting.md) .
 
 ### <a name="function"></a>Funkcja
 Wywołuje istniejący punkt końcowy wyzwalacza HTTP w [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
@@ -99,7 +99,7 @@ Wywołuje istniejący punkt końcowy wyzwalacza HTTP w [Azure Functions](../../a
 W grupie akcji może istnieć ograniczona liczba akcji funkcji.
 
 ### <a name="itsm"></a>ITSM
-Akcja narzędzia ITSM wymaga połączenia narzędzia ITSM. Dowiedz się, jak utworzyć [połączenie narzędzia ITSM](../../azure-monitor/platform/itsmc-overview.md).
+Akcja narzędzia ITSM wymaga połączenia narzędzia ITSM. Dowiedz się, jak utworzyć [połączenie narzędzia ITSM](./itsmc-overview.md).
 
 W grupie akcji może istnieć ograniczona liczba akcji narzędzia ITSM. 
 
@@ -109,8 +109,8 @@ W grupie akcji może istnieć ograniczona liczba akcji aplikacji logiki.
 ### <a name="secure-webhook"></a>Bezpieczny element webhook
 Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Directory w celu zabezpieczenia połączenia między grupą akcji i chronionym internetowym interfejsem API (punkt końcowy elementu webhook). Poniżej opisano ogólny przepływ pracy w celu skorzystania z zalet tej funkcji. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](../../active-directory/develop/v2-overview.md).
 
-1. Utwórz aplikację usługi Azure AD dla chronionego internetowego interfejsu API. Zobacz [chroniony internetowy interfejs API: Rejestracja aplikacji](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
-    - Skonfiguruj chroniony interfejs API do [wywoływania przez aplikację demona](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+1. Utwórz aplikację usługi Azure AD dla chronionego internetowego interfejsu API. Zobacz [chroniony internetowy interfejs API: Rejestracja aplikacji](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
+    - Skonfiguruj chroniony interfejs API do [wywoływania przez aplikację demona](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
 2. Włącz grupy akcji, aby korzystać z aplikacji usługi Azure AD.
 
@@ -196,7 +196,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>SMS
-Aby uzyskać dodatkowe informacje, zobacz [informacje dotyczące ograniczania szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) oraz [zachowanie alertu programu SMS](../../azure-monitor/platform/alerts-sms-behavior.md) . 
+Aby uzyskać dodatkowe informacje, zobacz [informacje dotyczące ograniczania szybkości](./alerts-rate-limiting.md) oraz [zachowanie alertu programu SMS](./alerts-sms-behavior.md) . 
 
 W grupie akcji może istnieć ograniczona liczba akcji programu SMS.
 
@@ -207,7 +207,7 @@ Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Az
   
 
 ### <a name="voice"></a>Połączenia głosowe
-Zapoznaj się z artykułem [dotyczącym ograniczania szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) , aby uzyskać dodatkowe ważne zachowanie.
+Zapoznaj się z artykułem [dotyczącym ograniczania szybkości](./alerts-rate-limiting.md) , aby uzyskać dodatkowe ważne zachowanie.
 
 W grupie akcji może istnieć ograniczona liczba akcji głosowych.
 
@@ -248,9 +248,10 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu webhook.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [zachowania alertu programu SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Uzyskaj [informacje na temat schematu elementu webhook alertu dziennika aktywności](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Dowiedz się więcej o [Łącznik ITSM](../../azure-monitor/platform/itsmc-overview.md).
-* Dowiedz się więcej o [ograniczaniu](../../azure-monitor/platform/alerts-rate-limiting.md) liczby alertów.
-* Zapoznaj się z [omówieniem alertów dziennika aktywności](../../azure-monitor/platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
+* Dowiedz się więcej na temat [zachowania alertu programu SMS](./alerts-sms-behavior.md).  
+* Uzyskaj [informacje na temat schematu elementu webhook alertu dziennika aktywności](./activity-log-alerts-webhook.md).  
+* Dowiedz się więcej o [Łącznik ITSM](./itsmc-overview.md).
+* Dowiedz się więcej o [ograniczaniu](./alerts-rate-limiting.md) liczby alertów.
+* Zapoznaj się z [omówieniem alertów dziennika aktywności](./alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
 * Informacje o sposobie [konfigurowania alertów za każdym razem, gdy jest ogłaszane powiadomienie o kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).
+

@@ -1,6 +1,5 @@
 ---
-title: SQL Server lokalne
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): lokalna SQL Server — Azure'
 description: Użyj danych z bazy danych SQL Server, aby przeprowadzić zaawansowaną analizę przy użyciu Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706056"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324849"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Wykonywanie analizy za pomocą Azure Machine Learning Studio (klasyczny) przy użyciu bazy danych SQL Server
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Często przedsiębiorstwa, które współpracują z danymi lokalnymi, mogą wykorzystać skalę i elastyczność chmury na potrzeby obciążeń uczenia maszynowego. Ale nie chcą zakłócać swoich bieżących procesów i przepływów pracy, przenosząc dane lokalne do chmury. Azure Machine Learning Studio (klasyczny) obsługuje teraz odczytywanie danych z SQL Serverj bazy danych, a następnie uczenie i ocenianie modelu przy użyciu tych danych. Nie jest już konieczne ręczne kopiowanie i synchronizowanie danych między chmurą a serwerem lokalnym. Zamiast tego moduł **Importuj dane** w Azure Machine Learning Studio (klasyczny) można teraz odczytywać bezpośrednio z bazy danych SQL Server do zadań szkolenia i oceniania.
 

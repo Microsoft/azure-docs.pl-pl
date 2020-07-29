@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322129"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor  
 
@@ -120,7 +120,7 @@ app('Contoso-app5').requests
 
 
 
-Teraz można [używać tej funkcji](../../azure-monitor/log-query/functions.md#use-a-function) w zapytaniach między zasobami, takimi jak poniższe. Alias funkcji _applicationsScoping_ zwraca Unię tabeli żądań ze wszystkich zdefiniowanych aplikacji. Zapytanie następnie filtruje żądania nieudane i wizualizowa trendy według aplikacji. Operator _Parse_ jest opcjonalny w tym przykładzie. Wyodrębnia nazwę aplikacji z właściwości _SourceApp_ .
+Teraz można [używać tej funkcji](./functions.md#use-a-function) w zapytaniach między zasobami, takimi jak poniższe. Alias funkcji _applicationsScoping_ zwraca Unię tabeli żądań ze wszystkich zdefiniowanych aplikacji. Zapytanie następnie filtruje żądania nieudane i wizualizowa trendy według aplikacji. Operator _Parse_ jest opcjonalny w tym przykładzie. Wyodrębnia nazwę aplikacji z właściwości _SourceApp_ .
 
 ```Kusto
 applicationsScoping 
@@ -141,3 +141,4 @@ applicationsScoping
 
 - Przejrzyj [dane dzienników Analizuj w Azure monitor](log-query-overview.md) , aby zapoznać się z omówieniem zapytań dzienników oraz o tym, jak Azure monitor dane dziennika.
 - Przejrzyj [zapytania dziennika Azure monitor](query-language.md) , aby wyświetlić wszystkie zasoby dla Azure monitor zapytań dzienników.
+

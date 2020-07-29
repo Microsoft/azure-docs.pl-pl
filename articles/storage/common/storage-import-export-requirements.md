@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276401"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie kont 
 Każde zadanie może służyć do transferowania danych do lub z tylko jednego konta magazynu. Innymi słowy, pojedyncze zadanie importu/eksportu nie może obejmować wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
 
 > [!IMPORTANT]
-> W przypadku kont magazynu, na których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)   , użyj ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** ., aby [włączyć usługę Import/Export](/storage-network-security.md) w celu wykonywania importu/eksportu danych do/z platformy Azure.
+> W przypadku kont magazynu, na których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)   , użyj ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** ., aby [włączyć usługę Import/Export](/azure/storage/common/storage-network-security) w celu wykonywania importu/eksportu danych do/z platformy Azure.
 
 ## <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 

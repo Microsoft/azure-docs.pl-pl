@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540115"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323183"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
 
@@ -65,9 +65,9 @@ Starsza tabela: dostępność
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String (ciąg)|
-|location|ciąg|Lokalizacja|ciąg|
-|message|ciąg|Komunikat|ciąg|
+|itemType|ciąg|Typ|String|
+|location|ciąg|Location|ciąg|
+|message|ciąg|Wiadomość|ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -77,7 +77,7 @@ Starsza tabela: dostępność
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
 |size|liczba rzeczywista|Rozmiar|liczba rzeczywista|
-|powodzenie|ciąg|Success|Wartość logiczna|
+|powodzenie|ciąg|Powodzenie|Wartość logiczna|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
@@ -154,7 +154,7 @@ Starsza tabela: zależności
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String (ciąg)|
+|itemType|ciąg|Typ|String|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -164,7 +164,7 @@ Starsza tabela: zależności
 |resultCode|ciąg|ResultCode|ciąg|
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
-|powodzenie|ciąg|Success|Wartość logiczna|
+|powodzenie|ciąg|Powodzenie|Wartość logiczna|
 |obiektów|ciąg|Cel|ciąg|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
 |typ|ciąg|DependencyType|ciąg|
@@ -243,7 +243,7 @@ Starsza tabela: customMetrics
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|usunięte||
+|wartość|liczba rzeczywista|usunięte||
 |valueCount|int|ValueCount|int|
 |valueMax|liczba rzeczywista|ValueMax|liczba rzeczywista|
 |valueMin|liczba rzeczywista|ValueMin|liczba rzeczywista|
@@ -276,7 +276,7 @@ Starsza tabela: pageViews
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String (ciąg)|
+|itemType|ciąg|Typ|String|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -328,7 +328,7 @@ Starsza tabela: Liczniki wydajności
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|Wartość|liczba rzeczywista|
+|wartość|liczba rzeczywista|Wartość|liczba rzeczywista|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -352,24 +352,24 @@ Starsza tabela: żądania
 |customDimensions|dynamic|Właściwości|Dynamiczny|
 |customMeasurements|dynamic|Miary|Dynamiczny|
 |czas trwania|liczba rzeczywista|DurationMs|Rzeczywiste|
-|`id`|ciąg|`Id`|String (ciąg)|
+|`id`|ciąg|`Id`|String|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String (ciąg)|
-|name|ciąg|Nazwa|String (ciąg)|
+|itemType|ciąg|Typ|String|
+|name|ciąg|Nazwa|String|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
 |operation_ParentId|ciąg|OperationParentId|ciąg|
 |operation_SyntheticSource|ciąg|OperationSyntheticSource|ciąg|
-|performanceBucket|ciąg|PerformanceBucket|String (ciąg)|
-|resultCode|ciąg|ResultCode|String (ciąg)|
+|performanceBucket|ciąg|PerformanceBucket|String|
+|resultCode|ciąg|ResultCode|String|
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
-|source|string|Element źródłowy|String (ciąg)|
-|powodzenie|ciąg|Success|Wartość logiczna|
+|source|string|Element źródłowy|String|
+|powodzenie|ciąg|Powodzenie|Wartość logiczna|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
-|url|ciąg|Url|String (ciąg)|
+|url|ciąg|Url|String|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
@@ -406,7 +406,7 @@ Starsza tabela: wyjątki
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
-|message|ciąg|Komunikat|ciąg|
+|message|ciąg|Wiadomość|ciąg|
 |method|ciąg|Metoda|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -451,7 +451,7 @@ Starsza tabela: ślady
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
-|message|ciąg|Komunikat|ciąg|
+|message|ciąg|Wiadomość|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
 |operation_ParentId|ciąg|OperationParentId|ciąg|
@@ -466,5 +466,6 @@ Starsza tabela: ślady
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
+* [Eksploruj metryki](../platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+

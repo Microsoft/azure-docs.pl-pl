@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202571"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325342"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -31,7 +31,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 | | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | 
+| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne | 
 | **Wymagania dotyczące agenta**  | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<IIS logs><br>Dzienniki na podstawie plików<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
@@ -41,7 +41,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 | | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie |
+| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne |
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Azure Storage<br>Centrum zdarzeń | Metryki Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
@@ -76,7 +76,7 @@ Ograniczenia Log Analytics agenta obejmują:
 Użyj rozszerzenia diagnostyki platformy Azure, jeśli zachodzi taka potrzeba:
 
 - Wyślij dane do usługi Azure Storage w celu archiwizacji lub Przeanalizuj je za pomocą narzędzi, takich jak [Eksplorator usługi Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Wyślij dane do [metryk Azure monitor](data-platform-metrics.md) , aby przeanalizować je za pomocą [Eksploratora metryk](metrics-getting-started.md) i korzystać z funkcji, takich jak [alerty metryk](../../azure-monitor/platform/alerts-metric-overview.md) niemal w czasie rzeczywistym i [Automatyczne skalowanie](autoscale-overview.md) (tylko system Windows).
+- Wyślij dane do [metryk Azure monitor](data-platform-metrics.md) , aby przeanalizować je za pomocą [Eksploratora metryk](metrics-getting-started.md) i korzystać z funkcji, takich jak [alerty metryk](./alerts-metric-overview.md) niemal w czasie rzeczywistym i [Automatyczne skalowanie](autoscale-overview.md) (tylko system Windows).
 - Wyślij dane do narzędzi innych firm przy użyciu [usługi Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
 - Zbierz [diagnostykę rozruchu](../../virtual-machines/troubleshooting/boot-diagnostics.md) , aby zbadać problemy z rozruchem maszyny wirtualnej.
 
@@ -91,7 +91,7 @@ Ograniczenia rozszerzenia usługi Azure Diagnostics obejmują:
 
 Użyj agenta telegraf, jeśli chcesz:
 
-* Wyślij dane do [metryk Azure monitor](data-platform-metrics.md) , aby przeanalizować je za pomocą [Eksploratora metryk](metrics-getting-started.md) i korzystać z funkcji, takich jak [alerty metryk](../../azure-monitor/platform/alerts-metric-overview.md) niemal w czasie rzeczywistym i [Automatyczne skalowanie](autoscale-overview.md) (tylko system Linux). 
+* Wyślij dane do [metryk Azure monitor](data-platform-metrics.md) , aby przeanalizować je za pomocą [Eksploratora metryk](metrics-getting-started.md) i korzystać z funkcji, takich jak [alerty metryk](./alerts-metric-overview.md) niemal w czasie rzeczywistym i [Automatyczne skalowanie](autoscale-overview.md) (tylko system Linux). 
 
 
 
@@ -120,3 +120,4 @@ Więcej informacji na temat każdego z agentów znajduje się w następujących 
 - [Przegląd agenta Log Analytics](log-analytics-agent.md)
 - [Przegląd rozszerzenia Diagnostyka Azure](diagnostics-extension-overview.md)
 - [Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md)
+

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6ea0b28f5e0f23e0f8bb30e8fe2b0f792bce0709
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517624"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287441"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Co nowego w usłudze Azure Application Gateway?
 
@@ -27,7 +27,7 @@ Usługa Azure Application Gateway jest regularnie aktualizowana. Aby zaktualizow
 
 |Cechy  |Opis  |Data dodania  |
 |---------|---------|---------|
-| Nazwy hostów symboli wieloznacznych w odbiornikach (wersja zapoznawcza) | Teraz można definiować symbole wielowitrynowe, a maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [nazwy hostów symboli wieloznacznych w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) i [hostowanie wielu witryn w Application Gateway przy użyciu Azure Portal](create-multiple-sites-portal.md) dla przewodnika wklej-by-Step. | Lipiec 2020 r. |
+| Nazwy hostów symboli wieloznacznych w odbiornikach (wersja zapoznawcza) | Teraz można definiować symbole wielowitrynowe, a maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) | Lipiec 2020 r. |
 | Ponowne zapisywanie adresów URL (wersja zapoznawcza) | Teraz można ponownie napisać ścieżkę URL i parametry ciągu zapytania przy użyciu ponownego zapisywania adresu URL. Zobacz [Zapisywanie nagłówków HTTP i adresów URL](rewrite-http-headers-url.md) , aby dowiedzieć się więcej i zobacz artykuł ponowne [Zapisywanie adresu URL w Application Gateway przy użyciu Azure Portal](rewrite-url-portal.md) do przewodnika krok po kroku. | Lipiec 2020 r. |
 | Port niestandardowy dla sond kondycji | Jednostka SKU Application Gateway v2 oferuje teraz możliwość zapewnienia niestandardowego portu w konfiguracji sondy kondycji. Aby uzyskać więcej informacji, zobacz [Omówienie sondy kondycji](application-gateway-probe-overview.md) | Lipiec 2020 r. |
 | Application Gateway AKS (wersja zapoznawcza) |Application Gateway można teraz wdrożyć kontroler transferu danych przychodzących jako natywny dodatek AKS w jednym wierszu za pomocą interfejsu wiersza polecenia platformy Azure. Jest to dodatek AKS umożliwiający AGIC stanie się w pełni zarządzaną usługą, a mimo to działa w klastrze AKS klienta. Aby uzyskać więcej informacji, zobacz [AGIC dodatków](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Czerwiec 2020 r. |

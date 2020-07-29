@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594767"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320718"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Samouczek: konfigurowanie środowiska Jenkins w celu włączenia ciągłej integracji/ciągłego wdrażania dla aplikacji Java w usłudze Service Fabric
 
@@ -85,11 +85,11 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
    a. W sekcji Ogólne zaznacz pole wyboru **projektu GitHub** i określ adres URL projektu usługi GitHub. Pod tym adresem URL jest hostowana aplikacja Java usługi Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania narzędzia Jenkins (na przykład ``https://github.com/testaccount/dev_test``).
 
-   b. W obszarze **Source Code Management** (Zarządzanie kodem źródłowym) wybierz pozycję **Git**. Określ adres URL repozytorium, który obsługuje aplikację Java Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania Jenkins ( *`https://github.com/testaccount/dev_test.git`* na przykład). W tym miejscu możesz również określić gałąź do skompilowania (na przykład **/master**).
+   b. W obszarze **Source Code Management** (Zarządzanie kodem źródłowym) wybierz pozycję **Git**. Określ adres URL repozytorium, który obsługuje aplikację Java Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania Jenkins (na przykład *`https://github.com/testaccount/dev_test.git`* ). W tym miejscu możesz również określić gałąź do skompilowania (na przykład **/master**).
 
-1. Skonfiguruj usługę *GitHub* (która hostuje repozytorium), aby mogła komunikować się z narzędziem Jenkins. Wykonaj następujące czynności:
+1. Skonfiguruj usługę *GitHub* (która hostuje repozytorium), aby mogła komunikować się z narzędziem Jenkins. Wykonaj następujące kroki:
 
-   a. Przejdź do strony repozytorium serwisu GitHub. Przejdź do pozycji **Ustawienia** > **integracje i usługi**.
+   a. Przejdź do strony repozytorium serwisu GitHub. Przejdź do pozycji **Ustawienia**  >  **integracje i usługi**.
 
    b. Wybierz pozycję **Add Service** (Dodaj usługę), wpisz ciąg **Jenkins** i wybierz pozycję **Jenkins-Github plugin** (Wtyczka Jenkins-Github).
 
@@ -115,7 +115,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
     > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
     >
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="update-your-existing-application"></a>Aktualizowanie istniejącej aplikacji
 
@@ -178,7 +178,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
     ![Uaktualnianie w toku](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Jeśli uzyskasz dostęp do lokalizacji**http://\<IP_hosta>:8080**, aplikacja do głosowania z pełną funkcjonalnością została uruchomiona i działa.
+1. Jeśli masz dostęp do **http:// \<Host-IP> : 8080** , aplikacja do głosowania z pełną funkcjonalnością jest teraz w pełni uruchomiona.
 
     ![Lokalna aplikacja do głosowania](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

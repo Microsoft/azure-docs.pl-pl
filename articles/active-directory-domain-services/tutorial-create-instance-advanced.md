@@ -1,6 +1,6 @@
 ---
-title: Samouczek — Tworzenie domeny zarządzanej AD DS platformy Azure z konfiguracją zaawansowaną
-description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services i określić zaawansowane opcje konfiguracji przy użyciu Azure Portal.
+title: Samouczek — Tworzenie dostosowanej Azure Active Directory Domain Services domeny zarządzanej | Microsoft Docs
+description: W ramach tego samouczka nauczysz się, jak utworzyć i skonfigurować dostosowaną domenę zarządzaną Azure Active Directory Domain Services i określić zaawansowane opcje konfiguracji przy użyciu Azure Portal.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518525"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278555"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services z zaawansowanymi opcjami konfiguracji
 
@@ -131,7 +131,7 @@ Wypełnij pola w oknie *sieci* w następujący sposób:
     1. Jeśli wybierzesz opcję utworzenia sieci wirtualnej, wprowadź nazwę sieci wirtualnej, na przykład *myVnet*, a następnie podaj zakres adresów, na przykład *10.0.1.0/24*.
     1. Utwórz dedykowaną podsieć z nieprawidłową nazwą, taką jak *DomainServices*. Podaj zakres adresów, taki jak *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [![Tworzenie sieci wirtualnej i podsieci do użycia z usługą Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Upewnij się, że wybrano zakres adresów należący do zakresu prywatnych adresów IP. Zakresy adresów IP, których nie ma w publicznej przestrzeni adresowej, powodują błędy w usłudze Azure AD DS.
 
@@ -159,7 +159,7 @@ Kreator automatycznie tworzy grupę *administratorów DC w usłudze AAD* w katal
 
 ## <a name="configure-synchronization"></a>Konfigurowanie synchronizacji
 
-Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup. W przypadku wybrania opcji synchronizowanie *wszystkich* użytkowników i grup nie można później przeprowadzić synchronizacji z zakresem. Aby uzyskać więcej informacji na temat synchronizacji z zakresem, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].
+Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup. Można zmienić zakres synchronizacji teraz lub po wdrożeniu domeny zarządzanej. Aby uzyskać więcej informacji, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].
 
 1. Na potrzeby tego samouczka wybierz opcję Synchronizuj **wszystkich** użytkowników i grupy. Ten wybór synchronizacji jest opcją domyślną.
 
