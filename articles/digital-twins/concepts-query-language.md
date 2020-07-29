@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337929"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -28,7 +28,7 @@ Usługa Azure Digital bliźniaczych reprezentacji zapewnia szeroką gamę możli
 > Wszystkie operacje zapytań usługi Azure Digital bliźniaczych reprezentacji są zależne od wielkości liter.
 
 Oto operacje dostępne w języku magazynu zapytań usługi Azure Digital bliźniaczych reprezentacji:
-* Pobierz bliźniaczych reprezentacji za pomocą właściwości Digital bliźniaczych reprezentacji '.
+* Pobierz bliźniaczych reprezentacji za pomocą właściwości Digital bliźniaczych reprezentacjis (w tym [tagów](how-to-use-tags.md)).
 * Pobierz bliźniaczych reprezentacji przez interfejsy Digital bliźniaczych reprezentacji '.
 * Pobierz bliźniaczych reprezentacji według właściwości relacji.
 * Pobierz bliźniaczych reprezentacji przez wiele typów relacji ( `JOIN` zapytania). Istnieją ograniczenia liczby `JOIN` dozwolonych elementów (jeden poziom dla publicznej wersji zapoznawczej).

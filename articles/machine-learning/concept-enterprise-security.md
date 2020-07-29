@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012934"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366931"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -75,7 +75,7 @@ W poniższej tabeli wymieniono niektóre główne operacje Azure Machine Learnin
 | Wyświetlanie modeli/obrazów | ✓ | ✓ | ✓ |
 | Wywoływanie usługi sieci Web | ✓ | ✓ | ✓ |
 
-Jeśli wbudowane role nie spełniają Twoich potrzeb, można utworzyć role niestandardowe. Role niestandardowe są obsługiwane tylko w przypadku operacji w obszarze roboczym i środowisko obliczeniowe usługi Machine Learning. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu lub usuwania w obszarze roboczym i w zasobie obliczeniowym w tym obszarze roboczym. Rolę można udostępnić na określonym poziomie obszaru roboczego, na określonym poziomie grupy zasobów lub na określonym poziomie subskrypcji. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami w obszarze roboczym Azure Machine Learning](how-to-assign-roles.md).
+Jeśli wbudowane role nie spełniają Twoich potrzeb, można utworzyć role niestandardowe. Role niestandardowe są obsługiwane w celu kontrolowania wszystkich operacji w obszarze roboczym, takich jak tworzenie obliczeń, przesyłanie przebiegu, rejestrowanie magazynu danych lub Wdrażanie modelu. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu lub usuwania dla różnych zasobów obszaru roboczego, takich jak klastry, magazyny danych, modele i punkty końcowe. Rolę można udostępnić na określonym poziomie obszaru roboczego, na określonym poziomie grupy zasobów lub na określonym poziomie subskrypcji. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami w obszarze roboczym Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning jest obsługiwana z Azure Active Directory współpracy między firmami, ale obecnie nie jest obsługiwana w przypadku Azure Active Directory współpracy między firmami.
@@ -154,10 +154,6 @@ Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania wyst�
 Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskrypcji z kluczami zarządzanymi przez klienta, wykonaj następujące czynności:
 
 * Zarejestruj dostawców zasobów Microsoft. MachineLearning i Microsoft.DocumentDB w ramach subskrypcji, jeśli jeszcze nie zostało to zrobione.
-
-* Autoryzuj aplikację Machine Learning (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
-
-    ![Autoryzuj aplikację "Azure Machine Learning App" w temacie Zarządzanie tożsamościami i dostępem w portalu](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Podczas tworzenia obszaru roboczego Azure Machine Learning Użyj następujących parametrów. Oba parametry są obowiązkowe i obsługiwane w zestawach SDK, interfejsu wiersza polecenia, interfejsach API REST i szablonach Menedżer zasobów.
 

@@ -3,28 +3,26 @@ title: Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321857"
+ms.locfileid: "87337795"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
-
-Użytkownik konfiguruje akcję w celu powiadomienia osoby za pośrednictwem poczty e-mail lub wiadomości SMS otrzymuje potwierdzenie wskazujące, że zostały dodane do grupy akcji.
 
 W tym artykule przedstawiono sposób tworzenia grup akcji i zarządzania nimi w Azure Portal.
 
 Każda akcja składa się z następujących właściwości:
 
-* **Nazwa**: unikatowy identyfikator w ramach grupy akcji.  
-* **Typ akcji**: wykonaną akcję. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
-* **Szczegóły**: odpowiednie szczegóły, które różnią się w zależności od *typu akcji*.
+* **Typ**: powiadomienie lub akcja wykonane. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
+* **Nazwa**: unikatowy identyfikator w ramach grupy akcji.
+* **Szczegóły**: odpowiednie szczegóły, które różnią się w zależności od *typu*.
 
 Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu szablonów Azure Resource Manager, zobacz [Group action Menedżer zasobów templates](./action-groups-create-resource-manager-template.md).
 
@@ -32,33 +30,75 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu 
 
 1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **monitor**. Okienko **monitorowanie** konsoliduje wszystkie ustawienia monitorowania i dane w jednym widoku.
 
-1. Wybierz pozycję **Alerty**, a następnie wybierz pozycję **Zarządzaj akcjami**.
+1. Wybierz pozycję **alerty**, a następnie wybierz pozycję **Zarządzaj akcjami**.
 
     ![Przycisk zarządzania akcjami](./media/action-groups/manage-action-groups.png)
     
-1. Wybierz pozycję **Dodaj grupę akcji**i wypełnij pola.
+1. Wybierz pozycję **Dodaj grupę akcji**i Wypełnij odpowiednie pola w oknie środowisko kreatora.
 
-    ![Polecenie "Dodaj grupę akcji"](./media/action-groups/add-action-group.png)
+    ![Polecenie "Dodaj grupę akcji"](./media/action-groups/add-action-group.PNG)
+
+### <a name="configure-basic-action-group-settings"></a>Skonfiguruj podstawowe ustawienia grupy akcji
+
+W obszarze **szczegóły projektu**:
+
+Wybierz **subskrypcję** i **grupę zasobów** , w której jest zapisywana grupa akcji.
+
+W obszarze **szczegóły wystąpienia**:
+
+1. Wprowadź **nazwę grupy akcji**.
+
+1. Wprowadź **nazwę wyświetlaną**. Nazwa wyświetlana jest używana zamiast pełnej nazwy grupy akcji, gdy powiadomienia są wysyłane przy użyciu tej grupy.
+
+      ![Okno dialogowe Dodawanie grupy akcji](./media/action-groups/action-group-1-basics.png)
+
+
+### <a name="configure-notifications"></a>Konfigurowanie powiadomień
+
+1. Kliknij przycisk **Dalej: powiadomienia >** , aby przejść do karty **powiadomienia** , lub wybierz kartę **powiadomienia** u góry ekranu.
+
+1. Zdefiniuj listę powiadomień do wysłania w przypadku wyzwolenia alertu. Dla każdego powiadomienia podaj następujące elementy:
+
+    a. **Typ powiadomienia**: Wybierz typ powiadomienia, które chcesz wysłać. Dostępne są następujące opcje:
+      * Azure Resource Manager rolę e-mail — Wyślij wiadomość e-mail do użytkowników przypisanych do określonych ról ARM na poziomie subskrypcji.
+      * Poczta e-mail/wiadomość SMS/wypychanie/głos — wysyłaj te typy powiadomień do określonych adresatów.
     
-1. Wprowadź nazwę w polu **Nazwa grupy akcji** , a następnie wprowadź nazwę w polu **krótka nazwa** . Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
+    b. **Nazwa**: Wprowadź unikatową nazwę powiadomienia.
 
-      ![Okno dialogowe Dodawanie grupy akcji](./media/action-groups/action-group-define.png)
-
-1. Pole **subskrypcji** wypełnia bieżącą subskrypcję. Ta subskrypcja jest taka, w której jest zapisywana grupa akcji.
-
-1. Wybierz **grupę zasobów** , w której jest zapisywana grupa akcji.
-
-1. Zdefiniuj listę akcji. Dla każdej akcji podaj następujące elementy:
-
-    1. **Nazwa**: wprowadź unikatowy identyfikator dla tej akcji.
-
-    1. **Typ akcji**: Wybierz element Runbook usługi Automation, funkcję platformy Azure, wiadomość E-mail Azure Resource Manager rolę, wiadomość E-mail/SMS/wypychanie/głos, narzędzia ITSM, Logic App, Secure Hook, webhook.
-
-    1. **Szczegóły**: w zależności od typu akcji wprowadź numer telefonu, adres e-mail, identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
+    c. **Szczegóły**: na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
     
-    1. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
 
-1. Wybierz **przycisk OK** , aby utworzyć grupę akcji.
+    ![Karta powiadomienia](./media/action-groups/action-group-2-notifications.png)
+    
+### <a name="configure-actions"></a>Skonfiguruj akcje
+
+1. Kliknij przycisk **Dalej: działania >** , aby przejść do karty **Akcje** , lub wybierz kartę **Akcje** w górnej części ekranu.
+
+1. Zdefiniuj listę akcji do wyzwolenia po wyzwoleniu alertu. Dla każdej akcji podaj następujące elementy:
+
+    a. **Typ akcji**: Wybierz element Runbook usługi Automation, funkcja platformy Azure, narzędzia ITSM, aplikację logiki, bezpieczny element webhook, element webhook.
+    
+    b. **Nazwa**: Wprowadź unikatową nazwę dla akcji.
+
+    c. **Szczegóły**: na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
+    
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    
+    ![Karta akcje](./media/action-groups/action-group-3-actions.png)
+
+### <a name="create-the-action-group"></a>Utwórz grupę akcji
+
+1. Jeśli chcesz, możesz przejrzeć ustawienia **Tagi**. Pozwala to skojarzyć pary klucz/wartość z grupą akcji dla danej kategoryzacji i jest funkcją dostępną dla dowolnego zasobu platformy Azure.
+
+    ![Karta Tagi](./media/action-groups/action-group-4-tags.png)
+    
+1. Kliknij przycisk **Przejrzyj i utwórz**, aby przejrzeć ustawienia. Spowoduje to szybkie sprawdzenie poprawności danych wejściowych, aby upewnić się, że są zaznaczone wszystkie wymagane pola. Jeśli występują problemy, zostaną zgłoszone w tym miejscu. Po przejrzeniu ustawień kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną grupy akcji.
+    
+    ![Karta Recenzja + tworzenie](./media/action-groups/action-group-5-review.png)
+
+> [!NOTE]
+> Po skonfigurowaniu akcji powiadamiania osoby za pośrednictwem poczty e-mail lub wiadomości SMS otrzymujemy potwierdzenie wskazujące, że zostały dodane do grupy akcji.
 
 ## <a name="manage-your-action-groups"></a>Zarządzanie grupami akcji
 

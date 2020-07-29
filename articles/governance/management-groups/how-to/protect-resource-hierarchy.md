@@ -3,12 +3,12 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128000"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366776"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -23,7 +23,7 @@ Skonfigurowanie dowolnych ustawień hierarchii wymaga dwóch operacji RBAC w gł
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień hierarchii. Operacje nie zapewniają żadnych innych dostępów do hierarchii lub zasobów grupy zarządzania. Obie te operacje są dostępne w wbudowanej roli RBAC **administrator ustawień hierarchii**.
+Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień hierarchii. Operacje nie zapewniają żadnych innych dostępów do hierarchii lub zasobów grupy zarządzania. Obie te operacje są dostępne w **Administratorze ustawień hierarchii**ról wbudowanej platformy Azure.
 
 ## <a name="setting---default-management-group"></a>Ustawienie — domyślna grupa zarządzania
 

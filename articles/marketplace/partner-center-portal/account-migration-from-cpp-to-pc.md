@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289336"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Jak migrować konto z portal Cloud Partner do Centrum partnerskiego
 
@@ -59,7 +59,7 @@ Firmy, które mają być partnerem firmy Microsoft, muszą przyłączyć się do
 
 Jeśli nie jesteś członkiem Microsoft Partner Network, możesz [dołączyć tutaj](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) , aby uzyskać identyfikator MPN. Zanotuj swój identyfikator MPN, ponieważ musisz go wprowadzić podczas procesu aktywacji konta.
 
-Aby dowiedzieć się więcej na temat Microsoft Partner Network, zobacz [Dołączanie Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) w witrynie sieci Web partnera. Aby dowiedzieć się więcej na temat korzyści Microsoft Partner Network z niezależnego dostawcy oprogramowania, zobacz [Centrum zasobów niezależnego dostawcy oprogramowania](https://partner.microsoft.com/isv-resource-hub).  
+Aby dowiedzieć się więcej na temat Microsoft Partner Network, zobacz [Dołączanie Microsoft Partner Network](https://partner.microsoft.com/membership) w witrynie sieci Web partnera. Aby dowiedzieć się więcej na temat korzyści Microsoft Partner Network z niezależnego dostawcy oprogramowania, zobacz [Centrum zasobów niezależnego dostawcy oprogramowania](https://partner.microsoft.com/isv-resource-hub).  
 
 ## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Przenieś oferty usługi Dynamics 365 i usługi PowerApps do Centrum partnerskiego
 

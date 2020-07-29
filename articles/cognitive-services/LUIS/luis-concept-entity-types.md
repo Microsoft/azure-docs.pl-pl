@@ -3,12 +3,12 @@ title: Typy jednostek — LUIS
 description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676492"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337623"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
@@ -77,6 +77,12 @@ Aby efektywnie kompilować informacje o jednostkach:
 * Etykiety powinny być spójne dla zamiar. Obejmuje to nawet wyrażenia długości w zamiarze **Brak** , które zawierają tę jednostkę. W przeciwnym razie model nie będzie mógł ustalić sekwencji efektywnie.
 * Jeśli masz zainstalowaną maszynę z podjednostkami, upewnij się, że różne zamówienia i warianty jednostki i podjednostek są prezentowane w etykiecie wyrażenia długości. Przykładowe etykiety wyrażenia długości powinny zawierać wszystkie prawidłowe formularze i zawierają jednostki, które są wyświetlane i są nieobecne, a także są zmieniane w ramach wypowiedź.
 * Należy unikać dopasowywania jednostek do bardzo ustalonego zestawu. Nastąpi **zamontowanie** , gdy model nie jest dobrze generalize i jest typowym problemem w modelach uczenia maszynowego. Oznacza to, że aplikacja nie będzie odpowiednio działała w nowych danych. Z kolei należy zaróżnić przykład z etykietą wyrażenia długości, aby aplikacja mogła uogólnić poza ograniczonymi przykładami. Należy zaróżnić różne podjednostki o wystarczającej zmianie modelu, aby myśleć o większej koncepcji, a nie tylko w przykładach.
+
+## <a name="effective-prebuilt-entities"></a>Obowiązujące wstępnie skompilowane jednostki
+
+W celu utworzenia efektywnych jednostek, które wyodrębniają wspólne dane, takie jak te dostarczone przez [wstępnie zbudowane jednostki](luis-reference-prebuilt-entities.md), zalecamy wykonanie poniższego procesu.
+
+Ulepszanie wyodrębniania danych przez umieszczenie własnych danych w jednostce jako funkcji. W ten sposób wszystkie dodatkowe etykiety z danych zapoznają się z kontekstem, gdzie nazwy osób istnieją w aplikacji.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

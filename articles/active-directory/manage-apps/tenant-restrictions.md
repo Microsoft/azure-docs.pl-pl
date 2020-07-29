@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019254"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285904"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -69,6 +69,11 @@ Aby włączyć ograniczenia dzierżawy za pomocą infrastruktury serwera proxy, 
 
 Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
 
+> [!NOTE]
+> Podczas konfigurowania przechwycenia protokołu SSL i iniekcji nagłówków upewnij się, że ruch https://device.login.microsoftonline.com jest wykluczony. Ten adres URL jest używany na potrzeby uwierzytelniania urządzeń i wykonywania operacji przerywania i inspekcji protokołu TLS może zakłócać uwierzytelnianie certyfikatu klienta, co może powodować problemy z rejestracją urządzeń i dostępem warunkowym opartym na urządzeniach.
+
+
+
 Nagłówki powinny zawierać następujące elementy:
 
 - W przypadku *ograniczania dostępu do dzierżawców*Użyj wartości \<permitted tenant list\> , która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Wszystkie domeny zarejestrowane za pomocą dzierżawy mogą służyć do identyfikowania dzierżawy na tej liście. Na przykład, aby zezwolić na dostęp zarówno do dzierżaw firmy Contoso, jak i Fabrikam, para nazwa/wartość wygląda następująco: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -81,6 +86,9 @@ Nagłówki powinny zawierać następujące elementy:
 Aby uniemożliwić użytkownikom wstawianie własnego nagłówka HTTP z niezatwierdzonymi dzierżawcami, serwer proxy musi zastąpić nagłówek *ograniczenia dostępu do dzierżawców* , jeśli jest już obecny w żądaniu przychodzącym.
 
 Klienci muszą być zmuszeni do korzystania z serwera proxy dla wszystkich żądań do login.microsoftonline.com, login.microsoft.com i login.windows.net. Na przykład jeśli pliki PAC są używane do kierowania klientom do korzystania z serwera proxy, użytkownicy końcowi nie będą mogli edytować ani wyłączać plików PAC.
+
+> [!NOTE]
+> W konfiguracji serwera proxy nie należy uwzględniać poddomen w lokalizacji *. login.microsoftonline.com. Takie działanie będzie obejmować device.login.microsoftonline.com i może zakłócać uwierzytelnianie certyfikatu klienta, które jest używane w scenariuszach rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach. Skonfiguruj serwer proxy w taki sposób, aby wykluczyć device.login.microsoftonline.com z dzielenia i kontroli protokołu TLS.
 
 ## <a name="the-user-experience"></a>Środowisko użytkownika
 

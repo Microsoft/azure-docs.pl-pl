@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81383078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289036"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
 
@@ -30,7 +30,7 @@ W przypadku korzystania z usługi mowy z kontenerami należy polegać na tej kol
 
 **Odpowiedź:** Podczas konfigurowania klastra produkcyjnego należy wziąć pod uwagę kilka rzeczy. Po pierwsze skonfigurowanie jednego języka, wielu kontenerów na tym samym komputerze nie powinno być duże. Jeśli występują problemy, może to być problem związany z sprzętem — należy najpierw przyjrzeć się zasobowi, czyli Specyfikacje procesora i pamięci.
 
-Rozważ chwilę, `ja-JP` kontener i najnowszy model. Model akustyczny jest najbardziej wymaganym PROCESORem, podczas gdy model języka wymaga najwięcej pamięci. Podczas testu porównawczego należy wykonać około 0,6 rdzeni procesora, aby przetworzyć pojedyncze żądanie zamiany mowy na tekst, gdy dźwięk jest przepływany w czasie rzeczywistym (na przykład z mikrofonu). Jeśli tworzysz dźwięk szybciej niż w czasie rzeczywistym (na przykład z pliku), to użycie może być podwojone (rdzenie 1,2 x). Tymczasem pamięć wymienioną poniżej jest pamięcią operacyjną do dekodowania mowy. *Nie uwzględnia on* rzeczywistego pełnego rozmiaru modelu języka, który będzie znajdował się w pamięci podręcznej plików. `ja-JP` To jest dodatkowy 2 GB; w `en-US`przypadku programu może być większy (6-7 GB).
+Rozważ chwilę, `ja-JP` kontener i najnowszy model. Model akustyczny jest najbardziej wymaganym PROCESORem, podczas gdy model języka wymaga najwięcej pamięci. Podczas testu porównawczego należy wykonać około 0,6 rdzeni procesora, aby przetworzyć pojedyncze żądanie zamiany mowy na tekst, gdy dźwięk jest przepływany w czasie rzeczywistym (na przykład z mikrofonu). Jeśli tworzysz dźwięk szybciej niż w czasie rzeczywistym (na przykład z pliku), to użycie może być podwojone (rdzenie 1,2 x). Tymczasem pamięć wymienioną poniżej jest pamięcią operacyjną do dekodowania mowy. *Nie uwzględnia on* rzeczywistego pełnego rozmiaru modelu języka, który będzie znajdował się w pamięci podręcznej plików. To jest `ja-JP` dodatkowy 2 GB; w przypadku `en-US` , może być większy (6-7 GB).
 
 Jeśli masz maszynę, na której jest dostateczna ilość pamięci i próbujesz wdrożyć w niej wiele języków, możliwe jest, że pamięć podręczna plików jest pełna, a system operacyjny jest zmuszony do modelowania stron w i wychodzącym. W przypadku uruchomionego transkrypcji, który może być katastrofalne i może prowadzić do spowolnienia i innych implikacji wydajności.
 
@@ -49,16 +49,16 @@ Na koniec można ustawić liczbę dekoderów w obrębie *jednego* kontenera przy
 
 <details>
 <summary>
-<b>Czy można pomóc w planowaniu pojemności i szacowaniu kosztów kontenerów mowy Premium?</b>
+<b>Czy można pomóc w planowaniu pojemności i szacowaniu kosztów Premium kontenerów zamiany mowy na tekst?</b>
 </summary>
 
 **Odpowiedź:** W przypadku pojemności kontenera w trybie przetwarzania wsadowego każdy dekoder może obsłużyć 2-3-krotne w czasie rzeczywistym, z dwoma rdzeniami procesora, dla jednego rozpoznawania. Nie zalecamy zachowywania więcej niż dwóch współbieżnych rozpoznawania na wystąpienie kontenera, ale zaleca się uruchomienie większej liczby wystąpień kontenerów w celu zapewnienia niezawodności/dostępności za modułem równoważenia obciążenia.
 
-Chociaż może istnieć każde wystąpienie kontenera działające z więcej dekoderami. Można na przykład skonfigurować 7 dekoderów na każde wystąpienie kontenera na osiem maszyn Core (co więcej niż 2 razy), dając 15X przepływność. Istnieje parametr `DECODER_MAX_COUNT` , który ma być świadomy. W przypadku wystąpienia ekstremalnych problemów z niezawodnością i opóźnieniami znacznie wzrasta przepływność. W przypadku mikrofonu zostanie osiągnięty czas rzeczywisty. Ogólne użycie powinno mieć co najmniej jeden rdzeń dla jednego rozpoznawania.
+Chociaż może istnieć każde wystąpienie kontenera działające z więcej dekoderami. Można na przykład skonfigurować 7 dekoderów na każde wystąpienie kontenera na osiem maszyn Core (co więcej niż 2 razy), dając 15X przepływność. Istnieje parametr, `DECODER_MAX_COUNT` który ma być świadomy. W przypadku wystąpienia ekstremalnych problemów z niezawodnością i opóźnieniami znacznie wzrasta przepływność. W przypadku mikrofonu zostanie osiągnięty czas rzeczywisty. Ogólne użycie powinno mieć co najmniej jeden rdzeń dla jednego rozpoznawania.
 
 W przypadku scenariusza przetwarzania 1 K godz./dzień w trybie przetwarzania wsadowego w przypadku ekstremalnych przypadków 3 maszyny wirtualne mogły obsłużyć je w ciągu 24 godzin, ale nie są gwarantowane. Aby obsłużyć dni, przełączenia w tryb failover, aktualizacja i dostarczenie minimalnej kopii zapasowej/BCP, zalecamy 4-5 maszyn zamiast 3 na klaster oraz 2 klastrów.
 
-Na potrzeby sprzętu używamy standardowej maszyny wirtualnej `DS13_v2` platformy Azure jako odniesienia (każdy rdzeń musi mieć 2,6 GHz lub lepszą) z włączonym zestawem instrukcji AVX2.
+Na potrzeby sprzętu używamy standardowej maszyny wirtualnej platformy Azure `DS13_v2` jako odniesienia (każdy rdzeń musi mieć 2,6 GHz lub lepszą) z włączonym zestawem instrukcji AVX2.
 
 | Wystąpienie  | vCPU | Pamięć RAM    | Magazyn tymczasowy | Płatność zgodnie z rzeczywistym użyciem przy użyciu AHB | Rezerwacja roczna z AHB (% oszczędności) | 3-letni zarezerwowany dla AHB (% oszczędności) |
 |-----------|---------|--------|--------------|------------------------|-------------------------------------|--------------------------------------|
@@ -95,9 +95,9 @@ Koszt konserwacji płatnej przez firmę Microsoft zależy od poziomu usługi i z
 <b>Dlaczego brakuje interpunkcji z transkrypcji?</b>
 </summary>
 
-**Odpowiedź:** W `speech_recognition_language=<YOUR_LANGUAGE>` przypadku korzystania z klienta węgla należy jawnie skonfigurować w żądaniu.
+**Odpowiedź:** `speech_recognition_language=<YOUR_LANGUAGE>`W przypadku korzystania z klienta węgla należy jawnie skonfigurować w żądaniu.
 
-Przykład:
+Na przykład:
 
 ```python
 if not recognize_once(
@@ -168,7 +168,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Odpowiedź 2:** Musisz podać poprawną nazwę głosu w żądaniu, w której jest rozróżniana wielkość liter. Zapoznaj się z pełnym mapowaniem nazw usług. Musisz korzystać `en-US-JessaRUS`z programu, ponieważ `en-US-JessaNeural` nie jest on teraz dostępny w wersji kontenerów zamiany tekstu na mowę.
+**Odpowiedź 2:** Musisz podać poprawną nazwę głosu w żądaniu, w której jest rozróżniana wielkość liter. Zapoznaj się z pełnym mapowaniem nazw usług. Musisz korzystać z programu `en-US-JessaRUS` , ponieważ `en-US-JessaNeural` nie jest on teraz dostępny w wersji kontenerów zamiany tekstu na mowę.
 
 **Błąd 3:**
 
@@ -289,7 +289,7 @@ Węgiel został naprawiony w wersji 1,8.
 
 Czy można pomóc wypełnić poniższe metryki testu, w tym funkcje, które należy przetestować, oraz sposób testowania zestawu SDK i interfejsów API REST? Szczególnie różnice w "interaktywne" i "konwersacja", które nie były widoczne z istniejącego dokumentu/próbki.
 
-| Endpoint                                                | Test funkcjonalny                                                   | SDK | Interfejs API REST |
+| Punkt końcowy                                                | Test funkcjonalny                                                   | SDK | Interfejs API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Synteza tekstu (zamiany tekstu na mowę)                                  |     | Tak      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services punkt końcowy protokołu WebSocket Premium w wersji 1        | Tak | Nie       |
@@ -300,8 +300,8 @@ Czy można pomóc wypełnić poniższe metryki testu, w tym funkcje, które nale
 - Osoby próbujące punkt końcowy dyktowania dla kontenerów (nie mam pewności, jak mają ten adres URL)
 - 1 punkt końcowy jednostki<sup>krótkoterminowej</sup> znajduje się w kontenerze.
 - 1 punkt końcowy jednostki usługi<sup>St</sup> zwraca mowę. fragmenty komunikatów zamiast `speech.hypothesis` komunikatów, które są zwracane przez 3 punkty końcowe części<sup>pulpitu zdalnego</sup> dla punktu końcowego dyktowania.
-- Węgiel korzysta `RecognizeOnce` ze wszystkich (tryb interaktywny)
-- Węgiel z potwierdzeniem, że `speech.fragment` dla komunikatów wymagających nie są zwracane w trybie interaktywnym.
+- Węgiel korzysta ze wszystkich `RecognizeOnce` (tryb interaktywny)
+- Węgiel z potwierdzeniem, że dla `speech.fragment` komunikatów wymagających nie są zwracane w trybie interaktywnym.
 - Węgiel mający potwierdzenia pożaru w kompilacjach wydania (zabijanie procesu).
 
 Obejście to przełączenie do korzystania z ciągłego rozpoznawania w kodzie lub (szybsze) łączenie się z interaktywnym lub ciągłym punktami końcowymi w kontenerze.
@@ -366,7 +366,7 @@ My bieżącym planem jest wykonanie istniejącego pliku dźwiękowego i podziele
 
 Dokument mówi, aby udostępnić inny port, który to zrobić, ale kontener LUIS nadal nasłuchuje na porcie 5000?
 
-**Odpowiedź:** Spróbuj `-p <outside_unique_port>:5000`. Na przykład `-p 5001:5000`.
+**Odpowiedź:** Spróbuj `-p <outside_unique_port>:5000` . Na przykład `-p 5001:5000`.
 
 
 <br>
@@ -376,10 +376,10 @@ Dokument mówi, aby udostępnić inny port, który to zrobić, ale kontener LUIS
 
 <details>
 <summary>
-<b>Jak można uzyskać interfejsy API inne niż partia do obsługi dźwięku &lt;15 sekund?</b>
+<b>Jak można uzyskać interfejsy API inne niż partia do obsługi dźwięku &lt; 15 sekund?</b>
 </summary>
 
-**Odpowiedź:** `RecognizeOnce()` w trybie interaktywnym tylko proces przetwarza do 15 sekund audio, ponieważ tryb jest przeznaczony do obsługi poleceń mowy, gdzie wyrażenia długości powinien być krótki. Jeśli używasz `StartContinuousRecognition()` do dyktowania lub konwersacji, nie ma żadnego limitu 15 sekund.
+**Odpowiedź:** `RecognizeOnce()` tryb interaktywny przetwarza tylko do 15 sekund audio, ponieważ tryb jest przeznaczony dla poleceń mowy, gdzie wyrażenia długości powinien być krótki. Jeśli używasz `StartContinuousRecognition()` do dyktowania lub konwersacji, nie ma żadnego limitu 15 sekund.
 
 
 <br>
@@ -392,29 +392,29 @@ Dokument mówi, aby udostępnić inny port, który to zrobić, ale kontener LUIS
 
 Ile współbieżnych żądań będzie obsługiwał 4 rdzenie, 4 GB pamięci RAM? Jeśli firma Microsoft musi na przykład obsłużyć żądania współbieżności 50, ile rdzeni i pamięci RAM są zalecane?
 
-**Odpowiedź:** W czasie rzeczywistym 8 z najnowszym `en-US`, dlatego zalecamy użycie większej liczby kontenerów platformy Docker niż 6 współbieżnych żądań. Pobiera crazier więcej niż 16 rdzeni i staje się wrażliwy na niejednolity węzeł dostępu do pamięci (NUMA). W poniższej tabeli opisano minimalne i zalecane alokacje zasobów dla każdego kontenera mowy.
+**Odpowiedź:** W czasie rzeczywistym 8 z najnowszym `en-US` , dlatego zalecamy użycie większej liczby kontenerów platformy Docker niż 6 współbieżnych żądań. Pobiera crazier więcej niż 16 rdzeni i staje się wrażliwy na niejednolity węzeł dostępu do pamięci (NUMA). W poniższej tabeli opisano minimalne i zalecane alokacje zasobów dla każdego kontenera mowy.
 
 # <a name="speech-to-text"></a>[Zamiana mowy na tekst](#tab/stt)
 
-| Kontener      | Minimalne             | Zalecane         |
+| Kontener      | Minimum             | Zalecane         |
 |----------------|---------------------|---------------------|
 | Zamiana mowy na tekst | 2 rdzeń, 2 GB pamięci | 4 rdzenie, 4 GB pamięci |
 
 # <a name="custom-speech-to-text"></a>[Custom Speech do tekstu](#tab/cstt)
 
-| Kontener             | Minimalne             | Zalecane         |
+| Kontener             | Minimum             | Zalecane         |
 |-----------------------|---------------------|---------------------|
 | Custom Speech do tekstu | 2 rdzeń, 2 GB pamięci | 4 rdzenie, 4 GB pamięci |
 
 # <a name="text-to-speech"></a>[Zamiana tekstu na mowę](#tab/tts)
 
-| Kontener      | Minimalne             | Zalecane         |
+| Kontener      | Minimum             | Zalecane         |
 |----------------|---------------------|---------------------|
 | Zamiana tekstu na mowę | 1 rdzeń, 2 GB pamięci | 2 rdzeń, 3 GB pamięci |
 
 # <a name="custom-text-to-speech"></a>[Niestandardowa Zamiana tekstu na mowę](#tab/ctts)
 
-| Kontener             | Minimalne             | Zalecane         |
+| Kontener             | Minimum             | Zalecane         |
 |-----------------------|---------------------|---------------------|
 | Niestandardowa Zamiana tekstu na mowę | 1 rdzeń, 2 GB pamięci | 2 rdzeń, 3 GB pamięci |
 
@@ -422,7 +422,7 @@ Ile współbieżnych żądań będzie obsługiwał 4 rdzenie, 4 GB pamięci RAM?
 
 - Każdy rdzeń musi mieć co najmniej 2,6 GHz lub szybszy.
 - W przypadku plików ograniczenie przepustowości będzie w zestawie Speech SDK, a wartość 2 (pierwsze 5 sekund dźwięku nie jest ograniczana).
-- Dekodera jest w stanie wykonać około 2 – 3. czasu rzeczywistego. W takim przypadku ogólne użycie procesora CPU będzie bliski dwa rdzenie na potrzeby jednego rozpoznawania. Dlatego nie zalecamy zachowywania więcej niż dwóch aktywnych połączeń na wystąpienie kontenera. Najważniejsza może być umieszczenie około 10 dekoderów w czasie, w którym znajduje się osiem rdzeni, takich jak `DS13_V2`. W przypadku kontenera w wersji 1,3 i nowszych istnieje parametr, który można wypróbować `DECODER_MAX_COUNT=20`.
+- Dekodera jest w stanie wykonać około 2 – 3. czasu rzeczywistego. W takim przypadku ogólne użycie procesora CPU będzie bliski dwa rdzenie na potrzeby jednego rozpoznawania. Dlatego nie zalecamy zachowywania więcej niż dwóch aktywnych połączeń na wystąpienie kontenera. Najważniejsza może być umieszczenie około 10 dekoderów w czasie, w którym znajduje się osiem rdzeni, takich jak `DS13_V2` . W przypadku kontenera w wersji 1,3 i nowszych istnieje parametr, który można wypróbować `DECODER_MAX_COUNT=20` .
 - W przypadku mikrofonu zostanie osiągnięty czas rzeczywisty. Ogólne użycie powinno mieć co najmniej jeden rdzeń dla jednego rozpoznawania.
 
 Należy wziąć pod uwagę łączną liczbę godzin korzystania z dźwięku. Jeśli liczba jest duża, aby zwiększyć niezawodność/dostępność, sugerujemy uruchomienie większej liczby wystąpień kontenerów na jednym lub wielu polach za modułem równoważenia obciążenia. Aranżację można wykonać przy użyciu Kubernetes (K8S) i Helm lub z funkcją tworzenia platformy Docker.
@@ -439,7 +439,7 @@ Przykładowo, aby obsłużyć 1000 godzin/24 godziny, próbowaliśmy skonfigurow
 
 **Odpowiedź:** Mamy wielką literę (ITN) dostępną w kontenerze Premium. Interpunkcja jest zależna od języka i nie jest obsługiwana w przypadku niektórych języków, w tym chińskim i japońskim.
 
-Mamy *do* niejawną i podstawową obsługę interpunkcji dla istniejących kontenerów, ale jest `off` ona domyślnie. Oznacza to, że możesz uzyskać `.` znak w Twoim przykładzie, ale nie `。` znak. Aby włączyć tę niejawną logikę, Skorzystaj z przykładu, jak to zrobić w języku Python przy użyciu zestawu mowy SDK (podobnie jak w przypadku innych języków):
+Mamy *do* niejawną i podstawową obsługę interpunkcji dla istniejących kontenerów, ale jest ona `off` domyślnie. Oznacza to, że możesz uzyskać `.` znak w Twoim przykładzie, ale nie `。` znak. Aby włączyć tę niejawną logikę, Skorzystaj z przykładu, jak to zrobić w języku Python przy użyciu zestawu mowy SDK (podobnie jak w przypadku innych języków):
 
 ```python
 speech_config.set_service_property(
@@ -514,7 +514,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Starsze kontenery nie mają wymaganego punktu końcowego dla węgla do pracy `FromHost` z interfejsem API. Jeśli kontenery używane dla wersji 1,3, należy użyć tego kodu:
+Starsze kontenery nie mają wymaganego punktu końcowego dla węgla do pracy z `FromHost` interfejsem API. Jeśli kontenery używane dla wersji 1,3, należy użyć tego kodu:
 
 ```cpp
 const auto host = "http://localhost:5000";
@@ -536,7 +536,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
- `SetSpeechSynthesisVoiceName` Funkcja jest wywoływana, ponieważ kontenery ze zaktualizowanym aparatem zamiany tekstu na mowę wymagają nazwy głosu.
+ `SetSpeechSynthesisVoiceName`Funkcja jest wywoływana, ponieważ kontenery ze zaktualizowanym aparatem zamiany tekstu na mowę wymagają nazwy głosu.
 
 <br>
 </details>
@@ -553,11 +553,11 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 Są one przeznaczone do różnych celów i są używane inaczej.
 
 [Przykłady](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py)języka Python:
-- W przypadku pojedynczego rozpoznawania (tryb interaktywny) z niestandardowym punktem końcowym (czyli `SpeechConfig` za pomocą parametru punktu końcowego, zobacz `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
-- W celu zapewnienia ciągłego rozpoznawania (tryb konwersacji) i po prostu zmodyfikować, aby użyć niestandardowego punktu końcowego, `speech_recognize_continuous_from_file()`jak powyżej, zobacz.
-- Aby włączyć dyktowanie w przykładach, takich jak powyżej (tylko wtedy, gdy jest to naprawdę potrzebne) `speech_config`, bezpośrednio po `speech_config.enable_dictation()`utworzeniu, Dodaj kod.
+- W przypadku pojedynczego rozpoznawania (tryb interaktywny) z niestandardowym punktem końcowym (czyli `SpeechConfig` z parametrem punktu końcowego), zobacz `speech_recognize_once_from_file_with_custom_endpoint_parameters()` .
+- W celu zapewnienia ciągłego rozpoznawania (tryb konwersacji) i po prostu zmodyfikować, aby użyć niestandardowego punktu końcowego, jak powyżej, zobacz `speech_recognize_continuous_from_file()` .
+- Aby włączyć dyktowanie w przykładach, takich jak powyżej (tylko wtedy, gdy jest to naprawdę potrzebne), bezpośrednio po utworzeniu `speech_config` , Dodaj kod `speech_config.enable_dictation()` .
 
-W języku C#, aby włączyć Dyktowanie, `SpeechConfig.EnableDictation()` wywołaj funkcję.
+W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation()` funkcję.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint`Programowania
 | Język | Szczegóły interfejsu API |
@@ -593,14 +593,14 @@ W języku C#, aby włączyć Dyktowanie, `SpeechConfig.EnableDictation()` wywoł
 > Parametry: Host (obowiązkowy), klucz subskrypcji (opcjonalnie, jeśli można korzystać z usługi bez niej).
 
 Format hosta jest `protocol://hostname:port` `:port` opcjonalny (patrz poniżej):
-- Jeśli kontener działa lokalnie, nazwa hosta to `localhost`.
+- Jeśli kontener działa lokalnie, nazwa hosta to `localhost` .
 - Jeśli kontener jest uruchomiony na serwerze zdalnym, użyj nazwy hosta lub adresu IPv4 tego serwera.
 
 Przykłady parametrów hosta dla zamiany mowy na tekst:
 - `ws://localhost:5000`-niezabezpieczone połączenie z kontenerem lokalnym przy użyciu portu 5000
 - `ws://some.host.com:5000`-niezabezpieczone połączenie z kontenerem uruchomionym na serwerze zdalnym
 
-Przykłady języka Python z powyższych, ale `host` używają parametru zamiast `endpoint`:
+Przykłady języka Python z powyższych, ale używają `host` parametru zamiast `endpoint` :
 
 ```python
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")

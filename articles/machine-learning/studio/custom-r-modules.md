@@ -1,6 +1,5 @@
 ---
-title: Tworzenie & wdrażanie niestandardowych modułów R
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Tworzenie & wdrażanie niestandardowych modułów R — Azure'
 description: Dowiedz się, jak tworzyć i wdrażać niestandardowe moduły R w ML Studio (klasyczne).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957328"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287250"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiowanie niestandardowych modułów R dla Azure Machine Learning Studio (klasyczny)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definiowanie niestandardowych modułów R dla Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 W tym temacie opisano sposób tworzenia i wdrażania niestandardowego programu R Studio (klasycznego). Wyjaśniono, jakie niestandardowe moduły R są i które pliki są używane do ich definiowania. Przedstawiono w nim sposób konstruowania plików, które definiują moduł i sposób rejestrowania modułu do wdrożenia w obszarze roboczym Machine Learning. Elementy i atrybuty używane w definicji modułu niestandardowego są następnie opisane bardziej szczegółowo. Omówiono również sposób korzystania z funkcji i plików pomocniczych oraz wielu danych wyjściowych. 
 
@@ -305,9 +307,9 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * Podzielone na kategorie
     * String
     * Etykieta
-    * Cecha
+    * Cechy
     * Wynik
-    * Wszystko
+    * Wszystkie
   * **domyślne** ustawienia domyślne dla selektora kolumn są prawidłowe: 
     
     * Brak
@@ -330,7 +332,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * AllLabel
     * AllFeature
     * AllScore
-    * Wszystko
+    * Wszystkie
 
 **Menu rozwijane**: Lista wyliczeniowa określona przez użytkownika (lista rozwijana). Elementy rozwijane są określone w elemencie **Properties** przy użyciu elementu **Item** . **Identyfikator** każdego **elementu** musi być unikatowy i prawidłową zmienną języka R. Wartość **nazwy** **elementu** służy zarówno jako wyświetlany tekst, jak i wartość, która jest przesyłana do funkcji języka R.
 

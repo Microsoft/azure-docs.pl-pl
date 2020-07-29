@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289041"
 ---
 # <a name="add-interaction-rules"></a>Dodawanie reguł interakcji
 
-W tym artykule omówiono *reguły interakcji*. Te dodatkowe reguły obsługują bardziej szczegółowe lub złożone sytuacje. Możesz tworzyć własne niestandardowe reguły interakcji, ale w tym artykule korzystasz z reguł interakcji dla następujących scenariuszy strategicznych:
+W tym artykule omówiono **reguły interakcji**. Są to dodatkowe reguły umożliwiające obsługę bardziej szczegółowych lub złożonych sytuacji. W tym artykule możesz tworzyć własne niestandardowe reguły interakcji, korzystając z reguł interakcji w następujących scenariuszach:
 
 * Potwierdzanie poleceń
 * Dodawanie korekty jednoetapowej do poleceń
@@ -30,8 +30,8 @@ Aby dowiedzieć się więcej o regułach interakcji, przejdź do sekcji [odwoła
 
 Należy wykonać czynności opisane w następujących artykułach:
 > [!div class="checklist"]
-> * [Tworzenie aplikacji przy użyciu prostych poleceń](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Dodawanie parametrów do poleceń](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Instrukcje: Tworzenie aplikacji przy użyciu prostych poleceń](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Instrukcje: Dodawanie parametrów do poleceń](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Dodawanie potwierdzeń do polecenia
 
@@ -40,7 +40,7 @@ Aby dodać potwierdzenie, użyj polecenia **Settemperatura** . Aby uzyskać potw
 1. Wybierz polecenie **Settemperaturę** w lewym okienku.
 1. Dodaj reguły interakcji, wybierając pozycję **Dodaj** w środkowym okienku. Następnie wybierz pozycję polecenia **reguły interakcji**  >  **Potwierdź polecenie**.
 
-    Ta akcja dodaje trzy reguły interakcji. Ta reguła monituje użytkownika o potwierdzenie daty i godziny alarmu i oczekuje potwierdzenia (tak/nie) w następnym przypadku.
+    Ta akcja dodaje trzy reguły interakcji, które poproszą użytkownika o potwierdzenie daty i godziny alarmu i oczekuje potwierdzenia (tak/nie) dla następnego wyłączenia.
 
     1. Zmodyfikuj regułę interakcji z **poleceniem Potwierdź** zgodnie z następującą konfiguracją:
         1. Zmień **nazwę nazwy** , aby **potwierdzić temperaturę**.
@@ -75,14 +75,14 @@ Aby dodać potwierdzenie, użyj polecenia **Settemperatura** . Aby uzyskać potw
 
 Wybierz pozycję **szkolenie**, poczekaj na zakończenie szkolenia, a następnie wybierz pozycję **Testuj**.
 
-- **Dane wejściowe**: Ustaw temperaturę na 80 stopni.
-- **Wynik**: ok 80?
-- **Dane wejściowe**: nie.
+- **Dane wejściowe**: Ustaw temperaturę na 80 stopni
+- **Wynik**: czy na pewno chcesz ustawić temperaturę jako 80 stopni?
+- **Dane wejściowe**: nie
 - **Dane wyjściowe**: brak problemu. Jakiej temperatury potem?
-- **Dane wejściowe**: 83 stopni.
-- **Wynik**: ok 83?
-- **Dane wejściowe**: tak.
-- **Wynik**: OK, ustawianie temperatury na 83 stopni.
+- **Dane wejściowe**: 72 stopni
+- **Wynik**: czy na pewno chcesz ustawić temperaturę jako 72 stopni?
+- **Dane wejściowe**: tak
+- **Wynik**: OK, ustawianie temperatury na 83 stopni
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implementowanie poprawek w poleceniu

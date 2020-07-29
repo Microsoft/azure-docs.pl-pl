@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337844"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -119,6 +119,22 @@ Po zakończeniu przebiegu potoku można wyświetlić podgląd obrazu w prawym pa
 > [!div class="mx-imgBorder"]
 > ![Podgląd przekazanego obrazu](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>Dostęp do zarejestrowanego zestawu danych
+
+Aby [uzyskać dostęp do zarejestrowanych zestawów danych](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>Jak skonfigurować skrypt wykonywania skryptu języka R
 
 Moduł wykonywania skryptu języka R zawiera przykładowy kod, którego można użyć jako punktu wyjścia. Aby skonfigurować moduł wykonywania skryptu języka R, podaj zestaw wejść i kod do uruchomienia.
@@ -177,6 +193,25 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
  
     > [!NOTE]
     > Istniejący kod języka R może wymagać drobnych zmian do uruchomienia w potoku projektanta. Na przykład dane wejściowe, które podano w formacie CSV, powinny być jawnie konwertowane na zestaw danych, zanim będzie można używać go w kodzie. Typy danych i kolumn używane w języku R również różnią się w zależności od typu danych i kolumn używanych w projektancie.
+
+    Jeśli skrypt jest większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
+    
+    Należy powiązać skrypt i inne zasoby niestandardowe z plikiem ZIP, a następnie przekazać plik zip jako **plik DataSet** do programu Studio. Następnie można przeciągnąć moduł DataSet z listy *moje zbiory* danych w okienku po lewej stronie, który jest stroną tworzenie projektanta. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
+    
+    Poniżej znajduje się przykładowy kod służący do użycia skryptu w pakiecie skryptu:
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  W przypadku **losowego inicjatora**wprowadź wartość, która ma być używana w środowisku języka R jako wartość losowego inicjatora. Ten parametr jest odpowiednikiem wywołania `set.seed(value)` w kodzie R.  
 

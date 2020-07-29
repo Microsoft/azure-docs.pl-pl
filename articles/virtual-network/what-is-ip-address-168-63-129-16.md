@@ -1,6 +1,6 @@
 ---
 title: Co to jest adres IP 168.63.129.16? | Microsoft Docs
-description: Dowiedz się więcej o 168.63.129.16 adresów IP i sposobach współdziałania z zasobami.
+description: Dowiedz się więcej o adresie IP 168.63.129.16, w którym jest używany do ułatwienia kanału komunikacyjnego z zasobami platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: bae1fbc89564ca17938e6a630146be5e5fb5b11f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f0bfa693086a3a097df219132d696a1d04e6f56
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286040"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Co to jest adres IP 168.63.129.16?
 

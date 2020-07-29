@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171123"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285955"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -80,9 +80,9 @@ Podczas oceniania binarnych modeli klasyfikacji są raportowane następujące me
   
 -   **Dokładność** mierzy dobrą jakość modelu klasyfikacji jako proporcje prawdziwych wyników do łącznych przypadków.  
   
--   **Precyzja** jest proporcją prawdziwych wyników dla wszystkich pozytywnych wyników.  
+-   **Precyzja** jest proporcją prawdziwych wyników dla wszystkich pozytywnych wyników. Precision = TP/(TP + FP)  
   
--   Funkcja **odwoływania** jest częścią wszystkich poprawnych wyników zwracanych przez model.  
+-   Funkcja **odwoływania** to ułamek całkowitej ilości odpowiednich wystąpień, które zostały faktycznie pobrane. Odwołaj = TP/(TP + FN)  
   
 -   **Wynik F1** jest obliczany jako średnia ważona precyzji i wartość odwołania z zakresu od 0 do 1, gdzie idealny wynik jest równy 1.  
   

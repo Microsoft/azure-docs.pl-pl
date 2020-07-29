@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133184"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289252"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB
 
-Usługa Azure Storage obsługuje opcjonalny anonimowy dostęp do odczytu dla kontenerów i obiektów BLOB. Domyślnie dostęp anonimowy do danych jest nigdy niedozwolony. O ile jawnie nie włączysz dostępu anonimowego, wszystkie żądania do kontenera i jego obiektów BLOB muszą być autoryzowane przy użyciu jednej z Azure Active Directory (Azure AD) lub autoryzacji klucza współużytkowanego. W przypadku skonfigurowania ustawienia publicznego poziomu dostępu kontenera w celu zezwolenia na dostęp anonimowy klienci mogą odczytywać dane w tym kontenerze bez autoryzowania żądania.
+Usługa Azure Storage obsługuje opcjonalny anonimowy dostęp do odczytu dla kontenerów i obiektów BLOB. Domyślnie dostęp anonimowy do danych jest nigdy niedozwolony. O ile jawnie nie włączysz dostępu anonimowego, wszystkie żądania do kontenera i jego obiektów BLOB muszą być autoryzowane. W przypadku skonfigurowania ustawienia publicznego poziomu dostępu kontenera w celu zezwolenia na dostęp anonimowy klienci mogą odczytywać dane w tym kontenerze bez autoryzowania żądania.
 
 > [!WARNING]
 > Gdy kontener jest skonfigurowany pod kątem dostępu publicznego, każdy klient może odczytywać dane w tym kontenerze. Dostęp publiczny stwarza potencjalne zagrożenie bezpieczeństwa, więc jeśli twój scenariusz nie jest wymagany, firma Microsoft zaleca, aby nie zezwalać na konto magazynu. Aby uzyskać więcej informacji, zobacz [zapobieganie Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB](anonymous-read-access-prevent.md).
@@ -41,7 +41,7 @@ W poniższej tabeli podsumowano, jak oba ustawienia mają wpływ na publiczny do
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Zezwalaj lub nie Zezwalaj na publiczny dostęp do odczytu dla konta magazynu
 
-Domyślnie dostęp publiczny jest dozwolony dla poszczególnych kontenerów na koncie magazynu. Jeśli dozwolony jest dostęp publiczny, użytkownik z odpowiednimi uprawnieniami może zmodyfikować ustawienie dostępu publicznego kontenera, aby umożliwić anonimowy dostęp publiczny do danych w tym kontenerze.
+Domyślnie konto magazynu jest skonfigurowane tak, aby zezwalać użytkownikowi z odpowiednimi uprawnieniami do włączania publicznego dostępu do kontenera. Jeśli dostęp publiczny jest dozwolony, użytkownik z odpowiednimi uprawnieniami może zmodyfikować ustawienie dostępu publicznego kontenera, aby umożliwić anonimowy dostęp publiczny do danych w tym kontenerze. Dane obiektów BLOB nigdy nie są dostępne do publicznego dostępu, chyba że użytkownik wykona dodatkowy krok, aby jawnie skonfigurować ustawienie dostępu publicznego kontenera.
 
 Należy pamiętać, że publiczny dostęp do kontenera jest zawsze domyślnie wyłączony i musi być jawnie skonfigurowany do zezwalania na żądania anonimowe. Niezależnie od ustawienia na koncie magazynu Twoje dane nigdy nie będą dostępne do publicznego dostępu, chyba że użytkownik z odpowiednimi uprawnieniami podejmie ten dodatkowy krok w celu włączenia publicznego dostępu do kontenera.
 

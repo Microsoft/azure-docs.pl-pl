@@ -4,15 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii NCv2.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bc1948adeeb7988c7e1aabb276d2f2f79b93cdc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f7d4403fa480aa03868df5a0daa09e54ce8ecda7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085371"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286227"
 ---
 # <a name="ncv2-series"></a>Seria NCv2
 

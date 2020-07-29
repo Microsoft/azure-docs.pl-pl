@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367405"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -204,7 +204,7 @@ Zespół ds. zabezpieczeń wymaga wglądu w zasoby platformy Azure w celu oceny 
 Za pomocą [RBAC](/azure/role-based-access-control/overview) można przypisywać uprawnienia użytkownikom, grupom i aplikacjom w określonym zakresie. Zakresem przypisania roli może być subskrypcja, grupa zasobów lub pojedynczy zasób.
 
 **Najlepsze rozwiązanie**: Rozdzielenie obowiązków w zespole i przyznanie dostępu użytkownikom, których potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu dostępowi do subskrypcji lub zasobów platformy Azure, Zezwól tylko na określone akcje w określonym zakresie.
-**Szczegóły**: do przypisywania uprawnień użytkownikom można używać [wbudowanych ról RBAC](/azure/role-based-access-control/built-in-roles) na platformie Azure.
+**Szczegóły**: do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](/azure/role-based-access-control/built-in-roles) na platformie Azure.
 
 > [!Note]
 > Określone uprawnienia tworzą niepotrzebną złożoność i nieporozumień, co jest trudne do naprawienia, ponieważ nie ma obaw o rozdzielenie czegoś. Unikaj uprawnień specyficznych dla zasobów. Zamiast tego należy użyć grup zarządzania dla uprawnień w całej firmie i grup zasobów dla uprawnień w ramach subskrypcji. Unikaj uprawnień specyficznych dla użytkownika. Zamiast tego przypisz dostęp do grup w usłudze Azure AD.

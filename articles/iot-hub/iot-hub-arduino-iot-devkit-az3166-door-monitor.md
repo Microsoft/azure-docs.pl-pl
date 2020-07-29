@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75977297"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337878"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor drzwi — używanie Azure Functions i SendGrid, wysyłanie wiadomości e-mail po otwarciu drzwi           
 
@@ -29,7 +30,7 @@ W tym projekcie dowiesz się:
 > - Zainstaluj magnes do krawędzi drzwi.
 > - Zainstaluj DevKit na drzwiach jamb blisko magnesu. Otwarcie lub zamknięcie drzwi spowoduje wyzwolenie czujnika, co spowodowało odebranie powiadomienia e-mail o zdarzeniu.
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
 Zakończ [przewodnik wprowadzenie](iot-hub-arduino-iot-devkit-az3166-get-started.md) , aby:
 
@@ -172,7 +173,7 @@ VS Code następnie zacznie weryfikować i przekazywać szkic Arduino do DevKit.
 
 ![przekazywanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
-DevKit wykonuje ponowny rozruch i uruchamia kod.
+Zestaw deweloperski wykonuje ponowny rozruch i uruchamia kod.
 
 > [!NOTE]
 > Czasami może zostać wyświetlony komunikat o błędzie "błąd: AZ3166: nieznany pakiet". Ten błąd występuje, gdy indeks pakietu tablicy nie został poprawnie odświeżony. Aby rozwiązać ten problem, zapoznaj się z [sekcją opracowywanie często ZAdawanych pytań dotyczących IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -196,7 +197,4 @@ Jeśli wystąpią problemy, zapoznaj się z tematem [często zadawanych pytań d
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wiesz już, jak podłączyć urządzenie DevKit do akceleratora rozwiązania do monitorowania zdalnego usługi Azure IoT i użyć usługi SendGrid do wysłania wiadomości e-mail. Poniżej przedstawiono sugerowane następne kroki:
-
-* [Omówienie akceleratora rozwiązań do monitorowania zdalnego usługi Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją usługi Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+Wiesz już, jak podłączyć urządzenie DevKit do akceleratora rozwiązania do monitorowania zdalnego usługi Azure IoT i użyć usługi SendGrid do wysłania wiadomości e-mail. Oto sugerowany następny krok:[Omówienie akceleratora rozwiązań zdalnego monitorowania usługi Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

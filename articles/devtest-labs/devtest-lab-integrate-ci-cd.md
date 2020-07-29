@@ -3,12 +3,12 @@ title: Integruj Azure DevTest Labs z Azure Pipelines
 description: Dowiedz się, jak zintegrować Azure DevTest Labs z Azure Pipelines ciągłą integrację i potoku dostarczania
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480579"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288932"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integracja Azure DevTest Labs Azure Pipelines z potokiem ciągłej integracji/ciągłego wdrażania
 
@@ -218,5 +218,5 @@ Możesz użyć obrazu niestandardowego do tworzenia maszyn wirtualnych za każdy
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [tworzyć środowiska z obsługą wielu maszyn wirtualnych za pomocą szablonów Menedżer zasobów](devtest-lab-create-environment-from-arm.md).
 - Zapoznaj się z wieloma przewodnikami szybki Menedżer zasobów Start dla usługi DevTest Labs, które są dostępne w [repozytorium GitHub DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-- W razie potrzeby Zobacz stronę [Rozwiązywanie problemów z usługą Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) .
+- W razie potrzeby Zobacz stronę [Rozwiązywanie problemów z usługą Azure DevOps](/azure/devops/pipelines/troubleshooting) .
  

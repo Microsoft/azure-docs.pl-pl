@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287808"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -48,7 +48,7 @@ Upewnienie się, że aplikacja jest wystarczająco odporna na obsługę odmowy u
 
 Skalowalność to szybkość, z jaką system może obsłużyć większe obciążenie. Zaprojektuj aplikacje w celu [skalowania w poziomie](/azure/architecture/guide/design-principles/scale-out) , aby spełnić zapotrzebowanie na rozbudowane obciążenie, w zależności od przypadku ataku DDoS. Jeśli aplikacja zależy od pojedynczego wystąpienia usługi, tworzy single point of failure. Inicjowanie obsługi wielu wystąpień systemu sprawia, że system jest bardziej odporny i bardziej skalowalny.
 
-W obszarze [Azure App Service](/azure/app-service/app-service-value-prop-what-is)wybierz [Plan App Service](/azure/app-service/overview-hosting-plans) , który oferuje wiele wystąpień. W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](/azure/cloud-services/cloud-services-choose-me). W przypadku [usługi Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)upewnij się, że architektura maszyny wirtualnej (VM) zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](/azure/virtual-machines/virtual-machines-windows-manage-availability). Zalecamy używanie [zestawów skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) do obsługi funkcji skalowania automatycznego.
+W obszarze [Azure App Service](/azure/app-service/app-service-value-prop-what-is)wybierz [Plan App Service](/azure/app-service/overview-hosting-plans) , który oferuje wiele wystąpień. W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](/azure/cloud-services/cloud-services-choose-me). W przypadku [usługi Azure Virtual Machines](../../virtual-machines/index.yml)upewnij się, że architektura maszyny wirtualnej (VM) zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](../../virtual-machines/windows/tutorial-availability-sets.md). Zalecamy używanie [zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) do obsługi funkcji skalowania automatycznego.
 
 ### <a name="defense-in-depth"></a>Ochrona w głębi systemu
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129733"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367440"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami
 
@@ -20,11 +20,11 @@ Usługa Azure Digital bliźniaczych reprezentacji jest zwykle używana razem z i
 
 ## <a name="data-ingress"></a>Dane wejściowe
 
-Usługa Azure Digital bliźniaczych reprezentacji może być oparta na danych z IoT Hub. Dzięki temu można zbierać dane telemetryczne z urządzeń fizycznych w środowisku i przetwarzać je przy użyciu grafu Digital bliźniaczych reprezentacji na platformie Azure w chmurze.
+Usługa Azure Digital bliźniaczych reprezentacji może być oparta na danych i zdarzeniach z dowolnej usługi — IoT Hub, Logic Apps, własnej usługi niestandardowej i nie tylko. Dzięki temu można zbierać dane telemetryczne z urządzeń fizycznych w środowisku i przetwarzać je przy użyciu grafu Digital bliźniaczych reprezentacji na platformie Azure w chmurze.
 
 Usługa Azure Digital bliźniaczych reprezentacji nie ma wbudowanej IoT Hub. Możesz użyć istniejącego IoT Hub obecnie w środowisku produkcyjnym lub wdrożyć nowy. Zapewnia to pełen dostęp do wszystkich możliwości zarządzania urządzeniami IoT Hub.
 
-Aby pozyskać dane z IoT Hub do usługi Azure Digital bliźniaczych reprezentacji, użyj [funkcji platformy Azure](../azure-functions/functions-overview.md). Dowiedz się więcej o tym wzorcu w instrukcje: pozyskiwanie danych [*telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)lub wypróbuj je w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
+Aby pozyskać dane z dowolnego źródła w usłudze Azure Digital bliźniaczych reprezentacji, użyj [funkcji platformy Azure](../azure-functions/functions-overview.md). Dowiedz się więcej o tym wzorcu w instrukcje: pozyskiwanie danych [*telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)lub wypróbuj je w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Usługi danych wychodzących
 
