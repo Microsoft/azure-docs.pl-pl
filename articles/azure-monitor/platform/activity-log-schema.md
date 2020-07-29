@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073668"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327280"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
 [Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
@@ -31,10 +31,10 @@ Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która zosta
 |:---|:---|
 | [Administracyjny](#administrative-category) | Zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwania i akcji wykonywanych za pomocą Menedżer zasobów. Przykłady zdarzeń administracyjnych obejmują _Utwórz maszynę wirtualną_ i _Usuń sieciową grupę zabezpieczeń_.<br><br>Każda Akcja podejmowana przez użytkownika lub aplikację przy użyciu Menedżer zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest _zapis_, _usuwanie_lub _Akcja_, rekordy zarówno rozpoczęcia, jak i sukcesu lub niepowodzenia tej operacji są rejestrowane w kategorii administracyjnej. Zdarzenia administracyjne zawierają również wszelkie zmiany w ramach kontroli dostępu opartej na rolach w ramach subskrypcji. |
 | [Kondycja usługi](#service-health-category) | Zawiera rekord wszystkich zdarzeń związanych z kondycją usług, które wystąpiły na platformie Azure. Przykładem zdarzenia Service Health _SQL Azure w regionie Wschodnie stany USA występuje przestój_. <br><br>Service Health zdarzenia są dostępne w sześciu odmianach: _wymagane działanie_, _pomocne odzyskiwanie_, _incydent_, _konserwacja_, _informacje_lub _zabezpieczenia_. Te zdarzenia są tworzone tylko wtedy, gdy w subskrypcji znajduje się zasób, na który wpłynie zdarzenie.
-| [Resource Health](#resource-health-category) | Zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów, które wystąpiły w Twoich zasobach platformy Azure. Przykładem zdarzenia Resource Health jest _stan kondycji maszyny wirtualnej zmieniony na niedostępny_.<br><br>Zdarzenia Resource Health mogą reprezentować jeden z czterech stanów kondycji: _dostępne_, _niedostępne_, _obniżone_i _nieznane_. Ponadto zdarzenia Resource Health mogą być kategoryzowane jako _zainicjowane przez platformę_ lub _zainicjowane przez użytkownika_. |
+| [Kondycja zasobów](#resource-health-category) | Zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów, które wystąpiły w Twoich zasobach platformy Azure. Przykładem zdarzenia Resource Health jest _stan kondycji maszyny wirtualnej zmieniony na niedostępny_.<br><br>Zdarzenia Resource Health mogą reprezentować jeden z czterech stanów kondycji: _dostępne_, _niedostępne_, _obniżone_i _nieznane_. Ponadto zdarzenia Resource Health mogą być kategoryzowane jako _zainicjowane przez platformę_ lub _zainicjowane przez użytkownika_. |
 | [Alert](#alert-category) | Zawiera rekord aktywacji dla alertów platformy Azure. Przykładem zdarzenia alertu jest _użycie procesora CPU w systemie 80 myVM w ciągu ostatnich 5 minut_.|
 | [Automatyczne skalowanie](#autoscale-category) | Zawiera rekord wszystkich zdarzeń związanych z działaniem aparatu skalowania automatycznego na podstawie wszelkich ustawień automatycznego skalowania zdefiniowanych w ramach subskrypcji. Przykładem zdarzenia automatycznego skalowania jest _Akcja skalowania automatycznego w górę_. |
-| [Rekomendacja](#recommendation-category) | Zawiera zdarzenia rekomendacji z Azure Advisor. |
+| [Zalecenie](#recommendation-category) | Zawiera zdarzenia rekomendacji z Azure Advisor. |
 | [Bezpieczeństwo](#security-category) | Zawiera rekord wszystkich alertów wygenerowanych przez Azure Security Center. Przykład zdarzenia zabezpieczeń to _podejrzany plik o podwójnym rozszerzeniu_. |
 | [Zasady](#policy-category) | Zawiera rekordy wszystkich operacji akcji wykonywanych przez Azure Policy. Przykłady zdarzeń zasad obejmują _inspekcję_ i _odmowę_. Wszystkie akcje podejmowane przez zasady są modelowane jako operacje na zasobach. |
 
@@ -137,7 +137,7 @@ Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwa
 | dyplomatyczn |Jedna z następujących wartości: "admin", "Operation" |
 | oświadczenia |Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
 | correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
-| description |Tekst statyczny opisu zdarzenia. |
+| description (opis) |Tekst statyczny opisu zdarzenia. |
 | eventDataId |Unikatowy identyfikator zdarzenia. |
 | eventName | Przyjazna nazwa zdarzenia administracyjnego. |
 | category | Zawsze "administracyjne" |
@@ -281,7 +281,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów
 | --- | --- |
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Opis tekstu statycznego zdarzenia alertu. |
+| description (opis) |Opis tekstu statycznego zdarzenia alertu. |
 | eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "ResourceHealth" |
 | eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
@@ -376,7 +376,7 @@ Ta kategoria zawiera rekord wszystkich aktywacji klasycznych alertów platformy 
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu alertów. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Opis tekstu statycznego zdarzenia alertu. |
+| description (opis) |Opis tekstu statycznego zdarzenia alertu. |
 | eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "Alert" |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
@@ -486,7 +486,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z działaniem aparat
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu skalowania automatycznego. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Tekst statyczny opisu zdarzenia skalowania automatycznego. |
+| description (opis) |Tekst statyczny opisu zdarzenia skalowania automatycznego. |
 | eventDataId |Unikatowy identyfikator zdarzenia skalowania automatycznego. |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
 | resourceGroupName |Nazwa grupy zasobów dla ustawienia skalowania automatycznego. |
@@ -574,7 +574,7 @@ Ta kategoria zawiera rekordy wszystkich alertów wygenerowanych przez Azure Secu
 | --- | --- |
 | dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis zdarzenia zabezpieczeń. |
+| description (opis) |Statyczny opis zdarzenia zabezpieczeń. |
 | eventDataId |Unikatowy identyfikator zdarzenia zabezpieczeń. |
 | eventName |Przyjazna nazwa zdarzenia zabezpieczeń. |
 | category | Zawsze "zabezpieczenia" |
@@ -655,7 +655,7 @@ Ta kategoria zawiera rejestr wszelkich nowych zaleceń, które są generowane dl
 | --- | --- |
 | dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Tekst statyczny opisu zdarzenia rekomendacji |
+| description (opis) |Tekst statyczny opisu zdarzenia rekomendacji |
 | eventDataId | Unikatowy identyfikator zdarzenia rekomendacji. |
 | category | Zawsze "rekomendacja" |
 | ID |Unikatowy identyfikator zasobu zdarzenia rekomendacji. |
@@ -768,7 +768,7 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 | dyplomatyczn | Zdarzenia zasad używają tylko kanału operacji. |
 | oświadczenia | Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
 | correlationId | Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
-| description | To pole jest puste dla zdarzeń zasad. |
+| description (opis) | To pole jest puste dla zdarzeń zasad. |
 | eventDataId | Unikatowy identyfikator zdarzenia. |
 | eventName | "BeginRequest" lub "EndRequest". "BeginRequest" jest używany w przypadku opóźnionych ocen auditIfNotExists i deployIfNotExists oraz kiedy efekt deployIfNotExists uruchamia wdrożenie szablonu. Wszystkie inne operacje zwracają wartość "EndRequest". |
 | category | Deklaruje zdarzenie dziennika aktywności jako należące do "zasad". |
@@ -796,7 +796,7 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](./resource-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
 
 > [!IMPORTANT]
-> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](./resource-logs-append-blobs.md) .
+> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](/azure/azure-monitor/platform/resource-logs-blob-format) .
 
 
 | Właściwości schematu dzienników zasobów | Właściwość schematu interfejsu API REST dziennika aktywności | Uwagi |
@@ -807,13 +807,13 @@ Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do kon
 | category | Część nazwy operacji | Zagadnień typu operacji — "Write"/"Delete"/"Action" |
 | resultType | status. Value | |
 | resultSignature | Substatus. wartość | |
-| resultDescription | description |  |
-| durationMs | Nie dotyczy | Zawsze 0 |
+| resultDescription | description (opis) |  |
+| durationMs | Brak | Zawsze 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | Właściwości oświadczeń i autoryzacji |  |
 | Poziom | Poziom |  |
-| location | Nie dotyczy | Lokalizacja, w której zdarzenie zostało przetworzone. *Nie jest to lokalizacja zasobu, ale zamiast tego, gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
+| location | Brak | Lokalizacja, w której zdarzenie zostało przetworzone. *Nie jest to lokalizacja zasobu, ale zamiast tego, gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
 | Właściwości | Właściwości. eventProperties |  |
 | Właściwości. eventCategory | category | Jeśli właściwość. eventCategory nie istnieje, kategoria ma wartość "Administrative" |
 | Właściwości. EventName | eventName |  |
@@ -885,3 +885,4 @@ Poniżej znajduje się przykład zdarzenia korzystającego z tego schematu.
 ## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o dzienniku aktywności](platform-logs-overview.md)
 * [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](diagnostic-settings.md)
+

@@ -6,13 +6,13 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d77b54d5dc20725ba93df82b0a475359c4dfa2b0
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 760dcd4284ea1988f57b3f7913cbdc23c1415790
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323251"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia, konfigurowania, wdrażan
 
 ![Aplikacja ze sprężyną rozruchową przechowująca dane w Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych Cosmos DB
@@ -34,7 +34,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview) zainstalowany na własnym komputerze. 
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)
 
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby utworzyć bazę danych Azure Cosmos DB w ramach
 
 ## <a name="configure-the-todo-app-properties"></a>Konfigurowanie właściwości aplikacji TODO
 
-Otwórz okno terminalu na komputerze. Skopiuj przykładowy plik skryptu w sklonowanym repozytorium, aby można go było dostosować do właśnie utworzonej bazy danych Cosmos DB.
+Otwórz terminal na swoim komputerze. Skopiuj przykładowy plik skryptu w sklonowanym repozytorium, aby można go było dostosować do właśnie utworzonej bazy danych Cosmos DB.
 
 ```bash
 cd initial/spring-todo-app
@@ -297,7 +297,7 @@ az appservice plan update --number-of-workers 2 \
    --resource-group <your-azure-group-name>
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie potrzebujesz tych zasobów w innym samouczku (zobacz [Następne kroki](#next)), możesz je usunąć, uruchamiając następujące polecenie w usłudze Cloud Shell: 
   

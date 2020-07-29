@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 25a93377c1594fd1f45229ed2d837f02e9c0a46b
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 05fc7a7a5bd7e045125cb303e1f5c29d550c58ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323676"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Szybki Start: Tworzenie bazy danych grafu przy użyciu zestawu Java SDK i interfejsu API Azure Cosmos DB Gremlin
 
@@ -41,7 +41,7 @@ Przed utworzeniem bazy danych grafów musisz utworzyć konto bazy danych Gremlin
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Dodawanie grafu
+## <a name="add-a-graph"></a>Dodawanie wykresu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -230,7 +230,7 @@ Na tym kończy się część tego samouczka poświęcona tworzeniu zasobów. Mo�
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

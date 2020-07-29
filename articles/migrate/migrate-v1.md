@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080866"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306115"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -85,7 +85,7 @@ Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprze
 
 Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej.
 
-**Gotowość** | **Stan** | **Szczegóły**
+**Gotowość** | **State** | **Szczegóły**
 --- | --- | ---
 Gotowa na platformę Azure | Brak problemów ze zgodnością. Maszynę można migrować na platformę Azure i uruchamiać ją na platformie Azure z pełną pomocą techniczną platformy Azure. | W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure.
 Warunkowo gotowa na platformę Azure | Komputer może przeprowadzić rozruch na platformie Azure, ale może nie mieć pełnej pomocy technicznej platformy Azure. Na przykład maszyna ze starszą wersją systemu Windows Server, która nie jest obsługiwana na platformie Azure. | Azure Migrate objaśnia problemy z gotowością i zawiera czynności zaradcze.
@@ -127,7 +127,7 @@ Klient z systemem Windows 7, 8 i 10 | Platforma Azure zapewnia pomoc techniczną
 Windows 10 Pro Desktop | Platforma Azure zapewnia pomoc techniczną z [wielodostępnymi prawami hostingu.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Warunkowo gotowa na platformę Azure
 Windows Vista, XP Professional | Poza wsparciem. Komputer może przeprowadzić rozruch na platformie Azure, ale nie ma pomocy technicznej systemu operacyjnego na platformie Azure. | Warunkowo gotowa na platformę Azure zaleca się uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 Linux | System Azure poświadcza te [systemy operacyjne Linux](../virtual-machines/linux/endorsed-distros.md). Inne systemy operacyjne Linux mogą zostać uruchomione na platformie Azure, ale zalecamy uaktualnienie systemu operacyjnego do wersji zatwierdzonej przed przeprowadzeniem migracji na platformę Azure. | Gotowe na platformę Azure, jeśli wersja jest zatwierdzona.<br/><br/>Warunkowo gotowe, jeśli wersja nie jest zatwierdzona.
-Inne systemy operacyjne<br/><br/> Na przykład Oracle Solaris, Apple Mac OS itp., FreeBSD itp. | Na platformie Azure nie są zatwierdzona te systemy operacyjne. Komputer może przeprowadzić rozruch na platformie Azure, ale nie ma pomocy technicznej systemu operacyjnego na platformie Azure. | Warunkowo gotowa na platformę Azure zaleca się zainstalowanie obsługiwanego systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.  
+Inne systemy operacyjne<br/><br/> Na przykład Oracle Solaris, Apple macOS itp., FreeBSD itp. | Na platformie Azure nie są zatwierdzona te systemy operacyjne. Komputer może przeprowadzić rozruch na platformie Azure, ale nie ma pomocy technicznej systemu operacyjnego na platformie Azure. | Warunkowo gotowa na platformę Azure zaleca się zainstalowanie obsługiwanego systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.  
 System operacyjny określony jako **inny** w vCenter Server | W takim przypadku Azure Migrate nie może zidentyfikować systemu operacyjnego. | Nieznane gotowość. Upewnij się, że system operacyjny działający na maszynie wirtualnej jest obsługiwany na platformie Azure.
 32-bitowe systemy operacyjne | Komputer może przeprowadzić rozruch na platformie Azure, ale platforma Azure może nie zapewniać pełnej pomocy technicznej. | Warunkowo gotowa na platformę Azure Rozważ uaktualnienie systemu operacyjnego maszyny z 32-bitowego systemu operacyjnego do 64-bitowego systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 
@@ -210,7 +210,7 @@ Aby użyć wizualizacji zależności, należy skojarzyć obszar roboczy Log Anal
 1. Aby dołączyć Log Analytics obszar roboczy do projektu, w obszarze **omówienie**> **Essentials**kliknij pozycję **wymaga konfiguracji**.
 2. Można utworzyć nowy obszar roboczy lub dołączyć istniejący:
   - Aby utworzyć nowy obszar roboczy, określ nazwę. Obszar roboczy jest tworzony w regionie w tej samej lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) co projekt migracji.
-  - Po dołączeniu istniejącego obszaru roboczego możesz wybrać wszystkie dostępne obszary robocze w tej samej subskrypcji co projekt migracji. Na liście są wyświetlane tylko te obszary robocze, które zostały utworzone w [obsługiwanym Service map regionie](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Aby dołączyć obszar roboczy, upewnij się, że masz dostęp do obszaru roboczego "czytelnik".
+  - Po dołączeniu istniejącego obszaru roboczego możesz wybrać wszystkie dostępne obszary robocze w tej samej subskrypcji co projekt migracji. Na liście są wyświetlane tylko te obszary robocze, które zostały utworzone w [obsługiwanym Service map regionie](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Aby dołączyć obszar roboczy, upewnij się, że masz dostęp do obszaru roboczego "czytelnik".
 
 > [!NOTE]
 > Nie można zmienić obszaru roboczego skojarzonego z projektem migracji.

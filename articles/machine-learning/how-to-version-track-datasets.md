@@ -5,17 +5,18 @@ description: Dowiedz się, jak najlepiej określić wersję zestawów danych i j
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 58458c4a4e5ff1317ef740208a7d7ff9f6fa925c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325750"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

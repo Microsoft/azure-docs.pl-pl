@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282487"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria wtyczek Azure Media Player #
 
@@ -20,7 +20,7 @@ ms.locfileid: "84263741"
 | Nazwa wtyczki                         | Adres URL pokazu                    | Kod źródłowy                | Opis    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Dodatkowe funkcje                 | | | |
-| **Nowy!** AMP360Video                | [Wersja demonstracyjna](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Wtyczka pozwala wizualizować 360 wideo w amp na komputerze lub na urządzeniach zgodnych z VR. Pełna dokumentacja jest dostępna [tutaj](https://doc\.babylonjs\.com/extensions/amp360video): |
+| **Nowy!** AMP360Video                | [Wersja demonstracyjna](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Wtyczka pozwala wizualizować 360 wideo w amp na komputerze lub na urządzeniach zgodnych z VR. Pełna dokumentacja jest dostępna [tutaj](https://doc.babylonjs.com/extensions/amp360video): |
 |  Etykietka Sprite                         | [Wersja demonstracyjna](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Wtyczka Azure Media Player (AMP) do renderowania osi czasu miniatury obrazu wideo, który jest generowany na podstawie Azure Media Services (AMS) Media Encoder Standard (MES). |
 | Nakładka diagnostyki                 | [Wersja demonstracyjna](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Ta wtyczka jest wyświetlana: wszystkie parametry klucza, statystyki wideo, wszystkie zdarzenia w cyklu życia odtwarzania wideo i informacje o ochronie DRM, takie jak identyfikator klucza, adresy URL pozyskiwania licencji, jeśli są chronione.                                                                                                                                                                      |
 | Szybkość klatek i Kalkulator Timecode | Pokaz nie jest dostępny | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Ta wtyczka służy do obliczania współczynnika klatek wideo na podstawie `tfhd` / `trun` pól MP4 pierwszego fragmentu wideo MPEG-pauzowego, analizy wartości skali czasu z manifestu klienta MPEG-myślnik, a także umożliwia wygenerowanie Timecode dla danego czasu bezwzględnego z odtwarzacza (a także zapewnia bezwzględny czas odtwarzacza w przypadku Timecode). |
@@ -30,14 +30,14 @@ ms.locfileid: "84263741"
 | Znaczniki osi czasu                    | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Ta wtyczka zabiera tablicę razy i nakłada małe znaczniki na pasek postępu w tych godzinach. |
 | Analiza                           | | | |
 | Application Insights                | [Wpis w blogu](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Wtyczka, która śledzi metryki odtwarzacza i porty, aby Power BI intuicyjną graficzną reprezentację środowiska odtwarzacza przeglądający. |
-| Google Analytics                    | Nie dotyczy                         | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-google-analytics-plugin)                     | Wtyczka usługi Google Analytics dla Azure Media Player |
+| Google Analytics                    | Brak                         | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-google-analytics-plugin)                     | Wtyczka usługi Google Analytics dla Azure Media Player |
 | Diagnostyka                         | | | |
 | Dane wyjściowe diagnostyki                  | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/diagnosticslogger/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-diagnostic-logger-plugin)                     | Ta wtyczka wyświetla tablicę diagnostyki, aby zobaczyć ją w akcji przejdź do linku demonstracyjnego i otworzyć konsolę JavaScript. |
 | Ułatwienia dostępu                      | | | |
 | Powiększ                             | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/zoom/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-zoom-plugin)                     | Ta wtyczka pokazuje skalę skalowania w poziomie na ekranie odtwarzaczy, dzięki czemu przeglądający mogą powiększać zawartość |
-| Napisy na żywo                       | [Wpis w blogu platformy Azure](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/),[wpis SubPly](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | Nie dotyczy | *Aby uzyskać więcej informacji, zobacz wpis post.* Kompleksowy przepływ pracy zaprojektowany z myślą o wbudowanej usłudze Live Captions dla Azure Media Player, kliknij link z lewej strony, aby przejść do witryny SubPly i dowiedzieć się więcej o rozwiązaniu |
+| Napisy na żywo                       | [Wpis w blogu platformy Azure](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/),[wpis SubPly](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | Brak | *Aby uzyskać więcej informacji, zobacz wpis post.* Kompleksowy przepływ pracy zaprojektowany z myślą o wbudowanej usłudze Live Captions dla Azure Media Player, kliknij link z lewej strony, aby przejść do witryny SubPly i dowiedzieć się więcej o rozwiązaniu |
 | Klawisze dostępu                            | <strike>[Demonstracja](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)</strike>                        | <strike>[GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-hot-keys-plugin)</strike>                     | Wtyczka klawisze dostępu pozwala użytkownikom kontrolować różne aspekty odtwarzacza z ogólnymi kombinacjami wtyczek, takimi jak F for pełnoekranowego, M dla wyciszenia i klawiszy strzałek dla kontrolki pasek postępu. *Uwaga: Ta wtyczka została już zintegrowana z AMP, ale śmiało, aby używać jej jako zasobu* |
-| Społeczności                              | | | |
+| Funkcje społecznościowe                              | | | |
 | Udostępnij                               | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/share/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-social-share-plugin)                     | Ta wtyczka dodaje przycisk udostępniania do paska sterowania odtwarzacza, dzięki czemu przeglądający mogą udostępniać wideo, które są oglądane dla znajomych za pośrednictwem serwisu Facebook, Twitter lub LinkedIn. |
 
 ## <a name="next-steps"></a>Następne kroki ##

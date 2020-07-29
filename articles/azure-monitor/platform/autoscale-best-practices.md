@@ -4,12 +4,12 @@ description: Automatyczne skalowanie wzorców na platformie Azure dla Web Apps, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327059"
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine 
   Ustawienie skalowania automatycznego ma wartość maksymalną, minimalną i domyślną dla wystąpień.
 * Zadanie automatycznego skalowania zawsze odczytuje skojarzoną metrykę do skalowania przez, sprawdzając, czy przekroczy skonfigurowany próg skalowania w poziomie lub w poziomie. Możesz wyświetlić listę metryk, które Skalowanie automatyczne może skalować, w [Azure monitor często spotykane metryki](autoscale-common-metrics.md).
 * Wszystkie progi są obliczane na poziomie wystąpienia. Na przykład "Skaluj w poziomie o jedno wystąpienie, gdy średniej procesora > 80%, gdy liczba wystąpień wynosi 2", oznacza skalowanie w poziomie, gdy średni czas CPU we wszystkich wystąpieniach jest większy niż 80%.
-* Wszystkie błędy automatycznego skalowania są rejestrowane w dzienniku aktywności. Następnie można skonfigurować [alert dziennika aktywności](./../../azure-monitor/platform/activity-log-alerts.md) , aby można było otrzymywać powiadomienia za pośrednictwem poczty e-mail, wiadomości SMS lub elementów webhook, gdy występuje błąd automatycznego skalowania.
+* Wszystkie błędy automatycznego skalowania są rejestrowane w dzienniku aktywności. Następnie można skonfigurować [alert dziennika aktywności](./activity-log-alerts.md) , aby można było otrzymywać powiadomienia za pośrednictwem poczty e-mail, wiadomości SMS lub elementów webhook, gdy występuje błąd automatycznego skalowania.
 * Podobnie wszystkie pomyślne akcje skalowania są ogłaszane w dzienniku aktywności. Następnie można skonfigurować alert dziennika aktywności, aby można było otrzymywać powiadomienia za pośrednictwem poczty e-mail, wiadomości SMS lub elementów webhook, gdy istnieje pomyślna akcja automatycznego skalowania. Możesz również skonfigurować powiadomienia e-mail lub elementy webhook, aby otrzymywać powiadomienia o pomyślnych akcjach skalowania za pośrednictwem karty powiadomienia w ustawieniu Skalowanie automatyczne.
 
 ## <a name="autoscale-best-practices"></a>Najlepsze rozwiązania dotyczące skalowania automatycznego
@@ -151,3 +151,4 @@ Oprócz korzystania z alertów dziennika aktywności można także skonfigurowa�
 ## <a name="next-steps"></a>Następne kroki
 - [Utwórz alert dziennika aktywności, aby monitorować wszystkie operacje aparatu automatycznego skalowania w ramach subskrypcji.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Tworzenie alertu dziennika aktywności w celu monitorowania wszystkich niezakończonych operacji skalowania automatycznego w poziomie w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

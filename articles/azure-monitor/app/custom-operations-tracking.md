@@ -4,12 +4,12 @@ description: Śledzenie operacji niestandardowych przy użyciu zestawu Azure App
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320378"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET
 
@@ -206,14 +206,14 @@ public async Task Process(BrokeredMessage message)
 Poniższy przykład przedstawia sposób śledzenia operacji w [kolejce usługi Azure Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md) i skorelowania telemetrii między producentem, klientem i usługą Azure Storage. 
 
 Kolejka magazynu ma interfejs API protokołu HTTP. Wszystkie wywołania kolejki są śledzone przez moduł zbierający zależności Application Insights dla żądań HTTP.
-Jest ona konfigurowana domyślnie w aplikacjach ASP.NET i ASP.NET Core, z innymi rodzajami aplikacji, można zapoznać się z [dokumentacją aplikacji konsolowych](../../azure-monitor/app/console.md)
+Jest ona konfigurowana domyślnie w aplikacjach ASP.NET i ASP.NET Core, z innymi rodzajami aplikacji, można zapoznać się z [dokumentacją aplikacji konsolowych](./console.md)
 
 Istnieje również możliwość skorelowania identyfikatora operacji Application Insights z IDENTYFIKATORem żądania magazynu. Aby uzyskać informacje na temat sposobu ustawiania i uzyskiwania klienta żądania magazynu oraz identyfikatora żądania serwera, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Dodawania
 Ponieważ kolejki magazynu obsługują interfejs API protokołu HTTP, wszystkie operacje z kolejką są automatycznie śledzone przez Application Insights. W wielu przypadkach ta Instrumentacja powinna być wystarczająca. Jednak aby skorelować ślady po stronie konsumenta ze śladami producenta, należy przekazać jakiś kontekst korelacji podobnie jak w protokole HTTP dla korelacji. 
 
-Ten przykład pokazuje, jak śledzić `Enqueue` operację. Dostępne możliwości:
+Ten przykład pokazuje, jak śledzić `Enqueue` operację. Można:
 
  - **Skorelowanie ponownych prób (jeśli istnieją)**: wszystkie mają jeden wspólny element nadrzędny, który jest `Enqueue` operacją. W przeciwnym razie są one śledzone jako elementy podrzędne żądania przychodzącego. Jeśli kolejka zawiera wiele żądań logicznych, może być trudne do znalezienia, które wywołanie spowodowało ponowną próbę.
  - **Skorelowanie dzienników magazynu (jeśli**są one i w razie konieczności): są skorelowane z Application Insights telemetrii.
@@ -478,8 +478,9 @@ Każda operacja Application Insights (żądanie lub zależność) obejmuje `Acti
 ## <a name="next-steps"></a>Następne kroki
 
 - Poznaj podstawy [korelacji telemetrii](correlation.md) w Application Insights.
-- Sprawdź, jak skorelowane dane mają wpływ na [środowisko diagnostyki transakcji](../../azure-monitor/app/transaction-diagnostics.md) i [mapę aplikacji](../../azure-monitor/app/app-map.md).
-- Zobacz [model danych](../../azure-monitor/app/data-model.md) dla typów Application Insights i modelu danych.
-- Zgłoś niestandardowe [zdarzenia i metryki](../../azure-monitor/app/api-custom-events-metrics.md) do Application Insights.
+- Sprawdź, jak skorelowane dane mają wpływ na [środowisko diagnostyki transakcji](./transaction-diagnostics.md) i [mapę aplikacji](./app-map.md).
+- Zobacz [model danych](./data-model.md) dla typów Application Insights i modelu danych.
+- Zgłoś niestandardowe [zdarzenia i metryki](./api-custom-events-metrics.md) do Application Insights.
 - Zapoznaj się z [konfiguracją](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standardową dla kolekcji właściwości kontekstu.
 - Sprawdź [Przewodnik użytkownika System. Diagnostics. Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby zobaczyć, jak skorelować dane telemetryczne.
+

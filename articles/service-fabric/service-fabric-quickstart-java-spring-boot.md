@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e2e511a8c3cd9f474d3cfb71d9ebdee9cfc48826
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 3fadd1fb4fdc12660b67d5d8bbb7b25251619cff
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253664"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320395"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Szybki Start: wdrażanie aplikacji do rozruchu ze sprężyną Java na platformie Azure Service Fabric
 
@@ -23,13 +23,13 @@ W tym przewodniku szybki start wdrożono aplikację rozruchu ze sprężyną Java
 
 - [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Service Fabric SDK & Service Fabric interfejs wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
-- [Git](https://git-scm.com/downloads)
+- [Narzędzia](https://git-scm.com/downloads)
 
 #### <a name="macos"></a>[MacOS](#tab/macos)
 
 - [Środowisko Java i narzędzia Yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric interfejs wiersza polecenia (CLI)](./service-fabric-cli.md#cli-mac)
-- [Git](https://git-scm.com/downloads)
+- [Narzędzia](https://git-scm.com/downloads)
 
 --- 
 
@@ -105,7 +105,7 @@ W katalogu *GS-Boot-rozruch/pełny* uruchom poniższe polecenie, aby skompilowa�
 
 Na tym etapie utworzono aplikację usługi Service Fabric dla przykładu Wprowadzenie środowiska Spring Boot, którą można wdrożyć w usłudze Service Fabric.
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 
 1. Uruchom klaster lokalny na maszynach z systemem Ubuntu, uruchamiając następujące polecenie:
 

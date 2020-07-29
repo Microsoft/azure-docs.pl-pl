@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525215"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171665"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -104,6 +104,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 07/23/2020: dodano [SAP HANA — duże wystąpienia zapisywania w artykule dotyczącym rezerwacji platformy Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) wyjaśniającym, co musisz wiedzieć przed zakupieniem SAP HANA — duże wystąpienia rezerwacji i sposobami zakupu.
 - 07/16/2020: opisz, jak używać Azure PowerShell, aby zainstalować nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP w [przewodniku wdrażania](deployment-guide.md)
 - 7/04/2020: wydanie [usługi Azure monitor dla rozwiązań SAP (wersja zapoznawcza)](./azure-monitor-overview.md)
 - 07/01/2020: sugerowanie tańszej konfiguracji magazynu w oparciu o funkcjonalność usługi Azure Premium Storage w dokumencie [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md) 

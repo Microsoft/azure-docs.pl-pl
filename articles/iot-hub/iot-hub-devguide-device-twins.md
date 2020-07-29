@@ -8,13 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.custom: mqtt
-ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327773"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Zrozumienie i używanie bliźniaczych reprezentacji urządzeń w IoT Hub
 
@@ -120,7 +122,7 @@ W poprzednim przykładzie sznurek urządzenia zawiera `batteryLevel` Właściwo�
 
 ### <a name="desired-property-example"></a>Przykład żądanej właściwości
 
-W poprzednim przykładzie `telemetryConfig` pożądane i zgłoszone właściwości są używane przez zaplecze rozwiązania oraz aplikację urządzenia do synchronizacji konfiguracji telemetrii dla tego urządzenia. Przykład:
+W poprzednim przykładzie `telemetryConfig` pożądane i zgłoszone właściwości są używane przez zaplecze rozwiązania oraz aplikację urządzenia do synchronizacji konfiguracji telemetrii dla tego urządzenia. Na przykład:
 
 1. Zaplecze rozwiązania ustawia odpowiednią właściwość o żądaną wartość konfiguracji. Poniżej znajduje się część dokumentu z żądanym zestawem właściwości:
 
@@ -199,7 +201,7 @@ Zaplecze rozwiązania działa na bliźniaczych urządzeniach przy użyciu nastę
 
   - Treść
         
-    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład
+    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Przykład:
 
     ```json
     {
@@ -308,7 +310,7 @@ IoT Hub odrzuca z powodu błędu wszystkie operacje, które spowodują zwiększe
 
 IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej sznurze urządzenia i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 
-Przykład:
+Na przykład:
 
 ```json
 {

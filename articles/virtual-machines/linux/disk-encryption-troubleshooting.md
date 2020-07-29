@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510484"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325206"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z maszynami wirtualnymi z systemem Linux Azure Disk Encryption
 
@@ -70,30 +70,54 @@ W niektórych przypadkach szyfrowanie dysku z systemem Linux jest prawdopodobnie
 
 Sekwencja szyfrowania dysków systemu operacyjnego Linux tymczasowo Odinstalowuje dysk systemu operacyjnego. Następnie wykonuje szyfrowanie całego dysku systemu operacyjnego przed jego ponownym zainstalowaniem w stanie zaszyfrowanego. Szyfrowanie dysków systemu Linux nie zezwala na współbieżne korzystanie z maszyny wirtualnej, gdy szyfrowanie jest w toku. Charakterystyka wydajności maszyny wirtualnej może spowodować znaczącą różnicę czasu wymaganego do ukończenia szyfrowania. Te cechy obejmują rozmiar dysku i czy konto magazynu jest magazynem standardowym lub Premium (SSD).
 
-Aby sprawdzić stan szyfrowania, należy wykonać sondowanie pola **komunikat dotyczący postępu** zwróconego za pomocą polecenia [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Gdy dysk systemu operacyjnego jest szyfrowany, maszyna wirtualna przechodzi w stan obsługi i wyłącza protokół SSH, aby zapobiec ewentualnemu zakłóceniowi trwającemu procesowi. Komunikat **EncryptionInProgress** jest raportowany przez większość czasu, podczas gdy szyfrowanie jest w toku. Kilka godzin później komunikat **VMRestartPending** monit o ponowne uruchomienie maszyny wirtualnej. Na przykład:
-
+Gdy dysk systemu operacyjnego jest szyfrowany, maszyna wirtualna przechodzi w stan obsługi i wyłącza protokół SSH, aby zapobiec ewentualnemu zakłóceniowi trwającemu procesowi.  Aby sprawdzić stan szyfrowania, użyj polecenia Azure PowerShell [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) i zaznacz pole **komunikat dotyczący postępu** . **Komunikat dotyczący postępu** będzie raportować serię Stanów, ponieważ dyski danych i systemu operacyjnego są szyfrowane:
 
 ```azurepowershell
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings :
+ProgressMessage            : Transitioning
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for data volumes
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Provisioning succeeded
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
-
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
-OsVolumeEncrypted          : VMRestartPending
-DataVolumesEncrypted       : Encrypted
-OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-Po wyświetleniu monitu o ponowne uruchomienie maszyny wirtualnej, gdy maszyna wirtualna zostanie ponownie uruchomiona, należy poczekać 2-3 minut na ponowny rozruch i w przypadku końcowych kroków, które mają zostać wykonane na elemencie docelowym. Komunikat o stanie zmienia się, gdy szyfrowanie jest ostatecznie zakończone. Po udostępnieniu tego komunikatu zaszyfrowaną dysk systemu operacyjnego będzie gotowy do użycia, a maszyna wirtualna będzie gotowa do użycia ponownie.
+**Komunikat dotyczący postępu** pozostanie na **dysku systemu operacyjnego uruchomionym** dla większości procesów szyfrowania.  Po zakończeniu szyfrowania i pomyślnym **komunikat dotyczący postępu** zwróci następujące polecenie:
 
-W następujących przypadkach zaleca się przywrócenie maszyny wirtualnej z powrotem do migawki lub kopii zapasowej wykonanej bezpośrednio przed szyfrowaniem:
-   - Jeśli sekwencja ponownego uruchamiania opisana wcześniej, nie wystąpi.
-   - Jeśli w trakcie tego procesu szyfrowanie systemu operacyjnego zakończyło się niepowodzeniem, w trakcie działania nie powiodło się, gdy wystąpił błąd w trakcie wykonywania tej operacji. Przykładem komunikatu jest błąd "nie można odinstalować" opisany w tym przewodniku.
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
 
-Przed kolejną próbą należy ponownie oszacować charakterystykę maszyny wirtualnej i upewnić się, że spełnione są wszystkie wymagania wstępne.
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NotMounted
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for all volumes
+```
+
+Po udostępnieniu tego komunikatu zaszyfrowaną dysk systemu operacyjnego będzie gotowy do użycia, a maszyna wirtualna będzie gotowa do użycia ponownie.
+
+Jeśli informacje o rozruchach, komunikat o postępie lub raporty o błędach, których szyfrowanie systemu operacyjnego zakończyło się niepowodzeniem w trakcie tego procesu, Przywróć maszynę wirtualną do migawki lub kopię zapasową wykonaną natychmiast przed szyfrowaniem. Przykładem komunikatu jest błąd "nie można odinstalować" opisany w tym przewodniku.
+
+Przed ponowną próbą szyfrowania należy ponownie oszacować charakterystykę maszyny wirtualnej i upewnić się, że spełnione są wszystkie wymagania wstępne.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Rozwiązywanie problemów Azure Disk Encryption za zaporą
 
@@ -101,11 +125,11 @@ Zobacz [szyfrowanie dysków w sieci izolowanej](disk-encryption-isolated-network
 
 ## <a name="troubleshooting-encryption-status"></a>Rozwiązywanie problemów ze stanem szyfrowania 
 
-W portalu może być wyświetlany dysk zaszyfrowany nawet po zaszyfrowaniu go w ramach maszyny wirtualnej.  Taka sytuacja może wystąpić, gdy polecenia niskiego poziomu są używane do bezpośredniego wyszyfrowania dysku z poziomu maszyny wirtualnej, a nie przy użyciu Azure Disk Encryption polecenia zarządzania wyższego poziomu.  Polecenia wyższego poziomu nie tylko deszyfrują dysk z maszyny wirtualnej, ale poza maszyną wirtualną również aktualizują ważne ustawienia szyfrowania na poziomie platformy i ustawienia rozszerzenia skojarzone z maszyną wirtualną.  Jeśli nie są one zachowane, platforma nie będzie mogła zgłosić stanu szyfrowania ani zainicjować obsługi maszyny wirtualnej.   
+W portalu może być wyświetlany dysk zaszyfrowany nawet po zaszyfrowaniu go w ramach maszyny wirtualnej.  Taka sytuacja może wystąpić, gdy polecenia niskiego poziomu są używane do bezpośredniego wyszyfrowania dysku z poziomu maszyny wirtualnej, a nie przy użyciu Azure Disk Encryption polecenia zarządzania wyższego poziomu.  Polecenia wyższego poziomu nie tylko deszyfrują dysk z maszyny wirtualnej, ale poza maszyną wirtualną również aktualizują ważne ustawienia szyfrowania na poziomie platformy i ustawienia rozszerzenia skojarzone z maszyną wirtualną.  Jeśli nie są one zachowane, platforma nie będzie mogła zgłosić stanu szyfrowania ani zainicjować obsługi maszyny wirtualnej.
 
 Aby wyłączyć Azure Disk Encryption za pomocą programu PowerShell, użyj polecenia [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) , a następnie polecenie [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Uruchomienie Remove-AzVMDiskEncryptionExtension przed wyłączeniem szyfrowania zakończy się niepowodzeniem.
 
-Aby wyłączyć Azure Disk Encryption przy użyciu interfejsu wiersza polecenia, użyj polecenie [AZ VM Encryption Disable](/cli/azure/vm/encryption). 
+Aby wyłączyć Azure Disk Encryption przy użyciu interfejsu wiersza polecenia, użyj polecenie [AZ VM Encryption Disable](/cli/azure/vm/encryption).
 
 ## <a name="next-steps"></a>Następne kroki
 

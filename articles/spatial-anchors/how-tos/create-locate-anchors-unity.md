@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a455da1de984b5394b1bf0aafbd29b61fb6b8dfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 281871b1ce9ac3928caeefc2cfb0cee644ea8e56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071344"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319086"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Jak utworzyć i zlokalizować kotwice przy użyciu kotwic Azure przestrzennego w środowisku Unity
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
-> * [Objective-C](create-locate-anchors-objc.md)
+> * [Obiektowy C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [System Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
@@ -158,7 +158,7 @@ Dowiedz się więcej o metodzie [ProcessFrame](https://docs.microsoft.com/dotnet
 Dowiedz się więcej na temat delegata [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) .
 
 ```csharp
-    this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
+    this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args) =>
     {
         var status = args.Status;
         if (status.UserFeedback == SessionUserFeedback.None) return;

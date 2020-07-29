@@ -12,11 +12,13 @@ ms.date: 06/28/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f0753827fe5f7f2b866726683d4cb1f205da4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-java
+ms.openlocfilehash: 38816b616179ec16e06e987f82b498085c34ba3f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732467"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327586"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Java)
 
@@ -28,7 +30,7 @@ W tym samouczku przedstawiono kod w oknie [wysyłanie komunikatów z chmury do u
 
 * Użyj powiadomień przekazywania plików IoT Hub, aby wyzwolić przetwarzanie pliku w zapleczu aplikacji.
 
-[Wysyłanie danych telemetrycznych z urządzenia do](quickstart-send-telemetry-java.md) przewodnika Szybki Start dotyczącego usługi IoT Hub i [wysyłanie komunikatów z chmury do urządzeń za pomocą](iot-hub-java-java-c2d.md) samouczka IoT Hub przedstawia podstawowe funkcje przesyłania komunikatów z urządzenia do chmury i IoT Hub z chmury do urządzenia. Samouczek [Konfigurowanie routingu komunikatów z IoT Hub](tutorial-routing.md) zawiera opis sposobu niezawodnego przechowywania komunikatów przesyłanych z urządzenia do chmury w usłudze Azure Blob Storage. Jednak w niektórych scenariuszach nie można łatwo zmapować danych wysyłanych przez urządzenia do bezwzględnie niewielkich komunikatów z urządzenia do chmury, które IoT Hub akceptowane. Przykład:
+[Wysyłanie danych telemetrycznych z urządzenia do](quickstart-send-telemetry-java.md) przewodnika Szybki Start dotyczącego usługi IoT Hub i [wysyłanie komunikatów z chmury do urządzeń za pomocą](iot-hub-java-java-c2d.md) samouczka IoT Hub przedstawia podstawowe funkcje przesyłania komunikatów z urządzenia do chmury i IoT Hub z chmury do urządzenia. Samouczek [Konfigurowanie routingu komunikatów z IoT Hub](tutorial-routing.md) zawiera opis sposobu niezawodnego przechowywania komunikatów przesyłanych z urządzenia do chmury w usłudze Azure Blob Storage. Jednak w niektórych scenariuszach nie można łatwo zmapować danych wysyłanych przez urządzenia do bezwzględnie niewielkich komunikatów z urządzenia do chmury, które IoT Hub akceptowane. Na przykład:
 
 * Duże pliki zawierające obrazy
 * Filmy wideo

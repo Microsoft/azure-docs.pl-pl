@@ -1,5 +1,5 @@
 ---
-title: Użyj Azure Portal, aby wywołać metody bezpośrednie
+title: Jak używać Azure Portal do wywoływania metod bezpośrednich
 description: Ten artykuł zawiera omówienie używania Azure Portal do wywoływania metod bezpośrednich.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.subservice: ''
 ms.workload: ''
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: ''
-ms.date: 07/21/2020
+ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1fa25210bc8e4dc9f20e49e90b8e71082edb12c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 763dd82c8263a5e180468f9fbd7f86526295a80d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172725"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279291"
 ---
-# <a name="tutorial-use-azure-portal-to-invoke-direct-methods"></a>Samouczek: używanie Azure Portal do wywoływania metod bezpośrednich
+# <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Jak używać Azure Portal do wywoływania metod bezpośrednich
 
 IoT Hub umożliwia wywoływanie [metod bezpośrednich](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules) na urządzeniach brzegowych z chmury. Usługa Live Video Analytics w IoT Edge (LVA) obejmuje kilka [metod bezpośrednich](/azure/media-services/live-video-analytics-edge/direct-methods) , których można użyć do definiowania, wdrażania i tworzenia wystąpienia różnych przepływów pracy na potrzeby analizowania wideo na żywo.
 
-W tym samouczku dowiesz się, jak wywoływać bezpośrednie wywołania metod na żywo analizy wideo dla modułu IoT Edge za pośrednictwem Azure Portal.
+W tym artykule dowiesz się, jak wywołać bezpośrednie wywołania metod na żywo analizy wideo dla modułu IoT Edge za pośrednictwem Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

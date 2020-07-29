@@ -9,21 +9,23 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e26c3fc9ec420596a4ec152f7f176e44acc7b4c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770044"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321670"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
 W tym samouczku użyjesz narzędzi portalu usługi Azure IoT Hub i poleceń interfejsu wiersza polecenia platformy Azure, aby przetestować łączność urządzeń. W tym samouczku został użyty również prosty symulator urządzenia działający na komputerze stacjonarnym.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -44,9 +46,9 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Uruchamiana w tym samouczku aplikacja symulatora urządzenia została napisana przy użyciu środowiska Node.js. Potrzebujesz środowiska Node. js v10. x. x lub nowszego na komputerze deweloperskim.
+Uruchamiana w tym samouczku aplikacja symulatora urządzenia została napisana przy użyciu środowiska Node.js. Potrzebujesz Node.js v10. x. x lub nowszego na komputerze deweloperskim.
 
-W programie Node. js można pobrać wiele platform z [NodeJS.org](https://nodejs.org).
+Node.js można pobrać dla wielu platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -161,7 +163,7 @@ Urządzenie zostało pomyślnie uwierzytelnione przy użyciu tokenu SAS wygenero
 
 Urządzenie może korzystać z dowolnego z następujących protokołów w celu nawiązania połączenia z centrum IoT:
 
-| Protocol (Protokół) | Port wychodzący |
+| Protokół | Port wychodzący |
 | --- | --- |
 | MQTT |8883 |
 | MQTT za pośrednictwem obiektów WebSocket |443 |

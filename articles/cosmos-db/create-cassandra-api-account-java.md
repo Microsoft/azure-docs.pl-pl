@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: e114bf3a87f3018cc51c5752d57ce5911053542f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: fa25d07ff034cec50da515341bd9ca604ee28577
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319188"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Samouczek: Tworzenie konta interfejs API Cassandra w Azure Cosmos DB przy użyciu aplikacji Java do przechowywania danych klucza/wartości
 
@@ -27,7 +27,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Pobieranie parametrów połączenia konta
 > * Tworzenie projektu Maven i zależności
 > * Dodawanie bazy danych i tabeli
-> * Uruchomienie aplikacji
+> * Uruchamianie aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -52,7 +52,7 @@ Ten samouczek obejmuje następujące zadania:
    |Interfejs API    |  Cassandra   |  Interfejs API określa typ konta do utworzenia. <br/> Wybierz pozycję **Cassandra**, ponieważ w tym artykule utworzysz bazę danych z szeroką kolumną, którą można zbadać przy użyciu składni Cassandra Query Language (CQL).  |
    |Subskrypcja    |  Twoja subskrypcja        |  Wybierz subskrypcję platformy Azure, która ma być używana dla tego konta usługi Azure Cosmos.        |
    |Grupa zasobów   | Wprowadź nazwę    |  Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta. Dla uproszczenia można użyć takiej samej nazwy jak identyfikator.    |
-   |Lokalizacja    |  Wybierz region najbliżej Twoich użytkowników    |  Wybierz lokalizację geograficzną, w której będzie hostowane Twoje konto usługi Azure Cosmos. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.    |
+   |Location    |  Wybierz region najbliżej Twoich użytkowników    |  Wybierz lokalizację geograficzną, w której będzie hostowane Twoje konto usługi Azure Cosmos. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Tworzenie konta za pomocą portalu":::
 
@@ -203,7 +203,7 @@ Ta sekcja zawiera opis sposobu dodawania bazy danych (przestrzeni kluczy) oraz t
    } 
    ```
  
-## <a name="run-the-app"></a>Uruchomienie aplikacji 
+## <a name="run-the-app"></a>Uruchamianie aplikacji 
 
 1. Otwórz wiersz polecenia lub okno terminala. Wklej poniższy blok kodu. 
 

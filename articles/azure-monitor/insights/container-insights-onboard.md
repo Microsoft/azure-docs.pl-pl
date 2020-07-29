@@ -3,12 +3,12 @@ title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320310"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
 
@@ -28,7 +28,7 @@ Można włączyć Azure Monitor dla kontenerów dla nowego wdrożenia lub dla je
 - Witryna Azure Portal
 - Azure PowerShell
 - Interfejs wiersza polecenia platformy Azure
-- [Terraform i AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform i AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
    Jeśli zdecydujesz się utworzyć obszar roboczy samodzielnie, możesz go utworzyć za pomocą: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [Program PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Witryna Azure Portal](../learn/quick-create-workspace.md) 
+   - [Azure Portal](../learn/quick-create-workspace.md) 
    
    Aby zapoznać się z listą obsługiwanych par mapowania do użycia w domyślnym obszarze roboczym, zobacz [Mapowanie regionów dla Azure monitor kontenerów](container-insights-region-mapping.md).
 
@@ -131,3 +131,4 @@ Aby włączyć Azure Monitor dla kontenerów, należy użyć jednej z metod opis
 ## <a name="next-steps"></a>Następne kroki
 
 Po włączeniu monitorowania można rozpocząć analizowanie wydajności klastrów Kubernetes, które są hostowane w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innym środowisku. Aby dowiedzieć się, jak używać Azure Monitor kontenerów, zobacz [Wyświetlanie wydajności klastra Kubernetes](container-insights-analyze.md).
+

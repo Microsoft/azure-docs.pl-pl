@@ -9,12 +9,13 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ebf7d35529a9bf0f6d9caca35b7429a803fed2f
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-java
+ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562207"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327535"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -819,7 +820,7 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

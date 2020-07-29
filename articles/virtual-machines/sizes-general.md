@@ -5,15 +5,16 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 1e9cce7adc6dbc9062dd133d690fbce92c3190fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7cb2667f8e653b4e71844cd849e691a7c5bcd81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783320"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325444"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych ogólnego przeznaczenia
 
@@ -34,9 +35,9 @@ Rozmiary maszyn wirtualnych ogólnego przeznaczenia zapewniają zrównoważony w
 
 - [Dv3 i Dsv3 — seria](dv3-dsv3-series.md) Maszyny wirtualne są uruchamiane w ramach drugiej generacji Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2,4 (Haswell) w konfiguracji wielowątkowej, co zapewnia lepszą wartość w przypadku większości obciążeń ogólnego przeznaczenia. Pamięć została rozszerzona (od ~ 3,5 GiB/vCPU do 4 GiB/vCPU), podczas gdy limity dysku i sieci zostały skorygowane w oparciu o rdzeń, aby dostosować je do przechodzenia do wielowątkowości. Seria Dv3 nie ma już rozmiaru maszyn wirtualnych z serii D/Dv2, które zostały przeniesione do zoptymalizowanej pod kątem pamięci [i serii Esv3](ev3-esv3-series.md).
 
-- [Dv4 i Dsv4 — seria](dv4-dsv4-series.md) Maszyny wirtualne działają na procesorach drugiej generacji Intel &reg; Xeon &reg; Platinum 8272CL (kaskad Lake), co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Serie maszyn wirtualnych Dv4 i Dsv4 są nową kategorią maszyn wirtualnych, które korzystają z dysków zdalnych i nie zapewniają tymczasowego magazynu lokalnego. Funkcja IT oferuje stałą szybkość zegara Turbo o częstotliwości 3,4 GHz i oferuje [ &reg; technologię Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [— technologia &reg; wielowątkowości](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 2,0 i Intel [ &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [Dv4 i Dsv4 — seria](dv4-dsv4-series.md) Seria Dv4 i Dsv4 działa na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake) w konfiguracji wielowątkowej funkcji Hyper-Threading, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Funkcja IT oferuje stałą prędkość zegara Turbo wynoszącą 3,4 GHz.
 
-- [Ddv4 i Ddsv4 — seria](ddv4-ddsv4-series.md) Maszyny wirtualne działają na procesorach drugiej generacji Intel &reg; Xeon &reg; Platinum 8272CL (kaskad Lake), co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Serie maszyn wirtualnych Ddv4 i Ddsv4 są nową kategorią maszyn wirtualnych, w tym dysków tymczasowych danych lokalnych. Funkcja IT oferuje stałą szybkość zegara Turbo o częstotliwości 3,4 GHz i oferuje [ &reg; technologię Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [— technologia &reg; wielowątkowości](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 2,0 i Intel [ &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [Ddv4 i Ddsv4 — seria](ddv4-ddsv4-series.md) Seria Ddv4 i Ddsv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Funkcja ta oferuje stałą szybkość zegara Turbo wynoszącą 3,4 GHz, [technologię Intel &reg; Turbo do zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [Intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Obsługują one również [technologię Intel &reg; głębokiego uczenia](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [Dv3/Dsv3](./dv3-dsv3-series.md) z [maszynami wirtualnymi Gen2](./linux/generation-2.md).
 
 ## <a name="other-sizes"></a>Inne rozmiary
 

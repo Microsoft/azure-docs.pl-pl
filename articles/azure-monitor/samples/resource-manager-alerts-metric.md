@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322299"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł alertów dotyczących metryk w programie Azure Monitor
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono przykłady użycia [szablonów Azure Resource Manag
 Aby uzyskać listę zasobów, których można używać z regułami alertów metryk, zobacz temat [obsługiwane zasoby dla alertów dotyczących metryk w Azure monitor](../platform/alerts-metric-near-real-time.md) . Informacje o schemacie i właściwościach reguły alertu są dostępne podczas [alertów dotyczących metryk — Tworzenie lub aktualizowanie](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Szablon zasobu do tworzenia alertów metryk dla typu zasobu: obszar roboczy Azure Log Analytics (tj.) `Microsoft.OperationalInsights/workspaces` wymaga dodatkowych kroków. Aby uzyskać szczegółowe informacje, zobacz [alert dotyczący metryk dla dzienników zasobów](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Szablon zasobu do tworzenia alertów metryk dla typu zasobu: obszar roboczy Azure Log Analytics (tj.) `Microsoft.OperationalInsights/workspaces` wymaga dodatkowych kroków. Aby uzyskać szczegółowe informacje, zobacz [alert dotyczący metryk dla dzienników zasobów](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -3127,7 +3127,7 @@ Ten przykład tworzy regułę alertu metryki dynamicznej, która monitoruje proc
 
 
 ## <a name="availability-test-with-metric-alert"></a>Test dostępności z alertem metryki
-[Application Insights testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md) ułatwiają monitorowanie dostępności witryny sieci Web lub aplikacji z różnych lokalizacji na całym świecie. Alerty testu dostępności powiadamiają użytkownika, gdy testy dostępności zakończą się niepowodzeniem z określonej liczby lokalizacji. Alerty testów dostępności tego samego typu zasobu co alerty metryk (Microsoft. Insights/metricAlerts). Poniższy przykład tworzy prosty test dostępności i skojarzony alert.
+[Application Insights testy dostępności](../app/monitor-web-app-availability.md) ułatwiają monitorowanie dostępności witryny sieci Web lub aplikacji z różnych lokalizacji na całym świecie. Alerty testu dostępności powiadamiają użytkownika, gdy testy dostępności zakończą się niepowodzeniem z określonej liczby lokalizacji. Alerty testów dostępności tego samego typu zasobu co alerty metryk (Microsoft. Insights/metricAlerts). Poniższy przykład tworzy prosty test dostępności i skojarzony alert.
 
 > [!NOTE]
 > `&amp`; jest odwołaniem do jednostki HTML dla &. Parametry adresu URL są nadal oddzielone pojedynczym &, ale jeśli adres URL jest wymieniany w formacie HTML, należy go zakodować. Tak więc, jeśli masz jakiekolwiek "&" w wartości parametru pingURL, musisz je zmienić na " `&amp` ;"
@@ -3266,3 +3266,4 @@ Ten przykład tworzy regułę alertu metryki dynamicznej, która monitoruje proc
 - [Pobierz inne przykładowe szablony dla Azure monitor](resource-manager-samples.md).
 - [Dowiedz się więcej o alertach](../platform/alerts-overview.md).
 - [Pobierz przykład, aby utworzyć grupę akcji z szablonem Menedżer zasobów](resource-manager-action-groups.md)
+

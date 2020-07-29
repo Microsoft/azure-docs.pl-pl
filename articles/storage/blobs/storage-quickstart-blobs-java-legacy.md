@@ -2,21 +2,25 @@
 title: 'Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V8 dla języka Java'
 description: Utwórz konto magazynu i kontener w magazynie obiektów (blob). Następnie przekaż obiekt BLOB do usługi Azure Storage za pomocą biblioteki klienta usługi Azure Storage V8, Pobierz obiekt BLOB i Wyświetl listę obiektów BLOB w kontenerze.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473991"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323744"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V8 języka Java
 
 W tym przewodniku szybki start nauczysz się zarządzać obiektami BLOB przy użyciu języka Java. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Przekazanie, pobranie i wyświetlenie listy obiektów BLOB. Będziesz również tworzyć, ustawiać uprawnienia do i usuwać kontenery.
+
+> [!NOTE]
+> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta usługi Azure Blob Storage. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu Java V12 SDK](storage-quickstart-blobs-java.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -171,7 +175,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli obiekty blob, które zostały przekazane, nie są już potrzebne, można usunąć cały kontener za pomocą [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Ta metoda spowoduje również usunięcie plików w kontenerze.
 

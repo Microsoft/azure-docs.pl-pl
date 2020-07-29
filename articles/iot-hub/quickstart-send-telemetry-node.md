@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wysyłanie danych telemetrycznych do usługi Azure IoT (Node. js)'
+title: 'Szybki Start: wysyłanie danych telemetrycznych do usługi Azure IoT (Node.js)'
 description: W tym przewodniku Szybki start uruchomisz dwie przykładowe aplikacje środowiska Node.js wysyłające symulowane dane telemetryczne do centrum IoT oraz odczytujące dane telemetryczne z centrum IoT na potrzeby przetwarzania w chmurze.
 author: wesmc7777
 manager: philmea
@@ -12,27 +12,28 @@ ms.custom:
 - mvc
 - seo-javascript-september2019
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 06/21/2019
-ms.openlocfilehash: 5c34dcc606e87e11a3a018df1b2d6bbedb262d04
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7492374364826519857ad66a52e01851c22da3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209115"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320463"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (Node. js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
- W tym przewodniku szybki start wyślesz dane telemetryczne z aplikacji symulowanego urządzenia za pośrednictwem platformy Azure IoT Hub do aplikacji zaplecza do przetwarzania. IoT Hub to usługa platformy Azure, która umożliwia pozyskiwanie dużych ilości danych telemetrycznych z urządzeń IoT do chmury w celu magazynowania lub przetwarzania. Ten przewodnik Szybki Start używa dwóch wstępnie zapisanych aplikacji node. js: jeden do wysłania telemetrii i jednego z nich w celu odczytania danych telemetrycznych z centrum. Przed uruchomieniem tych dwóch aplikacji należy utworzyć centrum IoT i zarejestrować urządzenie w centrum.
+ W tym przewodniku szybki start wyślesz dane telemetryczne z aplikacji symulowanego urządzenia za pośrednictwem platformy Azure IoT Hub do aplikacji zaplecza do przetwarzania. IoT Hub to usługa platformy Azure, która umożliwia pozyskiwanie dużych ilości danych telemetrycznych z urządzeń IoT do chmury w celu magazynowania lub przetwarzania. Ten przewodnik Szybki Start używa dwóch wstępnie zapisanych aplikacji Node.js: jeden do wysłania telemetrii i jednego do odczytu danych telemetrycznych z centrum. Przed uruchomieniem tych dwóch aplikacji należy utworzyć centrum IoT i zarejestrować urządzenie w centrum.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node. js 10 +](https://nodejs.org). W przypadku korzystania z Azure Cloud Shell nie należy aktualizować zainstalowanej wersji środowiska Node. js. Azure Cloud Shell ma już najnowszą wersję środowiska Node. js.
+* [Node.js 10 +](https://nodejs.org). W przypadku korzystania z Azure Cloud Shell nie należy aktualizować zainstalowanej wersji programu Node.js. Azure Cloud Shell ma już najnowszą wersję Node.js.
 
-* [Przykładowy projekt node. js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
+* [Przykładowy projekt Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
 * Port 8883 otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -46,7 +47,7 @@ node --version
 
 ### <a name="add-azure-iot-extension"></a>Dodawanie rozszerzenia usługi Azure IoT
 
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -80,7 +81,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -108,7 +109,7 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym
 
 1. Otwórz plik **SimulatedDevice.js** w wybranym edytorze tekstów.
 
-    Zastąp wartość `connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice. js**.
+    Zastąp wartość `connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.js**.
 
 1. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację urządzenia symulowanego:
 
@@ -152,7 +153,7 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do koncentratora przy użyciu aplikacji node. js i odczytuje dane telemetryczne z centrum przy użyciu prostej aplikacji zaplecza.
+W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum przy użyciu aplikacji Node.js i odczytuje dane telemetryczne z centrum przy użyciu prostej aplikacji zaplecza.
 
 Aby dowiedzieć się, jak kontrolować urządzenie symulowane z poziomu aplikacji zaplecza, przejdź do następnego przewodnika Szybki start.
 

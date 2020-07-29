@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273426"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatyzowanie konfiguracji aplikacji SSO opartej na protokole SAML za pomocą interfejsu API Microsoft Graph
 
@@ -600,7 +601,7 @@ Przypisz następującego użytkownika do nazwy głównej usługi i przypisz AWS_
 | Identyfikator użytkownika (principalId) | 6cad4079-4e79-4a3f-9efb-ea30a14bdb26 |
 | Typ (PrincipalType) | Użytkownik |
 | Identyfikator roli aplikacji (appRoleId) | 454dc4c2-8176-498e-99df-8c4efcde41ef |
-| servicePrincipalID (resourceId) | 515f62cb-d18a-4dca-bec3-bb0bf31deeea |
+| servicePrincipalID (resourceId) | f47a6776-bca7-4f2e-bc6c-eec59d058e3e |
 
 #### <a name="request"></a>Żądanie
 
@@ -617,7 +618,7 @@ Content-type: appRoleAssignments/json
   "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
   "principalType": "User",
   "appRoleId":"454dc4c2-8176-498e-99df-8c4efcde41ef",
-  "resourceId":"515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+  "resourceId":"f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 #### <a name="response"></a>Odpowiedź
@@ -638,7 +639,7 @@ Content-type: appRoleAssignments/json
     "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
     "principalType": "User",
     "resourceDisplayName": "AWS API Created",
-    "resourceId": "515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+    "resourceId": "f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 

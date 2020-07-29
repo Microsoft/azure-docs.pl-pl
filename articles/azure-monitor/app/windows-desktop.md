@@ -3,19 +3,19 @@ title: Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 description: Analizowanie użycia i wydajności klasycznej aplikacji systemu Windows za pomocą usługi Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499192"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323421"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 
-Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach mogą korzystać z możliwości usługi Application Insights. Jedynym ograniczeniem jest konieczność [zezwolenia na komunikację](../../azure-monitor/app/ip-addresses.md) z usługą Application Insights. Do monitorowania aplikacji platformy uniwersalnej systemu Windows zalecamy używanie pakietu [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
+Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach mogą korzystać z możliwości usługi Application Insights. Jedynym ograniczeniem jest konieczność [zezwolenia na komunikację](./ip-addresses.md) z usługą Application Insights. Do monitorowania aplikacji platformy uniwersalnej systemu Windows zalecamy używanie pakietu [Visual Studio App Center](../learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Aby wysłać dane telemetryczne do usługi Application Insights z klasycznej aplikacji systemu Windows
-1. W witrynie [Azure Portal](https://portal.azure.com)[utwórz zasób usługi Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+1. W witrynie [Azure Portal](https://portal.azure.com)[utwórz zasób usługi Application Insights](./create-new-resource.md). 
 2. Wykonaj kopię klucza instrumentacji.
 3. W programie Visual Studio edytuj pakiety NuGet projektu aplikacji, a następnie dodaj interfejs Microsoft.ApplicationInsights.WindowsServer. (Lub wybierz Microsoft. ApplicationInsights, jeśli chcesz tylko podstawowy interfejs API, bez standardowych modułów zbierania danych telemetrycznych).
 4. Ustaw klucz instrumentacji w kodzie:
@@ -27,7 +27,7 @@ Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach 
     `<InstrumentationKey>`*Twój klucz*`</InstrumentationKey>` 
    
     Jeśli używasz pliku ApplicationInsights.config, upewnij się, że jego właściwości w Eksploratorze rozwiązań zostały ustawione na **Akcja kompilacji = Zawartość, Kopiuj do katalogu wyjściowego = Kopiuj**.
-5. [Użyj interfejsu API](../../azure-monitor/app/api-custom-events-metrics.md), aby wysłać telemetrię.
+5. [Użyj interfejsu API](./api-custom-events-metrics.md), aby wysłać telemetrię.
 6. Uruchom aplikację i Wyświetl dane telemetryczne w zasobie utworzonym w Azure Portal.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Przykładowy kod
@@ -175,7 +175,8 @@ namespace WindowsFormsApp2
 > Można też używać technicznie procesora telemetrii, jak opisano powyżej, nawet jeśli korzystasz z [warstwy cenowej starszej wersji Enterprise (na węzeł)](./pricing.md#legacy-enterprise-per-node-pricing-tier), spowoduje to powstanie potencjalnego rozliczania z powodu niemożności poprawnego rozróżnienia węzłów dla cen na węzeł.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie pulpitu nawigacyjnego](../../azure-monitor/app/overview-dashboard.md)
-* [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
-* [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
+* [Tworzenie pulpitu nawigacyjnego](./overview-dashboard.md)
+* [Wyszukiwanie diagnostyczne](./diagnostic-search.md)
+* [Eksploruj metryki](../platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323710"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą Application Insights
 
@@ -28,7 +28,7 @@ Jednak analizowanie wydajności jest tylko podzbiorem możliwości. Ze względu 
 ![Konwersja zrzutu ekranu według przeglądarek](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Zasób Application Insights musi zawierać widoki stron lub zdarzenia niestandardowe, aby można było użyć narzędzia do wpływu. [Dowiedz się, jak skonfigurować aplikację do automatycznego zbierania wyświetleń stron przy użyciu zestawu SDK języka JavaScript Application Insights](../../azure-monitor/app/javascript.md). Należy również pamiętać, że ponieważ analizowanie korelacji, wielkość próbki jest ważna.
+> Zasób Application Insights musi zawierać widoki stron lub zdarzenia niestandardowe, aby można było użyć narzędzia do wpływu. [Dowiedz się, jak skonfigurować aplikację do automatycznego zbierania wyświetleń stron przy użyciu zestawu SDK języka JavaScript Application Insights](./javascript.md). Należy również pamiętać, że ponieważ analizowanie korelacji, wielkość próbki jest ważna.
 >
 >
 
@@ -85,5 +85,6 @@ Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy 
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
     - [Przepływy użytkowników](usage-flows.md)
-    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
+    - [Skoroszyty](../platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
+

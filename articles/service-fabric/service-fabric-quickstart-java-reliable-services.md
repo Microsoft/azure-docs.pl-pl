@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254320"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320429"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Szybki Start: wdrażanie aplikacji Java na platformie Azure Service Fabric w systemie Linux
 
@@ -24,7 +24,7 @@ Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiając
 - [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Zaćmienie (4.6) +](https://www.eclipse.org/downloads/packages/) i [zaćmienie plug-in dla Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
 - [Service Fabric zestawu SDK i interfejsu wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
-- [Git](https://git-scm.com/downloads)
+- [Narzędzia](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 
@@ -34,7 +34,7 @@ W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe r
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 
 1. Uruchom klaster lokalny, uruchamiając następujące polecenie:
 

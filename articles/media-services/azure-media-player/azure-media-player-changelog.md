@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: fc8304fb068152c800d7b71f77fb601956fb6510
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023403"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281348"
 ---
 # <a name="changelog"></a>Dziennik zmian #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (oficjalna Aktualizacja z czerwca 1 2020)
+
+### <a name="bug-fixes-235"></a>Poprawki błędów 2.3.5
+
+- U Odbiornik klucza ESC w okienku opcji jest dołączony do dokumentu
+- U Zapobiegaj znikaniu interfejsu użytkownika odtwarzacza, jeśli pasek sterowania lub menu opcji zawiera fokus
+- Na pasku sterowania jest wyświetlany nieprawidłowy czas zegara ściany, gdy jest włączone ustawienie wyświetlania czasu zegara ściany
+
+### <a name="changes-235"></a>Zmiany 2.3.5
+
+- Dodano komunikat o błędzie dla kodu błędu 0x00400005 i udokumentowany
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (oficjalna Aktualizacja z marca 4 2020)
+
+### <a name="bug-fixes-234"></a>Poprawki błędów 2.3.4
+
+- Nie można ustawić oprogramowania PlayReady overrideLicenseAcquistionUrl
+- Nie można odtworzyć pewnej zawartości z nieciągłymi
+- U Wartość atrybutu ID dla alertu czytnika ekranu musi być unikatowa
+- U Podczas nawigowania po oknie dialogowym Ustawienia napisów, fokus jest przenoszony z okna dialogowego
+
+### <a name="changes-234"></a>Zmiany 2.3.4
+
+- Rejestruj długość zawartości po pomyślnym pobraniu, aby ułatwić analizowanie błędów odszyfrowywania 2.3.3 (oficjalna aktualizacja listopada 12 2019)
+
+### <a name="features-234"></a>Funkcje 2.3.4
+
+- Dodano obsługę wyświetlania czasu zegarowego wideo w postaci nakładki, a na pasku sterowania
+
+### <a name="bug-fixes-234"></a>Poprawki błędów 2.3.4
+
+- Przełącznik ścieżki audio działa, ale błąd danych wyjściowych w IE11 i Windows7 "obiekt nie obsługuje właściwości lub metody" Enabled ""
+- Przełączanie ścieżki audio kończy się niepowodzeniem, gdy bufor jest w pełni załadowany
+- Przełączanie ścieżki audio kończy się niepowodzeniem, gdy użytkownik wstrzymuje wideo i przełącza między ścieżkami audio bardzo szybko
+- U Etykietki narzędzi, które nie zostały zdefiniowane dla kontrolki wideo w odtwarzaczu wideo
+- Brak przycisków woluminów w języku HTML5 w zależności od momentu odebrania "loadstart"
+- U Brak sposobu ustawienia tekstu alternatywnego obrazu plakatu
+- U Nastąpi utrata fokusu aplikacji po wybraniu pozycji "gotowe" w oknie dialogowym Ustawienia napisów
+- U Nieprawidłowe atrybuty ARIA są zdefiniowane dla elementu "Video" w obszarze "Podgląd segmentów"
+
+### <a name="changes-234"></a>Zmiany 2.3.4
+
+- Usunięto pustą etykietę/ścieżkę w przypadku odtwarzania HLS w systemach iOS i MacOS Safari
+- Zmniejszono liczbę 412s dla podpisów IMSC1
+- Ostrzeżenie wyjściowe w konsoli dla 10 kolejnych pustych odpowiedzi IMSC1, aby ułatwić debugowanie na żywo
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (oficjalna Aktualizacja z października 9 2019)
+
+### <a name="features"></a>Funkcje
+
+-Dodano obsługę technologii PlayReady dla odtwarzania PAUZ dla przeglądarki Microsoft Edge
+
+### <a name="bug-fixes-232"></a>Poprawki błędów 2.3.2
+
+- Bieżąca szybkość odtwarzania nie jest wizualnie wyświetlana w menu szybkość odtwarzania, chyba że użytkownik ręcznie je ustawi
+- U Okienko "Settings" nie jest zwinięte z kluczem "Esc"
+- U Kod skrótu AMP "nie działa, gdy Narrator jest włączony
+
+### <a name="changes-232"></a>Zmiany 2.3.2
+
+- W przypadku przeglądarek, które nie obsługują kodera-dekoder audio E-AC3, ścieżki audio E-AC3 są ukryte w menu ścieżka audio
+- W przypadku przeglądarek, które obsługują koder-dekoder audio E-AC3, domyślnie wybrana jest ścieżka audio E-AC3
+- W przypadku przeglądarek, które nie obsługują przełączania do kodera-dekoder audio, ścieżki audio z innym kodekiem z wybranej ścieżki są ukryte w menu ścieżka audio
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (oficjalna Aktualizacja z sierpnia 12 2019)
+
+### <a name="features-231"></a>Funkcje 2.3.1
+
+- Sygnalizowanie zdarzenia po odebraniu pól emsg w przypadku odtwarzania przy użyciu KRESek — dodano obsługę funkcji śledzenia audio w formacie 3 w menu audio w przeglądarkach, które obsługują EC-3 i zezwalają na przełączanie ścieżki audio z AAC do EC3 i na odwrót tylko w przeglądarce brzegowej opartej na Chromimum
+
+### <a name="bug-fixes-231"></a>Poprawki błędów 2.3.1
+
+- Menu ścieżka audio jest uszkodzone po usunięciu ścieżek do-3
+- Bieżący czas może być świetny niż czas trwania wideo
+- Ustawianie szybkości odtwarzania za pośrednictwem initialSpeed nie działa
+- Czasami po zakończeniu wyszukiwania gracz jest zablokowany
+- Na urządzeniach brzegowych i IE na ekranie dotykowym, po powiększeniu do strony, naciśnięcie lub umieszczenie kursora myszy na elemencie SeekBar nie powoduje dokładnego uzyskania poprawnego segmentu wideo.
+- U Aria etykieta dla opcji Play/Pause nie zawiera opis błędu dotyczącego nieznalezienia segmentu na żywo w usłudze Media Player
+- U Role Aria używane na potrzeby odtwarzania/wstrzymywania muszą być zgodne z prawidłowymi wartościami (. VJS — tekst-Track-Display)
+- U Niektóre role ARIA muszą być zawarte w określonych rodzicach
+- U Brak etykietki narzędzia zdefiniowanej dla przycisku odtwarzania/wstrzymania w odtwarzaczu wideo IMSC1 podpisy mogą zniknąć po przeszukiwaniu bieżącego buforu wideo/audio
+
+### <a name="changes-231"></a>Zmiany 2.3.1
+
+- Po otrzymaniu segmentDecryptError i gracz jest już na żywo, teraz odtwarzacz odświeża manifest zamiast próbować następny segment
+- Dodano więcej rejestrowania dla diagnostyki
+- Zaktualizowana dokumentacja dotycząca obsługi Uwzględnij FairPlay dla programu Safari dla systemu iOS
+- Dodano przykład dla opcji IMSC1 ("srclang")
+- Dodano uzupełnienie, textuzupełnienie, boxShadow zastąpień dla ścieżek tekstowych.
+- Dodano kod błędu (0x0020025B) w celu odróżnienia tego, że pobranie segmentu nie powiodło się z powodu braku Internetu, a nie tylko wyrzucanie 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (oficjalne wydanie kwietnia 30 2019)
+
+### <a name="features-230"></a>2.3.0 funkcji
+
+- Dodano obsługę napisów IMSC1 dla ŁĄCZNIKa
+- Dodano obsługę zasobów tylko wideo dla ŁĄCZNIKa
+- Dodano interfejs API presentationTimeOffsetInSec
+
+### <a name="bug-fixes-230"></a>Poprawki błędów 2.3.0
+
+- Profil heurystyki AMP LowLatency zakłóca odtwarzanie wideo w systemie iOS "Wycisz" i "odciszenie" w przypadku niektórych języków mają nieprawidłowe tłumaczenia
+- Wartość Aria-valuenow suwaka paska postępu jest czasami nieprawidłowa
+- Wartość roli Aria wyświetlania ścieżki tekstowej jest niepoprawna
+
+### <a name="changes-230"></a>Zmiany 2.3.0
+
+- Dzienniki zawierają teraz rozmiar pobranych fragmentów nośnika
+- Usunięto obsługę programu IE 9 i programu IE 10
+- Zaktualizowany przykład CEA708, aby pokazać podpisy do lewej strony
+- Uwzględnij MediaError. Message w dziennikach dla błędów odtwarzania
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (oficjalna aktualizacja lutego 22 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "87023403"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (oficjalna aktualizacja stycznia 9 2019) ##
 
-### <a name="features"></a>Funkcje ###
+### <a name="features-223"></a>Funkcje 2.2.3 ###
 
 - Ona HLS Dodano menu ścieżki audio dla odtwarzania Safari HLS
 

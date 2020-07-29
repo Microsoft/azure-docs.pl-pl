@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: c3ce10b6d3acb947d3fde6e3c872a2c2a83ddb69
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-java
+ms.openlocfilehash: a1347364066f4b36256782dd8891390a47bae020
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871134"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326770"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania w wiadomościach przy użyciu języka Java i interfejsu API REST wyszukiwanie wiadomości Bing
 

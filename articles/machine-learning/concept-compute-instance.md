@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/22/2020
-ms.openlocfilehash: 3edb8da6d535ac7817c29db254aa84efd92321b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 4ac95fa81fdbee237cacaa1541e333bb70c370fa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323302"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -53,7 +53,7 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 |Biblioteka Intel MPI||
 |Interfejs wiersza polecenia platformy Azure ||
 |Przykłady Azure Machine Learning ||
-|Docker||
+|Platforma Docker||
 |Nginx||
 |NCCL 2,0 ||
 |Protobuf|| 
@@ -154,7 +154,7 @@ W obszarze roboczym programu Azure Machine Learning Studio Utwórz nowe wystąpi
 Można również utworzyć wystąpienie
 * Bezpośrednio w [środowisku zintegrowanych notesów](tutorial-1st-experiment-sdk-setup.md#azure)
 * W Azure Portal
-* Z szablonu Azure Resource Manager
+* Z szablonu Azure Resource Manager. Przykładowy szablon można znaleźć w temacie [Create a Azure Machine Learning COMPUTE instance Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * Z [zestawem SDK Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
 * Z [rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 

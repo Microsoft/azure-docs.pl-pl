@@ -5,17 +5,18 @@ description: Użyj prywatnego linku platformy Azure, aby bezpiecznie uzyskać do
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/14/2020
-ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326498"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
@@ -30,6 +31,8 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 > Łącze prywatne platformy Azure nie wpływa na płaszczyznę kontroli platformy Azure (operacje zarządzania), takie jak usuwanie obszaru roboczego lub zarządzanie zasobami obliczeniowymi. Na przykład tworzenie, aktualizowanie lub usuwanie elementu docelowego obliczeń. Te operacje są wykonywane za pośrednictwem publicznej sieci Internet jako normalne.
 >
 > Azure Machine Learning wystąpienia obliczeniowe w wersji zapoznawczej nie są obsługiwane w obszarze roboczym, w którym włączono link prywatny.
+>
+> W przypadku korzystania z przeglądarki Mozilla Firefox mogą wystąpić problemy podczas próby uzyskania dostępu do prywatnego punktu końcowego dla obszaru roboczego. Ten problem może dotyczyć systemu DNS za pośrednictwem protokołu HTTPS w Mozilla. Zalecamy korzystanie z przeglądarki Google Chrome firmy Microsoft jako obejście problemu.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 

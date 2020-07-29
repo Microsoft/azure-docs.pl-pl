@@ -2,18 +2,19 @@
 title: 'Tworzenie Kubernetesego miejsca deweloperskiego: Visual Studio Code & Java'
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiej iteracji aplikacji Java w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e68b417365c1a68a159ea555e9261fe5418b828e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224319"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323625"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Utwórz Kubernetese miejsce deweloperskie: Visual Studio Code i Java z Azure Dev Spaces
 
@@ -92,7 +93,7 @@ Aby debugować aplikacje w języku Java za pomocą usługi Azure Dev Spaces, pob
 
 W tej sekcji utworzysz aplikację internetową w języku Java i uruchomisz ją w kontenerze w środowisku Kubernetes.
 
-### <a name="create-a-java-web-app"></a>Tworzenie aplikacji internetowej w języku Java
+### <a name="create-a-java-web-app"></a>Tworzenie internetowej aplikacji Java
 Pobierz kod z usługi GitHub, przechodząc do [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) lokalizacji i wybierając opcję **Klonuj lub Pobierz** , aby pobrać repozytorium GitHub do środowiska lokalnego. Kod używany w tym przewodniku znajduje się w lokalizacji `samples/java/getting-started/webfrontend`.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Przygotowywanie kodu do opracowywania na platformie Docker i Kubernetes

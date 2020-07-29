@@ -5,18 +5,18 @@ description: Monitorowanie usług sieci Web wdrożonych za pomocą Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743515"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320225"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,15 +153,20 @@ Możesz również włączyć Application Insights platformy Azure z poziomu prog
 1. Wybierz pozycję **włącz Application Insights diagnostyki i zbierania danych**
 
     ![Włączanie usługi App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Oceń dane
+
+## <a name="view-metrics-and-logs"></a>Wyświetlanie metryk i dzienników
+
 Dane usługi są przechowywane na koncie usługi Azure Application Insights w ramach tej samej grupy zasobów co Azure Machine Learning.
 Aby ją wyświetlić:
 
-1. Przejdź do obszaru roboczego Azure Machine Learning w [Azure Portal](https://ms.portal.azure.com/) i kliknij link Application Insights
+1. Przejdź do obszaru roboczego Azure Machine Learning w programie [Studio](https://ml.azure.com/).
+1. Wybierz **punkty końcowe**.
+1. Wybierz wdrożoną usługę.
+1. Przewiń w dół, aby znaleźć **adres url Application Insights** i kliknij link.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Lokalizowanie adresu URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Na karcie **Omówienie** lub w sekcji __monitorowanie__ na liście po lewej stronie wybierz pozycję __dzienniki__.
+1. W aplikacji Isights, na karcie **Przegląd** lub w sekcji __monitorowanie__ na liście po lewej stronie wybierz pozycję __dzienniki__.
 
     [![Karta Omówienie monitorowania](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +191,7 @@ Aby wysyłać komunikaty do obsługiwanego konta magazynu, można użyć usługi
 
 Azure Data Factory, potoki Azure ML lub inne narzędzia do przetwarzania danych mogą służyć do przekształcania danych zgodnie z wymaganiami. Po przeniesieniu danych można zarejestrować je w obszarze roboczym Azure Machine Learning jako zestaw danych. Aby to zrobić, zobacz [jak utworzyć i zarejestrować zestawy danych](how-to-create-register-datasets.md).
 
-   [![Eksport ciągły](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Eksport ciągły":::
 
 
 ## <a name="example-notebook"></a>Przykładowy notes

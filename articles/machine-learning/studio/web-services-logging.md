@@ -1,6 +1,5 @@
 ---
-title: Włącz rejestrowanie usługi sieci Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Włączanie rejestrowania usługi sieci Web — Azure'
 description: Dowiedz się, jak włączyć rejestrowanie dla usług sieci Web Machine Learning Studio (klasycznych). Rejestrowanie zawiera dodatkowe informacje ułatwiające rozwiązywanie problemów z interfejsami API.
 services: machine-learning
 author: likebupt
@@ -11,13 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705835"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326243"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Włącz rejestrowanie dla usług sieci Web Azure Machine Learning Studio (klasycznych)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Ten dokument zawiera informacje na temat możliwości rejestrowania usług sieci Web Machine Learning Studio (klasycznych). Rejestrowanie zawiera dodatkowe informacje, po których tylko numer błędu i komunikat mogą pomóc w rozwiązywaniu problemów z wywołaniami do interfejsów API Machine Learning Studio (klasycznego).  
 
@@ -49,7 +52,7 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 
    1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu skojarzonego z usługą sieci Web.
 
-   2. W obszarze **Blob Service** kliknij pozycję **Kontenery**.
+   2. W obszarze **BLOB Service**kliknij pozycję **Containers (kontenery**).
 
    3. Jeśli kontener Container **-Diagnostics** nie istnieje, kliknij pozycję **+ kontener**, nadaj kontenerowi nazwę "ml-Diagnostics" i wybierz **Typ dostępu** jako "BLOB". Kliknij przycisk **OK**.
 

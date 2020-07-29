@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510985"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290682"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Samouczek: diagnozowanie, naprawianie i zatwierdzanie zmian w zestawu umiejętności
 
@@ -73,7 +73,7 @@ W tej sekcji, program ogłaszający i poświadczona kolekcja są używane do two
 1. W obszarze **pliki**  >  **nowe**wybierz kolekcję do zaimportowania.
 1. Po zaimportowaniu kolekcji rozwiń listę akcje (...).
 1. Kliknij pozycję **Edytuj**.
-1. Wprowadź nazwę searchService (na przykład, jeśli punkt końcowy to https://mydemo.search.windows.net , nazwa usługi to "Moja demonstracja").
+1. Wprowadź nazwę searchService (na przykład, jeśli punkt końcowy to `https://mydemo.search.windows.net` , nazwa usługi to " `mydemo` ").
 1. Wprowadź apiKey z kluczem podstawowym lub pomocniczym usługi wyszukiwania.
 1. Wprowadź storageConnectionString na stronie klucze konta usługi Azure Storage.
 1. Wprowadź ContainerName dla kontenera utworzonego na koncie magazynu.
@@ -249,7 +249,7 @@ Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

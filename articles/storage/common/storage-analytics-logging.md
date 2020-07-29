@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675922"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276792"
 ---
-# <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
+# <a name="azure-storage-analytics-logging"></a>Rejestrowanie analizy usługi Azure Storage
 
 Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
@@ -63,7 +64,7 @@ Jeśli masz dużą ilość danych dziennika z wieloma plikami dla każdej godzin
 Większość narzędzi do przeglądania magazynu umożliwia przeglądanie metadanych obiektów BLOB; te informacje można również odczytać przy użyciu programu PowerShell lub programowo. Poniższy fragment kodu programu PowerShell to przykład filtrowania listy obiektów BLOB dziennika według nazwy w celu określenia czasu i metadanych w celu zidentyfikowania tylko tych dzienników, które zawierają operacje **zapisu** .  
 
  ```powershell
- Get-AzureStorageBlob -Container '$logs' |  
+ Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
@@ -136,20 +137,20 @@ Możesz określić usługi magazynu, które mają być rejestrowane, oraz okres 
 
 ### <a name="enable-storage-logging-using-powershell"></a>Włączanie rejestrowania magazynu przy użyciu programu PowerShell  
 
- Aby skonfigurować rejestrowanie magazynu na koncie magazynu przy Azure PowerShell użyciu polecenia cmdlet **Get-AzureStorageServiceLoggingProperty** w programie PowerShell, można użyć narzędzia do pobrania bieżących ustawień oraz polecenia cmdlet **Set-AzureStorageServiceLoggingProperty** w celu zmiany bieżących ustawień.  
+ Aby skonfigurować rejestrowanie magazynu na koncie magazynu przy Azure PowerShell użyciu polecenia cmdlet **Get-AzStorageServiceLoggingProperty** w programie PowerShell, można użyć narzędzia do pobrania bieżących ustawień oraz polecenia cmdlet **Set-AzStorageServiceLoggingProperty** w celu zmiany bieżących ustawień.  
 
  Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt**, **zapis**i **usuwanie**. Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
 
  Następujące polecenie przełącza do rejestrowania żądań odczytu, zapisu i usuwania w usługa kolejki na domyślnym koncie magazynu z ustawionym okresem przechowywania na pięć dni:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Następujące polecenie wyłącza rejestrowanie dla usługi Table Service na domyślnym koncie magazynu:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Aby uzyskać informacje dotyczące sposobu konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia, zobacz: [jak zainstalować i skonfigurować Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

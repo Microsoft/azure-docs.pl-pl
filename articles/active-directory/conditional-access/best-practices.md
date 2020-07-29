@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275432"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory
 
@@ -33,13 +33,13 @@ Podczas tworzenia nowych zasad nie wybrano żadnych użytkowników, grup, aplika
 
 ![Aplikacje w chmurze](./media/best-practices/02.png)
 
-Aby zasady działały, należy skonfigurować:
+Aby zasady działały, należy skonfigurować następujące elementy:
 
-| Elementy           | W jaki sposób?                                  | Zalet |
+| Co           | Jak                                  | Dlaczego |
 | :--            | :--                                  | :-- |
-| **Aplikacje w chmurze** |Wybierz co najmniej jedną aplikację.  | Celem zasad dostępu warunkowego jest umożliwienie kontroli nad sposobem, w jaki autoryzowani użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze.|
-| **Użytkownicy i grupy** | Wybierz co najmniej jednego użytkownika lub grupę, która ma uprawnienia dostępu do wybranych aplikacji w chmurze. | Zasady dostępu warunkowego, które nie mają przypisanych użytkowników i grup, nigdy nie są wyzwalane. |
-| **Kontrola dostępu** | Wybierz co najmniej jedną kontrolę dostępu. | Jeśli warunki są spełnione, procesor zasad musi wiedzieć, co należy zrobić. |
+| **Aplikacje w chmurze** |Wybierz jedną lub kilka aplikacji.  | Celem zasad dostępu warunkowego jest umożliwienie kontroli nad sposobem, w jaki autoryzowani użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze.|
+| **Użytkownicy i grupy** | Wybierz co najmniej jednego użytkownika lub grupę, którzy mają uprawnienia dostępu do wybranych aplikacji w chmurze. | Zasady dostępu warunkowego, które nie mają przypisanych użytkowników i grup, nigdy nie są wyzwalane. |
+| **Kontrole dostępu** | Wybierz co najmniej jedną kontrolę dostępu. | Jeśli warunki zostaną spełnione, procesor zasad musi wiedzieć, co należy zrobić. |
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
@@ -49,14 +49,21 @@ Podczas uzyskiwania dostępu do aplikacji w chmurze mogą być stosowane więcej
 
 Wszystkie zasady są wymuszane w dwóch fazach:
 
-- Etap 1: 
-   - Kolekcja Szczegółowa: Zbierz szczegóły, aby zidentyfikować zasady, które zostały już spełnione.
-   - W tej fazie użytkownicy mogą wyświetlić monit o podanie certyfikatu, jeśli zgodność urządzenia jest częścią zasad dostępu warunkowego. Ten monit może wystąpić w przypadku aplikacji przeglądarki, gdy system operacyjny urządzenia nie jest systemem Windows 10.
-   - Faza 1 oceny zasad występuje dla wszystkich włączonych zasad i zasad w [trybie tylko do raportowania](concept-conditional-access-report-only.md).
-- Etap 2:
-   - Wymuszanie: biorąc pod uwagę Szczegóły zebrane w fazie 1, Zażądaj od użytkownika spełnienia wszelkich dodatkowych wymagań, które nie zostały spełnione.
-   - Zastosuj wyniki do sesji. 
-   - Faza 2 oceny zasad występuje dla wszystkich włączonych zasad.
+- Faza 1. zbieranie szczegółów sesji 
+   - Zbierz szczegóły sesji, takie jak lokalizacja użytkownika i tożsamość urządzenia, które będą niezbędne do oceny zasad. 
+   - W tej fazie użytkownicy mogą wyświetlić monit o podanie certyfikatu, jeśli zgodność urządzenia jest częścią zasad dostępu warunkowego. Ten monit może wystąpić w przypadku aplikacji przeglądarki, gdy system operacyjny urządzenia nie jest systemem Windows 10. 
+   - Faza 1 oceny zasad dotyczy włączonych zasad i zasad w [trybie tylko do raportowania](concept-conditional-access-report-only.md).
+- Faza 2: wymuszanie 
+   - Użyj szczegółów sesji zebranych w fazie 1, aby zidentyfikować wszelkie wymagania, które nie zostały spełnione. 
+   - Jeśli istnieje zasada, która jest skonfigurowana do blokowania dostępu przy użyciu bloku Udziel kontroli, wymuszenie zostanie zatrzymane w tym miejscu i użytkownik zostanie zablokowany. 
+   - Następnie użytkownik zostanie poproszony o wykonanie dodatkowych wymagań kontroli dotacji, które nie zostały spełnione podczas fazy 1 w następującej kolejności, dopóki zasady nie zostaną spełnione:  
+      - Uwierzytelnianie wieloskładnikowe 
+      - Zatwierdzone zasady ochrony aplikacji/aplikacji klienta 
+      - Zarządzane urządzenie (zgodne lub hybrydowe sprzężenie usługi Azure AD) 
+      - Warunki użytkowania 
+      - Kontrolki niestandardowe  
+      - Po udzieleniu kontroli należy zastosować kontrolki sesji (wymuszone aplikacje, Microsoft Cloud App Security i okres istnienia tokenu). 
+   - Faza 2 oceny zasad występuje dla wszystkich włączonych zasad. 
 
 ### <a name="how-are-assignments-evaluated"></a>Jak są oceniane przypisania?
 
@@ -71,7 +78,7 @@ Jeśli trzeba skonfigurować warunek lokalizacji dotyczący wszystkich połącze
 
 Jeśli masz zablokowany dostęp do portalu usługi Azure AD z powodu niepoprawnego ustawienia zasad dostępu warunkowego:
 
-- Sprawdź, czy w organizacji znajdują się inni administratorzy, którzy nie zostali jeszcze Zablokowani. Administrator z dostępem do Azure Portal może wyłączyć zasady, które mają wpływ na logowanie. 
+- Sprawdź, czy w organizacji znajdują się inni administratorzy, którzy nie zostali jeszcze Zablokowani. Administrator z dostępem do Azure Portal może wyłączyć zasady wpływające na logowanie. 
 - Jeśli żadna z administratorów w organizacji nie może zaktualizować zasad, należy przesłać żądanie pomocy technicznej. Pomoc techniczna firmy Microsoft może przeglądać i aktualizować zasady dostępu warunkowego, które uniemożliwiają dostęp.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Co się stanie w przypadku, gdy masz zasady w klasycznym portalu Azure i Azure Portal skonfigurowany?  

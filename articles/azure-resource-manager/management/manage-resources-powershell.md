@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2c14e8ae7de48752466cea43205445d5bb4856c9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ce3c0409ba077d81023188530b660eb210daf4d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326804"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Zarządzanie zasobami platformy Azure przy użyciu Azure PowerShell
 
@@ -59,7 +59,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablon�
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Wdrażanie grupy zasobów i zasobów
 
-Można utworzyć grupę zasobów i wdrożyć zasoby w grupie. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy zasobów i wdrażanie zasobów](../templates/deploy-to-subscription.md#resource-group-and-resources).
+Można utworzyć grupę zasobów i wdrożyć zasoby w grupie. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy zasobów i wdrażanie zasobów](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Wdrażanie zasobów w wielu subskrypcjach lub grupach zasobów
 

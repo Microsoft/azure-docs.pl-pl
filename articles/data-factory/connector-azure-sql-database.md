@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 424f858fff0ad050286122fcbbd03fdef78c11f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d11e320db5e037f855c01738de592a2d21d60e8
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497713"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171479"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -51,7 +51,7 @@ W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje na
 > W przypadku kopiowania danych przy użyciu środowiska Azure Integration Runtime Skonfiguruj [regułę zapory na poziomie serwera](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) tak, aby usługi platformy Azure mogły uzyskiwać dostęp do serwera.
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z Azure SQL Database.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -263,7 +263,7 @@ Aby skopiować dane z Azure SQL Database, w sekcji **Źródło** działania kopi
 | sqlReaderQuery | Ta właściwość używa niestandardowego zapytania SQL do odczytywania danych. Może to być na przykład `select * from MyTable`. | Nie |
 | sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie |
 | storedProcedureParameters | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED** (wartość domyślna), **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nie |
+| isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED**, **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Jeśli nie zostanie określony, używany jest domyślny poziom izolacji bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nie |
 
 **Punkty do uwagi:**
 
@@ -612,7 +612,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Wartość logiczna |
 | char |String, Char [] |
 | data |DateTime |
 | Datetime (data/godzina) |DateTime |

@@ -7,15 +7,15 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 5354379b73eca46e35c41cc0cf580b113dae7e8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2a562378ae626351922e43d33f38e62331ab58de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499260"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323489"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio
-Metody w kodzie aplikacji internetowej mogą być adnotowane przy użyciu telemetrii dotyczącej wyjątków czasu wykonywania i czasu odpowiedzi na żądanie. W przypadku instalowania usługi [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) w aplikacji dane telemetryczne pojawią się w funkcji [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) programu Visual Studio — w uwagach na górze każdej funkcji, w których są wyświetlane użyteczne informacje, takie jak liczba miejsc, w których odwoływano się do funkcji i nazwisko ostatniej osoby, która ją edytowała.
+Metody w kodzie aplikacji internetowej mogą być adnotowane przy użyciu telemetrii dotyczącej wyjątków czasu wykonywania i czasu odpowiedzi na żądanie. W przypadku instalowania usługi [Azure Application Insights](./app-insights-overview.md) w aplikacji dane telemetryczne pojawią się w funkcji [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) programu Visual Studio — w uwagach na górze każdej funkcji, w których są wyświetlane użyteczne informacje, takie jak liczba miejsc, w których odwoływano się do funkcji i nazwisko ostatniej osoby, która ją edytowała.
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 
@@ -70,6 +70,7 @@ Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens żądań:
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 |  |  |
 | --- | --- |
-| **[Praca z usługą Application Insights w programie Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/visual-studio-codelens/34.png) |
-| **[Dodawanie większej ilości danych](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[Praca z portalem usługi Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+| **[Praca z usługą Application Insights w programie Visual Studio](./visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/visual-studio-codelens/34.png) |
+| **[Dodawanie większej ilości danych](./asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/visual-studio-codelens/64.png) |
+| **[Praca z portalem usługi Application Insights](./overview-dashboard.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+

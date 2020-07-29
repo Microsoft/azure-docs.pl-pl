@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące migracji Azure Migrate serwera
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224132"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321228"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -27,7 +27,7 @@ Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-supp
 
 Metoda replikacji bez agenta dla oprogramowania VMware używa migawek VMware i śledzenia bloków zmienionych przez program VMware (CBT).
 
-Proces jest następujący:
+Oto proces:
 
 1. Po uruchomieniu replikacji jest zaplanowana początkowa cykl replikacji. W cyklu początkowym tworzona jest migawka maszyny wirtualnej. Migawka służy do replikowania maszyn wirtualnych VMDK (disks). 
 2. Po zakończeniu cyklu replikacji początkowej cykle replikacji różnicowej są planowane okresowo.
@@ -80,7 +80,7 @@ Nie. Azure Migrate obsługuje migrację tylko do dysków zarządzanych (HDD w wa
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Ile maszyn wirtualnych można replikować jednocześnie za pomocą migracji bez wykorzystania agentów?
 
-Obecnie można migrować maszyny wirtualne 100 na wystąpienie vCenter Server jednocześnie. Migrowanie w partiach 10 maszyn wirtualnych.
+Obecnie można migrować maszyny wirtualne 300 na wystąpienie vCenter Server jednocześnie. Migrowanie w partiach 10 maszyn wirtualnych.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Jak mogęnie przepustowości w przypadku używania urządzenia Azure Migrate do replikacji VMware bez agentów?  
 
@@ -106,7 +106,7 @@ Migrowanie maszyn przez traktowanie ich jako serwerów fizycznych jest przydatne
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Wdrożono co najmniej dwa urządzenia do odnajdywania maszyn wirtualnych w vCenter Server. Jednak podczas próby migrowania maszyn wirtualnych są wyświetlane tylko maszyny wirtualne odpowiadające jednemu urządzeniu.
 
-Chociaż może to być dobry przypadek użycia, obecnie nie jest to obsługiwane. Wdrożenie dwóch (lub więcej) urządzeń w celu odnalezienia tego samego zestawu maszyn wirtualnych powoduje problem z usługą, w którym własność maszyny wirtualnej utrzymuje przełączanie między dwoma urządzeniami. Jest to powód wyświetlania maszyn wirtualnych, które pojawiają się i znikają. W takich przypadkach aby rozwiązać ten problem, należy usunąć jedno urządzenie i przeprowadzić stałe odświeżanie.
+Jeśli skonfigurowano wiele urządzeń, jest wymagane, aby nie nakładać się na maszyny wirtualne na kontach programu vCenter. Odnajdywanie z takim nakładaniem jest nieobsługiwanym scenariuszem.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Czy do migrowania maszyn wirtualnych VMware jest potrzebny program VMware vCenter?
 Aby [przeprowadzić migrację maszyn wirtualnych VMware](server-migrate-overview.md) przy użyciu migracji opartej na agencie VMware lub bez agentów, hosty ESXi, na których znajdują się maszyny wirtualne, muszą być zarządzane przez vCenter Server. Jeśli nie masz vCenter Server, możesz migrować maszyny wirtualne VMware przez migrowanie ich jako serwerów fizycznych. [Dowiedz się więcej](migrate-support-matrix-physical-migration.md).

@@ -11,12 +11,12 @@ ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: ee641840839772d858cea775acb23e375d6aadea
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117399"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283898"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Szybki Start: Tworzenie Azure Data Factory przy użyciu szablonu ARM
 
@@ -58,7 +58,7 @@ Zapisz plik w folderze **C:\ADFv2QuickStartPSH** . (Jeśli folder jeszcze nie is
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json" range="1-196" highlight="40-187":::
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 Istnieją zasoby platformy Azure zdefiniowane w szablonie:
 
@@ -170,7 +170,7 @@ Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB. Nastę
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Dane wyjściowe":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Zasoby, które zostały utworzone w ramach tego przewodnika Szybki start, możesz wyczyścić na dwa sposoby. [Grupę zasobów platformy Azure](../azure-resource-manager/management/delete-resource-group.md), która obejmuje wszystkie zasoby w grupie zasobów, można usunąć. Jeśli chcesz zachować inne zasoby bez zmian, usuń tylko fabrykę danych utworzoną w tym samouczku.
 

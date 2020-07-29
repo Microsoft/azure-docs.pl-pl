@@ -1,6 +1,6 @@
 ---
-title: Tworzenie puli hostów dzierżawy usług pulpitu wirtualnego systemu Windows — Azure
-description: Jak rozwiązywać problemy z dzierżawą i pulą hostów podczas instalacji środowiska dzierżawy pulpitu wirtualnego systemu Windows.
+title: Tworzenie puli hostów dzierżawy usług pulpitu wirtualnego systemu Windows (klasycznej) — Azure
+description: Jak rozwiązywać problemy z dzierżawą i pulą hostów podczas instalacji środowiska dzierżawy pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269601"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Tworzenie dzierżawy i puli hosta
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Tworzenie dzierżawy i puli hostów w systemie Windows Virtual Desktop (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../troubleshoot-set-up-issues.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../troubleshoot-set-up-issues.md).
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 

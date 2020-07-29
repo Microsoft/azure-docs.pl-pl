@@ -2,17 +2,18 @@
 title: 'Szybki Start: Biblioteka usługi Azure Blob Storage V12 — Java'
 description: W tym przewodniku szybki start dowiesz się, jak używać biblioteki klienckiej usługi Azure Blob Storage w wersji 12 dla języka Java do tworzenia kontenera i obiektu BLOB w magazynie obiektów BLOB (Object). Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać listę wszystkich obiektów blob w kontenerze.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 01/27/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 41d6457986ac3c97b3e7a19d089e7ce6a15d1f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c0b8d6ea772d3d655eb6fbe39afa5ef9edafc11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319817"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java
 
@@ -31,9 +32,6 @@ Dodatkowe zasoby:
 - Konto usługi Azure Storage. [Utwórz konto magazynu](../common/storage-account-create.md).
 - [Zestaw Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) w wersji 8 lub nowszej.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-
-> [!NOTE]
-> Aby rozpocząć pracę z poprzednią wersją zestawu SDK, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu Java V8 SDK](storage-quickstart-blobs-java-legacy.md).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516196"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327297"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktura dzienników Azure Monitor
 Możliwość szybkiego uzyskiwania wglądu w dane przy użyciu [zapytania dziennika](log-query-overview.md) jest zaawansowaną funkcją Azure monitor. Aby tworzyć wydajne i użyteczne zapytania, należy zapoznać się z podstawowymi pojęciami, takimi jak miejsce, w którym znajdują się dane i jak są one strukturalne. Ten artykuł zawiera podstawowe pojęcia, które należy wykonać, aby rozpocząć pracę.
@@ -89,4 +89,5 @@ Chociaż każda tabela w dziennikach Azure Monitor ma swój własny schemat, ist
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat używania [log Analytics do tworzenia i edytowania wyszukiwań w dziennikach](./log-query-overview.md).
-- Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](../log-query/get-started-queries.md) przy użyciu nowego języka zapytań.
+- Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](./get-started-queries.md) przy użyciu nowego języka zapytań.
+

@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206328"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318831"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Przykładowe potoki & zestawy danych dla programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -25,6 +25,8 @@ Skorzystaj z wbudowanych przykładów w programie Azure Machine Learning Designe
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 * Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-sample-pipelines"></a>Użyj potoków przykładowych
 
@@ -121,7 +123,7 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 |Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witryny Wikipedia ( https://www.wikipedia.org/) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

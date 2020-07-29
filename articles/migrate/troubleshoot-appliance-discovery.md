@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114061"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171859"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -164,6 +164,9 @@ Odnajdywanie aplikacji jest uruchamiane co 24 godziny. Jeśli chcesz natychmiast
 
 ## <a name="unable-to-export-application-inventory"></a>Nie można wyeksportować spisu aplikacji
 Upewnij się, że użytkownik pobierający spis z portalu ma uprawnienia współautora w ramach subskrypcji.
+
+## <a name="no-suitable-authentication-method-found-to-complete-authentication-publickey"></a>Nie znaleziono odpowiedniej metody uwierzytelniania do ukończenia uwierzytelniania (PublicKey)
+Uwierzytelnianie oparte na kluczach nie będzie działało, Użyj uwierzytelniania hasła.
 
 ## <a name="common-app-discovery-errors"></a>Typowe błędy funkcji odnajdywania aplikacji
 

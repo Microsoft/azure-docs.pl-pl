@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-java
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 3a7d6f08870495044c4aef0dc21181feda7eb7ab
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1e5e11d5d04c31fa77adcb0488447c91b0d05254
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041289"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317964"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Szybki start: przesyłanie danych telemetrycznych usługi IoT z urządzenia z systemem Android
 
@@ -73,7 +74,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -119,7 +120,7 @@ W tej sekcji, używając usługi Azure Cloud Shell z [rozszerzeniem IoT](https:/
     Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie odbierania przez centrum IoT Hub danych telemetrycznych wysyłanych przez urządzenie z systemem Android:
 
       ![Czytanie komunikatów urządzenia za pomocą interfejsu wiersza polecenia platformy Azure](media/quickstart-send-telemetry-android/read-data.png)
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

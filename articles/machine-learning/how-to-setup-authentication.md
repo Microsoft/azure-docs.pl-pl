@@ -8,15 +8,15 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
-ms.openlocfilehash: 34641e7a883f6b07fe63595cf5750df2569640f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref
+ms.openlocfilehash: 653ca578e9fafd245c22bcfd7db038d5c23da016
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974691"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326957"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Większość przykładów w dokumentacji i przykładach używa uwierzytelniania 
     ws = Workspace.from_config()
     ```
 
-    `from_config()`Funkcja szuka pliku JSON zawierającego informacje o połączeniu z obszarem roboczym.
+    Funkcja `from_config()` szuka pliku JSON zawierającego informacje o połączeniu z obszarem roboczym.
 
 * Użycie `Workspace` konstruktora w celu udostępnienia informacji o subskrypcji, grupie zasobów i obszarze roboczym spowoduje również wyświetlenie monitu o uwierzytelnienie interaktywne.
 
@@ -328,7 +328,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania do wdrożonego modelu,
 
 ### <a name="token-based-web-service-authentication"></a>Uwierzytelnianie usługi sieci Web oparte na tokenach
 
-Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownicy muszą przedstawić Azure Machine Learning token sieci Web JSON dla usługi sieci Web, aby uzyskać do niej dostęp. Token wygasa po określonym czasie i wymaga odświeżenia, aby kontynuować wywoływanie.
+Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownicy muszą przedstawić Azure Machine Learning token sieci Web JSON dla usługi sieci Web, aby uzyskać do niej dostęp. Token wygasa po określonym czasie i musi zostać odświeżony w celu dalszego wykonywania wywołań.
 
 * Uwierzytelnianie tokenu jest **domyślnie wyłączone** w przypadku wdrażania w usłudze Azure Kubernetes Service.
 * Uwierzytelnianie tokenu **nie jest obsługiwane** w przypadku wdrażania programu w celu Azure Container Instances.
@@ -370,7 +370,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Po upływie czasu tokenu musisz zażądać nowego tokenu `refresh_by` . Aby odświeżyć tokeny poza zestawem SDK języka Python, jedną z opcji jest użycie interfejsu API REST z uwierzytelnianiem podmiotu zabezpieczeń usługi w celu okresowego wykonania `service.get_token()` wywołania, jak opisano wcześniej.
+> Będzie konieczne zażądanie nowego tokenu po upłynięciu czasu odświeżania `refresh_by` tokenu. Aby odświeżyć tokeny poza zestawem SDK języka Python, jedną z opcji jest użycie interfejsu API REST z uwierzytelnianiem podmiotu zabezpieczeń usługi w celu okresowego wykonania `service.get_token()` wywołania, jak opisano wcześniej.
 >
 > Zdecydowanie zalecamy utworzenie obszaru roboczego Azure Machine Learning w tym samym regionie, w którym znajduje się klaster usługi Azure Kubernetes.
 >

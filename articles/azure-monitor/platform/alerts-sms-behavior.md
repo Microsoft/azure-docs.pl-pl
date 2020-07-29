@@ -7,11 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff3d055840d69623234a799c62b1d8a6efd96ec5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327093"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Zachowanie alertów SMS w grupach akcji
 
@@ -43,5 +44,5 @@ Odbiornik SMS skonfigurowany jako część grupy akcji odbiera wiadomość SMS p
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z [omówieniem alertów dziennika aktywności](alerts-overview.md) i Dowiedz się, jak uzyskać alerty  
 Dowiedz się więcej na temat [ograniczania szybkości SMS](alerts-rate-limiting.md)  
-Dowiedz się więcej na temat [grup akcji](../../azure-monitor/platform/action-groups.md)
+Dowiedz się więcej na temat [grup akcji](./action-groups.md)
 

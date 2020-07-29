@@ -8,20 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f072ed8a758173645c886cabf0b20f9e123cbbab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612182"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283405"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
->
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 Domyślna grupa aplikacji utworzona dla nowej puli hostów systemu Windows Virtual Desktop również publikuje pełny pulpit. Ponadto można utworzyć co najmniej jedną grupę aplikacji RemoteApp dla puli hostów. Postępuj zgodnie z tym samouczkiem, aby utworzyć grupę aplikacji RemoteApp i opublikować poszczególne aplikacje menu Start.
 
@@ -79,7 +76,7 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający menu wyboru użytkownika.](media/select-users.png)
 
-11.  Wybierz przycisk **Wybierz**.
+11.  Wybierz pozycję **Wybierz**.
 
 12.  Wybierz kartę **aplikacje** , a następnie wybierz pozycję **+ Dodaj aplikacje**.
 

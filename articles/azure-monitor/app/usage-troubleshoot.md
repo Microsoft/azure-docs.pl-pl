@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323506"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Rozwiązywanie problemów z narzędziami analizy zachowania użytkownika w Application Insights
 Masz pytania dotyczące [narzędzi analitycznych zachowania użytkownika w Application Insights](usage-overview.md): [Użytkownicy, sesje, zdarzenia](usage-segmentation.md), [Lejki](usage-funnels.md), [przepływy użytkownika](usage-flows.md), [przechowywanie](usage-retention.md)lub kohorty? Oto kilka odpowiedzi.
@@ -18,13 +19,13 @@ Masz pytania dotyczące [narzędzi analitycznych zachowania użytkownika w Appli
 ## <a name="counting-users"></a>Zliczanie użytkowników
 **Narzędzia analizy zachowania użytkownika pokazują, że moja aplikacja ma jeden użytkownik/sesja, ale wiem, że moja aplikacja ma wiele użytkowników/sesji. Jak można naprawić te nieprawidłowe liczniki?**
 
-Wszystkie zdarzenia telemetrii w Application Insights mają [Identyfikator użytkownika anonimowego](../../azure-monitor/app/data-model-context.md) i [Identyfikator sesji](../../azure-monitor/app/data-model-context.md) jako dwie ich standardowe właściwości. Domyślnie wszystkie narzędzia analizy użycia zliczają użytkowników i sesje na podstawie tych identyfikatorów. Jeśli te właściwości standardowe nie są wypełniane unikatowymi identyfikatorami dla każdego użytkownika i sesji aplikacji, zobaczysz nieprawidłową liczbę użytkowników i sesji w narzędziach analizy użycia.
+Wszystkie zdarzenia telemetrii w Application Insights mają [Identyfikator użytkownika anonimowego](./data-model-context.md) i [Identyfikator sesji](./data-model-context.md) jako dwie ich standardowe właściwości. Domyślnie wszystkie narzędzia analizy użycia zliczają użytkowników i sesje na podstawie tych identyfikatorów. Jeśli te właściwości standardowe nie są wypełniane unikatowymi identyfikatorami dla każdego użytkownika i sesji aplikacji, zobaczysz nieprawidłową liczbę użytkowników i sesji w narzędziach analizy użycia.
 
-W przypadku monitorowania aplikacji sieci Web najprostszym rozwiązaniem jest dodanie [Application Insights zestawu SDK języka JavaScript](../../azure-monitor/app/javascript.md) do aplikacji i upewnienie się, że fragment skryptu jest ładowany na każdej stronie, która ma być monitorowana. Zestaw JavaScript SDK automatycznie generuje anonimowe identyfikatory użytkowników i sesji, a następnie wypełnia zdarzenia telemetrii tymi identyfikatorami, gdy są wysyłane z aplikacji.
+W przypadku monitorowania aplikacji sieci Web najprostszym rozwiązaniem jest dodanie [Application Insights zestawu SDK języka JavaScript](./javascript.md) do aplikacji i upewnienie się, że fragment skryptu jest ładowany na każdej stronie, która ma być monitorowana. Zestaw JavaScript SDK automatycznie generuje anonimowe identyfikatory użytkowników i sesji, a następnie wypełnia zdarzenia telemetrii tymi identyfikatorami, gdy są wysyłane z aplikacji.
 
 Jeśli monitorowana jest usługa sieci Web (bez interfejsu użytkownika), należy [utworzyć inicjatora telemetrii, który wypełnia właściwości identyfikator użytkownika anonimowego i identyfikator sesji](usage-send-user-context.md) zgodnie z pojęciem unikatowych użytkowników i sesji.
 
-Jeśli aplikacja wysyła [uwierzytelnione identyfikatory użytkowników](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), możesz policzyć na podstawie identyfikatorów użytkowników uwierzytelnionych w narzędziu użytkownicy. Na liście rozwijanej "Pokaż" Wybierz pozycję "Użytkownicy uwierzytelnieni".
+Jeśli aplikacja wysyła [uwierzytelnione identyfikatory użytkowników](./api-custom-events-metrics.md#authenticated-users), możesz policzyć na podstawie identyfikatorów użytkowników uwierzytelnionych w narzędziu użytkownicy. Na liście rozwijanej "Pokaż" Wybierz pozycję "Użytkownicy uwierzytelnieni".
 
 Narzędzia analizy zachowania użytkownika nie obsługują obecnie zliczania użytkowników lub sesji na podstawie właściwości innych niż anonimowy identyfikator użytkownika, identyfikator uwierzytelnionego użytkownika lub identyfikator sesji.
 
@@ -47,6 +48,6 @@ Jeśli aplikacja wysyła zbyt wiele nazw zdarzeń niestandardowych, należy zmie
 
 * [Narzędzia analizy zachowań użytkownika — omówienie](usage-overview.md)
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="get-help"></a>Uzyskiwanie pomocy
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

@@ -4,16 +4,16 @@ description: Application Insights model danych dla telemetrii metryki
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540013"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320582"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria metryki: Application Insights model danych
 
-Istnieją dwa typy danych telemetrycznych metryk obsługiwane przez [Application Insights](../../azure-monitor/app/app-insights-overview.md): pojedyncze pomiary i wstępnie zagregowane metryki. Pojedyncza miara jest tylko nazwą i wartością. Metryka wstępnie zagregowana określa minimalną i maksymalną wartość metryki w interwale agregacji i odchylenie standardowe.
+Istnieją dwa typy danych telemetrycznych metryk obsługiwane przez [Application Insights](./app-insights-overview.md): pojedyncze pomiary i wstępnie zagregowane metryki. Pojedyncza miara jest tylko nazwą i wartością. Metryka wstępnie zagregowana określa minimalną i maksymalną wartość metryki w interwale agregacji i odchylenie standardowe.
 
 Przed zagregowaną telemetrię Metryka zakłada, że okres agregacji wynosił jedną minutę.
 
@@ -65,6 +65,7 @@ Metryka z ustawioną właściwością niestandardową `CustomPerfCounter` `true`
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak używać [interfejsu API Application Insights dla niestandardowych zdarzeń i metryk](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Dowiedz się, jak używać [interfejsu API Application Insights dla niestandardowych zdarzeń i metryk](./api-custom-events-metrics.md#trackmetric).
 - Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
-- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.
+- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+

@@ -1,6 +1,6 @@
 ---
-title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Marketplace — Azure
-description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu witryny Azure Marketplace.
+title: Pula hostów systemu Windows Virtual Desktop (klasyczny) Azure Marketplace — Azure
+description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows (klasyczny) przy użyciu portalu Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291312"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Samouczek: Tworzenie puli hostów przy użyciu witryny Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie puli hostów w programie Virtual Desktop systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../create-host-pools-azure-marketplace.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../create-host-pools-azure-marketplace.md).
 
 W tym samouczku dowiesz się, jak utworzyć pulę hostów w ramach dzierżawy pulpitu wirtualnego systemu Windows przy użyciu oferty Microsoft Azure Marketplace.
 
@@ -115,7 +115,7 @@ Na karcie **Informacje o dzierżawie pulpitu wirtualnego systemu Windows** :
    Jeśli ukończono tworzenie jednostek [usługi i przypisań ról przy użyciu programu PowerShell](create-service-principal-role-powershell.md), wybierz pozycję Nazwa **główna usługi**.
 
 1. W przypadku nazwy **głównej usługi**dla **identyfikatora dzierżawy usługi Azure AD**Wprowadź konto administratora dzierżawy dla wystąpienia usługi Azure AD, które zawiera nazwę główną. Obsługiwane są tylko jednostki usługi z poświadczeniami hasła.
-1. Wybierz pozycję **Dalej: przegląd + Utwórz**.
+1. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Ukończ instalację i Utwórz maszynę wirtualną
 

@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 03/04/2020
-ms.openlocfilehash: 560ab582102cc92689093bb0e36acf2fcbc5a30a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b3b8382c81015e3278954dd0443ba44520e2e3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81771008"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315144"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT (.NET)
 
@@ -33,7 +34,7 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji .NET:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +56,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Jeśli jeszcze tego nie zrobiono, Pobierz przykłady w języku C# usługi Azure https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip IoT z programu i Wyodrębnij archiwum zip.
+Jeśli jeszcze tego nie zrobiono, Pobierz przykłady w języku C# usługi Azure IoT z programu https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip i Wyodrębnij archiwum zip.
 
 Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -93,7 +94,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
       --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 

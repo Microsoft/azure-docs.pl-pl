@@ -5,17 +5,17 @@ description: Dowiedz się, jak przekształcać dane w programie Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326991"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 1. Wyświetl wyniki.
 
 Ta procedura jest warunkiem wstępnym artykułu [jak ponownie nauczenie modeli projektanta](how-to-retrain-designer.md) . W tym artykule dowiesz się, jak używać przekształconych zestawów danych do uczenia wielu modeli przy użyciu parametrów potoku.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="transform-a-dataset"></a>Przekształcanie zestawu danych
 
@@ -164,7 +166,7 @@ Po zakończeniu potoku można wyświetlić wyniki, przechodząc do magazynu obie
 
 1. Sprawdź, czy kolumna "kraj macierzysty" nie zawiera wartości "Stany Zjednoczone".
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować pracę z częścią 2 tej metody, aby ponownie przeprowadzić [uczenie modeli przy użyciu programu Azure Machine Learning Designer](how-to-retrain-designer.md).
 

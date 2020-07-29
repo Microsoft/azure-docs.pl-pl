@@ -8,13 +8,16 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom:
+- mvc
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 4af3d00c4f0096199cf914f57b51b04036cec7cf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74084387"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317896"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Samouczek: korzystanie z interfejsu wiersza polecenia platformy Azure i Azure Portal konfigurowania routingu komunikatów IoT Hub
 
@@ -31,7 +34,7 @@ Skopiuj i wklej poniższy skrypt do Cloud Shell i naciśnij klawisz ENTER. Skryp
 Istnieje kilka nazw zasobów, które muszą być globalnie unikatowe, takie jak nazwa IoT Hub i nazwa konta magazynu. Aby to ułatwić, nazwy tych zasobów są dołączane losowo wartością alfanumeryczną o nazwie *randomValue*. RandomValue jest generowany raz u góry skryptu i dołączany do nazw zasobów zgodnie z wymaganiami w całym skrypcie. Jeśli nie chcesz go losowo, możesz ustawić go na pusty ciąg lub do określonej wartości.
 
 > [!TIP]
-> Wskazówka dotycząca debugowania: ten skrypt używa symbolu kontynuacji (ukośnika odwrotnego `\`), aby zwiększyć czytelność skryptu. Jeśli wystąpił problem z uruchomieniem skryptu, upewnij się, że sesja Cloud Shell jest `bash` uruchomiona i że nie ma spacji po żadnym z ukośników odwrotnych.
+> Wskazówka dotycząca debugowania: ten skrypt używa symbolu kontynuacji (ukośnika odwrotnego `\` ), aby zwiększyć czytelność skryptu. Jeśli wystąpił problem z uruchomieniem skryptu, upewnij się, że sesja Cloud Shell jest uruchomiona `bash` i że nie ma spacji po żadnym z ukośników odwrotnych.
 >
 
 ```azurecli-interactive
@@ -168,7 +171,7 @@ Teraz należy skonfigurować routing dla konta magazynu. Przejdź do okienka Kie
 
    **Źródło danych**: z listy rozwijanej wybierz pozycję **Komunikaty telemetrii urządzenia**.
 
-   **Włącz trasę**: Upewnij się, że to pole jest `enabled`ustawione na.
+   **Włącz trasę**: Upewnij się, że to pole jest ustawione na `enabled` .
    
    **Zapytanie dotyczące routingu**: wprowadź `level="storage"` jako ciąg zapytania.
 

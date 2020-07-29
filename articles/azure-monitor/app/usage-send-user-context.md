@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499243"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327909"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Wyślij identyfikatory kontekstu użytkownika, aby włączyć środowiska użycia na platformie Azure Application Insights
 
@@ -30,7 +30,7 @@ Aby śledzić, co użytkownik robi w czasie, Application Insights wymaga identyf
 - Sesje: Uwzględnij identyfikator sesji.
 
 > [!NOTE]
-> Jest to zaawansowany artykuł zawierający opis ręcznych kroków śledzenia aktywności użytkowników przy użyciu Application Insights. W przypadku wielu aplikacji sieci Web **te czynności mogą nie być wymagane**, ponieważ domyślne zestawy SDK po stronie serwera, które są używane w połączeniu z [zestawem JavaScript klienta/po stronie przeglądarki](../../azure-monitor/app/website-monitoring.md ), są często wystarczające do automatycznego śledzenia aktywności użytkownika. Jeśli nie skonfigurowano [monitorowania po stronie klienta](../../azure-monitor/app/website-monitoring.md ) oprócz zestawu SDK po stronie serwera, należy najpierw wykonać te czynności i sprawdzić, czy narzędzia analityczne zachowania użytkownika działają zgodnie z oczekiwaniami.
+> Jest to zaawansowany artykuł zawierający opis ręcznych kroków śledzenia aktywności użytkowników przy użyciu Application Insights. W przypadku wielu aplikacji sieci Web **te czynności mogą nie być wymagane**, ponieważ domyślne zestawy SDK po stronie serwera, które są używane w połączeniu z [zestawem JavaScript klienta/po stronie przeglądarki](./website-monitoring.md), są często wystarczające do automatycznego śledzenia aktywności użytkownika. Jeśli nie skonfigurowano [monitorowania po stronie klienta](./website-monitoring.md) oprócz zestawu SDK po stronie serwera, należy najpierw wykonać te czynności i sprawdzić, czy narzędzia analityczne zachowania użytkownika działają zgodnie z oczekiwaniami.
 
 ## <a name="choosing-user-ids"></a>Wybieranie identyfikatorów użytkowników
 
@@ -134,4 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Użytkownicy, sesje i zdarzenia](usage-segmentation.md)
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
-    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
+    - [Skoroszyty](../platform/workbooks-overview.md)
+

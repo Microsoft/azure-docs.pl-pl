@@ -3,19 +3,19 @@ title: Eksplorowanie dzienników śledzenia .NET w Application Insights
 description: Wyszukaj dzienniki wygenerowane przez Trace, NLog lub Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014579"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321330"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
 
 Wyślij dzienniki śledzenia diagnostyki dla aplikacji ASP.NET/ASP.NET Core z ILogger, NLog, log4Net lub system. Diagnostics. Trace do [platformy Azure Application Insights][start]. W przypadku aplikacji języka Python Wyślij dzienniki śledzenia diagnostycznego za pomocą AzureLogHandler w OpenCensus Python dla Azure Monitor. Następnie możesz eksplorować i wyszukiwać. Te dzienniki są scalane z innymi plikami dziennika z Twojej aplikacji, dzięki czemu można identyfikować ślady skojarzone z poszczególnymi żądaniami użytkowników i skorelować je z innymi zdarzeniami i raportami o wyjątkach.
 
 > [!NOTE]
-> Potrzebujesz modułu przechwytywania dziennika? Jest to przydatna karta dla rejestratorów innych firm. Ale jeśli nie korzystasz już z NLog, log4Net lub system. Diagnostics. Trace, rozważ jedynie wywołanie [**Application Insights TrackTrace ()**](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) bezpośrednio.
+> Potrzebujesz modułu przechwytywania dziennika? Jest to przydatna karta dla rejestratorów innych firm. Ale jeśli nie korzystasz już z NLog, log4Net lub system. Diagnostics. Trace, rozważ jedynie wywołanie [**Application Insights TrackTrace ()**](./api-custom-events-metrics.md#tracktrace) bezpośrednio.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Instalowanie rejestrowania w aplikacji
@@ -34,7 +34,7 @@ Zainstaluj wybraną platformę rejestrowania w projekcie, co powinno skutkować 
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Konfigurowanie Application Insights do zbierania dzienników
-[Dodaj Application Insights do projektu](../../azure-monitor/app/asp-net.md) , jeśli jeszcze tego nie zrobiono. Zobaczysz opcję obejmującą moduł zbierający dzienniki.
+[Dodaj Application Insights do projektu](./asp-net.md) , jeśli jeszcze tego nie zrobiono. Zobaczysz opcję obejmującą moduł zbierający dzienniki.
 
 Lub kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań, aby **skonfigurować Application Insights**. Wybierz opcję **Konfiguruj zbieranie śladów** .
 
@@ -84,7 +84,7 @@ Jeśli wolisz log4net lub NLog, użyj:
 ```
 
 ## <a name="use-eventsource-events"></a>Korzystanie z zdarzeń EventSource
-Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Zdarzenia [System. Diagnostics. Trace. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie Edytuj `TelemetryModules` sekcję pliku [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -100,7 +100,7 @@ Dla każdego źródła można ustawić następujące parametry:
  * **Słowa kluczowe** (opcjonalnie) określają wartość całkowitą kombinacji słów kluczowych do użycia.
 
 ## <a name="use-diagnosticsource-events"></a>Korzystanie z zdarzeń DiagnosticSource
-Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) , które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" pliku [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) , które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" pliku [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -113,7 +113,7 @@ Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://
 Dla każdej DiagnosticSource, którą chcesz śledzić, Dodaj wpis z atrybutem **name** ustawionym na nazwę DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Korzystanie z zdarzeń ETW
-Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj `Microsoft.ApplicationInsights.EtwCollector` pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" pliku [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj `Microsoft.ApplicationInsights.EtwCollector` pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" pliku [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) .
 
 > [!NOTE] 
 > Zdarzenia ETW można zbierać tylko wtedy, gdy proces obsługujący zestaw SDK działa w ramach tożsamości będącej członkiem użytkowników dzienników wydajności lub administratorów.
@@ -158,7 +158,7 @@ Dzięki temu można łatwo odfiltrować [wszystkie komunikaty][diagnostic] o okr
 ## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler for OpenCensus Python
 Program obsługi dzienników Azure Monitor umożliwia eksportowanie dzienników języka Python do Azure Monitor.
 
-Instrumentacja aplikacji za pomocą [zestawu OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md) dla Azure monitor.
+Instrumentacja aplikacji za pomocą [zestawu OpenCensus Python SDK](./opencensus-python.md) dla Azure monitor.
 
 Ten przykład pokazuje, jak wysłać dziennik poziomu ostrzeżeń do Azure Monitor.
 
@@ -185,14 +185,14 @@ Możesz na przykład:
 * Zapisz konfigurację strony jako ulubioną.
 
 > [!NOTE]
->Jeśli aplikacja wysyła dużo danych i używasz zestawu Application Insights SDK dla ASP.NET w wersji 2.0.0-beta3 lub nowszej, funkcja *próbkowania adaptacyjnego* może działać i wysyłać tylko część danych telemetrycznych. [Dowiedz się więcej na temat próbkowania.](../../azure-monitor/app/sampling.md)
+>Jeśli aplikacja wysyła dużo danych i używasz zestawu Application Insights SDK dla ASP.NET w wersji 2.0.0-beta3 lub nowszej, funkcja *próbkowania adaptacyjnego* może działać i wysyłać tylko część danych telemetrycznych. [Dowiedz się więcej na temat próbkowania.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="how-do-i-do-this-for-java"></a>Jak mogę zrobić to w języku Java?
 W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj programu [Java 3,0 Agent](./java-in-process-agent.md).
 
-Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](../../azure-monitor/app/java-trace-logs.md).
+Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>W menu kontekstowym projektu nie ma opcji Application Insights
 * Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze **Tools**  >  **rozszerzenia i aktualizacje**narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
@@ -210,10 +210,10 @@ Prawdopodobnie zainstalowano pakiet NuGet karty rejestrowania bez instalowania A
 Może upłynąć trochę czasu dla wszystkich zdarzeń i żądań, aby przejść przez potok.
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Ile danych jest przechowywanych?
-Niektóre czynniki wpływają na ilość przechowywanych danych. Aby uzyskać więcej informacji, zobacz sekcję [limity](../../azure-monitor/app/api-custom-events-metrics.md#limits) na stronie metryki zdarzeń klienta.
+Niektóre czynniki wpływają na ilość przechowywanych danych. Aby uzyskać więcej informacji, zobacz sekcję [limity](./api-custom-events-metrics.md#limits) na stronie metryki zdarzeń klienta.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Nie widzę niektórych wpisów dziennika, których oczekuje
-Jeśli aplikacja wysyła Voluminous ilość danych i korzysta z zestawu SDK Application Insights dla ASP.NET w wersji 2.0.0-beta3 lub nowszej, funkcja próbkowania adaptacyjnego może działać i wysyłać tylko część danych telemetrycznych. [Dowiedz się więcej na temat próbkowania.](../../azure-monitor/app/sampling.md)
+Jeśli aplikacja wysyła Voluminous ilość danych i korzysta z zestawu SDK Application Insights dla ASP.NET w wersji 2.0.0-beta3 lub nowszej, funkcja próbkowania adaptacyjnego może działać i wysyłać tylko część danych telemetrycznych. [Dowiedz się więcej na temat próbkowania.](./sampling.md)
 
 ## <a name="next-steps"></a><a name="add"></a>Następne kroki
 
@@ -224,9 +224,10 @@ Jeśli aplikacja wysyła Voluminous ilość danych i korzysta z zestawu SDK Appl
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
+

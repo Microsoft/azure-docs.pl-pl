@@ -1,6 +1,6 @@
 ---
-title: Tworzenie dzierżawy w programie Virtual Desktop systemu Windows — Azure
-description: Opisuje sposób konfigurowania dzierżawców pulpitów wirtualnych systemu Windows w Azure Active Directory.
+title: Tworzenie dzierżawy w systemie Windows Virtual Desktop (klasyczny) — Azure
+description: Opisuje sposób konfigurowania dzierżawców klasycznego systemu Windows (klasyczny) w Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362394"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286363"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Samouczek: Tworzenie dzierżawy w programie Virtual Desktop systemu Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie dzierżawy w systemie Windows Virtual Desktop (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 Tworzenie dzierżawy w systemie Windows Virtual Desktop to pierwszy krok w kierunku tworzenia rozwiązania do wirtualizacji pulpitu. Dzierżawca jest grupą co najmniej jednej puli hostów. Każda pula hostów składa się z wielu hostów sesji uruchomionych jako maszyny wirtualne na platformie Azure i zarejestrowane w usłudze pulpitu wirtualnego systemu Windows. Każda pula hostów składa się również z co najmniej jednej grupy aplikacji, która jest używana do publikowania zasobów pulpitu zdalnego i aplikacji zdalnych użytkownikom. Dzierżawy umożliwiają tworzenie pul hostów, tworzenie grup aplikacji, przypisywanie użytkowników i nawiązywanie połączeń za pomocą usługi.
 

@@ -4,15 +4,16 @@ description: Application Insights model danych dla telemetrii wyjątku
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320599"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Dane telemetryczne wyjątku: Application Insights model danych
 
-W [Application Insights](../../azure-monitor/app/app-insights-overview.md)wystąpienie wyjątku reprezentuje obsłużony lub nieobsługiwany wyjątek, który wystąpił podczas wykonywania monitorowanej aplikacji.
+W [Application Insights](./app-insights-overview.md)wystąpienie wyjątku reprezentuje obsłużony lub nieobsługiwany wyjątek, który wystąpił podczas wykonywania monitorowanej aplikacji.
 
 ## <a name="problem-id"></a>Identyfikator problemu
 
@@ -39,5 +40,6 @@ Poziom ważności śledzenia. Wartość może być `Verbose` , `Information` ,,,
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
-- Dowiedz się, jak [zdiagnozować wyjątki w aplikacjach sieci Web za pomocą Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.
+- Dowiedz się, jak [zdiagnozować wyjątki w aplikacjach sieci Web za pomocą Application Insights](./asp-net-exceptions.md).
+- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+

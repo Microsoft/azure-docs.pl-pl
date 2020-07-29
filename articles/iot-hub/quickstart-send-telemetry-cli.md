@@ -6,15 +6,16 @@ ms.topic: quickstart
 ms.custom:
 - iot-send-telemetry-cli
 - iot-p0-scenario
+- 'Role: Cloud Development'
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: b8a057890d20fc233eae6f1636d83e73855305b7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9ab2074816198499b749416298298c44605b9818
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727050"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317913"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i monitorowanie go za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -173,7 +174,7 @@ Aby wizualizować metryki komunikatów w Azure Portal:
 
 5. Opcjonalnie użyj listy rozwijanej **Metryka** , aby wyświetlić inne metryki na symulowanym urządzeniu. Na przykład *C2d komunikaty zostały ukończone* lub *łączna liczba urządzeń (wersja zapoznawcza)*. 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zasoby platformy Azure utworzone w ramach tego przewodnika Szybki Start nie są już potrzebne, można je usunąć za pomocą interfejsu wiersza polecenia platformy Azure.
 
 W przypadku kontynuowania następnego zalecanego artykułu można zachować zasoby, które zostały już utworzone, i użyć ich ponownie. 

@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.custom: mvc
-ms.openlocfilehash: d924975d852320fcddd5ae988f1d52f10d366f81
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326600"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Samouczek: używanie flag funkcji w aplikacji do rozruchu sprężynowego
 
@@ -37,7 +37,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 ## <a name="set-up-feature-management"></a>Konfigurowanie zarządzania funkcjami
 
-Menedżer `FeatureManager` funkcji sprężynowego rozruchu pobiera flagi funkcji z macierzystego systemu konfiguracji platformy. W związku z tym można zdefiniować flagi funkcji aplikacji przy użyciu dowolnego źródła konfiguracji obsługiwanego przez rozruch sprężynowy, w tym lokalnego pliku *Bootstrap. yml* lub zmiennych środowiskowych. `FeatureManager`opiera się na iniekcji zależności. Usługi zarządzania funkcjami można zarejestrować przy użyciu standardowych konwencji:
+Menedżer funkcji sprężynowego rozruchu `FeatureManager` Pobiera flagi funkcji z macierzystego systemu konfiguracji platformy. W związku z tym można zdefiniować flagi funkcji aplikacji przy użyciu dowolnego źródła konfiguracji obsługiwanego przez rozruch sprężynowy, w tym lokalnego pliku *Bootstrap. yml* lub zmiennych środowiskowych. `FeatureManager`opiera się na iniekcji zależności. Usługi zarządzania funkcjami można zarejestrować przy użyciu standardowych konwencji:
 
 ```java
 private FeatureManager featureManager;
@@ -73,7 +73,7 @@ Najprostszym sposobem łączenia aplikacji z rozruchem sprężynowym z konfigura
 
 ## <a name="feature-flag-declaration"></a>Deklaracja flagi funkcji
 
-Każda flaga funkcji ma dwie części: nazwę i listę co najmniej jednego filtru, który jest używany do obliczenia, czy stan funkcji jest *włączony* (to znaczy, gdy wartość jest `True`równa). Filtr definiuje przypadek użycia, gdy funkcja powinna być włączona.
+Każda flaga funkcji ma dwie części: nazwę i listę co najmniej jednego filtru, który jest używany do obliczenia, czy stan funkcji jest *włączony* (to znaczy, gdy wartość jest równa `True` ). Filtr definiuje przypadek użycia, gdy funkcja powinna być włączona.
 
 Gdy flaga funkcji ma wiele filtrów, lista filtrów jest przesunięta w kolejności, aż jeden z filtrów określi, że funkcja powinna być włączona. W tym momencie flaga funkcji jest *włączona*, a wszystkie pozostałe wyniki filtru są pomijane. Jeśli żaden filtr nie wskazuje, że funkcja powinna być włączona, flaga funkcji jest *wyłączona*.
 
@@ -92,7 +92,7 @@ feature-management:
             value: 50
 ```
 
-Zgodnie z Konwencją `feature-management` sekcja tego dokumentu YML jest używana dla ustawień flagi funkcji. W poprzednim przykładzie pokazano trzy flagi funkcji z filtrami zdefiniowanymi we `EnabledFor` właściwości:
+Zgodnie z Konwencją `feature-management` sekcja tego dokumentu YML jest używana dla ustawień flagi funkcji. W poprzednim przykładzie pokazano trzy flagi funkcji z filtrami zdefiniowanymi we `EnabledFor` Właściwości:
 
 * `feature-a`jest *włączony*.
 * `feature-b`jest *wyłączona*.
@@ -100,7 +100,7 @@ Zgodnie z Konwencją `feature-management` sekcja tego dokumentu YML jest używan
 
 ## <a name="feature-flag-checks"></a>Sprawdzanie flag funkcji
 
-Podstawowym wzorcem zarządzania funkcjami jest najpierw sprawdzenie, czy flaga funkcji jest ustawiona na wartość *włączone*. Jeśli tak, Menedżer funkcji uruchamia następnie akcje, które zawiera funkcja. Przykład:
+Podstawowym wzorcem zarządzania funkcjami jest najpierw sprawdzenie, czy flaga funkcji jest ustawiona na wartość *włączone*. Jeśli tak, Menedżer funkcji uruchamia następnie akcje, które zawiera funkcja. Na przykład:
 
 ```java
 private FeatureManager featureManager;
@@ -112,7 +112,7 @@ if (featureManager.isEnabledAsync("feature-a").block()) {
 
 ## <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-W przypadku rozruchu sprężynowego można uzyskać dostęp do Menedżera `FeatureManager` funkcji za pomocą iniekcji zależności:
+W przypadku rozruchu sprężynowego można uzyskać dostęp do Menedżera funkcji `FeatureManager` za pomocą iniekcji zależności:
 
 ```java
 @Controller
@@ -128,7 +128,7 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Akcje kontrolera
 
-W kontrolerach MVC Użyj `@FeatureGate` atrybutu, aby określić, czy określona akcja jest włączona. Aby można `Index` było uruchomić następujące czynności: *on* `feature-a`
+W kontrolerach MVC Użyj atrybutu, `@FeatureGate` Aby określić, czy określona akcja jest włączona. `Index` `feature-a` Aby można było uruchomić następujące czynności *on* :
 
 ```java
 @GetMapping("/")
@@ -138,11 +138,11 @@ public String index(Model model) {
 }
 ```
 
-Gdy kontroler MVC lub akcja jest blokowana, ponieważ flaga funkcji kontrolującej jest *wyłączona*, zostanie `IDisabledFeaturesHandler` wywołany zarejestrowany interfejs. Domyślny `IDisabledFeaturesHandler` interfejs zwraca kod stanu 404 do klienta bez treści odpowiedzi.
+Gdy kontroler MVC lub akcja jest blokowana, ponieważ flaga funkcji kontrolującej jest *wyłączona*, `IDisabledFeaturesHandler` zostanie wywołany zarejestrowany interfejs. Domyślny `IDisabledFeaturesHandler` interfejs zwraca kod stanu 404 do klienta bez treści odpowiedzi.
 
 ## <a name="mvc-filters"></a>Filtry MVC
 
-Filtry MVC można skonfigurować tak, aby były aktywowane na podstawie stanu flagi funkcji. Poniższy kod dodaje filtr MVC o nazwie `FeatureFlagFilter`. Ten filtr jest wyzwalany w ramach potoku MVC `feature-a` tylko wtedy, gdy jest włączony.
+Filtry MVC można skonfigurować tak, aby były aktywowane na podstawie stanu flagi funkcji. Poniższy kod dodaje filtr MVC o nazwie `FeatureFlagFilter` . Ten filtr jest wyzwalany w ramach potoku MVC tylko wtedy, gdy `feature-a` jest włączony.
 
 ```java
 @Component
@@ -166,7 +166,7 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Trasy
 
-Za pomocą flag funkcji można przekierowywać trasy. Następujący kod przekierowuje użytkownika z `feature-a` usługi jest włączony:
+Za pomocą flag funkcji można przekierowywać trasy. Następujący kod przekierowuje użytkownika z usługi `feature-a` jest włączony:
 
 ```java
 @GetMapping("/redirect")

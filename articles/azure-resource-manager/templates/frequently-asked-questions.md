@@ -2,15 +2,15 @@
 title: Często zadawane pytania dotyczące szablonu ARM
 description: Często zadawane pytania dotyczące szablonów Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296869"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327263"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -48,7 +48,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
   Aby dowiedzieć się więcej o nowym języku szablonów, [zarejestruj się w celu otrzymywania powiadomień](https://aka.ms/armLangUpdates).
 
-  Aby zapoznać się z podglądem specyfikacji szablonu, [Dołącz listę oczekiwania](https://aka.ms/templateSpecsWaitlist).
+  Aby dowiedzieć się więcej na temat specyfikacji szablonu, zobacz [Azure Resource Manager specyfikacji szablonu (wersja zapoznawcza)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Tworzenie i testowanie szablonów
 
@@ -64,7 +64,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy można utworzyć grupę zasobów w szablonie ARM i wdrożyć do niej zasoby?**
 
-  Tak, po wdrożeniu szablonu na poziomie subskrypcji platformy Azure można utworzyć grupę zasobów w szablonie. Przykład tworzenia grupy zasobów i wdrażania zasobów można znaleźć w temacie [zasoby i Grupa zasobów](deploy-to-subscription.md#resource-group-and-resources).
+  Tak, po wdrożeniu szablonu na poziomie subskrypcji platformy Azure można utworzyć grupę zasobów w szablonie. Przykład tworzenia grupy zasobów i wdrażania zasobów można znaleźć w temacie [zasoby i Grupa zasobów](deploy-to-subscription.md#resource-groups).
 
 * **Czy mogę utworzyć subskrypcję w szablonie ARM?**
 

@@ -8,19 +8,19 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323404"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorowanie użycia i szacowane koszty w Azure Monitor
 
 > [!NOTE]
 > W tym artykule opisano sposób wyświetlania użycia i szacowanych kosztów w ramach wielu funkcji monitorowania platformy Azure. Pokrewne artykuły dla określonych składników Azure Monitor obejmują:
 > - [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](manage-cost-storage.md) opisuje sposób kontrolowania kosztów przez zmianę okresu przechowywania danych oraz analizowanie i zgłaszanie alertów dotyczących użycia danych.
-> - [Zarządzanie użyciem i kosztami Application Insights](../../azure-monitor/app/pricing.md) opisuje sposób analizowania użycia danych w programie Application Insights.
+> - [Zarządzanie użyciem i kosztami Application Insights](../app/pricing.md) opisuje sposób analizowania użycia danych w programie Application Insights.
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor model cenowy
 
@@ -96,3 +96,4 @@ W zależności od liczby węzłów pakietu zakupionej przez Twoją organizację 
 > [!WARNING]
 > Jeśli Twoja organizacja ma bieżące Microsoft Operations Management Suite E1 i E2, zazwyczaj najlepszym rozwiązaniem jest utrzymywanie Log Analytics obszarów roboczych w warstwie cenowej "na węzeł (OMS)" oraz zasobach Application Insights w warstwie cenowej "Enterprise". 
 >
+

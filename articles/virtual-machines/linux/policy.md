@@ -5,14 +5,15 @@ author: mimckitt
 ms.service: virtual-machines-linux
 ms.subservice: security
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 6eb571ccc8c996a06d3bdf2dda25860df4dc930f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0dcb8531c3aece6ace7cf8ea38f89ebf078c8d59
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759365"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267714"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Stosowanie zasad do maszyn wirtualnych z systemem Linux przy użyciu Azure Resource Manager
 Korzystając z zasad, organizacja może wymusić różne konwencje i reguły w całym przedsiębiorstwie. Wymuszanie żądanego zachowania może pomóc w ograniczeniu ryzyka, a tym samym sukcesem organizacji. W tym artykule opisano sposób użycia zasad Azure Resource Managerymi w celu zdefiniowania żądanego zachowania Virtual Machines organizacji.

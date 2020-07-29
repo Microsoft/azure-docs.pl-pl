@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 5f3b5c60907260a0e868d491a4d55ea3624c2bce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046795"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283456"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -89,7 +89,7 @@ Można użyć następujących kombinacji typów autoryzacji i usługi Azure Stor
 
 
 > [!IMPORTANT]
-> Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory może być używana tylko tożsamość zarządzana. Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli RBAC przypisanej do zarządzanej tożsamości.
+> Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można używać tylko tożsamości zarządzanej. Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli RBAC przypisanej do zarządzanej tożsamości.
 >
 
 ## <a name="credentials"></a>Poświadczenia
@@ -244,7 +244,7 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
@@ -289,7 +289,7 @@ Użytkownik bazy danych może odczytać zawartość plików ze źródła danych 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

@@ -7,11 +7,16 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Technical Support'
+ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890469"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327688"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Strumienie urządzeń IoT Hub (wersja zapoznawcza)
 
@@ -21,7 +26,7 @@ ms.locfileid: "73890469"
 
 Przy użyciu strumieni urządzeń IoT Hub urządzenia pozostają bezpieczne i będą musiały otwierać wychodzące połączenia TCP do punktu końcowego przesyłania strumieniowego usługi IoT Hub przez port 443. Po ustanowieniu strumienia aplikacje po stronie usług i po stronie urządzenia będą miały dostęp programistyczny do obiektu klienta WebSocket w celu wysyłania i odbierania nieprzetworzonych bajtów do siebie. Gwarancje niezawodności i porządkowania zapewniane przez ten tunel są z użyciem protokołu TCP.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 IoT Hub strumienie urządzeń zapewniają następujące korzyści:
 
