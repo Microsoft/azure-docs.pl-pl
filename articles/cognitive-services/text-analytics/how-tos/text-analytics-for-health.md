@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122385"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373474"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86122385"
 > Analiza tekstu dla kondycji to funkcja w wersji zapoznawczej udostępniona "AS IS" i "ze wszystkimi BŁĘDami". W związku z tym **Analiza tekstu dla kondycji (wersja zapoznawcza) nie należy implementować ani wdrażać w żadnym środowisku produkcyjnym.** Analiza tekstu dla kondycji nie są przeznaczone do użytku jako wyrób medyczny, pomoc techniczna kliniczna, narzędzie diagnostyczne ani inne technologie przeznaczone do celów diagnostycznych, pozyskiwania, łagodzenia, traktowania lub zapobiegania chorobom lub innym warunkom, a firma Microsoft nie udziela żadnych licencji ani prawa do korzystania z tej funkcji w taki sposób. Ta możliwość nie została zaprojektowana lub zaplanowana jako zamiennik do profesjonalnego doradztwa medycznego lub opinii o opieki zdrowotnej, diagnostyki, traktowania lub klinicznej oceny specjalisty ds. ochrony zdrowia i nie powinna być używana jako taka. Klient jest odpowiedzialny wyłącznie za korzystanie z analiza tekstu na potrzeby kondycji. Firma Microsoft nie gwarantuje, że analiza tekstu w zakresie kondycji lub materiały dostarczone w związku z tą możliwością będą wystarczające dla jakichkolwiek celów medycznych lub w inny sposób spełniają wymagania zdrowotne lub medyczne każdej osoby. 
 
 
-Azure analiza tekstu for Health to usługa z kontenerami, która wyodrębnia i etykietuje odpowiednie informacje medyczne z tekstów bez struktury, takich jak notatki lekarza, podsumowania zrzutów, dokumenty kliniczne i rejestry kondycji elektronicznej.  
+Analiza tekstu dla kondycji jest usługą kontenerową, która wyodrębnia i etykietuje odpowiednie informacje medyczne z tekstów bez struktury, takich jak notatki lekarskie, podsumowania zrzutów, dokumenty kliniczne i rejestry kondycji elektronicznej.  
 
 ## <a name="features"></a>Funkcje
 
@@ -62,7 +62,7 @@ Znaczenie dla zawartości medycznej ma duże wpływ na modyfikatory, takie jak N
 
 ---
 
-Pełną listę obsługiwanych jednostek można znaleźć w [kategoriach jednostek](../named-entity-types.md?tabs=health) zwróconych przez analiza tekstu dla opieki zdrowotnej.
+Aby uzyskać pełną listę obsługiwanych jednostek, zobacz [Kategorie jednostek](../named-entity-types.md?tabs=health) zwrócone przez analiza tekstu dla kondycji.
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
@@ -80,8 +80,8 @@ Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https
 
 Istnieje wiele sposobów instalowania i uruchamiania kontenera. 
 
-1. Użycie [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) do utworzenia zasobu analiza tekstu i użycie platformy Docker w celu uzyskania kontenera.
-2. Automatyzacja konfiguracji kontenera wdrażania zasobów przy użyciu poniższych skryptów [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) programu PowerShell i platformy Azure.
+- Użyj [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) , aby utworzyć zasób analiza tekstu i użyć platformy Docker do pobrania kontenera.
+- Aby zautomatyzować konfigurację kontenera wdrażania zasobów, należy użyć następujących skryptów [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) programu PowerShell i platformy Azure.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instalowanie kontenera przy użyciu usługi Azure Web App for Containers
 
@@ -223,7 +223,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację NGINX na temat [Nginx prot
 
 
 ## <a name="example-api-request"></a>Przykładowe żądanie interfejsu API
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań.
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.
 
 Użyj przykładowego żądania zwinięcie poniżej, aby przesłać zapytanie do wdrożonego kontenera zastępującego `serverURL` zmienną odpowiednią wartością.
 
@@ -404,8 +404,8 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
     ...
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Przegląd analiza tekstu](../overview.md)
+* [Przegląd analizy tekstu](../overview.md)
 * [Kategorie nazwanych jednostek](../named-entity-types.md)
 * [Co nowego](../whats-new.md)

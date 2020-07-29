@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503794"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287372"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | Zmiany | Szczegóły |
 | --- | --- |
 | **Nazwa sieci rozproszonej (DNN)** | SQL Server 2019 w systemie Windows Server 2016 + jest teraz podglądem obsługi routingu ruchu do wystąpienia klastra trybu failover (FCI) przy użyciu [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) zamiast korzystania z Azure Load Balancer. Ta obsługa upraszcza i usprawnia łączenie się z rozwiązaniem wysokiej dostępności na platformie Azure. | 
-| **FCI z dyskami udostępnionymi platformy Azure** | Teraz można wdrożyć [wystąpienie klastra trybu failover (FCI)](failover-cluster-instance-overview.md) przy użyciu [dysków udostępnionych platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) z SQL Server 2019 na maszynie wirtualnej z systemem Windows Server 2016 +. |
+| **FCI z dyskami udostępnionymi platformy Azure** | Teraz można wdrożyć [wystąpienie klastra trybu failover (FCI)](failover-cluster-instance-overview.md) przy użyciu [dysków udostępnionych platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
 | **Reorganizowane dokumenty FCI** | Dokumentacja dotycząca [wystąpień klastrów trybu failover z SQL Server na maszynach wirtualnych platformy Azure](failover-cluster-instance-overview.md) została przeprojektowana i zreorganizowana pod kątem przejrzystości. Część zawartości konfiguracji została oddzielona, jak [najlepsze rozwiązania w zakresie konfiguracji klastra](hadr-cluster-best-practices.md), jak przygotować [maszynę wirtualną do SQL Server FCI](failover-cluster-instance-prepare-vm.md)oraz jak skonfigurować [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
@@ -90,7 +90,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 |**Przełącz model licencjonowania** | Teraz możesz przechodzić między modelami "płatność za użycie" i "Przenieś własne" dla maszyny wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Aby uzyskać więcej informacji, zobacz [jak zmienić model licencjonowania dla SQL Server maszyny wirtualnej na platformie Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 **Maszyny wirtualne z systemem Windows**:
 

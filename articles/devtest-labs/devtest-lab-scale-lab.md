@@ -3,12 +3,12 @@ title: Skaluj przydziały i limity w laboratorium w Azure DevTest Labs | Microso
 description: W tym artykule opisano, jak można skalować laboratorium w Azure DevTest Labs. Wyświetl limity przydziału użycia i ograniczenia oraz Zażądaj zwiększenia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477095"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287305"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skalowanie przydziałów i limitów w laboratoriach DevTest Labs
 Podczas pracy w DevTest Labs można zauważyć, że istnieją pewne domyślne limity niektórych zasobów platformy Azure, które mogą mieć wpływ na usługę DevTest Labs. Limity te są określane jako limity **przydziału**.
@@ -20,7 +20,7 @@ Każdy zasób platformy Azure można użyć do momentu osiągnięcia limitu przy
 
 Na przykład Każda subskrypcja ma domyślny przydział 20 rdzeni. Dlatego, jeśli tworzysz maszyny wirtualne w laboratorium z czterema rdzeniami, możesz utworzyć tylko pięć maszyn wirtualnych.
 
-[Limity subskrypcji i usług platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) zawierają listę najbardziej typowych limitów zasobów platformy Azure. Najczęściej używane zasoby w laboratorium, dla których mogą wystąpić limity przydziału, obejmują rdzenie maszyn wirtualnych, publiczne adresy IP, interfejs sieciowy, dyski zarządzane, przypisywanie ról RBAC i obwody usługi ExpressRoute.
+[Limity subskrypcji i usług platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) zawierają listę najbardziej typowych limitów zasobów platformy Azure. Najczęściej używane zasoby w laboratorium, dla których mogą wystąpić limity przydziału, obejmują rdzenie maszyn wirtualnych, publiczne adresy IP, interfejs sieciowy, dyski zarządzane, przypisywanie ról RBAC i obwody usługi ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Wyświetlanie użycia i przydziałów
 W tych krokach pokazano, jak wyświetlić bieżące przydziały w ramach subskrypcji dla określonych zasobów platformy Azure, a także zobaczyć procent użycia każdego używanego przydziału.
@@ -37,7 +37,7 @@ W tych krokach pokazano, jak wyświetlić bieżące przydziały w ramach subskry
    ![Limity przydziału i użycie](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Żądanie większej ilości zasobów w ramach subskrypcji
-W przypadku osiągnięcia limitu przydziału domyślny limit zasobu w subskrypcji można zwiększyć do maksymalnego limitu, zgodnie z opisem w temacie [subskrypcja i limity usług platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+W przypadku osiągnięcia limitu przydziału domyślny limit zasobu w subskrypcji można zwiększyć do maksymalnego limitu, zgodnie z opisem w temacie [subskrypcja i limity usług platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 W tych krokach pokazano, jak poprosić o zwiększenie limitu przydziału za pomocą [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314224"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
@@ -184,16 +184,6 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
      ![Zakończono Power BI pulpit nawigacyjny przedstawiający dwa kafelki dla fałszywych wywołań](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>Dowiedz się więcej o Power BI
-
-W tym samouczku pokazano, jak utworzyć tylko kilka rodzajów wizualizacji dla zestawu danych. Power BI może pomóc w tworzeniu innych narzędzi analizy biznesowej dla klientów w organizacji. Aby uzyskać więcej sugestii, zobacz następujące zasoby:
-
-* Aby zapoznać się z innym przykładem pulpitu nawigacyjnego Power BI, Obejrzyj [wprowadzenie za pomocą Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) wideo.
-* Aby uzyskać więcej informacji o konfigurowaniu danych wyjściowych zadań usługi Stream Analytics do Power BI i korzystania z grup Power BI, zapoznaj się z sekcją [Power BI](stream-analytics-define-outputs.md#power-bi) artykułu [Stream Analytics dane wyjściowe](stream-analytics-define-outputs.md) . 
-* Aby uzyskać informacje na temat korzystania z Power BI ogólnie, zobacz [pulpity nawigacyjne w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>Informacje o ograniczeniach i najlepszych rozwiązaniach
 Obecnie Power BI można wywołać w dowolnym momencie na sekundę. Wizualizacje przesyłania strumieniowego obsługują pakiety o wartości 15 KB. Poza tym, wizualizacje przesyłania strumieniowego kończą się niepowodzeniem (ale wypchnięcie kontynuuje pracę). Ze względu na te ograniczenia Power BI się w sytuacji, w której wystąpiły najczęstsze sytuacje, w których Azure Stream Analytics znaczący spadek obciążenia danych. Zalecamy korzystanie z okna wirowania lub okna przeskoku w celu zapewnienia, że wypychanie danych jest co najwyżej jedną wypychaną na sekundę, oraz że zapytanie jest używane w ramach wymagań dotyczących przepływności.
 
@@ -201,7 +191,7 @@ Możesz użyć poniższego równania, aby obliczyć wartość w ciągu kilku sek
 
 ![Równanie wartości obliczeniowej, aby przyznać okno w sekundach](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Przykład:
+Na przykład:
 
 * Masz 1 000 urządzeń wysyłających dane w odstępach jednosekundowych.
 * Używasz jednostki SKU Power BI Pro, która obsługuje 1 000 000 wierszy na godzinę.
@@ -234,12 +224,9 @@ Podobnie, jeśli zadanie rozpoczyna się po wygaśnięciu tokenu, wystąpi błą
 
 Po odświeżeniu autoryzacji za pomocą Power BI zielony alert pojawi się w obszarze autoryzacji w celu odzwierciedlenia, że problem został rozwiązany.
 
-## <a name="get-help"></a>Uzyskaj pomoc
-Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
+* [Stream Analytics dane wyjściowe](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Dokumentacja interfejsu API REST zarządzania Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

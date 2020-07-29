@@ -3,12 +3,12 @@ title: Nieprawidłowe błędy szablonu
 description: Opisuje sposób rozwiązywania nieprawidłowych błędów szablonów podczas wdrażania szablonów Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118889"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373814"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Usuwanie błędów związanych z nieprawidłowym szablonem
 
@@ -130,7 +130,7 @@ Podwójne sprawdzanie dozwolonych wartości w szablonie i udostępnianie ich pod
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Rozwiązanie 4 — zbyt wiele docelowych grup zasobów
 
-Ten błąd może pojawić się we wcześniejszych wdrożeniach, ponieważ ograniczono do pięciu docelowych grup zasobów w jednym wdrożeniu. W maju 2020 limit został zwiększony do 800 grup zasobów. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+Ten błąd może pojawić się we wcześniejszych wdrożeniach, ponieważ ograniczono do pięciu docelowych grup zasobów w jednym wdrożeniu. W maju 2020 limit został zwiększony do 800 grup zasobów. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
 
 <a id="circular-dependency"></a>
 
@@ -150,7 +150,7 @@ Usunięcie wartości z właściwości **dependsOn** może spowodować błędy po
 
 Jeśli takie podejście nie rozwiąże zależności cyklicznej, rozważ przeniesienie części logiki wdrażania do zasobów podrzędnych (takich jak rozszerzenia lub ustawienia konfiguracji). Skonfiguruj te zasoby podrzędne do wdrożenia po zasobach występujących w zależności cyklicznej. Załóżmy na przykład, że wdrażasz dwie maszyny wirtualne, ale musisz ustawić właściwości dla każdej z nich, która odwołuje się do drugiego. Można je wdrożyć w następującej kolejności:
 
-1. VM1
+1. vm1
 2. VM2
 3. Rozszerzenie na VM1 zależy od VM1 i VM2. Rozszerzenie ustawia wartości w VM1, które pobiera z VM2.
 4. Rozszerzenie na VM2 zależy od VM1 i VM2. Rozszerzenie ustawia wartości w VM2, które pobiera z VM1.

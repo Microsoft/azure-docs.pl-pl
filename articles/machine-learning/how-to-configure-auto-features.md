@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321592"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373746"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym
 
@@ -114,13 +114,13 @@ Guardrail|Stan|Warunek &nbsp; dla &nbsp; wyzwalacza
 
 Możesz dostosować ustawienia cechowania, aby upewnić się, że dane i funkcje, które są używane do uczenia modelu ML, powodują odpowiednie przewidywania.
 
-Aby dostosować featurizations, określ  `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zapoznaj się z [artykułem jak to zrobić](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Aby dostosować featurizations, określ  `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zapoznaj się z [artykułem jak to zrobić](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Aby dostosować cechowania do prognozowania typów zadań, zapoznaj się z [tematem prognozowanie, jak to zrobić](how-to-auto-train-forecast.md#customize-featurization).
 
 Obsługiwane dostosowania obejmują:
 
 |Dostosowywanie|Definicja|
 |--|--|
-|**Aktualizacja celu kolumny**|Zastąp typ funkcji dla określonej kolumny.|
+|**Aktualizacja celu kolumny**|Przesłoń automatyczne wykrywanie typu funkcji dla określonej kolumny.|
 |**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący (Oredni, najczęstszy i średni) oraz *HashOneHotEncoder*.|
 |**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
 |**Blokuj Transformatory**| Określa Transformatory blokowe, które mają być używane w procesie cechowania.|

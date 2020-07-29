@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/25/2020
+ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252648"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373117"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ W usłudze Azure SQL Edge po wdrożeniu kontenera można nawiązać połączenie
 
 Możesz połączyć się z wystąpieniem wystąpienia usługi Azure SQL Edge z dowolnego z następujących popularnych narzędzi:
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): narzędzia klienta SQLCMD są już zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do działającego kontenera z interaktywną powłoką bash, możesz uruchomić narzędzia lokalnie.
+* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): narzędzia klienta SQLCMD są już zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do działającego kontenera z interaktywną powłoką bash, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
 * [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
@@ -55,7 +55,7 @@ Aby nawiązać połączenie z aparatem bazy danych usługi Azure SQL Edge z komp
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Nawiązywanie połączenia z aparatem bazy danych z poziomu kontenera
 
-[Narzędzia wiersza polecenia SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) są zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do kontenera za pomocą interakcyjnego wiersza polecenia, możesz uruchomić narzędzia lokalnie.
+[Narzędzia wiersza polecenia SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) są zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do kontenera za pomocą interakcyjnego wiersza polecenia, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
 
 1. Użyj `docker exec -it` polecenia, aby uruchomić interaktywną powłokę bash wewnątrz działającego kontenera. W poniższym przykładzie `e69e056c702d` jest to identyfikator kontenera.
 

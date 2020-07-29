@@ -2,13 +2,13 @@
 title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/28/2020
+ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497934"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373941"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -37,33 +37,7 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
 
 * **Zainstaluj agenta maszyny wirtualnej na maszynie wirtualnej**: Azure Backup tworzenie kopii zapasowych maszyn wirtualnych platformy Azure przez zainstalowanie rozszerzenia agenta maszyny wirtualnej platformy Azure uruchomionego na tym komputerze. Jeśli maszyna wirtualna została utworzona na podstawie obrazu portalu Azure Marketplace, Agent jest zainstalowany i uruchomiony. Jeśli tworzysz niestandardową maszynę wirtualną lub migrujesz maszynę lokalną, może być konieczne [ręczne zainstalowanie agenta](#install-the-vm-agent).
 
-## <a name="create-a-vault"></a>Tworzenie magazynu
-
- Magazyn przechowuje kopie zapasowe i punkty odzyskiwania utworzone wraz z upływem czasu, a następnie przechowuje zasady tworzenia kopii w programie skojarzonych z maszynami z kopii zapasowej. Utwórz magazyn w następujący sposób:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W polu wyszukiwania wpisz **Recovery Services**. W obszarze **usługi**kliknij pozycję **magazyny Recovery Services**.
-
-     ![Wyszukaj Recovery Services magazyny](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
-
-3. W menu **magazyny Recovery Services** kliknij pozycję **+ Dodaj**.
-
-     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
-
-4. W obszarze **magazyn Recovery Services**wpisz przyjazną nazwę, aby zidentyfikować magazyn.
-    * Nazwa musi być unikalna w tej subskrypcji platformy Azure.
-    * Może zawierać od 2 do 50 znaków.
-    * Musi rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
-5. Wybierz subskrypcję platformy Azure, grupę zasobów i region geograficzny, w którym ma zostać utworzony magazyn. Następnie kliknij pozycję **Utwórz**.
-    * Utworzenie magazynu może chwilę potrwać.
-    * Monitoruj powiadomienia o stanie w prawym górnym rogu portalu.
-
-Po utworzeniu magazynu pojawi się on na liście magazyny Recovery Services. Jeśli Twój magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
-
-![Lista magazynów kopii zapasowych](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
-
->[!NOTE]
-> Azure Backup teraz umożliwia dostosowanie nazwy grupy zasobów utworzonej przez usługę Azure Backup. Aby uzyskać więcej informacji, zobacz [Azure Backup grupę zasobów dla Virtual Machines](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="modify-storage-replication"></a>Modyfikowanie replikacji magazynu
 
@@ -74,11 +48,10 @@ Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](..
 
 Zmodyfikuj typ replikacji magazynu w następujący sposób:
 
-1. W nowym magazynie kliknij pozycję **Właściwości** w sekcji **Ustawienia** .
-2. W obszarze **Właściwości**, w obszarze **Konfiguracja kopii zapasowej**, kliknij przycisk **Aktualizuj**.
-3. Wybierz typ replikacji magazynu i kliknij przycisk **Zapisz**.
-
-      ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+1. W nowym magazynie wybierz pozycję **Właściwości** w sekcji **Ustawienia** .
+2. W obszarze **Właściwości**w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
+3. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
+s ![ Ustaw konfigurację magazynu dla nowego magazynu](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > Nie można zmodyfikować typu replikacji magazynu po skonfigurowaniu magazynu i zawiera elementy kopii zapasowej. Jeśli chcesz to zrobić, należy ponownie utworzyć magazyn.
@@ -87,21 +60,26 @@ Zmodyfikuj typ replikacji magazynu w następujący sposób:
 
 Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
 
-1. W magazynie kliknij pozycję **+ kopia zapasowa** w sekcji **Przegląd** .
+1. W magazynie wybierz pozycję **+ kopia zapasowa** w sekcji **Przegląd** .
 
    ![Przycisk Kopia zapasowa](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-2. W **celu utworzenia kopii zapasowej**,  >  **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna wirtualna**  >   **OK**. Spowoduje to zarejestrowanie rozszerzenia maszyny wirtualnej w magazynie.
+1. W **celu utworzenia kopii zapasowej**,  >  **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna wirtualna**  >   **OK**. Spowoduje to zarejestrowanie rozszerzenia maszyny wirtualnej w magazynie.
 
    ![Okienka celu tworzenia kopii zapasowych i tworzenia kopii zapasowych](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. W obszarze **zasady tworzenia kopii zapasowych**wybierz zasady, które chcesz skojarzyć z magazynem.
+1. W obszarze **zasady tworzenia kopii zapasowych**wybierz zasady, które chcesz skojarzyć z magazynem.
     * Zasady domyślne tworzą kopię zapasową maszyny wirtualnej raz dziennie. Codzienne kopie zapasowe są przechowywane przez 30 dni. Migawki odzyskiwania natychmiastowego są przechowywane przez dwa dni.
-    * Jeśli nie chcesz używać zasad domyślnych, wybierz pozycję **Utwórz nową**, a następnie utwórz zasady niestandardowe zgodnie z opisem w następnej procedurze.
 
       ![Domyślne zasady kopii zapasowych](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-4. W obszarze **Wybieranie maszyn wirtualnych**Wybierz Maszyny wirtualne, których kopię zapasową chcesz utworzyć przy użyciu zasad. Następnie kliknij przycisk **OK**.
+    * Jeśli nie chcesz używać zasad domyślnych, wybierz pozycję **Utwórz nową**, a następnie utwórz zasady niestandardowe zgodnie z opisem w następnej procedurze.
+
+1. W obszarze **Virtual Machines**wybierz pozycję **Dodaj**.
+
+      ![Dodaj maszyny wirtualne](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
+
+1. Zostanie otwarte okienko **Wybieranie maszyn wirtualnych** . Wybierz Maszyny wirtualne, których kopię zapasową chcesz utworzyć przy użyciu zasad. Następnie wybierz pozycję **OK**.
 
    * Wybrane maszyny wirtualne zostały zweryfikowane.
    * Maszyny wirtualne można wybrać tylko w tym samym regionie, w którym znajduje się magazyn.
@@ -110,11 +88,9 @@ Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
      ![Okienko "Wybieranie maszyn wirtualnych"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > W celu skonfigurowania kopii zapasowej będą dostępne tylko maszyny wirtualne w tym samym regionie i w tej samej subskrypcji co magazyn.
+    > Wszystkie maszyny wirtualne w tym samym regionie i w ramach subskrypcji w ramach magazynu są dostępne do skonfigurowania kopii zapasowej. Podczas konfigurowania kopii zapasowej można przejść do nazwy maszyny wirtualnej i jej grupy zasobów, nawet jeśli nie masz wymaganych uprawnień do tych maszyn wirtualnych.  
 
-5. W obszarze **kopia zapasowa**kliknij pozycję **Włącz kopię zapasową**. Spowoduje to wdrożenie zasad w magazynie i na maszynach wirtualnych, a następnie zainstalowanie rozszerzenia kopii zapasowej na agencie maszyny wirtualnej działającym na maszynie wirtualnej platformy Azure.
-
-     ![Przycisk "Włącz kopię zapasową"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+1. W obszarze **kopia zapasowa**wybierz pozycję **Włącz kopię zapasową**. Spowoduje to wdrożenie zasad w magazynie i na maszynach wirtualnych, a następnie zainstalowanie rozszerzenia kopii zapasowej na agencie maszyny wirtualnej działającym na maszynie wirtualnej platformy Azure.
 
 Po włączeniu kopii zapasowej:
 
@@ -122,8 +98,8 @@ Po włączeniu kopii zapasowej:
 * Początkowa kopia zapasowa będzie uruchamiana zgodnie z harmonogramem tworzenia kopii zapasowych.
 * Gdy wykonywane są kopie zapasowe, należy pamiętać, że:
   * Uruchomiona maszyna wirtualna ma największą szansę na przechwycenie punktu odzyskiwania spójnego na poziomie aplikacji.
-  * Jednak nawet jeśli maszyna wirtualna jest wyłączona, zostanie utworzona jej kopia zapasowa. Taka maszyna wirtualna jest nazywana maszyną wirtualną w trybie offline. W takim przypadku punkt odzyskiwania będzie spójny z awarią.
-* Bezpośrednie połączenie wychodzące nie jest wymagane, aby można było tworzyć kopie zapasowe maszyn wirtualnych platformy Azure.
+  * Jednak nawet jeśli maszyna wirtualna jest wyłączona, zostanie utworzona kopia zapasowa. Taka maszyna wirtualna jest nazywana maszyną wirtualną w trybie offline. W takim przypadku punkt odzyskiwania będzie spójny z awarią.
+* Jawna łączność wychodząca nie jest wymagana, aby umożliwić tworzenie kopii zapasowych maszyn wirtualnych platformy Azure.
 
 ### <a name="create-a-custom-policy"></a>Tworzenie zasad niestandardowych
 
@@ -132,11 +108,11 @@ Jeśli wybrano opcję utworzenia nowych zasad tworzenia kopii zapasowych, Wypeł
 1. W polu **Nazwa zasad**Określ zrozumiałą nazwę.
 2. W polu **harmonogram tworzenia kopii zapasowych**Określ, kiedy mają być pobierane kopie zapasowe. Codzienne lub cotygodniowe wykonywanie kopii zapasowych maszyn wirtualnych platformy Azure.
 3. W obszarze **natychmiastowe przywracanie**Określ, jak długo mają być przechowywane migawki lokalnie przywracane.
-    * Podczas przywracania kopia zapasowa dysków maszyny wirtualnej jest kopiowana z magazynu w sieci do lokalizacji magazynu odzyskiwania. Za pomocą natychmiastowego przywracania można korzystać z migawek przechowywanych lokalnie, które są wykonywane podczas zadania tworzenia kopii zapasowej, bez czekania na przesłanie danych kopii zapasowej do magazynu.
+    * Podczas przywracania kopia zapasowa dysków maszyny wirtualnej jest kopiowana z magazynu w sieci do lokalizacji magazynu odzyskiwania. Za pomocą natychmiastowego przywracania można korzystać z lokalnie przechowywanych migawek wykonanych podczas zadania tworzenia kopii zapasowej, bez czekania na przesłanie danych kopii zapasowej do magazynu.
     * Migawki do natychmiastowego przywrócenia można zachować przez od 1 do pięciu dni. Ustawienie domyślne to dwa dni.
 4. W obszarze **Zakres przechowywania**Określ, jak długo mają być przechowywane codziennie lub cotygodniowe punkty kopii zapasowych.
-5. W obszarze **przechowywanie miesięcznego punktu kopii zapasowej**Określ, czy chcesz przechowywać kopię zapasową codziennych, czy cotygodniowych kopii zapasowych.
-6. Kliknij przycisk **OK** zapisać zasady.
+5. W obszarze **przechowywanie miesięcznego punktu kopii** zapasowej i **przechowywanie rocznego punktu kopii zapasowej**Określ, czy chcesz przechowywać kopię zapasową codziennie, czy cotygodniowe kopie zapasowe.
+6. Wybierz **przycisk OK** , aby zapisać zasady.
 
     ![Nowe zasady tworzenia kopii zapasowych](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -147,11 +123,11 @@ Jeśli wybrano opcję utworzenia nowych zasad tworzenia kopii zapasowych, Wypeł
 
 Początkowa kopia zapasowa będzie uruchamiana zgodnie z harmonogramem, ale można ją uruchomić od razu w następujący sposób:
 
-1. W menu magazyn kliknij pozycję **elementy kopii zapasowej**.
-2. W obszarze **elementy kopii zapasowej**kliknij pozycję **maszyna wirtualna platformy Azure**.
-3. Na liście **elementy kopii zapasowej** kliknij przycisk wielokropka (...).
-4. Kliknij pozycję **Utwórz kopię zapasową teraz**.
-5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
+1. W menu magazyn wybierz pozycję **elementy kopii zapasowej**.
+2. W obszarze **elementy kopii zapasowej**wybierz pozycję **maszyna wirtualna platformy Azure**.
+3. Na liście **elementy kopii zapasowej** wybierz wielokropek (...).
+4. Wybierz pozycję **Utwórz kopię zapasową teraz**.
+5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie wybierz pozycję **OK**.
 6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
 
 ## <a name="verify-backup-job-status"></a>Sprawdź stan zadania tworzenia kopii zapasowej
@@ -161,7 +137,7 @@ Faza migawki gwarantuje dostępność punktu odzyskiwania przechowywanego wraz z
 
   ![Stan zadania tworzenia kopii zapasowej](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Istnieją dwa **podzadania** uruchomione w zapleczu — jeden dla zadania tworzenia kopii zapasowej frontonu, który można sprawdzić w bloku szczegóły **zadania tworzenia kopii zapasowej** w następujący sposób:
+Istnieją dwa **podzadania** uruchomione w zapleczu — jeden dla zadania tworzenia kopii zapasowej frontonu, który można sprawdzić w okienku szczegółów **zadania tworzenia kopii zapasowej** w następujący sposób:
 
   ![Stan zadania tworzenia kopii zapasowej](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -177,7 +153,7 @@ Ukończone | Ukończone | Ukończone
 Ukończone | Niepowodzenie | Ukończono z ostrzeżeniem
 Niepowodzenie | Niepowodzenie | Niepowodzenie
 
-Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. W związku z tym w przypadku zadania tworzenia kopii zapasowej w toku zakończyło się niepowodzeniem wykonywania kopii zapasowej w następnym dniu. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **,** podczas gdy zadanie tworzenia kopii zapasowej w danym dniu jest w toku.
+Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. Tak więc w scenariuszach, w których zadanie tworzenia kopii zapasowej w toku spowodowało niepowodzenie tworzenia kopii zapasowej w następnym dniu, zostanie ono wyeliminowane w tej funkcji. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **, podczas gdy** zadanie tworzenia kopii zapasowej w poprzednim dniu jest pomijane.
 Przyrostowy punkt odzyskiwania utworzony w magazynie będzie przechwytywał wszystkie zmiany z ostatniego punktu odzyskiwania utworzonego w magazynie. Użytkownik nie ma wpływu na koszty.
 
 ## <a name="optional-steps"></a>Kroki opcjonalne
@@ -196,7 +172,7 @@ Azure Backup tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przez
 >
 >Obecnie Azure Backup obsługuje tworzenie kopii zapasowych wszystkich dysków (systemu operacyjnego i danych) w maszynie wirtualnej przy użyciu rozwiązania do tworzenia kopii zapasowej maszyny wirtualnej. Funkcja wykluczania dysku umożliwia utworzenie kopii zapasowej jednego lub kilku z wielu dysków z danymi na maszynie wirtualnej. Zapewnia to wydajne i ekonomiczne rozwiązanie dla potrzeb tworzenia kopii zapasowych i przywracania. Każdy punkt odzyskiwania zawiera dane dotyczące dysków uwzględnionych w operacji tworzenia kopii zapasowej, co dodatkowo umożliwia przywrócenie podzestawu dysków z danego punktu odzyskiwania podczas operacji przywracania. Dotyczy to przywracania zarówno z migawki, jak i magazynu.
 >
->**Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas naAskAzureBackupTeam@microsoft.com**
+>Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas naAskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Następne kroki
 

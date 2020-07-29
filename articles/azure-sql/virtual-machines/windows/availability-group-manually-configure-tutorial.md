@@ -3,7 +3,7 @@ title: 'Samouczek: Konfigurowanie zawsze włączone grupy dostępności SQL Serv
 description: W tym samouczku pokazano SQL Server, jak utworzyć grupę dostępności zawsze włączona na platformie Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960745"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286848"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Samouczek: ręcznie skonfiguruj grupę dostępności SQL Server na platformie Azure Virtual Machines
 
@@ -366,7 +367,7 @@ Moduł równoważenia obciążenia na platformie Azure może być usługa Load B
 
    ![Grupa dostępności w Menedżer klastra trybu failover](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Skonfiguruj następujące parametry dla modułu równoważenia obciążenia.
 
    | Ustawienie | Pole |
@@ -374,8 +375,8 @@ Moduł równoważenia obciążenia na platformie Azure może być usługa Load B
    | **Nazwa** |Użyj nazwy tekstowej dla modułu równoważenia obciążenia, na przykład **sqlLB**. |
    | **Typ** |Wewnętrzny |
    | **Sieć wirtualna** |Użyj nazwy sieci wirtualnej platformy Azure. |
-   | **Podsieci** |Użyj nazwy podsieci, w której znajduje się maszyna wirtualna.  |
-   | **Przypisanie adresu IP** |Static |
+   | **Podsieć** |Użyj nazwy podsieci, w której znajduje się maszyna wirtualna.  |
+   | **Przypisanie adresu IP** |Statyczny |
    | **Adres IP** |Użyj dostępnego adresu z podsieci. Użyj tego adresu dla odbiornika grupy dostępności. Należy zauważyć, że różni się to od adresu IP klastra.  |
    | **Subskrypcja** |Użyj tej samej subskrypcji co maszyna wirtualna. |
    | **Lokalizacja** |Użyj tej samej lokalizacji co maszyna wirtualna. |
@@ -418,7 +419,7 @@ Aby skonfigurować moduł równoważenia obciążenia, należy utworzyć pulę z
    | **Nazwa** | Tekst | SQLAlwaysOnEndPointProbe |
    | **Protokół** | Wybierz pozycję TCP | TCP |
    | **Port** | Dowolny nieużywany port | 59999 |
-   | **Dat**  | Czas między próbami sondy w sekundach |5 |
+   | **Interwał**  | Czas między próbami sondy w sekundach |5 |
    | **Próg złej kondycji** | Liczba kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna mogła zostać uznana za złą  | 2 |
 
 1. Wybierz **przycisk OK** , aby ustawić sondę kondycji.
@@ -462,7 +463,7 @@ Adres IP usługi WSFC musi również znajdować się w usłudze równoważenia o
    | **Nazwa** | Tekst | WSFCEndPointProbe |
    | **Protokół** | Wybierz pozycję TCP | TCP |
    | **Port** | Dowolny nieużywany port | 58888 |
-   | **Dat**  | Czas między próbami sondy w sekundach |5 |
+   | **Interwał**  | Czas między próbami sondy w sekundach |5 |
    | **Próg złej kondycji** | Liczba kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna mogła zostać uznana za złą  | 2 |
 
 1. Wybierz **przycisk OK** , aby ustawić sondę kondycji.

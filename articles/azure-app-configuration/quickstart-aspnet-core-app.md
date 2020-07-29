@@ -8,11 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027719"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373525"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -34,9 +35,9 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
 
     | Klucz | Wartość |
     |---|---|
-    | TestApp:Settings:BackgroundColor | Biały |
+    | TestApp:Settings:BackgroundColor | Biali |
     | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Czarny |
+    | TestApp:Settings:FontColor | Czarnoskórzy |
     | TestApp:Settings:Message | Dane z usługi Azure App Configuration |
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** . Wybierz przycisk **Zastosuj**.
@@ -242,7 +243,9 @@ Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk *Podgląd sieci Web* , a 
 
 Po wyświetleniu monitu o skonfigurowanie portu dla wersji zapoznawczej wprowadź wartość "5000", a następnie wybierz pozycję *Otwórz i Przeglądaj*.  Na stronie sieci Web zostanie odczytana wartość "dane z konfiguracji aplikacji platformy Azure".
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+![Uruchamianie aplikacji szybkiego startu](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

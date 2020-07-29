@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536117"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373695"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -368,6 +368,12 @@ W przypadku wykonywania operacji zarządzania na obiekcie docelowym obliczeń z 
 ```
 
 Na przykład, jeśli spróbujesz utworzyć lub dołączyć obiekt docelowy obliczeń z potoku, który został przesłany do wykonania zdalnego, zostanie wyświetlony komunikat o błędzie.
+
+## <a name="missing-user-interface-items-in-studio"></a>Brak elementów interfejsu użytkownika w programie Studio
+
+Za pomocą kontroli dostępu opartej na rolach platformy Azure można ograniczyć akcje, które można wykonywać przy użyciu Azure Machine Learning. Ograniczenia te mogą uniemożliwić Wyświetlanie elementów interfejsu użytkownika w programie Azure Machine Learning Studio. Na przykład, jeśli przypisano rolę, która nie może utworzyć wystąpienia obliczeniowego, opcja tworzenia wystąpienia obliczeniowego nie będzie wyświetlana w Studio.
+
+Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

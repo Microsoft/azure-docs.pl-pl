@@ -5,18 +5,18 @@ description: Dowiedz się więcej na temat przydziałów zasobów dla Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4
-ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4
+ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125092"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372947"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,7 +95,7 @@ Istnieje również ograniczenie liczby wystąpień kontenerów, które można ur
 
 Aby zapoznać się z bardziej szczegółową i aktualną listą limitów przydziałów, [Zobacz artykuł](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)dotyczący limitu przydziału dla całej platformy Azure.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 Istnieje limit liczby kont magazynu na region, jak również w danej subskrypcji. Domyślny limit to 250 i obejmuje konta standardowe i Premium Storage. Jeśli potrzebujesz więcej niż 250 kont magazynu w danym regionie, Przekształć żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage sprawdzi swój przypadek biznesowy i może zatwierdzić do 250 kont magazynu dla danego regionu.
 
 

@@ -3,12 +3,12 @@ title: Zarządzanie zasadami automatycznego zamykania w programie Azure DevTest 
 description: Dowiedz się, jak ustawić zasady Autozamykania dla laboratorium, aby maszyny wirtualne były automatycznie zamykane, gdy nie są używane.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287553"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurowanie automatycznego zamykania dla maszyn wirtualnych w środowisku laboratoryjnym i obliczeniowym w Azure DevTest Labs
 
@@ -71,7 +71,7 @@ Po skonfigurowaniu automatycznego wyłączania przez właściciela laboratorium 
 - Pomiń automatyczne zamykanie w tym czasie
 - Odłożyć Automatyczne zamknięcie przez godzinę lub 2 godziny, aby mogły pracować nad maszyną wirtualną.
 
-Powiadomienie jest wysyłane za pośrednictwem skonfigurowanego punktu końcowego elementu webhook lub adresu e-mail określonego przez właścicieli laboratorium w ustawieniach automatycznego zamykania. Elementy webhook umożliwiają kompilowanie lub Konfigurowanie integracji subskrybowanych przez pewne zdarzenia. Gdy jedno z tych zdarzeń zostanie wyzwolone, DevTest Labs wyśle ładunek HTTP POST do skonfigurowanego adresu URL elementu webhook. Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+Powiadomienie jest wysyłane za pośrednictwem skonfigurowanego punktu końcowego elementu webhook lub adresu e-mail określonego przez właścicieli laboratorium w ustawieniach automatycznego zamykania. Elementy webhook umożliwiają kompilowanie lub Konfigurowanie integracji subskrybowanych przez pewne zdarzenia. Gdy jedno z tych zdarzeń zostanie wyzwolone, DevTest Labs wyśle ładunek HTTP POST do skonfigurowanego adresu URL elementu webhook. Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
 Zalecamy używanie elementów webhook, ponieważ są one szeroko obsługiwane przez różne aplikacje (na przykład zapasy czasu, Azure Logic Apps itd.) i umożliwiają implementowanie własnych metod wysyłania powiadomień. W tym artykule przedstawiono na przykład, jak uzyskać powiadomienia o automatycznym zamknięciu z wiadomości e-mail przy użyciu Azure Logic Apps. Najpierw przejdź do sekcji podstawowe kroki, aby włączyć powiadomienia o automatycznym zamknięciu w laboratorium.   
 
@@ -91,7 +91,7 @@ Aby rozpocząć, Utwórz aplikację logiki w ramach subskrypcji platformy Azure,
     ![Nowe menu aplikacji logiki](./media/devtest-lab-auto-shutdown/new-logic-app.png)
 2. Na stronie **aplikacja logiki — tworzenie** wykonaj następujące kroki: 
     1. Wprowadź **nazwę** aplikacji logiki.
-    2. Wybierz swoją **subskrypcję** platformy Azure.
+    2. Wybierz swoją **subskrypcję**platformy Azure.
     3. Utwórz nową **grupę zasobów** lub wybierz istniejącą grupę zasobów. 
     4. Wybierz **lokalizację** aplikacji logiki. 
 
@@ -211,4 +211,3 @@ Po zaktualizowaniu ustawienia automatycznego zamykania zostanie wyświetlone dzi
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się, jak ustawić wszystkie zasady, zobacz [Definiowanie zasad laboratorium w Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

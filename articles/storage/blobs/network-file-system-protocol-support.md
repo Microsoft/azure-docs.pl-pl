@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b76e25b2961bf3fb268da6622cbfcce3a50a3396
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099612"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372896"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -87,10 +87,8 @@ Następujące funkcje usługi Azure Storage nie są obsługiwane po włączeniu 
 
 - Możliwość wyłączenia obsługi systemu plików NFS 3,0 na koncie magazynu (po jej włączeniu)
 
-- Możliwość zapisu w obiektach Blob przy użyciu systemu plików NFS 3,0 i innych interfejsów API REST lub zestawów SDK. 
-
-  Jeśli chcesz użyć interfejsów API REST lub zestawów SDK do zapisu w obiekcie blob, upewnij się, że używasz systemu plików NFS 3,0 tylko do wykonywania operacji odczytu, w przeciwnym razie obiekty blob mogą ulec uszkodzeniu.
-
+- Możliwość zapisu w obiektach Blob przy użyciu interfejsów API REST lub zestawów SDK. 
+  
 ## <a name="nfs-30-features-not-yet-supported"></a>Funkcje systemu plików NFS 3,0 nie są jeszcze obsługiwane
 
 Następujące funkcje systemu plików NFS 3,0 nie są jeszcze obsługiwane w Azure Data Lake Storage Gen2.

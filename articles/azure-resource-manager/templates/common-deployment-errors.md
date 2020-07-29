@@ -4,12 +4,12 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055668"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374001"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -21,7 +21,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 
 ## <a name="error-codes"></a>Kody błędów
 
-| Kod błędu | Środki zaradcze | Więcej informacji |
+| Kod błędu | Ograniczanie ryzyka | Więcej informacji |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Postępuj zgodnie z ograniczeniami nazw dla kont magazynu. | [Rozpoznawanie nazwy konta magazynu](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Sprawdź dostępne właściwości konta magazynu. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -78,7 +78,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | SubnetsNotInSameVnet | Maszyna wirtualna może mieć tylko jedną sieć wirtualną. Podczas wdrażania kilku kart sieciowych upewnij się, że należą one do tej samej sieci wirtualnej. | [Wiele kart sieciowych](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | Podczas wdrażania zasobów sieciowych dostawca zasobów Microsoft. Network jest automatycznie rejestrowany w subskrypcji. Czasami Rejestracja automatyczna nie kończy się w czasie. Aby uniknąć tego sporadycznego błędu, zarejestruj dostawcę zasobów Microsoft. Network przed wdrożeniem. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Usuń niepotrzebne zależności. | [Rozwiązywanie zależności cyklicznych](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrażanie krzyżowe w grupach zasobów](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrożenie między zakresami](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Znajdź kod błędu
 

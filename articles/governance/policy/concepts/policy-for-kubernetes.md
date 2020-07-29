@@ -3,12 +3,12 @@ title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373628"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373763"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -203,7 +203,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
 1. Otwórz port dla dodatku. Dodatek Azure Policy używa tych domen i portów do pobierania definicji zasad i przypisań i raportowania zgodności klastra z powrotem do Azure Policy.
 
-   |Domain |Port |
+   |Domena |Port |
    |---|---|
    |`gov-prod-policy-data.trafficmanager.net` |`443` |
    |`raw.githubusercontent.com` |`443` |
@@ -373,7 +373,7 @@ W ramach właściwości _szczegóły. constraintTemplate_ i _szczegóły. ograni
 
 ## <a name="assign-a-built-in-policy-definition"></a>Przypisywanie wbudowanej definicji zasad
 
-Aby przypisać definicję zasad do klastra Kubernetes, należy przypisać odpowiednie operacje przypisania zasad kontroli dostępu opartej na rolach (RBAC). Współautorzy i **właściciel** **zasad zasobów** ról RBAC mają te operacje. Aby dowiedzieć się więcej, zobacz [uprawnienia RBAC w Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+Aby przypisać definicję zasad do klastra Kubernetes, należy przypisać odpowiednie operacje przypisania zasad kontroli dostępu opartej na rolach (RBAC). Współautor i **właściciel** **zasad zasobów** wbudowanej platformy Azure mają te operacje. Aby dowiedzieć się więcej, zobacz [uprawnienia RBAC w Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą Azure Portal, wykonując następujące czynności:
 
@@ -405,7 +405,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_i _Azure-Arc_.
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 Alternatywnie możesz znaleźć i przypisać zasady Kubernetes przy użyciu [przystawki przypisywanie zasad —](../assign-policy-portal.md) szybki start dla portalu. Wyszukaj definicję zasad Kubernetes zamiast przykładu "Inspekcja maszyn wirtualnych".
 

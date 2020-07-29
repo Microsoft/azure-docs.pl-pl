@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8f4ef046221ae50d2b05525d6cea2d268282551c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099619"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372913"
 ---
 # <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Instalowanie usługi BLOB Storage w systemie Linux przy użyciu protokołu sieciowego systemu plików (NFS) 3,0 (wersja zapoznawcza)
 
@@ -92,7 +92,7 @@ Podczas konfigurowania konta wybierz następujące wartości:
 
 |Ustawienie | Wartość|
 |----|---|
-|Lokalizacja|Jeden z następujących regionów: Wschodnie stany USA, Stany USA i Kanada środkowa |
+|Location|Jeden z następujących regionów: Wschodnie stany USA, Stany USA i Kanada środkowa |
 |Wydajność|Premium|
 |Rodzaj konta|BlockBlobStorage|
 |Replikacja|Magazyn lokalnie nadmiarowy (LRS)|
@@ -107,13 +107,13 @@ Możesz zaakceptować wartości domyślne dla wszystkich innych ustawień.
 
 Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub zestawów SDK:
 
-|Narzędzia|Zestawy SDK|
+|narzędzia|Zestawy SDK|
 |---|---|
 |[Eksplorator usługi Azure Storage](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[Program PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfejs wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Witryna Azure Portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Krok 7. Instalowanie kontenera
 
@@ -139,9 +139,8 @@ Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub 
 |---|---|
 |`Access denied by server while mounting`|Upewnij się, że klient działa w ramach obsługiwanej podsieci. Zobacz [obsługiwane lokalizacje sieciowe](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Upewnij się, że instalowany kontener został utworzony po sprawdzeniu, że funkcja została zarejestrowana. Zobacz [krok 2. Sprawdzanie, czy funkcja jest zarejestrowana](#step-2-verify-that-the-feature-is-registered). Upewnij się również, że wpisz polecenie instalacji i jest ono parametrami bezpośrednio w terminalu. Jeśli skopiujesz i wkleisz każdą część tego polecenia do terminalu z innej aplikacji, ukryte znaki w wklejonej informacji mogą spowodować pojawienie się tego błędu.|
-|Pliki przekazane przy użyciu narzędzi innych niż system plików NFS 3,0 nie są widoczne w katalogu. | Odinstaluj kontener, a następnie zainstaluj go ponownie. |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md)
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: b51a79027ce834190a4fae5d893e47f2be16abf7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 01a256e17b1101782eaee9bebd85f5e7093773d3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102195"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287796"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Odmowa dostępu do sieci publicznej w Azure Database for PostgreSQL pojedynczym serwerze przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób konfigurowania Azure Database for PostgreSQL poje
 
 Aby ukończyć ten przewodnik, musisz:
 
-* [Azure Database for PostgreSQL pojedynczy serwer](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
+* [Azure Database for PostgreSQL pojedynczy serwer](quickstart-create-server-database-portal.md)
 
 ## <a name="set-deny-public-network-access"></a>Ustaw Odmów dostępu do sieci publicznej
 

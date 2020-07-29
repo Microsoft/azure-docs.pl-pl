@@ -4,14 +4,15 @@ description: Poznaj wytyczne dotyczące projektowania i wdrażania przykładowej
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500de3f89bd041adf0b73e21762495d8c89e19c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944899"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286295"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Przykład Przewodnik dotyczący infrastruktury platformy Azure dla maszyn wirtualnych z systemem Linux
 W tym artykule omówiono Tworzenie przykładowej infrastruktury aplikacji. Szczegółowo projektujemy infrastrukturę dla prostego magazynu online, który łączy wszystkie wytyczne i decyzje dotyczące konwencji nazewnictwa, zestawów dostępności, sieci wirtualnych i modułów równoważenia obciążenia, a także w rzeczywistości wdrażają maszyny wirtualne.

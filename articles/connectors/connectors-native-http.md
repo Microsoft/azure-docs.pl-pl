@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609531"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286635"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
 
@@ -43,7 +44,7 @@ Ten wbudowany wyzwalacz wykonuje wywołanie HTTP do określonego adresu URL dla 
 
 1. W polu wyszukiwania projektanta wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `http` jako filtr. Z listy **wyzwalacze** Wybierz wyzwalacz **http** .
 
-   ![Wybieranie wyzwalacza HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Wybierz pozycję Wyzwalacz HTTP](./media/connectors-native-http/select-http-trigger.png)
 
    Ten przykład zmienia nazwę wyzwalacza na "wyzwalacz HTTP", tak aby krok miał bardziej opisową nazwę. Ponadto przykład później dodaje akcję HTTP, a obie nazwy muszą być unikatowe.
 
@@ -161,7 +162,7 @@ Poniżej znajduje się ten sam przykład pokazujący definicję JSON akcji HTTP 
 
 ## <a name="asynchronous-request-response-behavior"></a>Asynchroniczne zachowanie żądania — odpowiedź
 
-Domyślnie wszystkie działania oparte na protokole HTTP w Azure Logic Apps są zgodne ze [wzorcem standardowej operacji asynchronicznej](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Ten wzorzec określa, że po wykonaniu akcji HTTP lub wysłaniu żądania do punktu końcowego, usługi, systemu lub interfejsu API odbiornik natychmiast zwróci odpowiedź ["202 zaakceptowane"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Ten kod potwierdza, że odbiornik zaakceptował żądanie, ale nie zakończył przetwarzania. Odpowiedź może zawierać `location` nagłówek, który określa adres URL i identyfikator odświeżania, którego wywołujący może użyć do sondowania lub sprawdzenia stanu żądania asynchronicznego, dopóki odbiornik nie przestanie działać i zwróci odpowiedź ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) lub inną odpowiedź inną niż 202. Jednak obiekt wywołujący nie musi czekać na zakończenie przetwarzania żądania i może nadal uruchamiać następną akcję. Aby uzyskać więcej informacji, zobacz [asynchroniczne integrację mikrousług wymusza autonomię mikrousług](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Domyślnie wszystkie działania oparte na protokole HTTP w Azure Logic Apps są zgodne ze [wzorcem standardowej operacji asynchronicznej](/azure/architecture/patterns/async-request-reply). Ten wzorzec określa, że po wykonaniu akcji HTTP lub wysłaniu żądania do punktu końcowego, usługi, systemu lub interfejsu API odbiornik natychmiast zwróci odpowiedź ["202 zaakceptowane"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Ten kod potwierdza, że odbiornik zaakceptował żądanie, ale nie zakończył przetwarzania. Odpowiedź może zawierać `location` nagłówek, który określa adres URL i identyfikator odświeżania, którego wywołujący może użyć do sondowania lub sprawdzenia stanu żądania asynchronicznego, dopóki odbiornik nie przestanie działać i zwróci odpowiedź ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) lub inną odpowiedź inną niż 202. Jednak obiekt wywołujący nie musi czekać na zakończenie przetwarzania żądania i może nadal uruchamiać następną akcję. Aby uzyskać więcej informacji, zobacz [asynchroniczne integrację mikrousług wymusza autonomię mikrousług](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * W Projektancie aplikacji logiki akcja HTTP, ale nie wyzwalacz, ma **asynchroniczne ustawienie wzorca** , które jest domyślnie włączone. To ustawienie określa, że obiekt wywołujący nie czeka na zakończenie przetwarzania i może przejść do następnej akcji, ale kontynuuje sprawdzanie stanu do momentu zatrzymania przetwarzania. W przypadku wyłączenia tego ustawienia określa, że obiekt wywołujący czeka na zakończenie przetwarzania przed przejściem do następnej akcji.
 
@@ -273,3 +274,4 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

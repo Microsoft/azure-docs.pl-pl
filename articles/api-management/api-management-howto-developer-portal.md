@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025085"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373151"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
@@ -105,7 +105,19 @@ Możesz programowo uzyskać dostęp do zawartości portalu dla deweloperów i za
 
 Interfejs API jest udokumentowany w [sekcji wiki repozytorium GitHub][2]. Może służyć do automatyzowania migracji zawartości portalu między środowiskami — na przykład ze środowiska testowego do środowiska produkcyjnego. Więcej informacji o tym procesie można znaleźć [w tym artykule z dokumentacji](https://aka.ms/apimdocs/migrateportal) w witrynie GitHub.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>Jak mogę przeniesieniu z zarządzanej do samodzielnej wersji?
+
+Zapoznaj się z szczegółowym artykułem w [sekcji wiki repozytorium portalu dla deweloperów w witrynie GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>Czy w jednej usłudze API Management można mieć wiele portali dla deweloperów?
+
+Możliwe jest posiadanie jednego zarządzanego portalu i wielu portali samoobsługowych. Zawartość wszystkich portali jest przechowywana w tej samej usłudze API Management, więc będzie taka sama. Jeśli chcesz rozróżnić wygląd i funkcjonalność portali, możesz samodzielnie hostować je przy użyciu własnych niestandardowych widżetów, które dynamicznie dostosowują strony w środowisku uruchomieniowym, na przykład na podstawie adresu URL.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Czy Portal obsługuje Azure Resource Manager szablonów i/lub jest zgodny z zestawem SDK API Management DevOps?
+
+Nie.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>Czy zawartość portalu została zapisana przy użyciu funkcji tworzenia kopii zapasowej/przywracania w API Management?
 
 Nie.
 

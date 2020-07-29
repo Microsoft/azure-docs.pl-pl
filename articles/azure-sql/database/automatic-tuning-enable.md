@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982791"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373508"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,7 +77,7 @@ Aby włączyć dostrajanie automatyczne dla **pojedynczej bazy danych**, przejd�
 
 Indywidualne ustawienia dostrajania automatycznego można skonfigurować osobno dla każdej bazy danych. Możesz ręcznie skonfigurować indywidualną opcję dostrajania automatycznego lub określić, że opcja dziedziczy ustawienia z serwera.
 
-![baza danych](./media/automatic-tuning-enable/database.png)
+![Baza danych](./media/automatic-tuning-enable/database.png)
 
 Należy pamiętać, że opcja DROP_INDEX nie jest w tej chwili zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów i nie powinna być włączona w takich przypadkach.
 
@@ -117,7 +117,7 @@ Dostrajanie automatyczne sprawdza wszystkie akcje wykonywane w bazie danych, a w
 
 ## <a name="permissions"></a>Uprawnienia
 
-Ponieważ dostrajanie automatyczne to funkcja platformy Azure, aby jej używać, należy użyć wbudowanych ról RBAC platformy Azure. Tylko uwierzytelnianie SQL nie wystarcza do korzystania z funkcji z Azure Portal.
+Ponieważ dostrajanie automatyczne to funkcja platformy Azure, aby jej używać, należy użyć wbudowanych ról platformy Azure. Tylko uwierzytelnianie SQL nie wystarcza do korzystania z funkcji z Azure Portal.
 
 Aby można było korzystać z dostrajania automatycznego, minimalnym wymaganym uprawnieniem do udzielenia użytkownikowi jest wbudowana rola [współautor SQL Database](../../role-based-access-control/built-in-roles.md#sql-db-contributor) platformy Azure. Możesz również rozważyć użycie wyższych ról uprawnień, takich jak współautor SQL Server, współautor wystąpienia zarządzanego SQL, współautor i właściciel.
 

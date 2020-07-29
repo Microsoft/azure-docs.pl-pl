@@ -1,6 +1,6 @@
 ---
 title: Przykłady interfejsu wiersza polecenia platformy Azure dla Traffic Manager | Microsoft Docs
-description: Przykłady interfejsu wiersza polecenia platformy Azure
+description: Dowiedz się więcej o skrypcie interfejsu wiersza polecenia platformy Azure, którego można użyć do kierowania ruchem w wielu regionach w celu zapewnienia wysokiej dostępności aplikacji.
 services: virtual-network
 documentationcenter: virtual-network
 author: rohinkoul
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: rohink
-ms.openlocfilehash: 3b14cf2058f425f650d827e10ef0ca77f1278b55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb50c13817f10f74610db68121087c125a6f91f6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286431"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Traffic Manager
 

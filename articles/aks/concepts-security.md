@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507101"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287470"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w pro
     - [Izolacja obliczeniowa](#compute-isolation)
   - [Uaktualnienia klastra](#cluster-upgrades)
     - [Cordon i opróżnianie](#cordon-and-drain)
-  - [Zabezpieczenia sieci](#network-security)
+  - [Bezpieczeństwo sieci](#network-security)
     - [Sieciowe grupy zabezpieczeń platformy Azure](#azure-network-security-groups)
   - [Kubernetes Secret](#kubernetes-secrets)
   - [Następne kroki](#next-steps)
@@ -50,7 +50,7 @@ Węzły są wdrażane w prywatnej podsieci sieci wirtualnej, bez przypisanych pu
 
 Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadku większości rozmiarów węzłów maszyny wirtualnej są to dyski w warstwie Premium obsługiwane przez dysków SSD o wysokiej wydajności. Dane przechowywane na dyskach zarządzanych są automatycznie szyfrowane w ramach platformy Azure. Aby zwiększyć nadmiarowość, te dyski również są bezpiecznie replikowane w centrum danych platformy Azure.
 
-Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* lub bardziej szczegółowe kontroli dostępu opartej na ROLACH (RBAC) dla węzłów sprawiają, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
+Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń*lub bardziej szczegółowe kontroli dostępu opartej na ROLACH (RBAC) dla węzłów, utrudniają luki w zabezpieczeniach. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Izolacja obliczeniowa
 

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705376"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286499"
 ---
 # <a name="symmetric-key-attestation"></a>Zaświadczanie klucza symetrycznego
 
@@ -25,7 +26,7 @@ Rejestracje klucza symetrycznego zapewniają również doskonały sposób na sta
 
 ## <a name="symmetric-key-creation"></a>Tworzenie klucza symetrycznego
 
-Domyślnie usługa Device Provisioning tworzy nowe klucze symetryczne z domyślną długością 32 bajtów w przypadku zapisania nowych rejestracji z włączoną opcją **automatycznego generowania kluczy** .
+Domyślnie usługa Device Provisioning tworzy nowe klucze symetryczne z domyślną długością 64 bajtów w przypadku zapisania nowych rejestracji z włączoną opcją **automatycznego generowania kluczy** .
 
 ![Automatycznie Generuj klucze symetryczne](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
@@ -48,7 +49,7 @@ Poniżej przedstawiono składniki każdego tokenu:
 | Wartość | Opis |
 | --- | --- |
 | podpisane |Ciąg sygnatury HMAC-SHA256. W przypadku indywidualnych rejestracji Ta sygnatura jest generowana przy użyciu klucza symetrycznego (podstawowego lub pomocniczego) do wykonania skrótu. W przypadku grup rejestracji do wykonania skrótu jest używany klucz pochodzący z klucza grupy rejestracji. Skrót jest wykonywany w postaci komunikatu: `URL-encoded-resourceURI + "\n" + expiry` . **Ważne**: klucz należy zdekodować z formatu Base64 przed użyciem, aby wykonać obliczenia HMAC-SHA256. Ponadto wynik podpisu musi być zakodowany w adresie URL. |
-| ResourceURI |Identyfikator URI punktu końcowego rejestracji, do którego można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od identyfikatora zakresu dla wystąpienia usługi Device Provisioning. Na przykład: `{Scope ID}/registrations/{Registration ID}` |
+| ResourceURI |Identyfikator URI punktu końcowego rejestracji, do którego można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od identyfikatora zakresu dla wystąpienia usługi Device Provisioning. Na przykład `{Scope ID}/registrations/{Registration ID}` |
 | wygaśnięcia |Ciągi UTF8 przez liczbę sekund od czasu epoki 00:00:00 UTC 1 stycznia 1970. |
 | {Zakodowany w adresie URL — resourceURI} |Małe adresy URL — kodowanie identyfikatora URI zasobu niższej wielkości liter |
 | PolicyName |Nazwa zasad dostępu współdzielonego, do których odwołuje się ten token. Nazwa zasad używana podczas aprowizacji z zaświadczeniem klucza symetrycznego jest **zarejestrowani**. |

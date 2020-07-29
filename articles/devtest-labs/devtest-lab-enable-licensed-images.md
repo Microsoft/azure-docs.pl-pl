@@ -3,12 +3,12 @@ title: Włącz licencjonowany obraz w laboratorium w Azure DevTest Labs | Micros
 description: Dowiedz się, jak włączyć licencjonowany obraz w Azure DevTest Labs przy użyciu Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286516"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Włącz licencjonowany obraz w laboratorium w Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Można włączyć wdrażanie programistyczne dla licencjonowanego obrazu, wykonu
     ![Konfigurowanie okna wdrożenia programowego](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Maszyny wirtualne do nauki o danych to obrazy maszyn wirtualnych platformy Azure, wstępnie zainstalowane, skonfigurowane i przetestowane przy użyciu kilku popularnych narzędzi, które są często używane do analizy danych, uczenia maszynowego i szkolenia AI. [Wprowadzenie do usługi Azure Data Science Virtual Machine dla systemów Linux i Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) to świetna okazja do uzyskania informacji na temat DSVMs.
+   > Maszyny wirtualne do nauki o danych to obrazy maszyn wirtualnych platformy Azure, wstępnie zainstalowane, skonfigurowane i przetestowane przy użyciu kilku popularnych narzędzi, które są często używane do analizy danych, uczenia maszynowego i szkolenia AI. [Wprowadzenie do usługi Azure Data Science Virtual Machine dla systemów Linux i Windows](../machine-learning/data-science-virtual-machine/overview.md) to świetna okazja do uzyskania informacji na temat DSVMs.
    >
    >
 
@@ -78,7 +78,7 @@ Można włączyć wdrażanie programistyczne dla licencjonowanego obrazu, wykonu
 
 ## <a name="related-blog-posts"></a>Powiązane wpisy w blogu
 
-- [Obrazy niestandardowe lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Obrazy niestandardowe lub formuły?](./devtest-lab-faq.md#blog-post)
 - [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Następne kroki

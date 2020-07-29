@@ -2,12 +2,13 @@
 title: Typy zasobów rozszerzenia
 description: Wyświetla listę typów zasobów platformy Azure służących do rozszerania możliwości innych typów zasobów.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754875"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374018"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Typy zasobów, które zwiększają możliwości innych zasobów
 
@@ -27,7 +28,9 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. Autoryzacja/uprawnienia
 - Microsoft. Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
+- Microsoft. Authorization/policyExemptions
 - Microsoft. Authorization/policySetDefinitions
+- Microsoft. Authorization/privateLinkAssociations
 - Microsoft. Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
@@ -38,6 +41,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. rozliczenia/createBillingRoleAssignment
 - Microsoft. plan/blueprintAssignments
 - Microsoft. plan/plany
+- Microsoft. ChangeAnalysis/resourceChanges
 - Microsoft. zużycie/AggregatedCost
 - Microsoft. zużycie/salda
 - Microsoft. zużycie/budżety
@@ -49,6 +53,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. zużycie/OperationStatus
 - Microsoft. zużycie/Pricesheets
 - Microsoft. zużycie/ReservationDetails
+- Microsoft. zużycie/ReservationRecommendationDetails
 - Microsoft. zużycie/ReservationRecommendations
 - Microsoft. zużycie/ReservationSummaries
 - Microsoft. zużycie/ReservationTransactions
@@ -63,6 +68,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. ContainerInstance/serviceAssociationLinks
 - Microsoft. CostManagement/alerty
 - Microsoft. CostManagement/budżety
+- Microsoft. CostManagement/costAllocationRules
 - Microsoft. CostManagement/wymiary
 - Microsoft. CostManagement/eksporty
 - Microsoft. CostManagement/ExternalSubscriptions
@@ -70,8 +76,8 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. CostManagement/Query
 - Microsoft. CostManagement/Reportconfigs
 - Microsoft. CostManagement/raporty
-- Microsoft. CostManagement/widoki
 - Microsoft. CostManagement/showbackRules
+- Microsoft. CostManagement/widoki
 - Microsoft. CustomProviders/skojarzenia
 - Microsoft. EventGrid/eventSubscriptions
 - Microsoft. EventGrid/extensionTopics
@@ -107,12 +113,13 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. ManagedServices/registrationDefinitions
 - Microsoft. OperationalInsights/storageInsightConfigs
 - Microsoft. OperationsManagement/managementassociations
+- Microsoft. PolicyInsights/zaświadczanie
 - Microsoft. PolicyInsights/policyEvents
 - Microsoft. PolicyInsights/policyStates
 - Microsoft. PolicyInsights/policyTrackedResources
 - Microsoft. PolicyInsights/korygowania
 - Microsoft. RecoveryServices/backupProtectedItems
-- Microsoft. RecoveryServices/replicationEligibilityResults    
+- Microsoft. RecoveryServices/replicationEligibilityResults
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses
 - Microsoft. ResourceHealth/childResources
@@ -130,11 +137,12 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. Security/complianceResults
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
-- Microsoft. Security/networkData
+- Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
 - Microsoft. SecurityInsights/agregacje
 - Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/automationRules
 - Microsoft. SecurityInsights/zakładki
 - Microsoft. SecurityInsights/sprawy
 - Microsoft. SecurityInsights/dataconnecters
@@ -144,6 +152,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. SecurityInsights/incydenty
 - Microsoft. SecurityInsights/officeConsents
 - Microsoft. SecurityInsights/ustawienia
+- Microsoft. SecurityInsights/threatIntelligence
 - Microsoft. SoftwarePlan/hybridUseBenefits
 - Microsoft. subskrypcja/anulowanie subskrypcji
 - Microsoft. Support/supporttickets

@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084957"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373491"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ze względu na to, że infrastruktura platformy Azure jest ulepszona, firma Microsoft okresowo odświeża sprzęt, aby zapewnić najlepszą obsługę klienta. W najbliższych miesiącach planuje Dodawanie bram opartych na nowszych generacjach sprzętu, migrowaniu ruchu do nich i ostatecznie likwidowanie bram opartych na starszym sprzęcie w niektórych regionach.  
 
@@ -27,6 +27,19 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
+### <a name="september-2020"></a>Wrzesień 2020
+
+Nowe bramy SQL są dodawane do następujących regionów:
+
+- Europa Północna: 13.74.104.113 
+- Stany USA 2 zachodni: 40.78.248.10 
+- Europa Zachodnia: 52.236.184.163 
+- Południowo-środkowe stany USA: 20.45.121.1, 20.49.88.1 
+
+Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach:
+- Japonia Wschodnia: 40.79.184.8, 40.79.192.5
+
+Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020. 
 
 ### <a name="august-2020"></a>2020 sierpnia
 
@@ -38,22 +51,22 @@ Nowe bramy SQL są dodawane do następujących regionów:
 
 Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020. 
 
-# <a name="completed"></a>[Zakończone](#tab/completed-ip)
+# <a name="completed"></a>[Ukończone](#tab/completed-ip)
 
 Następujące migracje bramy zostały ukończone: 
 
-### <a name="october-2019"></a>Październik 2019 r.
-- Brazylia Południowa
+### <a name="october-2019"></a>Październik 2019 r.
+- Brazil South
 - Zachodnie stany USA
-- Europa Zachodnia
-- Wschodnie stany USA
-- Środkowe stany USA
+- West Europe
+- East US
+- Central US
 - Azja Południowo-Wschodnia
-- Południowo-środkowe stany USA
+- South Central US
 - Europa Północna
 - Północno-środkowe stany USA
 - Japonia Zachodnia
-- Japonia Wschodnia
+- Japan East
 - Wschodnie stany USA 2
 - Azja Wschodnia
 

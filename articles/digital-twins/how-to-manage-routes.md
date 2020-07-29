@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9fbf7bc45ed2070570faf0d1dfdb15b5fd98ee
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373270"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -184,7 +184,7 @@ Metryki routingu, takie jak liczba, opóźnienie i współczynnik błędów, mo�
 
 Na stronie głównej portalu Wyszukaj wystąpienie usługi Azure Digital bliźniaczych reprezentacji, aby uzyskać szczegółowe informacje. Wybierz opcję **metryki** z menu wystąpienia usługi Azure Digital bliźniaczych reprezentacji, aby wyświetlić stronę *metryk* .
 
-:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Strona metryki wystąpienia usługi Azure Digital bliźniaczych reprezentacji w Azure Portal":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
 W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki niestandardowe.
 

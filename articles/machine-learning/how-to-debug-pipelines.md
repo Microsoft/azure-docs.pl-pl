@@ -5,16 +5,17 @@ description: Debuguj potoki Azure Machine Learning w języku Python. Poznaj typo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
+ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557433"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372964"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +27,7 @@ W tym artykule dowiesz się, jak debugować i rozwiązywać problemy z [potokami
 * Debuguj przy użyciu Application Insights
 * Debuguj interaktywnie przy użyciu Visual Studio Code (VS Code) i Python Tools for Visual Studio (PTVSD)
 
-## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Debugowanie i rozwiązywanie problemów w zestawie Azure Machine Learning SDK
+## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
 Poniższe sekcje zawierają omówienie typowych pułapek podczas kompilowania potoków oraz różnych strategii debugowania kodu działającego w potoku. Jeśli masz problemy z uruchamianiem potoku zgodnie z oczekiwaniami, Skorzystaj z poniższych wskazówek.
 
 ### <a name="testing-scripts-locally"></a>Lokalne testowanie skryptów
@@ -126,9 +127,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Debugowanie i rozwiązywanie problemów w programie Azure Machine Learning Designer (wersja zapoznawcza)
+## <a name="azure-machine-learning-designer-preview"></a>Projektant Azure Machine Learning (wersja zapoznawcza)
 
 Ta sekcja zawiera omówienie sposobu rozwiązywania problemów z potokami w projektancie. W przypadku potoków utworzonych w projektancie można znaleźć plik **70_driver_log** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
+
+### <a name="enable-logging-for-real-time-endpoints"></a>Włączanie rejestrowania dla punktów końcowych w czasie rzeczywistym
+
+W celu rozwiązywania problemów i debugowania punktów końcowych w czasie rzeczywistym w projektancie należy włączyć rejestrowanie w usłudze Application Insights przy użyciu zestawu SDK. Rejestrowanie umożliwia rozwiązywanie problemów i debugowanie modeli oraz problemów z użyciem. Aby uzyskać więcej informacji, zobacz [Rejestrowanie wdrożonych modeli](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Pobieranie dzienników ze strony tworzenia
 
@@ -155,10 +160,10 @@ Pliki dziennika dla określonych przebiegów można również znaleźć na stron
 > [!IMPORTANT]
 > Aby zaktualizować potok na stronie szczegółów uruchomienia potoku, należy **sklonować** uruchomienie potoku do nowej wersji roboczej potoku. Uruchomienie potoku jest migawką potoku. Jest on podobny do pliku dziennika i nie można go zmienić. 
 
-## <a name="debug-and-troubleshoot-in-application-insights"></a>Debugowanie i rozwiązywanie problemów w Application Insights
+## <a name="application-insights"></a>Application Insights
 Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Python w ten sposób, zobacz ten przewodnik: [debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Debugowanie i rozwiązywanie problemów w Visual Studio Code
+## <a name="visual-studio-code"></a>Visual Studio Code
 
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python używanego w potoku. Korzystając z Visual Studio Code (VS Code) i Python Tools for Visual Studio (PTVSD), możesz dołączyć kod w trakcie jego działania w środowisku szkoleniowym.
 

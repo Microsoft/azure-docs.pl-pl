@@ -3,16 +3,16 @@ title: Azure DevTest Labs użycie w wielu laboratoriach i subskrypcjach
 description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu laboratoriach i subskrypcjach.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287271"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
 
-Większość dużych organizacji chce śledzić użycie zasobów, aby była bardziej skuteczna dzięki tym zasobom, wizualizowając trendy i wartości odstających w użyciu. Na podstawie użycia zasobów właściciele laboratorium lub menedżerowie mogą dostosować laboratoria, aby [zwiększyć użycie i koszty zasobów](https://docs.microsoft.com/azure/billing/billing-getting-started). W Azure DevTest Labs można pobrać użycie zasobów na laboratorium, co pozwoli uzyskać dokładniejszy historyczny wygląd wzorców użytkowania. Te wzorce użycia mogą pomóc w identyfikowaniu zmian w celu zwiększenia wydajności. Większość przedsiębiorstw chce użyć indywidualnych zastosowań laboratoryjnych i ogólnego użycia w [wielu laboratoriach i subskrypcjach](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Większość dużych organizacji chce śledzić użycie zasobów, aby była bardziej skuteczna dzięki tym zasobom, wizualizowając trendy i wartości odstających w użyciu. Na podstawie użycia zasobów właściciele laboratorium lub menedżerowie mogą dostosować laboratoria, aby [zwiększyć użycie i koszty zasobów](../cost-management-billing/manage/getting-started.md). W Azure DevTest Labs można pobrać użycie zasobów na laboratorium, co pozwoli uzyskać dokładniejszy historyczny wygląd wzorców użytkowania. Te wzorce użycia mogą pomóc w identyfikowaniu zmian w celu zwiększenia wydajności. Większość przedsiębiorstw chce użyć indywidualnych zastosowań laboratoryjnych i ogólnego użycia w [wielu laboratoriach i subskrypcjach](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 W tym artykule omówiono sposób obsługi informacji o użyciu zasobów w wielu laboratoriach i subskrypcjach.
 
@@ -24,8 +24,8 @@ W tej sekcji omówiono sposób eksportowania użycia zasobów dla jednego labora
 
 Przed wyeksportowaniem użycia zasobów DevTest Labs należy skonfigurować konto usługi Azure Storage, aby umożliwić przechowywanie różnych plików zawierających dane użycia. Istnieją dwa typowe sposoby wykonywania eksportu danych:
 
-* [Interfejs API REST usługi DevTest Labs](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* Program PowerShell AZ. Resource module [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) z akcją `exportResourceUsage` , identyfikatorem zasobu laboratorium i wymaganymi parametrami. 
+* [Interfejs API REST usługi DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
+* Program PowerShell AZ. Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) z akcją `exportResourceUsage` , identyfikatorem zasobu laboratorium i wymaganymi parametrami. 
 
     Artykuł [Eksportuj lub Usuń dane osobowe](personal-data-delete-export.md) zawiera przykładowy skrypt programu PowerShell ze szczegółowymi informacjami na temat eksportowanych danych. 
 
@@ -48,8 +48,8 @@ Te pliki są przechowywane w kontenerze obiektów BLOB *labresourceusage* pod na
 
 Aby wyeksportować informacje o użyciu dla wielu laboratoriów, rozważ użycie 
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), dostępne w wielu językach, w tym program PowerShell lub 
-* [Azure Automation elementu Runbook](https://docs.microsoft.com/azure/automation/), użyj programu PowerShell, języka Python lub niestandardowego projektanta graficznego, aby napisać kod eksportu.
+* [Azure Functions](../azure-functions/index.yml), dostępne w wielu językach, w tym program PowerShell lub 
+* [Azure Automation elementu Runbook](../automation/index.yml), użyj programu PowerShell, języka Python lub niestandardowego projektanta graficznego, aby napisać kod eksportu.
 
 Korzystając z tych technologii, można wykonać poszczególne eksporty laboratoryjne na wszystkich laboratoriach w określonym dniu i o określonej godzinie. 
 
@@ -69,13 +69,13 @@ Poniżej wymieniono niektóre typowe rozwiązania magazynu: [SQL Server](https:/
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Wizualizowanie danych i gromadzenie szczegółowych informacji
 
-Użyj wybranego narzędzia do wizualizacji danych, aby nawiązać połączenie z magazynem długoterminowym, aby wyświetlić dane użycia i zebrać szczegółowe informacje w celu sprawdzenia wydajności użycia. Na przykład [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) może służyć do organizowania i wyświetlania danych użycia. 
+Użyj wybranego narzędzia do wizualizacji danych, aby nawiązać połączenie z magazynem długoterminowym, aby wyświetlić dane użycia i zebrać szczegółowe informacje w celu sprawdzenia wydajności użycia. Na przykład [Power BI](/power-bi/power-bi-overview) może służyć do organizowania i wyświetlania danych użycia. 
 
 Za pomocą [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) można tworzyć i łączyć zasoby oraz zarządzać nimi w ramach jednego interfejsu lokalizacji. Jeśli jest wymagana większa kontrola, poszczególne zasoby mogą być tworzone w ramach jednej grupy zasobów i zarządzane niezależnie od usługi Data Factory.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu systemu i przeniesieniu danych do magazynu długoterminowego następnym krokiem jest uzyskanie odpowiedzi na pytania, do których dane muszą odpowiedzieć. Przykład: 
+Po skonfigurowaniu systemu i przeniesieniu danych do magazynu długoterminowego następnym krokiem jest uzyskanie odpowiedzi na pytania, do których dane muszą odpowiedzieć. Na przykład: 
 
 -   Co to jest użycie rozmiaru maszyny wirtualnej?
 
