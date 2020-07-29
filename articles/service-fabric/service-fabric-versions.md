@@ -3,16 +3,18 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d849b4471bf11183dc02735c7373f858f0c773be
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091644"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289313"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
 Upewnij się, że w klastrze jest zawsze uruchomiona obsługiwana wersja usługi Azure Service Fabric. Co najmniej 60 dni po opublikowaniu nowej wersji Service Fabric, obsługa poprzedniej wersji zostanie zakończona. Anonse nowych wydań znajdziesz na [blogu zespołu Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
+
+W przypadku danej wersji środowiska uruchomieniowego Service Fabric można użyć określonych lub starszych wersji pakietów SDK/NuGet. Nowsze wersje pakietów nie są obsługiwane i mogą mieć problemy związane ze starszymi klastrami, ponieważ mogą one mieć zmiany funkcji lub protokołu nieobsługiwane przez te środowiska.
 
 Zapoznaj się z następującymi dokumentami, aby uzyskać szczegółowe informacje o tym, jak utrzymać klaster z obsługiwaną wersją Service Fabric:
 
@@ -53,11 +55,11 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane przez obsługiwan
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6,0 |
+| System Windows Server 1709 | 6.0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6,0 |
+| Linux Ubuntu 16,04 | 6.0 |
 | Linux Ubuntu 18,04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Obsługiwane nazwy wersji

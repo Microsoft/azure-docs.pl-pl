@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289286"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Rozwiązywanie problemów z powrotem po awarii do lokacji lokalnej z platformy Azure
 
@@ -28,7 +29,7 @@ Powrót po awarii dotyczy głównie dwóch głównych kroków. W pierwszym kroku
 - Jeśli nie można skontaktować się z serwerem konfiguracji z serwera przetwarzania, należy użyć programu Telnet do sprawdzenia łączności z serwerem konfiguracji na porcie 443. Możesz również spróbować wysłać polecenie ping do serwera konfiguracji z serwera przetwarzania. Serwer przetwarzania powinien również mieć puls, gdy jest połączony z serwerem konfiguracji.
 - Serwer z systemem Windows Server 2008 R2 z dodatkiem SP1, który jest chroniony jako fizyczny serwer lokalny, nie może powrócić z powrotem z platformy Azure do lokacji lokalnej.
 - Nie można przeprowadzić powrotu po awarii w następujących okolicznościach:
-    - Maszyny wirtualne zostały zmigrowane na platformie Azure. [Dowiedz się więcej](migrate-overview.md#what-do-we-mean-by-migration).
+    - Maszyny wirtualne zostały zmigrowane na platformie Azure. 
     - Maszyna wirtualna została przeniesiona do innej grupy zasobów.
     - Maszyna wirtualna platformy Azure została usunięta.
     - Ochrona maszyny wirtualnej została wyłączona.
@@ -63,7 +64,7 @@ Ten problem może wystąpić, jeśli istnieje już maszyna wirtualna o takiej sa
 Aby rozwiązać ten problem:
 
 * Wybierz inny główny serwer docelowy na innym hoście, tak aby program reprotection utworzył maszynę na innym hoście, gdzie nazwy nie kolidują.
-* Można również użyć vMotion, aby przenieść główny cel do innego hosta, na którym nie nastąpiła kolizja nazw. Jeśli istniejąca maszyna wirtualna jest niedziałaną maszyną, zmień jej nazwę, tak aby nowa maszyna wirtualna mogła zostać utworzona na tym samym hoście ESXi.
+* Można również użyć VMotion, aby przenieść główny cel do innego hosta, na którym nie nastąpiła kolizja nazw. Jeśli istniejąca maszyna wirtualna jest niedziałaną maszyną, zmień jej nazwę, tak aby nowa maszyna wirtualna mogła zostać utworzona na tym samym hoście ESXi.
 
 
 ### <a name="error-code-78093"></a>Kod błędu 78093
@@ -97,4 +98,4 @@ Ten problem występuje, gdy lokalna maszyna wirtualna zostanie przeprowadzona na
 Aby rozwiązać ten problem:
 
 * Zainicjuj obsługę więcej pamięci na hoście ESXi.
-* Ponadto możesz użyć vMotion, aby przenieść maszynę wirtualną do innego hosta ESXi, który ma wystarczającą ilość pamięci, aby uruchomić maszynę wirtualną.
+* Ponadto możesz użyć VMotion, aby przenieść maszynę wirtualną do innego hosta ESXi, który ma wystarczającą ilość pamięci, aby uruchomić maszynę wirtualną.

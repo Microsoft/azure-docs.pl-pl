@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251200"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285870"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z ciągłością biznesową i odzyskiwaniem po awarii w usłudze Azure Kubernetes Service (AKS)
 
@@ -57,9 +57,9 @@ Traffic Manager wykonuje wyszukiwania DNS i zwraca najbardziej odpowiedni punkt 
 
 Aby uzyskać informacje na temat konfigurowania punktów końcowych i routingu, zobacz [Konfigurowanie metody routingu ruchu geograficznego przy użyciu Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing aplikacji warstwy 7 z usługą Azure front-drzwi
+### <a name="application-routing-with-azure-front-door-service"></a>Kierowanie aplikacji za pomocą usługi Azure Front drzwiczk
 
-Traffic Manager używa systemu DNS (warstwa 3) do kształtowania ruchu. [Usługa frontonu platformy Azure](../frontdoor/front-door-overview.md) udostępnia opcję routingu http/https (warstwa 7). Dodatkowe funkcje usługi Azure Front drzwiczk obejmują zakończenie protokołu TLS, domenę niestandardową, zaporę aplikacji sieci Web, ponowne zapisywanie adresów URL i koligację sesji. Przejrzyj potrzeby ruchu aplikacji, aby zrozumieć, które rozwiązanie jest najbardziej odpowiednie.
+Za pomocą podziału protokołu emisji pojedynczej opartych na protokole TCP [usługa Azure Front-drzwiczk](../frontdoor/front-door-overview.md) zapewnia, że użytkownicy końcowi bezzwłocznie nawiązują połączenie z najbliższym punktem obecności przed drzwiami (punkt obecności). Dodatkowe funkcje usługi Azure Front drzwiczk obejmują zakończenie protokołu TLS, domenę niestandardową, zaporę aplikacji sieci Web, ponowne zapisywanie adresów URL i koligację sesji. Przejrzyj potrzeby ruchu aplikacji, aby zrozumieć, które rozwiązanie jest najbardziej odpowiednie.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Regiony programu InterConnect z globalną siecią wirtualną sieci wirtualnej
 

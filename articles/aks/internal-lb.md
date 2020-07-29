@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i użyć wewnętrznego modułu równowa
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056830"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285887"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service (AKS)
 
@@ -19,13 +19,15 @@ Aby ograniczyć dostęp do aplikacji w usłudze Azure Kubernetes Service (AKS), 
 > [!NOTE]
 > Azure Load Balancer jest dostępny w dwóch jednostkach SKU — *podstawowa* i *standardowa*. Domyślnie standardowa jednostka SKU jest używana podczas tworzenia klastra AKS.  Podczas tworzenia usługi przy użyciu typu jako modułu równoważenia obciążenia otrzymasz ten sam typ LB jak podczas aprowizacji klastra. Aby uzyskać więcej informacji, zobacz [porównanie jednostki SKU modułu równoważenia obciążenia platformy Azure][azure-lb-comparison].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
 Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
-Nazwa główna usługi klastra AKS wymaga uprawnień do zarządzania zasobami sieci, jeśli używana jest istniejąca podsieć lub Grupa zasobów. Ogólnie rzecz biorąc Przypisz rolę *współautor sieci* do nazwy głównej usługi w odniesieniu do zasobów delegowanych. Zamiast nazwy głównej usługi można użyć przypisanej tożsamości zarządzanej przez system w celu uzyskania uprawnień. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md). Aby uzyskać więcej informacji o uprawnieniach, zobacz [delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
+Nazwa główna usługi klastra AKS wymaga uprawnień do zarządzania zasobami sieci, jeśli używana jest istniejąca podsieć lub Grupa zasobów. Aby uzyskać więcej informacji, zobacz [Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)][use-kubenet] lub [Konfigurowanie sieci CNI platformy Azure w usłudze Azure KUBERNETES Service (AKS)][advanced-networking]. W przypadku konfigurowania modułu równoważenia obciążenia do używania [adresu IP w innej podsieci][different-subnet]upewnij się, że jednostka usługi klastra AKS ma również dostęp do odczytu do tej podsieci.
+
+Zamiast nazwy głównej usługi można także użyć przypisanej tożsamości zarządzanej przez system do uprawnień. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md). Aby uzyskać więcej informacji o uprawnieniach, zobacz [delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
 
@@ -65,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Określ adres IP
 
-Jeśli chcesz użyć określonego adresu IP z wewnętrznym modułem równoważenia obciążenia, Dodaj właściwość *loadBalancerIP* do manifestu YAML modułu równoważenia obciążenia. Określony adres IP musi znajdować się w tej samej podsieci co klaster AKS i nie może być już przypisany do zasobu. Na przykład nie należy używać adresu IP z zakresu wyznaczono dla podsieci Kubernetes.
+Jeśli chcesz użyć określonego adresu IP z wewnętrznym modułem równoważenia obciążenia, Dodaj właściwość *loadBalancerIP* do manifestu YAML modułu równoważenia obciążenia. W tym scenariuszu określony adres IP musi znajdować się w tej samej podsieci co klaster AKS i nie może być już przypisany do zasobu. Na przykład nie należy używać adresu IP z zakresu wyznaczono dla podsieci Kubernetes.
 
 ```yaml
 apiVersion: v1
@@ -91,6 +93,8 @@ $ kubectl get service internal-app
 NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
+
+Aby uzyskać więcej informacji na temat konfigurowania modułu równoważenia obciążenia w innej podsieci, zobacz [Określanie innej podsieci][different-subnet]
 
 ## <a name="use-private-networks"></a>Korzystanie z sieci prywatnych
 
@@ -153,3 +157,4 @@ Dowiedz się więcej o usługach Kubernetes Services w [dokumentacji usług Kube
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[different-subnet]: #specify-a-different-subnet

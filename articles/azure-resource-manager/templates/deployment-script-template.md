@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117052"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291801"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -556,48 +556,7 @@ Wykonanie skryptu wdrożenia jest operacją idempotentne. Jeśli żadna z właś
 
 ## <a name="configure-development-environment"></a>Konfigurowanie środowiska programowania
 
-Możesz użyć wstępnie skonfigurowanego obrazu kontenera Docker jako środowiska programistycznego skryptu wdrożenia. Aby zainstalować platformę Docker, zobacz [Pobierz platformę Docker](https://docs.docker.com/get-docker/).
-Należy również skonfigurować udostępnianie plików, aby zainstalować katalog zawierający skrypty wdrażania do kontenera Docker.
-
-1. Pobierz obraz kontenera skryptu wdrożenia na komputer lokalny:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    W przykładzie używane jest 2.7.0 wersji programu PowerShell.
-
-    Aby ściągnąć obraz interfejsu wiersza polecenia z Container Registry firmy Microsoft (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    W tym przykładzie zastosowano interfejs wiersza polecenia w wersji 2.0.80. Skrypt wdrażania używa domyślnych obrazów kontenerów interfejsu wiersza polecenia znalezionych w [tym miejscu](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Uruchom lokalnie obraz platformy Docker.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Zastąp ** &lt; literę>sterownika hosta** i ** &lt; nazwę katalogu hosta>** z istniejącym folderem na dysku udostępnionym.  Mapuje folder do folderu **/Data** w kontenerze. Aby uzyskać przykłady mapowania D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-oznacza to** utrzymywanie obrazu kontenera.
-
-    Przykład interfejsu wiersza polecenia:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. Poniższy zrzut ekranu przedstawia sposób uruchomienia skryptu programu PowerShell z uwzględnieniem pliku helloworld.ps1 na dysku udostępnionym.
-
-    ![Skrypt wdrażania szablonu Menedżer zasobów — polecenie Docker](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+Wstępnie skonfigurowanego obrazu kontenera można użyć jako środowiska programistycznego skryptu wdrożenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska deweloperskiego pod kątem skryptów wdrażania w szablonach](./deployment-script-template-configure-dev.md).
 
 Po pomyślnym przetestowaniu skryptu można go użyć jako skryptu wdrożenia w szablonach.
 

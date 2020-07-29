@@ -4,16 +4,16 @@ description: Dowiedz się, jak oszczędzać koszty przy użyciu maszyn wirtualny
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 69bf4a06987f2467f3e5596d7bdec43e8923d46f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 81d57aa573201f1471701af3d03e1b14f1afd612
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292197"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 

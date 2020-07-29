@@ -8,11 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7c83bc55a00774966681973b95d18cdc58dba19c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037209"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337810"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Rozwiązywanie problemów z zapytaniami Azure Stream Analytics
 
@@ -27,9 +28,9 @@ W tym artykule opisano typowe problemy związane z tworzeniem zapytań Azure Str
     - Na Azure Portal na karcie **zapytanie** wybierz pozycję **test**. Aby [przetestować zapytanie,](stream-analytics-test-query.md)Użyj pobranych przykładowych danych. Przejrzyj błędy i spróbuj je poprawić.   
     - Możesz również [testować zapytanie lokalnie](stream-analytics-live-data-local-testing.md) przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio lub [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Debuguj zapytania krok po kroku lokalnie przy użyciu diagramu zadań](debug-locally-using-job-diagram.md) w Azure Stream Analytics Narzędzia dla programu Visual Studio. Diagram zadania pokazuje, w jaki sposób dane są przepływami ze źródeł danych wejściowych (centrum zdarzeń, IoT Hub itd.) przez wiele kroków zapytania, a wreszcie do ujścia danych wyjściowych. Każdy krok zapytania jest mapowany do tymczasowego zestawu wyników zdefiniowanego w skrypcie przy użyciu instrukcji WITH. Możesz wyświetlić dane, a także metryki w każdym pośrednim zestawie wyników, aby znaleźć źródło problemu.
+2.  [Debuguj zapytania krok po kroku lokalnie przy użyciu diagramu zadań](debug-locally-using-job-diagram-vs-code.md) w Azure Stream Analytics narzędzia dla Visual Studio Code. Diagram zadania pokazuje, w jaki sposób dane są przepływami ze źródeł danych wejściowych (centrum zdarzeń, IoT Hub itd.) przez wiele kroków zapytania, a wreszcie do ujścia danych wyjściowych. Każdy krok zapytania jest mapowany do tymczasowego zestawu wyników zdefiniowanego w skrypcie przy użyciu instrukcji WITH. Możesz wyświetlić dane, a także metryki w każdym pośrednim zestawie wyników, aby znaleźć źródło problemu.
 
-    ![Wynik podglądu diagramu zadań](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Wynik podglądu diagramu zadań](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  Jeśli używasz [**sygnatur czasowych przez**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), sprawdź, czy zdarzenia mają sygnatury czasowe większe niż [godzina rozpoczęcia zadania](stream-analytics-out-of-order-and-late-events.md).
 
@@ -100,7 +101,7 @@ Tym razem dane w danych wyjściowych są formatowane i wypełniane zgodnie z ocz
 
 ![Wybierz do ostatecznej kwerendy Stream Analytics tabeli](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

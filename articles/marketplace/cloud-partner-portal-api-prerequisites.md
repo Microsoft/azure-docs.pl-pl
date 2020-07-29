@@ -4,15 +4,15 @@ description: Wymagania wstępne dotyczące korzystania z portal Cloud Partner in
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: b672afcd8f52d8293b1bb81e30097062e2ee49c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2cce5d3463ced126a3e6e77323110e4a70024acb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292913"
 ---
 <a name="api-prerequisites"></a>Wymagania wstępne dotyczące interfejsu API
 ================

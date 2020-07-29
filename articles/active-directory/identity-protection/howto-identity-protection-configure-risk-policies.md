@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337453"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrukcje: Konfigurowanie i Włączanie zasad ryzyka
 
 Jak opisano w poprzednim artykule, [Zasady ochrony tożsamości](concept-identity-protection-policies.md) mają dwie zasady dotyczące ryzyka, które możemy włączyć w naszym katalogu. 
 
-- Zasady dotyczące ryzyka związanego z logowaniem
-- Zasady ryzyka dla użytkowników
+- Zasady ryzyka związanego z logowaniem
+- Zasady ryzyka związanego z użytkownikiem
 
 ![Strona Przegląd zabezpieczeń umożliwiająca Włączanie zasad ryzyka użytkownika i logowania](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
@@ -54,7 +55,7 @@ Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z 
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Overview**.
-1. Wybierz pozycję **Konfiguruj zasady ryzyka użytkownika**.
+1. Wybierz pozycję **zasady ryzyka dla użytkowników**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
@@ -63,7 +64,7 @@ Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z 
       1. **Dostęp** — zalecenia firmy Microsoft mają **na celu umożliwienie dostępu** i **wymaganie zmiany hasła**.
    1. **Wymuś zasady**  -  **Na**
    1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd** .
-1. Wybierz pozycję **Konfiguruj zasady dotyczące ryzyka związanego z logowaniem**.
+1. Wybierz pozycję **zasady dotyczące ryzyka związanego z logowaniem**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.

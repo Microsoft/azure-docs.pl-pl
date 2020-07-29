@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 09d2fb709e21b7c1251c2caf224f4d5c3ce6aea1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026580"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366837"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MariaDB
 
@@ -296,7 +296,7 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 Informacje o zarządzaniu dostępem dla MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Poznaj wbudowane role RBAC dla subskrypcji platformy Azure:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Zapoznaj się z wbudowanymi rolami platformy Azure dla subskrypcji platformy Azure:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Monitorowanie Azure Security Center**: tak

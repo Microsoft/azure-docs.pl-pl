@@ -1,37 +1,37 @@
 ---
-title: Metody uwierzytelniania
+title: Uwierzytelnianie za pomocą map Microsoft Azure
 titleSuffix: Azure Maps
-description: Ten artykuł zawiera informacje na temat Azure Active Directory i uwierzytelniania klucza współużytkowanego. Oba są używane na potrzeby usług Microsoft Azure Maps. Dowiedz się, jak uzyskać klucz subskrypcji Azure Maps.
+description: Ten artykuł zawiera informacje na temat Azure Active Directory i uwierzytelniania klucza współużytkowanego.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e270a9a1a773442a4d1d28d9bbfe37639cac7c65
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285836"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
 
-Azure Maps obsługuje dwa sposoby uwierzytelniania żądań: uwierzytelnianie klucza wspólnego i uwierzytelnianie [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . W tym artykule opisano te metody uwierzytelniania, które ułatwiają wdrożenie usług Azure Maps.
+Azure Maps obsługuje dwa sposoby uwierzytelniania żądań: uwierzytelnianie klucza wspólnego i uwierzytelnianie [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . W tym artykule opisano metody uwierzytelniania, które ułatwiają wdrożenie usług Azure Maps.
 
 > [!NOTE]
-> Aby ulepszyć bezpieczną komunikację z usługą Azure Maps, firma Microsoft obsługuje teraz protokół Transport Layer Security (TLS) 1,2 i wycofywanie pomocy technicznej dla protokołów TLS 1,0 i 1,1. Aby uniknąć przerw w działaniu usługi, **zaktualizuj serwery i aplikacje do korzystania z protokołu TLS 1,2 przed 2 kwietnia 2020**.  Jeśli obecnie używasz protokołu TLS 1. x, Oceń gotowość protokołu TLS 1,2 i Opracuj plan migracji z testowaniem opisanym w temacie [Rozwiązywanie problemów z protokołem tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Aby ulepszyć bezpieczną komunikację z usługą Azure Maps, firma Microsoft obsługuje teraz protokół Transport Layer Security (TLS) 1,2 i wycofywanie pomocy technicznej dla protokołów TLS 1,0 i 1,1. Jeśli obecnie używasz protokołu TLS 1. x, Oceń gotowość protokołu TLS 1,2 i Opracuj plan migracji z testowaniem opisanym w temacie [Rozwiązywanie problemów z protokołem tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Uwierzytelnianie klucza wspólnego
 
- Klucze podstawowe i pomocnicze są generowane po utworzeniu konta Azure Maps. Zaleca się użycie klucza podstawowego jako klucza subskrypcji podczas wywoływania Azure Maps przy użyciu uwierzytelniania za pomocą klucza współużytkowanego. Uwierzytelnianie klucza wspólnego przekazuje klucz wygenerowany przez konto Azure Maps do usługi Azure Maps. Dla każdego żądania Azure Maps usług Dodaj *klucz subskrypcji* jako parametr do adresu URL. Klucz pomocniczy może być używany w scenariuszach, takich jak stopniowe zmiany klawiszy.  
+ Klucze podstawowe i pomocnicze są generowane po utworzeniu konta Azure Maps. Podczas wywoływania Azure Maps z uwierzytelnianiem za pomocą klucza wspólnego zaleca się użycie klucza podstawowego jako klucza subskrypcji. Uwierzytelnianie klucza wspólnego przekazuje klucz wygenerowany przez konto Azure Maps do usługi Azure Maps. Dla każdego żądania Azure Maps usług Dodaj *klucz subskrypcji* jako parametr do adresu URL. Klucz pomocniczy może być używany w scenariuszach, takich jak stopniowe zmiany klawiszy.  
 
 Aby uzyskać informacje na temat wyświetlania kluczy w Azure Portal, zobacz [Zarządzanie uwierzytelnianiem](https://aka.ms/amauthdetails).
 
-> [!Tip]
-> Zaleca się regularne ponowne generowanie kluczy. Podano dwa klucze, dzięki czemu można zachować połączenia z jednym kluczem przy ponownym generowaniu innych. Po ponownym wygenerowaniu kluczy należy zaktualizować wszystkie aplikacje, które uzyskują dostęp do Twojego konta, przy użyciu nowych kluczy.
+> [!TIP]
+> Ze względów bezpieczeństwa zaleca się obracanie między kluczami podstawowymi i pomocniczymi. Aby obrócić klucze, zaktualizuj aplikację tak, aby korzystała z klucza pomocniczego, wdróż, a następnie naciśnij przycisk Cykl/Odśwież obok klucza podstawowego, aby wygenerować nowy klucz podstawowy. Stary klucz podstawowy zostanie wyłączony. Aby uzyskać więcej informacji na temat rotacji kluczy, zobacz [konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
 ## <a name="azure-ad-authentication"></a>Uwierzytelnianie w usłudze Azure AD
 
@@ -64,7 +64,7 @@ Po odebraniu tokenu dostępu przez aplikację zestaw SDK i/lub aplikacja wysyła
 | x-ms-client-id | 30d7cc….9f55        |
 | Autoryzacja  | Bearer eyJ0e….HNIVN |
 
-> [!Note]
+> [!NOTE]
 > `x-ms-client-id`jest identyfikatorem GUID opartym na koncie Azure Maps, który pojawia się na stronie uwierzytelnianie Azure Maps.
 
 Oto przykład żądania Azure Maps trasy, które używa tokenu okaziciela OAuth usługi Azure AD:
@@ -108,7 +108,7 @@ Aby uzyskać informacje na temat wyświetlania ustawień RBAC, zobacz [How to co
 
 #### <a name="custom-role-definitions"></a>Niestandardowe definicje ról
 
-Jednym z aspektów zabezpieczeń aplikacji jest zastosowanie zasady najniższych uprawnień. Zasada ta określa, że podmiot zabezpieczeń powinien być uprawniony wyłącznie do dostępu, który jest wymagany i nie ma dodatkowego dostępu. Tworzenie niestandardowych definicji ról może obsługiwać przypadki użycia, które wymagają dalszej szczegółowości kontroli dostępu. Aby utworzyć niestandardową definicję roli, można wybrać określone akcje danych, które mają zostać dołączone lub wykluczone dla definicji. 
+Jednym z aspektów zabezpieczeń aplikacji jest zastosowanie zasady najniższych uprawnień. Ta zasada oznacza, że podmiot zabezpieczeń powinien mieć tylko dozwolony dostęp, który jest wymagany i nie ma dodatkowego dostępu. Tworzenie niestandardowych definicji ról może obsługiwać przypadki użycia, które wymagają dalszej szczegółowości kontroli dostępu. Aby utworzyć niestandardową definicję roli, można wybrać określone akcje danych, które mają zostać dołączone lub wykluczone dla definicji.
 
 Definicji roli niestandardowej można następnie użyć w przypisaniu roli dla dowolnego podmiotu zabezpieczeń. Aby dowiedzieć się więcej na temat definicji ról niestandardowych platformy Azure, zobacz [role niestandardowe platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
@@ -123,16 +123,22 @@ Poniżej przedstawiono kilka przykładowych scenariuszy, w których role niestan
 
 ### <a name="understanding-scope"></a>Zrozumienie zakresu
 
-Podczas tworzenia przypisania roli jest ono zdefiniowane w hierarchii zasobów platformy Azure. W górnej części hierarchii jest [Grupa zarządzania](https://docs.microsoft.com/azure/governance/management-groups/overview) , a najniższy to zasób platformy Azure, taki jak konto Azure Maps.
+Podczas tworzenia przypisania roli jest on definiowany w hierarchii zasobów platformy Azure. W górnej części hierarchii jest [Grupa zarządzania](https://docs.microsoft.com/azure/governance/management-groups/overview) , a najniższy to zasób platformy Azure, taki jak konto Azure Maps.
 Przypisanie przypisania roli do grupy zasobów może umożliwić dostęp do wielu kont Azure Maps lub zasobów w grupie.
 
-> [!Tip]
-> Ogólne zalecenie firmy Microsoft przypisuje dostęp do zakresu kont Azure Maps, ponieważ uniemożliwia **niezamierzony dostęp do innych kont Azure Maps** istniejących w tej samej subskrypcji platformy Azure.
+> [!TIP]
+> Ogólnym zaleceniem firmy Microsoft jest przypisanie dostępu do zakresu konta Azure Maps, ponieważ uniemożliwia on **niezamierzony dostęp do innych kont Azure Maps** istniejących w tej samej subskrypcji platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat RBAC, zobacz [Omówienie kontroli dostępu opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Aby dowiedzieć się więcej na temat RBAC, zobacz
+> [!div class="nextstepaction"]
+> [Kontrola dostępu na podstawie ról](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* Aby dowiedzieć się więcej o uwierzytelnianiu aplikacji za pomocą usługi Azure AD i Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Aby dowiedzieć się więcej o uwierzytelnianiu aplikacji za pomocą usługi Azure AD i Azure Maps, zobacz
+> [!div class="nextstepaction"]
+> [Zarządzanie uwierzytelnianiem w Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
 
-* Aby dowiedzieć się więcej na temat uwierzytelniania kontrolka mapy Azure Maps i usługi Azure AD, zobacz [Korzystanie z kontrolka mapy Azure Maps](https://aka.ms/amaadmc).
+Aby dowiedzieć się więcej o uwierzytelnianiu kontrolka mapy Azure Maps za pomocą usługi Azure AD, zobacz
+> [!div class="nextstepaction"]
+> [Użyj kontrolka mapy Azure Maps](https://aka.ms/amaadmc)

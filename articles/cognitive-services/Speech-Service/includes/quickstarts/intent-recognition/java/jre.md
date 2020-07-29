@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 58f771120c5c81e27751af66b64e146c79bb6508
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421875"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298828"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Zainstaluj zestaw Speech SDK dla środowiska programistycznego i Utwórz pusty przykładowy projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Zainstaluj zestaw Speech SDK dla środowiska programistycznego i Utwórz pusty przykładowy projekt <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Tworzenie aplikacji LUIS na potrzeby rozpoznawania intencji
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem:
 ## <a name="open-your-project"></a>Otwórz projekt
 
 1. Otwórz preferowany IDE.
-2. Załaduj projekt i Otwórz `Main.java`go.
+2. Załaduj projekt i otwórz go `Main.java` .
 
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
@@ -38,7 +38,7 @@ Dodajmy kod, który działa jako szkielet dla projektu.
 
 Aby można było zainicjować `IntentRecognizer` obiekt, należy utworzyć konfigurację, która używa klucza i lokalizacji dla zasobu przewidywania Luis.  
 
-Wstaw ten kod w bloku try/catch w `main()`. Upewnij się, że te wartości są aktualizowane:
+Wstaw ten kod w bloku try/catch w `main()` . Upewnij się, że te wartości są aktualizowane:
 
 * Zamień `"YourLanguageUnderstandingSubscriptionKey"` na klucz predykcyjny Luis.
 * Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis. Użyj **identyfikatora regionu** z [regionu](https://aka.ms/speech/sdkregion)
@@ -48,13 +48,13 @@ Wstaw ten kod w bloku try/catch w `main()`. Upewnij się, że te wartości są a
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig`. Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig` . Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu uzyskania informacji na temat wybierania [języka źródłowego.](../../../../how-to-specify-source-language.md)
 
 ## <a name="initialize-an-intentrecognizer"></a>Inicjowanie elementu IntentRecognizer
 
-Teraz Utwórzmy `IntentRecognizer`. Wstaw ten kod bezpośrednio poniżej konfiguracji mowy.
+Teraz Utwórzmy `IntentRecognizer` . Wstaw ten kod bezpośrednio poniżej konfiguracji mowy.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
@@ -62,12 +62,14 @@ Teraz Utwórzmy `IntentRecognizer`. Wstaw ten kod bezpośrednio poniżej konfigu
 
 Musisz skojarzyć `LanguageUnderstandingModel` z aparatem rozpoznawania intencji i dodać żądane intencje. Będziemy używać intencji z prekompilowanej domeny dla automatyzacji domowej.
 
-Wstaw ten kod poniżej `IntentRecognizer`. Upewnij się, że zastąpisz `"YourLanguageUnderstandingAppId"` za pomocą identyfikatora aplikacji Luis.
+Wstaw ten kod poniżej `IntentRecognizer` . Upewnij się, że zastąpisz `"YourLanguageUnderstandingAppId"` za pomocą identyfikatora aplikacji Luis.
 
 >[!TIP]
 > Jeśli potrzebujesz pomocy w znalezieniu tej wartości, zobacz [Tworzenie aplikacji Luis na potrzeby rozpoznawania intencji](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
+
+Ten przykład używa `addIntent()` funkcji, aby indywidualnie dodawać intencje. Jeśli chcesz dodać wszystkie intencje z modelu, użyj `addAllIntents(model)` i przekaż model.
 
 ## <a name="recognize-an-intent"></a>Rozpoznawanie zamiaru
 
@@ -81,7 +83,7 @@ Wstaw ten kod pod modelem:
 
 Gdy usługa mowy zwróci wynik rozpoznawania, należy wykonać coś z nim. Zajmiemy się tym, że będzie on prosty i będzie drukował wynik do konsoli.
 
-Wstaw ten kod poniżej rozmowy do `recognizeOnceAsync()`.
+Wstaw ten kod poniżej rozmowy do `recognizeOnceAsync()` .
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
@@ -102,7 +104,7 @@ W tym momencie kod powinien wyglądać następująco:
 
 ## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Naciśnij klawisz <kbd>F11</kbd>lub wybierz polecenie **Uruchom** > **debugowanie**.
+Naciśnij klawisz <kbd>F11</kbd>lub wybierz polecenie **Uruchom**  >  **debugowanie**.
 Następne 15 sekund mowy z mikrofonu zostanie rozpoznane i zarejestrowane w oknie konsoli.
 
 ## <a name="next-steps"></a>Następne kroki

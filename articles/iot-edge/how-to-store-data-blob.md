@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562714"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287262"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge (Przechowywanie danych na urządzeniu brzegowym dzięki usłudze Azure Blob Storage w usłudze IoT Edge)
 
@@ -77,7 +77,7 @@ Użyj odpowiednich właściwości modułu, aby ustawić **deviceToCloudUploadPro
 
 Nazwa tego ustawienia to `deviceToCloudUploadProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Objaśnienie |
+| Właściwość | Możliwe wartości | Wyjaśnienie |
 | ----- | ----- | ---- |
 | uploadOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Umożliwia wybranie kolejności, w której dane są kopiowane na platformę Azure. Domyślnie ustawiona wartość `OldestFirst` . Kolejność jest określana według czasu ostatniej modyfikacji obiektu BLOB. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
@@ -89,7 +89,7 @@ Nazwa tego ustawienia to `deviceToCloudUploadProperties` . Jeśli używasz symul
 
 Nazwa tego ustawienia to `deviceAutoDeleteProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Objaśnienie |
+| Właściwość | Możliwe wartości | Wyjaśnienie |
 | ----- | ----- | ---- |
 | deleteOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Określ czas (w minutach). Po wygaśnięciu tej wartości moduł automatycznie usunie obiekty blob z magazynu lokalnego. <br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-Przykład:
+Na przykład:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-Przykład:
+Na przykład:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -173,7 +173,10 @@ Określ urządzenie IoT Edge jako punkt końcowy obiektu BLOB dla dowolnych żą
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
-
+ 
+ > [!IMPORTANT]
+ > W Azure IoT Edge jest rozróżniana wielkość liter podczas wykonywania wywołań do modułów, a zestaw SDK magazynu jest również domyślnie pisany małymi literami. Mimo że nazwa modułu w [witrynie Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) to **AzureBlobStorageonIoTEdge**, zmiana nazwy na małe jest pomocne, aby upewnić się, że połączenia z usługą Azure Blob Storage na IoT Edge module nie zostaną przerwane.
+ 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Przykłady szybkiego startu platformy Azure Blob Storage
 
 Dokumentacja usługi Azure Blob Storage zawiera przykładowy kod szybkiego startu w kilku językach. Te przykłady można uruchomić w celu przetestowania Blob Storage platformy Azure na IoT Edge przez zmianę punktu końcowego obiektu BLOB w celu nawiązania połączenia z lokalnym modułem magazynu obiektów BLOB.
@@ -287,7 +290,7 @@ Ich
 
 Ten Blob Storage platformy Azure na IoT Edge module zapewnia teraz integrację z Event Grid na IoT Edge. Aby uzyskać szczegółowe informacje na temat integracji, zapoznaj się z [samouczkiem dotyczącym wdrażania modułów, publikowania zdarzeń i weryfikowania dostarczania zdarzeń](../event-grid/edge/react-blob-storage-events-locally.md).
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
 Poniżej znajdują się [Informacje o wersji usługi Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) dla tego modułu
 

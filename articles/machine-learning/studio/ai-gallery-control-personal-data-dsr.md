@@ -1,6 +1,5 @@
 ---
-title: Zarządzanie danymi Azure AI Gallery
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): zarządzanie danymi Azure AI Gallery — Azure'
 description: Możesz eksportować i usuwać dane użytkownika w ramach produktu z Azure AI Gallery przy użyciu interfejsu API katalogu lub galerii AI. W tym artykule pokazano, jak to zrobić.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +10,12 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8255a4c6556dc1a36d763e48f6bcc5eec012b553
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292995"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Wyświetlanie i usuwanie danych użytkownika w ramach produktu z Azure AI Gallery
 
@@ -89,7 +88,7 @@ Aby wyświetlić opublikowane jednostki, odwiedź następujący adres URL, zast�
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
-Przykład:
+Na przykład:
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 

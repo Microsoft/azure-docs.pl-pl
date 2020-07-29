@@ -3,12 +3,12 @@ title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323880"
+ms.locfileid: "87337538"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -17,7 +17,7 @@ Możesz zastosować znaczniki do zasobów platformy Azure, grup zasobów i subsk
 Aby zapoznać się z zaleceniami dotyczącymi sposobu implementowania strategii tagowania, zobacz [Przewodnik po nazewnictwu i znakowaniu zasobów](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> W nazwach tagów nie jest rozróżniana wielkość liter w operacjach. Tag o nazwie znacznika, niezależnie od wielkości liter, jest aktualizowany lub pobierany. Jednak dostawca zasobów może przechowywać wielkość liter podaną dla nazwy tagu. Zostanie wyświetlona wielkość liter w raportach kosztów.
+> W nazwach tagów nie jest rozróżniana wielkość liter w operacjach. Tag o nazwie znacznika, niezależnie od wielkości liter, jest aktualizowany lub pobierany. Jednak dostawca zasobów może zachować wielkość liter podaną dla nazwy tagu. Zostanie wyświetlona wielkość liter w raportach kosztów.
 > 
 > W wartościach tagów jest rozróżniana wielkość liter.
 

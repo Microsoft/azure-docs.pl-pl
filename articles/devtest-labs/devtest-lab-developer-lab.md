@@ -3,12 +3,12 @@ title: Użyj Azure DevTest Labs dla deweloperów | Microsoft Docs
 description: Dowiedz się więcej o funkcjach Azure DevTest Labs, których można użyć do spełnienia wymagań deweloperskich i szczegółowych czynności, które można wykonać, aby skonfigurować laboratorium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293031"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Użyj Azure DevTest Labs dla deweloperów
 Usługi Azure DevTest Labs można używać do wdrażania wielu kluczowych scenariuszy, ale jeden z podstawowych scenariuszy obejmuje używanie usługi DevTest Labs do hostowania maszyn deweloperskich dla deweloperów. W tym scenariuszu usługa DevTest Labs zapewnia następujące korzyści:
@@ -45,7 +45,7 @@ W tym artykule omówiono różne funkcje Azure DevTest Labs, których można uż
    | --- | --- |
    | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można dozwolonych obrazy w portalu Azure Marketplace i udostępniać je tylko wybranym dla deweloperów.|
    | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Utwórz niestandardowy obraz, instalując wstępnie wymagane oprogramowanie, dzięki czemu deweloperzy mogą szybko utworzyć maszynę wirtualną przy użyciu obrazu niestandardowego.|
-   | [Informacje o fabryce obrazu](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Obejrzyj wideo, w którym opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
+   | [Informacje o fabryce obrazu](./devtest-lab-faq.md#blog-post) |Obejrzyj wideo, w którym opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
 
 3. **Tworzenie szablonów do wielokrotnego użytku dla komputerów deweloperów** 
    
@@ -124,4 +124,3 @@ W tym artykule omówiono różne funkcje Azure DevTest Labs, których można uż
    | [Tworzenie laboratorium przy użyciu szablonu Menedżer zasobów](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Twórz laboratoria w Azure DevTest Labs przy użyciu szablonów Menedżer zasobów. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

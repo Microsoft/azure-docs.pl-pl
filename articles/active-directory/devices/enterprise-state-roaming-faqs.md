@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672389"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274089"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
 
@@ -26,17 +27,17 @@ W tym artykule znajdują się odpowiedzi na pytania, które mogą być dostępne
 **Ustawienia systemu Windows**: ustawienia komputera wbudowane w system operacyjny Windows. Zazwyczaj są to ustawienia, które spersonalizują Twój komputer i obejmują następujące szerokie Kategorie:
 
 * *Motyw*, który obejmuje funkcje, takie jak kompozycja pulpitu i ustawienia paska zadań.
-* *Ustawienia programu Internet Explorer*, w tym ostatnio otwierane karty i Ulubione.
+* *Ustawienia programu Internet Explorer*, w tym ostatnio otwierane karty i elementy ulubione.
 * *Ustawienia przeglądarki Microsoft Edge*, takie jak Ulubione i listy do czytania.
 * *Hasła*, w tym hasła internetowe, profile sieci Wi-Fi i inne.
 * *Preferencje językowe*, które obejmują ustawienia układów klawiatury, języka systemu, daty i godziny itd.
-* *Ułatwienia dostępu*, takie jak motyw o wysokim kontraście, narrator i Lupa.
+* *Funkcje ułatwień dostępu*, takie jak motyw o wysokim kontraście, Narrator i Lupa.
 * *Inne ustawienia systemu Windows*, takie jak ustawienia myszy.
 
 > [!NOTE]
 > Ten artykuł ma zastosowanie do starszej przeglądarki opartej na języku HTML Microsoft Edge, która została uruchomiona z systemem Windows 10 w lipcu 2015. Artykuł nie ma zastosowania do nowej przeglądarki opartej na formacie chromu Microsoft Edge wydanej 15 stycznia 2020. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dane aplikacji**: Aplikacje uniwersalne systemu Windows mogą zapisywać dane ustawień w folderze mobilnym, a wszystkie dane zapisane w tym folderze zostaną automatycznie zsynchronizowane. Aby skorzystać z tej możliwości, można zaprojektować aplikację przy użyciu poszczególnych deweloperów aplikacji. Aby uzyskać więcej informacji na temat sposobu tworzenia uniwersalnej aplikacji systemu Windows, która korzysta z roamingu, zobacz blog [interfejsu API magazynu AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) i [Windows 8 AppData mobilnego dewelopera](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dane aplikacji**: Aplikacje uniwersalne systemu Windows mogą zapisywać dane ustawień w folderze mobilnym, a wszystkie dane zapisane w tym folderze zostaną automatycznie zsynchronizowane. Aby skorzystać z tej możliwości, można zaprojektować aplikację przy użyciu poszczególnych deweloperów aplikacji. Aby uzyskać więcej informacji na temat sposobu tworzenia uniwersalnej aplikacji systemu Windows, która korzysta z roamingu, zobacz blog [interfejsu API magazynu AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) i [Windows 8 AppData mobilnego dewelopera](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Jakie konto jest używane na potrzeby synchronizacji ustawień?
 

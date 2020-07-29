@@ -4,15 +4,16 @@ description: Application Insights model danych dla telemetrii zależności
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671923"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315975"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria zależności: Application Insights model danych
 
-Telemetria zależności (w [Application Insights](../../azure-monitor/app/app-insights-overview.md)) reprezentuje interakcję monitorowanego składnika ze składnikiem zdalnym, takim jak SQL lub punkt końcowy HTTP.
+Telemetria zależności (w [Application Insights](./app-insights-overview.md)) reprezentuje interakcję monitorowanego składnika ze składnikiem zdalnym, takim jak SQL lub punkt końcowy HTTP.
 
 ## <a name="name"></a>Nazwa
 
@@ -20,7 +21,7 @@ Nazwa polecenia zainicjowanego z tym wywołaniem zależności. Niska wartość k
 
 ## <a name="id"></a>ID
 
-Identyfikator wystąpienia wywołania zależności. Używany do korelacji z elementem żądania telemetrii, odpowiadającym temu wywołaniu zależności. Aby uzyskać więcej informacji, zobacz stronę [korelacji](../../azure-monitor/app/correlation.md) .
+Identyfikator wystąpienia wywołania zależności. Używany do korelacji z elementem żądania telemetrii, odpowiadającym temu wywołaniu zależności. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 
 ## <a name="data"></a>Dane
 
@@ -30,9 +31,9 @@ Polecenie zainicjowane przez to wywołanie zależności. Przykłady to instrukcj
 
 Nazwa typu zależności. Niska wartość kardynalności logicznego grupowania zależności i interpretacji innych pól, takich jak CommandName i resultCode. Przykłady to SQL, Azure Table i HTTP.
 
-## <a name="target"></a>Środowisko docelowe
+## <a name="target"></a>Cel
 
-Lokacja docelowa wywołania zależności. Przykłady to nazwa serwera, adres hosta. Aby uzyskać więcej informacji, zobacz stronę [korelacji](../../azure-monitor/app/correlation.md) .
+Lokacja docelowa wywołania zależności. Przykłady to nazwa serwera, adres hosta. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 
 ## <a name="duration"></a>Czas trwania
 
@@ -57,8 +58,9 @@ Wskazanie powodzenia lub nieudanych wywołań.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Skonfiguruj Śledzenie zależności dla [platformy .NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Skonfiguruj Śledzenie zależności dla [środowiska Java](../../azure-monitor/app/java-agent.md).
-- [Napisz niestandardową telemetrię zależności](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Skonfiguruj Śledzenie zależności dla [platformy .NET](./asp-net-dependencies.md).
+- Skonfiguruj Śledzenie zależności dla [środowiska Java](./java-agent.md).
+- [Napisz niestandardową telemetrię zależności](./api-custom-events-metrics.md#trackdependency)
 - Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
-- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.
+- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77611894"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313493"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konta i profile dzierżaw (Android)
 
@@ -104,7 +105,7 @@ Jak wspomniano wcześniej, każda dzierżawa, w której istnieje konto, może pr
 
 Chociaż konto może być członkiem lub gościem w wielu organizacjach, MSAL nie wysyła zapytania do usługi w celu uzyskania listy dzierżawców, do których należy konto. Zamiast tego MSAL tworzy listę dzierżawców, w których konto jest obecne w wyniku żądań tokenów, które zostały wykonane.
 
-Oświadczenia uwidocznione na obiekcie konta są zawsze oświadczeniami z/{Authority} "dzierżawy domowej" dla konta. Jeśli to konto nie zostało użyte do żądania tokenu dla dzierżawy głównej, MSAL nie może zapewnić oświadczeń za pośrednictwem obiektu account.  Przykład:
+Oświadczenia uwidocznione na obiekcie konta są zawsze oświadczeniami z/{Authority} "dzierżawy domowej" dla konta. Jeśli to konto nie zostało użyte do żądania tokenu dla dzierżawy głównej, MSAL nie może zapewnić oświadczeń za pośrednictwem obiektu account.  Na przykład:
 
 ```java
 // Psuedo Code
@@ -124,7 +125,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Dostęp do oświadczeń profilu dzierżawy
 
-Aby uzyskać dostęp do oświadczeń dotyczących konta, które są wyświetlane w innych dzierżawcach, należy najpierw rzutować obiekt konta na `IMultiTenantAccount` . Wszystkie konta mogą być wielodostępne, ale liczba profilów dzierżawy dostępnych za pośrednictwem usługi MSAL jest oparta na tym, z których dzierżawców żądali tokenów przy użyciu bieżącego konta.  Przykład:
+Aby uzyskać dostęp do oświadczeń dotyczących konta, które są wyświetlane w innych dzierżawcach, należy najpierw rzutować obiekt konta na `IMultiTenantAccount` . Wszystkie konta mogą być wielodostępne, ale liczba profilów dzierżawy dostępnych za pośrednictwem usługi MSAL jest oparta na tym, z których dzierżawców żądali tokenów przy użyciu bieżącego konta.  Na przykład:
 
 ```java
 // Psuedo Code
@@ -139,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Tokeny odświeżania dla konta nie są współużytkowane przez zasady B2Cymi. W związku z tym nie jest możliwe logowanie jednokrotne przy użyciu tokenów. Nie oznacza to, że logowanie jednokrotne nie jest możliwe. Oznacza to, że logowanie jednokrotne musi korzystać z interaktywnego środowiska, w którym jest dostępny plik cookie umożliwiający logowanie jednokrotne.
 
-Oznacza to również, że w przypadku MSAL, Jeśli uzyskujesz tokeny przy użyciu różnych zasad B2C, są one traktowane jako osobne konta — z ich własnymi identyfikatorami. Jeśli chcesz użyć konta do żądania tokenu przy użyciu `acquireTokenSilent` , musisz wybrać konto z listy kont, które są zgodne z zasadami używanymi z żądaniem tokenu. Przykład:
+Oznacza to również, że w przypadku MSAL, Jeśli uzyskujesz tokeny przy użyciu różnych zasad B2C, są one traktowane jako osobne konta — z ich własnymi identyfikatorami. Jeśli chcesz użyć konta do żądania tokenu przy użyciu `acquireTokenSilent` , musisz wybrać konto z listy kont, które są zgodne z zasadami używanymi z żądaniem tokenu. Na przykład:
 
 ```java
 // Get Account For Policy

@@ -4,19 +4,19 @@ description: Ostrzega o nietypowych zmianach w przypadku żądań zakończonych 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045800"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315941"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Wykrywanie inteligentne — anomalie błędów
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
+[Application Insights](./app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
 
-Ta funkcja działa w przypadku dowolnej aplikacji sieci Web, hostowanej w chmurze lub na własnych serwerach, która generuje żądanie aplikacji lub dane zależności. Na przykład jeśli masz rolę procesu roboczego, która wywołuje [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) lub [TrackDependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Ta funkcja działa w przypadku dowolnej aplikacji sieci Web, hostowanej w chmurze lub na własnych serwerach, która generuje żądanie aplikacji lub dane zależności. Na przykład jeśli masz rolę procesu roboczego, która wywołuje [TrackRequest ()](./api-custom-events-metrics.md#trackrequest) lub [TrackDependency ()](./api-custom-events-metrics.md#trackdependency).
 
-Po skonfigurowaniu [Application Insights dla projektu](../../azure-monitor/app/app-insights-overview.md), a jeśli aplikacja generuje pewną minimalną ilość danych, Inteligentne wykrywanie anomalii awarii trwa 24 godziny, aby poznać normalne zachowanie aplikacji, zanim zostanie ona przełączona i będzie mogła wysyłać alerty.
+Po skonfigurowaniu [Application Insights dla projektu](./app-insights-overview.md), a jeśli aplikacja generuje pewną minimalną ilość danych, Inteligentne wykrywanie anomalii awarii trwa 24 godziny, aby poznać normalne zachowanie aplikacji, zanim zostanie ona przełączona i będzie mogła wysyłać alerty.
 
 Oto przykładowy Alert:
 
@@ -31,10 +31,10 @@ Szczegóły alertu pomogą Ci:
 * Łączy bezpośrednio z odpowiednimi wyszukiwaniami danych w Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Zalety wykrywania inteligentnego
-Zwykłe [alerty dotyczące metryk](../../azure-monitor/platform/alerts-log.md) informują o problemie. Jednak funkcja inteligentnego wykrywania uruchamia pracę diagnostykę, wykonując wiele analiz, które w przeciwnym razie trzeba wykonać samodzielnie. Wyniki są zapakowane w sposób uporządkowany, co pomaga szybko uzyskać dostęp do katalogu głównego problemu.
+Zwykłe [alerty dotyczące metryk](../platform/alerts-log.md) informują o problemie. Jednak funkcja inteligentnego wykrywania uruchamia pracę diagnostykę, wykonując wiele analiz, które w przeciwnym razie trzeba wykonać samodzielnie. Wyniki są zapakowane w sposób uporządkowany, co pomaga szybko uzyskać dostęp do katalogu głównego problemu.
 
 ## <a name="how-it-works"></a>Jak to działa
-Inteligentne wykrywanie monitoruje dane otrzymane z aplikacji, a w szczególności współczynnik awarii. Ta zasada zlicza liczbę żądań, dla których `Successful request` Właściwość ma wartość false, oraz liczbę wywołań zależności, dla których `Successful call` Właściwość ma wartość false. W przypadku żądań domyślnie `Successful request == (resultCode < 400)` (chyba że kod niestandardowy nie został zapisany do [filtrowania](../../azure-monitor/app/api-filtering-sampling.md#filtering) lub generowania własnych wywołań [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ). 
+Inteligentne wykrywanie monitoruje dane otrzymane z aplikacji, a w szczególności współczynnik awarii. Ta zasada zlicza liczbę żądań, dla których `Successful request` Właściwość ma wartość false, oraz liczbę wywołań zależności, dla których `Successful call` Właściwość ma wartość false. W przypadku żądań domyślnie `Successful request == (resultCode < 400)` (chyba że kod niestandardowy nie został zapisany do [filtrowania](./api-filtering-sampling.md#filtering) lub generowania własnych wywołań [TrackRequest](./api-custom-events-metrics.md#trackrequest) ). 
 
 Wydajność aplikacji ma typowy wzorzec zachowania. Niektóre żądania lub wywołania zależności będą bardziej podatne na awarie niż inne; a ogólna częstotliwość niepowodzeń może być większa w miarę wzrostu obciążenia. Funkcja inteligentnego wykrywania używa uczenia maszynowego, aby znaleźć te anomalie.
 
@@ -48,7 +48,7 @@ Gdy usługa jest Instrumentacją tych wywołań, Analizator szuka wyjątku i awa
 
 Wyniki analizy są wysyłane do Ciebie jako alert, chyba że skonfigurowano go w taki sposób, aby nie został skonfigurowany.
 
-Podobnie jak w przypadku [alertów ustawionych ręcznie](../../azure-monitor/platform/alerts-log.md), można sprawdzić stan wygenerowanego alertu, który można rozwiązać, jeśli problem został rozwiązany. Skonfiguruj reguły alertów na stronie Alerty zasobu Application Insights. Ale w przeciwieństwie do innych alertów nie trzeba konfigurować ani konfigurować inteligentnego wykrywania. Jeśli chcesz, możesz ją wyłączyć lub zmienić docelowe adresy e-mail.
+Podobnie jak w przypadku [alertów ustawionych ręcznie](../platform/alerts-log.md), można sprawdzić stan wygenerowanego alertu, który można rozwiązać, jeśli problem został rozwiązany. Skonfiguruj reguły alertów na stronie Alerty zasobu Application Insights. Ale w przeciwieństwie do innych alertów nie trzeba konfigurować ani konfigurować inteligentnego wykrywania. Jeśli chcesz, możesz ją wyłączyć lub zmienić docelowe adresy e-mail.
 
 ### <a name="alert-logic-details"></a>Szczegóły logiki alertu
 
@@ -292,7 +292,7 @@ Należy zauważyć, że można wyłączyć lub usunąć regułę alertów o anom
 
 Alert wskazuje, że wykryto nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Prawdopodobnie wystąpił problem z aplikacją lub jej środowiskiem.
 
-Aby dowiedzieć się więcej, kliknij pozycję "Wyświetl pełne szczegóły w Application Insights" linki na tej stronie spowoduje przejście do [strony wyszukiwania](../../azure-monitor/app/diagnostic-search.md) , która przefiltrowana do odpowiednich żądań, wyjątków, zależności lub śladów. 
+Aby dowiedzieć się więcej, kliknij pozycję "Wyświetl pełne szczegóły w Application Insights" linki na tej stronie spowoduje przejście do [strony wyszukiwania](./diagnostic-search.md) , która przefiltrowana do odpowiednich żądań, wyjątków, zależności lub śladów. 
 
 Możesz również otworzyć [Azure Portal](https://portal.azure.com), przejdź do zasobu Application Insights dla aplikacji, a następnie otwórz stronę błędy.
 
@@ -317,7 +317,7 @@ Kliknij pozycję **alerty** na stronie zasobów Application Insights, aby przej�
 ## <a name="whats-the-difference-"></a>Jaka jest różnica...
 Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne funkcje Application Insights.
 
-* [Alerty metryk](../../azure-monitor/platform/alerts-log.md) są ustawiane przez użytkownika i mogą monitorować szeroką gamę metryk, takich jak użycie procesora CPU, stawki żądań, czasy ładowania stron itd. Można z nich skorzystać, aby ostrzec użytkownika, na przykład jeśli trzeba dodać więcej zasobów. Z kolei funkcja inteligentnego wykrywania anomalii o niepowodzeń obejmuje niewielki zakres metryk krytycznych (aktualnie nie zakończonych niepowodzeniem), dzięki czemu można powiadamiać niemal w czasie rzeczywistym o tym, kiedy szybkość żądań zakończonych niepowodzeniem w aplikacji sieci Web zostanie zwiększona w porównaniu z normalnym zachowaniem aplikacji sieci Web. W przeciwieństwie do alertów dotyczących metryk, funkcja inteligentnego wykrywania automatycznie ustawia i aktualizuje progi w reakcji na zmiany w zachowaniu. Funkcja inteligentnego wykrywania uruchamia również pracę diagnostyczną, oszczędzając czas rozwiązywania problemów.
+* [alerty metryk](../platform/alerts-log.md) są ustawiane przez użytkownika i mogą monitorować szeroką gamę metryk, takich jak użycie procesora CPU, stawki żądań, czasy ładowania stron itd. Można z nich skorzystać, aby ostrzec użytkownika, na przykład jeśli trzeba dodać więcej zasobów. Z kolei funkcja inteligentnego wykrywania anomalii o niepowodzeń obejmuje niewielki zakres metryk krytycznych (aktualnie nie zakończonych niepowodzeniem), dzięki czemu można powiadamiać niemal w czasie rzeczywistym o tym, kiedy szybkość żądań zakończonych niepowodzeniem w aplikacji sieci Web zostanie zwiększona w porównaniu z normalnym zachowaniem aplikacji sieci Web. W przeciwieństwie do alertów dotyczących metryk, funkcja inteligentnego wykrywania automatycznie ustawia i aktualizuje progi w reakcji na zmiany w zachowaniu. Funkcja inteligentnego wykrywania uruchamia również pracę diagnostyczną, oszczędzając czas rozwiązywania problemów.
 
 * [Inteligentne wykrywanie anomalii wydajności](proactive-performance-diagnostics.md) korzysta również z analizy maszynowej w celu odnajdywania nietypowych wzorców w metrykach i nie wymaga konfiguracji. Jednak w przeciwieństwie do inteligentnego wykrywania anomalii związanych z awariami, cel inteligentnego wykrywania anomalii wydajności polega na znalezieniu segmentów przełożenia użycia, które mogą zostać nieprawidłowo obsłużone — na przykład przez określone strony w określonym typie przeglądarki. Analiza jest wykonywana codziennie i w przypadku znalezienia dowolnego wyniku prawdopodobnie będzie znacznie mniej pilna niż alert. Z drugiej strony analiza anomalii związanych z awariami jest wykonywana w sposób ciągły na przychodzących danych aplikacji, a użytkownik zostanie powiadomiony w ciągu kilku minut, jeśli stawki za awarie serwera są większe niż oczekiwano.
 
@@ -332,7 +332,7 @@ Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne 
 
 *Czy przeglądasz dane aplikacji?*
 
-* Nie. Usługa jest całkowicie automatyczna. Tylko otrzymujesz powiadomienia. Twoje dane są [prywatne](../../azure-monitor/app/data-retention-privacy.md).
+* Nie. Usługa jest całkowicie automatyczna. Tylko otrzymujesz powiadomienia. Twoje dane są [prywatne](./data-retention-privacy.md).
 
 *Czy muszę subskrybować ten alert?*
 
@@ -353,11 +353,12 @@ Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne 
 ## <a name="next-steps"></a>Następne kroki
 Te narzędzia diagnostyczne ułatwiają inspekcję danych w aplikacji:
 
-* [Eksplorator metryk](../../azure-monitor/platform/metrics-charts.md)
-* [Eksplorator wyszukiwania](../../azure-monitor/app/diagnostic-search.md)
-* [Analiza — zaawansowany język zapytań](../../azure-monitor/log-query/get-started-portal.md)
+* [Eksplorator metryk](../platform/metrics-charts.md)
+* [Eksplorator wyszukiwania](./diagnostic-search.md)
+* [Analiza — zaawansowany język zapytań](../log-query/get-started-portal.md)
 
 Inteligentne wykrywanie są automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../../azure-monitor/platform/alerts-log.md)
-* [Testy dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
+* [Testy dostępności sieci Web](./monitor-web-app-availability.md)
+

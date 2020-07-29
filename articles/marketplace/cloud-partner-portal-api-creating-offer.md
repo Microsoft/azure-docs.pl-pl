@@ -4,15 +4,15 @@ description: Interfejs API służący do tworzenia nowej oferty lub aktualizowan
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68416fa91f6b75fb3ef2b91c1297f13d84f2bdab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292957"
 ---
 <a name="create-or-modify-an-offer"></a>Tworzenie lub modyfikowanie oferty
 =========================
@@ -30,8 +30,8 @@ To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub two
 
 |  **Nazwa**         |  **Opis**                      |  **Typ danych**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String (ciąg) |
-| offerId           |  Identyfikator oferty                     |   String (ciąg)        |
+| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String |
+| offerId           |  Identyfikator oferty                     |   String        |
 | api-version       |  Najnowsza wersja interfejsu API            |   Data           |
 |  |  |  |
 
@@ -50,7 +50,7 @@ To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub two
 
 Poniższy przykład tworzy ofertę z offerID `contosovirtualmachine` .
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ``` json
   {

@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1ec2aed0a2cceebe4685cf75c7007d1ce0785615
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183158"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293093"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -387,7 +387,7 @@ Ten błąd może mieć jedną z następujących przyczyn:
 * Maszyna jest wyłączona i nieosiągalna.
 * Komputer ma problem z łącznością sieciową i w związku z tym hybrydowy proces roboczy na komputerze jest nieosiągalny.
 * Została zaktualizowana MMA, która zmieniła identyfikator komputera źródłowego.
-* Działanie przebiegu aktualizacji zostało ograniczone, jeśli osiągnięto limit 2000 zadań współbieżnych na koncie usługi Automation. Każde wdrożenie jest uznawane za zadanie, a każdy komputer w ramach wdrożenia aktualizacji liczy się jako zadanie. Wszystkie inne zadania usługi Automation lub wdrożenia, które są aktualnie uruchomione na koncie usługi Automation, są wliczane do współbieżnego limitu zadań.
+* Działanie przebiegu aktualizacji zostało ograniczone, jeśli osiągnięto limit 200 zadań współbieżnych na koncie usługi Automation. Każde wdrożenie jest uznawane za zadanie, a każdy komputer w ramach wdrożenia aktualizacji liczy się jako zadanie. Wszystkie inne zadania usługi Automation lub wdrożenia, które są aktualnie uruchomione na koncie usługi Automation, są wliczane do współbieżnego limitu zadań.
 
 ### <a name="resolution"></a>Rozwiązanie
 

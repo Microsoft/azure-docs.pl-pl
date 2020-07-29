@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75e7e7b4870f46c978fd70039441c8851844082
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81258460"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337963"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Połącz usługę zestawu deweloperskiego IoT DevKit z akceleratorem rozwiązania do monitorowania zdalnego usługi Azure IoT
 
@@ -21,7 +22,7 @@ W tym samouczku dowiesz się, jak uruchomić przykładową aplikację w usłudze
 
 [Zestawu deweloperskiego IoT DevKit](https://aka.ms/iot-devkit) to cała tablica zgodny z programem Arduino z rozbudowanymi urządzeniami peryferyjnymi i czujnikami. Można go opracowywać przy użyciu [rozszerzenia Visual Studio Code Arduino](https://aka.ms/arduino). Wraz z [katalogiem](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) rosnących projektów można utworzyć prototypy rozwiązań Internet rzeczy (IoT), które wykorzystują usługi Microsoft Azure Services.
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
 Zakończ [przewodnik wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) , aby:
 
@@ -105,7 +106,7 @@ W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces
   
    ![Weryfikacja i przekazywanie szkicu Arduino](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
-DevKit wykonuje ponowny rozruch i uruchamia kod.
+Zestaw deweloperski wykonuje ponowny rozruch i uruchamia kod.
 
 ## <a name="test-the-project"></a>Testowanie projektu
 
@@ -133,7 +134,5 @@ Jeśli wystąpią problemy, zapoznaj się z tematem [często zadawane pytania do
 Teraz, gdy wiesz już, jak podłączyć urządzenie DevKit do akceleratora rozwiązania do monitorowania zdalnego usługi Azure IoT i wizualizować dane z czujnika, poniżej przedstawiono sugerowane następne kroki:
 
 * [Akceleratory rozwiązań usługi Azure IoT — Omówienie](https://docs.microsoft.com/azure/iot-suite/)
-
-* [Łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją usługi Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
 
 * [Pakiet IoT Developer Kit](https://microsoft.github.io/azure-iot-developer-kit/) 

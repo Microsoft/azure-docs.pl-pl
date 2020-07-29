@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa3faad88fb5474b34ff6855690882141b2e4843
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1057bb908e973c74b6dfb70931469e27f77512de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046294"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292660"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights Gen2 przy użyciu języka C #
 
@@ -39,9 +39,9 @@ Poniższy przykładowy kod ilustruje następujące funkcje:
     * [Interfejs API zapytań Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
         * [Pobierz](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)interfejs API zdarzeń, [Pobierz interfejs API serii](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)i [Pobierz interfejs API serii agregowanych](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
     * [Interfejsy API modelu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-        * [Pobierz hierarchie API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/get) i [HIERARCHIe interfejsu API usługi Batch](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-        * [Pobieranie typów interfejsu](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/get) API usługi [Batch i typów](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-        * [Uzyskiwanie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/get) interfejsu API usługi Batch wystąpień i [wystąpień](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+        * [Pobierz hierarchie API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) i [HIERARCHIe interfejsu API usługi Batch](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+        * [Pobieranie typów interfejsu](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) API usługi [Batch i typów](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+        * [Uzyskiwanie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) interfejsu API usługi Batch wystąpień i [wystąpień](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 * Zaawansowane funkcje [wyszukiwania](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) i [TSX](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) .
 
 ## <a name="prerequisites-and-setup"></a>Wymagania wstępne i Instalator

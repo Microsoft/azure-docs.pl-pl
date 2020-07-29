@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514559"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289497"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -20,10 +20,6 @@ Za pomocą [usługi Azure Backup](./backup-overview.md) można tworzyć kopie za
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Obszary odnoszące się do tworzenia kopii zapasowych udziałów plików platformy Azure
 
 Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich regionach **z wyjątkiem** : Niemcy środkowe (suwerenne), Niemcy Wschodnie (suwerenne), Chiny Wschodnie, Chiny Wschodnie 2, Chiny Północne Chiny Północne 2, US gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Obsługiwane regiony do przypadkowego usunięcia ochrony
-
-Zachodnie stany USA, Australia Południowo-Wschodnia, Kanada środkowa, zachodnio-środkowe stany USA, Indie Południowe, Północno-środkowe stany USA, Japonia Wschodnia, Brazylia Południowa, Południowe środkowe stany USA, Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
@@ -39,7 +35,7 @@ Zachodnie stany USA, Australia Południowo-Wschodnia, Kanada środkowa, zachodni
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
 | Standard                                           | Obsługiwane |
-| Duży                                              | Obsługiwane |
+| Duża                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |
 

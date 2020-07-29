@@ -5,11 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443404"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286006"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -31,7 +32,7 @@ Zgodnie z opisem w poniższej tabeli *rozmiar procesora GPU* jest przeznaczony d
 | ---- | ----- | --- | ----------- | 
 | Mały procesor GPU (obliczenia) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja (AI) i uczenie głębokie. |
 
-Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie korzystających z grafiki.  Na przykład [Typ klasy inżynieryjnej SolidWorks](./class-type-solidworks.md) pokazuje użycie **małego procesora GPU (wizualizacji)** .  Procesor GPU wizualizacji jest odpowiedni dla tego typu klasy, ponieważ uczniowie współpracują z środowiskiem projektowania (CAD) SolidWorks 3W na potrzeby modelowania i wizualizacji obiektów stałych.
+Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie korzystających z grafiki.  Na przykład [Typ klasy inżynieryjnej SolidWorks](./class-type-solidworks.md) pokazuje użycie **małego procesora GPU (wizualizacji)** .  Procesor GPU wizualizacji jest odpowiedni dla tego typu klasy, ponieważ uczniowie współpracują z środowiskiem projektowania (CAD) SOLIDWORKS 3W na potrzeby modelowania i wizualizacji obiektów stałych.
 
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
@@ -44,7 +45,7 @@ Aby skorzystać z możliwości procesora GPU maszyn wirtualnych laboratorium, up
 ![Zrzut ekranu przedstawiający "nowe laboratorium" z opcją "Zainstaluj sterowniki procesora GPU"](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Jak pokazano na poprzedniej ilustracji, ta opcja jest domyślnie włączona, co gwarantuje, że *najnowsze* sterowniki są zainstalowane dla wybranego typu procesora GPU i obrazu.
-- Po wybraniu rozmiaru *procesora GPU* maszyny wirtualne laboratorium są obsługiwane przez procesor GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  W takim przypadku instalowane są najnowsze sterowniki [obliczeniowe Unified Device Architecture (cuda)](https://www.nvidia.com/object/io_69526.html) , które umożliwiają przetwarzanie o wysokiej wydajności.
+- Po wybraniu rozmiaru *procesora GPU* maszyny wirtualne laboratorium są obsługiwane przez procesor GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  W takim przypadku instalowane są najnowsze sterowniki [obliczeniowe Unified Device Architecture (cuda)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) , które umożliwiają przetwarzanie o wysokiej wydajności.
 - Po wybraniu rozmiaru graficznej *wizualizacji* maszyny wirtualne laboratorium są obsługiwane przez technologię [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i [sieci](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  W takim przypadku instalowane są najnowsze sterowniki siatki, które umożliwiają korzystanie z aplikacji intensywnie korzystających z grafiki.
 
 ### <a name="install-the-drivers-manually"></a>Ręczne instalowanie sterowników
@@ -112,7 +113,7 @@ Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników
 Zobacz następujące artykuły:
 
 - [Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi](how-to-manage-classroom-labs.md)
-- [SolidWorks typ klasy projektowania (CAD) dla komputerów](class-type-solidworks.md)
+- [SOLIDWORKS typ klasy projektowania (CAD) dla komputerów](class-type-solidworks.md)
 - [MATLAB (laboratorium macierzowe) typ klasy](class-type-matlab.md)
 
 

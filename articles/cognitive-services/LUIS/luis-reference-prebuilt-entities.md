@@ -9,24 +9,32 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/20/2020
 ms.author: diberry
-ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337980"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
 
-Language Understanding (LUIS) udostępnia wstępnie utworzone jednostki. Gdy wbudowana jednostka jest dołączona do aplikacji, LUIS obejmuje odpowiednie przewidywanie jednostek w odpowiedzi punktu końcowego. Wszystkie przykładowe wyrażenia długości są również oznaczone jednostką. **Nie** można zmodyfikować zachowania wstępnie skompilowanych jednostek. O ile nie wskazano inaczej, wstępnie skompilowane jednostki są dostępne we wszystkich ustawieniach regionalnych aplikacji LUIS (kultury). W poniższej tabeli przedstawiono wstępnie skompilowane jednostki, które są obsługiwane przez każdą kulturę.
+Language Understanding (LUIS) udostępnia wstępnie utworzone jednostki.
+
+## <a name="entity-resolution"></a>Rozpoznawanie jednostek
+Gdy wbudowana jednostka jest dołączona do aplikacji, LUIS obejmuje odpowiednie rozwiązanie w odpowiedzi punktu końcowego. Wszystkie przykładowe wyrażenia długości są również oznaczone jednostką.
+
+Nie można zmodyfikować zachowania wstępnie utworzonych jednostek, ale można poprawić rozwiązanie, [dodając wstępnie utworzoną jednostkę jako funkcję do jednostki uczenia maszynowego lub podjednostki](luis-concept-entity-types.md#effective-prebuilt-entities).
+
+## <a name="availability"></a>Dostępność
+O ile nie wskazano inaczej, wstępnie skompilowane jednostki są dostępne we wszystkich ustawieniach regionalnych aplikacji LUIS (kultury). W poniższej tabeli przedstawiono wstępnie skompilowane jednostki, które są obsługiwane przez każdą kulturę.
 
 |Kultura|Podkultury|Uwagi|
 |--|--|--|
 |Chiński|[zh-CN](#chinese-entity-support)||
 |Niderlandzki|[nl-NL](#dutch-entity-support)||
-|Angielski|[EN-US (American)](#english-american-entity-support)||
+|Polski|[EN-US (American)](#english-american-entity-support)||
 |Francuski|[fr — CA (Kanada)](#french-canadian-entity-support), [fr-fr (Francja)](#french-france-entity-support), ||
 |Niemiecki|[de-DE](#german-entity-support)||
 |Włoski|[IT](#italian-entity-support)||

@@ -4,15 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii DC.
 author: susaxen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 88aaa10bf84d0195cc22d11d7fa1cfdcd639d475
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c5074a81625f38cf94d5acd9751414bad4a9c3e8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207433"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292459"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
@@ -47,7 +47,7 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 
 
-## <a name="other-sizes"></a>Inne rozmiary
+## <a name="other-sizes-and-information"></a>Inne rozmiary i informacje
 
 - [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
@@ -55,6 +55,10 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 - [Poprzednie generacje](sizes-previous-gen.md)
+
+Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+
+Więcej informacji na temat typów dysków: [typy dysków](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Następne kroki
 

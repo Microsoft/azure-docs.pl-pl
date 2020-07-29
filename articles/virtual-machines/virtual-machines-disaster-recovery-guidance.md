@@ -3,15 +3,15 @@ title: Scenariusze odzyskiwania po awarii
 description: Dowiedz się, co należy zrobić w przypadku przerwania działania usługi platformy Azure na maszyny wirtualne platformy Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 43e7cb0906fc6008e8bdbfafec84ecfd8e8be6b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525827"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289676"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Co się stało z zakłóceniem działania usługi platformy Azure na maszynach wirtualnych platformy Azure
 Firma Microsoft chce, aby upewnić się, że nasze usługi są zawsze dostępne dla Ciebie, gdy będą potrzebne. Siły wykraczające poza nasze kontrolki czasami wpływają na metody, które powodują nieplanowane zakłócenia usługi.
