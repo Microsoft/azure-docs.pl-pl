@@ -11,12 +11,14 @@ ms.date: 06/28/2019
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 2eec96eee943d6fe291d054e1d73876e38f61d6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: cc5c7193914f02cf52956481f22553dcabdd6520
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769956"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324526"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
 
@@ -36,13 +38,13 @@ W tym samouczku wykonasz następujące zadania:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Potrzebujesz środowiska Node. js v10. x. x lub nowszego na komputerze deweloperskim.
+Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Potrzebujesz Node.js v10. x. x lub nowszego na komputerze deweloperskim.
 
-W programie Node. js można pobrać wiele platform z [NodeJS.org](https://nodejs.org).
+Node.js można pobrać dla wielu platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 

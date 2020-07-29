@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797835"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323727"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Dowiedz się, jak klienci korzystają z aplikacji za pomocą lejków Application Insights
 
@@ -36,7 +37,7 @@ Poniższy zrzut ekranu przedstawia przykład rodzaju danych generowanych przez n
 ### <a name="funnels-features"></a>Funkcje lejkowe
 Poprzedni zrzut ekranu zawiera pięć wyróżnionych obszarów. Są to funkcje lejków. Poniższa lista zawiera więcej informacji o każdym odpowiednim obszarze zrzutu ekranu:
 1. Jeśli Twoja aplikacja zostanie pobrana, zobaczysz baner z próbką. Wybranie transparentu powoduje otwarcie okienka kontekstowego, w którym wyjaśniono, jak wyłączyć próbkowanie. 
-2. Możesz wyeksportować lejek do [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. Możesz wyeksportować lejek do [Power BI](./export-power-bi.md).
 3. Wybierz krok, aby wyświetlić więcej szczegółów po prawej stronie. 
 4. Wykres konwersji historycznej przedstawia kursy konwersji w ciągu ostatnich 90 dni. 
 5. Lepiej zrozumieć swoich użytkowników, uzyskując dostęp do narzędzia users. W każdym kroku można używać filtrów. 
@@ -45,7 +46,7 @@ Poprzedni zrzut ekranu zawiera pięć wyróżnionych obszarów. Są to funkcje l
   * [Przegląd użycia](usage-overview.md)
   * [Użytkownicy, sesje i zdarzenia](usage-segmentation.md)
   * [Przechowywanie](usage-retention.md)
-  * [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
+  * [Skoroszyty](../platform/workbooks-overview.md)
   * [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
-  * [Eksportowanie do usługi Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Eksportowanie do usługi Power BI](./export-power-bi.md)
 

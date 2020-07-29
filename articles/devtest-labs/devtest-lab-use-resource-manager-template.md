@@ -3,12 +3,12 @@ title: Wyświetlanie i używanie szablonu Azure Resource Manager maszyny wirtual
 description: Dowiedz się, jak utworzyć inne maszyny wirtualne przy użyciu szablonu Azure Resource Manager z maszyny wirtualnej
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272695"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu Azure Resource Manager 
 
@@ -35,7 +35,7 @@ Istnieją dwa sposoby tworzenia maszyn wirtualnych w DevTest Labs przy użyciu s
 
 W pozostałej części tego artykułu omówiono Menedżer zasobów szablonów korzystających z programu Microsoft. wspólny/Labs/virtualmachines. Są one używane przez administratorów laboratorium do automatyzowania tworzenia maszyn wirtualnych laboratorium (na przykład z maszynami wirtualnymi) lub do generowania obrazów (na przykład fabryki obrazów).
 
-[Najlepsze rozwiązania dotyczące tworzenia szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferują wiele wytycznych i sugestii ułatwiających tworzenie Azure Resource Manager szablonów, które są niezawodne i łatwe w użyciu.
+[Najlepsze rozwiązania dotyczące tworzenia szablonów Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md) oferują wiele wytycznych i sugestii ułatwiających tworzenie Azure Resource Manager szablonów, które są niezawodne i łatwe w użyciu.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Wyświetlanie i zapisywanie szablonu Menedżer zasobów maszyny wirtualnej
 1. Wykonaj kroki opisane w temacie [Tworzenie pierwszej maszyny wirtualnej w laboratorium,](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) aby rozpocząć tworzenie maszyny wirtualnej.

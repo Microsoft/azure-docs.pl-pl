@@ -3,11 +3,12 @@ title: Filtrowanie danych telemetrycznych usługi Azure Application Insights w a
 description: Zmniejsz ruch telemetrii, filtrując zdarzenia, które nie muszą być monitorowane.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659921"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322588"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
 
@@ -22,7 +23,7 @@ Dostępne są następujące filtry:
 
 > [!NOTE]
 > Filtry pochylają metryki aplikacji. Na przykład można zdecydować, że w celu zdiagnozowania powolnych odpowiedzi należy ustawić filtr w celu odrzucania czasów szybkiego reagowania. Należy jednak pamiętać, że średni czas odpowiedzi raportowany przez Application Insights będzie wtedy wolniejszy od prawdziwej szybkości, a liczba żądań będzie mniejsza niż rzeczywista liczba.
-> Jeśli jest to problem, użyj polecenia [próbkowania](../../azure-monitor/app/sampling.md) .
+> Jeśli jest to problem, użyj polecenia [próbkowania](./sampling.md) .
 
 ## <a name="setting-filters"></a>Filtry ustawień
 
@@ -151,7 +152,7 @@ Odfiltruj dane telemetryczne dla określonych źródeł syntetycznych:
 
 ### <a name="telemetry-event-filter"></a>Filtr zdarzeń telemetrii
 
-Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -167,7 +168,7 @@ Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [poleceń trackEven
 
 ### <a name="trace-telemetry-filter"></a>Filtr telemetrii śledzenia
 
-Filtruje ślady dziennika (rejestrowane przy użyciu [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) lub [modułu zbierającego platformy rejestrowania](java-trace-logs.md)).
+Filtruje ślady dziennika (rejestrowane przy użyciu [TrackTrace ()](./api-custom-events-metrics.md#tracktrace) lub [modułu zbierającego platformy rejestrowania](java-trace-logs.md)).
 
 ```XML
 
@@ -267,4 +268,5 @@ Aby przekazać te parametry do niestandardowego filtru, należy utworzyć własn
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Próbkowanie](../../azure-monitor/app/sampling.md) — należy rozważyć próbkowanie jako alternatywę, która nie pochyla metryk.
+* [Próbkowanie](./sampling.md) — należy rozważyć próbkowanie jako alternatywę, która nie pochyla metryk.
+

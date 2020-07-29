@@ -1,17 +1,18 @@
 ---
 title: Szczegóły wypłaty według regionu — Microsoft Commercial Marketplace
 description: Dowiedz się, w jaki sposób szacowany czas na przeniesienie płatności oraz w witrynie Microsoft websklepie, z których można otrzymywać płatności, różnią się w zależności od typu konta kraju/regionu i wypłaty.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327331"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Progi, metody i horyzonty czasowe płatności
 
@@ -37,7 +38,7 @@ Zwykle wyślemy płatność należną w danym miesiącu do 15 dnia danego miesi�
 
 Są to kraje i regiony, w których powyższe metody płatności są używane dla każdego portalu Marketplace. Próg płatności we wszystkich przypadkach wynosi $50 USD.
 
-| Kraj/region | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Office | Płatności w systemie PayPal  |
+| Kraj/region | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Biuro | Płatności w systemie PayPal  |
 | --- | --- | --- | --- | --- |
 | Afganistan | Tak | Tak | Nie | Nie |
 | Albania | Tak | Tak | Tak | Tak |

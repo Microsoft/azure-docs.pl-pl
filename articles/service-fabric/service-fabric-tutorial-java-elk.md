@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: b27711158c10b0f7fa78875aec7f9c63c166258c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327178"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Samouczek: monitorowanie aplikacji usługi Service Fabric przy użyciu rozwiązania ELK
 
@@ -140,7 +140,7 @@ W tym samouczku możesz używać wstępnie skonfigurowanego środowiska ELK. Je�
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Uzyskaj dostęp do pulpitu nawigacyjnego usługi Kibana przy użyciu **protokołu http:\//Server-IP** i wprowadź nazwę użytkownika i hasło dla Kibana. Jeśli używasz obrazu ELK na platformie Azure, domyślna nazwa użytkownika to „user”, a hasło jest uzyskiwane z **diagnostyki rozruchu**.
+8. Uzyskaj dostęp do pulpitu nawigacyjnego usługi Kibana przy użyciu **protokołu http: \/ /Server-IP** i wprowadź nazwę użytkownika i hasło dla Kibana. Jeśli używasz obrazu ELK na platformie Azure, domyślna nazwa użytkownika to „user”, a hasło jest uzyskiwane z **diagnostyki rozruchu**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

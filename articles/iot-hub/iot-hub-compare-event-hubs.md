@@ -11,11 +11,14 @@ ms.author: kgremban
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: System Architecture'
+ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733436"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322758"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Łączenie urządzeń IoT z platformą Azure: IoT Hub i Event Hubs
 
@@ -36,7 +39,7 @@ W poniższej tabeli przedstawiono szczegółowe informacje na temat tego, jak dw
 | Protokoły: MQTT, MQTT za pośrednictwem obiektów WebSockets | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |  |
 | Tożsamość dla urządzenia | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |  |
 | Przekazywanie plików z urządzeń | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |  |
-| Usługa Device Provisioning | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |  |
+| Device Provisioning Service | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |  |
 | Obsługa komunikatów z chmury do urządzenia | ![Zaznacz][checkmark] |  |  |
 | Sznurki urządzenia i zarządzanie urządzeniami | ![Zaznacz][checkmark] |  |  |
 | Strumienie urządzeń (wersja zapoznawcza) | ![Zaznacz][checkmark] |  |  |

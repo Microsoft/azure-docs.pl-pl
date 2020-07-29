@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290957"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
 
@@ -32,6 +32,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Konto usługi Automation](../index.yml) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 * Maszyna wirtualna platformy Azure. Ponieważ zatrzymujesz i uruchamiasz tę maszynę, nie powinna ona być produkcyjną maszyną wirtualną.
+* W razie potrzeby [zaimportuj moduły platformy Azure](../shared-resources/modules.md) lub [Aktualizuj moduły](../automation-update-azure-modules.md) na podstawie używanych poleceń cmdlet.
 
 ## <a name="step-1---create-runbook"></a>Krok 1. Tworzenie elementu runbook
 

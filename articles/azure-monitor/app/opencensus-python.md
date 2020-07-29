@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024371"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322554"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -474,13 +474,14 @@ Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dziennik
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Śledzenie żądań przychodzących](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Śledzenie żądań wychodzących](./../../azure-monitor/app/opencensus-python-request.md)
-* [Mapa aplikacji](./../../azure-monitor/app/app-map.md)
-* [Kompleksowe monitorowanie wydajności](./../../azure-monitor/learn/tutorial-performance.md)
+* [Śledzenie żądań przychodzących](./opencensus-python-dependency.md)
+* [Śledzenie żądań wychodzących](./opencensus-python-request.md)
+* [Mapa aplikacji](./app-map.md)
+* [Kompleksowe monitorowanie wydajności](../learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alerty
 
-* [Testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
-* [Inteligentne diagnostyki](../../azure-monitor/app/proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
-* [Alerty metryk](../../azure-monitor/platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
+* [Testy dostępności](./monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
+* [Inteligentne diagnostyki](./proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
+* [Alerty metryk](../platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
+

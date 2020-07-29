@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: a9c9dee94dd50462109a8864ffb413ce991c8dbd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307203"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -37,11 +37,9 @@ Gdy administrator projektu [tworzy projekt etykietowania](https://docs.microsoft
 
 1. Wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
 
-1. Wybierz nazwę projektu z listy.
-
 ## <a name="understand-the-labeling-task"></a>Zrozumienie zadania etykietowania
 
-Po wybraniu projektu w górnej części strony wybierz pozycję **etykieta dane**.
+W tabeli z etykietami danych wybierz **łącze etykieta** dla projektu.
 
 Zobaczysz instrukcje, które są specyficzne dla Twojego projektu. Wyjaśniają one typ danych, na które się znajdują, jak należy podjąć decyzje i inne istotne informacje. Po odczytaniu tych informacji w górnej części strony wybierz pozycję **zadania**.  Lub w dolnej części strony wybierz pozycję **Rozpocznij etykietowanie**.
 

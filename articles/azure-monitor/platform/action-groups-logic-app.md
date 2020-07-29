@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008391"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321891"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Jak wyzwolić złożone akcje z alertami Azure Monitor
 
@@ -19,7 +19,7 @@ W tym artykule opisano sposób konfigurowania i wyzwalania aplikacji logiki w ce
 
 ## <a name="overview"></a>Omówienie
 
-Po wyzwoleniu alertu Azure Monitor jest on wywoływany przez [grupę akcji](../../azure-monitor/platform/action-groups.md). Grupy akcji umożliwiają wywoływanie co najmniej jednej akcji w celu powiadomienia innych o alercie, a także ich korygowania.
+Po wyzwoleniu alertu Azure Monitor jest on wywoływany przez [grupę akcji](./action-groups.md). Grupy akcji umożliwiają wywoływanie co najmniej jednej akcji w celu powiadomienia innych o alercie, a także ich korygowania.
 
 Ogólny proces to:
 
@@ -294,6 +294,7 @@ Proces tworzenia alertu dotyczącego metryki jest podobny do [tworzenia alertu d
 Logic Apps ma wiele różnych łączników, które umożliwiają wyzwalanie akcji w szerokim zakresie aplikacji i baz danych. Przykłady czasu, SQL Server, Oracle, Salesforce, są tylko przykładami. Aby uzyskać więcej informacji na temat łączników, zobacz [Łączniki aplikacji logiki](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się [z omówieniem alertów dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-overview.md) i Dowiedz się, jak otrzymywać alerty.  
+* Zapoznaj się [z omówieniem alertów dziennika aktywności platformy Azure](./alerts-overview.md) i Dowiedz się, jak otrzymywać alerty.  
 * Dowiedz się, jak [skonfigurować alerty po opublikowaniu powiadomienia Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Dowiedz się więcej na temat [grup akcji](../../azure-monitor/platform/action-groups.md).
+* Dowiedz się więcej na temat [grup akcji](./action-groups.md).
+

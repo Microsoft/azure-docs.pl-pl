@@ -8,12 +8,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.custom: mqtt
-ms.openlocfilehash: abce9387d4c23cd6cb5ecf73e3d5c8428d83d459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Technical Support'
+ms.openlocfilehash: b22573fc98d4647c2b05763d9b67c37f6f023f98
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83833663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322724"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 

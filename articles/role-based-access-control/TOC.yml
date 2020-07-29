@@ -37,6 +37,11 @@
       href: best-practices.md
     - name: Dostęp warunkowy do zarządzania platformy Azure
       href: conditional-access-azure-management.md
+    - name: Zabezpieczenia
+      items:
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Lista definicji ról

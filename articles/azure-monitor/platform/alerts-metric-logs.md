@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 53ea43213a48cb712eb6ce685f03b733b83948b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b8e2f580bb21d2f432ce5dcbc3e06c15ba6f380b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327212"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Tworzenie alertów metryk dla dzienników w Azure Monitor
 
@@ -19,16 +19,16 @@ ms.locfileid: "87045528"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor obsługuje [Typ alertu metryki](../../azure-monitor/platform/alerts-metric-near-real-time.md) z korzyściami z [klasycznych alertów](../../azure-monitor/platform/alerts-classic-portal.md). Metryki są dostępne dla [dużej listy usług platformy Azure](../../azure-monitor/platform/metrics-supported.md). W tym artykule opisano użycie podzestawu (czyli) dla zasobu- `Microsoft.OperationalInsights/workspaces` .
+Azure Monitor obsługuje [Typ alertu metryki](./alerts-metric-near-real-time.md) z korzyściami z [klasycznych alertów](./alerts-classic-portal.md). Metryki są dostępne dla [dużej listy usług platformy Azure](./metrics-supported.md). W tym artykule opisano użycie podzestawu (czyli) dla zasobu- `Microsoft.OperationalInsights/workspaces` .
 
 Można używać alertów metryk dla popularnych dzienników Log Analytics wyodrębnionych jako metryki w ramach metryk z dzienników, w tym zasobów na platformie Azure lub lokalnie. Poniżej wymieniono obsługiwane rozwiązania Log Analytics:
 
-- [Liczniki wydajności](../../azure-monitor/platform/data-sources-performance-counters.md) dla maszyn z systemem Windows & Linux
-- [Rekordy pulsu dla Agent Health](../../azure-monitor/insights/solution-agenthealth.md)
+- [Liczniki wydajności](./data-sources-performance-counters.md) dla maszyn z systemem Windows & Linux
+- [Rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md)
 - [Aktualizowanie rekordów zarządzania](../../automation/automation-update-management.md)
-- Dzienniki [danych zdarzeń](../../azure-monitor/platform/data-sources-windows-events.md)
+- Dzienniki [danych zdarzeń](./data-sources-windows-events.md)
 
-Istnieje wiele korzyści związanych z korzystaniem z **alertów metryk w przypadku dzienników** w ramach [alertów dzienników](../../azure-monitor/platform/alerts-log.md) opartych na kwerendach na platformie Azure. Poniżej wymieniono niektóre z nich:
+Istnieje wiele korzyści związanych z korzystaniem z **alertów metryk w przypadku dzienników** w ramach [alertów dzienników](./alerts-log.md) opartych na kwerendach na platformie Azure. Poniżej wymieniono niektóre z nich:
 
 - Alerty metryk oferują możliwość monitorowania w czasie niemal rzeczywistym i alerty metryk dla dzienników rozwidlenia danych ze źródła dziennika w celu zapewnienia tego samego.
 - Alerty metryk są powiadamiane tylko raz, gdy alert jest uruchamiany i po jego rozwiązaniu. w przeciwieństwie do alertów dziennika, które są bezstanowe i w każdym interwale są uruchamiane w przypadku spełnienia warunku alertu.
@@ -39,10 +39,10 @@ Istnieje wiele korzyści związanych z korzystaniem z **alertów metryk w przypa
 
 ## <a name="metrics-and-dimensions-supported-for-logs"></a>Metryki i wymiary obsługiwane w przypadku dzienników
 
- Alerty metryki obsługują alerty dotyczące metryk, które korzystają z wymiarów. Wymiarów można użyć do filtrowania metryki na odpowiedni poziom. Zostanie wyświetlona pełna lista metryk obsługiwanych w przypadku dzienników z [obszarów roboczych log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) . między obsługiwanymi rozwiązaniami.
+ Alerty metryki obsługują alerty dotyczące metryk, które korzystają z wymiarów. Wymiarów można użyć do filtrowania metryki na odpowiedni poziom. Zostanie wyświetlona pełna lista metryk obsługiwanych w przypadku dzienników z [obszarów roboczych log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces) . między obsługiwanymi rozwiązaniami.
 
 > [!NOTE]
-> Aby wyświetlić obsługiwaną metrykę wyodrębnioną z obszaru roboczego Log Analytics za pośrednictwem [metryk Azure monitor-](../../azure-monitor/platform/metrics-charts.md)Metrics, należy utworzyć alert dotyczący metryki dla dziennika dla tej konkretnej metryki. Wymiary wybrane w alercie metryk dla dzienników — będą wyświetlane tylko w przypadku eksploracji za pośrednictwem metryk Azure Monitor-Metrics.
+> Aby wyświetlić obsługiwaną metrykę wyodrębnioną z obszaru roboczego Log Analytics za pośrednictwem [metryk Azure monitor-](./metrics-charts.md)Metrics, należy utworzyć alert dotyczący metryki dla dziennika dla tej konkretnej metryki. Wymiary wybrane w alercie metryk dla dzienników — będą wyświetlane tylko w przypadku eksploracji za pośrednictwem metryk Azure Monitor-Metrics.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Tworzenie alertu metryki dla Log Analytics
 
@@ -53,14 +53,14 @@ Poniżej przedstawiono sposób nastawiania alertu metryki dla dzienników.
 
 Przed użyciem metryki dzienników zebranych na Log Analytics danych, należy skonfigurować i udostępnić następujące elementy:
 
-1. **Obszar roboczy active log Analytics**: prawidłowy i aktywny obszar roboczy log Analytics musi być obecny. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
-2. **Agent jest skonfigurowany dla log Analytics obszaru roboczego**: należy skonfigurować agenta dla maszyn wirtualnych platformy Azure (i/lub) lokalnych maszyn wirtualnych do wysyłania danych do log Analytics obszaru roboczego używanego we wcześniejszym kroku. Aby uzyskać więcej informacji, zobacz [log Analytics-Agent — Omówienie](../../azure-monitor/platform/agents-overview.md).
-3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../../azure-monitor/insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/automation-update-management.md)i [danych zdarzeń](../../azure-monitor/platform/data-sources-windows-events.md).
-4. **Log Analytics rozwiązania skonfigurowane do wysyłania dzienników**: rozwiązanie log Analytics powinno mieć wymagane dzienniki/dane odpowiadające [metrykom obsługiwanym dla log Analyticsych obszarów roboczych](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) . Na przykład dla licznika *% dostępnej pamięci* należy najpierw skonfigurować w rozwiązaniu [liczniki wydajności](../../azure-monitor/platform/data-sources-performance-counters.md) .
+1. **Obszar roboczy active log Analytics**: prawidłowy i aktywny obszar roboczy log Analytics musi być obecny. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../learn/quick-create-workspace.md).
+2. **Agent jest skonfigurowany dla log Analytics obszaru roboczego**: należy skonfigurować agenta dla maszyn wirtualnych platformy Azure (i/lub) lokalnych maszyn wirtualnych do wysyłania danych do log Analytics obszaru roboczego używanego we wcześniejszym kroku. Aby uzyskać więcej informacji, zobacz [log Analytics-Agent — Omówienie](./agents-overview.md).
+3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](./data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/automation-update-management.md)i [danych zdarzeń](./data-sources-windows-events.md).
+4. **Log Analytics rozwiązania skonfigurowane do wysyłania dzienników**: rozwiązanie log Analytics powinno mieć wymagane dzienniki/dane odpowiadające [metrykom obsługiwanym dla log Analyticsych obszarów roboczych](./metrics-supported.md#microsoftoperationalinsightsworkspaces) . Na przykład dla licznika *% dostępnej pamięci* należy najpierw skonfigurować w rozwiązaniu [liczniki wydajności](./data-sources-performance-counters.md) .
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurowanie alertu metryki dla dzienników
 
- Alerty metryk można tworzyć i zarządzać nimi za pomocą Azure Portal, Menedżer zasobów szablonów, interfejsu API REST, programu PowerShell i interfejsu wiersza polecenia platformy Azure. Ponieważ alerty metryk dla dzienników są wariantem alertów metryk — po zakończeniu wymagań wstępnych można utworzyć alert metryki dla dzienników dla określonego obszaru roboczego Log Analytics. Wszystkie cechy i funkcje [alertów dotyczących metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md) dotyczą również alertów metryk dzienników. obejmuje to schemat ładunku, odpowiednie limity przydziału i cenę rozliczaną.
+ Alerty metryk można tworzyć i zarządzać nimi za pomocą Azure Portal, Menedżer zasobów szablonów, interfejsu API REST, programu PowerShell i interfejsu wiersza polecenia platformy Azure. Ponieważ alerty metryk dla dzienników są wariantem alertów metryk — po zakończeniu wymagań wstępnych można utworzyć alert metryki dla dzienników dla określonego obszaru roboczego Log Analytics. Wszystkie cechy i funkcje [alertów dotyczących metryk](./alerts-metric-near-real-time.md) dotyczą również alertów metryk dzienników. obejmuje to schemat ładunku, odpowiednie limity przydziału i cenę rozliczaną.
 
 Aby uzyskać szczegółowe informacje i przykłady — zobacz [tworzenie alertów metryk i zarządzanie nimi](https://aka.ms/createmetricalert). W przypadku alertów metryk dotyczących dzienników — postępuj zgodnie z instrukcjami dotyczącymi zarządzania alertami metryk i upewnij się, że:
 
@@ -688,5 +688,6 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [alertów dotyczących metryk](alerts-metric.md).
-- Dowiedz się więcej [na temat alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-unified-log.md).
+- Dowiedz się więcej [na temat alertów dziennika na platformie Azure](./alerts-unified-log.md).
 - Dowiedz się więcej o [alertach na platformie Azure](alerts-overview.md).
+

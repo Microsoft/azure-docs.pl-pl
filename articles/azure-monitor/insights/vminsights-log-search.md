@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803967"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325189"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
-Azure Monitor dla maszyn wirtualnych zbiera metryki wydajności i połączeń, dane spisu komputerów i procesów oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego Log Analytics w Azure Monitor.  Te dane są dostępne dla [zapytań](../../azure-monitor/log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Azure Monitor dla maszyn wirtualnych zbiera metryki wydajności i połączeń, dane spisu komputerów i procesów oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego Log Analytics w Azure Monitor.  Te dane są dostępne dla [zapytań](../log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 ## <a name="map-records"></a>Mapowanie rekordów
 
@@ -243,7 +243,7 @@ Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z proto
 |CommandLine | Wiersz polecenia |
 |WorkingDirectory | Katalog roboczy |
 |Usługi | Tablica usług, w ramach których proces jest wykonywany |
-|UserName | Konto, na którym proces jest wykonywany |
+|Nazwa użytkownika | Konto, na którym proces jest wykonywany |
 |UserDomain | Domena, w której wykonywany jest proces |
 |_ResourceId | Unikatowy identyfikator procesu w obszarze roboczym |
 
@@ -454,7 +454,7 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 | Przestrzeń nazw | Nazwa | Opis | Jednostka | Tagi |
 |:---|:---|:---|:---|:---|
 | Computer (Komputer)    | Puls             | Puls komputera                        | | |
-| Memory (Pamięć)      | AvailableMB           | Bajty dostępne pamięci                    | Megabajtach      | memorySizeMB — całkowity rozmiar pamięci|
+| Pamięć      | AvailableMB           | Bajty dostępne pamięci                    | Megabajtach      | memorySizeMB — całkowity rozmiar pamięci|
 | Sieć     | WriteBytesPerSecond   | Bajty zapisu sieci na sekundę            | BytesPerSecond | NetworkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba wysłanych bajtów |
 | Sieć     | ReadBytesPerSecond    | Bajty odczytu sieci na sekundę             | BytesPerSecond | networkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba odebranych bajtów |
 | Procesor   | UtilizationPercentage | Procent użycia procesora          | Procent        | totalCpus — łączna liczba procesorów CPU |
@@ -473,6 +473,7 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../../azure-monitor/log-query/get-started-portal.md) w Azure Portal do zapisywania zapytań dzienników.
+* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../log-query/get-started-portal.md) w Azure Portal do zapisywania zapytań dzienników.
 
-* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../../azure-monitor/log-query/search-queries.md).
+* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../log-query/search-queries.md).
+

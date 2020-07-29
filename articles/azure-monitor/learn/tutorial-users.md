@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: ae4a7335394f0e2f0bd0e3ac47c36b1f61026428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079591"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318406"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Korzystanie z usługi Azure Application Insights, aby dowiedzieć się, jak klienci używają aplikacji
 
@@ -36,8 +36,8 @@ W celu ukończenia tego samouczka:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
 - Pobierz i zainstaluj rozszerzenie [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md). 
-- [Wyślij dane telemetryczne z aplikacji](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) w celu dodania niestandardowych zdarzeń/wyświetleń strony
+- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../app/asp-net.md). 
+- [Wyślij dane telemetryczne z aplikacji](../app/usage-overview.md#send-telemetry-from-your-app) w celu dodania niestandardowych zdarzeń/wyświetleń strony
 - Wyślij [kontekst użytkownika](../app/usage-send-user-context.md), aby śledzić działania użytkownika w czasie i w pełni wykorzystać możliwości funkcji użycia.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
@@ -164,4 +164,5 @@ Panel **Przechowywanie** ułatwia sprawdzenie, którzy użytkownicy wrócą do a
 Wiesz już, jak analizować użytkowników, więc możesz przejść do następnego samouczka, aby dowiedzieć się, jak tworzyć niestandardowe pulpity nawigacyjne, które łączą te informacje z innymi przydatnymi danymi dotyczącymi aplikacji.
 
 > [!div class="nextstepaction"]
-> [Tworzenie niestandardowych pulpitów nawigacyjnych](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Tworzenie niestandardowych pulpitów nawigacyjnych](./tutorial-app-dashboards.md)
+

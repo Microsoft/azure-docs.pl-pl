@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2da00b44be7018bef80e466231efb75a8eb99754
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081546"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326005"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Monitorowanie rozwiązań w Azure Monitor
 
@@ -125,7 +125,7 @@ Członkowie społeczności mogą przesyłać rozwiązania do zarządzania przy u
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Instalowanie rozwiązania przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W przypadku instalowania rozwiązania należy wybrać [obszar roboczy log Analytics](/azure/azure-monitor/platform/manage-access) , w którym zostanie zainstalowane rozwiązanie oraz gdzie będą zbierane dane.  Za pomocą interfejsu wiersza polecenia platformy Azure można zarządzać obszarami roboczymi za pomocą poleceń [AZ Monitor Log-Analytics obszaru roboczego](/cli/azure/monitor/log-analytics/workspace) .  Postępuj zgodnie z procesem opisanym w [log Analytics obszarze roboczym i koncie usługi Automation](#log-analytics-workspace-and-automation-account) , aby połączyć obszar roboczy i konto.
+W przypadku instalowania rozwiązania należy wybrać [obszar roboczy log Analytics](../platform/manage-access.md) , w którym zostanie zainstalowane rozwiązanie oraz gdzie będą zbierane dane.  Za pomocą interfejsu wiersza polecenia platformy Azure można zarządzać obszarami roboczymi za pomocą poleceń [AZ Monitor Log-Analytics obszaru roboczego](/cli/azure/monitor/log-analytics/workspace) .  Postępuj zgodnie z procesem opisanym w [log Analytics obszarze roboczym i koncie usługi Automation](#log-analytics-workspace-and-automation-account) , aby połączyć obszar roboczy i konto.
 
 Użyj narzędzia [AZ Monitor Log-Analytics rozwiązanie Create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) , aby zainstalować rozwiązanie do monitorowania.  Parametry w nawiasach kwadratowych są opcjonalne.
 
@@ -192,6 +192,7 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Pobierz [listę rozwiązań monitorowania od firmy Microsoft](solutions-inventory.md).
+* Pobierz [listę rozwiązań monitorowania od firmy Microsoft](/azure/azure-monitor/monitor-reference).
 * Dowiedz się, jak [tworzyć zapytania](../log-query/log-query-overview.md) do analizowania danych zbieranych przez rozwiązania monitorujące.
 * Zapoznaj się z [poleceniami dla Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
+

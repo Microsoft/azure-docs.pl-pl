@@ -2,17 +2,18 @@
 title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla języka Java
 description: Zawiera kryteria formatowania i zawartości dotyczące tworzenia przewodników szybki start dla bibliotek klienckich zestawu Azure SDK.
 author: msmbaldwin
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 54e11724a2dbb0f70fe10b8bb3e8074ba275214d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c29141a2e255588ffa581b84ffeb4ddd7fdb703
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324713"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla języka Java
 
@@ -192,7 +193,7 @@ Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ T
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318423"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI przy użyciu usługi Azure Application Insights
 
@@ -31,7 +31,7 @@ W witrynie Azure Portal można utworzyć wiele pulpitów nawigacyjnych. Każdy z
 
 W celu ukończenia tego samouczka:
 
-- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md).
+- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
@@ -57,7 +57,7 @@ Pulpit nawigacyjny z tekstem statycznym nie jest bardzo interesujący, więc ter
 
 
 1. Wybierz zasób usługi **Application Insights** na ekranie głównym.
-2. W okienku **Przegląd** kliknij ikonę ![](media/tutorial-app-dashboards/pushpin.png) Przypnij ikonę pinezki, aby dodać kafelek do ostatniego oglądanego pulpitu nawigacyjnego.  
+2. W okienku **Przegląd** kliknij ikonę Przypnij ikonę ![ pinezki, ](media/tutorial-app-dashboards/pushpin.png) Aby dodać kafelek do ostatniego oglądanego pulpitu nawigacyjnego.  
  
 3. W prawym górnym rogu zostanie wyświetlone powiadomienie, że kafelek został przypięty do pulpitu nawigacyjnego. Kliknij pozycję **Przypięto do pulpitu nawigacyjnego** w powiadomieniu, aby wrócić do pulpitu nawigacyjnego lub użyć okienka pulpitów nawigacyjnych.
 4. Kafelek jest teraz dodany do pulpitu nawigacyjnego. Wybierz pozycję **Edytuj**, aby zmienić położenie kafelka. Kliknij go i przeciągnij w odpowiednie miejsce, a następnie kliknij pozycję **Zakończono dostosowywanie**. Teraz pulpit nawigacyjny zawiera kafelek z przydatnymi informacjami.
@@ -127,4 +127,5 @@ Ponieważ dzienniki usługi Azure Application Insights (analiza) to osobna usłu
 Teraz, gdy już wiesz, jak tworzyć niestandardowe pulpity nawigacyjne, zapoznaj się z pozostałą częścią dokumentacji usługi Application Insights, w tym analizą przypadku.
 
 > [!div class="nextstepaction"]
-> [Szczegółowa diagnostyka](../../azure-monitor/app/devops.md)
+> [Szczegółowa diagnostyka](../app/devops.md)
+

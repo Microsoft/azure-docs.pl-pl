@@ -8,11 +8,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6dcfdc63946bcc2a9ffe4c5c767e81ca3b32107b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-java
+ms.openlocfilehash: eeac1c3cb7f92a7e407511c6436fe9d0723b2648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308784"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -51,7 +53,7 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 
 Jeśli instalujesz te narzędzia po raz pierwszy, coreservlets.com zawiera Przewodnik po procesie instalacji w sekcji szybki start w [samouczku: Instalowanie TomCat7 i używanie go z](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) zaem.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Utwórz konto Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Tworzenie konta usługi Azure Cosmos DB
 
 Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
 

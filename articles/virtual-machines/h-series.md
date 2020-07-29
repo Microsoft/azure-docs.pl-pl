@@ -4,14 +4,15 @@ description: Specyfikacje dla maszyn wirtualnych z serii H.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: jushiman
-ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268955"
 ---
 # <a name="h-series"></a>Seria H
 
@@ -88,7 +89,7 @@ Portal Azure Marketplace ma wiele dystrybucji systemu Linux obsługujących łą
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

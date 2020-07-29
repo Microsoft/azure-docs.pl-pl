@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
-ms.custom: mvc
-ms.openlocfilehash: d6cb3af134ff272d79cfc440047a3d90733ee9e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 43ae9bd0e844a23adabf52e7fbb4b8cd077d23bd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74976812"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326719"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Samouczek: Tworzenie i Inicjowanie symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzeń i usług Java oraz rejestracji grup dla IoT Hub Device Provisioning Service
 
@@ -52,7 +52,7 @@ Pamiętaj, aby wcześniej wykonać kroki przedstawione w części [Konfigurowani
 
         1. Wybierz nowo utworzony certyfikat:
             - Kliknij pozycję **Generuj kod weryfikacyjny**. Skopiuj wygenerowany kod.
-            - Uruchom krok weryfikacji. Wprowadź _kod weryfikacyjny_ lub kliknij prawym przyciskiem myszy, aby wkleić go w uruchomionym oknie programu PowerShell.  Naciśnij klawisz **Enter**.
+            - Uruchom krok weryfikacji. Wprowadź _kod weryfikacyjny_ lub kliknij prawym przyciskiem myszy, aby wkleić go w uruchomionym oknie programu PowerShell.   Naciśnij klawisz **Enter**.
             - Wybierz nowo utworzony plik **_verifyCert4.pem_** w witrynie Azure Portal. Kliknij pozycję **Zweryfikuj**.
 
               ![Sprawdzanie poprawności certyfikatu](./media/tutorial-group-enrollments/validate-certificate.png)

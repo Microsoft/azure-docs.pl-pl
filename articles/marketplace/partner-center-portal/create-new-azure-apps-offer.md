@@ -4,15 +4,15 @@ description: Zapoznaj się z instrukcjami i zagadnieniami dotyczącymi tworzenia
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: AarathiN
+ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127438"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326680"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty apl
 
 Przed opublikowaniem nowej oferty aplikacji platformy Azure [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga znajomości technicznej platformy Azure i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien znać następujące technologie firmy Microsoft:
 

@@ -8,11 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201526"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327569"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -34,7 +38,7 @@ W tym samouczku dowiesz się, jak wizualizować dane z czujników w czasie rzecz
 * Otwórz stronę sieci Web, aby wyświetlić dane temperatury i wilgotności w czasie rzeczywistym z Centrum IoT
 * Obowiązkowe Użyj interfejsu wiersza polecenia platformy Azure, aby hostować aplikację sieci Web w Azure App Service
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
 * Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
 
@@ -123,7 +127,7 @@ set IotHubConnectionString=YourIoTHubConnectionString
 set EventHubConsumerGroup=YourConsumerGroupName
 ```
 
-## <a name="run-the-web-app"></a>Uruchamianie aplikacji internetowej
+## <a name="run-the-web-app"></a>Uruchom aplikację internetową
 
 1. Upewnij się, że urządzenie jest uruchomione i wysyła dane.
 

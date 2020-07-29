@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321721"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Tworzenie zadania Azure Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza) 
 
@@ -42,8 +42,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
-| Azure Blob Storage | N | T | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
+| Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ten adapter jest obecnie dostępny tylko dla wersji Intel lub AMD usługi Azure SQL Edge. Nie jest ona dostępna dla ARM64 wersji usługi Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Przykład: Tworzenie zewnętrznego obiektu strumienia danych wejściowych/wyjściowych dla centrum Azure IoT Edge
@@ -54,7 +53,8 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego dla Azure IoT Edge ce
 
     ```sql
     Create External file format InputFileFormat
-    WITH (  
+    WITH 
+    (  
        format_type = JSON,
     )
     go
@@ -63,8 +63,10 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego dla Azure IoT Edge ce
 2. Utwórz zewnętrzne źródło danych dla centrum Azure IoT Edge. Poniższy skrypt T-SQL tworzy połączenie ze źródłem danych z Centrum IoT Edge, które działa na tym samym hoście platformy Docker co usługa Azure SQL Edge.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
-    LOCATION = 'edgehub://'
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput 
+    WITH 
+    (
+        LOCATION = 'edgehub://'
     )
     go
     ```
@@ -72,13 +74,15 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego dla Azure IoT Edge ce
 3. Utwórz obiekt zewnętrznego strumienia dla Azure IoT Edge Hub. Poniższy skrypt T-SQL tworzy obiekt Stream dla Centrum IoT Edge. W przypadku obiektu strumienia Centrum IoT Edge parametr LOCATION jest nazwą tematu Centrum IoT Edge lub odczytywanym lub zapisywanym kanałem.
 
     ```sql
-    CREATE EXTERNAL STREAM MyTempSensors WITH (
-    DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat,
-    LOCATION = N'TemperatureSensors',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
-    )
+    CREATE EXTERNAL STREAM MyTempSensors 
+    WITH 
+    (
+        DATA_SOURCE = EdgeHubInput,
+        FILE_FORMAT = InputFileFormat,
+        LOCATION = N'TemperatureSensors',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
     go
     ```
 
@@ -107,9 +111,11 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
     * Używa wcześniej utworzonego poświadczenia.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
-    LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential
+    CREATE EXTERNAL DATA SOURCE LocalSQLOutput 
+    WITH 
+    (
+        LOCATION = 'sqlserver://tcp:.,1433',
+        CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -117,12 +123,52 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
 4. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący na tabelę *dbo. TemperatureMeasurements*, w bazie danych *MySQLDatabase*.
 
     ```sql
-    CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
-    DATA_SOURCE = LocalSQLOutput,
-    LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
+    CREATE EXTERNAL STREAM TemperatureMeasurements 
+    WITH 
+    (
+        DATA_SOURCE = LocalSQLOutput,
+        LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
+    ```
+
+### <a name="example-create-an-external-stream-object-for-kafka"></a>Przykład: Tworzenie zewnętrznego obiektu strumienia dla Kafka
+
+Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie danych w usłudze Azure SQL Edge. W tym przykładzie przyjęto założenie, że serwer Kafka jest skonfigurowany do anonimowego dostępu. 
+
+1. Utwórz zewnętrzne źródło danych z opcją Utwórz zewnętrzne źródło danych. Poniższy przykład:
+
+    ```sql
+    Create EXTERNAL DATA SOURCE [KafkaInput] 
+    With
+    (
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
     )
+    GO
+    ```
+2. Utwórz zewnętrzny format pliku dla danych wejściowych Kafka. Poniższy przykład został utworzony w formacie pliku JSON z kompresją formacie gzip. 
+
+   ```sql
+   CREATE EXTERNAL FILE FORMAT JsonGzipped  
+    WITH 
+    (  
+        FORMAT_TYPE = JSON , 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+    )
+   ```
+    
+3. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący temat Kafka `*TemperatureMeasurement*` .
+
+    ```sql
+    CREATE EXTERNAL STREAM TemperatureMeasurement 
+    WITH 
+    (  
+        DATA_SOURCE = KafkaInput, 
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',     
+        INPUT_OPTIONS = 'PARTITIONS: 10' 
+    ); 
     ```
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>Tworzenie zadania przesyłania strumieniowego i zapytań przesyłania strumieniowego

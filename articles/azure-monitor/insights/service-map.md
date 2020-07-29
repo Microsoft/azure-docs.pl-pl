@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539775"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326073"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Dzięki usłudze Service Map można wyświetlać serwery w sposób, w jakich się o nich myśli: jako wzajemnie połączone systemy dostarczające usługi. Usługa Service Map pokazuje połączenia między serwerami i procesami, opóźnienie połączeń przychodzących i wychodzących oraz porty dla każdej architektury połączonej za pomocą protokołu TCP. Nie jest wymagana żadna konfiguracja, wystarczy zainstalować agenta.
 
-W tym artykule opisano szczegóły dotyczące dołączania i korzystania z Service Map. Aby uzyskać informacje o konfigurowaniu wymagań wstępnych dla tego rozwiązania, zobacz temat [włączanie Azure monitor dla maszyn wirtualnych przegląd](vminsights-enable-overview.md#prerequisites). Podsumowując, potrzebne są następujące elementy:
+W tym artykule opisano szczegóły dotyczące dołączania i korzystania z Service Map. Wymagania wstępne rozwiązania są następujące:
 
-* Obszar roboczy Log Analytics, aby włączyć to rozwiązanie.
+* Obszar roboczy Log Analytics w [obsługiwanym regionie](vminsights-configure-workspace.md#supported-regions).
 
-* Agent Log Analytics zainstalowany na komputerze z systemem Windows lub Linux skonfigurowany do raportowania tego samego obszaru roboczego, w którym włączono rozwiązanie.
+* [Agent log Analytics](vminsights-enable-overview.md#agents) zainstalowany na komputerze z systemem Windows lub Linux podłączonym do tego samego obszaru roboczego, w którym włączono rozwiązanie.
 
-* Agent zależności zainstalowany na komputerze z systemem Windows lub Linux.
+* [Agent zależności](vminsights-enable-overview.md#agents) zainstalowany na komputerze z systemem Windows lub Linux.
 
 >[!NOTE]
->Jeśli wdrożono już Service Map, można teraz również przeglądać mapy w Azure Monitor dla maszyn wirtualnych, co obejmuje dodatkowe funkcje monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Azure monitor dla maszyn wirtualnych Omówienie](../../azure-monitor/insights/vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy Azure Monitor dla maszyn wirtualnych, zobacz poniższe [często zadawane pytania](../faq.md#azure-monitor-for-vms).
+>Jeśli wdrożono już Service Map, można teraz również przeglądać mapy w Azure Monitor dla maszyn wirtualnych, co obejmuje dodatkowe funkcje monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Azure monitor dla maszyn wirtualnych Omówienie](./vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy Azure Monitor dla maszyn wirtualnych, zobacz poniższe [często zadawane pytania](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -304,7 +304,7 @@ W okienku **aktualizacje komputera** są wyświetlane dane z rozwiązania Update
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
 
-Service Map komputer i dane spisu procesu są dostępne do [wyszukiwania](../../azure-monitor/log-query/log-query-overview.md) w log Analytics. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Service Map komputer i dane spisu procesu są dostępne do [wyszukiwania](../log-query/log-query-overview.md) w log Analytics. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów generowanych podczas uruchamiania procesu lub komputera w celu Service Map. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane na pola zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w zdarzeniach ServiceMapProcess_CL są mapowane na pola zasobu procesu w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s pasuje do pola Nazwa w odpowiednim zasobie Menedżer zasobów. 
 
@@ -550,7 +550,7 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [przeszukiwaniu dzienników](../../azure-monitor/log-query/log-query-overview.md) w log Analytics, aby pobrać dane zbierane przez Service map.
+Dowiedz się więcej o [przeszukiwaniu dzienników](../log-query/log-query-overview.md) w log Analytics, aby pobrać dane zbierane przez Service map.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -603,3 +603,4 @@ Sprawdź `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Wi
 ## <a name="suggestions"></a>Sugestie
 
 Czy masz opinię na temat Service Map lub tej dokumentacji?  Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zapoznaj się z istniejącymi sugestiami.
+

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416823"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171259"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do programu Oracle przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -58,7 +58,7 @@ W przypadku tego łącznika Oracle obsługuje:
 
 Środowisko Integration Runtime zapewnia wbudowany sterownik Oracle. W związku z tym nie trzeba ręcznie instalować sterownika podczas kopiowania danych z programu i do programu Oracle.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -76,6 +76,8 @@ Połączona usługa Oracle obsługuje następujące właściwości:
 
 >[!TIP]
 >Jeśli wystąpi błąd, "ORA-01025: UPI parametr spoza zakresu", a wersja Oracle to 8i, Dodaj `WireProtocolMode=1` do parametrów połączenia. Następnie spróbuj ponownie.
+
+Jeśli masz wiele wystąpień programu Oracle do scenariusza pracy awaryjnej, możesz utworzyć połączoną usługę Oracle i wypełnić podstawowy host, port, nazwę użytkownika, hasło itp., a następnie dodać nowe "**dodatkowe właściwości połączenia**" z nazwą właściwości `AlternateServers` i wartością jako-nie `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)` przegap nawiasów i zwrócić uwagę na dwukropek ( `:` ) jako separator. Na przykład następująca wartość serwerów alternatywnych definiuje dwa alternatywne serwery baz danych do przełączania w tryb failover: `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)` .
 
 Więcej właściwości połączenia, które można ustawić w parametrach połączenia dla danego przypadku:
 
@@ -176,8 +178,8 @@ Aby skopiować dane z i do programu Oracle, należy ustawić Właściwość Type
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość `OracleTable` . | Tak |
-| schematy | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
+| table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
 
 **Przykład:**
@@ -371,7 +373,7 @@ Podczas kopiowania danych z programu i do programu Oracle są stosowane następu
 | SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |String |
 | LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |
 | VARCHAR2 |String |
-| Plik XML |String |
+| XML |String |
 
 > [!NOTE]
 > Typy danych INTERWAŁu od roku do miesiąca oraz INTERWAŁu od dnia do sekundy nie są obsługiwane.

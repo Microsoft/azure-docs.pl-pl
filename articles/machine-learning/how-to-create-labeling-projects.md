@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 277e478ca1cbb63200bdea14b1c02ea016af78ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326463"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -21,11 +21,11 @@ ms.locfileid: "87031205"
 
 Voluminous danych etykietowania w projektach uczenia maszynowego jest często kłopotliwej. Projekty, które mają składnik programu obsługi komputera, takie jak Klasyfikacja obrazu lub wykrywanie obiektów, zwykle wymagają etykiet dla tysięcy obrazów.
  
-[Azure Machine Learning](https://ml.azure.com/) zapewnia centralne miejsce do tworzenia i monitorowania projektów etykietowania oraz zarządzania nimi (publiczna wersja zapoznawcza). Służy do koordynowania danych, etykiet i członków zespołu w celu wydajnego zarządzania zadaniami etykietowania. Machine Learning obsługuje klasyfikację obrazów, wiele etykiet lub wiele klas oraz identyfikację obiektów z ograniczonymi polami.
+Etykietowanie danych [Azure Machine Learning](https://ml.azure.com/) to centralne miejsce do tworzenia i monitorowania projektów etykietowania oraz zarządzania nimi. Służy do koordynowania danych, etykiet i członków zespołu w celu wydajnego zarządzania zadaniami etykietowania. Machine Learning obsługuje klasyfikację obrazów, wiele etykiet lub wiele klas oraz identyfikację obiektów z ograniczonymi polami.
 
-Azure Machine Learning śledzi postęp i utrzymuje kolejkę niekompletnych zadań etykietowania.
+Etykieta danych śledzi postęp i utrzymuje kolejkę niekompletnych zadań etykietowania.
 
-Można uruchomić i zatrzymać projekt oraz monitorować postęp etykietowania. Dane z etykietami można eksportować w formacie COCO lub jako zestaw danych Azure Machine Learning.
+Można uruchomić i zatrzymać projekt i kontrolować postęp etykietowania. Możesz przejrzeć dane z etykietami i wyeksportować etykiety w formacie COCO lub jako zestaw danych Azure Machine Learning.
 
 > [!Important]
 > Obecnie obsługiwane są tylko projekty klasyfikacji obrazów i identyfikacji obiektów. Ponadto obrazy danych muszą być dostępne w magazynie datastorage obiektów blob platformy Azure. (Jeśli nie masz istniejącego magazynu danych, możesz przekazać obrazy podczas tworzenia projektu).
@@ -57,9 +57,9 @@ Aby utworzyć projekt, wybierz pozycję **Dodaj projekt**. Nadaj projektowi odpo
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Kreator tworzenia etykiet dla projektu":::
 
-* Wybierz **wiele klas klasyfikacji obrazów** dla projektów, gdy chcesz zastosować tylko *jedną klasę* z zestawu klas do obrazu.
-* Wybierz opcję **Klasyfikacja obrazu wieloetykietowego** dla projektów, gdy chcesz zastosować *jedną lub więcej* etykiet z zestawu klas do obrazu. Na przykład zdjęcie psa może mieć etykietę z obu *pies* i *Daytime*.
-* Wybierz pozycję **Identyfikacja obiektu (pole ograniczenia)** dla projektów, gdy chcesz przypisać klasę i pole ograniczenia do każdego obiektu w obrazie.
+* Wybierz **wiele klas klasyfikacji obrazów** dla projektów, gdy chcesz zastosować tylko *jedną etykietę* z zestawu etykiet do obrazu.
+* Wybierz opcję **Klasyfikacja obrazu wieloetykietowego** dla projektów, gdy chcesz zastosować *jedną lub więcej* etykiet z zestawu etykiet do obrazu. Na przykład zdjęcie psa może mieć etykietę z obu *pies* i *Daytime*.
+* Wybierz pozycję **Identyfikacja obiektu (pole ograniczenia)** dla projektów, gdy chcesz przypisać etykietę i pole ograniczenia do każdego obiektu w obrazie.
 
 Wybierz pozycję **dalej** , gdy wszystko będzie gotowe do kontynuowania.
 
@@ -84,7 +84,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -98,7 +98,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -187,14 +187,54 @@ Po zainicjowaniu projektu etykietowania niektóre aspekty projektu są niezmienn
 > Ta strona może nie być odświeżana automatycznie. Dlatego po wstrzymaniu ręcznie Odśwież stronę, aby zobaczyć stan projektu jako **utworzony**.
 
 ## <a name="run-and-monitor-the-project"></a>Uruchamianie i monitorowanie projektu
+Po zainicjowaniu projektu platforma Azure rozpocznie działanie. Wybierz projekt na stronie **etykietowanie danych** głównych, aby wyświetlić szczegóły projektu
 
-Po zainicjowaniu projektu platforma Azure rozpocznie działanie. Wybierz projekt na stronie **etykietowanie danych** głównych, aby przejść do **szczegółów projektu**. Karta **pulpit nawigacyjny** pokazuje postęp zadania etykietowania.
+Aby wstrzymać lub ponownie uruchomić projekt, przełącz stan **działania** w prawym górnym rogu. Dane można etykietować tylko wtedy, gdy projekt jest uruchomiony.
+
+### <a name="dashboard"></a>Pulpit nawigacyjny
+
+Karta **pulpit nawigacyjny** pokazuje postęp zadania etykietowania.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Pulpit nawigacyjny etykiet danych":::
+
+Wykres postępu pokazuje, ile elementów zostało oznaczonych i ile nie zostało to jeszcze zrobione.  Elementy oczekujące mogą być następujące:
+
+* Jeszcze nie dodano do zadania
+* Uwzględnione w zadaniu, które jest przypisane do elementu Labeler, ale jeszcze nie zostało ukończone 
+* W kolejce zadań, które zostały jeszcze przypisane
+
+Środkowa sekcja pokazuje kolejkę zadań, które zostały jeszcze przypisane. Gdy etykieta z asystą jest wyłączona, w tej sekcji przedstawiono liczbę ręcznych zadań do przypisania. Gdy etykieta z asystą jest włączona, zostanie ona również wyświetlona:
+
+* Zadania zawierające elementy klastrowane w kolejce
+* Zadania zawierające elementy, które są oznaczone jako "w kolejce"
+
+Ponadto, gdy jest włączona etykieta z asystą, na małym przebiegu szkolenia pojawia się mały pasek postępu.  Sekcje eksperymenty zawierają linki do poszczególnych przebiegów uczenia maszynowego.
+
+* Szkolenia — pociąga za model do przewidywania etykiet
+* Sprawdzanie poprawności — określa, czy funkcja przewidywania tego modelu będzie używana do wstępnego etykietowania elementów 
+* Wnioskowanie — przebieg prognozowania dla nowych elementów
+* Cechowania — elementy klastrów (tylko dla projektów klasyfikacji obrazów)
+
+Po prawej stronie jest dystrybuowanie etykiet dla tych zadań, które zostały ukończone.  Należy pamiętać, że w przypadku niektórych typów projektów element może mieć wiele etykiet, w tym przypadku całkowita liczba etykiet może być większa niż całkowita liczba elementów.
+
+### <a name="data-tab"></a>Karta dane
 
 Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć**, co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
 
-Aby wstrzymać lub ponownie uruchomić projekt, wybierz przycisk **Wstrzymaj** / **Start** . Dane można etykietować tylko wtedy, gdy projekt jest uruchomiony.
+### <a name="details-tab"></a>Karta Szczegóły
 
-Dane można oznaczyć bezpośrednio na stronie **szczegółów projektu** , wybierając pozycję **dane etykiet**.
+Wyświetl szczegóły projektu.  Na tej karcie można:
+
+* Wyświetlanie szczegółów projektu i wejściowych zestawów danych
+* Włącz odświeżanie przyrostowe
+* Wyświetl szczegóły kontenera magazynu używanego do przechowywania danych wyjściowych z etykietą w projekcie
+* Dodawanie etykiet do projektu
+* Edytuj instrukcje nadające się do etykiet
+* Edytuj szczegóły etykiet z asystą, w tym Włączanie/wyłączanie
+
+### <a name="access-for-labelers"></a>Dostęp do etykiet
+
+Każdy, kto ma dostęp do obszaru roboczego, może oznaczyć dane w projekcie.  Możesz również dostosować uprawnienia do etykiet, tak aby można było uzyskać dostęp do etykietowania, ale nie innych części obszaru roboczego lub projektu etykietowania.  Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md)i Dowiedz się, jak utworzyć [rolę niestandardową Labeler](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Dodaj nową klasę etykiet do projektu
 
@@ -203,7 +243,7 @@ Podczas tworzenia etykiet może się okazać, że do klasyfikowania obrazów są
 Wykonaj następujące kroki, aby dodać jedną lub więcej etykiet do projektu:
 
 1. Wybierz projekt na stronie **etykietowanie danych** głównych.
-1. W górnej części strony wybierz pozycję **Wstrzymaj** , aby zatrzymać etykietki w swoich działaniach.
+1. W prawym górnym rogu strony Przełącz **działanie** na **wstrzymane** , aby zatrzymać etykietowanie na podstawie ich działania.
 1. Wybierz kartę **Szczegóły**.
 1. Na liście po lewej stronie wybierz pozycję **klasy etykiet**.
 1. W górnej części listy wybierz pozycję **+ Dodaj etykiety** ![ Dodaj etykietę](media/how-to-create-labeling-projects/add-label.png)
@@ -212,7 +252,7 @@ Wykonaj następujące kroki, aby dodać jedną lub więcej etykiet do projektu:
     * Zacznij od początku, zachowując wszystkie istniejące etykiety.  Wybierz tę opcję, aby oznaczyć wszystkie dane jako bez etykiet, ale zachować istniejące etykiety jako tag domyślny dla obrazów, które zostały wcześniej oznaczone etykietami.
     * Kontynuuj, zachowując wszystkie istniejące etykiety. Wybierz tę opcję, aby zapewnić, że wszystkie dane mają już etykietę, i Zacznij używać nowej etykiety dla danych, które nie zostały jeszcze oznaczone etykietami.
 1. Zmodyfikuj stronę z instrukcjami w razie potrzeby dla nowych etykiet.
-1. Po dodaniu wszystkich nowych etykiet w górnej części strony wybierz pozycję **Rozpocznij** , aby ponownie uruchomić projekt.  
+1. Po dodaniu wszystkich nowych etykiet w prawym górnym rogu strony Przełącz **wstrzymanie** do **działania** w celu ponownego uruchomienia projektu.  
 
 ## <a name="export-the-labels"></a>Eksportowanie etykiet
 

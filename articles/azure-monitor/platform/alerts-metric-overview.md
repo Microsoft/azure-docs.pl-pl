@@ -4,16 +4,16 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327144"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
-Alerty metryk w Azure Monitor działają na podstawie metryk wielowymiarowych. Te metryki mogą być [metrykami platformy](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metrykami niestandardowymi](../../azure-monitor/platform/metrics-custom-overview.md), [popularnymi dziennikami z Azure monitor konwertowane na](../../azure-monitor/platform/alerts-metric-logs.md) metryki i metryki Application Insights. Alerty metryk oceniają w regularnych odstępach czasu, aby sprawdzić, czy warunki dotyczące co najmniej jednej z serii czasu metryk są prawdziwe i powiadamiać o spełnieniu oceny. Alerty metryk są stanowe, oznacza to, że wysyłają powiadomienia tylko wtedy, gdy stan zmieni się.
+Alerty metryk w Azure Monitor działają na podstawie metryk wielowymiarowych. Te metryki mogą być [metrykami platformy](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metrykami niestandardowymi](./metrics-custom-overview.md), [popularnymi dziennikami z Azure monitor konwertowane na](./alerts-metric-logs.md) metryki i metryki Application Insights. Alerty metryk oceniają w regularnych odstępach czasu, aby sprawdzić, czy warunki dotyczące co najmniej jednej z serii czasu metryk są prawdziwe i powiadamiać o spełnieniu oceny. Alerty metryk są stanowe, oznacza to, że wysyłają powiadomienia tylko wtedy, gdy stan zmieni się.
 
 ## <a name="how-do-metric-alerts-work"></a>Jak działają Alerty metryk?
 
@@ -152,7 +152,7 @@ Zakres monitorowania można określić za pomocą jednej reguły alertu metryki 
 >
 > Zakres reguły alertu metryki wielu zasobów musi zawierać co najmniej jeden zasób wybranego typu zasobu.
 
-Tworzenie reguł alertów dotyczących metryk, które monitorują wiele zasobów, jest podobne do [tworzenia dowolnego innego alertu dotyczącego metryki](alerts-metric.md) monitorującego pojedynczy zasób. Tylko różnica polega na tym, że należy wybrać wszystkie zasoby, które mają być monitorowane. Te reguły można również utworzyć za poorednictwem [szablonów Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Zostaną odebrane indywidualne powiadomienia dla każdego monitorowanego zasobu.
+Tworzenie reguł alertów dotyczących metryk, które monitorują wiele zasobów, jest podobne do [tworzenia dowolnego innego alertu dotyczącego metryki](alerts-metric.md) monitorującego pojedynczy zasób. Tylko różnica polega na tym, że należy wybrać wszystkie zasoby, które mają być monitorowane. Te reguły można również utworzyć za poorednictwem [szablonów Azure Resource Manager](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Zostaną odebrane indywidualne powiadomienia dla każdego monitorowanego zasobu.
 
 > [!NOTE]
 >
@@ -164,12 +164,13 @@ W przypadku alertów dotyczących metryk, zazwyczaj otrzymasz powiadomienie w ci
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Obsługiwane typy zasobów dla alertów metryk
 
-Pełną listę obsługiwanych typów zasobów można znaleźć w tym [artykule](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Pełną listę obsługiwanych typów zasobów można znaleźć w tym [artykule](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się, jak tworzyć i wyświetlać alerty metryk na platformie Azure oraz zarządzać nimi](alerts-metric.md)
-- [Dowiedz się, jak wdrażać alerty metryk przy użyciu szablonów Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Dowiedz się, jak wdrażać alerty metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Dowiedz się więcej na temat grup akcji](action-groups.md)
 - [Dowiedz się więcej o typie warunku progi dynamiczne](alerts-dynamic-thresholds.md)
+

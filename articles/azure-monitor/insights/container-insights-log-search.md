@@ -3,15 +3,16 @@ title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor kontener�
 description: Azure Monitor dla kontenerów zbiera dane dotyczące metryk i dzienników, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 392aac8f81ac3894fca8b6f70570834a5af16ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c32c84f2c2aef5d6d0817c11e1ef010f30ffcb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298307"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320293"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla kontenerów
 
-Azure Monitor dla kontenerów zbiera metryki wydajności, dane spisu i informacje o stanie kondycji z hostów kontenerów i kontenerów. Dane są zbierane co trzy minuty i przekazywane do obszaru roboczego Log Analytics w Azure Monitor. Te dane są dostępne dla [zapytań](../../azure-monitor/log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Azure Monitor dla kontenerów zbiera metryki wydajności, dane spisu i informacje o stanie kondycji z hostów kontenerów i kontenerów. Dane są zbierane co trzy minuty i przekazywane do obszaru roboczego Log Analytics w Azure Monitor. Te dane są dostępne dla [zapytań](../log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 ## <a name="container-records"></a>Rekordy kontenerów
 
@@ -20,8 +21,8 @@ W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zebranych
 | Dane | Źródło danych | Typ danych | Pola |
 |------|-------------|-----------|--------|
 | Wydajność dla hostów i kontenerów | Metryki użycia są uzyskiwane z cAdvisor i limitów z interfejsu API polecenia | `Perf` | Komputer, nazwa obiektu, CounterName &#40;% czasu procesora, odczyty dysku MB, zapisy dysku MB, użycie pamięci MB, bajty odbioru sieci, bajty wysyłania w sieci, użycie procesora SEC,&#41; sieci, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Spis kontenerów | Docker | `ContainerInventory` | TimeGenerated, Computer, nazwa kontenera, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, polecenie, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Dziennik kontenera | Docker | `ContainerLog` | TimeGenerated, komputer, identyfikator obrazu, nazwa kontenera, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Spis kontenerów | Platforma Docker | `ContainerInventory` | TimeGenerated, Computer, nazwa kontenera, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, polecenie, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Dziennik kontenera | Platforma Docker | `ContainerLog` | TimeGenerated, komputer, identyfikator obrazu, nazwa kontenera, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Spis węzłów kontenera | Interfejs API polecenia | `ContainerNodeInventory`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Spis magazynów w klastrze Kubernetes | Interfejs API polecenia | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
 | Spis węzłów części klastra Kubernetes | Interfejs API polecenia | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
@@ -111,3 +112,4 @@ Dane wyjściowe pokazują wyniki podobne do następującego przykładu:
 ## <a name="next-steps"></a>Następne kroki
 
 Azure Monitor kontenerów nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą Azure monitor dla kontenerów](container-insights-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci, aby zapewnić obsługę procesów i procedur operacyjnych DevOps. 
+

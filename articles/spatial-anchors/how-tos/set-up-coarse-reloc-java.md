@@ -4,16 +4,17 @@ description: Szczegółowe informacje na temat sposobu tworzenia i lokalizowania
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
+ms.custom: devx-track-java
 ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7a13b3e838bd3083741eb903f39f3f7683f39ee4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01a58207d893b6e4dcadf0b8b295d4bf7ed2ec31
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76545222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319035"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-java"></a>Jak utworzyć i zlokalizować kotwice przy użyciu bardzo dużej lokalizacji w języku Java
 

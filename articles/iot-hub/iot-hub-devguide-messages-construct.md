@@ -8,11 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327739"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -84,7 +88,7 @@ Nazwy właściwości systemu różnią się w zależności od punktu końcowego,
 |Metoda uwierzytelniania połączenia|iothub-Connection-auth-Metoda|connectionAuthMethod|iothub-Connection-auth-Metoda|iothub-Connection-auth-Metoda|
 |contentType|Typ zawartości|contentType|ContentType|iothub-Content-Type|
 |contentEncoding|Kodowanie zawartości|contentEncoding|ContentEncoding|iothub — kodowanie zawartości|
-|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Nie dotyczy |iothub — enqueuedtime|
+|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Brak |iothub — enqueuedtime|
 |iothub-Interface-Name|iothub-Interface-Name|interfaceName|Iothub-Interface-Name|iothub-Interface-Name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 

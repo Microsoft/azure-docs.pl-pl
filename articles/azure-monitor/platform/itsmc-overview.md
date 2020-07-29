@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83846532"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325325"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -77,10 +78,10 @@ Aby można było utworzyć połączenie, konieczne będzie przygotowanie narzęd
 
 W zależności od produktu narzędzia ITSM, z którym nawiązujesz połączenie, wykonaj następujące czynności:
 
-- [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](../../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć połączenie:
 
@@ -93,7 +94,7 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
 
    ![Dodaj połączenie narzędzia ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
-4. Określ ustawienia połączenia zgodnie z opisem w [artykule Konfigurowanie połączenia usługi ITSMC z artykułem produkty/usługi narzędzia ITSM](../../azure-monitor/platform/itsmc-connections.md).
+4. Określ ustawienia połączenia zgodnie z opisem w [artykule Konfigurowanie połączenia usługi ITSMC z artykułem produkty/usługi narzędzia ITSM](./itsmc-connections.md).
 
    > [!NOTE]
    >
@@ -150,13 +151,13 @@ Pulpit nawigacyjny zawiera również informacje o stanie łącznika, który moż
 
 Możesz również wizualizować zdarzenia zsynchronizowane z komputerami, na których ma to wpływ, w ramach rozwiązania Service Map.
 
-Service Map automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Umożliwia ona wyświetlenie Twoich serwerów tak, jak o nich myślisz — jako wzajemnie połączonych systemów dostarczających krytycznych usług. Usługa Service Map pokazuje połączenia między serwerami, procesami i portami w dowolnej architekturze połączeń TCP bez konieczności konfiguracji innej niż instalacja agenta. [Dowiedz się więcej](../../azure-monitor/insights/service-map.md).
+Service Map automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Umożliwia ona wyświetlenie Twoich serwerów tak, jak o nich myślisz — jako wzajemnie połączonych systemów dostarczających krytycznych usług. Usługa Service Map pokazuje połączenia między serwerami, procesami i portami w dowolnej architekturze połączeń TCP bez konieczności konfiguracji innej niż instalacja agenta. [Dowiedz się więcej](../insights/service-map.md).
 
 Jeśli używasz rozwiązania Service Map, możesz wyświetlić elementy pomocy technicznej utworzone w rozwiązaniach narzędzia ITSM, jak pokazano w następującym przykładzie:
 
 ![Ekran Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Więcej informacji: [Service map](../../azure-monitor/insights/service-map.md)
+Więcej informacji: [Service map](../insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Dodatkowe informacje
@@ -177,7 +178,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 
 - ServiceDeskConnectionName
 - Identyfikator działu obsługi
-- Stan
+- State
 - Pilność
 - Wpływ
 - Priorytet
@@ -211,7 +212,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Tytuł
 - Typ
 - Kategoria
-- Stan
+- State
 - Eskalacja
 - Stan konfliktu
 - Pilność
@@ -235,7 +236,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Pole Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
-| IncidentState_s | Stan |
+| IncidentState_s | State |
 | Urgency_s |Pilność |
 | Impact_s |Wpływ|
 | Priority_s | Priorytet |
@@ -263,7 +264,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Title_s|  Krótki opis |
 | Type_s|  Typ |
 | Category_s|  Kategoria |
-| CRState_s|  Stan|
+| CRState_s|  State|
 | Urgency_s|  Pilność |
 | Priority_s| Priorytet|
 | Risk_s| Ryzyko|
@@ -284,7 +285,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
    - Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
    - Sprawdź, czy masz wystarczające uprawnienia do odpowiedniego produktu narzędzia ITSM, aby nawiązać połączenie.  
    - Dla połączeń Service Manager,  
-   - Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalną maszyną Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalną maszyną Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Jeśli dane z usługi ServiceNow nie są synchronizowane do Log Analytics, upewnij się, że wystąpienie usługi ServiceNow nie jest w stanie uśpienia. Wystąpienia dev usługi ServiceNow czasami przechodzą w stan uśpienia, gdy jest on bezczynny przez długi czas. W przeciwnym razie Zgłoś problem.
 3. Jeśli alerty Log Analytics wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM lub elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innymi informacjami ogólnymi, należy poszukać w następujących miejscach:
@@ -294,7 +295,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager
 1.  W przypadku problemów z wdrażaniem aplikacji sieci Web upewnij się, że masz wystarczające uprawnienia w ramach subskrypcji wymienionej do tworzenia/wdrażania zasobów.
 2.  Jeśli podczas uruchamiania [skryptu](itsmc-service-manager-script.md)zostanie wyświetlony komunikat o błędzie **"odwołanie do obiektu nie jest ustawione na wystąpienie obiektu"** , upewnij się, że wprowadzono prawidłowe wartości w sekcji **Konfiguracja użytkownika** .
-3.  Jeśli nie można utworzyć przestrzeni nazw usługi Service Bus Relay, upewnij się, że wymagany dostawca zasobów jest zarejestrowany w subskrypcji. Jeśli nie jest zarejestrowany, ręcznie Utwórz przestrzeń nazw usługi Service Bus Relay z Azure Portal. Można go również utworzyć podczas [tworzenia połączenia hybrydowego](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) z Azure Portal.
+3.  Jeśli nie można utworzyć przestrzeni nazw usługi Service Bus Relay, upewnij się, że wymagany dostawca zasobów jest zarejestrowany w subskrypcji. Jeśli nie jest zarejestrowany, ręcznie Utwórz przestrzeń nazw usługi Service Bus Relay z Azure Portal. Można go również utworzyć podczas [tworzenia połączenia hybrydowego](./itsmc-connections.md#configure-the-hybrid-connection) z Azure Portal.
 
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
@@ -302,4 +303,5 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 W przypadku zapytań lub informacji zwrotnych dotyczących łącznik zarządzania usługami IT skontaktuj się z nami pod adresem [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Następne kroki
-[Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](../../azure-monitor/platform/itsmc-connections.md).
+[Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md).
+

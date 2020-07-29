@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68b1cdede5fddd0bf74571da1924e0059a21d3af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332d9a9ec28c4309fb1cf1d3e24d3cfd2d7d13d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791813"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321976"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure
 
@@ -44,7 +45,7 @@ Dziennik aktywności w portalu ma kilka filtrów. Oto filtry powiązane z usług
 
 | Filtr | Wartość |
 | --------- | --------- |
-| Kategoria zdarzenia | <ul><li>Administracyjne</li></ul> |
+| Kategoria zdarzenia | <ul><li>Administracyjny</li></ul> |
 | Operacja | <ul><li>Utwórz przypisanie roli</li><li>Usuń przypisanie roli</li><li>Utwórz lub zaktualizuj definicję roli niestandardowej</li><li>Usuń definicję roli niestandardowej</li></ul> |
 
 Więcej informacji o dziennikach aktywności znajduje się w temacie [Wyświetlanie dzienników aktywności w celu monitorowania akcji na zasobach](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
@@ -80,6 +81,7 @@ $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
                           serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          eventCategory  : Administrative
 
 Caller                  : alain@example.com
 EventTimestamp          : 2/27/2020 9:18:05 PM
@@ -88,6 +90,18 @@ Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
                           /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
+```
+
+Jeśli używasz nazwy głównej usługi do tworzenia przypisań ról, właściwość Caller będzie IDENTYFIKATORem obiektu. Aby uzyskać informacje o jednostce usługi, można użyć [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) .
+
+```Example
+Caller                  : 44444444-4444-4444-4444-444444444444
+EventTimestamp          : 6/4/2020 9:43:08 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              : 
+                          statusCode     : Created
+                          serviceRequestId: 55555555-5555-5555-5555-555555555555
+                          category       : Administrative
 ```
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure

@@ -4,19 +4,19 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321840"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
 
 Aby uzyskać więcej informacji na temat alertów dziennika aktywności, zobacz jak [utworzyć alerty dziennika aktywności platformy Azure](activity-log-alerts.md).
 
-Aby uzyskać informacje na temat grup akcji, zobacz How to [Create Action Groups](../../azure-monitor/platform/action-groups.md).
+Aby uzyskać informacje na temat grup akcji, zobacz How to [Create Action Groups](./action-groups.md).
 
 > [!NOTE]
 > Można również użyć [typowego schematu alertu](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor, dla integracji elementów webhook. [Dowiedz się więcej na temat typowych definicji schematu alertów.](https://aka.ms/commonAlertSchemaDefinitions)
@@ -128,7 +128,7 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 }
 ```
 
-### <a name="recommendation"></a>Rekomendacja
+### <a name="recommendation"></a>Zalecenie
 
 ```json
 {
@@ -262,7 +262,7 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
 | identyfikator |Identyfikator zasobu alertu. |
-| opis |Opis alertu ustawiany podczas tworzenia alertu. |
+| description (opis) |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
@@ -284,11 +284,12 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | status |Ciąg. Stan operacji. Wspólne wartości obejmują rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne i rozwiązane. |
 | subStatus |Zwykle zawiera kod stanu HTTP odpowiadającego wywołania REST. Może również zawierać inne ciągi opisujące podstan. Typowe wartości Substatus to OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowano (kod stanu HTTP: 202), brak zawartości (kod stanu HTTP: 204), niewłaściwe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu http: 404), konflikt (kod stanu usługi http: 409), wewnętrzny błąd serwera (kod stanu http: 500), Usługa niedostępna (kod stanu http: 503) i limit czasu bramy : 504). |
 
-Szczegółowe informacje o schemacie wszystkich innych alertów dziennika aktywności można znaleźć w temacie [Omówienie dziennika aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Szczegółowe informacje o schemacie wszystkich innych alertów dziennika aktywności można znaleźć w temacie [Omówienie dziennika aktywności platformy Azure](./platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o dzienniku aktywności](../../azure-monitor/platform/platform-logs-overview.md).
+* [Dowiedz się więcej o dzienniku aktywności](./platform-logs-overview.md).
 * [Wykonaj skrypty usługi Azure Automation (elementy Runbook) w alertach platformy Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Użyj aplikacji logiki, aby wysłać wiadomość SMS za pośrednictwem Twilio z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
 * [Użyj aplikacji logiki do wysłania komunikatu o zapasach z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
 * [Użyj aplikacji logiki, aby wysłać wiadomość do kolejki platformy Azure z poziomu alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
+

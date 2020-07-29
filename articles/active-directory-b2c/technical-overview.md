@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08c7a5b977534e6c2852f8095ce14c44bda71bf1
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281926"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ Można skonfigurować Azure AD B2C, aby umożliwić użytkownikom logowanie się
 
 Za pomocą Federacji zewnętrznego dostawcy tożsamości możesz zaoferować swoim użytkownikom możliwość zalogowania się przy użyciu istniejących kont społecznościowych lub firmowych bez konieczności tworzenia nowego konta tylko dla aplikacji.
 
-Na stronie rejestracji lub logowania Azure AD B2C przedstawia listę zewnętrznych dostawców tożsamości, które użytkownik może wybrać do logowania. Po wybraniu jednego z zewnętrznych dostawców tożsamości zostaną one pobrane (przekierowane) do witryny sieci Web wybranego dostawcy w celu ukończenia procesu logowania. Po pomyślnym zalogowaniu się użytkownika następuje powrót do Azure AD B2C w celu uwierzytelnienia konta w aplikacji.
+Na stronie rejestracji lub logowania Azure AD B2C przedstawia listę zewnętrznych dostawców tożsamości, które użytkownik może wybrać do logowania. Po wybraniu jednego z zewnętrznych dostawców tożsamości zostaną one pobrane (przekierowane) do witryny sieci Web wybranego dostawcy w celu ukończenia procesu logowania. Po pomyślnym zalogowaniu się użytkownika są one zwracane do Azure AD B2C w celu uwierzytelnienia konta w aplikacji.
 
 ![Przykład logowania mobilnego przy użyciu konta społecznościowego (Facebook)](media/technical-overview/external-idp.png)
 
@@ -115,7 +115,7 @@ Dowiedz się więcej o przepływach użytkowników w [przepływach użytkownikó
 
 Zasady niestandardowe blokują dostęp do pełnego potencjału aparatu aranżacji programu Identity Experience Framework (IEF). Za pomocą zasad niestandardowych można korzystać z IEF w celu kompilowania niemal wszelkich możliwości uwierzytelniania, rejestracji użytkowników lub edytowania profilów, które można wyobrazić.
 
-Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Przykład:
+Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Na przykład:
 
 * Sfederować z innymi dostawcami tożsamości
 * Wyzwania uwierzytelniania wieloskładnikowego (MFA) w pierwszej kolejności i innej firmy
@@ -164,7 +164,7 @@ W Azure AD B2C możesz postawić swoją tożsamość użytkowników, tak aby str
 
 Informacje o dostosowywaniu interfejsu użytkownika znajdują [się w temacie Informacje o dostosowywaniu interfejsów użytkowników w Azure Active Directory B2C](customize-ui-overview.md).
 
-## <a name="localization"></a>Lokalizacja
+## <a name="localization"></a>Localization
 
 Dostosowanie języka w Azure AD B2C pozwala dostosowywać różne języki do potrzeb klientów. Firma Microsoft udostępnia tłumaczenia dla języków 36, ale można również udostępniać własne tłumaczenia w dowolnym języku. Nawet jeśli środowisko użytkownika jest dostarczane tylko dla jednego języka, można dostosować dowolny tekst na stronach.
 

@@ -1,7 +1,7 @@
 ---
 title: Tworzenie sieci wirtualnej — Szybki start — Azure PowerShell
 titlesuffix: Azure Virtual Network
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć sieć wirtualną przy użyciu witryny Azure Portal. Dzięki sieci wirtualnej zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się prywatnie ze sobą i z Internetem.
+description: W tym przewodniku szybki start utworzysz sieć wirtualną przy użyciu Azure Portal. Dzięki sieci wirtualnej zasoby platformy Azure komunikują się ze sobą i z Internetem.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707467"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291933"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu programu PowerShell
 
@@ -155,7 +155,7 @@ mstsc /v:<publicIpAddress>
 
 1. Na pulpicie zdalnym maszyny *myVm1* otwórz program PowerShell.
 
-1. Wprowadź polecenie `ping myVm2`.
+1. Wprowadź `ping myVm2`.
 
     Zostanie wyświetlony komunikat podobny do następującego:
 
@@ -209,7 +209,7 @@ mstsc /v:<publicIpAddress>
 
 1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną *myVm2*.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu korzystania z sieci wirtualnej i maszyn wirtualnych użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup), aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
 

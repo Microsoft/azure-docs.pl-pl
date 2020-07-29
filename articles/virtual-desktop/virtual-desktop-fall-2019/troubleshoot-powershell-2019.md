@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop PowerShell (jesień 2019) — Azure
-description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows (w wersji 2019).
+title: Windows Virtual Desktop (klasyczny) PowerShell — Azure
+description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085813"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269618"
 ---
-# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Program PowerShell dla pulpitu wirtualnego systemu Windows (2019 wydania)
+# <a name="windows-virtual-desktop-classic-powershell"></a>Windows Virtual Desktop (klasyczny) PowerShell
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../troubleshoot-powershell.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../troubleshoot-powershell.md).
 
 W tym artykule opisano błędy i problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows. Aby uzyskać więcej informacji na Usługi pulpitu zdalnego PowerShell, zobacz [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 

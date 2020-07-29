@@ -9,14 +9,16 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
+- 'role: Direction'
+- 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 06c0ff7060f4a9d71af11ae75d52ad7f4bf14c6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b92de195e4ff4d5b00de041f5b021ee75f9800
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307696"
 ---
 # <a name="what-is-azure-iot-hub"></a>Czym jest usługa Azure IoT Hub?
 

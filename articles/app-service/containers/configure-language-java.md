@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: 734f4d7bac8fc508031dc37d01b82d95d38ab7f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905735"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321160"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Linux dla usługi Azure App Service
 
@@ -327,7 +327,7 @@ App Service system Linux kieruje żądania przychodzące do portu 80, dlatego ap
 
 Te instrukcje dotyczą wszystkich połączeń z bazą danych. Musisz wypełnić symbole zastępcze nazwą klasy sterownika wybranej bazy danych i plikiem JAR. Dostarczono tabelę z nazwami klas i pobraniami sterowników dla wspólnych baz danych.
 
-| baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
+| Baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Pobieranie](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Pobierz](https://dev.mysql.com/downloads/connector/j/) (wybierz pozycję "Platforma niezależna") |
@@ -622,7 +622,7 @@ Twoja aplikacja będzie teraz korzystać z pamięci podręcznej Redis na potrzeb
 
 Aby zapoznać się z przykładem, którego można użyć do przetestowania tych instrukcji, zobacz repozytorium [skalowanie-stanowe-Java-Web-App-on-Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) w serwisie GitHub.
 
-## <a name="docker-containers"></a>Kontenerów Docker
+## <a name="docker-containers"></a>Kontenery platformy Docker
 
 Aby skorzystać z platformy Azure Zulu JDK w kontenerach, upewnij się, że pobierasz i korzystasz ze wstępnie utworzonych obrazów, zgodnie z opisem z [obsługiwanej strony pobierania Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/) lub Użyj `Dockerfile` przykładów z [repozytorium Microsoft Java GitHub](https://github.com/Microsoft/java/tree/master/docker).
 

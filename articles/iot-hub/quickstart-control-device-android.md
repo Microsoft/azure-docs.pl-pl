@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-java
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 3e5afae9421d13d986ad6c891c8e889f590f04a2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a12c916b6f81f21574c4b9dc748a279c22f199f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044723"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315618"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT Hub (Android)
 
@@ -43,7 +44,7 @@ W tym przewodniku szybki start użyjesz metody bezpośredniej do kontrolowania s
 
 ### <a name="add-azure-iot-extension"></a>Dodawanie rozszerzenia usługi Azure IoT
 
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -85,7 +86,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
       --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -192,7 +193,7 @@ IoT Hub aplikacja usługi zaplecza jest zwykle uruchamiana w chmurze, w której 
 
     ![Potwierdzenie metody bezpośredniej](media/quickstart-control-device-android/direct-method-ack.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

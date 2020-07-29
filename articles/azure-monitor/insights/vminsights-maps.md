@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320514"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Użyj funkcji map Azure Monitor dla maszyn wirtualnych, aby zrozumieć składniki aplikacji
 W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Można obserwować maszyny wirtualne na dwa sposoby. Wyświetl mapę bezpośrednio z maszyny wirtualnej lub Wyświetl mapę z Azure Monitor, aby wyświetlić składniki w różnych grupach maszyn wirtualnych. Ten artykuł pomoże Ci zrozumieć te dwie metody wyświetlania i sposób korzystania z funkcji map. 
@@ -49,7 +49,7 @@ Aby funkcja mapy wyświetlała odpowiednie alerty, Utwórz regułę alertu, któ
 - Dołącz klauzulę do grupowania alertów według komputera (na przykład **według interwału komputerowego 1 minuty**).
 - Podstawowy alert dotyczący metryki.
 
-Aby uzyskać więcej informacji na temat alertów platformy Azure i tworzenia reguł alertów, zobacz [ujednolicone alerty w Azure monitor](../../azure-monitor/platform/alerts-overview.md).
+Aby uzyskać więcej informacji na temat alertów platformy Azure i tworzenia reguł alertów, zobacz [ujednolicone alerty w Azure monitor](../platform/alerts-overview.md).
 
 W prawym górnym rogu opcja **Legenda** opisuje symbole i role na mapie. Aby bliżej obejrzeć mapę i przenieść ją wokół siebie, Użyj kontrolek powiększenia w prawym dolnym rogu. Możesz ustawić poziom powiększenia i dopasować mapę do rozmiaru strony.  
 
@@ -128,10 +128,11 @@ W Azure Monitor funkcja map zapewnia globalny widok maszyn wirtualnych i ich zal
 
 Wybierz obszar roboczy przy użyciu selektora **obszaru roboczego** w górnej części strony. Jeśli masz więcej niż jeden obszar roboczy Log Analytics, wybierz obszar roboczy, który jest włączony w rozwiązaniu i który ma do niego raportowanie maszyn wirtualnych. 
 
-Selektor **grup** zwraca subskrypcje, grupy zasobów, [grupy komputerów](../../azure-monitor/platform/computer-groups.md)i zestawy skalowania maszyn wirtualnych, które są powiązane z wybranym obszarem roboczym. Wybór ma zastosowanie tylko do funkcji map i nie jest przenoszone na wydajność ani kondycję.
+Selektor **grup** zwraca subskrypcje, grupy zasobów, [grupy komputerów](../platform/computer-groups.md)i zestawy skalowania maszyn wirtualnych, które są powiązane z wybranym obszarem roboczym. Wybór ma zastosowanie tylko do funkcji map i nie jest przenoszone na wydajność ani kondycję.
 
 Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są zależności w przeszłości, można wykonać zapytanie o historyczne zakresy czasu o wartości do godziny. Aby uruchomić zapytanie, użyj selektora **TimeRange** . Na przykład podczas zdarzenia lub przed zmianą może zostać uruchomione zapytanie.  
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zidentyfikować wąskie gardła, sprawdzić wydajność i zrozumieć ogólne wykorzystanie maszyn wirtualnych, zobacz [Wyświetlanie stanu wydajności dla Azure monitor dla maszyn wirtualnych](vminsights-performance.md). 
+

@@ -4,17 +4,17 @@ description: Dowiedz się, jak zainstalować i skonfigurować PostgreSQL na masz
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 6efc8a7e6478ed874caf925e10ef43c04343d254
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133235"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267255"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalowanie i Konfigurowanie PostgreSQL na platformie Azure
 PostgreSQL to zaawansowana baza danych open source podobna do Oracle i DB2. Obejmuje ona funkcje gotowe dla przedsiębiorstwa, takie jak Pełna zgodność ze standardami KWASowymi, niezawodne przetwarzanie transakcyjne i wielostronicowa kontrola współbieżności. Obsługuje ona również standardy, takie jak ANSI SQL i SQL/MED (w tym obce otoki danych dla systemów Oracle, MySQL, MongoDB i wielu innych). Jest wysoce rozszerzalny z obsługą ponad 12 języków proceduralnych, indeksów ĄTEK i dzienników, obsługi danych przestrzennych i wielu funkcji podobnej do NoSQL dla aplikacji opartych na kluczach JSON lub wartościowych.

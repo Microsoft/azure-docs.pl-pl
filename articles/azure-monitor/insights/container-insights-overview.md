@@ -3,12 +3,12 @@ title: Omówienie Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano Azure Monitor kontenerów monitorujących rozwiązanie AKS datacontainer Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320276"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów
 
@@ -66,8 +66,9 @@ Dostęp do Azure Monitor kontenerów można uzyskać na dwa sposoby, od Azure Mo
 
 ![Przegląd metod uzyskiwania dostępu do Azure Monitor kontenerów](./media/container-insights-overview/azmon-containers-experience.png)
 
-Jeśli interesujesz się monitorowaniem i zarządzaniem hostami platformy Docker i kontenera systemu Windows działającym poza programem AKS, aby wyświetlić konfigurację, inspekcję i wykorzystanie zasobów, zobacz [rozwiązanie do monitorowania kontenerów](../../azure-monitor/insights/containers.md).
+Jeśli interesujesz się monitorowaniem i zarządzaniem hostami platformy Docker i kontenera systemu Windows działającym poza programem AKS, aby wyświetlić konfigurację, inspekcję i wykorzystanie zasobów, zobacz [rozwiązanie do monitorowania kontenerów](./containers.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby rozpocząć monitorowanie klastra Kubernetes, zapoznaj się z [tematem jak włączyć Azure monitor dla kontenerów](container-insights-onboard.md) , aby zrozumieć wymagania i dostępne metody umożliwiające monitorowanie.
+

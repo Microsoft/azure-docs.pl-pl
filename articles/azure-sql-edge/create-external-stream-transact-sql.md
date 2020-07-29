@@ -8,84 +8,109 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: efc58a15dbd2c42060d0ebb4e75a1a20d4b3d06f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321738"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
 
-Obiekt strumienia zewnętrznego ma dwa przeznaczenie zarówno wejścia, jak i wyjścia. Może służyć jako dane wejściowe do wykonywania zapytań dotyczących danych przesyłanych strumieniowo z usług pozyskiwania zdarzeń, takich jak zdarzenia platformy Azure lub centra IoT lub używane jako dane wyjściowe, aby określić, gdzie i jak mają być przechowywane wyniki zapytania przesyłania strumieniowego.
+Obiekt strumienia zewnętrznego ma dwa przeznaczenie zarówno strumienia wejściowego, jak i wyjściowego. Może służyć jako dane wejściowe do wykonywania zapytań dotyczących danych przesyłanych strumieniowo z usług pozyskiwania zdarzeń, takich jak usługa Azure Event Hub, Azure IoT Hub (lub centrum brzegowe) lub Kafka. może służyć jako dane wyjściowe, aby określić, gdzie i jak mają być przechowywane wyniki zapytania przesyłania strumieniowego.
 
-ZEWNĘTRZNY strumień można także określić i utworzyć jako dane wyjściowe oraz dane wejściowe dla usług takich jak centrum zdarzeń lub usługa BLOB Storage. Jest to przeznaczone dla scenariuszy łańcucha, w których zapytanie strumieniowe zachowuje wyniki do strumienia zewnętrznego jako dane wyjściowe i inne zapytanie przesyłane strumieniowo z tego samego strumienia zewnętrznego jako dane wejściowe. 
+ZEWNĘTRZNY strumień można także określić i utworzyć jako dane wyjściowe oraz dane wejściowe dla usług takich jak centrum zdarzeń lub usługa BLOB Storage. Ułatwia to scenariusze łańcucha, w których zapytanie przesyłane strumieniowo utrzymuje wyniki do zewnętrznego strumienia jako dane wyjściowe i inne zapytanie przesyłane strumieniowo z tego samego strumienia zewnętrznego jako dane wejściowe.
 
-Usługa Azure SQL Edge obecnie obsługuje tylko następujące dane wejściowe i wyjściowe strumienia.
+Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych jako dane wejściowe i wyjściowe strumienia.
 
-**Wejście strumienia**: definiuje połączenia ze źródłem danych, z którego ma zostać odczytany strumień danych
-- Centrum brzegowe
-- Kafka (obsługa danych wejściowych Kafka jest obecnie dostępna tylko w wersjach Intel/AMD64 usługi Azure SQL Edge).
+| Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
+|------------------|-------|--------|------------------|
+| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Obsługa Kafka jest niedostępna dla wersji ARM64 usługi Azure SQL Edge.|
 
-**Dane wyjściowe strumienia**: definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. 
-- Centrum brzegowe
-- SQL (dane wyjściowe SQL mogą być lokalną bazą danych w wystąpieniu usługi Azure SQL Edge lub SQL Server zdalnego lub Azure SQL Database). 
-- Azure Blob Storage
 
 
 ## <a name="syntax"></a>Składnia
 
 ```sql
 CREATE EXTERNAL STREAM {external_stream_name}  
-(column definition [,column definitions ] * ) --Used for input - optional 
-WITH  
-(  
-  DATA_SOURCE = <data_source_name>, 
-  LOCATION = <location_name>, 
-  EXTERNAL_FILE_FORMAT = <external_file_format_name>, --Used for input - optional 
-   
-  INPUT_OPTIONS =  
-    ‘CONSUMER_GROUP=<consumer_group_name>; 
-    ‘TIME_POLICY=<time_policy>; 
-    LATE_EVENT_TOLERANCE=<late_event_tolerance_value>; 
-    OUT_OF_ORDER_EVENT_TOLERANCE=<out_of_order_tolerance_value> 
-     
-    /* Edge options */ 
-  , 
-  OUTPUT_OPTIONS =  
-    ‘REJECT_POLICY=<reject_policy>; 
-    MINIMUM_ROWS=<row_value>; 
-    MAXIMUM_TIME=<time_value_minutes>; 
-    PARTITION_KEY_COLUMN=<partition_key_column_name>; 
-    PROPERTY_COLUMNS=(); 
-    SYSTEM_PROPERTY_COLUMNS=(); 
-    PARTITION_KEY=<partition_key_name>; 
-    ROW_KEY=<row_key_name>; 
-    BATCH_SIZE=<batch_size_value>; 
-    MAXIMUM_BATCH_COUNT=<batch_value>;  
-    STAGING_AREA=<blob_data_source>’ 
-     
-    /* Edge options */ TAGS=<tag_column_value> 
+( <column_definition> [, <column_definition> ] * ) -- Used for Inputs - optional 
+WITH  ( <with_options> )
+
+<column_definition> ::=
+  column_name <column_data_type>
+
+<data_type> ::=
+[ type_schema_name . ] type_name
+    [ ( precision [ , scale ] | max ) ]
+
+<with_options> ::=
+  DATA_SOURCE = data_source_name, 
+  LOCATION = location_name, 
+  [FILE_FORMAT = external_file_format_name], --Used for Inputs - optional 
+  [<optional_input_options>],
+  [<optional_output_options>], 
+  TAGS = <tag_column_value>
+
+<optional_input_options> ::= 
+  INPUT_OPTIONS = '[<Input_options_data>]'
+
+<Input_option_data> ::= 
+      <input_option_values> [ , <input_option_values> ]
+
+<input_option_values> ::=
+  PARTITIONS: [number_of_partitions]
+  | CONSUMER_GROUP: [ consumer_group_name ] 
+  | TIME_POLICY: [ time_policy ] 
+  | LATE_EVENT_TOLERANCE: [ late_event_tolerance_value ] 
+  | OUT_OF_ORDER_EVENT_TOLERANCE: [ out_of_order_tolerance_value ]
+  
+<optional_output_options> ::= 
+  OUTPUT_OPTIONS = '[<output_option_data>]'
+
+<output_option_data> ::= 
+      <output_option_values> [ , <output_option_values> ]
+
+<output_option_values> ::=
+   REJECT_POLICY: [ reject_policy ] 
+   | MINIMUM_ROWS: [ row_value ] 
+   | MAXIMUM_TIME: [ time_value_minutes] 
+   | PARTITION_KEY_COLUMN: [ partition_key_column_name ] 
+   | PROPERTY_COLUMNS: [ ( [ output_col_name ] ) ] 
+   | SYSTEM_PROPERTY_COLUMNS: [ ( [ output_col_name ] ) ] 
+   | PARTITION_KEY: [ partition_key_name ] 
+   | ROW_KEY: [ row_key_name ] 
+   | BATCH_SIZE: [ batch_size_value ] 
+   | MAXIMUM_BATCH_COUNT: [ batch_value ] 
+   | STAGING_AREA: [ blob_data_source ]
+ 
+<tag_column_value> ::= -- Reserved for Future Usage
 ); 
 ```
 
-
 ## <a name="arguments"></a>Argumenty
 
+- [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
+- [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
+- **Lokalizacja**: Określa nazwę rzeczywistego danych lub lokalizacji w źródle danych. 
+   - W przypadku obiektów usługi Edge Hub lub strumienia Kafka Lokalizacja określa nazwę centrum krawędzi lub tematu Kafka, z którego ma zostać odczytana lub zapisana.
+   - W przypadku obiektów usługi SQL Stream (SQL Server, Azure SQL Database lub Azure SQL Edge) określa nazwę tabeli. Jeśli strumień jest tworzony w tej samej bazie danych i schemacie co tabela docelowa, wystarczy tylko nazwa tabeli. W przeciwnym razie musisz w pełni kwalifikować (<database_name. schema_name. table_name) nazwę tabeli.
+   - W przypadku lokalizacji obiektu usługi Azure Blob Storage Stream odwołuje się do wzorca ścieżki, który ma być używany wewnątrz kontenera obiektów BLOB. Aby uzyskać więcej informacji na temat tej funkcji, zobacz (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-Data-Lake-Gen2)
 
-- [ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql/)
-- [FORMAT PLIKU ZEWNĘTRZNEGO](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **Lokalizacja**: Określa nazwę rzeczywistego danych lub lokalizacji w źródle danych. W przypadku obiektu usługi Edge Hub lub strumienia Kafka Lokalizacja określa nazwę centrum krawędzi lub tematu Kafka, z którego ma zostać odczytana lub zapisana.
-- **INPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla usług takich jak zdarzenia i centra IoT, które są danymi wejściowymi zapytań przesyłania strumieniowego
+- **INPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla usług takich jak Kafka, IoT Edge Hub, które są danymi wejściowymi zapytań przesyłania strumieniowego
+    - PARTYCJE: liczba partycji zdefiniowanych dla tematu
+      - Dotyczy strumieni danych wejściowych Kafka
     - CONSUMER_GROUP: Centra zdarzeń i IoT ograniczają liczbę czytelników w ramach jednej grupy odbiorców (do 5). Pozostawienie tego pola pustego spowoduje użycie grupy konsumentów "$Default".
-      - Dotyczy centrów zdarzeń i IOT
+      - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.  
     - TIME_POLICY: opisuje, czy należy porzucić zdarzenia, czy też dostosować czas zdarzenia, gdy opóźnione zdarzenia lub zdarzenia poza kolejnością przechodzą wartość tolerancji.
-      - Dotyczy centrów zdarzeń i IOT
+      - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
     - LATE_EVENT_TOLERANCE: maksymalny akceptowalny czas oczekiwania. Opóźnienie reprezentuje różnicę między sygnaturą czasową zdarzenia a zegarem systemowym.
-      - Dotyczy centrów zdarzeń i IOT
+      - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
     - OUT_OF_ORDER_EVENT_TOLERANCE: zdarzenia mogą być przychodzące po wykonaniu podróży od danych wejściowych do zapytania przesyłania strumieniowego. Te zdarzenia mogą być akceptowane w stanie takim, w jakim jest lub można wstrzymać pracę w określonym okresie, aby zmienić ich kolejność.
-      - Dotyczy centrów zdarzeń i IOT
+      - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
+        
 - **OUTPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla obsługiwanych usług, które są wyprowadzane strumieniowo zapytania 
   - REJECT_POLICY: UPUŚĆ | Ponów PRÓBę gatunku zasad obsługi błędów danych w przypadku wystąpienia błędów konwersji danych. 
     - Dotyczy wszystkich obsługiwanych danych wyjściowych 
@@ -93,31 +118,31 @@ WITH
     Minimalna liczba wymaganych wierszy dla partii zapisywana w danych wyjściowych. Dla Parquet każda partia utworzy nowy plik. 
     - Dotyczy wszystkich obsługiwanych danych wyjściowych 
   - MAXIMUM_TIME:  
-    Maksymalny czas oczekiwania na partię. Po upływie tego czasu partia zostanie zapisywana w danych wyjściowych, nawet jeśli nie spełniono wymagań dotyczących minimalnych wierszy. 
+    Maksymalny czas oczekiwania (w minutach) na partię. Po upływie tego czasu partia zostanie zapisywana w danych wyjściowych, nawet jeśli nie spełniono wymagań dotyczących minimalnych wierszy. 
     - Dotyczy wszystkich obsługiwanych danych wyjściowych 
   - PARTITION_KEY_COLUMN:  
     Kolumna używana dla klucza partycji. 
-    - Dotyczy centrum zdarzeń i Service Bus tematu 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
   - PROPERTY_COLUMNS:  
     Rozdzielana przecinkami lista nazw kolumn wyjściowych, które będą dołączane do komunikatów jako właściwości niestandardowe, jeśli zostały podane.  
-    - Dotyczy centrum zdarzeń i tematu Service Bus i kolejki 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge. 
   - SYSTEM_PROPERTY_COLUMNS:  
     Kolekcja par nazwa-wartość i kolumny wyjściowe w formacie JSON, które mają zostać wypełnione na Service Bus komunikatów. np. {"MessageId": "Kolumna1", "PartitionKey": "Kolumna2"} 
-    - Dotyczy tematu Service Bus i kolejki 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge. 
   - PARTITION_KEY:  
     Nazwa kolumny wyjściowej zawierającej klucz partycji. Klucz partycji jest unikatowym identyfikatorem partycji w danej tabeli, która stanowi pierwszą część klucza podstawowego jednostki. Jest to wartość ciągu, która może mieć długość do 1 KB. 
-    - Dotyczy Table Storage i funkcji platformy Azure 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
   - ROW_KEY:  
     Nazwa kolumny wyjściowej zawierającej klucz wiersza. Klucz wiersza jest unikatowym identyfikatorem dla jednostki w ramach danej partycji. Stanowi on drugą część klucza podstawowego jednostki. Klucz wiersza jest wartością ciągu, która może mieć długość do 1 KB. 
-    - Dotyczy Table Storage i funkcji platformy Azure 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
   - BATCH_SIZE:  
     Oznacza to liczbę transakcji dla magazynu tabel, w których maksymalna wartość może nastąpić do 100 rekordów. W przypadku Azure Functions oznacza to, że rozmiar wsadu w bajtach wysłanych do funkcji dla wywołania — wartość domyślna to 256 kB. 
-    - Dotyczy Table Storage i funkcji platformy Azure 
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge. 
   - MAXIMUM_BATCH_COUNT:  
     Maksymalna liczba zdarzeń wysyłanych do funkcji dla wywołania funkcji platformy Azure — wartość domyślna to 100. W przypadku SQL Database oznacza to maksymalną liczbę rekordów wysłanych z każdą zbiorczą transakcją wstawiania — wartość domyślna to 10 000. 
-    - Dotyczy SQL Database i funkcji platformy Azure 
+    - Dotyczy wszystkich danych wyjściowych opartych na języku SQL 
   - STAGING_AREA: obiekt zewnętrznego źródła danych do Blob Storage obszaru przejściowego na potrzeby pozyskiwania danych o wysokiej przepływności w SQL Data Warehouse 
-    - Dotyczy SQL Data Warehouse
+    - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
 
 
 ## <a name="examples"></a>Przykłady
@@ -125,13 +150,6 @@ WITH
 ### <a name="example-1---edgehub"></a>Przykład 1 — EdgeHub
 
 Typ: dane wejściowe lub wyjściowe<br>
-Parametry:
-- Dane wejściowe lub wyjściowe
-  - Alias 
-  - Format serializacji zdarzeń 
-  - Encoding 
-- Tylko dane wejściowe: 
-  - Typ kompresji zdarzenia 
 
 Składnia:
 
@@ -151,26 +169,16 @@ CREATE EXTERNAL STREAM Stream_A
 WITH    
 (   
    DATA_SOURCE = MyEdgeHub, 
-   EXTERNAL_FILE_FORMAT = myFileFormat, 
-   LOCATION = ‘<mytopicname>’, 
+   FILE_FORMAT = myFileFormat, 
+   LOCATION = '<mytopicname>', 
    OUTPUT_OPTIONS =   
-     ‘REJECT_TYPE: Drop’ 
+     'REJECT_TYPE: Drop'
 );
 ```
-
 
 ### <a name="example-2---azure-sql-database-azure-sql-edge-sql-server"></a>Przykład 2 — Azure SQL Database, Azure SQL Edge, SQL Server
 
 Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych  
-- Baza danych (wymagana dla SQL Database) 
-- Serwer (wymagany do SQL Database) 
-- Nazwa użytkownika (wymagana dla SQL Database) 
-- Hasło (wymagane dla SQL Database) 
-- Tabela 
-- Scal wszystkie partycje wejściowe w jeden schemat partycji zapisu lub dziedziczenia dla poprzedniego kroku zapytania lub danych wejściowych (wymagane dla SQL Database) 
-- Maksymalna liczba partii 
 
 Składnia:
 
@@ -183,7 +191,7 @@ SECRET = '<password>';
 CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
 WITH 
 (     
-  LOCATION = ' <my_server_name>.database.windows.net', 
+  LOCATION = '<my_server_name>.database.windows.net', 
   CREDENTIAL = SQLCredName 
 ); 
  
@@ -199,26 +207,18 @@ CREATE EXTERNAL STREAM Stream_A
 WITH   
 (  
     DATA_SOURCE = MyTargetSQLTable, 
-    LOCATION = '<DatabaseName>.<SchemaName>.<TableName>' 
-   --Note: If table is container in the database, <TableName> should be sufficient 
-   --Note: Do not need external file format in this case 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
+    LOCATION = '<DatabaseName>.<SchemaName>.<TableName>' ,
+   --Note: If table is contained in the database, <TableName> should be sufficient 
     OUTPUT_OPTIONS =  
-      ‘REJECT_TYPE: Drop 
+      'REJECT_TYPE: Drop'
 ); 
 ```
 
 ### <a name="example-3---kafka"></a>Przykład 3 — Kafka
 
 Typ: dane wejściowe<br>
-Parametry:
-
-- Serwer ładowania początkowego Kafka 
-- Nazwa tematu Kafka 
-- Liczba partycji źródłowych 
 
 Składnia:
-
 ```sql
 CREATE EXTERNAL DATA SOURCE MyKafka_tweets 
 WITH 
@@ -226,437 +226,26 @@ WITH
   --The location maps to KafkaBootstrapServer 
   LOCATION = 'kafka://<kafkaserver>:<ipaddress>', 
   CREDENTIAL = kafkaCredName 
- 
 ); 
  
 CREATE EXTERNAL FILE FORMAT myFileFormat 
 WITH ( 
-    FORMAT_TYPE = 'CSV', 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = 'UTF-8', 
-    DELIMITER = '|' 
+    FORMAT_TYPE = JSON, 
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 ); 
- 
- 
+
 CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
 WITH   
 (  
     DATA_SOURCE = MyKafka_tweets, 
     LOCATION = '<KafkaTopicName>', 
-   --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
+    FILE_FORMAT = myFileFormat,  
     INPUT_OPTIONS =  
-      ‘PARTITIONS: 5’ 
+      'PARTITIONS: 5'
 ); 
 ```
 
-### <a name="example-4---blob-storage"></a>Przykład 4 — Magazyn obiektów BLOB
-
-Typ: dane wejściowe lub wyjściowe<br>
-Parametry:
-- Dane wejściowe lub wyjściowe:
-  - Alias 
-  - Konto magazynu 
-  - Klucz konta magazynu 
-  - Kontener 
-  - Wzorzec ścieżki 
-  - Format daty 
-  - Format czasu 
-  - Format serializacji zdarzeń 
-  - Encoding 
-- Tylko dane wejściowe: 
-  - Partycje (dane wejściowe) 
-  - Typ kompresji zdarzenia (dane wejściowe) 
-- Tylko dane wyjściowe: 
-  - Minimalna ilość wierszy (dane wyjściowe) 
-  - Maksymalny czas (dane wyjściowe) 
-  - Tryb uwierzytelniania (dane wyjściowe) 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL StorageAcctCredName 
-WITH IDENTITY = '<my_account>', -- <my_account> can be any string. This string is not used during authentication
-SECRET = 'AccountKey'; 
- 
-CREATE EXTERNAL DATA SOURCE MyBlobStorage_tweets 
-WITH 
-(     
-  LOCATION = 'wasbs://<container_name>@<storage_account_name>.blob.core.windows.net/', 
-  CREDENTIAL = StorageAcctCredName 
-); 
- 
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', --Event serialization format 
-    DATE_FORMAT = 'YYYY/MM/DD HH', --Both Date and Time format 
-    ENCODING = 'UTF-8'
-); 
- 
-CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
-WITH   
-(  
-    DATA_SOURCE = MyBlobStorage_tweets, 
-    LOCATION = '<path_pattern>', 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
-    INPUT_OPTIONS =  
-      'PARTITIONS: 1', 
-  
-    OUTPUT_OPTIONS =  
-      'REJECT_TYPE: Drop, 
-      PARTITION_KEY_COLUMN: , 
-      PROPERTY_COLUMNS: (), 
-      MINUMUM_ROWS: 100000, 
-      MAXIMUM_TIME: 60'
-); 
-```
-
-### <a name="example-5---event-hub"></a>Przykład 5 — centrum zdarzeń
-
-Typ: dane wejściowe lub wyjściowe<br>
-Parametry:
-- Dane wejściowe lub wyjściowe:
-  - Alias 
-  - Service Bus przestrzeń nazw 
-  - Nazwa centrum zdarzeń 
-  - Nazwa zasad centrum zdarzeń 
-  - Klucz zasad centrum zdarzeń 
-  - Format serializacji zdarzeń 
-  - Encoding 
-- Tylko dane wejściowe: 
-  - Grupa konsumentów centrum zdarzeń 
-  - Typ kompresji zdarzenia 
-- Tylko dane wyjściowe: 
-  - Kolumna klucza partycji 
-  - Kolumny właściwości 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL eventHubCredName 
-WITH IDENTITY = 'Shared Access Signature', 
-SECRET = '<policyName>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyEventHub_tweets 
-WITH 
-(     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net', 
-  CREDENTIAL = eventHubCredName 
-); 
- 
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = 'UTF-8, 
-    DELIMITER = '|' 
-); 
- 
- 
-CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
-WITH   
-(  
-    DATA_SOURCE = MyEventHub_tweets, 
-    LOCATION = '<topicname>', 
-   --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
- 
-    INPUT_OPTIONS =  
-      'CONSUMER_GROUP: FirstConsumerGroup', 
-          
-    OUTPUT_OPTIONS =  
-      'REJECT_TYPE: Drop, 
-      PARTITION_KEY_COLUMN: , 
-      PROPERTY_COLUMNS: ()' 
-);
-```
-
-### <a name="example-6---iot-hub"></a>Przykład 6 — IOT Hub
-
-Typ: dane wejściowe<br>
-Parametry:
-
-- Alias danych wejściowych 
-- IoT Hub 
-- Punkt końcowy 
-- Nazwa zasad dostępu współdzielonego 
-- Klucz zasad dostępu współdzielonego 
-- Grupa konsumentów 
-- Format serializacji zdarzeń 
-- Encoding 
-- Typ kompresji zdarzenia 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL IoTHubCredName 
-WITH IDENTITY = 'Shared Access Signature', 
-SECRET = '<policyName>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyIoTHub_tweets 
-WITH 
-(     
-  LOCATION = ' iot://iot_hub_name.azure-devices.net', 
-  CREDENTIAL = IoTHubCredName 
-);  
-
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', --Event serialization format 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = 'UTF-8'
-); 
- 
-CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
-WITH   
-(  
-    DATA_SOURCE = MyIoTHub_tweets, 
-    LOCATION = ‘<name>', 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
-    INPUT_OPTIONS =  
-      'ENDPOINT: Messaging, 
-      CONSUMER_GROUP: ''FirstConsumerGroup'''
-); 
-```
-
-### <a name="example-7---azure-synapse-analytics-formerly-sql-data-warehouse"></a>Przykład 7 — Analiza Synapse Azure (dawniej SQL Data Warehouse)
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych 
-- Baza danych 
-- Serwer 
-- Nazwa użytkownika 
-- Hasło 
-- Tabela 
-- Obszar przejściowy (na potrzeby kopiowania) 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL SQLCredName 
-WITH IDENTITY = '<user>', 
-SECRET = '<password>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyTargetSQLTable 
-WITH 
-(     
-  LOCATION = ' <my_server_name>.database.windows.net', 
-  CREDENTIAL = SQLCredName 
-); 
- 
-CREATE EXTERNAL STREAM MySQLTableOutput 
-WITH ( 
-   DATA_SOURCE = MyTargetSQLTable, 
-   LOCATION = '<TableName>' 
-   --Note: Do not need external file format in this case 
-   OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: Drop, 
-     STAGING_AREA: staging_area_data_source', 
-); 
-```
-
-
-### <a name="example-8---table-storage"></a>Przykład 8 — magazyn tabel
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych 
-- Konto magazynu 
-- Klucz konta magazynu 
-- Nazwa tabeli 
-- Klucz partycji 
-- Klucz wiersza 
-- Rozmiar partii 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL TableStorageCredName 
-WITH IDENTITY = 'Storage account Key', 
-SECRET = '<storage_account_key>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyTargetTableStorage 
-WITH 
-(     
-  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net', 
-  CREDENTIAL = TableStorageCredName 
-); 
- 
-CREATE EXTERNAL STREAM MyTargetTableStorageOutput 
-WITH ( 
-   DATA_SOURCE = MyTargetTableStorage, 
-   LOCATION = '<TableName>', 
-   OUTPUT_OPTIONS =  
-     'REJECT_TYPE: Drop, 
-     PARTITION_KEY: <column_partition_key>, 
-     ROW_KEY: <column_row_key>, 
-     BATCH_SIZE: 100'
-); 
-```
-
-
-### <a name="example-9---service-bus-topic-same-properties-as-queue"></a>Przykład 9 — temat Service Bus (takie same właściwości jak kolejka)
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych 
-- Service Bus przestrzeń nazw 
-- Nazwa tematu 
-- Nazwa zasad tematu 
-- Klucz zasad tematu 
-- Kolumny właściwości 
-- Kolumny właściwości systemu 
-- Format serializacji zdarzeń 
-- Encoding 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL serviceBusCredName 
-WITH IDENTITY = 'Shared Access Signature', 
-SECRET = '<policyName>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyServiceBus_tweets 
-WITH 
-(     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net', 
-  CREDENTIAL = serviceBusCredName 
-); 
- 
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', --Event serialization format 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = 'UTF-8'
-); 
- 
-CREATE EXTERNAL STREAM MyServiceBusOutput 
-WITH ( 
-   DATA_SOURCE = MyServiceBus_tweets, 
-   LOCATION = '<topic_name>', 
-   EXTERNAL_FILE_FORMAT = myFileFormat 
-       OUTPUT_OPTIONS =  
-     'REJECT_TYPE: Drop, 
-     PARTITION_KEY_COLUMN: , 
-     PROPERTY_COLUMNS: (), 
-     SYSTEM_PROPERTY_COLUMNS: ()'
-   --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
-           
-); 
-```
-
-
-### <a name="example-10---cosmos-db"></a>Przykład 10 Cosmos DB
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych 
-- Identyfikator konta 
-- Klucz konta 
-- Baza danych 
-- Nazwa kontenera 
-- Identyfikator dokumentu 
-
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL cosmosDBCredName 
-WITH IDENTITY = 'Storage Account Key', 
-SECRET = '<accountKey>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyCosmosDB_tweets 
-WITH 
-(     
-  LOCATION = 'cosmosdb://accountid.documents.azure.com:443/ database', 
-  CREDENTIAL = cosmosDBCredName 
-); 
- 
-CREATE EXTERNAL STREAM MyCosmosDBOutput 
-WITH ( 
-   DATA_SOURCE = MyCosmosDB_tweets, 
-   LOCATION = '<container/documentID>'
-   OUTPUT_OPTIONS =  
-     'REJECT_TYPE: Drop', 
-     --Note: Do not need external file format in this case 
-          
-);
-```
-
-
-
-### <a name="example-11---power-bi"></a>Przykład 11 — Power BI
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Alias danych wyjściowych 
-- Nazwa zestawu danych 
-- Nazwa tabeli 
-
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL PBIDBCredName 
-WITH IDENTITY = 'Managed Identity'; 
- 
-CREATE EXTERNAL DATA SOURCE MyPbi_tweets 
-WITH 
-( 
-  LOCATION = 'pbi://dataset/', 
-  CREDENTIAL = PBIDBCredName 
- 
-); 
- 
-CREATE EXTERNAL STREAM MyPbiOutput 
-WITH ( 
-   DATA_SOURCE = MyPbi_tweets, 
-   LOCATION = 'tableName', 
-   OUTPUT_OPTIONS =  
-     'REJECT_TYPE: Drop' 
-        
-);
-```
-
-### <a name="example-12---azure-function"></a>Przykład 12 — funkcja platformy Azure
-
-Typ: dane wyjściowe<br>
-Parametry:
-- Aplikacja funkcji 
-- Funkcja 
-- Klucz 
-- Maksymalny rozmiar wsadu 
-- Maksymalna liczba partii 
-
-Składnia:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL AzureFunctionCredName 
-WITH IDENTITY = 'Function Key', 
-SECRET = '<function_key>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyTargetTableStorage 
-WITH 
-(     
-  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net', 
-  CREDENTIAL = TableStorageCredName 
-); 
- 
-CREATE EXTERNAL STREAM MyTargetTableStorageOutput 
-WITH ( 
-   DATA_SOURCE = MyTargetTableStorage, 
-   LOCATION = '<TableName>', 
-   OUTPUT_OPTIONS =  
-     'REJECT_TYPE: 'Drop'      
-     PARTITION_KEY: '<column_partition_key>, 
-     ROW_KEY: <column_row_key>, 
-     BATCH_SIZE: 100'
-); 
-```
-
-
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [Usuń strumień zewnętrzny (Transact-SQL)](drop-external-stream-transact-sql.md) 

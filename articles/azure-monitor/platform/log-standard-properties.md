@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325274"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standardowe właściwości w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](../log-query/logs-structure.md), z których każdy ma określony typ danych, który ma unikatowy zestaw właściwości. Wiele typów danych będzie zawierać standardowe właściwości, które są wspólne dla wielu typów. W tym artykule opisano te właściwości i przedstawiono przykłady korzystania z nich w zapytaniach.
@@ -210,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat sposobu [przechowywania danych dziennika Azure monitor](../log-query/log-query-overview.md).
-- Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](../../azure-monitor/log-query/get-started-queries.md).
-- Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](../../azure-monitor/log-query/joins.md).
+- Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](../log-query/get-started-queries.md).
+- Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](../log-query/joins.md).
+

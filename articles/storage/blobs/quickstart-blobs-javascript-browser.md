@@ -3,16 +3,16 @@ title: 'Szybki Start: Biblioteka usługi Azure Blob Storage V12 — JavaScript w
 description: W tym przewodniku szybki start dowiesz się, jak używać biblioteki klienckiej usługi Azure Blob Storage w wersji 12 dla języka JavaScript w przeglądarce. Tworzenie kontenera i obiektu w usłudze BLOB Storage. Następnie dowiesz się, jak wyświetlić listę wszystkich obiektów BLOB w kontenerze. Na koniec dowiesz się, jak usuwać obiekty blob i usuwać kontenery.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 039aea76e5e59d43078c2fa884e192922ec50035
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276996"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,9 +26,6 @@ Dodatkowe zasoby:
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-blob)
 * [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
-
-> [!NOTE]
-> Aby rozpocząć pracę z poprzednią wersją zestawu SDK, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK v10 języka JavaScript w Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -294,7 +291,7 @@ W [Azure Portal](https://portal.azure.com)można sprawdzić wyniki wywołań int
 3. Wybierz pozycję **Odśwież**. Nowy kontener zniknie.
 4. Zamknij aplikację sieci Web.
 
-### <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Kliknij konsolę **terminala** w Visual Studio Code i naciśnij klawisze CTRL + C, aby zatrzymać serwer sieci Web.
 

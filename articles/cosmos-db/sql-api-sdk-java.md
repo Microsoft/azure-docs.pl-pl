@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9e82e2c9c319696bc34f73ce24ee6ed12951ac77
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087819"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323829"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -47,7 +48,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Rozwiązuje problem z pamięcią podręczną partycji głównej w zapytaniu documentcollection.
@@ -334,6 +335,6 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
 

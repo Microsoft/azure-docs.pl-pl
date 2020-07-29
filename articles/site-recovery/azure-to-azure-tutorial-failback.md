@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134446"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289298"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Powrót po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -58,7 +58,7 @@ Po ponownym włączeniu ochrony maszyn wirtualnych można wrócić do regionu po
     ![Maszyna wirtualna w regionach podstawowym i pomocniczym](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> W przypadku maszyn, na których uruchomiono rozszerzenie Site Recovery w wersji 9.28. x. x i [pakiet zbiorczy aktualizacji 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery czyści maszyny w dodatkowym regionie odzyskiwania po awarii, po zakończeniu powrotu po awarii i ponownym włączeniu ochrony maszyn wirtualnych. Nie ma potrzeby ręcznego usuwania maszyn wirtualnych i kart sieciowych w regionie pomocniczym. W przypadku całkowitego wyłączenia replikacji po powrocie po awarii program Site Recovery czyści dyski w regionie odzyskiwania po awarii, a także maszyny wirtualne i karty sieciowe.
+> W przypadku maszyn korzystających z dysków zarządzanych i uruchamiania rozszerzenia Site Recovery 9.28. x. x i [pakietu zbiorczego aktualizacji 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery czyści maszyny w dodatkowym regionie odzyskiwania po awarii, po zakończeniu powrotu po awarii i ponownym włączeniu ochrony maszyn wirtualnych. Nie ma potrzeby ręcznego usuwania maszyn wirtualnych i kart sieciowych w regionie pomocniczym. Należy pamiętać, że maszyny wirtualne z dyskami niezarządzanymi nie są czyszczone. W przypadku całkowitego wyłączenia replikacji po powrocie po awarii program Site Recovery czyści dyski w regionie odzyskiwania po awarii, a także maszyny wirtualne i karty sieciowe.
 
 ## <a name="next-steps"></a>Następne kroki
 

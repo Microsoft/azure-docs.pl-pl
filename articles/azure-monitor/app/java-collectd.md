@@ -3,21 +3,22 @@ title: Monitorowanie wydajności aplikacji sieci Web w języku Java w systemie L
 description: Rozszerzone monitorowanie wydajności aplikacji w witrynie Java za pomocą zebranej wtyczki dla Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322605"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>zebrane: metryki wydajności systemu Linux w Application Insights
 
 
-Aby poznać metryki wydajności systemu Linux w [Application Insights](../../azure-monitor/app/app-insights-overview.md), należy zainstalować [zebrane](https://collectd.org/)dane wraz z wtyczką Application Insights. To rozwiązanie "open source" gromadzi różne statystyki systemu i sieci.
+Aby poznać metryki wydajności systemu Linux w [Application Insights](./app-insights-overview.md), należy zainstalować [zebrane](https://collectd.org/)dane wraz z wtyczką Application Insights. To rozwiązanie "open source" gromadzi różne statystyki systemu i sieci.
 
 Zazwyczaj należy używać zebranych danych, jeśli [Instrumentacja usługi sieci Web języka Java][java]została już zastosowana za pomocą Application Insights. Zapewnia więcej danych, które ułatwiają zwiększenie wydajności aplikacji lub diagnozowanie problemów. 
 
 ## <a name="get-your-instrumentation-key"></a>Pobieranie klucza Instrumentacji
-W [Microsoft Azure Portal](https://portal.azure.com)otwórz zasób [Application Insights](../../azure-monitor/app/app-insights-overview.md) , w którym mają być wyświetlane dane. (Lub [Utwórz nowy zasób](../../azure-monitor/app/create-new-resource.md )).
+W [Microsoft Azure Portal](https://portal.azure.com)otwórz zasób [Application Insights](./app-insights-overview.md) , w którym mają być wyświetlane dane. (Lub [Utwórz nowy zasób](./create-new-resource.md)).
 
 Skopiuj klucz instrumentacji, który identyfikuje zasób.
 
@@ -104,7 +105,7 @@ Oddzielne dyrektywy z wierszem nowego wiersza.
 *Nie widzę danych w portalu*
 
 * Otwórz [Wyszukiwanie][diagnostic] , aby sprawdzić, czy zdarzenia RAW dotarły do Ciebie. Czasami pojawiają się one dłużej w Eksploratorze metryk.
-* Może być konieczne [ustawienie wyjątków zapory dla danych wychodzących](../../azure-monitor/app/ip-addresses.md)
+* Może być konieczne [ustawienie wyjątków zapory dla danych wychodzących](./ip-addresses.md)
 * Włącz śledzenie w dodatku Application Insights. Dodaj następujący wiersz `<Plugin ApplicationInsightsWriter>` :
   * `SDKLogger true`
 * Otwórz Terminal i Rozpocznij zbieranie w trybie pełnym, aby wyświetlić wszystkie problemy, które zgłasza:
@@ -120,13 +121,12 @@ Obejście: wykluczanie danych zebranych przez wtyczki zapisu problemu.
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-
+[metrics]: ../platform/metrics-charts.md
 

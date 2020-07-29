@@ -4,15 +4,15 @@ description: Szczegóły dotyczące zasad wypłaty, w tym harmonogramów i odnie
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d72a80298be96d32547737a98e5279da0c5d8ef0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118294"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324832"
 ---
 # <a name="payout-policy-details"></a>Szczegóły zasad wypłat
 
@@ -40,11 +40,11 @@ Począwszy od 1 maja 2020, aktualizujemy zasady naszych ofert związanych z prod
 > [!NOTE]
 > Zapoznaj się z artykułem [dotyczącym niepłatności klienta](#process-for-customer-non-payment) w przypadku akcji podejmowanych w przypadku niepowodzenia płacenia przez klienta, ale wystawiłeś już wypłatę.
 
-| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\* |
+| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\* |
 | --- | --- | --- | --- |
-| Transakcja lub miesiąc użycia | 8/1/2020 – 8/31/2020 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
-| Zakończenie okresu (miesiąc) | 8/31/2020 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
-| Wygenerowane zamówienie | 9/3/2020 – 9/7/2020 | Nie dotyczy | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
+| Transakcja lub miesiąc użycia | 8/1/2020 – 8/31/2020 | Brak | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
+| Zakończenie okresu (miesiąc) | 8/31/2020 | Brak | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
+| Wygenerowane zamówienie | 9/3/2020 – 9/7/2020 | Brak | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Oblicz zdobywanie wypłat | 9/4/2020 – 9/10/2020 | Oznaczono jako **nieprzetworzony** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Miesięczna wypłata | 10/5/2020 | Oznaczone jako **nadchodzące** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Data wypłaty | 10/15/2020 | Oznaczone jako **wysłane** w historii transakcji i w sekcji płatności na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
@@ -57,12 +57,12 @@ Począwszy od 1 maja 2020, aktualizujemy zasady naszych ofert związanych z prod
 
 Wszystkie zakupy z kartą kredytową lub fakturą miesięczną mają 30-dniowy okres przechowywania, aby upewnić się, że środki zostały wyczyszczone i nie obciążeń zwrotnych ani nie ma podejrzenia oszustwa.
 
-| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
+| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
 | --- | --- | --- | --- |
-| Transakcja lub miesiąc użycia | 8/1/2019 - 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
-| Zakończenie okresu (miesiąc) | 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
-| Wygenerowane zamówienie | 9/3/2019 – 9/7/2019 | Nie dotyczy | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
-| Zebrana faktura klienta | 9/7/2019 – 9/10/2019 | Nie dotyczy | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
+| Transakcja lub miesiąc użycia | 8/1/2019 - 8/31/2019 | Brak | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
+| Zakończenie okresu (miesiąc) | 8/31/2019 | Brak | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
+| Wygenerowane zamówienie | 9/3/2019 – 9/7/2019 | Brak | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
+| Zebrana faktura klienta | 9/7/2019 – 9/10/2019 | Brak | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Oblicz wypłatę | 9/8/2019 -9/12/2019 | Oznaczono jako **nieprzetworzony** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Miesięczna wypłata | 11/5/2019\* | Oznaczone jako **nadchodzące** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Data wypłaty | 11/15/2019 | Oznaczone jako **wysłane** w historii transakcji i w sekcji płatności na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
@@ -74,12 +74,12 @@ Wszystkie zakupy z kartą kredytową lub fakturą miesięczną mają 30-dniowy o
 
 Wszystkie zakupy występujące przed tą datą są przetwarzane i płatne zgodnie z poniższym harmonogramem po zebraniu przez firmę Microsoft płatności od klientów i przetworzeniu opłaty za witrynę Marketplace.
 
-| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
+| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
 | --- | --- | --- | --- |
-| Transakcja lub miesiąc użycia | 8/1/2019 – 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
-| Zakończenie okresu (miesiąc) | 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
-| Wygenerowane zamówienie | 9/3/2019 – 9/7/2019 | Nie dotyczy | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
-| Zebrana faktura klienta | 12/1/2019 | Nie dotyczy | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
+| Transakcja lub miesiąc użycia | 8/1/2019 – 8/31/2019 | Brak | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
+| Zakończenie okresu (miesiąc) | 8/31/2019 | Brak | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
+| Wygenerowane zamówienie | 9/3/2019 – 9/7/2019 | Brak | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
+| Zebrana faktura klienta | 12/1/2019 | Brak | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Oblicz wypłatę | 12/5/2019 – 12/7/2019 | Oznaczono jako **nieprzetworzony** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Miesięczna wypłata | 1/5/2019 | Oznaczone jako **nadchodzące** w historii transakcji na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
 | Data wypłaty | 1/15/2019 | Oznaczone jako **wysłane** w historii transakcji i w sekcji płatności na pulpicie nawigacyjnym wypłaty | **Raport użycia**: użycie pokazane z identyfikatorem IDZamówienia/OrderLineItemID<br>**Zamówienie raportu**: zamówienia klienta wyświetlane jako aktywne |
@@ -97,7 +97,7 @@ Firma Microsoft zwróci wszelkie płatne opłaty za korzystanie z jednej z nast�
 
 Poniżej przedstawiono przykładowy harmonogram:
 
-| Zdarzenie | Przybliżona data | Widoczność partnerów |
+| Wydarzenie | Przybliżona data | Widoczność partnerów |
 | --- | --- | --- |
 | Przykładowa data wypłaty | 10/15/2020 | Sekcja oznaczone jako **wysłane** w historii transakcji i w sekcji płatności na pulpicie nawigacyjnym wypłaty |
 | <font color="red">Jeśli klient nie płacisz firmie Microsoft</font> | 12/2/2020 – 12/5/2020 | Bez zmian, taka sama jak powyżej |

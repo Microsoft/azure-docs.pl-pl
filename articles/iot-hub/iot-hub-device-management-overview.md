@@ -7,12 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: System Architecture'
+ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60400990"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324730"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub
 

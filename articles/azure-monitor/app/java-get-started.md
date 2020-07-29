@@ -3,14 +3,15 @@ title: 'Szybki Start: Analiza aplikacji sieci Web w języku Java za pomocą usł
 description: 'Monitorowanie wydajności aplikacji internetowych w języku Java za pomocą usługi Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014494"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326923"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki Start: Rozpoczynanie pracy z Application Insights w projekcie sieci Web w języku Java
 
@@ -131,7 +132,7 @@ Zestaw SDK usługi Application Insights szuka klucza w następującej kolejnośc
 2. Zmienna środowiskowa: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Plik konfiguracji: *ApplicationInsights.xml*
 
-Możesz również [ustawić klucz w kodzie](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+Możesz również [ustawić klucz w kodzie](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -307,16 +308,17 @@ Usługa Application Insights może służyć do testowania witryny sieci Web w r
 * [Monitorowanie wywołań zależności](java-agent.md)
 * [Monitorowanie liczników wydajności sytemu Unix](java-collectd.md)
 * Dodawanie [monitorowania do stron sieci Web](javascript.md) w celu monitorowania czasów ładowania stron, wywołań AJAX i wyjątków przeglądarki
-* Zapisywanie [niestandardowych danych telemetrycznych](../../azure-monitor/app/api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
+* Zapisywanie [niestandardowych danych telemetrycznych](./api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
 * Korzystanie z [analizy](../log-query/log-query-overview.md) na potrzeby zaawansowanych zapytań dotyczących telemetrii z aplikacji
 * Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

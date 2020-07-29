@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321874"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Zbieranie dzienników aktywności platformy Azure w Azure Monitor między dzierżawami Azure Active Directory (starsza wersja)
 
@@ -129,11 +129,11 @@ Aby uzyskać nazwę centrum zdarzeń i parametry połączenia, wykonaj kroki opi
    | Nazwa           | Unikatowa nazwa aplikacji logiki. |
    | Subskrypcja   | Wybierz subskrypcję platformy Azure, która będzie zawierać aplikację logiki. |
    | Grupa zasobów | Wybierz istniejącą grupę zasobów platformy Azure lub utwórz nową grupę dla aplikacji logiki. |
-   | Lokalizacja       | Wybierz region centrum danych do wdrażania swojej aplikacji logiki. |
+   | Location       | Wybierz region centrum danych do wdrażania swojej aplikacji logiki. |
    | Log Analytics  | Wybierz, czy chcesz rejestrować stan każdego przebiegu aplikacji logiki w obszarze roboczym Log Analytics.  |
 
     
-3. Wybierz pozycję **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
+3. Wybierz przycisk **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
 
 4. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**. 
 
@@ -147,7 +147,7 @@ Projektant aplikacji logiki wyświetla teraz dostępne łączniki i ich wyzwalac
 
    ![obraz dodawania wyzwalacza centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz pozycję **Utwórz**.
+2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz przycisk **Utwórz**.
 
    ![obraz dodawania połączenia centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -340,4 +340,5 @@ Ostatnim krokiem jest sprawdzenie obszaru roboczego usługi Log Analytics, aby u
 W tym artykule utworzono aplikację logiki w celu odczytania dzienników aktywności platformy Azure z centrum zdarzeń i wysłania ich do obszaru roboczego Log Analytics na potrzeby analizy. Aby dowiedzieć się więcej o wizualizacji danych w obszarze roboczym, w tym o tworzeniu pulpitów nawigacyjnych, zapoznaj się z samouczkiem dotyczącym wizualizacji danych.
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący wizualizacji danych przeszukiwania dzienników](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Samouczek dotyczący wizualizacji danych przeszukiwania dzienników](../learn/tutorial-logs-dashboards.md)
+

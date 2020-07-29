@@ -1,6 +1,6 @@
 ---
-title: Osobiste przypisanie pulpitu wirtualnego systemu Windows (2019) — Azure
-description: Dowiedz się, jak skonfigurować typ przypisania dla pulpitu wirtualnego systemu Windows (jesień 2019 Release) dla puli hostów komputerów osobistych.
+title: Osobisty typ przypisania pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Jak skonfigurować typ przypisania dla puli hostów pulpitu wirtualnego systemu Windows (klasyczny).
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 036e144922fcb49c486813b8668d944dd771536e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087190"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271046"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type-fall-2019-release"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego (jesień 2019 wydania)
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego dla pulpitu wirtualnego systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../configure-host-pool-personal-desktop-assignment-type.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../configure-host-pool-personal-desktop-assignment-type.md).
 
 Można skonfigurować typ przypisania puli hostów osobistych, aby dostosować środowisko pulpitu wirtualnego systemu Windows w celu lepszego dopasowania do Twoich potrzeb. W tym temacie pokazano, jak skonfigurować automatyczne lub bezpośrednie przypisanie dla użytkowników.
 

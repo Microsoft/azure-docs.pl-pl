@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć monitorowanie dla nowego klastra usłu
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320327"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Włącz monitorowanie nowego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Aby włączyć monitorowanie nowego klastra AKS utworzonego za pomocą interfejs
 
 ## <a name="enable-using-terraform"></a>Włącz korzystanie z Terraform
 
-Jeśli [wdrażasz nowy klaster AKS przy użyciu Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), określisz argumenty wymagane w profilu, [Aby utworzyć obszar roboczy log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) , jeśli nie wybrano, aby określić istniejący. 
+Jeśli [wdrażasz nowy klaster AKS przy użyciu Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), określisz argumenty wymagane w profilu, [Aby utworzyć obszar roboczy log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) , jeśli nie wybrano, aby określić istniejący. 
 
 >[!NOTE]
 >Jeśli zdecydujesz się na korzystanie z Terraform, musisz mieć uruchomiony program Terraform platformy Azure RM w wersji 1.17.0 lub nowszej.
@@ -118,3 +118,4 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JS
 * Jeśli wystąpią problemy podczas próby dołączenia rozwiązania, zapoznaj się z [przewodnikiem rozwiązywania problemów](container-insights-troubleshoot.md)
 
 * Po włączeniu monitorowania w celu zbierania danych o kondycji i użyciu zasobów klastra AKS oraz obciążeń na nich uruchomionych należy dowiedzieć się, [jak używać](container-insights-analyze.md) Azure monitor do kontenerów.
+

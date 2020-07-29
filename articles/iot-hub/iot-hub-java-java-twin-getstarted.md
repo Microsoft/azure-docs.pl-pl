@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.custom: mqtt
-ms.openlocfilehash: 3ea2f0eec12d756a898f1761f6b22fd034c1bc3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-java
+ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732454"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327603"
 ---
 # <a name="get-started-with-device-twins-java"></a>Rozpoczynanie pracy z usługą Device bliźniaczych reprezentacji (Java)
 

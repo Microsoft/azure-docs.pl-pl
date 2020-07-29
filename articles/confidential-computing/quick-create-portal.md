@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85830472"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281076"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w Azure Portal
 
@@ -84,7 +84,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
    * **Typ uwierzytelniania**: wybierz opcję **publiczny klucz SSH** , jeśli tworzysz maszynę wirtualną z systemem Linux. 
 
         > [!NOTE]
-        > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Nazwa użytkownika**: Wprowadź nazwę administratora maszyny wirtualnej.
 
@@ -109,7 +109,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
     * **Konfiguracja gościa**
     * **Tagi**
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
@@ -189,7 +189,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 
 Zapoznaj się z tematem [Korzystanie z zestawu SDK open enklawy](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) w witrynie GitHub w celu sprawdzenia i użycia zainstalowanego zestawu SDK.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. 
 

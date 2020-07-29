@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319273"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,7 +128,7 @@ Wybierz przycisk **Dalej**, aby kontynuować.
 
 1. Możesz również dodać Krótki opis zadania bezpośrednio w formularzu.  **Samouczek typu etykieta — koty & psy.**
 
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Jeśli używasz obszaru roboczego przedsiębiorstwa, zobaczysz sekcję **zatytułowaną etykieta z asystą** .  Pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
 
@@ -146,9 +146,7 @@ W tej części samouczka przełączysz role z *administratorem projektu* na *Lab
 
 1. W programie [Machine Learning Studio](https://ml.azure.com)wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
 
-1. Wybierz nazwę projektu z listy.
-
-1. Poniżej nazwy projektu wybierz pozycję **dane etykiet**.
+1. Wybierz **łącze etykieta** dla projektu.
 
 1. Przeczytaj instrukcje, a następnie wybierz pozycję **zadania**.
 
@@ -202,7 +200,7 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 
 1. Po pomyślnym wyeksportowaniu etykiet wybierz pozycję **zestawy danych** po lewej stronie, aby wyświetlić wyniki.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]

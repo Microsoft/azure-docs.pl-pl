@@ -9,21 +9,22 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 337ecc6069211942a809f2bf3d793c5bccc08387
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77598837"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277234"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Poprawa ochrony przed zagrożeniami przez integrację operacji zabezpieczeń z Microsoft Graph & zabezpieczeń Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i łącznika [zabezpieczeń Microsoft Graph](https://docs.microsoft.com/graph/security-concept-overview) można ulepszyć, w jaki sposób aplikacja wykrywa, chroni i reaguje na zagrożenia przez Tworzenie zautomatyzowanych przepływów pracy na potrzeby integracji produktów, usług i partnerów zabezpieczeń firmy Microsoft. Można na przykład utworzyć [Azure Security Center elementy PlayBook](../security-center/security-center-playbooks.md) , które monitorują Microsoft Graph jednostki zabezpieczeń i zarządzają nimi, na przykład alerty. Poniżej przedstawiono niektóre scenariusze, które są obsługiwane przez łącznik zabezpieczeń Microsoft Graph:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i łącznika [zabezpieczeń Microsoft Graph](/graph/security-concept-overview) można ulepszyć, w jaki sposób aplikacja wykrywa, chroni i reaguje na zagrożenia przez Tworzenie zautomatyzowanych przepływów pracy na potrzeby integracji produktów, usług i partnerów zabezpieczeń firmy Microsoft. Można na przykład utworzyć [Azure Security Center elementy PlayBook](../security-center/workflow-automation.md) , które monitorują Microsoft Graph jednostki zabezpieczeń i zarządzają nimi, na przykład alerty. Poniżej przedstawiono niektóre scenariusze, które są obsługiwane przez łącznik zabezpieczeń Microsoft Graph:
 
 * Otrzymuj alerty na podstawie zapytań lub identyfikatora alertu. Możesz na przykład uzyskać listę zawierającą alerty o wysokiej ważności.
 
 * Aktualizowanie alertów. Można na przykład zaktualizować przypisania alertów, dodać komentarze do alertów lub alerty tagów.
 
-* Monitoruj, kiedy alerty są tworzone lub zmieniane, tworząc [subskrypcje alertów (webhook)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Monitoruj, kiedy alerty są tworzone lub zmieniane, tworząc [subskrypcje alertów (webhook)](/graph/api/resources/webhooks).
 
 * Zarządzaj subskrypcjami alertów. Możesz na przykład uzyskać aktywne subskrypcje, zwiększyć czas wygaśnięcia subskrypcji lub usunąć subskrypcje.
 
@@ -92,7 +93,7 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
    | Właściwość | Właściwość (JSON) | Wymagany | Typ | Opis |
    |----------|-----------------|----------|------|-------------|
-   | **Dat** | `interval` | Tak | Integer | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
+   | **Interwał** | `interval` | Tak | Integer | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
    | **Częstotliwość** | `frequency` | Tak | String | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
    | **Strefa czasowa** | `timeZone` | Nie | String | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
    | **Godzina rozpoczęcia** | `startTime` | Nie | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p><p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>-lub- <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
@@ -108,52 +109,52 @@ Poniżej przedstawiono bardziej szczegółowe informacje dotyczące korzystania 
 
 ### <a name="manage-alerts"></a>Zarządzanie alertami
 
-Aby odfiltrować, posortować lub pobrać najnowsze wyniki, podaj *tylko* [parametry zapytania ODATA obsługiwane przez Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Nie określaj* kompletnego podstawowego adresu URL lub akcji http, na przykład, `https://graph.microsoft.com/v1.0/security/alerts` lub `GET` `PATCH` operacji. Oto przykład, w którym przedstawiono parametry akcji **Pobierz alerty** , gdy chcesz uzyskać listę z alertami o wysokiej ważności:
+Aby odfiltrować, posortować lub pobrać najnowsze wyniki, podaj *tylko* [parametry zapytania ODATA obsługiwane przez Microsoft Graph](/graph/query-parameters). *Nie określaj* kompletnego podstawowego adresu URL lub akcji http, na przykład, `https://graph.microsoft.com/v1.0/security/alerts` lub `GET` `PATCH` operacji. Oto przykład, w którym przedstawiono parametry akcji **Pobierz alerty** , gdy chcesz uzyskać listę z alertami o wysokiej ważności:
 
 `Filter alerts value as Severity eq 'high'`
 
-Aby uzyskać więcej informacji na temat zapytań, których można użyć z tym łącznikiem, zobacz [dokumentację dotyczącą alertów zabezpieczeń Microsoft Graph](https://docs.microsoft.com/graph/api/alert-list). Aby tworzyć udoskonalone środowiska przy użyciu tego łącznika, Dowiedz się więcej o [właściwościach schematu](https://docs.microsoft.com/graph/api/resources/alert) , które obsługuje łącznik.
+Aby uzyskać więcej informacji na temat zapytań, których można użyć z tym łącznikiem, zobacz [dokumentację dotyczącą alertów zabezpieczeń Microsoft Graph](/graph/api/alert-list). Aby tworzyć udoskonalone środowiska przy użyciu tego łącznika, Dowiedz się więcej o [właściwościach schematu](/graph/api/resources/alert) , które obsługuje łącznik.
 
 | Akcja | Opis |
 |--------|-------------|
-| **Pobierz alerty** | Odfiltruj alerty na podstawie co najmniej jednej [właściwości alertu](https://docs.microsoft.com/graph/api/resources/alert), na przykład `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
+| **Pobierz alerty** | Odfiltruj alerty na podstawie co najmniej jednej [właściwości alertu](/graph/api/resources/alert), na przykład `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
 | **Pobierz Alert według identyfikatora** | Pobierz konkretny alert na podstawie identyfikatora alertu. | 
-| **Aktualizowanie alertu** | Aktualizowanie określonego alertu na podstawie identyfikatora alertu. Aby upewnić się, że wymagane i edytowalne właściwości zostały przekazane do żądania, zobacz [edytowalne właściwości alertów](https://docs.microsoft.com/graph/api/alert-update). Na przykład, aby przypisać alert do analityka zabezpieczeń, aby umożliwić badanie, można zaktualizować właściwość **przypisane do** alertu. |
+| **Aktualizowanie alertu** | Aktualizowanie określonego alertu na podstawie identyfikatora alertu. Aby upewnić się, że wymagane i edytowalne właściwości zostały przekazane do żądania, zobacz [edytowalne właściwości alertów](/graph/api/alert-update). Na przykład, aby przypisać alert do analityka zabezpieczeń, aby umożliwić badanie, można zaktualizować właściwość **przypisane do** alertu. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Zarządzanie subskrypcjami alertów
 
-Microsoft Graph obsługuje [*subskrypcje*](https://docs.microsoft.com/graph/api/resources/subscription)lub elementy [*webhook*](https://docs.microsoft.com/graph/api/resources/webhooks). Aby uzyskać, zaktualizować lub usunąć subskrypcje, podaj [parametry zapytania OData obsługiwane przez Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) do konstrukcji Microsoft Graph Entity, a `security/alerts` następnie Dołącz zapytanie OData. *Nie dołączaj* podstawowego adresu URL, na przykład `https://graph.microsoft.com/v1.0` . Zamiast tego należy użyć formatu w tym przykładzie:
+Microsoft Graph obsługuje [*subskrypcje*](/graph/api/resources/subscription)lub elementy [*webhook*](/graph/api/resources/webhooks). Aby uzyskać, zaktualizować lub usunąć subskrypcje, podaj [parametry zapytania OData obsługiwane przez Microsoft Graph](/graph/query-parameters) do konstrukcji Microsoft Graph Entity, a `security/alerts` następnie Dołącz zapytanie OData. *Nie dołączaj* podstawowego adresu URL, na przykład `https://graph.microsoft.com/v1.0` . Zamiast tego należy użyć formatu w tym przykładzie:
 
 `security/alerts?$filter=status eq 'New'`
 
 | Akcja | Opis |
 |--------|-------------|
-| **Tworzenie subskrypcji** | [Utwórz subskrypcję](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) , która powiadamia o wszelkich zmianach. Możesz odfiltrować subskrypcję dla określonych typów alertów. Można na przykład utworzyć subskrypcję, która powiadamia o alertach o wysokiej ważności. |
-| **Pobierz aktywne subskrypcje** | [Uzyskaj niewygasłe subskrypcje](https://docs.microsoft.com/graph/api/subscription-list). | 
-| **Aktualizowanie subskrypcji** | [Zaktualizuj subskrypcję](https://docs.microsoft.com/graph/api/subscription-update) , podając Identyfikator subskrypcji. Na przykład, aby zwiększyć subskrypcję, możesz zaktualizować `expirationDateTime` Właściwość subskrypcji. | 
-| **Usuwanie subskrypcji** | [Usuń subskrypcję](https://docs.microsoft.com/graph/api/subscription-delete) , podając Identyfikator subskrypcji. | 
+| **Tworzenie subskrypcji** | [Utwórz subskrypcję](/graph/api/subscription-post-subscriptions) , która powiadamia o wszelkich zmianach. Możesz odfiltrować subskrypcję dla określonych typów alertów. Można na przykład utworzyć subskrypcję, która powiadamia o alertach o wysokiej ważności. |
+| **Pobierz aktywne subskrypcje** | [Uzyskaj niewygasłe subskrypcje](/graph/api/subscription-list). | 
+| **Aktualizowanie subskrypcji** | [Zaktualizuj subskrypcję](/graph/api/subscription-update) , podając Identyfikator subskrypcji. Na przykład, aby zwiększyć subskrypcję, możesz zaktualizować `expirationDateTime` Właściwość subskrypcji. | 
+| **Usuwanie subskrypcji** | [Usuń subskrypcję](/graph/api/subscription-delete) , podając Identyfikator subskrypcji. | 
 ||| 
 
 ### <a name="manage-threat-intelligence-indicators"></a>Zarządzanie wskaźnikami analizy zagrożeń
 
-Aby odfiltrować, posortować lub pobrać najnowsze wyniki, podaj *tylko* [parametry zapytania ODATA obsługiwane przez Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Nie określaj* kompletnego podstawowego adresu URL lub akcji http, na przykład, `https://graph.microsoft.com/beta/security/tiIndicators` lub `GET` `PATCH` operacji. Oto przykład, w którym przedstawiono parametry akcji **Get tiIndicators** , gdy lista ma `DDoS` Typ zagrożenia:
+Aby odfiltrować, posortować lub pobrać najnowsze wyniki, podaj *tylko* [parametry zapytania ODATA obsługiwane przez Microsoft Graph](/graph/query-parameters). *Nie określaj* kompletnego podstawowego adresu URL lub akcji http, na przykład, `https://graph.microsoft.com/beta/security/tiIndicators` lub `GET` `PATCH` operacji. Oto przykład, w którym przedstawiono parametry akcji **Get tiIndicators** , gdy lista ma `DDoS` Typ zagrożenia:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Aby uzyskać więcej informacji na temat zapytań, których można użyć z tym łącznikiem, zobacz ["opcjonalne parametry zapytania" w dokumentacji referencyjnej dotyczącej analizy zagrożeń Microsoft Graph](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http). Aby utworzyć ulepszone środowiska przy użyciu tego łącznika, Dowiedz się więcej o [wskaźniku analizy zagrożeń właściwości schematu](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) , który obsługuje łącznik.
+Aby uzyskać więcej informacji na temat zapytań, których można użyć z tym łącznikiem, zobacz ["opcjonalne parametry zapytania" w dokumentacji referencyjnej dotyczącej analizy zagrożeń Microsoft Graph](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Aby utworzyć ulepszone środowiska przy użyciu tego łącznika, Dowiedz się więcej o [wskaźniku analizy zagrożeń właściwości schematu](/graph/api/resources/tiindicator?view=graph-rest-beta) , który obsługuje łącznik.
 
 | Akcja | Opis |
 |--------|-------------|
-| **Pobierz wskaźniki analizy zagrożeń** | Pobierz tiIndicators filtrowanie na podstawie jednej lub kilku [Właściwości tiIndicator](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), na przykład`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Pobierz wskaźniki analizy zagrożeń** | Pobierz tiIndicators filtrowanie na podstawie jednej lub kilku [Właściwości tiIndicator](/graph/api/resources/tiindicator?view=graph-rest-beta), na przykład`threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Pobierz wskaźnik analizy zagrożeń według identyfikatora** | Pobierz konkretny tiIndicator w oparciu o identyfikator tiIndicator. | 
-| **Utwórz wskaźnik analizy zagrożeń** | Utwórz nowy tiIndicator przez zaksięgowanie do kolekcji tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do utworzenia tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
-| **Prześlij wiele wskaźników analizy zagrożeń** | Utwórz wiele nowych tiIndicators przez zaksięgowanie kolekcji tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [wymaganymi właściwościami przesyłania wielu tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
-| **Aktualizuj wskaźnik analizy zagrożeń** | Zaktualizuj określony tiIndicator w oparciu o identyfikator tiIndicator. Aby upewnić się, że wymagane i edytowalne właściwości zostały przekazane do żądania, zobacz [edytowalne właściwości dla tiIndicator](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). Na przykład aby zaktualizować akcję, która ma zostać zastosowana, jeśli wskaźnik jest dopasowany do narzędzia Security targetProduct, można zaktualizować właściwość **akcji** tiIndicator. |
-| **Aktualizowanie wielu wskaźników analizy zagrożeń** | Zaktualizuj wiele tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [wymaganymi właściwościami dotyczącymi aktualizowania wielu tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
+| **Utwórz wskaźnik analizy zagrożeń** | Utwórz nowy tiIndicator przez zaksięgowanie do kolekcji tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do utworzenia tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
+| **Prześlij wiele wskaźników analizy zagrożeń** | Utwórz wiele nowych tiIndicators przez zaksięgowanie kolekcji tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [wymaganymi właściwościami przesyłania wielu tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
+| **Aktualizuj wskaźnik analizy zagrożeń** | Zaktualizuj określony tiIndicator w oparciu o identyfikator tiIndicator. Aby upewnić się, że wymagane i edytowalne właściwości zostały przekazane do żądania, zobacz [edytowalne właściwości dla tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Na przykład aby zaktualizować akcję, która ma zostać zastosowana, jeśli wskaźnik jest dopasowany do narzędzia Security targetProduct, można zaktualizować właściwość **akcji** tiIndicator. |
+| **Aktualizowanie wielu wskaźników analizy zagrożeń** | Zaktualizuj wiele tiIndicators. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [wymaganymi właściwościami dotyczącymi aktualizowania wielu tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
 | **Usuń wskaźnik analizy zagrożeń według identyfikatora** | Usuń określony tiIndicator w oparciu o identyfikator tiIndicator. |
-| **Usuń wiele wskaźników analizy zagrożeń według identyfikatorów** | Usuń wiele tiIndicatorsów według ich identyfikatorów. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do usunięcia wielu tiIndicators według identyfikatorów](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
-| **Usuń wiele wskaźników analizy zagrożeń według identyfikatorów zewnętrznych** | Usuń wiele tiIndicators przez identyfikatory zewnętrzne. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do usunięcia wielu tiIndicators według identyfikatorów zewnętrznych](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http). |
+| **Usuń wiele wskaźników analizy zagrożeń według identyfikatorów** | Usuń wiele tiIndicatorsów według ich identyfikatorów. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do usunięcia wielu tiIndicators według identyfikatorów](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
+| **Usuń wiele wskaźników analizy zagrożeń według identyfikatorów zewnętrznych** | Usuń wiele tiIndicators przez identyfikatory zewnętrzne. Aby upewnić się, że w żądaniu zostały przekazane wymagane właściwości, zapoznaj się z [właściwościami wymaganymi do usunięcia wielu tiIndicators według identyfikatorów zewnętrznych](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
 |||
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
@@ -163,3 +164,4 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

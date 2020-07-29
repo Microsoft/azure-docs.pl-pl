@@ -2,13 +2,13 @@
 title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji logicznej
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056926"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323880"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -438,7 +438,7 @@ Aby przechowywać wiele wartości w jednym tagu, zastosuj ciąg JSON reprezentuj
 
 ### <a name="apply-tags-from-resource-group"></a>Zastosuj Tagi z grupy zasobów
 
-Aby zastosować Tagi z grupy zasobów do zasobu, użyj funkcji [resources](../templates/template-functions-resource.md#resourcegroup) . Podczas pobierania wartości tagu Użyj `tags[tag-name]` składni zamiast `tags.tag-name` składni, ponieważ niektóre znaki nie są prawidłowo analizowane w notacji kropkowej.
+Aby zastosować Tagi z grupy zasobów do zasobu, użyj funkcji [resourceing ()](../templates/template-functions-resource.md#resourcegroup) . Podczas pobierania wartości tagu Użyj `tags[tag-name]` składni zamiast `tags.tag-name` składni, ponieważ niektóre znaki nie są prawidłowo analizowane w notacji kropkowej.
 
 ```json
 {
@@ -578,7 +578,7 @@ Tagi zastosowane do grupy zasobów lub subskrypcji nie są dziedziczone przez za
 
 Tagów można użyć do grupowania danych dotyczących rozliczeń. Na przykład jeśli jest uruchomionych wiele maszyn wirtualnych różnych organizacji, możesz użyć tagów do grupowania użycia według centrum kosztu. Tagi umożliwiają również kategoryzowanie kosztów według środowiska uruchomieniowego, na przykład na potrzeby rozliczania użycia maszyn uruchomionych w środowisku produkcyjnym.
 
-Informacje o tagach można uzyskać za pomocą [interfejsów API użycia zasobów platformy Azure i RateCard](../../cost-management-billing/manage/usage-rate-card-overview.md) lub pliku z wartościami rozdzielanymi przecinkami (CSV). Plik użycia można pobrać z [centrum konta platformy Azure](https://account.azure.com/Subscriptions) lub Azure Portal. Aby uzyskać więcej informacji, zobacz [pobieranie lub wyświetlanie faktury rozliczeń na platformie Azure oraz danych dziennego użycia](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Podczas pobierania pliku użycia z Centrum konta platformy Azure wybierz pozycję **wersja 2**. W przypadku usług, które obsługują Tagi z rozliczeniami, Tagi są wyświetlane w kolumnie **Tagi** .
+Informacje o tagach można uzyskać za pomocą [interfejsów API kart użycia zasobów platformy Azure i karty rate](../../cost-management-billing/manage/usage-rate-card-overview.md) lub pliku z wartościami rozdzielanymi przecinkami (CSV). Plik użycia można pobrać z [centrum konta platformy Azure](https://account.azure.com/Subscriptions) lub Azure Portal. Aby uzyskać więcej informacji, zobacz [pobieranie lub wyświetlanie faktury rozliczeń na platformie Azure oraz danych dziennego użycia](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Podczas pobierania pliku użycia z Centrum konta platformy Azure wybierz pozycję **wersja 2**. W przypadku usług, które obsługują Tagi z rozliczeniami, Tagi są wyświetlane w kolumnie **Tagi** .
 
 Aby uzyskać informacje na temat operacji interfejsu API REST, zobacz [Dokumentacja interfejsu API REST rozliczeń platformy Azure](/rest/api/billing/).
 
@@ -596,6 +596,8 @@ Tagi mają następujące ograniczenia:
    > Obecnie strefy Azure DNS i usługi Traffic Manager również nie zezwalają na używanie spacji w tagu.
    >
    > Drzwi frontonu platformy Azure nie obsługują używania `#` w nazwie tagu.
+   >
+   > Azure Automation i Azure CDN obsługują tylko 15 tagów w zasobach.
 
 ## <a name="next-steps"></a>Następne kroki
 

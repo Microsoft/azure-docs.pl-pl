@@ -7,13 +7,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 3/5/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 37c832e3b6d1430da0b45558c9632f0486a7233b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79216757"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327926"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ze sprężyną Java
 
@@ -27,7 +28,7 @@ Alternatywnie można użyć `spring-cloud-azure-appconfiguration-config-web` pak
 
 Aby użyć automatycznego odświeżania, Zacznij od aplikacji z rozruchem sprężyny korzystającej z konfiguracji aplikacji, takiej jak utworzona przez Ciebie aplikacja, postępując zgodnie z [przewodnikiem Szybki Start dla konfiguracji aplikacji](quickstart-java-spring-app.md).
 
-Następnie otwórz plik *pliku pom. XML* w edytorze tekstów i Dodaj `<dependency>` do. `spring-cloud-azure-appconfiguration-config-web`
+Następnie otwórz plik *pom.xml* w edytorze tekstów i Dodaj `<dependency>` do `spring-cloud-azure-appconfiguration-config-web` .
 
 **Chmura Wiosenna 1.1. x**
 

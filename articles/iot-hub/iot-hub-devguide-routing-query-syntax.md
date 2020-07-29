@@ -7,11 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322979"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
 
@@ -65,7 +69,7 @@ Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Przykład: 
+Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Na przykład: 
 
 Aby wykonać zapytanie o Właściwość system contentEncoding 
 

@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073575"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327076"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
 
 Application Insights metryki oparte na dzienniku umożliwiają analizowanie kondycji monitorowanych aplikacji, tworzenie zaawansowanych pulpitów nawigacyjnych i Konfigurowanie alertów. Istnieją dwa rodzaje metryk:
 
-* [Metryki oparte na dziennikach](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) są tłumaczone na [zapytania Kusto](/azure/kusto/query/) z przechowywanych zdarzeń.
-* [Metryki standardowe](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) są przechowywane jako szeregi czasowe zagregowane.
+* [Metryki oparte na dziennikach](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) są tłumaczone na [zapytania Kusto](/azure/kusto/query/) z przechowywanych zdarzeń.
+* [Metryki standardowe](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) są przechowywane jako szeregi czasowe zagregowane.
 
 Ze względu na to, że *metryki standardowe* są wstępnie agregowane podczas zbierania, mają lepszą wydajność w czasie wykonywania zapytania. Zapewnia to lepszy wybór dla pulpitów nawigacyjnych i alertów w czasie rzeczywistym. *Metryki oparte na dzienniku* mają więcej wymiarów, co sprawia, że jest to opcja najwyższej jakości do analizy danych i diagnostyki ad hoc. Użyj [selektora przestrzeni nazw](metrics-getting-started.md#create-your-first-metric-chart) , aby przełączać się między metrykami opartymi na dzienniku i standardowym w [Eksploratorze metryk](metrics-getting-started.md).
 
@@ -38,11 +38,11 @@ Podczas wykreślania tej samej metryki w [Eksploratorze metryk](metrics-getting-
 - Wybrany wymiar **podzielony wykres** jest tłumaczony na dodatkową właściwość podsumowującą. Na przykład w przypadku dzielenia wykresu według *lokalizacji*i kreślenia przy użyciu 5-minutowego stopnia szczegółowości zostanie podsumowana klauzula *podsumowania* *... według bin (Sygnatura czasowa, 5 m), lokalizacja*.
 
 > [!NOTE]
-> Jeśli dopiero zaczynasz pracę z językiem zapytań Kusto, możesz zacząć od skopiowania i wklejenia instrukcji Kusto do okienka zapytania Log Analytics bez wprowadzania żadnych modyfikacji. Kliknij przycisk **Uruchom** , aby wyświetlić wykres podstawowy. Po rozpoczęciu zrozumienia składni języka zapytań można zacząć wprowadzać małe modyfikacje i zobaczyć wpływ zmiany. Eksplorowanie własnych danych jest doskonałym sposobem na rozpoczęcie realizacji pełnej mocy [log Analytics](../../azure-monitor/log-query/get-started-portal.md) i [Azure monitor](../../azure-monitor/overview.md).
+> Jeśli dopiero zaczynasz pracę z językiem zapytań Kusto, możesz zacząć od skopiowania i wklejenia instrukcji Kusto do okienka zapytania Log Analytics bez wprowadzania żadnych modyfikacji. Kliknij przycisk **Uruchom** , aby wyświetlić wykres podstawowy. Po rozpoczęciu zrozumienia składni języka zapytań można zacząć wprowadzać małe modyfikacje i zobaczyć wpływ zmiany. Eksplorowanie własnych danych jest doskonałym sposobem na rozpoczęcie realizacji pełnej mocy [log Analytics](../log-query/get-started-portal.md) i [Azure monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Metryki dostępności
 
-Metryki w kategorii dostępność umożliwiają sprawdzenie kondycji aplikacji sieci Web zaobserwowanej z punktów na całym świecie. [Skonfiguruj testy dostępności,](../../azure-monitor/app/monitor-web-app-availability.md) aby rozpocząć korzystanie z dowolnych metryk z tej kategorii.
+Metryki w kategorii dostępność umożliwiają sprawdzenie kondycji aplikacji sieci Web zaobserwowanej z punktów na całym świecie. [Skonfiguruj testy dostępności,](../app/monitor-web-app-availability.md) aby rozpocząć korzystanie z dowolnych metryk z tej kategorii.
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>Dostępność (availabilityResults/availabilityPercentage)
 Metryka *dostępności* przedstawia wartość procentową przebiegów testów sieci Web, które nie wykryły żadnych problemów. Najmniejsza możliwa wartość to 0, co oznacza, że wszystkie uruchomienia testu sieci Web nie powiodły się. Wartość 100 oznacza, że wszystkie uruchomienia testu sieci Web przeszły kryteria walidacji.
@@ -59,7 +59,7 @@ availabilityResults
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>Czas trwania testu dostępności (availabilityResults/Duration)
 
-Metryka *czas trwania testu dostępności* pokazuje, ile czasu zajęło uruchomienie testu sieci Web. W przypadku [wieloetapowych testów sieci Web](../../azure-monitor/app/availability-multistep.md)Metryka wskazuje całkowity czas wykonywania wszystkich kroków.
+Metryka *czas trwania testu dostępności* pokazuje, ile czasu zajęło uruchomienie testu sieci Web. W przypadku [wieloetapowych testów sieci Web](../app/availability-multistep.md)Metryka wskazuje całkowity czas wykonywania wszystkich kroków.
 
 |Jednostka miary|Obsługiwane agregacje|Obsługiwane wymiary|
 |---|---|---|---|---|---|
@@ -92,7 +92,7 @@ availabilityResults
 Metryki przeglądarki są zbierane przez zestaw Application Insights JavaScript SDK z rzeczywistych przeglądarek użytkowników końcowych. Zapewniają doskonałe informacje o doświadczeniu użytkowników w Twojej aplikacji sieci Web. Metryki przeglądarki zazwyczaj nie są próbkowane, co oznacza, że zapewniają większą precyzję numerów użycia w porównaniu z metrykami po stronie serwera, które mogą być pochylone przez próbkowanie.
 
 > [!NOTE]
-> Aby zbierać metryki przeglądarki, aplikacja musi być Instrumentacja przy użyciu [zestawu SDK języka JavaScript Application Insights](../../azure-monitor/app/javascript.md).
+> Aby zbierać metryki przeglądarki, aplikacja musi być Instrumentacja przy użyciu [zestawu SDK języka JavaScript Application Insights](../app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Czas ładowania strony w przeglądarce (browserTimings/totalDuration)
 
@@ -210,7 +210,7 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Wyjątki (wyjątki/liczba)
 
-Za każdym razem, gdy rejestrujesz wyjątek do Application Insights, istnieje wywołanie [metody trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) zestawu SDK. Metryka wyjątków pokazuje liczbę zarejestrowanych wyjątków.
+Za każdym razem, gdy rejestrujesz wyjątek do Application Insights, istnieje wywołanie [metody trackexception ()](../app/api-custom-events-metrics.md#trackexception) zestawu SDK. Metryka wyjątków pokazuje liczbę zarejestrowanych wyjątków.
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|Uwagi|
 |---|---|---|---|
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Nieudane żądania (żądania/niepowodzenie)
 
-Liczba śledzonych żądań serwera, które zostały oznaczone jako *zakończone niepowodzeniem*. Domyślnie zestaw SDK Application Insights automatycznie oznacza każde żądanie serwera, które zwróciło kod odpowiedzi HTTP 5xx lub 4xx jako żądanie zakończone niepowodzeniem. Tę logikę można dostosować, modyfikując właściwość *Success* elementu telemetrii żądania w [niestandardowym inicjatorze telemetrii](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Liczba śledzonych żądań serwera, które zostały oznaczone jako *zakończone niepowodzeniem*. Domyślnie zestaw SDK Application Insights automatycznie oznacza każde żądanie serwera, które zwróciło kod odpowiedzi HTTP 5xx lub 4xx jako żądanie zakończone niepowodzeniem. Tę logikę można dostosować, modyfikując właściwość *Success* elementu telemetrii żądania w [niestandardowym inicjatorze telemetrii](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|Uwagi|
 |---|---|---|---|
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>Liczniki wydajności
 
-Użyj metryk w kategorii **liczniki wydajności** , aby uzyskać dostęp do [liczników wydajności systemu zbieranych przez Application Insights](../../azure-monitor/app/performance-counters.md).
+Użyj metryk w kategorii **liczniki wydajności** , aby uzyskać dostęp do [liczników wydajności systemu zbieranych przez Application Insights](../app/performance-counters.md).
 
 ### <a name="available-memory-performancecountersavailablememory"></a>Dostępna pamięć (liczniki wydajności/availableMemory)
 
@@ -492,3 +492,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
+

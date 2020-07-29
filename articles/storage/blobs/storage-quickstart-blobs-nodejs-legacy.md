@@ -1,28 +1,31 @@
 ---
 title: 'Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v10 dla języka JavaScript'
-description: Tworzenie, przekazywanie i usuwanie obiektów blob i kontenerów w programie Node. js za pomocą biblioteki klienta usługi Azure Storage v10 dla języka JavaScript
+description: Tworzenie, przekazywanie i usuwanie obiektów blob i kontenerów w Node.js przy użyciu biblioteki klienta usługi Azure Storage v10 dla języka JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282028"
 ---
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK v10 języka JavaScript w programie Node. js
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript v10 w Node.js
 
-W tym przewodniku szybki start dowiesz się, jak zarządzać obiektami BLOB za pomocą środowiska Node. js. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Będziesz ładować, pobierać, wyświetlać i usuwać obiekty blob i zarządzać kontenerami.
+W tym przewodniku szybki start nauczysz się zarządzać obiektami BLOB przy użyciu Node.js. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Będziesz ładować, pobierać, wyświetlać i usuwać obiekty blob i zarządzać kontenerami.
+
+> [!NOTE]
+> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta usługi Azure Blob Storage. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka JavaScript w Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Konto usługi Azure Storage. [Utwórz konto magazynu](../common/storage-account-create.md).
-- [Node. js](https://nodejs.org/en/download/).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
@@ -408,5 +411,5 @@ Wszystkie dane zapisane na koncie magazynu są automatycznie usuwane po zakończ
 W tym przewodniku Szybki start pokazano, jak zarządzać obiektami blob i kontenerami w usłudze Azure Blob Storage przy użyciu środowiska Node.js. Aby dowiedzieć się więcej na temat pracy z tym zestawem SDK, zapoznaj się z repozytorium GitHub.
 
 > [!div class="nextstepaction"]
-> [Azure Storage v10 SDK dla repozytorium](https://github.com/Azure/azure-storage-js)
-> JavaScript[Dokumentacja interfejsu API JavaScript usługi Azure Storage](/javascript/api/overview/azure/storage-overview)
+> [Azure Storage v10 SDK dla repozytorium JavaScript](https://github.com/Azure/azure-storage-js) 
+>  [Dokumentacja interfejsu API JavaScript usługi Azure Storage](/javascript/api/overview/azure/storage-overview)

@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945447"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321755"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -16,15 +16,32 @@ W miarę dojrzewania organizacji może być konieczne zdefiniowanie i przypisani
 
 ## <a name="supported-resources"></a>Obsługiwane zasoby
 
-Na poziomie dzierżawy można wdrożyć następujące typy zasobów:
+Nie wszystkie typy zasobów można wdrożyć na poziomie dzierżawy. W tej sekcji przedstawiono typy zasobów, które są obsługiwane.
 
-* [wdrożenia](/azure/templates/microsoft.resources/deployments) — dla szablonów zagnieżdżonych wdrażanych w ramach grup lub subskrypcji zarządzania.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+W przypadku zasad platformy Azure Użyj:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+W przypadku kontroli dostępu opartej na rolach należy użyć:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+W przypadku szablonów zagnieżdżonych wdrażanych w grupach zarządzania, subskrypcjach lub grupach zasobów należy użyć:
+
+* [komputerów](/azure/templates/microsoft.resources/deployments)
+
+Aby utworzyć grupy zarządzania, należy użyć:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+Aby zarządzać kosztami, użyj:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [wskazówek](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Schemat
 
@@ -94,6 +111,56 @@ Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa d
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+Podczas wdrażania w dzierżawie można kierować do dzierżawców lub grup zarządzania, subskrypcji i grup zasobów w dzierżawie. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 
 W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotyczące korzystania z funkcji szablonu:
@@ -141,7 +208,7 @@ W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotycząc
 }
 ```
 
-## <a name="assign-role"></a>Przypisz rolę
+## <a name="assign-role"></a>Przypisywanie roli
 
 [Poniższy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) przypisuje rolę w zakresie dzierżawy.
 

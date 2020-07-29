@@ -1,6 +1,6 @@
 ---
 title: Praca kontenerów w sieci przy użyciu usługi Azure Virtual Network | Microsoft Docs
-description: Dowiedz się, jak umożliwić kontenerom korzystanie z usługi Azure Virtual Network.
+description: Dowiedz się więcej o dodatku Azure Virtual Network Container Network Interface (CNI) i sposobach włączania kontenerów do korzystania z usługi Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b2a0a0527ffaedacbabcf19435fbc1772b632816
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd86b2ec803b2327d3daa2d4274f13328fec8c27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707501"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283218"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Umożliwianie kontenerom korzystania z możliwości usługi Azure Virtual Network
 

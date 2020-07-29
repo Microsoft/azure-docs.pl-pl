@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253345"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275483"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -84,7 +85,7 @@ Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozu
 
 1. Przejdź do **Azure Portal**  >  **Azure Active Directory**  >  **logowania**.
 1. Dodaj kolumnę aplikacji klienckiej, jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny**  >  **aplikacja kliencka**.
-1. **Dodaj filtry**  >  **Aplikacja kliencka** > zaznacz wszystkie starsze protokoły uwierzytelniania i kliknij przycisk **Zastosuj**.
+1. **Dodaj filtry**  >  **Aplikacja kliencka** > wybrać wszystkie starsze protokoły uwierzytelniania. Wybierz poza oknem dialogowym filtrowania blox, aby zastosować wybrane opcje i zamknąć okno dialogowe.
 
 Filtrowanie będzie zawierać tylko próby logowania, które zostały wykonane przez starsze protokoły uwierzytelniania. Kliknięcie każdej próby logowania spowoduje wyświetlenie dodatkowych szczegółów. Pole **aplikacji klienckiej** na karcie **Informacje podstawowe** wskazuje, który z starszych wersji protokołu uwierzytelniania był używany.
 

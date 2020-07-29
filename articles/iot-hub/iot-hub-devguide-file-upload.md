@@ -8,12 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.custom: mqtt
-ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: c80823513dd65d68d74be62ca1194f843623d2dc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323030"
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików za pomocą usługi IoT Hub
 

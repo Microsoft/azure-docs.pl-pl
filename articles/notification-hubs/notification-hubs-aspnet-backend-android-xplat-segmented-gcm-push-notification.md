@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e4517adb0e8fb623864076b6ab2ffde9f92698d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68f10b02cec45863bc5dbdbc322adbfbdfbe38f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022246"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323982"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych urządzeń z systemem Android przy użyciu Google Cloud Messaging (przestarzałe)
 

@@ -8,11 +8,14 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
-ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327467"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Łączenie Raspberry Pi z platformą Azure IoT Hub (C)
 
@@ -44,9 +47,9 @@ Połącz Raspberry Pi z tworzonym Centrum IoT. Następnie uruchom przykładową 
 
 * Jak wysyłać dane czujnika do centrum IoT Hub.
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
-![Co jest potrzebne](./media/iot-hub-raspberry-pi-kit-c-get-started/0-starter-kit.png)
+![Potrzebne elementy](./media/iot-hub-raspberry-pi-kit-c-get-started/0-starter-kit.png)
 
 * Tablica Raspberry Pi 2 lub Raspberry Pi 3.
 

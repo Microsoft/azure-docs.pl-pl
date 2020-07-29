@@ -4,21 +4,21 @@ description: Dowiedz się więcej o wymaganiach technicznych i konfiguracyjnych,
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101175"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324645"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
 
 W tym artykule opisano wymagania, które muszą spełniać zasoby techniczne modułu brzegowego Internet rzeczy (IoT) przed opublikowaniem w witrynie Azure Marketplace.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Moduł IoT Edge jest kontenerem zgodnym z platformą Docker, który działa na urządzeniu IoT Edge.
 
@@ -64,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 
@@ -101,7 +101,7 @@ W celu spełnienia tych oczekiwań klientów i ich opublikowania w portalu Marke
 > [!NOTE]
 > Opcjonalnie przechowywanie wersji może obejmować Tagi "wersja krocząca", takie jak 2,0 i 1,0. Obsługuje to jednocześnie obsługę wielu głównych wersji.
 
-### <a name="telemetry"></a>Telemetria
+### <a name="telemetry"></a>Telemetry
 
 Moduły korzystające z zestawu SDK modułu IoT muszą ustawić unikatowy identyfikator modułu na PublisherId. OfferId. identyfikatora skuId na potrzeby telemetrii. Unikatowy identyfikator ułatwia witrynie Azure Marketplace zidentyfikowanie liczby wystąpień modułów, które są uruchomione.
 

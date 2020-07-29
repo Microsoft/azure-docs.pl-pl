@@ -1,6 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie eksperymentu do nauki o danych'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Szybki Start: Tworzenie eksperymentu nauki o danych — Azure'
 description: Ten przewodnik Szybki start z dziedziny uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący nauki o danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965148"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282555"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Szybki Start: Tworzenie pierwszego eksperymentu do nauki o danych w Azure Machine Learning Studio (klasyczny)
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Szybki Start: Tworzenie pierwszego eksperymentu do nauki o danych w Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -31,7 +33,7 @@ W tym przewodniku Szybki start obowiązuje domyślny przepływ pracy dla ekspery
     - [Pobieranie danych]
     - [Przygotowywanie danych]
     - [Definiowanie funkcji]
-1. **Uczenie modelu**
+1. **Szkolenie modelu**
     - [Wybieranie i stosowanie algorytmu]
 1. **Generowanie wyników i testowanie modelu**
     - [Przewidywanie nowych cen samochodów]
@@ -231,7 +233,7 @@ Wyświetlane są następujące statystyki dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsze wartości błędów wskazują na ściślejsze dopasowanie prognoz do rzeczywistych wartości. W przypadku **współczynnika determinacji** prognozy są tym lepsze, im jego wartość jest bliższa jedności (1,0).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

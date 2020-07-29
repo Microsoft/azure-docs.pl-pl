@@ -1,6 +1,5 @@
 ---
-title: Co to jest ML Studio (wersja klasyczna)
-titleSuffix: Azure
+title: Co to jest ML Studio (klasyczny) — Azure
 description: Azure Machine Learning Studio (klasyczny) to narzędzie do przeciągania i upuszczania umożliwiające szybkie tworzenie modeli z gotowej do użycia biblioteki algorytmów i modułów.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b0e09cfe855e017c297cbad1667eef81726d3da
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371967"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326209"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Co to jest Machine Learning Studio (klasyczny)?
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -30,7 +31,7 @@ Machine Learning Studio (klasyczny) to miejsce, w którym nauka danych, Analiza 
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Aby opracować model analizy predykcyjnej, zazwyczaj używane są dane z jednego lub większej liczby źródeł, przekształcania i analizowania tych danych za pośrednictwem różnych funkcji manipulowania danymi i funkcje statystyczne oraz generowanie zestawu wyników. Tworzenie modelu w ten sposób jest procesem iteracyjnym. Podczas modyfikowania różnych funkcji i ich parametrów wyniki stają się zbieżne, aż do uzyskania wyuczonego, skutecznego modelu.
+Aby opracować model analizy predykcyjnej, zazwyczaj używane są dane z jednego lub większej liczby źródeł, przekształcania i analizowania tych danych za pośrednictwem różnych funkcji manipulowania danymi i funkcje statystyczne oraz generowanie zestawu wyników. Tworzenie modelu w ten sposób jest procesem iteracyjnym. Podczas modyfikowania różnych funkcji i ich parametrów wyniki stają się zbieżne, aż do uzyskania wytrenowanego, skutecznego modelu.
 
 Azure Machine Learning Studio (klasyczny) oferuje interaktywny, wizualny obszar roboczy, który umożliwia łatwe kompilowanie, testowanie i iterację modelu analizy predykcyjnej. Możesz przeciągać i upuszczać ***zestawy danych*** i ***moduły*** analizy na interaktywną kanwę, łącząc je ze sobą w celu utworzenia ***eksperymentu***, który jest uruchamiany w Machine Learning Studio (klasyczny). W celu wykonania iteracji projektu modelu należy przeprowadzić edycję eksperymentu, zapisując kopię w razie potrzeby, a następnie uruchomić eksperyment ponownie. Gdy nadejdzie odpowiedni moment, można przekształcić ***eksperyment uczenia*** w ***eksperyment predykcyjny***, a następnie opublikować go jako ***usługę sieci Web***, dzięki czemu model będzie dostępny dla innych osób.
 
@@ -41,8 +42,8 @@ Nie jest wymagane programowanie, wizualne łączenie zestawów danych i modułó
 ## <a name="download-the-machine-learning-studio-classic-overview-diagram"></a>Pobierz diagram omówienia Machine Learning Studio (klasyczny)
 Pobierz diagram **omówienia możliwości Microsoft Azure Machine Learning Studio (klasyczny)** i uzyskaj ogólny widok możliwości Machine Learning Studio (klasyczny). Aby mieć ten diagram zawsze w pobliżu, wydrukuj go w rozmiarze tabloidu (11 cali x 17 cali).
 
-**Pobierz diagram tutaj: [Microsoft Azure Machine Learning Studio (klasyczny)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
-![przegląd możliwości Microsoft Azure Machine Learning Studio (klasyczny) Przegląd możliwości](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
+**Pobierz diagram tutaj: [przegląd](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf) ** 
+ ![ możliwości Microsoft Azure Machine Learning Studio (klasyczny) Przegląd możliwości Microsoft Azure Machine Learning Studio (klasyczny)](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 
 ## <a name="components-of-a-studio-classic--experiment"></a>Składniki eksperymentu programu Studio (klasycznego)

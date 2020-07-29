@@ -3,14 +3,14 @@ title: 'Szybki start: uzyskiwanie odpowiedzi z bazy wiedzy — środowisko REST,
 description: W tym samouczku Szybki start opartym na protokole REST i języku Java opisano sposób programowego uzyskiwania odpowiedzi z bazy wiedzy.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: f162276044e63c9deb46a60033ffe9904366f777
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3b193473ea20880c4efcf8747a129680008e3c9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325937"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Szybki Start: uzyskiwanie odpowiedzi na pytanie z bazy wiedzy przy użyciu języka Java
 

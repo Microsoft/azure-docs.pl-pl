@@ -3,21 +3,24 @@ title: 'Szybki Start: korzystanie z usługi Azure Storage v11 dla platformy .NET
 description: Z tego przewodnika Szybki start dowiesz się, jak używać biblioteki klienta usługi Azure Storage dla platformy .NET do tworzenia kolejki i dodawania do niej komunikatów. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 807765aea66561abb5a8764f119d2be4632a56d5
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71700efecfc173392562327f6d150d79d1a9c84f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807560"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292679"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką
 
 W tym przewodniku szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki klienta usługi Azure Storage w wersji 11. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki. 
+
+> [!NOTE]
+> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta usługi Azure queue storage. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Azure queue storage Client Library V12 for .NET](storage-quickstart-queues-dotnet.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -241,7 +244,7 @@ Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
 Console.WriteLine();
 ```
 
-### <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Przykład czyści zasoby utworzone przez usunięcie kolejki. Usunięcie kolejki spowoduje również usunięcie innych znajdujących się w niej komunikatów.
 
@@ -277,6 +280,6 @@ Zobacz dodatkowe zasoby używane podczas tworzenia aplikacji .NET przy użyciu k
 W tym przewodniku Szybki start przedstawiono sposób dodawania komunikatów do kolejki, uzyskiwania wglądu w komunikaty w kolejce oraz usuwania komunikatów z kolejki i przetwarzania ich przy użyciu platformy .NET. 
 
 > [!div class="nextstepaction"]
-> [Communicate between applications with Azure Queue storage (Komunikacja między aplikacjami w usłudze Azure Queue Storage)](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Komunikacja między aplikacjami za pomocą usługi Azure Queue Storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://www.microsoft.com/net/learn/get-started/).

@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 4fbebfe2ec554c7c9c2f85a5657daeeee8dae31a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ecc3c4e97ea533f19e570db21eceb6f759969a8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317947"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (C)
 
@@ -42,7 +43,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 * Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
-* Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+* Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -139,7 +140,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}`
 

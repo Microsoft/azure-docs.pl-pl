@@ -5,21 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327399"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 
-Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron.  Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
+Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron.  W tym artykule opisano szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
+
+> [!NOTE]
+> W przypadku tworzenia oferty SaaS z funkcją transacting upewnij się, że wdrożono integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-apis.md).  Integracja z interfejsami API jest jedynym sposobem zapewnienia poprawnego działania transactu w portalu Marketplace. Należy również upewnić się, że aplikacja używa uwierzytelniania usługi Azure AD z logowaniem jednokrotnym (SSO). Zobacz [oferty usługi Azure AD i transacting SaaS w komercyjnej witrynie Marketplace](../azure-ad-saas.md).
 
 Elementy wymagane do podania lub określenia są wymienione poniżej.  Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami.  Nie musisz już korzystać z tych sekcji w podanej kolejności.
-
->[!Note]
->W przypadku tworzenia oferty SaaS z funkcją transakcyjnej upewnij się, że zaimplementowano integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-apis.md).  Integracja z interfejsami API jest jedynym sposobem zapewnienia poprawnego działania transactu w portalu Marketplace.
 
 | **Element**    | **Przeznaczenie**  |
 | :---------- | :-------------------|
@@ -28,7 +30,7 @@ Elementy wymagane do podania lub określenia są wymienione poniżej.  Niektóre
 | [Strona właściwości](#properties-page) | Zdefiniuj kategorie i branże używane do grupowania oferty na rynkach Marketplace, umowy prawne wspierające Twoją ofertę i wersję aplikacji. |
 | [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych.|
 | [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace.|
-| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  |  Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Zdefiniuj szczegóły techniczne (adres URL strony docelowej, adres URL połączenia elementu webhook, identyfikator dzierżawy usługi Azure AD i identyfikator aplikacji usługi Azure AD), które są używane przez witrynę Marketplace do łączenia się z ofertą.  Te parametry są wymagane do poprawnego zintegrowania z realizacją SaaS oraz z użyciem mierzonych interfejsów API rozliczeń w portalu Marketplace.|
+| [Strona konfiguracji technicznej](#technical-configuration-page)  |  Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Zdefiniuj szczegóły techniczne (adres URL strony docelowej, adres URL połączenia elementu webhook, identyfikator dzierżawy usługi Azure AD i identyfikator aplikacji usługi Azure AD), które są używane przez witrynę Marketplace do łączenia się z ofertą.  Te parametry są wymagane do poprawnego zintegrowania z realizacją SaaS oraz z użyciem mierzonych interfejsów API rozliczeń w portalu Marketplace.|
 | [**Nowy modalny plan**](#plan-identity-modal) | Zbiera informacje o tożsamości planu.  |
 | [Strona aukcji planu](#plan-listing-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły używane do wyświetlania planu w portalu Marketplace.  |
 | [Zaplanuj stronę dostępności & cennika](#plan-pricing--availability-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Gromadzi informacje o cechach biznesowej (modelu cen), odbiorcach i dostępności dla każdego planu (wersji) oferty.  |
@@ -36,10 +38,9 @@ Elementy wymagane do podania lub określenia są wymienione poniżej.  Niektóre
 | Strona konfiguracji technicznej na dysku testowym  | Dostępne tylko wtedy, gdy wybrano opcję zaoferowania dysku testowego dla oferty. Zdefiniuj szczegóły techniczne dla demonstracji (lub "Test Drive"), która umożliwi klientom wypróbowanie oferty przed zatwierdzeniem jej zakupu.  |
 | [Przeglądanie i publikowanie strony](#review-and-publish-page)  | Wybierz zmiany, które chcesz opublikować, zobacz stan poszczególnych stron i podaj uwagi dotyczące zespołu certyfikacji.  |
 
+## <a name="new-offer-modal"></a>Nowa oferta — modalne
 
-## <a name="new-offer-modal"></a>Nowa oferta — modalne 
-
-Pierwsze fragmenty informacji, które należy podać, są IDENTYFIKATORem i aliasem oferty. 
+Pierwsze fragmenty informacji, które należy podać, są IDENTYFIKATORem i aliasem oferty.
 
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
@@ -107,6 +108,9 @@ Na stronie wersji zapoznawczej można określić odbiorców w celu uzyskania dos
 
 Na stronie Konfiguracja techniczna można określić szczegóły techniczne używane przez firmę Microsoft do nawiązania połączenia z ofertą. Ta strona nie jest widoczna dla Ciebie, jeśli zdecydujesz się nie sprzedawać w firmie Microsoft.
 
+> [!NOTE]
+> W przypadku ofert transakcyjnych należy utworzyć stronę docelową, a aplikacja musi używać uwierzytelniania usługi Azure AD z logowaniem jednokrotnym (SSO). Aby uzyskać więcej informacji, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](../azure-ad-saas.md).
+
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
 | Adres URL strony docelowej | Wymagane, jeśli sprzedajesz przez firmę Microsoft. |
@@ -141,7 +145,7 @@ Na stronie planowanie cen i dostępności można zdefiniować charakterystykę b
 | Model cen  | Wymagany. Wartość domyślna: stawka płaska. Opcje: stawka ryczałtowa na użytkownika. |
 | Minimalna i Maksymalna liczba stanowisk  | Opcjonalne, dostępne tylko wtedy, gdy wybrano model cenowy oparty na miejscu. |
 | Okres rozliczeniowy  | Wymagany. Wartość domyślna: co miesiąc. Opcje: co miesiąc, roczna. |
-| Price  | Wymagany USD miesięcznie, w przypadku wybrania miesięcznego okresu rozliczeniowego; lub USD na rok, jeśli wybrano roczny okres rozliczeniowy. |
+| Cena  | Wymagany USD miesięcznie, w przypadku wybrania miesięcznego okresu rozliczeniowego; lub USD na rok, jeśli wybrano roczny okres rozliczeniowy. |
 | Planowanie odbiorców  | Opcjonalny. Domyślne: plan publiczny. Opcje: publiczne, prywatne według identyfikatora dzierżawy |
 | Odbiorcy planu z ograniczeniami (identyfikator dzierżawy + opis)  | Wymagane, jeśli wybrano plan prywatny. Minimalna 1 i maksymalna 10 identyfikatorów dzierżawy, jeśli wprowadzono ją ręcznie. Max 20000, jeśli Importuj plik CSV. |
 

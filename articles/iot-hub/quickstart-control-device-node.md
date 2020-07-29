@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: sterowanie urządzeniem z poziomu usługi Azure IoT (Node. js)'
+title: 'Szybki Start: sterowanie urządzeniem w usłudze Azure IoT (Node.js)'
 description: W tym przewodniku Szybki start uruchomisz dwie przykładowe aplikacje Node.js. Jedna z aplikacji to aplikacja zaplecza, która może zdalnie kontrolować urządzenia podłączone do centrum. Druga z aplikacji symuluje urządzenie podłączone do centrum, które można kontrolować zdalnie.
 author: wesmc7777
 manager: philmea
@@ -13,27 +13,28 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 06/21/2019
-ms.openlocfilehash: 39d136815e3808c907e190773b9303075a5093e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8e63ccae81b7de41a38f362c55309729243d9cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769361"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315159"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Szybki Start: Używanie środowiska Node. js do sterowania urządzeniem podłączonym do usługi Azure IoT Hub
+# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Szybki Start: używanie Node.js do sterowania urządzeniem podłączonym do usługi Azure IoT Hub
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-W tym przewodniku szybki start użyjesz metody bezpośredniej do kontrolowania symulowanego urządzenia połączonego z platformą Azure IoT Hub. IoT Hub to usługa platformy Azure, która umożliwia zarządzanie urządzeniami IoT z chmury oraz pozyskiwanie dużych ilości danych telemetrycznych urządzeń do chmury w celu przechowania lub przetworzenia. Możesz użyć metod bezpośrednich, aby zdalnie zmieniać zachowanie urządzenia podłączonego do centrum IoT. Ten przewodnik Szybki Start korzysta z dwóch aplikacji node. js: aplikacji symulowanego urządzenia, która odpowiada na metody bezpośrednie wywoływane z aplikacji zaplecza i aplikacji zaplecza, która wywołuje metody bezpośrednie na symulowanym urządzeniu.
+W tym przewodniku szybki start użyjesz metody bezpośredniej do kontrolowania symulowanego urządzenia połączonego z platformą Azure IoT Hub. IoT Hub to usługa platformy Azure, która umożliwia zarządzanie urządzeniami IoT z chmury oraz pozyskiwanie dużych ilości danych telemetrycznych urządzeń do chmury w celu przechowania lub przetworzenia. Możesz użyć metod bezpośrednich, aby zdalnie zmieniać zachowanie urządzenia podłączonego do centrum IoT. W tym przewodniku Szybki Start są używane dwie Node.js aplikacje: symulowana aplikacja urządzenia, która odpowiada na metody bezpośrednie wywoływane z aplikacji zaplecza i aplikacji zaplecza, która wywołuje metody bezpośrednie na symulowanym urządzeniu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node. js 10 +](https://nodejs.org).
+* [Node.js 10 +](https://nodejs.org).
 
-* [Przykładowy projekt node. js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
+* [Przykładowy projekt Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
 * Port 8883 otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -47,7 +48,7 @@ node --version
 
 ### <a name="add-azure-iot-extension"></a>Dodawanie rozszerzenia usługi Azure IoT
 
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -89,7 +90,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
       --output table
     ```
 
-    Zanotuj parametry połączenia urządzenia, które wyglądają następująco:
+    Zanotuj parametry połączenia urządzenia, które są następujące:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -119,7 +120,7 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym 
 
 2. Otwórz plik **SimulatedDevice.js** w wybranym edytorze tekstów.
 
-    Zastąp wartość `connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice. js**.
+    Zastąp wartość `connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.js**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację urządzenia symulowanego:
 
@@ -140,7 +141,7 @@ Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudz
 
 2. Otwórz plik **BackEndApplication.js** w wybranym edytorze tekstów.
 
-    Zastąp wartość `connectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication. js**.
+    Zastąp wartość `connectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication.js**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację zaplecza:
 

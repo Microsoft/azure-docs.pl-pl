@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871246"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325988"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Zoptymalizuj środowisko SQL za pomocą rozwiązania do sprawdzania kondycji SQL Server w Azure Monitor
 
@@ -43,9 +44,9 @@ Po dodaniu rozwiązania i zakończeniu oceny informacje podsumowujące dotycząc
 
 Aby przeprowadzić kontrolę kondycji na serwerach SQL Server, wymagają one agenta i łączności Azure Monitor przy użyciu jednej z następujących obsługiwanych metod:
 
-1. Zainstaluj [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) , jeśli serwer nie jest jeszcze monitorowany przez program System Center 2016 — Operations Manager lub Operations Manager 2012 R2.
+1. Zainstaluj [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) , jeśli serwer nie jest jeszcze monitorowany przez program System Center 2016 — Operations Manager lub Operations Manager 2012 R2.
 2. Jeśli jest monitorowana z programem System Center 2016-Operations Manager lub Operations Manager 2012 R2, a grupa zarządzania nie jest zintegrowana z Azure Monitor, serwer może być wieloadresowy z Log Analytics do zbierania danych i przekazywania ich do usługi i nadal monitorowany przez Operations Manager.  
-3. W przeciwnym razie, jeśli grupa zarządzania Operations Manager jest zintegrowana z usługą, należy dodać kontrolery domeny dla zbierania danych przez usługę zgodnie z instrukcjami w obszarze [Dodawanie komputerów zarządzanych przez agentów](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) po włączeniu rozwiązania w obszarze roboczym.  
+3. W przeciwnym razie, jeśli grupa zarządzania Operations Manager jest zintegrowana z usługą, należy dodać kontrolery domeny dla zbierania danych przez usługę zgodnie z instrukcjami w obszarze [Dodawanie komputerów zarządzanych przez agentów](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) po włączeniu rozwiązania w obszarze roboczym.  
 
 Agent na SQL Server, który raportuje do Operations Manager grupy zarządzania, zbiera dane, przesyła dalej do przypisanego do niego serwera zarządzania, a następnie jest wysyłany bezpośrednio z serwera zarządzania do Azure Monitor.  Dane nie są zapisywane w Operations Manager bazach danych.  
 
@@ -257,3 +258,4 @@ Wyniki można następnie wyeksportować do programu Excel w celu dalszej analizy
 
 ## <a name="next-steps"></a>Następne kroki
 * [Rejestruj zapytania](../log-query/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe dane i zalecenia dotyczące kontroli kondycji SQL.
+
