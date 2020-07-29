@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8a951a4920f2f80a4b9738317bdb2da96c613d53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013049"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290037"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -136,7 +136,7 @@ Włącz to ustawienie przy użyciu:
 
 + Azure Machine Learning Studio: Włącz **Automatyczne cechowania** w sekcji **Wyświetl dodatkową konfigurację** , [wykonując następujące kroki](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Zestaw SDK języka Python: Określ `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` w obiekcie [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) . Dowiedz się więcej o [Włączanie cechowania] ((How-to-configure-autofeatures.md). 
++ Zestaw SDK języka Python: Określ `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` w obiekcie [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) . Dowiedz się więcej na temat [włączania cechowania](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a>Modele kompletów
 

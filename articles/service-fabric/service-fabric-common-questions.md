@@ -4,12 +4,12 @@ description: Często zadawane pytania dotyczące Service Fabric, w tym możliwo�
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292852"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Często zadawane pytania dotyczące usługi Service Fabric
 
@@ -36,7 +36,7 @@ Jeśli interesuje Cię ten scenariusz, zachęcamy Cię do skontaktowania Service
 
 Niektóre zagadnienia, które należy wziąć pod uwagę: 
 
-1. Zasób klastra Service Fabric na platformie Azure jest obecnie regionalny, podobnie jak w przypadku zestawów skalowania maszyn wirtualnych, na których jest oparty klaster. Oznacza to, że w przypadku awarii regionalnej można utracić możliwość zarządzania klastrem za pośrednictwem Azure Resource Manager lub Azure Portal. Może to być spowodowane tym, że klaster jest uruchomiony i będzie można z nim korzystać bezpośrednio. Ponadto platforma Azure obecnie nie oferuje możliwości korzystania z jednej sieci wirtualnej, która jest używana w różnych regionach. Oznacza to, że klaster wieloregionowy na platformie Azure wymaga [publiczne adresy IP dla każdej maszyny wirtualnej w VM Scale Sets lub w](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) [bramach sieci VPN platformy Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Te wybory sieci mają różne wpływ na koszty, wydajność i w pewnym stopniu projekcie aplikacji, dlatego należy zachować ostrożność analizy i planowania przed zarządzeniem takim środowiskiem.
+1. Zasób klastra Service Fabric na platformie Azure jest obecnie regionalny, podobnie jak w przypadku zestawów skalowania maszyn wirtualnych, na których jest oparty klaster. Oznacza to, że w przypadku awarii regionalnej można utracić możliwość zarządzania klastrem za pośrednictwem Azure Resource Manager lub Azure Portal. Może to być spowodowane tym, że klaster jest uruchomiony i będzie można z nim korzystać bezpośrednio. Ponadto platforma Azure obecnie nie oferuje możliwości korzystania z jednej sieci wirtualnej, która jest używana w różnych regionach. Oznacza to, że klaster wieloregionowy na platformie Azure wymaga [publiczne adresy IP dla każdej maszyny wirtualnej w zestawach skalowania maszyn wirtualnych lub w](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) [bramach sieci VPN platformy Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Te wybory sieci mają różne wpływ na koszty, wydajność i w pewnym stopniu projekcie aplikacji, dlatego należy zachować ostrożność analizy i planowania przed zarządzeniem takim środowiskiem.
 2. Konserwacja, zarządzanie i monitorowanie tych maszyn może stać się skomplikowany, szczególnie w przypadku, gdy są one łączone w różne _typy_ środowisk, takie jak między różnymi dostawcami chmury lub między zasobami lokalnymi i platformą Azure. Należy pamiętać, aby upewnić się, że uaktualnienia, monitorowanie, zarządzanie i Diagnostyka są zrozumiałe dla klastra i aplikacji przed uruchomieniem obciążeń produkcyjnych w takim środowisku. Jeśli masz już doświadczenie w rozwiązywaniu tych problemów na platformie Azure lub w własnych centrach danych, prawdopodobnie te same rozwiązania można zastosować podczas tworzenia lub uruchamiania klastra Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Czy Service Fabric węzły automatycznie odbierają aktualizacje systemu operacyjnego?
@@ -59,7 +59,7 @@ Obecnie istnieją inne problemy z dużymi zestawami skalowania maszyn wirtualnyc
 
 Minimalny obsługiwany rozmiar klastra Service Fabric z uruchomionymi obciążeniami produkcyjnymi to pięć węzłów. W przypadku scenariuszy deweloperskich obsługujemy jeden węzeł (zoptymalizowany pod kątem szybkiego programowania w programie Visual Studio) i pięć węzłów klastra.
 
-Firma Microsoft wymaga, aby klaster produkcyjny miał co najmniej 5 węzłów z następujących trzech powodów:
+Firma Microsoft wymaga, aby klaster produkcyjny miał co najmniej pięć węzłów z następujących trzech powodów:
 1. Nawet wtedy, gdy nie są uruchomione żadne usługi użytkownika, klaster Service Fabric uruchamia zestaw stanowych usług systemowych, w tym usługi nazewnictwa i usługi Menedżer trybu failover. Te usługi systemowe są niezbędne, aby klaster pozostawał w działaniu.
 2. Zawsze umieszczamy jedną replikę usługi na węzeł, więc rozmiar klastra to górny limit liczby replik, które może mieć usługa (w rzeczywistości partycja).
 3. Ponieważ uaktualnienie klastra spowoduje przełączenie co najmniej jednego węzła, chcemy buforować co najmniej jeden węzeł, dlatego chcemy, aby klaster produkcyjny miał co najmniej dwa węzły *oprócz* minimum dla systemu operacyjnego. Minimum od zera to rozmiar kworum usługi systemowej, jak wyjaśniono poniżej.  
@@ -122,11 +122,11 @@ Nie. Maszyny wirtualne o niskim priorytecie nie są obsługiwane.
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Jak moja aplikacja może uwierzytelniać się w magazynie kluczy, aby uzyskać wpisy tajne?
-Poniżej przedstawiono sposób, w jaki aplikacja uzyskuje poświadczenia do uwierzytelniania w magazynie kluczy:
+### <a name="how-can-my-application-authenticate-to-key-vault-to-get-secrets"></a>Jak aplikacja może uwierzytelniać się w usłudze Key Vault, aby uzyskać wpisy tajne?
+Poniżej przedstawiono sposób, w jaki aplikacja uzyskuje poświadczenia do uwierzytelniania w Key Vault:
 
-A. Podczas tworzenia i pakowania aplikacji można ściągnąć certyfikat do pakietu danych aplikacji SF i używać go do uwierzytelniania w magazynie kluczy.
-B. W przypadku hostów z włączonym zestawem skalowania maszyn wirtualnych można utworzyć prostą SetupEntryPoint programu PowerShell dla aplikacji SF, aby uzyskać [token dostępu z punktu końcowego MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), a następnie [pobrać klucze tajne z magazynu kluczy](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Podczas tworzenia i pakowania aplikacji można ściągnąć certyfikat do pakietu danych aplikacji SF i użyć go do uwierzytelniania w Key Vault.
+B. W przypadku hostów z włączonym zestawem skalowania maszyn wirtualnych można utworzyć prostą SetupEntryPoint programu PowerShell dla aplikacji SF, aby uzyskać [token dostępu z punktu końcowego MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), a następnie [pobrać klucze tajne z Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Projekt aplikacji
 
@@ -155,7 +155,7 @@ Załóżmy na przykład, że masz niezawodną kolekcję w usłudze z 100 partycj
 
 Pamiętaj, że każdy obiekt musi być przechowywany trzy razy (jedna podstawowa i dwie repliki), za mało pamięci dla około 35 000 000 obiektów w kolekcji, gdy działa w pełni pojemności. Zalecamy jednak odporność na równoczesną utratę domeny awarii i domeny uaktualnienia, która reprezentuje około 1/3 pojemności i zmniejsza liczbę do około 23 000 000.
 
-Należy zauważyć, że to obliczenie przyjmuje również:
+To obliczenie zakłada również, że:
 
 - Dystrybucja danych między partycjami jest w przybliżeniu jednorodna lub że raportowane są metryki obciążenia do Menedżer zasobów klastra. Domyślnie Równoważenie obciążenia Service Fabric jest zależne od liczby replik. W poprzednim przykładzie, który spowodowałoby 10 replik podstawowych i 20 replik pomocniczych w każdym węźle klastra. Jest to dobre rozwiązanie w przypadku obciążenia, które jest równomiernie rozłożone na partycje. Jeśli obciążenie nie jest równe, należy zgłosić obciążenie, tak aby Menedżer zasobów może spakować mniejsze repliki razem i umożliwić większym replikom zużywać więcej pamięci w poszczególnych węzłach.
 
@@ -166,6 +166,12 @@ Należy zauważyć, że to obliczenie przyjmuje również:
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Ile danych można przechowywać w aktorze?
 
 Podobnie jak w przypadku niezawodnych usług, ilość danych, które można przechowywać w usłudze aktora, jest ograniczona tylko przez całkowitą ilość miejsca na dysku i ilość dostępnej pamięci w węzłach klastra. Jednak poszczególne aktory są najbardziej efektywne, gdy są używane do hermetyzacji niewielkiej ilości stanu i skojarzonej logiki biznesowej. Ogólnie rzecz biorąc, każdy aktor powinien mieć stan, który jest mierzony w kilobajtach.
+
+
+### <a name="where-does-azure-service-fabric-resource-provider-store-customer-data"></a>Gdzie usługa Azure Service Fabric Resource Provider przechowuje dane klienta?
+
+Dostawca zasobów usługi Azure Service Fabric nie przenosi ani nie zapisuje danych klienta z regionu, w którym jest wdrożony.
+
 
 ## <a name="other-questions"></a>Inne pytania
 

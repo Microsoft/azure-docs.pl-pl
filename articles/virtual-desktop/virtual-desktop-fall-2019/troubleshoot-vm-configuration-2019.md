@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z hostem sesji usług pulpitu wirtualnego systemu Windows 2019 — Azure
-description: Jak rozwiązywać problemy podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
+title: Rozwiązywanie problemów z hostem sesji Windows Virtual Desktop (klasyczny) — Azure
+description: Jak rozwiązywać problemy podczas konfigurowania maszyn wirtualnych hosta sesji pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291259"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Rozwiązywanie problemów z konfiguracją maszyny wirtualnej hosta sesji
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji pulpitu wirtualnego systemu Windows (klasycznego)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../troubleshoot-vm-configuration.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../troubleshoot-vm-configuration.md).
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 

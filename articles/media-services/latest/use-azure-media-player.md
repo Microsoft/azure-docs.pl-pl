@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 63b05662e16dbcfd999788aa39c6c37eb12cf2c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292892"
 ---
 # <a name="playback-with-azure-media-player"></a>Odtwarzanie przy użyciu Azure Media Player
 
 Azure Media Player to odtwarzacz wideo w sieci Web zbudowany w celu odtwarzania zawartości multimedialnej z Microsoft Azure Media Services w wielu różnych przeglądarkach i urządzeniach. Azure Media Player wykorzystuje standardy branżowe, takie jak HTML5, rozszerzenia źródła nośników (MSE) i rozszerzenia nośników zaszyfrowanych (EME), aby zapewnić wzbogacone, adaptacyjne środowisko przesyłania strumieniowego. Jeśli te standardy nie są dostępne na urządzeniu lub w przeglądarce, Azure Media Player używa programu Flash i Silverlight jako technologii rezerwowej. Niezależnie od używanej technologii odtwarzania, deweloperzy będą mieli ujednolicony interfejs JavaScript do uzyskiwania dostępu do interfejsów API. Pozwala to na odtwarzanie zawartości obsługiwanej przez Azure Media Services na szeroką gamę urządzeń i w przeglądarkach bez dodatkowych nakładów pracy.
 
-Microsoft Azure Media Services umożliwia obsługę zawartości przy użyciu HLS, ŁĄCZNIKów Smooth Streaming transmisji strumieniowych, aby odtwarzać zawartość. Azure Media Player uwzględnia te różne formaty i automatycznie odtwarza najlepsze łącze na podstawie możliwości platformy/przeglądarki. Media Services umożliwia również szyfrowanie dynamiczne zasobów za pomocą szyfrowania PlayReady lub szyfrowania koperty AES-128. Azure Media Player umożliwia odszyfrowywanie szyfrowanej zawartości w wersji PlayReady i AES-128, gdy zostanie odpowiednio skonfigurowana. 
+Microsoft Azure Media Services umożliwia obsługę zawartości przy użyciu HLS, ŁĄCZNIKów Smooth Streaming transmisji strumieniowych, aby odtwarzać zawartość. Azure Media Player uwzględnia te różne formaty i automatycznie odtwarza najlepsze łącze na podstawie możliwości platformy/przeglądarki. Media Services umożliwia również szyfrowanie dynamiczne zasobów za pomocą szyfrowania PlayReady lub szyfrowania koperty AES-128. Azure Media Player umożliwia odszyfrowywanie szyfrowanej zawartości w wersji PlayReady i AES-128, gdy zostanie odpowiednio skonfigurowana.
 
 > [!NOTE]
 > Odtwarzanie HTTPS jest wymagane do zaszyfrowanej zawartości Widevine.
@@ -41,13 +41,13 @@ Aby skonfigurować różne opcje odtwarzania (na przykład Tech, language lub En
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorowanie diagnostyki strumienia wideo
 
-Możesz użyć [strony demonstracyjnej Azure Media Player](https://aka.ms/azuremediaplayer) do monitorowania diagnostyki strumienia wideo. 
+Możesz użyć [strony demonstracyjnej Azure Media Player](https://aka.ms/azuremediaplayer) do monitorowania diagnostyki strumienia wideo.
 
 ![Diagnostyka Azure Media Player](./media/azure-media-player/diagnostics.png)
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Konfigurowanie Azure Media Player w kodzie HTML
 
-Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarzania zawartości multimedialnej z konta Media Services trwa zaledwie kilka minut. Szczegółowe informacje na temat konfigurowania i konfigurowania Azure Media Player można znaleźć w [dokumentacji Azure Media Player](https://aka.ms/ampdocs) . 
+Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarzania zawartości multimedialnej z konta Media Services trwa zaledwie kilka minut. Szczegółowe informacje na temat konfigurowania i konfigurowania Azure Media Player można znaleźć w [dokumentacji Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) .
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
@@ -55,5 +55,5 @@ Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarza
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dokumentacja usługi Azure Media Player](https://aka.ms/ampdocs)
-- [Przykłady usługi Azure Media Player](https://aka.ms/ampsamples)
+* [Dokumentacja usługi Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Przykłady Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)

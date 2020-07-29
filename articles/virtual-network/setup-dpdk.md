@@ -1,6 +1,6 @@
 ---
 title: DPDK na maszynie wirtualnej z systemem Linux na platformie Azure | Microsoft Docs
-description: Dowiedz się, jak skonfigurować DPDK na maszynie wirtualnej z systemem Linux.
+description: Poznaj zalety zestawu Data Development Kit (DPDK) i sposób konfigurowania DPDK na maszynie wirtualnej z systemem Linux.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ec117172a367d014f634106b5d2405892b80ffa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20f22825e6954f32d7f020dd160f36c3c1859c86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287723"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurowanie DPDK na maszynie wirtualnej z systemem Linux
 
@@ -250,7 +251,7 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
 
 Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 * [Opcje EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Polecenia Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)

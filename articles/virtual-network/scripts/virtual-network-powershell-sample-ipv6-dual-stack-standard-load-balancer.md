@@ -1,7 +1,7 @@
 ---
 title: Przykładowy skrypt Azure PowerShell — Konfigurowanie frontonu protokołu IPv6 przy użyciu usługa Load Balancer w warstwie Standardowa (wersja zapoznawcza)
 titlesuffix: Azure Virtual Network
-description: Włączanie punktów końcowych protokołu IPv6 przy użyciu programu PowerShell na platformie Azure Virtual Network
+description: Dowiedz się więcej o konfigurowaniu frontonu IPv6 w przykładowym skrypcie sieci wirtualnej przy użyciu usługa Load Balancer w warstwie Standardowa.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2de93f66bdb2647bcc612322d90eb9197e0ad63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24057c494d76cf9435ed60ecf2a13db4eab36fbf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068680"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291904"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Przykład konfiguracji frontonu IPv6 w skrypcie sieci wirtualnej przy użyciu usługa Load Balancer w warstwie Standardowa (wersja zapoznawcza)
 

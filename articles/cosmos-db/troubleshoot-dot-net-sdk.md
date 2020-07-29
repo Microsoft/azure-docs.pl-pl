@@ -8,11 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dd6bdc66146eb7dfe155e7d1091eee5cca450a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290909"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
@@ -48,27 +49,40 @@ Zapoznaj się z [sekcją problemów usługi GitHub](https://github.com/Azure/azu
 * Problemy z łącznością/dostępnością mogą być spowodowane brakiem zasobów na komputerze klienckim. Zalecamy monitorowanie użycia procesora CPU w węzłach z uruchomionym Azure Cosmos DB klienta i skalowanie w górę/w poziomie, jeśli są one uruchamiane przy dużym obciążeniu.
 
 ### <a name="check-the-portal-metrics"></a>Sprawdź metryki portalu
-Sprawdzanie [metryk portalu](monitor-accounts.md) pomoże określić, czy jest to problem po stronie klienta, czy też występuje problem z usługą. Na przykład, jeśli metryki zawierają wysoką częstotliwość żądań (kod stanu HTTP 429), co oznacza, że żądanie jest ograniczone, sprawdź [częstotliwość żądań za dużą] sekcję. 
+Sprawdzanie [metryk portalu](monitor-accounts.md) pomoże określić, czy jest to problem po stronie klienta, czy też występuje problem z usługą. Na przykład, jeśli metryki zawierają wysoką częstotliwość żądań (kod stanu HTTP 429), co oznacza, że żądanie jest ograniczone, sprawdź [częstotliwość żądań za dużą](troubleshoot-request-rate-too-large.md) sekcję. 
 
-### <a name="requests-timeouts"></a><a name="request-timeouts"></a>Limity czasu żądań
-RequestTimeout zazwyczaj odbywa się przy użyciu protokołu Direct/TCP, ale może się zdarzyć w trybie bramy. Te błędy są typowymi znanymi przyczynami oraz sugestie dotyczące sposobu rozwiązania problemu.
+## <a name="common-error-status-codes"></a>Kody stanu typowego błędu<a id="error-codes"></a>
 
-* Użycie procesora CPU ma wysoką wartość, co spowoduje opóźnienia i/lub przekroczenie limitu czasu żądania. Klient może skalować w górę maszynę hosta w celu zapewnienia większej ilości zasobów, a obciążenie może być dystrybuowane na większej liczbie komputerów.
-* Dostępność gniazda/portu może być niska. W przypadku uruchamiania na platformie Azure klienci korzystający z zestawu SDK platformy .NET mogą osiągać wyczerpanie portów z użyciem usługi Azure translatora adresów sieciowych. Aby zmniejszyć prawdopodobieństwo wystąpienia tego problemu, użyj najnowszej wersji 2. x lub 3. x zestawu .NET SDK. Jest to przykład, dlaczego zaleca się zawsze uruchomienie najnowszej wersji zestawu SDK.
-* Tworzenie wielu wystąpień DocumentClient może prowadzić do problemów związanych z rywalizacją i limitem czasu. Postępuj zgodnie ze [wskazówkami dotyczącymi wydajności](performance-tips.md)i korzystaj z jednego wystąpienia DocumentClient w całym procesie.
-* Czasami użytkownicy zobaczą podwyższony czas oczekiwania lub przekroczenia limitu czasu żądania, ponieważ ich kolekcje są w niewystarczający sposób używane jako ograniczenia wewnętrznej bazy danych żądań i ponowne próby klienta. Sprawdź [metryki portalu](monitor-accounts.md).
-* Azure Cosmos DB dystrybuuje ogólnie zainicjowaną przepływność równomiernie między partycjami fizycznymi. Sprawdź metryki portalu, aby sprawdzić, czy w obciążeniu występuje [klucz partycji](partition-data.md)aktywnej. Spowoduje to, że agregowana przepływność (RU/s) będzie wyświetlana w ramach aprowizacji jednostek ru, ale użycie jednej partycji (RU/s) spowoduje przekroczenie alokowanej przepływności. 
-* Ponadto zestaw SDK 2,0 dodaje semantykę kanału do połączeń bezpośrednich/TCP. Jedno połączenie TCP jest używane dla wielu żądań w tym samym czasie. Może to prowadzić do dwóch problemów w określonych przypadkach:
-    * Wysoki stopień współbieżności może prowadzić do rywalizacji o kanał.
-    * Duże żądania lub odpowiedzi mogą prowadzić do blokowania w kanale i zaostrzania rywalizacji nawet przy stosunkowo niskim stopniu współbieżności.
-    * Jeśli przypadek występuje w jednej z tych dwóch kategorii (lub jeśli jest podejrzane wysokie wykorzystanie procesora CPU), są to możliwe środki zaradcze:
-        * Spróbuj skalować aplikację w górę/w dół.
-        * Ponadto dzienniki zestawu SDK mogą być przechwytywane przez [odbiornik śledzenia](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) , aby uzyskać więcej szczegółów.
+| Kod stanu | Opis | 
+|----------|-------------|
+| 400 | Złe żądanie (zależy od komunikatu o błędzie)| 
+| 401 | [Brak autoryzacji](troubleshoot-unauthorized.md) | 
+| 404 | [Nie znaleziono zasobu](troubleshoot-not-found.md) |
+| 408 | [Przekroczono limit czasu żądania](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 409 | Błąd konfliktu polega na tym, że identyfikator podany dla zasobu w operacji zapisu został podjęty przez istniejący zasób. Użyj innego identyfikatora dla zasobu, aby rozwiązać ten problem, ponieważ identyfikator musi być unikatowy w obrębie wszystkich dokumentów z tą samą wartością klucza partycji. |
+| 410 | Usunięte wyjątki (błąd przejściowy, który nie powinien naruszać umowy SLA) |
+| 412 | Niepowodzenie warunku wstępnego polega na tym, że operacja określiła element eTag, który jest inny niż wersja dostępna na serwerze. Błąd współbieżności optymistycznej. Ponów żądanie po odczytaniu najnowszej wersji zasobu i zaktualizowaniu elementu eTag dla żądania.
+| 413 | [Jednostka żądania jest zbyt duża](concepts-limits.md#per-item-limits) |
+| 429 | [Zbyt wiele żądań](troubleshoot-request-rate-too-large.md) |
+| 449 | Błąd przejściowy występujący tylko w operacjach zapisu i czy można bezpiecznie ponowić próbę |
+| 500 | Operacja nie powiodła się z powodu nieoczekiwanego błędu usługi. Skontaktuj się z pomocą techniczną. Zobacz temat zgłaszanie [problemu pomocy technicznej platformy Azure](https://aka.ms/azure-support). |
+| 503 | [Usługa niedostępna](troubleshoot-service-unavailable.md) | 
+
+### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Wyczerpanie portów (z) na platformie Azure
+
+Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez publicznego adresu IP](../load-balancer/load-balancer-outbound-connections.md), domyślnie [porty usługi Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) IPSec ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych między maszyną wirtualną a punktem końcowym Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure translatora adresów sieciowych](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Ta sytuacja może prowadzić do ograniczenia połączeń, zamknięcia połączenia lub powyżej wspomnianych [limitów czasu żądania](troubleshoot-dot-net-sdk-request-timeout.md).
+
+ Porty protokołu IPSec platformy Azure są używane tylko wtedy, gdy maszyna wirtualna ma prywatny adres IP łączący się z publicznym adresem IP. Istnieją dwa obejścia, aby uniknąć ograniczenia dotyczącego translatora adresów sieciowych platformy Azure (pod warunkiem, że korzystasz już z pojedynczego wystąpienia klienta w całej aplikacji):
+
+* Dodaj punkt końcowy usługi Azure Cosmos DB do podsieci sieci wirtualnej platformy Azure Virtual Machines. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
+    Po włączeniu punktu końcowego usługi żądania nie są już wysyłane z publicznego adresu IP do Azure Cosmos DB. Zamiast tego jest wysyłana tożsamość sieci wirtualnej i podsieci. Ta zmiana może spowodować, że Zapora spadnie, jeśli dozwolone są tylko publiczne adresy IP. Jeśli używasz zapory, po włączeniu punktu końcowego usługi Dodaj podsieć do zapory przy użyciu [list acl Virtual Network](../virtual-network/virtual-networks-acl.md).
+* Przypisz [publiczny adres IP do maszyny wirtualnej platformy Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Duże opóźnienie sieci
 Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) w zestawie SDK V2 w wersji 2 lub [Diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
 
-Jeśli nie ma [limitów czasu](#request-timeouts) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste na różnicy między `ResponseTime` i `RequestStartTime` , np. (>300 milisekund w tym przykładzie):
+Jeśli nie ma [limitów czasu](troubleshoot-dot-net-sdk-request-timeout.md) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste na różnicy między `ResponseTime` i `RequestStartTime` , np. (>300 milisekund w tym przykładzie):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -84,59 +98,18 @@ To opóźnienie może mieć wiele przyczyn:
     * Włącz [przyspieszone sieci na istniejącej maszynie wirtualnej](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Rozważ użycie [wyższej końcowej maszyny wirtualnej](../virtual-machines/windows/sizes.md).
 
-### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Wyczerpanie portów (z) na platformie Azure
-
-Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez publicznego adresu IP](../load-balancer/load-balancer-outbound-connections.md), domyślnie [porty usługi Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) IPSec ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych między maszyną wirtualną a punktem końcowym Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure translatora adresów sieciowych](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Ta sytuacja może prowadzić do ograniczenia połączeń, zamknięcia połączenia lub powyżej wspomnianych [limitów czasu żądania](#request-timeouts).
-
- Porty protokołu IPSec platformy Azure są używane tylko wtedy, gdy maszyna wirtualna ma prywatny adres IP łączący się z publicznym adresem IP. Istnieją dwa obejścia, aby uniknąć ograniczenia dotyczącego translatora adresów sieciowych platformy Azure (pod warunkiem, że korzystasz już z pojedynczego wystąpienia klienta w całej aplikacji):
-
-* Dodaj punkt końcowy usługi Azure Cosmos DB do podsieci sieci wirtualnej platformy Azure Virtual Machines. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
-    Po włączeniu punktu końcowego usługi żądania nie są już wysyłane z publicznego adresu IP do Azure Cosmos DB. Zamiast tego jest wysyłana tożsamość sieci wirtualnej i podsieci. Ta zmiana może spowodować, że Zapora spadnie, jeśli dozwolone są tylko publiczne adresy IP. Jeśli używasz zapory, po włączeniu punktu końcowego usługi Dodaj podsieć do zapory przy użyciu [list acl Virtual Network](../virtual-network/virtual-networks-acl.md).
-* Przypisz [publiczny adres IP do maszyny wirtualnej platformy Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
-
-### <a name="http-proxy"></a>Serwer proxy HTTP
-W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie SDK `ConnectionPolicy` .
-W przeciwnym razie nastąpiły problemy z połączeniem.
-
-### <a name="request-rate-too-large"></a><a name="request-rate-too-large"></a>Zbyt duży współczynnik żądań
-"Częstotliwość żądań zbyt duża" lub kod błędu 429 wskazuje, że żądania są ograniczane, ponieważ wykorzystana przepływność (RU/s) przekroczyła [zainicjowaną przepływność](set-throughput.md). Zestaw SDK będzie automatycznie ponawiać próbę żądania na podstawie określonych [zasad ponawiania](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji. Sprawdź [metryki portalu](use-metrics.md) , aby sprawdzić, czy są wyświetlane błędy 429. Przejrzyj [klucz partycji](partitioning-overview.md#choose-partitionkey) , aby upewnić się, że jest to równomierny rozkład magazynu i woluminu żądania. 
-
 ### <a name="slow-query-performance"></a>Niska wydajność zapytań
 [Metryki zapytań](sql-api-query-metrics.md) pomogą określić, gdzie zapytanie jest spędzane większością czasu. Z metryk zapytania można sprawdzić, jaka część jest używana na zapleczu programu vs a kliencie.
 * Jeśli zapytanie zaplecza wraca szybko i spędza na tym dużą godzinę, sprawdź obciążenie maszyny. Prawdopodobnie nie ma wystarczającej ilości zasobów i zestaw SDK oczekuje na dostępność zasobów do obsługi odpowiedzi.
 * Jeśli zapytanie zaplecza próbuje [zoptymalizować zapytanie](optimize-cost-queries.md) i przeszukać bieżące [zasady indeksowania](index-overview.md) 
 
-### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: podpis MAC znaleziony w żądaniu HTTP nie jest taki sam jak obliczony podpis
-Jeśli został wyświetlony następujący komunikat o błędzie 401: „Podpis MAC znaleziony w żądaniu HTTP nie jest taki sam, jak podpis obliczony”, może to być spowodowane następującymi scenariuszami.
+## <a name="next-steps"></a>Następne kroki
 
-1. Klucz został wymieniony i nie zastosowano [najlepszych rozwiązań](secure-access-to-data.md#key-rotation). Jest to najczęstsza przyczyna tego błędu. Wymiana kluczy konta usługi Cosmos DB może potrwać od kilku sekund do kilku dni, w zależności od rozmiaru konta usługi Cosmos DB.
-   1. Komunikat o błędzie 401 dotyczącym podpisu MAC jest wyświetlany krótko po wymianie kluczy i przestaje być wyświetlany bez wprowadzania jakichkolwiek zmian. 
-1. Klucz został nieprawidłowo skonfigurowany w aplikacji, w związku z czym nie jest zgodny z kontem.
-   1. Błąd 401 dotyczący podpisu MAC będzie spójny i będzie występować dla wszystkich wywołań
-1. Aplikacja używa [kluczy tylko do odczytu](secure-access-to-data.md#master-keys) dla operacji zapisu.
-   1. Błąd 401 dotyczący podpisu MAC będzie występować tylko wtedy, gdy aplikacja będzie wykonywać żądania zapisu — żądania odczytu będą wykonywane pomyślnie.
-1. Istnieje sytuacja wyścigu dotycząca tworzenia kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowy scenariusz w tej sytuacji polega na tym, że aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie z tą samą nazwą, gdy aplikacja działa. Zestaw SDK podejmie próbę użycia nowego kontenera, ale tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
-   1. Błąd 401 dotyczący podpisu MAC jest widoczny wkrótce po utworzeniu kontenera i występuje tylko do momentu zakończenia tworzenia kontenera.
- 
- ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Błąd HTTP 400. Rozmiar nagłówków żądania jest zbyt długi.
- Rozmiar nagłówka zwiększył się do dużego i przekracza maksymalny dozwolony rozmiar. Zawsze zaleca się użycie najnowszego zestawu SDK. Upewnij się, że używasz co najmniej wersji [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) lub [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), która dodaje śledzenie rozmiaru nagłówka do komunikatu o wyjątku.
-
-Dodatek
- 1. Token sesji został zbyt duży. Token sesji rośnie wraz ze wzrostem liczby partycji w kontenerze.
- 2. Token kontynuacji wzrosnął do dużych. Różne zapytania będą miały różne rozmiary tokenu kontynuacji.
- 3. Jest on spowodowany przez kombinację tokenu sesji i tokenu kontynuacji.
-
-Rozwiązanie:
-   1. Postępuj zgodnie ze [wskazówkami dotyczącymi wydajności](performance-tips.md) i Konwertuj aplikację na tryb połączenia z usługą Direct + TCP. Polecenie Direct + TCP nie ma ograniczenia rozmiaru nagłówka, takiego jak HTTP, które pozwala uniknąć tego problemu.
-   2. Jeśli jest to przyczyną problemu, tymczasowym środkiem zaradczym jest ponowne uruchomienie aplikacji. Ponowne uruchomienie wystąpienia aplikacji spowoduje zresetowanie tokenu sesji. Jeśli wyjątki zatrzymują się po ponownym uruchomieniu, potwierdza, że token sesji jest przyczyną. Ostatecznie zostanie powiększony o rozmiar, który spowoduje wystąpienie wyjątku.
-   3. Jeśli aplikacja nie może zostać przekonwertowana na wartość Direct + TCP, a token sesji jest przyczyną, można to zrobić, zmieniając [poziom spójności](consistency-levels.md)klienta. Token sesji jest używany tylko w przypadku spójności sesji, która jest wartością domyślną dla Cosmos DB. Każdy inny poziom spójności nie będzie używać tokenu sesji. 
-   4. Jeśli aplikacja nie może zostać przekonwertowana na Direct + TCP, a token kontynuacji jest przyczyną, spróbuj ustawić opcję ResponseContinuationTokenLimitInKb. Tę opcję można znaleźć w FeedOptions dla wersji 2 lub QueryRequestOptions na 3.
+* Informacje o wskazówkach dotyczących wydajności dla [platform .NET v3](performance-tips-dotnet-sdk-v3-sql.md) i [.NET V2](performance-tips.md)
+* Dowiedz się więcej na temat [zestawów SDK Java opartych na](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) replikach
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[Zbyt duży współczynnik żądań]: #request-rate-too-large
-[Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

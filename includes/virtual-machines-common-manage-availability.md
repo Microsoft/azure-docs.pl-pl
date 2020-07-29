@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 04a25b6b0b243744cc81c8b71a1f03e7c7375a68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102874"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292388"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -32,7 +32,7 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 
 * [Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości]
 * [Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności]
-* [Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną](../articles/virtual-machines/linux/scheduled-events.md)
 * [Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności]
 * [Łączenie modułu równoważenia obciążenia z zestawami dostępności]
 * [Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych]
@@ -95,7 +95,7 @@ Jeśli planujesz używanie maszyn wirtualnych z dyskami niezarządzanymi, postę
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną
 
-Gdy subskrybujesz [zaplanowane zdarzenia](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), maszyna wirtualna zostanie powiadomiona o nadchodzących zdarzeniach konserwacyjnych, które mogą mieć wpływ na maszynę wirtualną. Po włączeniu zaplanowanych zdarzeń dana maszyna wirtualna ma minimalny czas przed wykonaniem działania konserwacji. Na przykład aktualizacje systemu operacyjnego hosta, które mogą mieć wpływ na maszynę wirtualną, są umieszczane w kolejce jako zdarzenia, które określają wpływ, a także czas, w którym będzie wykonywana konserwacja, jeśli nie zostanie podjęta żadna akcja. Zdarzenia harmonogramu są również umieszczane w kolejce, gdy platforma Azure wykrywa bezpośrednie awarie sprzętu, które mogą mieć wpływ na maszynę wirtualną, co umożliwia podjęcie decyzji o tym, kiedy nastąpi przeprowadzenie naprawy. Klienci mogą używać tego zdarzenia do wykonywania zadań przed konserwacją, takich jak zapisywanie stanu, przechodzenie w tryb failover do pomocniczego i tak dalej. Po dodaniu logiki do bezpiecznego obsłużenia zdarzenia konserwacji możesz zatwierdzić zaległe zaplanowane zdarzenie, aby umożliwić platformie dalszą konserwację.
+Gdy subskrybujesz [zaplanowane zdarzenia](../articles/virtual-machines/linux/scheduled-events.md), maszyna wirtualna zostanie powiadomiona o nadchodzących zdarzeniach konserwacyjnych, które mogą mieć wpływ na maszynę wirtualną. Po włączeniu zaplanowanych zdarzeń dana maszyna wirtualna ma minimalny czas przed wykonaniem działania konserwacji. Na przykład aktualizacje systemu operacyjnego hosta, które mogą mieć wpływ na maszynę wirtualną, są umieszczane w kolejce jako zdarzenia, które określają wpływ, a także czas, w którym będzie wykonywana konserwacja, jeśli nie zostanie podjęta żadna akcja. Zdarzenia harmonogramu są również umieszczane w kolejce, gdy platforma Azure wykrywa bezpośrednie awarie sprzętu, które mogą mieć wpływ na maszynę wirtualną, co umożliwia podjęcie decyzji o tym, kiedy nastąpi przeprowadzenie naprawy. Klienci mogą używać tego zdarzenia do wykonywania zadań przed konserwacją, takich jak zapisywanie stanu, przechodzenie w tryb failover do pomocniczego i tak dalej. Po dodaniu logiki do bezpiecznego obsłużenia zdarzenia konserwacji możesz zatwierdzić zaległe zaplanowane zdarzenie, aby umożliwić platformie dalszą konserwację.
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Łączenie modułu równoważenia obciążenia z strefami dostępności lub zestawami

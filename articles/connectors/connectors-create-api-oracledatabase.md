@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039996"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290615"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
 
@@ -122,10 +122,11 @@ Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger,
 
 ## <a name="get-some-help"></a>Uzyskaj pomoc
 
-[Strona pytania firmy&Microsoft dla Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) jest doskonałym miejscem, w którym można zadawać pytania, odpowiadać na nie i dowiedzieć się, co inni użytkownicy Logic Apps robią. 
+[Strona pytania firmy&Microsoft dla Azure Logic Apps](/answers/topics/azure-logic-apps.html) jest doskonałym miejscem, w którym można zadawać pytania, odpowiadać na nie i dowiedzieć się, co inni użytkownicy Logic Apps robią. 
 
 Możesz pomóc ulepszyć Logic Apps i łączniki, głosując i przesyłając swoje pomysły w witrynie [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 
 
 ## <a name="next-steps"></a>Następne kroki
 [Utwórz aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)i Eksploruj dostępne łączniki w Logic Apps na [liście interfejsów API](apis-list.md).
+

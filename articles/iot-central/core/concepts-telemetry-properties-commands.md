@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291611"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Dane telemetryczne, właściwości i polecenia
 
@@ -30,6 +30,9 @@ Artykuł nie zawiera opisu każdego możliwego typu telemetrii, właściwości i
 
 W każdym przykładzie przedstawiono fragment kodu z modelu możliwości urządzenia (DCM), który definiuje typ i przykładowe ładunki JSON, aby zilustrować, jak urządzenie ma korzystać z aplikacji IoT Central.
 
+> [!NOTE]
+> IoT Central akceptuje dowolny prawidłowy kod JSON, ale może być używany tylko w przypadku wizualizacji, jeśli jest zgodny z definicją w DCM. Możesz eksportować dane, które nie pasują do definicji, zobacz [Eksportowanie danych IoT do miejsc docelowych na platformie Azure](howto-export-data.md).
+
 Plik JSON, który definiuje DCM, używa [języka Digital bliźniaczy Definition Language (DTDL) v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Ta specyfikacja obejmuje definicję `@id` formatu właściwości.
 
 Aby zapoznać się z przykładowym kodem urządzenia, który pokazuje niektóre z tych ładunków, zobacz temat [Tworzenie i łączenie aplikacji klienta w aplikacji IoT Central platformy Azure (Node.js)](tutorial-connect-device-nodejs.md) i [Tworzenie i łączenie aplikacji klienckiej z samouczkami aplikacji platformy Azure IoT Central](tutorial-connect-device-python.md) .
@@ -43,11 +46,10 @@ IoT Central umożliwia wyświetlenie danych pierwotnych wysyłanych przez urząd
 1. Wybierz kartę **dane surowe** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Nieprzetworzony widok danych":::
-    
+
     W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. W kolumnie **dane niemodelowane** są wyświetlane dane z urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
 
-
-## <a name="telemetry"></a>Telemetria
+## <a name="telemetry"></a>Telemetry
 
 ### <a name="primitive-types"></a>Typy pierwotne
 

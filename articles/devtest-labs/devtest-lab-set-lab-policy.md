@@ -3,12 +3,12 @@ title: Zarządzanie zasadami laboratorium w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak definiować zasady laboratorium, takie jak rozmiary maszyn wirtualnych, Maksymalna liczba maszyn wirtualnych na użytkownika i Automatyzacja zamknięcia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483401"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290419"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzaj wszystkimi zasadami dla laboratorium w Azure DevTest Labs
 
@@ -70,7 +70,7 @@ Zasady automatycznego zamykania ułatwiają minimalizowanie odpadów laboratoryj
 
 1. Wybierz opcję **tak** lub **nie** , aby można było wysłać powiadomienie 15 minut przed upływem określonego czasu automatycznego zamknięcia. Jeśli wybierzesz opcję **tak**, wprowadź punkt końcowy URL elementu webhook lub adres e-mail określający, gdzie ma być ogłaszane lub wysyłane. Użytkownik otrzymuje powiadomienie i ma możliwość odłożenia zamknięcia.
 
-   Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Tworzenie elementu webhook lub interfejsu API platformy Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -129,4 +129,3 @@ Po zdefiniowaniu i zastosowaniu różnych ustawień zasad maszyny wirtualnej dla
 * [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) — podczas tworzenia maszyny wirtualnej należy określić podstawową, która może być obrazem niestandardowym lub obrazem portalu Marketplace. W tym artykule pokazano, jak utworzyć obraz niestandardowy na podstawie pliku VHD.
 * [Konfigurowanie obrazów z witryny Marketplace](devtest-lab-configure-marketplace-images.md) — Azure DevTest Labs obsługuje tworzenie maszyn wirtualnych w oparciu o obrazy w portalu Azure Marketplace. W tym artykule pokazano, jak określić, w jaki sposób można używać obrazów portalu Azure Marketplace podczas tworzenia maszyn wirtualnych w środowisku laboratoryjnym.
 * [Tworzenie maszyny wirtualnej w laboratorium](devtest-lab-add-vm.md) — pokazuje, jak utworzyć maszynę wirtualną na podstawie obrazu podstawowego (niestandardowego lub Marketplace) oraz jak korzystać z artefaktów na maszynie wirtualnej.
-

@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292555"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Omówienie rozwiązywania problemów, opinie i pomoc techniczna dla pulpitu wirtualnego systemu Windows
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Ten artykuł zawiera omówienie problemów, które mogą wystąpić podczas konfigurowania środowiska pulpitu wirtualnego systemu Windows i zapewnia sposoby rozwiązania problemów.
 
-## <a name="report-issues-during-public-preview"></a>Zgłoś problemy w trakcie publicznej wersji zapoznawczej
+## <a name="report-issues"></a>Zgłaszanie problemów
 
-Aby zgłosić problemy lub zasugerować funkcje w publicznej wersji zapoznawczej dla wersji 2020 ze sprężyną, odwiedź [społeczność Tech. systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Możesz użyć społeczności technicznej do omówienia najlepszych praktyk lub zasugerować i zagłosować nowe funkcje. W przypadku zgłaszania problemu związanego z publiczną wersją zapoznawczą upewnij się, że typ problemu jest oznaczony jako **Wiosenna aktualizacja 2020 (wersja zapoznawcza)**.
+Aby zgłosić problemy lub zasugerować funkcje pulpitu wirtualnego systemu Windows z integracją Azure Resource Manager, odwiedź [społeczność Tech. systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Możesz użyć społeczności technicznej do omówienia najlepszych praktyk lub zasugerować i zagłosować nowe funkcje.
 
 Po wprowadzeniu monitu z prośbą o pomoc lub zaproponowania nowej funkcji upewnij się, że opiszesz swój temat w jak największej szczegółowości. Szczegółowe informacje mogą pomóc innym użytkownikom odpowiedzieć na pytanie lub poznać funkcję, której dotyczy głos.
 

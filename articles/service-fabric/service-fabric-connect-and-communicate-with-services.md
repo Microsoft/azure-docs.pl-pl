@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5081ad813d871db0f60284bca4a0c53ee5bbf6b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287754"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
 W Service Fabric usługa działa w dowolnym miejscu w klastrze Service Fabric, zazwyczaj rozmieszczona na wielu maszynach wirtualnych. Może być przenoszony z jednego miejsca do innego przez właściciela usługi lub automatycznie przez Service Fabric. Usługi nie są statycznie powiązane z określonym komputerem lub adresem.
@@ -58,7 +58,7 @@ Zwrotny serwer proxy odnosi się do usług w klastrze, które ujawniają punkty 
 Aby uzyskać więcej informacji na temat korzystania z usługi zwrotnego serwera proxy, zobacz artykuł [zwrotny serwer proxy w usłudze Azure Service Fabric](service-fabric-reverseproxy.md) .
 
 ## <a name="connections-from-external-clients"></a>Połączenia od klientów zewnętrznych
-Usługi łączące się ze sobą w klastrze zwykle mogą bezpośrednio uzyskiwać dostęp do punktów końcowych innych usług, ponieważ węzły w klastrze znajdują się w tej samej sieci lokalnej. W niektórych środowiskach klaster może jednak znajdować się za modułem równoważenia obciążenia, który kieruje ruch zewnętrzny ruchu przychodzącego za pomocą ograniczonego zestawu portów. W takich przypadkach usługi mogą nadal komunikować się ze sobą i rozwiązywać adresy przy użyciu Usługa nazewnictwa, ale należy podjąć dodatkowe kroki, aby umożliwić zewnętrznym klientom łączenie się z usługami.
+Usługi łączące się ze sobą w klastrze zwykle mogą bezpośrednio uzyskiwać dostęp do punktów końcowych innych usług, ponieważ węzły w klastrze znajdują się w tej samej sieci lokalnej. W niektórych środowiskach klaster może jednak znajdować się za modułem równoważenia obciążenia, który kieruje ruchem przychodzącym przez ograniczony zestaw portów. W takich przypadkach usługi mogą nadal komunikować się ze sobą i rozwiązywać adresy przy użyciu Usługa nazewnictwa, ale należy podjąć dodatkowe kroki, aby umożliwić zewnętrznym klientom łączenie się z usługami.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric na platformie Azure
 Klaster Service Fabric na platformie Azure jest umieszczony za Azure Load Balancer. Cały ruch zewnętrzny do klastra musi przechodzić przez moduł równoważenia obciążenia. Moduł równoważenia obciążenia automatycznie przekaże ruch przychodzący na dany port do losowego *węzła* , który ma ten sam port otwarty. Azure Load Balancer wie tylko o portach otwartych w *węzłach*, nie wie o portach otwartych przez poszczególne *usługi*.

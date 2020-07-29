@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4ebf433237193c0db7859b029bb224c72c92eae
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052028"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291011"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
 Platforma Azure oferuje różne obrazy RHEL dla różnych przypadków użycia.
@@ -88,9 +88,17 @@ RHEL — SAP-HA   | 7.4          | LVM    | Agent systemu Linux | RHEL 7,4 dla o
 RHEL — BYOS     |RHEL — lvm74| LVM    | Agent systemu Linux | RHEL 7,4 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm75| LVM    | Agent systemu Linux | RHEL 7,5 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm76| LVM    | Agent systemu Linux | RHEL 7,6 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm76-Gen2| LVM    | Agent systemu Linux | RHEL 7,6 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm77| LVM    | Agent systemu Linux | RHEL 7,7 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm77-Gen2| LVM    | Agent systemu Linux | RHEL 7,7 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm78| LVM    | Agent systemu Linux | RHEL 7,8 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm78-Gen2| LVM    | Agent systemu Linux | RHEL 7,8 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm8 | LVM    | Agent systemu Linux | RHEL 8,0 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm8-Gen2 | LVM    | Agent systemu Linux | RHEL 8,0 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm81 | LVM    | Agent systemu Linux | RHEL 8,1 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm81-Gen2 | LVM    | Agent systemu Linux | RHEL 8,1 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm82 | LVM    | Agent systemu Linux | RHEL 8,2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL-lvm82-Gen2 | LVM    | Agent systemu Linux | RHEL 8,2 generacji 2 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 
 > [!NOTE]
 > Oferta produktu RHEL-SAP-HANA jest uważana za koniec życia przez firmę Red Hat. Istniejące wdrożenia będą nadal działały normalnie, ale Red Hat zaleca klientom Migrowanie z obrazów RHEL-SAP-HANA do obrazów RHEL-SAP-HA, które obejmują SAP HANA repozytoria, a także dodatek o wysokiej dostępności. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).

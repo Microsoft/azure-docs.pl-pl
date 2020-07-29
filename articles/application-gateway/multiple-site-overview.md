@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067925"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290979"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
@@ -40,16 +40,12 @@ Używając symbolu wieloznacznego w nazwie hosta, można dopasować wiele nazw h
 >[!NOTE]
 > Ta funkcja jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 SKU Application Gateway. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W [Azure Portal](create-multiple-sites-portal.md)można definiować je w oddzielnych polach tekstowych, jak pokazano na poniższym zrzucie ekranu.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Przykładowa konfiguracja odbiornika wieloznacznego":::
-
 >[!NOTE]
->W przypadku tworzenia nowego odbiornika z wieloma lokacjami lub dodawania więcej niż jednej nazwy hosta do istniejącego odbiornika z wieloma lokacjami z Azure Portal zostanie ona domyślnie dodana do `HostNames` parametru konfiguracji odbiornika, który dodaje więcej możliwości do istniejącego `HostName` parametru w konfiguracji.
+>Ta funkcja jest obecnie dostępna tylko za pomocą [Azure PowerShell](tutorial-multiple-sites-powershell.md) i [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md). Obsługa portalu będzie dostępna wkrótce.
 
-W [Azure PowerShell](tutorial-multiple-sites-powershell.md)należy użyć `-HostNames` zamiast `-HostName` . Za pomocą nazw hostów można wspominać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład: `-HostNames "*.contoso.com,*.fabrikam.com"`
+W [Azure PowerShell](tutorial-multiple-sites-powershell.md)należy użyć `-HostNames` zamiast `-HostName` . Za pomocą nazw hostów można wspominać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-W [interfejsie wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md)należy użyć `--host-names` zamiast `--host-name` . Nazwy hostów można wymieniać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład: `--host-names "*.contoso.com,*.fabrikam.com"`
+W [interfejsie wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md)należy użyć `--host-names` zamiast `--host-name` . Nazwy hostów można wymieniać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Dozwolone znaki w polu nazwy hostów:
 
@@ -77,7 +73,7 @@ W [interfejsie wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md
 *   Właściwości "hostname" przyjmuje jeden ciąg jako dane wejściowe, gdzie można wspomnieć tylko jedną nazwę domeny niezawierającą symboli wieloznacznych i "Hostnames" pobiera tablicę ciągów jako dane wejściowe, gdzie można wymienić do 5 nazw domen wieloznacznych. Ale obu właściwości nie można używać jednocześnie.
 *   Nie można utworzyć reguły [przekierowania](redirect-overview.md) z odbiornikiem docelowym, który używa symboli wieloznacznych lub wielu nazw hostów.
 
-Aby zapoznać się z przewodnikiem krok po kroku na temat konfigurowania nazw hostów symboli wieloznacznych, zobacz [Tworzenie wiele witryn przy użyciu Azure Portal](create-multiple-sites-portal.md) lub [Korzystanie z Azure PowerShell](tutorial-multiple-sites-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md) .
+Zobacz [Tworzenie wielowitryn przy użyciu Azure PowerShell](tutorial-multiple-sites-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md) , aby zapoznać się z przewodnikiem krok po kroku na temat konfigurowania nazw hostów symboli wieloznacznych.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 
@@ -95,6 +91,9 @@ Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowa
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z obsługą wielu witryn przejdź do pozycji [Tworzenie wielu witryn przy użyciu Azure Portal](create-multiple-sites-portal.md) lub [korzystania Azure PowerShell](tutorial-multiple-sites-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md) w celu uzyskania przewodnika krok po kroku na temat tworzenia Application Gateway do hostowania wielu witryn sieci Web.
+Dowiedz się, jak skonfigurować obsługę wielu witryn w Application Gateway
+* [Korzystanie z witryny Azure Portal](create-multiple-sites-portal.md)
+* [Korzystanie z programu Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Korzystanie z interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md)
 
 Możesz odwiedzić stronę [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) (Szablon usługi Resource Manager z zastosowaniem hostowania wielu witryn), aby zapoznać się z kompleksowym wdrożeniem opartym na szablonie.

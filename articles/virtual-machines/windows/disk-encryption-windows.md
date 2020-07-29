@@ -4,16 +4,16 @@ description: Ten artykuł zawiera instrukcje dotyczące włączania Microsoft Az
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036135"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291970"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -140,6 +140,33 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | resizeOSDisk | Należy zmienić rozmiar partycji systemu operacyjnego w celu zajmowania całego wirtualnego dysku twardego systemu operacyjnego przed podziałem woluminu systemowego. |
 | location | Lokalizacja dla wszystkich zasobów. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Włącz szyfrowanie na dyskach interfejsu NVMe dla maszyn wirtualnych Lsv2
+
+W tym scenariuszu opisano Włączanie Azure Disk Encryption na dyskach interfejsu NVMe dla maszyn wirtualnych z serii Lsv2.  Funkcja serii Lsv2 lokalnego magazynu interfejsu NVMe. Lokalne dyski interfejsu NVMe są tymczasowe i dane zostaną utracone na tych dyskach, jeśli zatrzymasz/zwolnisz maszynę wirtualną (zobacz: [Lsv2-Series](../lsv2-series.md)).
+
+Aby włączyć szyfrowanie na dyskach interfejsu NVMe:
+
+1. Zainicjuj dyski interfejsu NVMe i Utwórz woluminy NTFS.
+1. Włącz szyfrowanie na maszynie wirtualnej z parametrem Volumetype ustawionym na wartość ALL. Spowoduje to włączenie szyfrowania dla wszystkich dysków systemu operacyjnego i danych, w tym woluminy obsługiwane przez dyski interfejsu NVMe. Aby uzyskać więcej informacji, zobacz [Włączanie szyfrowania na istniejącej lub uruchomionej maszynie wirtualnej z systemem Windows](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+Szyfrowanie będzie przechowywane na dyskach interfejsu NVMe w następujących scenariuszach:
+- Ponowne uruchomienie maszyny wirtualnej
+- VMSS z obrazu
+- Wymiana systemu operacyjnego
+
+Dyski interfejsu NVMe zostaną niezainicjowane w następujących scenariuszach:
+
+- Uruchom maszynę wirtualną po cofnięciu alokacji
+- Naprawy usługi
+- Backup
+
+W tych scenariuszach dyski interfejsu NVMe muszą zostać zainicjowane po uruchomieniu maszyny wirtualnej. Aby włączyć szyfrowanie na dyskach interfejsu NVMe, uruchom polecenie, aby włączyć Azure Disk Encryption ponownie po zainicjowaniu dysków interfejsu NVMe.
+
+Poza scenariuszami wymienionymi w sekcji [nieobsługiwane scenariusze](#unsupported-scenarios) szyfrowanie dysków interfejsu NVMe nie jest obsługiwane dla:
+
+- Maszyny wirtualne zaszyfrowane przy użyciu Azure Disk Encryption z usługą AAD (poprzednia wersja)
+- Dyski interfejsu NVMe z miejscami do magazynowania
+- Azure Site Recovery jednostek SKU z dyskami interfejsu NVMe (zobacz [Macierz obsługi dla odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure: zreplikowane maszyny — magazyn](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nowe maszyny wirtualne IaaS utworzone z poziomu dysków VHD szyfrowanych przez klienta i kluczy szyfrowania
 
@@ -236,7 +263,6 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Przeniesienie szyfrowanych maszyn wirtualnych do innej subskrypcji lub regionu.
 - Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
 - Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Maszyny wirtualne serii Lsv2 (patrz: [Lsv2-Series](../lsv2-series.md))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 - Zastosowanie elementu ADE do maszyny wirtualnej, która ma dysk danych zaszyfrowany przy użyciu [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) (SSE + CMK) lub stosowanie SSE + CMK do dysku danych na maszynie wirtualnej zaszyfrowanej za pomocą programu ADE.
 - Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).

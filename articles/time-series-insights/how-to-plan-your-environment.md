@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531437"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289911"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planowanie środowiska Azure Time Series Insights Gen2
 
@@ -78,7 +78,7 @@ Po podaniu pustego pola czas do kolejki zdarzeń źródła zdarzeń jest używan
 
 Teraz można skonfigurować model szeregów czasowych środowiska Azure Time Series Insights. Nowy model ułatwia znajdowanie i analizowanie danych IoT. Umożliwia ona nadzorowanie, konserwację i wzbogacanie danych szeregów czasowych i pomaga przygotować zestawy danych gotowe do użycia przez klientów. Model używa identyfikatorów szeregów czasowych, które mapują do wystąpienia, które kojarzy unikatowy zasób ze zmiennymi, znanymi jako typy i hierarchie. Przeczytaj temat Omówienie [modelu szeregów czasowych](./concepts-model-overview.md) , aby dowiedzieć się więcej.
 
-Model jest dynamiczny, więc można go skompilować w dowolnym momencie. Aby szybko rozpocząć pracę, skompiluj ją i przekaż przed wypchnięciem danych do Azure Time Series Insights. Aby skompilować model, przeczytaj artykuł [Korzystanie z modelu szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+Model jest dynamiczny, więc można go skompilować w dowolnym momencie. Aby szybko rozpocząć pracę, skompiluj ją i przekaż przed wypchnięciem danych do Azure Time Series Insights. Aby skompilować model, przeczytaj artykuł [Korzystanie z modelu szeregów czasowych](/azure/time-series-insights/concepts-model-overview).
 
 W przypadku wielu klientów model szeregów czasowych jest mapowany na istniejący model zasobów lub system ERP. Jeśli nie masz istniejącego modelu, [zapewnione](https://github.com/Microsoft/tsiclient) zostanie wbudowane środowisko użytkownika umożliwiające szybkie rozpoczęcie pracy. Aby Envision, jak może pomóc model, zobacz [przykładowe środowisko demonstracyjne](https://insights.timeseries.azure.com/preview/demo).
 
