@@ -4,16 +4,16 @@ description: Ten przewodnik Szybki Start zawiera przykładowy kod Java, którego
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 5/26/2020
-ms.openlocfilehash: f23b926cf12dbda66bd5b409f5dfeec62ef9fcd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 4da7efc40177937aad8f1a97e909d90c4cf5f466
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322860"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka Java do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 

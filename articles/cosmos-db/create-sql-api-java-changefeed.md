@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-java
+ms.openlocfilehash: 3f2dcefa8ed2f4b80ec66851cdc67ee2283a6ac7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962700"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322826"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Jak utworzyć aplikację Java, która używa Azure Cosmos DB interfejsu API SQL i procesora źródła zmian
 
@@ -57,7 +58,7 @@ mvn clean package
 
 1. Najpierw należy sprawdzić konto Azure Cosmos DB. Otwórz **Azure Portal** w przeglądarce, przejdź do swojego konta Azure Cosmos DB, a następnie w okienku po lewej stronie przejdź do **Eksplorator danych**.
 
-   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Konto Azure Cosmos DB":::
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Konto usługi Azure Cosmos DB":::
 
 1. Uruchom aplikację w terminalu przy użyciu następującego polecenia:
 
@@ -109,11 +110,11 @@ mvn clean package
 
 1. Teraz w Eksplorator danych przejdź do **pozycji > InventoryContainer-pktype**. Jest to widok z materiałami — elementy znajdujące się w tym kontenerze dublowane **InventoryContainer** , ponieważ zostały wstawione programowo przez źródło zmian. Zanotuj klucz partycji ( ```type``` ). Dlatego ten widok z materiałami jest zoptymalizowany pod kątem zapytań filtrowanych ```type``` , co byłoby niewydajne w **InventoryContainer** , ponieważ jest on podzielony na partycje ```id``` .
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Widok z materiałami":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Zmaterializowany widok":::
 
 1. Zamierzamy usunąć dokument z zarówno **InventoryContainer** , jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z Azure Portal Eksplorator danych. Usuniemy dokument, dla którego ```/type == "plums"``` jest on otoczony czerwono poniżej
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Widok z materiałami":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Zmaterializowany widok":::
 
     Ponownie naciśnij klawisz ENTER, aby wywołać funkcję ```deleteDocument()``` w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5``` , który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
     

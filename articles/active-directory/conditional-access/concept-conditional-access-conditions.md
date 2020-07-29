@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024459"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275007"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -32,7 +32,7 @@ Na przykład podczas uzyskiwania dostępu do poufnej aplikacji administrator mo�
 
 W przypadku klientów mających dostęp do usługi [Identity Protection](../identity-protection/overview-identity-protection.md)można ocenić ryzyko związane z logowaniem w ramach zasad dostępu warunkowego. Ryzyko związane z logowaniem reprezentuje prawdopodobieństwo, że dane żądanie uwierzytelnienia nie jest autoryzowane przez właściciela tożsamości. Więcej informacji na temat ryzyka związanego z logowaniem można znaleźć w artykułach, [co jest ryzykowne](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) i [jak: Konfigurowanie i Włączanie zasad ryzyka](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
-## <a name="user-risk"></a>Ryzyko użytkownika 
+## <a name="user-risk"></a>Ryzyko związane z użytkownikiem 
 
 W przypadku klientów mających dostęp do usługi [Identity Protection](../identity-protection/overview-identity-protection.md)można ocenić ryzyko użytkownika w ramach zasad dostępu warunkowego. Ryzyko użytkownika reprezentuje prawdopodobieństwo naruszenia zabezpieczeń danej tożsamości lub konta. Więcej informacji o ryzyku użytkownika można znaleźć w artykułach, [co jest ryzykowne](../identity-protection/concept-identity-protection-risks.md#user-risk) i [jak: Konfigurowanie i Włączanie zasad ryzyka](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
@@ -63,6 +63,9 @@ Więcej informacji na temat lokalizacji można znaleźć w artykule [co to jest 
 ## <a name="client-apps-preview"></a>Aplikacje klienckie (wersja zapoznawcza)
 
 Zasady dostępu warunkowego są domyślnie stosowane do aplikacji i aplikacji opartych na przeglądarce, które korzystają z nowoczesnych protokołów uwierzytelniania. Oprócz tych aplikacji Administratorzy mogą dołączać klientów programu Exchange ActiveSync i innych klientów korzystających ze starszych protokołów.
+
+> [!NOTE]
+> Usunięto przełącznik Konfiguruj tak/nie w stanie aplikacje klienckie, aby ułatwić sprawdzenie, które aplikacje klienckie są wybrane. Nie ma to wpływu na to, które aplikacje klienckie obowiązują dla istniejących zasad.
 
 - Przeglądarka
    - Obejmują one aplikacje oparte na sieci Web, które używają protokołów takich jak SAML, WS-Federation, OpenID Connect Connect lub usługi zarejestrowane jako klient z poufnym uwierzytelnianiem OAuth.

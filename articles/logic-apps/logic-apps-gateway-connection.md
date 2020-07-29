@@ -3,15 +3,15 @@ title: Dostęp do źródeł danych lokalnych
 description: Nawiązywanie połączenia z lokalnymi źródłami danych z Azure Logic Apps przez tworzenie zasobu lokalnej bramy danych platformy Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/21/2020
+ms.openlocfilehash: 94fedc5dc6c9f420fbf14f80618a6daeefe908b2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065957"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172043"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
@@ -56,9 +56,9 @@ Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. J
 
 * Korzystasz z tego [samego konta i subskrypcji platformy Azure](../logic-apps/logic-apps-gateway-install.md#requirements) , która została użyta podczas instalowania tej bramy danych. To konto platformy Azure musi należeć do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
-* Instalacja bramy nie została już zarejestrowana i nie została przejęta przez inny zasób bramy platformy Azure.
+* Instalacja bramy nie jest już zarejestrowana i nie została przejęta przez inny istniejący zasób bramy platformy Azure w Azure Portal.
 
-  Podczas tworzenia zasobu bramy w Azure Portal należy wybrać instalację bramy, która łączy się z zasobem bramy i tylko z tym zasobem bramy. W Azure Logic Apps lokalne wyzwalacze i akcje używają zasobu bramy do łączenia się z lokalnymi źródłami danych. W tych wyzwalaczach i akcjach wybierasz subskrypcję platformy Azure i skojarzony zasób bramy, który ma być używany. Każdy zasób bramy łączy się tylko z jedną instalacją bramy, która łączy tylko z jednym kontem platformy Azure.
+  Podczas tworzenia zasobu bramy w Azure Portal należy wybrać instalację bramy, która łączy się z zasobem bramy i tylko z tym zasobem bramy. Każdy zasób bramy może łączyć się tylko z jedną instalacją bramy, która może łączyć się tylko z jednym kontem platformy Azure. W Azure Logic Apps lokalne wyzwalacze i akcje używają zasobu bramy podczas nawiązywania połączenia z lokalnymi źródłami danych. Pod warunkiem posiadania dostępu do subskrypcji możesz wybrać różne subskrypcje platformy Azure, które są skojarzone z innym zasobem bramy. Twoja aplikacja logiki i zasób bramy nie muszą korzystać z tej samej subskrypcji platformy Azure.
 
   > [!NOTE]
   > Tylko administrator bramy może utworzyć zasób bramy w Azure Portal. Obecnie nazwy główne usług nie są obsługiwane. 
@@ -107,6 +107,8 @@ Po utworzeniu zasobu bramy i skojarzeniu subskrypcji platformy Azure z tym zasob
 1. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**.
 
 1. W obszarze **bramy**z listy **subskrypcje** wybierz subskrypcję platformy Azure, dla której chcesz utworzyć żądany zasób bramy.
+
+   Pod warunkiem posiadania dostępu do subskrypcji możesz wybrać różne subskrypcje platformy Azure, które są skojarzone z innym zasobem bramy. Twoja aplikacja logiki i zasób bramy nie muszą korzystać z tej samej subskrypcji platformy Azure.
 
 1. Z listy **brama połączeń** , która wyświetla dostępne zasoby bramy w wybranej subskrypcji, wybierz żądany zasób bramy. Każdy zasób bramy jest połączony z instalacją pojedynczej bramy.
 

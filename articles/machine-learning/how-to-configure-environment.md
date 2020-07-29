@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: f0ac64fa184382f3939530565caa93f87da0fbf6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321483"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji, zobacz [Virtual Machines analizy danych](https:
 
 ## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
 
-Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Przykład:
+Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Oto przykład:
 
 1. Pobierz i zainstaluj program [Anaconda](https://www.anaconda.com/distribution/#download-section) (wersja języka Python 3,7), jeśli jeszcze go nie masz.
 

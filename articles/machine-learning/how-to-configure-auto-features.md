@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321592"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym
 
@@ -64,7 +64,7 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 | ------------- | ------------- |
 |**Porzuć wysoką Kardynalność lub brak funkcji wariancji*** |Porzuć te funkcje z poziomu szkoleń i zestawów walidacji. Dotyczy funkcji mających wszystkie brakujące wartości, o tej samej wartości we wszystkich wierszach lub o dużej kardynalności (na przykład skrótów, identyfikatorów lub identyfikatorów GUID).|
 |**Brak wartości w postaci kalkulacyjne*** |W przypadku funkcji liczbowych można obliczyć wartości w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
-|**Generuj dodatkowe funkcje*** |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams.|
+|**Generuj dodatkowe funkcje*** |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
 |**Przekształcanie i kodowanie***|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
 |**Osadzanie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu modelu przedniego. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
 |**Kodowanie docelowe**|W przypadku funkcji kategorii ten krok mapuje każdą kategorię ze średnią wartością docelową dla problemów z regresją oraz do prawdopodobieństwa klasy dla każdej klasy w przypadku problemów z klasyfikacją. Wagi oparte na częstotliwościach i k-zgięcie krzyżowe są stosowane w celu zmniejszenia zamontowania mapowania i szumów spowodowanych przez kategorie danych rozrzedzonych.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>Integracja BERT 
+[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) jest używany w warstwie cechowania zautomatyzowanej ml. W tej warstwie wykrywamy, czy kolumna zawiera tekst wolny lub inne typy danych, takie jak sygnatury czasowe czy proste i cechowanie odpowiednio. W przypadku usługi BERT dostrajamy model przy użyciu etykiet dostarczonych przez użytkownika, a następnie osadzania dokumentów wyjściowych (w przypadku BERT są to ostatni ukryty stan skojarzony z specjalnym tokenem [CLS]) jako funkcje wraz z innymi funkcjami, takimi jak funkcje oparte na znacznikach czasowych (np. dzień tygodnia) lub liczby, które mają wiele typowych zestawów danych. 
+
+Aby włączyć BERT, należy używać obliczeń procesora GPU na potrzeby szkoleń. Jeśli zostanie użyta wartość obliczeniowa procesora CPU, a nie BERT, AutoML spowoduje włączenie BiLSTM DNN featurized. Aby wywoływać BERT, należy ustawić "enable_dnn: true" w automl_settings i użyć obliczeń procesora GPU (np. vm_size = "STANDARD_NC6" lub większego procesora GPU). Przykład można znaleźć [w tym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+AutoML wykonuje następujące czynności w przypadku BERT (należy pamiętać, że w automl_settings dla tych elementów należy ustawić "enable_dnn: true"):
+
+1. Przetwarzanie wstępne, w tym tokenizacji wszystkich kolumn tekstowych (w podsumowaniu cechowania tego modelu zobaczysz transformator "StringCast"). Odwiedź [ten Notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) , aby zobaczyć przykład sposobu tworzenia podsumowania cechowania modelu przy użyciu `get_featurization_summary()` metody.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Łączy wszystkie kolumny tekstowe w pojedynczą kolumnę tekstową, dlatego w modelu końcowym zostanie wyświetlony tekst "StringConcatTransformer". 
+
+> [!NOTE]
+> Nasza implementacja BERT ogranicza łączną długość tekstu szkolenia do 128 tokenów. Oznacza to, że wszystkie kolumny tekstowe, gdy są połączone, powinny mieć maksymalnie 128 tokenów. W idealnym przypadku, jeśli istnieją wiele kolumn, każda kolumna powinna zostać oczyszczona w taki sposób, że ten warunek jest spełniony. Na przykład jeśli w danych znajdują się dwie kolumny tekstowe, obie kolumny tekstowe należy oczyścić do 64 tokenów (przy założeniu, że obie kolumny mają być równo reprezentowane w ostatniej połączonej kolumnie tekstowej) przed podawaniem danych do AutoML. W przypadku połączonych kolumn o długości >tokeny 128, warstwa tokenizatora BERT będzie obcinać dane wejściowe do tokenów 128.
+
+3. W kroku odliczania funkcji AutoML porównuje BERT z linią bazową (zbiorem słów Features + preszkolne osadzania wyrazów) na próbce danych i określa, czy BERT da ulepszenia dokładności. Jeśli ustali, że BERT wykonuje lepsze niż linia bazowa, AutoML następnie używa BERT dla cechowania tekstu jako optymalnej strategii cechowania i kontynuuje pracę z featurizingem całych danych. W takim przypadku zobaczysz "PretrainedTextDNNTransformer" w modelu końcowym.
+
+AutoML obecnie obsługuje około 100 języków i w zależności od języka zestawu danych AutoML wybiera odpowiedni model BERT. W przypadku danych niemieckich korzystamy z niemieckiego modelu BERT. W przypadku języka angielskiego używany jest model BERT w języku angielskim. W przypadku wszystkich innych języków używamy wielojęzykowego modelu BERT.
+
+W poniższym kodzie jest wyzwalany niemiecki model BERT, ponieważ język DataSet został określony jako "DEU", kod języka 3 litery dla języka niemieckiego zgodnie z [klasyfikacją ISO](https://iso639-3.sil.org/code/hbs):
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>Następne kroki

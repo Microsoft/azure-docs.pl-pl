@@ -1,6 +1,5 @@
 ---
-title: Jak model zostaje usługą sieci Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): jak model jest usługą sieci Web — Azure'
 description: Przegląd Mechanics, jak model Azure Machine Learning Studio (klasyczny) postępuje z eksperymentu deweloperskiego z usługą sieci Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a02ac6db7e560fcb90a87b7bc96284c279c1654
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117201"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325002"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Jak model Machine Learning Studio (klasyczny) postępuje z eksperymentu z usługą sieci Web
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Azure Machine Learning Studio (klasyczny) zapewnia interaktywną kanwę, która umożliwia tworzenie, uruchamianie, testowanie i Iterowanie ***eksperymentu*** reprezentującego model analizy predykcyjnej. Dostępne są szeroką gamę modułów, które mogą:
 

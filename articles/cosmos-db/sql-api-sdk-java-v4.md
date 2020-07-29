@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: 6cd4d64361e1975a6752ff3a15600923ce3fdf98
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322894"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -146,7 +147,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 * `ChangeFeedProcessor`Poprawka błędu podczas synchronizowania aktualizacji dzierżawy w różnych wątkach.
 * Stały warunek wyścigu powodujący `ArrayIndexOutOfBound` wyjątek w StoreReader
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz także

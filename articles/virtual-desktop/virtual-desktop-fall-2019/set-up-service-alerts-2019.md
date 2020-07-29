@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows — jesień 2019 — Azure
-description: Jak skonfigurować Azure Service Health do odbierania powiadomień usługi dla pulpitu wirtualnego systemu Windows.
+title: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Jak skonfigurować Azure Service Health do odbierania powiadomień usługi dla pulpitu wirtualnego systemu Windows (klasycznego).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b3a29e97fbdf2579e2ef6a86b8dadf91f679366
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085830"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283388"
 ---
-# <a name="tutorial-set-up-service-alerts---fall-2019"></a>Samouczek: Konfigurowanie alertów usługi — jesień 2019
+# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Samouczek: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../set-up-service-alerts.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../set-up-service-alerts.md).
 
 Azure Service Health służy do monitorowania problemów z usługami i klasyfikatorów kondycji dla pulpitu wirtualnego systemu Windows. Azure Service Health może powiadomić użytkownika o różnych typach alertów (np. wiadomości e-mail lub wiadomości SMS), pomóc Ci zrozumieć efekt problemu i aktualizować je w miarę rozwiązywania problemu. Azure Service Health może również pomóc w ograniczeniu przestoju i przygotowaniu się do planowanej konserwacji i zmian, które mogą mieć wpływ na dostępność zasobów.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325376"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -43,7 +43,7 @@ Jeśli żadna z tych kroków nie zadziałała, dostępne są również następuj
  Dodatkowe konfiguracje | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Edytowanie plików konfiguracji dla liczników wydajności i dziennika systemowego jest zastępowane, jeśli kolekcja została skonfigurowana z [menu dane log Analytics ustawienia zaawansowane](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) w Azure Portal dla obszaru roboczego. Aby wyłączyć konfigurację dla wszystkich agentów, wyłącz zbieranie danych z **ustawień zaawansowanych** log Analytics lub dla jednego agenta Uruchom następujące polecenie:  
+ >Edytowanie plików konfiguracji dla liczników wydajności i dziennika systemowego jest zastępowane, jeśli kolekcja została skonfigurowana z [menu dane log Analytics ustawienia zaawansowane](./agent-data-sources.md#configuring-data-sources) w Azure Portal dla obszaru roboczego. Aby wyłączyć konfigurację dla wszystkich agentów, wyłącz zbieranie danych z **ustawień zaawansowanych** log Analytics lub dla jednego agenta Uruchom następujące polecenie:  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>Kody błędów instalacji
@@ -53,7 +53,7 @@ Jeśli żadna z tych kroków nie zadziałała, dostępne są również następuj
 | NOT_DEFINED | Ponieważ niepotrzebne zależności nie są zainstalowane, wtyczka poddawana inspekcji auoms nie zostanie zainstalowana | Instalacja elementu auoms nie powiodła się, zainstaluj pakiet inspekcji. |
 | 2 | Podano nieprawidłową opcję dla pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` do użycia |
 | 3 | Nie dostarczono żadnej opcji do pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` w celu użycia. |
-| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent-*RPM*. sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent-*deb*. sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
+| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent-*RPM*. sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent-*deb*. sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
 | 5 | Pakiet powłoki należy wykonać jako element główny lub wystąpił błąd 403 podczas dołączania. Uruchom polecenie za pomocą polecenia `sudo` . |
 | 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent-*x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Instalacja pakietu OMS nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
@@ -228,7 +228,7 @@ Błędy związane z wydajnością nie zachodzą przez cały czas i są bardzo tr
 * Liczba przesyłanych dalej komunikatów na sekundę jest zbyt duża, aby można było obsłużyć podstawową konfigurację agenta Log Analytics dla systemu Linux
 
 ### <a name="resolution"></a>Rozwiązanie
-* Sprawdź, czy konfiguracja w obszarze roboczym Log Analytics dla dziennika systemowego ma wszystkie obiekty i poprawne poziomy dzienników. Przejrzyj temat [Konfigurowanie kolekcji dziennika systemowego w Azure Portal](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Sprawdź, czy konfiguracja w obszarze roboczym Log Analytics dla dziennika systemowego ma wszystkie obiekty i poprawne poziomy dzienników. Przejrzyj temat [Konfigurowanie kolekcji dziennika systemowego w Azure Portal](./data-sources-syslog.md#configure-syslog-in-the-azure-portal)
 * Sprawdź, czy natywne demoy komunikatów dziennika systemu ( `rsyslog` , `syslog-ng` ) mogą odbierać przesyłane dalej wiadomości
 * Sprawdź ustawienia zapory na serwerze dziennika systemowego, aby upewnić się, że komunikaty nie są blokowane
 * Symuluj komunikat dziennika systemowego, aby Log Analytics przy użyciu `logger` polecenia
@@ -422,7 +422,7 @@ Możesz kontynuować reonboard po użyciu `--purge` opcji
 ### <a name="resolution"></a>Rozwiązanie 
 Aby rozwiązać ten problem, wykonaj następujące czynności.
 1. Usuń rozszerzenie z Azure Portal.
-2. Zainstaluj agenta zgodnie z [instrukcjami](../../azure-monitor/learn/quick-collect-linux-computer.md).
+2. Zainstaluj agenta zgodnie z [instrukcjami](../learn/quick-collect-linux-computer.md).
 3. Uruchom ponownie agenta, uruchamiając następujące polecenie: `sudo /opt/microsoft/omsagent/bin/service_control restart` .
 * Poczekaj kilka minut, a stan aprowizacji zostanie zmieniony na **zainicjowanie pomyślnie**.
 
@@ -444,3 +444,4 @@ Aby rozwiązać ten problem, wykonaj następujące czynności.
     ```
 
 3. Uaktualnij pakiety przez wykonanie `sudo sh ./omsagent-*.universal.x64.sh --upgrade` .
+

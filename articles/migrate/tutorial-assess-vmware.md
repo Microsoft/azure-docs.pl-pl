@@ -4,12 +4,12 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych VMware na potrze
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 6c395d7e2be151e97808fa9601ff6001801d243b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110355"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290213"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Ocenianie maszyn wirtualnych programu VMware przy użyciu narzędzia do oceny serwera
 
@@ -53,7 +53,7 @@ Skonfiguruj nowy projekt Azure Migrate w następujący sposób:
 
    ![Pola nazwy i regionu projektu](./media/tutorial-assess-vmware/migrate-project.png)
 
-7. Wybierz opcję **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
    ![Wybór dla narzędzia do oceny serwera](./media/tutorial-assess-vmware/assessment-tool.png)
@@ -75,7 +75,7 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 ### <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
 
 1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
-2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3. Wybierz pozycję **Pobierz** , aby pobrać plik szablonu komórki jajowe.
 
    ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
@@ -146,7 +146,7 @@ Skonfiguruj urządzenie po raz pierwszy.
      - Obsługiwane są tylko serwery proxy HTTP.
    - **Synchronizacja czasu**: czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby odnajdywanie działało prawidłowo.
    - **Zainstaluj aktualizacje**: urządzenie zapewnia zainstalowanie najnowszych aktualizacji.
-   - **Zainstaluj VDDK**: Urządzenie sprawdza, czy jest zainstalowany program VMware VSphere Virtual Disk Development Kit (VDDK). Jeśli nie jest zainstalowany, Pobierz VDDK 6,7 z programu VMware i Wyodrębnij zawartość pliku zip do określonej lokalizacji na urządzeniu.
+   - **Zainstaluj VDDK**: Urządzenie sprawdza, czy zainstalowano pakiet VMware vSphere Virtual Disk Development Kit (VDDK). Jeśli nie jest zainstalowany, Pobierz VDDK 6,7 z programu VMware i Wyodrębnij zawartość pliku zip do określonej lokalizacji na urządzeniu.
 
      Migracja serwera Azure Migrate przy użyciu programu VDDK umożliwia replikowanie maszyn podczas migracji na platformę Azure.       
 
@@ -159,7 +159,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
 4. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate, a następnie wybierz projekt.
 5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-6. Wybierz pozycję **Zarejestruj**.
+6. Wybierz pozycję **Rejestruj**.
 
 
 ## <a name="start-continuous-discovery"></a>Uruchom odnajdywanie ciągłe

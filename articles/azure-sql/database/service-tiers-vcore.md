@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007745"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325070"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 |-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Optymalne zastosowanie|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
-|Storage|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
+|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
 |Operacje we/wy i przepływność (przybliżona)|**SQL Database**: Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL**: zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
 |Dostępność|1 replika, brak replik w skali odczytu|3 repliki, 1 [replika w skali odczytu](read-scale-out.md),<br/>Strefa — nadmiarowa wysoka dostępność (HA)|1 replika odczytu i zapisu oraz 0-4 [replik w skali odczytu](read-scale-out.md)|
 |Tworzenie kopii zapasowych|[Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|Tworzenie kopii zapasowych opartych na migawce w magazynie zdalnym platformy Azure. Przywraca używanie tych migawek do szybkiego odzyskiwania. Kopie zapasowe są natychmiast i nie wpływają na wydajność obliczeń we/wy. Przywracanie odbywa się szybko i nie jest operacją o rozmiarze danych (w minutach, a nie w godzinach lub dniach).|
@@ -83,7 +83,7 @@ W przypadku regionów, w których jest dostępny obliczenia/5 rdzeń, zobacz [do
 - W zależności od obciążenia seria Fsv2 może zapewnić większą wydajność procesora CPU na rdzeń wirtualny niż 5 rdzeń, a rozmiar rdzeń wirtualny 72 może zapewnić większą wydajność procesora CPU mniejszą niż 80 rdzeni wirtualnych w 5 rdzeń. 
 - Fsv2 zapewnia mniejszą ilość pamięci i tempdb na rdzeń wirtualny niż inny sprzęt, dlatego obciążenia te mogą chcieć uwzględnić 5 rdzeń lub M serii.  
 
-Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia. W przypadku regionów, w których jest dostępna seria Fsv2, zobacz [dostępność z serii Fsv2](#fsv2-series).
+Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia. W przypadku regionów, w których jest dostępna seria Fsv2, zobacz [dostępność z serii Fsv2](#fsv2-series-1).
 
 
 ### <a name="m-series"></a>Seria M
@@ -91,7 +91,7 @@ Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia. W przypad
 - Seria M to zoptymalizowana pod kątem pamięci opcja sprzętowa dla obciążeń wymagających większej ilości pamięci i wyższych limitów obliczeń niż zapewniana przez 5 rdzeń.
 - Seria M zapewnia 29 GB na rdzeń wirtualny oraz do 128 rdzeni wirtualnych, co zwiększa limit pamięci względem 5 rdzeń przez 8x do niemal 4 TB.
 
-Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA). W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
+Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA). W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -100,7 +100,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Compute  |Pamięć  |
+|Generowanie sprzętu  |Wystąpienia obliczeniowe  |Pamięć  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 16 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 48 GB|

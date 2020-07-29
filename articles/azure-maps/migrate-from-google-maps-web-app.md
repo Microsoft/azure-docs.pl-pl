@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: df23226adfa8caa86b7ad91dd28a9352381f4170
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b33c0b98a39347efeaaabbb86f6ee3e6b5f5d912
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747564"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288219"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrowanie aplikacji internetowej z usługi Google Maps
 
@@ -422,7 +422,7 @@ Możesz użyć niestandardowych obrazów do reprezentowania punktów na mapie. M
 <center>
 
 ![żółty obraz pinezki](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-YLW \_ pinezki. png</center>
+YLW \_pushpin.png</center>
 
 **Wcześniej: Google Maps**
 
@@ -1025,7 +1025,7 @@ Po włączeniu klastrowania źródło danych wyśle klastrowane i nieklastrowane
 
 | Nazwa właściwości             | Typ    | Opis   |
 |---------------------------|---------|---------------|
-| `cluster`                 | wartość logiczna | Wskazuje, czy funkcja reprezentuje klaster. |
+| `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |
 | `point_count`             | liczba  | Liczba punktów, które zawiera klaster.  |
 | `point_count_abbreviated` | ciąg  | Ciąg, który skróci wartość, `point_count` Jeśli jest długi. (na przykład 4 000 to 4K)  |
@@ -1703,8 +1703,8 @@ Poniższy dodatek zawiera krzyżowe odwołanie do najczęściej używanych klas 
 
 | Mapy Google  | Azure Maps  |
 |--------------|-------------|
-| `google.maps.Marker` | [Atlas. HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)<br/>[Atlas. Data. punkt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)  |
-| `google.maps.MarkerOptions`  | [Atlas. HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)<br/>[Atlas. Layer. SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)<br/>[Atlas. SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)<br/>[Atlas. IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)<br/>[Atlas. TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)<br/>[Atlas. Layer. BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)<br/>[Atlas. BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest) |
+| `google.maps.Marker` | [atlas.HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)<br/>[Atlas. Data. punkt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)  |
+| `google.maps.MarkerOptions`  | [atlas.HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)<br/>[Atlas. Layer. SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)<br/>[Atlas. SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)<br/>[Atlas. IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)<br/>[Atlas. TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)<br/>[Atlas. Layer. BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)<br/>[Atlas. BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest) |
 | `google.maps.Polygon`  | [Atlas. Data. Wielokąt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)               |
 | `google.maps.PolygonOptions` |[Atlas. Layer. PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)<br/> [Atlas. PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)<br/> [Atlas. Layer. LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)<br/> [Atlas. LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)|
 | `google.maps.Polyline` | [Atlas. Data. LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest)         |
@@ -1716,7 +1716,7 @@ Poniższy dodatek zawiera krzyżowe odwołanie do najczęściej używanych klas 
 
 ## <a name="service-classes"></a>Klasy usług
 
-Zestaw SDK sieci Web Azure Maps zawiera moduł usług, który można załadować osobno. Ten moduł zawija Azure Maps usług REST przy użyciu internetowego interfejsu API i może być używany w aplikacjach JavaScript, TypeScript i Node. js.
+Zestaw SDK sieci Web Azure Maps zawiera moduł usług, który można załadować osobno. Ten moduł otacza Azure Maps usług REST za pomocą internetowego interfejsu API i może być używany w aplikacjach JavaScript, TypeScript i Node.js.
 
 | Mapy Google | Azure Maps  |
 |-------------|-------------|

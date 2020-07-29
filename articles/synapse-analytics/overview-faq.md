@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: ba6f79fffe5287be7574d422f026489d4da2795e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287492"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Analiza usługi Azure Synapse (obszary robocze — wersja zapoznawcza) — często zadawane pytania
 
@@ -32,6 +32,8 @@ Odp.: usługa Azure Synapse to Zintegrowana platforma danych dla analizy bizneso
 - Łatwo Monitoruj i szybko Optymalizuj, reaguj i Debuguj zdarzenia występujące w działaniach obszaru roboczego w dowolnej warstwie.
 - Zarządzaj metadanymi w różnych aparatach. Utwórz tabelę platformy Spark i zostanie ona automatycznie udostępniona w bazach danych usługi Azure Synapse.
 - Pracuj z danymi za pomocą ujednoliconego środowiska użytkownika. Synapse Studio zapewnia deweloperom danych Big Data, inżynierów danych, przetwarzający, analityków danych i naukowców z danymi na tej samej platformie.
+
+Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is).
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>P: Jakie są główne składniki usługi Azure Synapse Analytics
 

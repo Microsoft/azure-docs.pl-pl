@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081801"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273377"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -596,6 +596,9 @@ Funkcja v2 automatycznie zbiera zależności dla żądań HTTP, ServiceBus, Even
 Można napisać niestandardowy kod, aby wyświetlić zależności. Przykłady zawierają przykładowy kod w [sekcji niestandardowe telemetrię języka C#](#log-custom-telemetry-in-c-functions). Przykładowy kod powoduje, że *Mapa aplikacji* w Application Insights wygląda jak na poniższej ilustracji:
 
 ![Mapa aplikacji](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Zależności są zapisywane na poziomie informacji. W przypadku filtrowania na ostrzeżenie lub powyżej nie będą wyświetlane żadne z tych danych. Ponadto Automatyczne zbieranie zależności odbywa się w zakresie nienależącym do użytkownika. Upewnij się, że poziom jest ustawiony na co najmniej **informacje** poza zakresem użytkownika w host.jsna (tj. poza funkcją. <YOUR_FUNCTION_NAME>. Klucz użytkownika), jeśli te zależności mają być przechwytywane.
 
 ## <a name="enable-application-insights-integration"></a>Enable Application Insights integration (Włączanie integracji z usługą Application Insights)
 

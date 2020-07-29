@@ -2,43 +2,65 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832818"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321772"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
-Aby uprościć zarządzanie zasobami, możesz wdrożyć zasoby na poziomie subskrypcji platformy Azure. Na przykład można wdrożyć [zasady](../../governance/policy/overview.md) i [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) w ramach subskrypcji, a te zasoby są stosowane w ramach subskrypcji. Można także tworzyć grupy zasobów i wdrażać zasoby w tych grupach zasobów.
+Aby uprościć zarządzanie zasobami, możesz użyć szablonu Azure Resource Manager (szablon ARM) do wdrażania zasobów na poziomie subskrypcji platformy Azure. Na przykład można wdrożyć [zasady](../../governance/policy/overview.md) i [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) w ramach subskrypcji, która stosuje je w ramach subskrypcji. Możesz również utworzyć grupy zasobów w ramach subskrypcji i wdrożyć zasoby w grupach zasobów w ramach subskrypcji.
 
 > [!NOTE]
 > Można wdrożyć do 800 różnych grup zasobów w ramach wdrożenia na poziomie subskrypcji.
 
-Aby wdrażać szablony na poziomie subskrypcji, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST.
+Aby wdrożyć szablony na poziomie subskrypcji, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell, interfejsu API REST lub portalu.
 
 ## <a name="supported-resources"></a>Obsługiwane zasoby
 
-Na poziomie subskrypcji można wdrożyć następujące typy zasobów:
+Nie wszystkie typy zasobów można wdrożyć na poziomie subskrypcji. W tej sekcji przedstawiono typy zasobów, które są obsługiwane.
 
+W przypadku planów platformy Azure Użyj:
+
+* [pojawia](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [plany](/azure/templates/microsoft.blueprint/blueprints)
-* [budżetów](/azure/templates/microsoft.consumption/budgets)
-* [wdrożenia](/azure/templates/microsoft.resources/deployments) — dla szablonów zagnieżdżonych wdrażanych w grupach zasobów.
-* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [wersje (plany)](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+W przypadku zasad platformy Azure Użyj:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [korygowania](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
-* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [korygowania](/azure/templates/microsoft.policyinsights/remediations)
+
+W przypadku kontroli dostępu opartej na rolach należy użyć:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
-* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+
+W przypadku szablonów zagnieżdżonych, które są wdrażane w grupach zasobów, użyj:
+
+* [komputerów](/azure/templates/microsoft.resources/deployments)
+
+Aby utworzyć nowe grupy zasobów, użyj:
+
+* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+
+Aby zarządzać subskrypcją, użyj:
+
+* [budżetów](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tabliczk](/azure/templates/microsoft.resources/tags)
-* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
+
+Inne obsługiwane typy to:
+
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
 ### <a name="schema"></a>Schemat
 
@@ -91,6 +113,47 @@ Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa d
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+Podczas wdrażania w ramach subskrypcji można kierować do subskrypcji lub grup zasobów w ramach subskrypcji. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do subskrypcji.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        subscription-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Aby określić grupę zasobów w ramach subskrypcji, Dodaj wdrożenie zagnieżdżone i Uwzględnij `resourceGroup` Właściwość. W poniższym przykładzie zagnieżdżone wdrożenie jest przeznaczone dla grupy zasobów o nazwie `rg2` .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "resourceGroup": "rg2",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 
 W przypadku wdrożeń na poziomie subskrypcji istnieją pewne ważne zagadnienia dotyczące korzystania z funkcji szablonu:
@@ -111,9 +174,11 @@ W przypadku wdrożeń na poziomie subskrypcji istnieją pewne ważne zagadnienia
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-resource-groups"></a>Tworzenie grup zasobów
+## <a name="resource-groups"></a>Grupy zasobów
 
-Aby utworzyć grupę zasobów w szablonie Azure Resource Manager, zdefiniuj zasób [Microsoft. resources/resourceGroups](/azure/templates/microsoft.resources/allversions) z nazwą i lokalizacją grupy zasobów. Można utworzyć grupę zasobów i wdrożyć zasoby w tej grupie zasobów w tym samym szablonie.
+### <a name="create-resource-groups"></a>Tworzenie grup zasobów
+
+Aby utworzyć grupę zasobów w szablonie ARM, zdefiniuj zasób [Microsoft. resources/resourceGroups](/azure/templates/microsoft.resources/allversions) z nazwą i lokalizacją grupy zasobów.
 
 Poniższy szablon tworzy pustą grupę zasobów.
 
@@ -133,7 +198,7 @@ Poniższy szablon tworzy pustą grupę zasobów.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -164,7 +229,7 @@ Użyj [kopiowania elementu](copy-resources.md) z grupami zasobów, aby utworzyć
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -180,7 +245,7 @@ Użyj [kopiowania elementu](copy-resources.md) z grupami zasobów, aby utworzyć
 
 Aby uzyskać informacje o iteracji zasobów, zobacz [wdrażanie więcej niż jednego wystąpienia zasobu w szablonach Azure Resource Manager](./copy-resources.md)i [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów Menedżer zasobów](./template-tutorial-create-multiple-instances.md).
 
-## <a name="resource-group-and-resources"></a>Grupa zasobów i zasoby
+### <a name="create-resource-group-and-resources"></a>Tworzenie grupy zasobów i zasobów
 
 Aby utworzyć grupę zasobów i wdrożyć do niej zasoby, użyj szablonu zagnieżdżonego. Szablon zagnieżdżony definiuje zasoby, które mają zostać wdrożone w grupie zasobów. Ustaw szablon zagnieżdżony jako zależny od grupy zasobów, aby upewnić się, że grupa zasobów istnieje przed wdrożeniem zasobów. Można wdrożyć maksymalnie 800 grup zasobów.
 
@@ -208,14 +273,14 @@ Poniższy przykład tworzy grupę zasobów i wdraża konto magazynu w grupie zas
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -406,14 +471,16 @@ New-AzSubscriptionDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
-## <a name="template-samples"></a>Przykłady szablonów
+## <a name="access-control"></a>Kontrola dostępu
 
-* [Utwórz grupę zasobów, Zablokuj ją i nadaj jej uprawnienia](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
-* [Tworzenie grupy zasobów, zasad i przypisania zasad](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu usług RBAC i Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+
+Poniższy przykład tworzy grupę zasobów, stosuje do niej blokadę i przypisuje rolę do podmiotu zabezpieczeń.
+
+:::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu usług RBAC i Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * Aby zapoznać się z przykładem wdrażania ustawień obszaru roboczego dla Azure Security Center, zobacz [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments).
 * Szablony można także wdrażać na poziomie [grupy zarządzania](deploy-to-management-group.md) i na [poziomie dzierżawy](deploy-to-tenant.md).

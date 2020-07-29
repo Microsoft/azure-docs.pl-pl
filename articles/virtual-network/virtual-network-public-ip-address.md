@@ -1,6 +1,6 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie publicznego adresu IP platformy Azure | Microsoft Docs
-description: Dowiedz się, jak utworzyć, zmienić lub usunąć publiczny adres IP.
+description: Tworzenie, zmienianie lub usuwanie publicznego adresu IP. Dowiedz się również, jak publiczny adres IP jest zasobem z własnymi konfigurowalnymi ustawieniami.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 7da6c0f88ae68f473e57590824e675299f7d524b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068562"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265130"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Tworzenie, zmienianie i usuwanie publicznego adresu IP
 
@@ -29,7 +29,7 @@ Dowiedz się więcej o publicznym adresie IP oraz o sposobie tworzenia, zmienian
 - Komunikacja przychodząca z Internetu do zasobu, taka jak Azure Virtual Machines (maszyna wirtualna), Azure Application Gateways, Azure Load Gateways, Azure sieci VPN i inne. Można nadal komunikować się z niektórymi zasobami, takimi jak maszyny wirtualne, z Internetu, jeśli maszyna wirtualna nie ma przypisanego publicznego adresu IP, pod warunkiem, że maszyna wirtualna jest częścią puli zaplecza modułu równoważenia obciążenia, a moduł równoważenia obciążenia ma przypisany publiczny adres IP. Aby określić, czy zasób dla określonej usługi platformy Azure może mieć przypisany publiczny adres IP, czy też może być przekazywany za pomocą publicznego adresu IP innego zasobu platformy Azure, zapoznaj się z dokumentacją usługi.
 - Łączność wychodząca z Internetem przy użyciu przewidywalnego adresu IP. Na przykład maszyna wirtualna może komunikować się z Internetem bez przypisanego do niego publicznego adresu IP, ale jego adres jest domyślnie przetłumaczony przez platformę Azure do nieprzewidywalnego adresu publicznego. Przypisanie publicznego adresu IP do zasobu pozwala dowiedzieć się, który adres IP jest używany do połączenia wychodzącego. Chociaż przewidywalna, adres może się zmienić, w zależności od wybranej metody przypisania. Aby uzyskać więcej informacji, zobacz [Tworzenie publicznego adresu IP](#create-a-public-ip-address). Aby dowiedzieć się więcej o połączeniach wychodzących z zasobów platformy Azure, zobacz [Omówienie połączeń wychodzących](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

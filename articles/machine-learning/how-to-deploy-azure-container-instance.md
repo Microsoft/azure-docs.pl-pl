@@ -5,17 +5,18 @@ description: Dowiedz się, jak wdrożyć modele Azure Machine Learning jako usł
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ad6ca72f0861324a10e93a1eadbdc11c6104574
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320973"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Wdróż model do Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,6 +27,11 @@ Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usług�
 - Testujesz model, który jest w fazie projektowania. 
 
 Aby uzyskać informacje dotyczące przydziału i dostępności regionów dla usługi ACI, zobacz artykuł [dotyczący przydziałów i dostępności regionów dla Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artykułu.
+
+> [!IMPORTANT]
+> Zdecydowanie zaleca się debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> Możesz również zapoznać się z artykułem Azure Machine Learning- [Deploy do lokalnego notesu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

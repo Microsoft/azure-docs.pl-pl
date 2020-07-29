@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8afceb19af0d177415d0b68b5d38f19d18835af5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291771"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu dla języka Ruby
 
@@ -37,7 +37,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja języka [Ruby](https://www.ruby-lang.org/)
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Utwórz zasób analiza tekstu "  target="_blank"> utwórz zasób analiza tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. 
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Tę czynność należy wykonać w dalszej części przewodnika Szybki Start.

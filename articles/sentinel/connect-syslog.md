@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych dziennika systemowego z platformą Azure Microsoft Docs
-description: Podłącz każde urządzenie lokalne obsługujące dziennik systemowy do platformy Azure, korzystając z agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym. 
+description: Połącz wszystkie maszyny lub urządzenia, które obsługują dziennik systemowy na platformie Azure, przy użyciu agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,66 +12,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076254"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322843"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Łączenie rozwiązania zewnętrznego przy użyciu dziennika systemowego
+# <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 
-Można podłączyć urządzenie lokalne obsługujące dziennik systemowy do platformy Azure. Odbywa się to przy użyciu agenta opartego na komputerze z systemem Linux między urządzeniem a platformą Azure. Jeśli maszyna z systemem Linux znajduje się na platformie Azure, możesz przesłać strumieniowo dzienniki z urządzenia lub aplikacji do dedykowanego obszaru roboczego tworzonego na platformie Azure i połączyć go. Jeśli maszyna z systemem Linux nie znajduje się na platformie Azure, możesz przesłać strumieniowo dzienniki z urządzenia do dedykowanej maszyny wirtualnej lub na maszynie, na której jest instalowany Agent programu dla systemu Linux. 
+Zdarzenia z maszyn lub urządzeń obsługujących system Linux można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu agenta Log Analytics dla systemu Linux (dawniej nazywany agentem pakietu OMS). Można to zrobić na dowolnym komputerze, na którym można zainstalować agenta Log Analytics bezpośrednio na komputerze. Natywny demon dziennika systemu maszyny zbiera zdarzenia lokalne z określonych typów i przekazuje je lokalnie do agenta, co spowoduje przesłanie strumieniowo do obszaru roboczego Log Analytics.
 
 > [!NOTE]
-> Jeśli urządzenie obsługuje dziennik systemowy CEF, połączenie jest bardziej kompletne i należy wybrać tę opcję i postępować zgodnie z instrukcjami w temacie [łączenie danych z CEF](connect-common-event-format.md).
+> - Jeśli urządzenie obsługuje program **Common Event format (CEF) za pośrednictwem dziennika**systemowego, zbierany jest bardziej kompletny zestaw danych, a dane są analizowane w kolekcji. Należy wybrać tę opcję i postępować zgodnie z instrukcjami podanymi w temacie [łączenie rozwiązania zewnętrznego przy użyciu CEF](connect-common-event-format.md).
+>
+> - Log Analytics obsługuje zbieranie komunikatów wysyłanych przez demony **rsyslog** lub **dziennika** systemowego, gdzie rsyslog jest wartością domyślną. Domyślny demon dziennika systemu w wersji 5 Red Hat Enterprise Linux (RHEL), CentOS i wersja Oracle Linux (**sysklog**) nie są obsługiwane w przypadku zbierania zdarzeń dziennika systemu. Aby zebrać dane dziennika systemu z tej wersji dystrybucji, demona rsyslog powinna zostać zainstalowana i skonfigurowana do zastępowania sysklog.
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać komunikaty, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego dziennik systemowy. Po zainstalowaniu agenta Log Analytics dla systemu Linux program skonfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta. Następnie Agent wysyła komunikat do Azure Monitor, w którym zostanie utworzony odpowiedni rekord.
+**Dziennik** systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Po zainstalowaniu **agenta log Analytics dla systemu Linux** na maszynie wirtualnej lub urządzeniu, procedura instalacji konfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta na porcie TCP 25224. Następnie Agent wysyła komunikat do obszaru roboczego Log Analytics za pośrednictwem protokołu HTTPS, który jest analizowany w pozycji dziennika zdarzeń w tabeli dziennika systemowego w **dziennikach usługi Azure wskaźnik >**.
 
 Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego w Azure monitor](../azure-monitor/platform/data-sources-syslog.md).
 
-> [!NOTE]
-> - Agent może zbierać dzienniki z wielu źródeł, ale muszą być zainstalowane na dedykowanym komputerze proxy.
-> - Aby umożliwić obsługę łączników dla CEF i dziennika systemowego na tej samej maszynie wirtualnej, wykonaj następujące kroki, aby uniknąć duplikowania danych:
->    1. Postępuj zgodnie z instrukcjami, aby [nawiązać połączenie z usługą CEF](connect-common-event-format.md).
->    2. Aby połączyć dane dziennika systemu, przejdź do pozycji **Ustawienia**  >  **obszaru roboczego**ustawienia  >  **Zaawansowane ustawienia**  >  **danych**  >  **dziennika** systemowego i ustaw obiekty i ich priorytety, tak aby nie były to te same funkcje i właściwości, które zostały użyte w konfiguracji CEF. <br></br>W przypadku wybrania opcji **Zastosuj poniższą konfigurację do moich maszyn**te ustawienia są stosowane do wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym.
+## <a name="configure-syslog-collection"></a>Konfigurowanie kolekcji dziennika systemowego
 
-
-## <a name="connect-your-syslog-appliance"></a>Połącz urządzenie dziennika systemu
+### <a name="configure-your-linux-machine-or-appliance"></a>Skonfiguruj maszynę lub urządzenie z systemem Linux
 
 1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie wybierz pozycję Łącznik **dziennika** systemowego.
 
-2. W bloku **Dziennik** systemowy wybierz pozycję **Otwórz stronę łącznika**.
+1. W bloku **Dziennik** systemowy wybierz pozycję **Otwórz stronę łącznika**.
 
-3. Zainstaluj agenta systemu Linux:
+1. Zainstaluj agenta systemu Linux. W obszarze **Wybierz lokalizację instalacji agenta:**
     
-    - Jeśli maszyna wirtualna z systemem Linux znajduje się na platformie Azure, wybierz pozycję **Pobierz i Zainstaluj agenta na maszynie wirtualnej platformy Azure z systemem Linux**. W bloku **maszyny wirtualne** Wybierz Maszyny wirtualne, na których ma zostać zainstalowany agent, a następnie kliknij przycisk **Połącz**.
-    - Jeśli maszyna z systemem Linux nie znajduje się na platformie Azure, wybierz pozycję **Pobierz i Zainstaluj agenta na maszynie spoza platformy Azure**. W bloku **agenta bezpośredniego** Skopiuj polecenie pobierania i dołączania **agenta dla systemu Linux** i uruchom je na komputerze. 
+    **W przypadku maszyny wirtualnej z systemem Linux na platformie Azure:**
+      
+    1. Wybierz pozycję **Zainstaluj agenta na maszynie wirtualnej platformy Azure z systemem Linux**.
+    
+    1. Kliknij link **pobierz & Zainstaluj agenta dla maszyn wirtualnych platformy Azure z systemem Linux >** . 
+    
+    1. W bloku **maszyny wirtualne** kliknij maszynę wirtualną, w której ma zostać zainstalowany agent, a następnie kliknij przycisk **Połącz**. Powtórz ten krok dla każdej maszyny wirtualnej, którą chcesz połączyć.
+    
+    **Dla każdej innej maszyny z systemem Linux:**
+
+    1. Wybierz pozycję **Zainstaluj agenta na maszynie spoza systemu Azure** z systemem Linux
+
+    1. Kliknij link **pobierz & zainstalować agenta dla komputerów spoza systemu Linux >** . 
+
+    1. W bloku **Zarządzanie agentami** kliknij kartę **serwery z systemem Linux** , a następnie skopiuj polecenie **Pobierz i Dołącz agenta dla systemu Linux** i uruchom go na komputerze z systemem Linux. 
     
    > [!NOTE]
    > Upewnij się, że skonfigurowano ustawienia zabezpieczeń dla tych komputerów zgodnie z zasadami zabezpieczeń organizacji. Można na przykład skonfigurować ustawienia sieci, aby dostosować je do zasad zabezpieczeń sieci organizacji, i zmienić porty i protokoły w demona, aby dostosować je do wymagań dotyczących zabezpieczeń.
 
-4. Wybierz pozycję **Otwórz konfigurację ustawień zaawansowanych obszaru roboczego**.
+### <a name="configure-the-log-analytics-agent"></a>Konfigurowanie agenta Log Analytics
 
-5. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  **Syslog**. Następnie Dodaj obiekty do zebrania dla łącznika.
+1. W dolnej części bloku łącznika dziennika systemowego kliknij link **Otwórz konfigurację ustawień zaawansowanych obszaru roboczego >** .
+
+1. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  **Syslog**. Następnie Dodaj obiekty do zebrania dla łącznika.
     
-    Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. Tę konfigurację można wyświetlić w urządzeniu dziennika systemowego w folderze **dziennika** `/etc/rsyslog.d/security-config-omsagent.conf` systemowego, a w obszarze **r-dziennik** systemu `/etc/syslog-ng/security-config-omsagent.conf` .
+    - Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. 
     
-    Jeśli chcesz użyć nietypowego wykrywania logowania SSH za pomocą zbieranych danych, Dodaj **uwierzytelnianie** i **authpriv**. Aby uzyskać dodatkowe informacje, zobacz [następującą sekcję](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
+    - Jeśli chcesz użyć nietypowego wykrywania logowania SSH za pomocą zbieranych danych, Dodaj **uwierzytelnianie** i **authpriv**. Aby uzyskać dodatkowe informacje, zobacz [następującą sekcję](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
-6. Po dodaniu wszystkich funkcji, które mają być monitorowane, i dostosowaniu wszystkich opcji ważności dla każdej z nich, zaznacz pole wyboru **Zastosuj poniższą konfigurację do moich maszyn**.
+1. Po dodaniu wszystkich funkcji, które mają być monitorowane, i dostosowaniu wszystkich opcji ważności dla każdej z nich, zaznacz pole wyboru **Zastosuj poniższą konfigurację do moich maszyn**.
 
-7. Wybierz pozycję **Zapisz**. 
+1. Wybierz pozycję **Zapisz**. 
 
-8. Upewnij się, że w urządzeniu dziennika systemowego są wysyłane określone obiekty.
+1. Na maszynie wirtualnej lub urządzeniu upewnij się, że są wysyłane określone obiekty.
 
-9. Aby użyć odpowiedniego schematu w Azure Monitor dla dzienników dziennika systemowego, Wyszukaj **Dziennik**systemowy.
+1. Aby wykonać zapytanie dotyczące danych dzienników dziennika systemu w **dziennikach**, wpisz `Syslog` w oknie zapytania.
 
-10. Aby przeanalizować komunikaty dziennika systemowego, można użyć funkcji Kusto opisanej w temacie using Functions [in Azure Monitor Log zapytania](../azure-monitor/log-query/functions.md) . Następnie można zapisać je jako nową funkcję Log Analytics, aby użyć jej jako nowego typu danych.
+1. Aby przeanalizować komunikaty dziennika systemowego, można użyć parametrów zapytania opisanych w temacie [using Functions in Azure monitor Query log](../azure-monitor/log-query/functions.md) . Następnie można zapisać zapytanie jako nową funkcję Log Analytics i użyć go jako nowego typu danych.
+
+> [!NOTE]
+>
+> Możesz użyć istniejącego [komputera usługi przesyłania dalej dzienników CEF](connect-cef-agent.md) , aby zbierać i przesyłać dzienniki z dzienników zwykłego dziennika systemu. Należy jednak wykonać następujące czynności, aby uniknąć wysyłania zdarzeń w obu formatach do usługi Azure wskaźnikowej, ponieważ spowoduje to duplikowanie zdarzeń.
+>
+>    Już skonfigurowano [zbieranie danych ze źródeł CEF](connect-common-event-format.md)i skonfigurowano agenta log Analytics w taki sam sposób:
+>
+> 1. Na każdym komputerze, który wysyła dzienniki w formacie CEF, należy edytować plik konfiguracji dziennika systemowego w celu usunięcia obiektów używanych do wysyłania komunikatów CEF. W ten sposób obiekty, które są wysyłane w CEF, nie będą również wysyłane w dzienniku systemu. Szczegółowe instrukcje można znaleźć w temacie [Konfigurowanie dziennika systemowego w agencie systemu Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) .
+>
+> 1. Na tych maszynach należy uruchomić następujące polecenie, aby wyłączyć synchronizację agenta z konfiguracją dziennika systemowego na platformie Azure. Dzięki temu zmiana konfiguracji wprowadzona w poprzednim kroku nie zostanie zastępować.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Konfigurowanie łącznika dziennika systemowego na potrzeby wykrywania nietypowego logowania SSH
 

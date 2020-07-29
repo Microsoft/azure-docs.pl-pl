@@ -3,11 +3,12 @@ title: Pulpit nawigacyjny omówienia usługi Azure Application Insights | Micros
 description: Monitoruj aplikacje za pomocą usługi Azure Application Insights i funkcji pulpitu nawigacyjnego.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669900"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322537"
 ---
 # <a name="application-insights-overview-dashboard"></a>Pulpit nawigacyjny przeglądu Application Insights
 
@@ -56,6 +57,7 @@ Jeśli wybierzesz pozycję **Konfiguruj ustawienia kafelków** i ustawisz niesta
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Lejki](../../azure-monitor/app/usage-funnels.md)
-- [Przechowywanie](../../azure-monitor/app/usage-retention.md)
-- [Przepływy użytkowników](../../azure-monitor/app/usage-flows.md)
+- [Lejki](./usage-funnels.md)
+- [Przechowywanie](./usage-retention.md)
+- [Przepływy użytkowników](./usage-flows.md)
+

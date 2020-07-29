@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662268"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321262"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Wysyłanie metryk niestandardowych dla zasobu platformy Azure do magazynu metryk Azure Monitor przy użyciu interfejsu API REST
 
 W tym artykule pokazano, jak wysyłać niestandardowe metryki dla zasobów platformy Azure do magazynu metryk Azure Monitor za pośrednictwem interfejsu API REST. Gdy metryki znajdują się w Azure Monitor, można wykonać wszystkie czynności z nimi za pomocą standardowych metryk. Przykłady to wykresy, alerty i trasy do innych narzędzi zewnętrznych.  
 
 >[!NOTE]  
->Interfejs API REST zezwala tylko na wysyłanie metryk niestandardowych dla zasobów platformy Azure. Aby wysyłać metryki dla zasobów w różnych środowiskach lub lokalnie, można użyć [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>Interfejs API REST zezwala tylko na wysyłanie metryk niestandardowych dla zasobów platformy Azure. Aby wysyłać metryki dla zasobów w różnych środowiskach lub lokalnie, można użyć [Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Utwórz i Autoryzuj jednostkę usługi, aby emitować metryki 
@@ -92,7 +93,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie z częścią procesu, należy
 1. Nie można wystawić metryk dla subskrypcji lub grupy zasobów jako zasobu platformy Azure. 
 1. Nie można umieścić metryki w sklepie przekraczającym 20 minut. Magazyn metryk jest zoptymalizowany pod kątem alertów i wykresów w czasie rzeczywistym. 
 2. Liczba nazw wymiarów powinna być zgodna z wartościami i na odwrót. Sprawdź wartości. 
-2. Mogą być emitowane metryki z regionem, który nie obsługuje metryk niestandardowych. Zobacz [Obsługiwane regiony](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. Mogą być emitowane metryki z regionem, który nie obsługuje metryk niestandardowych. Zobacz [Obsługiwane regiony](./metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -116,5 +117,5 @@ Jeśli zostanie wyświetlony komunikat o błędzie z częścią procesu, należy
 
  
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [metrykach niestandardowych](../../azure-monitor/platform/metrics-custom-overview.md).
+- Dowiedz się więcej o [metrykach niestandardowych](./metrics-custom-overview.md).
 

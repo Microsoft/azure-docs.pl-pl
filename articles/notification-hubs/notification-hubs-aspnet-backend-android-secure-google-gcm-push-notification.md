@@ -17,12 +17,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 3f31c9786a8310779d71ab0c54bddc4687f765be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325240"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych za pomocą usługi Azure Notification Hubs
 

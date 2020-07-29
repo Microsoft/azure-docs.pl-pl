@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321908"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Tworzenie grupy akcji przy użyciu szablonu Menedżer zasobów
 W tym artykule pokazano, jak skonfigurować grupy akcji przy użyciu [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) . Za pomocą szablonów można automatycznie konfigurować grupy akcji, które mogą być ponownie używane w niektórych typach alertów. Te grupy akcji zapewniają, że wszystkie odpowiednie strony są powiadamiane po wyzwoleniu alertu.
@@ -163,6 +163,7 @@ Aby utworzyć grupę akcji przy użyciu szablonu Menedżer zasobów, należy utw
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [grup akcji](../../azure-monitor/platform/action-groups.md).
+* Dowiedz się więcej na temat [grup akcji](./action-groups.md).
 * Dowiedz się więcej o [alertach](alerts-overview.md).
-* Dowiedz się, jak dodawać [alerty przy użyciu szablonu Menedżer zasobów](../../azure-monitor/platform/alerts-activity-log.md).
+* Dowiedz się, jak dodawać [alerty przy użyciu szablonu Menedżer zasobów](./alerts-activity-log.md).
+

@@ -5,18 +5,18 @@ description: Dowiedz się, jak używać magazynów danych do bezpiecznego łącz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: how-to, seodec18, tracking-python
+ms.openlocfilehash: 45fb9ef25bdfa43db9c167d58011fc6196020b65
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031511"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321636"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -299,7 +299,7 @@ Azure Machine Learning oferuje kilka sposobów na korzystanie z modeli do ocenia
 | Metoda | Dostęp do magazynu danych | Opis |
 | ----- | :-----: | ----- |
 | [Przewidywanie wsadowe](how-to-use-parallel-run-step.md) | ✔ | Asynchronicznie twórz prognozy dotyczące dużych ilości danych. |
-| [Usługa internetowa](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
+| [Usługa sieci Web](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
 | [Moduł Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele na IoT Edge urządzeniach. |
 
 W sytuacjach, w których zestaw SDK nie zapewnia dostępu do magazynów danych, może być możliwe utworzenie niestandardowego kodu przy użyciu odpowiedniego zestawu Azure SDK, aby uzyskać dostęp do tego programu. Na przykład [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python) jest biblioteką kliencką, za pomocą której można uzyskać dostęp do danych przechowywanych w obiektach Blob lub plikach.

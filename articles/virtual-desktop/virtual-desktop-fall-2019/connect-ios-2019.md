@@ -1,6 +1,6 @@
 ---
-title: Łączenie z pulpitem wirtualnym systemu Windows 2019 z systemu iOS — Azure
-description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu iOS.
+title: Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z systemu iOS — Azure
+description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta systemu iOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06de85e23b1d6350a48735506c8931922d40b799
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270740"
 ---
-# <a name="connect-with-the-ios-client"></a>Nawiązywanie połączenia z klientem systemu iOS
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z klientem systemu iOS
 
 > Dotyczy: iOS 13,0 lub nowszy. Zgodne z iPhone, iPad i iPod touch.
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../connect-ios.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../connect-ios.md).
 
 Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzenia z systemem iOS za pomocą klienta do pobrania. W tym przewodniku przedstawiono sposób konfigurowania klienta systemu iOS.
 

@@ -3,18 +3,18 @@ title: Ciągły eksport danych telemetrycznych z Application Insights | Microsof
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324339"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
 
 > [!NOTE]
-> Eksport ciągły jest obsługiwany tylko w przypadku klasycznych zasobów Application Insights. [Zasoby Application Insights oparte na obszarze roboczym](./create-workspace-resource.md) muszą używać [ustawień diagnostycznych](./create-workspace-resource.md#export-telemetry).
+> Eksport ciągły jest obsługiwany tylko w przypadku klasycznych zasobów usługi Application Insights. [Zasoby usługi Application Insights na podstawie obszaru roboczego](./create-workspace-resource.md) muszą używać [ustawień diagnostycznych](./create-workspace-resource.md#export-telemetry).
 >
 
 Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alternatywy:
@@ -22,11 +22,11 @@ Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alte
 * Przycisk Eksportuj w górnej części metryk lub karty wyszukiwania umożliwia transfer tabel i wykresów do arkusza kalkulacyjnego programu Excel.
 
 * [Analiza](../log-query/log-query-overview.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
-* Jeśli chcesz [eksplorować dane w Power BI](../../azure-monitor/app/export-power-bi.md ), możesz to zrobić bez korzystania z eksportu ciągłego.
+* Jeśli chcesz [eksplorować dane w Power BI](./export-power-bi.md), możesz to zrobić bez korzystania z eksportu ciągłego.
 * [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/) umożliwia programistyczne uzyskiwanie dostępu do telemetrii.
 * Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal jest dostępny w Application Insights w przypadku normalnego [okresu przechowywania](../../azure-monitor/app/data-retention-privacy.md).
+Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal jest dostępny w Application Insights w przypadku normalnego [okresu przechowywania](./data-retention-privacy.md).
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Konfiguracja ciągłego magazynu zaawansowanego eksportu
 
@@ -52,7 +52,7 @@ Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi
 4. Utwórz lub wybierz kontener w magazynie.
 
 > [!NOTE]
-> Po utworzeniu eksportu nowo wprowadzone dane zaczynają przepływać do usługi Azure Blob Storage. Eksport ciągły będzie przesyłał tylko nowe dane telemetryczne, które zostały utworzone/pozyskane po włączeniu eksportu ciągłego. Wszelkie dane, które istniały przed włączeniem eksportu ciągłego, nie zostaną wyeksportowane i nie jest obsługiwany sposób wstecznego eksportowania wcześniej utworzonych danych przy użyciu eksportu ciągłego.
+> Po utworzeniu eksportu nowo wprowadzone dane zaczynają przepływać do usługi Azure Blob Storage. Eksport ciągły będzie przesyłał tylko nowe dane telemetryczne, które zostały utworzone/pozyskane po włączeniu eksportu ciągłego. Wszelkie dane, które istniały przed włączeniem eksportu ciągłego, nie będą eksportowane i nie ma żadnego sposobu na wsteczne wyeksportowanie wcześniej utworzonych danych przy użyciu eksportu ciągłego.
 
 Dane w magazynie mogą być opóźnione o godzinę.
 
@@ -60,13 +60,13 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 
 |Nazwa | Opis |
 |:----|:------|
-| [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](../../azure-monitor/app/asp-net-exceptions.md) na serwerze i w przeglądarce.
-| [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).  |
+| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
+| [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
+| [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.
 | [Liczniki wydajności](export-data-model.md) | Liczniki wydajności zbierane przez Application Insights.
-| [Żądania](export-data-model.md#requests)| Wysłane przez [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportowania czasu odpowiedzi serwera, mierzoną na serwerze.| 
+| [Żądania](export-data-model.md#requests)| Wysłane przez [TrackRequest](./api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportowania czasu odpowiedzi serwera, mierzoną na serwerze.| 
 
 ### <a name="to-edit-continuous-export"></a>Aby edytować eksport ciągły
 
@@ -79,19 +79,19 @@ Aby zatrzymać eksport, kliknij przycisk Wyłącz. Kliknięcie przycisku Włącz
 Aby zatrzymać eksport trwale, usuń go. Wykonanie tej czynności nie powoduje usunięcia danych z magazynu.
 
 ### <a name="cant-add-or-change-an-export"></a>Nie można dodać lub zmienić eksportu?
-* Aby dodać lub zmienić eksporty, wymagane są uprawnienia właściciela, współautora lub Application Insights współautora. [Poznaj role][roles].
+* Aby dodać lub zmienić eksporty, musisz mieć prawa dostępu Właściciel, Współautor lub Współautor w usłudze Application Insights. [Poznaj role][roles].
 
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a>Jakie zdarzenia są uzyskiwane?
 Wyeksportowane dane są nieoczyszczoną telemetrią otrzymywaną z aplikacji, z tą różnicą, że dodawane są dane lokalizacji, które są obliczane na podstawie adresu IP klienta.
 
-Dane, które zostały odrzucone przez [pobranie próbek](../../azure-monitor/app/sampling.md) nie są uwzględniane w wyeksportowanych danych.
+Dane, które zostały odrzucone przez [pobranie próbek](./sampling.md) nie są uwzględniane w wyeksportowanych danych.
 
 Inne metryki obliczeniowe nie są uwzględniane. Na przykład nie eksportuje średniego użycia procesora CPU, ale eksportuje się nieprzetworzoną telemetrię, z której jest obliczana średnia.
 
-Dane obejmują również wyniki wszelkich skonfigurowanych [testów dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md) .
+Dane obejmują również wyniki wszelkich skonfigurowanych [testów dostępności sieci Web](./monitor-web-app-availability.md) .
 
 > [!NOTE]
-> **Sond.** Jeśli aplikacja wysyła dużo danych, funkcja próbkowania może działać i wysyłać tylko część wygenerowanej telemetrii. [Dowiedz się więcej na temat próbkowania.](../../azure-monitor/app/sampling.md)
+> **Sond.** Jeśli Twoja aplikacja wysyła dużo danych, funkcja próbkowania może działać i wysyłać tylko część wygenerowanej telemetrii. [Dowiedz się więcej na temat próbkowania.](./sampling.md)
 >
 >
 
@@ -162,9 +162,9 @@ Aby uzyskać większy przykład kodu, zobacz [Używanie roli proces roboczy][exp
 W razie potrzeby użytkownik jest odpowiedzialny za zarządzanie pojemnością magazynu i usunięciem starych danych.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>W przypadku ponownego wygenerowania klucza magazynu...
-Jeśli klucz zostanie zmieniony na magazyn, eksport ciągły przestanie działać. Zobaczysz powiadomienie na koncie platformy Azure.
+Jeśli zmienisz klucz do magazynu, eksport ciągły przestanie działać. Na Twoim koncie platformy Azure zostanie wyświetlone powiadomienie.
 
-Otwórz kartę eksport ciągły i edytuj eksport. Edytuj miejsce docelowe eksportu, ale po prostu pozostaw wybrany ten sam magazyn. Kliknij przycisk OK, aby potwierdzić.
+Otwórz kartę Eksport ciągły i edytuj eksport. Edytuj Miejsce docelowe eksportu, ale po prostu pozostaw wybrany ten sam magazyn. Kliknij przycisk OK, aby potwierdzić.
 
 Eksport ciągły zostanie uruchomiony ponownie.
 
@@ -210,5 +210,6 @@ W przypadku większych skal należy wziąć pod uwagę klastry usługi [HDInsigh
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

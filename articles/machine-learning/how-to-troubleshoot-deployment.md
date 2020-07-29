@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 68c328bde853bbf4e48ab7ab1a6e2c7b51198f59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47daf331c717ebb9752644deac826330681bb31a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320820"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -48,7 +48,7 @@ Zalecanym podejściem do wdrażania modelu jest za pośrednictwem interfejsu API
 
 Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-management-and-deployment.md) wprowadzenie.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W przypadku wystąpienia dowolnego problemu najpierw należy podzielić zadanie wdrożenia (opisane wcześniej) na poszczególne kroki, aby wyizolować problem.
 
@@ -184,7 +184,9 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
-
+Jeśli wiersz `Booting worker with pid: <pid>` występuje wielokrotnie w dziennikach, oznacza to, że nie ma wystarczającej ilości pamięci do uruchomienia procesu roboczego.
+Możesz rozwiązać ten problem, zwiększając wartość `memory_gb` w`deployment_config`
+ 
 ## <a name="container-cannot-be-scheduled"></a>Nie można zaplanować kontenera
 
 W przypadku wdrażania usługi do elementu docelowego obliczeń usługi Azure Kubernetes Azure Machine Learning próbuje zaplanować usługę z żądaną ilością zasobów. Jeśli po 5 minutach nie ma dostępnych węzłów w klastrze z odpowiednią ilością dostępnych zasobów, wdrożenie zakończy się niepowodzeniem z komunikatem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 

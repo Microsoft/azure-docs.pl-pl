@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 62ee8ddb03c00ba7d6ae495ee360c708b00c615c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d892d04eddb572ab644693503e454e9f00e0b39c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281093"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w portalu Marketplace
 
@@ -61,7 +61,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
     * **Typ uwierzytelniania**: wybierz opcję **publiczny klucz SSH** , jeśli tworzysz maszynę wirtualną z systemem Linux. 
 
          > [!NOTE]
-         > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+         > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Nazwa użytkownika**: Wprowadź nazwę administratora maszyny wirtualnej.
 
@@ -89,7 +89,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
 1. W przypadku **diagnostyki rozruchu**pozostaw to pole wyłączone w tym przewodniku Szybki Start. 
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 

@@ -1,6 +1,6 @@
 ---
-title: Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows 2019 z systemu Android — Azure
-description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu Android.
+title: Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z systemu Android — Azure
+description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta systemu Android.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ccea4e39146500cb9d3796c4ca99725e2e2ac429
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087156"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270757"
 ---
-# <a name="connect-with-the-android-client"></a>Łączenie się z klientem systemu Android
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta systemu Android
 
 > Dotyczy: system Android 4,1 i nowsze, Chromebooks z ChromeOS 53 i nowszymi.
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../connect-android.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../connect-android.md).
 
 >[!NOTE]
 > Możliwość dostępu do zasobów pulpitu wirtualnego systemu Windows z klienta systemu Android jest obecnie dostępna w wersji zapoznawczej.

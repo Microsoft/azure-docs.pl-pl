@@ -4,11 +4,12 @@ description: Application Insights model danych kontekstu telemetrii
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671867"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322673"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Kontekst telemetrii: Application Insights model danych
 
@@ -38,14 +39,14 @@ Maksymalna długość: 64
 
 ## <a name="operation-id"></a>Identyfikator operacji
 
-Unikatowy identyfikator operacji głównej. Ten identyfikator umożliwia grupowanie danych telemetrycznych w wielu składnikach. Aby uzyskać szczegółowe informacje, zobacz [korelacja telemetrii](../../azure-monitor/app/correlation.md) . Identyfikator operacji jest tworzony przez żądanie lub widok strony. Wszystkie inne dane telemetryczne ustawiają to pole na wartość dla zawierającego żądanie lub widok strony. 
+Unikatowy identyfikator operacji głównej. Ten identyfikator umożliwia grupowanie danych telemetrycznych w wielu składnikach. Aby uzyskać szczegółowe informacje, zobacz [korelacja telemetrii](./correlation.md) . Identyfikator operacji jest tworzony przez żądanie lub widok strony. Wszystkie inne dane telemetryczne ustawiają to pole na wartość dla zawierającego żądanie lub widok strony. 
 
 Maksymalna długość: 128
 
 
 ## <a name="parent-operation-id"></a>Identyfikator operacji nadrzędnej
 
-Unikatowy identyfikator nadrzędnego elementu telemetrii. Aby uzyskać szczegółowe informacje, zobacz [korelacja telemetrii](../../azure-monitor/app/correlation.md) .
+Unikatowy identyfikator nadrzędnego elementu telemetrii. Aby uzyskać szczegółowe informacje, zobacz [korelacja telemetrii](./correlation.md) .
 
 Maksymalna długość: 128
 
@@ -75,7 +76,7 @@ Maksymalna długość: 64
 
 Identyfikator użytkownika anonimowego. Reprezentuje użytkownika końcowego aplikacji. Gdy dane telemetryczne są wysyłane z usługi, kontekst użytkownika dotyczy użytkownika, który zainicjował operację w usłudze.
 
-[Próbkowanie](../../azure-monitor/app/sampling.md) jest jedną z technik, aby zminimalizować ilość zbieranych danych telemetrycznych. Algorytm próbkowania próbuje wykonać próbkowanie do lub wypróbowanie wszystkich skorelowanych danych telemetrycznych. Identyfikator użytkownika anonimowego jest używany do generowania wyników próbkowania. Identyfikator użytkownika anonimowego powinien być wystarczająco losowy. 
+[Próbkowanie](./sampling.md) jest jedną z technik, aby zminimalizować ilość zbieranych danych telemetrycznych. Algorytm próbkowania próbuje wykonać próbkowanie do lub wypróbowanie wszystkich skorelowanych danych telemetrycznych. Identyfikator użytkownika anonimowego jest używany do generowania wyników próbkowania. Identyfikator użytkownika anonimowego powinien być wystarczająco losowy. 
 
 Użycie anonimowego identyfikatora użytkownika do przechowywania nazwy użytkownika jest nieprawidłowym polem. Użyj identyfikatora uwierzytelnionego użytkownika.
 
@@ -126,6 +127,7 @@ Maksymalna długość: 256
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak rozciągnąć i filtrować dane telemetryczne](../../azure-monitor/app/api-filtering-sampling.md).
+- Dowiedz się [, jak rozciągnąć i filtrować dane telemetryczne](./api-filtering-sampling.md).
 - Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
-- Sprawdź [konfigurację](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)kolekcji właściwości kontekstu standardowego.
+- Sprawdź [konfigurację](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)kolekcji właściwości kontekstu standardowego.
+

@@ -3,18 +3,18 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 1a0a3a5b186d57e8670201e601eee48ee858c976
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041617"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322486"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](../../azure-monitor/app/app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md), konfigurować [alerty](../../azure-monitor/platform/alerts-log.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
+W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](./app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](./monitor-web-app-availability.md), konfigurować [alerty](../platform/alerts-log.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
 
 Kluczem do tworzenia tych zasobów są szablony JSON dla [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). Podstawowa procedura: pobieranie definicji JSON istniejących zasobów; Sparametryzuj pewne wartości, takie jak Names; a następnie uruchom szablon, gdy chcesz utworzyć nowy zasób. Można spakować wiele zasobów razem, aby utworzyć je wszystkie w jednym miejscu, na przykład monitor aplikacji z testami dostępności, alertami i magazynem na potrzeby eksportu ciągłego. Istnieje kilka subtleties niektórych parameterizations, które wyjaśnimy tutaj.
 
@@ -474,3 +474,4 @@ Inne artykuły dotyczące usługi Automation:
 * [Utwórz testy sieci Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](powershell-azure-diagnostics.md)
 * [Utwórz adnotacje wydania](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+

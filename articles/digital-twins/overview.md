@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7f5ad0b493f925ce34ffe19892fa432322995a9c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125211"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281059"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
-**Azure Digital bliźniaczych reprezentacji** to platforma IoT, która umożliwia tworzenie kompleksowych modeli cyfrowych dla całego środowiska. Te środowiska mogą być budynkami, fabrykami, gospodarstwami, sieciami energetycznymi, liniami, Stadium i innymi — nawet w całym miejscowości. Te modele cyfrowe mogą służyć do uzyskiwania szczegółowych informacji, które zapewniają lepsze produkty, zoptymalizowane działania, zmniejszone koszty i przełomowe środowiska klienta.
+**Usługa Azure Digital bliźniaczych reprezentacji** to oferta platformy jako usługi (PaaS), która umożliwia tworzenie kompleksowych modeli cyfrowych dla całego środowiska. Te środowiska mogą być budynkami, fabrykami, gospodarstwami, sieciami energetycznymi, liniami, Stadium i innymi — nawet w całym miejscowości. Te modele cyfrowe mogą służyć do uzyskiwania szczegółowych informacji, które zapewniają lepsze produkty, zoptymalizowane działania, zmniejszone koszty i przełomowe środowiska klienta.
 
 Skorzystaj z doświadczenia w domenie na platformie Azure Digital bliźniaczych reprezentacji, aby tworzyć dostosowane, połączone rozwiązania, które:
 * Modelowanie dowolnego środowiska i bliźniaczych reprezentacji cyfrowe w sposób skalowalny i bezpieczny

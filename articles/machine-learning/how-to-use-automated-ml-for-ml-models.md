@@ -5,18 +5,18 @@ description: Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynow
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
-manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1e87eec4384887ebd82d5f70c0897add250f31fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074598"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320803"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -79,11 +79,11 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         ----|----
         Format pliku| Definiuje układ i typ danych przechowywanych w pliku.
         Ogranicznik| Jeden lub więcej znaków do określenia granicy między oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych.
-        Encoding| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
+        Kodowanie| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz przycisk **Dalej**.
+        Wybierz pozycję **Dalej**.
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -91,7 +91,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](#profile).
 
-        Wybierz przycisk **Dalej**.
+        Wybierz pozycję **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -111,12 +111,12 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     Ustawienia zaawansowane | Te ustawienia umożliwiają skonfigurowanie dla eksperymentu konta użytkownika i istniejącej sieci wirtualnej. 
     
-    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
 
-    Wybierz przycisk **Dalej**.
+    Wybierz pozycję **Dalej**.
 
 1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 

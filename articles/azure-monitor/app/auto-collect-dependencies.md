@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087989"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324186"
 ---
 # <a name="dependency-auto-collection"></a>Automatyczne zbieranie zależności
 
@@ -84,13 +84,14 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 
 | Biblioteki komunikacji | Wersje |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystko |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystkie |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Skonfiguruj niestandardowe Śledzenie zależności dla [platformy .NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Skonfiguruj niestandardowe Śledzenie zależności dla [języka Java](../../azure-monitor/app/java-agent.md).
-- Skonfiguruj niestandardowe Śledzenie zależności dla języka [Python OpenCensus](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Napisz niestandardową telemetrię zależności](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Zobacz [model danych](../../azure-monitor/app/data-model.md) dla typów Application Insights i modelu danych.
-- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.
+- Skonfiguruj niestandardowe Śledzenie zależności dla [platformy .NET](./asp-net-dependencies.md).
+- Skonfiguruj niestandardowe Śledzenie zależności dla [języka Java](./java-agent.md).
+- Skonfiguruj niestandardowe Śledzenie zależności dla języka [Python OpenCensus](./opencensus-python-dependency.md).
+- [Napisz niestandardową telemetrię zależności](./api-custom-events-metrics.md#trackdependency)
+- Zobacz [model danych](./data-model.md) dla typów Application Insights i modelu danych.
+- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+

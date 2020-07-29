@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start dowiesz się, jak skonfigurować mon
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: fa2ecd5d953ec0411a122dc7107ce23de1ae5bc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014052"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323438"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania witryny sieci Web za pomocą Azure Monitor Application Insights
 
@@ -38,7 +38,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowaną aplikację. |
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, która będzie hostować Application Insights dane. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | East US | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-an-html-file"></a>Tworzenie pliku HTML
 
@@ -105,21 +105,21 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
    ![Wykres analizy żądań użytkowników w danym okresie](./media/website-monitoring/analytics-query.png)
 
-1. Wróć do strony **Przegląd**. Pod nagłówkiem **Zbadaj** wybierz pozycję **przeglądarka**, a następnie wybierz pozycję **wydajność**.  Są wyświetlane metryki związane z wydajnością witryny sieci Web. Istnieje odpowiedni widok służący do analizowania błędów i wyjątków w witrynie sieci Web. Możesz wybrać **przykłady** , aby uzyskać dostęp do [szczegółowych informacji o transakcji](../../azure-monitor/app/transaction-diagnostics.md).
+1. Wróć do strony **Przegląd**. Pod nagłówkiem **Zbadaj** wybierz pozycję **przeglądarka**, a następnie wybierz pozycję **wydajność**.  Są wyświetlane metryki związane z wydajnością witryny sieci Web. Istnieje odpowiedni widok służący do analizowania błędów i wyjątków w witrynie sieci Web. Możesz wybrać **przykłady** , aby uzyskać dostęp do [szczegółowych informacji o transakcji](./transaction-diagnostics.md).
 
    ![Wykres metryk serwera](./media/website-monitoring/browser-performance.png)
 
-1. W menu głównym Application Insights w obszarze nagłówek **użycia** wybierz pozycję [**Użytkownicy**](../../azure-monitor/app/usage-segmentation.md) , aby rozpocząć Eksplorowanie [narzędzi analizy zachowań użytkownika](../../azure-monitor/app/usage-overview.md). Ponieważ przeprowadzamy testy z jednego komputera, zostaną wyświetlone tylko dane dla jednego użytkownika. W przypadku działającej witryny sieci Web dystrybucja użytkowników może wyglądać następująco:
+1. W menu głównym Application Insights w obszarze nagłówek **użycia** wybierz pozycję [**Użytkownicy**](./usage-segmentation.md) , aby rozpocząć Eksplorowanie [narzędzi analizy zachowań użytkownika](./usage-overview.md). Ponieważ przeprowadzamy testy z jednego komputera, zostaną wyświetlone tylko dane dla jednego użytkownika. W przypadku działającej witryny sieci Web dystrybucja użytkowników może wyglądać następująco:
 
      ![Wykres użytkownika](./media/website-monitoring/usage-users.png)
 
-1. Aby uzyskać bardziej złożoną witrynę sieci Web z wieloma stronami, można użyć narzędzia [**przepływy użytkownika**](../../azure-monitor/app/usage-flows.md) do śledzenia ścieżki, którą odwiedzający mogą wykonać przez poszczególne części witryny sieci Web.
+1. Aby uzyskać bardziej złożoną witrynę sieci Web z wieloma stronami, można użyć narzędzia [**przepływy użytkownika**](./usage-flows.md) do śledzenia ścieżki, którą odwiedzający mogą wykonać przez poszczególne części witryny sieci Web.
 
    ![Wizualizacja przepływów użytkownika](./media/website-monitoring/user-flows.png)
 
 Aby dowiedzieć się więcej na temat zaawansowanych konfiguracji monitorowania witryn sieci Web, zobacz [Dokumentacja interfejsu API zestawu SDK języka JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lub samouczkami, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. W przeciwnym razie wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start w Azure Portal.
 
@@ -133,3 +133,4 @@ Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lu
 
 > [!div class="nextstepaction"]
 > [Wyszukiwanie i diagnozowanie problemów z wydajnością](../log-query/log-query-overview.md)
+

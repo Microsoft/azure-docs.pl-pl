@@ -4,17 +4,17 @@ description: Wyświetla listę różnych rozmiarów dostępnych w przypadku masz
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 041300efd9d756f2ef8145adb23d745b2345c7eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267119"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 

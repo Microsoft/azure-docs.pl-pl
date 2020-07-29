@@ -3,16 +3,16 @@ title: Konfigurowanie analizy aplikacji internetowej w technologii ASP.NET za po
 description: Konfigurowanie narzędzi analitycznych dotyczących wydajności, dostępności i zachowania użytkowników dla witryny sieci Web ASP.NET hostowanej lokalnie lub na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886829"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324220"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurowanie usługi Application Insights dla witryny sieci Web ASP.NET.
 
-Niniejsza procedura umożliwia skonfigurowanie aplikacji internetowej w technologii ASP.NET do wysyłania danych telemetrii do usługi [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Działa to w przypadku aplikacji w technologii ASP.NET, które są hostowane na serwerze usług IIS lokalnie albo w chmurze. Uzyskasz wykresy i zaawansowany język zapytań, które pomogą Ci zrozumieć wydajność aplikacji i sposób korzystania z niej przez użytkowników oraz dodatkowo automatyczne alerty w razie błędów lub problemów z wydajnością. Wielu programistów uważa, że te funkcje są doskonałe takie, jakie są, ale możesz również w razie potrzeby rozszerzyć i dostosować dane telemetryczne.
+Niniejsza procedura umożliwia skonfigurowanie aplikacji internetowej w technologii ASP.NET do wysyłania danych telemetrii do usługi [Azure Application Insights](./app-insights-overview.md). Działa to w przypadku aplikacji w technologii ASP.NET, które są hostowane na serwerze usług IIS lokalnie albo w chmurze. Uzyskasz wykresy i zaawansowany język zapytań, które pomogą Ci zrozumieć wydajność aplikacji i sposób korzystania z niej przez użytkowników oraz dodatkowo automatyczne alerty w razie błędów lub problemów z wydajnością. Wielu programistów uważa, że te funkcje są doskonałe takie, jakie są, ale możesz również w razie potrzeby rozszerzyć i dostosować dane telemetryczne.
 
 Konfiguracja wymaga tylko kilku kliknięć w programie Visual Studio. Masz możliwość uniknąć naliczania opłat, ograniczając ilość danych telemetrii. Dzięki tej funkcji można eksperymentować i debugować lub monitorować lokację bez wielu użytkowników. Gdy zdecydujesz, że chcesz kontynuować i monitorować witrynę produkcyjną, późniejsze zwiększenie limitu jest łatwe.
 
@@ -46,7 +46,7 @@ Wybierz pozycję **Rozpocznij**.
 
 Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są przechowywane, kliknij pozycję **Konfiguruj ustawienia**. Grupy zasobów są używane do kontrolowania dostępu do danych. Jeśli na przykład masz kilka aplikacji, które stanowią część tego samego systemu, możesz umieścić ich dane usługi Application Insights w tej samej grupie zasobów.
 
- Wybierz pozycję **Zarejestruj**.
+ Wybierz pozycję **Rejestruj**.
 
 ![Zrzut ekranu strony Zarejestruj swoją aplikację w usłudze Application Insights](./media/asp-net/00005-register-ed.png)
 
@@ -54,7 +54,7 @@ Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są prze
 
  Dane telemetryczne będą wysyłane do witryny [Azure Portal](https://portal.azure.com) zarówno podczas debugowania, jak i po opublikowaniu aplikacji.
 > [!NOTE]
-> Jeśli nie chcesz wysłać danych telemetrii do portalu podczas debugowania, wystarczy, że dodasz zestaw SDK usługi Application Insights do aplikacji, ale nie konfiguruj zasobu w portalu. Dane telemetryczne możesz wyświetlać w programie Visual Studio podczas debugowania. Później możesz powrócić do tej strony konfiguracji lub po wdrożeniu aplikacji [włączyć telemetrię w czasie wykonywania](../../azure-monitor/app/status-monitor-v2-overview.md).
+> Jeśli nie chcesz wysłać danych telemetrii do portalu podczas debugowania, wystarczy, że dodasz zestaw SDK usługi Application Insights do aplikacji, ale nie konfiguruj zasobu w portalu. Dane telemetryczne możesz wyświetlać w programie Visual Studio podczas debugowania. Później możesz powrócić do tej strony konfiguracji lub po wdrożeniu aplikacji [włączyć telemetrię w czasie wykonywania](./status-monitor-v2-overview.md).
 
 ## <a name="step-2-run-your-app"></a><a name="run"></a>Krok 2. Uruchamianie aplikacji
 Uruchom aplikację, naciskając klawisz F5. Otwórz różne strony w celu wygenerowania telemetrii.
@@ -77,7 +77,7 @@ W oknie wyszukiwania usługi Visual Studio Application Insights zobaczysz dane z
 > [!Tip]
 > Jeśli nie są wyświetlane żadne dane, upewnij się, że zakres czasu jest poprawny, a następnie kliknij ikonę wyszukiwania.
 
-[Dowiedz się więcej o narzędziach usługi Application Insights w programie Visual Studio](../../azure-monitor/app/visual-studio.md).
+[Dowiedz się więcej o narzędziach usługi Application Insights w programie Visual Studio](./visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Wyświetlanie telemetrii w portalu sieci Web
@@ -93,14 +93,14 @@ W portalu zostanie otwarty widok danych telemetrycznych z Twojej aplikacji.
 W portalu kliknij dowolny kafelek lub wykres, aby wyświetlić więcej szczegółów.
 
 ## <a name="step-4-publish-your-app"></a>Krok 4. Publikowanie aplikacji
-Opublikuj aplikacje na serwerze IIS lub na platformie Azure. Obejrzyj [transmisję strumieniową metryk na żywo](../../azure-monitor/app/live-stream.md), aby upewnić się, że wszystko działa bez problemów.
+Opublikuj aplikacje na serwerze IIS lub na platformie Azure. Obejrzyj [transmisję strumieniową metryk na żywo](./live-stream.md), aby upewnić się, że wszystko działa bez problemów.
 
 Twoje dane telemetryczne kompilują się w portalu Application Insights, w którym można monitorować metryki, przeszukiwać dane telemetryczne. Można także użyć zaawansowanego [języka zapytań Kusto](/azure/kusto/query/) do analizowania użycia i wydajności lub znalezienia określonych zdarzeń.
 
-Można również analizować telemetrię w programie [Visual Studio](../../azure-monitor/app/visual-studio.md) za pomocą narzędzi, takich jak wyszukiwanie diagnostyczne i [trendy](../../azure-monitor/app/visual-studio-trends.md).
+Można również analizować telemetrię w programie [Visual Studio](./visual-studio.md) za pomocą narzędzi, takich jak wyszukiwanie diagnostyczne i [trendy](./visual-studio-trends.md).
 
 > [!NOTE]
-> Jeśli Twoja aplikacja wysyła taką ilość telemetrii, że bliskie jest osiągnięcie [limitów ograniczania przepustowości](../../azure-monitor/app/pricing.md#limits-summary), włączone zostanie [próbkowanie](../../azure-monitor/app/sampling.md) automatyczne. Próbkowania powoduje zmniejszenie ilości telemetrii wysyłanych z aplikacji przy jednoczesnym zachowaniu skorelowanych danych w celach diagnostycznych.
+> Jeśli Twoja aplikacja wysyła taką ilość telemetrii, że bliskie jest osiągnięcie [limitów ograniczania przepustowości](./pricing.md#limits-summary), włączone zostanie [próbkowanie](./sampling.md) automatyczne. Próbkowania powoduje zmniejszenie ilości telemetrii wysyłanych z aplikacji przy jednoczesnym zachowaniu skorelowanych danych w celach diagnostycznych.
 >
 >
 
@@ -120,27 +120,28 @@ Jeśli plik ApplicationInsights.config został dostosowany, zapisz jego kopię p
 
 Istnieją jeszcze inne tematy, które warto przejrzeć, jeśli interesują Cię następujące kwestie:
 
-* [Instrumentacja aplikacji internetowej w czasie wykonywania](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [usług Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Instrumentacja aplikacji internetowej w czasie wykonywania](./monitor-performance-live-website-now.md)
+* [usług Azure Cloud Services](./cloudservices.md)
 
 ### <a name="more-telemetry"></a>Dalsze funkcje telemetrii
 
-* **[Przeglądarka i dane ładowania strony](../../azure-monitor/app/javascript.md)** — wstawianie fragmentu kodu na stronach sieci Web.
-* **[Korzystanie z bardziej szczegółowego monitorowania zależności i wyjątków](../../azure-monitor/app/monitor-performance-live-website-now.md)** — instalowanie monitora stanu na własnym serwerze.
-* **[Zdarzenia niestandardowe kodu](../../azure-monitor/app/api-custom-events-metrics.md)** do zliczania, czasu lub mierzenia akcji użytkownika.
-* **[Pobieranie danych dziennika](../../azure-monitor/app/asp-net-trace-logs.md)** — korelowanie danych dziennika z danymi telemetrycznymi.
+* **[Przeglądarka i dane ładowania strony](./javascript.md)** — wstawianie fragmentu kodu na stronach sieci Web.
+* **[Korzystanie z bardziej szczegółowego monitorowania zależności i wyjątków](./monitor-performance-live-website-now.md)** — instalowanie monitora stanu na własnym serwerze.
+* **[Zdarzenia niestandardowe kodu](./api-custom-events-metrics.md)** do zliczania, czasu lub mierzenia akcji użytkownika.
+* **[Pobieranie danych dziennika](./asp-net-trace-logs.md)** — korelowanie danych dziennika z danymi telemetrycznymi.
 
 ### <a name="analysis"></a>Analiza
 
-* **[Praca z usługą Application Insights w programie Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Zawiera informacje o debugowaniu przy użyciu telemetrii, wyszukiwaniu diagnostycznym i przechodzeniu do szczegółów kodu.
-* **[Analiza](../../azure-monitor/log-query/get-started-portal.md)** — zaawansowany język zapytań.
+* **[Praca z usługą Application Insights w programie Visual Studio](./visual-studio.md)**<br/>Zawiera informacje o debugowaniu przy użyciu telemetrii, wyszukiwaniu diagnostycznym i przechodzeniu do szczegółów kodu.
+* **[Analiza](../log-query/get-started-portal.md)** — zaawansowany język zapytań.
 
 ### <a name="alerts"></a>Alerty
 
-* [Testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
-* [Inteligentne diagnostyki](../../azure-monitor/app/proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
-* [Alerty metryk](../../azure-monitor/platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
+* [Testy dostępności](./monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
+* [Inteligentne diagnostyki](./proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
+* [Alerty metryk](../platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
 
 ### <a name="automation"></a>Automation
 
-* [Automatyczne tworzenie zasobu usługi Application Insights](../../azure-monitor/app/powershell.md)
+* [Automatyczne tworzenie zasobu usługi Application Insights](./powershell.md)
+

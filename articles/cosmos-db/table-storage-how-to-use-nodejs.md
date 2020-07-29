@@ -5,39 +5,41 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833151"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171990"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Omówienie
-W tym artykule przedstawiono sposób wykonywania typowych scenariuszy przy użyciu usługi Azure Storage Table lub usługi Azure Cosmos DB w aplikacji platformy Node.js.
+W tym artykule przedstawiono sposób tworzenia tabel, przechowywania danych i wykonywania operacji CRUD na danych. Wybierz Azure Cosmos DB Table service platformy Azure lub interfejs API tabel. Przykłady są zapisywane w Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Tworzenie konta usługi Azure
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
+**Utwórz konto usługi Azure Storage**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Tworzenie konta interfejsu API tabel usługi Azure Cosmos DB
+**Tworzenie konta interfejsu API tabel usługi Azure Cosmos DB**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Konfigurowanie aplikacji w celu uzyskiwania dostępu do usługi Azure Storage lub interfejsu API tabel usługi Azure Cosmos DB
+
 Aby użyć usługi Azure Storage lub Azure Cosmos DB, należy skorzystać z zestawu Azure Storage SDK dla platformy Node.js, który zawiera zestaw wygodnych bibliotek służących do komunikacji z usługami Storage REST.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Instalowanie menedżera NPM (Node Package Manager)
+
 1. Użyj interfejsu wiersza polecenia, takiego jak **PowerShell** (Windows), **Terminal** (Mac) lub **Bash** (Unix), i przejdź do folderu, w którym utworzono aplikację.
 2. Wpisz ciąg **npm install azure-storage** w oknie polecenia. Dane wyjściowe polecenia są podobne do poniższego przykładu.
 
@@ -57,34 +59,42 @@ Aby użyć usługi Azure Storage lub Azure Cosmos DB, należy skorzystać z zest
 3. Możesz ręcznie uruchomić polecenie **ls**, aby sprawdzić, czy utworzono folder **node_modules**. Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
 
 ### <a name="import-the-package"></a>Importowanie pakietu
+
 Dodaj następujący kod na początku pliku **server.js** w aplikacji:
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Dodawanie połączenia z usługą Azure Storage
-Moduł platformy Azure odczytuje zmienne środowiskowe AZURE_STORAGE_ACCOUNT i AZURE_STORAGE_ACCESS_KEY lub AZURE_STORAGE_CONNECTION_STRING, aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie zostały ustawione, należy określić informacje o koncie podczas wywoływania obiektu **TableService**. Na przykład poniższy kod tworzy obiekt **TableService**:
+## <a name="add-your-connection-string"></a>Dodaj parametry połączenia
+
+Możesz połączyć się z kontem usługi Azure Storage lub kontem Azure Cosmos DB interfejs API tabel. Pobierz parametry połączenia na podstawie typu konta, którego używasz.
+
+### <a name="add-an-azure-storage-connection"></a>Dodawanie połączenia z usługą Azure Storage
+
+Moduł platformy Azure odczytuje zmienne środowiskowe AZURE_STORAGE_ACCOUNT i AZURE_STORAGE_ACCESS_KEY lub AZURE_STORAGE_CONNECTION_STRING, aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, podczas wywoływania należy określić informacje o koncie `TableService` . Na przykład poniższy kod tworzy `TableService` obiekt:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
-Aby dodać połączenie z usługą Azure Cosmos DB, utwórz obiekt **TableService** i określ nazwę konta, klucz podstawowy oraz punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Na przykład:
+### <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
+
+Aby dodać połączenie Azure Cosmos DB, Utwórz `TableService` obiekt i określ nazwę konta, klucz podstawowy i punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Na przykład:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
-Poniższy kod tworzy obiekt **TableService** i używa go do utworzenia nowej tabeli.
+
+Poniższy kod tworzy `TableService` obiekt i używa go do utworzenia nowej tabeli.
 
 ```javascript
 var tableSvc = azure.createTableService();
 ```
 
-Wywołanie elementu **createTableIfNotExists** tworzy nową tabelę o określonej nazwie, jeśli jeszcze nie istnieje. W poniższym przykładzie jest tworzona nowa tabela o nazwie „mytable”, jeśli jeszcze nie istnieje:
+Wywołanie `createTableIfNotExists` tworzenia nowej tabeli o określonej nazwie, jeśli jeszcze nie istnieje. W poniższym przykładzie jest tworzona nowa tabela o nazwie „mytable”, jeśli jeszcze nie istnieje:
 
 ```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -96,8 +106,9 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 
 Element `result.created` ma wartość `true` w przypadku tworzenia nowej tabeli lub wartość `false`, jeśli tabela już istnieje. Element `response` zawiera informacje dotyczące żądania.
 
-### <a name="filters"></a>Filtry
-Do operacji wykonywanych przy użyciu obiektu **TableService** można zastosować filtrowanie opcjonalne. Operacje filtrowania mogą obejmować rejestrowanie, automatyczne ponawianie prób itd. Filtry są obiektami implementującymi metodę z podpisem:
+### <a name="apply-filters"></a>Stosowanie filtrów
+
+Można zastosować opcjonalne filtrowanie do operacji wykonywanych przy użyciu `TableService` . Operacje filtrowania mogą obejmować rejestrowanie, automatyczne ponawianie prób itd. Filtry są obiektami implementującymi metodę z podpisem:
 
 ```javascript
 function handle (requestOptions, next)
@@ -109,9 +120,9 @@ Po zakończeniu przetwarzania wstępnego opcji żądań metoda musi wywołać el
 function (returnObject, finalCallback, next)
 ```
 
-W tym wywołaniu zwrotnym i po zakończeniu przetwarzania elementu **returnObject** (odpowiedzi z żądania do serwera) wywołanie zwrotne musi wywołać element **next**, jeśli istnieje, aby kontynuować przetwarzanie inych filtrów, lub w przeciwnym razie po prostu wywołać element **finalCallback**, aby zakończyć wywoływanie usługi.
+W przypadku tego wywołania zwrotnego i po przetworzeniu `returnObject` (odpowiedzi z żądania do serwera) wywołanie zwrotne musi zostać wywołane, `next` Jeśli istnieje, aby kontynuować przetwarzanie innych filtrów, lub po prostu wywołać w `finalCallback` przeciwnym razie zakończenie wywołania usługi.
 
-Dwa filtry, które implementują logikę ponawiania prób, wchodzą w skład zestawu Azure SDK dla platformy Node.js: **ExponentialRetryPolicyFilter** i **LinearRetryPolicyFilter**. Poniższy kod tworzy obiekt **TableService**, który używa filtru **ExponentialRetryPolicyFilter**:
+Dwa filtry, które implementują logikę ponowień, są dołączone do zestawu Azure SDK dla Node.js, `ExponentialRetryPolicyFilter** and ` LinearRetryPolicyFilter `. The following creates a ` TableService ` object that uses the ` ExponentialRetryPolicyFilter ':
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -119,6 +130,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
+
 Aby dodać jednostkę, najpierw utwórz obiekt, który definiuje właściwości jednostki. Wszystkie jednostki muszą zawierać elementy **PartitionKey** i **RowKey**, które są unikatowymi identyfikatorami jednostki.
 
 * **PartitionKey** — określa partycję, w której jest przechowywana jednostka.
@@ -126,7 +138,7 @@ Aby dodać jednostkę, najpierw utwórz obiekt, który definiuje właściwości 
 
 Klucze **PartitionKey** i **RowKey** muszą być wartościami ciągów. Aby uzyskać więcej informacji, zobacz [Understanding the Table Service Data Model (Omówienie modelu danych usługi Table Service)](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-Poniżej znajduje się przykład definiowania jednostki. Pamiętaj, że element **dueDate** jest definiowany jako typ elementu **Edm.DateTime**. Określenie typu jest opcjonalne — w przypadku rezygnacji typy zostaną wywnioskowane.
+Poniżej znajduje się przykład definiowania jednostki. **DueDate** jest definiowana jako typ `Edm.DateTime` . Określenie typu jest opcjonalne — w przypadku rezygnacji typy zostaną wywnioskowane.
 
 ```javascript
 var task = {
@@ -138,9 +150,9 @@ var task = {
 ```
 
 > [!NOTE]
-> Każdy rekord zawiera również pole **Znacznik czasu**, którego wartość jest ustawiana przez platformę Azure w momencie wstawienia lub zaktualizowania jednostki.
+> Istnieje również `Timestamp` pole dla każdego rekordu, który jest ustawiany przez platformę Azure podczas wstawiania lub aktualizowania jednostki.
 
-Do tworzenia jednostek można również użyć elementu **entityGenerator**. W poniższym przykładzie ta sama jednostka zadania jest tworzona przy użyciu elementu **entityGenerator**.
+Można również użyć `entityGenerator` do tworzenia jednostek. Poniższy przykład tworzy tę samą jednostkę zadania przy użyciu `entityGenerator` .
 
 ```javascript
 var entGen = azure.TableUtilities.entityGenerator;
@@ -152,7 +164,7 @@ var task = {
 };
 ```
 
-Aby dodać jednostkę do tabeli, przekaż obiekt jednostki do metody **insertEntity**.
+Aby dodać jednostkę do tabeli, przekaż obiekt Entity do `insertEntity` metody.
 
 ```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -171,19 +183,20 @@ Przykładowa odpowiedź:
 ```
 
 > [!NOTE]
-> Domyślnie element **insertEntity** nie zwraca wstawionej jednostki jako części informacji elementu `response`. Jeśli planujesz wykonywanie innych operacji w obrębie tej jednostki lub chcesz buforować informacje, może być przydatne ich zwracanie jako części elementu `result`. W tym celu można włączyć element **echoContent** w następujący sposób:
+> Domyślnie program nie `insertEntity` zwraca wstawionej jednostki jako części `response` informacji. Jeśli planujesz wykonywanie innych operacji w obrębie tej jednostki lub chcesz buforować informacje, może być przydatne ich zwracanie jako części elementu `result`. Można to zrobić, włączając `echoContent` następujące czynności:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
 ## <a name="update-an-entity"></a>Aktualizowanie jednostki
+
 Istnieje kilka metod aktualizowania istniejącej jednostki:
 
-* **replaceEntity** — aktualizuje istniejącą jednostkę przez jej zastąpienie.
-* **mergeEntity** — aktualizuje istniejącą jednostkę przez scalenie nowych wartości właściwości z istniejącą jednostką.
-* **insertOrReplaceEntity** — aktualizuje istniejącą jednostkę przez jej zastąpienie. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
-* **insertOrMergeEntity** — aktualizuje istniejącą jednostkę przez scalenie nowych wartości właściwości z istniejącą jednostką. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
+* `replaceEntity`-Aktualizuje istniejącą jednostkę, zastępując ją.
+* `mergeEntity`-Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącą jednostką.
+* `insertOrReplaceEntity`-Aktualizuje istniejącą jednostkę, zastępując ją. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
+* `insertOrMergeEntity`-Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącymi. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
 
-W poniższym przykładzie przedstawiono aktualizowanie jednostki przy użyciu metody **replaceEntity**:
+Poniższy przykład ilustruje aktualizowanie jednostki przy użyciu `replaceEntity` :
 
 ```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -204,12 +217,13 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 >
 >
 
-W przypadku metod **replaceEntity** i **mergeEntity**, jeśli aktualizowana jednostka nie istnieje, operacja aktualizowania kończy się niepowodzeniem. W związku z tym, jeśli chcesz przechowywać jednostkę niezależnie od tego, czy już istnieje, użyj metody **insertOrReplaceEntity** lub **insertOrMergeEntity**.
+W przypadku `replaceEntity` i `mergeEntity` , jeśli aktualizowana jednostka nie istnieje, operacja aktualizacji zakończy się niepowodzeniem. w związku z tym, jeśli chcesz przechowywać jednostkę niezależnie od tego, czy już istnieje, użyj `insertOrReplaceEntity` lub `insertOrMergeEntity` .
 
 Element `result` pomyślnie zakończonych operacji aktualizowania zawiera tag **Etag** zaktualizowanej jednostki.
 
 ## <a name="work-with-groups-of-entities"></a>Praca z grupami jednostek
-Czasami warto przesłać jednocześnie wiele operacji w partii, aby zapewnić niepodzielne przetwarzanie przez serwer. Aby osiągnąć ten cel, należy utworzyć partię przy użyciu klasy **TableBatch**, a następnie użyć metody **executeBatch** obiektu **TableService** w celu wykonania operacji wsadowych.
+
+Czasami warto przesłać jednocześnie wiele operacji w partii, aby zapewnić niepodzielne przetwarzanie przez serwer. Aby to osiągnąć, użyj `TableBatch` klasy do utworzenia partii, a następnie użyj `executeBatch` metody, `TableService` Aby wykonać operacje wsadowe.
 
  W poniższym przykładzie przedstawiono przesyłanie dwóch jednostek w partii:
 
@@ -242,6 +256,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 W przypadku operacji wsadowych zakończonych pomyślnie element `result` zawiera informacje dotyczące każdej operacji w partii.
 
 ### <a name="work-with-batched-operations"></a>Praca z operacjami wsadowymi
+
 Operacje dodane do partii można sprawdzić, wyświetlając właściwość `operations`. Można także użyć następujących metod podczas pracy z operacjami:
 
 * **clear** — usuwa wszystkie operacje z partii.
@@ -251,6 +266,7 @@ Operacje dodane do partii można sprawdzić, wyświetlając właściwość `oper
 * **size** — zwraca liczbę operacji w partii.
 
 ## <a name="retrieve-an-entity-by-key"></a>Pobieranie jednostek według klucza
+
 Aby zwrócić określoną jednostkę na podstawie elementów **PartitionKey** i **RowKey**, użyj metody **retrieveEntity**.
 
 ```javascript
@@ -264,6 +280,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 Po ukończeniu tej operacji element `result` zawiera jednostkę.
 
 ## <a name="query-a-set-of-entities"></a>Wykonywanie zapytania względem zestawu jednostek
+
 Aby wykonać zapytanie dotyczące tabeli, należy użyć obiektu **TableQuery** w celu skompilowania wyrażenia zapytania przy użyciu następujących klauzul:
 
 * **select** — pola do zwrócenia z zapytania.
@@ -294,6 +311,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 W przypadku powodzenia element `result.entries` będzie zawierać tablicę jednostek pasujących do zapytania. Jeśli zapytanie nie mogło zwrócić wszystkich jednostek, element `result.continuationToken` ma wartość inną niż *null* i może być używany jako trzeci parametr elementu **queryEntities** do pobierania większej liczby wyników. W zapytaniu początkowym można użyć wartości *null* w przypadku trzeciego parametru.
 
 ### <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
+
 Za pomocą zapytania wykonywanego względem tabeli można pobrać tylko kilka pól z jednostki.
 Redukuje to przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Użyj klauzuli **select** i przekaż nazwy pól do zwrócenia. Na przykład poniższe zapytanie zwraca tylko wartości pól **description** i **dueDate**.
 
@@ -305,6 +323,7 @@ var query = new azure.TableQuery()
 ```
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
+
 Jednostkę można usunąć za pomocą kluczy partycji i wierszy. W tym przykładzie obiekt **task1** zawiera wartości **RowKey** i **PartitionKey** jednostki do usunięcia. Następnie obiekt jest przekazywany do metody **deleteEntity**.
 
 ```javascript
@@ -326,6 +345,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 >
 
 ## <a name="delete-a-table"></a>Usuwanie tabeli
+
 Poniższy kod usuwa tabelę z konta magazynu.
 
 ```javascript
@@ -339,6 +359,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 Jeśli nie masz pewności, czy tabela istnieje, użyj metody **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Korzystanie z tokenów kontynuacji
+
 W przypadku wykonywania zapytań dotyczących tabel z dużą liczbą wyników należy poszukać tokenów kontynuacji. Mogą istnieć duże ilości danych dostępnych dla zapytania, o których możesz nie wiedzieć, jeśli nie skompilujesz rozpoznawania obecności tokenu kontynuacji.
 
 Obiekt **results** zwracany w przypadku wykonywania zapytań dotyczących jednostek ustawia właściwość `continuationToken`, gdy taki token istnieje. Możesz go następnie użyć podczas wykonywania zapytania, aby kontynuować poruszanie się w obrębie jednostek tabeli i partycji.
@@ -367,6 +388,7 @@ Jeśli sprawdzasz obiekt `continuationToken`, znajdziesz właściwości, takie j
 Można również użyć `top` programu razem z programem, `continuationToken` Aby ustawić rozmiar strony.
 
 ## <a name="work-with-shared-access-signatures"></a>Praca z sygnaturami dostępu współdzielonego
+
 Sygnatury dostępu współdzielonego (SAS) to bezpieczny sposób zapewnienia szczegółowego dostępu do tabel bez podawania kluczy ani nazwy konta usługi Storage. Sygnatury dostępu współdzielonego są często używane do udzielania ograniczonych praw dostępu do danych, takich jak zezwalanie aplikacji mobilnej na wykonywanie zapytań dotyczących rekordów.
 
 Aplikacja zaufana, taka jak usługa oparta na chmurze, generuje sygnaturę dostępu współdzielonego przy użyciu elementu **generateSharedAccessSignature** obiektu **TableService** i udostępnia ją niezaufanej lub częściowo zaufanej aplikacji, takiej jak aplikacja mobilna. Sygnatura dostępu współdzielonego jest generowana przy użyciu zasad opisujących daty rozpoczęcia i zakończenia okresu, w którym ta sygnatura obowiązuje, a także poziom dostępu przyznany właścicielowi sygnatury dostępu współdzielonego.
@@ -412,6 +434,7 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 Ponieważ sygnatura dostępu współdzielonego została wygenerowana z dostępem tylko do zapytania, próba wstawienia, zaktualizowania lub usunięcia jednostek spowoduje zwrócenie błędu.
 
 ### <a name="access-control-lists"></a>Listy kontroli dostępu
+
 Do ustawienia zasad dostępu powiązanych z sygnaturą dostępu współdzielonego można również użyć listy kontroli dostępu (ACL, Access Control List). Jest to przydatne, jeśli chcesz umożliwić wielu klientom dostęp do tabeli, ale uwzględnia różne zasady dostępu dla poszczególnych klientów.
 
 Lista ACL jest implementowana przy użyciu tablicy zasad dostępu z identyfikatorem skojarzonym z poszczególnymi zasadami. W poniższym przykładzie zdefiniowano dwie zasady, odpowiednio dla użytkowników „user1” i „user2”:
@@ -454,6 +477,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
 Więcej informacji zawierają poniższe zasoby.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.

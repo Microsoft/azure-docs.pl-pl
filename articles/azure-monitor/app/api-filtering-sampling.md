@@ -3,12 +3,12 @@ title: Filtrowanie i wstępne przetwarzanie w zestawie Application Insights SDK 
 description: Napisz procesory telemetrii i inicjatory telemetrii dla zestawu SDK w celu filtrowania lub dodawania właściwości do danych przed wysłaniem telemetrii do portalu Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323217"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i wstępne przetwarzanie danych telemetrycznych w zestawie Application Insights SDK
 
@@ -17,7 +17,7 @@ Można napisać i skonfigurować wtyczki dla zestawu SDK Application Insights, a
 * [Próbkowanie](sampling.md) zmniejsza ilość danych telemetrycznych bez wpływu na dane statystyczne. Przechowuje on wspólnie powiązane punkty danych, dzięki czemu można przechodzić między nimi, gdy diagnozowanie problemu. W portalu łączna liczba jest mnożona, aby skompensować próbkowanie.
 * Filtrowanie za pomocą procesorów telemetrii umożliwia filtrowanie danych telemetrycznych w zestawie SDK przed ich wysłaniem do serwera. Na przykład można zmniejszyć ilość danych telemetrycznych, wykluczając żądania od robotów. Filtrowanie to bardziej podstawowe podejście do ograniczania ruchu niż próbkowanie. Zapewnia większą kontrolę nad tym, co jest przesyłane, ale ma wpływ na dane statystyczne. Na przykład można odfiltrować wszystkie pomyślne żądania.
 * [Inicjatory telemetrii dodają lub modyfikują właściwości](#add-properties) do wszelkich danych telemetrycznych wysyłanych z aplikacji, które obejmują dane telemetryczne z modułów standardowych. Można na przykład dodać wartości obliczeniowe lub numery wersji, według których mają być filtrowane dane w portalu.
-* [Interfejs API zestawu SDK](../../azure-monitor/app/api-custom-events-metrics.md) służy do wysyłania niestandardowych zdarzeń i metryk.
+* [Interfejs API zestawu SDK](./api-custom-events-metrics.md) służy do wysyłania niestandardowych zdarzeń i metryk.
 
 Przed rozpoczęciem:
 
@@ -34,7 +34,7 @@ Aby odfiltrować dane telemetryczne, napisz procesor telemetrii i zarejestruj go
 > [!WARNING]
 > Filtrowanie danych telemetrycznych wysyłanych z zestawu SDK przy użyciu procesorów może pochylić statystyki widoczne w portalu i utrudniać wykonywanie pokrewnych elementów.
 >
-> Zamiast tego należy rozważyć użycie [próbkowania](../../azure-monitor/app/sampling.md).
+> Zamiast tego należy rozważyć użycie [próbkowania](./sampling.md).
 >
 >
 
@@ -352,7 +352,7 @@ Wstaw inicjatora telemetrii bezpośrednio po kodzie inicjalizacji uzyskanym z po
 </script>
 ```
 
-Aby uzyskać podsumowanie nieniestandardowych właściwości dostępnych dla elementu telemetrii, zobacz [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+Aby uzyskać podsumowanie nieniestandardowych właściwości dostępnych dla elementu telemetrii, zobacz [Application Insights Export Data Model](./export-data-model.md).
 
 Możesz dodać dowolną liczbę inicjatorów. Są one wywoływane w kolejności, w jakiej zostały dodane.
 
@@ -542,7 +542,7 @@ Jaka jest różnica między procesorami telemetrii i inicjatorami telemetrii?
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Przegląd interfejsu API](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Przegląd interfejsu API](./api-custom-events-metrics.md)
 * [Odwołanie ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Kod zestawu SDK
@@ -552,6 +552,7 @@ Jaka jest różnica między procesorami telemetrii i inicjatorami telemetrii?
 * [Zestaw SDK dla języka JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
-* [Wyszukaj zdarzenia i dzienniki](../../azure-monitor/app/diagnostic-search.md)
-* [Próbkowanie](../../azure-monitor/app/sampling.md)
+* [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md)
+* [sond](./sampling.md)
 * [Rozwiązywanie problemów](../faq.md)
+

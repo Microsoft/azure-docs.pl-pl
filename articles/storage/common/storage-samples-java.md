@@ -2,17 +2,18 @@
 title: Przykłady usługi Azure Storage przy użyciu języka Java | Microsoft Docs
 description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady wprowadzenia dla obiektów blob, kolejek, tabel i plików przy użyciu bibliotek klienckich magazynu Java.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 26fe0538548e13933e112e83bae6e6131f2a030d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594643"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322231"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 Java
 
@@ -23,7 +24,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 ## <a name="blob-samples"></a>Przykłady obiektów BLOB
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -89,7 +90,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 :::row:::
    :::column span="":::
-      [Przesyłanie obiektów blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
+      [Przekazywanie obiektu blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
    :::column-end:::
    :::column span="":::
       [Pobieranie obiektu blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
@@ -213,7 +214,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 ## <a name="azure-file-samples"></a>Przykłady plików platformy Azure
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="2":::
@@ -225,7 +226,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 :::row:::
    :::column span="":::
-      [Utwórz udziały plików](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+      [Tworzenie udziałów plików](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
    :::column-end:::
    :::column span="":::
       [Pobierz właściwości](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
@@ -326,7 +327,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 ## <a name="queue-samples"></a>Przykładowe kolejki
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="2":::
@@ -397,7 +398,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
 
 :::row:::
    :::column span="":::
-      [Utwórz tabelę](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
+      [Tworzenie tabeli](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
    :::column-end:::
    :::column span="":::
       [Usuń jednostkę/tabelę](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L109)
@@ -451,5 +452,5 @@ Aby uzyskać informacje na temat przykładów dla innych języków:
 
 * .NET: [przykłady usługi Azure Storage korzystające z platformy .NET](storage-samples-dotnet.md)
 * Python: [przykłady usługi Azure Storage przy użyciu języka Python](storage-samples-python.md)
-* JavaScript/Node. js: [przykłady usługi Azure Storage przy użyciu języka JavaScript](storage-samples-javascript.md)
+* JavaScript/Node.js: [przykłady usługi Azure Storage korzystające z języka JavaScript](storage-samples-javascript.md)
 * Wszystkie inne języki: [przykłady usługi Azure Storage](storage-samples.md)

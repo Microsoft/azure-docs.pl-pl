@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f31ac8b36134548c3a7ecc4b0bf37d28a8ab7e4b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735574"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291729"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -87,7 +87,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
@@ -99,7 +99,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 > [!div class="nextstepaction"]
 > [Eksplorowanie rozwiązania](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
-* [Przegląd analiza tekstu](../overview.md)
+* [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)

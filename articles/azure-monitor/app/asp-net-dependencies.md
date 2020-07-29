@@ -3,16 +3,16 @@ title: Śledzenie zależności na platformie Azure Application Insights | Micros
 description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure aplikacji sieci Web z Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9980db352e5d2c342131e0d6a2cd1248adb10810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067717"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321381"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
-*Zależność* to składnik, który jest wywoływany przez aplikację. Zwykle jest to usługa wywoływana przy użyciu protokołu HTTP lub baza danych bądź system plików. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mierzy czas trwania wywołań zależności, bez względu na to, czy wystąpił błąd, czy nie, wraz z dodatkowymi informacjami, takimi jak nazwa zależności i tak dalej. Można zbadać konkretne wywołania zależności i skorelować je z żądaniami i wyjątkami.
+*Zależność* to składnik, który jest wywoływany przez aplikację. Zwykle jest to usługa wywoływana przy użyciu protokołu HTTP lub baza danych bądź system plików. [Application Insights](./app-insights-overview.md) mierzy czas trwania wywołań zależności, bez względu na to, czy wystąpił błąd, czy nie, wraz z dodatkowymi informacjami, takimi jak nazwa zależności i tak dalej. Można zbadać konkretne wywołania zależności i skorelować je z żądaniami i wyjątkami.
 
 ## <a name="automatically-tracked-dependencies"></a>Automatycznie śledzone zależności
 
@@ -154,7 +154,7 @@ W tym miejscu będzie można zobaczyć liczbę nieudanych zależności. Aby uzys
 
 ## <a name="logs-analytics"></a>Dzienniki (analiza)
 
-Zależności można śledzić w [języku zapytań Kusto](/azure/kusto/query/). Oto kilka przykładów.
+Zależności można śledzić w [języku zapytań Kusto](/azure/kusto/query/). Poniżej przedstawiono kilka przykładów.
 
 * Znajdź wszystkie nieudane wywołania zależności:
 
@@ -202,6 +202,7 @@ Podobnie jak w przypadku każdego zestawu Application Insights SDK, moduł kolek
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wyjątki](../../azure-monitor/app/asp-net-exceptions.md)
-* [Dane strony & użytkownika](../../azure-monitor/app/javascript.md)
-* [Dostępność](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Wyjątki](./asp-net-exceptions.md)
+* [Dane strony & użytkownika](./javascript.md)
+* [Dostępność](./monitor-web-app-availability.md)
+

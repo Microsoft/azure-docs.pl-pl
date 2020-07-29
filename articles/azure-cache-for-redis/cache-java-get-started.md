@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 02430e2dfa68ff0ce4bf116666d72a46e1120746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848859"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320701"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka Java
 
@@ -59,7 +59,7 @@ Otwórz plik *pom.xml* i dodaj zależność dla [Jedis](https://github.com/xetor
     </dependency>
 ```
 
-Zapisz plik *pliku pom. XML* .
+Zapisz plik *pom.xml* .
 
 Otwórz plik *App.java* i zastąp kod następującym:
 
@@ -117,7 +117,7 @@ W tym kodzie pokazano sposób podłączania do wystąpienia usługi Azure Cache 
 
 Zapisz plik *App.java*.
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 Wykonaj następujące polecenie narzędzia Maven, aby skompilować i uruchomić aplikację:
 
@@ -130,7 +130,7 @@ W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podr
 
 ![Ukończono aplikację Azure cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie.
 

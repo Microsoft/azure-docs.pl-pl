@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321126"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -32,7 +32,7 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 
 3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj listy rozwijanej Typ **subskrypcji** i **zasobu** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
 
-4. Jeśli wybrany zasób ma metryki, na których można tworzyć alerty, **dostępne sygnały** z prawej strony będą zawierać metryki. W tym [artykule](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)można wyświetlić pełną listę typów zasobów, które są obsługiwane w przypadku alertów dotyczących metryk.
+4. Jeśli wybrany zasób ma metryki, na których można tworzyć alerty, **dostępne sygnały** z prawej strony będą zawierać metryki. W tym [artykule](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)można wyświetlić pełną listę typów zasobów, które są obsługiwane w przypadku alertów dotyczących metryk.
 
 5. Po wybraniu zasobu docelowego kliknij pozycję **Dodaj warunek**.
 
@@ -136,7 +136,8 @@ Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dot
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md).
 - [Informacje o działaniu alertów dotyczących metryk](alerts-metric-overview.md).
 - [Informacje o tym, jak działają Alerty metryczne z warunkiem progów dynamicznych](alerts-dynamic-thresholds.md).
-- [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](./alerts-metric-near-real-time.md#payload-schema)
+

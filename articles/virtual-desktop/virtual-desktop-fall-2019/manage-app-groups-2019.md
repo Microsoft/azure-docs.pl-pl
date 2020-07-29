@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows — Azure
-description: Opisuje sposób konfigurowania dzierżawców pulpitów wirtualnych systemu Windows w Azure Active Directory.
+title: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows (klasyczny) — Azure
+description: Opisuje sposób konfigurowania dzierżawców klasycznego systemu Windows (klasyczny) w Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 55c2ed5f9066d85643588f77806bbd41e92dd16b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614417"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284986"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Samouczek: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Samouczek: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../manage-app-groups.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../manage-app-groups.md).
 
 Domyślna grupa aplikacji utworzona dla nowej puli hostów systemu Windows Virtual Desktop również publikuje pełny pulpit. Ponadto można utworzyć co najmniej jedną grupę aplikacji RemoteApp dla puli hostów. Postępuj zgodnie z tym samouczkiem, aby utworzyć grupę aplikacji RemoteApp i opublikować poszczególne aplikacje menu **Start** .
 
@@ -54,7 +54,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Uruchom następujące polecenie cmdlet, aby zainstalować aplikację opartą `AppAlias`na systemie. `AppAlias`staną się widoczne po uruchomieniu danych wyjściowych z kroku 3.
+4. Uruchom następujące polecenie cmdlet, aby zainstalować aplikację opartą na systemie `AppAlias` . `AppAlias`staną się widoczne po uruchomieniu danych wyjściowych z kroku 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>

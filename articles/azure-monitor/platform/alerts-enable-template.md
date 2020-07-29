@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505452"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324101"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Tworzenie klasycznego alertu metryki za pomocą szablonu usługi Resource Manager
 > [!WARNING]
 > 
-> W tym artykule opisano tworzenie **klasycznych alertów metryk** przy użyciu szablonów Menedżer zasobów. Alerty klasyczne zostały wycofane w sierpniu 2019 i ustawione jako całkowicie przestarzałe w czerwcu 2020. Nie możesz tworzyć nowych alertów klasycznych na platformie Azure. Niektóre regionalne wersje platformy Azure mogą nadal korzystać z tej opcji, ale sugerujemy utworzenie [nowszych alertów metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md) przy użyciu szablonów, jeśli jest to możliwe. [Ten artykuł](alerts-metric-create-templates.md) zawiera szczegółowe informacje.
+> W tym artykule opisano tworzenie **klasycznych alertów metryk** przy użyciu szablonów Menedżer zasobów. Alerty klasyczne zostały wycofane w sierpniu 2019 i ustawione jako całkowicie przestarzałe w czerwcu 2020. Nie możesz tworzyć nowych alertów klasycznych na platformie Azure. Niektóre regionalne wersje platformy Azure mogą nadal korzystać z tej opcji, ale sugerujemy utworzenie [nowszych alertów metryk](./alerts-metric-near-real-time.md) przy użyciu szablonów, jeśli jest to możliwe. [Ten artykuł](alerts-metric-create-templates.md) zawiera szczegółowe informacje.
 >
 
 W tym artykule pokazano, jak można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) w celu skonfigurowania alertów dotyczących klasycznych metryk platformy Azure. Pozwala to na automatyczne Konfigurowanie alertów dotyczących zasobów podczas ich tworzenia w celu zapewnienia poprawnego monitorowania wszystkich zasobów.
@@ -400,5 +400,6 @@ Alert dla szablonu Menedżer zasobów najczęściej jest przydatny podczas tworz
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj więcej na temat alertów](alerts-overview.md)
-* [Dodawanie ustawień diagnostycznych](../../azure-monitor/platform/diagnostic-settings-template.md) do szablonu Menedżer zasobów
+* [Dodawanie ustawień diagnostycznych](./diagnostic-settings-template.md) do szablonu Menedżer zasobów
 * Aby poznać składnię i właściwości JSON, zobacz [Microsoft. Insights/alertrules](/azure/templates/microsoft.insights/alertrules) Template Reference.
+

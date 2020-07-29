@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85443880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324271"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Szybki Start: monitorowanie zasobu platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z zasobów platformy Azure w momencie ich tworzenia. Ten przewodnik Szybki Start zawiera krótki przewodnik dotyczący danych, które są automatycznie zbierane dla zasobu i sposobu wyświetlania go w Azure Portal dla określonego zasobu. Później można dodać konfigurację w celu zebrania dodatkowych danych i można przejść do menu Azure Monitor, aby użyć tych samych narzędzi do uzyskiwania dostępu do danych zebranych dla wszystkich zasobów w ramach subskrypcji.
@@ -70,4 +70,5 @@ Metryki to wartości liczbowe, które opisują pewne aspekty zasobu w określony
 W tym przewodniku szybki start Oglądasz dziennik aktywności i metryki dla zasobu platformy Azure, które są automatycznie zbierane przez Azure Monitor. Przejdź do następnego przewodnika Szybki Start, który pokazuje, jak zebrać dziennik aktywności do obszaru roboczego Log Analytics, gdzie można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Wyślij dziennik aktywności platformy Azure do obszaru roboczego Log Analytics](quick-monitor-azure-resource.md)
+> [Wyślij dziennik aktywności platformy Azure do obszaru roboczego Log Analytics]()
+

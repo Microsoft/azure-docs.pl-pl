@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 88a98c05b09d8e76159199fd5035a15d62bc293b
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: a430af4bd0cb8ec0db468ed4bfe605ce1fd3b8c2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115119"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322792"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API tabel Azure Cosmos DB
 
@@ -182,7 +182,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 1. W oknie terminala usługi Git za pomocą polecenia `cd` przejdź do folderu storage-table-java-getting-started.
 
@@ -204,7 +204,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

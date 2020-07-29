@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075294"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321925"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Zero monitorowanie aplikacji Instrumentacji dla aplikacji hostowanych Kubernetes z Istio — PRZESTARZAŁe
 
@@ -18,10 +18,10 @@ ms.locfileid: "87075294"
 > Ta funkcja jest obecnie przestarzała i nie będzie już obsługiwana po 1 sierpnia 2020.
 > Obecnie monitorowanie bezkodowe można włączyć tylko dla [środowiska Java za pomocą autonomicznego agenta](./java-in-process-agent.md). W przypadku innych języków Użyj zestawów SDK do monitorowania aplikacji w AKS: [ASP.NET Core](./asp-net-core.md), [ASP.NET](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md)i [Python](./opencensus-python.md).
 
-Azure Monitor teraz korzysta z usługi Service siatk Tech w klastrze Kubernetes, aby umożliwić monitorowanie aplikacji w usłudze Box dla dowolnej hostowanej aplikacji Kubernetes. Za pomocą domyślnych funkcji usługi Application Insight, takich jak [Mapa aplikacji](../../azure-monitor/app/app-map.md) , aby modelować zależności, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) do monitorowania w czasie rzeczywistym, zaawansowanych wizualizacji z [domyślnym pulpitem nawigacyjnym](../../azure-monitor/app/overview-dashboard.md), [Eksploratorem metryk](../../azure-monitor/platform/metrics-getting-started.md)i [skoroszytami](../../azure-monitor/platform/workbooks-overview.md). Ta funkcja ułatwi użytkownikom dostęp do wąskich gardeł wydajności i hotspotów niepowodzeń we wszystkich obciążeniach Kubernetes w ramach wybranej przestrzeni nazw Kubernetes. Wielką literą dla istniejących inwestycji w siatkę usług przy użyciu technologii, takich jak Istio, Azure Monitor umożliwia monitorowanie aplikacji z autoinstrumentacją bez żadnych modyfikacji w kodzie aplikacji.
+Azure Monitor teraz korzysta z usługi Service siatk Tech w klastrze Kubernetes, aby umożliwić monitorowanie aplikacji w usłudze Box dla dowolnej hostowanej aplikacji Kubernetes. Za pomocą domyślnych funkcji usługi Application Insight, takich jak [Mapa aplikacji](./app-map.md) , aby modelować zależności, [Live Metrics Stream](./live-stream.md) do monitorowania w czasie rzeczywistym, zaawansowanych wizualizacji z [domyślnym pulpitem nawigacyjnym](./overview-dashboard.md), [Eksploratorem metryk](../platform/metrics-getting-started.md)i [skoroszytami](../platform/workbooks-overview.md). Ta funkcja ułatwi użytkownikom dostęp do wąskich gardeł wydajności i hotspotów niepowodzeń we wszystkich obciążeniach Kubernetes w ramach wybranej przestrzeni nazw Kubernetes. Wielką literą dla istniejących inwestycji w siatkę usług przy użyciu technologii, takich jak Istio, Azure Monitor umożliwia monitorowanie aplikacji z autoinstrumentacją bez żadnych modyfikacji w kodzie aplikacji.
 
 > [!NOTE]
-> Jest to jeden z wielu sposobów przeprowadzania monitorowania aplikacji na Kubernetes.Możesz również instrumentować każdą aplikację hostowaną w Kubernetes za pomocą [zestawu SDK Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) bez potrzeby używania siatki usług. Aby monitorować Kubernetes bez Instrumentacji aplikacji za pomocą zestawu SDK, można użyć poniższej metody.
+> Jest to jeden z wielu sposobów przeprowadzania monitorowania aplikacji na Kubernetes.Możesz również instrumentować każdą aplikację hostowaną w Kubernetes za pomocą [zestawu SDK Application Insights](../azure-monitor-app-hub.yml) bez potrzeby używania siatki usług. Aby monitorować Kubernetes bez Instrumentacji aplikacji za pomocą zestawu SDK, można użyć poniższej metody.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,12 +34,12 @@ Azure Monitor teraz korzysta z usługi Service siatk Tech w klastrze Kubernetes,
 
 Korzystając z funkcji monitorowania aplikacji Instrumentacji dla aplikacji hostowanych w usłudze Kubernetes, będzie można użyć:
 
-- [Mapa aplikacji](../../azure-monitor/app/app-map.md)
-- [Metryki Live Stream](../../azure-monitor/app/live-stream.md)
-- [Pulpity nawigacyjne](../../azure-monitor/app/overview-dashboard.md)
-- [Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md)
-- [Rozproszone — śledzenie](../../azure-monitor/app/distributed-tracing.md)
-- [Kompleksowe monitorowanie transakcji](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [Mapa aplikacji](./app-map.md)
+- [Metryki Live Stream](./live-stream.md)
+- [Pulpity nawigacyjne](./overview-dashboard.md)
+- [Eksplorator metryk](../platform/metrics-getting-started.md)
+- [Rozproszone — śledzenie](./distributed-tracing.md)
+- [Kompleksowe monitorowanie transakcji](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>Kroki instalacji
 
@@ -130,7 +130,7 @@ Poniżej znajduje się przepływ rozwiązywania problemów, który ma być używ
 
 Aby uzyskać najnowsze informacje o postępie tego projektu, odwiedź [kartę Application Insightsową usługi GitHub projektu Istio](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Dezinstalacja
+## <a name="uninstall"></a>Odinstalowanie
 
 Aby odinstalować produkt, dla *każdego* pliku YAML znalezionego w ścieżce *src/Kubernetes/* Run:
 
@@ -141,4 +141,5 @@ kubectl delete -f <filename.yaml>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o tym, jak Azure Monitor i kontenery współpracują ze sobą, odwiedź [Azure monitor Omówienie kontenerów](../../azure-monitor/insights/container-insights-overview.md)
+Aby dowiedzieć się więcej o tym, jak Azure Monitor i kontenery współpracują ze sobą, odwiedź [Azure monitor Omówienie kontenerów](../insights/container-insights-overview.md)
+

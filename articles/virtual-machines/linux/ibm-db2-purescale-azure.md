@@ -7,15 +7,15 @@ editor: edprice
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268037"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale na platformie Azure
 

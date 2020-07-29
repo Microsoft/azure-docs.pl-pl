@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783150"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322503"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdowanie i diagnozowanie problemów z wydajnością za pomocą usługi Azure Application Insights
 
@@ -32,8 +32,8 @@ W celu ukończenia tego samouczka:
 - Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/downloads/) z następującymi obciążeniami:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
-- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md).
-- [Włącz profiler usługi Application Insights](../../azure-monitor/app/profiler.md#installation) dla swojej aplikacji.
+- Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../app/asp-net.md).
+- [Włącz profiler usługi Application Insights](../app/profiler.md#installation) dla swojej aplikacji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
@@ -56,12 +56,12 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 
 4.  Panel wydajności po prawej stronie pokazuje rozkład czasów trwania różnych żądań dla wybranej operacji.  Zmniejsz okno, aby rozpocząć w okolicy 95. percentyla. Z karty ze szczegółowymi informacjami „3 najważniejsze zależności” można szybko odczytać, że zależności zewnętrzne najprawdopodobniej wpływają na spowolnienie transakcji.  Kliknij przycisk z liczbą próbek, aby wyświetlić listę próbek. Następnie możesz wybrać dowolną próbkę, aby wyświetlić szczegóły transakcji.
 
-5.  Na pierwszy rzut oka zobaczysz, że wywołanie tabeli Fabrikamaccount Azure Table najbardziej wpływa na całkowity czas trwania transakcji. Zobaczysz też, że wyjątek spowodował jego niepowodzenia. Możesz kliknąć dowolną pozycję na liście, aby wyświetlić jej szczegóły po prawej stronie. [Dowiedz się więcej o środowisku diagnostyki transakcji](../../azure-monitor/app/transaction-diagnostics.md)
+5.  Na pierwszy rzut oka zobaczysz, że wywołanie tabeli Fabrikamaccount Azure Table najbardziej wpływa na całkowity czas trwania transakcji. Zobaczysz też, że wyjątek spowodował jego niepowodzenia. Możesz kliknąć dowolną pozycję na liście, aby wyświetlić jej szczegóły po prawej stronie. [Dowiedz się więcej o środowisku diagnostyki transakcji](../app/transaction-diagnostics.md)
 
     ![Szczegóły operacji na końcu](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  [**Profiler**](../../azure-monitor/app/profiler-overview.md) pomaga lepiej korzystać z diagnostyki na poziomie kodu, pokazując rzeczywisty kod, który został uruchomiony dla operacji, oraz czas wymagany dla każdego kroku. Niektóre operacje mogą nie mieć śladu, ponieważ profiler jest uruchamiany okresowo.  Z upływem czasu coraz więcej operacji powinno mieć ślady.  Aby uruchomić profiler dla operacji, kliknij pozycję **Ślady narzędzia Profiler**.
+6.  [**Profiler**](../app/profiler-overview.md) pomaga lepiej korzystać z diagnostyki na poziomie kodu, pokazując rzeczywisty kod, który został uruchomiony dla operacji, oraz czas wymagany dla każdego kroku. Niektóre operacje mogą nie mieć śladu, ponieważ profiler jest uruchamiany okresowo.  Z upływem czasu coraz więcej operacji powinno mieć ślady.  Aby uruchomić profiler dla operacji, kliknij pozycję **Ślady narzędzia Profiler**.
 5.  Ślad pokazuje indywidualne zdarzenia dla każdej operacji, więc można zdiagnozować główną przyczynę obecnego czasu trwania całej operacji.  Kliknij jeden z przykładów u góry, które mają najdłuższy czas trwania.
 6.  Kliknij pozycję **ścieżka gorąca** , aby wyróżnić konkretną ścieżkę zdarzeń, które najbardziej przyczyniają się do łącznego czasu trwania operacji.  W tym przykładzie widać, że najwolniejsze wywołanie pochodzi z metody *FabrikamFiberAzureStorage.GetStorageTableData*. Częścią zabierającą najwięcej czasu jest metoda *CloudTable.CreateIfNotExist*. Jeśli ten wiersz kodu jest wywoływany po każdym wywołaniu funkcji, niepotrzebnie używane będą wywołanie sieciowe i zasób procesora CPU. Najlepszym sposobem poprawienia kodu jest umieszczenie tego wiersza w jakiejś metodzie startowej, która jest wykonywana tylko raz.
 
@@ -112,4 +112,5 @@ Podobnie jak w przypadku danych zbieranych pod kątem wydajności serwera, Appli
 Teraz, gdy już wiesz, jak identyfikować wyjątki czasu wykonywania, przejdź do następnego samouczka, aby dowiedzieć się, jak tworzyć alerty w odpowiedzi na błędy.
 
 > [!div class="nextstepaction"]
-> [Alerty dotyczące kondycji aplikacji](../../azure-monitor/learn/tutorial-alert.md)
+> [Alerty dotyczące kondycji aplikacji](./tutorial-alert.md)
+

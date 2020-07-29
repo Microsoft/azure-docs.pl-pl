@@ -1,6 +1,6 @@
 ---
-title: Przypisanie roli głównej usługi pulpitu wirtualnego systemu Windows — Azure
-description: Jak utworzyć jednostki usługi i przypisać role przy użyciu programu PowerShell na pulpicie wirtualnym systemu Windows.
+title: Przypisanie roli głównej usługi pulpitu wirtualnego systemu Windows (klasycznej) — Azure
+description: Jak utworzyć jednostki usługi i przypisać role przy użyciu programu PowerShell na pulpicie wirtualnym systemu Windows (klasyczny).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270094"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Samouczek: tworzenie jednostek usługi i przypisań ról przy użyciu programu PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Samouczek: tworzenie jednostek usługi i przypisań ról przy użyciu programu PowerShell na pulpicie wirtualnym systemu Windows (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows.
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows.
 
 Nazwy główne usług są tożsamościami, które można utworzyć w Azure Active Directory, aby przypisać role i uprawnienia do określonego celu. Na pulpicie wirtualnym systemu Windows można utworzyć jednostkę usługi, aby:
 

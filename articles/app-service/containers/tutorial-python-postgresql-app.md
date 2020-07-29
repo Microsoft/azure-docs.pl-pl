@@ -10,12 +10,12 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: b4968d16f9ec2e034bde653215677ad40c6b983f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 718c9a62cc867e5d65cc3c79e78ce3282f1037c7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285853"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -132,7 +132,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 
 - Zamień na *\<postgres-server-name>* nazwę, która jest unikatowa na wszystkich platformie Azure (punkt końcowy serwera to `https://\<postgres-server-name>.postgres.database.azure.com` ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i innej unikatowej wartości.
 - Dla programu *\<admin-username>* i *\<admin-password>* Określ poświadczenia, aby utworzyć użytkownika administratora dla tego serwera Postgres.
-- Używana w tym miejscu [warstwa cenowa](/postgresql/concepts-pricing-tiers) B_Gen4_1 (podstawowa, obliczenia, 1 rdzeń) jest tańsza. W przypadku produkcyjnych baz danych należy pominąć ten `--sku-name` argument, aby użyć warstwy GP_Gen5_2 (ogólnego przeznaczenia, generacji 5, 2 rdzenie).
+- Używana w tym miejscu [warstwa cenowa](../../postgresql/concepts-pricing-tiers.md) B_Gen4_1 (podstawowa, obliczenia, 1 rdzeń) jest tańsza. W przypadku produkcyjnych baz danych należy pominąć ten `--sku-name` argument, aby użyć warstwy GP_Gen5_2 (ogólnego przeznaczenia, generacji 5, 2 rdzenie).
 
 To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 
@@ -402,7 +402,7 @@ Domyślnie w portalu jest wyświetlana strona **omówienia** aplikacji, która z
 
 ![Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz zachować aplikację lub przejść do następnego samouczka, przejdź do [sekcji Następne kroki](#next-steps). W przeciwnym razie, aby uniknąć ponoszenia opłat, możesz usunąć grupę zasobów utworzoną dla tego samouczka:
 

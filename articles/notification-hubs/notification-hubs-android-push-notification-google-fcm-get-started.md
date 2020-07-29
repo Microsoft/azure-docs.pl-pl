@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e8c19a491f836a71b26f86924fddad92adb23d42
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 3b32a61dcf8dfe403a44af236afad830472d1b8d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321466"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu Firebase SDK w wersji 0,6
 
@@ -573,4 +573,4 @@ W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiado
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

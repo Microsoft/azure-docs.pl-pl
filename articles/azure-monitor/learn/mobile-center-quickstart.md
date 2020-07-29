@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a5c025f40f3d78e9e2ff54a0de76763a3e717640
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322146"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Rozpoczęcie analizowania aplikacji mobilnej za pomocą Centrum aplikacji i usługi Application Insights
 
@@ -150,7 +150,7 @@ Usługa Application Insights umożliwia wykonywanie zapytań, segmentowanie, fil
    * **Skoroszyty** — służy do łączenia wizualizacji i tekstu w raporcie, który można udostępniać.
    * **Kohorty** — służy do nadawania nazw i zapisywania określonych grup użytkowników lub zdarzeń, aby można było łatwo odwoływać się do nich z innych narzędzi analitycznych.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz dalej używać usługi Application Insights z Centrum aplikacji, wyłącz eksportowanie w Centrum aplikacji i usuń zasób usługi Application Insights. Zapobiegnie to naliczaniu dalszych opłat za ten zasób przez usługę Application Insights.
 
@@ -167,4 +167,5 @@ Aby usunąć zasób usługi Application Insights:
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Informacje o sposobie używania aplikacji przez klientów](../../azure-monitor/app/usage-overview.md)
+> [Informacje o sposobie używania aplikacji przez klientów](../app/usage-overview.md)
+

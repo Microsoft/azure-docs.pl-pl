@@ -3,12 +3,12 @@ title: Tworzenie niestandardowego obrazu Azure DevTest Labs na podstawie maszyny
 description: Dowiedz się, jak utworzyć niestandardowy obraz w Azure DevTest Labs z zainicjowanej maszyny wirtualnej przy użyciu Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 597ef49b667cf613b721c645e09f8e6dcb157011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476601"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277031"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej
 
@@ -43,7 +43,7 @@ Można utworzyć obraz niestandardowy na podstawie zainicjowanej maszyny wirtual
 
 ## <a name="related-blog-posts"></a>Powiązane wpisy w blogu
 
-- [Obrazy niestandardowe lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Obrazy niestandardowe lub formuły?](./devtest-lab-faq.md#blog-post)
 - [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325393"
 ---
 # <a name="azure-monitor-log-queries"></a>Zapytania dzienników usługi Azure Monitor
 
@@ -26,15 +26,15 @@ Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych, a Azure
 
 ## <a name="concepts"></a>Pojęcia
 
-- [Analizowanie danych dziennika w Azure monitor](../../azure-monitor/log-query/log-query-overview.md) zawiera krótkie omówienie zapytań dzienników i opisuje sposób, w jaki dane dzienników Azure monitor są strukturalne.
+- [Analizowanie danych dziennika w Azure monitor](./log-query-overview.md) zawiera krótkie omówienie zapytań dzienników i opisuje sposób, w jaki dane dzienników Azure monitor są strukturalne.
 - [Wyświetlanie i analizowanie danych dziennika w Azure monitor](./log-query-overview.md) wyjaśnia portale, w których tworzysz i uruchamiasz zapytania dzienników.
 
-## <a name="reference"></a>Tematy pomocy
+## <a name="reference"></a>Dokumentacja
 
 - [Dokumentacja języka zapytań](/azure/kusto/query) to kompletna dokumentacja języka dla języka zapytań Kusto.
 - [Różnice w języku zapytań dziennika Azure monitor](data-explorer-difference.md) opisują różnice między wersjami języka zapytań Kusto.
-- [Standardowe właściwości w Azure monitor rekordy dziennika](../../azure-monitor/platform/log-standard-properties.md) opisują właściwości, które są standardowe dla wszystkich Azure monitor danych dziennika.
-- [Wykonaj zapytania dotyczące dzienników wielu zasobów w Azure monitor](../../azure-monitor/log-query/cross-workspace-query.md) opisuje sposób pisania zapytań dzienników, które używają danych z wielu obszarów roboczych log Analytics i aplikacji Application Insights.
+- [Standardowe właściwości w Azure monitor rekordy dziennika](../platform/log-standard-properties.md) opisują właściwości, które są standardowe dla wszystkich Azure monitor danych dziennika.
+- [Wykonaj zapytania dotyczące dzienników wielu zasobów w Azure monitor](./cross-workspace-query.md) opisuje sposób pisania zapytań dzienników, które używają danych z wielu obszarów roboczych log Analytics i aplikacji Application Insights.
 
 ## <a name="examples"></a>Przykłady
 
@@ -58,3 +58,4 @@ Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych, a Azure
 ## <a name="next-steps"></a>Następne kroki
 
 - Uzyskaj dostęp do kompletnej [dokumentacji referencyjnej dotyczącej języka zapytań Kusto](/azure/kusto/query/).
+

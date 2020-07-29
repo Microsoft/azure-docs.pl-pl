@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324764"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Przejście z przeszukiwania dzienników Log Analytics do dzienników Azure Monitor
 Przeszukiwanie dzienników w Log Analytics zostało ostatnio zastąpione nowym doświadczeniem do analizowania dzienników Azure Monitor. Strona przeszukiwania dzienników jest obecnie nadal dostępna za pomocą elementu menu **dzienniki (klasyczne)** na stronie **obszary robocze log Analytics** w Azure Portal, ale zostanie usunięta 15 lutego 2019. W tym artykule opisano różnice między tymi dwoma środowiskami, które ułatwiają przejście z przeszukiwania dzienników. 
@@ -44,7 +44,7 @@ Aby zapisać bieżące zapytanie w dziennikach Azure Monitor, wybierz pozycję *
 ![Zapisz zapytanie dziennika](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Zapisane zapytania
-W przeszukiwaniu dzienników zapisane zapytania są dostępne przez **zapisane wyszukiwania**elementów paska akcji. W dziennikach Azure Monitor dostęp do zapisanych zapytań z [Eksploratora zapytań](../log-query/get-started-portal.md#save-queries).
+W przeszukiwaniu dzienników zapisane zapytania są dostępne przez **zapisane wyszukiwania**elementów paska akcji. W dziennikach Azure Monitor dostęp do zapisanych zapytań z [Eksploratora zapytań](./get-started-portal.md#save-queries).
 
 ![Eksplorator zapytań](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ W dziennikach Azure Monitor [Utwórz alert z zapytania dziennika](../platform/al
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat nowego [środowiska Azure monitor dzienników](get-started-portal.md).
+

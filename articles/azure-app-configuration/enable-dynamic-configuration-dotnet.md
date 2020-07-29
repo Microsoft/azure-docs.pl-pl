@@ -8,16 +8,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e8bc1d2eb978e0685552ff9b86d70ea4731285cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277744"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Framework
 
-Biblioteka klienta platformy .NET konfiguracji aplikacji obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie z `IConfigurationRefresher` opcji dla dostawcy konfiguracji, a następnie wywołując je `Refresh` w dowolnym miejscu w kodzie.
+Biblioteka klienta platformy .NET konfiguracji aplikacji obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie z `IConfigurationRefresher` opcji dla dostawcy konfiguracji, a następnie wywołując je `TryRefreshAsync` w dowolnym miejscu w kodzie.
 
 Aby zachować zaktualizowane ustawienia i uniknąć zbyt wielu wywołań w magazynie konfiguracji, dla każdego ustawienia zostanie użyta pamięć podręczna. Do momentu wygaśnięcia zbuforowanej wartości ustawienia operacja odświeżania nie aktualizuje wartości, nawet jeśli wartość została zmieniona w magazynie konfiguracji. Domyślny czas wygaśnięcia dla każdego żądania wynosi 30 sekund, ale w razie potrzeby można go zastąpić.
 
@@ -95,7 +95,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
         PrintMessage().Wait();
     }
     ```
-    Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do aktualizowania danych konfiguracji z magazynem konfiguracji aplikacji w przypadku wyzwolenia operacji odświeżania. Wystąpienie `IConfigurationRefresher` można pobrać przez wywołanie `GetRefresher` metody w opcjach dostarczonych do `AddAzureAppConfiguration` metody, a `Refresh` Metoda w tym wystąpieniu może służyć do wyzwalania operacji odświeżania wszędzie w kodzie.
+    Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do aktualizowania danych konfiguracji z magazynem konfiguracji aplikacji w przypadku wyzwolenia operacji odświeżania. Wystąpienie `IConfigurationRefresher` można pobrać przez wywołanie `GetRefresher` metody w opcjach dostarczonych do `AddAzureAppConfiguration` metody, a `TryRefreshAsync` Metoda w tym wystąpieniu może służyć do wyzwalania operacji odświeżania wszędzie w kodzie.
 
     > [!NOTE]
     > Domyślny czas wygaśnięcia pamięci podręcznej dla ustawienia konfiguracji wynosi 30 sekund, ale można go zastąpić, wywołując `SetCacheExpiration` metodę z inicjatora opcji przekazaną jako argument do `ConfigureRefresh` metody.
@@ -110,7 +110,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
     ```
@@ -150,7 +150,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     > [!NOTE]
     > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund przy użyciu `SetCacheExpiration` metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

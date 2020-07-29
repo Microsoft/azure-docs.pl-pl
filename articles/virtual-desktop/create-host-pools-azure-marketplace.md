@@ -8,20 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362938"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291440"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Wszystkie obiekty utworzone za pomocą pulpitu wirtualnego systemu Windows 2019 nie mogą być zarządzane za pomocą Azure Portal.
->
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Wszystkie obiekty utworzone za pomocą pulpitu wirtualnego systemu Windows (klasyczny) nie mogą być zarządzane za pomocą Azure Portal.
 
 Pule hostów to zbiór co najmniej jednej identycznej maszyny wirtualnej w środowiskach klasycznych systemu Windows. Każda pula hostów może zawierać grupę aplikacji, z którą użytkownicy mogą wchodzić w pracę, tak jak na pulpicie fizycznym.
 

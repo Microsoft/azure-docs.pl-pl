@@ -9,13 +9,14 @@ editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 69b9733f4d79f5fc42fe86ca0f8a97305205aeef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 51052994a4d00995910a85546cce57867b6143f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085063"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324781"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ze sprężyną Java przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -31,7 +32,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz kolejno pozycje **Eksplorator** > konfiguracji **+ Utwórz** > **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+6. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -45,7 +46,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy projekt z rozruchem sprężyny.
 
-1. Przejdź do <https://start.spring.io/>.
+1. Przejdź na stronę <https://start.spring.io/>.
 
 1. Określ następujące opcje:
 

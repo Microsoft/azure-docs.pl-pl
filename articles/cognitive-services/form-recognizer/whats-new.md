@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 68f7ec9aaffa2bad73d77d730749642a1b57f50b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044848"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272950"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -26,7 +26,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
-* **dostępna jest dokumentacja v 2.0** Wyświetl [Informacje o interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowane zestawy SDK dla [platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)i [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **dostępna jest dokumentacja v 2.0** Wyświetl [Informacje o interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowane zestawy SDK dla [platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)i [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Udoskonalenia **tabel i ulepszenia wyodrębniania** zawierają ulepszenia dokładności i ulepszenia wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w niestandardowym pouczeniu bez etykiet. 
 * **Obsługa waluty** Wykrywanie i wyodrębnianie symboli waluty globalnej.
 * **Azure gov** Aparat rozpoznawania formularzy jest teraz również dostępny w usłudze Azure gov.
@@ -50,10 +50,10 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 ### <a name="new-features"></a>Nowe funkcje
 * **Obsługa zestawu SDK interfejsu API rozpoznawania formularzy w wersji 2.0** W tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK w wersji zapoznawczej dla aparatu rozpoznawania dla programu format 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
-   * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [Zestaw SDK Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [Zestaw SDK dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
+   * [Zestaw SDK dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
  

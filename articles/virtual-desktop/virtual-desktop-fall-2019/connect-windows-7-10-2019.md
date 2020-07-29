@@ -1,6 +1,6 @@
 ---
-title: Łączenie z pulpitem wirtualnym systemu Windows — 2019 Windows 10 lub 7 — Azure
-description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta pulpitu systemu Windows.
+title: Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) Windows 10 lub 7 — Azure
+description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta pulpitu systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270332"
 ---
-# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Połącz się z klientem pulpitu systemu Windows — jesień 2019
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Nawiązywanie połączenia z komputerem stacjonarnym z systemem Windows (klasycznym)
 
 > Dotyczy: Windows 7, Windows 10 i Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../connect-windows-7-10.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../connect-windows-7-10.md).
 
 Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 7, Windows 10 i Windows 10 IoT Enterprise przy użyciu klienta klasycznego systemu Windows. Klient nie obsługuje systemu Windows 8 ani Windows 8.1.
 
 >[!NOTE]
->Klient systemu Windows automatycznie domyślnie przyjmowana jest wersja 2019 pulpitu wirtualnego systemu Windows. Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne.
+>Klient systemu Windows automatycznie domyślnie używa pulpitu wirtualnego systemu Windows (klasycznego). Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne.
 
 > [!IMPORTANT]
 > Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).
@@ -63,10 +63,10 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
 1. Na stronie głównej klienta wybierz opcję **Subskrybuj z adresem URL**.
 2. Wprowadź adres URL obszaru roboczego lub adres e-mail:
    - Jeśli używasz **adresu URL obszaru roboczego**, użyj tego administratora. W przypadku uzyskiwania dostępu do zasobów z pulpitu wirtualnego systemu Windows można użyć jednego z następujących adresów URL:
-     - Pulpit wirtualny systemu Windows 2019:`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop wiosna 2020:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Pulpit wirtualny systemu Windows (klasyczny):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Pulpit wirtualny systemu Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Jeśli zamiast tego używasz pola **e-mail** , wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował [odnajdywanie poczty e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
-3. Wybierz przycisk **Dalej**.
+3. Wybierz pozycję **Dalej**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 5. Zasoby powinny być wyświetlane w centrum połączeń pogrupowane według obszaru roboczego.
 

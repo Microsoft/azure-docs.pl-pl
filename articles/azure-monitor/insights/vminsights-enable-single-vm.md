@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 4cdb9390b3146df74f2cbe8eba7b170a5d11fb2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4f14280f38a2389809477b84461eb3174909316
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507062"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323897"
 ---
 # <a name="enable-azure-monitor-for-single-vm-or-vmss-in-the-azure-portal"></a>Włącz Azure Monitor dla pojedynczej maszyny wirtualnej lub VMSS w Azure Portal
 W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:
@@ -34,7 +34,7 @@ Przed rozpoczęciem Sprawdź [wymagania wstępne](vminsights-enable-overview.md)
 
     ![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. Jeśli maszyna wirtualna nie jest już połączona z obszarem roboczym Log Analytics, zostanie wyświetlony monit o wybranie jednej z nich. Jeśli nie utworzono wcześniej [obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md), możesz wybrać wartość domyślną dla lokalizacji, w której WDROŻONo maszynę wirtualną lub VMSS. Ten obszar roboczy zostanie utworzony i skonfigurowany, jeśli jeszcze nie istnieje.
+1. Jeśli maszyna wirtualna nie jest już połączona z obszarem roboczym Log Analytics, zostanie wyświetlony monit o wybranie jednej z nich. Jeśli nie utworzono wcześniej [obszaru roboczego](../learn/quick-create-workspace.md), możesz wybrać wartość domyślną dla lokalizacji, w której WDROŻONo maszynę wirtualną lub VMSS. Ten obszar roboczy zostanie utworzony i skonfigurowany, jeśli jeszcze nie istnieje.
 
 2. Komunikaty o stanie zostaną odebrane w miarę przeprowadzania konfiguracji.
 
@@ -49,3 +49,4 @@ Przed rozpoczęciem Sprawdź [wymagania wstępne](vminsights-enable-overview.md)
 
 * Aby wyświetlić odnalezione zależności aplikacji, zobacz [Use Azure monitor dla maszyn wirtualnych map](vminsights-maps.md). 
 * Aby identyfikować wąskie gardła, ogólne wykorzystanie i wydajność maszyny wirtualnej, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md).
+

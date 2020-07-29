@@ -1,7 +1,7 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie sieci wirtualnej platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak utworzyć, zmienić lub usunąć sieć wirtualną na platformie Azure.
+description: Tworzenie i usuwanie sieci wirtualnej oraz Zmienianie ustawień, takich jak serwery DNS i przestrzenie adresów IP, dla istniejącej sieci wirtualnej.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710035"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265249"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie i usuwanie sieci wirtualnej
 
@@ -24,7 +25,7 @@ ms.locfileid: "84710035"
 
 Dowiedz się, jak utworzyć i usunąć sieć wirtualną oraz zmienić ustawienia, takie jak serwery DNS i przestrzenie adresów IP, dla istniejącej sieci wirtualnej. Jeśli dopiero zaczynasz korzystanie z sieci wirtualnych, możesz dowiedzieć się więcej o nich w [sieci wirtualnej](virtual-networks-overview.md) lub za pomocą [samouczka](quick-create-portal.md). Sieć wirtualna zawiera podsieci. Aby dowiedzieć się, jak tworzyć, zmieniać i usuwać podsieci, zobacz [Zarządzanie podsieciami](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące zadania:
 

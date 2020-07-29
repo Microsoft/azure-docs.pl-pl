@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 06/18/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9ecbd7778480d37fb0a0cf135d3cc5db48bf2add
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323659"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -24,7 +24,7 @@ Ten artykuł służy do tworzenia i wdrażania zasobów Cognitive Services przy 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
@@ -34,7 +34,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
@@ -43,7 +43,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Kliknij przycisk **Wdróż na platformie Azure** .
 
@@ -64,7 +64,6 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 3. Wybierz pozycję **Przeglądanie + tworzenie**, a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
 
-
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
 > [!NOTE]
@@ -84,6 +83,8 @@ read
 ```
 
 ---
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
@@ -112,7 +113,7 @@ az cognitiveservices account list -g $resourceGroupName
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów**, aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów zawierającą zasób do usunięcia

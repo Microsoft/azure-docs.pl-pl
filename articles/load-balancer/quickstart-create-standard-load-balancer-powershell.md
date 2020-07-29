@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 33c5db061860096b0411fbe91191f6c4a513e4c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b8a95687b1567eb6e063ccc871a4a130c5f2db69
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290347"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -635,7 +635,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 Utworzenie i skonfigurowanie trzech maszyn wirtualnych może potrwać kilka minut.
 
 ## <a name="create-outbound-rule-configuration"></a>Utwórz konfigurację reguły ruchu wychodzącego
-Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wychodzące pliki zasad sieciowych dla maszyn wirtualnych w puli zaplecza. 
+Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj translatora adresów sieciowych dla ruchu wychodzącego dla maszyn wirtualnych w puli zaplecza. 
 
 Aby uzyskać więcej informacji na temat połączeń wychodzących, zobacz [połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md).
 
@@ -690,7 +690,7 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 
 Utwórz nową pulę wychodzącą przy użyciu elementu [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
-Zastosuj pulę i adres IP frontonu do modułu równoważenia obciążenia przy użyciu [opcji Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+Zastosuj pulę i adres IP frontonu do modułu równoważenia obciążenia przy użyciu [opcji Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * O nazwie **myBackEndPoolOutbound**.
 
@@ -1409,7 +1409,7 @@ Utworzenie i skonfigurowanie trzech maszyn wirtualnych może potrwać kilka minu
 
 Zainstaluj usługi IIS przy użyciu niestandardowej strony internetowej na obu maszynach wirtualnych zaplecza w następujący sposób:
 
-1. Pobierz publiczne adresy IP z trzech maszyn wirtualnych przy użyciu polecenia [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
+1. Pobierz publiczne adresy IP z trzech maszyn wirtualnych przy użyciu polecenia [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress).
 
    ```azurepowershell-interactive
    ## Variables for commands. ##

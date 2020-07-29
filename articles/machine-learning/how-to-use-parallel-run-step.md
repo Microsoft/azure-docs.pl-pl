@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: 23fe2704cb74a5dc1411d5556dd6f3bbbac8937a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 475c5b3073b25c79b57a2ab507af642a8af3547f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047980"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288872"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,13 +27,13 @@ Dzięki ParallelRunStep jest to bezpośrednie skalowanie odliczeń w trybie offl
 
 Ten artykuł zawiera informacje o następujących zadaniach:
 
-> * Konfigurowanie zasobów uczenia maszynowego.
-> * Skonfiguruj dane wejściowe i wyjściowe danych wnioskowania partii.
-> * Przygotuj wstępnie szkolony model klasyfikacji obrazów oparty na [mnist ręcznie](https://publicdataset.azurewebsites.net/dataDetail/mnist/) zestawie danych. 
-> * Napisz skrypt wnioskowania.
-> * Utwórz [potok uczenia maszynowego](concept-ml-pipelines.md) zawierający ParallelRunStep i uruchom wnioskowanie wsadowe na obrazach testów mnist ręcznie. 
-> * Prześlij ponownie żądanie wnioskowania partii o nowe dane wejściowe i parametry. 
-> * Przejrzyj wyniki.
+> 1. Konfigurowanie zasobów uczenia maszynowego.
+> 1. Skonfiguruj dane wejściowe i wyjściowe danych wnioskowania partii.
+> 1. Przygotuj wstępnie szkolony model klasyfikacji obrazów oparty na [mnist ręcznie](https://publicdataset.azurewebsites.net/dataDetail/mnist/) zestawie danych. 
+> 1.  Napisz skrypt wnioskowania.
+> 1. Utwórz [potok uczenia maszynowego](concept-ml-pipelines.md) zawierający ParallelRunStep i uruchom wnioskowanie wsadowe na obrazach testów mnist ręcznie. 
+> 1. Prześlij ponownie żądanie wnioskowania partii o nowe dane wejściowe i parametry. 
+> 1. Przejrzyj wyniki.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -205,16 +205,16 @@ model = Model.register(model_path="models/",
 Skrypt *musi zawierać* dwie funkcje:
 - `init()`: Ta funkcja jest używana do dowolnych kosztownych lub wspólnych przygotowań do późniejszego wnioskowania. Na przykład użyj go do załadowania modelu do obiektu globalnego. Ta funkcja zostanie wywołana tylko raz na początku procesu.
 -  `run(mini_batch)`: Funkcja zostanie uruchomiona dla każdego `mini_batch` wystąpienia.
-    -  `mini_batch`: ParallelRunStep wywoła metodę Run i przekaże element list lub Pandas Dataframe jako argument do metody. Każdy wpis w mini_batch będzie ścieżką pliku, jeśli dane wejściowe to FileDataset, Pandas Dataframe, jeśli dane wejściowe to TabularDataset.
-    -  `response`: Metoda Run () powinna zwracać element Pandas Dataframe lub tablicę. W przypadku append_row output_action te zwrócone elementy są dołączane do wspólnego pliku wyjściowego. W przypadku summary_only zawartość elementów jest ignorowana. Dla wszystkich akcji wyjściowych każdy zwrócony element wyjściowy wskazuje jeden udany przebieg elementu wejściowego w danych wejściowych. Upewnij się, że wystarczająca ilość danych jest uwzględniona w wyniku uruchomienia, aby zamapować dane wejściowe w celu uruchomienia wyniku. Dane wyjściowe uruchamiania będą zapisywane w pliku wyjściowym i nie będą gwarantowane w kolejności, dlatego należy użyć pewnego klucza w danych wyjściowych, aby zamapować go na dane wejściowe.
+    -  `mini_batch`: `ParallelRunStep` spowoduje wywołanie metody Run i przekazanie listy lub Pandas `DataFrame` jako argumentu do metody. Każdy wpis w mini_batch będzie ścieżką pliku, jeśli dane wejściowe to, `FileDataset` lub Pandas, `DataFrame` Jeśli dane wejściowe to `TabularDataset` .
+    -  `response`: Metoda Run () powinna zwracać element Pandas `DataFrame` lub tablicę. W przypadku append_row output_action te zwrócone elementy są dołączane do wspólnego pliku wyjściowego. W przypadku summary_only zawartość elementów jest ignorowana. Dla wszystkich akcji wyjściowych każdy zwrócony element wyjściowy wskazuje jeden udany przebieg elementu wejściowego w danych wejściowych. Upewnij się, że wystarczająca ilość danych jest uwzględniona w wyniku uruchomienia, aby zamapować dane wejściowe w celu uruchomienia wyniku. Dane wyjściowe uruchamiania będą zapisywane w pliku wyjściowym i nie będą gwarantowane w kolejności, dlatego należy użyć pewnego klucza w danych wyjściowych, aby zamapować go na dane wejściowe.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -289,7 +289,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig`jest to główna konfiguracja `ParallelRunStep` wystąpienia w potoku Azure Machine Learning. Służy do zawijania skryptu i konfigurowania niezbędnych parametrów, w tym wszystkich następujących wpisów:
 - `entry_script`: Skrypt użytkownika jako ścieżka do pliku lokalnego, która będzie uruchamiana równolegle na wielu węzłach. Jeśli `source_directory` jest obecny, należy użyć ścieżki względnej. W przeciwnym razie użyj dowolnej ścieżki dostępnej na komputerze.
-- `mini_batch_size`: Rozmiar mini-Batch przeszedł do pojedynczego `run()` wywołania. (opcjonalnie; wartość domyślna to `10` pliki dla FileDataset i `1MB` TabularDataset).
+- `mini_batch_size`: Rozmiar mini-Batch przeszedł do pojedynczego `run()` wywołania. (opcjonalnie; wartość domyślna to `10` pliki dla `FileDataset` i `1MB` dla `TabularDataset` .)
     - Dla `FileDataset` , jest to liczba plików o minimalnej wartości `1` . Można połączyć wiele plików w jedną minimalną partię.
     - W przypadku `TabularDataset` , jest to rozmiar danych. Przykładowe wartości to `1024` , `1024KB` , `10MB` , i `1GB` . Zalecana wartość to `1MB` . Mini-Batch z `TabularDataset` nigdy nie będzie przekraczać granic plików. Jeśli na przykład pliki CSV mają różne rozmiary, najmniejszy plik to 100 KB, a największy to 10 MB. Jeśli ustawisz `mini_batch_size = 1MB` , pliki o rozmiarze mniejszym niż 1 MB będą traktowane jako jedna mini-Batch. Pliki o rozmiarze większym niż 1 MB zostaną podzielone na wiele kart Mini-Part.
 - `error_threshold`: Liczba błędów rekordu `TabularDataset` i błędów plików dla `FileDataset` , które powinny zostać zignorowane podczas przetwarzania. Jeśli liczba błędów dla całego danych wejściowych spadnie powyżej tej wartości, zadanie zostanie przerwane. Próg błędu dotyczy całego danych wejściowych, a nie dla pojedynczego elementu mini-Batch wysyłanego do `run()` metody. Zakresem jest `[-1, int.max]` . `-1`Część wskazuje, że wszystkie błędy zostaną zignorowane podczas przetwarzania.
@@ -306,7 +306,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: `run()` Limit czasu wywołania metody (w sekundach). (opcjonalnie; wartość domyślna to `60` )
 - `run_max_try`: Maksymalna liczba prób `run()` dla typu mini-Batch. A `run()` nie powiodło się, jeśli wystąpił wyjątek lub nie jest zwracany, gdy `run_invocation_timeout` zostanie osiągnięty błąd (opcjonalnie; wartość domyślna to `3` ). 
 
-Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyjesz PipelineParameter dla `mini_batch_size` i i zmienisz `Process_count_per_node` te wartości w przypadku ponownego przesłania uruchomienia później. 
+Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyto `PipelineParameter` dla i, `mini_batch_size` `Process_count_per_node` a następnie zmienisz te wartości w przypadku ponownego przesłania przebiegu później. 
 
 W tym przykładzie przyjęto założenie, że używasz `digit_identification.py` skryptu, który został omówiony wcześniej. Jeśli używasz własnego skryptu, `source_directory` `entry_script` odpowiednio zmień parametry i.
 
@@ -396,7 +396,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## <a name="view-the-results"></a>Wyświetlanie wyników
 
-Wyniki z powyższych przebiegów są zapisywane w magazynie danych określonym w obiekcie PipelineData jako dane wyjściowe, które w tym przypadku nazywa się *wnioskami*. Wyniki są przechowywane w domyślnym kontenerze obiektów blob, można przechodzić do konta magazynu i przeglądać Eksplorator usługi Storage, ścieżka pliku to Azure-elementu BlobStore-*GUID*/azureml/*RunId* / *OUTPUT_DIR*.
+Wyniki z powyższych przebiegów są zapisywane do `DataStore` określonych w `PipelineData` obiekcie jako dane wyjściowe, które w tym przypadku nazywa się *wnioskami*. Wyniki są przechowywane w domyślnym kontenerze obiektów blob, można przechodzić do konta magazynu i przeglądać Eksplorator usługi Storage, ścieżka pliku to Azure-elementu BlobStore-*GUID*/azureml/*RunId* / *OUTPUT_DIR*.
 
 Możesz również pobrać te dane, aby wyświetlić wyniki. Poniżej znajduje się przykładowy kod umożliwiający wyświetlenie pierwszych 10 wierszy.
 

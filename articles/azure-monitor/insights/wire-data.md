@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424469"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325155"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Rozwiązanie Wire Data 2.0 (wersja zapoznawcza) w Azure Monitor
 
@@ -166,7 +167,7 @@ W poniższych sekcjach przedstawiono obsługiwane systemy operacyjne dla agenta 
 
 Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Dane o komunikacji sieciowej dla Twoich obszarów roboczych.
 
-1. Włącz rozwiązanie Activity Log Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań monitorowania z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
+1. Włącz rozwiązanie Activity Log Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań monitorowania z Galeria rozwiązań](./solutions.md).
 2. Zainstaluj agenta zależności na każdym komputerze, na którym chcesz pobrać dane. Agent zależności może monitorować połączenia z bezpośrednimi sąsiadami, dzięki czemu na każdym komputerze może nie być potrzebny Agent.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ Agent zależności jest instalowany na komputerach z systemem Windows za pomocą
 
 Wykonaj następujące kroki, aby zainstalować agenta zależności na każdym komputerze z systemem Windows:
 
-1. Zainstaluj agenta Log Analytics, wykonując czynności opisane w temacie [zbieranie danych z komputerów z systemem Windows hostowanych w danym środowisku](../../azure-monitor/platform/agent-windows.md).
+1. Zainstaluj agenta Log Analytics, wykonując czynności opisane w temacie [zbieranie danych z komputerów z systemem Windows hostowanych w danym środowisku](../platform/agent-windows.md).
 2. Pobierz agenta zależności systemu Windows przy użyciu linku w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia:`InstallDependencyAgent-Windows.exe`
 3. Użyj kreatora, aby zainstalować agenta.
 4. Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Windows katalog dziennika to %Programfiles%\Microsoft Dependency Agent\logs.
@@ -207,7 +208,7 @@ Agent zależności jest instalowany na komputerach z systemem Linux za pomocą I
 
 Wykonaj następujące kroki, aby zainstalować agenta zależności na każdym komputerze z systemem Linux:
 
-1. Zainstaluj agenta Log Analytics, wykonując czynności opisane w temacie [zbieranie danych z komputerów z systemem Linux hostowanych w danym środowisku](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Zainstaluj agenta Log Analytics, wykonując czynności opisane w temacie [zbieranie danych z komputerów z systemem Linux hostowanych w danym środowisku](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Pobierz agenta zależności systemu Linux przy użyciu linku w poprzedniej sekcji, a następnie zainstaluj go jako element główny przy użyciu następującego polecenia: sh InstallDependencyAgent-Linux64. bin
 3. Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. Dla agentów systemu Linux katalogiem dziennika jest: /var/opt/microsoft/dependency-agent/log.
 
@@ -225,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| **Files** | **Lokalizacja** |
+| **Plikach** | **Lokalizacja** |
 | --- | --- |
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -415,4 +416,5 @@ Rekord o typie _WireData_ jest tworzony dla każdego typu danych wejściowych. R
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyszukaj dzienniki](../../azure-monitor/log-query/log-query-overview.md), aby wyświetlić szczegółowe rekordy wyszukiwania rozwiązania Dane o komunikacji sieciowej.
+- [Wyszukaj dzienniki](../log-query/log-query-overview.md), aby wyświetlić szczegółowe rekordy wyszukiwania rozwiązania Dane o komunikacji sieciowej.
+

@@ -1,6 +1,5 @@
 ---
-title: 'Samouczek 1: przewidywanie ryzyka kredytowego'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Samouczek ML Studio (klasyczny): przewidywanie ryzyka kredytowego — Azure'
 description: Szczegółowy Samouczek przedstawiający sposób tworzenia rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny). Ten samouczek jest pierwszą częścią trzyczęściowej serii.  Pokazano w nim, jak utworzyć obszar roboczy, przekazać dane i utworzyć eksperyment.
 keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka
 author: sdgilley
@@ -10,14 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59874387b6dfc23fddbd6c6eed89263a54389649
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b8e2d0cd0d9aa567cfab9e2fef66ad6363e59d53
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324900"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: przewidywanie ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -292,7 +294,7 @@ Nasz eksperyment wygląda teraz mniej więcej tak:
 Aby uzyskać więcej informacji na temat używania skryptów języka R w eksperymentach, zobacz [Rozszerzanie eksperymentu przy użyciu języka R](extend-your-experiment-with-r.md).
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

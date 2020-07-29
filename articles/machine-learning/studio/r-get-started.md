@@ -9,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 8252c9bf899811163193c9ed21f1f81c9fd0502f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1b7b94f88653621c895ba8365651b78dcbf9d59f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325019"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 <!-- Stephen F Elston, Ph.D. -->
 W ramach tego samouczka nauczysz się używać ML Studio (klasycznego) do tworzenia, testowania i wykonywania kodu w języku R. Na końcu będziesz mieć kompleksowe rozwiązanie do prognozowania.  
@@ -1335,7 +1338,7 @@ RStudio jest całkiem dobrze udokumentowane. Oto kilka linków do najważniejszy
 Ten samouczek programowania w języku R obejmuje podstawowe informacje o tym, co jest potrzebne do korzystania z języka R z Azure Machine Learning Studio (klasyczny). Jeśli nie znasz języka R, dostępne są dwa wprowadzenie w witrynie CRAN:
 
 * Emmanuel Paradis jest dobrym [miejscem do rozpoczęcia](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) pracy.  
-* [Wprowadzenie do języka R](https://cran.r-project.org/doc/manuals/R-intro.html) przez w. N. Venables et. wsp. przechodzi do większej głębi.
+* [Wprowadzenie do języka R](https://cran.r-project.org/doc/manuals/R-intro.html) przez w. N. Venables et. współpracowników przechodzi do większej głębi.
 
 Istnieje wiele książek w języku R, które mogą pomóc Ci rozpocząć pracę. Poniżej znajdują się informacje przydatne:
 

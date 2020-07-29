@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w witrynie A
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: emuench
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 07/17/2020
-ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012029"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324696"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -31,7 +31,7 @@ Po opublikowaniu ofert w witrynie Azure Marketplace można:
 - Uzyskuj wysokiej jakości potencjalni klienci z tych rynków.
 - Zyskaj swoje usługi przez zespoły ds. sprzedaży i telesprzedaży firmy Microsoft.
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyn wirtualnych](../marketplace-virtual-machines.md) i tym materiałem maszyny wirtualnej platformy Azure:
 
@@ -227,7 +227,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -235,7 +235,7 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="azure-marketplace-media"></a>Nośniki portalu Azure Marketplace
@@ -312,7 +312,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz pozycję **Utwórz**.
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 

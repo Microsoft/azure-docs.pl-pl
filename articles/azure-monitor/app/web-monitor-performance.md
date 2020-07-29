@@ -4,12 +4,12 @@ description: Rozpocznij pracę z Application Insights. Analizowanie użycia, dos
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323455"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorowanie wydajności w aplikacjach internetowych
 
@@ -23,9 +23,9 @@ Po stronie klienta Application Insights może przyjmować dane telemetryczne ze 
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Konfigurowanie monitorowania wydajności
 Jeśli Application Insights nie zostały jeszcze dodane do projektu (oznacza to, że jeśli nie ma ApplicationInsights.config), wybierz jedną z następujących metod, aby rozpocząć:
 
-* [Aplikacje internetowe platformy ASP.NET](../../azure-monitor/app/asp-net.md)
-  * [Dodaj Monitorowanie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Dodaj monitorowanie zależności](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Aplikacje internetowe platformy ASP.NET](./asp-net.md)
+  * [Dodaj Monitorowanie wyjątków](./asp-net-exceptions.md)
+  * [Dodaj monitorowanie zależności](./monitor-performance-live-website-now.md)
 * [Aplikacje sieci Web Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Eksplorowanie metryk wydajności
@@ -106,7 +106,7 @@ Oto kilka porad dotyczących znajdowania i diagnozowania problemów z wydajnośc
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Znajdowanie i rozwiązywanie wąskich gardeł wydajności przy użyciu środowiska badania wydajności
 
-Możesz użyć środowiska badania wydajności, aby przejrzeć wolno wykonywane operacje w aplikacji sieci Web. Można szybko wybrać konkretną operację powolnej i użyć [profilera](../../azure-monitor/app/profiler.md) do katalogu głównego, co spowoduje spowolnienie operacji w kodzie. Korzystając z nowego rozkładu czasu trwania podanego dla wybranej operacji, możesz szybko ocenić, jak to jest niewłaściwe dla klientów. Można sprawdzić, jak wiele interakcji użytkownika miało wpływ na każdą powolne działanie. W poniższym przykładzie poprosimy o zapoznaniu się z doświadczeniem w zakresie pobierania klientów/szczegółów operacji. W dystrybucji czasu trwania można zobaczyć, że istnieją trzy skoki. Lewy skok to około 400 MS i reprezentuje doskonałe środowisko reagowania. Drugie przybliżenie jest około 1,2 s i przedstawia środowisko mediocre. Na koniec 3,6 s mamy kolejną małą liczbę, która reprezentuje 99 percentyl, co może spowodować niespełnienie naszych klientów. To środowisko działa dziesięć razy wolniej niż doskonałe środowisko dla tej samej operacji. 
+Możesz użyć środowiska badania wydajności, aby przejrzeć wolno wykonywane operacje w aplikacji sieci Web. Można szybko wybrać konkretną operację powolnej i użyć [profilera](./profiler.md) do katalogu głównego, co spowoduje spowolnienie operacji w kodzie. Korzystając z nowego rozkładu czasu trwania podanego dla wybranej operacji, możesz szybko ocenić, jak to jest niewłaściwe dla klientów. Można sprawdzić, jak wiele interakcji użytkownika miało wpływ na każdą powolne działanie. W poniższym przykładzie poprosimy o zapoznaniu się z doświadczeniem w zakresie pobierania klientów/szczegółów operacji. W dystrybucji czasu trwania można zobaczyć, że istnieją trzy skoki. Lewy skok to około 400 MS i reprezentuje doskonałe środowisko reagowania. Drugie przybliżenie jest około 1,2 s i przedstawia środowisko mediocre. Na koniec 3,6 s mamy kolejną małą liczbę, która reprezentuje 99 percentyl, co może spowodować niespełnienie naszych klientów. To środowisko działa dziesięć razy wolniej niż doskonałe środowisko dla tej samej operacji. 
 
 ![Uzyskaj klientów/szczegóły trzech skoków czasu trwania](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,12 +142,13 @@ Czasami problem nie będzie znajdował się w kodzie, ale raczej w zależności 
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
+

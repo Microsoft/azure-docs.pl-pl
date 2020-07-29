@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324322"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Zbieranie danych z komputera z systemem Windows w środowisku hybrydowym z Azure Monitor
 
-[Azure monitor](../overview.md) może zbierać dane bezpośrednio z Twoich fizycznych lub wirtualnych komputerów z systemem Windows w środowisku do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie [agenta log Analytics](../platform/log-analytics-agent.md) pozwala Azure monitor zbierać dane z centrum danych lub innego środowiska chmury. W tym przewodniku Szybki start opisano, jak w kilku prostych krokach skonfigurować i rozpocząć zbieranie danych z komputera z systemem Windows. Aby uzyskać informacje o maszynach wirtualnych z systemem Windows Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure monitor](../overview.md) może zbierać dane bezpośrednio z Twoich fizycznych lub wirtualnych komputerów z systemem Windows w środowisku do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie [agenta log Analytics](../platform/log-analytics-agent.md) pozwala Azure monitor zbierać dane z centrum danych lub innego środowiska chmury. W tym przewodniku Szybki start opisano, jak w kilku prostych krokach skonfigurować i rozpocząć zbieranie danych z komputera z systemem Windows. Aby uzyskać informacje o maszynach wirtualnych z systemem Windows Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](./quick-collect-azurevm.md).  
 
-Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) i [Konfiguracja zapory sieciowej](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne Windows](../platform/log-analytics-agent.md#supported-windows-operating-systems) i [Konfiguracja zapory sieciowej](../platform/log-analytics-agent.md#network-requirements).
  
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -142,7 +142,7 @@ Teraz, po włączeniu zbierania danych, uruchom proste wyszukiwanie w dzienniku,
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Można usunąć agenta z komputera i usunąć obszar roboczy Log Analytics, jeśli nie są już potrzebne.  
 
@@ -166,3 +166,4 @@ Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do samouczka
 
 > [!div class="nextstepaction"]
 > [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/get-started-portal.md)
+

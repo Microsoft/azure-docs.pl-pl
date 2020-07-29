@@ -1,22 +1,71 @@
 ---
 title: Rozwiązywanie problemów z agentami i rozszerzeniami
 description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych z agentami, rozszerzeniem i dyskami.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538823"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324747"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
 W tym artykule opisano kroki rozwiązywania problemów, które mogą pomóc w rozwiązywaniu Azure Backup błędów związanych z komunikacją z agentem i rozszerzeniem maszyny wirtualnej.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="step-by-step-guide-to-troubleshoot-backup-failures"></a>Przewodnik krok po kroku dotyczący rozwiązywania problemów z błędami kopii zapasowych
+
+Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując następujące czynności dotyczące rozwiązywania problemów:
+
+### <a name="step-1-check-azure-vm-health"></a>Krok 1. Sprawdzanie kondycji maszyny wirtualnej platformy Azure
+
+- **Upewnij się, że stan aprowizacji maszyny wirtualnej platformy Azure to "uruchomiona"**: Jeśli [stan aprowizacji maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) znajduje się w stanie **zatrzymania/cofania przydziału/aktualizacji** , będzie zakłócał operację tworzenia kopii zapasowej. Otwórz *Azure Portal > maszynie wirtualnej > przegląd >* i sprawdź stan maszyny wirtualnej, aby upewnić się, że jest **uruchomiona** , a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+- **Przejrzyj oczekujące aktualizacje systemu operacyjnego lub Uruchom**ponownie: Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu operacyjnego lub nie ma oczekujących ponownych uruchomień na maszynie wirtualnej.
+
+### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Krok 2. Sprawdzanie kondycji usługi agenta gościa maszyny wirtualnej platformy Azure
+
+- **Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona i aktualna**:
+  - Na maszynie wirtualnej z systemem Windows:
+    - Przejdź do programu **Services. msc** i upewnij się, że **Usługa agenta gościa maszyny wirtualnej platformy Microsoft Azure** jest uruchomiona. Upewnij się również, że zainstalowano [najnowszą wersję](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) programu. Aby dowiedzieć się więcej, zobacz [problemy z agentem gościa maszyny wirtualnej systemu Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+    - Agent maszyny wirtualnej platformy Azure jest instalowany domyślnie na wszystkich maszynach wirtualnych z systemem Windows wdrożonych w ramach obrazu portalu Azure Marketplace z poziomu witryny Portal, programu PowerShell, interfejsu wiersza polecenia lub szablonu Azure Resource Manager. [Ręczna instalacja agenta](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) może być konieczna podczas tworzenia niestandardowego obrazu maszyny wirtualnej wdrożonego na platformie Azure.
+    - Zapoznaj się z matrycą pomocy technicznej, aby sprawdzić, czy maszyna wirtualna jest uruchamiana w [obsługiwanym systemie operacyjnym Windows](backup-support-matrix-iaas.md#operating-system-support-windows).
+  - Na maszynie wirtualnej z systemem Linux
+    - Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona, wykonując polecenie `ps-e` . Upewnij się również, że zainstalowano [najnowszą wersję](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) programu. Aby dowiedzieć się więcej, zobacz [problemy z agentem gościa maszyny wirtualnej z systemem Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Upewnij się, że [zależności agenta maszyny wirtualnej z systemem Linux w pakietach systemowych](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) mają obsługiwaną konfigurację. Na przykład: obsługiwana wersja języka Python to 2,6 i nowsze.
+    - Zapoznaj się z matrycą pomocy technicznej, aby sprawdzić, czy maszyna wirtualna jest uruchamiana w [obsługiwanym systemie operacyjnym Linux.](backup-support-matrix-iaas.md#operating-system-support-linux)
+
+### <a name="step-3-check-azure-vm-extension-health"></a>Krok 3. Sprawdzanie kondycji rozszerzenia maszyny wirtualnej platformy Azure
+
+- Upewnij się, że **wszystkie rozszerzenia maszyny wirtualnej platformy Azure znajdują się w stanie "Inicjowanie obsługi" zakończyło się pomyślnie**: Jeśli dowolne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej.
+- *Otwórz Azure Portal > maszynę wirtualną ustawienia > > rozszerzenia >* rozszerzenia i sprawdź, czy wszystkie rozszerzenia zostały **pomyślnie wykonane** .
+- Upewnij się, że wszystkie [problemy z rozszerzeniem](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) zostały rozwiązane, a następnie ponów operację tworzenia kopii zapasowej.
+- **Upewnij się, że aplikacja systemowa modelu COM+** jest uruchomiona. Ponadto **usługa Distributed Transaction Coordinator** powinna działać jako **konto usługi sieciowej**. Wykonaj kroki opisane w tym artykule, aby [rozwiązać problemy związane z modelem COM+ i usługą MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
+
+### <a name="step-4-check-azure-backup-vm-extension-health"></a>Krok 4. Sprawdzenie kondycji rozszerzenia maszyny wirtualnej Azure Backup
+
+Azure Backup używa rozszerzenia migawki maszyny wirtualnej w celu utworzenia kopii zapasowej spójnej na poziomie aplikacji maszyny wirtualnej platformy Azure. Azure Backup zainstaluje rozszerzenie w ramach pierwszej zaplanowanej kopii zapasowej wyzwalanej po włączeniu kopii zapasowej.
+
+- **Upewnij się, że rozszerzenie VMSnapshot nie jest w stanie niepowodzenia**: wykonaj kroki opisane w tej [sekcji](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) , aby sprawdzić i upewnić się, że rozszerzenie Azure Backup jest w dobrej kondycji.
+
+- **Sprawdź, czy program antywirusowy blokuje rozszerzenie**: Niektóre programy antywirusowe mogą uniemożliwiać wykonywanie rozszerzeń.
+  
+  W momencie niepowodzenia tworzenia kopii zapasowej Sprawdź, czy w ***dziennikach aplikacji Podgląd zdarzeń*** znajdują się wpisy dziennika z ***błędną nazwą aplikacji: IaaSBcdrExtension.exe***. Jeśli zobaczysz wpisy, może to oznaczać, że program antywirusowy skonfigurowany na maszynie wirtualnej ograniczy wykonywanie rozszerzenia kopii zapasowej. Przetestuj przez wykluczenie następujących katalogów w konfiguracji programu antywirusowego, a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+  - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+  - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+- **Sprawdź, czy dostęp do sieci jest wymagany**: pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - Jeśli korzystasz z nieobsługiwanej wersji agenta, musisz zezwolić na dostęp wychodzący do usługi Azure Storage w tym regionie z maszyny wirtualnej.
+  - Jeśli zablokowano dostęp do `168.63.129.16` korzystania z zapory gościa lub z serwerem proxy, rozszerzenia zakończą się niepowodzeniem, niezależnie od powyższego. Porty 80, 443 i 32526 są wymagane, [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+
+- **Upewnij się, że usługa DHCP jest włączona wewnątrz maszyny wirtualnej gościa**: jest to wymagane, aby uzyskać adres hosta lub sieci szkieletowej z serwera DHCP na potrzeby tworzenia kopii zapasowej maszyny wirtualnej IaaS. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy go skonfigurować za pomocą Azure Portal lub PowerShell i upewnić się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona, [Dowiedz się więcej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+
+- **Upewnij się, że usługa składnika zapisywania usługi VSS jest uruchomiona**: wykonaj następujące kroki, aby [rozwiązać problemy z modułem zapisywania usługi VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Postępuj zgodnie z najlepszymi wskazówkami dotyczącymi tworzenia kopii zapasowych**: Zapoznaj się z [najlepszymi rozwiązaniami, aby włączyć](backup-azure-vms-introduction.md#best-practices)
+- Zapoznaj się z **zaleceniami dotyczącymi szyfrowanych dysków**: w przypadku włączenia kopii zapasowej dla maszyn wirtualnych z szyfrowanym dyskiem upewnij się, że zostały podane wszystkie wymagane uprawnienia. Aby dowiedzieć się więcej, zobacz [wykonywanie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md#encryption-support).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable — agent maszyny wirtualnej nie może komunikować się z usługą Azure Backup
 

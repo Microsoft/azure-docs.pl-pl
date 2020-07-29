@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 1d0cd074f6e4ad836bc5102f3f6edc61b75215e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287982"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ Można wdrożyć model predykcyjny opracowany w pierwszej części [samouczka](t
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Wykonaj [jedną z części samouczka](tutorial-designer-automobile-price-train-score.md) , aby dowiedzieć się, jak szkolić i oceny model uczenia maszynowego w projektancie.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku w czasie rzeczywistym
 
@@ -79,7 +81,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
     
 1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     > [!NOTE]
     > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
@@ -117,7 +119,7 @@ Po zakończeniu wdrażania można testować punkt końcowy w czasie rzeczywistym
 
     ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z etykietą z oceną dla wyróżnionej ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

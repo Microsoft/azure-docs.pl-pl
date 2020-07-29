@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8d33756e1c28247c48d0b4c0a734e604c4e9eab0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280821"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Samouczek: Konfigurowanie globalnej dystrybucji Azure Cosmos DB przy użyciu interfejsu API SQL
 
@@ -28,34 +28,35 @@ W tym artykule opisano następujące zadania:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Nawiązywanie połączenia z preferowanym regionem przy użyciu interfejsu API SQL
 
-Aby można było korzystać z [dystrybucji globalnej](distribute-data-globally.md), w aplikacjach klienckich można określić uporządkowaną listę preferencji regionów, która będzie używana do wykonywania operacji na dokumentach. Można to zrobić, ustawiając zasady połączenia. Na podstawie konfiguracji konta usługi Azure Cosmos DB, bieżącej dostępności regionalnej i określonej listy preferencji zestaw SDK SQL wybiera najbardziej optymalny punkt końcowy, w którym będą wykonywane operacje zapisu i odczytu.
+Aby można było korzystać z [dystrybucji globalnej](distribute-data-globally.md), w aplikacjach klienckich można określić uporządkowaną listę preferencji regionów, która będzie używana do wykonywania operacji na dokumentach. Na podstawie konfiguracji konta usługi Azure Cosmos DB, bieżącej dostępności regionalnej i określonej listy preferencji zestaw SDK SQL wybiera najbardziej optymalny punkt końcowy, w którym będą wykonywane operacje zapisu i odczytu.
 
-Lista preferencji jest określana podczas inicjowania połączenia przy użyciu zestawów SDK SQL. Zestawy SDK akceptują opcjonalny parametr „PreferredLocations”, to znaczy uporządkowaną listę regionów świadczenia usługi Azure.
+Lista preferencji jest określana podczas inicjowania połączenia przy użyciu zestawów SDK SQL. Zestawy SDK akceptują opcjonalny parametr `PreferredLocations` , który jest uporządkowaną listą regionów świadczenia usługi Azure.
 
-Zestaw SDK automatycznie wysyła wszystkie operacje zapisu do bieżącego regionu zapisu.
+Zestaw SDK automatycznie wysyła wszystkie operacje zapisu do bieżącego regionu zapisu. Wszystkie operacje odczytu są wysyłane do pierwszego dostępnego regionu na liście preferowanych lokalizacji. Jeśli żądanie nie powiedzie się, klient przejdzie do następnego regionu listy.
 
-Wszystkie operacje odczytu są wysyłane do pierwszego dostępnego regionu na liście PreferredLocations. Jeśli żądanie kończy się niepowodzeniem, klient przechodzi do następnego regionu z listy itd.
+Zestaw SDK podejmie próbę odczytu tylko z regionów określonych w preferowanych lokalizacjach. Jeśli na przykład konto usługi Azure Cosmos jest dostępne w czterech regionach, ale klient określi tylko dwa regiony do odczytu (bez zapisu) w ramach `PreferredLocations` , nie będą one obsługiwane w regionie odczytywania, który nie jest określony w `PreferredLocations` . Jeśli regiony odczytu określone na `PreferredLocations` liście nie są dostępne, odczyty z regionu zapisu będą obsługiwane.
 
-Zestawy SDK podejmują próby odczytu tylko z regionów określonych na liście PreferredLocations. Na przykład jeśli konto bazy danych jest dostępne w czterech regionach, ale klient określa tylko dwa regiony odczytu (nie zapisu) na liście PreferredLocations, operacje odczytu z regionu odczytu, który nie jest określony na liście PreferredLocations, nie są obsługiwane. Jeśli regiony odczytu określone na liście PreferredLocations są niedostępne, operacje odczytu są obsługiwane przez region zapisu.
+Aplikacja może sprawdzić bieżący punkt końcowy zapisu i punkt końcowy odczytu wybrany przez zestaw SDK, sprawdzając dwie właściwości `WriteEndpoint` i `ReadEndpoint` dostępne w zestawie SDK w wersji 1,8 lub nowszej. Jeśli `PreferredLocations` Właściwość nie jest ustawiona, wszystkie żądania będą obsługiwane z bieżącego regionu zapisu.
 
-Aplikacja może zweryfikować bieżący punkt końcowy zapisu i punkt końcowy odczytu wybrany przez zestaw SDK, sprawdzając dwie właściwości, WriteEndpoint i ReadEndpoint, dostępne w zestawie SDK w wersji 1.8 i nowszych.
-
-Jeśli właściwość PreferredLocations nie została określona, wszystkie żądania są obsługiwane z bieżącego regionu zapisu.
+Jeśli nie określisz preferowanych lokalizacji, ale użyto `setCurrentLocation` metody, zestaw SDK automatycznie wypełni preferowane lokalizacje na podstawie bieżącego regionu, w którym jest uruchomiony klient programu. Zestaw SDK porządkuje regiony na podstawie sąsiedztwa regionu w bieżącym regionie.
 
 ## <a name="net-sdk"></a>Zestaw SDK .NET
+
 Zestawu SDK można używać bez konieczności wprowadzania jakichkolwiek zmian kodu. W takim przypadku zestaw SDK automatycznie kieruje operacje odczytu i zapisu do bieżącego regionu zapisu.
 
-W wersji 1.8 (i nowszych) zestawu SDK .NET parametr ConnectionPolicy dla konstruktora DocumentClient ma właściwość o nazwie Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Jest to właściwość typu Collection `<string>`, która powinna zawierać listę nazw regionów. Wartości ciągu są sformatowane według kolumny Nazwa regionu na stronie [Regiony platformy Azure][regions], bez spacji przed pierwszym i po ostatnim znaku.
+W wersji 1.8 (i nowszych) zestawu SDK .NET parametr ConnectionPolicy dla konstruktora DocumentClient ma właściwość o nazwie Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Jest to właściwość typu Collection `<string>`, która powinna zawierać listę nazw regionów. Wartości ciągu są formatowane według kolumny Nazwa regionu na stronie [regiony platformy Azure][regions] , bez spacji przed ani po pierwszym i ostatnim znakiem.
 
 Bieżące punkty końcowe zapisu i odczytu są dostępne odpowiednio we właściwościach DocumentClient.WriteEndpoint i DocumentClient.ReadEndpoint.
 
 > [!NOTE]
 > Adresów URL punktów końcowych nie należy traktować jako długotrwałych stałych. Usługa może zaktualizować je w dowolnym momencie. Zestaw SDK obsługuje tę zmianę automatycznie.
 >
->
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
+
+Jeśli używasz zestawu SDK platformy .NET V2, użyj właściwości, `PreferredLocations` Aby ustawić preferowany region.
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -78,6 +79,54 @@ DocumentClient docClient = new DocumentClient(
 // connect to DocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
+
+Alternatywnie można użyć `SetCurrentLocation` właściwości i zezwolić zestawowi SDK na wybór preferowanej lokalizacji na podstawie sąsiedztwa.
+
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+
+connectionPolicy.SetCurrentLocation("West US 2"); /
+
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
+
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
+
+Jeśli używasz zestawu SDK dla platformy .NET v3, użyj `ApplicationPreferredRegions` właściwości, aby ustawić preferowany region.
+
+```csharp
+
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.WestUS2};
+
+CosmosClient client = new CosmosClient(connectionString, options);
+
+```
+
+Alternatywnie można użyć `ApplicationRegion` właściwości i zezwolić zestawowi SDK na wybór preferowanej lokalizacji na podstawie sąsiedztwa.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+// If the application is running in West US
+options.ApplicationRegion = Regions.WestUS;
+
+CosmosClient client = new CosmosClient(connectionString, options);
+```
+
+---
 
 ## <a name="nodejsjavascript"></a>Node.js/JavaScript
 

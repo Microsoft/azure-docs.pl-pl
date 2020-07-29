@@ -5,19 +5,19 @@ description: Dowiedz się, jak stosować praktyki DevOps w celu utworzenia potok
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.custom: tracking-python
-ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f101226040c6266a53e8c15697dccb7554e70a7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321534"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps dla potoku pozyskiwania danych
 

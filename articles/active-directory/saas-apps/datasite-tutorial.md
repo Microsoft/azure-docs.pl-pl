@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffa04eded98c3c58d381e4718c10c0f9e1d02cac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0da42ef51646f7775234ed870e59c442d54933c1
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101592"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170545"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą DataSite
 
@@ -87,7 +87,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta lokacji DataSite](mailto:service@datasite.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta lokacji DataSite](mailto:applicationsupport@datasite.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Aplikacja DataSite oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -139,11 +139,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-datasite-sso"></a>Konfigurowanie logowania jednokrotnego w lokacji
 
-Aby skonfigurować Logowanie jednokrotne w stronie **DataSite** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej usługi DataSite](mailto:service@datasite.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne w stronie **DataSite** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej usługi DataSite](mailto:applicationsupport@datasite.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-datasite-test-user"></a>Utwórz użytkownika testowego DataSite
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze DataSite. Aby dodać użytkowników na platformie DataSite, należy skontaktować się z [zespołem pomocy technicznej datasites](mailto:service@datasite.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze DataSite. Aby dodać użytkowników na platformie DataSite, należy skontaktować się z [zespołem pomocy technicznej datasites](mailto:applicationsupport@datasite.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -151,7 +151,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka DataSite w panelu dostępu należy automatycznie zalogować się do witryny danych, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

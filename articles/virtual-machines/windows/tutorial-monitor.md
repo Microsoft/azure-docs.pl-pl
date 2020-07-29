@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: c60d27cb75526d801880658846a6b61760f4bf7e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508087"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323574"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -93,7 +93,7 @@ Aby włączyć monitorowanie maszyny wirtualnej platformy Azure przy użyciu Azu
     Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w której wdrożono maszynę wirtualną w ramach subskrypcji. 
 
     >[!NOTE]
-    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z maszyny wirtualnej, zobacz [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Obszar roboczy Log Analytics musi należeć do jednego z [obsługiwanych regionów](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z maszyny wirtualnej, zobacz [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Obszar roboczy musi należeć do jednego z [obsługiwanych regionów](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Po włączeniu monitorowania może być konieczne odczekanie kilku minut, zanim będzie można wyświetlić metryki wydajności dla maszyny wirtualnej.
 

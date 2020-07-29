@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549654"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325308"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Tworzenie aplikacji sieci Web Service Manager przy użyciu skryptu automatycznego
 
-Użyj poniższego skryptu, aby utworzyć aplikację sieci Web dla wystąpienia Service Manager. Więcej informacji na temat połączenia Service Manager jest tutaj: [aplikacja sieci Web Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Użyj poniższego skryptu, aby utworzyć aplikację sieci Web dla wystąpienia Service Manager. Więcej informacji na temat połączenia Service Manager jest tutaj: [aplikacja sieci Web Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Uruchom skrypt, podając następujące wymagane szczegóły:
 
 - Szczegóły subskrypcji platformy Azure
 - Nazwa grupy zasobów
-- Lokalizacja
+- Location
 - Szczegóły serwera Service Manager (nazwa serwera, domena, nazwa użytkownika i hasło)
 - Prefiks nazwy witryny dla aplikacji sieci Web
 - ServiceBus przestrzeń nazw.
@@ -318,4 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-[Skonfiguruj połączenie hybrydowe](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+[Skonfiguruj połączenie hybrydowe](./itsmc-connections.md#configure-the-hybrid-connection).
+

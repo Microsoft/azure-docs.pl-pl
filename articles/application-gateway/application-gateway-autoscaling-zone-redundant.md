@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273205"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 
-Application Gateway i Zapora aplikacji sieci Web (WAF) są również dostępne w ramach Standard_v2 i WAF_v2 jednostki SKU. Jednostka SKU v2 oferuje ulepszenia wydajności i dodaje obsługę krytycznych nowych funkcji, takich jak Skalowanie automatyczne, nadmiarowość stref i obsługa statycznych adresów VIP. Istniejące funkcje w ramach jednostki SKU w warstwie Standardowa i WAF nadal są obsługiwane w nowej jednostce SKU v2 z kilkoma wyjątkami wymienionymi w sekcji [porównanie](#differences-from-v1-sku) .
+Application Gateway jest dostępny w ramach Standard_v2 jednostki SKU. Zapora aplikacji sieci Web (WAF) jest dostępna w ramach jednostki SKU WAF_v2. Jednostka SKU v2 oferuje ulepszenia wydajności i dodaje obsługę krytycznych nowych funkcji, takich jak Skalowanie automatyczne, nadmiarowość stref i obsługa statycznych adresów VIP. Istniejące funkcje w ramach jednostki SKU w warstwie Standardowa i WAF nadal są obsługiwane w nowej jednostce SKU v2 z kilkoma wyjątkami wymienionymi w sekcji [porównanie](#differences-from-v1-sku) .
 
 Nowa jednostka SKU w wersji 2 obejmuje następujące udoskonalenia:
 

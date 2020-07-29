@@ -6,20 +6,20 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d605286df70988852d1650be58cfb2c395de814
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323523"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analiza użytkowników, sesji i zdarzeń w Application Insights
 
-Dowiedz się, w jaki sposób użytkownicy korzystają z aplikacji sieci Web, jakie są najbardziej interesujące strony, w których znajdują się Twoje osoby, oraz jakich przeglądarek i systemów operacyjnych używają. Analizuj dane telemetryczne biznesowe i użycia przy użyciu [usługi Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Dowiedz się, w jaki sposób użytkownicy korzystają z aplikacji sieci Web, jakie są najbardziej interesujące strony, w których znajdują się Twoje osoby, oraz jakich przeglądarek i systemów operacyjnych używają. Analizuj dane telemetryczne biznesowe i użycia przy użyciu [usługi Azure Application Insights](./app-insights-overview.md).
 
 ![Zrzut ekranu przedstawiający Application Insights użytkowników](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Jeśli nie widzisz jeszcze danych w blokach użytkownicy, sesje lub zdarzenia w portalu Application Insights, [Dowiedz się, jak rozpocząć pracę z narzędziami użycia](usage-overview.md).
 
@@ -29,9 +29,9 @@ Trzy z nich używają tego samego narzędzia do wycinania i zbierania danych tel
 
 * **Narzędzie użytkownicy**: ile osób użyło Twojej aplikacji i jej funkcji.  Użytkownicy są zliczane przy użyciu identyfikatorów anonimowych przechowywanych w plikach cookie przeglądarki. Jedna osoba korzystająca z różnych przeglądarek lub maszyn będzie liczyć jako więcej niż jednego użytkownika.
 * **Narzędzie sesje**: ile sesji działania użytkownika obejmowało niektóre strony i funkcje aplikacji. Sesja jest liczona po połowie godziny nieaktywności użytkownika lub po 24 godzinach ciągłego użycia.
-* **Narzędzie zdarzenia**: jak często są używane pewne strony i funkcje aplikacji. Widok strony jest liczony, gdy przeglądarka ładuje stronę z aplikacji, pod warunkiem, że zostały [one Instrumentacją](../../azure-monitor/app/javascript.md). 
+* **Narzędzie zdarzenia**: jak często są używane pewne strony i funkcje aplikacji. Widok strony jest liczony, gdy przeglądarka ładuje stronę z aplikacji, pod warunkiem, że zostały [one Instrumentacją](./javascript.md). 
 
-    Zdarzenie niestandardowe reprezentuje jedno wystąpienie coś w aplikacji, często interakcję użytkownika, jak kliknięcie przycisku lub zakończenie pewnego zadania. Wstaw kod w aplikacji, aby [generować niestandardowe zdarzenia](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+    Zdarzenie niestandardowe reprezentuje jedno wystąpienie coś w aplikacji, często interakcję użytkownika, jak kliknięcie przycisku lub zakończenie pewnego zadania. Wstaw kod w aplikacji, aby [generować niestandardowe zdarzenia](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Wykonywanie zapytań dla określonych użytkowników
 
@@ -62,5 +62,6 @@ Sekcja **zapoznaj się z użytkownikami** zawiera informacje o pięciu przykład
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
     - [Przepływy użytkowników](usage-flows.md)
-    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
+    - [Skoroszyty](../platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
+

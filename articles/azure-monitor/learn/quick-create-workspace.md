@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: de5b490f1ffd50e44defb1c3e3c6f0ad32ca689c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324288"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Tworzenie obszaru roboczego usługi Log Analytics w witrynie Azure Portal
 Użyj menu **obszary robocze log Analytics** , aby utworzyć obszar roboczy log Analytics przy użyciu Azure Portal. Obszar roboczy Log Analytics jest unikatowym środowiskiem dla Azure Monitor danych dziennika. Każdy obszar roboczy ma własne repozytorium danych i konfigurację, a źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym. Musisz mieć Log Analytics obszar roboczy, jeśli zamierzasz zbierać dane z następujących źródeł:
@@ -23,8 +23,8 @@ Użyj menu **obszary robocze log Analytics** , aby utworzyć obszar roboczy log 
 
 W przypadku innych źródeł, takich jak maszyny wirtualne platformy Azure i maszyny wirtualne z systemem Windows lub Linux w danym środowisku, zobacz następujące tematy:
 
-*  [Zbieranie danych z usługi Azure Virtual Machines](../learn/quick-collect-azurevm.md) 
-*  [Zbieranie danych z hybrydowego komputera z systemem Linux](../learn/quick-collect-linux-computer.md)
+*  [Zbieranie danych z usługi Azure Virtual Machines](./quick-collect-azurevm.md) 
+*  [Zbieranie danych z hybrydowego komputera z systemem Linux](./quick-collect-linux-computer.md)
 *  [Zbieranie danych z hybrydowego komputera z systemem Windows](quick-collect-windows-computer.md)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -66,3 +66,4 @@ Teraz, gdy dostępny jest obszar roboczy, można skonfigurować zbieranie danych
 * [Dodaj System Center Operations Manager jako źródło danych](../platform/om-agents.md) , aby zebrać dane z agentów zgłaszających Operations Manager grupy zarządzania i zapisać je w obszarze roboczym log Analytics. 
 * Połącz [Configuration Manager](../platform/collect-sccm.md) , aby zaimportować komputery należące do kolekcji w hierarchii.  
 * Przejrzyj dostępne [rozwiązania do monitorowania](../insights/solutions.md) oraz sposób dodawania lub usuwania rozwiązania z obszaru roboczego.
+
