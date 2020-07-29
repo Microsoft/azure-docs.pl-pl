@@ -7,6 +7,7 @@ description: Dowiedz się, jak używać poleceń polecenia kubectl w obszarze de
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 ms.openlocfilehash: 7530cde68b2ce8d06fb7b16a9a147f0f0bc8645c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75438360"
