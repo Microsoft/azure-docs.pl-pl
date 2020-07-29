@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317131"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Tworzenie zasobu Cognitive Services przy użyciu interfejsu wiersza polecenia platformy Azure (CLI)
 
@@ -84,7 +84,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 > [!NOTE]
 > Wiele Cognitive Services poniżej ma bezpłatną warstwę, której można użyć do wypróbowania usługi. Aby skorzystać z warstwy Bezpłatna, użyj `F0` jako jednostki SKU dla zasobu.
 
-### <a name="vision"></a>Obraz
+### <a name="vision"></a>Widzenie
 
 | Usługa                    | Rodzaj                      |
 |----------------------------|---------------------------|
@@ -95,7 +95,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 | Rozpoznawanie formularzy            | `FormRecognizer`          |
 | Rozpoznawanie pisma odręcznego             | `InkRecognizer`           |
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 | Usługa            | Rodzaj                  |
 |--------------------|-----------------------|
@@ -152,6 +152,8 @@ az cognitiveservices account create \
     --yes
 ```
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+
 ## <a name="get-the-keys-for-your-resource"></a>Pobierz klucze dla zasobu
 
 Aby zalogować się do lokalnej instalacji interfejsu wiersza polecenia (CLI), użyj polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
@@ -188,7 +190,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć zasób Cognitive Services, można go usunąć lub grupy zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
@@ -198,7 +200,7 @@ Aby usunąć grupę zasobów i skojarzone z nią zasoby, użyj polecenia AZ Grou
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](authentication.md)
 * [Co to jest platforma Azure Cognitive Services?](Welcome.md)

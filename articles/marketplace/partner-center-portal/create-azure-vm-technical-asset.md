@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć i konfigurować zasoby techniczne dla of
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053569"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317760"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -182,7 +182,7 @@ Utwórz obraz przy użyciu Azure Portal lub Azure PowerShell.
     | Hasło administratora | Hasło konta administratora dla nowej maszyny wirtualnej |
     | Typ systemu operacyjnego | System operacyjny maszyny wirtualnej: system Windows lub Linux |
     | Identyfikator subskrypcji | Identyfikator wybranej subskrypcji |
-    | Lokalizacja | Lokalizacja geograficzna wdrożenia |
+    | Location | Lokalizacja geograficzna wdrożenia |
     | Rozmiar maszyny wirtualnej | [Rozmiar maszyny wirtualnej platformy Azure](../../virtual-machines/windows/sizes.md), na przykład Standard_A2 |
     | Nazwa publicznego adresu IP | Nazwa publicznego adresu IP |
     | Nazwa maszyny wirtualnej | Nazwa nowej maszyny wirtualnej |

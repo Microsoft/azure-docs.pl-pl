@@ -4,12 +4,12 @@ description: Wdrażaj Azure Monitor funkcje na dużą skalę przy użyciu Azure 
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043edae04c6de5d42849cf43b947b9646f12f489
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505214"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317436"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -43,7 +43,7 @@ Aby wyświetlić wbudowane definicje zasad związane z monitorowaniem, wykonaj n
 
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne
-[Ustawienia diagnostyczne](../platform/diagnostic-settings.md) umożliwiają zbieranie dzienników zasobów i metryk z zasobów platformy Azure do wielu lokalizacji, zwykle do obszaru roboczego log Analytics, który umożliwia analizowanie danych za pomocą [zapytań dziennika](../log-query/log-query-overview.md) i [alertów dziennika](alerts-log.md). Użyj zasad, aby automatycznie utworzyć ustawienia diagnostyczne za każdym razem, gdy tworzysz zasób.
+[Ustawienia diagnostyczne](./diagnostic-settings.md) umożliwiają zbieranie dzienników zasobów i metryk z zasobów platformy Azure do wielu lokalizacji, zwykle do obszaru roboczego log Analytics, który umożliwia analizowanie danych za pomocą [zapytań dziennika](../log-query/log-query-overview.md) i [alertów dziennika](alerts-log.md). Użyj zasad, aby automatycznie utworzyć ustawienia diagnostyczne za każdym razem, gdy tworzysz zasób.
 
 Każdy typ zasobu platformy Azure ma unikatowy zestaw kategorii, które muszą być wymienione w ustawieniu diagnostyki. Z tego względu każdy typ zasobu wymaga oddzielnej definicji zasad. Niektóre typy zasobów mają wbudowane definicje zasad, które można przypisać bez modyfikacji. W przypadku innych typów zasobów należy utworzyć niestandardową definicję.
 
@@ -79,7 +79,7 @@ Skrypt [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-A
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. Skrypt tworzy oddzielne foldery dla każdej definicji zasad, z których każda zawiera trzy pliki o nazwie azurepolicy, JSON, azurepolicy.rules.json, azurepolicy.parameters.json. Jeśli chcesz ręcznie utworzyć zasady w Azure Portal, możesz skopiować i wkleić zawartość azurepolicy.js, ponieważ zawiera ona całą definicję zasad. Aby utworzyć definicję zasad z poziomu wiersza polecenia, należy użyć dwóch innych plików z programem PowerShell lub CLI.
+5. Skrypt tworzy oddzielne foldery dla każdej definicji zasad, z których każda zawiera trzy pliki o nazwie azurepolicy.json, azurepolicy.rules.json, azurepolicy.parameters.json. Jeśli chcesz ręcznie utworzyć zasady w Azure Portal, możesz skopiować i wkleić zawartość azurepolicy.js, ponieważ zawiera ona całą definicję zasad. Aby utworzyć definicję zasad z poziomu wiersza polecenia, należy użyć dwóch innych plików z programem PowerShell lub CLI.
 
     W poniższych przykładach pokazano, jak zainstalować definicję zasad z programu PowerShell i interfejsu wiersza polecenia. Każda z nich zawiera metadane, aby określić kategorię **monitorowania** w celu grupowania nowej definicji zasad z wbudowanymi definicjami zasad.
 
@@ -113,25 +113,71 @@ Korzystając z parametrów inicjatywy, można określić obszar roboczy lub inne
 
 ![Parametry inicjatywy](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Korygowanie
+### <a name="remediation"></a>Korekty
 Inicjatywa będzie miała zastosowanie do każdej maszyny wirtualnej, która została utworzona. [Zadanie korygowania](../../governance/policy/how-to/remediate-resources.md) wdraża definicje zasad z inicjatywy do istniejących zasobów, dzięki czemu można utworzyć ustawienia diagnostyczne dla wszystkich już utworzonych zasobów. Podczas tworzenia przypisania przy użyciu Azure Portal istnieje możliwość utworzenia zadania korygowania w tym samym czasie. Zobacz [korygowanie niezgodnych zasobów Azure Policy](../../governance/policy/how-to/remediate-resources.md) , aby uzyskać szczegółowe informacje dotyczące korygowania.
 
 ![Korygowanie inicjatywy](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-[Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych. Włączenie Azure Monitor dla maszyn wirtualnych powoduje zainstalowanie zarówno agenta Log Analytics, jak i agenta zależności. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
+## <a name="azure-monitor-for-vms-and-virtual-machine-agents"></a>Azure Monitor dla maszyn wirtualnych i agenci maszyn wirtualnych
+[Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Aby włączyć Azure Monitor dla maszyn wirtualnych należy zainstalować zarówno agenta Log Analytics, jak i agenta zależności na każdym kliencie. Możesz także zainstalować agenta Log Analytics samodzielnie, aby obsługiwał inne scenariusze monitorowania. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
 
-Azure Monitor dla maszyn wirtualnych obejmuje dwie wbudowane inicjatywy o nazwie **Enable Azure monitor dla maszyn wirtualnych** i **włączają Azure monitor dla Virtual Machine Scale Sets**. Te inicjatywy obejmują zestaw definicji zasad wymaganych do zainstalowania agenta Log Analytics i agenta zależności wymaganego do włączenia Azure Monitor dla maszyn wirtualnych. 
+> [!NOTE]
+> Azure Monitor dla maszyn wirtualnych obejmuje funkcję o nazwie **pokrycie zasad Azure monitor dla maszyn wirtualnych** , która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Tej funkcji można użyć zamiast pracy bezpośrednio z Azure Policyami dla maszyn wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. W przypadku zestawów skalowania maszyn wirtualnych platformy Azure należy utworzyć przypisanie przy użyciu Azure Policy.
+ 
 
+Azure Monitor dla maszyn wirtualnych obejmuje następujące wbudowane inicjatywy, które instalują obu agentów w celu włączenia pełnego monitorowania. 
+
+|Nazwa |Opis |
+|:---|:---|
+|Włącz Azure Monitor dla maszyn wirtualnych | Instaluje agenta Log Analytics i agenta zależności na maszynach wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
+|Włącz Azure Monitor dla zestawów skalowania maszyn wirtualnych | Instaluje agenta Log Analytics i agenta zależności w zestawie skalowania maszyn wirtualnych platformy Azure. |
+
+
+### <a name="virtual-machines"></a>Maszyny wirtualne
 Zamiast tworzyć przydziały dla tych inicjatyw przy użyciu interfejsu Azure Policy, Azure Monitor dla maszyn wirtualnych zawiera funkcję, która umożliwia sprawdzenie liczby maszyn wirtualnych w każdym zakresie w celu ustalenia, czy inicjatywa została zastosowana. Następnie można skonfigurować obszar roboczy i utworzyć wszystkie wymagane przypisania przy użyciu tego interfejsu.
 
 Aby uzyskać szczegółowe informacje o tym procesie, zobacz [włączanie Azure monitor dla maszyn wirtualnych przy użyciu Azure Policy](../insights/vminsights-enable-at-scale-policy.md).
 
 ![Zasady Azure Monitor dla maszyn wirtualnych](../platform/media/deploy-scale/vminsights-policy.png)
 
+### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
+Aby użyć Azure Policy do włączenia monitorowania dla zestawów skalowania maszyn wirtualnych, przypisz **Azure monitor dla inicjatywy dla zestawów skalowania maszyn wirtualnych** do grupy zarządzania platformy Azure, subskrypcji lub grupy zasobów w zależności od zakresu zasobów do monitorowania. [Grupa zarządzania](../../governance/management-groups/overview.md) jest szczególnie przydatna w przypadku zasad określania zakresu, zwłaszcza jeśli organizacja ma wiele subskrypcji.
+
+![Przypisanie inicjatywy](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+
+Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* zgodnie z opisem w temacie []() .
+
+![Wybór obszaru roboczego](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+
+Utwórz zadanie korygowania, jeśli masz istniejący zestaw skalowania maszyn wirtualnych, które mają być przypisane do tych zasad.
+
+![Zadanie korygowania](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+
+### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
+Możesz mieć scenariusze, w których chcesz zainstalować agenta Log Analytics, ale nie agenta zależności. Nie ma żadnej wbudowanej inicjatywy tylko dla agenta, ale możesz utworzyć własne na podstawie wbudowanych definicji zasad zapewnianych przez Azure Monitor dla maszyn wirtualnych.
+
+> [!NOTE]
+> Nie ma żadnego powodu, aby samodzielnie wdrożyć agenta zależności, ponieważ wymaga on Log Analytics Agent do dostarczenia danych do Azure Monitor.
+
+
+|Nazwa |Opis |
+|-----|------------|
+|Inspekcja wdrożenia agenta Log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona |Zgłasza maszyny wirtualne jako niezgodne, jeśli na liście nie ma zdefiniowanego obrazu maszyny wirtualnej (OS), a agent nie jest zainstalowany. |
+|Wdrażanie agenta Log Analytics dla maszyn wirtualnych z systemem Linux |Wdróż Log Analytics agenta dla maszyn wirtualnych z systemem Linux, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+|Wdrażanie agenta Log Analytics dla maszyn wirtualnych z systemem Windows |Wdróż agenta Log Analytics dla maszyn wirtualnych z systemem Windows, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+| [Wersja zapoznawcza]: Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure Arc |Zgłasza hybrydowe maszyny wirtualne z systemem Linux jako niezgodne z maszynami wirtualnymi w systemie, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+| [Wersja zapoznawcza]: Agent Log Analytics powinien być zainstalowany na komputerach z systemem Windows Azure Arc |Zgłasza hybrydowe maszyny wirtualne z systemem Windows jako niezgodne z maszynami wirtualnymi, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+| [Wersja zapoznawcza]: Wdróż agenta Log Analytics na komputerach z systemem Linux Azure Arc |Wdróż Log Analytics agenta dla hybrydowych maszyn Azure z systemem Linux, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+| [Wersja zapoznawcza]: Wdróż agenta Log Analytics w usłudze Microsoft Azure Arc Machines |Wdróż Log Analytics agenta dla hybrydowych maszyn platformy Azure z systemem Windows, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+|Inspekcja wdrożenia agenta zależności w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (system operacyjny) nie został wystawiony |Raporty zestawu skalowania maszyn wirtualnych są wyświetlane jako niezgodne, jeśli na liście nie ma zdefiniowanego obrazu maszyny wirtualnej (OS), a agent nie jest zainstalowany. |
+|Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony |Raporty zestawu skalowania maszyn wirtualnych są wyświetlane jako niezgodne, jeśli na liście nie ma zdefiniowanego obrazu maszyny wirtualnej (OS), a agent nie jest zainstalowany. |
+|Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Linux |Wdróż Log Analytics agenta dla maszyn wirtualnych z systemem Linux, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+|Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows |Wdróż agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows, jeśli na liście jest zdefiniowany obraz maszyny wirtualnej (system operacyjny), a agent nie jest zainstalowany. |
+
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat [Azure Policy](../../governance/policy/overview.md).
 - Przeczytaj więcej na temat [ustawień diagnostycznych](diagnostic-settings.md).
+

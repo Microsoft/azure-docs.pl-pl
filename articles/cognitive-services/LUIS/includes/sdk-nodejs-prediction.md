@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 504ba9106cc9d617858e8fad7ea421c8707707b3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171286"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369277"
 ---
-Użyj biblioteki klienta środowiska uruchomieniowego Language Understanding (LUIS) dla języka Node. js, aby:
+Użyj biblioteki klienta środowiska uruchomieniowego Language Understanding (LUIS), aby Node.js:
 
 * Prognozowanie według miejsca
 * Prognozowanie według wersji
 
-[Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  |  źródłowy biblioteki [Pakiet środowiska uruchomieniowego (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  |  źródłowy biblioteki [Pakiet środowiska uruchomieniowego (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,9 +36,7 @@ Użyj biblioteki klienta środowiska uruchomieniowego Language Understanding (LU
 
 Pobierz swój [klucz środowiska uruchomieniowego](../luis-how-to-azure-subscription.md) , tworząc zasób środowiska uruchomieniowego Luis. Zachowaj klucz i punkt końcowy klucza dla kolejnego kroku.
 
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
-
-### <a name="create-a-new-javascript-nodejs-file"></a>Utwórz nowy plik JavaScript (Node. js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Utwórz nowy plik JavaScript (Node.js)
 
 Utwórz nowy plik JavaScript w preferowanym edytorze lub środowisku IDE o nazwie `luis_prediction.js` .
 
@@ -75,13 +73,11 @@ W katalogu projektu Otwórz `luis_prediction.js` plik w preferowanym edytorze lu
 
 1. Utwórz zmienne dla własnych wymaganych informacji LUIS:
 
-    Dodaj zmienne, aby zarządzać kluczem predykcyjnym ściąganym ze zmiennej środowiskowej o nazwie `LUIS_RUNTIME_KEY` . Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie załadować Edytor, środowisko IDE lub powłokę, aby uzyskać dostęp do zmiennej. Metody zostaną utworzone później.
-
-    Utwórz zmienną do przechowywania nazwy zasobu `LUIS_RUNTIME_ENDPOINT` .
-
+    Dodaj zmienne, aby zarządzać kluczem predykcyjnym i kluczem punktu końcowego. 
+    
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=Variables)]
 
-1. Utwórz zmienną dla identyfikatora aplikacji jako zmienną środowiskową o nazwie `LUIS_APP_ID` . Ustaw zmienną środowiskową na publiczną aplikację IoT **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Utwórz zmienną, aby ustawić `production` opublikowane gniazdo.
+1. Utwórz zmienną dla identyfikatora aplikacji o nazwie `LUIS_APP_ID` . Ustaw zmienną na publiczną aplikację IoT **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Utwórz zmienną, aby ustawić `production` opublikowane gniazdo.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=OtherVariables)]
 
@@ -158,6 +154,6 @@ Wynik przewidywania zwraca obiekt JSON:
 ```
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po wykonaniu prognoz Wyczyść prace z tego przewodnika Szybki Start, usuwając plik i jego podkatalogi.

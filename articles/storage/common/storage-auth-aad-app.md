@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369003"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -26,7 +27,7 @@ Aby zapoznać się z omówieniem przepływu przyznawania kodu OAuth 2,0, zobacz 
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Przypisywanie roli do podmiotu zabezpieczeń usługi Azure AD
 
-Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role RBAC, które obejmują uprawnienia do kontenerów i kolejek. Gdy rola RBAC zostanie przypisana do podmiotu zabezpieczeń, ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC](storage-auth-aad-rbac.md).
+Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role platformy Azure, które obejmują uprawnienia do kontenerów i kolejek. Gdy rola RBAC zostanie przypisana do podmiotu zabezpieczeń, ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Rejestrowanie aplikacji w dzierżawie usługi Azure AD
 

@@ -5,14 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292080"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -57,7 +58,7 @@ Linia bazowa: 270%
 
 ![Wykres danych ruchu godzinowego](./media/b-series-burstable/office-workload.png)
 
-| Scenariusz | Godzina | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
+| Scenariusz | Czas | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
 | --- | --- | --- | --- | --- |
 | Wdrożenie B16ms | Wdrożenie | Wdrożenie  | 480 (końcowe środki) | 480 |
 | Brak ruchu | 0:00 | 0 | 162 | 642 |
@@ -134,14 +135,18 @@ Odp **.: Jeśli** maszyna wirtualna ma wartość "REDPLOYED", a maszyna wirtualn
 
 Odp **.: B1ls** obsługuje tylko obrazy systemu Linux i po wdrożeniu innego obrazu z systemem operacyjnego można nie uzyskać najlepszego środowiska klienta.
 
-## <a name="other-sizes"></a>Inne rozmiary
+## <a name="other-sizes-and-information"></a>Inne rozmiary i informacje
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem obliczeń](sizes-compute.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
+
+Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+
+Więcej informacji na temat typów dysków: [typy dysków](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Następne kroki
 

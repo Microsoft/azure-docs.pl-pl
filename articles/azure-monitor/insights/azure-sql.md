@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e5f7bd9ec3cc9a66adb8743ce2a56d8b2ead204
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318032"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu n
 
 ## <a name="configuration"></a>Konfigurowanie
 
-Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md) .
+Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md) .
 
 ### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Konfigurowanie Azure SQL Database do przesyłania danych telemetrycznych diagnostyki
 
@@ -297,3 +297,4 @@ Gdy usługa Azure SQL Analytics jest bezpłatna, użycie danych telemetrycznych 
 - Użyj [zapytań dzienników](../log-query/log-query-overview.md) w Azure monitor, aby wyświetlić szczegółowe dane SQL platformy Azure.
 - [Utwórz własne pulpity nawigacyjne](../learn/tutorial-logs-dashboards.md) pokazujące dane usługi Azure SQL.
 - [Utwórz alerty](../platform/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń SQL platformy Azure.
+

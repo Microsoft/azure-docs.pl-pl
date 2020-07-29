@@ -1,7 +1,7 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie tabeli tras platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak utworzyć, zmienić lub usunąć tabelę tras.
+description: Dowiedz się, gdzie znaleźć informacje o routingu ruchu w sieci wirtualnej oraz jak utworzyć, zmienić lub usunąć tabelę tras.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,17 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708267"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291003"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
 
 Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure, sieciami wirtualnymi i sieciami lokalnymi. Jeśli chcesz zmienić domyślny Routing systemu Azure, możesz to zrobić, tworząc tabelę tras. Jeśli jesteś nowym sposobem routingu w sieciach wirtualnych, możesz dowiedzieć się więcej na jego temat w obszarze [routing ruchu w sieci wirtualnej](virtual-networks-udr-overview.md) lub przez zakończenie korzystania z [samouczka](tutorial-create-route-table-portal.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli go nie masz, skonfiguruj konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Następnie wykonaj jedno z tych zadań przed rozpoczęciem kroków w każdej sekcji tego artykułu:
 
@@ -40,7 +41,7 @@ Konto, do którego należy się zalogować lub połączyć się z platformą Azu
 
 Istnieje ograniczenie dotyczące liczby tabel tras, które można utworzyć na potrzeby lokalizacji i subskrypcji platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [limity sieci — Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 1. W polu wyszukiwania wprowadź *tabelę tras*. Gdy **tabela tras** zostanie wyświetlona w wynikach wyszukiwania, wybierz ją.
 

@@ -3,16 +3,16 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539095"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289515"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
-Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze rozwiązanie do tworzenia kopii zapasowych, które chroni dane w chmurze i eliminuje dodatkowe koszty konserwacji związane z lokalnymi rozwiązaniami do tworzenia kopii zapasowych. Usługa Azure Backup zapewnia bezproblemowe integrację z usługą Azure File Sync i umożliwia scentralizowanie danych udziałów plików oraz kopii zapasowych. Takie proste, niezawodne i bezpieczne rozwiązanie umożliwia skonfigurowanie ochrony udziałów plików przedsiębiorstwa w kilku prostych krokach z gwarancją, że możesz odzyskać dane na wypadek awarii.
+Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze rozwiązanie do tworzenia kopii zapasowych, które chroni dane w chmurze i eliminuje dodatkowe koszty konserwacji związane z lokalnymi rozwiązaniami do tworzenia kopii zapasowych. Usługa Azure Backup zapewnia bezproblemowe integrację z Azure File Sync i pozwala na scentralizowanie danych udziałów plików oraz kopii zapasowych. Takie proste, niezawodne i bezpieczne rozwiązanie umożliwia skonfigurowanie ochrony udziałów plików przedsiębiorstwa w kilku prostych krokach z gwarancją, że możesz odzyskać dane na wypadek awarii.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Najważniejsze zalety tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -42,9 +42,11 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
     >[!NOTE]
     >Dane udziału plików nie są przenoszone do usługi kopii zapasowej, ponieważ usługa Backup tworzy migawki i zarządza nimi, które są częścią Twojego konta magazynu, a kopie zapasowe nie są przenoszone do magazynu.
 
-6. Zawartość udziału plików platformy Azure (poszczególne pliki lub pełny udział) można przywrócić z migawek dostępnych w źródłowym udziale plików. Gdy operacja zostanie wyzwolona, adres URL migawki jest pobierany z magazynu metadanych, a dane są wyświetlane i przesyłane z migawki źródłowej do wybranego docelowego udziału plików.
+6. Zawartość udziału plików platformy Azure (poszczególne pliki lub pełny udział) można przywrócić z migawek dostępnych w źródłowym udziale plików. Gdy operacja zostanie wyzwolona, adres URL migawki jest pobierany z magazynu metadanych, a dane są wyświetlane i przesyłane z migawki źródłowej do wybranego docelowego udziału plików. 
 
-7. Dane monitorowania zadania tworzenia kopii zapasowej i przywracania są przekazywane do usługi monitorowania Azure Backup. Pozwala to monitorować kopie zapasowe w chmurze dla udziałów plików na jednym pulpicie nawigacyjnym. Ponadto można również skonfigurować alerty lub powiadomienia e-mail, gdy będzie to miało stan kondycji kopii zapasowej. Wiadomości e-mail są wysyłane za pośrednictwem usługi poczty e-mail platformy Azure.
+7. Jeśli używasz Azure File Sync, usługa Backup wskazuje usługę Azure File Syncą ścieżki przywracanych plików, a następnie wyzwala proces wykrywania zmian w tle dla tych plików. Wszystkie pliki, które uległy zmianie, są synchronizowane z punktem końcowym serwera. Ten proces odbywa się równolegle z oryginalnym przywracaniem do udziału plików platformy Azure. 
+
+8. Dane monitorowania zadania tworzenia kopii zapasowej i przywracania są przekazywane do usługi monitorowania Azure Backup. Pozwala to monitorować kopie zapasowe w chmurze dla udziałów plików na jednym pulpicie nawigacyjnym. Ponadto można również skonfigurować alerty lub powiadomienia e-mail, gdy będzie to miało stan kondycji kopii zapasowej. Wiadomości e-mail są wysyłane za pośrednictwem usługi poczty e-mail platformy Azure.
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 

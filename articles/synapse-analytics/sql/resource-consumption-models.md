@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 364f1676740106d57e61f94beaec53682656ef40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369020"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
@@ -99,7 +99,7 @@ Pula SQL to system skalowalny w poziomie, który umożliwia obsługę ogromnych 
 
 Zmiana jednostek magazynu danych wymaga uprawnień opisanych w temacie [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Wbudowane role dla zasobów platformy Azure, takie jak współautor bazy danych SQL i współautor SQL Server, mogą zmieniać ustawienia jednostek dwu.
+Wbudowane role platformy Azure, takie jak współautor bazy danych SQL i współautor SQL Server, mogą zmieniać ustawienia jednostek dwu.
 
 #### <a name="view-current-dwu-settings"></a>Wyświetlanie bieżących ustawień jednostek dwu
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Zmień jednostki magazynu danych
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 Aby zmienić jednostek dwu:
 

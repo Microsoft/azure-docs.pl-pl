@@ -4,21 +4,21 @@ description: Zasoby techniczne i wytyczne pomocne w konfigurowaniu oferty konten
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: da0fa53567e5c58db8e8394ef5562255d8a7142d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46102305e99c94fc71ad0934a2c0063fdcbeec4e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104272"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317794"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
 W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzenie oferty kontenera w witrynie Azure Marketplace.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](../../container-instances/index.yml).
 

@@ -1,6 +1,5 @@
 ---
-title: Zarządzanie usługami sieci Web przy użyciu API Management
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): zarządzanie usługami sieci Web za pomocą API Management — Azure'
 description: Przewodnik przedstawiający sposób zarządzania usługami sieci Web Azure przy użyciu API Management. Zarządzanie punktami końcowymi interfejsu API REST przez definiowanie dostępu użytkowników, ograniczanie użycia i monitorowanie pulpitu nawigacyjnego.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: c397c52b39cd8056122424a5bcf6736edcfdbaa5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dcbf9ba00592a9f4e25f9355549629f7eeb9b92a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086827"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318491"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Zarządzanie usługami sieci Web Azure Machine Learning Studio (klasycznymi) za pomocą API Management
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 ## <a name="overview"></a>Omówienie
 W tym przewodniku pokazano, jak szybko rozpocząć korzystanie z API Management do zarządzania usługami sieci Web Azure Machine Learning Studio (klasycznymi).
@@ -167,7 +169,7 @@ Po wywołaniu operacji Portal dla deweloperów wyświetla **żądany adres URL**
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Dodatek A — tworzenie i testowanie prostej usługi sieci Web Azure
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
-Poniżej przedstawiono procedurę tworzenia prostego eksperymentu w usłudze Azure i wdrażania go jako usługi sieci Web. Usługa sieci Web przyjmuje jako wejściową kolumnę dowolnego tekstu i zwraca zestaw funkcji reprezentowanych jako liczby całkowite. Przykład:
+Poniżej przedstawiono procedurę tworzenia prostego eksperymentu w usłudze Azure i wdrażania go jako usługi sieci Web. Usługa sieci Web przyjmuje jako wejściową kolumnę dowolnego tekstu i zwraca zestaw funkcji reprezentowanych jako liczby całkowite. Na przykład:
 
 | Tekst | Tekst zmieszany |
 | --- | --- |

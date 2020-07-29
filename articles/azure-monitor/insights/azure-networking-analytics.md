@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318066"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -79,7 +79,7 @@ Następujące metryki są obsługiwane przez bramy aplikacji: ponownie
 ### <a name="install-and-configure-the-solution"></a>Instalowanie i Konfigurowanie rozwiązania
 Skorzystaj z poniższych instrukcji, aby zainstalować i skonfigurować rozwiązanie Azure Application Gateway Analytics:
 
-1. Włącz rozwiązanie Azure Application Gateway Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
+1. Włącz rozwiązanie Azure Application Gateway Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md).
 2. Włącz rejestrowanie diagnostyczne dla [bram aplikacji](../../application-gateway/application-gateway-diagnostics.md) , które mają być monitorowane.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Włączanie diagnostyki usługi Azure Application Gateway w portalu
@@ -150,7 +150,7 @@ Następujące dzienniki są obsługiwane dla sieciowych grup zabezpieczeń:
 ### <a name="install-and-configure-the-solution"></a>Instalowanie i Konfigurowanie rozwiązania
 Skorzystaj z poniższych instrukcji, aby zainstalować i skonfigurować rozwiązanie do analizy sieci Azure:
 
-1. Aby włączyć rozwiązanie do analizy grup zabezpieczeń sieci platformy Azure, Użyj procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
+1. Aby włączyć rozwiązanie do analizy grup zabezpieczeń sieci platformy Azure, Użyj procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md).
 2. Włącz rejestrowanie diagnostyczne dla zasobów [sieciowej grupy zabezpieczeń](../../virtual-network/virtual-network-nsg-manage-log.md) , które chcesz monitorować.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Włączanie diagnostyki grup zabezpieczeń sieci platformy Azure w portalu
@@ -230,3 +230,4 @@ Dane zbierane przed zmianą nie będą widoczne w nowym rozwiązaniu. Można kon
 
 ## <a name="next-steps"></a>Następne kroki
 * Użyj [zapytań dzienników w Azure monitor](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane diagnostyczne platformy Azure.
+

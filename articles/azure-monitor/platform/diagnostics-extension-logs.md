@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a367e819ab9f12d9adcb448848c80eaeea73d113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317182"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Zbierz dane z rozszerzenia diagnostyki platformy Azure do dzienników Azure Monitor
 Rozszerzenie diagnostyki Azure to [Agent w Azure monitor](agents-overview.md) , który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. W tym artykule opisano sposób zbierania danych zbieranych przez rozszerzenie diagnostyki z usługi Azure Storage do dzienników Azure Monitor.
@@ -22,15 +22,15 @@ Rozszerzenie diagnostyki Azure to [Agent w Azure monitor](agents-overview.md) , 
 ## <a name="supported-data-types"></a>Obsługiwane typy danych
 Rozszerzenie diagnostyki platformy Azure przechowuje dane na koncie usługi Azure Storage. Aby dzienniki Azure Monitor zebrać te dane, muszą one znajdować się w następujących lokalizacjach:
 
-| Typ dziennika | Typ zasobu | Lokalizacja |
+| Typ dziennika | Typ zasobu | Location |
 | --- | --- | --- |
-| Dzienniki usług IIS |Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |funkcji wad-IIS-LogFiles (Blob Storage) |
-| Dziennik systemu |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
+| Dzienniki usług IIS |Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |funkcji wad-IIS-LogFiles (Blob Storage) |
+| Dziennik systemu |Maszyny wirtualne |LinuxsyslogVer2v0 (Table Storage) |
 | Service Fabric zdarzenia operacyjne |Service Fabric węzły |WADServiceFabricSystemEventTable |
 | Service Fabric niezawodne zdarzenia aktora |Service Fabric węzły |WADServiceFabricReliableActorEventTable |
 | Service Fabric niezawodne zdarzenia usługi |Service Fabric węzły |WADServiceFabricReliableServiceEventTable |
-| Dzienniki zdarzeń systemu Windows |Service Fabric węzły <br> Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |WADWindowsEventLogsTable (Table Storage) |
-| Dzienniki funkcji ETW systemu Windows |Service Fabric węzły <br> Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |WADETWEventTable (Table Storage) |
+| Dzienniki zdarzeń systemu Windows |Service Fabric węzły <br> Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |WADWindowsEventLogsTable (Table Storage) |
+| Dzienniki funkcji ETW systemu Windows |Service Fabric węzły <br> Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |WADETWEventTable (Table Storage) |
 
 ## <a name="data-types-not-supported"></a>Typy danych nie są obsługiwane
 
@@ -64,5 +64,6 @@ W ciągu około 30 minut można zobaczyć dane z konta magazynu w obszarze roboc
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zbieraj dzienniki i metryki dla usług platformy Azure](./resource-logs.md#send-to-log-analytics-workspace) dla obsługiwanych usług platformy Azure.
-* [Umożliwiaj rozwiązanie](../../azure-monitor/insights/solutions.md) w celu zapewnienia wglądu w dane.
-* Przeanalizuj dane przy [użyciu zapytań wyszukiwania](../../azure-monitor/log-query/log-query-overview.md) .
+* [Umożliwiaj rozwiązanie](../insights/solutions.md) w celu zapewnienia wglądu w dane.
+* Przeanalizuj dane przy [użyciu zapytań wyszukiwania](../log-query/log-query-overview.md) .
+

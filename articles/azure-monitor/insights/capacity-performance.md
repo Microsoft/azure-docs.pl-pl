@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317998"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Zaplanuj pojemność maszyny wirtualnej funkcji Hyper-V za pomocą rozwiązania Capacity and Performance (przestarzałe)
 
@@ -41,9 +41,9 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Pomoc techniczna | Opis |
 |---|---|---|
-| [Agenci dla systemu Windows](../../azure-monitor/platform/agent-windows.md) | Tak | Rozwiązanie zbiera informacje o pojemności i wydajności z agentów systemu Windows. |
-| [Agenci dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nie    | Rozwiązanie nie zbiera danych o pojemności i wydajności z bezpośrednich agentów systemu Linux.|
-| [Grupa zarządzania programu SCOM](../../azure-monitor/platform/om-agents.md) | Tak |Rozwiązanie zbiera dane o pojemności i wydajności z agentów w połączonej grupie zarządzania programu SCOM. Bezpośrednie połączenie z agentem programu SCOM do Log Analytics nie jest wymagane.|
+| [Agenci dla systemu Windows](../platform/agent-windows.md) | Tak | Rozwiązanie zbiera informacje o pojemności i wydajności z agentów systemu Windows. |
+| [Agenci dla systemu Linux](../learn/quick-collect-linux-computer.md) | Nie | Rozwiązanie nie zbiera danych o pojemności i wydajności z bezpośrednich agentów systemu Linux.|
+| [Grupa zarządzania programu SCOM](../platform/om-agents.md) | Tak |Rozwiązanie zbiera dane o pojemności i wydajności z agentów w połączonej grupie zarządzania programu SCOM. Bezpośrednie połączenie z agentem programu SCOM do Log Analytics nie jest wymagane.|
 | [Konto usługi Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nie | Usługa Azure Storage nie obejmuje danych dotyczących pojemności i wydajności.|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -51,11 +51,11 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 - Agenty systemu Windows lub Operations Manager muszą być zainstalowane na komputerach z systemem Windows Server 2012 lub nowszym, a nie maszyn wirtualnych.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj następujące kroki, aby dodać rozwiązanie Capacity and Performance do obszaru roboczego.
 
-- Dodaj Capacity and Performance rozwiązanie do obszaru roboczego Log Analytics przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań log Analytics z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
+- Dodaj Capacity and Performance rozwiązanie do obszaru roboczego Log Analytics przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań log Analytics z Galeria rozwiązań](./solutions.md).
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Gdy Capacity and Performance rozwiązanie zostanie zaktualizowane, numer wersji zostanie zmieniony.
 
-Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
+Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](../platform/om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
 
@@ -129,4 +129,5 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników pod kątem pojemn
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [przeszukiwania dzienników w log Analytics](../../azure-monitor/log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane Capacity and Performance.
+* Użyj [przeszukiwania dzienników w log Analytics](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane Capacity and Performance.
+

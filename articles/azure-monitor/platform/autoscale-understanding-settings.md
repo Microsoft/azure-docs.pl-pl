@@ -4,12 +4,12 @@ description: Szczegółowy podział ustawień automatycznego skalowania i sposó
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539384"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317471"
 ---
 # <a name="understand-autoscale-settings"></a>Omówienie ustawień automatycznego skalowania
 Ustawienia automatycznego skalowania pomagają upewnić się, że dysponujesz odpowiednią ilością zasobów, aby obsłużyć wahanie obciążenia aplikacji. Można skonfigurować ustawienia skalowania automatycznego, które mają być wyzwalane na podstawie metryk, które wskazują obciążenie lub wydajność, lub wyzwalane w zaplanowanym dniu i o określonej godzinie. Ten artykuł zawiera szczegółowy opis ustawienia skalowania automatycznego. Artykuł zaczyna się od schematu i właściwości ustawienia, a następnie analizuje różne typy profilów, które można skonfigurować. W tym artykule omówiono sposób, w jaki funkcja skalowania automatycznego na platformie Azure szacuje profil do wykonania w danym momencie.
@@ -106,7 +106,7 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
 | metricTrigger | timeAggregation | Metoda agregacji używana do agregowania metryk próbkowanych. Na przykład **TimeAggregation = "Average"** powinna agregować metryki próbkowane, pobierając średnią. W poprzednim przypadku należy wziąć dziesięć próbek 1-minutowych i obliczyć ich średnią. |
 | Rule | scaleAction | Akcja, która ma zostać podjęta po wyzwoleniu metricTrigger reguły. |
 | scaleAction | kierunek | "Zwiększ", aby skalować w poziomie lub "Zmniejsz" w celu skalowania w poziomie.|
-| scaleAction | value | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
+| scaleAction | wartość | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
 | scaleAction | cooldown | Czas oczekiwania po operacji skalowania przed ponownym skalowaniem. Na przykład jeśli **cooldown = "PT10M"**, funkcja automatycznego skalowania nie próbuje ponownie skalować przez kolejne 10 minut. Cooldown to umożliwienie ustabilizowania metryk po dodaniu lub usunięciu wystąpień. |
 
 ## <a name="autoscale-profiles"></a>Profile skalowania automatycznego
@@ -301,8 +301,9 @@ Załóżmy na przykład, że istnieje zestaw skalowania maszyn wirtualnych z akt
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat automatycznego skalowania można znaleźć w następujących tematach:
 
-* [Omówienie skalowania automatycznego](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor metryki automatycznego skalowania](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Najlepsze rozwiązania dotyczące skalowania automatycznego w usłudze Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Używanie akcji skalowania automatycznego do wysyłania powiadomień o alertach dotyczących wiadomości e-mail i elementów webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Omówienie skalowania automatycznego](./autoscale-overview.md)
+* [Azure Monitor metryki automatycznego skalowania](./autoscale-common-metrics.md)
+* [Najlepsze rozwiązania dotyczące skalowania automatycznego w usłudze Azure Monitor](./autoscale-best-practices.md)
+* [Używanie akcji skalowania automatycznego do wysyłania powiadomień o alertach dotyczących wiadomości e-mail i elementów webhook](./autoscale-webhook-email.md)
 * [Interfejs API REST automatycznego skalowania](/rest/api/monitor/autoscalesettings)
+

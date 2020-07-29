@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318389"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -67,7 +68,7 @@ Niektóre zasoby nie emitują stale swoich metryk. Na przykład platforma Azure 
 
 Kolekcja metryk **systemu operacyjnego gościa** wymaga skonfigurowania rozszerzenia Diagnostyki Azure lub włączenia go przy użyciu panelu **Ustawienia diagnostyczne** zasobu.
 
-**Rozwiązanie:** Jeśli Diagnostyka Azure rozszerzenie jest włączone, ale nadal nie możesz zobaczyć metryk, wykonaj czynności opisane w [przewodniku rozwiązywania problemów z Diagnostyka Azure rozszerzenia](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Zobacz również kroki rozwiązywania problemów, aby [nie można było wybrać przestrzeni nazw i metryk systemu operacyjnego gościa](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Rozwiązanie:** Jeśli Diagnostyka Azure rozszerzenie jest włączone, ale nadal nie możesz zobaczyć metryk, wykonaj czynności opisane w [przewodniku rozwiązywania problemów z Diagnostyka Azure rozszerzenia](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Zobacz również kroki rozwiązywania problemów, aby [nie można było wybrać przestrzeni nazw i metryk systemu operacyjnego gościa](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Komunikat "błąd podczas pobierania danych" na pulpicie nawigacyjnym
 
@@ -105,7 +106,7 @@ Domyślnie metryki systemu operacyjnego gościa są przechowywane na koncie usł
     > [!WARNING]
     > Nie można używać [agenta usługi Log Analytics](agents-overview.md#log-analytics-agent) (nazywanego również programem Microsoft Monitoring Agent lub programem MMA) do wysyłania **systemu operacyjnego gościa** na konto magazynu.
 
-1. Upewnij się, że dostawca zasobów **Microsoft. Insights** został [zarejestrowany dla Twojej subskrypcji](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Upewnij się, że dostawca zasobów **Microsoft. Insights** został [zarejestrowany dla Twojej subskrypcji](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Sprawdź, czy konto magazynu nie jest chronione przez zaporę. Witryna Azure Portal potrzebuje dostępu do konta magazynu na potrzeby pobierania danych metryk i rysowania wykresów.
 
@@ -117,3 +118,4 @@ Domyślnie metryki systemu operacyjnego gościa są przechowywane na koncie usł
 * [Dowiedz się więcej na temat zaawansowanych funkcji Eksploratora metryk](metrics-charts.md)
 * [Zobacz listę dostępnych metryk dla usług platformy Azure](metrics-supported.md)
 * [Zobacz przykłady skonfigurowanych wykresów](metric-chart-samples.md)
+

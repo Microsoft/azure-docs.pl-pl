@@ -10,20 +10,20 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7c74bc8bd92e2d210c8fe5deaff30d55a36bb5e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: afa48c07e628eaeb013c24fa38fcda1adea2555a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127217"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368980"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli RBAC na potrzeby dostępu do danych obiektów blob i kolejek
 
-Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md). Usługa Azure Storage definiuje zestaw wbudowanych ról RBAC, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki.
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki.
 
 Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-W tym artykule opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć listę wbudowanych ról RBAC i przypisać je do użytkowników. Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure, zobacz [Azure Command Line Interface (CLI)](/cli/azure).
+W tym artykule opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć listę wbudowanych ról platformy Azure i przypisać je do użytkowników. Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure, zobacz [Azure Command Line Interface (CLI)](/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Role RBAC dla obiektów blob i kolejek
 
@@ -35,7 +35,7 @@ W tym artykule opisano, jak za pomocą interfejsu wiersza polecenia platformy Az
 
 ## <a name="list-available-rbac-roles"></a>Wyświetl dostępne role RBAC
 
-Aby wyświetlić listę dostępnych wbudowanych ról RBAC przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) :
+Aby wyświetlić listę dostępnych wbudowanych ról platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli-interactive
 az role definition list --out table

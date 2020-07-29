@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 6dd485adb71bf05be6499f2fc18572e8a28357d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209904"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367779"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -145,9 +145,9 @@ Aby dowiedzieć się więcej na temat tworzenia Azure Functions, zobacz: [Tworze
 ## <a name="create-azure-function-app-settings"></a>Tworzenie ustawień usługi Azure aplikacja funkcji
 
 Jeśli używasz Azure Functions, musisz mieć następujące ustawienia aplikacji na platformie Azure aplikacja funkcji:
-- `PrimaryStoreEndpoint`: Punkt końcowy magazynu konfiguracji aplikacji podstawowej. Na przykład: `https://{primary_appconfig_name}.azconfig.io`
-- `SecondaryStoreEndpoint`: Punkt końcowy magazynu konfiguracji aplikacji pomocniczych. Na przykład: `https://{secondary_appconfig_name}.azconfig.io`
-- `StorageQueueUri`: Identyfikator URI kolejki magazynu. Na przykład: `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+- `PrimaryStoreEndpoint`: Punkt końcowy magazynu konfiguracji aplikacji podstawowej. Na przykład `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: Punkt końcowy magazynu konfiguracji aplikacji pomocniczych. Na przykład `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: Identyfikator URI kolejki magazynu. Na przykład `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 Następujące polecenie tworzy wymagane ustawienia aplikacji w usłudze Azure aplikacja funkcji. Zamień na `<function_app_name>` nazwę aplikacja funkcji platformy Azure.
 
@@ -244,7 +244,7 @@ Jeśli nowe ustawienie nie jest widoczne w magazynie pomocniczym:
 - Możesz również skonfigurować monitorowanie i alerty dla Azure Functions przy użyciu [usługi Azure Application Insights.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli planujesz kontynuować pracę z tą konfiguracją aplikacji i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuowania pracy, użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 ```azurecli-interactive

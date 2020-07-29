@@ -1,6 +1,6 @@
 ---
-title: Dostosowywanie właściwości RDP przy użyciu programu PowerShell 2019 — Azure
-description: Jak dostosować właściwości protokołu RDP dla pulpitu wirtualnego systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
+title: Dostosowywanie właściwości RDP przy użyciu programu PowerShell Virtual Desktop systemu Windows (klasyczny) — Azure
+description: Jak dostosować właściwości protokołu RDP dla pulpitu wirtualnego systemu Windows (klasyczny) przy użyciu poleceń cmdlet programu PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 844c59c6e5ea6d730c64fea5fb2dee51f602c382
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ed7e8b8348ae87e676ec4585bce42a1ac389e23
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527629"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291273"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
+# <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów systemu Windows Virtual Desktop (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../customize-rdp-properties.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../customize-rdp-properties.md).
 
 Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania i przekierowania audio, zapewnia optymalne środowisko dla użytkowników zgodnie z ich potrzebami. Właściwości protokołu RDP można dostosować na pulpicie wirtualnym systemu Windows przy użyciu parametru **-CustomRdpProperty** w poleceniu cmdlet **Set-RdsHostPool** .
 
@@ -36,7 +36,7 @@ Domyślnie publikowane pliki RDP zawierają następujące właściwości:
 
 |Właściwości RDP | Komputery stacjonarne | Aplikacje usługi RemoteApp |
 |---|---| --- |
-| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Nie dotyczy |
+| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Brak |
 | Przekierowania dysków włączone | Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne| Dyski, schowek i drukarki |
 | Tryb zdalny audio | Odtwórz lokalnie | Odtwórz lokalnie |
 
