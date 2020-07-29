@@ -1,6 +1,5 @@
 ---
-title: Jak pobrać dane notesów (wersja zapoznawcza)
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): pobieranie danych notesów (wersja zapoznawcza) — Azure'
 description: Jak pobrać dane notesów (wersja zapoznawcza) w ML Studio (klasyczne).
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208469"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318661"
 ---
 # <a name="download-notebookspreview-data"></a>Pobierz dane notesów (wersja zapoznawcza)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 Funkcja notesów (wersja zapoznawcza) została usunięta z *kwietnia 13 2020*. Usuwanie z karty notesów (wersja zapoznawcza) i plików notesu użytkownika jest obecnie wdrażany w regionach platformy Azure na całym świecie.
 

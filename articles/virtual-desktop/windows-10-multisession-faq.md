@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adc0d63a51535b27b42abbe0115ff25594eb2b4f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292475"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
@@ -102,6 +102,6 @@ Aby wyłączyć aplikację ze sklepu:
 
 Aby dowiedzieć się więcej o wielu sesjach systemu Windows Virtual Desktop i Windows 10 Enterprise:
 
-- Przeczytaj [dokumentację dotyczącą systemu Windows Virtual Desktop w wersji zapoznawczej](overview.md)
+- Przeczytaj [dokumentację pulpitu wirtualnego systemu Windows](overview.md)
 - Odwiedź naszą [TechCommunity pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 - Konfigurowanie wdrożenia pulpitu wirtualnego systemu Windows przy użyciu [samouczków pulpitu wirtualnego systemu Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

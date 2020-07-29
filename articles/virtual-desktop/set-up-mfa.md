@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091304"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291382"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
 
 >[!IMPORTANT]
-> Jeśli odwiedzasz Tę stronę z dokumentacji usługi 2019, pamiętaj, aby [wrócić 2019 do dokumentacji dotyczącej](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) programu.
+> Jeśli odwiedzasz Tę stronę z dokumentacji pulpitu wirtualnego systemu Windows (klasycznego), pamiętaj, aby [wrócić do dokumentacji pulpitu wirtualnego systemu Windows (klasycznego)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) po zakończeniu.
 
 Klient systemu Windows dla pulpitu wirtualnego systemu Windows jest doskonałym rozwiązaniem do integrowania pulpitu wirtualnego systemu Windows z maszyną lokalną. Jednak podczas konfigurowania konta pulpitu wirtualnego systemu Windows na kliencie systemu Windows istnieją pewne miary, które należy podjąć, aby zapewnić sobie bezpieczeństwo i użytkowników.
 
@@ -50,10 +50,10 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
 7. Kliknij **Gotowe**.
 8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Wybierz aplikacje**.
 9. Wybierz jedną z następujących grup aplikacji w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
-   - Jeśli korzystasz z wersji 2019, wybierz te dwie aplikacje:
+   - Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), wybierz te dwie aplikacje:
        - **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Jeśli używasz sprężynowego wydania 2020, wybierz te dwie aplikacje:
+   - Jeśli używasz pulpitu wirtualnego systemu Windows, wybierz te dwie aplikacje:
        -  **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07)
        -  **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji a85cf173-4192-42f8-81fa-777a763e6e2c)
 

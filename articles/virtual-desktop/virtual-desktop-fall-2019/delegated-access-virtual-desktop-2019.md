@@ -1,6 +1,6 @@
 ---
-title: Delegowany dostęp w pulpicie wirtualnym systemu Windows 2019 — Azure
-description: Jak delegować możliwości administracyjne w ramach wdrożenia pulpitu wirtualnego systemu Windows, łącznie z przykładami.
+title: Delegowany dostęp w systemie Windows Virtual Desktop (klasyczny) — Azure
+description: Jak delegować możliwości administracyjne w ramach wdrożenia pulpitu wirtualnego systemu Windows (klasycznego), łącznie z przykładami.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292536"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Delegowany dostęp w klasycznym pulpicie systemu Windows pokrywa 2019
+# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Delegowany dostęp w systemie Windows Virtual Desktop (klasyczny)
 
 >[!IMPORTANT]
->Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../delegated-access-virtual-desktop.md).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows (klasycznego), który nie obsługuje Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows, zobacz [ten artykuł](../delegated-access-virtual-desktop.md).
 
 Pulpit wirtualny systemu Windows ma model dostępu delegowanego, który umożliwia zdefiniowanie dostępu określonego użytkownika przez przypisanie ich do roli. Przypisanie roli ma trzy składniki: podmiot zabezpieczeń, definicja roli i zakres. Model dostępu delegowanego pulpitu wirtualnego systemu Windows jest oparty na modelu RBAC platformy Azure. Aby dowiedzieć się więcej o konkretnych przypisaniach ról i ich składnikach, zobacz [Omówienie kontroli dostępu opartej na rolach na platformie Azure](../../role-based-access-control/built-in-roles.md).
 

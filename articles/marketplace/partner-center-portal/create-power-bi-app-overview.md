@@ -4,15 +4,15 @@ description: W tym artykule opisano ogólne kroki publikowania aplikacji Power B
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121779"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317607"
 ---
 # <a name="power-bi-app-creation-overview"></a>Omówienie tworzenia aplikacji Power BI
 
@@ -42,13 +42,13 @@ Oto podstawowe kroki publikowania:
 7. Po uzyskaniu certyfikatu zapoznaj się z aplikacją w środowisku testowym i zwolnij ją. Spowoduje to wyświetlenie listy w witrynie AppSource ("trafia na żywo").
 8. W Power BI Wyślij pakiet do środowiska produkcyjnego. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie wydaniem aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przejrzyj poniższe linki, które zawierają szablony, porady i przykłady.
 
 - [Tworzenie aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create)
 - [Porady dotyczące tworzenia aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [Przykłady](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Samples](https://docs.microsoft.com/power-bi/service-template-apps-samples)
 
 ## <a name="requirements"></a>Wymagania
 

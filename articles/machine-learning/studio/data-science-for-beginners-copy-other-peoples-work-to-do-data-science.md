@@ -1,6 +1,5 @@
 ---
-title: Kopiuj inne przykłady analizy danych
-titleSuffix: ML Studio (classic) - Azure
+title: Przykłady kopiowania danych w nauce — ML Studio (klasyczny) — Azure
 description: 'Tajemnica handlowa z dziedziny nauki o danych: Uzyskaj inne osoby do pracy. Pobierz przykłady uczenia maszynowego z Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
@@ -10,11 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 91f1f69db7f3faa9e1bbdae7966716c974a4dfa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59343c500f50430530b24fbfb7d747108377efd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318780"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiowanie pracy innych osób w celu przeprowadzenia analizy danych
 ## <a name="video-5-data-science-for-beginners-series"></a>Wideo 5: Analiza danych dla początkujących serii

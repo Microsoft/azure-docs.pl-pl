@@ -3,12 +3,12 @@ title: Application Insights dla usług Azure Cloud Services | Microsoft Docs
 description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą usługi Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075417"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318440"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
 [Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
@@ -31,9 +31,9 @@ Ta opcja służy do przyrządowania aplikacji w czasie wykonywania, która zapew
 
 Jeśli ta opcja jest wymagana, wszystko jest gotowe. 
 
-W następnych krokach są [wyświetlane metryki z aplikacji](../../azure-monitor/platform/metrics-charts.md), [wykonywanie zapytań dotyczących danych za pomocą analizy](../log-query/log-query-overview.md). 
+W następnych krokach są [wyświetlane metryki z aplikacji](../platform/metrics-charts.md), [wykonywanie zapytań dotyczących danych za pomocą analizy](../log-query/log-query-overview.md). 
 
-Aby monitorować wydajność w przeglądarce, możesz również skonfigurować [testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md) i [dodać kod do stron sieci Web](../../azure-monitor/app/javascript.md).
+Aby monitorować wydajność w przeglądarce, możesz również skonfigurować [testy dostępności](./monitor-web-app-availability.md) i [dodać kod do stron sieci Web](./javascript.md).
 
 W następnych sekcjach omówiono następujące opcje dodatkowe:
 
@@ -51,9 +51,9 @@ Dane telemetryczne z aplikacji są przechowywane, analizowane i wyświetlane w z
 Każdy zasób należy do grupy zasobów. Grupy zasobów służą do zarządzania kosztami, przyznawania dostępu członkom zespołu i wdrażania aktualizacji w ramach jednej skoordynowanej transakcji. Można na przykład [napisać skrypt służący do wdrażania usługi w](../../azure-resource-manager/templates/deploy-powershell.md) chmurze platformy Azure i jej Application Insights wszystkich zasobów monitorowania w ramach jednej operacji.
 
 ### <a name="resources-for-components"></a>Zasoby dla składników
-Zalecamy utworzenie osobnego zasobu dla każdego składnika aplikacji. Oznacza to, że tworzysz zasób dla każdej roli sieci Web i roli procesu roboczego. Każdy składnik można analizować oddzielnie, ale utworzysz [pulpit nawigacyjny](../../azure-monitor/app/overview-dashboard.md) , który łączy kluczowe wykresy ze wszystkich składników, dzięki czemu można je porównywać i monitorować razem w jednym widoku. 
+Zalecamy utworzenie osobnego zasobu dla każdego składnika aplikacji. Oznacza to, że tworzysz zasób dla każdej roli sieci Web i roli procesu roboczego. Każdy składnik można analizować oddzielnie, ale utworzysz [pulpit nawigacyjny](./overview-dashboard.md) , który łączy kluczowe wykresy ze wszystkich składników, dzięki czemu można je porównywać i monitorować razem w jednym widoku. 
 
-Alternatywnym podejściem jest wysyłanie danych telemetrycznych z więcej niż jednej roli do tego samego zasobu, ale [dodanie właściwości wymiaru do każdego elementu telemetrii](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) , który identyfikuje jego rolę źródłową. W tym podejściu wykresy metryk, takie jak wyjątki, zwykle pokazują agregację liczników z różnych ról, ale w razie potrzeby można podzielić wykres na segmenty. Możesz również filtrować wyszukiwania według tego samego wymiaru. Alternatywą jest łatwiejsze wyświetlanie wszystkiego w tym samym czasie, ale może to również prowadzić do pomyłek między rolami.
+Alternatywnym podejściem jest wysyłanie danych telemetrycznych z więcej niż jednej roli do tego samego zasobu, ale [dodanie właściwości wymiaru do każdego elementu telemetrii](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) , który identyfikuje jego rolę źródłową. W tym podejściu wykresy metryk, takie jak wyjątki, zwykle pokazują agregację liczników z różnych ról, ale w razie potrzeby można podzielić wykres na segmenty. Możesz również filtrować wyszukiwania według tego samego wymiaru. Alternatywą jest łatwiejsze wyświetlanie wszystkiego w tym samym czasie, ale może to również prowadzić do pomyłek między rolami.
 
 Telemetria przeglądarki zwykle jest zawarta w tym samym zasobie, co jej rola sieci Web po stronie serwera.
 
@@ -68,7 +68,7 @@ Aby wysłać dane telemetryczne do odpowiednich zasobów, można skonfigurować 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Tworzenie zasobu usługi Application Insights dla każdej roli
 
-Jeśli postanowisz utworzyć oddzielny zasób dla każdej roli i być może jest to osobny zestaw dla każdej konfiguracji kompilacji, najłatwiej ją utworzyć w portalu Application Insights. W przypadku tworzenia zasobów o dużej ilości można [zautomatyzować proces](../../azure-monitor/app/powershell.md).
+Jeśli postanowisz utworzyć oddzielny zasób dla każdej roli i być może jest to osobny zestaw dla każdej konfiguracji kompilacji, najłatwiej ją utworzyć w portalu Application Insights. W przypadku tworzenia zasobów o dużej ilości można [zautomatyzować proces](./powershell.md).
 
 1. W [Azure Portal][portal]wybierz pozycję **nowe**  >  **usługi dla deweloperów**  >  **Application Insights**.  
 
@@ -92,7 +92,7 @@ Jeśli zamierzasz używać osobnego zasobu usługi Application Insights dla każ
 
 Ma to wpływ na wstawianie kluczy Instrumentacji Application Insights do plików o nazwie *ServiceConfiguration. \* cscfg*. Oto [przykładowy kod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-Jeśli chcesz zmienić poziom informacji diagnostycznych wysyłanych do Application Insights, możesz to zrobić, [edytując pliki *. cscfg* bezpośrednio](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Jeśli chcesz zmienić poziom informacji diagnostycznych wysyłanych do Application Insights, możesz to zrobić, [edytując pliki *. cscfg* bezpośrednio](../platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Zainstaluj zestaw SDK w każdym projekcie
 Za pomocą tej opcji można dodać do dowolnej roli niestandardowe telemetrię biznesową. Opcja zapewnia bliższą analizę sposobu używania i wykonywania aplikacji.
@@ -165,7 +165,7 @@ Ten krok jest wymagany tylko wtedy, gdy chcesz przechwytywać pełne zapytania S
 
 1. Otwórz utworzone zasoby Application Insights.
 
-   Poszczególne punkty danych są wyświetlane w obszarze [wyszukiwania][diagnostic], a zagregowane dane są wyświetlane w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md).
+   Poszczególne punkty danych są wyświetlane w obszarze [wyszukiwania][diagnostic], a zagregowane dane są wyświetlane w [Eksploratorze metryk](../platform/metrics-charts.md).
 
 1. Dodaj więcej danych telemetrycznych (Zobacz następne sekcje), a następnie Opublikuj swoją aplikację, aby uzyskać informacje na temat diagnostyki i użycia na żywo. 
 
@@ -184,11 +184,11 @@ Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów][qna].
 * Dzienniki zdarzeń systemu Windows są wyświetlane jako ślady i zdarzenia niestandardowe.
 * Dzienniki aplikacji, dzienniki śledzenia zdarzeń systemu Windows i wszelkie dzienniki infrastruktury diagnostycznej są wyświetlane jako ślady.
 
-Aby wyświetlić liczniki wydajności i liczbę zdarzeń, Otwórz [Eksplorator metryk](../../azure-monitor/platform/metrics-charts.md) i Dodaj następujący wykres:
+Aby wyświetlić liczniki wydajności i liczbę zdarzeń, Otwórz [Eksplorator metryk](../platform/metrics-charts.md) i Dodaj następujący wykres:
 
 ![Diagnostyka Azure dane](./media/cloudservices/23-wad.png)
 
-Aby wyszukiwać w różnych dziennikach śledzenia, które są wysyłane przez Diagnostyka Azure, użyj [wyszukiwania](../../azure-monitor/app/diagnostic-search.md) lub [zapytania analizy](../../azure-monitor/log-query/get-started-portal.md). Załóżmy na przykład, że masz nieobsłużony wyjątek, który spowodował awarię i odtwarzanie roli. Te informacje będą wyświetlane w kanale aplikacji dziennika zdarzeń systemu Windows. Możesz użyć wyszukiwania, aby wyświetlić błąd dziennika zdarzeń systemu Windows i uzyskać pełny ślad stosu dla wyjątku. Dzięki temu można znaleźć główną przyczynę problemu.
+Aby wyszukiwać w różnych dziennikach śledzenia, które są wysyłane przez Diagnostyka Azure, użyj [wyszukiwania](./diagnostic-search.md) lub [zapytania analizy](../log-query/get-started-portal.md). Załóżmy na przykład, że masz nieobsłużony wyjątek, który spowodował awarię i odtwarzanie roli. Te informacje będą wyświetlane w kanale aplikacji dziennika zdarzeń systemu Windows. Możesz użyć wyszukiwania, aby wyświetlić błąd dziennika zdarzeń systemu Windows i uzyskać pełny ślad stosu dla wyjątku. Dzięki temu można znaleźć główną przyczynę problemu.
 
 ![Diagnostyka Azure wyszukiwanie](./media/cloudservices/25-wad.png)
 
@@ -205,7 +205,7 @@ Zobacz dwie przykładowe role procesów roboczych przystosowane do żądań rapo
 * [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Wyjątki
-Aby uzyskać informacje dotyczące sposobu zbierania nieobsłużonych wyjątków z różnych typów aplikacji sieci Web, zobacz [Monitorowanie wyjątków w Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+Aby uzyskać informacje dotyczące sposobu zbierania nieobsłużonych wyjątków z różnych typów aplikacji sieci Web, zobacz [Monitorowanie wyjątków w Application Insights](./asp-net-exceptions.md).
 
 Przykładowa rola sieci Web ma kontrolery MVC5 i Web API 2. Nieobsługiwane wyjątki od tych dwóch są przechwytywane za pomocą następujących programów obsługi:
 
@@ -255,11 +255,11 @@ Aby uzyskać dane telemetryczne oparte na przeglądarce, takie jak liczba wyświ
 Aby upewnić się, że aplikacja pozostaje aktywna i będzie odpowiadać, [Skonfiguruj testy sieci Web][availability].
 
 ## <a name="display-everything-together"></a>Wyświetlanie wszystkich elementów razem
-Aby zapoznać się z ogólnym obrazem systemu, można wyświetlić wykresy monitorowania kluczy razem na jednym [pulpicie nawigacyjnym](../../azure-monitor/app/overview-dashboard.md). Na przykład możesz przypiąć liczbę żądań i awarii poszczególnych ról. 
+Aby zapoznać się z ogólnym obrazem systemu, można wyświetlić wykresy monitorowania kluczy razem na jednym [pulpicie nawigacyjnym](./overview-dashboard.md). Na przykład możesz przypiąć liczbę żądań i awarii poszczególnych ról. 
 
 Jeśli system używa innych usług platformy Azure, takich jak Stream Analytics, należy również uwzględnić ich wykresy monitorowania. 
 
-Jeśli masz klienta aplikacji mobilnej, użyj pakietu [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Utwórz zapytania w pozycji [Analiza](../log-query/log-query-overview.md), aby wyświetlić liczby zdarzeń i przypiąć je do pulpitu nawigacyjnego.
+Jeśli masz klienta aplikacji mobilnej, użyj pakietu [App Center](../learn/mobile-center-quickstart.md). Utwórz zapytania w pozycji [Analiza](../log-query/log-query-overview.md), aby wyświetlić liczby zdarzeń i przypiąć je do pulpitu nawigacyjnego.
 
 ## <a name="example"></a>Przykład
 [Przykład](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitoruje usługę mającą rolę sieci Web i dwie role procesów roboczych.
@@ -272,18 +272,19 @@ Czy to kompilacja dla .NET 4.6? Platforma .NET 4,6 nie jest automatycznie obsłu
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Następne kroki
-* [Konfigurowanie wysyłania usługi Diagnostyka Azure do usługi Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automatycznie twórz zasoby Application Insights](../../azure-monitor/app/powershell.md)
-* [Automatyzacja Diagnostyka Azure](../../azure-monitor/app/powershell-azure-diagnostics.md)
+* [Konfigurowanie wysyłania usługi Diagnostyka Azure do usługi Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Automatycznie twórz zasoby Application Insights](./powershell.md)
+* [Automatyzacja Diagnostyka Azure](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../azure-monitor/app/app-insights-overview.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[api]: ./api-custom-events-metrics.md
+[availability]: ./monitor-web-app-availability.md
+[azure]: ./app-insights-overview.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

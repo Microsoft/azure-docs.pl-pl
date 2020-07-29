@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539333"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318321"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w Log Analytics i Application Insights
 
@@ -48,7 +48,7 @@ Log Analytics to elastyczny magazyn, który jednocześnie określa schemat dla d
     ```
   Pamiętaj, aby wyszukać nie tylko dla użytkowników, których nazwy są czytelne, ale także identyfikatory GUID, które mogą być bezpośrednio wyśledzone przez określonego użytkownika.
 * *Identyfikatory urządzeń*: takie jak identyfikatory użytkowników, identyfikatory urządzeń są czasami uznawane za prywatne. Użyj takiego samego podejścia jak wymienione powyżej dla identyfikatorów użytkowników, aby identyfikować tabele, w których może to być problem. 
-* *Dane niestandardowe*: log Analytics zezwala na zbieranie w różnych metodach: dzienniki niestandardowe i pola niestandardowe, [interfejs API modułu zbierającego dane http](../../azure-monitor/platform/data-collector-api.md) oraz dane niestandardowe zbierane w ramach dzienników zdarzeń systemu. Wszystkie z nich są podatne na dane prywatne i powinny być zbadane w celu sprawdzenia, czy istnieją takie dane.
+* *Dane niestandardowe*: log Analytics zezwala na zbieranie w różnych metodach: dzienniki niestandardowe i pola niestandardowe, [interfejs API modułu zbierającego dane http](./data-collector-api.md) oraz dane niestandardowe zbierane w ramach dzienników zdarzeń systemu. Wszystkie z nich są podatne na dane prywatne i powinny być zbadane w celu sprawdzenia, czy istnieją takie dane.
 * *Dane przechwycone przez rozwiązanie*: ponieważ mechanizm rozwiązania jest otwartym zakończono, zalecamy przejrzenie wszystkich tabel generowanych przez rozwiązania w celu zapewnienia zgodności.
 
 ### <a name="application-data"></a>Dane aplikacji
@@ -124,5 +124,6 @@ Po przypisaniu roli Azure Resource Manager dostępne są dwie nowe ścieżki int
 >  Chociaż większość operacji przeczyszczania może zakończyć się znacznie szybciej niż umowa SLA, ze względu na ich duży wpływ na platformę danych używaną przez Application Insights, **formalna umowa SLA dla ukończenia operacji przeczyszczania jest ustawiana na 30 dni**.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby dowiedzieć się więcej o tym, jak Log Analytics dane są zbierane, przetwarzane i zabezpieczone, zobacz [log Analytics zabezpieczenia danych](../../azure-monitor/platform/data-security.md).
-- Aby dowiedzieć się więcej o tym, jak Application Insights dane są zbierane, przetwarzane i zabezpieczone, zobacz [Application Insights zabezpieczenia danych](../../azure-monitor/app/data-retention-privacy.md).
+- Aby dowiedzieć się więcej o tym, jak Log Analytics dane są zbierane, przetwarzane i zabezpieczone, zobacz [log Analytics zabezpieczenia danych](./data-security.md).
+- Aby dowiedzieć się więcej o tym, jak Application Insights dane są zbierane, przetwarzane i zabezpieczone, zobacz [Application Insights zabezpieczenia danych](../app/data-retention-privacy.md).
+

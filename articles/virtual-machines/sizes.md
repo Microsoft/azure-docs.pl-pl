@@ -4,16 +4,16 @@ description: Wyświetla różne rozmiary dostępne dla maszyn wirtualnych na pla
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 04f139e7e747d2c0566ffada9e080bf4abb1ac86
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: f6ed5fee8e6d4f1f0575df733b8b95d1d6990513
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171676"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289699"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych na platformie Azure
 

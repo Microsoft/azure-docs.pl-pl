@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754282"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278628"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Content Delivery Network
 
@@ -45,7 +45,7 @@ Aplikacja sieci Web hostowana na Azure CDN może mieć tylko jedną zasadę WAF 
 
 Zasady WAF można skonfigurować tak, aby były uruchamiane w następujących dwóch trybach:
 
-- *Tryb wykrywania*: w przypadku uruchamiania w trybie wykrywania WAF nie przyjmuje żadnych innych akcji innych niż monitory i rejestruje żądanie i dopasowaną regułę WAF do dzienników WAF. Można włączyć diagnostykę rejestrowania dla drzwi z przodu. W przypadku korzystania z portalu przejdź do sekcji **Diagnostyka** .
+- *Tryb wykrywania*: w przypadku uruchamiania w trybie wykrywania WAF nie przyjmuje żadnych innych akcji innych niż monitory i rejestruje żądanie i dopasowaną regułę WAF do dzienników WAF. Można włączyć diagnostykę rejestrowania dla sieci CDN. W przypadku korzystania z portalu przejdź do sekcji **Diagnostyka** .
 
 - *Tryb zapobiegania*: w trybie zapobiegania, WAF wykonuje określoną akcję, jeśli żądanie jest zgodne z regułą. W przypadku znalezienia dopasowania nie są oceniane dalsze reguły o niższym priorytecie. Wszystkie dopasowane żądania są również rejestrowane w dziennikach WAF.
 
@@ -104,7 +104,7 @@ Domyślny zestaw reguł jest domyślnie włączony w trybie *wykrywania* w zasad
 
 Reguły niestandardowe są zawsze stosowane przed oceną reguł w domyślnym zestawie reguł. Jeśli żądanie jest zgodne z regułą niestandardową, zostanie zastosowana odpowiednia akcja reguły. Żądanie jest blokowane lub przenoszone do zaplecza. Nie są przetwarzane żadne inne reguły niestandardowe lub reguły w domyślnym zestawie reguł. Można również usunąć domyślny zestaw reguł z zasad WAFymi.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

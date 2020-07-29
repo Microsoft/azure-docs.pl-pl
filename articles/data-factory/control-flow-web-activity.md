@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017668"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280804"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Aktywność sieci Web w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +25,7 @@ ms.locfileid: "84017668"
 Działanie WebActivity może być używane do wywoływania niestandardowego punktu końcowego REST z potoku usługi Data Factory. Można przekazywać zestawy danych i połączone usługi do zużycia i dostępu przez działanie.
 
 > [!NOTE]
-> Działanie sieci Web może wywoływać tylko publicznie uwidocznione adresy URL. Nie jest obsługiwana w przypadku adresów URL hostowanych w prywatnej sieci wirtualnej.
+> Działanie sieci Web jest obsługiwane w przypadku wywoływania adresów URL, które są hostowane w prywatnej sieci wirtualnej, a także przy użyciu własnego środowiska Integration Runtime. Środowisko Integration Runtime powinno mieć wiersz informacji o punkcie końcowym adresu URL. 
 
 ## <a name="syntax"></a>Składnia
 
@@ -35,6 +36,10 @@ Działanie WebActivity może być używane do wywoływania niestandardowego punk
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -76,6 +81,7 @@ body | Reprezentuje ładunek, który jest wysyłany do punktu końcowego.  | Ci�
 uwierzytelnianie | Metoda uwierzytelniania używana do wywoływania punktu końcowego. Obsługiwane typy to "podstawowa" lub "ClientCertificate". Aby uzyskać więcej informacji, zobacz sekcję [uwierzytelnianie](#authentication) . Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie
 zestawy danych | Lista zestawów danych przeniesiona do punktu końcowego. | Tablica odwołań do zestawu danych. Może być pustą tablicą. | Tak
 linkedServices | Lista połączonych usług przeniesiona do punktu końcowego. | Tablica odwołań do połączonych usług. Może być pustą tablicą. | Tak
+Właściwością connectvia | [Środowisko Integration Runtime](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. | Dokumentacja Integration Runtime. | Nie 
 
 > [!NOTE]
 > Punkty końcowe REST, które wywołuje działanie sieci Web, muszą zwracać odpowiedź typu JSON. Działanie zostanie przekroczenie limitu czasu na 1 minutę z błędem, jeśli nie otrzyma odpowiedzi z punktu końcowego.

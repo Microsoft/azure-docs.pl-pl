@@ -4,15 +4,15 @@ description: Transferowanie danych za pomocą AzCopy i magazynu plików.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527884"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292720"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików 
 
@@ -53,8 +53,8 @@ Ta sekcja zawiera następujące przykłady:
 > |---|---|
 > |Kopiuj listy kontroli dostępu (ACL) wraz z plikami.|**--Preserve-SMB-uprawnienia** = \[ prawda \| Fałsz\]|
 > |Skopiuj informacje o właściwościach protokołu SMB wraz z plikami.|**--Preserve-SMB-info** = \[ prawda \| Fałsz\]|
-> |Przekazywanie plików jako dołączanie obiektów blob lub stronicowych obiektów BLOB.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
-> |Przekaż do określonej warstwy dostępu (na przykład warstwy archiwum).|**--Block-BLOB-warstw** = \[ Brak \| aktywnego \| archiwum chłodnego \|\]|
+> |Przekaż pliki jako uzupełnialne lub stronicowe obiekty blob.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Przekaż dane do określonej warstwy dostępu (na przykład warstwy Archiwum).|**--Block-BLOB-warstw** = \[ Brak \| aktywnego \| archiwum chłodnego \|\]|
 > 
 > Aby uzyskać pełną listę, zobacz [Opcje](storage-ref-azcopy-copy.md#options).
 
@@ -101,7 +101,7 @@ Zawartość katalogu można przekazać bez kopiowania samego katalogu zawierają
 
 ### <a name="upload-specific-files"></a>Przekazywanie określonych plików
 
-Możesz określić pełne nazwy plików lub użyć częściowych nazw z symbolami wieloznacznymi (*).
+Można przekazać określone pliki przy użyciu pełnych nazw plików, częściowych nazw z symbolami wieloznacznymi (*) lub przy użyciu dat i godzin.
 
 #### <a name="specify-multiple-complete-file-names"></a>Określ wiele pełnych nazw plików
 
@@ -128,6 +128,17 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` 
 Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby dowiedzieć się więcej, zobacz [AzCopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw plików, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe, które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Przekaż pliki, które zostały zmodyfikowane po dacie i godzinie 
+
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO 8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Składnia** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Przykład** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
 
 ## <a name="download-files"></a>Pobieranie plików
 
@@ -185,7 +196,7 @@ Zawartość katalogu można pobrać bez kopiowania samego katalogu zawierająceg
 
 ### <a name="download-specific-files"></a>Pobieranie określonych plików
 
-Możesz określić pełne nazwy plików lub użyć częściowych nazw z symbolami wieloznacznymi (*).
+Określone pliki można pobrać przy użyciu pełnych nazw plików, częściowych nazw z symbolami wieloznacznymi (*) lub przy użyciu dat i godzin.
 
 #### <a name="specify-multiple-complete-file-names"></a>Określ wiele pełnych nazw plików
 
@@ -212,6 +223,18 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` 
 Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby dowiedzieć się więcej, zobacz [AzCopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 `--include-pattern`Opcje i są `--exclude-pattern` stosowane tylko do nazw plików, a nie do ścieżki.  Jeśli chcesz skopiować wszystkie pliki tekstowe, które istnieją w drzewie katalogów, użyj `–recursive` opcji, aby pobrać całe drzewo katalogów, a następnie użyj `–include-pattern` i określ, `*.txt` Aby pobrać wszystkie pliki tekstowe.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Pobierz pliki, które zostały zmodyfikowane po dacie i godzinie 
+
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` opcją. Określ datę i godzinę w formacie ISO-8601 (na przykład: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Składnia** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Przykład** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
 
 ## <a name="copy-files-between-storage-accounts"></a>kopiować pliki między kontami magazynu;
 

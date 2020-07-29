@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495344"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289898"
 ---
 ### <a name="property-limits"></a>Limity właściwości
 
@@ -33,7 +33,7 @@ Obsługiwane są maksymalnie dwa źródła zdarzeń na wystąpienie.
 * Dowiedz się, jak [dodać Źródło centrum zdarzeń](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Skonfiguruj [Źródło Centrum IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Domyślnie [środowiska Gen2 obsługują stawki](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) za transfer danych przychodzących do **1 megabajtów na sekundę (MB/s) na środowisko**. W razie potrzeby klienci mogą skalować swoje środowiska do **16 MB/s** . Istnieje również limit partycji wynoszący **0,5 MB/s**.
+Domyślnie [środowiska Gen2 obsługują stawki](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) za transfer danych przychodzących do **1 megabajtów na sekundę (MB/s) na środowisko**. W razie potrzeby klienci mogą skalować swoje środowiska do **16 MB/s** . Istnieje również limit partycji wynoszący **0,5 MB/s**.
 
 ### <a name="api-limits"></a>Limity interfejsu API
 

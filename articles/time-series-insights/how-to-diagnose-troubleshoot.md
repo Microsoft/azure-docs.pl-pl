@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099562"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289930"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska Azure Time Series Insights Gen2
 
@@ -121,7 +121,7 @@ Jeśli właściwość sygnatury czasowej nie zostanie określona jawnie, jako do
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problem: wszystkie moje wystąpienia w Eksploratorze Gen2 nie mają elementu nadrzędnego
 
-Ten problem może wystąpić, jeśli środowisko nie ma zdefiniowanej hierarchii modelu czasu szeregów czasowych. Aby uzyskać więcej informacji, zapoznaj się z tematem jak [korzystać z modeli szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+Ten problem może wystąpić, jeśli środowisko nie ma zdefiniowanej hierarchii modelu czasu szeregów czasowych. Aby uzyskać więcej informacji, zapoznaj się z tematem jak [korzystać z modeli szeregów czasowych](/azure/time-series-insights/time-series-insights-overview).
 
   [![W wystąpieniach nienadrzędnych zostanie wyświetlone ostrzeżenie.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Ten problem może wystąpić, jeśli nie używasz najnowszej wersji łącznika P
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj, jak [korzystać z modeli szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+- Przeczytaj, jak [korzystać z modeli szeregów czasowych](/azure/time-series-insights/time-series-insights-overview).
 
 - Poznaj [obsługiwane kształty JSON](./how-to-shape-query-json.md).
 

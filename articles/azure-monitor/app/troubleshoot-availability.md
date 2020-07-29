@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318151"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -81,7 +81,7 @@ Błąd „Naruszenie protokołu (...) Po CR musi występować LF” oznacza prob
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Nie widzę żadnej powiązanej telemetrii po stronie serwera w celu zdiagnozowania niepowodzeń testów? *
 
-Jeśli usługa Application Insights została skonfigurowana dla aplikacji po stronie serwera, może to być spowodowane trwaniem [próbkowania](../../azure-monitor/app/sampling.md). Wybierz inny wynik dostępności.
+Jeśli usługa Application Insights została skonfigurowana dla aplikacji po stronie serwera, może to być spowodowane trwaniem [próbkowania](./sampling.md). Wybierz inny wynik dostępności.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Czy mogę wywołać kod z mojego testu sieci Web?
 
@@ -96,7 +96,7 @@ Te dwa terminy mogą być używane zamiennie. Testy dostępności to bardziej og
 
    Istnieją dwa możliwe rozwiązania:
 
-   * Skonfiguruj zaporę, aby zezwolić na żądania przychodzące z [adresów IP naszych agentów testów sieci Web](../../azure-monitor/app/ip-addresses.md).
+   * Skonfiguruj zaporę, aby zezwolić na żądania przychodzące z [adresów IP naszych agentów testów sieci Web](./ip-addresses.md).
    * Napisz własny kod do okresowego testowania wewnętrznego serwera. Uruchom kod jako proces w tle na serwerze testowym za zaporą. Proces testowania może wysyłać wyniki do usługi Application Insights za pomocą interfejsu API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) w podstawowym zestawie SDK. Wymaga to, aby serwer testowy miał dostęp do połączeń wychodzących punktu końcowego pozyskiwania usługi Application Insights, ale stanowi to dużo mniejsze zagrożenie bezpieczeństwa niż alternatywne dopuszczenie żądań przychodzących. Wyniki pojawią się w blokach testów dostępności sieci Web, ale środowisko zostanie nieco uproszczone od tego, co jest dostępne dla testów utworzonych za pośrednictwem portalu. Niestandardowe testy dostępności będą również wyświetlane jako wyniki dostępności w obszarze Analiza, wyszukiwanie i metryki.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Przekazywanie wieloetapowego testu sieci web kończy się niepowodzeniem.
@@ -134,3 +134,4 @@ Jeśli musisz powiadomić użytkowników na podstawie ich ról, Użyj nowego śr
 
 * [Wieloetapowe testowanie sieci Web](availability-multistep.md)
 * [Testy ping adresu URL](monitor-web-app-availability.md)
+

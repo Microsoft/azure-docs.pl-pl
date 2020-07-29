@@ -5,16 +5,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012097"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317733"
 ---
 # <a name="create-a-saas-offer"></a>Tworzenie oferty SaaS
 
 Aby rozpocząć tworzenie ofert oprogramowania jako usługi (SaaS) w komercyjnej witrynie Marketplace, upewnij się, że najpierw [utworzysz konto Centrum partnerskiego](./create-account.md) i otworzysz [komercyjny pulpit nawigacyjny Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)z wybraną kartą **Przegląd** .
+
+> [!NOTE]
+> W przypadku tworzenia oferty SaaS z funkcją transacting upewnij się, że wdrożono integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-apis.md).  Integracja z interfejsami API jest jedynym sposobem zapewnienia poprawnego działania transactu w portalu Marketplace. Należy również upewnić się, że aplikacja używa uwierzytelniania usługi Azure AD z logowaniem jednokrotnym (SSO). Zobacz [oferty usługi Azure AD i transacting SaaS w komercyjnej witrynie Marketplace](../azure-ad-saas.md).
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
@@ -40,10 +45,6 @@ Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partners
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
 - Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
 
-<!---
-![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
--->
-
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-overview"></a>Przegląd oferty
@@ -62,8 +63,8 @@ Menu **Przegląd oferty** zawiera listę linków do wykonywania operacji na tej 
 Na tej stronie zażądano następujących informacji.
 
 - **Czy chcesz sprzedawać w firmie Microsoft?** (Tak/nie)
-    - **Tak**, chcę sprzedawać w firmie Microsoft i mieć transakcje hosta Microsoft w moim imieniu
-    - **Nie**, wolisz tylko wystawić moją ofertę za pomocą portalu Marketplace i niezależnie od transakcji procesów.
+  - **Tak**, chcę sprzedawać w firmie Microsoft i mieć transakcje hosta Microsoft w moim imieniu
+  - **Nie**, wolisz tylko wystawić moją ofertę za pomocą portalu Marketplace i niezależnie od transakcji procesów.
 
 ### <a name="sell-through-microsoft"></a>Sprzedawanie przez firmę Microsoft
 
@@ -102,8 +103,6 @@ Jest to przykładowy podział kosztów i wypłaty do zademonstrowania modelu age
 
 Promuj swoją firmę firmie Microsoft, tworząc listę Marketplace. Wybranie do wyświetlania listy tylko oferty, a nie w firmie Microsoft oznacza, że firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie. Nie ma żadnej powiązanej opłaty za transakcje, a wydawca utrzymuje 100% wszelkich opłat za Licencjonowanie oprogramowania zebranych od klienta. Jednak Wydawca jest odpowiedzialny za obsługę wszystkich aspektów transakcji związanych z licencją na oprogramowanie, w tym między innymi w kolejności realizacji, pomiaru, rozliczeń, fakturowania, płatności i kolekcji.
 
-<!-- - **How do you want potential customers to interact with this listing offer?** -->
-
 #### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
 
 Wystaw swoją ofertę bezpłatnie klientom, podając prawidłowy adres (Zaczynając od *protokołu HTTP* lub *https*), w którym można uzyskać próbkę uwierzytelniania za pomocą [jednego kliknięcia przy użyciu Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Na przykład `https://contoso.com/saas-app`.
@@ -120,8 +119,6 @@ Utwórz listę ofert dla klientów z linkiem do bezpłatnej wersji próbnej, pod
 Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i źródłem witryny Marketplace, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Aby uzyskać więcej informacji o konfigurowaniu programu CRM, zobacz [Customer potencjalni klienci](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Przykładowa lista ofert platformy handlowej
-
-<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
 
 Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource:
 
@@ -278,19 +275,19 @@ To pole jest wymagane.
 
 - **Kontakty** — dla każdego kontaktu z klientem Podaj **nazwisko**pracownika, **numer telefonu**i adres **e-mail** ( *nie będą* one wyświetlane publicznie). Dla grupy **kontaktów pomocy technicznej** wymagany jest **adres URL pomocy technicznej** ( *zostanie* on wyświetlony publicznie).
 
-    - **Kontakt z pomocą techniczną** (wymagany) — w przypadku ogólnych pytań.
-    - **Kontakt inżynieryjny** (wymagany) — w przypadku pytań technicznych.
-    - **Kontakt z menedżerem kanału** (wymagany) — w przypadku pytań odsprzedawców związanych z programem CSP.
+  - **Kontakt z pomocą techniczną** (wymagany) — w przypadku ogólnych pytań.
+  - **Kontakt inżynieryjny** (wymagany) — w przypadku pytań technicznych.
+  - **Kontakt z menedżerem kanału** (wymagany) — w przypadku pytań odsprzedawców związanych z programem CSP.
 
 #### <a name="files-and-images"></a>Pliki i obrazy
 
 - **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF — co najmniej jeden i maksymalnie trzy dokumenty na ofertę.
 - **Obrazy** (opcjonalnie) — istnieje wiele miejsc, w których obrazy logo oferty mogą pojawić się w całej witrynie Marketplace, wymagając następujących rozmiarów pikseli w formacie PNG:
 
-    - **Mały** (48 x 48, wymagane)
-    - **Średni** (90 x 90, wymagane)
-    - **Duże** (216 x 216, wymagane)
-    - **Szeroki** (255 x 115)
+  - **Mały** (48 x 48, wymagane)
+  - **Średni** (90 x 90, wymagane)
+  - **Duże** (216 x 216, wymagane)
+  - **Szeroki** (255 x 115)
 
 - **Zrzuty ekranu** (wymagane) — Dodaj maksymalnie pięć zrzutów ekranu pokazujących Twoją ofertę o rozmiarze 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
 - **Wideo** (opcjonalnie) — umożliwia dodanie linków do filmów wideo pokazujących Twoją ofertę. Możesz używać linków do filmów wideo w usłudze YouTube i/lub Vimeo, które są wyświetlane wraz z ofertą dla klientów. Należy również wprowadzić obraz miniatury wideo o rozmiarach do 1280 x 720 pikseli w formacie PNG. Możesz wyświetlić maksymalnie cztery wideo dla każdej oferty.
@@ -322,32 +319,32 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Karta **konfiguracja techniczna** zawiera szczegółowe informacje techniczne używane przez platformę Marketplace do komunikowania się z usługą SaaS. To połączenie umożliwia nam zainicjowanie oferty dla klienta końcowego, jeśli zdecyduje się ją nabyć i zarządzać. 
+Karta **konfiguracja techniczna** zawiera szczegółowe informacje techniczne używane przez platformę Marketplace do komunikowania się z usługą SaaS. To połączenie umożliwia nam zainicjowanie oferty dla klienta końcowego, jeśli zdecyduje się ją nabyć i zarządzać.
 
->[!Note]
->Należy zaimplementować integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-api-v2.md) przed skonfigurowaniem tych szczegółów w szczegółach oferty.
+>[!NOTE]
+>Należy zaimplementować integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-api-v2.md) przed skonfigurowaniem tych szczegółów w szczegółach oferty. Musisz również utworzyć stronę docelową, a Twoja aplikacja musi używać uwierzytelniania usługi Azure AD z logowaniem jednokrotnym (SSO). Aby uzyskać więcej informacji, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](../azure-ad-saas.md).
 
 Diagramy i szczegółowe wyjaśnienia opisujące użycie zebranych pól są dostępne w dokumentacji dotyczącej [interfejsów API](./pc-saas-fulfillment-api-v2.md).
 
 - **Adres URL strony docelowej** (wymagane) — Zdefiniuj adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), z której będą mogli skorzystać klienci końcowi, po uzyskaniu oferty z portalu Marketplace i wyzwoleniu procesu konfiguracji od nowo utworzonej subskrypcji SaaS.  Ten adres URL zostanie wywołany za pomocą parametru tokena identyfikacji zakupu w portalu Marketplace, który jednoznacznie identyfikuje określony zakup klienta końcowego SaaS.  Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą interfejsu API [rozpoznawania](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) .  Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta końcowego i aktywowania zakupu.  Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD). <br> <br> Ten adres URL z parametrem tokena identyfikacji zakupu w witrynie Marketplace zostanie również wywołany, gdy klient końcowy uruchomi środowisko zarządzane SaaS z poziomu Centrum administracyjnego usługi Azure Portal lub M365. Należy obsługiwać oba przepływy, gdy token jest dostarczany po raz pierwszy po zakupie dla nowych klientów i gdy jest on dostarczany dla istniejącego klienta zarządzającego SaaS. <br> <br> Strona docelowa skonfigurowana w tym miejscu powinna mieć wartość uruchomiona 24/7. Jest to jedyny sposób, w jaki otrzymasz powiadomienie o nowych zakupach ofert SaaS w portalu Marketplace lub żądaniach konfiguracji aktywnej subskrypcji oferty.
 
-- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych, które firma Microsoft musi wysłać do Ciebie (na przykład subskrypcja SaaS została anulowana), wymagane jest podanie adresu URL elementu webhook połączenia. Wywołamy ten adres URL, aby powiadomić Cię o zdarzeniu. <br> <br> Ten element webhook powinien działać w trybie 24/7, ponieważ jest to jedyny sposób powiadomienia o aktualizacjach subskrypcji SaaS klientów zakupionych za pośrednictwem portalu Marketplace. Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład `https://prod-1westus.logic.azure.com:443/work` ). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](../../logic-apps/logic-apps-http-endpoint.md).
+- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych, które firma Microsoft musi wysłać do Ciebie (na przykład subskrypcja SaaS została anulowana), wymagane jest podanie adresu URL elementu webhook połączenia. Wywołamy ten adres URL, aby powiadomić Cię o zdarzeniu. <br> <br> Ten element webhook powinien działać w trybie 24/7, ponieważ jest to jedyny sposób powiadomienia o aktualizacjach subskrypcji SaaS klientów zakupionych za pośrednictwem portalu Marketplace.  Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład `https://prod-1westus.logic.azure.com:443/work` ). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](../../logic-apps/logic-apps-http-endpoint.md).
 
 - **Identyfikator dzierżawy usługi Azure AD** (wymagany) — w ramach Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **Identyfikator aplikacji usługi Azure AD** (wymagany) — potrzebny jest również [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Aby uzyskać jego wartość, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
->[!Note]
->Identyfikator aplikacji usługi Azure AD jest skojarzony z IDENTYFIKATORem wydawcy na koncie Centrum partnerskiego. Upewnij się, że używasz tego samego identyfikatora aplikacji we wszystkich ofertach.
+>[!NOTE]
+>Identyfikator aplikacji usługi Azure AD jest skojarzony z IDENTYFIKATORem wydawcy na koncie Centrum partnerskiego.  Upewnij się, że ten sam identyfikator aplikacji jest używany we wszystkich ofertach.
 
->[!Note]
+>[!NOTE]
 >Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, należy użyć co najmniej dwóch identyfikatorów aplikacji usługi Azure AD, z których każde będzie miało konto. Każde konto partnera w centrum partnerskim musi używać unikatowego identyfikatora aplikacji usługi Azure AD dla wszystkich ofert SaaS opublikowanych za pośrednictwem tego konta.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="plan-overview"></a>Przegląd planu
 
-Ta strona umożliwia udostępnianie różnych opcji planu w ramach tej samej oferty. Plany te (dawniej nazywane jednostkami SKU) mogą różnić się od wersji, zysków lub warstw usługi. Musisz skonfigurować co najmniej jeden plan do sprzedaży oferty w portalu Marketplace.
+Ta strona umożliwia udostępnianie różnych opcji planu w ramach tej samej oferty. Plany te (czasami określane jako jednostki SKU) mogą różnić się w odniesieniu do wersji, zysków lub warstw usługi. Musisz skonfigurować co najmniej jeden plan, aby sprzedawać swoją ofertę w portalu Marketplace.
 
 Po utworzeniu zobaczysz nazwy planu, identyfikatory, modele cen, dostępność (publiczna lub prywatna), bieżący stan publikowania i wszystkie dostępne akcje.
 
@@ -380,7 +377,7 @@ Ta strona umożliwia skonfigurowanie rynków, w których ten plan będzie dostę
 
 #### <a name="markets-optional"></a>Rynki (opcjonalnie)
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Wybierz pozycję **Edytuj rynki** i zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Ta strona zawiera pole wyszukiwania i opcję wybierania ["krajów/regionów](tax-details-paid-transactions.md)", w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu.
+Każdy plan musi być dostępny na co najmniej jednym rynku. Wybierz pozycję **Edytuj rynki** i zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Ta strona zawiera pole wyszukiwania i opcję wybierania "krajów/regionów", w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu.
 
 Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Przed opublikowaniem zapoznaj się z cenami poszczególnych rynków. Zapoznaj się z cennikiem przy użyciu linku "Eksport cen (xlsx)" po zapisaniu zmian.
 
@@ -436,7 +433,7 @@ Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą
 
 Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów dzierżaw usługi Azure AD.
 
-##### <a name="privacy"></a>Prywatność
+##### <a name="privacy"></a>Ochrona prywatności
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostawać widoczny dla wszystkich (nie może zostać ponownie skonfigurowany jako plan prywatny).
 
@@ -462,8 +459,6 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 1. Nazwa planu
 2. Opis planu
 
-<br>
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Odbiorcy dostawcy rozwiązań w chmurze (CSP)
 
 Wybranie oferty w programie CSP pozwala dostawcom rozwiązań w chmurze sprzedawać produkt w ramach rozwiązania do swoich klientów. Aby uzyskać więcej informacji, zobacz [dostawcy rozwiązań w chmurze](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -477,12 +472,12 @@ Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj
 Jeśli ta oferta jest publikowana po raz pierwszy, możesz:
 
 - Zobacz stan ukończenia dla każdej sekcji oferty.
-    - **Nie uruchomiono** — sekcja nie została dotknięcia i należy ją ukończyć.
-    - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Musisz wrócić do sekcji i zaktualizować ją.
-    - **Ukończono** — sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
+  - **Nie uruchomiono** — sekcja nie została dotknięcia i należy ją ukończyć.
+  - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Musisz wrócić do sekcji i zaktualizować ją.
+  - **Ukończono** — sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - Podaj instrukcje testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja jest poprawnie przetestowana, a także dowolnych dodatkowych notatek przydatnych w zrozumieniu swojej aplikacji.
 - Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę na publiczną (lub w przypadku prywatnej oferty do odbiorców prywatnych).
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
 - [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](./update-existing-offer.md)

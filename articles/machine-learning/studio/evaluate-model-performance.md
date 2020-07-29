@@ -1,6 +1,5 @@
 ---
-title: Oceń & modelami weryfikacji krzyżowej
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Oceń & modele weryfikacji krzyżowej — Azure'
 description: Informacje o metrykach, których można użyć do monitorowania wydajności modelu w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2308b57859a7f8eb0aa6519246fbb52ffdf9e81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945107"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318644"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Oceń wydajność modelu w Azure Machine Learning Studio (klasyczny)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 Ten artykuł zawiera informacje na temat metryk, których można użyć do monitorowania wydajności modelu w Azure Machine Learning Studio (klasyczny).  Ocenianie wydajności modelu jest jednym z podstawowych etapów procesu analizy danych. Wskazuje, jak pomyślne ocenianie (przewidywania) zestawu danych zostało przeprowadzone przez szkolony model. Azure Machine Learning Studio (klasyczny) obsługuje Obliczanie modelu przez dwa z głównych modułów uczenia maszynowego: 
 + [Ocena modelu][evaluate-model] 

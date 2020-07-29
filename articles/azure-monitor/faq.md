@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318117"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -394,7 +394,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 
@@ -655,7 +655,7 @@ Zapoznaj się z [wymaganiami dotyczącymi zapory sieciowej](insights/container-i
 Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor dla maszyn wirtualnych. Jeśli masz dodatkowe pytania dotyczące rozwiązania, przejdź do [forum dyskusyjnego](https://feedback.azure.com/forums/34192--general-feedback) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>Czy mogę dołączyć do istniejącego obszaru roboczego?
-Jeśli Twoje maszyny wirtualne są już połączone z obszarem roboczym Log Analytics, można nadal korzystać z tego obszaru roboczego podczas dołączania do Azure Monitor dla maszyn wirtualnych, pod warunkiem, że znajduje się on w jednym z obsługiwanych regionów wymienionych w [tym miejscu](insights/vminsights-enable-overview.md#prerequisites).
+Jeśli Twoje maszyny wirtualne są już połączone z obszarem roboczym Log Analytics, można nadal korzystać z tego obszaru roboczego podczas dołączania do Azure Monitor dla maszyn wirtualnych, pod warunkiem, że znajduje się on w jednym z [obsługiwanych regionów](insights/vminsights-configure-workspace.md#supported-regions).
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Czy mogę dołączyć do nowego obszaru roboczego? 

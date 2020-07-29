@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081478"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315449"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -19,7 +19,7 @@ Log Analytics obszary robocze w Azure Monitor mogą pomóc zarządzanym dostawco
 
 Duże przedsiębiorstwa współużytkują wiele podobieństw z dostawcami usług, szczególnie w przypadku scentralizowanego zespołu IT, który jest odpowiedzialny za zarządzanie nim dla wielu różnych jednostek roboczych. Dla uproszczenia w tym dokumencie jest stosowany *dostawca usług* , ale te same funkcje są również dostępne dla przedsiębiorstw i innych klientów.
 
-W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
+W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/membership/cloud-solution-provider) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
 
 Log Analytics w Azure Monitor może być również używany przez dostawcę usług do zarządzania zasobami klienta za pomocą funkcji zarządzania zasobami delegowanymi platformy Azure w [usłudze Azure Lighthouse](../../lighthouse/overview.md).
 
@@ -36,7 +36,7 @@ W tej architekturze obszar roboczy jest wdrażany w dzierżawie klienta, który 
 Istnieją dwa sposoby, które Administratorzy dostawcy usług mogą uzyskać dostęp do obszaru roboczego Log Analytics w dzierżawie klienta:
 
 - Klient może dodawać poszczególnych użytkowników od usługodawcy jako [Azure Active Directory użytkowników-Gości (B2B)](../../active-directory/b2b/what-is-b2b.md). Administratorzy dostawcy usług będą musieli zalogować się do katalogu każdego klienta w Azure Portal, aby mogli uzyskać dostęp do tych obszarów roboczych. Wymaga to również od klientów zarządzania indywidualnym dostępem każdego administratora dostawcy usług.
-- Aby zapewnić lepszą skalowalność i elastyczność, dostawcy usług mogą korzystać z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) [Lighthouse na platformie Azure](../../lighthouse/overview.md) w celu uzyskania dostępu do dzierżawy klienta. Ta metoda polega na tym, że Administratorzy dostawcy usług są włączeni do grupy użytkowników usługi Azure AD w dzierżawie dostawcy usług, a podczas procesu dołączania dla każdego klienta zostaje udzielony dostęp do tej grupy. Ci Administratorzy mogą następnie uzyskiwać dostęp do obszarów roboczych każdego klienta z własnej dzierżawy usługodawcy, zamiast logować się do każdej dzierżawy każdego klienta osobno. W ten sposób uzyskuje się dostęp do zasobów obszarów roboczych Log Analytics w ten sposób, co zmniejsza pracę wymaganą przez klienta i może ułatwić zbieranie i analizowanie danych przez wielu klientów zarządzanych przez tego samego dostawcę usług za pośrednictwem takich narzędzi, jak [Azure monitor skoroszytów](../..//azure-monitor/platform/workbooks-overview.md). Aby uzyskać więcej informacji, zobacz [monitorowanie zasobów klienta w odpowiedniej skali](../../lighthouse/how-to/monitor-at-scale.md).
+- Aby zapewnić lepszą skalowalność i elastyczność, dostawcy usług mogą korzystać z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) [Lighthouse na platformie Azure](../../lighthouse/overview.md) w celu uzyskania dostępu do dzierżawy klienta. Ta metoda polega na tym, że Administratorzy dostawcy usług są włączeni do grupy użytkowników usługi Azure AD w dzierżawie dostawcy usług, a podczas procesu dołączania dla każdego klienta zostaje udzielony dostęp do tej grupy. Ci Administratorzy mogą następnie uzyskiwać dostęp do obszarów roboczych każdego klienta z własnej dzierżawy usługodawcy, zamiast logować się do każdej dzierżawy każdego klienta osobno. W ten sposób uzyskuje się dostęp do zasobów obszarów roboczych Log Analytics w ten sposób, co zmniejsza pracę wymaganą przez klienta i może ułatwić zbieranie i analizowanie danych przez wielu klientów zarządzanych przez tego samego dostawcę usług za pośrednictwem takich narzędzi, jak [Azure monitor skoroszytów](./workbooks-overview.md). Aby uzyskać więcej informacji, zobacz [monitorowanie zasobów klienta w odpowiedniej skali](../../lighthouse/how-to/monitor-at-scale.md).
 
 Zalety architektury rozproszonej są następujące:
 
@@ -75,18 +75,19 @@ Trzecia architektura między tymi dwiema opcjami. Jest on oparty na pierwszej ar
 
 Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
-1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](../../azure-monitor/platform/data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
+1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](./data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md).
+2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](./powerbi.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Automatyzowanie tworzenia i konfigurowania obszarów roboczych przy użyciu [szablonów Menedżer zasobów](template-workspace-configuration.md)
 
-* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
+* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](./powershell-workspace-configuration.md)
 
-* Korzystanie z [alertów](../../azure-monitor/platform/alerts-overview.md) w celu integracji z istniejącymi systemami
+* Korzystanie z [alertów](./alerts-overview.md) w celu integracji z istniejącymi systemami
 
-* Generowanie raportów podsumowujących przy użyciu [Power BI](../../azure-monitor/platform/powerbi.md)
+* Generowanie raportów podsumowujących przy użyciu [Power BI](./powerbi.md)
 
 * Dołączanie klientów do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+

@@ -1,6 +1,5 @@
 ---
-title: Analiza danych dla początkujących
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Nauka danych dla początkujących — Azure'
 description: Nauka danych dla początkujących to podstawowe pojęcia dotyczące 5 krótkich filmów wideo, począwszy od 5 pytań dotyczących analizy danych. Z Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,15 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930152"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318729"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
+
 Zapoznaj się z szybkim wprowadzeniem do nauki danych z *nauki danych dla początkujących* w pięciu krótkich klipach wideo od najlepszych analityków danych. Te filmy wideo są podstawowe, ale użyteczne, niezależnie od tego, czy interesują Cię dane, czy pracujesz z analitykami danych.
 
 To pierwsze wideo zawiera informacje o rodzajach pytań, na które mogą odpowiedzieć dane. Aby maksymalnie wykorzystać serię, Obejrzyj wszystko. [Przejdź do listy filmów wideo](#other-videos-in-this-series)
@@ -65,7 +66,7 @@ Ta rodzina algorytmów jest nazywana klasyfikacją dwóch klas.
 
 Jest to przydatne w przypadku każdego pytania, które ma tylko dwie możliwe odpowiedzi.
 
-Przykład:
+Na przykład:
 
 * Czy ten stan kończy się niepowodzeniem w ciągu następnych 1 000 kilometrów: tak lub nie?
 * Co przynosi klientom więcej klientów: $5 kupon lub rabat w wysokości 25%?

@@ -1,6 +1,5 @@
 ---
-title: Galeria sztucznej inteligencji platformy Azure
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Azure AI Gallery — Azure'
 description: Udostępniaj i odnajduj zasoby analizy i nie tylko w Azure AI Gallery. Dowiedz się od innych użytkowników i wprowadź własne wkłady do społeczności.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbece33d443139c9f1b1384c1a9e0b3c4da0d08
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318559"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w Azure AI Gallery
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,7 +28,7 @@ Galeria zawiera różne zasoby, których można użyć do opracowania własnych 
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Co mogę znaleźć w galerii?
 
-Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Są to moduły:
+Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Należą do nich następujące elementy:
 
 * **Eksperymenty** — Galeria zawiera szeroką gamę eksperymentów, które zostały opracowane w Azure Machine Learning Studio (klasyczny). Ten zakres od szybkich eksperymentów z zakresu weryfikacji koncepcji, które przedstawiają konkretną technikę uczenia maszynowego, do w pełni opracowanych rozwiązań w celu uzyskania złożonych problemów z uczeniem maszynowym.
 * **Samouczki** — dostępne są kilka samouczków, które przeprowadzą Cię przez technologie i koncepcje uczenia maszynowego, lub opisują zaawansowane metody rozwiązywania różnych problemów z uczeniem maszynowym.
@@ -95,7 +98,7 @@ Możesz też zalogować się za pomocą narzędzia do dyskusji, takiego jak Disq
    * Zrzut ekranu wykresu eksperymentu
    * Źródła danych i wyjaśnienie
    * Przetwarzanie danych
-   * Inżynieria funkcji
+   * Inżynieria cech
    * Opis modelu
    * Wyniki i Ocena wydajności modelu
 
@@ -122,7 +125,7 @@ Możesz zmienić dowolne z poniższych informacji dla eksperymentu bezpośrednio
 * Nazwa eksperymentu
 * Podsumowanie lub opis
 * Tagi
-* Obraz
+* Image (Obraz)
 * Ustawienie widoczności (**publiczne** lub **nieznajdujące**się na liście)
 
 Możesz również usunąć eksperyment z galerii.
@@ -159,7 +162,7 @@ Możesz pomóc innym, pisząc **samouczek** w galerii, który objaśnia koncepcj
    > [!TIP]
    > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący**się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący**się na liście.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Twój udział jest teraz w Azure AI Gallery. Twoje wkłady są wyświetlane na stronie Twojego konta na karcie **Items (elementy** ).
 

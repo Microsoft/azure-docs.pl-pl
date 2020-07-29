@@ -1,6 +1,5 @@
 ---
-title: Eksportuj i usuwaj dane
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Eksportuj & usuwanie danych — Azure'
 description: Dane w produkcie przechowywane przez Azure Machine Learning Studio (klasyczne) są dostępne do eksportowania i usuwania za pomocą Azure Portal a także za pomocą uwierzytelnionych interfejsów API REST. Dostęp do danych telemetrycznych można uzyskać za pomocą portalu ochrony prywatności systemu Azure. W tym artykule pokazano, jak to zrobić.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9f623357dfbc8fab8a2967df65cc53abc4bc9d57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fd0fb62b2a94667620904a070e386256b8e321c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696137"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318576"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Eksportuj i usuwaj dane użytkownika w ramach produktu z Azure Machine Learning Studio (klasyczne)
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej platformy Azure | Microsoft Docs
-description: Dowiedz się, jak tworzyć, zmieniać lub usuwać wirtualne sieci równorzędne.
+description: Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej. Za pomocą komunikacji równorzędnej sieci wirtualnych można połączyć sieci wirtualne w tym samym regionie i w różnych regionach.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,17 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711106"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291868"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej
 
 Dowiedz się, jak tworzyć, zmieniać lub usuwać wirtualne sieci równorzędne. Komunikacja równorzędna sieci wirtualnych umożliwia łączenie sieci wirtualnych w tym samym regionie i między regionami (nazywanymi również globalnymi sieciami równorzędnymi) za pośrednictwem usługi Azure Websites. Po nawiązaniu połączenia równorzędnego sieci wirtualne są nadal zarządzane jako oddzielne zasoby. Jeśli jesteś nowym elementem komunikacji równorzędnej sieci wirtualnej, możesz dowiedzieć się więcej na ten temat w temacie [Omówienie komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md) lub przez ukończenie [samouczka](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

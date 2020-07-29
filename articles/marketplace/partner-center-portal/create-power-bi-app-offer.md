@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty aplikacji Power BI w Microsoft AppSource
 description: Dowiedz się, jak utworzyć i opublikować ofertę Power BI aplikacji Microsoft AppSource.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1687224e796043af1f7c3d1ee6f0417465fb4959
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317691"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 

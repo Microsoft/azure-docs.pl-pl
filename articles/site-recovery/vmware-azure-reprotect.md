@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292790"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Ponowne włączanie ochrony po przejściu z platformy Azure do środowiska lokalnego
 
 Po przejściu do [trybu failover](site-recovery-failover.md) lokalnych maszyn wirtualnych VMware lub serwerów fizycznych na platformie Azure pierwszy krok powrotu po awarii do lokacji lokalnej polega na ponownej ochronie maszyn wirtualnych platformy Azure, które zostały utworzone podczas pracy w trybie failover. W tym artykule opisano, jak to zrobić. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 1. Wykonaj kroki opisane w [tym artykule](vmware-azure-prepare-failback.md) , aby przygotować się do ponownej ochrony i powrotu po awarii, w tym konfigurowania serwera przetwarzania na platformie Azure oraz lokalnego serwera docelowego i konfigurowania sieci VPN typu lokacja-lokacja, lub ExpressRoute prywatnej komunikacji równorzędnej na potrzeby powrotu po awarii.
 2. Upewnij się, że lokalny serwer konfiguracji jest uruchomiony i połączony z platformą Azure. Podczas pracy w trybie failover na platformie Azure lokacja lokalna może być niedostępna, a serwer konfiguracji może być niedostępny lub wyłączony. Podczas powrotu po awarii maszyna wirtualna musi znajdować się w bazie danych serwera konfiguracji. W przeciwnym razie powrót po awarii nie powiedzie się.
@@ -33,7 +33,7 @@ Po przejściu do [trybu failover](site-recovery-failover.md) lokalnych maszyn wi
     - Jeśli używasz wersji bezpłatnej ESXi 5,5 lub bezpłatnej funkcji hypervisor vSphere 6. Uaktualnij do innej wersji.
     - Jeśli masz serwer fizyczny z systemem Windows Server 2008 R2 z dodatkiem SP1.
     - Maszyny wirtualne VMware nie mogą powrócić po awarii do funkcji Hyper-V.
-    - [Zmigrowane](migrate-overview.md#what-do-we-mean-by-migration)maszyny wirtualne.
+    - Zmigrowane maszyny wirtualne.
     - Maszyna wirtualna, która została przeniesiona do innej grupy zasobów.
     - Replika maszyny wirtualnej platformy Azure, która została usunięta.
     - Replika maszyny wirtualnej platformy Azure, która nie jest chroniona (replikacja do lokacji lokalnej).

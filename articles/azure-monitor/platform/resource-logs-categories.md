@@ -4,21 +4,21 @@ description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515397"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318304"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 
 > [!NOTE]
 > Dzienniki zasobów były wcześniej znane jako dzienniki diagnostyczne. Nazwa została zmieniona w październiku 2019, ponieważ typy dzienników zebrane przez Azure Monitor przesunięte w celu uwzględnienia więcej niż tylko zasobów platformy Azure.
 
-[Dzienniki zasobów Azure monitor](../../azure-monitor/platform/platform-logs-overview.md) to dzienniki wysyłane przez usługi platformy Azure opisujące operacje tych usług lub zasobów. Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń.
+[Dzienniki zasobów Azure monitor](./platform-logs-overview.md) to dzienniki wysyłane przez usługi platformy Azure opisujące operacje tych usług lub zasobów. Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń.
 
-Kombinacja typu zasobu (dostępnego we `resourceId` Właściwości) i `category` unikatowo identyfikujący schemat. Istnieje wspólny schemat dla wszystkich dzienników zasobów z polami, które następnie zostały dodane do różnych kategorii dzienników. Aby uzyskać więcej informacji, zobacz [schemat wspólnych i specyficzny dla usługi dla dzienników zasobów platformy Azure](resource-logs-categories.md)
+Kombinacja typu zasobu (dostępnego we `resourceId` Właściwości) i `category` unikatowo identyfikujący schemat. Istnieje wspólny schemat dla wszystkich dzienników zasobów z polami, które następnie zostały dodane do różnych kategorii dzienników. Aby uzyskać więcej informacji, zobacz [schemat wspólnych i specyficzny dla usługi dla dzienników zasobów platformy Azure]()
 
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dzienników według typu zasobu
 
@@ -711,7 +711,8 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o dziennikach zasobów](../../azure-monitor/platform/platform-logs-overview.md)
+* [Dowiedz się więcej o dziennikach zasobów](./platform-logs-overview.md)
 * [Przesyłanie strumieniowe dzienników zasobów zasobów do **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Zmienianie ustawień diagnostycznych dziennika zasobów przy użyciu interfejsu API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Analizowanie dzienników z usługi Azure Storage za pomocą Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

@@ -4,15 +4,15 @@ description: Interfejs API przejdź na żywo inicjuje proces oferty na żywo.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292934"
 ---
 # <a name="go-live"></a>Przejdź na żywo
 
@@ -28,8 +28,8 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**      |   **Opis**                                                           | **Typ danych** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String (ciąg)       |
-| offerId        | Identyfikator oferty oferty do pobrania                                   |  String (ciąg)       |
+| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String       |
+| offerId        | Identyfikator oferty oferty do pobrania                                   |  String       |
 | api-version    | Najnowsza wersja interfejsu API                                                   |  Data         |
 |  |  |  |
 
@@ -58,7 +58,7 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**             |      **Wartość**                                                            |
 |  --------             |      ----------                                                           |
-| Lokalizacja    |  Ścieżka względna do pobrania stanu tej operacji            |
+| Location    |  Ścieżka względna do pobrania stanu tej operacji            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi

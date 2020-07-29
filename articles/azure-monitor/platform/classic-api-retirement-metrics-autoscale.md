@@ -4,12 +4,12 @@ description: Metryki i automatyczne skalowanie klasycznych interfejsów API, naz
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317386"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor wycofywanie interfejsów API klasycznego modelu wdrażania dla metryk i skalowania automatycznego
 
@@ -21,7 +21,7 @@ Te same operacje były obsługiwane przez zestaw interfejsów API opartych na Az
 
 Jeśli zarządzasz skalowaniem automatycznym za pośrednictwem Azure Portal, [nowego Azure monitor zestawu SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), programu PowerShell, interfejsu wiersza polecenia lub szablonów Menedżer zasobów, nie trzeba podejmować żadnych działań.  
 
-W przypadku korzystania z metryk za pośrednictwem Azure Portal lub różnych [usług partnerskich monitorowania](../../azure-monitor/platform/partners.md)nie jest wymagane żadne działanie. Firma Microsoft współpracuje z partnerami monitorowania w celu migrowania do nowych interfejsów API.
+W przypadku korzystania z metryk za pośrednictwem Azure Portal lub różnych [usług partnerskich monitorowania](./partners.md)nie jest wymagane żadne działanie. Firma Microsoft współpracuje z partnerami monitorowania w celu migrowania do nowych interfejsów API.
 
 ## <a name="who-is-affected"></a>Kogo dotyczy
 
@@ -85,7 +85,8 @@ Powiadomienie o wycofaniu zostało wysłane na adresy e-mail dla następujących
 
 Jeśli masz jakieś pytania, skontaktuj się z nami pod adresem MonitorClassicAPIhelp@microsoft.com .  
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 - [Nowsze interfejsy API REST dla Azure Monitor](/rest/api/monitor/) 
 - [Nowszy Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

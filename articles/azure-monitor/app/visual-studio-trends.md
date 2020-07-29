@@ -7,11 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744131"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318168"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analizowanie trendów w programie Visual Studio
 Narzędzie Trendy usługi Application Insights wizualizuje sposób, w jaki ważne zdarzenia telemetrii aplikacji internetowej zmieniają się z upływem czasu, co ułatwia szybkie identyfikowanie problemów i anomalii. Łącząc Cię z bardziej szczegółowymi informacjami diagnostycznymi, narzędzie Trendy może ułatwić zwiększenie wydajności aplikacji, śledzenie przyczyn wyjątków oraz odkrywanie szczegółowych danych w zdarzeniach niestandardowych.
@@ -20,7 +21,7 @@ Narzędzie Trendy usługi Application Insights wizualizuje sposób, w jaki ważn
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Konfigurowanie aplikacji internetowej na potrzeby usługi Application Insights
 
-Jeśli nie zostało to jeszcze zrobione, [skonfiguruj swoją aplikację internetową na potrzeby usługi Application Insights](../../azure-monitor/app/app-insights-overview.md). Dzięki temu będzie można wysyłać dane telemetryczne do portalu usługi Application Insights. Narzędzie Trendy odczytuje dane telemetryczne z tego miejsca.
+Jeśli nie zostało to jeszcze zrobione, [skonfiguruj swoją aplikację internetową na potrzeby usługi Application Insights](./app-insights-overview.md). Dzięki temu będzie można wysyłać dane telemetryczne do portalu usługi Application Insights. Narzędzie Trendy odczytuje dane telemetryczne z tego miejsca.
 
 Narzędzie Trendy usługi Application Insights jest dostępne w programie Visual Studio 2015 Update 3 i nowszych wersjach.
 
@@ -97,7 +98,7 @@ Narzędzie Trendy umożliwia wyróżnianie bąbelków zdarzeń, które są niepr
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 |  |  |
 | --- | --- |
-| **[Praca z usługą Application Insights w programie Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/visual-studio-trends/34.png) |
-| **[Dodawanie większej ilości danych](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Praca z portalem usługi Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Praca z usługą Application Insights w programie Visual Studio](./visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/visual-studio-trends/34.png) |
+| **[Dodawanie większej ilości danych](./asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/visual-studio-trends/64.png) |
+| **[Praca z portalem usługi Application Insights](./overview-dashboard.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

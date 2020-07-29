@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362146"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289426"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
 W tym przewodniku szybki start utworzysz i testujesz podstawową aplikację poleceń niestandardowych przy użyciu programu Speech Studio. Będziesz również mieć dostęp do tej aplikacji z aplikacji klienckiej systemu Windows. **Polecenia niestandardowe** ułatwiają tworzenie zaawansowanych poleceń głosowych zoptymalizowanych pod kątem interakcji głosowych. Zapewnia ujednolicone środowisko tworzenia, automatyczny model hostingu i stosunkowo niższą złożoność, ułatwiając skoncentrowanie się na tworzeniu najlepszego rozwiązania dla scenariuszy poleceń głosowych.
 
+## <a name="region-availability"></a>Dostępność regionów
+W tej chwili polecenia niestandardowe obsługują subskrypcje mowy utworzone w następujących regionach:
+* Zachodnie stany USA
+* Zachodnie stany USA 2
+* East US
+* Wschodnie stany USA 2
+* Europa Północna
+* West Europe
+* Zachodnio-środkowe stany USA
+* Indie Środkowe
+* Azja Wschodnia
+* Southeast Asia
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Utwórz zasób usługi Azure Speech w regionie, który obsługuje polecenia niestandardowe.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Utwórz zasób usługi Azure Speech w regionie, który obsługuje polecenia niestandardowe.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Listę obsługiwanych regionów znajduje się w powyższej sekcji dotyczącej **dostępności regionów** .
 > * Pobierz przykładowy plik JSON dla przykładowego [pokoju inteligentnego](https://aka.ms/speech/cc-quickstart) .
 > * Pobierz najnowszą wersję [klienta asystenta głosowego systemu Windows](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> W tej chwili polecenia niestandardowe obsługują tylko subskrypcje mowy w regionach Zachodnie, westus2 i northeurope.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Przejdź do programu Speech Studio dla poleceń niestandardowych
 
