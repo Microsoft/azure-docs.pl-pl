@@ -10,12 +10,14 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+- 'Role: IoT Device'
+- 'Role: Cloud Development'
+ms.openlocfilehash: df6de62eefc0971ece0e0035299425689af5f784
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307628"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -80,7 +82,7 @@ W celu zapewnienia, że połączenie klienta/IoT Hub będzie aktywne, zarówno u
 |Java     |    230 sekund     |     Nie    |
 |C     | 240 sekund |  [Tak](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 sekund |  [Tak](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (wersja 2)   | 60 sekund |  Nie   |
+|Python   | 60 sekund |  Nie   |
 
 Zgodnie z [MQTT specyfikacji](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), interwał polecenia ping w IoT Hub jest 1,5 razy wartość utrzymywania aktywności klienta. IoT Hub ograniczenie maksymalnego limitu czasu po stronie serwera do 29,45 minut (1767 sekund), ponieważ wszystkie usługi platformy Azure są powiązane z limitem czasu bezczynności protokołu TCP modułu równoważenia obciążenia platformy Azure, który jest 29,45 minuty. 
 

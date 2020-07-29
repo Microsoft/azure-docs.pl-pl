@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 7eaf8b6b5cddc8a01b59cda0cafc819e06a5ec7c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005008"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283150"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Przyłączanie maszyny wirtualnej Ubuntu Linux do domeny zarządzanej Azure Active Directory Domain Services
 
@@ -138,7 +139,7 @@ Teraz, gdy wymagane pakiety są zainstalowane na maszynie wirtualnej, a NTP jest
     Ponownie nazwa domeny zarządzanej musi być wpisana WIELKImi LITERAmi. W poniższym przykładzie konto o nazwie `contosoadmin@aaddscontoso.com` jest używane do inicjowania protokołu Kerberos. Wprowadź własne konto użytkownika, które jest częścią domeny zarządzanej:
 
     ```console
-    kinit contosoadmin@AADDSCONTOSO.COM
+    kinit -V contosoadmin@AADDSCONTOSO.COM
     ```
 
 1. Na koniec Dołącz maszynę wirtualną do domeny zarządzanej przy użyciu `realm join` polecenia. Użyj tego samego konta użytkownika, które jest częścią domeny zarządzanej, która została określona w poprzednim `kinit` poleceniu, na przykład `contosoadmin@AADDSCONTOSO.COM` :
@@ -182,7 +183,7 @@ Jeden z pakietów zainstalowanych w poprzednim kroku był przeznaczony dla demon
 1. Aby zastosować zmianę, uruchom ponownie usługę SSSD:
 
     ```console
-    sudo service sssd restart
+    sudo systemctl restart sssd
     ```
 
 ## <a name="configure-user-account-and-group-settings"></a>Skonfiguruj ustawienia konta użytkownika i grupy

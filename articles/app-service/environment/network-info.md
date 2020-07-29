@@ -4,15 +4,15 @@ description: Dowiedz się więcej o ruchu sieciowym ASE oraz o sposobie ustawian
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280923"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
 
@@ -158,13 +158,14 @@ Wymagane wpisy w sieciowej grupy zabezpieczeń, dla których środowisko ASE ma 
 * z podsieci środowiska ASE do podsieci środowiska ASE na wszystkich portach
 
 **Wychodzący**
+* UDP do wszystkich adresów IP na porcie 53
 * UDP do wszystkich adresów IP na porcie 123
 * TCP do wszystkich adresów IP na portach 80, 443
 * TCP do znacznika usługi IP AzureSQL na portach 1433
 * TCP na wszystkie adresy IP na porcie 12000
 * do podsieci środowiska ASE na wszystkich portach
 
-Te porty nie obejmują portów wymaganych przez aplikacje do pomyślnego użycia. Na przykład aplikacja może wymagać wywołania serwera MySQL na porcie 3306 port DNS, port 53, nie musi być dodany jako ruch do DNS nie ma wpływ na reguły sieciowej grupy zabezpieczeń. Protokół NTP (Network Time Protocol) na porcie 123 to protokół synchronizacji czasu używany przez system operacyjny. Punkty końcowe NTP nie są specyficzne dla App Services, mogą się różnić w zależności od systemu operacyjnego i nie znajdują się w dobrze zdefiniowanej liście adresów. Aby zapobiec problemom z synchronizacją czasu, należy zezwolić na ruch UDP do wszystkich adresów na porcie 123. Ruch wychodzący TCP do portu 12000 jest przeznaczony do obsługi i analizy systemu. Punkty końcowe są dynamiczne i nie znajdują się w dobrze zdefiniowanym zestawie adresów.
+Te porty nie obejmują portów wymaganych przez aplikacje do pomyślnego użycia. Na przykład aplikacja może wymagać wywołania serwera MySQL na porcie 3306. Protokół NTP (Network Time Protocol) na porcie 123 to protokół synchronizacji czasu używany przez system operacyjny. Punkty końcowe NTP nie są specyficzne dla App Services, mogą się różnić w zależności od systemu operacyjnego i nie znajdują się w dobrze zdefiniowanej liście adresów. Aby zapobiec problemom z synchronizacją czasu, należy zezwolić na ruch UDP do wszystkich adresów na porcie 123. Ruch wychodzący TCP do portu 12000 jest przeznaczony do obsługi i analizy systemu. Punkty końcowe są dynamiczne i nie znajdują się w dobrze zdefiniowanym zestawie adresów.
 
 Normalne porty dostępu do aplikacji są następujące:
 

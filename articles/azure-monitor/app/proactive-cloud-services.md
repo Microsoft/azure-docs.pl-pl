@@ -4,11 +4,12 @@ description: Monitoruj problemy, takie jak awarie uruchamiania, awarie i pętle 
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669747"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309294"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerty dotyczące problemów z usługą Azure Cloud Services przy użyciu integracji diagnostyki platformy Azure z platformą Azure Application Insights
 
@@ -77,7 +78,7 @@ EventLogs
 | where Failures > 3
 ```
 
-## <a name="create-an-alert"></a>Tworzenie alertu
+## <a name="create-an-alert"></a>Utworzenie alertu
 
 W menu nawigacji w ramach zasobu Application Insights przejdź do pozycji **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
 
@@ -110,7 +111,7 @@ Po zdefiniowaniu grupy akcji potwierdź zmiany i kliknij przycisk **Utwórz regu
 
 Dowiedz się więcej na temat automatycznego wykrywania:
 
-[Anomalie błędów](../../azure-monitor/app/proactive-failure-diagnostics.md) 
- [Przecieki pamięci](../../azure-monitor/app/proactive-potential-memory-leak.md) 
- [Anomalie wydajności](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalie błędów](./proactive-failure-diagnostics.md) 
+ [Przecieki pamięci](./proactive-potential-memory-leak.md) 
+ [Anomalie wydajności](./proactive-performance-diagnostics.md)
 

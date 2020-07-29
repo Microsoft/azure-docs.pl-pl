@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284085"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Tworzenie obiektów blob i zarządzanie nimi w usłudze Azure Blob Storage przy użyciu Azure Logic Apps
 
@@ -19,7 +20,7 @@ W tym artykule pokazano, jak można uzyskać dostęp do plików przechowywanych 
 
 Załóżmy, że masz narzędzie, które jest aktualizowane w witrynie sieci Web systemu Azure. który działa jako wyzwalacz aplikacji logiki. Po wystąpieniu tego zdarzenia aplikacja logiki może aktualizować jakiś plik w kontenerze magazynu obiektów blob, który jest akcją w aplikacji logiki.
 
-Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Informacje techniczne dotyczące konkretnego łącznika można znaleźć w [dokumentacji łącznika usługi Azure Blob Storage](https://docs.microsoft.com/connectors/azureblobconnector/).
+Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Informacje techniczne dotyczące konkretnego łącznika można znaleźć w [dokumentacji łącznika usługi Azure Blob Storage](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Aplikacje logiki nie mogą bezpośrednio uzyskiwać dostępu do kont magazynu, które znajdują się za zaporami, jeśli znajdują się one w tym samym regionie. Jako obejście tego problemu możesz mieć Aplikacje logiki i konto magazynu w różnych regionach. Więcej informacji na temat włączania dostępu Azure Logic Apps do kont magazynu związanych z zaporami znajduje się w sekcji [dostęp do kont magazynu związanych z zaporami](#storage-firewalls) w dalszej części tego tematu.
@@ -126,7 +127,7 @@ W tym przykładzie pobierana jest tylko zawartość obiektu BLOB. Aby wyświetli
    | **Konto magazynu** | Tak | <*Magazyn — konto*> | Wybierz konto magazynu z listy. |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Tworzenie połączenia z kontem usługi Azure Blob Storage](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
@@ -136,7 +137,7 @@ W tym przykładzie pobierana jest tylko zawartość obiektu BLOB. Aby wyświetli
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/azureblobconnector/).
+Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/azureblobconnector/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -193,7 +194,7 @@ Aby skonfigurować wyjątek i obsługę tożsamości zarządzanej, wykonaj nast�
 1. W przepływie pracy aplikacji logiki Dodaj i skonfiguruj akcję lub wyzwalacz HTTP w celu uzyskania dostępu do konta magazynu lub jednostki.
 
    > [!IMPORTANT]
-   > W przypadku wychodzących akcji HTTP lub wyzwalania wywołań do kont usługi Azure Storage upewnij się, że nagłówek żądania zawiera `x-ms-version` Właściwość i wersję interfejsu API dla operacji, która ma być uruchamiana na koncie magazynu. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie dostępu z zarządzaną tożsamością](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) i [przechowywaniem wersji dla usług Azure Storage](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > W przypadku wychodzących akcji HTTP lub wyzwalania wywołań do kont usługi Azure Storage upewnij się, że nagłówek żądania zawiera `x-ms-version` Właściwość i wersję interfejsu API dla operacji, która ma być uruchamiana na koncie magazynu. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie dostępu z zarządzaną tożsamością](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) i [przechowywaniem wersji dla usług Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. Na tej akcji [Wybierz zarządzaną tożsamość](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) , która ma być używana do uwierzytelniania.
 
@@ -206,3 +207,4 @@ W przypadku korzystania z warstwy dedykowanej dla [API Management](../api-manage
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

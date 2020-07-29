@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652640"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283082"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
@@ -148,7 +149,7 @@ Następujące linki nie są częścią podstawowej dokumentacji ochrony hasłem 
 
 [Ochrona hasłem w usłudze Azure AD jest teraz ogólnie dostępna!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Przewodnik dotyczący ochrony przed wyłudzaniem wiadomości e-mail — część 15: implementacja usługi ochrony hasłem Microsoft Azure AD (w przypadku miejsca lokalnego!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Przewodnik dotyczący ochrony przed wyłudzaniem wiadomości e-mail — część 15: implementacja usługi ochrony hasłem Microsoft Azure AD (w przypadku miejsca lokalnego!)](http://kmartins.com/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [Usługa Azure AD Password Protection i inteligentna blokada są teraz dostępne w publicznej wersji zapoznawczej.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 

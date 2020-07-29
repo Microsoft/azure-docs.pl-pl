@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204739"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283473"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -181,7 +182,7 @@ Upewnienie się, że aplikacja jest wystarczająco odporna na obsługę odmowy u
 
 W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](../../cloud-services/cloud-services-choose-me.md).
 
-W przypadku [usługi Azure Virtual Machines](/azure/virtual-machines/windows/overview)upewnij się, że architektura maszyny wirtualnej zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](/azure/virtual-machines/virtual-machines-windows-manage-availability). Zalecamy używanie zestawów skalowania maszyn wirtualnych do obsługi funkcji skalowania automatycznego.
+W przypadku [usługi Azure Virtual Machines](../../virtual-machines/windows/overview.md)upewnij się, że architektura maszyny wirtualnej zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](../../virtual-machines/windows/tutorial-availability-sets.md). Zalecamy używanie zestawów skalowania maszyn wirtualnych do obsługi funkcji skalowania automatycznego.
 
 **Najlepsze rozwiązanie**: Ochrona zabezpieczeń warstwowych w aplikacji zmniejsza prawdopodobieństwo pomyślnego ataku. Zaimplementuj bezpieczne projekty dla aplikacji, korzystając z wbudowanych możliwości platformy Azure.  
 **Szczegóły**: ryzyko ataku zwiększa się wraz z rozmiarem (obszarem powierzchni) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy dozwolonych, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).

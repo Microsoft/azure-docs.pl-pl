@@ -1,6 +1,6 @@
 ---
 title: Przykłady Azure PowerShell — sieć
-description: Przykłady dla programu Azure PowerShell
+description: Dowiedz się więcej o Azure PowerShell przykładach dotyczących sieci, w tym przykład tworzenia sieci wirtualnej dla aplikacji wielowarstwowych.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: 98b72dbb9f3b62fd5985f6245e52293ec31fc682
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: aa3304cbabb183368f0e47415e64120854f43535
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232546"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282079"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Przykłady Azure PowerShell dla sieci
 

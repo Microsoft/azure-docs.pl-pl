@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 194f75fbb486d5c53a8e650631c16fcf2649f277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75f4cea0e5cd2b0bf42c28cbd81e199115834e11
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826030"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283966"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitoruj zapasy czasu i zarządzaj nimi za pomocą Azure Logic Apps
 
@@ -69,9 +70,10 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

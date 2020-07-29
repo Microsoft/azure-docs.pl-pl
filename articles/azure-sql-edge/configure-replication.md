@@ -9,11 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667883"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282776"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -23,7 +24,7 @@ Można skonfigurować wystąpienie usługi Azure SQL Edge jako subskrybent wypyc
   
 - Wystąpienie usługi Azure SQL Edge musi być subskrybentem wypychanym dla wydawcy.
 - Wydawca i dystrybutor może być:
-   - Wystąpienie SQL Server uruchomione lokalnie lub wystąpienie SQL Server uruchomione na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [SQL Server na platformie Azure — omówienie Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). Wystąpienia SQL Server muszą używać wersji nowszej niż SQL Server 2016.
+   - Wystąpienie SQL Server uruchomione lokalnie lub wystąpienie SQL Server uruchomione na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [SQL Server na platformie Azure — omówienie Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). Wystąpienia SQL Server muszą używać wersji nowszej niż SQL Server 2016.
    - Wystąpienie wystąpienia zarządzanego usługi Azure SQL. Wystąpienie zarządzane SQL może hostować bazy danych wydawcy, dystrybutora i subskrybentów. Aby uzyskać więcej informacji, zobacz [replikacja z wystąpieniem zarządzanym SQL Database](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Nie można umieścić bazy danych dystrybucji i agentów replikacji w wystąpieniu usługi Azure SQL Edge.  

@@ -5,12 +5,12 @@ description: Dowiedz się, jak ręcznie utworzyć wolumin z Azure Files na potrz
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 144d93cbb3b66f260dbd9d92863ca5fb13ed00a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f013d16b899418a5262f23dfcc595a1e270616
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82207670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281212"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Ręczne tworzenie i używanie woluminu z udziałem Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -18,7 +18,7 @@ Aplikacje oparte na kontenerach często muszą uzyskiwać dostęp do danych w ze
 
 Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -234,6 +234,8 @@ Zaktualizuj specyfikację kontenera, aby odwoływała się do *PersistentVolumeC
 W przypadku skojarzonych najlepszych rozwiązań zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w AKS][operator-best-practices-storage].
 
 Aby uzyskać więcej informacji na temat współpracujących klastrów AKS z Azure Files, zobacz [dodatek Kubernetes dla Azure Files][kubernetes-files].
+
+Aby uzyskać parametry klasy magazynu, zobacz temat Udostępnianie [statyczne (przenoszenie własnego udziału plików)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

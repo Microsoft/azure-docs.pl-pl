@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127200"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372329"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -123,7 +123,7 @@ Uwierzytelnianie oparte na tożsamościach można włączyć za pomocą usługi 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Skonfiguruj uprawnienia na poziomie udziału dla Azure Files
 
-Po włączeniu uwierzytelniania AD DS platformy Azure AD DS lub lokalnego można używać wbudowanych ról RBAC lub konfigurować role niestandardowe dla tożsamości usługi Azure AD i przypisywać prawa dostępu do dowolnych udziałów plików na kontach magazynu. Przypisane uprawnienie umożliwia uzyskanie dostępu tylko do udziału, a nie w katalogu głównym. Nadal trzeba oddzielnie skonfigurować uprawnienia na poziomie katalogu lub pliku dla udziałów plików platformy Azure.
+Po włączeniu uwierzytelniania AD DS platformy Azure AD DS lub lokalnego można użyć wbudowanych ról platformy Azure lub skonfigurować role niestandardowe dla tożsamości usługi Azure AD i przypisać prawa dostępu do wszystkich udziałów plików na kontach magazynu. Przypisane uprawnienie umożliwia uzyskanie dostępu tylko do udziału, a nie w katalogu głównym. Nadal trzeba oddzielnie skonfigurować uprawnienia na poziomie katalogu lub pliku dla udziałów plików platformy Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurowanie uprawnień na poziomie katalogu lub pliku dla Azure Files
 

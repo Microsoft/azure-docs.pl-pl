@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 8cd189bf4037d42348d9a94c47cf0122e63af58f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089298"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373457"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Teraz, gdy istnieją dwa ramki danych, następnym zadaniem jest utworzenie formuły modelu i uruchomienie jej w odniesieniu do ramki danych szkoleniowych, a następnie zweryfikowanie względem testowanej ramki danych. Należy eksperymentować z różnymi wersjami formuły modelu, aby zobaczyć wpływ różnych kombinacji.
 
 > [!Note]
-> Aby zapisać model, będzie potrzebna rola RBAC współautor danych Azure Storage Blob. W obszarze konto magazynu przejdź do pozycji Access Control (IAM), a następnie wybierz pozycję Dodaj przypisanie roli. Przypisz rolę RBAC współautor danych obiektów blob magazynu do serwera SQL Database. Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. Aby uzyskać różne wbudowane role dla zasobów platformy Azure, zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Aby zapisać model, będzie potrzebna rola RBAC współautor danych Azure Storage Blob. W obszarze konto magazynu przejdź do pozycji Access Control (IAM), a następnie wybierz pozycję Dodaj przypisanie roli. Przypisz rolę RBAC współautor danych obiektów blob magazynu do serwera SQL Database. Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model
@@ -278,7 +278,7 @@ plt.show()
 
 Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamykając kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 

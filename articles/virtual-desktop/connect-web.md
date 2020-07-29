@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fdbd0ddb33785655cada2600acdecdced4aeb2f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283439"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-web-2019.md).
->
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-web-2019.md).
 
 Klient sieci Web umożliwia dostęp do zasobów pulpitu wirtualnego systemu Windows z przeglądarki sieci Web bez długotrwałego procesu instalacji.
 
@@ -35,7 +32,7 @@ Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficj
 | Przeglądarka           | Obsługiwane systemy operacyjne                     | Uwagi               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Internet Explorer | Windows                          | Wersja 11 lub nowsza |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Wersja 55 lub nowsza |
 | Google Chrome     | Windows, macOS, Linux, system operacyjny Chrome |                     |
@@ -45,7 +42,7 @@ Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficj
 W przeglądarce przejdź do Azure Resource Manager zintegrowanej wersji klienta sieci Web systemu Windows na komputerze <https://rdweb.wvd.microsoft.com/arm/webclient> i zaloguj się przy użyciu konta użytkownika.
 
 >[!NOTE]
->Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez integracji Azure Resource Manager, w zamian Połącz się z zasobami <https://rdweb.wvd.microsoft.com/webclient> .
+>Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez integracji Azure Resource Manager, w zamian Połącz się z zasobami <https://rdweb.wvd.microsoft.com/webclient> .
 
 >[!NOTE]
 >Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż ten, który ma być używany dla pulpitu wirtualnego systemu Windows, należy się wylogować lub użyć prywatnego okna przeglądarki.

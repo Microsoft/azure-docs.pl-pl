@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565801"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372369"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Omówienie wdrażania Menedżera zapory platformy Azure
 
@@ -65,6 +65,13 @@ Istnieje więcej niż jeden sposób wdrożenia Menedżera zapory platformy Azure
 > - Na każdym regionie nie może być więcej niż jeden koncentrator na wirtualną sieć WAN. Można jednak dodać wiele wirtualnych sieci WAN w regionie, aby to osiągnąć.
 > - Nie ma nakładających się przestrzeni adresowych IP dla centrów w vWAN.
 > - Połączenia sieci wirtualnej koncentratora muszą znajdować się w tym samym regionie co centrum.
+
+## <a name="convert-virtual-networks"></a>Konwertowanie sieci wirtualnych
+
+Poniższe informacje dotyczą konwersji istniejącej sieci wirtualnej do sieci wirtualnej centrum:
+
+- Jeśli w sieci wirtualnej znajduje się istniejąca Zapora platformy Azure, należy wybrać zasady zapory, które mają zostać skojarzone z istniejącą zaporą. Stan aprowizacji zapory będzie aktualizowany, gdy zasady zapory zastąpią reguły zapory. W stanie aprowizacji Zapora kontynuuje przetwarzanie ruchu i nie ma przestojów. Istniejące reguły można zaimportować do zasad zapory za pomocą Menedżera zapory lub Azure PowerShell.
+- Jeśli sieć wirtualna nie ma skojarzonej zapory platformy Azure, zostanie wdrożona Zapora, a zasady zapory są skojarzone z nową zaporą.
 
 ## <a name="next-steps"></a>Następne kroki
 

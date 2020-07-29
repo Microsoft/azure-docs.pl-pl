@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd641b57cfdd7f9481e17a90dbbd81d5e43f8ad2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689783"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311113"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity platform i przepływ poświadczeń klienta OAuth 2,0
 
@@ -27,7 +27,7 @@ W tym artykule opisano, jak programować bezpośrednio w odniesieniu do protoko�
 
 Przepływ uprawnień uwierzytelniania OAuth 2,0 zezwala usłudze sieci Web (poufnego klienta) na używanie własnych poświadczeń, a nie personifikowanie użytkownika w celu uwierzytelniania podczas wywoływania innej usługi sieci Web. W tym scenariuszu klient jest zwykle usługą sieci Web warstwy środkowej, usługą demona lub witryną sieci Web. W przypadku wyższego poziomu gwarancji platforma tożsamości firmy Microsoft umożliwia usłudze wywołującej używanie certyfikatu (zamiast wspólnego klucza tajnego) jako poświadczenia.
 
-W większości typowych *trzech bokami uwierzytelniania OAuth*aplikacja kliencka otrzymuje uprawnienia dostępu do zasobu w imieniu określonego użytkownika. Uprawnienie jest delegowane od użytkownika do aplikacji, zazwyczaj w trakcie procesu [wyrażania zgody](v2-permissions-and-consent.md) . Jednak w przepływie poświadczeń klienta (*dwa-bokami OAuth*) uprawnienia są przyznawane bezpośrednio do samej aplikacji. Gdy aplikacja prezentuje token do zasobu, wymusza, że sama aplikacja ma autoryzację do wykonania akcji, a nie użytkownika.
+W przepływie poświadczeń klienta uprawnienia są udzielane bezpośrednio do aplikacji przez administratora. Gdy aplikacja przedstawia token dla zasobu, wymusza, że sama aplikacja ma autoryzację do wykonania akcji, ponieważ nie ma żadnego użytkownika w uwierzytelnianiu.  W tym artykule opisano kroki wymagane do [autoryzowania aplikacji do wywoływania interfejsu API](#application-permissions), a także [metody uzyskiwania tokenów niezbędnych do wywołania tego interfejsu API](#get-a-token).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -52,6 +52,9 @@ Typowym przypadkiem użycia jest użycie listy ACL do uruchamiania testów dla a
 
 Ten typ autoryzacji jest typowy dla demonów i kont usług, które muszą uzyskiwać dostęp do danych należących do użytkowników indywidualnych, którzy mają osobiste konta Microsoft. W przypadku danych należących do organizacji zalecamy uzyskanie niezbędnej autoryzacji za pomocą uprawnień aplikacji.
 
+> [!NOTE]
+> Aby można było włączyć ten wzorzec autoryzacji oparty na listach ACL, usługa Azure AD nie wymaga, aby aplikacje były autoryzowane do uzyskiwania tokenów dla innej aplikacji — w związku z tym tokeny tylko dla aplikacji mogą być wystawiane bez `rules` zgłoszenia. Aplikacje uwidaczniające interfejsy API muszą implementować testy uprawnień w celu akceptowania tokenów.
+
 ### <a name="application-permissions"></a>Uprawnienia aplikacji
 
 Zamiast używać list ACL, można użyć interfejsów API, aby uwidocznić zestaw **uprawnień aplikacji**. Uprawnienie aplikacji jest przyznawane aplikacji przez administratora organizacji i może być używane tylko w celu uzyskania dostępu do danych należących do tej organizacji i jej pracowników. Na przykład Microsoft Graph uwidacznia kilka uprawnień aplikacji, aby wykonać następujące czynności:
@@ -61,14 +64,12 @@ Zamiast używać list ACL, można użyć interfejsów API, aby uwidocznić zesta
 * Wyślij wiadomość e-mail jako dowolny użytkownik
 * Odczyt danych katalogu
 
-Aby uzyskać więcej informacji o uprawnieniach aplikacji, przejdź do [Microsoft Graph](https://developer.microsoft.com/graph).
+Aby uzyskać więcej informacji o uprawnieniach aplikacji, zapoznaj się z [dokumentacją dotyczącą zgody i uprawnień](v2-permissions-and-consent.md#permission-types).
 
 Aby użyć uprawnień aplikacji w aplikacji, wykonaj kroki opisane w następnych sekcjach.
 
-
 > [!NOTE]
 > W przypadku uwierzytelniania jako aplikacji, w przeciwieństwie do użytkownika, nie można używać "uprawnień delegowanych" (zakresy, które są udzielane przez użytkownika).  Należy użyć "uprawnień aplikacji", znanych także jako "role", które są udzielane przez administratora aplikacji (lub przez internetowy interfejs API).
-
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Zażądaj uprawnień w portalu rejestracji aplikacji
 

@@ -3,15 +3,15 @@ title: Opcje rozpoznawania nazw DNS dla maszyn wirtualnych z systemem Linux
 description: Scenariusze rozpoznawania nazw dla maszyn wirtualnych z systemem Linux w usłudze Azure IaaS, w tym z uwzględnieniem usług DNS, hybrydowego serwera DNS i przyłączania do własnych serwerów DNS.
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494738"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372828"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opcje rozpoznawania nazw DNS dla maszyn wirtualnych z systemem Linux na platformie Azure
 System Azure domyślnie udostępnia rozpoznawanie nazw DNS dla wszystkich maszyn wirtualnych, które znajdują się w jednej sieci wirtualnej. Możesz zaimplementować własne rozwiązanie rozpoznawania nazw DNS, konfigurując własne usługi DNS na maszynach wirtualnych hostowanych przez platformę Azure. Poniższe scenariusze powinny pomóc w wyborze tego, który działa w przypadku danej sytuacji.

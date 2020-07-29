@@ -11,20 +11,49 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512667"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373797"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
+
+## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020 — wydanie z lipca
+
+**Uwaga**: zestaw Speech SDK w systemie Windows zależy od udostępnionego Microsoft Visual C++ pakietu redystrybucyjnego dla programu Visual Studio 2015, 2017 i 2019. Pobierz i zainstaluj go w [tym miejscu](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Nowe funkcje**
+- **C#**: Dodano obsługę transkrypcji konwersacji asynchronicznych. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)znajdziesz dokumentację.  
+- **JavaScript**: dodano obsługę rozpoznawanie osoby mówiącej zarówno dla [przeglądarki](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) , jak i [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Dodano obsługę automatycznego wykrywania języka/identyfikatora języka. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)znajdziesz dokumentację.
+- **Zamierzenie-C**: Dodano obsługę transkrypcji konwersacji i konwersacji na wiele urządzeń. 
+- **Python**: Dodano obsługę kompresji audio dla języka Python w systemach Windows i Linux. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)znajdziesz dokumentację. 
+
+**Poprawki błędów**
+- **Wszystkie**: Rozwiązano problem, który spowodował, że KeywordRecognizer nie przeniesieł strumieni do przodu po rozpoznaniu.
+- **Wszystkie**: Rozwiązano problem, który spowodował, że strumień uzyskany z KeywordRecognitionResult nie zawiera słowa kluczowego.
+- **Wszystko**: Rozwiązano problem polegający na tym, że SendMessageAsync nie wyśle komunikatu przez sieć po zakończeniu oczekiwania przez użytkowników.
+- **Wszystkie**: Naprawiono awarię w interfejsie API rozpoznawanie osoby mówiącej, gdy użytkownicy uruchamiają wiele VoiceProfileClient:: SpeakerRecEnrollProfileAsync i nie oczekują na ich zakończenie.
+- **Wszystkie**: Naprawiono włączenie rejestrowania plików w klasach VoiceProfileClient i SpeakerRecognizer.
+- **JavaScript**: rozwiązano [problem związany](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) z ograniczaniem, gdy przeglądarka jest zminimalizowana.
+- **JavaScript**: rozwiązano [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) dotyczący przecieku pamięci w strumieniach.
+- **JavaScript**: dodano buforowanie dla odpowiedzi protokołu OCSP z NodeJS.
+- **Java**: Rozwiązano problem, który spowodował, że pola BigInteger zawsze zwracają 0.
+- **iOS**: Naprawiono i [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) z publikowaniem aplikacji opartych na zestawie SDK mowy w sklepie iOS App Store.
+
+**Samples**
+- **C++**: dodano przykładowy kod dla rozpoznawanie osoby mówiącej w [tym miejscu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**COVID-19 przetestowanie:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie udało nam się wykonać tyle testów weryfikacyjnych ręcznych. Firma Microsoft nie wprowadziła żadnych zmian, które mogą być uszkodzone i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Bądź w dobrej kondycji
 
 ## <a name="text-to-speech-2020-july-release"></a>Zamiana tekstu na mowę 2020 — wydanie z lipca
 
 ### <a name="new-features"></a>Nowe funkcje
 
-* **Neuronowych TTS, 15 nowych neuronowych głosów**: nowe głosy dodawane do portfolio neuronowych TTS to Salma in `ar-EG` arabski (Egipt), Zariyah in `ar-SA` arabski (Arabia Saudyjska), Alba in `ca-ES` kataloński (Hiszpania), Christel in duński ( `da-DK` Dania), Neerja w `es-IN` języku angielskim (Indie), Noora w języku `fi-FI` fińskim (Finlandia), swara w `hi-IN` języku hindi (Indie), Colette in `nl-NL` holenderski (Netherland), Zofia in `pl-PL` Polski (Polska), Fernanda in `pt-PT` portugalski (Portugalia), dariya in `ru-RU` rosyjski (Rosja), Hillevi w języku `sv-SE` szwedzkim (Szwecja), Achara in `th-TH` Tajlandzki (Tajlandia), HiuGaai w `zh-HK` języku chińskim (kantoński, tradycyjny) i HsiaoYu `zh-TW` (tajwański mandarynki). Sprawdź wszystkie [obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **Neuronowych TTS, 15 nowych neuronowych głosów**: nowe głosy dodawane do portfolio neuronowych TTS to Salma in `ar-EG` arabski (Egipt), Zariyah in `ar-SA` arabski (Arabia Saudyjska), Alba in `ca-ES` kataloński (Hiszpania), Christel in duński ( `da-DK` Dania), Neerja w `es-IN` języku angielskim (Indie), Noora w języku `fi-FI` fińskim (Finlandia), swara w `hi-IN` języku hindi (Indie), Colette w `nl-NL` języku holenderskim (Holandia), Zofia in `pl-PL` Polski (Polska), Fernanda in `pt-PT` portugalski (Portugalia), dariya in `ru-RU` rosyjski (Rosja), Hillevi w `sv-SE` szwedzki (Szwecja), Achara in `th-TH` tajski (Tajlandia), HiuGaai in `zh-HK` chiński (kantoński, tradycyjny) i HsiaoYu `zh-TW` (tajwański mandarynki). Sprawdź wszystkie [obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Niestandardowy głos, usprawnione testowanie głosu przy użyciu przepływu szkoleniowego, aby uprościć środowisko użytkownika**: dzięki nowej funkcji testowania każdy głos zostanie automatycznie przetestowany przy użyciu wstępnie zdefiniowanego zestawu testów zoptymalizowanego dla każdego języka, który będzie obejmować scenariusze ogólne i asystenta głosowego. Te zestawy testów są starannie wybierane i przetestowane w taki sposób, aby obejmowały typowe przypadki użycia i fonemów w języku. Oprócz tego użytkownicy nadal mogą wybrać opcję przekazania własnych skryptów testowych podczas uczenia modelu.
 
@@ -85,10 +114,10 @@ ms.locfileid: "86512667"
 
 ### <a name="samplessdk"></a>Przykłady/zestaw SDK
 
-* JavaScript: naprawia problem z odtwarzaniem w przeglądarce FireFox i Safari w systemach macOS i iOS. 
+* JavaScript: naprawia problem z odtwarzaniem w przeglądarce Firefox i Safari w systemach macOS i iOS. 
 
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK 1.12.1:2020 — wydanie z czerwca
-**Interfejs wiersza polecenia mowy (. SPX)**
+**Interfejs wiersza polecenia mowy (znany również jako SPX)**
 -   Dodano funkcje wyszukiwania pomocy w interfejsie wiersza polecenia:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -115,7 +144,7 @@ Bądź w dobrej kondycji
 
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020 — może wydać
-**Interfejs wiersza polecenia mowy (. SPX)**
+**Interfejs wiersza polecenia mowy (znany również jako SPX)**
 - **SPX** to nowe narzędzie wiersza polecenia, które umożliwia przeprowadzenie rozpoznawania, syntezy, tłumaczenia, transkrypcji partii i niestandardowego zarządzania mowy z poziomu wiersza polecenia. Służy do testowania usługi mowy lub do skryptowania zadań usługi mowy, które należy wykonać. Pobierz narzędzie i przeczytaj dokumentację [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **Nowe funkcje**
@@ -217,7 +246,7 @@ Bądź w dobrej kondycji
 - JavaScript: Dodano obsługę programu `FromHost API` , aby ułatwić korzystanie z kontenerów Premium i suwerennych chmur. [Tutaj](speech-container-howto.md)znajdziesz dokumentację.
 - JavaScript: Firma Microsoft honoruje `NODE_TLS_REJECT_UNAUTHORIZED` się z [orgads](https://github.com/orgads). Szczegóły można znaleźć [tutaj](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - `OpenSSL`został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
 - Zmieniono typ danych zwrócony dla języka C# `WordLevelTimingResult.Offset` z na, `int` `long` Aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
@@ -258,7 +287,7 @@ Bądź w dobrej kondycji
 - Dodano `KeywordRecognizer` obsługę systemu Windows (platformy UWP), systemów Android i iOS za pomocą pakietów NuGet i programu Unity
 - Dodano interfejs API języka Java konwersacji zdalnych w celu przeprowadzenia transkrypcji konwersacji w partiach asynchronicznych.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - Funkcje Transcriber konwersacji przenoszone w obszarze nazw `Microsoft.CognitiveServices.Speech.Transcription` .
 - Część metod Transcriber konwersacji jest przenoszona do nowej `Conversation` klasy.
@@ -565,7 +594,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Obsługa celu języka C w systemie iOS. Zapoznaj się z naszym [przewodnikiem Szybki Start dla systemu iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Obsługa języka JavaScript w przeglądarce. Zapoznaj się z naszym [przewodnikiem Szybki Start dla języka JavaScript](quickstart-js-browser.md).
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - W tej wersji wprowadzono kilka istotnych zmian.
   Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje.
@@ -584,7 +613,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 
 - Uwidacznianie dodatkowych szczegółowych informacji o błędach dotyczących błędów połączenia.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - W systemie Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` Funkcja nie wymaga już parametru Path. Teraz ścieżka jest automatycznie wykrywana na wszystkich obsługiwanych platformach.
 - Metoda Get-accessor właściwości `EndpointUrl` w językach Java i C# została usunięta.
@@ -613,7 +642,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Wynik rozpoznawania zawiera więcej pól. Są one przesunięte od początku i czasu trwania (w taktach) rozpoznanego tekstu oraz wartości dodatkowych reprezentujących stan rozpoznawania, na przykład `InitialSilenceTimeout` i `InitialBabbleTimeout` .
 - Obsługa AuthorizationToken do tworzenia wystąpień fabryki.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - Zdarzenia rozpoznawania: `NoMatch` Typ zdarzenia został scalony w `Error` zdarzeniu.
 - Nazwa SpeechOutputFormat w języku C# została zmieniona na `OutputFormat` , aby zachować wyrównanie do języka C++.

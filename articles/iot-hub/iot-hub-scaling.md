@@ -11,11 +11,14 @@ ms.author: wesmc
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4b18878cfc5c75bf27fd46cbceaa06e0b6053ddd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: Operations'
+ms.openlocfilehash: bfd4f783c250a7bf0ec28cff903e4c59d8570d89
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307526"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
 
@@ -43,7 +46,7 @@ Na IoT Hub można wybrać tylko jeden typ [wersji](https://azure.microsoft.com/p
 | [Tożsamość dla urządzenia](iot-hub-devguide-identity-registry.md) | Tak | Tak |
 | [Routing komunikatów](iot-hub-devguide-messages-read-custom.md), [wzbogacanie komunikatów](iot-hub-message-enrichments-overview.md)i [integracja Event Grid](iot-hub-event-grid.md) | Tak | Tak |
 | [Protokoły HTTP, AMQP i MQTT](iot-hub-devguide-protocols.md) | Tak | Tak |
-| [Usługa Device Provisioning](../iot-dps/about-iot-dps.md) | Tak | Tak |
+| [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Tak | Tak |
 | [Monitorowanie i diagnostyka](iot-hub-monitor-resource-health.md) | Tak | Tak |
 | [Obsługa komunikatów z chmury do urządzenia](iot-hub-devguide-c2d-guidance.md) |   | Tak |
 | [Bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md), [moduł bliźniaczych reprezentacji](iot-hub-devguide-module-twins.md)i [Zarządzanie urządzeniami](iot-hub-device-management-overview.md) |   | Tak |

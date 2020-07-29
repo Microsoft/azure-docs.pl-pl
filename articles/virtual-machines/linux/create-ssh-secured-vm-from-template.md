@@ -3,15 +3,15 @@ title: Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure na pods
 description: Jak utworzyć maszynę wirtualną z systemem Linux przy użyciu szablonu Menedżer zasobów za pomocą interfejsu wiersza polecenia platformy Azure
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 28c688526bccc411bce6f4118dc55160083deba0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef9650690435a3770e59326e757ab1c783fa7b23
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510926"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372760"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Jak utworzyć maszynę wirtualną z systemem Linux przy użyciu szablonów Azure Resource Manager
 

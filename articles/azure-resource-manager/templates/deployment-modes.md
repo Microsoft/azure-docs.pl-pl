@@ -3,12 +3,12 @@ title: Tryby wdrażania
 description: Opisuje, w jaki sposób należy określić, czy ma być używany pełny czy przyrostowy tryb wdrażania z Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040430"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371587"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager tryby wdrażania
 
@@ -29,7 +29,7 @@ Jeśli szablon zawiera zasób, który nie został wdrożony, ponieważ [warunek]
 
 Należy zachować ostrożność przy użyciu trybu kompletnego z [pętlami kopiowania](copy-resources.md). Wszystkie zasoby, które nie są określone w szablonie po rozwiązaniu pętli kopiowania, są usuwane.
 
-W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-resource-group-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
+W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-scope-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
 
 Istnieją pewne różnice w sposobie, w jaki typy zasobów obsługują operacje usuwania w trybie pełnym. Zasoby nadrzędne są automatycznie usuwane, gdy nie znajdują się w szablonie, który został wdrożony w trybie kompletnym. Niektóre zasoby podrzędne nie są automatycznie usuwane, gdy nie znajdują się w szablonie. Jednak te zasoby podrzędne zostaną usunięte, jeśli zasób nadrzędny zostanie usunięty.
 

@@ -5,16 +5,17 @@ description: Dowiedz się, jak szkolić model i skonfigurować potok prognozowan
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429933"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319613"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Prognozowanie partii za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ Aby dowiedzieć się, jak skonfigurować usługi wsadowe oceniania przy użyciu 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Ta procedura polega na tym, że masz już potok szkoleniowy. Aby zapoznać się z przewodnikiem po stronie projektanta, wykonaj [jedną z części samouczka projektanta](tutorial-designer-automobile-price-train-score.md). 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>Tworzenie potoku wnioskowania partii
 
@@ -80,7 +83,7 @@ Teraz wszystko jest gotowe do wdrożenia potoku inferencing. Spowoduje to wdroż
 
     W dolnej części okna dialogowego można zobaczyć skonfigurowany parametr z wartością domyślną identyfikatora zestawu danych używanego podczas szkolenia.
 
-1. Wybierz polecenie **Publikuj**.
+1. Kliknij pozycję **Opublikuj**.
 
 ![Publikowanie potoku](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 

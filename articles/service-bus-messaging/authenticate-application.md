@@ -3,12 +3,12 @@ title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do Azure Service Bus
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek (kolejek, tematów itp.).
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 371fa42420c2cc90a581b05ac47d7a65f28fc473
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f94f17a538fc86615f4ffeb8f351beb99e0cb33
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128492"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372352"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Uwierzytelnianie i Autoryzowanie aplikacji przy użyciu Azure Active Directory dostępu do Azure Service Bus jednostek
 Azure Service Bus obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Service Bus jednostek (kolejek, tematów, subskrypcji lub filtrów). Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -21,18 +21,18 @@ Gdy podmiot zabezpieczeń (użytkownik, Grupa lub aplikacja) próbuje uzyskać d
 
 Krok uwierzytelniania wymaga, aby żądanie aplikacji zawierało token dostępu OAuth 2,0 w czasie wykonywania. Jeśli aplikacja jest uruchomiona w ramach jednostki platformy Azure, takiej jak maszyna wirtualna platformy Azure, zestaw skalowania maszyn wirtualnych lub aplikacja funkcji platformy Azure, może używać tożsamości zarządzanej do uzyskiwania dostępu do zasobów. Aby dowiedzieć się, jak uwierzytelniać żądania wysyłane przez zarządzaną tożsamość do usługi Service Bus, zobacz [uwierzytelnianie dostępu do zasobów Azure Service Bus za pomocą Azure Active Directory i zarządzanych tożsamości dla zasobów platformy Azure](service-bus-managed-service-identity.md). 
 
-Krok autoryzacji wymaga, aby co najmniej jedna rola RBAC była przypisana do podmiotu zabezpieczeń. Azure Service Bus oferuje role RBAC, które obejmują zestawy uprawnień dla Service Bus zasobów. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia, które będą miały. Aby dowiedzieć się więcej na temat przypisywania ról RBAC do Azure Service Bus, zobacz [wbudowane role RBAC dla Azure Service Bus](#built-in-rbac-roles-for-azure-service-bus). 
+Krok autoryzacji wymaga, aby co najmniej jedna rola RBAC była przypisana do podmiotu zabezpieczeń. Azure Service Bus oferuje role RBAC, które obejmują zestawy uprawnień dla Service Bus zasobów. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia, które będą miały. Aby dowiedzieć się więcej na temat przypisywania ról RBAC do Azure Service Bus, zobacz [role wbudowane platformy Azure dla Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
 
 Aplikacje natywne i aplikacje sieci Web, które wysyłają żądania do Service Bus mogą również autoryzować się z usługą Azure AD. W tym artykule przedstawiono sposób żądania tokenu dostępu i używania go do autoryzacji żądań dotyczących zasobów Service Bus. 
 
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Przypisywanie ról RBAC na potrzeby praw dostępu
-Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md). Azure Service Bus definiuje zestaw wbudowanych ról RBAC, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do jednostek Service Bus, a także definiuje role niestandardowe na potrzeby uzyskiwania dostępu do danych.
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md). Azure Service Bus definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do jednostek Service Bus, a także definiuje role niestandardowe na potrzeby uzyskiwania dostępu do danych.
 
 Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów lub przestrzeni nazw Service Bus. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Wbudowane role RBAC dla Azure Service Bus
-W przypadku Azure Service Bus Zarządzanie przestrzeniami nazw i wszystkimi powiązanymi zasobami za pośrednictwem Azure Portal i interfejsu API usługi Azure Resource Management jest już chronione przy użyciu modelu *kontroli dostępu opartej na rolach* (RBAC). Platforma Azure udostępnia następujące wbudowane role RBAC do autoryzacji dostępu do Service Bus przestrzeni nazw:
+## <a name="azure-built-in-roles-for-azure-service-bus"></a>Wbudowane role platformy Azure dla Azure Service Bus
+W przypadku Azure Service Bus Zarządzanie przestrzeniami nazw i wszystkimi powiązanymi zasobami za pośrednictwem Azure Portal i interfejsu API usługi Azure Resource Management jest już chronione przy użyciu modelu *kontroli dostępu opartej na rolach* (RBAC). Platforma Azure udostępnia następujące wbudowane role platformy Azure umożliwiające autoryzowanie dostępu do Service Bus przestrzeni nazw:
 
 - [Azure Service Bus właściciel danych](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): umożliwia dostęp do danych Service Bus przestrzeni nazw i jej jednostek (kolejek, tematów, subskrypcji i filtrów)
 - [Azure Service Bus nadawcy danych](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Ta rola daje dostęp do Service Bus przestrzeni nazw i jej jednostek.

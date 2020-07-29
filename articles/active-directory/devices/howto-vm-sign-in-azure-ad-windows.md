@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282946"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -208,7 +208,7 @@ Można wymusić zasady dostępu warunkowego, takie jak uwierzytelnianie wielosk�
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logowanie przy użyciu poświadczeń usługi Azure AD z maszyną wirtualną z systemem Windows
 
 > [!IMPORTANT]
-> Połączenie zdalne z maszynami wirtualnymi przyłączonymi do usługi Azure AD jest dozwolone tylko z komputerów z systemem Windows 10, które są przyłączone do usługi Azure AD lub hybrydowej usługi Azure AD przyłączone do tego **samego** katalogu co maszyna wirtualna Ponadto do protokołu RDP przy użyciu poświadczeń usługi Azure AD użytkownik musi należeć do jednej z dwóch ról RBAC, identyfikatora logowania administratora maszyny wirtualnej lub logowania użytkownika maszyny wirtualnej. W tej chwili usługa Azure bastionu nie może być używana do logowania przy użyciu uwierzytelniania Azure Active Directory z rozszerzeniem AADLoginForWindows. Obsługiwany jest tylko bezpośredni protokół RDP.
+> Połączenie zdalne z maszynami wirtualnymi przyłączonymi do usługi Azure AD jest dozwolone tylko z komputerów z systemem Windows 10, które są zarejestrowane w usłudze Azure AD (minimalna wymagana kompilacja to 20H1) lub usługa Azure AD przyłączona do tego **samego** katalogu co maszyna wirtualna. Ponadto do protokołu RDP przy użyciu poświadczeń usługi Azure AD użytkownik musi należeć do jednej z dwóch ról RBAC, identyfikatora logowania administratora maszyny wirtualnej lub logowania użytkownika maszyny wirtualnej. Jeśli korzystasz z zarejestrowanego komputera z systemem Windows 10 w usłudze Azure AD, musisz wprowadzić poświadczenia w formacie AzureAD\UPN (np. AzureAD\john@contoso.com ). W tej chwili nie można zalogować się za pomocą usługi Azure bastionu przy użyciu uwierzytelniania Azure Active Directory z rozszerzeniem AADLoginForWindows; obsługiwany jest tylko bezpośredni protokół RDP.
 
 Aby zalogować się do maszyny wirtualnej z systemem Windows Server 2019 przy użyciu usługi Azure AD: 
 
@@ -224,7 +224,7 @@ Użytkownik jest zalogowany do maszyny wirtualnej systemu Windows Server 2019 Az
 > [!NOTE]
 > Możesz zapisać. Plik RDP lokalnie na komputerze, aby uruchomić przyszłe połączenia pulpitu zdalnego z maszyną wirtualną zamiast konieczności przechodzenia do strony przeglądu maszyn wirtualnych w Azure Portal i przy użyciu opcji Połącz.
 
-## <a name="troubleshoot"></a>Rozwiąż problemy
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 ### <a name="troubleshoot-deployment-issues"></a>Rozwiązywanie problemów dotyczących wdrożenia
 
@@ -342,7 +342,7 @@ Jeśli po zainicjowaniu połączenia pulpitu zdalnego z maszyną wirtualną zoba
 Należy sprawdzić, czy komputer z systemem Windows 10 używany do inicjowania połączenia pulpitu zdalnego jest przyłączony do usługi Azure AD, czy też hybrydowa usługa Azure AD przyłączona do tego samego katalogu usługi Azure AD, do którego jest dołączona maszyna wirtualna. Aby uzyskać więcej informacji na temat tożsamości urządzeń, zobacz artykuł [co to jest tożsamość urządzenia](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> System Windows 10 20H1 dodaje obsługę zarejestrowanego komputera z usługą Azure AD w celu zainicjowania połączenia pulpitu zdalnego z maszyną wirtualną. Dołącz do niejawnego programu testów systemu Windows, aby wypróbować tę funkcję i poznać nowe funkcje systemu Windows 10.
+> System Windows 10 Build 20H1 dodaliśmy obsługę zarejestrowanego komputera z usługą Azure AD w celu zainicjowania połączenia RDP z maszyną wirtualną. W przypadku korzystania z rejestracji usługi Azure AD (nie dołączonej do usługi Azure AD lub hybrydowej usługi Azure AD) jako klienta RDP do inicjowania połączeń z maszyną wirtualną należy wprowadzić poświadczenia w formacie AzureAD\UPn (np. AzureAD\john@contoso.com ).
 
 Sprawdź również, czy rozszerzenie AADLoginForWindows nie zostało odinstalowane po zakończeniu dołączania do usługi Azure AD.
  

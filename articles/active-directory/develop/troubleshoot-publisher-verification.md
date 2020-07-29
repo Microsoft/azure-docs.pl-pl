@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477043"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282980"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Rozwiązywanie problemów z weryfikacją wydawcy (wersja zapoznawcza)
 Jeśli nie możesz zakończyć procesu lub występują nieoczekiwane zachowanie w przypadku [weryfikacji wydawcy (wersja zapoznawcza)](publisher-verification-overview.md), należy zacząć od wykonania następujących czynności w przypadku otrzymywania błędów lub wyświetlenia nieoczekiwanego zachowania: 
@@ -37,7 +37,7 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     1. Przejdź do [strony rejestracji MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Zaloguj się przy użyciu konta użytkownika w podstawowej dzierżawie usługi Azure AD w organizacji 
     1. Jeśli konto MPN już istnieje, zostanie ono rozpoznane i zostanie dodane do konta 
-    1. Przejdź do [strony profilu partnera](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) , w której zostanie wyświetlony identyfikator MPN i kontakt z kontem głównym
+    1. Przejdź do [strony profilu partnera](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) , w której zostanie wyświetlony identyfikator MPN i kontakt z kontem głównym
 
 - **Nie wiem, kto jest moim administratorem globalnym usługi Azure AD (znanym także jako administrator firmy lub Administrator dzierżawy), jak je znaleźć? Co z administratorem aplikacji lub z inną rolą administratora?**
     1. Zaloguj się do [portalu usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta użytkownika w podstawowej dzierżawie Twojej organizacji
@@ -45,14 +45,14 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     1. Kliknij pozycję "Administrator globalny" lub żądaną rolę administratora
     1. Zostanie wyświetlona lista użytkowników, którym przypisano tę rolę
 
-- **Nie wiem, komu Administratorzy dla mojego konta usługi MPN** Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/en-us/pcv/users) i przefiltruj listę użytkowników, aby zobaczyć, którzy użytkownicy znajdują się w różnych rolach administratora.
+- **Nie wiem, komu Administratorzy dla mojego konta usługi MPN** Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i przefiltruj listę użytkowników, aby zobaczyć, którzy użytkownicy znajdują się w różnych rolach administratora.
 
 - **Otrzymuję komunikat o błędzie informujący, że mój identyfikator MPN jest nieprawidłowy lub nie ma do niego dostępu.**
-    1. Przejdź do [profilu partnera](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) i sprawdź, czy: 
+    1. Przejdź do [profilu partnera](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) i sprawdź, czy: 
         - IDENTYFIKATOR MPN jest poprawny. 
         - Nie ma żadnych błędów lub "oczekujących akcji", a stan weryfikacji w obszarze informacje o profilu biznesowym i partnerze są "autoryzowane" lub "powodzenie".
-    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców.
-    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/en-us/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont.
+    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców.
+    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont.
 
 - **Po zalogowaniu się do portalu usługi Azure AD nie są wyświetlane żadne aplikacje zarejestrowane. Zalet?** 
     Rejestracje aplikacji mogły zostać utworzone przy użyciu innego konta użytkownika lub w innej dzierżawie. Upewnij się, że zalogowano się przy użyciu odpowiedniego konta w dzierżawie, w którym zostały utworzone rejestracje aplikacji.
@@ -209,7 +209,7 @@ Ta funkcja nie jest obsługiwana w przypadku kont użytkowników Microsoft. Obs�
 
 Jeśli zostały sprawdzone wszystkie poprzednie informacje i nadal pojawiają się błędy z Microsoft Graph, Zbierz możliwie najwięcej z poniższych informacji związanych z błędnym żądaniem i [skontaktuj się z pomocą techniczną firmy Microsoft](developer-support-help-options.md#open-a-support-request).
 
-- Znacznik czasu 
+- Timestamp 
 - CorrelationId 
 - ObjectID lub UserPrincipalName zalogowanego użytkownika 
 - Identyfikator obiektu aplikacji docelowej

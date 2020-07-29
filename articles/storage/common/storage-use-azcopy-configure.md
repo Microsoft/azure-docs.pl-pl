@@ -4,16 +4,16 @@ description: Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCop
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282436"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -23,12 +23,12 @@ AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować o
 > Jeśli szukasz zawartości ułatwiającej rozpoczęcie pracy z usługą AzCopy, zobacz dowolny z następujących artykułów:
 > - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
 > - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
-> - [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+> - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 > - [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
 
-Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `https_proxy` zmienną środowiskową. Jeśli uruchomisz program AzCopy w systemie Windows, AzCopy automatycznie wykryje ustawienia proxy, więc nie trzeba używać tego ustawienia w systemie Windows. Jeśli zdecydujesz się używać tego ustawienia w systemie Windows, spowoduje to przesłonięcie automatycznego wykrywania.
+Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `https_proxy` zmienną środowiskową. Jeśli uruchomisz narzędzie AzCopy w systemie Windows, narzędzie AzCopy automatycznie wykryje ustawienia serwera proxy, dlatego w systemie Windows nie trzeba używać tego ustawienia. Jeśli zdecydujesz się użyć tego ustawienia w systemie Windows, przesłoni ono automatyczne wykrywanie.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
@@ -49,7 +49,7 @@ Jeśli uruchamiasz program AzCopy w systemie Windows i chcesz powiedzieć, że w
 
 W innych systemach operacyjnych, należy po prostu pozostawić zmienną HTTPS_PROXY tak, aby nie był używany żaden serwer proxy.
 
-## <a name="optimize-performance"></a>Optymalizacja wydajności
+## <a name="optimize-performance"></a>Optymalizowanie wydajności
 
 Możesz przeprowadzić test wydajności, a następnie użyć poleceń i zmiennych środowiskowych, aby znaleźć optymalną kompromis między wydajnością i użyciem zasobów.
 
@@ -63,7 +63,7 @@ Ta sekcja ułatwia wykonywanie następujących zadań optymalizacji:
 
 ### <a name="run-benchmark-tests"></a>Uruchamianie testów porównawczych
 
-Test testu porównawczego wydajności dla określonych kontenerów obiektów blob lub udziałów plików można uruchomić w celu wyświetlenia ogólnych statystyk wydajności i problemów z wąskimi gardłami wydajności. 
+Test testu porównawczego wydajności dla określonych kontenerów obiektów blob lub udziałów plików można uruchomić w celu wyświetlenia ogólnych statystyk wydajności i problemów z wąskimi gardłami wydajności. Test można uruchomić, przekazując lub pobierając wygenerowane dane testowe. 
 
 Użyj poniższego polecenia, aby uruchomić test porównawczy wydajności.
 
@@ -77,9 +77,7 @@ Użyj poniższego polecenia, aby uruchomić test porównawczy wydajności.
 
 To polecenie uruchamia wzorzec wydajności przez przekazywanie danych testowych do określonego miejsca docelowego. Dane testowe są generowane w pamięci, przekazane do miejsca docelowego, a następnie usuwane z lokalizacji docelowej po zakończeniu testu. Można określić, ile plików ma być generowanych i jakie rozmiary mają być używane przez opcjonalne parametry polecenia.
 
-Aby uzyskać szczegółowe dokumenty referencyjne, zobacz [azcopyal](storage-ref-azcopy-bench.md).
-
-Aby wyświetlić szczegółowe wskazówki dotyczące pomocy dla tego polecenia, wpisz, `azcopy benchmark -h` a następnie naciśnij klawisz ENTER.
+Jeśli wolisz uruchomić ten test przez pobranie danych, ustaw `mode` parametr na `download` . Aby uzyskać szczegółowe dokumenty referencyjne, zobacz [azcopyal](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Optymalizowanie przepływności
 
@@ -91,7 +89,7 @@ azcopy jobs resume <job-id> --cap-mbps 10
 
 Przepływność może ulec zmniejszeniu podczas przesyłania małych plików. Można zwiększyć przepływność przez ustawienie `AZCOPY_CONCURRENCY_VALUE` zmiennej środowiskowej. Ta zmienna określa liczbę równoczesnych żądań, które mogą wystąpić.  
 
-Jeśli komputer ma mniej niż 5 procesorów CPU, wartość tej zmiennej jest ustawiana na `32` . W przeciwnym razie wartość domyślna jest równa 16 pomnożona przez liczbę procesorów CPU. Maksymalna wartość domyślna tej zmiennej to `3000` , ale można ręcznie ustawić tę wartość na wyższą lub niższą. 
+Jeśli komputer ma mniej niż 5 procesorów CPU, wartość tej zmiennej jest ustawiana na `32` . W przeciwnym razie wartość domyślna jest równa 16-krotności liczby procesorów CPU. Maksymalna wartość domyślna tej zmiennej to `3000` , ale można ręcznie ustawić tę wartość na wyższą lub niższą. 
 
 | System operacyjny | Polecenie  |
 |--------|-----------|

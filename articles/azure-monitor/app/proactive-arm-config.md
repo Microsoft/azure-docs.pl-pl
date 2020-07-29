@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081597"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309345"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Zarządzanie Application Insights regułami wykrywania inteligentnego przy użyciu szablonów Azure Resource Manager
 
@@ -192,6 +192,7 @@ Ten szablon Azure Resource Manager ilustruje konfigurowanie reguły alertów o a
 
 Dowiedz się więcej na temat automatycznego wykrywania:
 
-- [Anomalie błędów](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Przecieki pamięci](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Anomalie wydajności](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Anomalie błędów](./proactive-failure-diagnostics.md)
+- [Przecieki pamięci](./proactive-potential-memory-leak.md)
+- [Anomalie wydajności](./proactive-performance-diagnostics.md)
+

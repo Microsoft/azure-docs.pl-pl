@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 20310c6c51a2467e9389bc77dd9ada4848c69be4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538908"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371757"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
 1. Upewnij się, że masz co najmniej jedną maszynę wirtualną z [systemem Windows](../virtual-machines/linux/disk-encryption-overview.md) lub [Linux](../virtual-machines/linux/disk-encryption-overview.md) z włączonym ADE.
 2. [Przegląd macierzy obsługi](backup-support-matrix-iaas.md) kopii zapasowej maszyny wirtualnej platformy Azure
-3. [Utwórz](backup-azure-arm-vms-prepare.md#create-a-vault) magazyn kopii zapasowych Recovery Services, jeśli go nie masz.
+3. [Utwórz](backup-create-rs-vault.md) magazyn kopii zapasowych Recovery Services, jeśli go nie masz.
 4. Jeśli włączysz szyfrowanie dla maszyn wirtualnych, które są już włączone dla kopii zapasowej, musisz po prostu podać kopię zapasową z uprawnieniami dostępu do Key Vault, aby kopie zapasowe mogły kontynuować działanie bez zakłóceń. [Dowiedz się więcej](#provide-permissions) o przypisywaniu tych uprawnień.
 
 Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznościach:
@@ -56,7 +56,7 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
 
 ## <a name="configure-a-backup-policy"></a>Konfigurowanie zasad kopii zapasowych
 
-1. Jeśli jeszcze nie utworzono magazynu Recovery Services kopii zapasowych, wykonaj [te instrukcje](backup-azure-arm-vms-prepare.md#create-a-vault)
+1. Jeśli jeszcze nie utworzono magazynu Recovery Services kopii zapasowych, wykonaj [te instrukcje](backup-create-rs-vault.md)
 2. Otwórz magazyn w portalu, a następnie wybierz pozycję **kopia zapasowa** w sekcji **wprowadzenie** .
 
     ![Blok kopii zapasowej](./media/backup-azure-vms-encryption/select-backup.png)

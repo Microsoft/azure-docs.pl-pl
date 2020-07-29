@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132946"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371791"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ O ile nie określono inaczej, zalecamy zapoznanie się z najlepszymi rozwiązani
 
 Planujemy kontynuowanie aktualizowania zaleceń i najlepszych rozwiązań wymienionych w tym miejscu. Podaj dane wejściowe lub korekty dla tego dokumentu, korzystając z linku **opinii** znajdującego się w dolnej części tego artykułu.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
@@ -324,7 +324,7 @@ Rozdzielenie obowiązków, nazywane także rozdzieleniem obowiązków, zawiera o
 
 - Zawsze upewnij się, że masz dziennik inspekcji dla akcji związanych z zabezpieczeniami.
 
-- Można pobrać definicję wbudowanych ról RBAC, aby wyświetlić używane uprawnienia i utworzyć rolę niestandardową w oparciu o fragmenty i kumulacje tych elementów za pośrednictwem programu PowerShell.
+- Możesz pobrać definicję wbudowanych ról platformy Azure, aby wyświetlić używane uprawnienia i utworzyć rolę niestandardową w oparciu o fragmenty i kumulacje tych elementów za pośrednictwem programu PowerShell.
 
 - Ze względu na to, że każdy członek roli bazy danych db_owner może zmienić ustawienia zabezpieczeń, takie jak Transparent Data Encryption (TDE) lub zmienić cel SLO, członkostwo należy udzielić z opieką. Istnieje jednak wiele zadań, które wymagają uprawnień db_owner. Zadanie, takie jak zmiana ustawień bazy danych, takie jak zmiana opcji DB. Inspekcja odgrywa kluczową rolę w dowolnym rozwiązaniu.
 

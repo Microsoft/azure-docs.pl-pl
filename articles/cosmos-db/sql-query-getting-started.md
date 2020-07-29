@@ -4,30 +4,41 @@ description: Dowiedz się, jak używać zapytań SQL do wykonywania zapytań dot
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308189"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 
-Azure Cosmos DB konta interfejsu API SQL obsługują wykonywanie zapytań dotyczących elementów przy użyciu Structured Query Language (SQL) jako języka zapytań JSON. Celem projektowania języka zapytań Azure Cosmos DB jest:
+W Azure Cosmos DB kontach interfejsu API SQL istnieją dwa sposoby odczytywania danych:
 
-* Obsługa języka SQL, jednego z najpopularniejszych i popularnych języków zapytań zamiast tworzenia nowych języków zapytań. SQL zawiera formalny model programowania dla zaawansowanych zapytań dotyczących elementów JSON.  
+**Odczyty punktów** — można wykonać wyszukiwanie klucza/wartości dla *identyfikatora pojedynczego elementu* i klucza partycji. Kombinacja *identyfikatora elementu* i klucza partycji jest kluczem, a sam element jest wartością. W przypadku dokumentu o 1 KB punkt odczytuje zazwyczaj jednostkę 1 [jednostki żądania](request-units.md) z opóźnieniem poniżej 10 ms. Odczyty punktów zwracają pojedynczy element.
 
-* Używaj modelu programowania JavaScript jako podstawy dla języka zapytań. System typów języka JavaScript, obliczanie wyrażeń i wywołania funkcji są katalogami głównymi interfejsu API SQL. Te katalogi główne zapewniają naturalny model programowania dla funkcji, takich jak relacyjne projekcje, hierarchiczne Nawigowanie między elementami JSON, samosprzężenia, zapytania przestrzenne i wywołania funkcji zdefiniowanych przez użytkownika (UDF), które są zapisywane w całości w języku JavaScript.
+**Zapytania SQL** — możesz wykonywać zapytania dotyczące danych, pisząc zapytania przy użyciu STRUCTURED Query Language (SQL) jako języka zapytań JSON. Zapytania zawsze mają koszt co najmniej 2,3 jednostek żądań i, ogólnie rzecz biorąc, będzie miało większe i więcej zmiennych opóźnień niż odczyty punktów. Zapytania mogą zwracać wiele elementów.
+
+Większość obciążeń mocno odczytanych na Azure Cosmos DB należy używać kombinacji odczytów punktów i zapytań SQL. Jeśli musisz tylko odczytać pojedynczy element, odczyty punktów są tańsze i szybsze niż zapytania. Odczyty punktów nie muszą używać aparatu zapytań do uzyskiwania dostępu do danych i mogą odczytywać dane bezpośrednio. Oczywiście nie jest możliwe, że wszystkie obciążenia wyłącznie odczytują dane przy użyciu odczytów punktów, dlatego obsługa języka SQL jako język zapytań i [indeksowanie schematu niezależny od](index-overview.md) zapewniają bardziej elastyczny sposób uzyskiwania dostępu do danych.
+
+Poniżej przedstawiono kilka przykładów odczytu punktów przy użyciu każdego zestawu SDK:
+
+- [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [Zestaw SDK Java](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Zestaw SDK dla platformy Node.js](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+W pozostałej części tego dokumentu pokazano, jak rozpocząć pisanie zapytań SQL w Azure Cosmos DB. Zapytania SQL można uruchamiać za pomocą zestawu SDK lub Azure Portal.
 
 ## <a name="upload-sample-data"></a>Przekazywanie przykładowych danych
 
-Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families` . Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w Azure Cosmos DB dokumentach zapytań przy użyciu tego zestawu danych.
+Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families` . Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w dokumentacji zapytania Azure Cosmos DB przy użyciu tego zestawu danych.
 
 ### <a name="create-json-items"></a>Tworzenie elementów JSON
 
 Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy JSON dla rodzin Andersen i Wakefield obejmują rodzice, dzieci i informacje o rejestracji. Pierwszy element zawiera ciągi, liczby, wartości logiczne, tablice i właściwości zagnieżdżone.
-
 
 ```json
 {
@@ -71,7 +82,7 @@ Drugi element używa `givenName` i `familyName` zamiast `firstName` i `lastName`
             { "givenName": "Shadow" }
         ]
       },
-      { 
+      {
         "familyName": "Miller",
          "givenName": "Lisa",
          "gender": "female",
@@ -87,7 +98,7 @@ Drugi element używa `givenName` i `familyName` zamiast `firstName` i `lastName`
 
 Wypróbuj kilka zapytań dotyczących danych JSON, aby poznać niektóre kluczowe aspekty języka zapytań SQL Azure Cosmos DB.
 
-Poniższe zapytanie zwraca elementy, w których `id` pole jest zgodne `AndersenFamily` . Ponieważ jest to `SELECT *` zapytanie, dane wyjściowe zapytania są kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [SELECT Statement](sql-query-select.md). 
+Poniższe zapytanie zwraca elementy, w których `id` pole jest zgodne `AndersenFamily` . Ponieważ jest to `SELECT *` zapytanie, dane wyjściowe zapytania są kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [SELECT Statement](sql-query-select.md).
 
 ```sql
     SELECT *
@@ -95,7 +106,7 @@ Poniższe zapytanie zwraca elementy, w których `id` pole jest zgodne `AndersenF
     WHERE f.id = "AndersenFamily"
 ```
 
-Wyniki zapytania są następujące: 
+Wyniki zapytania są następujące:
 
 ```json
     [{

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132283"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281365"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -65,8 +65,11 @@ Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właś
 
 Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpitalnych, stref lub samego szpitala.
 
-> [!TIP]
-> Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [*How to: Parse and Validate models*](how-to-use-parser.md).
+### <a name="validate-syntax"></a>Weryfikuj składnię
+
+Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. 
+
+Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [*How to: Parse and Validate models*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Zarządzanie modelami za pomocą interfejsów API.
 
@@ -82,7 +85,10 @@ W poniższych sekcjach pokazano, jak wykonać różne operacje zarządzania mode
 
 Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Oto fragment kodu pokazujący, jak to zrobić:
+> [!TIP]
+> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-use-parser.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
+
+Gdy wszystko jest gotowe do przekazania modelu, można użyć następującego fragmentu kodu:
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -126,10 +132,7 @@ Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele 
 ]
 ```
  
-Przy przekazywaniu pliki modelu są weryfikowane.
-
-> [!TIP] 
-> Należy pamiętać, że można również użyć [biblioteki analizatora po stronie klienta DTDL](how-to-use-parser.md) do sprawdzania poprawności modeli po stronie klienta.
+Przy przekazywaniu pliki modelu są sprawdzane przez usługę.
 
 ### <a name="retrieve-models"></a>Pobierz modele
 

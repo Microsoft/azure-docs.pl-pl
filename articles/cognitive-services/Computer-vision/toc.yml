@@ -109,11 +109,9 @@
       href: concept-recognizing-text.md
     - name: Wykrywanie zawartości dla dorosłych
       href: concept-detecting-adult-content.md
-- name: Przewodniki z instrukcjami
+- name: Containers
   items:
-    - name: Wywoływanie interfejsu API przetwarzania obrazów
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-    - name: Korzystanie z kontenerów
+    - name: Odczytywanie kontenera interfejsu API
       items:
         - name: Instalowanie i uruchamianie kontenerów
           href: computer-vision-how-to-install-containers.md
@@ -127,6 +125,10 @@
         - name: Korzystanie z wystąpień kontenerów
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Wywoływanie interfejsu API przetwarzania obrazów
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analizowanie klipów wideo w czasie rzeczywistym
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Dokumentacja
@@ -135,6 +137,8 @@
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Interfejs API przetwarzania obrazów 3.1 (wersja zapoznawcza).1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005'
     - name: Interfejs API przetwarzania obrazów w wersji 3.0
       href: 'https://aka.ms/computer-vision-v3-ref'
     - name: Interfejs API przetwarzania obrazów v2.1

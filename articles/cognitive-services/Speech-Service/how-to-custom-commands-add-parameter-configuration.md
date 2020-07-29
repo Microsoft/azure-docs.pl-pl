@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
-ms.openlocfilehash: 5417ff3b53526adbaeba2b9df58694ad495475d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307816"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284187"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Dodawanie konfiguracji do parametrów poleceń
 
@@ -75,7 +75,7 @@ Następnie przejdź do strony ustawień parametrów **SubjectDevice** i zmień w
 
 | Ustawienie | Sugerowana wartość |
 | ----| ---- |
-| Konfiguracja | Zaakceptuj wstępnie zdefiniowane dane wejściowe z wykazu zewnętrznego |                               
+| Konfigurowanie | Zaakceptuj wstępnie zdefiniowane dane wejściowe z wykazu zewnętrznego |                               
 | Punkt końcowy katalogu | GetDevices |
 | Metoda | GET |
 
@@ -84,7 +84,7 @@ Następnie wybierz pozycję **Zapisz**.
 > [!IMPORTANT]
 > Nie zostanie wyświetlona opcja konfigurowania parametru w celu akceptowania danych wejściowych z wykazu zewnętrznego, chyba że w sekcji **punkt końcowy sieci Web** w okienku po lewej stronie jest ustawiony punkt końcowy sieci Web.
 
-### <a name="try-it-out"></a>Wypróbowywanie działania
+### <a name="try-it-out"></a>Czas to wypróbować
 
 Wybierz pozycję **uczenie** i poczekaj na zakończenie szkolenia. Po zakończeniu szkolenia wybierz pozycję **Testuj** i wypróbuj kilka interakcji.
 
@@ -112,12 +112,12 @@ Sprawdzanie poprawności przy użyciu polecenia **Settemperatura** . Aby dodać 
     | ---- | ---- | ---- |
     | Wartość minimalna | `60` | Dla parametrów liczbowych minimalna wartość, którą może przyjąć ten parametr |
     | Wartość maksymalna | `80` | Dla parametrów liczbowych wartość maksymalna, którą może przyjąć ten parametr |
-    | Niepowodzenie odpowiedzi |  Edytor prosty > pierwszej odmiany >`Sorry, I can only set temperature between 60 and 80 degrees` | Monituj o podanie nowej wartości, Jeśli weryfikacja nie powiedzie się |
+    | Niepowodzenie odpowiedzi |  Edytor prosty > pierwszej odmiany >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Monituj o podanie nowej wartości, Jeśli weryfikacja nie powiedzie się |
 
     > [!div class="mx-imgBorder"]
     > ![Dodawanie walidacji zakresu](media/custom-commands/add-validations-temperature.png)
 
-### <a name="try-it-out"></a>Wypróbowywanie działania
+### <a name="try-it-out"></a>Czas to wypróbować
 
 1. Wybierz ikonę **szkolenia** znajdującą się u góry okienka po prawej stronie.
 

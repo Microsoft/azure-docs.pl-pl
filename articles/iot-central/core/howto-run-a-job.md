@@ -7,11 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283726"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure
 
@@ -42,7 +43,11 @@ W tej sekcji pokazano, jak utworzyć i uruchomić zadanie. Pokazuje, jak ustawi�
     > [!NOTE]
     > Możesz wyświetlić 30-dniową historię poprzednio wykonywanych zadań.
 
-7. Aby uzyskać przegląd zadania, wybierz z listy zadanie do wyświetlenia. To omówienie zawiera szczegóły zadania, urządzenia i wartości stanu urządzenia. Z tego omówienia można także wybrać opcję **Pobierz szczegóły zadania** , aby pobrać plik CSV zawierający szczegóły zadania, w tym urządzenia i ich wartości stanu. Te informacje mogą być przydatne podczas rozwiązywania problemów:
+7. Kliknij zapisane zadanie i wykonaj zadanie, klikając przycisk Uruchom. Zostanie wyświetlone okno podręczne uruchamiania zadania. Potwierdź, klikając przycisk Uruchom zadanie. 
+
+    ![Uruchamianie zadania](./media/howto-run-a-job/run-job.png)
+
+8. Zadanie przechodzi przez różne etapy oczekujące, uruchomione i ukończone. Szczegóły wykonania zadania zawierają metryki wyników, szczegóły czasu trwania oraz siatkę listy urządzeń. Z tego przeglądu można także wybrać pozycję **Dziennik wyników** , aby pobrać plik CSV zawierający szczegóły zadania, w tym urządzenia i ich wartości stanu. Te informacje mogą być przydatne podczas rozwiązywania problemów.
 
     ![Wyświetlanie stanu urządzenia](./media/howto-run-a-job/download-details.png)
 
@@ -50,13 +55,23 @@ W tej sekcji pokazano, jak utworzyć i uruchomić zadanie. Pokazuje, jak ustawi�
 
 Aby zatrzymać jedno z uruchomionych zadań, otwórz je i wybierz pozycję **Zatrzymaj**. Stan zadania zmienia się, aby odzwierciedlić zadanie zostało zatrzymane. Sekcja **podsumowania** zawiera listę urządzeń, które zostały ukończone, zakończyły się niepowodzeniem lub nadal oczekują.
 
-Aby uruchomić zadanie, które jest aktualnie zatrzymane, zaznacz je, a następnie wybierz polecenie **Uruchom**. Stan zadania zmienia się w celu odzwierciedlenia, że zadanie jest teraz uruchomione ponownie. Sekcja **podsumowania** kontynuuje aktualizację przy użyciu najnowszego postępu.
-
 ![Zarządzaj zadaniem](./media/howto-run-a-job/manage-job.png)
+
+Gdy zadanie jest w stanie zatrzymania, możesz kliknąć przycisk **Kontynuuj** , aby wznowić wykonywanie zadania. Stan zadania zmienia się w celu odzwierciedlenia, że zadanie jest teraz uruchomione ponownie. Sekcja **podsumowania** kontynuuje aktualizację przy użyciu najnowszego postępu.
+
+![Zatrzymano zadanie](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Kopiowanie zadania
 
-Aby skopiować jedno z istniejących zadań, wybierz je na stronie **zadania** i wybierz pozycję **Kopiuj**. Zostanie wyświetlona kopia konfiguracji zadania, którą można edytować, a w polu Nazwa zadania zostanie dodana **kopia** . Możesz zapisać lub uruchomić nowe zadanie:
+Aby skopiować jedno z istniejących zadań, wybierz je na stronie **zadania** i wybierz pozycję **szczegóły zadania**. Zostanie wyświetlona strona szczegóły zadania. 
+
+![Szczegóły zadania](./media/howto-run-a-job/job-details.png)
+
+Kliknij przycisk **Kopiuj**
+
+![Szczegóły zadania](./media/howto-run-a-job/job-details-copy.png)
+
+Zostanie wyświetlona kopia konfiguracji zadania, którą można edytować, a w polu Nazwa zadania zostanie dodana **kopia** . Możesz zapisać lub uruchomić nowe zadanie:
 
 ![Kopiuj zadanie](./media/howto-run-a-job/copy-job.png)
 
@@ -69,14 +84,14 @@ Po utworzeniu zadania kolumna **stan** będzie aktualizowana przy użyciu najnow
 | Ukończone            | To zadanie zostało wykonane na wszystkich urządzeniach.              |
 | Niepowodzenie               | To zadanie nie powiodło się i nie zostało w pełni wykonane na urządzeniach.  |
 | Oczekiwanie              | To zadanie jeszcze nie rozpoczęło wykonywania na urządzeniach.         |
-| Działanie              | To zadanie jest obecnie wykonywane na urządzeniach.             |
+| Uruchomiono              | To zadanie jest obecnie wykonywane na urządzeniach.             |
 | Zatrzymano              | To zadanie zostało ręcznie zatrzymane przez użytkownika.           |
 
 Po komunikacie o stanie następuje przegląd urządzeń w zadaniu. Poniższa tabela zawiera listę możliwych wartości stanu urządzenia:
 
 | Komunikat o stanie       | Stan znaczenie                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Sukces            | Liczba urządzeń, na których zadanie zostało pomyślnie wykonane.       |
+| Powodzenie            | Liczba urządzeń, na których zadanie zostało pomyślnie wykonane.       |
 | Niepowodzenie               | Liczba urządzeń, na których wykonywanie zadania nie powiodło się.       |
 
 ### <a name="view-the-device-status-values"></a>Wyświetlanie wartości stanu urządzenia

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090964"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284170"
 ---
 # <a name="create-application-with-simple-commands"></a>Tworzenie aplikacji przy użyciu prostych poleceń
 
@@ -44,7 +44,7 @@ W pustej aplikacji poleceń niestandardowych w języku **Smart-The-Lite** , któ
 
 1. Utwórz nowe polecenie, wybierając pozycję **nowe** w górnej części okienka po lewej stronie. Zostanie otwarte **nowe okno polecenia** .
 1. Podaj wartość dla pola **Nazwa** jako **wlaczac**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 W środkowym okienku wyświetlane są różne właściwości polecenia. Należy skonfigurować następujące właściwości polecenia. Aby uzyskać wyjaśnienie wszystkich właściwości konfiguracji polecenia, przejdź do pozycji [odwołania](./custom-commands-references.md).
 
@@ -95,6 +95,7 @@ Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje uż
 
 1. Wybierz pozycję **Zapisz** , aby zapisać akcję.
 1. Wróć do sekcji **reguły uzupełniania** , wybierz pozycję **Zapisz** , aby zapisać wszystkie zmiany. 
+
 
     > [!NOTE]
     > Nie jest konieczne użycie domyślnej reguły uzupełniania, która jest dostarczana z poleceniem. W razie konieczności można usunąć istniejącą domyślną regułę uzupełniania i dodać własną regułę.

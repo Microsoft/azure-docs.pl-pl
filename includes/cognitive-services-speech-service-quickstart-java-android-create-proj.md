@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: d59381c220d7118724db7685740af76ba3776034
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 84c9f61783d2fea425b83c214deede295c4ed581
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609317"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375780"
 ---
 1. Uruchom Android Studio i wybierz pozycję **Rozpocznij nowy projekt Android Studio** w oknie **powitalnym** .
 
     ![Zrzut ekranu okna powitalnego programu Android Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. Zostanie wyświetlony Kreator **Wybierz projekt** . W polu wyboru działania wybierz pozycję **telefon i tablet** i **puste działanie** . Wybierz pozycję **Next** (Dalej).
+1. Zostanie wyświetlony Kreator **Wybierz projekt** . W polu wyboru działania wybierz pozycję **telefon i tablet** i **puste działanie** . Wybierz pozycję **Dalej**.
 
    ![Zrzut ekranu przedstawiający kreatora wyboru projektu](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
@@ -27,7 +27,7 @@ Przygotowanie nowego projektu Android w programie Android Studio zajmie trochę 
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-Bieżąca wersja zestawu SDK mowy Cognitive Services to 1.12.1.
+Bieżąca wersja zestawu SDK mowy Cognitive Services to 1.13.0.
 
 Zestaw Speech SDK dla systemu Android znajduje się w pakiecie o nazwie [AAR (biblioteka Android)](https://developer.android.com/studio/projects/android-library) i zawiera niezbędne biblioteki oraz wymagane uprawnienia systemu Android.
 Jest ona hostowana w repozytorium Maven przy użyciu protokołu https: \/ /csspeechstorage.blob.Core.Windows.NET/Maven/.
@@ -42,7 +42,7 @@ Skonfiguruj projekt do korzystania z zestawu Speech SDK. Otwórz okno **struktur
 
    ![Zrzut ekranu przedstawiający zależność biblioteki](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. W wyświetlonym oknie wprowadź nazwę i wersję zestawu Speech SDK dla systemu Android, *com. Microsoft. cognitiveservices. Speech: Client-SDK: 1.12.1*. Następnie wybierz przycisk **OK**.
+1. W wyświetlonym oknie wprowadź nazwę i wersję zestawu Speech SDK dla systemu Android, *com. Microsoft. cognitiveservices. Speech: Client-SDK: 1.13.0*. Następnie wybierz pozycję **OK**.
    Zestaw mowy SDK należy dodać do listy zależności teraz, jak pokazano poniżej:
 
    ![Zrzut ekranu zestawu Speech SDK na liście zależności](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

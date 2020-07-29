@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281484"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrowanie aplikacji opartych na ekranach 3270 na komputerach mainframe IBM z platformą Azure przy użyciu usługi Azure Logic Apps i łącznika IBM 3270
 
@@ -174,7 +174,7 @@ W tym trybie należy zdefiniować przepływ lub etapy nawigowania po ekranach ap
 
 <a name="create-plans"></a>
 
-### <a name="create-plans"></a>Utwórz plany
+### <a name="create-plans"></a>Tworzenie planów
 
 1. Na pasku narzędzi Narzędzia do projektowania 3270 wybierz opcję **Nawigacja** , aby przejść do trybu nawigacji.
 
@@ -292,7 +292,7 @@ W tym trybie należy zdefiniować metodę, która jest skojarzona z planem nawig
    |---------------|-----------------|
    | **Typ danych** | Bajt, Data i godzina, liczba dziesiętna, int, Long, Short, String |
    | **Technika wypełnienia pola** | Parametry obsługują te typy wypełniania, wypełniając wartości puste, w razie potrzeby: <p><p>- **Typ**: Wprowadź znaki sekwencyjnie do pola. <p>- **Wypełnienie**: Zastąp zawartość pola znakami, wypełniając wartości puste, jeśli jest to konieczne. <p>- **EraseEofType**: Wyczyść pole, a następnie wprowadź znaki sekwencyjnie do pola. |
-   | **Ciąg formatu** | Niektóre typy danych parametrów używają ciągu formatu, który informuje łącznik 3270 o sposobie konwersji tekstu z ekranu na typ danych .NET: <p><p>- **DateTime**: ciąg formatu daty i godziny jest zgodny z [niestandardowymi ciągami formatu data i godzina platformy .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Na przykład Data `06/30/2019` używa ciągu formatu `MM/dd/yyyy` . <p>- **Decimal**: ciąg formatu dziesiętnego używa [klauzuli COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Na przykład liczba `100.35` używa ciągu formatu `999V99` . |
+   | **Ciąg formatu** | Niektóre typy danych parametrów używają ciągu formatu, który informuje łącznik 3270 o sposobie konwersji tekstu z ekranu na typ danych .NET: <p><p>- **DateTime**: ciąg formatu daty i godziny jest zgodny z [niestandardowymi ciągami formatu data i godzina platformy .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Na przykład Data `06/30/2019` używa ciągu formatu `MM/dd/yyyy` . <p>- **Decimal**: ciąg formatu dziesiętnego używa [klauzuli COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Na przykład liczba `100.35` używa ciągu formatu `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Zapisz i Wyświetl metadane
@@ -409,7 +409,7 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/si3270/).
+Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/si3270/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
@@ -417,3 +417,4 @@ Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego �
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075760"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281394"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
 
@@ -70,7 +70,7 @@ Poniższa lista zawiera typowe Stany alertów używane przez Ambari:
 * **OK**
 * **Ostrzeżenie**
 * **NAJISTOTNIEJSZ**
-* **UNKNOWN**
+* **ZNANA**
 
 Alerty inne niż **OK** powodują wyświetlenie liczby alertów w pozycji **# alerty** w górnej części strony. Wybranie tej pozycji spowoduje wyświetlenie alertów i ich stanu.
 
@@ -107,6 +107,7 @@ Aby uzyskać więcej informacji na temat węzłów w klastrze, wybierz pozycję 
 ### <a name="services"></a>Usługi
 
 Pasek boczny **usług** na pulpicie nawigacyjnym zapewnia szybki wgląd w informacje o stanie usług uruchomionych w klastrze. Różne ikony są używane do wskazywania stanu lub akcji, które należy wykonać. Na przykład żółty symbol odtwarzania jest wyświetlany, jeśli usługa musi zostać odtworzona.
+
 
 ![Pasek boczny usług Apache Ambari Services](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -170,10 +171,10 @@ Na stronie **hosty** są wyświetlane wszystkie hosty w klastrze. Aby zarządza�
 
 Na stronie **pulpit nawigacyjny** lub **usługi** Użyj przycisku **Akcje** znajdującego się u dołu listy usług, aby zatrzymać i uruchomić wszystkie usługi.
 
-![Lista akcji usługi Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Lista akcji usługi Apache Ambari." border="true":::
 
 > [!WARNING]  
-> Podczas **dodawania usługi** w tym menu nie należy używać go do dodawania usług do klastra usługi HDInsight. Przed zainicjowaniem obsługi klastra należy dodać nowe usługi przy użyciu akcji skryptu. Aby uzyskać więcej informacji o korzystaniu z akcji skryptu, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+> Przed zainicjowaniem obsługi klastra należy dodać nowe usługi przy użyciu akcji skryptu. Aby uzyskać więcej informacji o korzystaniu z akcji skryptu, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 Po kliknięciu przycisku **Akcje** można uruchomić ponownie wszystkie usługi, często w celu uruchomienia, zatrzymania lub ponownego uruchomienia określonej usługi. Wykonaj następujące kroki, aby wykonać akcje dotyczące poszczególnych usług:
 

@@ -4,16 +4,16 @@ description: Ten artykuł zawiera instrukcje dotyczące włączania Microsoft Az
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080288"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372658"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
 
@@ -409,7 +409,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Zrzut awaryjny jądra (kdump).
 - Oracle ACFS (system plików klastra ASM).
 - Maszyny wirtualne Gen2 (zobacz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Maszyny wirtualne serii Lsv2 (zobacz: [Lsv2-Series](../lsv2-series.md)).
+- Dyski interfejsu NVMe maszyn wirtualnych z serii Lsv2 (zobacz: [Lsv2-Series](../lsv2-series.md)).
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 - Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.

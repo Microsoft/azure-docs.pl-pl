@@ -7,11 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 503af00cac298473acd1504ca7d04998e74c3538
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-java
+ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920530"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308988"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
@@ -280,7 +282,7 @@ W przypadku innych platform (Red Hat, Windows, Mac itp.) zapoznaj się z tymi in
 
     Aby uzyskać więcej informacji, zobacz [Azure Cosmos DB zasad indeksowania](indexing-policies.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Przepływność
+## <a name="throughput"></a><a id="measure-rus"></a>Kazany
 
 * **Mierzenie i dostrajanie dla niższych jednostek żądań/drugiego użycia**
 

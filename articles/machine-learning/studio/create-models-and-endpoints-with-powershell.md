@@ -1,6 +1,5 @@
 ---
-title: Tworzenie wielu modeli i punktów końcowych
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klasyczny): Tworzenie wielu & punktów końcowych modelu — platforma Azure'
 description: Użyj programu PowerShell, aby utworzyć wiele modeli Machine Learning i punkty końcowe usługi sieci Web przy użyciu tego samego algorytmu, ale różnych zestawów danych szkoleniowych.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b158c2fbdbfba91055d64f92f64c51dc6c3d391
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9cb5b0b87b1d6adb8e0e5cda06049cfddba3d950
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283541"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
+
+**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
 
 Oto typowy problem uczenia maszynowego: chcesz utworzyć wiele modeli, które mają ten sam przepływ pracy szkoleniowej i korzystać z tego samego algorytmu. Ale chcesz, aby miały różne zestawy danych szkoleniowych jako dane wejściowe. W tym artykule pokazano, jak to zrobić na dużą skalę w Azure Machine Learning Studio (klasyczny) przy użyciu tylko jednego eksperymentu.
 

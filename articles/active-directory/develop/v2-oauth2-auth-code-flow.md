@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311351"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -34,9 +34,11 @@ Na wysokim poziomie cały przepływ uwierzytelniania dla aplikacji wygląda nast
 
 ![Przepływ kodu uwierzytelniania OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Konfiguracja wymagana dla aplikacji jednostronicowych
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Wymagana jest konfiguracja identyfikatora URI przekierowania dla aplikacji jednostronicowych
 
-Przepływ kodu autoryzacji dla aplikacji jednostronicowych wymaga dodatkowej konfiguracji.  Podczas [tworzenia aplikacji](howto-create-service-principal-portal.md)należy oznaczyć identyfikator URI przekierowania dla aplikacji jako `spa` Identyfikator URI przekierowania. Powoduje to, że serwer logowania zezwala na użycie mechanizmu CORS (Udostępnianie zasobów między źródłami) dla aplikacji.  Jest to wymagane do zrealizowania kodu przy użyciu XHR.
+Przepływ kodu autoryzacji dla aplikacji jednostronicowych wymaga dodatkowej konfiguracji.  Postępuj zgodnie z instrukcjami dotyczącymi [tworzenia aplikacji jednostronicowych](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) , aby poprawnie oznaczyć identyfikator URI przekierowania jako włączony dla mechanizmu CORS. Aby zaktualizować istniejący identyfikator URI przekierowania w celu włączenia mechanizmu CORS, Otwórz Edytor manifestu i ustaw `type` pole dla identyfikatora URI przekierowania na `spa` w `replyUrlsWithType` sekcji. Możesz również kliknąć identyfikator URI przekierowania w sekcji "Web" na karcie uwierzytelnianie i wybrać identyfikatory URI, które mają zostać zmigrowane, aby użyć przepływu kodu autoryzacji.
+
+`spa`Typ przekierowania jest wstecznie zgodny z niejawnym przepływem. Aplikacje używające obecnie niejawnego przepływu do uzyskiwania tokenów mogą zostać przeniesione do `spa` typu identyfikatora URI przekierowania bez problemów i nadal przy użyciu niejawnego przepływu.
 
 W przypadku próby użycia przepływu kodu autoryzacji i wyświetlenia tego błędu:
 
@@ -229,7 +231,7 @@ Odpowiedzi na błędy będą wyglądać następująco:
 | `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
 
 > [!NOTE]
-> Aplikacje jednostronicowe mogą otrzymać `invalid_request` błąd wskazujący, że wykup tokenów między źródłami jest dozwolony tylko dla typu klienta jednostronicowej aplikacji.  Oznacza to, że identyfikator URI przekierowania używany do żądania tokenu nie został oznaczony jako `spa` Identyfikator URI przekierowania.  Zapoznaj się z [procedurą rejestracji aplikacji](#setup-required-for-single-page-apps) dotyczącą włączania tego przepływu.
+> Aplikacje jednostronicowe mogą otrzymać `invalid_request` błąd wskazujący, że wykup tokenów między źródłami jest dozwolony tylko dla typu klienta jednostronicowej aplikacji.  Oznacza to, że identyfikator URI przekierowania używany do żądania tokenu nie został oznaczony jako `spa` Identyfikator URI przekierowania.  Zapoznaj się z [procedurą rejestracji aplikacji](#redirect-uri-setup-required-for-single-page-apps) dotyczącą włączania tego przepływu.
 
 ## <a name="use-the-access-token"></a>Korzystanie z tokenu dostępu
 

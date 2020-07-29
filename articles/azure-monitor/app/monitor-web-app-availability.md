@@ -4,16 +4,16 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310280"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
-Po wdrożeniu aplikacji lub witryny sieci Web można skonfigurować testy cykliczne, aby monitorować dostępność i czas odpowiedzi. Usługa [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Może to być alert, jeśli aplikacja nie odpowiada, lub jeśli reaguje zbyt wolno.
+Po wdrożeniu aplikacji lub witryny sieci Web można skonfigurować testy cykliczne, aby monitorować dostępność i czas odpowiedzi. Usługa [Azure Application Insights](./app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Może to być alert, jeśli aplikacja nie odpowiada, lub jeśli reaguje zbyt wolno.
 
 Testy dostępności możesz skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Nie musisz wprowadzać żadnych zmian w testowanej witrynie sieci Web. W rzeczywistości nie musi to być jeszcze posiadana witryna. Możesz przetestować dostępność interfejsu API REST, od którego zależy usługa.
 
@@ -69,7 +69,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ## <a name="see-your-availability-test-results"></a>Wyświetlanie wyników testów dostępności
@@ -107,9 +107,9 @@ W wyniku testu dostępności można zobaczyć szczegóły transakcji dla wszystk
 * Zarejestruj problem lub element roboczy w usłudze Git lub Azure Boards, aby śledzić problem. Błąd będzie zawierać link do tego zdarzenia.
 * Otworzyć wynik testu sieci Web w programie Visual Studio.
 
-Więcej informacji na temat kompleksowego środowiska diagnostyki transakcji można znaleźć [tutaj](../../azure-monitor/app/transaction-diagnostics.md).
+Więcej informacji na temat kompleksowego środowiska diagnostyki transakcji można znaleźć [tutaj](./transaction-diagnostics.md).
 
-Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwera, który spowodował niepowodzenie testu dostępności syntetycznej. Możesz również uzyskać [migawkę debugowania](../../azure-monitor/app/snapshot-debugger.md) na potrzeby bardziej zaawansowanej diagnostyki poziomu kodu.
+Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwera, który spowodował niepowodzenie testu dostępności syntetycznej. Możesz również uzyskać [migawkę debugowania](./snapshot-debugger.md) na potrzeby bardziej zaawansowanej diagnostyki poziomu kodu.
 
 ![Diagnostyka po stronie serwera](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -118,10 +118,10 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
-* Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](../../azure-monitor/app/powershell.md#add-an-availability-test).
-* Konfigurowanie [elementu webhook](../../azure-monitor/platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.
+* Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](./powershell.md#add-an-availability-test).
+* Konfigurowanie [elementu webhook](../platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -131,3 +131,4 @@ Dedykowany artykuł dotyczący [rozwiązywania problemów](troubleshoot-availabi
 
 * [Alerty dostępności](availability-alerts.md)
 * [Wieloetapowe testy sieci Web](availability-multistep.md)
+

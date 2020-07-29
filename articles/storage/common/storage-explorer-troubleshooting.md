@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974521"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372879"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -63,13 +63,13 @@ Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możes
 1. Otwórz okno dialogowe Połącz.
 2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD). Kliknij przycisk Dalej.
 3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Kliknij przycisk Dalej.
-4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Połącz.
+4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Podłącz.
 
 W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego RBAC. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### <a name="recommended-built-in-rbac-roles"></a>Zalecane wbudowane role RBAC
+### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 
-Istnieje kilka wbudowanych ról RBAC, które mogą zapewnić uprawnienia, które są konieczne do korzystania z Eksplorator usługi Storage. Niektóre z tych ról są następujące:
+Istnieje kilka wbudowanych ról platformy Azure, które mogą zapewnić uprawnienia, które są konieczne do korzystania z Eksplorator usługi Storage. Niektóre z tych ról są następujące:
 - [Właściciel](/azure/role-based-access-control/built-in-roles#owner): Zarządzanie wszystko, w tym dostęp do zasobów. **Uwaga**: Ta rola zapewnia dostęp do klucza.
 - [Współautor](/azure/role-based-access-control/built-in-roles#contributor): Zarządzaj wszystkimi elementami, wykluczając dostęp do zasobów. **Uwaga**: Ta rola zapewnia dostęp do klucza.
 - [Czytelnik](/azure/role-based-access-control/built-in-roles#reader): Odczytuj i wyświetlaj zasoby.

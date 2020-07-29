@@ -3,12 +3,12 @@ title: Planowanie wdrożenia klastra Service Fabric platformy Azure
 description: Dowiedz się więcej o planowaniu i przygotowaniu dla środowiska produkcyjnego wdrożenia klastra Service Fabric na platformie Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610595"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281331"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planowanie i przygotowywanie wdrożenia klastra
 
@@ -51,7 +51,7 @@ Każda większa niż minimalna liczba węzłów powinna być oparta na liczbie r
 
 Tymczasowe dyski systemu operacyjnego nie są konkretną funkcją Service Fabric, ale raczej funkcją *zestawów skalowania maszyn wirtualnych* platformy Azure, które są mapowane do typów węzłów Service Fabric. Użycie ich z Service Fabric wymaga następujących w szablonie Azure Resource Manager klastra:
 
-1. Upewnij się, że typy węzłów określają [obsługiwane rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/windows/ephemeral-os-disks.md) dla dysków tymczasowych systemu operacyjnego i że rozmiar maszyny wirtualnej ma wystarczający rozmiar pamięci podręcznej, aby zapewnić obsługę rozmiaru dysku systemu operacyjnego (patrz *Uwaga* poniżej). Na przykład:
+1. Upewnij się, że typy węzłów określają [obsługiwane rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/ephemeral-os-disks.md) dla dysków tymczasowych systemu operacyjnego i że rozmiar maszyny wirtualnej ma wystarczający rozmiar pamięci podręcznej, aby zapewnić obsługę rozmiaru dysku systemu operacyjnego (patrz *Uwaga* poniżej). Na przykład:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Tymczasowe dyski systemu operacyjnego nie są konkretną funkcją Service Fabric
 > Aby przeprowadzić migrację, użytkownicy będą musieli [dodać](./virtual-machine-scale-set-scale-node-type-scale-out.md) nowe NodeType z dyskami z systemem tymczasowych, przenieść obciążenia do nowej nodeType, & [usunąć](./service-fabric-how-to-remove-node-type.md) istniejące NodeType.
 >
 
-Aby uzyskać więcej informacji i więcej opcji konfiguracji, zobacz [dyski tymczasowe systemu operacyjnego dla maszyn wirtualnych platformy Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+Aby uzyskać więcej informacji i więcej opcji konfiguracji, zobacz [dyski tymczasowe systemu operacyjnego dla maszyn wirtualnych platformy Azure](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Wybierz poziomy trwałości i niezawodności dla klastra

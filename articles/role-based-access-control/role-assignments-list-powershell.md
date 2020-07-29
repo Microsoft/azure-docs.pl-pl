@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4ee6a3c09d24d6968227ef4215000888c5f4af05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791014"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372080"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure PowerShell
 
@@ -105,7 +106,7 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-## <a name="list-role-assignments-for-a-resource-group"></a>Tworzenie listy przypisań ról dla grupy zasobów
+## <a name="list-role-assignments-for-a-resource-group"></a>Wyświetlanie listy przypisań ról dla grupy zasobów
 
 Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zasobów, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
@@ -139,6 +140,26 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 
 ```Example
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+## <a name="list-role-assignments-for-a-resource"></a>Wyświetlanie listy przypisań ról dla zasobu
+
+Aby wyświetlić listę przypisań ról dla określonego zasobu, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) i `-Scope` parametru. Zakres będzie różny w zależności od zasobu. Aby uzyskać zakres, można uruchomić `Get-AzRoleAssignment` bez żadnych parametrów, aby wyświetlić listę wszystkich przypisań ról, a następnie znaleźć zakres, który chcesz wyświetlić.
+
+```azurepowershell
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
+```
+
+Poniższy przykład pokazuje, jak wyświetlić listę przypisań ról dla konta magazynu. Należy zauważyć, że to polecenie wyświetla również przypisania ról w wyższych zakresach, takich jak grupy zasobów i subskrypcje, które mają zastosowanie do tego konta magazynu.
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
+```
+
+Jeśli chcesz tylko wyświetlić przypisania ról, które są przypisane bezpośrednio do zasobu, możesz użyć polecenia [WHERE-Object](/powershell/module/microsoft.powershell.core/where-object) , aby odfiltrować listę.
+
+```Example
+PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
 ```
 
 ## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Wyświetl listę przypisań ról dla administratora klasycznej usługi i współadministratorów

@@ -32,9 +32,9 @@
       href: release-notes.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie obszaru roboczego usługi Azure Synapse
+    - name: Tworzenie obszaru roboczego usługi Synapse
       href: quickstart-create-workspace.md
-    - name: Korzystanie z programu Azure Synapse Studio
+    - name: Korzystanie z programu Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Podłączanie obszaru roboczego usługi Power BI
       href: quickstart-power-bi.md
