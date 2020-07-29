@@ -4,15 +4,15 @@ description: Specyfikacje dotyczące maszyn wirtualnych z serii seria NCV3.
 ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1cd5cee2d452e7762d784b90e80f8b9e39cf2007
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de118f7a4a29d306fe351199795a5a8cacb38fcd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085354"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289739"
 ---
 # <a name="ncv3-series"></a>Seria NCv3
 

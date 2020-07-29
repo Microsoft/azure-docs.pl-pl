@@ -3,12 +3,12 @@ title: Konfigurowanie sieci wirtualnej w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować istniejącą sieć wirtualną i podsieć, a następnie używać ich w maszynie wirtualnej z Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482653"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283558"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurowanie sieci wirtualnej w Azure DevTest Labs
 Jak wyjaśniono w artykule [Dodawanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md), podczas tworzenia maszyny wirtualnej w laboratorium można określić skonfigurowaną sieć wirtualną. Na przykład może być konieczne uzyskanie dostępu do zasobów Corpnet z maszyn wirtualnych przy użyciu sieci wirtualnej, która została skonfigurowana za pomocą usługi ExpressRoute lub sieci VPN typu lokacja-lokacja.
@@ -53,10 +53,9 @@ Poniższe kroki przeprowadzą Cię przez proces dodawania istniejącej sieci wir
 
 Teraz, gdy sieć wirtualna jest skonfigurowana, można ją wybrać podczas tworzenia maszyny wirtualnej. Aby dowiedzieć się, jak utworzyć MASZYNę wirtualną i określić sieć wirtualną, zapoznaj się z artykułem [Dodaj maszynę wirtualną do laboratorium](devtest-lab-add-vm.md). 
 
-[Dokumentacja Virtual Network](https://docs.microsoft.com/azure/virtual-network) platformy Azure zawiera więcej informacji o sposobach korzystania z programu sieci wirtualnych, w tym o sposobie konfigurowania sieci wirtualnej i zarządzania nią oraz łączenia jej z siecią lokalną.
+[Dokumentacja Virtual Network](../virtual-network/index.yml) platformy Azure zawiera więcej informacji o sposobach korzystania z programu sieci wirtualnych, w tym o sposobie konfigurowania sieci wirtualnej i zarządzania nią oraz łączenia jej z siecią lokalną.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 Po dodaniu odpowiedniej sieci wirtualnej do laboratorium, następnym krokiem jest [dodanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md).
-

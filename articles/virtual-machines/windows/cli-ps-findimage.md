@@ -4,16 +4,16 @@ description: Użyj Azure PowerShell, aby określić wydawcę, ofertę, jednostk�
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: d2d37e20ada2d1128f04d2df822da996338e0e6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96b5e3770a3f5e08237d61eab05cfeafbc72a5db
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500875"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288355"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Znajdowanie obrazów maszyn wirtualnych w portalu Azure Marketplace i korzystanie z nich przy użyciu Azure PowerShell
 

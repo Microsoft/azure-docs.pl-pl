@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: Plik dyrektywy include
 description: Uwzględnij plik tekstowy dla kontraktu Microsoft Commercial Marketplace Standard
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -7,12 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 01/22/2020
 ms.custom: include file
-ms.openlocfilehash: 5cbddaed1078ade005c3d60df3face9580bf6609
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121977"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326679"
 ---
 Firma Microsoft udostępnia standardowy szablon kontraktu dla komercyjnej witryny Marketplace.
 

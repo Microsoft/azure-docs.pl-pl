@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005280"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281858"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Tworzenie konta usługi zarządzanego przez grupę (gMSA) w Azure Active Directory Domain Services
 
@@ -26,7 +26,7 @@ Zamiast tego można utworzyć konto usługi zarządzane przez grupę (gMSA) w do
 
 W tym artykule opisano sposób tworzenia gMSA w domenie zarządzanej przy użyciu Azure PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -76,7 +76,7 @@ Teraz Utwórz element gMSA przy użyciu polecenia cmdlet [New-ADServiceAccount][
 * **-Name** jest ustawiona na *WebFarmSvc*
 * **-Path —** parametr określa niestandardową jednostkę organizacyjną dla gMSA utworzonych w poprzednim kroku.
 * Wpisy DNS i nazwy główne usług są ustawiane dla *WebFarmSvc.aaddscontoso.com*
-* Podmioty zabezpieczeń w *AADDSCONTOSO-Server $* mogą pobrać hasło Użyj tożsamości.
+* Podmioty zabezpieczeń w *AADDSCONTOSO — serwer $* mogą pobrać hasło i użyć tożsamości.
 
 Określ własne nazwy i nazwy domen.
 
