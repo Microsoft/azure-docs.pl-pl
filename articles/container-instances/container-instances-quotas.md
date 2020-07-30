@@ -2,19 +2,21 @@
 title: Limity przydziału usługi i dostępność regionów
 description: Limity przydziałów, ograniczenia i dostępność regionów dla usługi Azure Container Instances.
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77117904"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384836"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Przydziały i limity dla Azure Container Instances
 
 Wszystkich usług platformy Azure dotyczą określone limity i przydziały dla zasobów i funkcji. W tym artykule opisano domyślne przydziały i limity dla Azure Container Instances.
 
 Dostępność zasobów obliczeniowych, pamięci i magazynu dla Azure Container Instances różni się w zależności od regionu i systemu operacyjnego. Aby uzyskać szczegółowe informacje, zobacz [dostępność zasobów dla Azure Container Instances](container-instances-region-availability.md).
+
+Użyj interfejsu API [użycia listy](/rest/api/container-instances/location/listusage) , aby przejrzeć bieżące użycie przydziału w regionie dla subskrypcji.
 
 ## <a name="service-quotas-and-limits"></a>Limity i przydziały dotyczące usługi
 
