@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024863"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404178"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -110,6 +110,7 @@ Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy uży
 * Klucz **prywatny** jest stosowany do domeny zarządzanej.
     * Ten klucz prywatny jest używany do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej i nie jest rozpowszechniany na komputerach klienckich.
     * Certyfikat zawierający klucz prywatny używa *. *Format pliku PFX.
+    * Algorytm szyfrowania dla certyfikatu musi być *TripleDES-SHA1*.
 * Na komputerach klienckich jest stosowany klucz **publiczny** .
     * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
     * Certyfikaty bez klucza prywatnego korzystają z programu *. *Format pliku CER.
@@ -149,7 +150,7 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
 1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła nie można zastosować certyfikatu do usługi.
 
-    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. *Plik certyfikatu PFX. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
+    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. *Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS.pfx*. Zanotuj hasło i lokalizację *. Plik PFX* , ponieważ te informacje będą wymagane w następnych krokach.
 1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. *Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 1. Pozostaw otwarty program MMC do użycia w poniższej sekcji.
@@ -210,7 +211,7 @@ Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurow
 
 Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
-Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
+Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa, algorytm szyfrowania dla certyfikatu nie jest *TripleDES-SHA1*lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Zablokuj bezpieczny dostęp do protokołu LDAP za pośrednictwem Internetu
 
@@ -225,10 +226,10 @@ Utwórz regułę zezwalającą na dostęp przychodzący do bezpiecznego protoko�
 
     | Ustawienie                           | Wartość        |
     |-----------------------------------|--------------|
-    | Element źródłowy                            | Adresy IP |
+    | Źródło                            | Adresy IP |
     | Źródłowe adresy IP/zakresy CIDR | Prawidłowy adres IP lub zakres dla Twojego środowiska |
     | Zakresy portów źródłowych                | *            |
-    | Element docelowy                       | Dowolne          |
+    | Miejsce docelowe                       | Dowolne          |
     | Zakresy portów docelowych           | 636          |
     | Protokół                          | TCP          |
     | Akcja                            | Zezwalaj        |
@@ -279,7 +280,7 @@ Aby wyświetlić obiekty przechowywane w domenie zarządzanej:
 
 Aby bezpośrednio wysyłać zapytania do określonego kontenera, w menu **drzewa widoku >** można określić **BaseDN** , taki jak *OU = AADDC users, DC = AADDSCONTOSO, DC = com* lub *OU = AADDC komputery, DC = AADDSCONTOSO, DC = com*. Aby uzyskać więcej informacji na temat formatowania i tworzenia zapytań, zobacz [podstawowe informacje dotyczące zapytań LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania łączności dla tego samouczka, Usuń ten wpis i Dodaj formalny rekord do strefy DNS. Aby usunąć wpis z lokalnego pliku hosts, wykonaj następujące czynności:
 

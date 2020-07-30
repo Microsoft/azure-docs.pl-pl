@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387623"
+ms.locfileid: "87406722"
 ---
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
@@ -33,7 +33,7 @@ Jeśli nie masz jeszcze rejestru kontenerów, wykonaj następujące kroki, aby u
 
 3. Wybierz przycisk **Utwórz**.
 
-4. Po utworzeniu rejestru kontenerów przejdź do niego, a następnie w okienku po lewej stronie wybierz pozycję **klucze dostępu** z menu znajdującego się w obszarze **Ustawienia**.
+4. Po utworzeniu rejestru kontenerów przejdź do niego, a następnie w okienku po lewej stronie wybierz pozycję **klucze dostępu** z menu znajdującego się w obszarze **Ustawienia**. 
 
 5. Kliknij, aby włączyć administratora, aby wyświetlić **nazwę użytkownika** i **hasło** dla rejestru kontenerów.
 

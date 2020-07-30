@@ -3,13 +3,13 @@ title: Samouczek — kompilacja obrazu wyzwalacza w ramach aktualizacji obrazu p
 description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Container Registry, aby automatycznie wyzwalać kompilacje obrazu kontenera w chmurze, gdy obraz podstawowy zostanie zaktualizowany w tym samym rejestrze.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seodec18, mvc, devx-track-javascript
+ms.openlocfilehash: 0efac34d05dfaf8877efec2e66f1f95a19ca95be
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78402862"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408003"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Samouczek: Automatyzowanie kompilowania obrazu kontenera podczas aktualizowania obrazu podstawowego w usłudze Azure Container Registry 
 
@@ -97,7 +97,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-To zadanie jest podobne do zadania utworzonego w [poprzednim samouczku](container-registry-tutorial-build-task.md). Przesyła ono do usługi ACR Tasks instrukcję wyzwolenia kompilacji obrazu, gdy zatwierdzenia są wypychane do repozytorium określonego przez element `--context`. Podczas gdy pliku dockerfile używany do kompilowania obrazu w poprzednim samouczku określa publiczny obraz podstawowy (`FROM node:9-alpine`), pliku dockerfile w tym zadaniu, [pliku dockerfile-App][dockerfile-app], określa podstawowy obraz w tym samym rejestrze:
+To zadanie jest podobne do zadania utworzonego w [poprzednim samouczku](container-registry-tutorial-build-task.md). Przesyła ono do usługi ACR Tasks instrukcję wyzwolenia kompilacji obrazu, gdy zatwierdzenia są wypychane do repozytorium określonego przez element `--context`. Podczas gdy pliku dockerfile używany do kompilowania obrazu w poprzednim samouczku określa publiczny obraz podstawowy ( `FROM node:9-alpine` ), pliku dockerfile w tym zadaniu, [pliku dockerfile-App][dockerfile-app], określa podstawowy obraz w tym samym rejestrze:
 
 ```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
@@ -125,7 +125,7 @@ Najpierw należy uwierzytelnić się w rejestrze kontenerów za pomocą [AZ ACR 
 az acr login --name $ACR_NAME
 ```
 
-Teraz uruchom komputer lokalnie przy użyciu polecenia `docker run`. Zastąp ** \<\> identyfikator uruchomieniowy** identyfikatorem przebiegu znalezionym w danych wyjściowych z poprzedniego kroku (na przykład "DA6"). Ten przykład określa nazwę kontenera `myapp` i zawiera `--rm` parametr do usuwania kontenera po jego zatrzymaniu.
+Teraz uruchom komputer lokalnie przy użyciu polecenia `docker run`. Zamień na **\<run-id\>** Identyfikator przebiegu znaleziony w danych wyjściowych z poprzedniego kroku (na przykład "DA6"). Ten przykład określa nazwę kontenera `myapp` i zawiera `--rm` parametr do usuwania kontenera po jego zatrzymaniu.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

@@ -8,12 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9404232533ae86e14f9b87c65fdd086f84e8aebb
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171990"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414007"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
 
