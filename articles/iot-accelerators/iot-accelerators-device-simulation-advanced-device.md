@@ -12,12 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683828"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422542"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
@@ -165,14 +166,14 @@ Pola wymienione w schemacie mogą być następujące:
 * Serializacja obiektu za pomocą kodu JSON
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
-* Boolean
+* Wartość logiczna
 * Integer
 * Double
 * DateTime
 
 ### <a name="supported-methods"></a>Obsługiwane metody
 
-Symulowane urządzenia mogą również reagować na wywołania metod, w tym przypadku wykonują pewne logike i dostarczają odpowiedzi. Podobnie jak w przypadku symulacji, logika metody jest przechowywana w pliku JavaScript i może współdziałać ze stanem urządzenia. Przykład:
+Symulowane urządzenia mogą również reagować na wywołania metod, w tym przypadku wykonują pewne logike i dostarczają odpowiedzi. Podobnie jak w przypadku symulacji, logika metody jest przechowywana w pliku JavaScript i może współdziałać ze stanem urządzenia. Na przykład:
 
 ```json
 "CloudToDeviceMethods": {
@@ -262,7 +263,7 @@ Pliki JavaScript muszą mieć **główną** funkcję, która akceptuje dwa param
     * **deviceModel**. Na przykład **Wind**.
 * Obiekt **stanu** , który jest wartością zwracaną przez funkcję w poprzednim wywołaniu. Ten stan urządzenia jest obsługiwany przez usługę symulacji i służy do generowania komunikatów telemetrycznych.
 
-Funkcja **Main** zwraca nowy stan urządzenia. Przykład:
+Funkcja **Main** zwraca nowy stan urządzenia. Na przykład:
 
 ```JavaScript
 function main(context, state) {

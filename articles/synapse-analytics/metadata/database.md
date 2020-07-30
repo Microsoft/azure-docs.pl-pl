@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496013"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385538"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Udostępniona baza danych usługi Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Użyj platformy Spark do zarządzania utworzonymi bazami danych platformy Spark.
 
 W przypadku tworzenia obiektów w bazie danych platformy Spark przy użyciu programu SQL na żądanie lub próby porzucenia bazy danych operacja zakończy się pomyślnie. Jednak oryginalna baza danych Spark nie zostanie zmieniona.
 
-## <a name="handling-of-name-conflicts"></a>Obsługa konfliktów nazw
+## <a name="how-name-conflicts-are-handled"></a>Jak są obsługiwane konflikty nazw
 
 Jeśli nazwa bazy danych Spark powoduje konflikt z nazwą istniejącej bazy danych SQL na żądanie, sufiks jest dołączany na żądanie SQL do bazy danych Spark. Sufiks w SQL na żądanie ma wartość `_<workspace name>-ondemand-DefaultSparkConnector` .
 
@@ -57,7 +57,7 @@ Jeśli podmiot zabezpieczeń wymaga możliwości tworzenia obiektów lub upuszcz
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Tworzenie & łączenie z bazą danych platformy Spark — SQL na żądanie
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Tworzenie bazy danych Spark i nawiązywanie z nią połączenia na żądanie SQL
 
 Najpierw utwórz nową bazę danych Spark o nazwie `mytestdb` przy użyciu klastra Spark, który został już utworzony w obszarze roboczym. Można to zrobić na przykład przy użyciu notesu platformy Spark w języku C# z następującą instrukcją programu .NET for Spark:
 

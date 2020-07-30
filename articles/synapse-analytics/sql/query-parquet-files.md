@@ -9,22 +9,72 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207570"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386626"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
 W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL na żądanie (wersja zapoznawcza), które będzie odczytywać pliki Parquet.
 
+## <a name="quickstart-example"></a>Przykład szybkiego startu
+
+`OPENROWSET`funkcja umożliwia odczytywanie zawartości pliku Parquet, podając adres URL pliku.
+
+### <a name="reading-parquet-file"></a>Odczytywanie pliku Parquet
+
+Najprostszym sposobem, aby zobaczyć zawartość `PARQUET` pliku, jest podanie adresu URL pliku do `OPENROWSET` działania i określenie Parquet `FORMAT` . Jeśli plik jest publicznie dostępny lub jeśli tożsamość usługi Azure AD ma dostęp do tego pliku, powinna być widoczna zawartość pliku przy użyciu zapytania, jak pokazano w następującym przykładzie:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet',
+    format = 'parquet') as rows
+```
+
+Upewnij się, że masz dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, konieczne będzie skonfigurowanie [poświadczeń na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Używanie źródła danych
+
+Poprzedni przykład używa pełnej ścieżki do pliku. Alternatywnie można utworzyć zewnętrzne źródło danych z lokalizacją wskazującą folder główny magazynu, a następnie użyć tego źródła danych i ścieżki względnej do pliku w `OPENROWSET` funkcji:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) as rows
+```
+
+Jeśli źródło danych jest chronione za pomocą klucza SAS lub tożsamości niestandardowej, można skonfigurować [Źródło danych z poświadczeniami o zakresie bazy danych](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Jawnie określ schemat
+
+`OPENROWSET`umożliwia jawne Określanie kolumn, które mają być odczytywane z klauzuli File using `WITH` :
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
+```
+
+W poniższych sekcjach można zobaczyć, jak wykonywać zapytania dotyczące różnych typów plików PARQUET.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Pierwszym krokiem jest **utworzenie bazy danych** ze źródłem danych, która odwołuje się do konta magazynu [NYC Yellow](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) . Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny spowoduje utworzenie źródeł danych, poświadczeń z zakresem bazy danych i zewnętrznych formatów plików, które są używane w tych przykładach.
 
-## <a name="dataset"></a>Dataset
+## <a name="dataset"></a>Zestaw danych
 
 W tym przykładzie jest używany [NYC żółtej taksówki](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) . Pliki Parquet można badać w taki sam sposób jak w przypadku [odczytywania plików CSV](query-parquet-files.md). Jedyną różnicą jest to, że `FILEFORMAT` parametr powinien zostać ustawiony na `PARQUET` . W przykładach w tym artykule przedstawiono szczegółowe informacje dotyczące odczytywania plików Parquet.
 
@@ -132,7 +182,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
+| ELEMENTEM |DATE |data |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

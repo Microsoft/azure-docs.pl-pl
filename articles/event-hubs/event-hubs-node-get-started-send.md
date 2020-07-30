@@ -3,12 +3,13 @@ title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu 
 description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji JavaScript, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu starego pakietu Azure/Event-Hubs w wersji 2.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 548276b4bcbdd514c37a19375154923ad9f3f9a4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ffa6b821d617731bd6ee5cbb9bec8bd6d856a7a6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414126"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z platformy Azure Event Hubs przy użyciu języka JavaScript ( @azure/event-hubs wersja 2)
 W tym przewodniku szybki start pokazano, jak tworzyć aplikacje JavaScript do wysyłania zdarzeń do i odbierania zdarzeń z centrum zdarzeń przy użyciu pakietu Azure/Event-Hubs Version 2 JavaScript. 

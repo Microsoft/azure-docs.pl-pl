@@ -5,17 +5,18 @@ description: W tym przewodniku Szybki start omówiono wykrywanie twarzy na podst
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
+ms.custom: devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: e94dc53fa5c0a6f44417324c9a7d7c1496d18f17
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 15b9c78a1ca24077ce88c77759519cc08076abd5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986625"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405946"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i środowiska JavaScript
 

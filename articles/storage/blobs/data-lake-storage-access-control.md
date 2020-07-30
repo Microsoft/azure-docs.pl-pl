@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091355"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421352"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
 
@@ -34,9 +34,9 @@ Aby dowiedzieć się, jak przypisać role do podmiotów zabezpieczeń w zakresie
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Wpływ przypisań ról na listy kontroli dostępu na poziomie plików i katalogów
 
-W przypadku korzystania z przypisań ról RBAC jest zaawansowanym mechanizmem kontrolowania uprawnień dostępu, jest to bardzo duży mechanizm względem list ACL. Najmniejszy stopień szczegółowości dla RBAC jest na poziomie kontenera i zostanie on oceniony z wyższym priorytetem niż listy kontroli dostępu. W związku z tym, Jeśli rola jest przypisywana do podmiotu zabezpieczeń w zakresie kontenera, ten podmiot zabezpieczeń ma poziom autoryzacji skojarzony z tą rolą dla wszystkich katalogów i plików w tym kontenerze, niezależnie od przypisań listy ACL.
+Podczas korzystania z przypisań ról platformy Azure jest zaawansowanym mechanizmem kontrolowania uprawnień dostępu, jest to bardzo gruby mechanizm względem list ACL. Najmniejszy stopień szczegółowości dla RBAC jest na poziomie kontenera i zostanie on oceniony z wyższym priorytetem niż listy kontroli dostępu. W związku z tym, Jeśli rola jest przypisywana do podmiotu zabezpieczeń w zakresie kontenera, ten podmiot zabezpieczeń ma poziom autoryzacji skojarzony z tą rolą dla wszystkich katalogów i plików w tym kontenerze, niezależnie od przypisań listy ACL.
 
-Gdy podmiot zabezpieczeń otrzymuje uprawnienia do danych RBAC za pomocą [wbudowanej roli](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)lub roli niestandardowej, te uprawnienia są oceniane jako pierwsze przy autoryzacji żądania. Jeśli żądana operacja jest autoryzowana przez przypisania kontroli RBAC podmiotu zabezpieczeń, wówczas Autoryzacja jest natychmiast rozwiązywana i nie są wykonywane żadne dodatkowe kontrole listy ACL. Alternatywnie, jeśli podmiot zabezpieczeń nie ma przypisania RBAC lub operacja żądania nie jest zgodna z przypisanym uprawnieniem, sprawdzenia listy ACL są wykonywane w celu ustalenia, czy podmiot zabezpieczeń jest autoryzowany do wykonywania żądanych operacji.
+Gdy podmiot zabezpieczeń otrzymuje uprawnienia do danych RBAC za pomocą [wbudowanej roli](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)lub roli niestandardowej, te uprawnienia są oceniane jako pierwsze przy autoryzacji żądania. Jeśli żądana operacja jest autoryzowana przez przydziały roli platformy Azure podmiotu zabezpieczeń, autoryzacja jest natychmiast rozwiązywana i nie są wykonywane żadne dodatkowe sprawdzenia listy ACL. Alternatywnie, jeśli podmiot zabezpieczeń nie ma przypisania roli platformy Azure lub operacja żądania nie jest zgodna z przypisanym uprawnieniem, sprawdzenia listy ACL są wykonywane w celu ustalenia, czy podmiot zabezpieczeń jest autoryzowany do wykonywania żądanych operacji.
 
 > [!NOTE]
 > Jeśli podmiotowi zabezpieczeń przypisano przypisanie wbudowanej roli właściciela danych obiektu blob magazynu, podmiot zabezpieczeń jest traktowany jako *administrator* i uzyskuje pełny dostęp do wszystkich operacji związanych z operacjami, takich jak Ustawianie właściciela katalogu lub pliku oraz list ACL dla katalogów i plików, dla których nie są właścicielami. Dostęp administratora jest jedynym autoryzowanym sposobem zmiany właściciela zasobu.
@@ -333,7 +333,7 @@ Jeśli masz prawidłowy identyfikator OID dla jednostki usługi, przejdź do str
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Czy Data Lake Storage Gen2 obsługuje dziedziczenie list ACL?
 
-Dziedziczenie przypisań RBAC platformy Azure. Przepływy zadań z subskrypcji, grupy zasobów i zasobów konta magazynu w dół do zasobu kontenera.
+Przypisań ról platformy Azure dziedziczą. Przepływy zadań z subskrypcji, grupy zasobów i zasobów konta magazynu w dół do zasobu kontenera.
 
 Listy ACL nie są dziedziczone. Jednak domyślne listy ACL mogą być używane do ustawiania list ACL dla podrzędnych podkatalogów i plików utworzonych w katalogu nadrzędnym. 
 

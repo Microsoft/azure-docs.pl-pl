@@ -1,6 +1,6 @@
 ---
-title: Jak skonfigurować Logowanie jednokrotne haseł dla aplikacji usługi Azure AD | Microsoft Docs
-description: Jak skonfigurować Logowanie jednokrotne (SSO) haseł do aplikacji usługi Azure AD dla przedsiębiorstw w usłudze Microsoft Identity platform (Azure AD)
+title: Jak skonfigurować Logowanie jednokrotne oparte na hasłach dla aplikacji usługi Azure AD
+description: Jak skonfigurować oparte na hasłach Logowanie jednokrotne (SSO) dla aplikacji usługi Azure AD w usłudze Microsoft Identity platform (Azure AD)
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,60 +8,56 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/10/2019
+ms.date: 07/29/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763503"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419958"
 ---
-# <a name="configure-password-single-sign-on"></a>Konfigurowanie logowania jednokrotnego przy użyciu hasła
+# <a name="configure-password-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na hasłach
 
-Po [dodaniu aplikacji galerii](add-gallery-app.md) lub [aplikacji sieci Web bez galerii](add-non-gallery-app.md) do aplikacji usługi Azure AD Enterprise jedną z opcji logowania jednokrotnego jest dostęp do [logowania jednokrotnego opartego na hasłach](what-is-single-sign-on.md#password-based-sso). Ta opcja jest dostępna dla dowolnej sieci Web ze stroną logowania w formacie HTML. Logowanie jednokrotne oparte na hasłach, nazywane również magazynem haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest to również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji Media społecznościowych w organizacji. 
+W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W przewodniku szybki start można skonfigurować Logowanie jednokrotne oparte na języku SAML. Oprócz protokołu SAML istnieje możliwość logowania jednokrotnego opartego na hasłach. W tym artykule znajduje się bardziej szczegółowy opis opcji logowania jednokrotnego na podstawie hasła. 
+
+Ta opcja jest dostępna dla dowolnej witryny sieci Web ze stroną logowania w formacie HTML. Logowanie jednokrotne oparte na hasłach, nazywane również magazynem haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest to również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji Media społecznościowych w organizacji. 
 
 Logowanie jednokrotne oparte na hasłach to doskonały sposób, aby szybko rozpocząć Integrowanie aplikacji z usługą Azure AD, dzięki czemu można:
 
--   Włączanie **logowania jednokrotnego dla użytkowników** przez bezpieczne przechowywanie i odtwarzanie nazw użytkownika i haseł dla aplikacji zintegrowanej z usługą Azure AD
+- Włączanie logowania jednokrotnego dla użytkowników przez bezpieczne przechowywanie i odtwarzanie nazw użytkownika i haseł dla aplikacji zintegrowanej z usługą Azure AD
 
--   **Obsługa aplikacji, które wymagają wielu pól logowania** dla aplikacji, które wymagają więcej niż tylko nazwy użytkownika i hasła do logowania
+- Obsługa aplikacji, które wymagają wielu pól logowania dla aplikacji, które wymagają więcej niż tylko nazwy użytkownika i hasła do logowania
 
--   **Dostosuj etykiety** pól wprowadzania nazwy użytkownika i hasła, które użytkownicy widzą w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
+- Dostosuj etykiety pól wprowadzania nazwy użytkownika i hasła, które użytkownicy widzą w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
 
--   Zezwól **użytkownikom** na udostępnianie własnych nazw użytkowników i haseł dla wszystkich istniejących kont aplikacji, które są wpisywane ręcznie w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- Zezwól użytkownikom na udostępnianie własnych nazw użytkowników i haseł dla wszystkich istniejących kont aplikacji, które są wpisywane ręcznie.
 
--   Zezwól **członkowi grupy biznesowej** na określanie nazw użytkowników i haseł przypisanych do użytkownika przy użyciu funkcji samoobsługowego [dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Zezwól członkowi grupy biznesowej na określanie nazw użytkowników i haseł przypisanych do użytkownika przy użyciu funkcji samoobsługowego [dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Zezwalaj **administratorowi** na określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
+-   Zezwalaj administratorowi na określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Jeśli aplikacja nie została dodana do dzierżawy usługi Azure AD, zobacz [Dodawanie aplikacji galerii](add-gallery-app.md) lub Dodawanie aplikacji niebędącej [galerią](add-non-gallery-app.md).
+Korzystanie z usługi Azure AD jako dostawcy tożsamości oraz Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać szczegółowe instrukcje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej i musisz użyć logowania jednokrotnego opartego na hasłach, ten artykuł jest dla Ciebie.
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Otwórz aplikację i wybierz pozycję Logowanie jednokrotne hasła
+> [!IMPORTANT] 
+> Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie w nawigacji dla aplikacji w **aplikacjach dla przedsiębiorstw**. 
+>
+> Jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania protokołu OAuth OIDC. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz [Azure Active Directory manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz [uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> Inne scenariusze, w których nie będzie można korzystać z **logowania** jednokrotnego w nawigacji, obejmują, gdy aplikacja jest hostowana w innej dzierżawie lub że Twoje konto nie ma wymaganych uprawnień (Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi). Uprawnienia mogą również prowadzić do scenariusza, w którym można otworzyć **Logowanie jednokrotne** , ale nie będzie można go zapisać. Aby dowiedzieć się więcej na temat ról administracyjnych usługi Azure AD, zobacz https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator aplikacji w chmurze lub administrator aplikacji dla dzierżawy usługi Azure AD.
 
-2. Przejdź do **Azure Active Directory**  >  **aplikacji przedsiębiorstwa**. Zostanie wyświetlona Losowa przykład aplikacji w dzierżawie usługi Azure AD. 
+## <a name="basic-configuration"></a>Konfiguracja podstawowa
 
-3. W menu **Typ aplikacji** wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Zastosuj**.
+W [serii szybkiego startu](view-applications-portal.md)wiesz już, jak dodać aplikację do dzierżawy, aby usługa Azure AD wiedziała, że jest używana jako dostawca tożsamości (dostawcy tożsamości) dla aplikacji. Niektóre aplikacje zostały już wstępnie skonfigurowane i są wyświetlane w galerii usługi Azure AD. Inne aplikacje nie znajdują się w galerii i musisz utworzyć aplikację rodzajową i skonfigurować ją ręcznie. W zależności od aplikacji opcja logowania jednokrotnego opartego na hasłach może być niedostępna. Jeśli lista opcji oparta na haśle nie jest widoczna na stronie logowania jednokrotnego dla aplikacji, jest niedostępna.
 
-4. Wprowadź nazwę aplikacji w polu wyszukiwania, a następnie wybierz aplikację z wyników.
+Strona konfiguracja logowania jednokrotnego na podstawie hasła jest prosta. Zawiera tylko adres URL strony logowania używanej przez aplikację. Ten ciąg musi być stroną, która zawiera pole wprowadzania nazwy użytkownika.
 
-5. W sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**. 
-
-6. Wybierz pozycję **oparte na hasłach**.
-
-7. Wprowadź adres URL strony logowania opartej na sieci Web aplikacji. Ten ciąg musi być stroną, która zawiera pole wprowadzania nazwy użytkownika.
-
-   ![Logowanie jednokrotne oparte na hasłach](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
-
-8. Wybierz pozycję **Zapisz**. Usługa Azure AD próbuje przeanalizować stronę logowania dla danych wejściowych nazwy użytkownika i hasła. Jeśli próba powiedzie się, wszystko jest gotowe. 
+Po wprowadzeniu adresu URL wybierz pozycję **Zapisz**. Usługa Azure AD analizuje kod HTML strony logowania dla pól wprowadzania nazwy użytkownika i hasła. Jeśli próba powiedzie się, wszystko jest gotowe.
  
-> [!NOTE]
-> Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane w imieniu użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie kliknij przycisk **Aktualizuj poświadczenia**. Następnie wprowadź nazwę użytkownika i hasło, które będą używane w imieniu użytkownika lub grupy. W przeciwnym razie użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
+Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane w imieniu użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie wybierz pozycję **Aktualizuj poświadczenia**. Następnie wprowadź nazwę użytkownika i hasło, które będą używane w imieniu użytkownika lub grupy. W przeciwnym razie użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
  
 
 ## <a name="manual-configuration"></a>Konfiguracja ręczna
@@ -86,11 +82,6 @@ Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować
 7. Na stronie Logowanie do **konfiguracji** usługi Azure AD wybierz pozycję OK. udało **Ci się pomyślnie zalogować się do aplikacji**.
 
 8. Wybierz przycisk **OK**.
-
-Po przechwyceniu strony logowania można przypisać użytkowników i grupy, a także skonfigurować zasady poświadczeń, podobnie jak regularne [aplikacje SSO hasła](what-is-single-sign-on.md).
-
-> [!NOTE]
-> Możesz przekazać logo kafelka aplikacji za pomocą przycisku **Przekaż logo** na karcie **Konfiguracja** dla aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,18 +5,18 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Dowiedz się, jak włączyć Azure Dev Spaces w klastrze AKS i zainstalować narzędzia po stronie klienta.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac010a466f7db7b829cc3d6f0687dbdbefdd7b6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996265"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407901"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Włącz Azure Dev Spaces w klastrze AKS i zainstaluj narzędzia po stronie klienta
 
 W tym artykule przedstawiono kilka sposobów włączania Azure Dev Spaces w klastrze AKS oraz instalowania narzędzi po stronie klienta.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Włączanie lub usuwanie Azure Dev Spaces przy użyciu interfejsu wiersza polecenia
+## <a name="enable-azure-dev-spaces-using-the-cli"></a>Włączanie Azure Dev Spaces przy użyciu interfejsu wiersza polecenia
 
 Aby można było włączyć funkcję Spaces dev przy użyciu interfejsu wiersza polecenia, potrzebne są:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto][az-portal-create-account].
@@ -49,7 +49,23 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 `use-dev-spaces`Polecenie instaluje również interfejs wiersza polecenia Azure dev Spaces.
 
-Aby usunąć Azure Dev Spaces z klastra AKS, użyj `azds remove` polecenia. Przykład:
+## <a name="install-the-client-side-tools"></a>Instalowanie narzędzi po stronie klienta
+
+Za pomocą narzędzi po stronie klienta Azure Dev Spaces można współdziałać z miejscami deweloperskimi w klastrze AKS z komputera lokalnego. Istnieje kilka sposobów instalacji narzędzi po stronie klienta:
+
+* W [Visual Studio Code][vscode]zainstaluj [rozszerzenie Azure dev Spaces][vscode-extension].
+* W programie [Visual Studio 2019][visual-studio]Zainstaluj obciążenie Programowanie na platformie Azure.
+* Pobierz i zainstaluj interfejs wiersza polecenia [systemu Windows][cli-win], [Mac][cli-mac]lub [Linux][cli-linux] .
+
+## <a name="remove-azure-dev-spaces-using-the-cli"></a>Usuwanie Azure Dev Spaces przy użyciu interfejsu wiersza polecenia
+
+Aby usunąć Azure Dev Spaces z klastra AKS, użyj `azds remove` polecenia.
+
+```azurecli
+azds remove -g MyResourceGroup -n MyAKS
+```
+
+Poniższe przykładowe dane wyjściowe pokazują usuwanie Azure Dev Spaces z klastra *MyAKS* .
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -58,15 +74,7 @@ Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that tar
 Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
 ```
 
-Powyższe polecenie usuwa Azure Dev Spaces z klastra *MyAKS* w ramach *zasobu*. Wszystkie obszary nazw utworzone za pomocą Azure Dev Spaces pozostaną razem z ich obciążeniami, ale nowe obciążenia w tych obszarach nazw nie będą Instrumentacją Azure Dev Spaces. Ponadto w przypadku ponownego uruchomienia wszystkich istniejących zasobników z Azure Dev Spaces mogą pojawić się błędy. Te zasobniki muszą zostać wdrożone ponownie bez Azure Dev Spaces narzędzi. Aby w pełni usunąć Azure Dev Spaces z klastra, Usuń wszystkie zasobniki ze wszystkich przestrzeni nazw, w których włączono Azure Dev Spaces.
-
-## <a name="install-the-client-side-tools"></a>Instalowanie narzędzi po stronie klienta
-
-Za pomocą narzędzi po stronie klienta Azure Dev Spaces można współdziałać z miejscami deweloperskimi w klastrze AKS z komputera lokalnego. Istnieje kilka sposobów instalacji narzędzi po stronie klienta:
-
-* W [Visual Studio Code][vscode]zainstaluj [rozszerzenie Azure dev Spaces][vscode-extension].
-* W programie [Visual Studio 2019][visual-studio]Zainstaluj obciążenie Programowanie na platformie Azure.
-* Pobierz i zainstaluj interfejs wiersza polecenia [systemu Windows][cli-win], [Mac][cli-mac]lub [Linux][cli-linux] .
+Wszystkie obszary nazw utworzone za pomocą Azure Dev Spaces pozostaną razem z ich obciążeniami, ale nowe obciążenia w tych obszarach nazw nie będą Instrumentacją Azure Dev Spaces. Ponadto w przypadku ponownego uruchomienia wszystkich istniejących zasobników z Azure Dev Spaces mogą pojawić się błędy. Te zasobniki muszą zostać wdrożone ponownie bez Azure Dev Spaces narzędzi. Aby w pełni usunąć Azure Dev Spaces z klastra, Usuń wszystkie zasobniki ze wszystkich przestrzeni nazw, w których włączono Azure Dev Spaces.
 
 ## <a name="next-steps"></a>Następne kroki
 

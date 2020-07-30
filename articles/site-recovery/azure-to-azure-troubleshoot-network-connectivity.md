@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132713"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421437"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -18,12 +18,12 @@ W tym artykule opisano typowe problemy związane z łącznością sieciową w pr
 
 Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest połączenie wychodzące z określonymi adresami URL lub zakresami adresów IP. Jeśli maszyna wirtualna znajduje się za zaporą lub używa reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) do kontrolowania łączności wychodzącej, może to być przyczyną jednego z tych problemów.
 
-| Adres URL | Szczegóły |
-|---|---|
-| `*.blob.core.windows.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
-| `login.microsoftonline.com` | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
-| `*.servicebus.windows.net` | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
+| **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
+| Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Łączność wychodząca dla adresów URL Site Recovery lub zakresów adresów IP (kod błędu 151037 lub 151072)
 
@@ -82,9 +82,9 @@ Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń
 
 1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji docelowej:
 
-   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
+   | Location | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
-   | Środkowe stany USA | 40.69.144.231 | 52.165.34.144 |
+   | Central US | 40.69.144.231 | 52.165.34.144 |
 
 #### <a name="nsg-rules---central-us"></a>Reguły sieciowej grupy zabezpieczeń — środkowe stany USA
 
@@ -102,9 +102,9 @@ Na potrzeby tego przykładu reguły sieciowej grupy zabezpieczeń są wymagane, 
 
 1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji źródłowej:
 
-   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
+   | Location | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
-   | Wschodnie stany USA | 13.82.88.226 | 104.45.147.24 |
+   | East US | 13.82.88.226 | 104.45.147.24 |
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
 

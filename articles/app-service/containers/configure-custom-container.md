@@ -3,12 +3,12 @@ title: Konfigurowanie niestandardowego kontenera systemu Linux
 description: Informacje dotyczące konfigurowania niestandardowego kontenera systemu Linux w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a3e360270ac388d0f8434a9184d39d602c98e9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008595"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422780"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service
 
@@ -155,10 +155,6 @@ Na poniższych listach przedstawiono obsługiwane i nieobsługiwane Docker Compo
 
 > [!NOTE]
 > Wszystkie inne opcje, które nie są jawnie wywoływane, są ignorowane w publicznej wersji zapoznawczej.
-
-## <a name="configure-vnet-integration"></a>Konfigurowanie integracji sieci wirtualnej
-
-Używanie kontenera niestandardowego z integracją sieci wirtualnej może wymagać dodatkowej konfiguracji kontenera. Zobacz [Integrowanie aplikacji z usługą Azure Virtual Network](../web-sites-integrate-with-vnet.md).
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

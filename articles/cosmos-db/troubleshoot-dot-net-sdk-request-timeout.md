@@ -3,19 +3,34 @@ title: Rozwiązywanie problemów dotyczących Azure Cosmos DB HTTP 408 lub probl
 description: Jak zdiagnozować i naprawić wyjątek limitu czasu żądania zestawu SDK platformy .NET
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294633"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417611"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB limit czasu żądania zestawu SDK platformy .NET
 Błąd HTTP 408 występuje, jeśli zestaw SDK nie mógł wykonać żądania przed upływem limitu czasu.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Dostosowywanie limitu czasu na platformie Azure Cosmos .NET SDK
+
+Zestaw SDK ma dwa różne alternatywy do kontrolowania limitów czasu, z których każdy ma inny zakres.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+`CosmosClientOptions.RequestTimeout`Konfiguracja (lub `ConnectionPolicy.RequestTimeout` dla zestawu SDK V2) pozwala ustawić limit czasu, który ma wpływ na poszczególne żądania sieciowe.  Operacja uruchomiona przez użytkownika może obejmować wiele żądań sieciowych (na przykład może to być ograniczenie przepustowości), a ta konfiguracja zostanie zastosowana do każdego żądania sieci przy ponownym ponowieniu próby. To nie jest limit czasu żądania operacji końcowej.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+Wszystkie operacje asynchroniczne w zestawie SDK mają opcjonalny parametr CancellationToken. Ten [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) jest używany w całej operacji we wszystkich żądaniach sieci. Między żądaniami sieci, CancellationToken może zostać sprawdzone i operacja została anulowana w przypadku wygaśnięcia powiązanego tokenu. CancellationToken należy użyć do zdefiniowania przybliżonego oczekiwanego limitu czasu dla zakresu operacji.
+
+> [!NOTE]
+> CancellationToken jest mechanizmem, w którym biblioteka będzie sprawdzać anulowanie, gdy [nie spowoduje nieprawidłowego stanu](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). Operacja może się nie powieść dokładnie wtedy, gdy czas zdefiniowany w anulowania jest ustawiony, ale a nie po upływie czasu, zostanie anulowany, gdy będzie to bezpieczne.
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 Poniższa lista zawiera znane przyczyny i rozwiązania dla wyjątków limitu czasu żądania.

@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: af1a869c9253a9037c5ee38313de60311acb1e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277995"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372556"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
@@ -98,7 +98,7 @@ Po utworzeniu magazynu usługi Recovery Services następnym krokiem jest skonfig
 
      Po utworzeniu zasad tworzenia kopii zapasowych należy skojarzyć je z maszynami wirtualnymi.
 
-1. W obszarze **Virtual Machines**wybierz pozycję * * Dodaj.
+1. W obszarze **Virtual Machines**wybierz pozycję **Dodaj**.
 
      ![Dodaj maszyny wirtualne](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 

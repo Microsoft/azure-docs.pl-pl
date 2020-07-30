@@ -4,19 +4,19 @@ description: Ta strona zawiera opis niektórych typowych limitów zasobów jedno
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: references_regions
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 04/17/2020
-ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325121"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420995"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu jednostek DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,9 +38,11 @@ W przypadku pul elastycznych Azure SQL Database w poniższych tabelach przedstaw
 > [!IMPORTANT]
 > Aby uzyskać wskazówki dotyczące skalowania i zagadnienia, zobacz [skalowanie elastycznej puli](elastic-pool-scale.md)
 
+Limity zasobów poszczególnych baz danych w pulach elastycznych są generalnie takie same jak w przypadku pojedynczych baz danych poza pulami na podstawie DTU i warstwy usług. Na przykład maksymalna liczba współbieżnych procesów roboczych dla bazy danych S2 to 120 procesów roboczych. W związku z tym Maksymalna liczba współbieżnych procesów roboczych dla bazy danych w puli standardowej to 120 pracowników, jeśli Maksymalna liczba jednostek DTU na bazę danych w puli to 50 DTU (co jest równoważne S2).
+ 
+Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione pojedynczej bazie danych poza pulą elastyczną dla tej samej liczby DTU. Oznacza to, że możliwe jest, że użycie jednostek eDTU w puli elastycznej jest mniejsze niż suma użycia jednostek DTU w obrębie baz danych w puli, w zależności od wzorców obciążenia. Na przykład w skrajnym przypadku z tylko jedną bazą danych w puli elastycznej, w której wykorzystanie jednostek DTU bazy danych wynosi 100%, możliwe jest użycie jednostek eDTU puli do 50% dla niektórych wzorców obciążenia. Może się to zdarzyć nawet wtedy, gdy nie ustawiono żadnej jawnej maksymalnej liczby jednostek DTU na bazę danych. W takim przypadku użycie jednostek DTU bazy danych w puli jest ograniczone w taki sam sposób jak użycie jednostek DTU dla pojedynczej bazy danych z pasującym celem usługi.
+
 > [!NOTE]
-> Limity zasobów poszczególnych baz danych w pulach elastycznych są generalnie takie same jak w przypadku pojedynczych baz danych poza pulami na podstawie DTU i warstwy usług. Na przykład maksymalna liczba współbieżnych procesów roboczych dla bazy danych S2 to 120 procesów roboczych. W związku z tym Maksymalna liczba współbieżnych procesów roboczych dla bazy danych w puli standardowej to 120 pracowników, jeśli Maksymalna liczba jednostek DTU na bazę danych w puli to 50 DTU (co jest równoważne S2).
->
 > Limit zasobów magazynu na pulę w każdej z poniższych tabel nie obejmuje bazy danych tempdb ani magazynu dzienników.
 
 ### <a name="basic-elastic-pool-limits"></a>Limity podstawowych pul elastycznych

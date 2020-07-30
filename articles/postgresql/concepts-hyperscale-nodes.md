@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: af743ca56572f507091db01f11d3283294a9e3d5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974006"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382801"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Węzły w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -22,7 +22,9 @@ Typ hostujący (Citus) Azure Database for PostgreSQL umożliwia współrzędnie 
 
 Każda grupa serwerów ma węzeł koordynatora i wielu procesów roboczych. Aplikacje wysyłają swoje zapytania do węzła koordynatora, który przekazuje go do odpowiednich pracowników i gromadzi wyniki. Aplikacje nie mogą łączyć się bezpośrednio z pracownikami.
 
-Dla każdego zapytania koordynator kieruje go do jednego węzła procesu roboczego lub parallelizes go w kilka w zależności od tego, czy wymagane dane znajdują się na pojedynczym lub wielu węzłach. Koordynator decyduje o tym, co należy zrobić, aby poznać tabele metadanych. Te tabele śledzą nazwy DNS i kondycję węzłów procesu roboczego oraz dystrybucję danych między węzłami.
+Funkcja Citus) umożliwia administratorowi bazy danych *dystrybuowanie* tabel, przechowując różne wiersze w różnych węzłach procesu roboczego. Tabele rozproszone są kluczem do skalowania wydajności. Niepowodzenie dystrybucji tabel pozostawia je w całości w węźle koordynatora i nie może korzystać z równoległości między maszynami.
+
+Dla każdego zapytania w tabelach rozproszonych koordynator kieruje go do jednego węzła procesu roboczego lub parallelizes go w kilka w zależności od tego, czy wymagane dane znajdują się na jednym lub wielu węzłach. Koordynator decyduje o tym, co należy zrobić, aby poznać tabele metadanych. Te tabele śledzą nazwy DNS i kondycję węzłów procesu roboczego oraz dystrybucję danych między węzłami.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się, jak węzły przechowują [rozproszone dane](concepts-hyperscale-distributed-data.md)
+- Informacje o [tabelach rozproszonych](concepts-hyperscale-distributed-data.md)

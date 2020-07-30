@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075318"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384858"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)
 W tym artykule pokazano, jak za pomocą interfejsu API modułu zbierającego dane HTTP wysyłać dane dziennika do Azure Monitor z klienta interfejsu API REST.  Opisano w nim sposób formatowania danych zbieranych przez skrypt lub aplikację, uwzględniania ich w żądaniu oraz żądania autoryzowane przez Azure Monitor.  Przykłady dla programu PowerShell, C# i Python.
@@ -134,8 +134,8 @@ Aby zidentyfikować typ danych właściwości, Azure Monitor dodaje sufiks do na
 
 | Typ danych właściwości | Przedrostk |
 |:--- |:--- |
-| String (ciąg) |_s |
-| Boolean (wartość logiczna) |_b |
+| String |_s |
+| Wartość logiczna |_b |
 | Double |_d |
 | Data/godzina |_t |
 | Identyfikator GUID (przechowywany jako ciąg) |_g |
@@ -210,7 +210,7 @@ W następnych sekcjach znajdziesz przykłady przesyłania danych do Azure Monito
 Dla każdego przykładu wykonaj następujące kroki, aby ustawić zmienne nagłówka autoryzacji:
 
 1. W Azure Portal zlokalizuj obszar roboczy Log Analytics.
-2. Wybierz pozycję **Ustawienia zaawansowane** i **połączone źródła**.
+2. Wybierz pozycję **Zarządzanie agentami**.
 2. Z prawej strony **identyfikatora obszaru roboczego**wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **identyfikatora klienta** .
 3. Na prawo od **klucza podstawowego**wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **klucza współużytkowanego** .
 

@@ -2,15 +2,15 @@
 title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/29/2020
+ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288003"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420462"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Korzystanie z punktów końcowych usługi Virtual Network z platformą Azure Event Hubs
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych sieci wirtualnych 
 
 Integracja Event Hubs z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do możliwości obsługi komunikatów z obciążeń, takich jak maszyny wirtualne powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach.
 
@@ -56,10 +56,19 @@ Reguła sieci wirtualnej jest skojarzeniem przestrzeni nazw Event Hubs z podsiec
 W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy użyciu Azure Portal. Aby ograniczyć dostęp, należy zintegrować punkt końcowy usługi sieci wirtualnej dla tej Event Hubs przestrzeni nazw.
 
 1. Przejdź do **przestrzeni nazw Event Hubs** w [Azure Portal](https://portal.azure.com).
-2. W menu po lewej stronie wybierz opcję **Sieć** . W przypadku wybrania opcji **wszystkie sieci** centrum zdarzeń akceptuje połączenia z dowolnego adresu IP. To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
+4. Wybierz pozycję **Sieć** w obszarze **Ustawienia** w menu po lewej stronie. 
+
+    > [!NOTE]
+    > Karta **Sieć** jest wyświetlana tylko dla **standardowych** lub **dedykowanych** przestrzeni nazw. 
+
+    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie określisz reguły zapory IP lub nie dodasz sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw ze wszystkich sieci, w tym do publicznej sieci Internet (przy użyciu klucza dostępu). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Karta sieci — opcja wybrane sieci" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    W przypadku wybrania opcji **wszystkie sieci** centrum zdarzeń akceptuje połączenia z dowolnego adresu IP (przy użyciu klucza dostępu). To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
     ![Zapora — wybrana opcja Wszystkie sieci](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Aby ograniczyć dostęp do określonych sieci, wybierz opcję **wybrane sieci** w górnej części strony.
+1. Aby ograniczyć dostęp do określonych sieci, wybierz opcję **wybrane sieci** w górnej części strony, jeśli nie została jeszcze wybrana.
 2. W sekcji **Virtual Network** strony wybierz pozycję * * + Dodaj istniejącą sieć wirtualną * * *. Aby utworzyć nową sieć wirtualną, wybierz pozycję **+ Utwórz nową** . 
 
     ![dodawanie istniejącej sieci wirtualnej](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -77,6 +86,8 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 
     ![Zapisz sieć](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Aby ograniczyć dostęp do określonych adresów IP lub zakresów, zobacz [Zezwalanie na dostęp z określonych adresów IP lub zakresów](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 

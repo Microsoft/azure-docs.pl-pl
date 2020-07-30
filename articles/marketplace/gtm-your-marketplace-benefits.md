@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287885"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408122"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -106,9 +106,15 @@ Wydawcy [list i wersji próbnych](determine-your-listing-type.md) mogą zrezygno
 Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia korzyści z tytułu witryny Marketplace dla wydawców, którzy: 
 
 * Zaangażuj się w nielegalną aktywność przy użyciu swojej listy Marketplace.
+* Otrzymaj zakup, który jest znany lub uznany za fałszywy.
 * Znajdują się na liście z komercyjnej witryny Marketplace. 
 * Skorzystaj z oferty, aby pokazać marketing lub inną zawartość, która narusza prawa autorskie lub znaki towarowe.
 * Naruszanie zasad [programu sponsorowania platformy Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), w tym, ale nie ograniczone do, przy użyciu funduszy sponsorowanych przez platformę Azure w ramach własnych operacji wewnętrznych lub Bitcoin.
+
+Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia nagrody Marketplace w przypadku:
+
+* Klient dokonujący zakupu przypadkowo zażądał anulowania zakupu. 
+* Klient anulował działanie przed użyciem produktu partnera.
 
 ### <a name="offer-availability"></a>Dostępność oferty
 

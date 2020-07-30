@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
-ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946123"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406915"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>Jak wyświetlić matematykę w czytniku immersyjny
 
@@ -22,7 +23,7 @@ Czytnik immersyjny może wyświetlać dane matematyczne w postaci języka matema
 Typ MIME można ustawić za pomocą [fragmentu](../reference.md#chunk)czytnika immersyjny. Aby uzyskać więcej informacji, zobacz [obsługiwane typy MIME](../reference.md#supported-mime-types) .
 
 ## <a name="send-math-to-the-immersive-reader"></a>Wyślij Zapis matematyczny do czytnika immersyjny
-Aby wysłać Zapis matematyczny do czytnika immersyjny, podaj fragment zawierający MathML i ustaw dla niego typ MIME ```application/mathml+xml```;
+Aby wysłać Zapis matematyczny do czytnika immersyjny, podaj fragment zawierający MathML i ustaw dla niego typ MIME ```application/mathml+xml``` ;
 
 Na przykład jeśli zawartość była następująca:
 

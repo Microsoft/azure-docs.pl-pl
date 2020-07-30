@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926899"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418869"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Porównaj Active Directory z Azure Active Directory
 
@@ -26,7 +26,7 @@ Usługa Azure AD przyjmuje takie podejście do następnego poziomu, dostarczają
 
 Większość administratorów IT zna koncepcje Active Directory Domain Services. W poniższej tabeli przedstawiono różnice i podobieństwa między Active Directory pojęcia i Azure Active Directory.
 
-|Pojęcie|Active Directory (AD)|Usługa Azure Active Directory |
+|Pojęcie|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
 |**Użytkownicy**|||
 |Inicjowanie obsługi: Użytkownicy | Organizacje tworzą użytkowników wewnętrznych ręcznie lub używają wbudowanego lub zautomatyzowanego systemu aprowizacji, takiego jak Microsoft Identity Manager, do integracji z systemem kadr.|Istniejące organizacje usługi AD używają [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) do synchronizowania tożsamości z chmurą.</br> Usługa Azure AD dodaje obsługę automatycznego tworzenia użytkowników z [systemów w chmurze](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial). </br>Usługa Azure AD może udostępniać tożsamości w [Standard scim włączonych](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) aplikacjach SaaS w celu automatycznego dostarczania aplikacji z wymaganymi informacjami, aby umożliwić dostęp użytkownikom. |
@@ -42,7 +42,7 @@ Większość administratorów IT zna koncepcje Active Directory Domain Services.
 | Usługi warstwy średniej/demona|Usługi działające w środowiskach lokalnych zwykle używają kont usług AD lub kont usług zarządzanych przez grupę (gMSA) do uruchomienia. Następnie te aplikacje będą dziedziczyć uprawnienia konta usługi.| Usługa Azure AD zapewnia [zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) do uruchamiania innych obciążeń w chmurze. Cykl życia tych tożsamości jest zarządzany przez usługę Azure AD i powiązany z dostawcą zasobów nie może być używany do innych celów w celu uzyskania dostępu tylne wejście.|
 | **Urządzenia**|||
 | Aplikacje mobilne|Active Directory nie obsługuje natywnie urządzeń przenośnych bez rozwiązań innych firm.| Rozwiązanie do zarządzania urządzeniami przenośnymi firmy Microsoft, Microsoft Intune, jest zintegrowane z usługą Azure AD. Microsoft Intune dostarcza informacje o stanie urządzenia do systemu tożsamości w celu ocenienia podczas uwierzytelniania. |
-| Komputery stacjonarne z systemem Windows|Active Directory umożliwia dołączanie urządzeń z systemem Windows do domeny w celu zarządzania nimi przy użyciu zasady grupy, System Center Configuration Manager lub innych rozwiązań innych firm.|Urządzenia z systemem Windows można [przyłączyć do usługi Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). Dostęp warunkowy może sprawdzić, czy urządzenie jest dołączone do usługi Azure AD w ramach procesu uwierzytelniania. Urządzeniami z systemem Windows można także zarządzać za pomocą [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). W takim przypadku dostęp warunkowy zostanie uwzględniony w przypadku, gdy urządzenie jest skargą (na przykład Aktualności poprawek zabezpieczeń i podpisów wirusów) przed zezwoleniem na dostęp do aplikacji.|
+| Komputery stacjonarne z systemem Windows|Active Directory umożliwia dołączanie urządzeń z systemem Windows do domeny w celu zarządzania nimi przy użyciu zasady grupy, System Center Configuration Manager lub innych rozwiązań innych firm.|Urządzenia z systemem Windows można [przyłączyć do usługi Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). Dostęp warunkowy może sprawdzić, czy urządzenie jest dołączone do usługi Azure AD w ramach procesu uwierzytelniania. Urządzeniami z systemem Windows można także zarządzać za pomocą [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). W takim przypadku dostęp warunkowy będzie uwzględniać, czy urządzenie jest zgodne (na przykład Aktualności poprawek zabezpieczeń i podpisów wirusów) przed zezwoleniem na dostęp do aplikacji.|
 | Serwery z systemem Windows| Active Directory zapewnia silne możliwości zarządzania lokalnymi serwerami systemu Windows przy użyciu zasady grupy lub innych rozwiązań do zarządzania.| Maszyny wirtualne z systemem Windows Server na platformie Azure mogą być zarządzane za pomocą [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). [Tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) mogą być używane, gdy maszyny wirtualne wymagają dostępu do katalogu lub zasobów systemu tożsamości.|
 | Obciążenia dla systemu Linux/UNIX|Active Directory nie obsługuje natywnie systemów innych niż Windows bez rozwiązań innych firm, chociaż maszyny z systemem Linux można skonfigurować do uwierzytelniania za pomocą Active Directory jako obszaru protokołu Kerberos.|Maszyny wirtualne z systemem Linux/UNIX mogą używać [tożsamości zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) do uzyskiwania dostępu do systemu lub zasobów tożsamości. Niektóre organizacje migruje te obciążenia do technologii kontenera chmury, które mogą również używać tożsamości zarządzanych.|
 

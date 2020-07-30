@@ -3,14 +3,14 @@ title: Architektura odzyskiwania po awarii serwera fizycznego w Azure Site Recov
 description: Ten artykuł zawiera omówienie składników i architektury używanych podczas odzyskiwania po awarii lokalnych serwerów fizycznych na platformie Azure przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162841"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422661"
 ---
-# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z serwera fizycznego do platformy Azure
+# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Physical server to Azure disaster recovery architecture (Architektura odzyskiwania po awarii z serwera fizycznego na platformę Azure)
 
 W tym artykule opisano architekturę i procesy używane podczas replikacji, przełączania awaryjnego i odzyskiwania fizycznych serwerów z systemami Windows i Linux między lokacją lokalną i platformą Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) .
 
@@ -28,6 +28,25 @@ Poniższa tabela i ilustracja przedstawiają ogólny widok składników służą
 **Architektura maszyna fizyczna–Azure**
 
 ![Składniki](./media/physical-azure-architecture/arch-enhanced.png)
+
+## <a name="set-up-outbound-network-connectivity"></a>Konfigurowanie wychodzącej łączności sieciowej
+
+Aby Site Recovery działały zgodnie z oczekiwaniami, należy zmodyfikować wychodzącą łączność sieciową, aby umożliwić replikację danego środowiska.
+
+> [!NOTE]
+> Usługa Site Recovery nie obsługuje sterowania łącznością sieciową za pomocą uwierzytelniającego serwera proxy.
+
+### <a name="outbound-connectivity-for-urls"></a>Połączenia ruchu wychodzącego dla adresów URL
+
+Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na dostęp do tych adresów URL:
+
+| **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
+
 
 ## <a name="replication-process"></a>Proces replikacji
 

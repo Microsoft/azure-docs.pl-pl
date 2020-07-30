@@ -1,26 +1,29 @@
 ---
-title: Pokrycie geokodowania | Mapy Microsoft Azure
-description: Proces konwertowania adresu lokalizacji na współrzędne geograficzne i Długość geograficzna jest znany jako geokodowania. Ten artykuł zawiera informacje na temat regionów z pokryciem geokodowania w Microsoft Azure Maps.
+title: Pokrycie geokodowania w usłudze Microsoft Azure Maps usługi Search
+description: W tym artykule dowiesz się więcej na temat Microsoft Azure Maps mapowanie geokodowania w różnych krajach/regionach.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/31/2019
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132810"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386915"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Pokrycie geokodowania Azure Maps
 
-Podczas wyszukiwania lokalizacji z Azure Maps, usługa wyszukiwania, na przykład [pobieranie adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), przyjmuje terminy wyszukiwania i zwraca współrzędne geograficzne. Ten proces jest nazywany geokodowaniem. Jednak Azure Maps nie mają tego samego poziomu informacji i dokładności dla wszystkich regionów i krajów. Skorzystaj z tego artykułu, aby określić, jakiego rodzaju lokalizacje można niezawodnie wyszukiwać w poszczególnych regionach. 
+[Usługa wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) Azure Maps obsługuje geokodowanie, co oznacza, że żądanie interfejsu API może zawierać terminy wyszukiwania, takie jak adres lub nazwa miejsca, a także zwraca wynik jako współrzędne geograficzne i Długość geograficzna. Na przykład [interfejs API uzyskiwania adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) Azure Maps odbiera zapytania, które zawierają informacje o lokalizacji, i zwraca wyniki jako współrzędne szerokości geograficznej i długości geograficznej.
 
-Możliwość geokodowania w kraju/regionie jest zależna od pokrycia danych drogowych oraz dokładności geokodowanej usługi geokodowania. Poniższe kategoryzacje służą do określania poziomu obsługi geokodowania w poszczególnych krajach/regionach.
-* **Punkty adresów** — dane dotyczące adresów można rozpoznać na współrzędnej szerokości/długości geograficznej w ramach paczki adresowej (granica właściwości). Czasami określana jako "Rooftop". Jest to najwyższy poziom dokładności dostępny dla adresów. 
+[Usługa wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) Azure Maps nie ma jednak tego samego poziomu informacji i dokładności dla wszystkich regionów i krajów. Skorzystaj z tego artykułu, aby określić, jakiego rodzaju lokalizacje można niezawodnie wyszukiwać w poszczególnych regionach.
+
+Możliwość geokodowania w kraju/regionie zależy od pokrycia danych dróg i dokładności geokodowanej usługi geokodowania. Poniższe kategoryzacje służą do określania poziomu obsługi geokodowania w poszczególnych krajach/regionach.
+
+* **Punkty adresów** — dane dotyczące adresów można rozpoznać do współrzędnej szerokości/długości geograficznej w ramach paczki adresowej (granica właściwości). Punkty adresów są często określane jako dokładne jako "Rooftop", który jest najwyższym poziomem dokładności dostępnym dla adresów.
 * **Numery domów** — adresy są interpolowane na współrzędnej szerokości geograficznej na ulicy.
 * Adresy **poziomu ulic** są rozpoznawane jako Współrzędna szerokości/długości geograficznej ulicy, która zawiera adres. Nie można przetworzyć numeru domu.
 * Nazwy miejsc miasta na **poziomie miejscowości** są obsługiwane.
@@ -214,7 +217,6 @@ Możliwość geokodowania w kraju/regionie jest zależna od pokrycia danych drog
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Watykan                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>Bliski Wschód i Afryka
 
 | Kraj/region                                      | Punkty adresów |Numery domów | Poziom ulicy | Poziom miasta | Punkty orientacyjne |
@@ -295,11 +297,8 @@ Możliwość geokodowania w kraju/regionie jest zależna od pokrycia danych drog
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Maps geokodowania, zobacz strony referencyjne [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
-
-Dowiedz się więcej o [obszarach pokrycia usługi Traffic Maps](traffic-coverage.md). 
-
+Dowiedz się więcej o Azure Maps geokodowania:
+> [!div class="nextstepaction"]
+> [Usługa wyszukiwania Azure Maps](https://docs.microsoft.com/rest/api/maps/search)

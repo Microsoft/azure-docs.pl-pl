@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519718"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387374"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -211,15 +211,17 @@ Program Security Center zainstaluje rozszerzenie agenta Log Analytics obok istni
     - Jeśli masz środowisko, w którym jest zainstalowany agent Log Analytics na stacjach roboczych klienta i raportowanie do istniejącego Log Analytics obszaru roboczego, przejrzyj listę [systemów operacyjnych obsługiwanych przez Azure Security Center](security-center-os-coverage.md) , aby upewnić się, że system operacyjny jest obsługiwany. Aby uzyskać więcej informacji, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Wyłącz automatyczne Inicjowanie obsługi<a name="offprovisioning"></a>
-Automatyczne Inicjowanie obsługi można wyłączyć z zasobów w dowolnym momencie, wyłączając to ustawienie w zasadach zabezpieczeń. 
+Aby wyłączyć automatyczne Inicjowanie obsługi agenta Log Analytics:
 
+1. Z poziomu menu Security Center w portalu wybierz pozycję **cennik & ustawienia**.
+2. Wybierz odpowiednią subskrypcję.
 
-1. Wróć do menu głównego Security Center i wybierz zasady zabezpieczeń.
-2. Kliknij pozycję **Edytuj ustawienia** w wierszu subskrypcji, dla której chcesz wyłączyć automatyczną obsługę administracyjną.
-3. Na stronie **zasady zabezpieczeń — zbieranie danych** w obszarze **autoinicjowanie obsługi** wybierz pozycję **wyłączone**.
-4. Wybierz pozycję **Zapisz**.
+   ![Wybieranie subskrypcji][7]
 
-   ![Wyłącz funkcję autoaprowizacji][6]
+3. Wybierz pozycję **zbieranie danych**.
+4. W obszarze **Automatyczna obsługa administracyjna**wybierz pozycję **Wyłącz** , aby wyłączyć automatyczne Inicjowanie obsługi.
+5. Wybierz pozycję **Zapisz**. 
+
 
 Gdy funkcja automatycznej aprowizacji jest wyłączona (wyłączona), domyślna sekcja konfiguracji obszaru roboczego nie zostanie wyświetlona.
 

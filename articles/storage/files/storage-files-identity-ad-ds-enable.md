@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 4c374e62c0807269d1457bfe46d3df4260acd45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510452"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413106"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
 
@@ -53,7 +53,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 #Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
+#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
 Connect-AzAccount
 
 #Define parameters
@@ -85,7 +85,7 @@ Jeśli skrypt został już wykonany `Join-AzStorageAccountForAuth` powyżej, prz
 
 ### <a name="checking-environment"></a>Sprawdzanie środowiska
 
-Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sprawdzić, czy [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) jest zainstalowana i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł AZ. Storage 2,0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) i zainstaluj go, jeśli nie. Po zakończeniu tych sprawdzeń Sprawdź AD DS, aby sprawdzić, czy [konto komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślne) lub [konto logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) , które zostało już utworzone przy użyciu nazwy SPN/UPN jako "CIFS/Twoje konto-Storage-Name-tutaj. plik. Core. Windows. NET". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w następnej sekcji.
+Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sprawdzić, czy [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) jest zainstalowana i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), i zainstaluj go, jeśli tego nie zrobiono. Po zakończeniu tych sprawdzeń Sprawdź AD DS, aby sprawdzić, czy [konto komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślne) lub [konto logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) , które zostało już utworzone przy użyciu nazwy SPN/UPN jako "CIFS/Twoje konto-Storage-Name-tutaj. plik. Core. Windows. NET". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w następnej sekcji.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Ręczne tworzenie tożsamości reprezentującej konto magazynu w usłudze AD
 

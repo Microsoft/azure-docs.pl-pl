@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 219d2b972089f9d3b7f84caa8b527474ac241c4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374171"
+ms.locfileid: "87422066"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Przejście do metryk w Azure Monitor
 
-Usługa Azure Storage integruje teraz metryki z platformą Azure Monitor. W dniu **31 sierpnia 2023** metryki analityka magazynu, nazywane również *metrykami klasycznymi* , zostaną wycofane. Jeśli używasz metryk klasycznych, upewnij się, że przed tą datą przeszedł do metryk w Azure Monitor. Ten artykuł pomaga w wprowadzeniu przejścia.
+Usługa Azure Storage integruje teraz metryki z platformą Azure Monitor. Ten artykuł pomaga w wprowadzeniu przejścia.
 
 ## <a name="steps-to-complete-the-transition"></a>Procedura kończenia przejścia
 

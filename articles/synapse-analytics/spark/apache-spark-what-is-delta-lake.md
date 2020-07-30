@@ -9,20 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193383"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384739"
 ---
-# <a name="what-is-delta-lake"></a>Co to jest różnica w usłudze Data Lake?
+# <a name="what-is-delta-lake"></a>Co to jest usługa Delta Lake
 
 Usługa Azure Synapse Analytics jest zgodna z systemem Linux Foundation w systemie. Delta Lake to warstwa magazynu "open source", która umożliwia transakcję dotyczącą KWASów (niepodzielności, spójności, izolacji i trwałości) do Apache Spark i obciążeń danych Big Data.
 
+Bieżąca wersja usługi Delta Lake dostępna w usłudze Azure Synapse ma obsługę języka dla Scala, PySpark i .NET. W dolnej części strony znajdują się linki do bardziej szczegółowych przykładów i dokumentacji.
+
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-| Cecha | Opis |
+| Cechy | Opis |
 | --- | --- |
 | **Transakcje KWASowe** | Jeziora dotyczące danych są zwykle wypełniane przez wiele procesów i potoków, a niektóre z nich zapisują dane jednocześnie przy użyciu operacji odczytu. Przed zmianą i dodaniem transakcji inżynierowie danych musieli przeprowadzić proces ręcznego błędu, aby zapewnić integralność danych. Zmiany w usłudze Data Lake zapewniają znane transakcje dotyczące KWAŚNych jezior. Zapewnia serializację, najwyższy poziom izolacji. Dowiedz się więcej na temat zmiany w usłudze Data [Lake: rozpakowywanie dziennika transakcji](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html).|
 | **Skalowalność obsługi metadanych** | W przypadku danych Big Data nawet metadane mogą być "Big Data". Usługa Delta w usłudze Data Lake traktuje metadane podobnie jak dane, wykorzystując rozproszone możliwości przetwarzania w usłudze Spark do obsługi wszystkich metadanych. W związku z tym, w usłudze Delta Lake można obsłużyć tabele skalowania petabajtów z użyciem miliardów partycji i plików. |
@@ -32,12 +34,12 @@ Usługa Azure Synapse Analytics jest zgodna z systemem Linux Foundation w system
 | **Wymuszanie schematu** | Wymuszanie schematu pomaga upewnić się, że typy danych są poprawne i są obecne wymagane kolumny, uniemożliwiając niespójności danych. Aby uzyskać więcej informacji, zobacz artykuł o przeniesieniu [do programu Delta Lake: wymuszanie schematu & ewolucji](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Ewolucja schematu** | Program Delta Lake umożliwia wprowadzanie zmian w schemacie tabeli, które mogą być stosowane automatycznie, bez konieczności pisania kodu DDL migracji. Aby uzyskać więcej informacji, zobacz artykuł o przeniesieniu [do programu Delta Lake: wymuszanie schematu & ewolucji](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Historia inspekcji** | Dziennik różnicowych transakcji rejestruje szczegółowe informacje o każdej zmianie dokonanej w danych, dostarczając pełny dziennik inspekcji zmian. |
-| **Aktualizacje i usunięcia** | Funkcja Delta Lake obsługuje interfejsy API Scala/Java/python i SQL dla różnych funkcji. Obsługa operacji scalania, aktualizowania i usuwania pomaga spełnić wymagania dotyczące zgodności. Aby uzyskać więcej informacji, zobacz temat [Zapowiedźing Lake 0.4.0 Release](https://delta.io/news/delta-lake-0-4-0-released/) and [Simple, niezawodnej Upserts i usunięć w tabelach różnicowych Lake przy użyciu interfejsów API języka Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), które zawierają fragmenty kodu służące do scalania, aktualizowania i usuwania poleceń DML. |
+| **Aktualizacje i usunięcia** | Funkcja Delta Lake obsługuje interfejsy API Scala/Java/python i SQL dla różnych funkcji. Obsługa operacji scalania, aktualizowania i usuwania pomaga spełnić wymagania dotyczące zgodności. Aby uzyskać więcej informacji, zobacz temat [Zapowiedźing Lake 0.6.1 Release](https://delta.io/news/delta-lake-0-6-1-released/), [informującego o wersji delty Lake 0,7](https://delta.io/news/delta-lake-0-7-0-released/) i [prostej, niezawodnej Upserts i usunięciu w tabelach różnicowych usługi w języku Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), które zawierają fragmenty kodu do scalania, aktualizowania i usuwania poleceń DML. |
 | **100% zgodne z interfejsem API Apache Spark** | Deweloperzy mogą korzystać z różnicowej Lake z istniejącymi potokami danych o minimalnej zmianie, ponieważ jest w pełni zgodna z istniejącymi implementacjami platformy Spark. |
 
 Pełną dokumentację można znaleźć na [stronie z dokumentacją usługi Delta Lake](https://docs.delta.io/latest/delta-intro.html) .
 
-Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https://lfprojects.org).
+Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https://github.com/delta-io/delta).
 
 ## <a name="next-steps"></a>Następne kroki
 

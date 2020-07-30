@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374445"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387782"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -55,12 +55,12 @@ Istnieją dwa podstawowe sposoby pozwalające użytkownikom na logowanie jednokr
 ### <a name="considerations-for-federation-based-sso"></a>Zagadnienia dotyczące logowania jednokrotnego opartego na Federacji
 
 - **Przy użyciu programu OpenID Connect Connect i uwierzytelniania OAuth** — Jeśli aplikacja, z którą nawiązujesz połączenie, obsługuje tę funkcję, użyj metody OIDC/OAuth 2,0, aby włączyć logowanie jednokrotne do tej aplikacji. Ta metoda wymaga mniejszej konfiguracji i umożliwia bogatsze środowisko użytkownika. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect Connect 1,0](../develop/v2-protocols-oidc.md)i [przewodnik dewelopera Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Konfiguracje punktów końcowych dla logowania jednokrotnego opartego na** protokole SAML — Jeśli używasz protokołu SAML, deweloperzy będą musieli uzyskać określone informacje przed skonfigurowaniem aplikacji. Aby uzyskać więcej informacji, zobacz [Edytowanie podstawowej konfiguracji SAML](configure-single-sign-on-non-gallery-applications.md).
+- **Konfiguracje punktów końcowych dla logowania jednokrotnego opartego na** protokole SAML — Jeśli używasz protokołu SAML, deweloperzy będą musieli uzyskać określone informacje przed skonfigurowaniem aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie logowania jednokrotnego opartego na protokole SAML](configure-saml-single-sign-on.md).
 - **Zarządzanie certyfikatami dla logowania jednokrotnego opartego** na protokole SAML — po włączeniu federacyjnego logowania jednokrotnego dla aplikacji usługa Azure AD tworzy certyfikat, który jest domyślnie ważny przez trzy lata. W razie potrzeby można dostosować datę wygaśnięcia dla tego certyfikatu. Upewnij się, że masz procesy do odnawiania certyfikatów przed ich wygaśnięciem. Aby dowiedzieć się więcej, zobacz temat [Zarządzanie certyfikatami w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Zagadnienia dotyczące logowania jednokrotnego opartego na hasłach
 
-Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
+Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne są następujące opcje:
 
 - [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 - [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253192"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419737"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Co to są zależności usługi w Azure Active Directory dostęp warunkowy? 
 
@@ -27,7 +27,7 @@ W przypadku bezpośredniego dostępu do witryny lub usługi, wpływ powiązanych
 > [!TIP]
 > Użycie aplikacji [office 365 (wersja zapoznawcza)](concept-conditional-access-cloud-apps.md#office-365-preview) umożliwi wszystkim aplikacjom pakietu Office uniknięcie problemów z zależnościami między usługą w stosie pakietu Office.
 
-## <a name="policy-enforcement"></a>Egzekwowanie zasad 
+## <a name="policy-enforcement"></a>Wymuszanie zasad 
 
 Jeśli masz skonfigurowaną zależność usługi, zasady mogą być stosowane przy użyciu wczesnego lub późnego wymuszania. 
 
@@ -51,6 +51,7 @@ W poniższej tabeli wymieniono dodatkowe zależności usługi, w przypadku któr
 |                     | SharePoint                                  | Wczesna granica |
 | Microsoft Teams     | Exchange                                    | Wczesna granica |
 |                     | Planista firmy Microsoft                                  | Późne wiązanie  |
+|                     | Usługa Microsoft Stream                            | Późne wiązanie  |
 |                     | SharePoint                                  | Wczesna granica |
 |                     | Skype dla firm Online                   | Wczesna granica |
 | Portal Office       | Exchange                                    | Późne wiązanie  |

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328446"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417118"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Włącz Azure Monitor dla maszyn wirtualnych dla hybrydowej maszyny wirtualnej
 W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej poza platformą Azure, w tym w środowiskach lokalnych i innych.
 
 > [!IMPORTANT]
-> Zalecana metoda włączania hybrydowych maszyn wirtualnych najpierw włącza [usługę Azure ARC dla serwerów](/azure-arc/servers/overview.md) , dzięki czemu maszyny wirtualne można włączyć dla Azure monitor dla maszyn wirtualnych przy użyciu procesów podobnych do maszyn wirtualnych platformy Azure. W tym artykule opisano sposób dołączania hybrydowych maszyn wirtualnych w przypadku zrezygnowania z używania usługi Azure Arc.
+> Zalecana metoda włączania hybrydowych maszyn wirtualnych najpierw włącza [usługę Azure ARC dla serwerów](../../azure-arc/servers/overview.md) , dzięki czemu maszyny wirtualne można włączyć dla Azure monitor dla maszyn wirtualnych przy użyciu procesów podobnych do maszyn wirtualnych platformy Azure. W tym artykule opisano sposób dołączania hybrydowych maszyn wirtualnych w przypadku zrezygnowania z używania usługi Azure Arc.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +31,7 @@ Maszyny wirtualne poza platformą Azure wymagają tego samego agenta Log Analyti
 Aby uzyskać szczegółowe informacje na temat wdrażania agenta Log Analytics, zobacz [łączenie komputerów z systemem Windows w celu Azure monitor](../platform/agent-windows.md) lub [łączenia Azure monitor komputerów z systemem Linux](../platform/agent-linux.md) . Szczegóły dotyczące agenta zależności zostały podane w tym artykule. 
 
 ## <a name="firewall-requirements"></a>Wymagania dotyczące zapory
-Wymagania dotyczące zapory dla agenta Log Analytics są dostępne w [omówieniu log Analytics agenta](..//platform/log-analytics-agent.md#network-requirements). Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../../azure-monitor/platform/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
+Wymagania dotyczące zapory dla agenta Log Analytics są dostępne w [omówieniu log Analytics agenta](../platform/log-analytics-agent.md#network-requirements). Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../../azure-monitor/platform/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
 
 
 ## <a name="dependency-agent"></a>Agent zależności
@@ -92,7 +92,7 @@ Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, 
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| Pliki | Location |
+| Files | Location |
 |:--|:--|
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |

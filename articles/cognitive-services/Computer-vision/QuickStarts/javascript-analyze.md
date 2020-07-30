@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: e9ae6a94b83fc4bf3d37cc7080a5900feffff8b6
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-javascript
+ms.openlocfilehash: 7760d3256b0e8bc3efa79de2c2785a482a5e04a9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987217"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406796"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Szybki start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST i języka JavaScript podczas przetwarzania obrazów
 

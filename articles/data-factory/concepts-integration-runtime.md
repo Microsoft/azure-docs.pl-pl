@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497648"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407697"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -45,13 +45,10 @@ W poniższej tabeli opisano możliwości i obsługę sieci dla każdego typu inf
 
 Typ IR | Sieć publiczna | Sieć prywatna
 ------- | -------------- | ---------------
-Azure | Przepływ danych<br/>Przenoszenie danych<br/>Wysyłanie działania | &nbsp;
+Azure | Przepływ danych<br/>Przenoszenie danych<br/>Wysyłanie działania | Przepływ danych<br/>Przenoszenie danych<br/>Wysyłanie działania
 Samodzielny hosting | Przenoszenie danych<br/>Wysyłanie działania | Przenoszenie danych<br/>Wysyłanie działania
 Azure-SSIS | Wykonanie pakietu SSIS | Wykonanie pakietu SSIS
 
-Na poniższym diagramie przedstawiono, jak różnych infrastruktur Integration Runtime można użyć w sposób połączony, aby zapewnić bogate możliwości integracji danych i obsługę sieci:
-
-![Różne typy infrastruktur Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Środowisko uruchomieniowe integracji Azure
 
@@ -63,7 +60,7 @@ Na poniższym diagramie przedstawiono, jak różnych infrastruktur Integration R
 
 ### <a name="azure-ir-network-environment"></a>Środowisko sieciowe IR Azure
 
-Azure Integration Runtime obsługuje łączenie z magazynami danych i usługi obliczeniowe z dostępnymi publicznymi punktami końcowymi. Zastosowanie infrastruktury Integration Runtime (Self-hosted) w środowisku sieci wirtualnej Azure.
+Azure Integration Runtime obsługuje łączenie z magazynami danych i usługi obliczeniowe z dostępnymi publicznymi punktami końcowymi. Włączenie zarządzanych Virtual Network, Azure Integration Runtime obsługuje łączenie z magazynami danych przy użyciu usługi link prywatny w środowisku sieci prywatnej.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Zasoby obliczeniowe i skalowanie środowiska IR Azure
 Infrastruktura Integration Runtime zapewnia w pełni zarządzane obliczenia bez serwera na platformie Azure.  Nie musisz martwić się o obsługę infrastruktury, instalację oprogramowania, poprawki lub skalowanie pojemności.  Dodatkowo płacisz tylko za czas rzeczywistego wykorzystania.
@@ -136,7 +133,7 @@ Lokalizacja IR definiuje lokalizację zaplecza obliczeniowego i w praktyce lokal
 
 Można ustawić określoną lokalizację Azure IR, w którym wystąpiło wykonanie działania lub wysyłka w tym konkretnym regionie.
 
-W przypadku wybrania opcji używania Azure IR automatycznie Rozwiązuj, która jest wartością domyślną,
+Jeśli zdecydujesz się używać Azure IR automatycznie Rozwiązuj w sieci publicznej, co jest ustawieniem domyślnym,
 
 - W przypadku działania kopiowania funkcja ADF będzie najlepszym rozwiązaniem w celu automatycznego wykrycia lokalizacji magazynu danych ujścia, a następnie użycia środowiska IR w tym samym regionie, jeśli jest dostępny, lub najbliżej siebie w tej samej lokalizacji geograficznej. Jeśli nie można wykryć regionu magazynu danych ujścia, w regionie fabryki danych jest używane środowisko IR jako alternatywa.
 
@@ -154,6 +151,8 @@ W przypadku wybrania opcji używania Azure IR automatycznie Rozwiązuj, która j
 
   > [!TIP] 
   > Dobrym sposobem zapewnienia przepływu danych w tym samym regionie co odpowiednie magazyny danych (jeśli to możliwe). Można to osiągnąć przez automatyczne rozwiązanie Azure IR (Jeśli lokalizacja magazynu danych jest taka sama jak lokalizacja Data Factory) lub przez utworzenie nowego wystąpienia Azure IR w tym samym regionie, w którym znajdują się magazyny danych, a następnie wykonanie na nim przepływu danych. 
+
+W przypadku włączenia Virtual Network zarządzanych dla Azure IR automatycznego rozwiązywania APD funkcja ADF używa środowiska IR w regionie fabryki danych. 
 
 Istnieje możliwość monitorowania, która lokalizacja IR jest używana podczas wykonywania działania w widoku monitorowania działania potoku w interfejsie użytkownika lub w ładunku monitorowania działania.
 

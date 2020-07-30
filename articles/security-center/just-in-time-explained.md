@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 50398632f47d889ecb79b32faef94c9c5923789c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532509"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420842"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)
 
@@ -67,13 +67,17 @@ Gdy Security Center odnajdzie maszynę, która może korzystać z JIT, dodaje t�
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Jakie uprawnienia są potrzebne do skonfigurowania i używania JIT?
 
-Jeśli chcesz utworzyć role niestandardowe, które mogą współpracować z JIT, potrzebne są następujące szczegóły:
+Aby utworzyć role niestandardowe, które mogą współpracować z JIT, potrzebne są szczegóły z poniższej tabeli.
+
+> [!TIP]
+> Aby utworzyć rolę najniższych uprawnień dla użytkowników, którzy muszą zażądać dostępu JIT do maszyny wirtualnej i wykonać inne operacje JIT, użyj [skryptu Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) ze stron społeczności usługi GitHub Security Center.
 
 | Aby umożliwić użytkownikowi: | Uprawnienia do ustawienia|
 | --- | --- |
 | Konfigurowanie lub edytowanie zasad JIT dla maszyny wirtualnej | *Przypisz następujące akcje do roli:*  <ul><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> W zakresie subskrypcji lub grupy zasobów maszyny wirtualnej: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Zażądaj dostępu JIT do maszyny wirtualnej | *Przypisz następujące akcje do użytkownika:*  <ul><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  W zakresie subskrypcji lub grupy zasobów lub maszyny wirtualnej:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  W zakresie subskrypcji lub grupy zasobów lub maszyny wirtualnej:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 |Odczyt zasad JIT| *Przypisz następujące akcje do użytkownika:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|||
 
 
 

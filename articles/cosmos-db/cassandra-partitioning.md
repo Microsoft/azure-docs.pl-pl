@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806836"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423324"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partycjonowanie w Azure Cosmos DB interfejs API Cassandra
 
@@ -31,7 +31,7 @@ W przypadku systemu Apache Cassandra zaleca się limit 100 MB danych, które mog
 
 W Azure Cosmos DB każda partycja fizyczna składa się z zestawu replik, znanych także jako zestawy replik, z co najmniej 4 replikami na partycję. Jest to w przeciwieństwie do platformy Apache Cassandra, w której możliwe jest ustawienie współczynnika replikacji 1. Jest to jednak przyczyną niskiej dostępności, jeśli jedyny węzeł z danymi ulegnie awarii. W interfejs API Cassandra jest zawsze współczynnik replikacji wynoszący 4 (kworum z 3). Azure Cosmos DB automatycznie zarządza zestawami replik, chociaż należy je utrzymywać przy użyciu różnych narzędzi w programie Apache Cassandra. 
 
-Rozwiązanie Apache Cassandra ma koncepcję tokenów, które są skrótami kluczy partycji. Tokeny są oparte na murmur3 64 bajtów z wartościami z zakresu od-2 ^ 63 do-2 ^ 63-1. Ten zakres jest często określany jako "pierścień tokenów" w Apache Cassandra. Pierścień tokenów jest dystrybuowany do zakresów tokenów, a te zakresy są dzielone między węzłami znajdującymi się w macierzystym klastrze Apache Cassandra. Partycjonowanie Azure Cosmos DB jest implementowane w podobny sposób, z tą różnicą, że używa innego algorytmu wyznaczania wartości skrótu i ma większy pierścień tokenu. 
+Rozwiązanie Apache Cassandra ma koncepcję tokenów, które są skrótami kluczy partycji. Tokeny są oparte na murmur3 64 bajtów z wartościami z zakresu od-2 ^ 63 do-2 ^ 63-1. Ten zakres jest często określany jako "pierścień tokenów" w Apache Cassandra. Pierścień tokenów jest dystrybuowany do zakresów tokenów, a te zakresy są dzielone między węzłami znajdującymi się w macierzystym klastrze Apache Cassandra. Partycjonowanie dla Azure Cosmos DB jest zaimplementowane w podobny sposób, z tą różnicą, że używa innego algorytmu wyznaczania wartości skrótu i ma większy pierścień wewnętrzny token. Jednak zewnętrznie udostępnimy ten sam zakres tokenów co Apache Cassandra, tj.-2 ^ 63 do-2 ^ 63-1.
 
 
 ## <a name="primary-key"></a>Klucz podstawowy

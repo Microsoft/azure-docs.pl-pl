@@ -4,15 +4,15 @@ description: Interfejs API umożliwiający pobranie bieżącego stanu oferty.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535879"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272015"
 ---
 # <a name="retrieve-offer-status"></a>Pobieranie stanu oferty
 
@@ -27,8 +27,8 @@ Pobiera bieżący stan oferty.
 
 |  **Nazwa**       |   **Opis**                            |  **Typ danych** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identyfikator wydawcy, na przykład`Contoso`  |     String (ciąg)     |
-|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     String (ciąg)     |
+|  publisherId    | Identyfikator wydawcy, na przykład`Contoso`  |     String     |
+|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     String     |
 |  api-version    | Najnowsza wersja interfejsu API                        |     Data       |
 |  |  |
 
@@ -126,7 +126,7 @@ Pobiera bieżący stan oferty.
 |  estimatedTimeFrame   | Oszacowanie czasu, jaki mógłby wykonać ten krok, w przyjaznym formacie                       |
 |  identyfikator                   | Identyfikator kroku                                                                         |
 |  krokname             | Nazwa kroku                                                                               |
-|  opis          | Opis kroku                                                                        |
+|  description (opis)          | Opis kroku                                                                        |
 |  status               | Stan kroku. Aby uzyskać listę możliwych wartości, zobacz [Step status](#step-status) poniżej.    |
 |  z chmury do urządzenia             | Tablica komunikatów dotyczących kroku                                                          |
 |  processPercentage    | Procent wykonania kroku                                                              |

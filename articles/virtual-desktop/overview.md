@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292589"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386578"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop?
 
 Windows Virtual Desktop to usługa wirtualizacji pulpitu i aplikacji działająca w chmurze.
 
@@ -78,7 +78,7 @@ Aby zapewnić obsługę pulpitu wirtualnego systemu Windows, Twoja infrastruktur
   * Azure AD Connect (dla organizacji hybrydowych)
   * Azure AD Domain Services (dla organizacji hybrydowych lub w chmurze)
 * Subskrypcja platformy Azure zawierająca sieć wirtualną, która zawiera lub jest połączona z systemem Windows Server Active Directory
-  
+
 Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą być:
 
 * [Standardowe przyłączone do domeny](../active-directory-domain-services/active-directory-ds-comparison.md) lub [hybrydowe usługi AD](../active-directory/devices/hybrid-azuread-join-plan.md). Maszyny wirtualne nie mogą być przyłączone do usługi Azure AD.
@@ -105,7 +105,7 @@ Następujący klienci Pulpit zdalny obsługują pulpit wirtualny systemu Windows
 * [Sieć Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (wersja zapoznawcza)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).
@@ -128,7 +128,7 @@ Pulpit wirtualny systemu Windows obsługuje następujące obrazy systemu operacy
 
 Pulpit wirtualny systemu Windows nie obsługuje obrazów systemu operacyjnego x86 (32-bitowych), Windows 10 Enterprise N lub Windows 10 Enterprise KN. System Windows 7 nie obsługuje również żadnych rozwiązań profilu opartych na dyskach VHD lub VHDX hostowanych w zarządzanym magazynie Azure z powodu ograniczenia rozmiaru sektora.
 
-Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacyjnego i wersji, jak pokazano w poniższej tabeli: 
+Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacyjnego i wersji, jak pokazano w poniższej tabeli:
 
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|

@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: f10f50c30c1a8561f8a0b959fd17138f3e8aab8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c9a99927512ed842fc05e4f3067b2732fc2d00b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090908"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405838"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Poznaj podstawy tłumaczenia mowy
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090182"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420893"
 ---
 # <a name="train-wide--deep-recommender"></a>& głębokiego polecania szkolenia w szerokim zakresie
 W tym artykule opisano, jak używać modułu **uczenie szczegółowe & głębokiego polecania** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu uczenia modelu rekomendacji. Ten moduł jest oparty na szerokiej & głębokiej uczeniu zaproponowanym przez firmę Google.
@@ -66,7 +66,7 @@ Zestaw danych **funkcji użytkownika** musi zawierać identyfikatory użytkownik
 
 Na przykład typowy zestaw funkcji użytkownika może wyglądać następująco: 
 
-|UserId|Wiek|Płeć|Licz|Lokalizacja|
+|UserId|Wiek|Płeć|Licz|Location|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|mężczyzna| Dramat    |Europa|
 |223|40|kobieta|Romański|Azja|
@@ -105,7 +105,7 @@ Na przykład typowy zestaw funkcji elementu może wyglądać następująco:
 
     Ten parametr określa rozmiar kroków w każdym kroku szkoleniowym podczas przesuwania w kierunku minimalnej funkcji strat. Zbyt duża stawka szkoleniowa może spowodować przekroczenie wartości minimalne, a zbyt mała stawka szkoleniowa może spowodować problem ze spójnością.
 
-7.  **Transgraniczny wymiar funkcji**: Wpisz wymiar przekroczeń identyfikatorów użytkowników i identyfikatorów elementów. 
+7.  **Transgraniczny wymiar funkcji**: Wpisz wymiar, wprowadzając odpowiednie identyfikatory użytkownika i identyfikator elementu. 
 
     W szerokim & zalecanym rozwiązaniem jest przekształcenie między różnymi produktami i funkcjami identyfikatora elementu. Wynik przekroczenia zostanie zmieszany zgodnie z tą liczbą, aby zapewnić wymiar.
 

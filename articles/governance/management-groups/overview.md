@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c8c254b2156a6f710c7130503b7c2a18d7168b0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132929"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420519"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -38,7 +38,7 @@ Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie 
 
 ## <a name="root-management-group-for-each-directory"></a>Główna grupa zarządzania dla każdego katalogu
 
-Do każdego katalogu jest przypisywana jedna grupa zarządzania najwyższego poziomu nazywana „główną” grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna grupa zarządzania umożliwia stosowanie zasad globalnych i przypisań RBAC na poziomie katalogu. [Administrator globalny usługi Azure AD musi podnieść swój poziom uprawnień](../../role-based-access-control/elevate-access-global-admin.md) do roli Administrator dostępu użytkowników, aby początkowo być właścicielem tej głównej grupy. Po podniesieniu poziomu dostępu administrator może przypisać dowolną rolę RBAC innym użytkownikom lub grupom w katalogu, aby zarządzać hierarchią. Jako administrator możesz przypisać własne konto jako właściciela głównej grupy zarządzania.
+Do każdego katalogu jest przypisywana jedna grupa zarządzania najwyższego poziomu nazywana „główną” grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Ta główna Grupa zarządzania pozwala na stosowanie zasad globalnych i przypisań ról platformy Azure na poziomie katalogu. [Administrator globalny usługi Azure AD musi podnieść swój poziom uprawnień](../../role-based-access-control/elevate-access-global-admin.md) do roli Administrator dostępu użytkowników, aby początkowo być właścicielem tej głównej grupy. Po podniesieniu poziomu dostępu administrator może przypisać dowolną rolę RBAC innym użytkownikom lub grupom w katalogu, aby zarządzać hierarchią. Jako administrator możesz przypisać własne konto jako właściciela głównej grupy zarządzania.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Ważne informacje dotyczące głównej grupy zarządzania
 

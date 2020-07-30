@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119977"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387051"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Najlepsze rozwiązania dotyczące tworzenia ocen
 
@@ -67,15 +67,15 @@ Postępuj zgodnie z następującymi najlepszymi rozwiązaniami dotyczącymi ocen
  
 ### <a name="ftt-sizing-parameters-for-avs-assessments"></a>FTT parametry zmiany wielkości dla oceny automatycznej synchronizacji
 
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielenia magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. Zasady magazynu vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
 
-**Niepowodzenia do tolerowania (FTT)** | **Konfiguracja RAID** | **Minimalna wymagana ilość hostów** | **Uwzględnianie wielkości**
+**Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru**
 --- | --- | --- | --- 
 1 | RAID-1 (dublowanie) | 3 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 200 GB.
-1 | RAID-5 (Wymazywanie kodowania) | 4 | Maszyna wirtualna 100 GB zużywa 133.33 GB
-2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna 100 GB zużywa 300 GB.
-2 | RAID-6 (Wymazywanie kodowania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 150 GB.
-3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna 100 GB zużywa 400 GB.
+1 | RAID-5 (kodowanie wymazywania) | 4 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 133,33 GB
+2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 300 GB.
+2 | RAID-6 (kodowanie wymazywania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 150 GB.
+3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 400 GB.
 
 
 ## <a name="best-practices-for-confidence-ratings"></a>Najlepsze rozwiązania dotyczące klasyfikacji zaufania
@@ -131,9 +131,9 @@ Ocena może nie zawierać wszystkich punktów danych z kilku powodów:
 
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Wskazówki dotyczące narzędzia do migracji dotyczące ocen dotyczących automatycznej synchronizacji
 
-W raporcie dotyczącym gotowości platformy Azure do oceny rozwiązań VMware (Automatyczna synchronizacja) można zobaczyć następujące sugerowane narzędzia: 
+W raporcie dotyczącym gotowości oceny usługi Azure VMware Solution (AVS) można zobaczyć następujące sugerowane narzędzia: 
 - **VMware HCX lub Enterprise**: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV, domyślne narzędzie migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMWare (HCX).
+- **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMware (HCX).
 
 
 ## <a name="next-steps"></a>Następne kroki

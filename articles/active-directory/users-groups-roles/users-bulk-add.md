@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057899"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423613"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -60,7 +60,7 @@ Wiersze pobranego szablonu CSV są następujące:
 
 1. Otwórz plik CSV i Dodaj wiersz dla każdego użytkownika, który chcesz utworzyć. Jedyne wymagane wartości to **Nazwa**, **główna nazwa użytkownika**, **początkowe hasło** i **blokowanie logowania (tak/nie)**. Następnie zapisz plik.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![Plik CSV zawiera nazwy i identyfikatory użytkowników do utworzenia](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Na stronie **Tworzenie zbiorcze użytkownika** w obszarze Przekaż plik CSV przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
 1. Po zweryfikowaniu zawartości pliku zostanie wyświetlony **plik pomyślnie przekazane**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
@@ -73,7 +73,7 @@ W przypadku wystąpienia błędów można pobrać i wyświetlić plik wyników n
 
 Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczekujących żądań zbiorczych.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Sprawdzanie stanu tworzenia na stronie wyników operacji zbiorczych](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Następnie możesz sprawdzić, czy utworzone przez Ciebie użytkownicy znajdują się w organizacji usługi Azure AD w Azure Portal lub przy użyciu programu PowerShell.
 

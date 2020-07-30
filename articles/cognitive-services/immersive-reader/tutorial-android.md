@@ -10,12 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: 8418e2d7a4b3800742bc4ecc777222ebca07aee2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: f8420a42b87481b5e51b383ace1ba8a510d2a6a7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076878"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366742"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-android-java-code-sample"></a>Samouczek: uruchamianie czytnika immersyjny przy użyciu przykładu kodu Java dla systemu Android
 

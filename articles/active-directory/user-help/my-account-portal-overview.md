@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/20/2020
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742208"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422418"
 ---
 # <a name="what-is-the-my-account-portal"></a>Co to jest portal Moje konto?
 
@@ -33,7 +33,7 @@ Możesz przejść do portalu **My Account** ( https://myaccount.microsoft.com) ,
 ![Portal mojego konta, Strona przeglądu](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących uzyskać dostęp do portalu My Account, aby zaktualizować informacje zabezpieczające, informacje o urządzeniu, hasło, połączone organizacje, prywatność lub poprzednie informacje logowania. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania uwierzytelniania i innych funkcji Azure Active Directory (Azure AD) dla pracowników i innych usług, zobacz [dokumentację usługi Azure AD dla administratorów](https://docs.microsoft.com/azure/active-directory/).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących uzyskać dostęp do portalu My Account w celu zaktualizowania swoich informacji zabezpieczających, informacji o urządzeniu, hasła, połączonych organizacji, ustawień języka, ochrony prywatności lub wcześniejszych informacji dotyczących logowania. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania uwierzytelniania i innych funkcji Azure Active Directory (Azure AD) dla pracowników i innych usług, zobacz [dokumentację usługi Azure AD dla administratorów](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -46,6 +46,8 @@ Możesz przejść do portalu **My Account** ( https://myaccount.microsoft.com) ,
 - Wyświetlanie [działania związanego z logowaniem](my-account-portal-sign-ins-page.md)
 
 - Zobacz, jak Twoja organizacja [używa danych związanych z prywatnością](my-account-portal-privacy-page.md)
+
+- Zmień [Ustawienia portalu My Account](my-account-portal-settings.md)
 
 ## <a name="related-microsoft-office-content"></a>Powiązana zawartość Microsoft Office
 

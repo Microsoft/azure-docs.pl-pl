@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109978"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406694"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Instrukcje: Wybieranie urządzenia wejściowego audio przy użyciu zestawu Speech SDK
 
@@ -46,7 +47,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
 > [!Note]
-> Użycie mikrofonu nie jest dostępne w przypadku języka JavaScript działającego w języku Node. js
+> Użycie mikrofonu nie jest dostępne dla języka JavaScript działającego w Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Identyfikatory urządzeń audio w aplikacjach klasycznych systemu Windows
 
@@ -365,7 +366,7 @@ Na przykład identyfikator UID wbudowanego mikrofonu to `BuiltInMicrophoneDevice
 
 ## <a name="audio-device-ids-on-ios"></a>Identyfikatory urządzeń audio w systemie iOS
 
-Wybieranie urządzenia audio przy użyciu zestawu SDK usługi Mowa nie jest obsługiwane w systemie iOS. Aplikacje korzystające z zestawu SDK mogą jednak mieć wpływ na [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Routing audio za pośrednictwem struktury.
+Wybieranie urządzenia audio przy użyciu zestawu SDK usługi Mowa nie jest obsługiwane w systemie iOS. Aplikacje korzystające z zestawu SDK mogą jednak mieć wpływ na Routing audio za pośrednictwem [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) struktury.
 
 Na przykład instrukcja
 
@@ -378,14 +379,14 @@ umożliwia użycie zestawu słuchawkowego Bluetooth przez aplikację z obsługą
 
 ## <a name="audio-device-ids-in-javascript"></a>Identyfikatory urządzeń audio w języku JavaScript
 
-W języku JavaScript można użyć metody [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) w celu wyliczenia urządzeń multimedialnych i znalezienia identyfikatora urządzenia do przekazania `fromMicrophone(...)`.
+W języku JavaScript można użyć metody [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) w celu wyliczenia urządzeń multimedialnych i znalezienia identyfikatora urządzenia do przekazania `fromMicrophone(...)` .
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Zapoznaj się z przykładami w usłudze GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Samouczek: tworzenie niestandardowego modelu akustycznego](how-to-customize-acoustic-models.md)
 - [Samouczek: tworzenie niestandardowego modelu językowego](how-to-customize-language-model.md)

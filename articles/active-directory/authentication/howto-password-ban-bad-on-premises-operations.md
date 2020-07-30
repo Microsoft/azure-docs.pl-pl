@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652636"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419771"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Włącz ochronę hasłem Azure Active Directory lokalnych
 
@@ -26,7 +26,7 @@ Aby chronić lokalne środowisko Active Directory Domain Services (AD DS), może
 
 Aby uzyskać więcej informacji na temat sposobu działania ochrony haseł usługi Azure AD w środowisku lokalnym, zobacz [Jak wymusić ochronę hasłem usługi Azure AD dla systemu Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule pokazano, jak włączyć ochronę hasłem w usłudze Azure AD dla środowiska lokalnego. Przed ukończeniem tego artykułu [Zainstaluj i Zarejestruj usługę serwera proxy ochrony hasłem usługi Azure AD i agentów kontrolerów domeny](howto-password-ban-bad-on-premises-deploy.md) w lokalnym środowisku AD DS.
 
@@ -40,7 +40,7 @@ W tym artykule pokazano, jak włączyć ochronę hasłem w usłudze Azure AD dla
 1. Zaleca się wstępne ustawienie **trybu** *inspekcji*. Po zalogowaniu się do funkcji i wpływu na użytkowników w organizacji możesz przełączyć **tryb** na *wymuszone*. Aby uzyskać więcej informacji, zobacz następującą sekcję w obszarze [tryby działania](#modes-of-operation).
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Włącz lokalną ochronę hasłem w metodach uwierzytelniania w Azure Portal](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>Tryby operacyjne
 

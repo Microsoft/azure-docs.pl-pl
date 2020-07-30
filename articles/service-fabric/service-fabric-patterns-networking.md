@@ -3,12 +3,12 @@ title: Wzorce sieciowe dla Service Fabric platformy Azure
 description: Opisuje typowe wzorce sieci dla Service Fabric i sposób tworzenia klastra przy użyciu funkcji sieciowych platformy Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258528"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421471"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric wzorców sieci
 Możesz zintegrować klaster usługi Azure Service Fabric z innymi funkcjami sieciowymi platformy Azure. W tym artykule przedstawiono sposób tworzenia klastrów, które korzystają z następujących funkcji:
@@ -99,6 +99,8 @@ W przykładach w tym artykule używamy template.jsService Fabric w systemie. Prz
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Można również dodać komentarz do parametru o nazwie "virtualNetworkName", aby nie monitował o wprowadzenie nazwy sieci wirtualnej dwa razy w bloku Wdrożenie klastra w Azure Portal.
 
 2. Atrybut komentarza `nicPrefixOverride` do elementu `Microsoft.Compute/virtualMachineScaleSets` , ponieważ jest używana istniejąca podsieć i ta zmienna została wyłączona w kroku 1.
 

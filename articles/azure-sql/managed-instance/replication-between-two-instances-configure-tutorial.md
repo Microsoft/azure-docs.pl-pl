@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708480"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422916"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Samouczek: Konfigurowanie replikacji między dwoma wystąpieniami zarządzanymi
 
@@ -26,7 +26,7 @@ ms.locfileid: "84708480"
 Replikacja transakcyjna umożliwia replikowanie danych z jednej bazy danych do innej hostowanej na SQL Server lub w [wystąpieniu zarządzanym usługi Azure SQL](sql-managed-instance-paas-overview.md) (publiczna wersja zapoznawcza). Wystąpienie zarządzane SQL może być wydawcą, dystrybutorem lub subskrybentem w topologii replikacji. Zobacz [konfiguracje replikacji transakcyjnej](replication-transactional-overview.md#common-configurations) dla dostępnych konfiguracji.
 
 > [!NOTE]
-> W tym artykule opisano sposób korzystania z [replikacji transakcyjnej](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) w wystąpieniu zarządzanym usługi Azure SQL. Nie jest on związany z [grupami trybu failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), funkcja wystąpienia zarządzanego Azure SQL, która umożliwia tworzenie kompletnych możliwych do odczytu replik poszczególnych wystąpień.
+> W tym artykule opisano sposób korzystania z [replikacji transakcyjnej](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) w wystąpieniu zarządzanym usługi Azure SQL. Nie jest on związany z [grupami trybu failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), funkcja wystąpienia zarządzanego Azure SQL, która umożliwia tworzenie kompletnych możliwych do odczytu replik poszczególnych wystąpień. Podczas konfigurowania [replikacji transakcyjnej przy użyciu grup trybu failover](replication-transactional-overview.md#with-failover-groups)należy uwzględnić dodatkowe zagadnienia.
 
 W tym samouczku nauczysz się skonfigurować jedno wystąpienie zarządzane jako wydawcę i dystrybutora, a następnie drugie wystąpienie zarządzane jako subskrybent.  
 
@@ -285,7 +285,7 @@ Uruchom Poniższy fragment kodu T-SQL, aby wstawić dodatkowe wiersze na wydawcy
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć publikację, uruchom następujące polecenie T-SQL:
 

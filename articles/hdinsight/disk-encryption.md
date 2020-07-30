@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536305"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387850"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Szyfrowanie dysków za pomocą klucza zarządzanego przez klienta
 
@@ -30,12 +30,12 @@ Zarówno dysk zasobów, jak i dyski zarządzane w każdym węźle klastra są sz
 
 Jeśli w magazynie kluczy, w którym jest przechowywany klucz szyfrowania dysku, jest włączona Zapora magazynu kluczy, adresy IP regionalnego dostawcy zasobów usługi HDInsight dla regionu, w którym zostanie wdrożony klaster, muszą zostać dodane do konfiguracji zapory magazynu kluczy. Jest to konieczne, ponieważ Usługa HDInsight nie jest zaufaną usługą magazynu kluczy platformy Azure.
 
-Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby bezpiecznie obrócić klucze w magazynie kluczy. Gdy klucz zostanie obrócony, klaster usługi HDInsight zaczyna używać nowego klucza w ciągu kilku minut. Włącz funkcje ochrony klucza [nietrwałego](../key-vault/general/overview-soft-delete.md) , aby chronić je przed scenariuszami oprogramowania wymuszającego okup i przypadkowym usunięciem. Magazyny kluczy bez tej funkcji ochrony nie są obsługiwane.
+Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby bezpiecznie obrócić klucze w magazynie kluczy. Gdy klucz zostanie obrócony, klaster usługi HDInsight zaczyna używać nowego klucza w ciągu kilku minut. Włącz funkcje ochrony klucza [nietrwałego](../key-vault/general/soft-delete-overview.md) , aby chronić je przed scenariuszami oprogramowania wymuszającego okup i przypadkowym usunięciem. Magazyny kluczy bez tej funkcji ochrony nie są obsługiwane.
 
 |Typ klastra |Dysk systemu operacyjnego (dysk zarządzany) |Dysk danych (dysk zarządzany) |Dysk danych tymczasowych (lokalny dysk SSD) |
 |---|---|---|---|
 |Kafka, HBase z przyspieszeniem zapisu|[Szyfrowanie SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Szyfrowanie SSE + opcjonalne szyfrowanie CMK|Opcjonalne szyfrowanie CMK|
-|Wszystkie inne klastry (Spark, Interactive, Hadoop, HBase bez przyspieszenia zapisu)|Szyfrowanie SSE|Nie dotyczy|Opcjonalne szyfrowanie CMK|
+|Wszystkie inne klastry (Spark, Interactive, Hadoop, HBase bez przyspieszenia zapisu)|Szyfrowanie SSE|Brak|Opcjonalne szyfrowanie CMK|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Wprowadzenie do kluczy zarządzanych przez klienta
 
@@ -56,7 +56,7 @@ Szczegółowe instrukcje można znaleźć w temacie [Tworzenie tożsamości zarz
 
 ## <a name="create-azure-key-vault"></a>Utwórz Azure Key Vault
 
-Tworzenie magazynu kluczy. Aby zapoznać się z określonymi krokami, zobacz [tworzenie Azure Key Vault](../key-vault/secrets/quick-create-portal.md) .
+Utwórz magazyn kluczy. Aby zapoznać się z określonymi krokami, zobacz [tworzenie Azure Key Vault](../key-vault/secrets/quick-create-portal.md) .
 
 Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn kluczy, możesz zaimportować klucze do Azure Key Vault. Należy pamiętać, że magazyn kluczy musi mieć włączone **usuwanie nietrwałe** . Aby uzyskać więcej informacji o importowaniu istniejących kluczy, odwiedź stronę [dotyczącą kluczy, wpisów tajnych i certyfikatów](../key-vault/about-keys-secrets-and-certificates.md).
 
@@ -124,7 +124,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-### <a name="using-azure-resource-manager-templates"></a>Używanie szablonów usługi Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 
 Poniższy przykład pokazuje, jak użyć szablonu Azure Resource Manager, aby utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [co to są szablony ARM?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 

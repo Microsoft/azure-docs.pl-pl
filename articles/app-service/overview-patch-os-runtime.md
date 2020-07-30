@@ -4,12 +4,12 @@ description: Dowiedz się, jak Azure App Service aktualizować system operacyjny
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78273635"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414942"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego w Azure App Service
 
@@ -78,7 +78,7 @@ W poniższej tabeli przedstawiono, jak wersje systemu Windows i środowisko uruc
 | Informacje | Gdzie można go znaleźć | 
 |-|-|
 | Wersja systemu Windows | Zobacz `https://<appname>.scm.azurewebsites.net/Env.cshtml` (w obszarze informacje o systemie) |
-| Wersja platformy .NET | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| Wersja platformy .NET | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | Wersja platformy .NET Core | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `dotnet --version` |
 | Wersja języka PHP | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `php --version` |
 | Domyślna wersja Node.js | W [Cloud Shell](../cloud-shell/overview.md)Uruchom następujące polecenie: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |

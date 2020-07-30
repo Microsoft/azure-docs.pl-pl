@@ -2,18 +2,18 @@
 title: Ponowne włączanie ochrony maszyn wirtualnych platformy Azure w regionie podstawowym przy użyciu Azure Site Recovery | Microsoft Docs
 description: Opisuje sposób ponownego włączania ochrony maszyn wirtualnych platformy Azure po przejściu w tryb failover, do regionu podstawowego, przy użyciu Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738069"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422083"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Ponowne włączanie ochrony maszyn wirtualnych platformy Azure zakończonych niepowodzeniem w regionie podstawowym
 
@@ -95,10 +95,6 @@ Poniższe warunki określają, jak dużo danych jest replikowanych:
 |Region źródłowy ma 1 maszynę wirtualną z dyskiem Premium 1 TB.<br/>Używane są tylko 20 GB danych, a reszta dysku jest pusta.<br/>Typ dysku to Premium z przepustowością 200 MB/s.<br/>Początkowe dane na dysku natychmiast po przejściu w tryb failover to 15 GB. Po przejściu w tryb failover wprowadzono 5 GB zmian danych. Łączna liczba wypełnionych danych jest dlatego 20 GB| Przybliżony czas: 30-45 minut.<br/>Ponieważ dane wypełnione na dysku są mniejsze niż 10% rozmiaru dysku, wykonujemy pełną replikację początkową.<br/>Szybkość transferu wynosi około 16% przepływności lub 32MBps. W związku z tym należy przenieść czas, aby zastosować zmiany wynoszące 20 GB, czyli 20 GB/32 MB/s, około 11 minut.<br/>Aby Site Recovery do automatycznego skalowania, wymagany jest jakiś czas dodatkowy (około 20-30 minut) |
 
 Po ponownym włączeniu ochrony maszyny wirtualnej po niepowodzeniu powrotu do regionu podstawowego (tj. Jeśli maszyna wirtualna jest ponownie chroniona z regionu podstawowego do regionu DR), docelowa maszyna wirtualna i skojarzone karty sieciowe zostaną usunięte.
-
-Po ponownym włączeniu ochrony maszyny wirtualnej z regionu DR do regionu podstawowego nie jest usuwana podstawowa maszyna wirtualna Erstwhile ani skojarzone karty sieciowe.
-
-Po ponownym włączeniu ochrony maszyny wirtualnej po niepowodzeniu powrotu do regionu podstawowego (tj. Jeśli maszyna wirtualna jest ponownie chroniona z regionu podstawowego do regionu DR), docelowa maszyna wirtualna i skojarzone karty sieciowe zostaną usunięte. 
 
 Po ponownym włączeniu ochrony maszyny wirtualnej z regionu DR do regionu podstawowego nie jest usuwana podstawowa maszyna wirtualna Erstwhile ani skojarzone karty sieciowe.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405249"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -194,6 +194,9 @@ Następnie wprowadź **Opis** , który zawiera bardziej szczegółowe wyjaśnien
 Obecnie istnieje tylko jeden model cenowy, który może być używany na potrzeby oferty usługi zarządzanej: **Bring Your Own License (BYOL)**. Oznacza to, że klienci będą rozliczani bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie nalicza opłat za Ciebie.
 
 Sekcja **widoczność planu** pozwala wskazać, czy ten plan powinien być [prywatny](../../marketplace/private-offers.md). Jeśli opuścisz **to pole jest** niezaznaczone, Twój plan nie zostanie ograniczony do określonych klientów (lub do określonej liczby klientów).
+
+> [!NOTE]
+> Plany prywatne nie są obsługiwane w przypadku subskrypcji ustanowionych przez odsprzedawcę programu w programie Cloud Solution Provider (CSP).
 
 Aby ten plan był dostępny tylko dla określonych klientów, wybierz opcję **tak**. W takim przypadku należy zidentyfikować klientów, podając ich identyfikatory subskrypcji. Można je wprowadzić jeden po jednym (dla maksymalnie 10 subskrypcji) lub przekazując plik CSV (maksymalnie 10 000 subskrypcji we wszystkich planach). Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby móc testować i sprawdzać poprawność oferty.
 

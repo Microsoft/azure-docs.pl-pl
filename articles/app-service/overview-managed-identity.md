@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116916"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415044"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -176,6 +176,15 @@ Gdy witryna zostanie utworzona, ma następujące dodatkowe właściwości:
 ```
 
 Właściwość tenantId identyfikuje dzierżawę usługi Azure AD, do której należy tożsamość. PrincipalId jest unikatowym identyfikatorem nowej tożsamości aplikacji. W usłudze Azure AD nazwa główna usługi ma taką samą nazwę, która została nadana App Service lub wystąpieniu Azure Functions.
+
+Jeśli musisz odwołać się do tych właściwości w późniejszym etapie szablonu, możesz to zrobić za pośrednictwem [ `reference()` funkcji szablonu](../azure-resource-manager/templates/template-functions-resource.md#reference) z `'Full'` flagą, jak w poniższym przykładzie:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
 
 ## <a name="add-a-user-assigned-identity"></a>Dodawanie tożsamości przypisanej do użytkownika
 

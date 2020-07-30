@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: a4dc2604dbd62da1baa4278ff3463f41337886bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052507"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385589"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Użyj programu Synapse Studio (wersja zapoznawcza) do monitorowania aplikacji Apache Spark
 
@@ -22,7 +22,7 @@ Za pomocą usługi Azure Synapse Analytics można używać platformy Spark do ur
 
 W tym artykule wyjaśniono, jak monitorować aplikacje Apache Spark, co pozwala na śledzenie najnowszego stanu, problemów i postępu.
 
-## <a name="accessing-the-list-of-apache-spark-applications"></a>Uzyskiwanie dostępu do listy aplikacji Apache Spark
+## <a name="access-apache-spark-applications-list"></a>Lista aplikacji dostępu Apache Spark
 
 Aby wyświetlić listę aplikacji Apache Spark w obszarze roboczym, najpierw [Otwórz program Synapse Studio](https://web.azuresynapse.net/) i wybierz obszar roboczy.
 
@@ -36,7 +36,7 @@ Wybierz pozycję **Apache Spark aplikacje** , aby wyświetlić listę aplikacji 
 
  ![Wybierz aplikacje platformy Spark](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
 
-## <a name="filtering-your-apache-spark-applications"></a>Filtrowanie aplikacji Apache Spark
+## <a name="filter-your-apache-spark-applications"></a>Filtrowanie aplikacji Apache Spark
 
 Możesz filtrować listę aplikacji Apache Spark, które interesują Cię. Filtry w górnej części ekranu umożliwiają określenie pola, do którego chcesz filtrować.
 
@@ -46,7 +46,7 @@ Na przykład można filtrować widok, aby wyświetlić tylko Apache Spark aplika
 
 ![Przykładowy filtr](./media/how-to-monitor-spark-applications/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-apache-spark-application"></a>Wyświetlanie szczegółowych informacji o określonej aplikacji Apache Spark
+## <a name="view-details-about-a-specific-apache-spark-application"></a>Wyświetl szczegóły dotyczące konkretnej aplikacji Apache Spark
 
 Aby wyświetlić szczegółowe informacje o jednej z Apache Spark aplikacji, wybierz aplikację Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp. [Przeczytaj więcej](apache-spark-applications.md).
 

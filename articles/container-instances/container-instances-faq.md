@@ -4,12 +4,12 @@ description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure Con
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806605"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421284"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
@@ -89,9 +89,9 @@ Obecnie skalowanie nie jest dostępne dla kontenerów lub grup kontenerów. Jeś
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Jakie funkcje są dostępne dla wystąpień uruchomionych w niestandardowej sieci wirtualnej?
 
-Możesz [wdrożyć grupy kontenerów w wybranej sieci wirtualnej platformy Azure](container-instances-vnet.md) i delegować prywatne adresy IP do grup kontenerów, aby kierować ruchem sieciowym w sieci wirtualnej przez zasoby platformy Azure. Wdrożenie grupy kontenerów w sieci wirtualnej jest obecnie dostępne dla obciążeń produkcyjnych w podzbiorze regionów świadczenia usługi Azure.
+Możesz [wdrożyć grupy kontenerów w wybranej sieci wirtualnej platformy Azure](container-instances-vnet.md) i delegować prywatne adresy IP do grup kontenerów, aby kierować ruchem sieciowym w sieci wirtualnej przez zasoby platformy Azure. W przypadku scenariuszy sieciowych i ograniczeń dotyczących Azure Container Instances, zobacz [scenariusze i zasoby sieci wirtualnej](container-instances-virtual-network-concepts.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 ### <a name="when-does-the-meter-start-running"></a>Kiedy licznik zacznie działać?
 

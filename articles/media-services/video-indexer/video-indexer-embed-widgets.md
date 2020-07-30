@@ -10,12 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: d76f3afa3a831f402f93322ecec350bfdb0c788d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166029"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414024"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -33,7 +34,7 @@ Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegó
 |---|---|---|
 |`widgets` | Ciągi rozdzielone przecinkami | Umożliwia kontrolowanie szczegółowych informacji, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderuje tylko osoby i słowa kluczowe dotyczące interfejsu użytkownika.<br/>Dostępne opcje: ludzie, animatedCharacters, keywords, Labels, mową, emocji, tematy, ramki kluczowe, Transkrypcja, OCR, głośniki, sceny i namedEntities.|
 |`controls`|Ciągi rozdzielone przecinkami|Umożliwia kontrolowanie formantów, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderuje tylko opcję wyszukiwania i przycisk pobierania.<br/>Dostępne opcje: wyszukiwanie, pobieranie, ustawienia wstępne, język.|
-|`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/> lub `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
 |`tab` | Domyślna wybrana karta | Steruje kartą usługi **Insights** , która jest renderowana domyślnie. <br/>Przykład: `tab=timeline` renderuje szczegółowych informacji przy użyciu karty **oś czasu** .|
 |`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
@@ -69,7 +70,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
 
-`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru. Przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
@@ -196,7 +197,7 @@ Jeśli używasz odtwarzacza wideo innego niż Azure Media Player, musisz ręczni
     ```
 
 2. Osadź widżet Cognitive Insights.
-3. Zaimplementuj komunikację dla odtwarzacza z nasłuchiwaniem w oczekiwaniu na zdarzenie „message”. Przykład:
+3. Zaimplementuj komunikację dla odtwarzacza z nasłuchiwaniem w oczekiwaniu na zdarzenie „message”. Na przykład:
 
     ```javascript
     <script>
@@ -259,7 +260,7 @@ Ta opcja ma zastosowanie tylko w przypadkach, gdy trzeba otworzyć szczegółowe
 
 W przypadku osadzania widżetu Player usługi Video Indexer można wybrać rozmiar odtwarzacza, określając rozmiar elementu iframe.
 
-Przykład:
+Na przykład:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

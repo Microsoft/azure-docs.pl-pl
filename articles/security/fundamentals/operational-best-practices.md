@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283473"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423154"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -55,7 +55,7 @@ W portalu rejestracji platformy Azure można upewnić się, że informacje konta
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizuj subskrypcje platformy Azure w grupach zarządzania
 Jeśli Twoja organizacja ma wiele subskrypcji, konieczny może być sposób na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. [Grupy zarządzania platformy Azure](/azure/governance/management-groups/create) zapewniają poziom zakresu, który jest wyższy niż subskrypcje. Można organizować subskrypcje w kontenery nazywane grupami zarządzania i stosować warunki zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania.
 
-Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w katalogu. Każdy katalog ma jedną grupę zarządzania najwyższego poziomu nazywaną główną grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna Grupa zarządzania pozwala na stosowanie zasad globalnych i przypisań RBAC na poziomie katalogu.
+Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w katalogu. Każdy katalog ma jedną grupę zarządzania najwyższego poziomu nazywaną główną grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna Grupa zarządzania pozwala na stosowanie zasad globalnych i przypisań ról platformy Azure na poziomie katalogu.
 
 Poniżej przedstawiono niektóre najlepsze rozwiązania dotyczące korzystania z grup zarządzania:
 

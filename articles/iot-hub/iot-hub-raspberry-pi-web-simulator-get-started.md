@@ -12,12 +12,13 @@ ms.date: 04/11/2018
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: f7ef9ba6eed6a349272227e3893fc1717fb50a46
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-javascript
+ms.openlocfilehash: d1b3858e62902a5c1c841de7618966e695b66425
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322741"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423069"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Połącz symulator online Raspberry Pi z platformą Azure IoT Hub (Node.js)
 

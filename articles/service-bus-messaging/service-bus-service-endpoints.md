@@ -4,14 +4,14 @@ description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071325"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422950"
 ---
-# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bus
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych sieci wirtualnych
 
 Integracja Service Bus z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do funkcji obsługi komunikatów z obciążeń takich jak maszyny wirtualne, które są powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach.
 
@@ -58,11 +58,20 @@ Reguła sieci wirtualnej jest skojarzeniem przestrzeni nazw Service Bus z podsie
 W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy użyciu Azure Portal. Aby ograniczyć dostęp, należy zintegrować punkt końcowy usługi sieci wirtualnej dla tej Event Hubs przestrzeni nazw.
 
 1. Przejdź do **przestrzeni nazw Service Bus** w [Azure Portal](https://portal.azure.com).
-2. W menu po lewej stronie wybierz opcję **Sieć** . Domyślnie wybrana jest opcja **wszystkie sieci** . Przestrzeń nazw akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
+2. W menu po lewej stronie wybierz opcję **Sieć** w obszarze **Ustawienia**.  
 
-    ![Zapora — wybrana opcja Wszystkie sieci](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Wybierz opcję **wybrane sieci** w górnej części strony.
-2. W sekcji **Virtual Network** strony wybierz pozycję **+ Dodaj istniejącą sieć wirtualną**. 
+    > [!NOTE]
+    > Karta **Sieć** zawiera tylko obszary nazw w **warstwie Premium** .  
+    
+    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Strona sieci — domyślna" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    W przypadku wybrania opcji **wszystkie sieci** Service Bus przestrzeń nazw akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
+
+    ![Zapora — wybrana opcja Wszystkie sieci](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. Aby ograniczyć dostęp do określonych sieci wirtualnych, wybierz opcję **wybrane sieci** , jeśli nie została jeszcze wybrana.
+1. W sekcji **Virtual Network** strony wybierz pozycję **+ Dodaj istniejącą sieć wirtualną**. 
 
     ![dodawanie istniejącej sieci wirtualnej](./media/service-endpoints/add-vnet-menu.png)
 3. Wybierz sieć wirtualną z listy sieci wirtualnych, a następnie wybierz **podsieć**. Przed dodaniem sieci wirtualnej do listy musisz włączyć punkt końcowy usługi. Jeśli punkt końcowy usługi nie jest włączony, w portalu zostanie wyświetlony monit o jego włączenie.
@@ -78,6 +87,9 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 6. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia. Poczekaj kilka minut, aż potwierdzenie będzie widoczne w powiadomieniach portalu. Przycisk **Zapisz** powinien być wyłączony. 
 
     ![Zapisz sieć](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > Aby uzyskać instrukcje dotyczące zezwalania na dostęp z określonych adresów IP lub zakresów, zobacz [Zezwalanie na dostęp z określonych adresów IP lub zakresów](service-bus-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 Poniższy szablon Menedżer zasobów umożliwia dodanie reguły sieci wirtualnej do istniejącej Service Bus przestrzeni nazw.

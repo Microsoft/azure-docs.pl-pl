@@ -2,13 +2,13 @@
 title: Azure Service Bus warstwach Premium i Standard
 description: W tym artykule opisano warstwy Standard i Premium Azure Service Bus. Porównuje te warstwy i zapewnia różnice techniczne.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337415"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386354"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
 
@@ -18,13 +18,13 @@ Warstwa *Premium* Service Bus komunikatów rozwiązuje typowe żądania klientó
 
 W poniższej tabeli wyróżniono pewne ogólne różnice.
 
-| Premium | Standardowa (Standard) |
+| Premium | Standard |
 | --- | --- |
 | Wysoka przepływność |Zmienna przepływność |
 | Przewidywalna wydajność |Zmienne opóźnienie |
 | Stałe ceny |Zmienne ceny i płatność zgodnie z rzeczywistym użyciem |
-| Możliwość skalowania obciążenia |Nie dotyczy |
-| Rozmiar komunikatu do 1 MB |Rozmiar komunikatu do 256 KB |
+| Możliwość skalowania obciążenia |Brak |
+| Rozmiar komunikatu do 1 MB. Ten limit może być zgłaszany w przyszłości. Najnowsze ważne aktualizacje usługi znajdują się w temacie [Obsługa komunikatów w blogu platformy Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Rozmiar komunikatu do 256 KB |
 
 **Warstwa Premium komunikatów usługi Service Bus** zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Dla każdej przestrzeni nazw Premium Service Bus można zakupić 1, 2, 4 lub 8 jednostek obsługi komunikatów. Pojedyncze obciążenie lub jednostka mogą obejmować wiele jednostek obsługi komunikatów, a liczba jednostek obsługi komunikatów w programie może zostać zmieniona. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
@@ -40,7 +40,7 @@ Partycjonowane kolejki i tematy nie są obsługiwane w przypadku komunikatów w 
 
 ### <a name="express-entities"></a>Jednostki ekspresowe
 
-Ze względu na fakt, że obsługa komunikatów Premium działa w całkowicie odizolowanym środowisku uruchomieniowym, jednostki ekspresowe nie są obsługiwane w przestrzeniach nazw w warstwie Premium. Aby uzyskać więcej informacji o funkcji jednostek ekspresowych, zobacz opis właściwości [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Ponieważ obsługa komunikatów w warstwie Premium działa w izolowanym środowisku uruchomieniowym, jednostki ekspresowe nie są obsługiwane w przestrzeniach nazw w warstwie Premium. Aby uzyskać więcej informacji o funkcji jednostek ekspresowych, zobacz opis właściwości [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Jeśli masz kod uruchomiony w ramach obsługi komunikatów w warstwie Standardowa i chcesz przenieść go do warstwy Premium, upewnij się, że właściwość [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) jest ustawiona na wartość **false** (wartość domyślna).
 
@@ -51,9 +51,9 @@ Ogólnie rzecz biorąc, każda operacja w jednostce może spowodować użycie pr
 - Operacje środowiska uruchomieniowego (wysyłanie i odbieranie komunikatów)
 - Operacje monitorowania i alerty
 
-Dodatkowe użycie procesora i pamięci nie jest jeszcze tańsze. W przypadku warstwy obsługi komunikatów Premium dostępna jest pojedyncza cena dla jednostki wiadomości.
+Dodatkowe użycie procesora i pamięci nie jest tańsze. W przypadku warstwy obsługi komunikatów Premium dostępna jest pojedyncza cena dla jednostki wiadomości.
 
-Użycie procesora CPU i pamięci jest śledzone i wyświetlane z powodu następujących przyczyn: 
+Użycie procesora CPU i pamięci jest śledzone i wyświetlane z następujących powodów: 
 
 - Zapewnianie przejrzystości systemu
 - Zapoznaj się z pojemnością zakupionych zasobów.

@@ -10,13 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 0cdd837f6c618846587878fac5145cb846dd8d36
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seo-javascript-september2019, devx-track-javascript
+ms.openlocfilehash: fe9877649d850796b03e9f1c3554a1b9aa7344c3
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027966"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407748"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Szybki Start: używanie Node.js do wywoływania usługi analiza tekstu poznawczej  
 <a name="HOLTop"></a>
@@ -464,7 +464,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
- [Przegląd analiza tekstu](../overview.md)  
+ [Przegląd analizy tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

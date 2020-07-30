@@ -1,26 +1,26 @@
 ---
-title: Komunikacja z aplikacją urządzenia w programie Node. js za pomocą strumieni urządzeń usługi Azure IoT Hub
-description: W tym przewodniku szybki start uruchomisz aplikację po stronie usługi dla środowiska Node. js, która komunikuje się z urządzeniem IoT za pośrednictwem strumienia urządzeń.
+title: Komunikacja z aplikacją urządzenia w Node.js przy użyciu strumieni urządzeń IoT Hub platformy Azure
+description: W tym przewodniku szybki start uruchomisz Node.js aplikację po stronie usługi, która komunikuje się z urządzeniem IoT za pośrednictwem strumienia urządzeń.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d398e450175c9f97c419b397266cda0a52e7e21c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78675506"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416115"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w języku Node. js za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w Node.js za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-W tym przewodniku szybki start uruchomisz aplikację po stronie usługi i skonfigurujesz komunikację między urządzeniem i usługą przy użyciu strumieni urządzeń. Strumienie urządzeń z systemem Azure IoT Hub umożliwiają aplikacjom usługi i urządzeniu komunikowanie się w sposób bezpieczny i przyjazny dla zapory. W publicznej wersji zapoznawczej zestaw SDK środowiska Node. js obsługuje tylko strumienie urządzeń po stronie usługi. Dlatego ten przewodnik Szybki start zawiera tylko instrukcje uruchamiania aplikacji po stronie usługi.
+W tym przewodniku szybki start uruchomisz aplikację po stronie usługi i skonfigurujesz komunikację między urządzeniem i usługą przy użyciu strumieni urządzeń. Strumienie urządzeń z systemem Azure IoT Hub umożliwiają aplikacjom usługi i urządzeniu komunikowanie się w sposób bezpieczny i przyjazny dla zapory. W publicznej wersji zapoznawczej zestaw SDK Node.js obsługuje tylko strumienie urządzeń po stronie usługi. Dlatego ten przewodnik Szybki start zawiera tylko instrukcje uruchamiania aplikacji po stronie usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,9 +28,9 @@ W tym przewodniku szybki start uruchomisz aplikację po stronie usługi i skonfi
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node. js 10 +](https://nodejs.org).
+* [Node.js 10 +](https://nodejs.org).
 
-* [Przykładowy projekt node. js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+* [Przykładowy projekt Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -43,7 +43,7 @@ Microsoft Azure IoT Hub obecnie obsługuje strumienie urządzeń jako [funkcję 
 > [!IMPORTANT]
 > Podgląd strumieni urządzeń jest obecnie obsługiwany tylko dla centrów IoT utworzonych w następujących regionach:
 >
-> * Środkowe stany USA
+> * Central US
 > * Środkowe stany USA — EUAP
 > * Europa Północna
 > * Azja Południowo-Wschodnia
@@ -117,7 +117,7 @@ Aplikacja Node.js po stronie usługi w tym przewodniku Szybki start zawiera nast
 
 Kod będzie demonstrować proces inicjowania strumienia urządzenia, a także sposób korzystania z niego do wysyłania i odbierania danych.
 
-Przy założeniu, że aplikacja po stronie urządzenia jest uruchomiona, wykonaj poniższe kroki w lokalnym oknie terminala, aby uruchomić aplikację po stronie usługi w programie Node. js:
+Przy założeniu, że aplikacja po stronie urządzenia jest uruchomiona, wykonaj poniższe kroki w lokalnym oknie terminalu, aby uruchomić aplikację po stronie usługi w Node.js:
 
 * Podaj poświadczenia usługi i identyfikator urządzenia jako zmienne środowiskowe.
  

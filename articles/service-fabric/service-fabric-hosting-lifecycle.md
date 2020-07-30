@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258829"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405130"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Cykl życia usługi Azure Service Fabric hosting
 Ten artykuł zawiera omówienie zdarzeń, które pojawiają się, gdy aplikacja zostanie aktywowana w węźle i różne konfiguracje klastra używane do sterowania zachowaniem.
@@ -83,7 +83,7 @@ Service Fabric zawsze używa liniowego wycofywania, gdy napotka błąd podczas p
 
 * Jeśli CodePackage powoduje awarię i wyłączenie z powrotem, ServiceType zostanie wyłączona. Jeśli jednak konfiguracja aktywacji jest taka, że ma ona Szybkie ponowne uruchomienie, CodePackage może być dostępna przez kilka razy, zanim będzie mogła zobaczyć wyłączenie elementu serviceType. Na przykład: Załóżmy, że CodePackage się, rejestruje ServiceType z Service Fabric a następnie ulega awarii. W takim przypadku, gdy hosting otrzyma rejestrację typu, anulowano okres **ServiceTypeDisableGraceInterval** . Może to być powtarzane, dopóki nie CodePackage się z powrotem do wartości większej niż **ServiceTypeDisableGraceInterval** , a następnie ServiceType zostanie wyłączona w węźle. Tak więc może być trochę czasu przed wyłączeniem ServiceType w węźle.
 
-* W przypadku aktywacji, gdy Service Fabric system musi umieścić replikę w węźle, RA (ReconfigurationAgent) żąda podsystemu hostingu w celu aktywowania aplikacji i ponawiania prób żądania aktywacji co 15 sek. (**RAPMessageRetryInterval**). Aby dowiedzieć się, że usługa ServiceType została wyłączona, operacja aktywacji w hostingu musi być aktywna przez dłuższy okres niż interwał ponawiania prób i **ServiceTypeDisableGraceInterval**. Service Fabric Na przykład: pozwól, aby klaster miał konfigurację **ActivationMaxFailureCount** ustawioną na 5 i **ActivationRetryBackoffInterval** ustawioną na 1 sekundę. Oznacza to, że operacja aktywacji zostanie przekazana po (0 + 1 + 2 + 3 + 4) = 10 sekund (pierwsza ponowna próba jest natychmiast), a po tym, gdy host przeprowadzi ponowną próbę. W takim przypadku operacja aktywacji zostanie zakończona i nie zostanie ponowiona ponowna próba po 15 sekundach. Wystąpił, ponieważ Service Fabric wszystkie ponownych prób w ciągu 15 sekund. W związku z tym każda próba ponowienia z ReconfigurationAgent tworzy nową operację aktywacji w podsystemie hostingu, a wzorzec będzie utrzymywać powtarzanie, a typ ServiceType nigdy nie będzie wyłączony w węźle. Ponieważ typ ServiceType nie zostanie wyłączony na węźle system FM (tryb failover) nie przeniesie repliki do innego węzła.
+* W przypadku aktywacji, gdy Service Fabric system musi umieścić replikę w węźle, RA (ReconfigurationAgent) żąda podsystemu hostingu w celu aktywowania aplikacji i ponawiania prób żądania aktywacji co 15 sek. (**RAPMessageRetryInterval**). Aby dowiedzieć się, że usługa ServiceType została wyłączona, operacja aktywacji w hostingu musi być aktywna przez dłuższy okres niż interwał ponawiania prób i **ServiceTypeDisableGraceInterval**. Service Fabric Na przykład: pozwól, aby klaster miał konfigurację **ActivationMaxFailureCount** ustawioną na 5 i **ActivationRetryBackoffInterval** ustawioną na 1 sekundę. Oznacza to, że operacja aktywacji zostanie przekazana po (0 + 1 + 2 + 3 + 4) = 10 sekund (pierwsza ponowna próba jest natychmiast), a po tym, gdy host przeprowadzi ponowną próbę. W takim przypadku operacja aktywacji zostanie zakończona i nie zostanie ponowiona ponowna próba po 15 sekundach. Wystąpił, ponieważ Service Fabric wszystkie ponownych prób w ciągu 15 sekund. W związku z tym każda próba ponowienia z ReconfigurationAgent tworzy nową operację aktywacji w podsystemie hostingu, a wzorzec będzie utrzymywać powtarzanie, a typ ServiceType nigdy nie będzie wyłączony w węźle. Ponieważ typ ServiceType nie zostanie wyłączony w węźle, nie będzie można przenieść repliki do innego węzła.
 > 
 
 ## <a name="deactivation"></a>Dezaktywacji
@@ -138,7 +138,7 @@ Konfiguracje z wartościami domyślnymi wpływającymi na aktywację/decativatio
 **ActivationMaxRetryInterval**: domyślnie 3600 sek. max dla aktywacji w przypadku awarii.
 **CodePackageContinuousExitFailureResetInterval**: domyślnie 300 sek. Limit czasu resetowania liczby niepowodzeń ciągłego zamykania dla CodePackage.
 
-### <a name="download"></a>Pobieranie
+### <a name="download"></a>Pobierz
 **DeploymentRetryBackoffInterval**: domyślnie 10. Interwał wycofywania dla błędu wdrożenia.
 **DeploymentMaxRetryInterval**: domyślnie 3600 sek. max dla wdrożenia w przypadku awarii.
 **DeploymentMaxFailureCount**: domyślnie 20. Ponowna próba wdrożenia aplikacji zostanie ponowiona dla DeploymentMaxFailureCount czasów przed niepowodzeniem wdrożenia tej aplikacji w węźle.

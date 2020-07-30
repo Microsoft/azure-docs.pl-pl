@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
-description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace przy użyciu wymaganego planu.
+description: Dowiedz się, jak opublikować ofertę maszyny wirtualnej w witrynie Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 07/17/2020
-ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324696"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386439"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -227,7 +227,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- Poczta e-mail
+- E-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -235,7 +235,7 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- Poczta e-mail
+- E-mail
 - Telefon
 
 ### <a name="azure-marketplace-media"></a>Nośniki portalu Azure Marketplace
@@ -312,7 +312,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz przycisk **Utwórz**.
+Wybierz pozycję **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -352,7 +352,7 @@ W tej sekcji można skonfigurować szczegóły listy dla planu. W tym okienku s�
 
 #### <a name="plan-name"></a>Nazwa planu
 
-To pole jest wypełniane przy użyciu nazwy, która została nadana podczas tworzenia planu. Ta nazwa jest wyświetlana w witrynie Azure Marketplace jako tytuł tego planu. Maksymalna liczba znaków to 100.
+To pole jest automatycznie wypełniane nazwą, która została nadana przez Ciebie podczas jego tworzenia. Ta nazwa jest wyświetlana w witrynie Azure Marketplace jako tytuł tego planu. Maksymalna liczba znaków to 100.
 
 #### <a name="plan-summary"></a>Podsumowanie planu
 
@@ -368,7 +368,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 W tym okienku konfigurujesz:
 
-- Rynki, w których ten plan jest dostępny.
+- Rynki, w których ten plan jest dostępny. Każdy plan musi być dostępny na co najmniej jednym [rynku](../marketplace-geo-availability-currencies.md).
 - Cena za godzinę.
 - Określa, czy plan ma być widoczny dla wszystkich, czy tylko dla określonych klientów (odbiorców prywatnych).
 
@@ -380,7 +380,7 @@ Jeśli już ustawisz ceny planu w walucie dolarów amerykańskich (USD) i dodasz
 
 Po usunięciu rynku klienci z tego rynku, którzy korzystają z aktywnych wdrożeń, nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Istniejące wdrożenia nie są modyfikowane.
 
-#### <a name="pricing"></a>Cennik
+#### <a name="pricing"></a>Ceny
 
 W polu **model licencji**wybierz **miesięczny plan rozliczeniowy** , aby skonfigurować Cennik dla tego planu, lub wybierz **Bring Your Own License** , aby umożliwić klientom korzystanie z tego planu wraz z istniejącą licencją.
 

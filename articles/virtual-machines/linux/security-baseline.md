@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124718"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385487"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 
@@ -1096,7 +1096,7 @@ Jeśli używasz usługi Azure Disk Encryption, możesz przywrócić maszynę wir
 
 * [Usuwanie nietrwałe dla maszyn wirtualnych](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault — omówienie usuwania nietrwałego](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault — omówienie usuwania nietrwałego](../../key-vault/general/soft-delete-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 

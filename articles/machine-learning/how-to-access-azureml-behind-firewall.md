@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321653"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407034"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
 
@@ -60,9 +60,9 @@ Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wy
 
 | **Nazwa hosta** | **Przeznaczenie** |
 | ---- | ---- |
-| **anaconda.com** | Używane podczas instalowania pakietów Conda |
-| **pypi.org** | Używane podczas instalowania pakietów PIP |
-
+| **anaconda.com** | Służy do instalowania pakietów domyślnych. |
+| **\*. anaconda.org** | Służy do pobierania danych repozytorium. |
+| **pypi.org** | Służy do wyświetlania listy zależności od domyślnego indeksu (jeśli istnieje), a indeks nie jest zastępowany przez ustawienia użytkownika. Jeśli indeks jest zastępowany, należy również zezwolić na ** \* . pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Hosty języka R
 

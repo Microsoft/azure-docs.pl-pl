@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337351"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386694"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -218,6 +218,13 @@ Zarejestrowanie systemu Windows Server za pomocą usługi synchronizacji magazyn
 
 Administrator, który zarejestruje serwer, musi być członkiem roli **zarządzania** lub **współautorem** dla danej usługi synchronizacji magazynu. Można to skonfigurować w obszarze **Access Control (IAM)** w Azure Portal dla usługi synchronizacji magazynu.
 
+Istnieje również możliwość odróżnienia administratorów, którzy mogą rejestrować serwery z tych, które umożliwiają również Konfigurowanie synchronizacji w usłudze synchronizacji magazynu. W tym celu należy utworzyć rolę niestandardową, w której można wyświetlić listę administratorów, którzy mogą rejestrować tylko serwery i nadać roli niestandardowej następujące uprawnienia:
+
+* "Microsoft. StorageSync/storageSyncServices/registeredServers/Write"
+* "Microsoft. StorageSync/storageSyncServices/Read"
+* "Microsoft. StorageSync/storageSyncServices/przepływy pracy/Odczyt"
+* "Microsoft. StorageSync/storageSyncServices/przepływy pracy/operacje/Odczyt"
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Interfejs użytkownika rejestracji serwera powinien zostać otwarty automatycznie po zainstalowaniu agenta Azure File Sync. W przeciwnym razie można otworzyć go ręcznie w lokalizacji jego pliku: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Gdy zostanie otwarty interfejs użytkownika rejestracji serwera, wybierz pozycję **Zaloguj** się, aby rozpocząć.
 
@@ -245,6 +252,8 @@ Punkt końcowy w chmurze jest wskaźnikiem do udziału plików platformy Azure. 
 
 > [!Important]  
 > Można wprowadzać zmiany w dowolnym punkcie końcowym chmury lub w punkcie końcowym serwera w grupie synchronizacji i zsynchronizować pliki z innymi punktami końcowymi w grupie synchronizacji. Jeśli zmienisz bezpośrednio punkt końcowy w chmurze (udział plików platformy Azure), najpierw muszą zostać odnalezione zmiany za pomocą zadania wykrywania zmian Azure File Sync. Zadanie wykrywania zmian jest inicjowane dla punktu końcowego w chmurze tylko raz na 24 godziny. Aby uzyskać więcej informacji, zobacz [Azure Files często zadawanych pytań](storage-files-faq.md#afs-change-detection).
+
+Administrator tworzący punkt **końcowy w chmurze** musi być członkiem roli zarządzania konta magazynu zawierającego udział plików platformy Azure wskazywanym przez punkt końcowy w chmurze. Tę konfigurację można skonfigurować w obszarze **Access Control (IAM)** w Azure Portal dla konta magazynu.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Aby utworzyć grupę synchronizacji, w [Azure Portal](https://portal.azure.com/)przejdź do usługi synchronizacji magazynu, a następnie wybierz pozycję **+ Grupa synchronizacji**:
