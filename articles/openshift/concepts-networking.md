@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fa39fe3e065c230f7e06ee443d2aa56227dc6f31
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965704"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419975"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Sieć na platformie Azure Red Hat w systemie OpenShift 4
 
@@ -70,7 +70,7 @@ Poniższa lista obejmuje ważne punkty końcowe w klastrze Red Hat OpenShift pla
         * Tylko do odczytu.
         * Połączenia z tym rejestrem odbywają się za pośrednictwem punktu końcowego usługi (łączność wewnętrzna między usługami platformy Azure).
         * Ten rejestr wewnętrzny nie jest domyślnie dostępny poza klastrem.
-* **Private Link**
+* **Link prywatny**
     * Umożliwia łączność sieciową od płaszczyzny zarządzania do klastra w celu zarządzania klastrem.
     * Inżynierowie niezawodności witryn firmy Microsoft i Red Hat mogą pomóc w zarządzaniu klastrem.
 
@@ -102,7 +102,7 @@ Następujące ustawienia sieciowe są dostępne na platformie Azure Red Hat Open
     * Trasy "prywatne" będą domyślnie kierowane do wewnętrznego modułu równoważenia obciążenia (można to zmienić).
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
-Sieciowe grupy zabezpieczeń zostaną utworzone w grupie zasobów węzły, która jest zablokowana. Sieciowe grupy zabezpieczeń są przypisywane bezpośrednio do podsieci, które nie znajdują się na kartach sieciowych węzła. Sieciowe grupy zabezpieczeń są niezmienne, co oznacza, że nie masz uprawnień do ich zmiany. 
+Sieciowe grupy zabezpieczeń zostaną utworzone w grupie zasobów węzła, która jest zablokowana. Sieciowe grupy zabezpieczeń są przypisywane bezpośrednio do podsieci, a nie na kartach sieciowych węzła. Sieciowe grupy zabezpieczeń są niezmienne, co oznacza, że nie masz uprawnień do ich zmiany. 
 
 Jednak przy użyciu publicznie widocznego serwera interfejsu API nie można tworzyć sieciowych grup zabezpieczeń i przypisywać ich do kart sieciowych.
 

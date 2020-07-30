@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114694"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421879"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji internetowej Node.js przy użyciu zestawu JavaScript SDK do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
 
@@ -49,7 +50,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 * [Generator Express](https://www.expressjs.com/starter/generator.html) (możesz zainstalować platformę Express za pomocą polecenia `npm install express-generator -g`)
 * Zainstaluj oprogramowanie [Git][Git] na lokalnej stacji roboczej.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Utwórz konto Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Tworzenie konta usługi Azure Cosmos DB
 Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -473,7 +474,7 @@ Gdy aplikacja działa prawidłowo w środowisku lokalnym, możesz wdrożyć ją 
 
 4. W ciągu kilku sekund aplikacja internetowa zostanie opublikowana i uruchomiona w przeglądarce.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

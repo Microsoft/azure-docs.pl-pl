@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001404"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422100"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
 
@@ -170,7 +171,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 | Opis zgody administratora * * | *Zakres zasobów zaplecza dostarczania licencji DRM* | Szczegółowy opis zakresu, który jest wyświetlany, gdy administratorzy dzierżawy rozszerzają zakres na ekranie wyrażania zgody. |
 | Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika | *Zastosowanie. License. Delivery* | Zakres, który zostanie wywołany na ekranie wyrażania zgody, gdy użytkownicy wyrażają zgodę na ten zakres. |
 | Opis na potrzeby wyrażenia zgody przez użytkownika | *Zakres zasobów zaplecza dostarczania licencji DRM* | Jest to szczegółowy opis zakresu, który jest wyświetlany, gdy użytkownicy rozszerzają zakres na ekranie wyrażania zgody. |
-| Stan | *Włączono* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
+| State | *Włączono* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
 
 ## <a name="register-the-client-app"></a>Rejestrowanie aplikacji klienckiej
 
@@ -341,7 +342,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 
 Deklaracja *grup* jest członkiem [ograniczonego zestawu roszczeń](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) w usłudze Azure AD.
 
-#### <a name="test"></a>Test
+#### <a name="test"></a>Testowanie
 
 1. Zaloguj się przy użyciu konta *premium_user* . Powinno być możliwe odtwarzanie chronionej zawartości.
 1. Zaloguj się przy użyciu konta *basic_user* . Powinien zostać wyświetlony komunikat o błędzie informujący, że wideo jest zaszyfrowane, ale nie ma klucza do odszyfrowania. Jeśli wyświetlasz zdarzenia, błędy i pliki do pobrania przy użyciu listy rozwijanej u dołu nakładki diagnostyki odtwarzacza, komunikat o błędzie powinien wskazywać niepowodzenie pozyskiwania licencji ze względu na brakującą wartość żądania dla grup w tokenie JWT wystawionym przez punkt końcowy tokenu usługi Azure AD.
@@ -371,7 +372,7 @@ Klient może następnie przejść do konfiguracji, zalogować się przy użyciu 
 
 Twoje przykładowe rozwiązanie można skonfigurować w dzierżawie firmy Microsoft z subskrypcją firmy Microsoft lub niestandardową dzierżawą z subskrypcją firmy Microsoft. Wystąpienie usługi Azure Media Service może należeć do innej subskrypcji z dzierżawcą.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 > [!WARNING]
 > Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby utworzone w ramach tego samouczka. W przeciwnym razie zostanie naliczona opłata za te opłaty.

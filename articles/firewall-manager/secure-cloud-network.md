@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084708"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420825"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
 
@@ -80,7 +80,7 @@ Utwórz bezpieczne centrum wirtualne przy użyciu Menedżera zapory.
 5. Wybierz pozycję **Dalej: Zapora platformy Azure**.
 6. Zaakceptuj domyślne ustawienie **zapory platformy Azure** **Enabled** , a następnie wybierz pozycję **Dalej: zaufany partner zabezpieczeń**.
 7. Zaakceptuj ustawienie domyślny **zaufany partner zabezpieczeń** **Disabled** , a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz**.
-8. Wybierz pozycję **Utwórz**. Wdrożenie zajmie około 30 minut.
+8. Wybierz przycisk **Utwórz**. Wdrożenie zajmie około 30 minut.
 
 Teraz możesz uzyskać publiczny adres IP zapory.
 
@@ -102,13 +102,13 @@ Teraz można połączyć równorzędne sieci wirtualne z koncentratorem i szpryc
 5. W przypadku **centrów**wybierz pozycję **Hub-01**.
 6. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W obszarze **Sieć wirtualna**wybierz opcję **szprych-01**.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
 Powtórz, aby połączyć sieć wirtualną **szprych-02** : Connection Name- **Hub-02**
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Konfigurowanie routingu Hub i gwiazdy
 
-W Azure Portal Otwórz Cloud Shell i uruchom następujące Azure PowerShell w celu skonfigurowania wymaganego routingu Hub i satelity.
+W Azure Portal Otwórz Cloud Shell i uruchom następujące Azure PowerShell w celu skonfigurowania wymaganego routingu Hub i satelity. Równorzędne połączenia szprych/Branch muszą mieć ustawioną wartość **Brak**. Zapobiega to jakiejkolwiek komunikacji między szprychami, a zamiast tego kieruje ruch do zapory przy użyciu trasy domyślnej.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `

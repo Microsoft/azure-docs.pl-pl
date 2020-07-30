@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fiz
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420791"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
@@ -138,7 +138,7 @@ Przed skonfigurowaniem urządzenia Azure Migrate i rozpoczęciem oceny w następ
 
 Azure Migrate wymaga uprawnień do odnajdywania serwerów lokalnych.
 
-- **System Windows:** Musisz być administratorem domeny lub administratorem lokalnym na wszystkich serwerach z systemem Windows, które mają zostać odnajdywane. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
+- **System Windows:** Do odnajdywania serwerów przyłączonych do domeny należy konto domeny i konto lokalne w celu odnalezienia maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
 - System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne.
 
 ## <a name="prepare-for-physical-server-migration"></a>Przygotowanie do migracji serwera fizycznego

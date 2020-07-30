@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518491"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419652"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
-* Działająca dzierżawa usługi Azure AD z włączoną licencją co najmniej Azure AD — wersja Premium P1.
+* Działająca dzierżawa usługi Azure AD z co najmniej Azure AD — wersja Premium włączoną licencją P1 lub próbną.
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencjonowania usługi Azure AD SSPR](concept-sspr-licensing.md).
 * Konto z uprawnieniami *administratora globalnego* .
@@ -81,7 +81,7 @@ Aby skonfigurować odpowiednie uprawnienia do zapisywania zwrotnego haseł, wyko
     * **LockoutTime zapisu**
     * **PwdLastSet zapisu**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [![Ustaw odpowiednie uprawnienia w aktywnych użytkowników i komputerach dla konta, które jest używane przez Azure AD Connect ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png)](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zastosuj/OK** , aby zastosować zmiany i zamknąć wszystkie otwarte okna dialogowe.
 
@@ -127,7 +127,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 
