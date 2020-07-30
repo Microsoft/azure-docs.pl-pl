@@ -1,18 +1,18 @@
 ---
 title: Rozwiązywanie problemów z powrót po awarii w Azure Site Recovery ramach odzyskiwania po awarii maszyny wirtualnej programu VMware
 description: W tym artykule opisano sposoby rozwiązywania problemów z odzyskiwaniem po awarii i ochroną podczas odzyskiwania po awarii maszyny wirtualnej VMware na platformę Azure przy użyciu Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: sharrai
+ms.openlocfilehash: ed4e52470264441a99c5ccf0a736bb00233510c1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289286"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423120"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Rozwiązywanie problemów z powrotem po awarii do lokacji lokalnej z platformy Azure
 

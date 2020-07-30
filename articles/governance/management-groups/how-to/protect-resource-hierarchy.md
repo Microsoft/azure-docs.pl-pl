@@ -3,12 +3,12 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366776"
+ms.locfileid: "87422831"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -29,7 +29,7 @@ Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień
 
 Domyślnie Nowa subskrypcja dodana w ramach dzierżawy jest dodawana jako członek głównej grupy zarządzania. Jeśli przydziały zasad, kontroli dostępu opartej na rolach (RBAC) i inne konstrukcje ładu są przypisane do głównej grupy zarządzania, natychmiast wpływają na te nowe subskrypcje. Z tego powodu wiele organizacji nie stosuje tych konstrukcji w głównej grupie zarządzania, nawet jeśli jest to wymagane miejsce do przypisywania. W innych przypadkach bardziej restrykcyjny zestaw kontrolek jest wymagany w przypadku nowych subskrypcji, ale nie powinien być przypisany do wszystkich subskrypcji. To ustawienie obsługuje oba przypadki użycia.
 
-Zezwalając na zdefiniowanie domyślnej grupy zarządzania dla nowych subskrypcji, można zastosować konstrukcje ładu dla całej organizacji w głównej grupie zarządzania, a także oddzielną grupę zarządzania z przypisaniami zasad lub przypisaniami RBAC, które są bardziej odpowiednie dla nowej subskrypcji.
+Zezwalając na zdefiniowanie domyślnej grupy zarządzania dla nowych subskrypcji, można zastosować konstrukcje ładu dla całej organizacji w głównej grupie zarządzania, a także oddzielną grupę zarządzania z przypisaniami zasad lub przypisaniami ról platformy Azure bardziej przystosowanymi do nowej subskrypcji.
 
 Aby skonfigurować to ustawienie, zostanie wywołany punkt końcowy interfejsu API REST [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Zastąp ciąg `{rootMgID}` identyfikatorem głównej grupy zarządzania i `{defaultGroupID}` identyfikatorem grupy zarządzania, aby stał się domyślną grupą zarządzania:
 

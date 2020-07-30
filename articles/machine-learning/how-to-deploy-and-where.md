@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317879"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423443"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+Szczegółowe omówienie używania i dostosowywania środowisk Python przy użyciu Azure Machine Learning można znaleźć w temacie [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](how-to-use-environments.md)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. Zdefiniuj kod oceniania
 
@@ -636,7 +638,7 @@ Zobacz [wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kube
 ### <a name="ab-testing-controlled-rollout"></a>Testowanie A/B (kontrolowane wdrażanie)
 Aby uzyskać więcej informacji, zobacz [kontrolowane Wdrażanie modeli ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) , aby uzyskać więcej informacji.
 
-## <a name="consume-web-services"></a>Korzystaj z usług sieci Web
+## <a name="inference-using-web-services"></a>Wnioskowanie przy użyciu usług sieci Web
 
 Każda wdrożona usługa sieci Web udostępnia punkt końcowy REST, dzięki czemu można tworzyć aplikacje klienckie w dowolnym języku programowania.
 Jeśli włączono uwierzytelnianie oparte na kluczach dla usługi, musisz podać klucz usługi jako token w nagłówku żądania.

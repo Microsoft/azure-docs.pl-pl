@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 9badda1663947587b078c6bb808f4efdf2e10579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735960"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422486"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie urządzeniami połączonymi ze strony urządzenia
 
@@ -75,6 +75,8 @@ Po wyświetleniu połączonych urządzeń można:
 - Wyświetlanie [działania związanego z logowaniem](my-account-portal-sign-ins-page.md).
 
 - Zobacz, w jaki sposób organizacja [używa danych związanych z prywatnością](my-account-portal-privacy-page.md).
+
+- Zmień [Ustawienia portalu My Account](my-account-portal-settings.md)
 
 ## <a name="related-office-content"></a>Powiązana zawartość pakietu Office
 

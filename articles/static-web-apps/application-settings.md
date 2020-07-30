@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 71748959f8b5350a4bd34349eefedbf9d99c76e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 33a40e7a0e7e3be4433b3cbd4ba7a8e09a84e689
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083620"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428058"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurowanie ustawień aplikacji dla usługi Azure static Web Apps Preview
 
@@ -50,7 +51,7 @@ Aby uzyskać informacje o sposobach używania zmiennych środowiskowych z platfo
 - [Angular](https://angular.io/guide/build#configuring-application-environments)
 - [React](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 - [Svelte](https://linguinecode.com/post/how-to-add-environment-variables-to-your-svelte-js-app)
-- [VUE](https://cli.vuejs.org/guide/mode-and-env.html)
+- [Vue](https://cli.vuejs.org/guide/mode-and-env.html)
 
 ### <a name="static-site-generators"></a>Statyczne generatory lokacji
 

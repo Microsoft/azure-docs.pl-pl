@@ -1,15 +1,14 @@
 ---
 title: Spójne z aplikacjami kopie zapasowe maszyn wirtualnych z systemem Linux
 description: Twórz spójne z aplikacjami kopie zapasowe maszyn wirtualnych z systemem Linux na platformie Azure. W tym artykule wyjaśniono, jak skonfigurować strukturę skryptów do tworzenia kopii zapasowych maszyn wirtualnych z systemem Linux wdrożonych na platformie Azure. Ten artykuł zawiera również informacje dotyczące rozwiązywania problemów.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054850"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407102"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji
 
@@ -53,13 +52,13 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
     - **postScriptParams**: podaj parametry opcjonalne, które muszą zostać przesłane do skryptu po stronie. Wszystkie parametry powinny znajdować się w cudzysłowach. Jeśli używasz wielu parametrów, oddziel parametry przecinkami.
 
-    - **preScriptNoOfRetries**: Ustaw liczbę ponownych prób wykonania skryptu wstępnego, jeśli wystąpił błąd przed zakończeniem. Zero oznacza tylko jedną próbę, a nie ponawianie próby w przypadku wystąpienia błędu.
+    - **preScriptNoOfRetries**: Ustaw liczbę powtórzeń poprzedzających skrypt, jeśli wystąpił błąd przed zakończeniem. Zero oznacza tylko jedną próbę i nie ponawiania próby w przypadku wystąpienia błędu.
 
-    - **postScriptNoOfRetries**: Ustaw liczbę ponownych prób wykonania skryptu po skrypcie, jeśli wystąpił błąd przed zakończeniem. Zero oznacza tylko jedną próbę, a nie ponawianie próby w przypadku wystąpienia błędu.
+    - **postScriptNoOfRetries**: Ustaw liczbę ponownych prób wykonania skryptu po skrypcie, jeśli wystąpił błąd przed zakończeniem. Zero oznacza tylko jedną próbę i nie ponawiania próby w przypadku wystąpienia błędu.
 
     - **timeoutInSeconds**: Określ indywidualne limity czasu dla skryptu wstępnego i po skrypcie (wartość maksymalna może być równa 1800).
 
-    - **continueBackupOnFailure**: Ustaw tę wartość na **true (prawda** ), jeśli chcesz, aby Azure Backup powracać do systemu plików w spójny sposób lub kopia zapasowa spójna na poziomie awarii w przypadku niepowodzenia skryptów poprzedzających skrypt lub po awarii. Ustawienie **wartości false** powoduje niepowodzenie tworzenia kopii zapasowej w przypadku awarii skryptu (z wyjątkiem sytuacji, gdy maszyna wirtualna z jednym dyskiem powraca do kopii zapasowej spójnej na poziomie awarii, niezależnie od tego ustawienia).
+    - **continueBackupOnFailure**: Ustaw tę wartość na **true (prawda** ), jeśli chcesz, aby Azure Backup powracać do systemu plików w spójny sposób lub kopia zapasowa spójna na poziomie awarii w przypadku niepowodzenia skryptów poprzedzających skrypt lub po awarii. Ustawienie **wartości false** powoduje niepowodzenie tworzenia kopii zapasowej w przypadku wystąpienia błędu skryptu (z wyjątkiem sytuacji, gdy istnieje maszyna wirtualna z jednym dyskiem, która powraca do kopii zapasowej spójnej na poziomie awarii, niezależnie od tego ustawienia). Gdy wartość **continueBackupOnFailure** jest ustawiona na false, jeśli kopia zapasowa nie powiedzie się, zostanie podjęta ponowna próba wykonania kopii zapasowej na podstawie logiki ponawiania w usłudze (dla określonej liczby prób).
 
     - **fsFreezeEnabled**: Określ, czy system Linux fsfreeze powinien być wywoływany podczas tworzenia migawki maszyny wirtualnej w celu zapewnienia spójności systemu plików. Zalecamy pozostawienie tego ustawienia na **wartość true** , chyba że aplikacja ma zależność od wyłączenia fsfreeze.
 

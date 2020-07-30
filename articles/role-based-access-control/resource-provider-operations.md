@@ -1,5 +1,5 @@
 ---
-title: Operacje dostawców zasobów platformy Azure
+title: Operacje dostawcy zasobów platformy Azure
 description: Wyświetla listę operacji dla dostawców zasobów platformy Azure.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496948"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387391"
 ---
-# <a name="azure-resource-providers-operations"></a>Operacje dostawców zasobów platformy Azure
+# <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
 Ta sekcja zawiera listę operacji dla dostawców zasobów platformy Azure, które są używane w rolach wbudowanych. Te operacje mogą być używane we własnych [rolach niestandardowych platformy Azure](custom-roles.md) w celu zapewnienia szczegółowej kontroli dostępu do zasobów na platformie Azure. Operacje dostawcy zasobów są zawsze rozwijane. Aby uzyskać najnowsze operacje, Użyj listy operacji [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) lub [AZ Provider](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -605,7 +605,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -1290,7 +1290,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnsites/Delete | Usuwa zasób witryny sieci VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/odczyt | Pobiera łącze do witryny sieci VPN |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -2524,7 +2524,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
 > | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -6929,7 +6929,7 @@ Usługa platformy Azure: [Azure Migrate](../migrate/migrate-services-overview.md
 > | Microsoft. OffAzure/VMwareSites/vCenter/odczyt | Pobiera właściwości programu VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vcenters/Write | Tworzy lub aktualizuje program VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorowanie
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 

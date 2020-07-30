@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344649"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405045"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Projektowanie usług dostępnych globalnie przy użyciu Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Jeśli wystąpi awaria w regionie B, proces replikacji między podstawową i pom
 > W przypadku odzyskiwania po awarii zalecamy konfigurację z wdrożeniem aplikacji ograniczoną do dwóch regionów. Wynika to z faktu, że większość lokalizacje geograficzne platformy Azure ma tylko dwa regiony. Ta konfiguracja nie chroni aplikacji przed równoczesnym uszkodzeniem obu regionów. W mało prawdopodobnym wystąpieniu tego błędu można odzyskać bazy danych w trzecim regionie przy użyciu [operacji przywracania geograficznego](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Gdy awaria zostanie wyeliminowana, pomocnicza baza danych automatycznie ponownie zsynchronizuje się z serwerem podstawowym. W trakcie synchronizacji można mieć wpływ na wydajność podstawowej. Konkretny wpływ zależy od ilości danych uzyskanych przez nowy podstawowy od przejścia w tryb failover. Na poniższym diagramie przedstawiono awarię w regionie pomocniczym:
+ Gdy awaria zostanie wyeliminowana, pomocnicza baza danych automatycznie ponownie zsynchronizuje się z serwerem podstawowym. W trakcie synchronizacji można mieć wpływ na wydajność podstawowej. Konkretny wpływ zależy od ilości danych uzyskanych przez nowy podstawowy od przejścia w tryb failover. 
+
+> [!NOTE]
+> Po ograniczeniu przestojów Traffic Manager rozpocznie routing połączeń z aplikacją w regionie A jako punkt końcowy o wyższym priorytecie. Jeśli zamierzasz zachować podstawową w regionie B przez pewien czas, należy odpowiednio zmienić tabelę priorytetów w profilu możliwe Manager. 
+>
+ 
+ Na poniższym diagramie przedstawiono awarię w regionie pomocniczym:
 
 ![Scenariusz 1. Konfiguracja po awarii w regionie pomocniczym.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
@@ -153,7 +159,7 @@ Istnieją jednak pewne **kompromisy**:
 
 Konkretna Strategia odzyskiwania po awarii w chmurze może łączyć lub zwiększać te wzorce projektowe, aby najlepiej spełniały potrzeby aplikacji.  Jak wspomniano wcześniej, wybrana strategia jest oparta na umowie SLA, która ma być oferowana klientom i topologii wdrażania aplikacji. Aby ułatwić podjęcie decyzji, Poniższa tabela zawiera porównanie opcji na podstawie celu punktu odzyskiwania (RPO) i szacowanego czasu odzyskiwania (ERT).
 
-| Wzorce | CEL PUNKTU ODZYSKIWANIA | ERT |
+| Wzorce | Cel punktu odzyskiwania | ERT |
 |:--- |:--- |:--- |
 | Wdrożenie Active-pasywne na potrzeby odzyskiwania po awarii z dostępem do udostępnionej bazy danych |Dostęp do odczytu i zapisu < 5 sek. |Czas wykrywania niepowodzeń + wartość czasu wygaśnięcia systemu DNS |
 | Wdrażanie aktywne-aktywne na potrzeby równoważenia obciążenia aplikacji |Dostęp do odczytu i zapisu < 5 sek. |Czas wykrywania niepowodzeń + wartość czasu wygaśnięcia systemu DNS |

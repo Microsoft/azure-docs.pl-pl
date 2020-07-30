@@ -11,17 +11,16 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763112"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429029"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Zasoby do migrowania aplikacji do Azure Active Directory
 
-Zasoby ułatwiające Migrowanie dostępu do aplikacji i ich uwierzytelniania do Azure Active Directory (Azure AD). Wypełnij tę krótką ankietę ( https://aka.ms/AppsMigrationFeedback) w celu przekazywania opinii na temat doświadczenia w zakresie migrowania aplikacji do usługi Azure AD (w tym blokowania do migracji, konieczności korzystania z narzędzi/wskazówek lub przyczyn zatrzymywania lokalnego dostawcy tożsamości). 
+Zasoby ułatwiające Migrowanie dostępu do aplikacji i ich uwierzytelniania do Azure Active Directory (Azure AD).
 
 | Zasób  | Opis  |
 |:-----------|:-------------|
@@ -32,6 +31,6 @@ Zasoby ułatwiające Migrowanie dostępu do aplikacji i ich uwierzytelniania do 
 | [Plan wdrożenia: Migrowanie z AD FS do uwierzytelniania przekazywanego](https://aka.ms/ADFSTOPTADPDownload)|Uwierzytelnianie przekazywane przez usługę Azure AD ułatwia użytkownikom logowanie się do aplikacji lokalnych i opartych na chmurze przy użyciu tego samego hasła. Ta funkcja zapewnia użytkownikom lepszy komfort pracy, ponieważ mają one mniej hasła. Zmniejsza to również koszty pomocy technicznej działu IT, ponieważ użytkownicy nie mogą zapomnieć, jak zalogować się tylko po zapamiętaniu jednego hasła. Gdy użytkownicy logują się za pomocą usługi Azure AD, ta funkcja weryfikuje ich hasła bezpośrednio w lokalnej usłudze Active Directory.|
 | [Plan wdrożenia: Włączanie logowania jednokrotnego do aplikacji SaaS przy użyciu usługi Azure AD](https://aka.ms/SSODPDownload) | Logowanie jednokrotne (SSO) pomaga uzyskać dostęp do wszystkich aplikacji i zasobów, które są potrzebne do prowadzenia działalności, podczas logowania tylko raz przy użyciu jednego konta użytkownika. Na przykład po zalogowaniu się użytkownika użytkownik może przejść z Microsoft Office, do usługi SalesForce, do usługi Box bez uwierzytelniania (na przykład wpisując hasło) po raz drugi. 
 | [Plan wdrożenia: rozszerzanie aplikacji do usługi Azure AD za pomocą serwera proxy aplikacji](https://aka.ms/AppProxyDPDownload)| Zapewnianie dostępu od laptopów pracowników i innych urządzeń do aplikacji lokalnych ma tradycyjnie związane wirtualne sieci prywatne (VPN) lub strefy zdemilitaryzowana (stref DMZ). Te rozwiązania nie tylko są skomplikowane i trudne do zabezpieczenia, ale też mają wysokie koszty konfigurowania i zarządzania. Usługa Azure serwer proxy aplikacji usługi Azure AD ułatwia dostęp do aplikacji lokalnych. |
-| [Plany wdrożenia](../fundamentals/active-directory-deployment-plans.md) | Znajdź więcej planów wdrażania dotyczących wdrażania funkcji, takich jak uwierzytelnianie wieloskładnikowe, dostęp warunkowy, Inicjowanie obsługi użytkowników, bezproblemowe logowanie jednokrotne, Samoobsługowe resetowanie haseł i inne funkcje. |
+| [Plany wdrażania](../fundamentals/active-directory-deployment-plans.md) | Znajdź więcej planów wdrażania dotyczących wdrażania funkcji, takich jak uwierzytelnianie wieloskładnikowe, dostęp warunkowy, Inicjowanie obsługi użytkowników, bezproblemowe logowanie jednokrotne, Samoobsługowe resetowanie haseł i inne funkcje. |
 
 

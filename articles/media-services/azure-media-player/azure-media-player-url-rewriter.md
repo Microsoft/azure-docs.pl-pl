@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: f238a2a3c499cf1e36f5e7c40e087375b7db0a70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c8497d50f86155ef7df0de995864e74753542750
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726459"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422627"
 ---
 # <a name="url-rewriter"></a>Ponowny zapis adresu URL #
 
@@ -23,7 +24,7 @@ Domyślnie program Azure Media Player ponownie zapisuje dany adres URL z Azure M
     </video>
 ```
 
-Jeśli jednak chcesz nie używać funkcji ponownego zapisywania adresów URL, możesz to zrobić, dodając `disableUrlRewriter` właściwość do parametru. Oznacza to, że wszystkie informacje przesyłane do źródeł są przesyłane bezpośrednio do odtwarzacza bez modyfikacji.  Oto przykład dodawania dwóch źródeł do odtwarzacza przy użyciu ŁĄCZNIKa i jednego przesyłania strumieniowego.
+Jeśli jednak chcesz nie używać funkcji ponownego zapisywania adresów URL, możesz to zrobić, dodając `disableUrlRewriter` Właściwość do parametru. Oznacza to, że wszystkie informacje przesyłane do źródeł są przesyłane bezpośrednio do odtwarzacza bez modyfikacji.  Oto przykład dodawania dwóch źródeł do odtwarzacza przy użyciu ŁĄCZNIKa i jednego przesyłania strumieniowego.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">
@@ -41,7 +42,7 @@ lub
     ]);
 ```
 
-Ponadto, jeśli chcesz, możesz określić określone formaty przesyłania strumieniowego, które mają być Azure Media Player do ponownego zapisu przy użyciu `streamingFormats` parametru. Opcje obejmują `DASH`, `SMOOTH`, `HLSv3`, `HLSv4`, `HLS`. Różnica między HLS i HLSv3 & v4 polega na tym, że format HLS obsługuje odtwarzanie zawartości FairPlay. V3 i v4 nie obsługują FairPlay. Jest to przydatne, jeśli nie masz zasad dostarczania dla określonego dostępnego protokołu.  Oto przykład sytuacji, w której nie włączono protokołu ŁĄCZNIKa z elementem zawartości.
+Ponadto, jeśli chcesz, możesz określić określone formaty przesyłania strumieniowego, które mają być Azure Media Player do ponownego zapisu przy użyciu `streamingFormats` parametru. Opcje obejmują `DASH` , `SMOOTH` , `HLSv3` , `HLSv4` , `HLS` . Różnica między HLS i HLSv3 & v4 polega na tym, że format HLS obsługuje odtwarzanie zawartości FairPlay. V3 i v4 nie obsługują FairPlay. Jest to przydatne, jeśli nie masz zasad dostarczania dla określonego dostępnego protokołu.  Oto przykład sytuacji, w której nie włączono protokołu ŁĄCZNIKa z elementem zawartości.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">

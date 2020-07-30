@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246521"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388122"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -184,7 +184,7 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 - **Sukces**: co najmniej jedna zasada dostępu warunkowego stosowana do użytkownika i aplikacji (ale nie jest to inne warunki) podczas logowania. 
 
-- **Błąd**: zastosowano co najmniej jedną zasadę dostępu warunkowego i nie była ona spełniona podczas logowania.
+- **Niepowodzenie**: zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
 
 
 
@@ -236,7 +236,7 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Identyfikator aplikacji
 - Aplikacja
 - Klient
-- Lokalizacja
+- Location
 - Adres IP
 - Data
 - Wymagane uwierzytelnianie wieloskładnikowe

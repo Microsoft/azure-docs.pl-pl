@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114762"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422338"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Pracuj z bazami danych, kontenerami i elementami w Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Na koncie można utworzyć jedną lub wiele baz danych usługi Azure Cosmos. Baz
 
 | Jednostka usługi Azure Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
-|Baza danych Cosmos Azure | baza danych | Przestrzeń kluczy | baza danych | baza danych | Nie dotyczy |
+|Baza danych Cosmos Azure | Baza danych | Przestrzeń kluczy | Baza danych | Baza danych | Nie dotyczy |
 
 > [!NOTE]
 > Przy tworzeniu pierwszej tabeli przy użyciu kont interfejs API tabel domyślna baza danych zostanie automatycznie utworzona na koncie usługi Azure Cosmos.
@@ -113,7 +113,7 @@ W zależności od używanego interfejsu API element platformy Azure Cosmos może
 
 | Jednostka Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
-|Element usługi Azure Cosmos | Dokument | Wiersz | Dokument | Węzeł lub krawędź | Element |
+|Element usługi Azure Cosmos | Element | Wiersz | Dokument | Węzeł lub krawędź | Element |
 
 ### <a name="properties-of-an-item"></a>Właściwości elementu
 

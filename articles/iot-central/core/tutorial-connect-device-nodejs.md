@@ -7,13 +7,13 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mqtt
-ms.openlocfilehash: 08df3bce9d1ecce4d4b0cdfc3034355feef6a4ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: 92b28b89d181de368ef1e39eb695be2e1fad6c37
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003376"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423527"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node.js)
 
@@ -43,7 +43,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
-### <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node.js
+### <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
 
 Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która łączy się z rzeczywistym urządzeniem dodanym do aplikacji. Ta aplikacja Node.js symuluje zachowanie rzeczywistego urządzenia.
 
@@ -337,7 +337,6 @@ Można sprawdzić, jak urządzenie reaguje na polecenia i aktualizacje właściw
 
 Jako deweloper urządzenia znasz już podstawowe informacje dotyczące sposobu tworzenia urządzenia przy użyciu Node.js, ale Oto kilka sugerowanych następnych kroków:
 
-* Dowiedz się, jak połączyć rzeczywiste urządzenie, aby IoT Central w artykule [nawiązywanie połączenia z usługą zestawu deweloperskiego IoT DevKit do aplikacji IoT Central platformy Azure](./howto-connect-devkit.md) .
 * Przeczytaj [co to są szablony urządzeń?](./concepts-device-templates.md) aby dowiedzieć się więcej na temat roli szablonów urządzeń podczas implementowania kodu urządzenia.
 * Aby dowiedzieć się więcej o sposobach rejestrowania urządzeń w usłudze IoT Central i sposobach IoT Central zabezpieczania połączeń urządzeń, przeczytaj artykuł [wprowadzenie do usługi Azure IoT Central](./concepts-get-connected.md) .
 

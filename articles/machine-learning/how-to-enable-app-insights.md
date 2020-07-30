@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320225"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423817"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,6 +128,8 @@ Jeśli chcesz rejestrować niestandardowe ślady, postępuj zgodnie ze standardo
 
 3. Utwórz obraz i Wdróż go na [AKS lub ACI](how-to-deploy-and-where.md).
 
+Aby uzyskać więcej informacji na temat rejestrowania i zbierania danych, zobacz [Włączanie rejestrowania w Azure Machine Learning](how-to-enable-logging.md) i [zbieranie danych z modeli w środowisku produkcyjnym](how-to-enable-data-collection.md).
+
 ### <a name="disable-tracking-in-python"></a>Wyłącz śledzenie w języku Python
 
 Aby wyłączyć usługę Azure Application Insights, użyj następującego kodu:
@@ -166,7 +168,7 @@ Aby ją wyświetlić:
 
     [![Lokalizowanie adresu URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. W aplikacji Isights, na karcie **Przegląd** lub w sekcji __monitorowanie__ na liście po lewej stronie wybierz pozycję __dzienniki__.
+1. W Application Insights na karcie **Przegląd** lub w sekcji __monitorowanie__ na liście po lewej stronie wybierz pozycję __dzienniki__.
 
     [![Karta Omówienie monitorowania](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 

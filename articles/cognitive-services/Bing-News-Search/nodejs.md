@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wykonywanie wyszukiwania wiadomości za pomocą środowiska Node. js — wyszukiwanie wiadomości Bing interfejsu API REST'
+title: 'Szybki Start: wykonywanie wyszukiwania w wiadomościach za pomocą interfejsu API REST Node.js-wyszukiwanie wiadomości Bing'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania do interfejsu API REST wyszukiwania wiadomości Bing przy użyciu środowiska Node.js i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 24dd1e719b9eb401038d47c4d1c42139258f36f9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-javascript
+ms.openlocfilehash: d0ed69aecf03e5c8e3a65e3ac532c02c89b65ba8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872054"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406609"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania wiadomości za pomocą środowiska Node. js i interfejsu API REST wyszukiwanie wiadomości Bing
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania w wiadomościach przy użyciu Node.js i interfejsu API REST wyszukiwanie wiadomości Bing
 
 Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wiadomości Bing. Ta prosta aplikacja JavaScript wysyła zapytanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON.
 
-Mimo że aplikacja jest zapisywana w języku JavaScript i uruchamiana w programie Node. js, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
+Mimo że aplikacja jest zapisywana w języku JavaScript i jest uruchamiana w Node.js, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 

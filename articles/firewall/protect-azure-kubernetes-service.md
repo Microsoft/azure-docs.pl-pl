@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412953"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Używanie zapory platformy Azure do ochrony wdrożeń usługi Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,9 @@ Zapora platformy Azure udostępnia tag AKS FQDN, aby uprościć konfigurację. W
       Aby uzyskać bardziej szczegółowe informacje, zobacz **. HCP. <location> .. azmk8s.io* i adresy w poniższej tabeli.
    - Port UDP 123 dla synchronizacji czasu protokołu NTP (Network Time Protocol) (węzły systemu Linux).
    - Port UDP 53 dla systemu DNS jest wymagany również w przypadku bezpośredniego dostępu do serwera interfejsu API.
-- Skonfiguruj Tagi usługi AzureMonitor i Storage. Azure Monitor otrzymuje dane usługi log Analytics. 
+
+   Aby uzyskać więcej informacji, zobacz [Kontrola ruchu wychodzącego dla węzłów klastra w usłudze Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+- Skonfiguruj Tagi usługi AzureMonitor i Storage. Azure Monitor otrzymuje dane usługi log Analytics.
 
    Możesz również zezwolić na adres URL obszaru roboczego osobno: `<worksapceguid>.ods.opinsights.azure.com` , i `<worksapceguid>.oms.opinsights.azure.com` . Można to rozwiązać w jeden z następujących sposobów:
 

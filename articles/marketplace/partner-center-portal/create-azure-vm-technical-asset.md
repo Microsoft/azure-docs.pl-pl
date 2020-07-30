@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317760"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407952"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -282,4 +282,4 @@ Jeśli wystąpił problem podczas tworzenia nowego wirtualnego dysku twardego op
 
 W przeciwnym razie:
 
-* Zapoznaj się [z obrazem maszyny wirtualnej](get-sas-uri.md) wyjaśnia, jak testować i przesyłać obrazy maszyn wirtualnych na potrzeby certyfikacji w portalu Azure Marketplace, w tym informacje o tym, gdzie uzyskać *Narzędzie do testowania certyfikacji dla certyfikowanych narzędzi platformy Azure* oraz jak używać go do certyfikowania obrazu maszyny wirtualnej.
+* [Testowa maszyna wirtualna (VM) wdrożona z dysku VHD](azure-vm-image-certification.md) wyjaśnia, jak testować i przesyłać obrazy maszyn wirtualnych na potrzeby certyfikacji w portalu Azure Marketplace, w tym informacje o tym, gdzie uzyskać *Narzędzie do testowania certyfikacji dla certyfikowanych narzędzi platformy Azure* oraz jak korzystać z niego do certyfikowania obrazu maszyny wirtualnej.

@@ -2,13 +2,13 @@
 title: Eksportuj szablon w Azure Portal
 description: Użyj Azure Portal, aby wyeksportować szablon Azure Resource Manager z zasobów w ramach subskrypcji.
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/29/2020
+ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057708"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423239"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Eksport jednego i kilku zasobów do szablonu w Azure Portal
 
@@ -52,6 +52,8 @@ Podczas eksportowania z grupy zasobów lub zasobu wyeksportowany szablon jest ge
 Funkcja eksportowania szablonu nie obsługuje eksportowania zasobów Azure Data Factory. Aby dowiedzieć się, jak wyeksportować zasoby Data Factory, zobacz [kopiowanie lub klonowanie fabryki danych w Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
 Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, należy [je zmigrować do modelu wdrażania Menedżer zasobów](https://aka.ms/migrateclassicresourcetoarm).
+
+Jeśli zostanie wyświetlone ostrzeżenie podczas eksportowania szablonu wskazującego, że typ zasobu nie został wyeksportowany, nadal można odnaleźć właściwości dla tego zasobu. Aby dowiedzieć się więcej o różnych opcjach wyświetlania właściwości zasobów, zobacz [odnajdywanie właściwości zasobów](view-resources.md). Możesz również przyjrzeć się [interfejsowi API REST platformy Azure](/rest/api/azure/) dla typu zasobu.
 
 ## <a name="export-template-from-a-resource-group"></a>Eksportuj szablon z grupy zasobów
 

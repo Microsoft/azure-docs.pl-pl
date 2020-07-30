@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549628"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424072"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -28,7 +28,7 @@ Zasoby bramy translatora adresów sieciowych są częścią [Virtual Network NAT
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu*
@@ -54,7 +54,7 @@ Zasób został zaprojektowany tak, aby można było go zobaczyć w następujący
 Na poniższym diagramie przedstawiono zapisywalne odwołania między różnymi zasobami Azure Resource Manager.  Strzałka wskazuje kierunek odniesienia pochodzący z lokalizacji, w której jest zapisywalny. Przegląd 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Model obiektów Virtual Network NAT">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Model obiektów Virtual Network NAT">
 </p>
 
 *Rysunek: Virtual Network model obiektów NAT*
@@ -119,7 +119,7 @@ Brama translatora adresów sieciowych jest zgodna z:
 Podczas tworzenia nowego wdrożenia Zacznij od standardowych jednostek SKU.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu*
@@ -129,14 +129,14 @@ Internetowy scenariusz tylko dla ruchu wychodzącego udostępniony przez bramę 
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>Translator adresów sieciowych i maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT i VM z publicznym adresem IP na poziomie wystąpienia">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT i VM z publicznym adresem IP na poziomie wystąpienia">
 </p>
 
 *Ilustracja: Virtual Network NAT i VM z publicznym adresem IP na poziomie wystąpienia*
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Przychodzący | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia |
+| Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia |
 | Wychodzący | Brama translatora adresów sieciowych |
 
 Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
@@ -144,14 +144,14 @@ Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruc
 #### <a name="nat-and-vm-with-public-load-balancer"></a>Translator adresów sieciowych i maszyna wirtualna z Load Balancer publiczny
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network translatora adresów sieciowych i maszyn wirtualnych z Load Balancerami publicznymi">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network translatora adresów sieciowych i maszyn wirtualnych z Load Balancerami publicznymi">
 </p>
 
 *Rysunek: Virtual Network translatora adresów sieciowych i maszyn wirtualnych z Load Balancerami publicznymi*
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Przychodzący | Load Balancer publiczny |
+| Inbound | Load Balancer publiczny |
 | Wychodzący | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Nie ma to żadnego oddziaływania na przychodzące.
@@ -159,14 +159,14 @@ Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT i VM z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network translatora adresów sieciowych i maszyn wirtualnych z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network translatora adresów sieciowych i maszyn wirtualnych z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer">
 </p>
 
 *Ilustracja: Virtual Network NAT i VM z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer*
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Przychodzący | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer |
+| Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer |
 | Wychodzący | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Maszyna wirtualna będzie również używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
@@ -182,7 +182,7 @@ Bramy translatora adresów sieciowych mają wyższy priorytet niż scenariusze w
 #### <a name="zone-isolation-with-zonal-stacks"></a>Izolacja strefy z stosami stref
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network translator adresów sieciowych z izolacją strefy, tworzenie wielu "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network translator adresów sieciowych z izolacją strefy, tworzenie wielu "zonal stacks"">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych z izolacją strefy, tworzenie wielu "stosów strefowych"*
@@ -210,7 +210,7 @@ Jeśli w scenariuszu są wymagane przychodzące punkty końcowe, dostępne są d
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>Scenariusze wychodzące między strefami nie są obsługiwane
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network translator adresów sieciowych jest niezgodny z podsiecią obejmującą strefy">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network translator adresów sieciowych jest niezgodny z podsiecią obejmującą strefy">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych jest niezgodny z podsiecią obejmującą strefy*
@@ -241,7 +241,7 @@ Translator adresów sieciowych (Resources Address Translation) ponownie zapisuje
 
 Spójrzmy na przykład cztery przepływy, aby wyjaśnić podstawową koncepcję.  Brama translatora adresów sieciowych korzysta z 65.52.0.2 zasobów publicznego adresu IP.
 
-| Ruch | Krotka źródłowa | Kolekcja docelowa |
+| Przepływ | Krotka źródłowa | Kolekcja docelowa |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
@@ -250,7 +250,7 @@ Spójrzmy na przykład cztery przepływy, aby wyjaśnić podstawową koncepcję.
 
 Te przepływy mogą wyglądać następująco po przejściu z lokalizacji:
 
-| Ruch | Krotka źródłowa | Spójna kolekcja Source SNAT'ed | Kolekcja docelowa | 
+| Przepływ | Krotka źródłowa | Spójna kolekcja Source SNAT'ed | Kolekcja docelowa | 
 |:---:|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
@@ -268,7 +268,7 @@ Przystawka NAT określona przez translatora adresów sieciowych różni się od 
 Translacja adresów sieciowych na żądanie umożliwia obsługę nowych przepływów ruchu wychodzącego. Wszystkie dostępne porty protokołu Subnet w spisie są używane przez dowolną maszynę wirtualną w podsieciach skonfigurowanych przy użyciu translatora adresów sieciowych. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego na żądanie">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego na żądanie">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych na żądanie*
@@ -276,7 +276,7 @@ Translacja adresów sieciowych na żądanie umożliwia obsługę nowych przepły
 Dowolna konfiguracja adresu IP maszyny wirtualnej może tworzyć przepływy wychodzące na żądanie w razie potrzeby.  Alokacja wstępna, na wystąpienie w przypadku wystąpienia na najgorszy przypadek, nie jest wymagana.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Różnice w scenariuszach wyczerpania">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Różnice w scenariuszach wyczerpania">
 </p>
 
 *Ilustracja: różnice w scenariuszach wyczerpania*
