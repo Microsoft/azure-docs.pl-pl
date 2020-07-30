@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075894"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387323"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą programu Synapse Studio
 
@@ -22,7 +22,7 @@ Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, któr
 
 W tym artykule wyjaśniono, jak monitorować uruchomienia potoków, co pozwala na śledzenie najnowszego stanu, problemów i postępu potoku.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Dostęp do listy uruchomień potoku
+## <a name="access-pipeline-runs-list"></a>Lista uruchomień potoku dostępu
 
 Aby wyświetlić listę uruchomień potoków w obszarze roboczym, najpierw [Otwórz program Synapse Studio](https://web.azuresynapse.net/) i wybierz obszar roboczy.
 
@@ -36,7 +36,7 @@ Wybierz pozycję **uruchomienia potoku** , aby wyświetlić listę uruchomień p
 
 ![Wybierz uruchomienia potoku](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtrowanie uruchomień potoku
+## <a name="filter-your-pipeline-runs"></a>Filtrowanie uruchomień potoku
 
 Możesz filtrować listę uruchomień potoków do interesujących Cię elementów. Filtry w górnej części ekranu umożliwiają określenie pola, do którego chcesz filtrować.
 
@@ -46,7 +46,7 @@ Na przykład można filtrować widok, aby zobaczyć tylko uruchomienia potoku dl
 
 ![Przykładowy filtr](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Wyświetlanie szczegółów dotyczących określonego uruchomienia potoku
+## <a name="view-details-about-a-specific-pipeline-run"></a>Wyświetl szczegóły dotyczące określonego uruchomienia potoku
 
 Aby wyświetlić szczegóły dotyczące uruchomienia potoku, wybierz uruchomienie potoku. Następnie Wyświetl uruchomienia działania skojarzone z uruchomieniem potoku. Jeśli potok nadal działa, można monitorować postęp. 
   
