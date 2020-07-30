@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035064"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419550"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
-* Działa działająca dzierżawa usługi Azure AD z włączoną licencją Azure AD — wersja Premium lub próbną.
+* Działająca dzierżawa usługi Azure AD z co najmniej Azure AD — wersja Premium włączoną licencją P1 lub próbną.
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto z uprawnieniami *administratora globalnego* .
 * Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku przetestujesz środowisko Multi-Factor Authentication platformy Azure dla użytkowników końcowych za pomocą tego konta.
@@ -65,7 +65,7 @@ Najpierw utwórz zasady dostępu warunkowego i Przypisz grupę testową użytkow
 1. Zaznacz pole wyboru **Użytkownicy i grupy**, a następnie **Wybierz opcję** przeglądania dostępnych użytkowników i grup usługi Azure AD.
 1. Wyszukaj i wybierz grupę usługi Azure AD, taką jak *MFA-test-Group*, a następnie wybierz **pozycję Wybierz**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [![Wybierz grupę usługi Azure AD, która ma być używana z zasadami ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) dostępu warunkowego](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Aby zastosować zasady dostępu warunkowego dla grupy, wybierz pozycję **gotowe**.
 
@@ -114,7 +114,7 @@ Teraz Zaloguj się do Azure Portal. Ponieważ Azure Portal została skonfigurowa
 
 1. Zamknij okno przeglądarki.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz już używać zasad dostępu warunkowego, aby włączyć usługę Azure Multi-Factor Authentication skonfigurowaną w ramach tego samouczka, Usuń zasady, wykonując następujące czynności:
 

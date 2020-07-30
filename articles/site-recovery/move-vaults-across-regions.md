@@ -2,18 +2,18 @@
 title: Przenoszenie magazynu Azure Site Recovery do innego regionu
 description: Opisuje sposób przenoszenia magazynu Recovery Services (Azure Site Recovery) do innego regionu platformy Azure
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74090295"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422644"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Przenoszenie magazynu Recovery Services i konfiguracji Azure Site Recovery do innego regionu platformy Azure
 
@@ -45,7 +45,7 @@ W tym dokumencie zawarto następujące:
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Zidentyfikuj zasoby, które były używane przez Azure Site Recovery
 Zalecamy wykonanie tego kroku przed przejściem do kolejnego. Podczas replikowania maszyn wirtualnych łatwiej jest identyfikować odpowiednie zasoby.
 
-Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozycji elementy** > chronione**zreplikowane** > **Właściwości** elementów i zidentyfikuj następujące zasoby:
+Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozycji elementy chronione**  >  **zreplikowane**  >  **Właściwości** elementów i zidentyfikuj następujące zasoby:
 
 - Docelowa Grupa zasobów
 - Konto magazynu pamięci podręcznej
@@ -56,7 +56,7 @@ Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozyc
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>Wyłącz istniejącą konfigurację odzyskiwania po awarii
 
 1. Przejdź do magazynu Recovery Services.
-2. W obszarze **chronione elementy** > **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę i wybierz pozycję **Wyłącz replikację**.
+2. W obszarze **chronione elementy**  >  **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę i wybierz pozycję **Wyłącz replikację**.
 3. Powtórz ten krok dla wszystkich maszyn wirtualnych, które chcesz przenieść.
 
 > [!NOTE]
