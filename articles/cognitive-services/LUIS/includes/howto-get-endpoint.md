@@ -1,21 +1,21 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: include file
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 05/06/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: a6e6c89c34723fb9e11b0c7e4ab8c9bedb8aa9ca
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 01d102de24185eba789e041d8534d6fdce8c260b
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959045"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375145"
 ---
 W sekcji **Zarządzanie** (menu w prawym górnym rogu) na stronie **zasoby platformy Azure** (menu po lewej) Skopiuj przykładowy adres URL **zapytania** i wklej go do nowej karty przeglądarki.
 

@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 040eaeb3ef77dfd68feb2aebac71d945ef669d6d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465385"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372437"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Samouczek: debugowanie aplikacji Java wdrożonej w lokalnym klasterze usługi Service Fabric
 
