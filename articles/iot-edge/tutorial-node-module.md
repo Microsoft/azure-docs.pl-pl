@@ -1,5 +1,5 @@
 ---
-title: Samouczek opracowywania modułu Node. js dla systemu Linux — Azure IoT Edge | Microsoft Docs
+title: Samouczek opracowywania Node.js module dla systemu Linux — Azure IoT Edge | Microsoft Docs
 description: W tym samouczku pokazano, jak utworzyć moduł usługi IoT Edge za pomocą kodu Node.js i wdrożyć go na urządzeniu brzegowym
 services: iot-edge
 author: shizn
@@ -8,17 +8,17 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, tracking-python, devx-track-javascript
+ms.openlocfilehash: 01c7973efd2619a37ea77dfe4dad131b14144991
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610121"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420145"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Samouczek: Tworzenie i wdrażanie modułu IoT Edge Node. js dla urządzeń z systemem Linux
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Samouczek: Tworzenie i wdrażanie modułu IoT Edge Node.js dla urządzeń z systemem Linux
 
-Użyj Visual Studio Code, aby opracować kod Node. js i wdrożyć go na urządzeniu z systemem Linux z Azure IoT Edge.
+Użyj Visual Studio Code, aby opracować kod Node.js i wdrożyć go na urządzeniu z systemem Linux, na którym działa Azure IoT Edge.
 
 Moduły usługi IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyjesz symulowanego urządzenia usługi IoT Edge utworzonego w ramach przewodnika Szybki start. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -35,14 +35,14 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="solution-scope"></a>Zakres rozwiązania
 
-W tym samouczku przedstawiono sposób tworzenia modułu w programie **Node. js** przy użyciu **Visual Studio Code**i sposobu wdrażania go na **urządzeniu z systemem Linux**. IoT Edge nie obsługuje modułów Node. js dla urządzeń z systemem Windows.
+W tym samouczku przedstawiono sposób tworzenia modułu w **Node.js** przy użyciu **Visual Studio Code**i sposobu wdrażania go na urządzeniu z **systemem Linux**. IoT Edge nie obsługuje modułów Node.js dla urządzeń z systemem Windows.
 
-Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów Node. js:
+Skorzystaj z poniższej tabeli, aby poznać opcje projektowania i wdrażania Node.js modułów:
 
 | Node.js | Visual Studio Code | Program Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Używanie VS Code dla modułów Node. js w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Używanie VS Code dla modułów Node. js w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Używanie VS Code dla modułów Node.js w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Używanie VS Code dla modułów Node.js w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -54,9 +54,9 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.
 
-Aby utworzyć moduł IoT Edge w programie Node. js, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim:
+Aby utworzyć moduł IoT Edge w Node.js, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim:
 
-* [Node. js i npm](https://nodejs.org). Pakiet npm jest dystrybuowany wraz ze środowiskiem Node.js, co oznacza, że podczas pobierania środowiska Node.js program npm jest automatycznie instalowany na komputerze.
+* [Node.js i npm](https://nodejs.org). Pakiet npm jest dystrybuowany wraz ze środowiskiem Node.js, co oznacza, że podczas pobierania środowiska Node.js program npm jest automatycznie instalowany na komputerze.
 
 ## <a name="create-a-module-project"></a>Tworzenie projektu modułu
 
@@ -82,7 +82,7 @@ Użyj programu **npm**, aby utworzyć szablon rozwiązania Node.js, na podstawie
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Wybierz folder | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
+   | Wybieranie folderu | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
    | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania lub zaakceptuj nazwę domyślną **EdgeSolution**. |
    | Wybierz szablon modułu | Wybierz moduł **Node.js Module**. |
    | Podaj nazwę modułu | Nazwij moduł **NodeModule**. |
@@ -100,7 +100,7 @@ W pliku środowiska przechowywane są poświadczenia repozytorium kontenera, udo
 
 ### <a name="select-your-target-architecture"></a>Wybieranie architektury docelowej
 
-Obecnie Visual Studio Code mogą opracowywać Moduły Node. js dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
+Obecnie Visual Studio Code mogą opracowywać moduły Node.js dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
 
 1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
@@ -110,7 +110,7 @@ Obecnie Visual Studio Code mogą opracowywać Moduły Node. js dla urządzeń z 
 
 Każdy szablon zawiera przykładowy dołączony kod, który wykonuje symulowane dane czujników z modułu **SimulatedTemperatureSensor** i kieruje go do IoT Hub. W tej sekcji dodasz kod, aby umożliwić modułowi NodeModule analizowanie komunikatów przed ich wysłaniem.
 
-1. W Eksploratorze vs Code Otwórz **moduł modules**  >  **NodeModule**  >  **App. js**.
+1. W Eksploratorze vs Code Otwórz pozycję **moduły**  >  **NodeModule**  >  **app.js**.
 
 2. Dodaj zmienną „temperature_threshold” poniżej wymaganych modułów węzła. Zmienna „temperature_threshold” określa wartość zmierzonej temperatury, której przekroczenie spowoduje wysłanie danych do usługi IoT Hub.
 
@@ -201,7 +201,7 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do NodeModule,
 
 ## <a name="deploy-modules-to-device"></a>Wdrażanie modułów na urządzeniu
 
-Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Masz już manifest wdrożenia przygotowany dla danego scenariusza, plik **Deployment. JSON** w folderze config. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
+Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, **deployment.jsna** pliku w folderze konfiguracyjnym. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
 
 Upewnij się, że urządzenie IoT Edge zostało uruchomione.
 

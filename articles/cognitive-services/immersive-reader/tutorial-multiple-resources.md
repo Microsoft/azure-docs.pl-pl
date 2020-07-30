@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Integrowanie wielu zasobów czytnika immersyjny'
 titleSuffix: Azure Cognitive Services
-description: W tym samouczku utworzysz aplikację Node. js, która uruchamia czytnik immersyjny przy użyciu wielu zasobów czytnika.
+description: W tym samouczku utworzysz aplikację Node.js, która uruchamia czytnik immersyjny przy użyciu wielu zasobów czytnika.
 author: skamal
 manager: nitinme
 ms.service: cognitive-services
@@ -9,16 +9,17 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267209"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407204"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Samouczek: Integrowanie wielu zasobów czytnika immersyjny
 
-W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W [przewodniku szybki start środowiska Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W [Node.js przewodniku szybki start](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)przedstawiono sposób korzystania z czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wielu zasobów czytnika immersyjny w istniejącej grupie zasobów

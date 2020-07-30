@@ -10,12 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
-ms.openlocfilehash: 83cdaecfb819fb1f4677b051f87e23e0e03daef2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f1b32a72d81b42e7a349f92dcdc7a141a013312d
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80370096"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404034"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Samouczek: Tworzenie wyszukiwanie wizualne jednostronicowej aplikacji sieci Web
 
@@ -63,7 +64,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Poniższy kod wysyła żądanie wyszukiwania do interfejsu API przy użyciu odbiornika zdarzeń do wywołania `handleVisualSearchResponse()`:
+Poniższy kod wysyła żądanie wyszukiwania do interfejsu API przy użyciu odbiornika zdarzeń do wywołania `handleVisualSearchResponse()` :
 
 ```javascript
 function bingVisualSearch(insightsToken){

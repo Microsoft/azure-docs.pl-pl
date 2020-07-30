@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518543"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419669"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł Azure Active Directory ochrony hasłem
 
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
-* Działająca dzierżawa usługi Azure AD z włączoną co najmniej próbną wersją licencji.
+* Działająca dzierżawa usługi Azure AD z co najmniej Azure AD — wersja Premium włączoną licencją P1 lub próbną.
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto z uprawnieniami *administratora globalnego* .
 * Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku testujesz zdarzenie zmiany hasła przy użyciu tego konta.
@@ -77,7 +77,7 @@ Aby włączyć listę niestandardowych zakazanych haseł i dodać do niej wpisy,
 
     Określ własne niestandardowe hasła, aby zablokować, jak pokazano w poniższym przykładzie.
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Zmodyfikuj niestandardową listę wykluczonych haseł w obszarze metody uwierzytelniania w Azure Portal ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png)](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Pozostaw opcję **Włącz ochronę hasłem w systemie Windows Server Active Directory** wartość *nie*.
 1. Aby włączyć niestandardowe zabronione hasła i wpisy, wybierz pozycję **Zapisz**.
@@ -104,7 +104,7 @@ Aby wyświetlić listę niestandardowych zakazanych haseł w akcji, spróbuj zmi
 
     ![Komunikat o błędzie wyświetlany podczas próby użycia hasła, które jest częścią listy niestandardowo zakazanych haseł](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz już używać niestandardowej listy wykluczonych haseł skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 
