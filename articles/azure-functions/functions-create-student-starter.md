@@ -2,16 +2,14 @@
 title: Tworzenie funkcji przy użyciu platformy Azure for Students Starter
 description: Dowiedz się, jak utworzyć funkcję platformy Azure z poziomu subskrypcji startowej platformy Azure dla uczniów
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-author: alexkarcher-msft
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.author: alkarche
-ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122875"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386966"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Tworzenie funkcji przy użyciu platformy Azure for Students Starter
 
@@ -31,7 +29,7 @@ Azure Functions umożliwia wykonywanie kodu w środowisku [bezserwerowym](https:
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
@@ -77,7 +75,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-student-starter/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

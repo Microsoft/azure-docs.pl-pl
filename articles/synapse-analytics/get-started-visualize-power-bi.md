@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 13c5ac4a9b4d1ac996eb4eadc0cecd626964b4e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40a2cd5898ede7fc30db9a8475c5ab7cc68095ff
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337640"
 ---
 # <a name="visualize-data-with-power-bi"></a>Wizualizacja danych przy użyciu usługi Power BI
 
@@ -43,7 +43,7 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym usługi Azure Syn
     |**Nazwa**|**NYCTaxiWorkspace1**|
     |**Nazwa obszaru roboczego**|**NYCTaxiWorkspace1**|
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Tworzenie Power BI zestawu danych, który używa danych w obszarze roboczym usługi Azure Synapse
 
@@ -94,5 +94,6 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym usługi Azure Syn
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)](overview-what-is.md)
+> [Monitor](get-started-monitor.md)
+                                 
 
