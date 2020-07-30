@@ -1,20 +1,20 @@
 ---
-title: Pamięć podręczna interfejsu wiersza polecenia platformy Azure dla przykładów Redis
-description: 'Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure cache for Redis: tworzenie pamięci podręcznej, usuwanie pamięci podręcznej, uzyskiwanie szczegółowych informacji, nazwy hosta, portów i kluczy, łączenie aplikacji sieci Web.'
+title: Zarządzanie usługą Azure cache for Redis za pomocą interfejsu wiersza polecenia platformy Azure
+description: 'Przykłady interfejsu wiersza polecenia platformy Azure służące do zarządzania pamięcią podręczną platformy Azure dla Redis: tworzenie pamięci podręcznej, usuwanie pamięci podręcznej, informacje o nazwie hosta, portach i kluczach, łączenie aplikacji sieci Web.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.openlocfilehash: 43a986f884d621f257de2e9c305a0bcc59092d3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 345fd0272e0cfe9b4d7329f004e628ea7820c2d9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421244"
 ---
-# <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure cache for Redis
+# <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Zarządzanie usługą Azure cache for Redis za pomocą interfejsu wiersza polecenia platformy Azure
 
 Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfejsu wiersza polecenia platformy Azure.
 

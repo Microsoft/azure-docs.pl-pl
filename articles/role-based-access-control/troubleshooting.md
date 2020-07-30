@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287211"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382580"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Jeśli wystąpi błąd "niewystarczające uprawnienia do ukończenia operacji", prawdopodobnie jest to spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje odszukać tożsamość osoby przydzielonej w usłudze Azure AD, a jednostka usługi nie może domyślnie odczytać usługi Azure AD.
 
-    Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu. Możesz również udzielić uprawnień do [katalogu. Read. All](https://docs.microsoft.com/graph/permissions-reference) w Microsoft Graph.
+    Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
 
     Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#new-service-principal).
 

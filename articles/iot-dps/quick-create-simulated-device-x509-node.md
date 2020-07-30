@@ -1,6 +1,6 @@
 ---
-title: Inicjowanie obsługi symulowanego urządzenia X. 509 na platformie Azure IoT Hub przy użyciu środowiska Node. js
-description: Utwórz i zainicjuj symulowane urządzenie X. 509 za pomocą zestawu SDK urządzenia środowiska Node. js dla usługi Azure IoT Hub Device Provisioning Service (DPS). Ten przewodnik Szybki Start używa indywidualnych rejestracji.
+title: Inicjowanie obsługi symulowanego urządzenia X. 509 na platformie Azure IoT Hub przy użyciu Node.js
+description: Utwórz i zainicjuj symulowane urządzenie X. 509 za pomocą zestawu SDK urządzeń Node.js dla usługi Azure IoT Hub Device Provisioning Service (DPS). Ten przewodnik Szybki Start używa indywidualnych rejestracji.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -8,26 +8,26 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc
-ms.openlocfilehash: 746f4adbf616f95c21874d7c1c48881f88c38d34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 844a174e8cd3208e071db165a31d6c82dd1af3b1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77605408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422117"
 ---
-# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzenia środowiska Node. js dla IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzeń Node.js dla IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-W tym przewodniku szybki start utworzysz symulowane urządzenie X. 509 na komputerze z systemem Windows. Do połączenia tego symulowanego urządzenia z usługą IoT Hub przy użyciu indywidualnej rejestracji w usłudze Device Provisioning Service (DPS) można używać przykładowego kodu w języku Node. js.
+W tym przewodniku szybki start utworzysz symulowane urządzenie X. 509 na komputerze z systemem Windows. Możesz użyć przykładowego kodu Node.js urządzenia do połączenia tego symulowanego urządzenia z usługą IoT Hub przy użyciu indywidualnej rejestracji w usłudze Device Provisioning Service (DPS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Przegląd pojęć związanych z obsługą [administracyjną](concepts-auto-provisioning.md).
 - Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node. js v 4.0 +](https://nodejs.org).
+- [Node.js v 4.0 +](https://nodejs.org).
 - Usługi [git](https://git-scm.com/download/).
 - [OpenSSL](https://www.openssl.org/).
 
@@ -124,7 +124,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 4. Przeprowadź edycję pliku **register\_x509.js**. Po wprowadzeniu poniższych zmian zapisz plik.
     - Zastąp wartość `provisioning host`**_globalnym punktem końcowym urządzenia_** zanotowanym w **kroku 1** powyżej.
     - Zamień `id scope` na **_zakres identyfikatorów_** zanotowany w **kroku 1** powyżej. 
-    - Zamień `registration id` na **_Identyfikator rejestracji_** zanotowany w poprzedniej sekcji.
+    - Zamień na `registration id` **_Identyfikator rejestracji_** zanotowany w poprzedniej sekcji.
     - Zastąp wartości `cert filename` i `key filename` plikami skopiowanymi w **kroku 2** powyżej. 
 
 5. Uruchom skrypt i sprawdź, czy urządzenie zostało pomyślnie aprowizowane.

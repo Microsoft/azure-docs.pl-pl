@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72f6cee18664f63e36c38499e77f4c0ba7177c96
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158149"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386864"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Samouczek: Uwierzytelnianie usługi Azure SignalR Service za pomocą usługi Azure Functions
 
@@ -19,7 +20,7 @@ Samouczek krok po kroku z informacjami dotyczącymi tworzenia pokoju czatu z uwi
 
 ## <a name="introduction"></a>Wprowadzenie
 
-### <a name="technologies-used"></a>Użyte technologie
+### <a name="technologies-used"></a>Wykorzystywane technologie
 
 * [Usługa Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=serverlesschatlab-tutorial-antchu) — interfejs API zaplecza służący do uwierzytelniania użytkowników i wysyłania wiadomości czatu
 * [Usługa Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) — służy do emisji nowych wiadomości do połączonych klientów czatu
@@ -29,7 +30,7 @@ Samouczek krok po kroku z informacjami dotyczącymi tworzenia pokoju czatu z uwi
 
 Do wykonania instrukcji znajdujących się w tym samouczku wymagane jest następujące oprogramowanie.
 
-* [Git](https://git-scm.com/downloads)
+* [Narzędzia](https://git-scm.com/downloads)
 * [Platforma Node.js](https://nodejs.org/en/download/) (wersja 10.x)
 * [Zestaw SDK .NET](https://www.microsoft.com/net/download) (wersja 2.x, wymagana na potrzeby rozszerzeń usługi Functions)
 * [Podstawowe narzędzia usługi Azure Functions](https://github.com/Azure/azure-functions-core-tools) (wersja 2)
@@ -45,22 +46,22 @@ Przejdź do witryny [ Azure Portal](https://portal.azure.com/) i zaloguj się pr
 
 Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska ona dostęp do wystąpienia usługi SignalR Service na platformie Azure, które należy wcześniej utworzyć.
 
-1. Kliknij przycisk **Utwórz zasób** (**+**), aby utworzyć nowy zasób platformy Azure.
+1. Kliknij przycisk **Utwórz zasób** ( **+** ), aby utworzyć nowy zasób platformy Azure.
 
-1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij przycisk **Utwórz**.
+1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij pozycję **Utwórz**.
 
     ![Nowa usługa SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Wprowadź następujące informacje.
 
-    | Nazwa | Wartość |
+    | Name | Wartość |
     |---|---|
     | Nazwa zasobu | Unikatowa nazwa wystąpienia usługi SignalR Service |
     | Grupa zasobów | Utwórz nową grupę zasobów o unikatowej nazwie |
-    | Lokalizacja | Wybierz bliską Ci lokalizację |
+    | Location | Wybierz bliską Ci lokalizację |
     | Warstwa cenowa | Bezpłatna |
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 1. Po wdrożeniu wystąpienia otwórz je w portalu i Znajdź jego stronę ustawień. Zmień ustawienie trybu usługi na *bezserwerowy*.
 
@@ -85,7 +86,7 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
 
 W tym samouczku powiązania usługi Azure Functions są używane do interakcji z usługą Azure SignalR Service. Podobnie jak w większości innych przypadków, powiązania usługi SignalR Service są dostępne jako rozszerzenie, które należy zainstalować przy użyciu interfejsu wiersza polecenia podstawowych narzędzi usługi Azure Functions, zanim będzie można ich użyć.
 
-1. Otwórz terminal w VS Code, wybierając opcję **Wyświetl terminal >** z menu (Ctrl-\`).
+1. Otwórz terminal w VS Code, wybierając opcję **Wyświetl terminal >** z menu (Ctrl- \` ).
 
 1. Upewnij się, że bieżącym katalogiem jest główny folder projektu.
 
@@ -124,7 +125,7 @@ Podczas lokalnego uruchamiania i debugowania środowiska uruchomieniowego usług
    * W sekcji `Host` konfigurowany jest port i ustawienia mechanizmu CORS na potrzeby lokalnego hosta usługi Functions (to ustawienie nie obowiązuje podczas uruchamiania na platformie Azure).
 
        > [!NOTE]
-       > Serwer na żywo jest zazwyczaj skonfigurowany do obsłużynia zawartości `http://127.0.0.1:5500`. Jeśli okaże się, że używa innego adresu URL lub innego serwera HTTP, Zmień `CORS` ustawienie tak, aby odzwierciedlało poprawność pochodzenia.
+       > Serwer na żywo jest zazwyczaj skonfigurowany do obsłużynia zawartości `http://127.0.0.1:5500` . Jeśli okaże się, że używa innego adresu URL lub innego serwera HTTP, Zmień `CORS` ustawienie tak, aby odzwierciedlało poprawność pochodzenia.
 
      ![Uzyskiwanie klucza usługi SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
@@ -137,15 +138,15 @@ Podczas lokalnego uruchamiania i debugowania środowiska uruchomieniowego usług
 Gdy aplikacja czatu zostanie po razy pierwszy otwarta w przeglądarce, wymaga ona ważnych poświadczeń połączenia w celu nawiązania połączenia z usługą Azure SignalR Service. Zostanie utworzona funkcja wyzwalana przez protokół HTTP o nazwie *Negotiate* w aplikacji funkcji, aby można było zwrócić te informacje o połączeniu.
 
 > [!NOTE]
-> Ta funkcja musi mieć nazwę *Negotiate* , ponieważ klient sygnalizujący wymaga punktu końcowego kończącego się `/negotiate`na.
+> Ta funkcja musi mieć nazwę *Negotiate* , ponieważ klient sygnalizujący wymaga punktu końcowego kończącego się na `/negotiate` .
 
 1. Otwórz paletę poleceń programu VS Code (skrót: `Ctrl-Shift-P`, w systemie macOS: `Cmd-Shift-P`).
 
-1. Wyszukaj polecenie **Azure Functions: Create Function** i wybierz je.
+1. Wyszukaj i wybierz polecenie **Azure Functions: Utwórz funkcję**.
 
 1. Po wyświetleniu monitu podaj następujące informacje.
 
-    | Nazwa | Wartość |
+    | Name | Wartość |
     |---|---|
     | Folder aplikacji funkcji | Wybierz główny folder projektu |
     | Szablon | Wyzwalacz HTTP |
@@ -154,7 +155,7 @@ Gdy aplikacja czatu zostanie po razy pierwszy otwarta w przeglądarce, wymaga on
 
     Utworzono folder o nazwie **Negotiate** , który zawiera nową funkcję.
 
-1. Otwórz plik **Negotiate/Function. JSON** , aby skonfigurować powiązania dla funkcji. Zmodyfikuj zawartość pliku na następującą. Spowoduje to dodanie powiązania danych wejściowych, które generuje ważne poświadczenia dla klienta w celu nawiązania połączenia z centrum usługi Azure SignalR Service o nazwie `chat`.
+1. Otwórz okno **Negocjuj/function.jsw** programie, aby skonfigurować powiązania dla funkcji. Zmodyfikuj zawartość pliku na następującą. Spowoduje to dodanie powiązania danych wejściowych, które generuje ważne poświadczenia dla klienta w celu nawiązania połączenia z centrum usługi Azure SignalR Service o nazwie `chat`.
 
     ```json
     {
@@ -184,7 +185,7 @@ Gdy aplikacja czatu zostanie po razy pierwszy otwarta w przeglądarce, wymaga on
 
     Właściwość `userId` w powiązaniu `signalRConnectionInfo` jest używana do tworzenia uwierzytelnionego połączenia usługi SignalR Service. Pozostaw właściwość pustą na potrzeby programowania w środowisku lokalnym. Zostanie ona użyta po wdrożeniu aplikacji funkcji na platformie Azure.
 
-1. Otwórz okno **Negocjuj/index. js** , aby wyświetlić treść funkcji. Zmodyfikuj zawartość pliku na następującą.
+1. Otwórz okno **Negocjuj/index.js** , aby wyświetlić treść funkcji. Zmodyfikuj zawartość pliku na następującą.
 
     ```javascript
     module.exports = async function (context, req, connectionInfo) {
@@ -200,7 +201,7 @@ Aplikacja internetowa wymaga także interfejsu API protokołu HTTP do wysyłania
 
 1. Otwórz paletę poleceń programu VS Code (skrót: `Ctrl-Shift-P`, w systemie macOS: `Cmd-Shift-P`).
 
-1. Wyszukaj polecenie **Azure Functions: Create Function** i wybierz je.
+1. Wyszukaj i wybierz polecenie **Azure Functions: Utwórz funkcję**.
 
 1. Po wyświetleniu monitu podaj następujące informacje.
 
@@ -244,7 +245,7 @@ Aplikacja internetowa wymaga także interfejsu API protokołu HTTP do wysyłania
     ```
     Spowoduje to wprowadzenie dwóch zmian do oryginalnej funkcji:
     * Zmienia trasę na wartość `messages` oraz ogranicza wyzwalacz HTTP do metody HTTP **POST**.
-    * Dodaje powiązanie danych wyjściowych usługi sygnalizującego, które wysyła komunikat zwracany przez funkcję wszystkim klientom podłączonym do centrum usługi sygnalizującego o nazwie `chat`.
+    * Dodaje powiązanie danych wyjściowych usługi sygnalizującego, które wysyła komunikat zwracany przez funkcję wszystkim klientom podłączonym do centrum usługi sygnalizującego o nazwie `chat` .
 
 1. Zapisz plik.
 
@@ -309,7 +310,7 @@ Aplikacje funkcji i czatu były uruchamiana lokalnie. Teraz wdrożysz je na plat
 
 Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą na platformie Azure. Zostanie również przeszukana Strona sieci Web dla interfejsu użytkownika czatu przy użyciu funkcji statycznych witryn sieci Web usługi Azure Storage.
 
-1. W Azure Portal kliknij przycisk **Utwórz zasób** (**+**), aby utworzyć nowy zasób platformy Azure.
+1. W Azure Portal kliknij przycisk **Utwórz zasób** ( **+** ), aby utworzyć nowy zasób platformy Azure.
 
 1. Wybierz kategorię **Magazyn** , a następnie wybierz pozycję **konto magazynu**.
 
@@ -320,7 +321,7 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
     | Subskrypcja | Wybierz subskrypcję zawierającą wystąpienie usługi sygnalizującej |
     | Grupa zasobów | Wybierz tę samą grupę zasobów |
     | Nazwa zasobu | Unikatowa nazwa konta magazynu |
-    | Lokalizacja | Wybierz tę samą lokalizację co inne zasoby |
+    | Location | Wybierz tę samą lokalizację co inne zasoby |
     | Wydajność | Standardowa |
     | Rodzaj konta | StorageV2 (ogólnego przeznaczenia wersja 2) |
     | Replikacja | Magazyn lokalnie nadmiarowy (LRS) |
@@ -336,9 +337,9 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
 
 1. Wybierz opcję **włączone** , aby włączyć funkcję statycznej witryny internetowej.
 
-1. W polu **Nazwa dokumentu indeksu**wprowadź *index. html*.
+1. W polu **Nazwa dokumentu indeksu**wprowadź *index.html*.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Zostanie wyświetlony **podstawowy punkt końcowy** . Zwróć uwagę na tę wartość. Będzie ona wymagana do skonfigurowania aplikacji funkcji.
 
@@ -348,7 +349,7 @@ Do tej pory aplikacja czatu działa w sposób anonimowy. Na platformie Azure uż
 
 Podczas wysyłania wiadomości aplikacja może zdecydować, czy wysłać ją do wszystkich połączonych klientów, czy tylko do klientów, które zostały uwierzytelnione danemu użytkownikowi.
 
-1. W VS Code Otwórz plik **Negotiate/Function. JSON**.
+1. W VS Code Otwórz pozycję **Negocjuj/function.jsw systemie**.
 
 1. Wstaw [wyrażenie powiązania](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) do właściwości *userId* powiązania *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Spowoduje to ustawienie wartości na nazwę uwierzytelnionego użytkownika. Ten atrybut powinien teraz wyglądać następująco.
 
@@ -380,7 +381,7 @@ Podczas wysyłania wiadomości aplikacja może zdecydować, czy wysłać ją do 
     | Grupa zasobów | Wybierz tę samą grupę zasobów, co w przypadku wystąpienia usługi SignalR Service |
     | Konto magazynu | Wybierz utworzone wcześniej konto magazynu |
 
-    Na platformie Azure zostanie utworzona nowa aplikacja funkcji i rozpocznie się proces wdrażania. Zaczekaj na zakończenie wdrożenia.
+    Na platformie Azure zostanie utworzona nowa aplikacja funkcji i rozpocznie się proces wdrażania. Zaczekaj na zakończenie wdrażania.
 
 ### <a name="upload-function-app-local-settings"></a>Przekazywanie lokalnych ustawień aplikacji funkcji
 
@@ -445,7 +446,7 @@ Aplikacja internetowa będzie hostowana za pomocą funkcji statycznych witryn in
 
 1. Otwórz paletę poleceń programu VS Code (skrót: `Ctrl-Shift-P`, w systemie macOS: `Cmd-Shift-P`).
 
-1. Wyszukaj i wybierz polecenie **Azure Storage: Deploy do statycznej witryny sieci Web** .
+1. Wyszukaj i wybierz polecenie **Azure Storage: Deploy to Static Website** (Wdróż do statycznej witryny internetowej).
 
 1. Wprowadź następujące wartości:
 
@@ -467,7 +468,7 @@ Mimo że ustawienie mechanizmu CORS istnieje w pliku **local.settings.json**, ni
 
     ![Wyszukiwanie mechanizmu CORS](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
-1. W sekcji *dozwolone źródła* Dodaj wpis ze statycznym *punktem końcowym* witryny sieci Web jako wartość (Usuń końcowy */*).
+1. W sekcji *dozwolone źródła* Dodaj wpis ze statycznym *punktem końcowym* witryny sieci Web jako wartość (Usuń końcowy */* ).
 
 1. Aby program sygnalizujący JavaScript SDK wywoływał aplikację funkcji z przeglądarki, należy włączyć obsługę poświadczeń w mechanizmie CORS. Wybierz pole wyboru "Włącz dostęp-kontrola-Zezwalaj-poświadczenia".
 
@@ -498,4 +499,4 @@ Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów za pomoc
 W niniejszym samouczku zawarto informacje na temat sposobu używania usługi Azure Functions z usługą Azure SignalR Service. Dowiedz się więcej o tworzeniu bezserwerowych aplikacji w czasie rzeczywistym przy użyciu powiązań usługi SignalR dla usługi Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji w czasie rzeczywistym za pomocą usługi Azure Functions](signalr-concept-azure-functions.md)
+> [Kompilowanie aplikacji w czasie rzeczywistym za pomocą Azure Functions](signalr-concept-azure-functions.md)

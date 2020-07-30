@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338278"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421726"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -56,7 +56,7 @@ Co więcej, co najmniej jeden z kont dostępu awaryjnego nie powinien mieć tego
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Wyklucz co najmniej jedno konto z zasad dostępu warunkowego
 
-W sytuacji awaryjnej nie ma możliwości, aby zasady nie blokowały dostępu do rozwiązania problemu. Co najmniej jedno konto dostępu awaryjnego powinno być wykluczone ze wszystkich zasad dostępu warunkowego. Jeśli [zasady podstawowe](../conditional-access/baseline-protection.md)zostały włączone, należy wykluczyć konta dostępu awaryjnego.
+W sytuacji awaryjnej nie ma możliwości, aby zasady nie blokowały dostępu do rozwiązania problemu. Co najmniej jedno konto dostępu awaryjnego powinno być wykluczone ze wszystkich zasad dostępu warunkowego.
 
 ## <a name="federation-guidance"></a>Wskazówki dotyczące Federacji
 
@@ -109,14 +109,14 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 
         ![Logika alertu](./media/directory-emergency-access/alert-image2.png)
 
-    1. Wybierz pozycję **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
+    1. Kliknij **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
 1. Wybierz grupę akcji użytkowników, którzy będą powiadamiani o alertach. Jeśli chcesz go utworzyć, zobacz [Tworzenie grupy akcji](#create-an-action-group).
 1. Aby dostosować powiadomienia e-mail wysyłane do członków grupy akcji, wybierz akcje w obszarze **Dostosuj akcje**.
 1. W obszarze **szczegóły alertu**Określ nazwę reguły alertu i Dodaj opcjonalny opis.
 1. Ustaw **poziom ważności** zdarzenia. Zalecamy, aby ustawić ją na wartość **krytyczną (ważność 0)**.
 1. W obszarze **Włącz regułę przy tworzeniu**pozostaw wartość **tak**.
 1. Aby wyłączyć alerty przez pewien czas, zaznacz pole wyboru **Pomiń alerty** , a następnie wprowadź czas oczekiwania przed ponownym wysłaniem alertu, a następnie wybierz pozycję **Zapisz**.
-1. Kliknij przycisk **Utwórz regułę alertu**.
+1. Kliknij pozycję **Utwórz regułę alertu**.
 
 ### <a name="create-an-action-group"></a>Tworzenie grupy akcji
 

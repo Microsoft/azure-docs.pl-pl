@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214455"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383889"
 ---
 # <a name="query-csv-files"></a>Pliki CSV zapytania
 
@@ -26,6 +26,72 @@ W tym artykule dowiesz się, jak wysyłać zapytania do pojedynczego pliku CSV p
 - Wartości bez cudzysłowu i cudzysłowy oraz znaki ucieczki
 
 Wszystkie powyższe zmiany zostaną omówione poniżej.
+
+## <a name="quickstart-example"></a>Przykład szybkiego startu
+
+`OPENROWSET`funkcja umożliwia odczytywanie zawartości pliku CSV przez podanie adresu URL pliku.
+
+### <a name="reading-csv-file"></a>Odczytywanie pliku CSV
+
+Najprostszym sposobem, aby zobaczyć zawartość `CSV` pliku, jest podanie adresu URL pliku do `OPENROWSET` działania, określenie woluminu csv `FORMAT` i 2,0 `PARSER_VERSION` . Jeśli plik jest publicznie dostępny lub jeśli tożsamość usługi Azure AD ma dostęp do tego pliku, powinna być widoczna zawartość pliku przy użyciu zapytania, jak pokazano w następującym przykładzie:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+Opcja `firstrow` służy do pomijania pierwszego wiersza w pliku CSV, który reprezentuje nagłówek w tym przypadku. Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub tożsamości niestandardowej, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Używanie źródła danych
+
+Poprzedni przykład używa pełnej ścieżki do pliku. Alternatywnie można utworzyć zewnętrzne źródło danych z lokalizacją wskazującą folder główny magazynu:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+Po utworzeniu źródła danych możesz użyć tego źródła danych i ścieżki względnej do pliku w `OPENROWSET` funkcji:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+Jeśli źródło danych jest chronione za pomocą klucza SAS lub tożsamości niestandardowej, można skonfigurować [Źródło danych z poświadczeniami o zakresie bazy danych](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Jawnie określ schemat
+
+`OPENROWSET`umożliwia jawne Określanie kolumn, które mają być odczytywane z klauzuli File using `WITH` :
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+Liczby po typie danych w `WITH` klauzuli reprezentują indeks kolumny w pliku CSV.
+
+W poniższych sekcjach można zobaczyć, jak wykonywać zapytania dotyczące różnych typów plików CSV.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f7973030b27de95b8b5dd52bdea99e03aebd675a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496115"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386677"
 ---
-# <a name="ingesting-data-into-a-sql-pool"></a>Pozyskiwanie danych w puli SQL
+# <a name="ingest-data-into-a-sql-pool"></a>Pozyskiwanie danych do puli SQL
 
 W tym artykule dowiesz się, jak pozyskać dane z konta magazynu Azure Data Lake Gen 2 do puli SQL przy użyciu usługi Azure Synapse Analytics.
 

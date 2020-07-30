@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83639834"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418240"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia usługi Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Aby wyświetlić raport działań związanych z logowaniem w [Azure Portal](http
 
     Karta *szczegóły uwierzytelniania* lub *dostęp warunkowy* w szczegółach zdarzenia zawiera kod stanu lub zasady wyzwalające monit usługi MFA.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Zrzut ekranu przykładowego raportu logowania Azure Active Directory w Azure Portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Jeśli jest dostępna, jest wyświetlane uwierzytelnianie, takie jak wiadomość SMS, powiadomienie Microsoft Authenticator aplikacji lub połączenie telefoniczne.
 
@@ -170,7 +170,7 @@ Poniższa tabela może pomóc w rozwiązywaniu problemów ze zdarzeniami przy u�
 
 Następujące dodatkowe informacje i raporty są dostępne dla zdarzeń MFA, w tym dla serwera usługi MFA:
 
-| Raport | Lokalizacja | Opis |
+| Raport | Location | Opis |
 |:--- |:--- |:--- |
 | Historia zablokowanego użytkownika | Usługa Azure AD > Security > MFA > blokowanie/odblokowywanie użytkowników | Pokazuje historię żądań zablokowania lub odblokowania użytkowników. |
 | Użycie dla składników lokalnych | Raport aktywności > działania usługi Azure AD > Security > MFA | Zawiera informacje o ogólnym użyciu serwera MFA za pomocą rozszerzenia serwera NPS, usług ADFS i serwera MFA. |

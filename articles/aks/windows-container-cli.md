@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015633"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421250"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Jeśli zostanie wyświetlony komunikat o błędzie weryfikacji hasła, spróbuj utworzyć grupę zasobów w innym regionie.
-> Następnie spróbuj utworzyć klaster przy użyciu nowej grupy zasobów.
+> Jeśli zostanie wyświetlony komunikat o błędzie weryfikacji hasła, sprawdź, czy parametr *Windows-Admin-Password* spełnia [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli hasło spełnia wymagania, spróbuj utworzyć grupę zasobów w innym regionie. Następnie spróbuj utworzyć klaster przy użyciu nowej grupy zasobów.
 
 Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Czasami klaster może trwać dłużej niż kilka minut. W takich przypadkach Zezwalaj na maksymalnie 10 minut.
 

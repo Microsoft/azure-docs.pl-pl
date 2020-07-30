@@ -3,12 +3,12 @@ title: Konfigurowanie urządzenia Azure Migrate dla oprogramowania VMware
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112820"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386745"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
 
@@ -34,7 +34,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 ## <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
 
 1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją hypervisor programu VMware vSphere**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, za pomocą funkcji hypervisor VMware vSphere**.
 3. Kliknij pozycję **Pobierz**, aby pobrać plik szablonu OVA.
 
   ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
@@ -89,7 +89,7 @@ Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone p
         - Obsługiwane są tylko serwery proxy HTTP.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Aby odnajdywanie działało prawidłowo, czas na urządzeniu powinien być zsynchronizowany z czasem Internetu.
     - **Zainstaluj aktualizacje**: Azure Migrate sprawdza, czy są zainstalowane najnowsze aktualizacje urządzeń.
-    - **Zainstaluj VDDK**Azure Migrate: sprawdza, czy jest zainstalowany zestaw SDK programu VMware VSPHERE (VDDK).
+    - **Zainstaluj VDDK**: Azure Migrate sprawdza, czy VMware vSphere jest zainstalowany zestaw SDK (VDDK).
         - Migracje platformy Azure używają VDDK do replikowania maszyn podczas migracji na platformę Azure.
         - Pobierz VDDK 6,7 z programu VMware i Wyodrębnij zawartość pliku zip do określonej lokalizacji na urządzeniu.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387018"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385215"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -28,7 +28,7 @@ Jeśli aplikacja lokalna korzysta z uwierzytelniania opartego na protokole SAML,
 
 Należy wykonać obie następujące czynności:
 
-- Zintegruj aplikację SAML przy użyciu szablonu aplikacji spoza galerii, zgodnie z opisem w temacie Konfigurowanie logowania jednokrotnego [do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Zwróć uwagę na to, co jest używane dla wartości **adresu URL logowania** .
+- Zintegruj aplikację przy użyciu protokołu SAML zgodnie z opisem w temacie Konfigurowanie logowania jednokrotnego [opartego na protokole SAML](../manage-apps/configure-saml-single-sign-on.md). Zwróć uwagę na to, co jest używane dla wartości **adresu URL logowania** .
 -  Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby opublikować aplikację lokalną z **Azure Active Directory** skonfigurowanym jako źródło uwierzytelniania. Aby uzyskać instrukcje, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Podczas konfigurowania ustawienia **wewnętrznego adresu URL** należy użyć adresu URL logowania określonego w szablonie aplikacji spoza galerii. Dzięki temu użytkownicy będą mogli uzyskać dostęp do aplikacji spoza granicy organizacji. Serwer proxy aplikacji wykonuje Logowanie jednokrotne SAML dla aplikacji lokalnej.
@@ -61,7 +61,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Na przykład:
 
 - Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
 - Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).

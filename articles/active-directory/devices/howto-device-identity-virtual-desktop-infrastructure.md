@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419805"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -54,9 +54,9 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 |   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 | Zarejestrowane w usłudze Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie dotyczy |
-|   |   |   | Nietrwałe | Nie |
+|   |   |   | Nietrwałe | Nie dotyczy |
 |   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie dotyczy |
-|   |   |   | Nietrwałe | Nie |
+|   |   |   | Nietrwałe | Nie dotyczy |
 
 \*Środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.
 

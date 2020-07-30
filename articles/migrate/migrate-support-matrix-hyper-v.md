@@ -3,12 +3,12 @@ title: Obsługa oceny funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocenie serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 2cf13904a3642b8b91d61c84bb1c51cbb97f0846
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324815"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420961"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -34,7 +34,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
-| **Host funkcji Hyper-V**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze.<br/><br/> Na hoście funkcji Hyper-V można uruchomić system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/> Nie można ocenić maszyn wirtualnych znajdujących się na hostach funkcji Hyper-V z systemem Windows Server 2012.
+| **Host funkcji Hyper-V**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze.<br/><br/> Na hoście funkcji Hyper-V można uruchomić system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2. Obsługiwane są również instalacje Server Core systemu Windows Server 2016 i Windows Server 2012 R2. <br/>Nie można ocenić maszyn wirtualnych znajdujących się na hostach funkcji Hyper-V z systemem Windows Server 2012.
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. <br/> Jeśli nie chcesz przypisywać uprawnień administratora, Utwórz konto użytkownika lokalnego lub domeny, a następnie Dodaj konto użytkownika do tych grup — Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności. |
 | **Komunikacja zdalna programu PowerShell**   | [Komunikacja zdalna programu PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) musi być włączona na każdym hoście funkcji Hyper-V. |
 | **Hyper-V Replica**       | W przypadku korzystania z funkcji Hyper-V Replica (lub korzystania z wielu maszyn wirtualnych z tymi samymi identyfikatorami maszyn wirtualnych) i odnajdywania zarówno oryginalnej, jak i zreplikowanej maszyny wirtualnej przy użyciu Azure Migrate, Ocena wygenerowana przez Azure Migrate może być niedokładna. |

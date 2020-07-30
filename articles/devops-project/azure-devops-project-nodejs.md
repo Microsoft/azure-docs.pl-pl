@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
-ms.custom: mvc
-ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 5453677826e1490977257fd75e10308ee45df00a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233866"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421760"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla Node.js za pomocą usługi Azure DevOps Starter
 
@@ -186,7 +186,7 @@ W poprzednich dwóch krokach dodano Gatsby wygenerowany PWA do repozytorium git 
 
 3. Po kilku minutach kompilacje i potoki wydań powinny zostać zakończone, a Twoje PWA należy wdrożyć do kontenera. Kliknij link do **punktu końcowego aplikacji** z poziomu pulpitu nawigacyjnego powyżej i powinien zostać wyświetlony projekt Gatsby Start dla blogów.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Można usuwać Azure App Service i inne powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne zasoby. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 

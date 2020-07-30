@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-javascript
+ms.openlocfilehash: eb770dab33e1ec0e1a35f7ebcb6e620fc93692aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961799"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383022"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -45,7 +46,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są:
 
 * Konto utworzone w usłudze [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 * [Zestaw SDK dla platformy .NET Core](https://www.microsoft.com/net/download/windows)
 * [Skonfigurowana usługa Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)
 * Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
@@ -562,7 +563,7 @@ Ostatnim zadaniem, które należy wykonać, jest aktualizacja **adresu URL stron
 
     ![Gotowa aplikacja OAuth hostowana na platformie Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie w następnym samouczku.
 

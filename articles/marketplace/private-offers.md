@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319868"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420111"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Oferty prywatne w portalu komercyjnym firmy Microsoft
 
@@ -43,6 +43,9 @@ Plany prywatne są składnikiem oferty i są widoczne tylko dla klientów, któr
 
 W przypadku *nowych ofert, które zawierają tylko plany prywatne*, wydawcy mogą utworzyć oferty jako każdą inną ofertę, a następnie oznaczyć plany jako prywatne. Oferty, które mają tylko plany prywatne, nie będą wykrywalne lub dostępne za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft ani [Azure Portal](https://azure.microsoft.com/features/azure-portal/) przez klientów, którzy nie zostali powiązani z ofertą.
 
+>[!NOTE]
+>Oferta, która zawiera tylko plany prywatne, nie będzie widoczna w publicznym portalu Azure Marketplace lub AppSource.
+
 ## <a name="targeting-customers-with-private-offers"></a>Kierowanie klientów do ofert prywatnych
 
 W przypadku nowych i istniejących ofert prywatnych wydawcy mogą kierować klientów, którzy korzystają z identyfikatorów subskrypcji. Wydawcy korzystający z maszyny wirtualnej lub oferty aplikacji platformy Azure mogą ograniczyć dostępność planu prywatnego do indywidualnego identyfikatora subskrypcji platformy Azure lub przekazać plik CSV o wartości do 20 000 identyfikatorów subskrypcji platformy Azure. W przypadku korzystania z prywatnej oferty aplikacji SaaS wydawcy mogą skojarzyć identyfikator dzierżawy, aby ograniczyć dostępność planu prywatnego przy użyciu metody przekazywania ręcznego lub woluminu CSV.
@@ -61,6 +64,7 @@ Oferty prywatne będą również wyświetlane w wynikach wyszukiwania. Po prostu
 
 >[!Note]
 >Oferty prywatne nie są obsługiwane w przypadku subskrypcji ustanowionych przez odsprzedawcę programu w programie Cloud Solution Provider (CSP).
+
 
 <!---
 ## Next steps

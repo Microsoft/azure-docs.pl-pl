@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260699"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420655"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -23,7 +24,7 @@ Interfejs API Azure Cosmos DB dla MongoDB wykorzystuje podstawowe możliwości z
 
 Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3,6 automatycznie indeksuje `_id` pole, którego nie można usunąć. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. W interfejsie API Azure Cosmos DB MongoDB, fragmentowania i indeksowanie są oddzielnymi koncepcjami. Nie musisz indeksować klucza fragmentu. Jednak, podobnie jak w przypadku każdej innej właściwości w dokumencie, jeśli ta właściwość jest typowym filtrem w zapytaniach, zalecamy indeksowanie klucza fragmentu.
 
-Aby zindeksować dodatkowe pola, należy zastosować polecenia MongoDB index-Management. Podobnie jak w MongoDB, interfejs API Azure Cosmos DB dla MongoDB automatycznie indeksuje `_id` tylko pole. Ta domyślna zasada indeksowania różni się od Azure Cosmos DB interfejsu API SQL, który domyślnie indeksuje wszystkie pola.
+Aby zindeksować dodatkowe pola, zastosuj polecenia MongoDB służące do zarządzania indeksowaniem. Podobnie jak w MongoDB, interfejs API Azure Cosmos DB dla MongoDB automatycznie indeksuje `_id` tylko pole. Te domyślne zasady indeksowania różnią się od interfejsu API Azure Cosmos DB SQL, który domyślnie indeksuje wszystkie pola.
 
 Aby zastosować sortowanie do zapytania, należy utworzyć indeks dla pól używanych w operacji sortowania.
 
@@ -49,7 +50,7 @@ Indeksów złożonych można używać do bardziej wydajnego sortowania wielu pó
 
 `db.coll.find().sort({name:1,age:1})`
 
-Można również użyć powyższego indeksu złożonego do wydajnego sortowania zapytania z odwrotną kolejnością sortowania dla wszystkich pól. Przykład:
+Można również użyć powyższego indeksu złożonego do wydajnego sortowania zapytania z odwrotną kolejnością sortowania dla wszystkich pól. Oto przykład:
 
 `db.coll.find().sort({name:-1,age:-1})`
 

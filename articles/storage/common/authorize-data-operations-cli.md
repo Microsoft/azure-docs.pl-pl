@@ -10,12 +10,12 @@ ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0b3890c50a476e4c3b3247db435c6032bf9bbc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805476"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417305"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -57,7 +57,7 @@ Poniższy przykład pokazuje, jak utworzyć kontener z interfejsu wiersza polece
 1. Przed utworzeniem kontenera Przypisz do siebie rolę [współautor danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) . Mimo że jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról RBAC, zobacz [przyznawanie dostępu do obiektów blob platformy Azure i danych z kolejki RBAC w Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Propagowanie przypisań ról RBAC może potrwać kilka minut.
+    > Propagowanie przypisań ról platformy Azure może potrwać kilka minut.
 
 1. Wywołaj polecenie [AZ Storage Container Create](/cli/azure/storage/container#az-storage-container-create) z `--auth-mode` parametrem ustawionym na, aby `login` utworzyć kontener przy użyciu poświadczeń usługi Azure AD. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 

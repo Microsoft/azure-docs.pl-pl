@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14c97fdea57fa50faf8b73275ec406ea36fbf552
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483622"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420400"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegowanie podsieci do usługi Azure NetApp Files 
 
 Podsieć należy delegować do usługi Azure NetApp Files.   Podczas tworzenia woluminu należy określić delegowaną podsieć.
 
-## <a name="considerations"></a>Istotne zagadnienia
-* Kreator tworzenia nowej podsieci przyjmuje wartość domyślną maski sieci /24, która zapewnia 251 dostępnych adresów IP. Użycie maski sieci /28, która zapewnia 16 adresów IP, jest wystarczająca dla tej usługi.
+## <a name="considerations"></a>Zagadnienia do rozważenia
+* Kreator tworzenia nowej podsieci przyjmuje wartość domyślną maski sieci /24, która zapewnia 251 dostępnych adresów IP. Korzystanie z maski sieci/28, która zapewnia 11 przydatnych adresów IP, jest wystarczające dla usługi.
 * W każdej sieci wirtualnej Azure Virtual Network (VNet) można delegować tylko jedną podsieć do usługi Azure NetApp Files.   
    System Azure umożliwia tworzenie wielu delegowanych podsieci w sieci wirtualnej.  Jednak wszelkie próby utworzenia nowego woluminu zakończą się niepowodzeniem, jeśli zostanie użyta więcej niż jedna delegowana podsieć.  
    W sieci wirtualnej można mieć tylko jedną delegowaną podsieć. Konto NetApp może wdrażać woluminy w wielu sieci wirtualnych, z których każda ma własną podsieć delegowaną.  

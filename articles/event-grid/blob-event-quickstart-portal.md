@@ -3,12 +3,12 @@ title: 'Szybki Start: wysyłanie zdarzeń magazynu obiektów BLOB do punktu koń
 description: 'Szybki Start: używanie Azure Event Grid i Azure Portal do tworzenia konta usługi BLOB Storage i subskrybowania jego zdarzeń. Wyślij zdarzenia do elementu webhook.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103640"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421607"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
 
@@ -36,7 +36,7 @@ Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikac
     1. Wybierz swoją subskrypcję platformy Azure. 
     2. W obszarze **Grupa zasobów**Utwórz nową grupę zasobów lub wybierz istniejącą. 
     3. Wprowadź nazwę konta magazynu. 
-    4. Wybierz pozycję **Przegląd + utwórz**. 
+    4. Wybierz pozycję **Przeglądanie + tworzenie**. 
 
        ![Kroki początkowe](./media/blob-event-quickstart-portal/provide-blob-values.png)    
     5. Na stronie **Recenzja i tworzenie** Sprawdź ustawienia, a następnie wybierz pozycję **Utwórz**. 
@@ -50,7 +50,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 1. Wybierz pozycję **Wdróż na platformie Azure** w celu wdrożenia rozwiązania w subskrypcji. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Na stronie **wdrożenie niestandardowe** wykonaj następujące czynności: 
     1. W obszarze **Grupa zasobów**wybierz grupę zasobów, która została utworzona podczas tworzenia konta magazynu. Ułatwi to oczyszczenie po zakończeniu pracy z samouczkiem przez usunięcie grupy zasobów.  
     2. W polu **Nazwa lokacji**wprowadź nazwę aplikacji sieci Web.
@@ -131,7 +131,7 @@ Zdarzenie magazynu Blob Storage jest wyzwalane przez przekazanie pliku. Plik nie
 
    ![Zdarzenie utworzenia obiektu BLOB](./media/blob-event-quickstart-portal/blob-created-event.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie usuń zasoby utworzone w ramach tego artykułu.
 

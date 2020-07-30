@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281501"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382699"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 
 ||Podstawowa|Standardowa (Standard)|Premium|
 | :-- | --: |--:| --:|
-|Docelowe obciążenie|Programowanie i produkcja|Programowanie i produkcja|Programowanie i produkcja|
-|Umowa SLA dla czasu działania|99,99%|99,99%|99,99%|
-|Maksymalne przechowywanie kopii zapasowych|7 dni|35 dni|35 dni|
-|Procesor CPU|Nis.|Niski, średni, wysoki|Średni, wysoki|
-|Przepływność we/wy (przybliżona) |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
-|Opóźnienie we/wy (przybliżone)|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
-|Indeksowanie magazynu kolumn |Brak|S3 i nowsze|Obsługiwane|
-|Przetwarzanie OLTP w pamięci|Brak|Brak|Obsługiwane|
-|||||
+|**Docelowe obciążenie**|Programowanie i produkcja|Programowanie i produkcja|Programowanie i produkcja|
+|**Umowa SLA dla czasu działania**|99,99%|99,99%|99,99%|
+|**Maksymalne przechowywanie kopii zapasowych**|7 dni|35 dni|35 dni|
+|**Procesor CPU**|Nis.|Niski, średni, wysoki|Średni, wysoki|
+|**Przepływność we/wy (przybliżona)** |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
+|**Opóźnienie we/wy (przybliżone)**|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
+|**Indeksowanie magazynu kolumn** |Brak|S3 i nowsze|Obsługiwane|
+|**Przetwarzanie OLTP w pamięci**|Brak|Brak|Obsługiwane|
 
 > [!IMPORTANT]
 > Warstwy usług podstawowa, standardowa S0, S1 i S2 zapewniają mniej niż jeden rdzeń wirtualny (CPU).  W przypadku obciążeń intensywnie korzystających z procesora CPU zaleca się użycie warstwy usług S3 lub wyższej. 
@@ -61,9 +60,8 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ||Podstawowa|Standardowa (Standard)|Premium|
 | :-- | --: | --: | --: |
-| Maksymalny rozmiar magazynu | 2 GB | 1 TB | 4 TB  |
-| Maksymalna DTU | 5 | 3000 | 4000 | 
-|||||
+| **Maksymalny rozmiar magazynu** | 2 GB | 1 TB | 4 TB  |
+| **Maksymalna DTU** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
@@ -72,12 +70,11 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 || **Podstawowa** | **Standardowa** | **Tytułu** |
 | :-- | --: | --: | --: |
-| Maksymalny rozmiar magazynu na bazę danych  | 2 GB | 1 TB | 1 TB |
-| Maksymalny rozmiar magazynu na pulę | 156 GB | 4 TB | 4 TB |
-| Maksymalna liczba jednostek eDTU na bazę danych | 5 | 3000 | 4000 |
-| Maksymalna liczba jednostek eDTU na pulę | 1600 | 3000 | 4000 |
-| Maksymalna liczba baz danych na pulę | 500  | 500 | 100 |
-|||||
+| **Maksymalny rozmiar magazynu na bazę danych**  | 2 GB | 1 TB | 1 TB |
+| **Maksymalny rozmiar magazynu na pulę** | 156 GB | 4 TB | 4 TB |
+| **Maksymalna liczba jednostek eDTU na bazę danych** | 5 | 3000 | 4000 |
+| **Maksymalna liczba jednostek eDTU na pulę** | 1600 | 3000 | 4000 |
+| **Maksymalna liczba baz danych na pulę** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystkich regionach z wyjątkiem: Chiny Wschodnie, Chiny Północne, Niemcy środkowe, Niemcy północno-zachodnie stany USA, regiony US DoD oraz centralne stany USA. W tych regionach maksymalna wielkość magazynu w warstwie Premium jest ograniczona do 1 TB.  Aby uzyskać więcej informacji, zobacz [bieżące ograniczenia poziomów P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  

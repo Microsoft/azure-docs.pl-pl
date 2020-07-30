@@ -3,12 +3,12 @@ title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118838"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385725"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -29,30 +29,30 @@ Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-supp
 
 Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych funkcji Hyper-V, a nawet do 1000 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej maszyn, zapoznaj się [z tematem skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)lub [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
 
-## <a name="how-do-i-choose-the-assessment-type"></a>Jak mogę wybrać typ oceny?
+## <a name="how-do-i-choose-the-assessment-type"></a>Jak wybrać typ oceny?
 
 - Korzystając z **ocen maszyn wirtualnych platformy Azure** , można ocenić lokalne [maszyny wirtualne programu VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na maszyny wirtualne platformy Azure. [Więcej informacji](concepts-assessment-calculation.md)
 
 - Korzystając z funkcji oceny **rozwiązań VMware firmy Azure (Automatyczna synchronizacja)** , możesz ocenić swoje lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md) przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
-- Grupy wspólnej można używać tylko z maszynami VMware do uruchamiania obu typów ocen. Należy pamiętać, że jeśli używasz ocen automatycznej synchronizacji w Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
+- Grupy wspólnej można używać z maszynami VMware tylko do uruchamiania obu typów ocen. Jeśli używasz ocen usługi AVS w usłudze Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Nie widzę niektórych grup podczas tworzenia rozwiązania Azure VMware (Automatyczna synchronizacja)
 
-- Ocenę wersji zaautomatycznej można przeprowadzić w grupach, które mają tylko maszyny wirtualne. Jeśli zamierzasz przeprowadzić ocenę automatycznej synchronizacji, Usuń z grupy wszystkie maszyny spoza programu VMware.
-- Jeśli używasz ocen automatycznej synchronizacji w Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
+- Ocenę usługi AVS można przeprowadzić w grupach, które mają tylko maszyny VMware. Jeśli zamierzasz przeprowadzić ocenę usługi AVS, usuń z grupy wszystkie maszyny inne niż VMware.
+- Jeśli używasz ocen usługi AVS w usłudze Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
 
 ## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Jak mogę wybrać poziom FTT-RAID w ocenie automatycznej synchronizacji?
 
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielenia magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. Zasady magazynu vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
 
-**Niepowodzenia do tolerowania (FTT)** | **Konfiguracja RAID** | **Minimalna wymagana ilość hostów** | **Uwzględnianie wielkości**
+**Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru**
 --- | --- | --- | --- 
 1 | RAID-1 (dublowanie) | 3 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 200 GB.
-1 | RAID-5 (Wymazywanie kodowania) | 4 | Maszyna wirtualna 100 GB zużywa 133.33 GB
-2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna 100 GB zużywa 300 GB.
-2 | RAID-6 (Wymazywanie kodowania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 150 GB.
-3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna 100 GB zużywa 400 GB.
+1 | RAID-5 (kodowanie wymazywania) | 4 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 133,33 GB
+2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 300 GB.
+2 | RAID-6 (kodowanie wymazywania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 150 GB.
+3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Nie widzę niektórych typów maszyn wirtualnych w Azure Government
 
@@ -113,7 +113,7 @@ Oparte na imporcie oceny maszyn wirtualnych platformy Azure są ocenami utworzon
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Dlaczego sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie zostało oznaczone jako nieznane?
 
-W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania VMWare hybryd Cloud Extension (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania VMware hybryd Cloud Extension (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>Co to jest Wizualizacja zależności?

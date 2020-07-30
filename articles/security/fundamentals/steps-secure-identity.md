@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084379"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386150"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -35,7 +35,7 @@ Ta lista kontrolna ułatwi szybkie wdrożenie krytycznych zalecanych akcji w cel
 Upewnij się, że śledzisz, które funkcje i kroki są kompletne podczas odczytywania tej listy kontrolnej.
 
 > [!NOTE]
-> Wiele zaleceń zawartych w tym dokumencie dotyczy tylko aplikacji skonfigurowanych do korzystania z Azure Active Directory jako ich dostawcy tożsamości. Skonfigurowanie aplikacji do logowania jednokrotnego zapewnia korzyści wynikające z zasad poświadczeń, wykrywania zagrożeń, inspekcji, rejestrowania i innych funkcji. [Logowanie jednokrotne za pośrednictwem Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) jest podstawą, na której bazują wszystkie te zalecenia.
+> Wiele zaleceń zawartych w tym dokumencie dotyczy tylko aplikacji skonfigurowanych do korzystania z Azure Active Directory jako ich dostawcy tożsamości. Skonfigurowanie aplikacji do logowania jednokrotnego zapewnia korzyści wynikające z zasad poświadczeń, wykrywania zagrożeń, inspekcji, rejestrowania i innych funkcji. [Zarządzanie aplikacjami w usłudze Azure AD](../../active-directory/manage-apps/what-is-application-management.md) to podstawa, na której bazują wszystkie te zalecenia.
 
 Zalecenia zawarte w tym dokumencie są wyrównane z [wynikiem bezpiecznego tożsamości](../../active-directory/fundamentals/identity-secure-score.md), zautomatyzowanej oceny konfiguracji zabezpieczeń tożsamości dzierżawy usługi Azure AD. Organizacje mogą używać strony oceny zabezpieczeń tożsamości w portalu usługi Azure AD, aby znaleźć luki w ich bieżącej konfiguracji, aby upewnić się, że są one zgodne z bieżącymi [najlepszymi rozwiązaniami](identity-management-best-practices.md) firmy Microsoft dotyczącymi zabezpieczeń. Zaimplementowanie każdego zalecenia na stronie ze wskaźnikiem zabezpieczeń spowoduje zwiększenie oceny i umożliwi śledzenie postępu, a także ułatwia porównanie implementacji z innymi podobnymi organizacjami wielkości lub branżą.
 

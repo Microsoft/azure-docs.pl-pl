@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282946"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419788"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -69,7 +69,7 @@ Aby włączyć uwierzytelnianie usługi Azure AD dla maszyn wirtualnych z system
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Włączanie logowania za pomocą usługi Azure AD w programie dla maszyn wirtualnych z systemem Windows na platformie Azure
 
-Aby korzystać z logowania za pomocą usługi Azure AD w programie dla maszyny wirtualnej z systemem Windows na platformie Azure, musisz najpierw włączyć opcję logowania usługi Azure AD dla maszyny wirtualnej z systemem Windows, a następnie skonfigurować przypisania ról RBAC dla użytkowników, którzy mają uprawnienia do logowania się do maszyny wirtualnej.
+Aby korzystać z logowania za pomocą usługi Azure AD w programie dla maszyny wirtualnej z systemem Windows na platformie Azure, musisz najpierw włączyć opcję logowania usługi Azure AD dla maszyny wirtualnej z systemem Windows, a następnie skonfigurować przypisania ról platformy Azure dla użytkowników, którzy mają uprawnienia do logowania się do maszyny wirtualnej.
 Istnieje wiele sposobów włączania logowania do usługi Azure AD dla maszyny wirtualnej z systemem Windows:
 
 - Korzystanie z Azure Portal środowiska podczas tworzenia maszyny wirtualnej z systemem Windows

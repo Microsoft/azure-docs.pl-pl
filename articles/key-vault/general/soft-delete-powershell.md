@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2b01d88a097b8b05188242109c27c696be179eb5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282232"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386082"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 
@@ -285,5 +285,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Inne zasoby
 
-- Omówienie funkcji usuwania nietrwałego Key Vault można znaleźć w temacie [Azure Key Vault — Omówienie usuwania nietrwałego](overview-soft-delete.md).
+- Omówienie funkcji usuwania nietrwałego Key Vault można znaleźć w temacie [Azure Key Vault — Omówienie usuwania nietrwałego](soft-delete-overview.md).
 - Ogólne omówienie użycia Azure Key Vault można znaleźć w temacie [co to jest Azure Key Vault?](overview.md)).

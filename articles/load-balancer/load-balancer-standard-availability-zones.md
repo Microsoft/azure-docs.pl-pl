@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027566"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420315"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Usługa Load Balancer w warstwie Standardowa i strefy dostępności
 
@@ -51,7 +51,7 @@ Pojedynczy adres IP frontonu będzie przeżyje awarię strefy. Adres IP frontonu
 Adres IP frontonu jest obsługiwany jednocześnie przez wiele niezależnych wdrożeń infrastruktury w wielu strefach dostępności. Wszelkie ponowne próby lub ponowna próba ponownego ustanowienia zakończą się pomyślnie w innych strefach, których nie dotyczy awaria strefy. 
 
 <p align="center">
-  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network translator adresów sieciowych">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" alt="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration." width="512" title="Virtual Network translator adresów sieciowych">
 </p>
 
 *Ilustracja: moduł równoważenia obciążenia strefowo nadmiarowy*
@@ -64,7 +64,7 @@ Ponadto jest obsługiwane korzystanie z stref frontonów bezpośrednio dla punkt
 
 
 <p align="center">
-  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network translator adresów sieciowych">
+  <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network translator adresów sieciowych">
 </p>
 
 *Rysunek: strefowo nadmiarowy moduł równoważenia obciążenia*

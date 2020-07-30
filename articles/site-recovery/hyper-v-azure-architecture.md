@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134918"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416336"
 ---
-# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z funkcji Hyper-V do platformy Azure
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V to Azure disaster recovery architecture (Architektura odzyskiwania po awarii z maszyn wirtualnych funkcji Hyper-V na platformę Azure)
 
 
 W tym artykule opisano architekturę i procesy używane podczas replikowania, przełączania awaryjnego i odzyskiwania maszyn wirtualnych funkcji Hyper-V między lokalnymi hostami funkcji Hyper-V i platformą Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) .
@@ -30,7 +30,7 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
 **Azure** | Subskrypcja platformy Azure, konto usługi Azure Storage i sieć platformy Azure. | Zreplikowane dane z obciążeń lokalnych maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu replikowanych danych obciążenia, gdy wystąpi tryb failover z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Funkcja Hyper-V** | Podczas wdrażania Site Recovery należy zebrać hosty i klastry funkcji Hyper-V do lokacji funkcji Hyper-V. Na każdym autonomicznym hoście funkcji Hyper-V lub na każdym węźle klastra funkcji Hyper-V należy zainstalować dostawcę Azure Site Recovery i agenta Recovery Services. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
+**Hyper-V** | Podczas wdrażania Site Recovery należy zebrać hosty i klastry funkcji Hyper-V do lokacji funkcji Hyper-V. Na każdym autonomicznym hoście funkcji Hyper-V lub na każdym węźle klastra funkcji Hyper-V należy zainstalować dostawcę Azure Site Recovery i agenta Recovery Services. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
 **Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna działająca w funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
 
 
@@ -55,6 +55,23 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 
 ![Składniki](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## <a name="set-up-outbound-network-connectivity"></a>Konfigurowanie wychodzącej łączności sieciowej
+
+Aby Site Recovery działały zgodnie z oczekiwaniami, należy zmodyfikować wychodzącą łączność sieciową, aby umożliwić replikację danego środowiska.
+
+> [!NOTE]
+> Usługa Site Recovery nie obsługuje sterowania łącznością sieciową za pomocą uwierzytelniającego serwera proxy.
+
+### <a name="outbound-connectivity-for-urls"></a>Połączenia ruchu wychodzącego dla adresów URL
+
+Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na dostęp do tych adresów URL:
+
+| **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
 
 ## <a name="replication-process"></a>Proces replikacji

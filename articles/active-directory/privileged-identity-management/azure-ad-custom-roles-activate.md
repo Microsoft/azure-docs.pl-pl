@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743171"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421165"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktywuj rolę niestandardową usługi Azure AD w Privileged Identity Management
 
@@ -30,7 +30,7 @@ Privileged Identity Management w usłudze Azure Active Directory (Azure AD) obs�
 > [!NOTE]
 > Role niestandardowe usługi Azure AD nie są zintegrowane z wbudowanymi rolami katalogu w wersji zapoznawczej. Gdy funkcja jest ogólnie dostępna, zarządzanie rolami będzie odbywać się w interfejsie wbudowanym. Jeśli zobaczysz poniższy transparent, te role powinny być zarządzane [przy użyciu wbudowanej roli środowisko](pim-how-to-activate-role.md) i ten artykuł nie ma zastosowania:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> :::image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Wybierz pozycję Privileged Identity Management w usłudze Azure AD." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png":::
 
 ## <a name="activate-a-role"></a>Aktywuj rolę
 
@@ -44,7 +44,7 @@ Gdy musisz aktywować rolę niestandardową usługi Azure AD, Żądaj aktywacji,
    ![Zobacz listę kwalifikujących się przypisań ról niestandardowych usługi Azure AD](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Przed przypisaniem roli należy utworzyć/skonfigurować rolę. Aby uzyskać więcej informacji na temat konfigurowania ról niestandardowych usługi AAD, zobacz [tutaj] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+> Przed przypisaniem roli należy utworzyć/skonfigurować rolę. Aby uzyskać więcej informacji na temat konfigurowania ról niestandardowych usługi AAD, zobacz [Konfigurowanie ról niestandardowych w usłudze Azure AD w Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. Na stronie **role niestandardowe usługi Azure AD (wersja zapoznawcza)** Znajdź wymagane przypisanie.
 1. Wybierz pozycję **Aktywuj rolę** , aby otworzyć stronę **Aktywacja** .

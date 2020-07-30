@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373797"
+ms.locfileid: "87415027"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373797"
 - **C#**: Dodano obsługę transkrypcji konwersacji asynchronicznych. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)znajdziesz dokumentację.  
 - **JavaScript**: dodano obsługę rozpoznawanie osoby mówiącej zarówno dla [przeglądarki](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) , jak i [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Dodano obsługę automatycznego wykrywania języka/identyfikatora języka. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)znajdziesz dokumentację.
-- **Zamierzenie-C**: Dodano obsługę transkrypcji konwersacji i konwersacji na wiele urządzeń. 
+- **Zamierzenie-C**: Dodano obsługę [transkrypcji](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription)konwersacji i konwersacji na [wiele urządzeń](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) . 
 - **Python**: Dodano obsługę kompresji audio dla języka Python w systemach Windows i Linux. [Tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)znajdziesz dokumentację. 
 
 **Poprawki błędów**
 - **Wszystkie**: Rozwiązano problem, który spowodował, że KeywordRecognizer nie przeniesieł strumieni do przodu po rozpoznaniu.
 - **Wszystkie**: Rozwiązano problem, który spowodował, że strumień uzyskany z KeywordRecognitionResult nie zawiera słowa kluczowego.
 - **Wszystko**: Rozwiązano problem polegający na tym, że SendMessageAsync nie wyśle komunikatu przez sieć po zakończeniu oczekiwania przez użytkowników.
-- **Wszystkie**: Naprawiono awarię w interfejsie API rozpoznawanie osoby mówiącej, gdy użytkownicy uruchamiają wiele VoiceProfileClient:: SpeakerRecEnrollProfileAsync i nie oczekują na ich zakończenie.
+- **Wszystkie**: Naprawiono awarię w interfejsie API rozpoznawanie osoby mówiącej, gdy użytkownicy wywołują metodę VoiceProfileClient:: SpeakerRecEnrollProfileAsync wiele razy i nie oczekują na zakończenie wywołań.
 - **Wszystkie**: Naprawiono włączenie rejestrowania plików w klasach VoiceProfileClient i SpeakerRecognizer.
 - **JavaScript**: rozwiązano [problem związany](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) z ograniczaniem, gdy przeglądarka jest zminimalizowana.
 - **JavaScript**: rozwiązano [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) dotyczący przecieku pamięci w strumieniach.
 - **JavaScript**: dodano buforowanie dla odpowiedzi protokołu OCSP z NodeJS.
 - **Java**: Rozwiązano problem, który spowodował, że pola BigInteger zawsze zwracają 0.
-- **iOS**: Naprawiono i [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) z publikowaniem aplikacji opartych na zestawie SDK mowy w sklepie iOS App Store.
+- **iOS**: rozwiązano [problem związany](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) z publikowaniem aplikacji opartych na zestawie mowy SDK w sklepie iOS App Store.
 
 **Samples**
 - **C++**: dodano przykładowy kod dla rozpoznawanie osoby mówiącej w [tym miejscu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).

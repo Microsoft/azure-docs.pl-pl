@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808063"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386286"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Konfigurowanie zakończenia protokołu TLS przy użyciu certyfikatów Key Vault za pomocą Azure PowerShell
 
@@ -73,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Aby zakończenie protokołu TLS działało prawidłowo, należy użyć flagi-EnableSoftDelete. Jeśli skonfigurujesz [Key Vault nietrwałego usuwania za pomocą portalu](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), okres przechowywania musi być utrzymany o 90 dni, wartość domyślna. Application Gateway nie obsługuje jeszcze innego okresu przechowywania. 
+> Aby zakończenie protokołu TLS działało prawidłowo, należy użyć flagi-EnableSoftDelete. Jeśli skonfigurujesz [Key Vault nietrwałego usuwania za pomocą portalu](../key-vault/general/soft-delete-overview.md#soft-delete-behavior), okres przechowywania musi być utrzymany o 90 dni, wartość domyślna. Application Gateway nie obsługuje jeszcze innego okresu przechowywania. 
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 

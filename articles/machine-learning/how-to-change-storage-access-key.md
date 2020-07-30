@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 1cb9600393fe50226da1efcef550cbb8b26f7f14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321602"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387068"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Dowiedz się, jak zmienić klucze dostępu dla kont usługi Azure Storage używa
 Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage. Po ponownym wygenerowaniu klucza dostępu Azure Machine Learning należy zaktualizować, aby użyć nowego klucza. Azure Machine Learning może korzystać z konta magazynu zarówno dla magazynu modelowego, jak i magazynu danych.
 
 > [!IMPORTANT]
-> Poświadczenia registred z magazynami danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli w Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) , pamiętaj, aby postępować zgodnie z tym artykułem dotyczącym aktualizacji poświadczeń. Wyrejestrowanie magazynu danych i ponowne zarejestrowanie go w tej samej nazwie zakończy się niepowodzeniem.
+> Poświadczenia registred z magazynami danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli w Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) , pamiętaj, aby postępować zgodnie z tym artykułem dotyczącym aktualizacji poświadczeń. Wyrejestrowanie magazynu danych i ponowne zarejestrowanie go w tej samej nazwie zakończy się niepowodzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

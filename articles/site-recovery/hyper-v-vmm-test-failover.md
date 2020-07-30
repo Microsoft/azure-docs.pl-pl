@@ -1,18 +1,18 @@
 ---
 title: Uruchom przechodzenie do szczegółów odzyskiwania po awarii NHyper-V do lokacji dodatkowej za pomocą Azure Site Recovery
 description: Dowiedz się, jak uruchomić przechodzenie po awarii dla maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do dodatkowego lokalnego centrum danych przy użyciu Azure Site Recovery.
-author: rajani-janaki-ram
-manager: rochakm
+author: sideeksh
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076077"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420417"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Wykonaj drążenie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 

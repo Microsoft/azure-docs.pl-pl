@@ -3,12 +3,12 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do punktu końcowego 
 description: 'Szybki Start: używanie Azure Event Grid i Azure Portal do publikowania tematu niestandardowego oraz subskrybowanie zdarzeń dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115234"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421046"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web przy użyciu Azure Portal i Event Grid
 
@@ -31,7 +31,7 @@ Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końc
 
     :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Dodaj przycisk tematu Event Grid":::
 4. Na stronie **Tworzenie tematu** wykonaj następujące kroki:
-    1. Wybierz swoją **subskrypcję** platformy Azure.
+    1. Wybierz swoją **subskrypcję**platformy Azure.
     2. Wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**, a następnie wprowadź **nazwę** **grupy zasobów**.
     3. Podaj unikatową **nazwę** tematu niestandardowego. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. Nie należy używać nazwy widocznej na obrazie. Zamiast tego utwórz własną nazwę — musi mieć od 3 do 50 znaków i może zawierać wyłącznie wartości a–z, A–Z, 0–9 i „-”.
     4. Wybierz **lokalizację** tematu usługi Event Grid.
@@ -44,7 +44,8 @@ Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końc
 5. Po pomyślnym wdrożeniu wpisz ponownie **tematy Event Grid** na pasku wyszukiwania, a następnie wybierz pozycję **Event Grid tematy** z listy rozwijanej tak jak wcześniej. 
 6. Wybierz utworzony przez Ciebie temat z listy. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Wybierz swój temat z listy":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Wybierz swój temat z listy":::
+
 7. Zostanie wyświetlona strona **tematu Event Grid** tematu. Pozostaw Tę stronę otwartą. Używasz go później w przewodniku Szybki Start. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Strona główna tematu Event Grid":::
@@ -54,7 +55,7 @@ Przed utworzeniem subskrypcji tematu niestandardowego Utwórz punkt końcowy dla
 
 1. Na stronie artykuł wybierz pozycję **Wdróż na platformie Azure** , aby wdrożyć rozwiązanie w ramach subskrypcji. W witrynie Azure Portal podaj wartości parametrów.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. Wdrożenie może potrwać kilka minut. Po pomyślnym wdrożeniu należy wyświetlić aplikację sieci Web i upewnić się, że jest uruchomiona. W przeglądarce sieci Web przejdź do: `https://<your-site-name>.azurewebsites.net`
 
     Jeśli wdrożenie nie powiedzie się, Sprawdź komunikat o błędzie. Może to być spowodowane faktem, że nazwa witryny sieci Web jest już zajęta. Wdróż ponownie szablon i wybierz inną nazwę lokacji. 
@@ -179,7 +180,7 @@ Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu
 
 :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Przeglądarka Event Grid":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie usuń zasoby utworzone w ramach tego artykułu.
 
 1. W menu po lewej stronie wybierz pozycję **grupy zasobów** . Jeśli nie widzisz go w menu po lewej stronie, wybierz pozycję **wszystkie usługi** w menu po lewej stronie, a następnie wybierz pozycję **grupy zasobów**. 

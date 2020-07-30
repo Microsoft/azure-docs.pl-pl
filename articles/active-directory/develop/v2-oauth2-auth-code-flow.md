@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311351"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419839"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -187,9 +187,9 @@ Pomyślna odpowiedź dotycząca tokenu będzie wyglądać następująco:
 | `access_token`  | Żądany token dostępu. Aplikacja może używać tego tokenu do uwierzytelniania w zabezpieczonym zasobie, takim jak internetowy interfejs API.  |
 | `token_type`    | Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD jest znak |
 | `expires_in`    | Jak długo token dostępu jest prawidłowy (w sekundach). |
-| `scope`         | Zakresy, dla których access_token jest prawidłowa. |
+| `scope`         | Zakresy, dla których access_token jest prawidłowa. Opcjonalne — jest to niestandardowa i w przypadku pominięcia token będzie dotyczyć zakresów żądanych w początkowym etapie przepływu. |
 | `refresh_token` | Token odświeżania OAuth 2,0. Aplikacja może używać tego tokenu, uzyskując dodatkowe tokeny dostępu po wygaśnięciu bieżącego tokenu dostępu. Refresh_tokens są długotrwałe i mogą być używane do przechowywania zasobów przez dłuższy czas. Aby uzyskać więcej informacji na temat odświeżania tokenu dostępu, zapoznaj się z [sekcją poniżej](#refresh-the-access-token). <br> **Uwaga:** Dostępne tylko wtedy, gdy `offline_access` żądany został zakres. |
-| `id_token`      | Token sieci Web JSON (JWT). Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, ale nie należy polegać na nich w przypadku jakichkolwiek ograniczeń autoryzacji lub zabezpieczeń. Aby uzyskać więcej informacji na temat id_tokens, zobacz [`id_token reference`](id-tokens.md) . <br> **Uwaga:** Dostępne tylko wtedy, gdy `openid` żądany został zakres. |
+| `id_token`      | Token sieci Web JSON (JWT). Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, a poufne klienci mogą używać tego do autoryzacji. Aby uzyskać więcej informacji na temat id_tokens, zobacz [`id_token reference`](id-tokens.md) . <br> **Uwaga:** Dostępne tylko wtedy, gdy `openid` żądany został zakres. |
 
 ### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -227,8 +227,9 @@ Odpowiedzi na błędy będą wyglądać następująco:
 | `invalid_client` | Uwierzytelnianie klienta nie powiodło się.  | Poświadczenia klienta są nieprawidłowe. Aby rozwiązać ten problem, administrator aplikacji aktualizuje poświadczenia.   |
 | `unsupported_grant_type` | Serwer autoryzacji nie obsługuje typu przydzielenia autoryzacji. | Zmień typ dotacji w żądaniu. Ten typ błędu powinien wystąpić tylko podczas opracowywania i być wykrywany podczas wstępnego testowania. |
 | `invalid_resource` | Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, usługa Azure AD nie może go odnaleźć lub nie jest poprawnie skonfigurowana. | Wskazuje to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD.  |
-| `interaction_required` | Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Spróbuj ponownie wykonać żądanie przy użyciu tego samego zasobu.  |
-| `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
+| `interaction_required` | Niestandardowa, ponieważ Specyfikacja OIDC jest wywoływana tylko w `/authorize` punkcie końcowym. Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Ponów `/authorize` żądanie z tymi samymi zakresami. |
+| `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Spróbuj ponownie wykonać żądanie po małym opóźnieniu. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
+|`consent_required` | Żądanie wymaga zgody użytkownika. Ten błąd nie jest standardem, ponieważ jest zazwyczaj zwracany tylko w `/authorize` punkcie końcowym dla specyfikacji OIDC. Zwracana, gdy `scope` parametr został użyty w przepływie realizacji kodu, do którego aplikacja kliencka nie ma uprawnień do żądania.  | Klient powinien wysłać użytkownika z powrotem do `/authorize` punktu końcowego z prawidłowym zakresem w celu wyzwolenia zgody. |
 
 > [!NOTE]
 > Aplikacje jednostronicowe mogą otrzymać `invalid_request` błąd wskazujący, że wykup tokenów między źródłami jest dozwolony tylko dla typu klienta jednostronicowej aplikacji.  Oznacza to, że identyfikator URI przekierowania używany do żądania tokenu nie został oznaczony jako `spa` Identyfikator URI przekierowania.  Zapoznaj się z [procedurą rejestracji aplikacji](#redirect-uri-setup-required-for-single-page-apps) dotyczącą włączania tego przepływu.

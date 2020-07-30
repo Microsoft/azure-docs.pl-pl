@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b97edeb34e5d245d3bcf9018399f18b096b56f4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019067"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420502"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -76,7 +76,7 @@ Granica zabezpieczeń tożsamości jest zasobem, do którego jest dołączony. N
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Czy tożsamość zarządzana zostanie automatycznie utworzona, Jeśli przeniesiesz subskrypcję do innego katalogu?
 
-Nie. Jeśli przeniesiesz subskrypcję do innego katalogu, musisz ręcznie je ponownie utworzyć i ponownie udzielić przypisań ról RBAC platformy Azure.
+Nie. Jeśli przeniesiesz subskrypcję do innego katalogu, musisz ręcznie utworzyć ponownie i przydzielić przydziały ról platformy Azure.
 - Dla tożsamości zarządzanych przypisanych przez system: Wyłącz i ponownie włącz. 
 - W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych).
 

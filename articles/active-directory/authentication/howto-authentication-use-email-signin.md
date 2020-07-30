@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223027"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419533"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
 
@@ -158,6 +158,8 @@ W trakcie korzystania z wersji zapoznawczej można obecnie włączyć tylko logo
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+Po zastosowaniu zasad może upłynąć do czasu, aż będzie możliwe zalogowanie się i umożliwienie użytkownikom logowania się przy użyciu alternatywnego identyfikatora logowania.
 
 ## <a name="test-user-sign-in-with-email"></a>Testowanie logowania użytkownika przy użyciu poczty e-mail
 

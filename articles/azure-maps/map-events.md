@@ -49,7 +49,7 @@ Poniższy kod dodaje zdarzenia mapy JavaScript do znacznika HTML. Wyróżnia tak
 
 W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 
-| Wydarzenie               | Opis |
+| Zdarzenie               | Opis |
 |---------------------|-------------|
 | `boxzoomend`        | Uruchamiany po zakończeniu interakcji "pole Powiększ".|
 | `boxzoomstart`      | Uruchamiany po rozpoczęciu interakcji "Box zoom".|

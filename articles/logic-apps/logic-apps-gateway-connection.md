@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370958"
+ms.locfileid: "87386184"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
@@ -52,13 +52,13 @@ Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. J
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Lokalna Brama danych została już zainstalowana na komputerze lokalnym](../logic-apps/logic-apps-gateway-install.md).
+* [Lokalna Brama danych została już zainstalowana na komputerze lokalnym](../logic-apps/logic-apps-gateway-install.md). Ta instalacja bramy musi istnieć, aby można było utworzyć zasób bramy, który łączy się z tą instalacją.
 
-* Masz to [samo konto platformy Azure i subskrypcję](../logic-apps/logic-apps-gateway-install.md#requirements) , które zostały użyte podczas instalacji bramy. To konto platformy Azure musi należeć tylko do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Aby utworzyć zasób bramy na platformie Azure, musisz mieć to samo konto platformy Azure i subskrypcję, ponieważ tylko administrator bramy może utworzyć zasób bramy na platformie Azure. Nazwy główne usług nie są obecnie obsługiwane.
+* Masz to [samo konto platformy Azure i subskrypcję](../logic-apps/logic-apps-gateway-install.md#requirements) , które zostały użyte podczas instalacji bramy. To konto platformy Azure musi należeć tylko do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Musisz użyć tego samego konta platformy Azure i subskrypcji, aby utworzyć zasób bramy na platformie Azure, ponieważ tylko administrator bramy może utworzyć zasób bramy na platformie Azure. Nazwy główne usług nie są obecnie obsługiwane.
 
-  * Podczas tworzenia zasobu bramy na platformie Azure należy wybrać instalację bramy do użycia z zasobem bramy i tylko do tego zasobu bramy. Każdy zasób bramy może łączyć się tylko z jedną instalacją bramy, która może łączyć się tylko z jednym kontem i subskrypcją platformy Azure. Dlatego nie można wybrać instalacji bramy, która jest już skojarzona z innym zasobem bramy.
+  * Podczas tworzenia zasobu bramy na platformie Azure należy wybrać instalację bramy, aby połączyć się z zasobem bramy i tylko z tym zasobem bramy. Każdy zasób bramy może łączyć się tylko z jedną instalacją bramy. Nie można wybrać instalacji bramy, która jest już skojarzona z innym zasobem bramy.
   
-  * Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure. Pod warunkiem, że masz dostęp do subskrypcji, w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych, możesz wybrać różne subskrypcje platformy Azure, które są skojarzone z innym zasobem bramy.
+  * Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure. Pod warunkiem, że masz dostęp do subskrypcji, w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych, możesz wybrać inne subskrypcje platformy Azure, które mają zasoby bramy.
 
 <a name="create-gateway-resource"></a>
 

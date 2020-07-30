@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ecc34b84e5be2d0470cc5a58a71a70e9ffcab1b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052547"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387357"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Monitorowanie aplikacji Apache Spark przy użyciu programu Synapse Studio
 
@@ -39,7 +39,7 @@ Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnion
 
 ## <a name="monitor-running-apache-spark-application"></a>Monitoruj uruchomioną aplikację Apache Spark
 
-Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące uruchomionych Apache Spark aplikacji, wybierz aplikację przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
+Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące Apache Spark działających aplikacji, wybierz aplikację do przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
 
   ![Wybierz uruchomione zadanie](./media/how-to-monitor-spark-applications/select-running-job.png)
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 78f5a34b64736808ac03771dcd8b5380482ab341
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089788"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419856"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
 
@@ -35,7 +35,8 @@ Na tej stronie zawarto informacje na temat sposobu dołączania JIT do programu 
 - Cennik: **warstwa standardowa**. [Dowiedz się więcej o cenach](/azure/security-center/security-center-pricing).
 - Wymagane role i uprawnienia:
     - Role **Reader** i **SecurityReader** mogą wyświetlać stan i parametry JIT.
-    - Aby utworzyć role niestandardowe, które mogą korzystać z JIT, zobacz [jakie uprawnienia są potrzebne do skonfigurowania i użycia JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).
+    - Aby utworzyć role niestandardowe, które mogą korzystać z JIT, zobacz [jakie uprawnienia są potrzebne do konfigurowania i używania JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
+    - Aby utworzyć rolę najniższych uprawnień dla użytkowników, którzy muszą zażądać dostępu JIT do maszyny wirtualnej i wykonać inne operacje JIT, użyj [skryptu Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) ze stron społeczności usługi GitHub Security Center.
 - Obsługiwane maszyny wirtualne: 
     - ✔ Maszyny wirtualne wdrożone za pośrednictwem Azure Resource Manager.
     - Maszyny wirtualne ✘ wdrożone przy użyciu klasycznych modeli wdrażania. [Dowiedz się więcej na temat tych modeli wdrażania](../azure-resource-manager/management/deployment-models.md).

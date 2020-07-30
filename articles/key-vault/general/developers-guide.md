@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090539"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386218"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -122,7 +122,7 @@ W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają 
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault przeglądy i koncepcje
 
-- [Key Vault zachowanie podczas usuwania nietrwałego](overview-soft-delete.md)) opisuje funkcję, która umożliwia Odzyskiwanie usuniętych obiektów, czy usunięcie było przypadkowe lub zamierzone.
+- [Key Vault zachowanie podczas usuwania nietrwałego](soft-delete-overview.md)) opisuje funkcję, która umożliwia Odzyskiwanie usuniętych obiektów, czy usunięcie było przypadkowe lub zamierzone.
 - [Key Vault ograniczanie klientów](overview-throttling.md) ukierunkowane na podstawowe koncepcje ograniczania i oferuje podejście do aplikacji.
 - [Informacje o kluczach konta usługi Key Vault Storage](../secrets/overview-storage-keys.md)) Opisuje Key Vault integracji kluczy kont usługi Azure Storage.
 - [Key Vault światy zabezpieczeń](overview-security-worlds.md) opisuje relacje między regionami i obszarami zabezpieczeń.

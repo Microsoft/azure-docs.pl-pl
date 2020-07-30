@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223044"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419601"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
@@ -22,7 +22,7 @@ Aby ułatwić zrozumienie stanu domeny zarządzanej Azure Active Directory Domai
 
 W tym artykule pokazano, jak używać skoroszytów Azure Monitor do przeglądania zdarzeń inspekcji zabezpieczeń w usłudze Azure AD DS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -75,7 +75,7 @@ Aby uzyskać dostęp do szablonu skoroszytu dla raportu Przegląd zabezpieczeń,
 
 1. Dolna część raportu Omówienie zabezpieczeń poniżej wykresu powoduje przerwanie działania wybranego typu. Można filtrować według nazw użytkowników związanych z prawą stroną, jak pokazano w poniższym przykładzie raportu:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Szczegóły blokad kont w skoroszytach Azure Monitor.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Użyj skoroszytu raportu aktywności konta
 
@@ -93,7 +93,7 @@ Aby uzyskać dostęp do szablonu skoroszytu dla raportu aktywność konta, wykon
 
     Można filtrować według **nazwy użytkownika konta**, takiej jak *Felix*, jak pokazano w poniższym przykładowym raporcie:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Raport aktywności konta w skoroszytach Azure Monitor.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     Obszar poniżej wykresu pokazuje poszczególne zdarzenia logowania wraz z informacjami, takimi jak wynik działania i źródłowa stacja robocza. Te informacje mogą pomóc w ustaleniu powtarzających się źródeł zdarzeń logowania, które mogą powodować blokowanie kont lub wskazywać potencjalny atak.
 

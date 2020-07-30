@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981332"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387136"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia platformy Azure: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transp
 - Utwórz Azure Key Vault i klucz do użycia dla TDE.
   - [Instrukcje dotyczące korzystania z sprzętowego modułu zabezpieczeń (HSM) i Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - Magazyn kluczy musi mieć następującą właściwość, która ma być używana dla TDE:
-  - Ochrona przed [usuwaniem](../../key-vault/general/overview-soft-delete.md) i przeczyszczaniem
+  - Ochrona przed [usuwaniem](../../key-vault/general/soft-delete-overview.md) i przeczyszczaniem
 - Klucz musi mieć następujące atrybuty, aby można było używać go dla TDE:
   - Brak daty wygaśnięcia
   - Niewyłączone

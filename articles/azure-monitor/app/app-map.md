@@ -3,14 +3,13 @@ title: Mapa aplikacji na platformie Azure Application Insights | Microsoft Docs
 description: Monitorowanie złożonych topologii aplikacji za pomocą mapy aplikacji
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367014"
+ms.locfileid: "87421301"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa aplikacji: Klasyfikacja aplikacje rozproszone
 
@@ -82,9 +81,12 @@ Aby wyświetlić aktywne alerty i podstawowe reguły, które powodują wyzwoleni
 
 ![Zrzut ekranu przedstawiający środowisko analizy](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Ustaw nazwę roli w chmurze
+## <a name="set-or-override-cloud-role-name"></a>Ustawianie lub zastępowanie nazwy roli w chmurze
 
-Mapa aplikacji używa właściwości **Nazwa roli chmury** , aby zidentyfikować składniki na mapie. Zestaw Application Insights SDK automatycznie dodaje właściwość Nazwa roli chmury do telemetrii emitowanej przez składniki. Na przykład zestaw SDK doda nazwę witryny sieci Web lub nazwę roli usługi do właściwości Nazwa roli chmury. Istnieją jednak przypadki, w których można zastąpić wartość domyślną. Aby zastąpić nazwę roli chmury i zmienić zawartość wyświetlaną na mapie aplikacji:
+Mapa aplikacji używa właściwości **Nazwa roli chmury** , aby zidentyfikować składniki na mapie. Aby ręcznie ustawić lub zastąpić nazwę roli w chmurze i zmienić zawartość wyświetlaną na mapie aplikacji:
+
+> [!NOTE]
+> Zestaw Application Insights SDK lub agent automatycznie dodaje właściwość Nazwa roli chmury do telemetrii emitowanej przez składniki w środowisku Azure App Service.
 
 # <a name="netnetcore"></a>[.NET/. Core](#tab/net)
 
@@ -266,7 +268,7 @@ Jeśli masz problemy z uzyskaniem działania mapy aplikacji zgodnie z oczekiwani
 
 3. Jeśli używasz Azure Functions w języku C#, Uaktualnij do [funkcji w wersji 2](../../azure-functions/functions-versions.md).
 
-4. Upewnij się, że [Nazwa roli w chmurze](#set-cloud-role-name) została prawidłowo skonfigurowana.
+4. Upewnij się, że [Nazwa roli w chmurze](#set-or-override-cloud-role-name) została prawidłowo skonfigurowana.
 
 5. Jeśli brakuje zależności, upewnij się, że znajduje się ona na liście [automatycznie zebranych zależności](./auto-collect-dependencies.md). W przeciwnym razie możesz w dalszym ciągu śledzić ją ręcznie przy użyciu [wywołania zależności śledzenia](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Aby rozwiązać ten problem, należy zmienić instrumentację, aby prawidłowo u
 
 * Typ zależności powinien reprezentować typ logiczny zależności. Na przykład, HTTP, SQL lub Azure Blob są typowymi typami zależności. Nie powinien zawierać unikatowych identyfikatorów.
 
-* W [powyższej sekcji](#set-cloud-role-name)opisano przeznaczenie nazwy roli w chmurze.
+* W [powyższej sekcji](#set-or-override-cloud-role-name)opisano przeznaczenie nazwy roli w chmurze.
 
 ## <a name="portal-feedback"></a>Opinie portalu
 

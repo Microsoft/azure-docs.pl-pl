@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809189"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420910"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa
 
@@ -39,8 +39,8 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie mas
 
 1. W portalu kliknij pozycję **grupy zasobów**.
 2. Wybierz **\<resource-group-name>** lokalizację modułu równoważenia obciążenia.
-3. Wybierz moduł równoważenia obciążenia.
-4. Wybierz pozycję **monitorowanie**  >  **ustawień diagnostycznych**.
+3. Wybierz swój moduł równoważenia obciążenia.
+4. Wybierz **Activity log**pozycję  >  **Ustawienia diagnostyczne**dziennika aktywności.
 5. W okienku **Ustawienia diagnostyki** w obszarze **Ustawienia diagnostyki**wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
 6. W okienku tworzenie **ustawień diagnostycznych** wprowadź **MyLBDiagnostics** w polu **Nazwa** .
 7. Dla **ustawień diagnostycznych**dostępne są trzy opcje.  Można wybrać jeden, dwa lub wszystkie trzy i skonfigurować każdy z nich w celu spełnienia wymagań:

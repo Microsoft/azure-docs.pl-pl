@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550481"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419567"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i Zezwalanie użytkownikom na uwierzytelnianie SMS przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób włączania uwierzytelniania opartego na programi
 > [!NOTE]
 > Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -65,7 +65,7 @@ Najpierw Włącz uwierzytelnianie SMS dla dzierżawy usługi Azure AD.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W menu nawigacji po lewej stronie okna Azure Active Directory wybierz pozycję **zabezpieczenia > metody uwierzytelniania > zasady metod uwierzytelniania (wersja zapoznawcza)**.
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![W obszarze Azure Portal przejdź do okna i wybierz pozycję Zasady metod uwierzytelniania (wersja zapoznawcza).](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. Z listy dostępnych metod uwierzytelniania wybierz pozycję **wiadomość tekstowa**.
 1. Ustaw opcję **Włącz** na *wartość tak*.
@@ -81,7 +81,7 @@ Korzystając z uwierzytelniania opartego na programie SMS w dzierżawie usługi 
 1. W oknie zasady uwierzytelniania wiadomości tekstowych ustaw opcję **cel** na *Wybierz użytkowników*.
 1. Wybierz opcję **dodania użytkowników lub grup**, a następnie wybierz użytkownika lub grupę testową, na przykład użytkowników *contoso* lub *contoso SMS*.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Wybierz pozycję Użytkownicy lub grupy, aby włączyć uwierzytelnianie oparte na programie SMS w Azure Portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. Po wybraniu użytkowników lub grup wybierz pozycję **Wybierz**, a następnie **Zapisz** zaktualizowane zasady metody uwierzytelniania.
 

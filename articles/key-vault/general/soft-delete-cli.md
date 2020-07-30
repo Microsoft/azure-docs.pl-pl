@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202020"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385742"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia
 
@@ -245,6 +245,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Inne zasoby
 
-- Omówienie funkcji usuwania nietrwałego Key Vault można znaleźć w temacie [Azure Key Vault — Omówienie usuwania nietrwałego](overview-soft-delete.md).
+- Omówienie funkcji usuwania nietrwałego Key Vault można znaleźć w temacie [Azure Key Vault — Omówienie usuwania nietrwałego](soft-delete-overview.md).
 - Ogólne omówienie użycia Azure Key Vault można znaleźć w temacie [co to jest Azure Key Vault?](overview.md)).
 

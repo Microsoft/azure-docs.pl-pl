@@ -1,16 +1,16 @@
 ---
 title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków platformy Azure
 description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287957"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421109"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrowanie Event Hubs platformy Azure z prywatnym łączem platformy Azure
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs za pośrednictwem prywatnych punktów końcowych 
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
 
 Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
@@ -42,7 +42,7 @@ Aby zintegrować Event Hubs przestrzeń nazw z linkiem prywatnym platformy Azure
 
 - Przestrzeń nazw Event Hubs.
 - Sieć wirtualna platformy Azure.
-- Podsieć w sieci wirtualnej.
+- Podsieć w sieci wirtualnej. Możesz użyć podsieci **domyślnej** . 
 - Uprawnienia właściciela lub współautora dla przestrzeni nazw i sieci wirtualnej.
 
 Prywatny punkt końcowy i Sieć wirtualna muszą znajdować się w tym samym regionie. W przypadku wybrania regionu dla prywatnego punktu końcowego przy użyciu portalu program automatycznie odfiltruje tylko te sieci wirtualne, które znajdują się w tym regionie. Przestrzeń nazw może znajdować się w innym regionie.
@@ -55,10 +55,15 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
-4. Wybierz kartę **Sieć** w obszarze **Ustawienia**.
+4. Wybierz pozycję **Sieć** w obszarze **Ustawienia** w menu po lewej stronie.
 
     > [!NOTE]
     > Karta **Sieć** jest wyświetlana tylko dla **standardowych** lub **dedykowanych** przestrzeni nazw. 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Karta sieci — opcja wybrane sieci" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie określisz reguły zapory IP lub nie dodasz sieci wirtualnej, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet. 
 1. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. 
 1. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 

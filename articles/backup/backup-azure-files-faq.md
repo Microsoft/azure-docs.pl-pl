@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054968"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382716"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -34,13 +34,13 @@ Tak. Ochrona udziałów plików platformy Azure połączonych z grupami synchron
 
 Podczas próby utworzenia kopii zapasowej, wybranie konta magazynu w celu odnalezienia udziałów plików w nim spowoduje zarejestrowanie konta magazynu w magazynie, z którego to zrobiono. W przypadku wybrania opcji ochrony udziałów plików przy użyciu innego magazynu [Wyrejestruj](manage-afs-backup.md#unregister-a-storage-account) wybrane konto magazynu z tego magazynu.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Dlaczego nie mogę zmienić magazynu w celu skonfigurowania kopii zapasowej udziału plików?
+
+Jeśli konto magazynu jest już zarejestrowane w magazynie lub inne udziały plików na koncie magazynu są chronione za pomocą magazynu, nie ma możliwości jego zmiany, ponieważ wszystkie udziały plików na koncie magazynu mogą być chronione tylko przez ten sam magazyn. W przypadku zmiany magazynu należy [zatrzymać ochronę wszystkich udziałów plików na koncie magazynu](manage-afs-backup.md#stop-protection-on-a-file-share) z połączonego magazynu, [wyrejestrować](manage-afs-backup.md#unregister-a-storage-account) konto magazynu, a następnie wybrać inny magazyn do ochrony.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Czy mogę zmienić magazyn, do którego należy utworzyć kopię zapasową moich udziałów plików?
 
 Tak. Należy jednak [zatrzymać ochronę udziału plików](manage-afs-backup.md#stop-protection-on-a-file-share) z połączonego magazynu, [wyrejestrować](manage-afs-backup.md#unregister-a-storage-account) to konto magazynu, a następnie chronić je w innym magazynie.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Ile udziałów plików platformy Azure można chronić w magazynie?
-
-Udziały plików platformy Azure można chronić z maksymalnie 50 kont magazynu na magazyn. Maksymalna liczba udziałów plików platformy Azure w jednym magazynie wynosi 200.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Czy można chronić dwa różne udziały plików z poziomu tego samego konta usługi Storage w różnych magazynach?
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83872989"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386762"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Zalecenia dotyczące zabezpieczeń dla usługi Azure Key Vault
 
@@ -30,7 +30,7 @@ Niektóre zalecenia zawarte w tym artykule mogą być automatycznie monitorowane
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-|Włącz usuwanie nietrwałe | Funkcja [usuwania nietrwałego](overview-soft-delete.md) umożliwia odzyskanie usuniętych magazynów i obiektów magazynu |  - |
+|Włącz usuwanie nietrwałe | Funkcja [usuwania nietrwałego](soft-delete-overview.md) umożliwia odzyskanie usuniętych magazynów i obiektów magazynu |  - |
 | Ograniczanie dostępu do danych magazynu  | Stosuj zasadę najniższych uprawnień i Ogranicz, którzy członkowie organizacji mają dostęp do danych magazynu |  - |
 
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem

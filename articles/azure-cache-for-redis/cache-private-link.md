@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421658"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (wersja zapoznawcza)
 Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. 
 
 W tym artykule opisano sposób tworzenia pamięci podręcznej platformy Azure, sieci wirtualnej platformy Azure i prywatnego punktu końcowego przy użyciu Azure Portal.  
 
+> [!IMPORTANT]
+> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure. 
+> 
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Ta funkcja jest obecnie dostępna w wersji zapoznawczej — [skontaktuj się z nami](mailto:azurecache@microsoft.com) , jeśli chcesz.
-  >
-
+> Ta funkcja jest obecnie dostępna w wersji zapoznawczej — [skontaktuj się z nami](mailto:azurecache@microsoft.com) , jeśli chcesz.
+>
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. 
@@ -45,7 +48,7 @@ W tym artykule opisano sposób tworzenia pamięci podręcznej platformy Azure, s
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
    | **Warstwa cenowa** | Lista rozwijana i wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
    
-1. Wybierz przycisk **Utwórz**. 
+1. Wybierz pozycję **Utwórz**. 
    
     :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Utwórz pamięć podręczną platformy Azure dla Redis.":::
    
@@ -97,7 +100,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 9. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-10. Wybierz przycisk **Utwórz**.
+10. Wybierz pozycję **Utwórz**.
 
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 

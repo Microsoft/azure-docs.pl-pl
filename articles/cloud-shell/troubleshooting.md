@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189466"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421743"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Rozwiązywanie problemów & ograniczenia Azure Cloud Shell
 
@@ -141,26 +141,6 @@ Należy zachować ostrożność podczas edytowania. bashrc, co może spowodować
 ### <a name="preview-version-of-azuread-module"></a>Wersja zapoznawcza modułu AzureAD
 
 Obecnie `AzureAD.Standard.Preview` dostępna jest wersja zapoznawcza modułu opartego na .NET Standard. Ten moduł zapewnia te same funkcje co `AzureAD` .
-
-### <a name="sqlserver-module-functionality"></a>`SqlServer`funkcje modułu
-
-`SqlServer`Moduł zawarty w Cloud Shell ma tylko wstępne wsparcie dla programu PowerShell Core. W szczególności `Invoke-SqlCmd` nie jest jeszcze dostępna.
-
-### <a name="default-file-location-when-created-from-azure-drive"></a>Domyślna lokalizacja pliku podczas tworzenia z dysku platformy Azure
-
-Przy użyciu poleceń cmdlet programu PowerShell użytkownicy nie mogą tworzyć plików na dysku platformy Azure. Gdy użytkownicy tworzą nowe pliki przy użyciu innych narzędzi, takich jak vim lub nano, pliki są zapisywane `$HOME` domyślnie.
-
-### <a name="tab-completion-can-throw-psreadline-exception"></a>Ukończenie karty może zgłosić wyjątek PSReadline
-
-Jeśli użytkownik PSReadline EditMode ma ustawioną wartość Emacs:, użytkownik próbuje wyświetlić wszystkie możliwości za pośrednictwem karty, a rozmiar okna jest zbyt mały, aby wyświetlić wszystkie możliwości, PSReadline zgłosi nieobsłużony wyjątek.
-
-### <a name="large-gap-after-displaying-progress-bar"></a>Duża przerwa po wyświetleniu paska postępu
-
-Jeśli akcja polecenia lub użytkownika wyświetla pasek postępu, na przykład kartę kończącą się na `Azure:` dysku, możliwe jest, że kursor nie jest prawidłowo ustawiony i pojawia się przerwy, w której pasek postępu był wcześniej.
-
-### <a name="random-characters-appear-inline"></a>Znaki losowe pojawiają się w tekście
-
-Kody sekwencji położenia kursora, na przykład `5;13R` , mogą pojawić się w danych wejściowych użytkownika. Znaki można usunąć ręcznie.
 
 ## <a name="personal-data-in-cloud-shell"></a>Dane osobowe w Cloud Shell
 

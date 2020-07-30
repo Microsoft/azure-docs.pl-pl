@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055209"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386014"
 ---
 # <a name="what-is-application-management"></a>Co to jest zarządzanie aplikacjami?
 
@@ -63,7 +63,7 @@ Istnieją cztery główne typy aplikacji, które można dodać do **aplikacji dl
 
 - **Aplikacje niestandardowe** — podczas tworzenia własnych aplikacji biznesowych możesz zintegrować je z usługą Azure AD, aby obsługiwać Logowanie jednokrotne. Rejestrując aplikację w usłudze Azure AD, masz kontrolę nad zasadami uwierzytelniania aplikacji. Aby uzyskać więcej informacji, zobacz [wskazówki dla deweloperów](developer-guidance-for-integrating-applications.md).
 
-- **Aplikacje spoza galerii** — przenoszenie własnych aplikacji Obsługa logowania jednokrotnego dla innych aplikacji przez dodanie ich do usługi Azure AD. Istnieje wiele sposobów integrowania aplikacji, ale niektóre z nich wymieniono poniżej. Aby uzyskać więcej informacji, zobacz [Konfigurowanie logowania jednokrotnego dla aplikacji spoza galerii](configure-single-sign-on-non-gallery-applications.md).
+- **Aplikacje spoza galerii** — przenoszenie własnych aplikacji Obsługa logowania jednokrotnego dla innych aplikacji przez dodanie ich do usługi Azure AD. Istnieje wiele sposobów integrowania aplikacji, ale niektóre z nich wymieniono poniżej. Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołu SAML logowania](configure-saml-single-sign-on.md)jednokrotnego.
 
 >[!TIP]
 >Usługę Azure AD można zintegrować z aplikacją, nawet jeśli nie została jeszcze wstępnie skonfigurowana i w galerii aplikacji. **Usługę Azure AD można zintegrować z dowolną** z następujących czynności:
@@ -93,8 +93,6 @@ W przypadku aplikacji przeznaczonych dla ludzkich zasobów lub innych aplikacji 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie aplikacji już skonfigurowanych w dzierżawie usługi Azure AD](view-applications-portal.md)
-- [Szybki Start: Dodawanie aplikacji galerii do dzierżawy usługi Azure AD](add-application-portal.md)
-- [Dodawanie aplikacji galerii do organizacji usługi Azure AD](add-gallery-app.md)
+- [Przewodnik Szybki Start dotyczący zarządzania aplikacjami w usłudze Azure AD](view-applications-portal.md)
 - [Wprowadzenie do integracji aplikacji](plan-an-application-integration.md)
 - [Dowiedz się, jak zautomatyzować Inicjowanie obsługi administracyjnej](../app-provisioning/user-provisioning.md)

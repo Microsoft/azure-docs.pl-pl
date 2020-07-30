@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d31240cad709a156d7235f116c9cd2c8fb698b03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840557"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421148"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Uprawnienia kontroli dostępu opartej na rolach wymagane do korzystania z funkcji Network Watcher
 
@@ -67,13 +67,13 @@ Kontrola dostępu oparta na rolach (RBAC) na platformie Azure umożliwia przypis
 | Microsoft. Network/networkWatchers/packetCaptures/Write              | Tworzenie przechwycenia pakietu                                        |
 | Microsoft. Network/networkWatchers/packetCaptures/Delete             | Usuwanie przechwytywania pakietu                                        |
 
-## <a name="ip-flow-verify"></a>Weryfikowanie przepływu adresów IP
+## <a name="ip-flow-verify"></a>Weryfikacja przepływu adresów IP
 
 | Akcja                                                              | Opis                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft. Network/networkWatchers/ipFlowVerify/akcja               | Weryfikowanie przepływu IP                                              |
 
-## <a name="next-hop"></a>Następny przeskok
+## <a name="next-hop"></a>Narzędzie Następny przeskok
 
 | Akcja                                                              | Opis                                                           |
 | ---------                                                           | -------------                                                  |
@@ -104,7 +104,7 @@ Funkcje Network Watcher wymagają również następujących działań:
 
 | Akcje:                                                           | Opis                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft. Authorization/ \* /Read                                     | Służy do pobierania przypisań ról RBAC i definicji zasad          |
+| Microsoft. Authorization/ \* /Read                                     | Służy do pobierania przypisań ról i definicji zasad platformy Azure          |
 | Microsoft. resources/subscriptions/resourceGroups/Read               | Służy do wyliczania wszystkich grup zasobów w ramach subskrypcji    |
 | Microsoft. Storage/storageAccounts/Read                              | Służy do pobierania właściwości dla określonego konta magazynu   |
 | Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/listKeys/akcja| Służy do pobierania sygnatur dostępu współdzielonego (SAS) umożliwiających [bezpieczny dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) i zapisywanie na koncie magazynu |

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027499"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417934"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
@@ -55,7 +55,7 @@ Wykonaj następujące kroki, aby uzyskać dostęp do strony Azure Portal, na kt�
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
 1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie wybierz pozycję **Użytkownicy**  >  **Wszyscy użytkownicy**.
-1. Wybierz pozycję **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby zobaczyć pełne okno Azure Portal i lokalizację menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Wybierz pozycję **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby wyświetlić okno pełne Azure Portal i lokalizację menu: [ ![ Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Zostanie otwarta nowa strona, która wyświetla stan użytkownika, jak pokazano w poniższym przykładzie.
    ![Zrzut ekranu pokazujący przykładowe informacje o stanie użytkownika dotyczące usługi Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 
@@ -82,7 +82,7 @@ Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powe
 
 * *Włączono*
 * *Enforced (Wymuszony)*
-* *Disabled*  
+* *Wyłączone*  
 
 Nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* . W takim przypadku aplikacje niekorzystające z przeglądarki przestaną działać, ponieważ użytkownik nie przeszedł za pośrednictwem usługi Azure Multi-Factor Authentication Registration i uzyskał [hasło aplikacji](howto-mfa-app-passwords.md).
 

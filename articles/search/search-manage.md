@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371417"
+ms.locfileid: "87421896"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -58,7 +58,7 @@ W przypadku dostępu do punktu końcowego każda osoba mająca dostęp do adresu
 
 Prawa do aparatu aprowizacji usług są udzielane za pomocą przypisań ról. [Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. 
 
-W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról RBAC](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy Azure](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Tworzenie lub usuwanie usługi
 * Skalowanie usługi

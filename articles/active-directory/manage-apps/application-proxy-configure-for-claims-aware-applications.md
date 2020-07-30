@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d465b5900a3c36e6c6b957431b9d6ba56f50a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764863"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386983"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Praca z aplikacjami obsługującymi oświadczenia w serwerze proxy aplikacji
 [Aplikacje obsługujące oświadczenia](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) wykonują przekierowanie do usługi tokenu zabezpieczającego (STS). Usługa STS żąda poświadczeń od użytkownika w programie Exchange dla tokenu, a następnie przekierowuje użytkownika do aplikacji. Istnieje kilka sposobów włączania serwera proxy aplikacji do pracy z tymi przekierowaniami. Ten artykuł służy do konfigurowania wdrożenia aplikacji obsługujących oświadczenia. 
@@ -55,7 +55,6 @@ Jeśli wszystkie wewnętrzne adresy URL aplikacji są w pełni kwalifikowanymi n
    ![Dodaj punkt końcowy — ustaw wartość zaufanego adresu URL — zrzut ekranu](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Następne kroki
-* [Włącz logowanie](configure-single-sign-on-non-gallery-applications.md) jednokrotne dla aplikacji, które nie obsługują oświadczeń
 * [Włącz natywne aplikacje klienckie do współpracy z aplikacjami proxy](application-proxy-configure-native-client-application.md)
 
 

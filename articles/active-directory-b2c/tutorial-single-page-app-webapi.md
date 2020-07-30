@@ -1,26 +1,26 @@
 ---
-title: 'Samouczek: Ochrona internetowego interfejsu API środowiska Node. js przy użyciu Azure AD B2C i udzielanie dostępu do aplikacji jednostronicowej (SPA)'
+title: 'Samouczek: Ochrona Node.js internetowego interfejsu API przy użyciu Azure AD B2C i udzielanie dostępu do aplikacji jednostronicowej (SPA)'
 titleSuffix: Azure AD B2C
-description: W tym samouczku dowiesz się, jak za pomocą programu Active Directory B2C chronić interfejs API sieci Web w języku Node. js i wywoływać go z aplikacji jednostronicowej.
+description: W tym samouczku dowiesz się, jak za pomocą Active Directory B2C chronić Node.js internetowy interfejs API i wywoływać go z aplikacji jednostronicowej.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50524159186987b7a30015c878fa3fac949afc79
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f01ef1a4cf5bc5b805da3dd4d825ef17f81ce53e
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875695"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170195"
 ---
-# <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Ochrona i udzielanie dostępu do internetowego interfejsu API platformy Node. js z aplikacji jednostronicowej przy użyciu Azure AD B2C
+# <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Ochrona i udzielanie dostępu do Node.js internetowego interfejsu API z aplikacji jednostronicowej z Azure AD B2C
 
-W tym samouczku pokazano, jak wywołać interfejs API sieci Web Node. js chronionych przez Azure Active Directory B2C (Azure AD B2C) z aplikacji jednostronicowej.
+W tym samouczku pokazano, jak wywoływać interfejs API sieci Web Node.js chronionych Azure Active Directory B2C (Azure AD B2C) z aplikacji jednostronicowej.
 
 W tym samouczku drugi w serii dwóch części:
 
@@ -50,7 +50,7 @@ Zakresy umożliwiają zarządzanie dostępem do chronionych zasobów. Zakresy s�
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Zapisz wartość w obszarze **zakresy** dla zakresu `demo.read` , który ma być używany w późniejszym kroku podczas konfigurowania aplikacji jednostronicowej. Pełny zakres wartości jest podobny do `https://contosob2c.onmicrosoft.com/api/demo.read`.
+Zapisz wartość w obszarze **zakresy** dla `demo.read` zakresu, który ma być używany w późniejszym kroku podczas konfigurowania aplikacji jednostronicowej. Pełny zakres wartości jest podobny do `https://contosob2c.onmicrosoft.com/api/demo.read` .
 
 ## <a name="grant-permissions"></a>Udzielenie uprawnień
 
@@ -64,9 +64,9 @@ Aplikacja sieci Web na jednej stronie ma teraz przyznane uprawnienia do chronion
 
 ## <a name="configure-the-sample"></a>Konfigurowanie przykładu
 
-Teraz, gdy internetowy interfejs API jest zarejestrowany i zdefiniowane zakresy, skonfiguruj kod internetowego interfejsu API do pracy z dzierżawą Azure AD B2C. W tym samouczku przedstawiono Konfigurowanie przykładowego interfejsu API sieci Web Node. js pobranego z usługi GitHub.
+Teraz, gdy internetowy interfejs API jest zarejestrowany i zdefiniowane zakresy, skonfiguruj kod internetowego interfejsu API do pracy z dzierżawą Azure AD B2C. W tym samouczku zostanie skonfigurowany przykładowy Node.js internetowy interfejs API pobierany z usługi GitHub.
 
-Pobierz archiwum zip lub Sklonuj przykładowy projekt internetowego interfejsu API z usługi GitHub. [ \*](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) Możesz także przejść bezpośrednio do projektu [Azure-Samples/Active-Directory-B2C-JavaScript-NodeJS-WebAPI](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) w witrynie GitHub.
+[Pobierz \* archiwum zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) lub Sklonuj przykładowy projekt internetowego interfejsu API z usługi GitHub. Możesz także przejść bezpośrednio do projektu [Azure-Samples/Active-Directory-B2C-JavaScript-NodeJS-WebAPI](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) w witrynie GitHub.
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
@@ -74,7 +74,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="configure-the-web-api"></a>Konfigurowanie internetowego interfejsu API
 
-1. Otwórz plik *config. js* w edytorze kodu.
+1. Otwórz plik *config.js* w edytorze kodu.
 1. Zmodyfikuj wartości zmiennych w celu odzwierciedlenia wcześniej utworzonej rejestracji aplikacji. Należy również zaktualizować `policyName` program przy użyciu przepływu użytkownika utworzonego w ramach wymagań wstępnych. Na przykład *B2C_1_signupsignin1*.
 
     ```javascript
@@ -86,9 +86,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 #### <a name="enable-cors"></a>Włączanie mechanizmu CORS
 
-Aby umożliwić aplikacji jednostronicowej wywoływanie internetowego interfejsu API środowiska Node. js, należy włączyć funkcję [CORS](https://expressjs.com/en/resources/middleware/cors.html) w interfejsie API sieci Web. W aplikacji produkcyjnej należy zachować ostrożność, która domena zgłasza żądanie, ale na potrzeby tego samouczka zezwala na żądania z dowolnej domeny.
+Aby umożliwić aplikacji jednostronicowej wywoływanie Node.js internetowego interfejsu API, należy włączyć funkcję [CORS](https://expressjs.com/en/resources/middleware/cors.html) w interfejsie API sieci Web. W aplikacji produkcyjnej należy zachować ostrożność, która domena zgłasza żądanie, ale na potrzeby tego samouczka zezwala na żądania z dowolnej domeny.
 
-Aby włączyć mechanizm CORS, użyj następującego oprogramowania pośredniczącego. Przykład kodu internetowego interfejsu API środowiska Node. js w tym samouczku został już dodany do pliku *index. js* .
+Aby włączyć mechanizm CORS, użyj następującego oprogramowania pośredniczącego. Przykład kodu internetowego interfejsu API Node.js w tym samouczku został już dodany do pliku *index.js* .
 
 ```javascript
 app.use((req, res, next) => {
@@ -100,20 +100,20 @@ app.use((req, res, next) => {
 
 ### <a name="configure-the-single-page-application"></a>Konfigurowanie aplikacji jednostronicowej
 
-Aplikacja jednostronicowa (SPA) z [poprzedniego samouczka](tutorial-single-page-app.md) w serii używa Azure AD B2C do rejestracji i logowania użytkowników, a domyślnie wywołuje interfejs API sieci Web w technologii Node. js chroniony przez dzierżawę demonstracyjną *fabrikamb2c* .
+Aplikacja jednostronicowa (SPA) z [poprzedniego samouczka](tutorial-single-page-app.md) w serii używa Azure AD B2C do rejestracji i logowania użytkowników, a domyślnie wywołuje Node.js internetowy interfejs API chroniony przez dzierżawę demonstracyjną *fabrikamb2c* .
 
-W tej sekcji należy zaktualizować jednostronicową aplikację sieci Web, aby wywoływać interfejs API sieci Web platformy Node. js *chroniony przez* dzierżawę Azure AD B2C (i uruchamiać ją na maszynie lokalnej).
+Ta sekcja umożliwia zaktualizowanie jednostronicowej aplikacji sieci Web w celu wywołania Node.js internetowego interfejsu API chronionego *przez* dzierżawę Azure AD B2C (i uruchamiana na maszynie lokalnej).
 
 Aby zmienić ustawienia w SPA:
 
-1. W poprzednim samouczku do projektu [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] , który został pobrany lub sklonowany, Otwórz plik *apiConfig. js* w folderze *JavaScriptSPA* .
+1. W poprzednim samouczku do projektu [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] , który został pobrany lub sklonowany, otwórz plik *apiConfig.js* wewnątrz folderu *JavaScriptSPA* .
 1. Skonfiguruj przykład za pomocą identyfikatora URI dla *demonstracji.* wcześniej utworzony zakres odczytu i adres URL internetowego interfejsu API.
-    1. W `apiConfig` definicji `b2cScopes` Zastąp wartość pełnym identyfikatorem URI dla *demonstracji. Odczytaj* zakres (wartość **zakresu** zarejestrowana wcześniej).
+    1. W `apiConfig` definicji Zastąp `b2cScopes` wartość pełnym identyfikatorem URI dla *demonstracji. Odczytaj* zakres (wartość **zakresu** zarejestrowana wcześniej).
     1. Zmień domenę w `webApi` wartość na identyfikator URI przekierowania, który został dodany podczas rejestrowania aplikacji internetowego interfejsu API we wcześniejszym kroku.
 
     Ponieważ interfejs API jest dostępny w `/hello` punkcie końcowym, należy pozostawić */Hello* w identyfikatorze URI.
 
-    `apiConfig` Definicja powinna wyglądać podobnie do następującego bloku kodu, ale z nazwą dzierżawy B2C w miejscu `<your-tenant-name>`:
+    `apiConfig`Definicja powinna wyglądać podobnie do następującego bloku kodu, ale z nazwą dzierżawy B2C w miejscu `<your-tenant-name>` :
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -125,13 +125,13 @@ Aby zmienić ustawienia w SPA:
 
 ## <a name="run-the-spa-and-web-api"></a>Uruchamianie SPA i internetowego interfejsu API
 
-Teraz można przystąpić do testowania dostępu do zakresu aplikacji jednostronicowej do interfejsu API. Uruchom zarówno interfejs API sieci Web środowiska Node. js, jak i przykładową aplikację jednostronicową JavaScript na komputerze lokalnym. Następnie zaloguj się do aplikacji jednostronicowej i wybierz przycisk **Wywołaj interfejs API** , aby zainicjować żądanie do CHRONIONEGO interfejsu API.
+Teraz można przystąpić do testowania dostępu do zakresu aplikacji jednostronicowej do interfejsu API. Uruchom zarówno Node.js Web API, jak i przykładową aplikację jednostronicową JavaScript na komputerze lokalnym. Następnie zaloguj się do aplikacji jednostronicowej i wybierz przycisk **Wywołaj interfejs API** , aby zainicjować żądanie do CHRONIONEGO interfejsu API.
 
 Mimo że obie aplikacje działają lokalnie w ramach tego samouczka, zostały one skonfigurowane do używania Azure AD B2C do bezpiecznego rejestrowania/logowania i udzielania dostępu do chronionego internetowego interfejsu API.
 
-### <a name="run-the-nodejs-web-api"></a>Uruchamianie interfejsu API sieci Web środowiska Node. js
+### <a name="run-the-nodejs-web-api"></a>Uruchamianie interfejsu API sieci Web Node.js
 
-1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład internetowego interfejsu API środowiska Node. js. Przykład:
+1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład internetowego interfejsu API Node.js. Na przykład:
 
     ```console
     cd active-directory-b2c-javascript-nodejs-webapi
@@ -152,7 +152,7 @@ Mimo że obie aplikacje działają lokalnie w ramach tego samouczka, zostały on
 
 ### <a name="run-the-single-page-app"></a>Uruchamianie aplikacji jednostronicowej
 
-1. Otwórz inne okno konsoli i przejdź do katalogu zawierającego próbę SPA JavaScript. Przykład:
+1. Otwórz inne okno konsoli i przejdź do katalogu zawierającego próbę SPA JavaScript. Na przykład:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -175,7 +175,7 @@ Mimo że obie aplikacje działają lokalnie w ramach tego samouczka, zostały on
 
     ![Przykładowa aplikacja jednostronicowa wyświetlana w przeglądarce](./media/tutorial-single-page-app-webapi/tutorial-01-sample-app-browser.png)
 
-1. Zaloguj się przy użyciu adresu e-mail i hasła użytego w [poprzednim samouczku](tutorial-single-page-app.md). Po pomyślnym zalogowaniu powinien zostać `User 'Your Username' logged-in` wyświetlony komunikat.
+1. Zaloguj się przy użyciu adresu e-mail i hasła użytego w [poprzednim samouczku](tutorial-single-page-app.md). Po pomyślnym zalogowaniu powinien zostać wyświetlony `User 'Your Username' logged-in` komunikat.
 1. Wybierz przycisk **wywoływania interfejsu API** . SPA uzyskuje autoryzację od Azure AD B2C, następnie uzyskuje dostęp do chronionego internetowego interfejsu API w celu wyświetlenia nazwy zalogowanego użytkownika:
 
     ![Aplikacja jednostronicowa w przeglądarce przedstawiająca wynik JSON elementu username zwrócony przez interfejs API](./media/tutorial-single-page-app-webapi/tutorial-02-call-api.png)

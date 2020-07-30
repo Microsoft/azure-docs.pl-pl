@@ -43,7 +43,7 @@ Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtu
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | **[INTERFEJS WIERSZA POLECENIA MASZYNY WIRTUALNEJ SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
 | **[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
-| **[Ręczne](availability-group-manually-configure-prerequisites-tutorial.md)** | Wszystkie | Wszystkie | Wszystkie | Wszystkie | Tak | Tak | Tak | Tak | Tak | Tak |
+| **[Ręczne](availability-group-manually-configure-prerequisites-tutorial.md)** | Wszystko | Wszystko | Wszystko | Wszystko | Tak | Tak | Tak | Tak | Tak | Tak |
 
 Szablon **SQL Server AlwaysOn (wersja zapoznawcza)** został usunięty z portalu Azure Marketplace i nie jest już dostępny. 
 

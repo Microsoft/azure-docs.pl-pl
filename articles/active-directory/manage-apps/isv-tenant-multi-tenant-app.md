@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763248"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386813"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Tworzenie dzierżawy platformy Azure dla aplikacji z wieloma dzierżawcami  
 
@@ -37,7 +37,7 @@ Możesz bezpłatnie utworzyć subskrypcję platformy Azure i usługę Azure Acti
 
    a. **W przypadku aplikacji OIDC lub Oath** [zarejestruj aplikację](../develop/quickstart-register-app.md) jako aplikację wielodostępną. Wybierz konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft w obszarze obsługiwane typy kont
 
-   b. W **przypadku aplikacji opartych na protokole SAML i WS-** based aplikacje można [konfigurować](configure-single-sign-on-non-gallery-applications.md) za pomocą ogólnego szablonu SAML w usłudze Azure AD.
+   b. W **przypadku aplikacji opartych na protokole SAML i WS-** based aplikacje można [konfigurować](configure-saml-single-sign-on.md) za pomocą ogólnego szablonu SAML w usłudze Azure AD.
 
 W razie potrzeby można również [przekonwertować aplikację z jedną dzierżawą na wiele dzierżawców](../develop/howto-convert-app-to-be-multi-tenant.md) .
 

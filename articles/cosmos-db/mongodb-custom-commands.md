@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.openlocfilehash: 7879793cbbb029468e84b14f8e8eee793cf4c530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260733"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415095"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
 
@@ -233,7 +234,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Przykład: 
+Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Na przykład: 
 
 ```javascript
 use test
@@ -422,7 +423,7 @@ Jeśli nie zostanie określony, niestandardowa odpowiedź zawiera dokument z nas
 | `code`    |   `int`      |   Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera kod błędu MongoDB. Jest to opcjonalny parametr odpowiedzi.      |
 |  `errMsg`   |  `string`      |    Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera przyjazny dla użytkownika komunikat o błędzie. Jest to opcjonalny parametr odpowiedzi.      |
 
-Przykład:
+Na przykład:
 
 ```javascript
 { "ok" : 1 }

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77116166"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279223"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple for Cloud Solutions Provider program: często zadawane pytania
 
@@ -63,7 +63,7 @@ Istnieje wiele rozwiązań:
 - Mogą również wykrywać nowe modele biznesowe, dostarczając zarządzane usługi.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Jakie zachęty są dostępne dla partnerów StorSimple CSP? Czy kwalifikuję się do skorzystania z jakichkolwiek zachęt dla programu CSP?
-Aby uzyskać informacje na temat zachęt, przejdź do obszaru [zachęty dla programu CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Aby uzyskać informacje na temat zachęt, przejdź do obszaru [zachęty dla programu CSP](https://partner.microsoft.com/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Wdrażanie StorSimple jako partnera i zarządzanie nim

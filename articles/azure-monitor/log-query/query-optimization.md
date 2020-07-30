@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067476"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416319"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -98,14 +98,14 @@ Na przykład następujące zapytania dają dokładnie ten sam wynik, ale druga j
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Użyj efektywnych poleceń agregacji i wymiarów w podsumowaniu i przyłączaniu
@@ -433,7 +433,7 @@ Zachowania zapytań, które mogą obniżyć równoległość, obejmują:
 - Użycie funkcji serializacji i okna, takich jak [operator serializacji](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [poprzedni ()](/azure/kusto/query/prevfunction)i funkcje [wiersza](/azure/kusto/query/rowcumsumfunction) . W niektórych z tych przypadków można używać szeregów czasowych i funkcji analitycznych użytkownika. Nieefektywna Serializacja może również wystąpić, jeśli następujące operatory nie znajdują się na końcu zapytania: [zakres](/azure/kusto/query/rangeoperator), [Sortowanie](/azure/kusto/query/sortoperator), [kolejność](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-hitters](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    Użycie funkcji agregacji [DCount ()](/azure/kusto/query/dcount-aggfunction) wymusza, aby system miał centralną kopię różnych wartości. Gdy skala danych jest wysoka, rozważ użycie opcjonalnych parametrów funkcji DCount do zredukowania dokładności.
 -    W wielu przypadkach operator [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) obniżyć ogólną wartość równoległości. Badaj rozłączenie losowe jako alternatywę w przypadku problemów z wydajnością.
--    W zapytaniach dotyczących zakresu zasobów, kontrole kontroli RBAC przedwykonawcy mogą być pokutujące w sytuacjach, gdy istnieje bardzo duża liczba przypisań RBAC. Może to prowadzić do dłuższego sprawdzenia, które mogłoby spowodować zmniejszenie równoległości. Na przykład zapytanie jest wykonywane w ramach subskrypcji, w której istnieją tysiące zasobów, a każdy zasób ma wiele przypisań roli na poziomie zasobu, a nie w ramach subskrypcji lub grupy zasobów.
+-    W zapytaniach dotyczących zakresu zasobów, kontrole RBAC przedwykonawcy mogą być pokutujące w sytuacjach, gdy istnieje bardzo duża liczba przypisań ról platformy Azure. Może to prowadzić do dłuższego sprawdzenia, które mogłoby spowodować zmniejszenie równoległości. Na przykład zapytanie jest wykonywane w ramach subskrypcji, w której istnieją tysiące zasobów, a każdy zasób ma wiele przypisań roli na poziomie zasobu, a nie w ramach subskrypcji lub grupy zasobów.
 -    Jeśli zapytanie przetwarza małe fragmenty danych, jego równoległość będzie niska, ponieważ system nie rozwiąże go w wielu węzłach obliczeniowych.
 
 

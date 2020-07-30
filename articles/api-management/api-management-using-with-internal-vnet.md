@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249554"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386048"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną
 Usługa API Management Azure Virtual Networks umożliwia Zarządzanie interfejsami API, które nie są dostępne w Internecie. Do nawiązania połączenia są dostępne różne technologie sieci VPN. API Management można wdrożyć w dwóch głównych trybach wewnątrz sieci wirtualnej:
@@ -81,7 +81,7 @@ Połączenie sieci wirtualnej można również włączyć za pomocą poleceń cm
 * Aktualizowanie istniejącego wdrożenia usługi API Management w sieci wirtualnej: Użyj polecenia cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) , aby przenieść istniejącą usługę API Management do sieci wirtualnej i skonfiguruj ją tak, aby korzystała z wewnętrznego typu sieci wirtualnej.
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Konfiguracja DNS
-Gdy API Management jest w trybie zewnętrznej sieci wirtualnej, system DNS jest zarządzany przez platformę Azure. W przypadku wewnętrznego trybu sieci wirtualnej należy zarządzać własnym routingiem.
+Gdy API Management jest w trybie zewnętrznej sieci wirtualnej, system DNS jest zarządzany przez platformę Azure. W przypadku wewnętrznego trybu sieci wirtualnej należy zarządzać własnym systemem DNS.
 
 > [!NOTE]
 > Usługa API Management nie nasłuchuje żądań przychodzących z adresów IP. Odpowiada tylko na żądania do nazwy hosta skonfigurowanej w punktach końcowych usługi. Te punkty końcowe obejmują bramę, Azure Portal i Portal deweloperów, punkt końcowy zarządzania bezpośredniego i git.

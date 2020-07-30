@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019917"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385147"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Zapisywanie zwrotne grup Azure AD Connect
 
@@ -40,7 +40,7 @@ Aby włączyć funkcję zapisywania zwrotnego grup, wykonaj następujące czynno
 6. Na **stronie zapisywanie zwrotne**wybierz Active Directory jednostkę organizacyjną (OU) do przechowywania obiektów synchronizowanych z pakietu Office 365 do organizacji lokalnej, a następnie kliknij przycisk **dalej**.
 7. Na stronie **gotowy** do skonfigurowania kliknij pozycję **Konfiguruj**.
 8. Po zakończeniu pracy kreatora kliknij przycisk **Zakończ** na stronie Konfiguracja ukończona.
-9. Otwórz program Windows PowerShell na serwerze Azure Active Directory Connect i uruchom następujące polecenia.
+9. Otwórz program Windows PowerShell jako administrator na serwerze Azure Active Directory Connect i uruchom następujące polecenia.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
