@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Łączenie urządzenia (Python)
           href: tutorial-connect-device-python.md
-        - name: Łączenie urządzenia Plug and Play (wersja zapoznawcza)
-          href: tutorial-connect-pnp-device.md
         - name: Tworzenie szablonu urządzenia bramy
           href: tutorial-define-gateway-device-type.md
         - name: Łączenie urządzenia usługi IoT Edge
@@ -79,8 +77,6 @@
       items:
         - name: Konfigurowanie szablonu urządzenia
           href: howto-set-up-template.md
-        - name: Przygotowywanie i łączenie zestawu deweloperskiego IoT MXChip
-          href: howto-connect-devkit.md
         - name: Przygotowywanie i łączenie zestawu Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Przygotowywanie i łączenie urządzenia RuuviTag

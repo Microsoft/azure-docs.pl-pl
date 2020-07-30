@@ -67,7 +67,9 @@
     - name: Usuwanie nietrwałe
       items:
         - name: Azure Key Vault — usuwanie nietrwałe
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Usuwanie nietrwałe jest domyślnie włączone
+          href: soft-delete-change.md
     - name: 'Uwierzytelnianie, żądania i odpowiedzi'
       href: authentication-requests-and-responses.md
     - name: Wskazówki dotyczące ograniczania usługi Azure Key Vault
