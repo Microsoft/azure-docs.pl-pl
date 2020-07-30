@@ -3,16 +3,16 @@ title: Monitorowanie użycia i wydatków przy użyciu alertów dotyczących kosz
 description: W tym artykule opisano, jak alerty dotyczące kosztów ułatwiają monitorowanie użycia i wydatków w usłudze Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: e3816c167aea80f32c35c7196de166de57dc9622
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce63756e19e0991ce7aee0b2b6c9c65712b1680b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203070"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290790"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Monitorowanie użycia i wydatków za pomocą alertów o kosztach
 
