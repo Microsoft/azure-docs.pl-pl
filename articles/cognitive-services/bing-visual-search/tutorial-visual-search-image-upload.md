@@ -10,12 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c2e0e907734f30010690817ddb7bb15527c93bbf
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477938"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404036"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Samouczek: przekazywanie obrazów do interfejs API wyszukiwania wizualnego Bing
 
@@ -36,7 +37,7 @@ Aplikacja samouczka ilustruje sposób wykonywania następujących czynności:
 
 ## <a name="create-and-structure-the-webpage"></a>Tworzenie strony internetowej i określanie jej struktury
 
-Utwórz stronę HTML, która wysyła obraz do interfejs API wyszukiwania wizualnego Bing, odbiera szczegółowe informacje i wyświetla je. W ulubionym edytorze lub środowisku IDE Utwórz plik o nazwie "uploaddemo. html". Dodaj następującą podstawową strukturę HTML do pliku:
+Utwórz stronę HTML, która wysyła obraz do interfejs API wyszukiwania wizualnego Bing, odbiera szczegółowe informacje i wyświetla je. W ulubionym edytorze lub środowisku IDE Utwórz plik o nazwie "uploaddemo.html". Dodaj następującą podstawową strukturę HTML do pliku:
 
 ```html
 <!DOCTYPE html>
@@ -50,7 +51,7 @@ Utwórz stronę HTML, która wysyła obraz do interfejs API wyszukiwania wizualn
 </html>
 ```
 
-Podziel stronę na sekcję żądania, gdzie użytkownik zawiera wszystkie informacje wymagane do żądania oraz sekcję odpowiedzi, w której są wyświetlane szczegółowe dane. Dodaj następujące tagi `<div>` do sekcji `<body>`. `<hr>` Tag wizualnie oddziela sekcję żądania od sekcji odpowiedzi:
+Podziel stronę na sekcję żądania, gdzie użytkownik zawiera wszystkie informacje wymagane do żądania oraz sekcję odpowiedzi, w której są wyświetlane szczegółowe dane. Dodaj następujące tagi `<div>` do sekcji `<body>`. `<hr>`Tag wizualnie oddziela sekcję żądania od sekcji odpowiedzi:
 
 ```html
 <div id="requestSection"></div>
@@ -69,9 +70,9 @@ Dodaj `<script>` tag do znacznika, `<head>` aby zawierał kod JavaScript dla apl
 
 Aby umożliwić użytkownikowi wybranie obrazu do przekazania, aplikacja używa tagu `<input>` z atrybutem type o wartości `file`. Interfejs użytkownika musi w jasny sposób poinformować, że w aplikacji do wyszukiwania wyników jest używana usługa Bing.
 
-Dodaj następujący `<div>` do `requestSection` `<div>`. Tag input z atrybutem type o wartości file akceptuje pojedynczy plik dowolnego typu obrazu (na przykład, JPG, GIF, PNG). Zdarzenie `onchange` określa procedurę obsługi, która jest wywoływana, gdy użytkownik wybiera plik.
+Dodaj następujący `<div>` do `requestSection` `<div>` . Tag input z atrybutem type o wartości file akceptuje pojedynczy plik dowolnego typu obrazu (na przykład, JPG, GIF, PNG). Zdarzenie `onchange` określa procedurę obsługi, która jest wywoływana, gdy użytkownik wybiera plik.
 
-`<output>` Tag służy do wyświetlania miniatury wybranego obrazu:
+`<output>`Tag służy do wyświetlania miniatury wybranego obrazu:
 
 ```html
 <div>
@@ -145,9 +146,9 @@ Aplikacja wymaga klucza subskrypcji, aby móc wykonywać wywołania do interfejs
     </div>
 ```
 
-Korzystając z obrazu i klucza subskrypcji, możesz wywołać usługę wyszukiwania wizualnego Bing, aby pobrać szczegółowe informacje o obrazie. W tym samouczku wywołanie używa domyślnego rynku (`en-us`) i bezpiecznego wyszukiwania (`moderate`).
+Korzystając z obrazu i klucza subskrypcji, możesz wywołać usługę wyszukiwania wizualnego Bing, aby pobrać szczegółowe informacje o obrazie. W tym samouczku wywołanie używa domyślnego rynku ( `en-us` ) i bezpiecznego wyszukiwania ( `moderate` ).
 
-Ta aplikacja zawiera opcję zmiany tych wartości. Dodaj następujący `<div>` kod poniżej klucza `<div>`subskrypcji. W aplikacji jest używany tag `<select>` do zapewnienia listy rozwijanej do określenia wartości rynku i wartości bezpiecznego wyszukiwania. Obie listy wyświetlają domyślną wartość.
+Ta aplikacja zawiera opcję zmiany tych wartości. Dodaj następujący `<div>` kod poniżej klucza subskrypcji `<div>` . W aplikacji jest używany tag `<select>` do zapewnienia listy rozwijanej do określenia wartości rynku i wartości bezpiecznego wyszukiwania. Obie listy wyświetlają domyślną wartość.
 
 ```html
 <div>
@@ -211,7 +212,7 @@ Ta aplikacja zawiera opcję zmiany tych wartości. Dodaj następujący `<div>` k
 
 ## <a name="add-search-options-to-the-webpage"></a>Dodawanie opcji wyszukiwania na stronie internetowej
 
-Aplikacja ukrywa listy w zwijaniu `<div>` , które są kontrolowane przez link opcji zapytania. Po kliknięciu linku opcje zapytania, `<div>` rozwiń, aby wyświetlić i zmodyfikować opcje zapytania. Jeśli klikniesz link opcje zapytania ponownie, `<div>` zwijane i będzie ukryte. Poniższy fragment kodu przedstawia `onclick` procedurę obsługi łącza opcji zapytania. Program obsługi kontroluje, `<div>` czy jest rozwinięty, czy zwinięty. Dodaj tę procedurę obsługi do sekcji `<script>`. Procedura obsługi jest używana przez wszystkie zwijane `<div>` sekcje w demonstracji.
+Aplikacja ukrywa listy w zwijaniu `<div>` , które są kontrolowane przez link opcji zapytania. Po kliknięciu linku opcje zapytania, rozwiń, `<div>` Aby wyświetlić i zmodyfikować opcje zapytania. Jeśli klikniesz link opcje zapytania ponownie, `<div>` zwijane i będzie ukryte. Poniższy fragment kodu przedstawia procedurę obsługi łącza opcji zapytania `onclick` . Program obsługi kontroluje, czy `<div>` jest rozwinięty, czy zwinięty. Dodaj tę procedurę obsługi do sekcji `<script>`. Procedura obsługi jest używana przez wszystkie zwijane `<div>` sekcje w demonstracji.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -284,7 +285,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>Wysyłanie żądania wyszukiwania
 
-`sendRequest()` Funkcja FORMATUJE adres URL punktu końcowego, ustawia `Ocp-Apim-Subscription-Key` nagłówek na klucz subskrypcji, dołącza plik binarny obrazu do przekazania, określa program obsługi odpowiedzi i wywołuje wywołanie:
+`sendRequest()`Funkcja formatuje adres URL punktu końcowego, ustawia `Ocp-Apim-Subscription-Key` nagłówek na klucz subskrypcji, dołącza plik binarny obrazu do przekazania, określa program obsługi odpowiedzi i wywołuje wywołanie:
 
 ```javascript
 function sendRequest(file, key) {
@@ -351,7 +352,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>Tworzenie sekcji tagów
 
-`buildTagSections()` Funkcja wykonuje iterację przez przeanalizowane Tagi JSON i wywołuje `buildDiv()` funkcję w celu skompilowania `<div>` dla każdego znacznika. Każdy tag jest wyświetlany jako link. Gdy link zostanie kliknięty, tag rozwinie się i wyświetli skojarzone z nim szczegółowe informacje. Kliknięcie linku spowoduje, że sekcja zostanie zwinięta.
+`buildTagSections()`Funkcja wykonuje iterację przez przeanalizowane Tagi JSON i wywołuje funkcję w `buildDiv()` celu skompilowania `<div>` dla każdego znacznika. Każdy tag jest wyświetlany jako link. Gdy link zostanie kliknięty, tag rozwinie się i wyświetli skojarzone z nim szczegółowe informacje. Kliknięcie linku spowoduje, że sekcja zostanie zwinięta.
 
 ```javascript
 function buildTagSections(tags) {
@@ -390,7 +391,7 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>Wyświetlanie wyników wyszukiwania na stronie internetowej
 
-`buildDiv()` Funkcja wywołuje funkcję, `addDivContent` aby skompilować zawartość każdego znacznika `<div>`.
+`buildDiv()`Funkcja wywołuje funkcję, `addDivContent` Aby skompilować zawartość każdego znacznika `<div>` .
 
 Zawartość tagu zawiera dane JSON z odpowiedzi dla tagu. Początkowo wyświetlane są tylko pierwsze 100 znaków JSON, ale można kliknąć ciąg JSON, aby wyświetlić wszystkie dane JSON. Jeśli klikniesz go ponownie, ciąg JSON ponownie zwinie się do 100 znaków.
 
@@ -478,7 +479,7 @@ Następujące funkcje wyświetlają szczegółowe informacje dla różnych akcji
 
 ### <a name="relatedimages-insights"></a>Szczegółowe informacje dotyczące akcji RelatedImages
 
-`addRelatedImages()` Funkcja tworzy tytuł dla każdej witryny sieci Web obsługującej powiązany obraz przez iterację na liście `RelatedImages` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
+`addRelatedImages()`Funkcja tworzy tytuł dla każdej witryny sieci Web obsługującej powiązany obraz przez iterację na liście `RelatedImages` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
 
 ```javascript
     function addRelatedImages(div, images) {
@@ -509,7 +510,7 @@ Następujące funkcje wyświetlają szczegółowe informacje dla różnych akcji
 
 ### <a name="pagesincluding-insights"></a>Szczegółowe informacje dotyczące akcji PagesIncluding
 
-`addPagesIncluding()` Funkcja tworzy łącze dla każdej witryny sieci Web obsługującej przekazany obraz przez iterację na liście `PagesIncluding` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
+`addPagesIncluding()`Funkcja tworzy łącze dla każdej witryny sieci Web obsługującej przekazany obraz przez iterację na liście `PagesIncluding` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
 
 ```javascript
 
@@ -533,7 +534,7 @@ Następujące funkcje wyświetlają szczegółowe informacje dla różnych akcji
 
 ### <a name="relatedsearches-insights"></a>Szczegółowe informacje dotyczące akcji RelatedSearches
 
-Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, przez przeprowadzenie iteracji `RelatedSearches` przez listę akcji i dołączenie `<img>` znacznika do `<div>` zewnątrz dla każdej z nich: `addRelatedSearches()`
+`addRelatedSearches()`Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, przez przeprowadzenie iteracji przez listę `RelatedSearches` akcji i dołączenie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
 
 ```javascript
 
@@ -566,7 +567,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
 
 ### <a name="recipes-insights"></a>Szczegółowe informacje dotyczące przepisów
 
-`addRecipes()` Funkcja tworzy łącze do każdego z przepisów zwracanych przez iterację listy `Recipes` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
+`addRecipes()`Funkcja tworzy łącze do każdego z przepisów zwracanych przez iterację listy `Recipes` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdej z nich:
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
@@ -598,7 +599,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
 
 ### <a name="shopping-insights"></a>Szczegółowe informacje dotyczące zakupów
 
-`addShopping()` Funkcja tworzy łącze do wszelkich zwróconych wyników zakupów poprzez iterację listy `RelatedImages` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdego:
+`addShopping()`Funkcja tworzy łącze do wszelkich zwróconych wyników zakupów poprzez iterację listy `RelatedImages` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdego:
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -627,7 +628,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
 
 ### <a name="products-insights"></a>Szczegółowe informacje dotyczące produktów
 
-`addProducts()` Funkcja tworzy łącze do wszelkich zwróconych produktów wyników przez iterację listy `Products` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdego:
+`addProducts()`Funkcja tworzy łącze do wszelkich zwróconych produktów wyników przez iterację listy `Products` akcji i dołączanie `<img>` znacznika do zewnątrz `<div>` dla każdego:
 
 ```javascript
 
@@ -691,7 +692,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
 
 ### <a name="textresult-insights"></a>Szczegółowe informacje dotyczące akcji TextResult
 
-`addTextResult()` Funkcja wyświetla dowolny tekst, który został rozpoznany w obrazie:
+`addTextResult()`Funkcja wyświetla dowolny tekst, który został rozpoznany w obrazie:
 
 ```javascript
 
@@ -702,7 +703,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
     }
 ```
 
-`addEntity()` Funkcja wyświetla link, który umożliwia użytkownikowi Bing.com, gdzie można pobrać szczegóły dotyczące typu jednostki w obrazie, jeśli został wykryty:
+`addEntity()`Funkcja wyświetla link, który umożliwia użytkownikowi Bing.com, gdzie można pobrać szczegóły dotyczące typu jednostki w obrazie, jeśli został wykryty:
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -718,7 +719,7 @@ Funkcja tworzy łącze do witryny sieci Web, w której znajduje się obraz, prze
     }
 ```
 
-`addImageWithWebSearchUrl()` Funkcja wyświetla obraz `<div>` , który można kliknąć do, który przybiera użytkownikowi wyniki wyszukiwania na Bing.com:
+`addImageWithWebSearchUrl()`Funkcja wyświetla obraz, który można kliknąć do `<div>` , który przybiera użytkownikowi wyniki wyszukiwania na Bing.com:
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {

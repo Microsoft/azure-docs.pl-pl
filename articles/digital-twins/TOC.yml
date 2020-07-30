@@ -66,6 +66,8 @@
           href: how-to-create-azure-function.md
         - name: Wykonywanie zapytań o graf bliźniaczych reprezentacji
           href: how-to-query-graph.md
+        - name: Wyświetlanie metryk w usłudze Azure Monitor
+          href: how-to-view-metrics.md
     - name: Łączenie danych wejściowych
       items:
         - name: Pozyskiwanie danych telemetrycznych z usługi IoT Hub
@@ -80,6 +82,8 @@
           href: how-to-integrate-time-series-insights.md
     - name: Rozwiązywanie problemów
       items:
+        - name: Włączanie dzienników diagnostycznych
+          href: troubleshoot-diagnostics.md
         - name: Znane problemy
           href: troubleshoot-known-issues.md
         - name: Rozwiązywanie problemów

@@ -34,26 +34,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Samouczki
   items:
-    - name: Enable dynamic configuration in ASP.NET Core (Włączanie dynamicznej konfiguracji na platformie ASP.NET Core)
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Włączanie dynamicznej konfiguracji w aplikacji .NET Core
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Włączanie dynamicznej konfiguracji na platformie .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Włączanie dynamicznej konfiguracji w usłudze Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Włączanie dynamicznej konfiguracji w środowisku Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Używanie flag funkcji w aplikacji platformy .NET Core
-      href: use-feature-flags-dotnet-core.md
-    - name: Używanie flag funkcji w aplikacji Spring Boot
-      href: use-feature-flags-spring-boot.md
+    - name: Włączanie dynamicznej konfiguracji
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Używanie flag funkcji
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Zarządzanie flagami funkcji
       href: manage-feature-flags.md
-    - name: Używanie odwołań do magazynu Key Vault na platformie ASP.NET Core
-      href: use-key-vault-references-dotnet-core.md
-    - name: Używanie odwołań do magazynu Key Vault w środowisku Spring Boot
-      href: use-key-vault-references-spring-boot.md
+    - name: Używanie odwołań do usługi Key Vault
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integracja z potokiem ciągłej integracji/ciągłego wdrażania
       href: integrate-ci-cd-pipeline.md
     - name: Integracja z wdrażaniem usługi Kubernetes przy użyciu rozwiązania Helm

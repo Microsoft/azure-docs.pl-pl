@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Samouczki
   items:
-    - name: Dodawanie aplikacji spoza galerii
-      href: add-non-gallery-app.md
     - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Dodawanie aplikacji lokalnej za pomocą serwera proxy aplikacji
@@ -42,6 +40,8 @@
       items:
         - name: Wprowadzenie do integracji aplikacji
           href: plan-an-application-integration.md
+        - name: Planowanie pod kątem aplikacji spoza galerii
+          href: non-gallery-apps.md
         - name: Planowanie wdrożenia przy użyciu panelu dostępu
           href: access-panel-deployment-plan.md
         - name: Wskazówki dla deweloperów
@@ -106,7 +106,7 @@
             - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
               items:
                 - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Dostosowywanie oświadczeń i atrybutów użytkownika
                   items:
                     - name: Konfigurowanie oświadczeń grup

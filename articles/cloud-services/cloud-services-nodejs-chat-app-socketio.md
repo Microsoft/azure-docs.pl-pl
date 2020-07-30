@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 5bea3bec68217881729f1daf8d75837e1d67e8ce
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8029c243052114b9a0932e5372301be84440cf85
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919977"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386592"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu usługi Socket.IO w usłudze w chmurze platformy Azure
 
@@ -138,7 +139,7 @@ Po zapisaniu zmian w **server.js**wykonaj następujące kroki, aby zainstalować
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Aby wdrożyć aplikację na platformie Azure, użyj polecenia cmdlet **Publish-AzureServiceProject** . Przykład:
+5. Aby wdrożyć aplikację na platformie Azure, użyj polecenia cmdlet **Publish-AzureServiceProject** . Na przykład:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76716317"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387578"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: projektowanie pulpitu nawigacyjnego analizy w czasie rzeczywistym za pomocą Azure Database for PostgreSQL — Citus
 
@@ -86,16 +86,18 @@ Nowo utworzone tabele znajdują się na liście tabel teraz za pomocą tego pole
 
 Wdrożenie w celu przechowania tabeli wierszy w różnych węzłach w oparciu o wartość kolumny wyznaczonej przez użytkownika. Ta "kolumna dystrybucji" oznacza sposób, w jaki dane są podzielonej na fragmenty między węzłami.
 
-Ustawmy, aby kolumna dystrybucji była identyfikatorem\_witryny, fragmentu kluczem. W PSQL Uruchom następujące funkcje:
+Ustawmy, aby kolumna dystrybucji była \_ identyfikatorem witryny, fragmentu kluczem. W PSQL Uruchom następujące funkcje:
 
   ```sql
 SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+
 ## <a name="generate-sample-data"></a>Generowanie danych przykładowych
 
-Teraz nasza grupa serwerów powinna być gotowa do pozyskiwania danych. Aby ciągle wstawiać dane, firma Microsoft może `psql` wykonać następujące czynności lokalnie.
+Teraz nasza grupa serwerów powinna być gotowa do pozyskiwania danych. Aby ciągle wstawiać dane, firma Microsoft może wykonać następujące czynności lokalnie `psql` .
 
 ```sql
 DO $$
@@ -122,7 +124,7 @@ DO $$
 END $$;
 ```
 
-Zapytanie wstawia około osiem wierszy co sekundę. Wiersze są przechowywane w różnych węzłach procesu roboczego jako kierowane do kolumny dystrybucji `site_id`.
+Zapytanie wstawia około osiem wierszy co sekundę. Wiersze są przechowywane w różnych węzłach procesu roboczego jako kierowane do kolumny dystrybucji `site_id` .
 
    > [!NOTE]
    > Pozostaw uruchomioną kwerendę generowania danych i Otwórz drugie połączenie PSQL dla pozostałych poleceń w tym samouczku.

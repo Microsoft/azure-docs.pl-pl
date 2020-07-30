@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764829"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387272"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logowanie jednokrotne SAML dla aplikacji lokalnych przy użyciu serwera proxy aplikacji
 
@@ -47,7 +47,7 @@ Poniższe diagramy protokołów opisują sekwencję logowania jednokrotnego dla 
 
 4. Wybierz pozycję **SAML** jako metodę logowania jednokrotnego.
 
-5. Najpierw skonfiguruj Logowanie jednokrotne SAML do pracy w sieci firmowej. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** przejdź do nagłówka **Podstawowa konfiguracja SAML** i wybierz jego ikonę **edycji** (ołówek). Postępuj zgodnie z instrukcjami w [wprowadź podstawową konfigurację SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) , aby skonfigurować uwierzytelnianie oparte na protokole SAML dla aplikacji.
+5. Najpierw skonfiguruj Logowanie jednokrotne SAML do pracy w sieci firmowej, zobacz sekcję Podstawowa konfiguracja protokołu SAML w temacie Konfigurowanie logowania jednokrotnego [opartego](configure-saml-single-sign-on.md) na protokole SAML w celu skonfigurowania uwierzytelniania opartego na protokole SAML dla aplikacji.
 
 6. Dodaj co najmniej jednego użytkownika do aplikacji i upewnij się, że konto testowe ma dostęp do aplikacji. Po nawiązaniu połączenia z siecią firmową Użyj konta testowego, aby sprawdzić, czy użytkownik ma Logowanie jednokrotne do aplikacji. 
 
@@ -81,7 +81,7 @@ Aby można było zapewnić Logowanie jednokrotne dla aplikacji lokalnych, należ
 
 4. Zaznacz pole wyboru obok zaktualizowanego **adresu URL odpowiedzi** , aby oznaczyć go jako domyślny.
 
-   * Po oznaczeniu wymaganego **adresu URL odpowiedzi** jako domyślnej można również usunąć wcześniej skonfigurowany **adres URL odpowiedzi** , który używał wewnętrznego adresu URL.
+   * Po oznaczeniu wymaganego **adresu URL odpowiedzi** jako domyślnego można również usunąć wcześniej skonfigurowany **adres URL odpowiedzi** , który używał wewnętrznego adresu URL.
 
    * W przypadku przepływu zainicjowanego przez program SP upewnij się, że aplikacja zaplecza określa prawidłowy **adres URL odpowiedzi** lub adres URL usługi konsumenckej potwierdzenia do otrzymania tokenu uwierzytelniania.
 
