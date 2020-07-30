@@ -1,17 +1,14 @@
 ---
 title: Integrowanie Azure Functions z siecią wirtualną platformy Azure
 description: Samouczek krok po kroku pokazujący, jak połączyć funkcję z siecią wirtualną platformy Azure
-author: alexkarcher-msft
 ms.topic: article
 ms.date: 4/23/2020
-ms.author: alkarche
-ms.reviewer: glenga
-ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122738"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387527"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Samouczek: integrowanie usługi Functions z siecią wirtualną platformy Azure
 
@@ -63,7 +60,7 @@ Następnie Utwórz wstępnie skonfigurowaną maszynę wirtualną z systemem Word
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Wybierz `myResourceGroup` lub grupę zasobów utworzoną za pomocą aplikacji funkcji. Korzystanie z tej samej grupy zasobów dla aplikacji funkcji, maszyny wirtualnej WordPress i planu hostingu ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
     | **Nazwa maszyny wirtualnej** | Sieć wirtualna — WordPress | Nazwa maszyny wirtualnej musi być unikatowa w grupie zasobów |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | Terenie Europa Zachodnia | Wybierz region znajdujący się w sąsiedztwie lub w sąsiedztwie funkcji, które uzyskują dostęp do maszyny wirtualnej. |
+    | **[Region](https://azure.microsoft.com/regions/)** | Terenie Europa Zachodnia | Wybierz region znajdujący się w sąsiedztwie lub w sąsiedztwie funkcji, które uzyskują dostęp do maszyny wirtualnej. |
     | **Rozmiar** | B1s | Wybierz **Zmień rozmiar** , a następnie wybierz obraz B1s Standard, który ma 1 vCPU i 1 GB pamięci. |
     | **Typ uwierzytelniania** | Hasło | Aby używać uwierzytelniania hasła, należy również określić **nazwę użytkownika**, bezpieczne **hasło**, a następnie **potwierdzić hasło**. W tym samouczku nie będzie konieczne zalogowanie się do maszyny wirtualnej, chyba że trzeba rozwiązać problemy. |
 
@@ -86,7 +83,7 @@ Następnie Utwórz wstępnie skonfigurowaną maszynę wirtualną z systemem Word
 
 1. Wybierz kartę **Zarządzanie** , a następnie w obszarze **konto magazynu diagnostyki**wybierz konto magazynu utworzone za pomocą aplikacji funkcji.
 
-1. Wybierz pozycję **Przegląd + utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut. Utworzona maszyna wirtualna może uzyskać dostęp tylko do sieci wirtualnej.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut. Utworzona maszyna wirtualna może uzyskać dostęp tylko do sieci wirtualnej.
 
 1. Po utworzeniu maszyny wirtualnej wybierz pozycję **Przejdź do zasobu** , aby wyświetlić stronę nowej maszyny wirtualnej, a następnie wybierz pozycję **Sieć** w obszarze **Ustawienia**.
 
@@ -117,7 +114,7 @@ W przypadku witryny WordPress działającej na maszynie wirtualnej w sieci wirtu
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | Moja resourceName — Sieć wirtualna | Ta sieć wirtualna jest utworzoną wcześniej. |
-    | **Podsieci** | Utwórz nową podsieć | Utwórz podsieć w sieci wirtualnej, która ma być używana przez aplikację funkcji. Integracja sieci wirtualnej musi być skonfigurowana do używania pustej podsieci. Nie ma znaczenia, że funkcje korzystają z innej podsieci niż maszyna wirtualna. Sieć wirtualna automatycznie kieruje ruchem między dwiema podsieciami. |
+    | **Podsieć** | Utwórz nową podsieć | Utwórz podsieć w sieci wirtualnej, która ma być używana przez aplikację funkcji. Integracja sieci wirtualnej musi być skonfigurowana do używania pustej podsieci. Nie ma znaczenia, że funkcje korzystają z innej podsieci niż maszyna wirtualna. Sieć wirtualna automatycznie kieruje ruchem między dwiema podsieciami. |
     | **Nazwa podsieci** | Funkcja-NET | Nazwa nowej podsieci. |
     | **Blok adresów sieci wirtualnej** | 10.10.0.0/16 | Wybierz ten sam blok adresów, który jest używany przez witrynę WordPress. Powinien być zdefiniowany tylko jeden blok adresu. |
     | **Zakres adresów** | 10.10.2.0/24   | Rozmiar podsieci ogranicza łączną liczbę wystąpień, do których można skalować aplikację funkcji planu Premium. W tym przykładzie używa się `/24` podsieci z 254 dostępnych adresów hosta. Ta podsieć jest nadmiernie obsługiwana, ale prosta do obliczenia. |
@@ -142,7 +139,7 @@ Przy włączonej integracji sieci wirtualnej można utworzyć w aplikacji funkcj
 
 1. Wybierz pozycję **Utwórz** , aby dodać serwer proxy do aplikacji funkcji.
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
 1. W przeglądarce spróbuj uzyskać dostęp do adresu URL, który był używany jako **adres URL zaplecza**. Zgodnie z oczekiwaniami upłynął limit czasu żądania. Limit czasu występuje, ponieważ witryna WordPress jest połączona tylko z siecią wirtualną, a nie z Internetem.
 

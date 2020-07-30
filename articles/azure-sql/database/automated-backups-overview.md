@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515130"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428227"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -50,7 +50,7 @@ Aby wykonać przywracanie, zobacz [przywracanie bazy danych z kopii zapasowych](
 
 Operacje konfiguracji i przywracania kopii zapasowej można wypróbować przy użyciu następujących przykładów:
 
-| | Azure Portal | Azure PowerShell |
+| | Witryna Azure Portal | Azure PowerShell |
 |---|---|---|
 | **Zmień przechowywanie kopii zapasowych** | [Pojedyncza baza danych](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Pojedyncza baza danych](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Zmiana długoterminowego przechowywania kopii zapasowych** | [Pojedyncza baza danych](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane — nie dotyczy  | [Pojedyncza baza danych](long-term-backup-retention-configure.md)<br/>Wystąpienie zarządzane — nie dotyczy  |
@@ -161,6 +161,9 @@ Aby poznać koszty magazynu kopii zapasowych, przejdź do pozycji **Cost Managem
 Dodaj filtr dla **nazwy usługi**, a następnie na liście rozwijanej wybierz pozycję **baza danych SQL** . Użyj filtru **podkategorii mierników** , aby wybrać licznik rozliczeń dla usługi. W przypadku pojedynczej bazy danych lub elastycznej puli baz danych wybierz **jedną/elastyczną pulę kopie magazynu kopii zapasowych**. W przypadku wystąpienia zarządzanego wybierz pozycję **mi kopie Backup Storage**. Podkategorie **magazynu** i **obliczeń** mogą być również przydatne, ale nie są one skojarzone z kosztami magazynu kopii zapasowych.
 
 ![Analiza kosztów magazynu kopii zapasowych](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Liczniki są widoczne tylko dla liczników, które są obecnie używane. Jeśli licznik nie jest dostępny, prawdopodobnie Kategoria nie jest obecnie używana. Na przykład liczniki wystąpienia zarządzanego nie będą obecne dla klientów, którzy nie mają wdrożonego wystąpienia zarządzanego. Podobnie liczniki magazynu nie będą widoczne dla zasobów, które nie zużywają magazynu. 
 
 ## <a name="encrypted-backups"></a>Szyfrowane kopie zapasowe
 

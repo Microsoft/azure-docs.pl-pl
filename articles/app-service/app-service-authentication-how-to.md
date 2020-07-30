@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5b217bb1052a16ded205ac216878945fb960d32d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205580"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424260"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -34,7 +34,7 @@ Najpierw na stronie **uwierzytelnianie/autoryzacja** w Azure Portal Skonfiguruj 
 
 W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione**, wybierz opcję **Zezwalaj na żądania anonimowe (bez akcji)**.
 
-Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Przykład:
+Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Na przykład:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -56,7 +56,7 @@ Aby przekierować użytkownika po zalogowaniu się do niestandardowego adresu UR
 
 W przypadku logowania po stronie klienta program automatycznie loguje użytkownika do dostawcy, a następnie przesyła token uwierzytelniania do App Service na potrzeby weryfikacji (zobacz [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow)). Takie sprawdzenie poprawności nie pozwala na uzyskanie dostępu do żądanych zasobów aplikacji, ale pomyślne sprawdzenie poprawności spowoduje użycie tokenu sesji umożliwiającego dostęp do zasobów aplikacji. 
 
-Aby sprawdzić poprawność tokenu dostawcy, aplikacja App Service należy najpierw skonfigurować przy użyciu żądanego dostawcy. W czasie wykonywania, po pobraniu tokenu uwierzytelniania od dostawcy, Opublikuj token w celu `/.auth/login/<provider>` sprawdzenia poprawności. Przykład: 
+Aby sprawdzić poprawność tokenu dostawcy, aplikacja App Service należy najpierw skonfigurować przy użyciu żądanego dostawcy. W czasie wykonywania, po pobraniu tokenu uwierzytelniania od dostawcy, Opublikuj token w celu `/.auth/login/<provider>` sprawdzenia poprawności. Na przykład: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -87,7 +87,7 @@ W przypadku pomyślnego zweryfikowania tokenu dostawcy interfejs API zwraca wart
 }
 ```
 
-Gdy masz ten token sesji, możesz uzyskać dostęp do chronionych zasobów aplikacji, dodając `X-ZUMO-AUTH` nagłówek do żądań HTTP. Przykład: 
+Gdy masz ten token sesji, możesz uzyskać dostęp do chronionych zasobów aplikacji, dodając `X-ZUMO-AUTH` nagłówek do żądań HTTP. Na przykład: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -108,7 +108,7 @@ Oto prosty link na stronie internetowej służący do wylogowywania:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done` . Można zmienić stronę przekierowywanie po wylogowaniu, dodając `post_logout_redirect_uri` parametr zapytania. Przykład:
+Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done` . Można zmienić stronę przekierowywanie po wylogowaniu, dodając `post_logout_redirect_uri` parametr zapytania. Na przykład:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -270,7 +270,7 @@ W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie au
 
 ### <a name="identity-provider-level"></a>Poziom dostawcy tożsamości
 
-Dostawca tożsamości może zapewnić pewną autoryzację klucza. Przykład:
+Dostawca tożsamości może zapewnić pewną autoryzację klucza. Na przykład:
 
 - [Azure App Service](configure-authentication-provider-aad.md)można [zarządzać dostępem na poziomie przedsiębiorstwa](../active-directory/manage-apps/what-is-access-management.md) bezpośrednio w usłudze Azure AD. Aby uzyskać instrukcje, zobacz [Jak usunąć dostęp użytkownika do aplikacji](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - W przypadku usługi [Google](configure-authentication-provider-google.md)interfejsy API, które należą do [organizacji](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) , można skonfigurować tak, aby zezwalały na dostęp tylko użytkownikom w organizacji (zobacz sekcję [Konfigurowanie pomocy technicznej **OAuth 2,0** ](https://support.google.com/cloud/answer/6158849?hl=en)).
@@ -413,7 +413,8 @@ W pliku są dostępne następujące opcje konfiguracji:
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "loginScopes": [
+                    "scope": [
+                        "openid",
                         "profile",
                         "email"
                     ],

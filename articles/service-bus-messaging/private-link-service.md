@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340437"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423426"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integracja Azure Service Bus z prywatnym łączem platformy Azure
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
 
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Service Bus, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
 
@@ -46,7 +46,7 @@ Aby zintegrować Service Bus przestrzeń nazw z linkiem prywatnym platformy Azur
 
 - Przestrzeń nazw Service Bus.
 - Sieć wirtualna platformy Azure.
-- Podsieć w sieci wirtualnej.
+- Podsieć w sieci wirtualnej. Możesz użyć podsieci **domyślnej** . 
 - Uprawnienia właściciela lub współautora dla przestrzeni nazw Service Bus i sieci wirtualnej.
 
 Prywatny punkt końcowy i Sieć wirtualna muszą znajdować się w tym samym regionie. W przypadku wybrania regionu dla prywatnego punktu końcowego przy użyciu portalu program automatycznie odfiltruje tylko te sieci wirtualne, które znajdują się w tym regionie. Przestrzeń nazw Service Bus może znajdować się w innym regionie. Prywatny punkt końcowy używa prywatnego adresu IP w sieci wirtualnej.
@@ -58,8 +58,19 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Na pasku wyszukiwania wpisz w **Service Bus**.
 3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
-4. Wybierz kartę **Sieć** w obszarze **Ustawienia**.
-5. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony
+2. W menu po lewej stronie wybierz opcję **Sieć** w obszarze **Ustawienia**. 
+
+    > [!NOTE]
+    > Karta **Sieć** zawiera tylko obszary nazw w **warstwie Premium** .  
+    
+    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Strona sieci — domyślna" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    W przypadku wybrania opcji **wszystkie sieci** Service Bus przestrzeń nazw akceptuje połączenia z dowolnego adresu IP (przy użyciu klucza dostępu). To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
+
+    ![Zapora — wybrana opcja Wszystkie sieci](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Aby zezwolić na dostęp do przestrzeni nazw za pośrednictwem prywatnych punktów końcowych, wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony.
 6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
     ![Przycisk dodawania prywatnego punktu końcowego](./media/private-link-service/private-link-service-3.png)

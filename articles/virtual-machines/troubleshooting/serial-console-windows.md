@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005943"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424004"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -26,10 +26,12 @@ Konsola szeregowa w Azure Portal zapewnia dostęp do konsoli opartej na tekście
 
 Konsola szeregowa działa w taki sam sposób w przypadku maszyn wirtualnych i wystąpień zestawów skalowania maszyn wirtualnych. W tym dokumencie wszystkie wzmianki dotyczące maszyn wirtualnych będą niejawnie obejmować wystąpienia zestawu skalowania maszyn wirtualnych, chyba że określono inaczej.
 
+Konsola szeregowa jest ogólnie dostępna w globalnych regionach platformy Azure i w publicznej wersji zapoznawczej w Azure Government. Nie jest jeszcze dostępna w chmurze platformy Azure w Chinach.
+
 Aby uzyskać dokumentację konsoli szeregowej dla systemu Linux, zobacz [Azure serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
-> Konsola szeregowa jest ogólnie dostępna w globalnych regionach platformy Azure i w publicznej wersji zapoznawczej w Azure Government. Nie jest jeszcze dostępna w chmurze platformy Azure w Chinach.
+> Konsola szeregowa jest obecnie niezgodna z zarządzanym kontem magazynu diagnostyki rozruchu. Aby korzystać z konsoli szeregowej, upewnij się, że korzystasz z niestandardowego konta magazynu.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

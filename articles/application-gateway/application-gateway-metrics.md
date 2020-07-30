@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84482631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424396"
 ---
 # <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway
 
@@ -198,7 +198,7 @@ Przejdź do bramy aplikacji, w obszarze **monitorowanie** wybierz pozycję **met
 
 Na poniższej ilustracji przedstawiono przykład z trzema metrykami wyświetlonymi w ciągu ostatnich 30 minut:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Widok metryki." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 Aby wyświetlić bieżącą listę metryk, zobacz temat [obsługiwane metryki z Azure monitor](../azure-monitor/platform/metrics-supported.md).
 

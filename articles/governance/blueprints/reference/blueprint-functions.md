@@ -3,12 +3,12 @@ title: Funkcje planów platformy Azure
 description: Zawiera opis funkcji dostępnych do użycia z artefaktami strategii w definicjach i przypisaniach platformy Azure.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 7a52901060466692e7094cf74fa5acfcded5f1da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970879"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422848"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funkcje do użycia z planami platformy Azure
 
@@ -34,7 +34,7 @@ Zwraca obiekt właściwości wypełniony przez dane wyjściowe artefaktów planu
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | artefaktname |Tak |ciąg |Nazwa artefaktu planu. |
 
@@ -123,7 +123,7 @@ Przykłady pobierania danych z przykładu _myTemplateArtifact_ są następujące
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | ciąg1 |Tak |ciąg |Pierwsza wartość dla łączenia. |
 | dodatkowe argumenty |Nie |ciąg |Dodatkowe wartości w kolejności sekwencyjnej dla łączenia |
@@ -148,7 +148,7 @@ Zwraca wartość parametru planu. Określona nazwa parametru musi być zdefiniow
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | parameterName |Tak |ciąg |Nazwa parametru do zwrócenia. |
 
@@ -174,7 +174,7 @@ Zdefiniuj parametr _principalIds_ w definicji strategii:
                 "type": "array",
                 "metadata": {
                     "displayName": "Principal IDs",
-                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the RBAC assignment.",
+                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the Azure role assignment.",
                     "strongType": "PrincipalId"
                 }
             }
@@ -269,7 +269,7 @@ Zwraca obiekt, który reprezentuje określony artefakt grupy zasobów. W przeciw
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | Symbol zastępczy |Tak |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372114"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433227"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 
 - W fragmentach __interfejsu wiersza polecenia__ w tym artykule przyjęto założenie, że dokument został utworzony `inferenceconfig.json` . Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
-- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny Contol AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. Użyj [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla [sparowanych regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) podczas włączania zakresów adresów IP w klastrze AKS
+- Jeśli potrzebujesz usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia) wdrożonego w klastrze zamiast podstawowego Load Balancer (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie dołącz go do obszaru roboczego AML.
+
+- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny Contol AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla obu [par regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) .
+
+__Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w warstwie Standardowa.__
  
  - Nazwa obliczeniowa musi być unikatowa w obszarze roboczym
    - Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.
@@ -73,7 +77,7 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
    
  - Jeśli chcesz wdrożyć modele na węzłach GPU lub węzłach FPGA (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
  
- - Jeśli potrzebujesz usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia) wdrożonego w klastrze zamiast podstawowego Load Balancer (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie dołącz go do obszaru roboczego AML. 
+ 
 
 
 
@@ -257,6 +261,30 @@ Aby uzyskać informacje na temat korzystania z VS Code, zobacz [wdrażanie do AK
 
 > [!IMPORTANT]
 > Wdrożenie za pomocą VS Code wymaga, aby klaster AKS został utworzony lub dołączony do obszaru roboczego z wyprzedzeniem.
+
+### <a name="understand-the-deployment-processes"></a>Informacje o procesach wdrażania
+
+Słowo "Deployment" jest używane zarówno w Kubernetes, jak i Azure Machine Learning. "Wdrożenie" ma bardzo różne znaczenie w tych dwóch kontekstach. W Kubernetes, a `Deployment` jest konkretną jednostką określoną przy użyciu deklaratywnego pliku YAML. Kubernetes `Deployment` ma zdefiniowany cykl życia i konkretne relacje z innymi jednostkami Kubernetes, takimi jak `Pods` i `ReplicaSets` . Aby dowiedzieć się więcej na temat Kubernetes z dokumentów i filmów wideo, zobacz [co to jest Kubernetes?](https://aka.ms/k8slearning).
+
+W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie udostępniania i czyszczenia zasobów projektu. Kroki, które Azure Machine Learning rozważają część wdrożenia, to:
+
+1. Zapakowywanie plików w folderze projektu, ignorując te określone w. amlignore lub. gitignore
+1. Skalowanie w górę klastra obliczeniowego (odnosi się do Kubernetes)
+1. Kompilowanie lub pobieranie pliku dockerfile do węzła obliczeniowego (odnosi się do Kubernetes)
+    1. System oblicza wartość skrótu: 
+        - Obraz podstawowy 
+        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. System używa tego skrótu jako klucza w odnośniku Azure Container Registry obszaru roboczego (ACR)
+    1. Jeśli nie zostanie znaleziona, szuka dopasowania w ACR globalnym
+    1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zapisany w pamięci podręcznej i zarejestrowany w obszarze roboczym ACR)
+1. Pobieranie spakowanego pliku projektu do tymczasowego magazynu w węźle obliczeniowym
+1. Rozpakowywanie pliku projektu
+1. Wykonywanie węzła obliczeniowego`python <entry script> <arguments>`
+1. Zapisywanie dzienników, plików modelu i innych plików zapisywanych na `./outputs` koncie magazynu skojarzonym z obszarem roboczym
+1. Skalowanie zasobów obliczeniowych w dół, w tym Usuwanie magazynu tymczasowego (odnosi się do Kubernetes)
+
+Gdy korzystasz z AKS, skalowanie w górę i w dół obliczeń jest kontrolowane przez Kubernetes, używając pliku dockerfile wbudowanego lub znalezionego powyżej. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Wdróż modele do AKS przy użyciu kontrolowanego wdrożenia (wersja zapoznawcza)
 

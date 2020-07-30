@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027176"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428014"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -321,7 +321,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | othermail | Inna poczta |
 | Użytkownik | country | Kraj/region |
 | Użytkownik | city | Miasto |
-| Użytkownik | state | Stan |
+| Użytkownik | state | State |
 | Użytkownik | stanowiska | Stanowisko |
 | Użytkownik | employeeid | Identyfikator pracownika |
 | Użytkownik | facsimiletelephonenumber | Numer telefonu faksu |
@@ -436,6 +436,9 @@ Zasady mapowania oświadczeń można przypisywać tylko do obiektów głównych 
 
 W usłudze Azure AD wiele scenariuszy jest możliwe, gdy można dostosować oświadczenia emitowane w tokenach dla określonych podmiotów usługi. W tej sekcji omówiono kilka typowych scenariuszy, które mogą pomóc w opanujesz, jak używać typu zasad mapowania oświadczeń.
 
+> [!NOTE]
+> Podczas tworzenia zasad mapowania oświadczeń można także wyemitować oświadczenie z atrybutu rozszerzenia schematu katalogu w tokenach. Użyj *ExtensionID* dla atrybutu rozszerzenia zamiast *identyfikatora* w `ClaimsSchema` elemencie.  Aby uzyskać więcej informacji na temat atrybutów rozszerzeń, zobacz [Używanie atrybutów rozszerzenia schematu katalogu](active-directory-schema-extensions.md).
+
 #### <a name="prerequisites"></a>Wymagania wstępne
 
 W poniższych przykładach tworzysz, aktualizujesz, łączysz i usuwasz zasady dla podmiotów usługi. Jeśli dopiero zaczynasz korzystać z usługi Azure AD, zalecamy [zapoznanie się z tematem jak uzyskać dzierżawę usługi Azure AD](quickstart-create-new-tenant.md) przed wykonaniem tych przykładów.
@@ -527,4 +530,5 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
 
 ## <a name="see-also"></a>Zobacz też
 
-Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
+- Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
+- Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

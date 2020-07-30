@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121677"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422865"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -23,7 +23,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależn
 
 Rozwiąż problemy z gotowością do oceny w następujący sposób:
 
-**Problem** | **Poprawka**
+**Problem** | **Wprowadzanie poprawek**
 --- | ---
 Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
 Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](https://aka.ms/WSosstatement). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie.
@@ -52,7 +52,7 @@ Protokół internetowy gotowości warunkowej | Dotyczy wyłącznie ocen systemu 
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie oznaczono jako nieznane
 
-W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMWare (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMware (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Maszyny wirtualne z systemem Linux są gotowe do oceny maszyn wirtualnych platformy Azure
 
@@ -180,6 +180,9 @@ Po przeprowadzeniu migracji maszyn z włączoną wizualizacją zależności na p
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Plik CSV składnika eksport zależności zawiera "nieznany proces"
 W analizie zależności bez wykorzystania agentów nazwy procesów są przechwytywane na podstawie najlepszego wysiłku. W niektórych scenariuszach, chociaż nazwy serwera źródłowego i docelowego oraz port docelowy są przechwytywane, nie jest możliwe ustalenie nazw procesów na obu końcach zależności. W takich przypadkach proces jest oznaczony jako "nieznany proces".
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>Podczas próby skonfigurowania obszaru roboczego w ocenie serwera nie jest wyświetlany obszar roboczy Log Analytics
+Usługa Azure Migrate obecnie obsługuje tworzenie obszaru roboczego pakietu OMS w regionach Wschodnie stany USA, Azja Południowo-Wschodnia i Europa Zachodnia. Jeśli obszar roboczy jest tworzony poza Azure Migrate w innym regionie, nie można go skojarzyć z Azure Migrate projektem.
 
 
 ## <a name="capture-network-traffic"></a>Przechwyć ruch sieciowy

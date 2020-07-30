@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 85eaa04836774b838da67e073017f4af3d2fe179
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 56fd644e43b704eced4f5a97b82e4b07ab1b4db9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726487"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424089"
 ---
 # <a name="playback-technology-tech"></a>Technologia odtwarzania ("Tech") #
 
@@ -25,7 +26,7 @@ Technologia odtwarzania odnosi się do określonej przeglądarki lub technologii
 
 ## <a name="tech-order"></a>Porządek techniczny ##
 
-Aby upewnić się, że zasób jest zmieniany na wielu różnych urządzeniach, zaleca się wykonanie następujących czynności technicznych i jest to ustawienie domyślne, jeśli `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` : i można ustawić bezpośrednio w `<video>` lub programowo w opcjach:
+Aby upewnić się, że zasób jest zmieniany na wielu różnych urządzeniach, zaleca się wykonanie następujących czynności technicznych i jest to ustawienie domyślne, jeśli: `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` i można ustawić bezpośrednio w `<video>` lub programowo w opcjach:
 
 `<video data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS, "silverlightSS", "html5"]}`
 
@@ -46,7 +47,7 @@ Uwzględniając zalecaną kolejność Tech z zawartością przesyłania strumien
 | Krawędź 11      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
 | IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | błysk                | błysk              | Silverlight (PlayReady)    |
 | IE 11          | Windows Phone 8,1                                        | azureHtml5JS           | azureHtml5JS         | nieobsługiwane                |
-| Brzeg           | Xbox<sup>1</sup> (aktualizacja lis 2015)                   | azureHtml5JS           | azureHtml5JS         | nieobsługiwane                |
+| Edge           | Xbox<sup>1</sup> (aktualizacja lis 2015)                   | azureHtml5JS           | azureHtml5JS         | nieobsługiwane                |
 | Chrome 37 +     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Firefox 47 +    | Windows 10, Windows 8.1, macOS X Yosemite +<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite +<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | Silverlight (PlayReady)    |

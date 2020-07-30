@@ -3,16 +3,16 @@ title: Obsługa dostępności geograficznej i waluty dla portalu komercyjnego fi
 description: Obsługa dostępności geograficznej i waluty dla transakcji w portalu komercyjnym
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120011"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387442"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -43,12 +43,12 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Brazylia                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bułgaria                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Kamerun                            | CM        | USD          |
 | Kanada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Kajmany                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Chinach\**                            | CN        | Nie dotyczy          |
+| Chinach\**                            | CN        | Brak          |
 | Kolumbia                            | CO        | USD          |
 | Kostaryka                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -110,8 +110,8 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Namibia                             | Nie dotyczy        | USD          |
 | Nepal                               | NP        | USD          |
 | Holandia                         | NL        | EUR          |
-| Nikaragua                           | NI        | USD          |
 | Nowa Zelandia                         | NZ        | NZD          |
+| Nikaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norwegia                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
@@ -148,15 +148,15 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Tunezja                             | TN        | USD          |
 | Turcja                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Watykan (Watykan)             | VA        | EUR          |
-| Wyspy Dziewicze Stany Zjednoczone | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Zjednoczone Emiraty Arabskie                | AE        | USD          |
 | Zjednoczone Królestwo                      | GB        | GBP          |
 | Stany Zjednoczone                       | USA        | USD          |
+| Wyspy Dziewicze Stanów Zjednoczonych                 | VI        | USD          |
 | Urugwaj                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
+| Watykan (Watykan)             | VA        | EUR          |
 | Wenezuela                           | VE        | USD          |
 | Wietnam                             | VN        | USD          |
 | Jemen                               | YE        | USD          |

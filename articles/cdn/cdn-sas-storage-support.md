@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: 702ea4e76f1fb13a3c7935f131da4ef11d369813
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003002"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432752"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
 
@@ -96,7 +96,7 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Dostosuj czas trwania pamięci podręcznej przy użyciu reguł buforowania lub dodając `Cache-Control` nagłówki na serwerze źródłowym. Ponieważ Azure CDN traktuje token sygnatury dostępu współdzielonego jako zwykły ciąg zapytania, najlepszym rozwiązaniem jest skonfigurowanie czasu trwania buforowania, który wygasa o lub przed upływem czasu wygaśnięcia sygnatury dostępu współdzielonego. W przeciwnym razie, jeśli plik jest buforowany przez dłuższy czas, niż jest aktywny, plik może być dostępny z serwera pochodzenia Azure CDN po upływie czasu wygaśnięcia sygnatury dostępu współdzielonego. Jeśli wystąpi taka sytuacja, a chcesz uniemożliwić dostęp do pamięci podręcznej, należy wykonać operację przeczyszczania pliku, aby wyczyścić ją z pamięci podręcznej. Aby uzyskać informacje o ustawianiu czasu trwania pamięci podręcznej na Azure CDN, zobacz [kontrola Azure CDN zachowanie buforowania przy użyciu reguł buforowania](cdn-caching-rules.md).
+3. Dostosuj czas trwania pamięci podręcznej przy użyciu reguł buforowania lub dodając `Cache-Control` nagłówki na serwerze źródłowym. Ponieważ Azure CDN traktuje token sygnatury dostępu współdzielonego jako zwykły ciąg zapytania, najlepszym rozwiązaniem jest skonfigurowanie czasu trwania buforowania, który wygasa o lub przed upływem czasu wygaśnięcia sygnatury dostępu współdzielonego. W przeciwnym razie, jeśli plik jest buforowany przez dłuższy czas, niż jest aktywny, plik może być dostępny z punktu końcowego Azure CDN po upływie czasu wygaśnięcia sygnatury dostępu współdzielonego. Jeśli wystąpi taka sytuacja, a chcesz uniemożliwić dostęp do pamięci podręcznej, należy wykonać operację przeczyszczania pliku, aby wyczyścić ją z pamięci podręcznej. Aby uzyskać informacje o ustawianiu czasu trwania pamięci podręcznej na Azure CDN, zobacz [kontrola Azure CDN zachowanie buforowania przy użyciu reguł buforowania](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opcja 3: używanie uwierzytelniania tokenu zabezpieczającego sieci CDN z regułą ponownego zapisu
 

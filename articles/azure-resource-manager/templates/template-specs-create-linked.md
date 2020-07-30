@@ -3,12 +3,12 @@ title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097735"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387867"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Połączony szablon jest nazywany **linkedTemplate.json**i jest przechowywany w 
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-Jeśli istnieje inny linkedTemplate2.js, który jest wywoływany z linkedTemplate.json i linkedTemplate2.json jest przechowywany w tym samym podfolderze artefaktów, relativePath określony w linkedTemplate.jsjest **linkedTemplate2.jsna**.
+`relativePath`Właściwość jest zawsze względna w stosunku do pliku szablonu `relativePath` , gdzie jest zadeklarowany, więc jeśli istnieje inny linkedTemplate2.js, który jest wywoływany z linkedTemplate.json i linkedTemplate2.jsjest przechowywany w tym samym podfolderze artefaktów, RelativePath określona w linkedTemplate.jsjest tylko `linkedTemplate2.json` .
 
 1. Utwórz szablon główny przy użyciu poniższego kodu JSON. Zapisz szablon główny jako **azuredeploy.jsna** komputerze lokalnym. W tym samouczku założono, że Zapisano w ścieżce **c:\Templates\linkedTS\azuredeploy.jsna** , ale można użyć dowolnej ścieżki.
 

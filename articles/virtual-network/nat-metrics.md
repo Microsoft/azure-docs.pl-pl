@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 75e20a4fb91b73bc353d347f0b34f9be8f7a8a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709950"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424055"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Metryki translatora adresów sieciowych na platformie Azure Virtual Network
 
 Zasoby bramy translatora adresów sieciowych w usłudze Azure Virtual Network zapewniają wielowymiarowe metryki. Te metryki służą do obserwowania operacji i [rozwiązywania problemów](troubleshoot-nat.md).  Alerty można skonfigurować pod kątem krytycznych problemów, takich jak wyczerpanie adresów.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
 </p>
 
 *Rysunek: Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu*
@@ -36,7 +36,7 @@ Zasoby bramy translatora adresów sieciowych w usłudze Azure Virtual Network za
 
 Zasoby bramy NAT zapewniają następujące wielowymiarowe metryki w Azure Monitor:
 
-| Metric | Opis | Zalecana agregacja | Wymiary |
+| Metryka | Opis | Zalecana agregacja | Wymiary |
 |---|---|---|---|
 | Bajty | Przetworzone bajty przychodzące i wychodzące | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
 | SPI | Pakiety przetworzone do ruchu przychodzącego i wychodzącego | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |

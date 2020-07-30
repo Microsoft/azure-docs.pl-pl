@@ -4,18 +4,18 @@ description: Usługa Azure Container Instances to najszybszy i najprostszy spos�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 572557860f5d715d6c708acb640acc24e1dd4a35
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259512"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424158"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
 
 Kontenery stają się preferowanym sposobem tworzenia pakietów aplikacji w chmurze, ich wdrażania oraz zarządzania nimi. Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności zarządzania jakimikolwiek maszynami wirtualnymi ani korzystania z usługi wyższego poziomu.
 
-Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scenariuszy, które może działać w kontenerach izolowanych, w tym w przypadku prostych aplikacji, automatyzacji zadań i zadań kompilacji. W przypadku scenariuszy, w których potrzebujesz pełnej orkiestracji kontenerów, w tym opcji odnajdowania usług w wielu kontenerach, automatycznego skalowania i skoordynowanych uaktualnień aplikacji, zalecamy skorzystanie z usługi [Azure Kubernetes Service](../aks/index.yml) (AKS).
+Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scenariuszy, które może działać w kontenerach izolowanych, w tym w przypadku prostych aplikacji, automatyzacji zadań i zadań kompilacji. W przypadku scenariuszy, w których potrzebna jest pełna aranżacja kontenera, w tym odnajdowania usług w wielu kontenerach, Skalowanie automatyczne i skoordynowane uaktualnienia aplikacji, zalecamy korzystanie z [usługi Azure Kubernetes Service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Krótki czas uruchamiania
 
@@ -68,7 +68,7 @@ Usługa Azure Container Instances obsługuje planowanie [grup wielu kontenerów]
 
 ## <a name="virtual-network-deployment"></a>Wdrażanie sieci wirtualnej
 
-Obecnie dostępne dla obciążeń produkcyjnych w podzbiorze regionów świadczenia usługi Azure, ta funkcja Azure Container Instances umożliwia [wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure](container-instances-vnet.md). Wdrożenie wystąpień kontenerów w podsieci w sieci wirtualnej umożliwia bezpieczną komunikację z innymi zasobami w sieci wirtualnej, w tym z zasobami lokalnymi (przy użyciu [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [usługi ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances umożliwia [wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure](container-instances-vnet.md). Wystąpienia kontenerów, które są wdrażane w podsieci w sieci wirtualnej, mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej, w tym z lokalnymi (za pośrednictwem [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Następne kroki
 

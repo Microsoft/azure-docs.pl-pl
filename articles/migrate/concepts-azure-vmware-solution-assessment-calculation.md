@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118821"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387952"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Ocena automatycznej synchronizacji w Azure Migrate: Ocena serwera
 
@@ -128,7 +128,7 @@ Tutaj nowości zamieszczono w ocenie automatycznej synchronizacji w ocenie serwe
 **Użycie percentyla** | Określa wartość percentylości zestawu próbek wydajności, który ma być brany pod uwagę w przypadku zmiany wielkości liter. Ta właściwość ma zastosowanie tylko wtedy, gdy rozmiar jest oparty na wydajności.
 **Współczynnik komfortu** | Azure Migrate oceny serwera traktuje bufor (współczynnik komfortu) podczas oceny. Jest on stosowany do wszystkich danych użycia maszyn wirtualnych (procesora, pamięci, dysku i sieci). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. 
 **Oferta** | Wyświetla [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , która jest zarejestrowana. Zgodnie z tym usługa Azure Migrate odpowiednio szacuje koszty.
-**Waluta** | Przedstawia walutę rozliczeń dla Twojego konta. 
+**Walutowy** | Przedstawia walutę rozliczeń dla Twojego konta. 
 **Rabat (%)** | Wyświetla rabat związany z subskrypcją, który otrzymujesz w górnej części oferty platformy Azure. Ustawienie domyślne to 0%. 
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz program Software Assurance i kwalifikujesz się do [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Chociaż nie ma to wpływu na ceny rozwiązań VMware platformy Azure ze względu na cenę opartą na węzłach, klienci mogą nadal stosować licencje lokalnych systemów operacyjnych (Microsoft based) w ramach automatycznej synchronizacji przy użyciu korzyści użycia hybrydowego platformy Azure. Inni dostawcy systemu operacyjnego oprogramowania będą musieli podać własne warunki licencjonowania, takie jak RHEL. 
 **vCPU nadsubskrypcji** | Określa stosunek liczby rdzeni wirtualnych związanych z jednym rdzeniem fizycznym w węźle automatyczna synchronizacja. Wartość domyślna w obliczeniach to 4 vCPU: 1 rdzeń fizyczny w wersji zaautomatycznej. <br/><br/> Użytkownicy interfejsu API mogą ustawić tę wartość jako liczbę całkowitą. Należy zauważyć, że vCPU nad> 4:1 może mieć wpływ na obciążenia, w zależności od użycia procesora CPU. 
@@ -152,7 +152,7 @@ Ocena serwera sprawdza poniższą Właściwość lokalnej maszyny wirtualnej w c
 
 | **Właściwość** | **Szczegóły** | **Stan gotowości do automatycznej synchronizacji** 
 | - | - | - 
-| **Protokół internetowy** | Automatyczna synchronizacja nie obsługuje obecnie adresowania internetowego IPv6.<br/><br/> Aby uzyskać wskazówki dotyczące rozwiązywania problemów, należy skontaktować się z lokalnym zespołem GBB.| Protokół internetowy gotowości warunkowej
+| **Protokół internetowy** | Usługa AVS nie obsługuje obecnie adresowania internetowego IPv6.<br/><br/> Aby uzyskać wskazówki dotyczące rozwiązywania problemów w razie wykrycia protokołu IPv6 na maszynie, skontaktuj się z lokalnym zespołem MSFT AVS GBB.| Protokół internetowy gotowości warunkowej
 
 
 ### <a name="guest-operating-system"></a>System operacyjny gościa
@@ -172,15 +172,15 @@ Gdy maszyna zostanie oznaczona jako gotowa do automatycznej synchronizacji, Ocen
 
 ### <a name="ftt-sizing-parameters"></a>Parametry zmiany wielkości FTT
 
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielenia magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
 
-**Niepowodzenia do tolerowania (FTT)** | **Konfiguracja RAID** | **Minimalna wymagana ilość hostów** | **Uwzględnianie wielkości**
+**Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru**
 --- | --- | --- | --- 
 1 | RAID-1 (dublowanie) | 3 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 200 GB.
-1 | RAID-5 (Wymazywanie kodowania) | 4 | Maszyna wirtualna 100 GB zużywa 133.33 GB
-2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna 100 GB zużywa 300 GB.
-2 | RAID-6 (Wymazywanie kodowania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 150 GB.
-3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna 100 GB zużywa 400 GB.
+1 | RAID-5 (kodowanie wymazywania) | 4 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 133,33 GB
+2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 300 GB.
+2 | RAID-6 (kodowanie wymazywania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 150 GB.
+3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 400 GB.
 
 ### <a name="performance-based-sizing"></a>Ustalanie wielkości na podstawie wydajności
 
@@ -197,11 +197,11 @@ Po ustaleniu wartości efektywnego wykorzystania magazyn, Sieć i rozmiar oblicz
 
 **Rozmiar magazynu**: Azure Migrate używa całkowitej ilości lokalnego miejsca na dysku maszyny wirtualnej jako parametru obliczeń, aby określić wymagania dotyczące automatycznej synchronizacji sieci vSAN, oprócz ustawienia FTT wybranego przez klienta. FTT — niepowodzenia do tolerowania, a także wymaganie minimalnej liczby węzłów na FTT opcji spowoduje określenie całkowitego magazynu sieci vSAN wymaganego w połączeniu z wymaganiem dysku maszyny wirtualnej.
 
-**Ustalanie wielkości sieci**: Ocena serwera obecnie nie przyjmuje żadnych ustawień sieciowych uwzględniających oceny automatycznej synchronizacji.
+**Ustalanie rozmiaru sieci**: ocena serwera obecnie nie uwzględnia żadnych ustawień sieci na potrzeby ocen w usłudze AVS.
 
 **Ustalanie wielkości obliczeń**: po obliczeniu wymagań dotyczących magazynu Ocena serwera uwzględnia wymagania dotyczące procesora i pamięci, aby określić liczbę węzłów wymaganych do automatycznej synchronizacji na podstawie typu węzła.
 
-- W oparciu o kryteria ustalania wielkości oceny serwera są sprawdzane na podstawie wydajności lub konfiguracji lokalnej maszyny wirtualnej. Ustawienie współczynnika komfortu umożliwia określenie współczynnika wzrostu klastra. Obecnie funkcja wielowątkowości jest włączona, a więc węzły podstawowe 36 będą mieć 72 rdzeni wirtualnych. 4 rdzeni wirtualnych na fizyczne służy do ustalania progów procesora CPU dla klastra przy użyciu standardu VMware o wartości nieprzekraczającej 80%, co pozwala na obsługę konserwacji lub niepowodzeń, bez naruszania dostępności klastra. Obecnie nie ma dostępnego przesłonięcia, aby zmienić wartości nadsubskrypcji, a firma Microsoft może mieć tę możliwość w przyszłych wersjach.
+- W oparciu o kryteria ustalania wielkości oceny serwera są sprawdzane na podstawie wydajności lub konfiguracji lokalnej maszyny wirtualnej. Ustawienie współczynnika komfortu umożliwia określenie współczynnika wzrostu klastra. Obecnie domyślnie funkcja wielowątkowości jest włączona, więc 36 węzłów podstawowych będzie mieć 72 rdzenie wirtualne. 4 rdzenie wirtualne na fizyczne służą do ustalania progów procesora CPU dla klastra przy użyciu standardu VMware o wartości nieprzekraczającej 80% użycia, co pozwala na obsługę konserwacji lub niepowodzeń bez naruszania dostępności klastra. Obecnie nie ma dostępnego przesłonięcia, aby zmienić wartości nadsubskrypcji, a firma Microsoft może mieć tę możliwość w przyszłych wersjach.
 
 ### <a name="as-on-premises-sizing"></a>Zgodnie z rozmiarem lokalnym
 
@@ -255,9 +255,9 @@ Pamiętaj, że jako wersja zapoznawcza rozwiązanie Azure VMware (Automatyczna s
 
 ## <a name="migration-tool-guidance"></a>Wskazówki dotyczące narzędzia do migracji
 
-W raporcie dotyczącym gotowości platformy Azure do oceny rozwiązań VMware (Automatyczna synchronizacja) można zobaczyć następujące sugerowane narzędzia: 
+W raporcie dotyczącym gotowości oceny usługi Azure VMware Solution (AVS) można zobaczyć następujące sugerowane narzędzia: 
 - **VMware HCX lub Enterprise**: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV, domyślne narzędzie migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMWare (HCX).
+- **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMware (HCX).
 
 ## <a name="next-steps"></a>Następne kroki
 

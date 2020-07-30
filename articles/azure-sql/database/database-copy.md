@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309260"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430257"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -116,6 +116,9 @@ Aby skopiować bazę danych na serwer w innej subskrypcji przy użyciu języka T
 
 > [!NOTE]
 > [Azure Portal](https://portal.azure.com), PowerShell i interfejs wiersza polecenia platformy Azure nie obsługują kopiowania bazy danych do innej subskrypcji.
+
+> [!TIP]
+> Kopiowanie bazy danych przy użyciu języka T-SQL obsługuje kopiowanie bazy danych z subskrypcji w innej dzierżawie platformy Azure.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitoruj postęp operacji kopiowania
 

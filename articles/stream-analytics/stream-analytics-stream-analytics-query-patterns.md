@@ -8,12 +8,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.openlocfilehash: c22f028779090e735bf6f91d5ecc1fc572f190ab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: edb84810b7391242e9ac90b1502c18f9af4e4698
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313646"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433174"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w Azure Stream Analytics
 
@@ -414,7 +415,7 @@ Czas trwania zdarzenia może być obliczany przez wyszukanie ostatniego zdarzeni
 
 **Dane wejściowe**:  
 
-| Użytkownik | Cechy | Wydarzenie | Czas |
+| Użytkownik | Cechy | Zdarzenie | Czas |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Rozpocznij |2015-01-01T00:00:01.0000000 Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000 Z |
@@ -929,7 +930,7 @@ Zapytanie umożliwia producentowi automatyczne monitorowanie lokalizacji maszyn,
 
 Aby uzyskać więcej informacji, zapoznaj się z [scenariuszami geoprzestrzennymi i agregacjami geograficznymi przy użyciu Azure Stream Analytics](geospatial-scenarios.md) artykułu.
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

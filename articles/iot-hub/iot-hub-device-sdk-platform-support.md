@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045121"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423086"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Obsługa platformy zestawów SDK urządzeń Azure IoT
 
@@ -69,7 +69,7 @@ Tylko w wersji 3.5.3 lub nowszej obsługują asynchroniczne interfejsy API, zale
 
 [Zestaw SDK urządzeń platformy Azure IoT Hub .NET (C#)](https://github.com/Azure/azure-iot-sdk-csharp) jest testowany z programem i obsługuje następujące konfiguracje.
 
-| System operacyjny                                   | Standardowa (Standard)                                                   |
+| System operacyjny                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Jednostki SKU systemu Windows 10 dla komputerów stacjonarnych i serwerów   | .NET Core 2,1, .NET Framework 4.5.1 lub .NET Framework 4,7 |
@@ -124,7 +124,7 @@ Jeśli nie można użyć jednego z zestawów SDK urządzeń IoT Hub, można poł
 
 ## <a name="support-and-other-resources"></a>Pomoc techniczna i inne zasoby
 
-Jeśli wystąpią problemy podczas korzystania z zestawów SDK urządzeń Azure IoT, istnieje kilka sposobów poszukiwania pomocy technicznej. Możesz wypróbować jeden z następujących kanałów:
+Jeśli wystąpią problemy podczas korzystania z zestawów SDK urządzeń Azure IoT, istnieje kilka sposobów wyszukiwania pomocy technicznej poniżej. Aby uzyskać pełne informacje na temat wszystkich opcji pomocy technicznej, zobacz [Pomoc techniczna i opcje pomocy usługi Azure IoT](https://aka.ms/iothelp). 
 
 **Raportowanie błędów** — usterki w zestawach SDK urządzeń można zgłaszać na stronie problemy odpowiedniego projektu GitHub. Poprawki są szybko wprowadzane do projektu w programie do aktualizacji produktów.
 
@@ -137,6 +137,8 @@ Jeśli wystąpią problemy podczas korzystania z zestawów SDK urządzeń Azure 
 * [Problemy z zestawem SDK usługi Azure IoT Hub Node.js](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problemy z zestawem SDK platformy Azure IoT Hub Python](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Pytania techniczne** — możesz zadawać pytania techniczne na platformie [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) a i [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) za pomocą tagu *Azure-IoT-SDK*.
 
 **Zespół pomocy technicznej firmy Microsoft** — użytkownicy z [planem pomocy](https://azure.microsoft.com/support/plans/) technicznej mogą skontaktować się z zespołem pomocy technicznej firmy Microsoft, tworząc nowe żądanie pomocy technicznej bezpośrednio z [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

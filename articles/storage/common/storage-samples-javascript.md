@@ -1,25 +1,26 @@
 ---
 title: Przykłady usługi Azure Storage korzystające z języka JavaScript | Microsoft Docs
-description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady wprowadzające dla obiektów blob, kolejek, tabel i plików przy użyciu bibliotek klienta magazynu JavaScript/Node. js.
+description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady wprowadzenia dla obiektów blob, kolejek, tabel i plików przy użyciu bibliotek klienta magazynu JavaScript/Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77485849"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433092"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 JavaScript
 
 Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz scenariusze omówione w poszczególnych przykładach. Kliknij linki, aby wyświetlić odpowiedni przykładowy kod w usłudze GitHub.
 
 > [!NOTE]
-> Te przykłady używają najnowszej biblioteki V12 JavaScript usługi Azure Storage. W przypadku starszego kodu v11 zapoznaj się z tematem [wprowadzenie z usługą Azure Blob Service w węźle Node. js](https://github.com/Azure-Samples/storage-blob-node-getting-started) w repozytorium GitHub.
+> Te przykłady używają najnowszej biblioteki V12 JavaScript usługi Azure Storage. Aby uzyskać starszy kod V11, zobacz [wprowadzenie z usługą Azure Blob Service w Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) w repozytorium GitHub.
 
 ## <a name="blob-samples"></a>Przykłady obiektów BLOB
 
@@ -349,7 +350,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
       [Jednostki partii](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87)
    :::column-end:::
    :::column span="":::
-      [Utwórz tabelę](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41)
+      [Tworzenie tabeli](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41)
    :::column-end:::
 :::row-end:::
 :::row:::

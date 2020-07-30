@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST i środowiska Node. js — wyszukiwanie wideo Bing'
+title: 'Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST i Node.js — wyszukiwanie wideo Bing'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki start, aby wysyłać żądania wyszukiwania wideo do interfejsu API REST wyszukiwania wideo Bing przy użyciu języka JavaScript.
 services: cognitive-services
@@ -10,22 +10,23 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 693b8209498f07928c811fd084eaf259bcbcb5ff
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9658d488fac187e63d04ca435c9233629407ac07
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408105"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i środowiska Node. js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i Node.js
 
-Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja JavaScript wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript i używa środowiska Node. js, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. 
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja JavaScript wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript i używa Node.js, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. 
 
 Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) wraz z dodatkową obsługą błędów i adnotacjami kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Node. js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/).
 
 * Moduł żądania dla języka JavaScript. Zainstaluj ten moduł przy użyciu programu `npm install request` .
 

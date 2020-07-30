@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b050e8c70de4edc39c8ddad71d2169d5308607b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287250"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429389"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definiowanie niestandardowych modułów R dla Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (wersja klasyczna) 
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 W tym temacie opisano sposób tworzenia i wdrażania niestandardowego programu R Studio (klasycznego). Wyjaśniono, jakie niestandardowe moduły R są i które pliki są używane do ich definiowania. Przedstawiono w nim sposób konstruowania plików, które definiują moduł i sposób rejestrowania modułu do wdrożenia w obszarze roboczym Machine Learning. Elementy i atrybuty używane w definicji modułu niestandardowego są następnie opisane bardziej szczegółowo. Omówiono również sposób korzystania z funkcji i plików pomocniczych oraz wielu danych wyjściowych. 
 
@@ -309,7 +309,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * Etykieta
     * Cechy
     * Wynik
-    * Wszystkie
+    * Wszystko
   * **domyślne** ustawienia domyślne dla selektora kolumn są prawidłowe: 
     
     * Brak
@@ -332,7 +332,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * AllLabel
     * AllFeature
     * AllScore
-    * Wszystkie
+    * Wszystko
 
 **Menu rozwijane**: Lista wyliczeniowa określona przez użytkownika (lista rozwijana). Elementy rozwijane są określone w elemencie **Properties** przy użyciu elementu **Item** . **Identyfikator** każdego **elementu** musi być unikatowy i prawidłową zmienną języka R. Wartość **nazwy** **elementu** służy zarówno jako wyświetlany tekst, jak i wartość, która jest przesyłana do funkcji języka R.
 

@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747206"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423001"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Użyj swojego numeru telefonu jako nazwy użytkownika (wersja zapoznawcza)
 
@@ -52,11 +52,11 @@ Jeśli używasz już numeru telefonu w organizacji i używasz numeru telefonu ja
 
 1. Gdy logowanie za pomocą programu SMS jest dostępne, na transparencie zostanie wyświetlony monit z pytaniem, czy chcesz włączyć numer telefonu na potrzeby logowania do programu SMS:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![Baner, aby włączyć logowanie do programu SMS w ramach numeru telefonu.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. Ponadto przycisk **Włącz** jest wyświetlany, jeśli wybierzesz karetkę na kafelku metody telefonu:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Baner, aby włączyć logowanie do programu SMS w ramach numeru telefonu.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. Aby włączyć metodę, wybierz pozycję **Włącz**. Zostanie wyświetlony monit o potwierdzenie akcji:
 
@@ -68,7 +68,7 @@ Jeśli używasz już numeru telefonu w organizacji i używasz numeru telefonu ja
 
 1. Aby usunąć numer telefonu, wybierz przycisk Usuń na kafelku metoda logowania do wiadomości SMS.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Baner, aby usunąć logowanie za pomocą programu SMS dla numeru telefonu.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. Po wyświetleniu monitu o potwierdzenie akcji wybierz **przycisk OK**.
 

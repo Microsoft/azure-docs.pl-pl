@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie wystąpienia i uwierzytelniania (z użyciem skryptów)
 titleSuffix: Azure Digital Twins
-description: Zobacz jak skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji, w tym prawidłowe uwierzytelnianie. Wersja skryptu.
+description: Zobacz jak skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji, uruchamiając skrypt wdrażania automatycznego
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337912"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407491"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337912"
 
 W tym artykule opisano procedurę **konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji**, w tym tworzenia wystąpienia i konfigurowania uwierzytelniania. Po ukończeniu tego artykułu będzie dostępne wystąpienie usługi Azure Digital bliźniaczych reprezentacji gotowe do rozpoczęcia programowania.
 
-Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. Aby zapoznać się z ręcznymi krokami, w których skrypt działa w tle, zobacz wersję ręczną tego artykułu: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)*](how-to-set-up-instance-manual.md).
+Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. 
+* Aby zapoznać się z ręcznymi krokami interfejsu wiersza polecenia, które są wykonywane przez skrypt w tle, zobacz wersja interfejsu wiersza polecenia w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md).
+* Aby zapoznać się z ręcznymi krokami zgodnie z Azure Portal, zobacz wersja portalu w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (Portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>Uruchamianie skryptu wdrażania
 
@@ -41,7 +44,7 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
  
 2. Po zalogowaniu się przejdź do paska ikon okna Cloud Shell. Wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór opcji przekazywania":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór opcji przekazywania":::
 
     Przejdź do pliku _**deploy.ps1**_ na swojej maszynie i naciśnij pozycję "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
@@ -57,21 +60,38 @@ Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji, p
 
 Poniżej znajduje się fragment dziennika danych wyjściowych ze skryptu:
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące dziennik danych wejściowych i wyjściowych za pomocą uruchomienia skryptu wdrażania" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące dziennik danych wejściowych i wyjściowych za pomocą uruchomienia skryptu wdrażania" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Jeśli skrypt zakończy się pomyślnie, zostanie wyświetlony końcowy wydruk `Deployment completed successfully` . W przeciwnym razie należy rozwiązać ten problem, a następnie uruchomić skrypt. Spowoduje to pominięcie czynności, które zostały już wykonane, i ponowne zażądanie danych wejściowych w miejscu, w którym zostało przerwane.
 
-Po zakończeniu działania skryptu masz teraz gotowe do użycia wystąpienie usługi Azure Digital bliźniaczych reprezentacji oraz uprawnienia skonfigurowane do zarządzania nim.
+Po zakończeniu działania skryptu masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczych reprezentacji z uprawnieniami do zarządzania nim oraz że skonfigurowano uprawnienia aplikacji klienckiej do uzyskiwania do niej dostępu.
+
+> [!NOTE]
+> Skrypt aktualnie przypisuje wymaganą rolę zarządzania w ramach usługi Azure Digital bliźniaczych reprezentacji (*wersja zapoznawcza usługi Azure Digital bliźniaczych reprezentacji*) do tego samego użytkownika, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## <a name="collect-important-values"></a>Zbierz ważne wartości
 
-Istnieją dwie ważne wartości rejestracji aplikacji, które będą potrzebne później do [uwierzytelnienia aplikacji klienckiej względem interfejsów API Digital bliźniaczych reprezentacji platformy Azure](how-to-authenticate-client.md). 
+Istnieje kilka ważnych wartości zasobów skonfigurowanych przez skrypt, które mogą być potrzebne w przypadku kontynuowania pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. W tej sekcji użyjesz [Azure Portal](https://portal.azure.com) , aby zebrać te wartości. Należy je zapisać w bezpiecznym miejscu lub wrócić do tej sekcji, aby znaleźć je później, gdy będą potrzebne.
+
+Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy również udostępnić te wartości.
+
+### <a name="collect-instance-values"></a>Zbierz wartości wystąpień
+
+W [Azure Portal](https://portal.azure.com)Znajdź wystąpienie usługi Azure Digital bliźniaczych reprezentacji, wyszukując nazwę wystąpienia na pasku wyszukiwania portalu.
+
+Wybranie tej opcji spowoduje otwarcie strony *przeglądowej* wystąpienia. Zanotuj jego *nazwę*, *grupę zasobów*i *nazwę hosta*. Może być potrzebne później do zidentyfikowania wystąpienia i nawiązania z nim połączenia.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wyróżnianie ważnych wartości na stronie przeglądowej wystąpienia":::
+
+### <a name="collect-app-registration-values"></a>Zbieranie wartości rejestracji aplikacji 
+
+Istnieją dwie ważne wartości rejestracji aplikacji, które będą potrzebne później do [zapisania kodu uwierzytelniania aplikacji klienta dla interfejsów API Digital bliźniaczych reprezentacji platformy Azure](how-to-authenticate-client.md). 
 
 Aby je znaleźć, Skorzystaj z [tego linku](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) , aby przejść do strony Przegląd rejestracji aplikacji usługi Azure AD w Azure Portal. Ta strona zawiera wszystkie rejestracje aplikacji, które zostały utworzone w ramach subskrypcji.
 
 Powinna zostać wyświetlona właśnie utworzona Rejestracja aplikacji na tej liście. Wybierz go, aby otworzyć jego szczegóły:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Widok portalu ważnych wartości rejestracji aplikacji":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Widok portalu ważnych wartości rejestracji aplikacji":::
 
 Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Jeśli nie jesteś osobą, która będzie pisać kod dla aplikacji klienckich, musisz udostępnić te wartości osobie, która będzie.
 
@@ -86,6 +106,9 @@ Aby sprawdzić, czy wystąpienie zostało utworzone, przejdź do [strony Digital
 ### <a name="verify-user-role-assignment"></a>Weryfikuj przypisanie roli użytkownika
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> Odwołaj, że skrypt aktualnie przypisuje tę wymaganą rolę temu samemu użytkownikowi, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ### <a name="verify-app-registration"></a>Weryfikowanie rejestracji aplikacji
 

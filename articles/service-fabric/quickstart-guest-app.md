@@ -3,12 +3,13 @@ title: Szybkie wdrażanie istniejącej aplikacji w klastrze
 description: Użyj klastra usługi Azure Service Fabric do hostowania istniejącej aplikacji w technologii Node.js za pomocą programu Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614846"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430720"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostowanie aplikacji w technologii Node.js w usłudze Azure Service Fabric
 
@@ -20,7 +21,7 @@ Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programow
 
 Niezbędna jest również aplikacja Node.js do wdrożenia. Przewodnik Szybki Start używa prostej witryny sieci Web w technologii Node.js, którą można pobrać [stąd][download-sample]. W następnym kroku po utworzeniu projektu wyodrębnij ten plik do swojego folderu `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`.
 
-Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto][create-account].
+Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][create-account].
 
 ## <a name="create-the-service"></a>Tworzenie usługi
 

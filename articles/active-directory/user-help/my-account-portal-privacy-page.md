@@ -11,26 +11,28 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0e74ea4a3204efb35fa6113504356e87c85aa0dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec050f3dfd2537f8cffde353772d61c32cb9d676
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742094"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422378"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Zobacz, jak Twoja organizacja używa danych związanych z prywatnością
 
-Możesz zobaczyć, jak Twoja organizacja korzysta z danych ze strony **prywatność** w portalu **My Account** .
+Możesz zobaczyć, jak Twoja organizacja używa Twoich danych na stronie **ustawienia & prywatność** w portalu **My Account** .
 
 ## <a name="view-your-privacy-related-info"></a>Wyświetlanie swoich informacji związanych z prywatnością
 
 1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myaccount.microsoft.com/ strony.
 
-2. W okienku nawigacji po lewej stronie wybierz opcję **prywatność** lub wybierz łącze **Sprawdź prywatność** z bloku **prywatność** .
+2. Wybierz pozycję **ustawienia & prywatność** w okienku nawigacji po lewej stronie lub wybierz pozycję Ustawienia **widoku i prywatność** w **ustawieniach & bloku prywatność** .
 
-    ![Strona Moje konto z wyświetlonymi wyróżnionymi linkami prywatności](media/my-account-portal/my-account-portal-privacy.png)
+    ![Strona Moje konto z wyróżnionymi ustawieniami & link prywatności](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Przejrzyj informacje, w tym:
+3. Wybierz opcję **prywatność**, jak pokazano na poniższym przykładowym zrzucie ekranu, a następnie przejrzyj informacje, w tym:
+
+    ![Strona Ustawienia & prywatność, wyświetlanie wyróżnionej opcji karta prywatność](media/my-account-portal/my-account-portal-privacy-tab.png)
 
     - **Services.** Lista Usługi online, z którymi nawiązano połączenie przy użyciu konta służbowego.
 
@@ -47,5 +49,7 @@ Po przejrzeniu sposobu korzystania z danych przez organizację można:
 - Wyświetl swoje [organizacje](my-account-portal-organizations-page.md)lub zarządzaj nimi.
 
 - Wyświetlanie [działania związanego z logowaniem](my-account-portal-sign-ins-page.md).
+
+- Zmień [Ustawienia portalu My Account](my-account-portal-settings.md)
 
 - Możesz również wyświetlić informacje o preferencjach kontaktu i prywatności dotyczące Microsoft Office w [portalu Office, na stronie prywatność & zabezpieczeń](https://portal.office.com/account/#security).

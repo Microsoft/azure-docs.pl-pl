@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081046"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423868"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -114,7 +114,7 @@ Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników n
 
 ## <a name="administrative-rights"></a>Prawa administracyjne
 
-[Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania roli RBAC określają, kto może wykonywać te zadania, bez względu na to, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)lub [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania ról platformy Azure określają, kto może wykonywać te zadania, niezależnie od tego, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak możliwość tworzenia lub usuwania indeksu, są nałożone przez klucze interfejsu API zgodnie z opisem w [poprzedniej sekcji](#index-access).
 
@@ -125,7 +125,7 @@ Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak mo�
 
 Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na stronie oficjalne raporty inspekcji.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)

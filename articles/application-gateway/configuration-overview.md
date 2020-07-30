@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068029"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428171"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -55,7 +55,7 @@ Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są obsługiwane w 
   - Nie usuwaj domyślnych reguł dla ruchu wychodzącego.
   - Nie należy tworzyć innych reguł wychodzących, które odbraniają łączności wychodzącej.
 
-- Ruch ze znacznika **AzureLoadBalancer** musi być dozwolony.
+- Ruch ze znacznika **AzureLoadBalancer** z podsiecią docelową **musi być** dozwolony.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Zezwalaj na Application Gateway dostęp do kilku źródłowych adresów IP
 
@@ -74,7 +74,7 @@ W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Applic
 
 - **wersjach**
 
-   W przypadku jednostki SKU w wersji 1 trasy zdefiniowane przez użytkownika (UDR) są obsługiwane w podsieci Application Gateway, o ile nie zmieniają one kompleksowej komunikacji żądania/odpowiedzi. Na przykład można skonfigurować UDR w podsieci Application Gateway, aby wskazać urządzenie zapory na potrzeby inspekcji pakietów. Należy jednak upewnić się, że pakiet może dotrzeć do zamierzonego miejsca docelowego po inspekcji. Niewykonanie tej czynności może spowodować nieprawidłowe działanie sondowania kondycji lub routingu ruchu. Obejmuje to informacje o trasach lub domyślnych trasach 0.0.0.0/0, które są propagowane przez usługi Azure ExpressRoute lub bramy sieci VPN w sieci wirtualnej.
+   W przypadku jednostki SKU w wersji 1 trasy zdefiniowane przez użytkownika (UDR) są obsługiwane w podsieci Application Gateway, o ile nie zmieniają one kompleksowej komunikacji żądania/odpowiedzi. Na przykład można skonfigurować UDR w podsieci Application Gateway, aby wskazać urządzenie zapory na potrzeby inspekcji pakietów. Należy jednak upewnić się, że pakiet może dotrzeć do zamierzonego miejsca docelowego po inspekcji. Niewykonanie tej czynności może spowodować nieprawidłowe działanie sondowania kondycji lub routingu ruchu. Obejmuje to informacje o trasach lub domyślnych trasach 0.0.0.0/0, które są propagowane przez usługi Azure ExpressRoute lub bramy sieci VPN w sieci wirtualnej. Każdy scenariusz, w którym 0.0.0.0/0 musi być przekierowywany lokalnie (Wymuszone tunelowanie), nie jest obsługiwany w wersji 1.
 
 - **v2**
 
@@ -279,7 +279,7 @@ Aby uzyskać więcej informacji na temat przekierowania, zobacz:
 - [Przekierowywanie ruchu do lokacji zewnętrznej przy użyciu programu PowerShell](redirect-external-site-powershell.md)
 - [Przekierowywanie ruchu do lokacji zewnętrznej przy użyciu interfejsu wiersza polecenia](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Zapisz ponownie nagłówki HTTP i adres URL
+### <a name="rewrite-http-headers-and-url"></a>Ponowne zapisywanie nagłówków HTTP i adresów URL
 
 Korzystając z reguł ponownego zapisywania, można dodawać, usuwać lub aktualizować żądania HTTP (S) i nagłówki odpowiedzi oraz ścieżkę URL i parametry ciągu zapytania jako pakiety żądań i odpowiedzi przenoszone między pulami klienta i zaplecza za pośrednictwem bramy aplikacji.
 

@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80632525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424413"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
@@ -34,10 +34,27 @@ Poniższa tabela i grafika zawierają ogólny widok składników służących do
 
 ![Składniki](./media/vmware-azure-architecture/arch-enhanced.png)
 
+## <a name="set-up-outbound-network-connectivity"></a>Konfigurowanie wychodzącej łączności sieciowej
+
+Aby Site Recovery działały zgodnie z oczekiwaniami, należy zmodyfikować wychodzącą łączność sieciową, aby umożliwić replikację danego środowiska.
+
+> [!NOTE]
+> Usługa Site Recovery nie obsługuje sterowania łącznością sieciową za pomocą uwierzytelniającego serwera proxy.
+
+### <a name="outbound-connectivity-for-urls"></a>Połączenia ruchu wychodzącego dla adresów URL
+
+Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na dostęp do tych adresów URL:
+
+| **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Po włączeniu replikacji dla maszyny wirtualnej rozpocznie się replikacja początkowa do usługi Azure Storage przy użyciu określonych zasad replikacji. . Weź pod uwagę następujące kwestie:
+1. Po włączeniu replikacji dla maszyny wirtualnej rozpocznie się replikacja początkowa do usługi Azure Storage przy użyciu określonych zasad replikacji. Pamiętaj o następujących kwestiach:
     - W przypadku maszyn wirtualnych VMware replikacja jest na poziomie bloku, blisko ciągłego, przy użyciu agenta usługi mobilności uruchomionego na maszynie wirtualnej.
     - Zostaną zastosowane wszystkie ustawienia zasad replikacji:
         - **Próg punktu odzyskiwania**. To ustawienie nie ma wpływu na replikację. Ułatwia to monitorowanie. Zostanie zgłoszone zdarzenie i opcjonalnie zostanie wysłana wiadomość e-mail, jeśli bieżący cel punktu odzyskiwania przekroczy określony limit progu.

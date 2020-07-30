@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125303"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405615"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Żądanie usługi nie powiodło się. Stan: 403 (dostęp zabroniony)
 
@@ -57,7 +57,7 @@ Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samod
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika* ](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) w temacie *instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)*.
+Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)*.
 
 Jeśli masz już to przypisanie roli i nadal napotkasz problem 403, przejdź do następnego rozwiązania.
 
@@ -75,12 +75,12 @@ Najpierw sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji
 
 #### <a name="fix-issues"></a>Rozwiązywanie problemów
 
-Jeśli którykolwiek z tych elementów pojawia się inaczej niż opisano, postępuj zgodnie z instrukcjami dotyczącymi sposobu konfigurowania rejestracji aplikacji w [sekcji *Konfigurowanie uprawnień dostępu dla aplikacji klienckich* ](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) w artykule *instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)*.
+Jeśli którykolwiek z tych elementów pojawia się inaczej niż opisano, postępuj zgodnie z instrukcjami dotyczącymi sposobu konfigurowania rejestracji aplikacji w [sekcji *Konfigurowanie uprawnień dostępu dla aplikacji klienckich* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) w artykule *instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)*.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Przeczytaj czynności konfiguracyjne dotyczące tworzenia i uwierzytelniania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
-* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)*](how-to-set-up-instance-manual.md)
+* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md)
 
 Przeczytaj więcej na temat zabezpieczeń i uprawnień w usłudze Azure Digital bliźniaczych reprezentacji:
 * [*Koncepcje: zabezpieczenia rozwiązań Digital bliźniaczych reprezentacji na platformie Azure*](concepts-security.md)

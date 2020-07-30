@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027516"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428273"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -42,9 +42,16 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 8. Wybierz oświadczenia, które chcesz wysłać do interfejsu API.
 9. Wybierz wszelkie oświadczenia, które planujesz odebrać z interfejsu API.
 
-   ![Ustaw oświadczenia łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. Wybierz pozycję **Zapisz**.
+
+### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Wybór "oświadczeń do wysłania" i "oświadczeń do odebrania"
+> [!IMPORTANT]
+> Można zobaczyć wszystkie wybrane oświadczenia domyślnie, jak pokazano poniżej. Wszystkie łączniki interfejsu API zostaną zaktualizowane w taki sposób. Interfejs API otrzyma wszystkie dostępne oświadczenia i będzie mógł wysłać wszelkie obsługiwane oświadczenia bez konfigurowania ich w definicji łącznika interfejsu API. 
+
+![Ustaw oświadczenia łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
@@ -135,8 +142,8 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | String (ciąg)            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | String (ciąg)            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| version                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
@@ -161,10 +168,10 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | String (ciąg) | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String (ciąg) | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
-| userMessage | String (ciąg) | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | String (ciąg) | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| version     | String | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
+| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Środowisko użytkownika końcowego z odpowiedzią blokującą
 
@@ -191,11 +198,11 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | String (ciąg)  | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String (ciąg)  | Tak      | Wartość musi być `ValidationError` .                                           |
+| version     | String  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
 | status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | String (ciąg)  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | String (ciąg)  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji
 

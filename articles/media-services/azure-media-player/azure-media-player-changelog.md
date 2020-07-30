@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281348"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432662"
 ---
 # <a name="changelog"></a>Dziennik zmian #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281348"
 
 ### <a name="changes-234"></a>Zmiany 2.3.4
 
-- Usunięto pustą etykietę/ścieżkę w przypadku odtwarzania HLS w systemach iOS i MacOS Safari
+- Usunięto pustą etykietę/ścieżkę w przypadku odtwarzania HLS w systemach iOS i macOS Safari
 - Zmniejszono liczbę 412s dla podpisów IMSC1
 - Ostrzeżenie wyjściowe w konsoli dla 10 kolejnych pustych odpowiedzi IMSC1, aby ułatwić debugowanie na żywo
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (oficjalna Aktualizacja z października 9 2019)
 
-### <a name="features"></a>Funkcje
+### <a name="features-232"></a>Funkcje 2.3.2
 
 -Dodano obsługę technologii PlayReady dla odtwarzania PAUZ dla przeglądarki Microsoft Edge
 
@@ -101,7 +101,7 @@ ms.locfileid: "87281348"
 
 - Po otrzymaniu segmentDecryptError i gracz jest już na żywo, teraz odtwarzacz odświeża manifest zamiast próbować następny segment
 - Dodano więcej rejestrowania dla diagnostyki
-- Zaktualizowana dokumentacja dotycząca obsługi Uwzględnij FairPlay dla programu Safari dla systemu iOS
+- Zaktualizowana dokumentacja obejmująca obsługę FairPlay dla przeglądarki Safari dla systemu iOS
 - Dodano przykład dla opcji IMSC1 ("srclang")
 - Dodano uzupełnienie, textuzupełnienie, boxShadow zastąpień dla ścieżek tekstowych.
 - Dodano kod błędu (0x0020025B) w celu odróżnienia tego, że pobranie segmentu nie powiodło się z powodu braku Internetu, a nie tylko wyrzucanie 0x00200259
@@ -228,7 +228,7 @@ ms.locfileid: "87281348"
 
 ### <a name="changes-218"></a>Zmiany 2.1.8 ###
 
-- Stąp Zaktualizowano błędu 0x0600001, aby był wyświetlany, gdy zawartość AES jest odtwarzana z programem Flash 30, ponieważ nie jest w tej chwili obsługiwana. Aby uzyskać więcej informacji, zobacz [znane problemy](azure-media-player-known-issues.md)
+- Stąp Zaktualizowano błąd 0x0600001, który ma być wyświetlany, gdy zawartość AES jest odtwarzana z programem Flash 30, ponieważ nie jest w tej chwili obsługiwana. Aby uzyskać więcej informacji, zobacz [znane problemy](azure-media-player-known-issues.md)
 - Stąp Dodano dodatkowe próby dla scenariuszy na żywo, gdy manifestuje żądania 404 lub zwraca puste manifesty.
 
 ## <a name="217-official-update"></a>2.1.7 (oficjalna aktualizacja) ##

@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 47adca5867fef1d41ccfec2455acc6932269842d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282283"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387833"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -547,7 +547,7 @@ Jeśli używasz usługi Azure Disk Encryption, możesz przywrócić maszynę wir
 **Wskazówki:** Podczas tworzenia kopii zapasowych dysków zarządzanych przy użyciu Azure Backup maszyny wirtualne są szyfrowane przy użyciu szyfrowanie usługi Storage (SSE). Azure Backup może również tworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które są szyfrowane przy użyciu Azure Disk Encryption. Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). Włącz nietrwałe usuwanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 - [Usuwanie nietrwałe dla maszyn wirtualnych](../backup/soft-delete-virtual-machines.md)
-- [Azure Key Vault-Soft-Delete — przegląd](../key-vault/general/overview-soft-delete.md)
+- [Azure Key Vault-Soft-Delete — przegląd](../key-vault/general/soft-delete-overview.md)
 
 **Monitorowanie Azure Security Center:** Opcję
 

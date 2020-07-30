@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: f7a792eea28c6a6d05c4f295241291fdf2449467
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a9aa58ec990170df99f330f67991fff7b61c2b49
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82859039"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429846"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Samouczek: symulowanie błędu podczas odczytywania danych z regionu podstawowego
 
@@ -23,7 +24,7 @@ Ten samouczek jest drugą częścią serii. W tym artykule dowiesz się, jak uzy
 
 W celu symulowania awarii można użyć [statycznego routingu](#simulate-a-failure-with-an-invalid-static-route) lub [programu Fiddler](#simulate-a-failure-with-fiddler). Obie metody umożliwiają symulowanie niepowodzeń żądań do podstawowego punktu końcowego konta magazynu [geograficznie nadmiarowego do odczytu](../common/storage-redundancy.md) (Ra-GZRS), co spowoduje, że aplikacja zostanie odczytana z pomocniczego punktu końcowego.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 Część druga serii zawiera informacje na temat wykonywania następujących czynności:
 
@@ -110,7 +111,7 @@ Otwórz program Fiddler i wybierz kolejno pozycje **Reguły** i **Dostosuj regu�
 
 Zostanie uruchomiony edytor ScriptEditor programu Fiddler i wyświetli plik **SampleRules.js**. Ten plik jest używany do dostosowywania programu Fiddler.
 
-Wklej następujący przykładowy kod w `OnBeforeResponse` funkcji, zastępując `STORAGEACCOUNTNAME` ją nazwą konta magazynu. W zależności od przykładu może być również konieczne zastąpienie `HelloWorld` nazwy pliku testowego (lub prefiksu, takiego jak `sampleFile`). Nowy kod jest oznaczony jako komentarz, aby upewnić się, że nie działa natychmiast.
+Wklej następujący przykładowy kod w `OnBeforeResponse` funkcji, zastępując ją `STORAGEACCOUNTNAME` nazwą konta magazynu. W zależności od przykładu może być również konieczne zastąpienie `HelloWorld` nazwy pliku testowego (lub prefiksu, takiego jak `sampleFile` ). Nowy kod jest oznaczony jako komentarz, aby upewnić się, że nie działa natychmiast.
 
 Po zakończeniu wybierz pozycję **Plik** i **Zapisz**, aby zapisać swoje zmiany. Pozostaw otwarte okno ScriptEditor do użycia w poniższych krokach.
 
@@ -138,7 +139,7 @@ Skorzystaj z instrukcji w [poprzednim samouczku][previous-tutorial] , aby urucho
 
 ### <a name="simulate-failure"></a>Symulowanie błędu
 
-Gdy aplikacja jest wstrzymana, przełącz się z powrotem do programu Fiddler i usuń znaczniki komentarza z reguły niestandardowej zapisanej w `OnBeforeResponse` funkcji. Upewnij się, że wybrano opcję **plik** i **Zapisz** , aby zapisać zmiany, aby reguła zaczęła obowiązywać. Ten kod szuka żądań do konta magazynu RA-GZRS i, jeśli ścieżka zawiera nazwę pliku przykładowego, zwraca kod odpowiedzi `503 - Service Unavailable`.
+Gdy aplikacja jest wstrzymana, przełącz się z powrotem do programu Fiddler i usuń znaczniki komentarza z reguły niestandardowej zapisanej w `OnBeforeResponse` funkcji. Upewnij się, że wybrano opcję **plik** i **Zapisz** , aby zapisać zmiany, aby reguła zaczęła obowiązywać. Ten kod szuka żądań do konta magazynu RA-GZRS i, jeśli ścieżka zawiera nazwę pliku przykładowego, zwraca kod odpowiedzi `503 - Service Unavailable` .
 
 W oknie z uruchomionym przykładem Wznów działanie aplikacji lub naciśnij odpowiedni klucz, aby pobrać przykładowy plik i potwierdzić, że pochodzi z magazynu pomocniczego. Następnie możesz ponownie wstrzymać próbkę lub zaczekaj na monit.
 

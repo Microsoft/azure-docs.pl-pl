@@ -10,13 +10,13 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops
-ms.openlocfilehash: 8aa53d4b08a4a0bdaa4e1f12169811ae88edbd2f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devops, devx-track-javascript
+ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501878"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433054"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
@@ -35,7 +35,7 @@ Omawiane kwestie:
 > * Utwórz potok Azure Pipelines CD.
 > * Przeprowadzanie wdrożeń wyzwalanych ręcznie i za pomocą CI.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Zaloguj się do swojej organizacji Azure DevOps Services ( **https://dev.azure.com/** ). 
   Możesz uzyskać [bezpłatną organizację Azure DevOps Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).

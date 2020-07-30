@@ -7,18 +7,19 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6f5e05e9bfea6b14e46bbde8d17fba2d2a3b7b07
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298004"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429504"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny VuePress w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [VuePress](https://vuepress.vuejs.org/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowa aplikacja usługi Azure static Web Apps ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -30,7 +31,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 - Konto platformy Azure z aktywną subskrypcją. Jeśli go nie masz, możesz [utworzyć konto bezpłatnie](https://azure.microsoft.com/free/).
 - Konto usługi GitHub. Jeśli go nie masz, możesz [utworzyć konto bezpłatnie](https://github.com/join).
-- Zainstalowane środowisko [Node.js](https://nodejs.org).
+- [Node.js](https://nodejs.org) zainstalowane.
 
 ## <a name="create-a-vuepress-app"></a>Tworzenie aplikacji VuePress
 
@@ -48,7 +49,7 @@ Tworzenie aplikacji VuePress przy użyciu interfejsu wiersza polecenia (CLI):
    echo '# Hello From VuePress' > README.md
    ```
 
-1. Zainicjuj plik _Package. JSON_ .
+1. Zainicjuj _package.js_ pliku.
 
    ```bash
    npm init -y
@@ -60,7 +61,7 @@ Tworzenie aplikacji VuePress przy użyciu interfejsu wiersza polecenia (CLI):
    npm install --save-dev vuepress
    ```
 
-1. Otwórz plik _Package. JSON_ w edytorze tekstów i Dodaj do sekcji polecenie Build [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) .
+1. Otwórz _package.jsw_ pliku w edytorze tekstów i Dodaj do sekcji polecenie Build [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) .
 
    ```json
    ...
@@ -108,11 +109,11 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 ### <a name="create-the-application"></a>Tworzenie aplikacji
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
-1. Wyszukaj **Web Apps statyczny**
-1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Wyszukaj usługę **Static Web Apps**
+1. Kliknij pozycję **Static Web Apps (wersja zapoznawcza)**
+1. Kliknij pozycję **Utwórz**
 
    :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
@@ -142,7 +143,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompilacji do kompilowania aplikacji. Poniższe ustawienia umożliwiają skonfigurowanie pliku przepływu pracy akcji usługi GitHub.
 
-1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
+1. Kliknij przycisk **Dalej: Skompiluj >**, aby edytować konfigurację kompilacji
 
 1. Ustaw _lokalizację aplikacji_ na **/** .
 

@@ -7,12 +7,13 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 1157fb69704af59a75989b22338b88a8576428ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 99424e5a7b39d3f60f3337ff10bf7d9265e2ab4c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076665"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422882"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Szybki Start: Azure Key Vault biblioteki klienckiej dla Node.js (v4)
 
@@ -137,7 +138,7 @@ Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ T
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

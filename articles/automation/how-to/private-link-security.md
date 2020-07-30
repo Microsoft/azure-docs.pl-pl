@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207273"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423800"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Skorzystaj z prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation (wersja zapoznawcza)
 
@@ -82,7 +82,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **SZCZEGÓŁY PROJEKTU** | |
-    | Subscription | Wybierz subskrypcję. |
+    | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa | Wprowadź *PrivateEndpoint*. |
@@ -96,7 +96,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
     | Ustawienie | Wartość |
     | ------- | ----- |
     |Metoda połączenia  | Wybierz pozycję Połącz z zasobem platformy Azure w moim katalogu.|
-    | Subscription| Wybierz subskrypcję. |
+    | Subskrypcja| Wybierz subskrypcję. |
     | Typ zasobu | Wybierz pozycję **Microsoft. Automation/automationAccounts**. |
     | Zasób |Wybierz *myAutomationAccount*|
     |Podzasób docelowy |W zależności od scenariusza wybierz pozycję *webhook* lub *DSCAndHybridWorker* .|
@@ -132,15 +132,15 @@ Jeśli odbiorca usługi ma uprawnienia RBAC do zasobu usługi Automation, może 
 
 ## <a name="set-public-network-access-flags"></a>Ustawianie flag dostępu do sieci publicznej
 
-Można skonfigurować konto usługi Automation, aby odmówić całej konfiguracji publicznej i zezwolić tylko na połączenia za pomocą prywatnych punktów końcowych w celu zwiększenia bezpieczeństwa sieci. Jeśli chcesz ograniczyć dostęp do konta usługi Automation tylko z poziomu sieci wirtualnej i nie zezwalać na dostęp z publicznego Internetu, możesz ustawić `publicNetworkAccess` Właściwość na `$true` .
+Można skonfigurować konto usługi Automation, aby odmówić całej konfiguracji publicznej i zezwolić tylko na połączenia za pomocą prywatnych punktów końcowych w celu zwiększenia bezpieczeństwa sieci. Jeśli chcesz ograniczyć dostęp do konta usługi Automation tylko z poziomu sieci wirtualnej i nie zezwalać na dostęp z publicznego Internetu, możesz ustawić `publicNetworkAccess` Właściwość na `$false` .
 
-Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość `true` , dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych, a wszystkie połączenia za pośrednictwem publicznych punktów końcowych są odrzucane z komunikatem o błędzie.
+Gdy ustawienie **dostępu do sieci publicznej** jest ustawione na `$false` , dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych, a wszystkie połączenia za pośrednictwem publicznych punktów końcowych są odrzucane z komunikatem o błędzie unathorized i stanem HTTP 401. 
 
 Poniższy skrypt programu PowerShell przedstawia sposób `Get` i `Set` Właściwość **publicznego dostępu do sieci** na poziomie konta usługi Automation:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

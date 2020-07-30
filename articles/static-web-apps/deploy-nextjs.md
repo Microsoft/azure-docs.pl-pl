@@ -1,36 +1,37 @@
 ---
-title: 'Samouczek: wdrażanie renderowanych na serwerze witryn sieci Web w następnym. js w usłudze Azure static Web Apps'
-description: Generuj i wdrażaj kolejne dynamiczne lokacje w usłudze js przy użyciu usługi Azure static Web Apps.
+title: 'Samouczek: wdrażanie Next.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps'
+description: Generuj i wdrażaj Next.js Lokacje dynamiczne przy użyciu statycznego Web Apps platformy Azure.
 services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: fe139921cb73ee0e224c995e2dd5eb5fc50f3979
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80a38c069f937783b60ede46bc4319253798ff44
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599853"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431636"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdrażaj renderowane przez serwer witryny sieci Web w usłudze Azure static Web Apps w wersji zapoznawczej
+# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Next.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
 
-W tym samouczku dowiesz się, jak wdrożyć [następną](https://nextjs.org) statyczną witrynę sieci Web w usłudze [Azure static Web Apps](overview.md). Aby rozpocząć, dowiesz się, jak skonfigurować, skonfigurować i wdrożyć aplikację Next. js. W trakcie tego procesu warto również zapoznać się z typowymi wyzwaniami często spotykanymi podczas generowania stron statycznych przy użyciu następnego. js.
+W ramach tego samouczka nauczysz się wdrożyć [Next.js](https://nextjs.org) wygenerowaną statyczną witrynę sieci web do [Web Apps statycznej platformy Azure](overview.md). Aby rozpocząć, dowiesz się, jak skonfigurować, skonfigurować i wdrożyć aplikację Next.js. W trakcie tego procesu warto również zapoznać się z typowymi wyzwaniami często spotykanymi podczas generowania stron statycznych przy użyciu Next.js
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 - Konto usługi GitHub. [Utwórz konto bezpłatnie](https://github.com/join).
-- Zainstalowane środowisko [Node.js](https://nodejs.org).
+- [Node.js](https://nodejs.org) zainstalowane.
 
-## <a name="set-up-a-nextjs-app"></a>Konfigurowanie aplikacji Next. js
+## <a name="set-up-a-nextjs-app"></a>Konfigurowanie aplikacji Next.js
 
-Zamiast korzystać z interfejsu wiersza polecenia Next. js do tworzenia aplikacji, można użyć repozytorium początkowego, które zawiera istniejącą aplikację w następnej wersji. js. To repozytorium zawiera aplikację Next. js z trasami dynamicznymi, która wyróżnia typowy problem związany z wdrażaniem. Trasy dynamiczne wymagają dodatkowej konfiguracji wdrożenia, która w tym momencie będzie dowiedzieć się więcej.
+Zamiast korzystać z interfejsu wiersza polecenia Next.js do tworzenia aplikacji, możesz użyć repozytorium początkowego, które zawiera istniejącą aplikację Next.js. To repozytorium zawiera aplikację Next.jsą z trasami dynamicznymi, która wyróżnia typowy problem związany z wdrażaniem. Trasy dynamiczne wymagają dodatkowej konfiguracji wdrożenia, która w tym momencie będzie dowiedzieć się więcej.
 
 Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytorium szablonów. 
 
-1. Przejdź do<http://github.com/staticwebdev/nextjs-starter/generate>
+1. Przejdź do strony <http://github.com/staticwebdev/nextjs-starter/generate>
 1. Nadaj nazwę repozytorium **nextjs-Starter**
 1. Następnie Sklonuj nowe repozytorium na komputerze. Pamiętaj, aby zamienić na `<YOUR_GITHUB_ACCOUNT_NAME>` nazwę swojego konta.
 
@@ -38,7 +39,7 @@ Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytori
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nextjs-starter
     ```
 
-1. Przejdź do nowo sklonowanej aplikacji Next. js:
+1. Przejdź do nowo sklonowanej aplikacji Next.js:
 
    ```bash
    cd nextjs-starter
@@ -50,7 +51,7 @@ Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytori
     npm install
     ```
 
-1. Rozpocznij aplikację Next. js w programie Development:
+1. Rozpocznij Next.js aplikacji w programie Development:
 
     ```bash
     npm run dev
@@ -58,17 +59,17 @@ Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytori
 
 Przejdź do strony <http://localhost:3000> , aby otworzyć aplikację, w której powinna zostać otwarta Następująca witryna sieci Web w preferowanej przeglądarce:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Uruchom aplikację Next. js":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Uruchom aplikację Next.js":::
 
 Po kliknięciu architektury/biblioteki powinna zostać wyświetlona strona szczegółów wybranego elementu:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Strona szczegółów":::
 
-## <a name="generate-a-static-website-from-nextjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji w następnej wersji. js
+## <a name="generate-a-static-website-from-nextjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji Next.js
 
-Podczas tworzenia następnej witryny. js przy użyciu programu `npm run build` aplikacja jest skompilowana jako tradycyjna aplikacja internetowa, a nie lokacja statyczna. Aby wygenerować lokację statyczną, należy użyć następującej konfiguracji aplikacji.
+Gdy tworzysz witrynę Next.js przy użyciu programu `npm run build` , aplikacja jest skompilowana jako tradycyjna aplikacja sieci Web, a nie lokacja statyczna. Aby wygenerować lokację statyczną, należy użyć następującej konfiguracji aplikacji.
 
-1. Aby skonfigurować trasy statyczne, Utwórz plik o nazwie _Next. config. js_ w katalogu głównym projektu i Dodaj następujący kod.
+1. Aby skonfigurować trasy statyczne, Utwórz plik o nazwie _next.config.js_ w katalogu głównym projektu i Dodaj następujący kod.
 
     ```javascript
     module.exports = {
@@ -81,9 +82,9 @@ Podczas tworzenia następnej witryny. js przy użyciu programu `npm run build` a
     };
     ```
     
-      Ta konfiguracja `/` jest mapowana na następną stronę. js, która jest obsługiwana dla `/` trasy, a to plik stronicowania _Pages/index. js_ .
+      Ta konfiguracja `/` jest mapowana na stronę Next.js, która jest obsługiwana dla `/` trasy, a to jest plik stronicowania _stron/index.js_ .
 
-1. Zaktualizuj skrypt kompilacji _Package. JSON_, aby generować również lokację statyczną po skompilowaniu przy użyciu `next export` polecenia. `export`Polecenie generuje lokację statyczną.
+1. Zaktualizuj _package.jsna_skrypcie kompilacji, aby generować również lokację statyczną po skompilowaniu przy użyciu `next export` polecenia. `export`Polecenie generuje lokację statyczną.
 
     ```json
     "scripts": {
@@ -133,11 +134,11 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 
 ### <a name="create-a-static-app"></a>Tworzenie aplikacji statycznej
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
-1. Wyszukaj **Web Apps statyczny**
-1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Wyszukaj usługę **Static Web Apps**
+1. Kliknij pozycję **Static Web Apps (wersja zapoznawcza)**
+1. Kliknij pozycję **Utwórz**
 
 1. Wybierz subskrypcję z listy rozwijanej *subskrypcja* lub użyj wartości domyślnej.
 1. Kliknij link **Nowy** poniżej listy rozwijanej *Grupa zasobów* . W polu *Nazwa nowej grupy zasobów*wpisz **mystaticsite** , a następnie kliknij przycisk **OK** .
@@ -149,14 +150,14 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 
 ### <a name="add-a-github-repository"></a>Dodawanie repozytorium GitHub
 
-Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą następnej aplikacji. js, aby umożliwić automatyczne wdrażanie zatwierdzeń.
+Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą aplikacji Next.js, dzięki czemu może automatycznie wdrażać zatwierdzenia.
 
 1. Kliknij **przycisk Zaloguj się przy użyciu usługi GitHub**
-1. Wybierz **organizację** , w ramach której utworzono repozytorium dla następnego projektu. js, który może być nazwą użytkownika w serwisie GitHub.
+1. Wybierz **organizację** , w ramach której utworzono repozytorium dla projektu Next.js. może to być nazwa użytkownika usługi GitHub.
 1. Znajdź i wybierz nazwę utworzonego wcześniej repozytorium.
 1. Wybierz opcję **wzorzec** jako gałąź z listy rozwijanej *rozgałęzienie* .
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Połącz z usługą GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Łączenie z usługą GitHub":::
 
 ### <a name="configure-the-build-process"></a>Skonfiguruj proces kompilacji
 
@@ -196,11 +197,11 @@ Przejdź do nowo wdrożonej lokacji i kliknij jeden z logo struktury lub bibliot
 
 :::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 na trasach dynamicznych":::
 
-Przyczyną tego błędu jest to, że w następnym. js jest generowana tylko Strona główna oparta na konfiguracji aplikacji.
+Przyczyną tego błędu jest to, że Next.js wygenerowana tylko Strona główna oparta na konfiguracji aplikacji.
 
 ## <a name="generate-static-pages-from-dynamic-routes"></a>Generuj strony statyczne z tras dynamicznych
 
-1. Zaktualizuj _następny plik config. js_ w taki sposób, aby następny. js używa listy wszystkich dostępnych danych do generowania stron statycznych dla każdej struktury/biblioteki:
+1. Zaktualizuj plik _next.config.js_ tak, aby Next.js używał listy wszystkich dostępnych danych do generowania stron statycznych dla każdej struktury/biblioteki:
 
    ```javascript
    const data = require('./utils/projectsData');

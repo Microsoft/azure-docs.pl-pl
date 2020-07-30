@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248020"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422814"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -100,11 +100,12 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6,0 |
+| System Windows Server 1709 | 6.0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6,0 |
+| Linux Ubuntu 16,04 | 6.0 |
+| Linux Ubuntu 18,04 | 7.1 |
 
 Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](./service-fabric-versions.md#supported-operating-systems)
 

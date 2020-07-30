@@ -3,12 +3,12 @@ title: Klonowanie notesu Jupyter z usługi GitHub przy użyciu wersji zapoznawcz
 description: Szybko Sklonuj Notes Jupyter z repozytorium GitHub i uruchom go na koncie Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 267e79e7d4bf108ac3b2c72d64cee5a07ba638be
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833090"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424481"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: klonowanie notesu w programie Azure Notebooks Preview
 
@@ -49,7 +49,7 @@ Brak.
 
 1. Po zakończeniu klonowania Azure Notebooks przenosi do nowego projektu, w którym można zobaczyć kopie wszystkich plików.
 
-    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    :::image type="content" source="media/quickstarts/completed-clone.png" alt-text="Widok ukończonego klonu." lightbox="media/quickstarts/completed-clone.png":::
 
 ## <a name="share-a-notebook"></a>Udostępnianie notesu
 

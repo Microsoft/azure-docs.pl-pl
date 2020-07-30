@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289232"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423835"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -97,7 +97,7 @@ Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących
 Aby dowiedzieć się, jak weryfikować i przypisywać role, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Należy pamiętać, że propagacja ról RBAC może potrwać do 5 minut.
+> Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut.
 
 Nie trzeba mieć jednej z tych ról przypisanych do podmiotu zabezpieczeń, jeśli podmiot zabezpieczeń zostanie dodany do listy kontroli dostępu (ACL) docelowego kontenera lub katalogu. Na liście ACL podmiot zabezpieczeń musi mieć uprawnienia do zapisu w katalogu docelowym i uprawnienia do wykonywania w kontenerze i w każdym katalogu nadrzędnym.
 

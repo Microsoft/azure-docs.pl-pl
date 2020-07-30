@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 01841b1e6d6fed684137e1327dd77e276650803c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: 076233c52074bca646c072e9a1abe63b15412c1b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340618"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430640"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Szybki Start: korzystanie z kolejek Service Bus na platformie Azure z Node.js i pakietem Azure-SB
 W ramach tego samouczka nauczysz się tworzyć Node.js aplikacje do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus przy użyciu pakietu [Azure-SB](https://www.npmjs.com/package/azure-sb) . Przykłady są zapisywane w języku JavaScript i używają modułu Node.js [platformy Azure](https://www.npmjs.com/package/azure) , który wewnętrznie używa pakietu Azure-SB.
@@ -33,7 +33,7 @@ W ramach tego samouczka nauczysz się tworzyć Node.js aplikacje do wysyłania k
         > **Kolejka** zostanie utworzona w przestrzeni nazw Service Bus przy użyciu Node.js w tym samouczku. 
  
 
-## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node.js
+## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
 Utwórz pustą aplikację Node.js. Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web platformy Azure][Create and deploy a Node.js application to an Azure Website]lub [Node.js usługi w chmurze][Node.js Cloud Service] przy użyciu programu Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Skonfiguruj aplikację do używania Service Bus

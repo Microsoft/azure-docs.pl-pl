@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292080"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432636"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -92,18 +92,21 @@ Dla D16s_v3, która ma 16 procesorów wirtualnych vCPU i 64 GiB pamięci, stawka
 
 ## <a name="q--a"></a>Pytania i odpowiedzi
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>P: co się stanie po wyczerpaniu kredytów?
+Odp **.: gdy**środki są wyczerpane, maszyna wirtualna wraca do wydajności linii bazowej.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: jak uzyskać wydajność bazową 135% z maszyny wirtualnej?
 
 Odp **.: 135**% jest współużytkowany przez 8 vCPU, które tworzą rozmiar maszyny wirtualnej. Jeśli na przykład aplikacja korzysta z 4 rdzeni w ramach przetwarzania wsadowego, a każda z tych 4 vCPU jest uruchomiona o 30%, wykorzystanie całkowitej wydajności procesora maszyn wirtualnych będzie równe 120%.  Oznacza to, że maszyna wirtualna będzie kompilować czas kredytowy na podstawie przyrostu 15% od wydajności linii bazowej.  Oznacza to również, że gdy masz dostępne środki na korzystanie z tej samej maszyny wirtualnej, można użyć 100% wszystkich 8 vCPU, co zapewnia, że maszyna wirtualna ma maksymalną wydajność procesora CPU równą 800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Jak mogę monitorować saldo środków i użycie
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Jak mogę monitorować saldo środków i zużycie?
 
 Odp **.:** wprowadzimy 2 nowe metryki w najbliższych tygodniach, a Metryka **kredytowa** umożliwi wyświetlenie liczby środków, które są używane w ramach Twojej maszyny wirtualnej, a Metryka **CONSUMEDCREDIT** pokazuje, ile kredytów CPU zużywał przez maszynę wirtualną od banku.    Te metryki będą widoczne w okienku metryki w portalu lub programowo za pośrednictwem interfejsów API Azure Monitor.
 
 Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych metryk dla platformy Azure, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>P: w jaki sposób są sumowane kredyty?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: w jaki sposób są sumowane i zużywane środki?
 
 Odp **.: opłaty za gromadzenie**i zużycie maszyn wirtualnych są ustawiane w taki sposób, że maszyna wirtualna działająca na tym samym poziomie wydajności nie będzie mogła ani korzystać z obciążeń sieciowych.  Na maszynie wirtualnej zostanie osiągnięty wzrost środków w wysokości netto, gdy jest ona niższa od bazowego poziomu wydajności i będzie miała spadek netto środków, gdy maszyna wirtualna korzysta z procesora CPU więcej niż jego podstawowy poziom wydajności.
 

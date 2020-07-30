@@ -8,12 +8,13 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203385"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432514"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
@@ -44,7 +45,7 @@ Aby przekazać zawartość do kontenera **$Web** , można użyć dowolnego z tyc
 > [!div class="checklist"]
 > * [Interfejs wiersza polecenia platformy Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Moduł programu Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [Narzędzie AzCopy](../common/storage-use-azcopy-v10.md)
+> * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Rozszerzenie programu Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
@@ -103,7 +104,7 @@ Nie ma możliwości skonfigurowania nagłówków w ramach funkcji statycznej wit
 
 Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kontrola Azure CDN buforowania przy użyciu reguł buforowania](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Bezpłatnie możesz włączyć hosting statycznej witryny sieci Web. Opłaty są naliczane tylko za magazyn obiektów BLOB wykorzystywany przez lokację i koszty operacji. Aby uzyskać więcej informacji na temat cen usługi Azure Blob Storage, zapoznaj się z [cennikiem usługi azure BLOB Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

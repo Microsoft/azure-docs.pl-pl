@@ -3,12 +3,12 @@ title: Publikowanie zdarzeń przy użyciu domen zdarzeń z Azure Event Grid
 description: Pokazuje, jak zarządzać dużymi zestawami tematów w Azure Event Grid i publikować zdarzenia do nich za pomocą domen zdarzeń.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423647"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Zarządzanie tematami i publikowanie zdarzeń przy użyciu domen zdarzeń
 
@@ -135,7 +135,7 @@ New-AzureRmEventGridSubscription `
 
 Jeśli potrzebujesz testowego punktu końcowego, aby subskrybować Twoje zdarzenia, możesz zawsze wdrożyć wstępnie utworzoną [aplikację sieci Web](https://github.com/Azure-Samples/azure-event-grid-viewer) , która wyświetla zdarzenia przychodzące. Zdarzenia można wysyłać do witryny testowej w witrynie `https://<your-site-name>.azurewebsites.net/api/updates` .
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 Uprawnienia ustawione dla tematu są przechowywane w Azure Active Directory i muszą zostać usunięte jawnie. Usunięcie subskrypcji zdarzeń nie spowoduje odwołania użytkowników, którzy mają dostęp do zapisu w temacie.
 

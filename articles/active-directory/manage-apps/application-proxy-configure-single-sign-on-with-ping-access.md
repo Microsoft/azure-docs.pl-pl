@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077887"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431082"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Uwierzytelnianie oparte na nagłówkach logowania jednokrotnego przy użyciu serwera proxy aplikacji i PingAccess
 
@@ -122,6 +122,11 @@ Upewnij się, że adres URL przekierowania jest ustawiony na zewnętrzny adres U
 1. Wybierz łącze obok **identyfikatorów URI przekierowania**, pokazując liczbę identyfikatorów URI przekierowania skonfigurowanych dla klientów sieci Web i publicznych. Zostanie wyświetlona strona ** \<application name> uwierzytelnianie** .
 1. Sprawdź, czy zewnętrzny adres URL przypisany do aplikacji znajduje się na liście **identyfikatorów URI przekierowania** . Jeśli tak nie jest, Dodaj teraz zewnętrzny adres URL, używając typu identyfikatora URI przekierowania dla **sieci Web**, a następnie wybierz pozycję **Zapisz**.
 
+Oprócz zewnętrznego adresu URL do listy identyfikatorów URI przekierowania należy dodać autoryzowany punkt końcowy Azure Active Directory w zewnętrznym adresie URL.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
+
 Na koniec Skonfiguruj swoją aplikację lokalną, aby użytkownicy mieli dostęp do odczytu i do nich dostęp do odczytu i zapisu:
 
 1. Na pasku bocznym **rejestracje aplikacji** aplikacji wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienia do**  >  **Microsoft Graph interfejsów API firmy Microsoft**  >  **Microsoft Graph**. Zostanie wyświetlona strona **uprawnienia interfejsu API żądania** dla **Microsoft Graph** , która zawiera interfejsy api dla systemu Windows Azure Active Directory.
@@ -141,7 +146,7 @@ Należy zebrać te trzy informacje (wszystkie identyfikatory GUID) w celu skonfi
 | --- | --- | --- |
 | **Identyfikator aplikacji (klienta)** | **Identyfikator klienta** | GUID |
 | **Identyfikator katalogu (dzierżawcy)** | **Wystawca** | GUID |
-| `PingAccess key` | **Client Secret (Wpis tajny klienta)** | Ciąg losowy |
+| `PingAccess key` | **Klucz tajny klienta** | Ciąg losowy |
 
 Aby zebrać te informacje:
 

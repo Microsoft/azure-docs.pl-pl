@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c44d2d80e311fd42f0e2167cb0495a4070d0a313
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9cf30324371043d8b702d3e22ec3ecd98e114ba6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025867"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428576"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen federacyjnych
 
@@ -50,7 +50,7 @@ Omawiane kwestie:
 > * Konfigurowanie dołączenia hybrydowego do usługi Azure AD
 > * Włącz urządzenia niskiego poziomu systemu Windows
 > * Weryfikacja rejestracji
-> * Rozwiąż problemy
+> * Rozwiązywanie problemów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -80,6 +80,9 @@ Hybrydowe dołączenie usługi Azure AD wymaga, aby urządzenia miały dostęp d
 - `https://device.login.microsoftonline.com`
 - Usługa tokenu zabezpieczającego (STS) organizacji (dla domen federacyjnych)
 - `https://autologon.microsoftazuread-sso.com`(Jeśli używasz lub planujesz korzystanie z bezproblemowego logowania jednokrotnego)
+
+> [!WARNING]
+> Jeśli Twoja organizacja korzysta z serwerów proxy, które przechwytuje ruch SSL w scenariuszach takich jak ochrona przed utratą danych lub ograniczenia dzierżawy usługi Azure AD, upewnij się, że ruch do elementu " https://device.login.microsoftonline.com " jest wykluczony z funkcji Break-and-Inspekcja TLS. Niepowodzenie wykluczenia " https://device.login.microsoftonline.com " może spowodować zakłócenia przy użyciu uwierzytelniania certyfikatu klienta, powodując problemy dotyczące rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach.
 
 Począwszy od systemu Windows 10 1803, jeśli natychmiastowe dołączenie hybrydowej usługi Azure AD dla środowiska federacyjnego przy użyciu AD FS nie powiedzie się, korzystamy Azure AD Connect do synchronizowania obiektu komputera w usłudze Azure AD, który jest następnie używany do ukończenia rejestracji urządzenia dla hybrydowego sprzężenia usługi Azure AD. Sprawdź, czy Azure AD Connect synchronizuje obiekty komputerów urządzeń, które mają być przyłączone do usługi Azure AD jako hybrydowe. Jeśli obiekty komputera należą do określonych jednostek organizacyjnych (OU), należy również skonfigurować jednostki organizacyjne do synchronizacji w Azure AD Connect. Aby dowiedzieć się więcej o synchronizowaniu obiektów komputerów za pomocą Azure AD Connect, zobacz [Konfigurowanie filtrowania przy użyciu Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 

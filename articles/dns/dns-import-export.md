@@ -5,15 +5,15 @@ description: Dowiedz się, jak importować i eksportować plik strefy DNS do Azu
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 4/3/2019
+ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
-ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709100"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424226"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importowanie i eksportowanie pliku strefy systemu DNS za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -82,7 +82,7 @@ Aby zaimportować plik strefy dla strefy **contoso.com**.
 1. Jeśli jeszcze tego nie zrobiono, należy utworzyć Menedżer zasobów grupę zasobów.
 
     ```azurecli
-    az group create --group myresourcegroup -l westeurope
+    az group create --resource-group myresourcegroup -l westeurope
     ```
 
 2. Do zaimportowania strefy **contoso.com** z pliku **contoso.com.txt** do nowej strefy DNS **w grupie zasobów zasób,** zostanie uruchomione polecenie `az network dns zone import` .<BR>To polecenie ładuje plik strefy i przeanalizuje go. Polecenie wykonuje serię poleceń w usłudze Azure DNS, aby utworzyć strefę i wszystkie zestawy rekordów w strefie. Polecenie raportuje postęp w oknie konsoli wraz z wszelkimi błędami lub ostrzeżeniami. Ponieważ zestawy rekordów są tworzone w serii, importowanie dużych plików stref może potrwać kilka minut.

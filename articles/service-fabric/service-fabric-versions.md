@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: d849b4471bf11183dc02735c7373f858f0c773be
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 728d7403ee8e0ac9ccbd69260a718c65389adc43
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289313"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433194"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -117,3 +117,4 @@ W poniższej tabeli wymieniono nazwy wersji Service Fabric i odpowiadające im n
 | 7,1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7,1 ZASTOSUJESZ PAKIETU CU2 | 7.1.428.9590 | 7.1.428.1 |
+

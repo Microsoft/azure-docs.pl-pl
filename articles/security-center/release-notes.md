@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083977"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430463"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -32,9 +32,27 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 Aktualizacje w lipcu obejmują:
+- [Ocena luk w zabezpieczeniach dla maszyn wirtualnych jest teraz dostępna dla obrazów nienależących do witryny Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)        
 - [Ochrona przed zagrożeniami dla usługi Azure Storage rozwinięta w celu uwzględnienia Azure Files i Azure Data Lake Storage Gen2 (wersja zapoznawcza)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Osiem nowych zaleceń dotyczących włączania funkcji ochrony przed zagrożeniami](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Udoskonalenia zabezpieczeń kontenerów — szybsze skanowanie rejestru i odświeżone dokumenty](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [Nowe zalecenie, aby zaktualizować reguły adaptacyjnych kontrolek aplikacji](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [Sześć zasad usługi SQL Advanced Data Security zostało wycofane](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>Ocena luk w zabezpieczeniach dla maszyn wirtualnych jest teraz dostępna dla obrazów spoza witryny Marketplace
+
+Podczas wdrażania rozwiązania do oceny luk w zabezpieczeniach Security Center poprzednio wykonać sprawdzenie poprawności przed wdrożeniem. Sprawdzenie, czy chcesz potwierdzić jednostkę SKU docelowej maszyny wirtualnej. 
+
+W ramach tej aktualizacji sprawdzanie zostało usunięte i teraz można wdrożyć narzędzia do oceny luk w zabezpieczeniach na komputerach z systemem Windows i Linux. Niestandardowe obrazy są modyfikowane przy użyciu ustawień domyślnych portalu Marketplace.
+
+Chociaż teraz można wdrożyć zintegrowane rozwiązanie do oceny luk w zabezpieczeniach (obsługiwane przez Qualys) na wielu maszynach, pomoc techniczna jest dostępna tylko w przypadku korzystania z systemu operacyjnego wymienionego w temacie [wdrażanie wbudowanego skanera luk w zabezpieczeniach Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+
+Dowiedz się więcej o [zintegrowanym skanerze luk w zabezpieczeniach dla maszyn wirtualnych (tylko w warstwie Standardowa)](built-in-vulnerability-assessment.md).
+
+Dowiedz się więcej o korzystaniu z rozwiązania do oceny luk w zabezpieczeniach w ramach usługi Qualys lub Rapid7 w [ramach wdrażania rozwiązania partnerskiego do skanowania](partner-vulnerability-assessment.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Ochrona przed zagrożeniami dla usługi Azure Storage rozwinięta w celu uwzględnienia Azure Files i Azure Data Lake Storage Gen2 (wersja zapoznawcza)
@@ -44,6 +62,39 @@ Ochrona przed zagrożeniami dla usługi Azure Storage wykrywa potencjalnie szkod
 Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych. 
 
 Dowiedz się więcej o [ochronie przed zagrożeniami dla usługi Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>Osiem nowych zaleceń dotyczących włączania funkcji ochrony przed zagrożeniami
+
+Dodano osiem nowych zaleceń w celu zapewnienia prostego sposobu włączania funkcji ochrony przed zagrożeniami Azure Security Center dla następujących typów zasobów: maszyny wirtualne, plany App Service, serwery Azure SQL Database, serwery SQL na maszynach, konta usługi Azure Storage, klastry usługi Azure Kubernetes, rejestry Azure Container Registry i magazyny Azure Key Vault.
+
+Nowe zalecenia są następujące:
+
+- **Zaawansowane zabezpieczenia danych powinny być włączone na serwerach Azure SQL Database**
+- **Zaawansowane zabezpieczenia danych powinny być włączone na serwerach SQL na maszynach**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona w planach Azure App Service**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona w rejestrach Azure Container Registry**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona w magazynach Azure Key Vault**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona w klastrach usługi Azure Kubernetes**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona na kontach usługi Azure Storage**
+- **Zaawansowana ochrona przed zagrożeniami powinna być włączona na maszynach wirtualnych**
+
+Te nowe rekomendacje należą do kontroli zabezpieczeń **włączenia zaawansowanej ochrony przed zagrożeniami** .
+
+Zalecenia obejmują również możliwość szybkiej naprawy. 
+
+> [!IMPORTANT]
+> Korygowaniem dowolne z tych zaleceń spowoduje naliczenie opłat za ochronę odpowiednich zasobów. Opłaty zostaną naliczone natychmiast, jeśli masz powiązane zasoby w bieżącej subskrypcji. Lub w przyszłości, jeśli dodasz je w późniejszym czasie.
+> 
+> Jeśli na przykład nie masz żadnych klastrów usługi Azure Kubernetes w subskrypcji i włączysz ochronę przed zagrożeniami, nie zostaną naliczone żadne opłaty. Jeśli w przyszłości dodasz klaster w ramach tej samej subskrypcji, zostanie on automatycznie objęty ochroną, a opłaty będą naliczane w tym czasie.
+
+Więcej informacji na ten temat znajduje się na [stronie informacje o zaleceniach dotyczących zabezpieczeń](recommendations-reference.md).
+
+Dowiedz się więcej o [ochronie przed zagrożeniami w programie Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
 
 
 ### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Udoskonalenia zabezpieczeń kontenerów — szybsze skanowanie rejestru i odświeżone dokumenty
@@ -62,6 +113,15 @@ Dowiedz się więcej o zabezpieczeniach kontenerów Security Center w następuj�
 - [Alerty zabezpieczeń z funkcji ochrony przed zagrożeniami dla hostów usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
 - [Zalecenia dotyczące zabezpieczeń dla kontenerów](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
 
+
+
+### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nowe zalecenie, aby zaktualizować reguły adaptacyjnych kontrolek aplikacji
+
+Funkcja adaptacyjnych kontroli aplikacji stale monitoruje aktywność maszyn w skonfigurowanych grupach. W ramach tej aktualizacji otrzymasz powiadomienie o potencjalnie wiarygodnym zachowaniu, które nie było wcześniej dozwolone, co może spowodować fałszywe alerty dodatnie.
+
+Nowe zalecenie, **dozwolonych reguły w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować**, monituje o dodanie nowych reguł do istniejących zasad w celu zmniejszenia liczby fałszywych dodatnich w ramach adaptacyjnych kontroli aplikacji.
+
+[Dowiedz się więcej na temat adaptacyjnych kontrolek aplikacji](security-center-adaptive-application.md).
 
 
 
@@ -185,9 +245,9 @@ Zasady można znaleźć w usłudze Azure Policy:
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [Zaawansowane zabezpieczenia danych powinny być włączone na serwerach Azure SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [Zaawansowane zabezpieczenia danych powinny być włączone na serwerach SQL na maszynach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [Zaawansowana ochrona przed zagrożeniami powinna być włączona na kontach magazynu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Zaawansowana ochrona przed zagrożeniami powinna być włączona na kontach usługi Azure Storage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
 | [Zaawansowana ochrona przed zagrożeniami powinna być włączona w magazynach Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Zaawansowana ochrona przed zagrożeniami powinna być włączona w planach App Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Zaawansowana ochrona przed zagrożeniami powinna być włączona w planach Azure App Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
 | [Zaawansowana ochrona przed zagrożeniami powinna być włączona w rejestrach Azure Container Registry](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
 | [Zaawansowana ochrona przed zagrożeniami powinna być włączona w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
 | [Zaawansowana ochrona przed zagrożeniami powinna być włączona na Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
@@ -275,7 +335,7 @@ Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiec
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
-![Przełącznik "Grupuj według kontrolek" dla zaleceń](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+![Przełącznik "Grupuj według kontrolek" dla zaleceń](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 

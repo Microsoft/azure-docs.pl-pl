@@ -1,35 +1,36 @@
 ---
-title: 'Samouczek: wdrażanie renderowanych na serwerze witryn sieci Web Nuxt. js w usłudze Azure static Web Apps'
-description: Generuj i wdrażaj Lokacje dynamiczne Nuxt. js za pomocą usługi Azure static Web Apps.
+title: 'Samouczek: wdrażanie Nuxt.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps'
+description: Generuj i wdrażaj Nuxt.js Lokacje dynamiczne przy użyciu statycznego Web Apps platformy Azure.
 services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: 8a4fb581b884d28c8366cbf9a50e001eadd027d9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9c7e03f5e658b8e15dcae1c5314b73dfbfdf0206
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599823"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430280"
 ---
-# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Wdróż renderowane przez serwer witryny sieci Web Nuxt. js w usłudze Azure static Web Apps Preview
+# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Nuxt.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
 
-W ramach tego samouczka nauczysz się wdrożyć statyczną witrynę sieci Web [Nuxt. js](https://nuxtjs.org) do [usługi Azure static Web Apps](overview.md). Aby rozpocząć, dowiesz się, jak skonfigurować, skonfigurować i wdrożyć aplikację Nuxt. js. W trakcie tego procesu warto również zapoznać się z typowymi wyzwaniami często spotykanymi podczas generowania stron statycznych przy użyciu Nuxt. js
+W ramach tego samouczka nauczysz się wdrożyć [Nuxt.js](https://nuxtjs.org) wygenerowaną statyczną witrynę sieci web do [Web Apps statycznej platformy Azure](overview.md). Aby rozpocząć, dowiesz się, jak skonfigurować, skonfigurować i wdrożyć aplikację Nuxt.js. W trakcie tego procesu warto również zapoznać się z typowymi wyzwaniami często spotykanymi podczas generowania stron statycznych przy użyciu Nuxt.js
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 - Konto usługi GitHub. [Utwórz konto bezpłatnie](https://github.com/join).
-- Zainstalowane środowisko [Node.js](https://nodejs.org).
+- [Node.js](https://nodejs.org) zainstalowane.
 
-## <a name="set-up-a-nuxtjs-app"></a>Konfigurowanie aplikacji Nuxt. js
+## <a name="set-up-a-nuxtjs-app"></a>Konfigurowanie aplikacji Nuxt.js
 
-Nowy projekt Nuxt. js można skonfigurować przy użyciu polecenia `create-nuxt-app` . Zamiast nowego projektu, w tym samouczku zaczynasz od klonowania istniejącego repozytorium. To repozytorium jest skonfigurowane w celu zademonstrowania sposobu wdrażania dynamicznej aplikacji Nuxt. js jako lokacji statycznej.
+Nowy projekt Nuxt.js można skonfigurować przy użyciu programu `create-nuxt-app` . Zamiast nowego projektu, w tym samouczku zaczynasz od klonowania istniejącego repozytorium. To repozytorium jest skonfigurowane w celu zademonstrowania sposobu wdrażania aplikacji dynamicznej Nuxt.js jako lokacji statycznej.
 
 1. Utwórz nowe repozytorium na koncie usługi GitHub z repozytorium szablonów.
-1. Przejdź do<http://github.com/staticwebdev/nuxtjs-starter/generate>
+1. Przejdź do strony <http://github.com/staticwebdev/nuxtjs-starter/generate>
 1. Nadaj nazwę repozytorium **nuxtjs-Starter**
 1. Następnie Sklonuj nowe repozytorium na komputerze. Pamiętaj, aby zastąpić <YOUR_GITHUB_ACCOUNT_NAME> nazwą swojego konta.
 
@@ -37,7 +38,7 @@ Nowy projekt Nuxt. js można skonfigurować przy użyciu polecenia `create-nuxt-
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nuxtjs-starter
     ```
 
-1. Przejdź do nowo sklonowanej aplikacji Nuxt. js:
+1. Przejdź do nowo sklonowanej aplikacji Nuxt.js:
 
    ```bash
    cd nuxtjs-starter
@@ -49,7 +50,7 @@ Nowy projekt Nuxt. js można skonfigurować przy użyciu polecenia `create-nuxt-
     npm install
     ```
 
-1. Uruchom aplikację Nuxt. js w programie Development:
+1. Rozpocznij Nuxt.js aplikacji w programie Development:
 
     ```bash
     npm run dev
@@ -57,17 +58,17 @@ Nowy projekt Nuxt. js można skonfigurować przy użyciu polecenia `create-nuxt-
 
 Przejdź do strony <http://localhost:3000> , aby otworzyć aplikację, w której powinna zostać otwarta Następująca witryna sieci Web w preferowanej przeglądarce:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Uruchom aplikację Nuxt. js":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 Po kliknięciu architektury/biblioteki powinna zostać wyświetlona strona szczegółów wybranego elementu:
 
 :::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Strona szczegółów":::
 
-## <a name="generate-a-static-website-from-nuxtjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji Nuxt. js
+## <a name="generate-a-static-website-from-nuxtjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji Nuxt.js
 
-Gdy tworzysz witrynę Nuxt. js przy użyciu programu `npm run build` , aplikacja jest skompilowana jako tradycyjna aplikacja internetowa, a nie lokacja statyczna. Aby wygenerować lokację statyczną, należy użyć następującej konfiguracji aplikacji.
+Gdy tworzysz witrynę Nuxt.js przy użyciu programu `npm run build` , aplikacja jest skompilowana jako tradycyjna aplikacja sieci Web, a nie lokacja statyczna. Aby wygenerować lokację statyczną, należy użyć następującej konfiguracji aplikacji.
 
-1. Zaktualizuj skrypt kompilacji _Package. JSON_w celu wygenerowania tylko lokacji statycznej przy użyciu `nuxt generate` polecenia:
+1. Zaktualizuj skrypt kompilacji _package.jsw_celu wygenerowania tylko lokacji statycznej przy użyciu `nuxt generate` polecenia:
 
     ```json
     "scripts": {
@@ -84,7 +85,7 @@ Gdy tworzysz witrynę Nuxt. js przy użyciu programu `npm run build` , aplikacja
     npm run build
     ```
 
-    Nuxt. js wygeneruje lokację statyczną i skopiuje ją do folderu w języku _ROZKŁ_ w katalogu głównym katalogu roboczego.
+    Nuxt.js wygeneruje lokację statyczną i skopiuje ją do folderu w języku _ROZKŁ_ w katalogu głównym katalogu roboczego.
 
     > [!NOTE]
     > Ten folder znajduje się w pliku _. gitignore_ , ponieważ powinien być generowany przez usługę ciągłej integracji/ciągłego wdrażania.
@@ -117,11 +118,11 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 
 ### <a name="create-an-azure-static-web-apps-preview-resource"></a>Utwórz zasób usługi Azure static Web Apps w wersji zapoznawczej
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
-1. Wyszukaj **Web Apps statyczny**
-1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Wyszukaj usługę **Static Web Apps**
+1. Kliknij pozycję **Static Web Apps (wersja zapoznawcza)**
+1. Kliknij pozycję **Utwórz**
 
 1. Wybierz subskrypcję z listy rozwijanej *subskrypcja* lub użyj wartości domyślnej.
 1. Kliknij link **Nowy** poniżej listy rozwijanej *Grupa zasobów* . W polu *Nazwa nowej grupy zasobów*wpisz **mystaticsite** , a następnie kliknij przycisk **OK** .
@@ -133,14 +134,14 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 
 ### <a name="add-a-github-repository"></a>Dodawanie repozytorium GitHub
 
-Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą aplikacji Nuxt. js, aby umożliwić automatyczne wdrażanie zatwierdzeń.
+Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą aplikacji Nuxt.js, dzięki czemu może automatycznie wdrażać zatwierdzenia.
 
 1. Kliknij **przycisk Zaloguj się przy użyciu usługi GitHub**
-1. Wybierz **organizację** , w ramach której utworzono repozytorium dla projektu Nuxt. js, który może być nazwą użytkownika w serwisie GitHub.
+1. Wybierz **organizację** , w ramach której utworzono repozytorium dla projektu Nuxt.js. może to być nazwa użytkownika usługi GitHub.
 1. Znajdź i wybierz nazwę utworzonego wcześniej repozytorium.
 1. Wybierz opcję **wzorzec** jako gałąź z listy rozwijanej *rozgałęzienie* .
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Połącz z usługą GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Łączenie z usługą GitHub":::
 
 ### <a name="configure-the-build-process"></a>Skonfiguruj proces kompilacji
 
@@ -179,13 +180,13 @@ Przejdź do nowo wdrożonej lokacji i kliknij jeden z logo struktury lub bibliot
 
 :::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 na trasach dynamicznych":::
 
-Przyczyną tego jest to, że Nuxt. js wygenerowała lokację statyczną, więc była ona tylko dla strony głównej. Nuxt. js może generować równoważne `.html` pliki statyczne dla każdego `.vue` pliku stron, ale wystąpił wyjątek. 
+Przyczyną tego jest Nuxt.js wygenerowana lokacja statyczna. w tym celu będzie ona istniała tylko dla strony głównej. Nuxt.js może generować równoważne `.html` pliki statyczne dla każdego `.vue` pliku stron, ale wystąpił wyjątek. 
 
 Jeśli strona jest stroną dynamiczną, na przykład `_id.vue` nie będzie miała wystarczającej ilości informacji do wygenerowania statycznego kodu HTML z takiej strony dynamicznej. Musisz jawnie podać możliwe ścieżki dla tras dynamicznych.
 
 ## <a name="generate-static-pages-from-dynamic-routes"></a>Generuj strony statyczne z tras dynamicznych
 
-1. Zaktualizuj plik _nuxt. config. js_ , aby nuxt. js używa listy wszystkich dostępnych danych do generowania stron statycznych dla każdej struktury/biblioteki:
+1. Zaktualizuj plik _nuxt.config.js_ tak, aby Nuxt.js używał listy wszystkich dostępnych danych do generowania stron statycznych dla każdej struktury/biblioteki:
 
    ```javascript
      import { projects } from "./utils/projectsData";
