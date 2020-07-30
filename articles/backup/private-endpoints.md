@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503765"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432868"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -21,7 +21,7 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Prywatne punkty końcowe można utworzyć tylko dla nowych magazynów Recovery Services (nie ma żadnych elementów zarejestrowanych w magazynie). Należy utworzyć prywatne punkty końcowe przed podjęciem próby ochrony wszystkich elementów w magazynie.
 - Jedna sieć wirtualna może zawierać prywatne punkty końcowe dla wielu magazynów Recovery Services. Ponadto jeden magazyn Recovery Services może mieć prywatne punkty końcowe dla niego w wielu sieciach wirtualnych. Jednak Maksymalna liczba prywatnych punktów końcowych, które można utworzyć dla magazynu, wynosi 12.
 - Po utworzeniu prywatnego punktu końcowego dla magazynu magazyn zostanie zablokowany. Nie będzie on dostępny (w przypadku tworzenia kopii zapasowych i przywracania) z sieci poza tymi, które zawierają prywatny punkt końcowy dla magazynu. Jeśli wszystkie prywatne punkty końcowe dla magazynu zostaną usunięte, magazyn będzie dostępny ze wszystkich sieci.
-- Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci. Ta liczba może być większa (do 15) dla niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
+- Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci. Ta liczba może być większa (do 25) w przypadku niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
 - Magazyn Recovery Services jest używany przez program (oba) Azure Backup i Azure Site Recovery w tym artykule omówiono użycie prywatnych punktów końcowych tylko dla Azure Backup.
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
 - Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.
@@ -88,7 +88,7 @@ Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Strefa**                           | **Usługi** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
+    | **Strefa**                           | **Usługa** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Obiekt blob        | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
     | `privatelink.queue.core.windows.net` | Kolejka       | **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
@@ -103,7 +103,7 @@ Klienci mogą wybrać integrację prywatnych punktów końcowych z prywatnymi st
 
 Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, możesz to zrobić przy użyciu tych samych kroków, które są używane do tworzenia obowiązkowych stref DNS. Szczegóły nazewnictwa i subskrypcji są udostępniane poniżej:
 
-| **Strefa**                                                     | **Usługi** | **Szczegóły subskrypcji i grupy zasobów**                  |
+| **Strefa**                                                     | **Usługa** | **Szczegóły subskrypcji i grupy zasobów**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Uwaga**: Lokalizacja *geograficzna* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna. | Backup      | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: dowolny RG w ramach subskrypcji |
 
@@ -111,7 +111,7 @@ Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a4
 
 W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
 
-- [Chinach](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Chiny](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Niemcy](../germany/germany-developer-guide.md#endpoint-mapping)
 - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
@@ -495,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Należy utworzyć trzy prywatne strefy DNS i połączyć je z siecią wirtualną.
 
-| **Strefa**                                                     | **Usługi** |
+| **Strefa**                                                     | **Usługa** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Obiekt blob        |

@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt
-ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682007"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422763"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Tworzenie i testowanie nowego symulowanego urządzenia
 
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono dane, które żarówki raporty do chmury jako 
 | Nazwa   | Wartości      |
 | ------ | ----------- |
 | Stan | "on", "off" |
-| Temperatura | Stopnie F |
+| Temperature | Stopnie F |
 | online | wartość true, false |
 
 > [!NOTE]
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono początkowy stan urządzenia:
 
 | Nazwa                     | Wartości |
 | ------------------------ | -------|
-| Kolor początkowy            | Biały  |
+| Kolor początkowy            | Biali  |
 | Jasność początkowa       | 75     |
 | Początkowy pozostały okres istnienia   | 10 000 |
 | Początkowy stan telemetrii | z   |
@@ -493,7 +493,7 @@ Aby skonfigurować i uruchomić symulację:
 
 Aby zatrzymać symulację, wybierz żądanie **zatrzymania symulacji** w programie Poster i kliknij pozycję **Wyślij**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (**debugowanie > zatrzymać debugowanie**).
 

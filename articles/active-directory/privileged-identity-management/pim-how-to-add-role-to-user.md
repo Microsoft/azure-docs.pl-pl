@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024199"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421386"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Przypisywanie ról usługi Azure AD w Privileged Identity Management
 
@@ -33,7 +33,7 @@ Od listopada 2019 część Privileged Identity Management ról usługi Azure AD 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Otwórz **Azure AD Privileged Identity Management**. Jeśli masz baner w górnej części strony przegląd, postępuj zgodnie z instrukcjami wyświetlanymi na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w **poprzedniej wersji** karty.
 
-  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+  [![Wybierz Privileged Identity Management usługi Azure AD >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # <a name="new-version"></a>[Nowa wersja](#tab/new)
 
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Wybierz pozycję **role** , aby wyświetlić listę ról dla uprawnień usługi Azure AD.
 
-    ![Role usługi Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![Role usługi Azure Active Directory](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. Wybierz pozycję **Dodaj przypisania** , aby otworzyć stronę **Dodawanie przypisań** .
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Wybierz **role** lub **członków**.
 
-    ![Role usługi Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Role usługi Azure Active Directory](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Wybierz pozycję **Dodaj członka** , aby otworzyć aplet **Dodaj elementy zarządzane**.
 

@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083671"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431019"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -256,7 +257,7 @@ Następnie Dodaj następujące szczegóły kompilacji.
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Dostęp do statycznego adresu URL aplikacji z Azure Portal":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz zachować tej aplikacji do dalszej pracy, możesz wykonać następujące czynności, aby usunąć statyczną aplikację sieci Web platformy Azure i powiązane z nią zasoby.
 

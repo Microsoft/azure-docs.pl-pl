@@ -4,14 +4,14 @@ description: Dowiedz się, jak używać klauzuli LIMIT przesunięcia do pomijani
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.author: tisande
+ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76771570"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432719"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Klauzula limitu przesunięcia w Azure Cosmos DB
 
@@ -39,9 +39,9 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
   `OFFSET`W klauzuli są wymagane zarówno licznik, jak i `LIMIT` liczba `OFFSET LIMIT` . Jeśli `ORDER BY` jest używana klauzula opcjonalna, zestaw wyników jest tworzony przez przeskoczenie nad uporządkowane wartości. W przeciwnym razie zapytanie zwróci ustaloną kolejność wartości.
 
-  Opłata za obiekt RU zapytania i `OFFSET LIMIT` zostanie zwiększona w miarę zwiększania się liczby przesunięć. W przypadku zapytań mających wiele stron wyników zwykle zalecamy użycie tokenów kontynuacji. Tokeny kontynuacji są "zakładkami" dla miejsca, w którym zapytanie może zostać później wznowione. Jeśli używasz `OFFSET LIMIT` , nie istnieje "zakładka". Jeśli chcesz zwrócić następną stronę zapytania, trzeba zacząć od początku.
+  Opłata za obiekt RU zapytania i `OFFSET LIMIT` zostanie zwiększona w miarę zwiększania się liczby przesunięć. W przypadku zapytań mających [wiele stron wyników](sql-query-pagination.md)zwykle zalecamy użycie [tokenów kontynuacji](sql-query-pagination.md#continuation-tokens). Tokeny kontynuacji są "zakładkami" dla miejsca, w którym zapytanie może zostać później wznowione. Jeśli używasz `OFFSET LIMIT` , nie istnieje "zakładka". Jeśli chcesz zwrócić następną stronę zapytania, trzeba zacząć od początku.
   
-  Należy używać `OFFSET LIMIT` w przypadku przypadków, gdy chcesz całkowicie pominąć dokumenty i zapisać zasoby klienta. Na przykład, należy użyć, `OFFSET LIMIT` Jeśli chcesz przejść do wyniku zapytania 1000th i nie ma potrzeby wyświetlania wyników od 1 do 999. W zapleczu program `OFFSET LIMIT` nadal ładuje każdy dokument, w tym te, które zostały pominięte. Zalety wydajności są oszczędnością w zasobach klientów, unikając przetwarzania dokumentów, które nie są zbędne.
+  Należy używać `OFFSET LIMIT` w przypadku przypadków, gdy chcesz całkowicie pominąć elementy i zapisać zasoby klienta. Na przykład, należy użyć, `OFFSET LIMIT` Jeśli chcesz przejść do wyniku zapytania 1000th i nie ma potrzeby wyświetlania wyników od 1 do 999. W zapleczu program `OFFSET LIMIT` nadal ładuje każdy element, łącznie z tymi, które zostały pominięte. Zalety wydajności to oszczędności zasobów klientów, unikając przetwarzania niekoniecznych elementów.
 
 ## <a name="examples"></a>Przykłady
 
@@ -68,7 +68,7 @@ Wyniki są następujące:
 Oto zapytanie, które pomija pierwszą wartość i zwraca drugą wartość (bez porządkowania):
 
 ```sql
-   SELECT f.id, f.address.city
+    SELECT f.id, f.address.city
     FROM Families f
     OFFSET 1 LIMIT 1
 ```

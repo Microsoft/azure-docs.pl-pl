@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078656"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386133"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -28,21 +28,20 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto i subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure z subskrypcją, [zarejestruj się, aby skorzystać z bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure z subskrypcją, [zarejestruj się, aby skorzystać z bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Twoje konto platformy Azure musi należeć do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Aby zainstalować bramę na komputerze lokalnym i administrować nią, należy użyć tego samego konta platformy Azure.
-
-  * Podczas instalacji bramy możesz zalogować się przy użyciu konta platformy Azure, które łączy instalację bramy z kontem platformy Azure i tylko z tym kontem. Później w Azure Portal należy użyć tego samego konta platformy Azure i dzierżawy usługi Azure AD podczas tworzenia zasobu bramy platformy Azure, który rejestruje i zgłasza instalację bramy. W Azure Logic Apps lokalne wyzwalacze i akcje używają zasobu bramy do łączenia się z lokalnymi źródłami danych.
+  * Twoje konto platformy Azure musi być kontem służbowym, które wygląda następująco `username@contoso.com` . Nie można używać kont B2B (gość) platformy Azure ani osobistych kont Microsoft, takich jak @hotmail.com lub @outlook.com .
 
     > [!NOTE]
-    > Do siebie można połączyć tylko jedną instalację bramy i jeden zasób bramy platformy Azure. Nie można połączyć tej samej instalacji bramy z wieloma kontami platformy Azure lub zasobami bramy platformy Azure. Konto platformy Azure może jednak łączyć się z wieloma instalacjami bramy i zasobami bramy platformy Azure. W lokalnym wyzwalaczu lub akcji możesz wybrać spośród różnych subskrypcji platformy Azure, a następnie wybrać skojarzony zasób bramy.
+    > Jeśli zarejestrowano się w celu uzyskania oferty pakietu Office 365 i nie podano służbowego adresu e-mail, adres może wyglądać następująco `username@domain.onmicrosoft.com` . Twoje konto jest przechowywane w dzierżawie usługi Azure AD. W większości przypadków główna nazwa użytkownika (UPN) konta platformy Azure jest taka sama jak w przypadku Twojego adresu e-mail.
 
-  * Musisz zalogować się przy użyciu konta służbowego, znanego również jako konto *organizacji* , które wygląda podobnie do tego `username@contoso.com` . Nie można używać kont B2B (gość) platformy Azure ani osobistych kont Microsoft, takich jak @hotmail.com lub @outlook.com .
+    Aby użyć [subskrypcji programu Visual Studio w warstwie Standardowa](https://visualstudio.microsoft.com/vs/pricing/) skojarzonej z konto Microsoft, należy najpierw [utworzyć dzierżawę usługi Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) lub użyć domyślnego katalogu. Dodaj użytkownika z hasłem do katalogu, a następnie nadaj temu użytkownikowi dostęp do subskrypcji platformy Azure. Następnie możesz zalogować się podczas instalacji bramy przy użyciu tej nazwy użytkownika i hasła.
 
-    > [!TIP]
-    > Jeśli zarejestrowano się w celu uzyskania oferty pakietu Office 365 i nie podano służbowego adresu e-mail, adres może wyglądać następująco `username@domain.onmicrosoft.com` . Twoje konto jest przechowywane w dzierżawie w Azure Active Directory (Azure AD). W większości przypadków główna nazwa użytkownika (UPN) dla konta usługi Azure AD jest taka sama jak w przypadku Twojego adresu e-mail.
-    >
-    > Aby użyć [standardowej subskrypcji programu Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) , która jest połączona z konto Microsoft, należy najpierw [utworzyć dzierżawę w usłudze Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) lub użyć domyślnego katalogu. Dodaj użytkownika z hasłem do katalogu, a następnie nadaj temu użytkownikowi dostęp do subskrypcji platformy Azure. Następnie możesz zalogować się podczas instalacji bramy przy użyciu tej nazwy użytkownika i hasła.
+  * Twoje konto platformy Azure musi należeć tylko do jednej [dzierżawy lub katalogu usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Aby zainstalować bramę na komputerze lokalnym i administrować nią, należy użyć tego samego konta platformy Azure.
+
+  * Po zainstalowaniu bramy Zaloguj się przy użyciu konta platformy Azure, które łączy instalację bramy z kontem platformy Azure i tylko z tym kontem. Nie można połączyć tej samej instalacji bramy na wielu kontach platformy Azure ani dzierżawach usługi Azure AD.
+
+  * W dalszej części Azure Portal musisz użyć tego samego konta platformy Azure, aby utworzyć zasób bramy platformy Azure, który łączy się z instalacją bramy. Do siebie można połączyć tylko jedną instalację bramy i jeden zasób bramy platformy Azure. Jednak Twoje konto platformy Azure może połączyć się z różnymi instalacjami bramy, które są skojarzone z zasobem bramy platformy Azure. Aplikacje logiki mogą następnie używać tego zasobu bramy w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych.
 
 * Poniżej przedstawiono wymagania dotyczące komputera lokalnego:
 

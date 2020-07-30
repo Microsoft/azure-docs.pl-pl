@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117371"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382954"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -187,8 +187,8 @@ Utwórz lub użyj Azure Key Vault już do wygenerowania lub zaimportuj klucz, kt
 
 Te ustawienia można aktualizować za pomocą interfejsu wiersza polecenia i programu PowerShell:
 
-- [Usuwanie nietrwałe](../../key-vault/general/overview-soft-delete.md)
-- [Przeczyść zabezpieczenia ochrony](../../key-vault/general/overview-soft-delete.md#purge-protection) przed wymuszeniem usunięcia wpisu tajnego/magazynu nawet po usunięciu nietrwałego
+- [Usuwanie nietrwałe](../../key-vault/general/soft-delete-overview.md)
+- [Przeczyść zabezpieczenia ochrony](../../key-vault/general/soft-delete-overview.md#purge-protection) przed wymuszeniem usunięcia wpisu tajnego/magazynu nawet po usunięciu nietrwałego
 
 ### <a name="create-cluster-resource"></a>Utwórz zasób *klastra*
 
@@ -706,8 +706,8 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
 - Szyfrowanie CMK ma zastosowanie do nowo wprowadzonych danych po konfiguracji CMK. Dane pozyskiwane przed konfiguracją CMK pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją CMK i po niej.
 
 - Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania. Te właściwości nie są domyślnie włączone i należy je skonfigurować przy użyciu interfejsu wiersza polecenia lub programu PowerShell:<br>
-  - [Usuwanie nietrwałe](../../key-vault/general/overview-soft-delete.md)
-  - [Ochrona przed przeczyszczeniem](../../key-vault/general/overview-soft-delete.md#purge-protection) powinna być włączona, aby zabezpieczyć przed wymuszeniem usunięcia wpisu tajnego lub magazynu nawet po usunięciu nietrwałego.
+  - [Usuwanie nietrwałe](../../key-vault/general/soft-delete-overview.md)
+  - [Ochrona przed przeczyszczeniem](../../key-vault/general/soft-delete-overview.md#purge-protection) powinna być włączona, aby zabezpieczyć przed wymuszeniem usunięcia wpisu tajnego lub magazynu nawet po usunięciu nietrwałego.
 
 - Zasób *klastra* przeniesiony do innej grupy zasobów lub subskrypcji nie jest obecnie obsługiwany.
 
@@ -763,7 +763,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   -  400 — klaster jest w stanie usuwania. Operacja asynchroniczna jest w toku. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
   -  400 — KeyVaultProperties nie jest pusty, ale ma zły format. Zobacz [aktualizacja identyfikatora klucza](#update-cluster-resource-with-key-identifier-details).
   -  400 — nie można zweryfikować klucza w Key Vault. Może być spowodowany brakiem uprawnień lub gdy klucz nie istnieje. Upewnij się, że [ustawisz Zasady kluczy i dostępu](#grant-key-vault-permissions) w Key Vault.
-  -  400 — klucz nie jest możliwy do odzyskania. Key Vault musi być ustawiona na wartość unsoft-DELETE i przeczyszczania ochrony. Zobacz [dokumentację Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400 — klucz nie jest możliwy do odzyskania. Key Vault musi być ustawiona na wartość unsoft-DELETE i przeczyszczania ochrony. Zobacz [dokumentację Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400 — nie można wykonać operacji teraz. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
   -  400 — klaster jest w stanie usuwania. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, tracking-python
+ms.custom: mvc, tracking-python, devx-track-javascript
 ms.subservice: blobs
-ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 60829e7755c31fdc5204b74c278b8eed21946c60
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553199"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432650"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 
@@ -26,7 +26,7 @@ Po ukończeniu tego samouczka będziesz mieć aplikację konsolową, która prze
 
 Nadmiarowość geograficzna w usłudze Azure Storage powoduje replikację transakcji asynchronicznie z regionu podstawowego do regionu pomocniczego, w którym znajduje się setki kilometrów. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym ostatecznie uzyskają spójność. Aplikacja konsolowa używa wzorca [wyłącznika](/azure/architecture/patterns/circuit-breaker) , aby określić, z którym punktem końcowym nawiązać połączenie, automatycznie przełączać się między punktami końcowymi w miarę awarii, a operacje odzyskiwania są symulowane.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
@@ -52,7 +52,7 @@ W celu ukończenia tego samouczka:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Zainstaluj program [Node. js](https://nodejs.org).
+* Zainstaluj [Node.js](https://nodejs.org).
 
 ---
 
@@ -75,8 +75,8 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | **Subskrypcja** | *Moja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.azure.com/Subscriptions). |
    | **ResourceGroup** | *myResourceGroup* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
    | **Nazwa** | *mystorageaccount* | Unikatowa nazwa konta magazynu. |
-   | **Lokalizacja** | *Wschodnie stany USA* | Wybierz lokalizację. |
-   | **Wydajność** | *Standardowa (Standard)* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
+   | **Lokalizacja** | *East US* | Wybierz lokalizację. |
+   | **Wydajność** | *Standardowa* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
    | **Rodzaj konta** | *StorageV2* | Zalecane jest użycie konta magazynu ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat typów kont usługi Azure Storage, zobacz [Omówienie konta magazynu](../common/storage-account-overview.md). |
    | **Replikacja**| *Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)* | Region podstawowy jest strefowo nadmiarowy i jest replikowany do regionu pomocniczego, z włączonym dostępem do odczytu do regionu pomocniczego. |
    | **Warstwa dostępu**| *Gorąca* | Użyj warstwy gorąca dla często używanych danych. |
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) i rozpakuj plik. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera podstawową aplikację Node. js.
+[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) i rozpakuj plik. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera podstawową aplikację Node.js.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -194,7 +194,7 @@ Przed pobraniem zostanie zdefiniowany obiekt usługi [retry_callback](https://do
 
 Aby uruchomić przykład, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `node index.js` .
 
-Przykład tworzy kontener na koncie magazynu obiektów blob, przekazuje plik **HelloWorld. png** do kontenera, a następnie wielokrotnie sprawdza, czy kontener i obraz zostały zreplikowane do regionu pomocniczego. Po replikacji zostanie wyświetlony komunikat z prośbą o wprowadzenie **D** lub **Q** (a następnie klawisz ENTER) w celu pobrania lub zamknięcia. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
+Przykład tworzy kontener na koncie magazynu obiektów blob, przekazuje **HelloWorld.png** do kontenera, a następnie wielokrotnie sprawdza, czy kontener i obraz zostały zreplikowane do regionu pomocniczego. Po replikacji zostanie wyświetlony komunikat z prośbą o wprowadzenie **D** lub **Q** (a następnie klawisz ENTER) w celu pobrania lub zamknięcia. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -317,7 +317,7 @@ def response_callback(response):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-W przypadku zestawu SDK środowiska Node. js v10 wymagane są programy obsługi wywołań zwrotnych. Zamiast tego, przykład tworzy potok skonfigurowany przy użyciu opcji ponowień i pomocniczego punktu końcowego. Dzięki temu aplikacja może automatycznie przełączać się na potok pomocniczy, jeśli nie dotrze do danych za pomocą potoku podstawowego.
+W przypadku zestawu SDK Node.js v10 programy obsługi wywołań zwrotnych są zbędne. Zamiast tego, przykład tworzy potok skonfigurowany przy użyciu opcji ponowień i pomocniczego punktu końcowego. Dzięki temu aplikacja może automatycznie przełączać się na potok pomocniczy, jeśli nie dotrze do danych za pomocą potoku podstawowego.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;

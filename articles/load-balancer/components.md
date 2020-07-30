@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205412"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421777"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
 Azure Load Balancer zawiera kilka najważniejszych składników. Te składniki można skonfigurować w ramach subskrypcji za pośrednictwem:
 
-* Azure Portal
+* Witryna Azure Portal
 * Interfejs wiersza polecenia platformy Azure
 * Azure PowerShell
 * Szablony usługi Resource Manager
@@ -75,7 +75,7 @@ Reguła Load Balancer służy do definiowania sposobu dystrybucji ruchu przychod
 Na przykład użyj reguły równoważenia obciążenia dla portu 80, aby skierować ruch z adresu IP frontonu do portu 80 wystąpień zaplecza.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Reguły równoważenia obciążenia">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Reguły równoważenia obciążenia">
 </p>
 
 *Ilustracja: reguły równoważenia obciążenia*
@@ -99,7 +99,7 @@ Podejmowana jest decyzja dotycząca równoważenia obciążenia dla przepływu. 
 Reguły równoważenia obciążenia portów HA ułatwiają scenariusze krytyczne, takie jak wysoka dostępność i skalowanie dla wirtualnych urządzeń sieciowych (urządzeń WUS) w sieciach wirtualnych. Funkcja może pomóc w przypadku, gdy duża liczba portów musi być zrównoważona obciążenia.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Reguły portów HA">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Reguły portów HA">
 </p>
 
 *Ilustracja: reguły portów HA*
@@ -113,7 +113,7 @@ Przychodzące reguły NAT przesyłają ruch przychodzący do kombinacji portów 
 Na przykład jeśli chcesz, aby w ramach sesji Remote Desktop Protocol (RDP) lub Secure Shell (SSH) oddzielić wystąpienia maszyn wirtualnych w puli zaplecza. Wiele wewnętrznych punktów końcowych można zamapować na porty przy użyciu tego samego adresu IP frontonu. Adresy IP frontonu mogą służyć do zdalnego administrowania maszynami wirtualnymi bez dodatkowego pola skoku.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Reguły NAT dla ruchu przychodzącego">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Reguły NAT dla ruchu przychodzącego">
 </p>
 
 *Ilustracja: reguły NAT dla ruchu przychodzącego*
@@ -128,7 +128,7 @@ Dowiedz się więcej o [połączeniach wychodzących i regułach](load-balancer-
 
 Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wychodzącego.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
 - Dowiedz się więcej o [Azure Load Balancer](load-balancer-overview.md).

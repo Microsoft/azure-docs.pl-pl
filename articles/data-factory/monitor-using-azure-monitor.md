@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124912"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432429"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Data Factory monitorowania i alertów za pomocą Azure Monitor
 
@@ -111,8 +111,8 @@ To rozwiązanie zawiera podsumowanie ogólnej kondycji Data Factory, z opcjami p
 Zainstalowanie tego rozwiązania powoduje utworzenie domyślnego zestawu widoków w sekcji skoroszyty w wybranym obszarze roboczym Log Analytics. W związku z tym następujące metryki są włączone:
 
 * Uruchomienia APD-1) uruchomienia potoków przez Data Factory
-* Uruchomienia ADF — 2) uruchomienia działań według współczynnika danych
-* Uruchomienia ADF-3) uruchomienia wyzwalacza według współczynnika danych
+* Uruchomienia ADF — 2) uruchomienia działań według Data Factory
+* Uruchomienia ADF-3) uruchomienia wyzwalacza przez Data Factory
 * Błędy ADF — 1) 10 najważniejszych błędów potoku według Data Factory
 * Błędy funkcji ADF — 2) pierwsze 10 uruchomienia działań według Data Factory
 * Błędy w usłudze ADF — 3) 10 najważniejszych błędów wyzwalaczy według Data Factory
@@ -214,7 +214,7 @@ Użyj ustawień diagnostycznych, aby skonfigurować dzienniki diagnostyczne dla 
 
 #### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Tworzenie lub aktualizowanie ustawień diagnostycznych w interfejsie API REST monitora
 
-##### <a name="request"></a>Request
+##### <a name="request"></a>Żądanie
 
 ```
 PUT
@@ -271,14 +271,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Właściwość | Typ | Opis |
 | --- | --- | --- |
-| **storageAccountId** |String (ciąg) | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne. |
-| **serviceBusRuleId** |String (ciąg) | Identyfikator reguły magistrali usług dla przestrzeni nazw usługi Service Bus, w której chcesz utworzyć Event Hubs na potrzeby przesyłania strumieniowego dzienników diagnostycznych. Identyfikator reguły ma format `{service bus resource ID}/authorizationrules/{key name}` .|
+| **storageAccountId** |String | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne. |
+| **serviceBusRuleId** |String | Identyfikator reguły magistrali usług dla przestrzeni nazw usługi Service Bus, w której chcesz utworzyć Event Hubs na potrzeby przesyłania strumieniowego dzienników diagnostycznych. Identyfikator reguły ma format `{service bus resource ID}/authorizationrules/{key name}` .|
 | **workspaceId** | Typ złożony | Tablica ziaren i ich zasad przechowywania. Wartość tej właściwości jest pusta. |
 |**Pomiar**| Wartości parametrów przebiegu potoku do przekazanie do wywołanego potoku| Obiekt JSON, który mapuje nazwy parametrów na wartości argumentów. |
 | **Dziennik**| Typ złożony| Nazwa kategorii dziennika diagnostycznego dla typu zasobu. Aby uzyskać listę kategorii dzienników diagnostycznych dla zasobu, wykonaj operację pobierania ustawień diagnostycznych. |
-| **kategorii**| String (ciąg)| Tablica kategorii dzienników i ich zasad przechowywania. |
-| **timeGrain** | String (ciąg) | Stopień szczegółowości metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Wartość właściwości musi być równa `PT1M` jednej minucie. |
-| **dostępny**| Boolean (wartość logiczna) | Określa, czy dla tego zasobu jest włączona kolekcja kategorii metryki lub dziennika. |
+| **kategorii**| String| Tablica kategorii dzienników i ich zasad przechowywania. |
+| **timeGrain** | String | Stopień szczegółowości metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Wartość właściwości musi być równa `PT1M` jednej minucie. |
+| **dostępny**| Wartość logiczna | Określa, czy dla tego zasobu jest włączona kolekcja kategorii metryki lub dziennika. |
 | **retentionPolicy**| Typ złożony| Zawiera opis zasad przechowywania dla kategorii Metryka lub dziennik. Ta właściwość jest używana tylko w przypadku kont magazynu. |
 |**dni**| int| Liczba dni przechowywania metryk lub dzienników. Jeśli wartość właściwości to 0, dzienniki są przechowywane w nieskończoność. Ta właściwość jest używana tylko w przypadku kont magazynu. |
 
@@ -334,7 +334,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 #### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Uzyskaj informacje na temat ustawień diagnostycznych w interfejsie API REST monitora
 
-##### <a name="request"></a>Request
+##### <a name="request"></a>Żądanie
 
 ```
 GET
@@ -444,19 +444,19 @@ Aby uzyskać więcej informacji, zobacz [Ustawienia diagnostyczne](https://docs.
 
 | Właściwość | Typ | Opis | Przykład |
 | --- | --- | --- | --- |
-| **Poziomie** |String (ciąg) | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
-| **korelacj** |String (ciąg) | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **pierwszym** | String (ciąg) | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
-|**activityRunId**| String (ciąg)| Identyfikator uruchomienia działania. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| String (ciąg)| Identyfikator uruchomienia potoku. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**Identyfikator**| String (ciąg) | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**kategorii**| String (ciąg) | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `ActivityRuns` . | `ActivityRuns` |
-|**poziom**| String (ciąg) | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
-|**operationName**| String (ciąg) | Nazwa działania z jego stanem. Jeśli działanie jest pulsem startowym, wartość właściwości to `MyActivity -` . Jeśli działanie jest pulsem końcowym, wartość właściwości to `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
-|**potokname**| String (ciąg) | Nazwa potoku. | `MyPipeline` |
-|**activityName**| String (ciąg) | Nazwa działania. | `MyActivity` |
-|**Start**| String (ciąg) | Godzina rozpoczęcia działania jest uruchamiana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`|
-|**punktów**| String (ciąg) | Czas zakończenia działania jest uruchamiany w formacie czasu UTC. Jeśli dziennik diagnostyczny pokazuje, że działanie zostało uruchomione, ale jeszcze nie zostało zakończone, wartość właściwości to `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
+| **Poziomie** |String | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
+| **korelacj** |String | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **pierwszym** | String | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| String| Identyfikator uruchomienia działania. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| String| Identyfikator uruchomienia potoku. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**Identyfikator**| String | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**kategorii**| String | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `ActivityRuns` . | `ActivityRuns` |
+|**poziom**| String | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
+|**operationName**| String | Nazwa działania z jego stanem. Jeśli działanie jest pulsem startowym, wartość właściwości to `MyActivity -` . Jeśli działanie jest pulsem końcowym, wartość właściwości to `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
+|**potokname**| String | Nazwa potoku. | `MyPipeline` |
+|**activityName**| String | Nazwa działania. | `MyActivity` |
+|**Start**| String | Godzina rozpoczęcia działania jest uruchamiana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`|
+|**punktów**| String | Czas zakończenia działania jest uruchamiany w formacie czasu UTC. Jeśli dziennik diagnostyczny pokazuje, że działanie zostało uruchomione, ale jeszcze nie zostało zakończone, wartość właściwości to `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Potoku — atrybuty dziennika uruchamiania
 
@@ -490,18 +490,18 @@ Aby uzyskać więcej informacji, zobacz [Ustawienia diagnostyczne](https://docs.
 
 | Właściwość | Typ | Opis | Przykład |
 | --- | --- | --- | --- |
-| **Poziomie** |String (ciąg) | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
-| **korelacj** |String (ciąg) | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **pierwszym** | String (ciąg) | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| String (ciąg)| Identyfikator uruchomienia potoku. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**Identyfikator**| String (ciąg) | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**kategorii**| String (ciąg) | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `PipelineRuns` . | `PipelineRuns` |
-|**poziom**| String (ciąg) | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
-|**operationName**| String (ciąg) | Nazwa potoku wraz z jego stanem. Po zakończeniu uruchomienia potoku wartość właściwości jest równa `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
-|**potokname**| String (ciąg) | Nazwa potoku. | `MyPipeline` |
-|**Start**| String (ciąg) | Godzina rozpoczęcia działania jest uruchamiana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`. |
-|**punktów**| String (ciąg) | Czas zakończenia działania jest uruchamiany w formacie czasu UTC. Jeśli dziennik diagnostyczny pokazuje działanie, które zostało uruchomione, ale jeszcze nie zostało zakończone, wartość właściwości to `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
-|**Stany**| String (ciąg) | Końcowy stan uruchomienia potoku. Możliwe wartości właściwości to `Succeeded` i `Failed` . | `Succeeded`|
+| **Poziomie** |String | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
+| **korelacj** |String | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **pierwszym** | String | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| String| Identyfikator uruchomienia potoku. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**Identyfikator**| String | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**kategorii**| String | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `PipelineRuns` . | `PipelineRuns` |
+|**poziom**| String | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
+|**operationName**| String | Nazwa potoku wraz z jego stanem. Po zakończeniu uruchomienia potoku wartość właściwości jest równa `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
+|**potokname**| String | Nazwa potoku. | `MyPipeline` |
+|**Start**| String | Godzina rozpoczęcia działania jest uruchamiana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`. |
+|**punktów**| String | Czas zakończenia działania jest uruchamiany w formacie czasu UTC. Jeśli dziennik diagnostyczny pokazuje działanie, które zostało uruchomione, ale jeszcze nie zostało zakończone, wartość właściwości to `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
+|**Stany**| String | Końcowy stan uruchomienia potoku. Możliwe wartości właściwości to `Succeeded` i `Failed` . | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Wyzwalacz uruchomienia — atrybuty dziennika
 
@@ -533,19 +533,19 @@ Aby uzyskać więcej informacji, zobacz [Ustawienia diagnostyczne](https://docs.
 
 | Właściwość | Typ | Opis | Przykład |
 | --- | --- | --- | --- |
-| **Poziomie** |String (ciąg) | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
-| **korelacj** |String (ciąg) | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **pierwszym** | String (ciąg) | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| String (ciąg)| Identyfikator uruchomienia wyzwalacza. | `08587023010602533858661257311` |
-|**Identyfikator**| String (ciąg) | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**kategorii**| String (ciąg) | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `PipelineRuns` . | `PipelineRuns` |
-|**poziom**| String (ciąg) | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
-|**operationName**| String (ciąg) | Nazwa wyzwalacza ze stanem końcowym, który wskazuje, czy wyzwalacz został pomyślnie wywołany. Jeśli puls zakończył się pomyślnie, wartość właściwości to `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
-|**triggerName**| String (ciąg) | Nazwa wyzwalacza. | `MyTrigger` |
-|**triggerType**| String (ciąg) | Typ wyzwalacza. Możliwe wartości właściwości to `Manual Trigger` i `Schedule Trigger` . | `ScheduleTrigger` |
-|**triggerEvent**| String (ciąg) | Zdarzenie wyzwalacza. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**Start**| String (ciąg) | Godzina rozpoczęcia wyzwalacza wyzwalana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`|
-|**Stany**| String (ciąg) | Końcowy stan pokazujący, czy wyzwalacz został pomyślnie wywołany. Możliwe wartości właściwości to `Succeeded` i `Failed` . | `Succeeded`|
+| **Poziomie** |String | Poziom dzienników diagnostycznych. W przypadku dzienników uruchomienia działania ustaw wartość właściwości na 4. | `4` |
+| **korelacj** |String | Unikatowy identyfikator śledzenia określonego żądania. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **pierwszym** | String | Godzina zdarzenia w formacie czasu UTC `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| String| Identyfikator uruchomienia wyzwalacza. | `08587023010602533858661257311` |
+|**Identyfikator**| String | Identyfikator skojarzony z zasobem fabryki danych. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**kategorii**| String | Kategoria dzienników diagnostycznych. Ustaw wartość właściwości na `PipelineRuns` . | `PipelineRuns` |
+|**poziom**| String | Poziom dzienników diagnostycznych. Ustaw wartość właściwości na `Informational` . | `Informational` |
+|**operationName**| String | Nazwa wyzwalacza ze stanem końcowym, który wskazuje, czy wyzwalacz został pomyślnie wywołany. Jeśli puls zakończył się pomyślnie, wartość właściwości to `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
+|**triggerName**| String | Nazwa wyzwalacza. | `MyTrigger` |
+|**triggerType**| String | Typ wyzwalacza. Możliwe wartości właściwości to `Manual Trigger` i `Schedule Trigger` . | `ScheduleTrigger` |
+|**triggerEvent**| String | Zdarzenie wyzwalacza. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**Start**| String | Godzina rozpoczęcia wyzwalacza wyzwalana w formacie czasu UTC. | `2017-06-26T20:55:29.5007959Z`|
+|**Stany**| String | Końcowy stan pokazujący, czy wyzwalacz został pomyślnie wywołany. Możliwe wartości właściwości to `Succeeded` i `Failed` . | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>Atrybuty dzienników usług SSIS Integration Runtime
 
@@ -570,16 +570,16 @@ Poniżej przedstawiono atrybuty dziennika operacji uruchamiania/zatrzymywania i 
 
 | Właściwość                   | Typ   | Opis                                                   | Przykład                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **pierwszym**                   | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String (ciąg) | Nazwa operacji w podczerwieni usług SSIS                            | `Start/Stop/Maintenance` |
-| **kategorii**               | String (ciąg) | Kategoria dzienników diagnostycznych                               | `SSISIntegrationRuntimeLogs` |
-| **korelacj**          | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
-| **dataFactoryName**        | String (ciąg) | Nazwa Twojego ADF                                          | `MyADFv2` |
-| **integrationRuntimeName** | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                      | `MySSISIR` |
-| **poziom**                  | String (ciąg) | Poziom dzienników diagnostycznych                                  | `Informational` |
-| **Result**             | String (ciąg) | Wynik operacji w podczerwieni SSIS                          | `Started/InProgress/Succeeded/Failed` |
-| **Komunikat**                | String (ciąg) | Komunikat wyjściowy operacji środowiska IR programu SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
-| **Identyfikator**             | String (ciąg) | Unikatowy identyfikator zasobu ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **pierwszym**                   | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Nazwa operacji w podczerwieni usług SSIS                            | `Start/Stop/Maintenance` |
+| **kategorii**               | String | Kategoria dzienników diagnostycznych                               | `SSISIntegrationRuntimeLogs` |
+| **korelacj**          | String | Unikatowy identyfikator śledzenia określonej operacji             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
+| **dataFactoryName**        | String | Nazwa Twojego ADF                                          | `MyADFv2` |
+| **integrationRuntimeName** | String | Nazwa Twojego środowiska IR usług SSIS                                      | `MySSISIR` |
+| **poziom**                  | String | Poziom dzienników diagnostycznych                                  | `Informational` |
+| **Result**             | String | Wynik operacji w podczerwieni SSIS                          | `Started/InProgress/Succeeded/Failed` |
+| **Komunikat**                | String | Komunikat wyjściowy operacji środowiska IR programu SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **Identyfikator**             | String | Unikatowy identyfikator zasobu ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atrybuty dziennika kontekstu komunikatów zdarzeń SSIS
 
@@ -610,22 +610,22 @@ Poniżej znajdują się atrybuty dziennika warunków związanych z komunikatami 
 
 | Właściwość                   | Typ   | Opis                                                          | Przykład                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **pierwszym**                   | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String (ciąg) | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
-| **kategorii**               | String (ciąg) | Kategoria dzienników diagnostycznych                                      | `SSISPackageEventMessageContext` |
-| **korelacj**          | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String (ciąg) | Nazwa Twojego ADF                                                 | `MyADFv2` |
-| **integrationRuntimeName** | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                             | `MySSISIR` |
-| **poziom**                  | String (ciąg) | Poziom dzienników diagnostycznych                                         | `Informational` |
-| **operationId**            | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji w SSISDB          | `1`(1 oznacza operacje związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
-| **contextDepth**           | String (ciąg) | Głębokość kontekstu komunikatów zdarzeń                              | `0`(0 oznacza kontekst przed rozpoczęciem wykonywania pakietu, 1 oznacza kontekst, gdy wystąpi błąd, i zwiększa się w miarę jak kontekst jest bardziej z powodu błędu) |
-| **packagePath**            | String (ciąg) | Ścieżka obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `\Package` |
-| **Element ContextType**            | String (ciąg) | Typ obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `60`(zobacz [więcej typów kontekstu](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
-| **contextSourceName**      | String (ciąg) | Nazwa obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `MyPackage` |
-| **contextSourceId**        | String (ciąg) | Unikatowy identyfikator obiektu pakietu jako źródło kontekstu komunikatów zdarzeń | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
-| **Funkcja**           | String (ciąg) | Nazwa właściwości pakietu dla źródła kontekstu komunikatów o zdarzeniach   | `DelayValidation` |
-| **Parametr**          | String (ciąg) | Wartość właściwości Package dla źródła kontekstu komunikatu o zdarzeniu  | `False` |
-| **Identyfikator**             | String (ciąg) | Unikatowy identyfikator zasobu ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **pierwszym**                   | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **kategorii**               | String | Kategoria dzienników diagnostycznych                                      | `SSISPackageEventMessageContext` |
+| **korelacj**          | String | Unikatowy identyfikator śledzenia określonej operacji                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | Nazwa Twojego ADF                                                 | `MyADFv2` |
+| **integrationRuntimeName** | String | Nazwa Twojego środowiska IR usług SSIS                                             | `MySSISIR` |
+| **poziom**                  | String | Poziom dzienników diagnostycznych                                         | `Informational` |
+| **operationId**            | String | Unikatowy identyfikator śledzenia określonej operacji w SSISDB          | `1`(1 oznacza operacje związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
+| **contextDepth**           | String | Głębokość kontekstu komunikatów zdarzeń                              | `0`(0 oznacza kontekst przed rozpoczęciem wykonywania pakietu, 1 oznacza kontekst, gdy wystąpi błąd, i zwiększa się w miarę jak kontekst jest bardziej z powodu błędu) |
+| **packagePath**            | String | Ścieżka obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `\Package` |
+| **Element ContextType**            | String | Typ obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `60`(zobacz [więcej typów kontekstu](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
+| **contextSourceName**      | String | Nazwa obiektu pakietu jako źródło kontekstu komunikatów zdarzeń      | `MyPackage` |
+| **contextSourceId**        | String | Unikatowy identyfikator obiektu pakietu jako źródło kontekstu komunikatów zdarzeń | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
+| **Funkcja**           | String | Nazwa właściwości pakietu dla źródła kontekstu komunikatów o zdarzeniach   | `DelayValidation` |
+| **Parametr**          | String | Wartość właściwości Package dla źródła kontekstu komunikatu o zdarzeniu  | `False` |
+| **Identyfikator**             | String | Unikatowy identyfikator zasobu ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-messages-log-attributes"></a>Atrybuty dziennika komunikatów zdarzeń usług SSIS
 
@@ -660,26 +660,26 @@ Poniżej znajdują się atrybuty dziennika komunikatów zdarzeń, które są gen
 
 | Właściwość                   | Typ   | Opis                                                        | Przykład                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **pierwszym**                   | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String (ciąg) | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
-| **kategorii**               | String (ciąg) | Kategoria dzienników diagnostycznych                                    | `SSISPackageEventMessages` |
-| **korelacj**          | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String (ciąg) | Nazwa Twojego ADF                                               | `MyADFv2` |
-| **integrationRuntimeName** | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                           | `MySSISIR` |
-| **poziom**                  | String (ciąg) | Poziom dzienników diagnostycznych                                       | `Informational` |
-| **operationId**            | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji w SSISDB        | `1`(1 oznacza operacje związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
-| **Czas komunikatu**            | String (ciąg) | Godzina utworzenia komunikatu o zdarzeniu w formacie UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String (ciąg) | Typ komunikatu o zdarzeniu                                     | `70`(zobacz [więcej typów komunikatów](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
-| **messageSourceType**      | String (ciąg) | Typ źródła komunikatu zdarzenia                              | `20`(zobacz [więcej typów źródeł komunikatów](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
-| **Komunikat**                | String (ciąg) | Tekst komunikatu o zdarzeniu                                     | `MyPackage:Validation has started.` |
-| **Nr pakietu**            | String (ciąg) | Nazwa wykonanego pliku pakietu                             | `MyPackage.dtsx` |
-| **eventName**              | String (ciąg) | Nazwa powiązanego zdarzenia czasu wykonywania                                 | `OnPreValidate` |
-| **messageSourceName**      | String (ciąg) | Nazwa składnika pakietu jako źródło komunikatu o zdarzeniu         | `Data Flow Task` |
-| **messageSourceId**        | String (ciąg) | Unikatowy identyfikator składnika pakietu jako źródło komunikatu zdarzenia    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
-| **SubComponentName**       | String (ciąg) | Nazwa składnika przepływu danych jako źródło komunikatu o zdarzeniu       | `SSIS.Pipeline` |
-| **packagePath**            | String (ciąg) | Ścieżka obiektu pakietu jako źródło komunikatu o zdarzeniu            | `\Package\Data Flow Task` |
-| **executionPath**          | String (ciąg) | Pełna ścieżka z pakietu nadrzędnego do wykonywanego składnika            | `\Transformation\Data Flow Task`(Ta ścieżka również przechwytuje iteracje składników) |
-| **threadId**               | String (ciąg) | Unikatowy identyfikator wątku wykonywany po zarejestrowaniu komunikatu o zdarzeniu | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+| **pierwszym**                   | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **kategorii**               | String | Kategoria dzienników diagnostycznych                                    | `SSISPackageEventMessages` |
+| **korelacj**          | String | Unikatowy identyfikator śledzenia określonej operacji                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | Nazwa Twojego ADF                                               | `MyADFv2` |
+| **integrationRuntimeName** | String | Nazwa Twojego środowiska IR usług SSIS                                           | `MySSISIR` |
+| **poziom**                  | String | Poziom dzienników diagnostycznych                                       | `Informational` |
+| **operationId**            | String | Unikatowy identyfikator śledzenia określonej operacji w SSISDB        | `1`(1 oznacza operacje związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
+| **Czas komunikatu**            | String | Godzina utworzenia komunikatu o zdarzeniu w formacie UTC          | `2017-06-28T21:00:27.3534352Z` |
+| **messageType**            | String | Typ komunikatu o zdarzeniu                                     | `70`(zobacz [więcej typów komunikatów](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **messageSourceType**      | String | Typ źródła komunikatu zdarzenia                              | `20`(zobacz [więcej typów źródeł komunikatów](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **Komunikat**                | String | Tekst komunikatu o zdarzeniu                                     | `MyPackage:Validation has started.` |
+| **Nr pakietu**            | String | Nazwa wykonanego pliku pakietu                             | `MyPackage.dtsx` |
+| **eventName**              | String | Nazwa powiązanego zdarzenia czasu wykonywania                                 | `OnPreValidate` |
+| **messageSourceName**      | String | Nazwa składnika pakietu jako źródło komunikatu o zdarzeniu         | `Data Flow Task` |
+| **messageSourceId**        | String | Unikatowy identyfikator składnika pakietu jako źródło komunikatu zdarzenia    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+| **SubComponentName**       | String | Nazwa składnika przepływu danych jako źródło komunikatu o zdarzeniu       | `SSIS.Pipeline` |
+| **packagePath**            | String | Ścieżka obiektu pakietu jako źródło komunikatu o zdarzeniu            | `\Package\Data Flow Task` |
+| **executionPath**          | String | Pełna ścieżka z pakietu nadrzędnego do wykonywanego składnika            | `\Transformation\Data Flow Task`(Ta ścieżka również przechwytuje iteracje składników) |
+| **threadId**               | String | Unikatowy identyfikator wątku wykonywany po zarejestrowaniu komunikatu o zdarzeniu | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atrybuty dziennika statystyk plików SSIS
 
@@ -709,21 +709,21 @@ Poniżej znajdują się atrybuty dziennika statystyk plików wykonywalnych, któ
 
 | Właściwość                   | Typ   | Opis                                                      | Przykład                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **pierwszym**                   | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String (ciąg) | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
-| **kategorii**               | String (ciąg) | Kategoria dzienników diagnostycznych                                  | `SSISPackageExecutableStatistics` |
-| **korelacj**          | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String (ciąg) | Nazwa Twojego ADF                                             | `MyADFv2` |
-| **integrationRuntimeName** | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                         | `MySSISIR` |
-| **poziom**                  | String (ciąg) | Poziom dzienników diagnostycznych                                     | `Informational` |
-| **executionId**            | String (ciąg) | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB      | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
-| **executionPath**          | String (ciąg) | Pełna ścieżka z pakietu nadrzędnego do wykonywanego składnika          | `\Transformation\Data Flow Task`(Ta ścieżka również przechwytuje iteracje składników) |
-| **startTime**              | String (ciąg) | Czas, w którym plik wykonywalny wprowadza fazę sprzed wykonania w formacie UTC  | `2017-06-28T21:00:27.3534352Z` |
-| **endTime**                | String (ciąg) | Czas wprowadzania przez plik wykonywalny fazy po wykonaniu w formacie UTC | `2017-06-28T21:00:27.3534352Z` |
-| **executionDuration**      | String (ciąg) | Czas działania pliku wykonywalnego w milisekundach                   | `1,125` |
-| **executionResult**        | String (ciąg) | Wynik uruchamiania pliku wykonywalnego                                 | `0`(0 oznacza powodzenie, 1 oznacza niepowodzenie, 2 oznacza Kończenie i 3 oznacza anulowanie) |
-| **executionValue**         | String (ciąg) | Zdefiniowana przez użytkownika wartość zwrócona przez uruchomienie pliku wykonywalnego            | `1` |
-| **Identyfikator**             | String (ciąg) | Unikatowy identyfikator zasobu ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **pierwszym**                   | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **kategorii**               | String | Kategoria dzienników diagnostycznych                                  | `SSISPackageExecutableStatistics` |
+| **korelacj**          | String | Unikatowy identyfikator śledzenia określonej operacji                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | Nazwa Twojego ADF                                             | `MyADFv2` |
+| **integrationRuntimeName** | String | Nazwa Twojego środowiska IR usług SSIS                                         | `MySSISIR` |
+| **poziom**                  | String | Poziom dzienników diagnostycznych                                     | `Informational` |
+| **executionId**            | String | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB      | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
+| **executionPath**          | String | Pełna ścieżka z pakietu nadrzędnego do wykonywanego składnika          | `\Transformation\Data Flow Task`(Ta ścieżka również przechwytuje iteracje składników) |
+| **startTime**              | String | Czas, w którym plik wykonywalny wprowadza fazę sprzed wykonania w formacie UTC  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | Czas wprowadzania przez plik wykonywalny fazy po wykonaniu w formacie UTC | `2017-06-28T21:00:27.3534352Z` |
+| **executionDuration**      | String | Czas działania pliku wykonywalnego w milisekundach                   | `1,125` |
+| **executionResult**        | String | Wynik uruchamiania pliku wykonywalnego                                 | `0`(0 oznacza powodzenie, 1 oznacza niepowodzenie, 2 oznacza Kończenie i 3 oznacza anulowanie) |
+| **executionValue**         | String | Zdefiniowana przez użytkownika wartość zwrócona przez uruchomienie pliku wykonywalnego            | `1` |
+| **Identyfikator**             | String | Unikatowy identyfikator zasobu ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Atrybuty dziennika faz składnika wykonywania SSIS
 
@@ -754,22 +754,22 @@ Poniżej znajdują się atrybuty dziennika statystyk czasu wykonywania dla skła
 
 | Właściwość                   | Typ   | Opis                                                         | Przykład                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **pierwszym**                   | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String (ciąg) | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
-| **kategorii**               | String (ciąg) | Kategoria dzienników diagnostycznych                                     | `SSISPackageExecutionComponentPhases` |
-| **korelacj**          | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String (ciąg) | Nazwa Twojego ADF                                                | `MyADFv2` |
-| **integrationRuntimeName** | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                            | `MySSISIR` |
-| **poziom**                  | String (ciąg) | Poziom dzienników diagnostycznych                                        | `Informational` |
-| **executionId**            | String (ciąg) | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB         | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
-| **Nr pakietu**            | String (ciąg) | Nazwa wykonanego pliku pakietu                              | `MyPackage.dtsx` |
-| **taskName**               | String (ciąg) | Nazwa wykonanego zadania przepływu danych                                 | `Data Flow Task` |
-| **SubComponentName**       | String (ciąg) | Nazwa składnika przepływu danych                                     | `Derived Column` |
-| **wprowadzane**                  | String (ciąg) | Nazwa fazy wykonywania                                         | `AcquireConnections` |
-| **startTime**              | String (ciąg) | Czas rozpoczęcia fazy wykonywania w formacie UTC                  | `2017-06-28T21:00:27.3534352Z` |
-| **endTime**                | String (ciąg) | Czas zakończenia fazy wykonywania w formacie UTC                    | `2017-06-28T21:00:27.3534352Z` |
-| **executionPath**          | String (ciąg) | Ścieżka wykonywania zadania przepływu danych                            | `\Transformation\Data Flow Task` |
-| **Identyfikator**             | String (ciąg) | Unikatowy identyfikator zasobu ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **pierwszym**                   | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **kategorii**               | String | Kategoria dzienników diagnostycznych                                     | `SSISPackageExecutionComponentPhases` |
+| **korelacj**          | String | Unikatowy identyfikator śledzenia określonej operacji                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | Nazwa Twojego ADF                                                | `MyADFv2` |
+| **integrationRuntimeName** | String | Nazwa Twojego środowiska IR usług SSIS                                            | `MySSISIR` |
+| **poziom**                  | String | Poziom dzienników diagnostycznych                                        | `Informational` |
+| **executionId**            | String | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB         | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
+| **Nr pakietu**            | String | Nazwa wykonanego pliku pakietu                              | `MyPackage.dtsx` |
+| **taskName**               | String | Nazwa wykonanego zadania przepływu danych                                 | `Data Flow Task` |
+| **SubComponentName**       | String | Nazwa składnika przepływu danych                                     | `Derived Column` |
+| **wprowadzane**                  | String | Nazwa fazy wykonywania                                         | `AcquireConnections` |
+| **startTime**              | String | Czas rozpoczęcia fazy wykonywania w formacie UTC                  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | Czas zakończenia fazy wykonywania w formacie UTC                    | `2017-06-28T21:00:27.3534352Z` |
+| **executionPath**          | String | Ścieżka wykonywania zadania przepływu danych                            | `\Transformation\Data Flow Task` |
+| **Identyfikator**             | String | Unikatowy identyfikator zasobu ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Atrybuty dziennika statystyk danych wykonania SSIS
 
@@ -802,24 +802,24 @@ Poniżej znajdują się atrybuty dziennika przesunięć danych przez każdy etap
 
 | Właściwość                     | Typ   | Opis                                                        | Przykład                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **pierwszym**                     | String (ciąg) | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**            | String (ciąg) | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
-| **kategorii**                 | String (ciąg) | Kategoria dzienników diagnostycznych                                    | `SSISPackageExecutionDataStatistics` |
-| **korelacj**            | String (ciąg) | Unikatowy identyfikator śledzenia określonej operacji                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**          | String (ciąg) | Nazwa Twojego ADF                                               | `MyADFv2` |
-| **integrationRuntimeName**   | String (ciąg) | Nazwa Twojego środowiska IR usług SSIS                                           | `MySSISIR` |
-| **poziom**                    | String (ciąg) | Poziom dzienników diagnostycznych                                       | `Informational` |
-| **executionId**              | String (ciąg) | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB        | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
-| **Nr pakietu**              | String (ciąg) | Nazwa wykonanego pliku pakietu                             | `MyPackage.dtsx` |
-| **taskName**                 | String (ciąg) | Nazwa wykonanego zadania przepływu danych                                | `Data Flow Task` |
-| **dataflowPathIdString**     | String (ciąg) | Unikatowy identyfikator ścieżki przepływu danych śledzenia                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
-| **dataflowPathName**         | String (ciąg) | Nazwa ścieżki przepływu danych                                         | `ADO NET Source Output` |
-| **sourceComponentName**      | String (ciąg) | Nazwa składnika przepływu danych, który wysyła dane                    | `SQLDB Table3` |
-| **destinationComponentName** | String (ciąg) | Nazwa składnika przepływu danych, który odbiera dane                 | `Derived Column` |
-| **rowsSent**                 | String (ciąg) | Liczba wierszy wysłanych przez składnik źródłowy                        | `500` |
-| **createdTime**              | String (ciąg) | Czas, w którym wartości wierszy są uzyskiwane w formacie UTC                | `2017-06-28T21:00:27.3534352Z` |
-| **executionPath**            | String (ciąg) | Ścieżka wykonywania zadania przepływu danych                           | `\Transformation\Data Flow Task` |
-| **Identyfikator**               | String (ciąg) | Unikatowy identyfikator zasobu ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **pierwszym**                     | String | Godzina zdarzenia w formacie UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**            | String | Ta wartość jest ustawiona na`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **kategorii**                 | String | Kategoria dzienników diagnostycznych                                    | `SSISPackageExecutionDataStatistics` |
+| **korelacj**            | String | Unikatowy identyfikator śledzenia określonej operacji                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**          | String | Nazwa Twojego ADF                                               | `MyADFv2` |
+| **integrationRuntimeName**   | String | Nazwa Twojego środowiska IR usług SSIS                                           | `MySSISIR` |
+| **poziom**                    | String | Poziom dzienników diagnostycznych                                       | `Informational` |
+| **executionId**              | String | Unikatowy identyfikator śledzenia określonego wykonania w SSISDB        | `1`(1 oznacza wykonania związane z pakietami, które **nie** są przechowywane w SSISDB/wywoływane przy użyciu języka T-SQL) |
+| **Nr pakietu**              | String | Nazwa wykonanego pliku pakietu                             | `MyPackage.dtsx` |
+| **taskName**                 | String | Nazwa wykonanego zadania przepływu danych                                | `Data Flow Task` |
+| **dataflowPathIdString**     | String | Unikatowy identyfikator ścieżki przepływu danych śledzenia                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
+| **dataflowPathName**         | String | Nazwa ścieżki przepływu danych                                         | `ADO NET Source Output` |
+| **sourceComponentName**      | String | Nazwa składnika przepływu danych, który wysyła dane                    | `SQLDB Table3` |
+| **destinationComponentName** | String | Nazwa składnika przepływu danych, który odbiera dane                 | `Derived Column` |
+| **rowsSent**                 | String | Liczba wierszy wysłanych przez składnik źródłowy                        | `500` |
+| **createdTime**              | String | Czas, w którym wartości wierszy są uzyskiwane w formacie UTC                | `2017-06-28T21:00:27.3534352Z` |
+| **executionPath**            | String | Ścieżka wykonywania zadania przepływu danych                           | `\Transformation\Data Flow Task` |
+| **Identyfikator**               | String | Unikatowy identyfikator zasobu ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="log-analytics-schema"></a>Schemat Log Analytics
 

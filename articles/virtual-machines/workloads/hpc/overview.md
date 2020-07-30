@@ -1,54 +1,49 @@
 ---
-title: Obliczenia o wysokiej wydajności na maszynach wirtualnych serii H — Virtual Machines platformy Azure
-description: Poznaj funkcje i możliwości maszyn wirtualnych z serii H zoptymalizowane pod kątem HPC.
+title: Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H i serii N — platforma Azure Virtual Machines
+description: Dowiedz się więcej o funkcjach i możliwościach z obsługą maszyn wirtualnych z serii H i serii N zoptymalizowanych pod kątem HPC.
 author: vermagit
 ms.author: amverma
-tags: azure-resource-manager
 ms.service: virtual-machines
+ms-subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 07/02/2019
-ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/29/2020
+ms.openlocfilehash: e8bff2b08782dcced63b5eb35f1baac310a1d3ca
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083433"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431940"
 ---
-# <a name="high-performance-computing-on-h-series-vms"></a>Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H
+# <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H i serii N
 
-Obliczenia o wysokiej wydajności (HPC) na maszynach wirtualnych z serii HB i HC zapewniają optymalną wydajność HPC dla wszystkich maszyn wirtualnych na platformie Azure. Maszyny wirtualne zoptymalizowane pod kątem HPC są używane do rozwiązywania niektórych trudnych problemów matematycznych, takich jak: płynność Biodynamiki, symulacje gazu oraz modelowanie pogody.
+Maszyny wirtualne z serii H obsługujące funkcję InfiniBand na platformie Azure zostały zaprojektowane w celu zapewnienia wydajności klasy lidera, skalowalności interfejsu MPI (Message Passing Interface) i efektywności kosztów dla różnych rzeczywistych obciążeń platformy HPC i AI. Te zoptymalizowane na potrzeby przetwarzania maszyn wirtualnych o wysokiej wydajności (HPC) są używane do rozwiązywania niektórych problemów z dużą ilością operacji w nauce i inżynieryjnych, takich jak: płynność dynamiki, modelowanie ziemi, symulacje pogody itd.
 
-W tym artykule omówiono niektóre kluczowe funkcje maszyn wirtualnych z serii HB i HC, dlaczego te maszyny wirtualne działają dobrze w scenariuszach HPC i jak zacząć pracę.
+W tych artykułach opisano, jak rozpocząć pracę z maszynami wirtualnymi z serii H z obsługą urządzeń InfiniBand oraz na platformie Azure, a także optymalną konfigurację obciążeń HPC i AI na maszynach wirtualnych w celu zapewnienia skalowalności.
 
 ## <a name="features-and-capabilities"></a>Funkcje i możliwości
 
-Maszyny wirtualne z serii HB i HC zostały zaprojektowane w celu zapewnienia najlepszej wydajności HPC, skalowalności interfejsu przekazywania komunikatów (MPI) i efektywności kosztów obciążeń HPC.
-
-### <a name="message-passing-interface"></a>Interfejs przekazywania komunikatów
-
-Seria HB i seria HC obsługują niemal wszystkie typy i wersje MPI. Oto niektóre z najpopularniejszych, obsługiwanych typów MPI: OpenMPI, MVAPICH2, platform MPI, Intel MPI i wszystkie czasowniki zdalnego bezpośredniego dostępu do pamięci (RDMA). Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu przekazywania komunikatów dla HPC](setup-mpi.md).
+Maszyny wirtualne z serii H z obsługą InfiniBand i serii N zostały zaprojektowane w celu zapewnienia najlepszej wydajności HPC, skalowalności MPI i efektywności kosztów obciążeń HPC. Zapoznaj się z maszynami wirtualnymi [serii H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) , aby dowiedzieć się więcej o funkcjach i możliwościach maszyn wirtualnych.
 
 ### <a name="rdma-and-infiniband"></a>RDMA i InfiniBand
 
-Interfejs RDMA jest standardem dla maszyn wirtualnych z serii HB i HC. Wystąpienia z obsługą funkcji RDMA komunikują się za pośrednictwem sieci InfiniBand, działając przy użyciu ulepszonych stawek danych (EDR) dla maszyn wirtualnych serii HB i HC. Wystąpienia z obsługą funkcji RDMA mogą zwiększyć skalowalność i wydajność niektórych aplikacji MPI.
+Maszyny wirtualne z serii H i serii N obsługujące funkcję RDMA komunikują się za pośrednictwem sieci InfiniBand o małym opóźnieniu i dużej przepustowości. Funkcja RDMA przez takie połączenie ma kluczowe znaczenie dla zwiększenia skalowalności i wydajności obciążeń w węzłach rozproszonych i systemu AI. Maszyny wirtualne z serii H z obsługą funkcji InfiniBand i serii N są połączone w nieblokującym drzewie FAT o niskiej średnicy dla zoptymalizowanej i spójnej wydajności RDMA.
+Zapoznaj się z [maszynami wirtualnymi obsługującymi funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances) , aby dowiedzieć się więcej na temat możliwości RDMA takich maszyn wirtualnych i obsługiwanych przez macierz systemów operacyjnych, instalacji sterowników InfiniBand, obsługi MPI itp. Aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnych z włączoną funkcją InfiniBand, zobacz [Włączanie InfiniBand](enable-infiniband.md) .
 
-Konfiguracja InfiniBand obsługująca maszyny wirtualne serii HB i HC nie blokuje drzew tłuszczowych o niskiej średnicy dla spójnej wydajności RDMA.
+### <a name="message-passing-interface"></a>Interfejs przekazywania komunikatów
 
-Zobacz [Włączanie InfiniBand](enable-infiniband.md) , aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnych z serii HB lub HC.
+Seria H z obsługą wirtualizacji SR-IOV i serii N obsługują niemal wszystkie biblioteki i wersje MPI. Niektóre z najczęściej obsługiwanych bibliotek MPI to: Intel MPI, OpenMPI, MPICH, MVAPICH2, platform MPI i wszystkie czasowniki zdalnego bezpośredniego dostępu do pamięci (RDMA).
+Zobacz [Konfigurowanie MPI](setup-mpi.md) , aby dowiedzieć się więcej o instalowaniu różnych obsługiwanych bibliotek MPI i ich optymalną konfigurację.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Najpierw zdecyduj, która maszyna wirtualna serii H ma być używana. Aby uzyskać szczegółowe informacje na temat maszyn wirtualnych zoptymalizowanych pod kątem HPC, zobacz [Omówienie z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md). Aby uzyskać specyfikacje, zobacz [duże rozmiary maszyn wirtualnych obliczeniowych o wysokiej wydajności](../../sizes-hpc.md).
-
-Po wybraniu i utworzeniu maszyny wirtualnej dla aplikacji musisz ją skonfigurować, włączając opcję InfiniBand. Aby dowiedzieć się, jak włączyć funkcję InfiniBand na maszynach wirtualnych z systemami Windows i Linux, zobacz [Włączanie usługi InfiniBand](enable-infiniband.md).
-
-Krytyczny składnik obciążeń HPC to MPI. Seria HB i seria HC obsługują niemal wszystkie typy i wersje MPI. Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu przekazywania komunikatów dla HPC](setup-mpi.md).
-
-Po wybraniu serii maszyn wirtualnych Skonfiguruj InfiniBand i MPI, aby rozpocząć tworzenie obciążeń HPC.
+Pierwszym krokiem jest wybranie maszyny wirtualnej [serii H](../../sizes-hpc.md) i serii [N](../../sizes-gpu.md) optymalnie dla obciążenia w oparciu o specyfikacje maszyn wirtualnych i [funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances).
+Następnie skonfiguruj maszynę wirtualną przez włączenie funkcji InfiniBand. Istnieją różne metody do wykonania tej czynności, w tym używanie zoptymalizowanych obrazów maszyn wirtualnych ze sterownikami rozszerzania. Aby uzyskać szczegółowe informacje, zobacz [Optymalizacja dla systemu Linux](configure.md) i [Włączanie usługi InfiniBand](enable-infiniband.md) .
+Trzeci, w przypadku obciążeń węzła rozproszonego Wybieranie i Konfigurowanie MPI ma krytyczne znaczenie. Aby uzyskać szczegółowe informacje, zobacz [set up MPI](setup-mpi.md) .
+Czwarty, w celu zapewnienia wydajności i skalowalności, optymalnie konfiguruje obciążenia, postępując zgodnie ze wskazówkami dotyczącymi rodziny maszyn wirtualnych, takimi jak [Przegląd z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej na temat kluczowych różnic i specyfikacji.
-
-- W przypadku wyższego poziomu, widoku architektury działającego obciążeń HPC, zobacz [wydajność obliczeń o wysokiej wydajności (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
+- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
+- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

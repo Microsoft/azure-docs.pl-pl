@@ -1,22 +1,22 @@
 ---
-title: 'Szybki Start: QnA Maker z interfejsami API REST dla środowiska Node. js'
-description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z interfejsami API REST QnA Maker dla środowiska Node. js. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
+title: 'Szybki Start: QnA Maker z interfejsami API REST dla Node.js'
+description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z interfejsami API REST QnA Maker Node.js. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342735"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406099"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Szybki Start: QnA Maker interfejsów API REST dla środowiska Node. js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Szybki Start: QnA Maker interfejsów API REST dla Node.js
 
-Rozpocznij pracę z interfejsami API REST QnA Maker dla środowiska Node. js. Wykonaj następujące kroki, aby wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
+Rozpocznij pracę z interfejsami API REST QnA Maker Node.js. Wykonaj następujące kroki, aby wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 
-Użyj QnA Maker interfejsów API REST dla środowiska Node. js, aby:
+Użyj QnA Maker interfejsów API REST, aby Node.js do:
 
 * Tworzenie bazy wiedzy
 * Zastępowanie bazy wiedzy
@@ -25,14 +25,14 @@ Użyj QnA Maker interfejsów API REST dla środowiska Node. js, aby:
 * Pobieranie bazy wiedzy
 * Pobierz stan operacji
 
-[Dokumentacja](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  referencyjna [Przykłady dla środowiska Node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Dokumentacja](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  referencyjna [PrzykładyNode.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Bieżąca wersja środowiska [Node. js](https://nodejs.org).
+* Bieżąca wersja [Node.js](https://nodejs.org).
 * Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -65,7 +65,7 @@ npm install requestretry request --save
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą interfejsów API REST QnA Maker dla środowiska Node. js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności w przypadku QnA Maker interfejsów API REST dla Node.js:
 
 * [Tworzenie bazy wiedzy](#create-a-knowledge-base)
 * [Zastępowanie bazy wiedzy](#replace-a-knowledge-base)

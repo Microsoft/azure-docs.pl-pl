@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: W tym przewodniku szybki start pokazano, jak używać Azure Dev Spaces i wiersza polecenia do tworzenia aplikacji z istniejącym wykresem Helm w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7d1d782203401607d3909d79d1f0f3a499712c32
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996677"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414313"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Szybki Start: Tworzenie aplikacji przy użyciu istniejącego wykresu Helm na Kubernetes-Azure Dev Spaces
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
@@ -35,10 +36,10 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Włączanie Azure Dev Spaces w klastrze AKS
 
-Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w klastrze AKS i postępuj zgodnie z monitami. Poniższe polecenie włącza miejsca deweloperskie w klastrze *MyAKS* w grupie Grupa *zasobów* i tworzy przestrzeń dev o nazwie *dev*.
+Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w KLASTRZE AKS i postępuj zgodnie z monitami. Poniższe polecenie włącza miejsca deweloperskie w klastrze *MyAKS* w grupie Grupa *zasobów* i tworzy przestrzeń dev o nazwie *dev*.
 
 > [!NOTE]
-> `use-dev-spaces` Polecenie spowoduje również zainstalowanie interfejsu wiersza polecenia Azure dev Spaces, jeśli nie został jeszcze zainstalowany. Nie można zainstalować interfejsu wiersza polecenia Azure Dev Spaces w Azure Cloud Shell.
+> `use-dev-spaces`Polecenie spowoduje również zainstalowanie interfejsu wiersza polecenia Azure dev Spaces, jeśli nie został jeszcze zainstalowany. Nie można zainstalować interfejsu wiersza polecenia Azure Dev Spaces w Azure Cloud Shell.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
@@ -57,7 +58,7 @@ cd dev-spaces/samples/python/getting-started/webfrontend
 
 ## <a name="prepare-the-application"></a>Przygotowywanie aplikacji
 
-Aby można było uruchomić aplikację na Azure Dev Spaces, wymagany jest wykres pliku dockerfile i Helm. W przypadku niektórych języków, takich jak [Java][java-quickstart], [.NET Core][netcore-quickstart]i [Node. js][nodejs-quickstart], narzędzia klienta Azure dev Spaces mogą generować wszystkie potrzebne zasoby. W przypadku wielu innych języków, takich jak go, PHP i Python, narzędzia klienckie mogą generować wykres Helm, o ile można podać prawidłowy pliku dockerfile. W takim przypadku Przykładowa aplikacja zawiera istniejący wykres pliku dockerfile i Helm
+Aby można było uruchomić aplikację na Azure Dev Spaces, wymagany jest wykres pliku dockerfile i Helm. W przypadku niektórych języków, takich jak [Java][java-quickstart], [.net core][netcore-quickstart]i [Node.js][nodejs-quickstart], narzędzia klienta Azure dev Spaces mogą generować wszystkie potrzebne zasoby. W przypadku wielu innych języków, takich jak go, PHP i Python, narzędzia klienckie mogą generować wykres Helm, o ile można podać prawidłowy pliku dockerfile. W takim przypadku Przykładowa aplikacja zawiera istniejący wykres pliku dockerfile i Helm
 
 Generuj konfigurację uruchamiania aplikacji z Azure Dev Spaces z istniejącym wykresem Helm i pliku dockerfile za pomocą `azds prep` polecenia:
 
@@ -65,10 +66,10 @@ Generuj konfigurację uruchamiania aplikacji z Azure Dev Spaces z istniejącym w
 azds prep --enable-ingress --chart webfrontend/
 ```
 
-Należy uruchomić `prep` polecenie z katalogu *dev-Spaces/Samples/Python/Start/webfrontonu* i określić lokalizację wykresu Helm przy użyciu `--chart`polecenia.
+Należy uruchomić `prep` polecenie z katalogu *dev-Spaces/Samples/Python/Start/webfrontonu* i określić lokalizację wykresu Helm przy użyciu polecenia `--chart` .
 
 > [!NOTE]
-> Może zostać wyświetlone ostrzeżenie: *Ostrzeżenie: pliku dockerfile nie może zostać wygenerowany z powodu nieobsługiwanego języka.* podczas uruchamiania `azds prep`. `azds prep` Polecenie podejmuje próbę wygenerowania [wykresu pliku dockerfile i Helm](how-dev-spaces-works-prep.md#prepare-your-code) dla projektu, ale nie spowoduje zastąpienia żadnych istniejących wykresów wieloetapowe dockerfile lub Helm.
+> Może zostać wyświetlone ostrzeżenie: *Ostrzeżenie: pliku dockerfile nie może zostać wygenerowany z powodu nieobsługiwanego języka.* podczas uruchamiania `azds prep` . `azds prep`Polecenie podejmuje próbę wygenerowania [wykresu pliku dockerfile i Helm](how-dev-spaces-works-prep.md#prepare-your-code) dla projektu, ale nie spowoduje zastąpienia żadnych istniejących wykresów wieloetapowe dockerfile lub Helm.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Kompilowanie i uruchamianie kodu na platformie Kubernetes
 
@@ -96,16 +97,16 @@ Press Ctrl+C to detach
 ...
 ```
 
-Możesz zobaczyć, że usługa jest uruchomiona, otwierając publiczny adres URL, który jest wyświetlany w danych wyjściowych `azds up` polecenia. W tym przykładzie publiczny adres URL to `http://dev.service.1234567890abcdef1234.eus.azds.io/`.
+Możesz zobaczyć, że usługa jest uruchomiona, otwierając publiczny adres URL, który jest wyświetlany w danych wyjściowych `azds up` polecenia. W tym przykładzie publiczny adres URL to `http://dev.service.1234567890abcdef1234.eus.azds.io/` .
 
 > [!NOTE]
-> Gdy przejdziesz do usługi w trakcie `azds up`działania, w danych wyjściowych `azds up` polecenia są również wyświetlane dane śledzenia żądań HTTP. Te ślady mogą pomóc w rozwiązywaniu problemów i debugowaniu usługi. Te ślady można wyłączyć przy `--disable-http-traces` użyciu programu `azds up`podczas uruchamiania.
+> Gdy przejdziesz do usługi w trakcie działania `azds up` , w danych wyjściowych polecenia są również wyświetlane dane śledzenia żądań HTTP `azds up` . Te ślady mogą pomóc w rozwiązywaniu problemów i debugowaniu usługi. Te ślady można wyłączyć przy użyciu programu `--disable-http-traces` podczas uruchamiania `azds up` .
 
 Jeśli zatrzymasz `azds up` polecenie za pomocą *klawiszy CTRL + c*, usługa będzie nadal działać w AKS, a publiczny adres URL pozostanie dostępny.
 
 ## <a name="update-code"></a>Aktualizowanie kodu
 
-Aby wdrożyć zaktualizowaną wersję usługi, możesz zaktualizować dowolny plik w projekcie i ponownie uruchomić `azds up` polecenie. Przykład:
+Aby wdrożyć zaktualizowaną wersję usługi, możesz zaktualizować dowolny plik w projekcie i ponownie uruchomić `azds up` polecenie. Na przykład:
 
 1. Jeśli `azds up` nadal działa, naciśnij *klawisze CTRL + c*.
 1. Aktualizuj [wiersz 13 w `webfrontend.py` programie](https://github.com/Azure/dev-spaces/blob/master/samples/python/getting-started/webfrontend/webfrontend.py#L13) do:
@@ -127,7 +128,7 @@ Aby wdrożyć zaktualizowaną wersję usługi, możesz zaktualizować dowolny pl
     ```
 
 1. Przejdź do działającej usługi i obserwuj wprowadzone zmiany.
-1. Naciśnij *klawisze CTRL + c* , aby `azds up` zatrzymać polecenie.
+1. Naciśnij *klawisze CTRL + c* , aby zatrzymać `azds up` polecenie.
 
 ## <a name="clean-up-your-azure-resources"></a>Czyszczenie zasobów platformy Azure
 

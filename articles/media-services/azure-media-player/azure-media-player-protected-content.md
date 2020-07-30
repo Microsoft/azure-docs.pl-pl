@@ -6,20 +6,21 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 64414d3ec31e8763b7c576af93374bf514141fd4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: da79556b466e3511845724e969c76477ad2ba0a8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726494"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423018"
 ---
 # <a name="protected-content"></a>Chroniona zawartość #
 
-Azure Media Player obecnie obsługuje zaszyfrowaną zawartość obwiedni AES-128 i często zaszyfrowaną zawartość (za pośrednictwem oprogramowania PlayReady i Widevine) lub zaszyfrowaną zawartość za pośrednictwem FairPlay. W celu poprawnego odtwarzania chronionej zawartości należy powiedzieć, Azure Media Player `protectionInfo`. Te informacje istnieją dla źródła i można je dodać bezpośrednio do `<source>` tagu za pośrednictwem `data-setup`.  Możesz również dodać `protectionInfo` bezpośrednio jako parametr, jeśli źródło zostanie ustawione dynamicznie.
+Azure Media Player obecnie obsługuje zaszyfrowaną zawartość obwiedni AES-128 i często zaszyfrowaną zawartość (za pośrednictwem oprogramowania PlayReady i Widevine) lub zaszyfrowaną zawartość za pośrednictwem FairPlay. W celu poprawnego odtwarzania chronionej zawartości należy powiedzieć, Azure Media Player `protectionInfo` . Te informacje istnieją dla źródła i można je dodać bezpośrednio do `<source>` tagu za pośrednictwem `data-setup` .  Możesz również dodać `protectionInfo` bezpośrednio jako parametr, jeśli źródło zostanie ustawione dynamicznie.
 
 `protectionInfo`akceptuje obiekt JSON i zawiera:
 
-- `type`: `AES` lub `PlayReady` `Widevine` lub`FairPlay`
+- `type`: `AES` lub `PlayReady` lub `Widevine``FairPlay`
 - `certificateUrl`: powinien to być bezpośredni link do hostowanego certyfikatu FairPlay
 
 - `authenticationToken`: to pole opcji umożliwia dodanie niezakodowanego tokenu uwierzytelniania

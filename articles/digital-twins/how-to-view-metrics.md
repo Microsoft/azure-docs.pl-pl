@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 09e32d5baa367b76c34ebca28adfdd20385e4e18
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6db571d64b0fd276519f15a3984848e80c4e18a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374588"
+ms.locfileid: "87387680"
 ---
 # <a name="view-and-understand-azure-digital-twins-metrics"></a>Wyświetl i poznanie metryk usługi Azure Digital bliźniaczych reprezentacji
 
@@ -36,7 +36,7 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
 
-    Aby uzyskać więcej informacji o tym procesie, zobacz [*instrukcje: Konfigurowanie diagnostyki*](how-to-set-up-diagnostics.md).
+    Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Metryki Digital bliźniaczych reprezentacji na platformie Azure i sposoby ich używania
 
@@ -94,7 +94,7 @@ Operacja (dla routingu) | Event Grid </br>Centrum zdarzeń </br>Service Bus |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o zarządzaniu zarejestrowanymi metrykami dla usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Konfiguracja Diagnostics*](how-to-set-up-diagnostics.md).
+Aby dowiedzieć się więcej o zarządzaniu zarejestrowanymi metrykami dla usługi Azure Digital bliźniaczych reprezentacji, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
 
 Możesz też zapoznać się z omówieniem metryk usługi Azure Digital bliźniaczych reprezentacji, korzystając z poniższych linków, aby dowiedzieć się więcej na temat zarządzania usługą Azure Digital bliźniaczych reprezentacji:
 

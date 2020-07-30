@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: bcafdbdfd07456a01d956b622d9c5e6ed4b0b6f2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371859"
+ms.locfileid: "87384875"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Szyfrowanie danych konfiguracji aplikacji przy użyciu kluczy zarządzanych przez klienta
 Usługa Azure App Configuration [szyfruje poufne informacje w stanie spoczynku](../security/fundamentals/encryption-atrest.md). Użycie kluczy zarządzanych przez klienta zapewnia ulepszoną ochronę danych przez umożliwienie zarządzania kluczami szyfrowania.  Gdy używane jest szyfrowanie klucza zarządzanego, wszystkie informacje poufne w konfiguracji aplikacji są szyfrowane za pomocą klucza Azure Key Vault dostarczonego przez użytkownika.  Dzięki temu można obrócić klucz szyfrowania na żądanie.  Umożliwia także odwoływanie dostępu do informacji poufnych z usługi Azure App Configuration poprzez odwoływanie dostępu do klucza wystąpienia konfiguracji aplikacji.
@@ -20,7 +20,7 @@ Usługa Azure App Configuration [szyfruje poufne informacje w stanie spoczynku](
 Usługa Azure App Configuration szyfruje poufne informacje przechowywane przy użyciu 256-bitowego klucza szyfrowania AES dostarczonego przez firmę Microsoft. Każde wystąpienie konfiguracji aplikacji ma własny klucz szyfrowania, który jest zarządzany przez usługę i służy do szyfrowania poufnych informacji. Informacje poufne zawierają wartości znajdujące się w parach klucz-wartość.  W przypadku włączenia funkcji klucza zarządzanego przez klienta konfiguracja aplikacji używa zarządzanej tożsamości przypisanej do wystąpienia konfiguracji aplikacji w celu uwierzytelniania za pomocą Azure Active Directory. Tożsamość zarządzana następnie wywołuje Azure Key Vault i zawija klucz szyfrowania wystąpienia konfiguracji aplikacji. Opakowany klucz szyfrowania jest przechowywany, a nieopakowany klucz szyfrowania jest buforowany w ramach konfiguracji aplikacji przez jedną godzinę. Konfiguracja aplikacji odświeża nieopakowaną wersję klucza szyfrowania wystąpienia konfiguracji aplikacji co godzinę. Zapewnia to dostępność w normalnych warunkach operacyjnych. 
 
 >[!IMPORTANT]
-> Jeśli tożsamość przypisana do wystąpienia konfiguracji aplikacji nie jest już autoryzowana do odpakowania klucza szyfrowania wystąpienia lub jeśli klucz zarządzany zostanie trwale usunięty, nie będzie można odszyfrować poufnych informacji przechowywanych w wystąpieniu konfiguracji aplikacji. Użycie funkcji [usuwania nietrwałego](../key-vault/general/overview-soft-delete.md) Azure Key Vault ogranicza szansę przypadkowego usunięcia klucza szyfrowania.
+> Jeśli tożsamość przypisana do wystąpienia konfiguracji aplikacji nie jest już autoryzowana do odpakowania klucza szyfrowania wystąpienia lub jeśli klucz zarządzany zostanie trwale usunięty, nie będzie można odszyfrować poufnych informacji przechowywanych w wystąpieniu konfiguracji aplikacji. Użycie funkcji [usuwania nietrwałego](../key-vault/general/soft-delete-overview.md) Azure Key Vault ogranicza szansę przypadkowego usunięcia klucza szyfrowania.
 
 Gdy użytkownicy włączają funkcję klucz zarządzany przez klienta w wystąpieniu usługi Azure App Configuration, kontrolują możliwość uzyskiwania dostępu do poufnych informacji. Klucz zarządzany służy jako główny klucz szyfrowania. Użytkownik może odwołać dostęp swojego wystąpienia konfiguracji aplikacji do swojego klucza zarządzanego przez zmianę ich zasad dostępu magazynu kluczy. Po odwołaniu tego dostępu Konfiguracja aplikacji utraci możliwość odszyfrowania danych użytkownika w ciągu jednej godziny. W tym momencie wystąpienie konfiguracji aplikacji zabroni wszystkich prób dostępu. Tę sytuację można przywrócić, dając ponownie dostęp do klucza zarządzanego.  W ciągu jednej godziny konfiguracja aplikacji będzie mogła odszyfrowywać dane użytkowników i działać w normalnych warunkach.
 

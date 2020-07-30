@@ -6,14 +6,14 @@ ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: c9767942c893017e98e3013f92022f058524e13c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078997"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430818"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (maksymalna liczba całkowita, która może być reprezentowana przez język JavaScript, to 2^53)
 DateTime | Date (język JavaScript obsługuje tylko milisekundy)
 double | Liczba
-nvarchar(MAX) | Ciąg
+nvarchar(MAX) | String
 Rekord | Obiekt
 Tablica | Tablica
 NULL | Null
@@ -96,8 +96,8 @@ W tym miejscu przedstawiono konwersje typów języka JavaScript na typy usługi 
 JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
-Date | DateTime
-Ciąg | nvarchar(MAX)
+Data | DateTime
+String | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica
 Null, Undefined | NULL

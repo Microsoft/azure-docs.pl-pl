@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4ca6d6647882e81dbf20a0dd39b1ae659b6a6ab6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284816"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432995"
 ---
 # <a name="lsv2-series"></a>Seria Lsv2
 
@@ -52,7 +52,7 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 <sup>3</sup> Technologia bezpośredniego interfejsu NVMe funkcji Hyper-V zapewnia nieograniczoną dostęp do lokalnych dysków interfejsu NVMe, które są bezpiecznie mapowane do przestrzeni maszyny wirtualnej gościa.  Osiągnięcie maksymalnej wydajności wymaga użycia najnowszej WS2019 kompilacja lub Ubuntu 18,04 lub 16,04 z portalu Azure Marketplace.  Wydajność zapisu zależy od rozmiaru operacji we/wy, obciążenia dysku i wykorzystania pojemności.
 
-<sup>4</sup> maszyny wirtualne z serii Lsv2 nie zapewniają pamięci podręcznej hosta dla dysku danych, ponieważ nie korzystają z obciążeń Lsv2.  Jednak maszyny wirtualne Lsv2 mogą obsługiwać opcję dysku tymczasowych maszyn wirtualnych systemu Azure (do 30 GiB).
+<sup>4</sup> maszyny wirtualne z serii Lsv2 nie zapewniają pamięci podręcznej hosta dla dysku danych, ponieważ nie korzystają z obciążeń Lsv2.
 
 <sup>5</sup> maszyny wirtualne z serii Lsv2 [mogą](linux/disk-bursting.md) przetworzyć wydajność dysku przez maksymalnie 30 minut w danym momencie. 
 

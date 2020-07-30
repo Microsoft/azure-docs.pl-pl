@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204809031bf0d32a998d8bcc435fe2500a025fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 206f87e45377287217b4895b8d481e14618c888c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730938"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386949"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont za pomocą usługi Azure AD
 
@@ -51,7 +51,7 @@ Użytkownicy logują się jednokrotnie przy użyciu konta organizacyjnego. To ko
 
 Współużytkowane konta nie tylko zwiększają nadzór i zwiększają użyteczność, a także zwiększają bezpieczeństwo. Użytkownicy z uprawnieniami do korzystania z poświadczeń nie widzą hasła udostępnionego, ale nie otrzymują uprawnień do używania hasła w ramach zorganizowanego przepływu uwierzytelniania. Ponadto niektóre aplikacje logowania jednokrotnego hasła umożliwiają korzystanie z usługi Azure AD do okresowego przerzucania haseł (aktualizacji). System używa dużych, złożonych haseł, które zwiększają bezpieczeństwo konta. Administrator może łatwo udzielić lub odwołać dostęp do aplikacji, wiedzący o tym, kto ma dostęp do konta i kto ma do niego dostęp w przeszłości.
 
-Usługa Azure AD obsługuje konta współużytkowane w ramach dowolnego systemu lub planu licencjonowania Azure AD — wersja Premium dla wszystkich typów haseł. W galerii aplikacji można udostępniać konta dla dowolnych tysięcy wstępnie zintegrowanych aplikacji, a także dodawać własne aplikacje uwierzytelniające hasła przy użyciu [niestandardowych aplikacji SSO](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+Usługa Azure AD obsługuje konta współużytkowane w ramach dowolnego systemu lub planu licencjonowania Azure AD — wersja Premium dla wszystkich typów haseł. W galerii aplikacji można udostępniać konta dla dowolnych tysięcy wstępnie zintegrowanych aplikacji, a także dodawać własne aplikacje uwierzytelniające hasła przy użyciu [niestandardowych aplikacji SSO](../manage-apps/what-is-single-sign-on.md).
 
 Funkcje usługi Azure AD, które umożliwiają udostępnianie kont, obejmują:
 

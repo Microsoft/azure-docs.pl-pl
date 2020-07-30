@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: d33cc14612b5c00c8102bd035e7331bef670a4dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 433b9ad0f86b84538163b142d762d4e2fb7e8159
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836451"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430821"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics kodu JavaScript zdefiniowanych przez użytkownika
  
@@ -173,7 +174,7 @@ Teraz Utwórzmy kod JavaScript UDA w ramach istniejącego zadania ASA, wykonują
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Wywołanie JavaScript UDA w zapytaniu ASA
 
-W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Przykład:
+W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Na przykład:
 
 ```SQL
 WITH value AS

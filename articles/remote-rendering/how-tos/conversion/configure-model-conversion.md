@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147951"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432025"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -18,7 +18,8 @@ W tym rozdziale udokumentowano opcje konwersji modelu.
 
 ## <a name="settings-file"></a>Plik ustawień
 
-Jeśli plik o nazwie `ConversionSettings.json` znajduje się w kontenerze danych wejściowych obok modelu wejściowego, jest używany do zapewnienia dodatkowej konfiguracji procesu konwersji modelu.
+Jeśli plik o nazwie `<modelName>.ConversionSettings.json` znajduje się w kontenerze danych wejściowych obok modelu wejściowego `<modelName>.<ext>` , będzie używany do zapewnienia dodatkowej konfiguracji procesu konwersji modelu.
+Na przykład, `box.ConversionSettings.json` będzie używany podczas konwertowania `box.gltf` .
 
 Zawartość pliku powinna spełniać następujący schemat JSON:
 
@@ -54,7 +55,7 @@ Zawartość pliku powinna spełniać następujący schemat JSON:
 }
 ```
 
-Przykładowy `ConversionSettings.json` plik może być:
+Przykładowy plik `box.ConversionSettings.json` może być:
 
 ```json
 {
@@ -66,15 +67,18 @@ Przykładowy `ConversionSettings.json` plik może być:
 
 ### <a name="geometry-parameters"></a>Parametry geometrii
 
-* `scaling`— Ten parametr skaluje model jednolicie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład w celu wyświetlenia modelu budynku na górze tabeli. Ponieważ aparat renderowania oczekuje, że długość ma być określona w licznikach, inne ważne użycie tego parametru będzie miało miejsce, gdy model jest zdefiniowany w różnych jednostkach. Na przykład jeśli model jest zdefiniowany w centymetrach, zastosowanie skali 0,01 powinno spowodować, że model ma prawidłowy rozmiar.
+* `scaling`— Ten parametr skaluje model jednolicie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład w celu wyświetlenia modelu budynku na górze tabeli.
+Skalowanie jest również ważne, gdy model jest zdefiniowany w jednostkach innych niż liczniki, ponieważ aparat renderowania oczekuje liczników.
+Na przykład jeśli model jest zdefiniowany w centymetrach, zastosowanie skali 0,01 powinno spowodować, że model ma prawidłowy rozmiar.
 Niektóre formaty danych źródłowych (na przykład. FBX) zapewniają wskazówkę skalowania jednostki, w tym przypadku konwersja niejawnie skaluje model do jednostek miary. Niejawne skalowanie dostarczone przez format źródła zostanie zastosowane w górnej części parametru skalowania.
 Końcowy współczynnik skalowania jest stosowany do wierzchołków geometrii i lokalnych przekształceń węzłów wykresu sceny. Skalowanie dla przekształcenia jednostki głównej pozostaje niemodyfikowane.
 
 * `recenterToOrigin`-Określa, że model powinien zostać przekonwertowany, aby jego pole ograniczenia zostało wyśrodkowane w miejscu pochodzenia.
-Wyśrodkowanie jest ważne, jeśli model źródłowy jest odsunięty od źródła, ponieważ w tym przypadku problemy z dokładnością do liczby zmiennoprzecinkowej mogą powodować artefakty renderowania.
+Jeśli model źródłowy jest odsunięty od źródła, problemy z dokładnością do liczby zmiennoprzecinkowej mogą spowodować artefakty renderowania.
+Wyśrodkowanie modelu może pomóc w takiej sytuacji.
 
 * `opaqueMaterialDefaultSidedness`-Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
-Jeśli to nie jest zamierzone zachowanie, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
+Jeśli to założenie nie jest prawdziwe względem określonego modelu, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Zastępowanie materiału
 
@@ -102,7 +106,7 @@ Jeśli model jest zdefiniowany przy użyciu przestrzeni gamma, te opcje powinny 
   * `static`: Wszystkie obiekty są uwidocznione w interfejsie API, ale nie mogą być niezależne.
   * `none`: Wykres sceny jest zwinięty do jednego obiektu.
 
-Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybie, koszt wydajności jest skalowany liniowo wraz z liczbą [jednostek](../../concepts/entities.md) na grafie, nawet jeśli żadna część nie zostanie przeniesiona. Tego elementu należy używać tylko w przypadku, gdy przenoszone części oddzielnie są wymagane dla aplikacji, na przykład dla animacji "widok wybuchu".
+Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybie, koszt wydajności jest skalowany liniowo wraz z liczbą [jednostek](../../concepts/entities.md) na grafie, nawet jeśli żadna część nie zostanie przeniesiona. `dynamic`Trybu Używaj tylko wtedy, gdy konieczne jest przeniesienie części indywidualnie, na przykład dla animacji "widok wybuchu".
 
 `static`Tryb eksportuje wykres pełnej sceny, ale części wewnątrz tego wykresu mają stałą transformację względem jej głównej części. Węzeł główny obiektu, jednak nadal można przenieść, obrócić lub skalować bez znaczącego kosztu wydajności. Ponadto [zapytania przestrzenne](../../overview/features/spatial-queries.md) zwracają poszczególne części, a każda część może być modyfikowana przy użyciu [przesłonięć stanu](../../overview/features/override-hierarchical-state.md). W tym trybie obciążenie środowiska uruchomieniowego na obiekt jest nieznaczne. Jest to idealne rozwiązanie w przypadku dużych scen, w których nadal potrzebna jest inspekcja poszczególnych obiektów, ale nie ma żadnych zmian przekształceń na obiekt.
 
@@ -278,6 +282,11 @@ W tych przypadkach, modele często mają bardzo duże szczegóły w niewielkim w
 * Poszczególne części powinny być wybierane i ruchome, więc `sceneGraphMode` musi pozostać do `dynamic` .
 * Rzutowania promieniowego są zwykle integralną częścią aplikacji, dlatego siatki kolizji muszą być generowane.
 * Wytnij płaszczyzny wyglądają lepiej z `opaqueMaterialDefaultSidedness` włączoną flagą.
+
+## <a name="deprecated-features"></a>Przestarzałe funkcje
+
+Udostępnianie ustawień przy użyciu nazwy pliku niezwiązanego z modelem `conversionSettings.json` jest nadal obsługiwane, ale przestarzałe.
+Zamiast tego użyj nazwy pliku specyficznego dla modelu `<modelName>.ConversionSettings.json` .
 
 ## <a name="next-steps"></a>Następne kroki
 

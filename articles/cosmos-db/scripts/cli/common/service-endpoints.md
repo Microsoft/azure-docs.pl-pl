@@ -6,26 +6,26 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ff700739e2f8c6330ea151dbe489332acea3238c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/29/2020
+ms.openlocfilehash: 4d1a56c80cab58e98121ae35c98a086d16dfe02b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275409"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432236"
 ---
 # <a name="create-an-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Tworzenie konta Azure Cosmos za pomocą punktów końcowych usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.73 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, to polecenie będzie wymagało uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Ten przykład tworzy nową sieć wirtualną z podsiecią frontonu i zaplecza i włącza punkty końcowe `Microsoft.AzureCosmosDB`usługi. Następnie pobiera identyfikator zasobu dla tej podsieci i stosuje go do konta usługi Azure Cosmos i włącza punkty końcowe usługi dla konta.
+Ten przykład tworzy nową sieć wirtualną z podsiecią frontonu i zaplecza i włącza punkty końcowe usługi `Microsoft.AzureCosmosDB` . Następnie pobiera identyfikator zasobu dla tej podsieci i stosuje go do konta usługi Azure Cosmos i włącza punkty końcowe usługi dla konta.
 
 > [!NOTE]
-> Ten przykład pokazuje użycie konta interfejsu API SQL (rdzeń). Aby użyć tego przykładu dla innych interfejsów API, `enable-virtual-network` należy `virtual-network-rules` zastosować parametry i w poniższym skrypcie do skryptu określonego przez interfejs API.
+> Ten przykład ilustruje użycie podstawowego konta interfejsu API (SQL). Aby użyć tego przykładu dla innych interfejsów API, należy zastosować `enable-virtual-network` `virtual-network-rules` Parametry i w poniższym skrypcie do skryptu określonego przez interfejs API.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
 

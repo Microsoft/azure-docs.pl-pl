@@ -7,18 +7,19 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 192e939d21cae3b67cafe190e32e7202cd8bdb20
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299324"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429670"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Gatsby w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Gatsby](https://gatsbyjs.org) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest Nowa lokacja statyczna Web Apps (ze skojarzonymi akcjami GitHub), która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -32,7 +33,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 - Konto platformy Azure z aktywną subskrypcją. Jeśli go nie masz, możesz [utworzyć konto bezpłatnie](https://azure.microsoft.com/free/).
 - Konto usługi GitHub. Jeśli go nie masz, możesz [utworzyć konto bezpłatnie](https://github.com/join).
-- Zainstalowane środowisko [Node.js](https://nodejs.org).
+- [Node.js](https://nodejs.org) zainstalowane.
 
 ## <a name="create-a-gatsby-app"></a>Tworzenie aplikacji Gatsby
 
@@ -83,11 +84,11 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 ### <a name="create-the-application"></a>Tworzenie aplikacji
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
-1. Wyszukaj **Web Apps statyczny**
-1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Wyszukaj usługę **Static Web Apps**
+1. Kliknij pozycję **Static Web Apps (wersja zapoznawcza)**
+1. Kliknij pozycję **Utwórz**
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
@@ -117,7 +118,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompilacji do kompilowania aplikacji.
 
-1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
+1. Kliknij przycisk **Dalej: Skompiluj >**, aby edytować konfigurację kompilacji
 
 1. Aby skonfigurować ustawienia kroku w akcjach usługi GitHub, należy ustawić _lokalizację aplikacji_ na **/** .
 

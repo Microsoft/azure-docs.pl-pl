@@ -4,14 +4,14 @@ description: Użyj interfejsu wiersza polecenia platformy Azure, aby zarządzać
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067169"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432836"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Zarządzanie zasobami usługi Azure Cosmos za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -19,7 +19,7 @@ W poniższym przewodniku opisano typowe polecenia służące do automatyzowania 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Konta usługi Azure Cosmos
 
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 W poniższych sekcjach pokazano, jak zarządzać kontenerem Azure Cosmos DB, w tym:
 
 * [Tworzenie kontenera](#create-a-container)
+* [Tworzenie kontenera z funkcją automatycznego skalowania](#create-a-container-with-autoscale)
 * [Tworzenie kontenera z włączonym czasem TTL](#create-a-container-with-ttl)
 * [Tworzenie kontenera przy użyciu niestandardowych zasad indeksu](#create-a-container-with-a-custom-index-policy)
 * [Zmień przepływność kontenera](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Tworzenie kontenera z funkcją automatycznego skalowania
+
+Utwórz kontener Cosmos z domyślnymi zasadami indeksu, kluczem partycji i automatycznym skalowaniem RU/s z 4000.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Tworzenie kontenera z czasem wygaśnięcia

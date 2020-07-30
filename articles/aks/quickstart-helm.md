@@ -4,14 +4,14 @@ description: Używaj Helm z AKS i Azure Container Registry, aby spakować i uruc
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82169572"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407119"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Szybki Start: Programowanie w usłudze Azure Kubernetes Service (AKS) przy użyciu usługi Helm
 
@@ -23,7 +23,6 @@ W tym artykule pokazano, jak używać Helm do tworzenia pakietów i uruchamiania
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free).
 * [Zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Zainstalowano i skonfigurowano platformę Docker. Środowisko Docker zawiera pakiety, które umożliwiają konfigurowanie platformy Docker w systemie [Mac][docker-for-mac], [Windows][docker-for-windows] lub [Linux][docker-for-linux].
 * [Helm v3][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Tworzenie rejestru Azure Container Registry
@@ -57,14 +56,6 @@ Dane wyjściowe będą podobne do poniższego przykładu. Zanotuj wartość *log
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
-
-Aby użyć wystąpienia ACR, należy najpierw się zalogować. Użyj polecenia [AZ ACR login][az-acr-login] , aby się zalogować. Poniższy przykład zaloguje się do ACR o nazwie *MyHelmACR*.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Tworzenie klastra usługi Azure Kubernetes Service
 
@@ -122,18 +113,12 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Kompilowanie i wypychanie przykładowej aplikacji do ACR
 
-Pobierz adres serwera logowania za pomocą polecenia [AZ ACR list][az-acr-list] i zbadaj *loginServer*:
+Użyj polecenia [AZ ACR Build][az-acr-build] , aby skompilować i wypchnąć obraz do rejestru przy użyciu powyższej pliku dockerfile. Na `.` końcu polecenia ustawia lokalizację pliku dockerfile, w tym przypadku bieżący katalog.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Użyj platformy Docker do kompilowania, tagów i wypychania przykładowego kontenera aplikacji do ACR:
-
-```console
-docker build -t webfrontend:latest .
-docker tag webfrontend <acrLoginServer>/webfrontend:v1
-docker push <acrLoginServer>/webfrontend:v1
+az acr build --image webfrontend:v1 \
+  --registry MyHelmACR \
+  --file Dockerfile .
 ```
 
 ## <a name="create-your-helm-chart"></a>Tworzenie wykresu Helm
@@ -144,9 +129,9 @@ Generowanie wykresu Helm przy użyciu `helm create` polecenia.
 helm create webfrontend
 ```
 
-Wprowadź następujące aktualizacje do *webfrontonu/Values. YAML*:
+Wprowadź następujące aktualizacje do *webfrontonu/Values. YAML*. Zastąp loginServer rejestru, który został zanotowany we wcześniejszym kroku, na przykład *myhelmacr.azurecr.IO*:
 
-* Zmień `image.repository` na`<acrLoginServer>/webfrontend`
+* Zmień `image.repository` na`<loginServer>/webfrontend`
 * Zmień `service.type` na`LoadBalancer`
 
 Na przykład:
@@ -159,7 +144,7 @@ Na przykład:
 replicaCount: 1
 
 image:
-  repository: <acrLoginServer>/webfrontend
+  repository: *myhelmacr.azurecr.io*/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:
@@ -218,16 +203,11 @@ Aby uzyskać więcej informacji na temat korzystania z programu Helm, zobacz dok
 > [!div class="nextstepaction"]
 > [Dokumentacja Helm][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357566"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385096"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
@@ -52,7 +52,7 @@ Aby upewnić się, że te błędy nie są wyświetlane, wykonaj procedury [porzu
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Porzucanie klucza szyfrowania konta usługi ADSync
 >[!IMPORTANT]
->Poniższe procedury dotyczą tylko Azure AD Connect kompilacji wersji 1.1.443.0 lub starszej.
+>Poniższe procedury dotyczą tylko Azure AD Connect kompilacji wersji 1.1.443.0 lub starszej. Nie można jej używać w nowszych wersjach Azure AD Connect.
 
 Aby porzucić klucz szyfrowania, wykonaj czynności opisane w poniższych procedurach.
 
