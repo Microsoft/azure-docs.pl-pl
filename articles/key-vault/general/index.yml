@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: f1e519c99bf55abb8a72ada83d59fa1e4c063998
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: ff7af5ead7cc14deb974700e7bf6f3553f2e71f7
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87078884"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87387748"
 landingContent:
 - title: Informacje o usłudze Azure Key Vault
   linkLists:
@@ -24,12 +24,14 @@ landingContent:
     links:
     - text: Co to jest usługa Azure Key Vault?
       url: overview.md
+    - text: Ważne wiadomości dotyczące usuwania nietrwałego
+      url: soft-delete-change.md
   - linkListType: concept
     links:
     - text: Podstawowe pojęcia
       url: basic-concepts.md
     - text: Usuwanie nietrwałe
-      url: overview-soft-delete.md
+      url: soft-delete-overview.md
     - text: Ograniczanie przepływności
       url: overview-throttling.md
 - title: Samouczki

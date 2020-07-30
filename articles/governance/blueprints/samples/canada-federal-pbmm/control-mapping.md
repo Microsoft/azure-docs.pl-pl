@@ -3,16 +3,16 @@ title: Przykładowe kontrolki Federalnej PBMM planu Kanady
 description: Sterowanie mapowaniem przykładowych planów PBMMów federalnych Kanady. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 65fcd016c749a66fbfca1c5edc9d425216545341
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085637"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419703"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Sterowanie mapowaniem przykładu Federal PBMM Canada
 
-W tym artykule szczegółowo przedstawiono sposób, w jaki usługa Azure planuje zaplanowanie, ochrona "Średnia integralność, średnia dostępność (PBMM)" w programie Canada, jest mapowana na federalne kontrolki PBMM. Aby uzyskać więcej informacji na temat kontrolek, zobacz [federalne Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+W tym artykule szczegółowo przedstawiono sposób, w jaki usługa Azure planuje zaplanowanie, ochrona "Średnia integralność, średnia dostępność (PBMM)" w programie Canada, jest mapowana na federalne kontrolki PBMM. Aby uzyskać więcej informacji na temat kontrolek, zobacz [federalne Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 Następujące mapowania dotyczą **federalnych** kontrolek PBMM. Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : Audit Federal PBMM Controls** , wbudowana inicjatywa Policy.
 

@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce2e4ca2cad0fc080d6a750b3f1682210a5b9b20
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737057"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387663"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie MACsec na portach Direct ExpressRoute
 
 Ten artykuł pomaga w konfigurowaniu MACsec w celu zabezpieczenia połączeń między routerami brzegowymi i routerami brzegowymi firmy Microsoft przy użyciu programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji Potwierdź następujące kwestie:
 
@@ -47,7 +47,7 @@ Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure i wybierz s
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Jeśli masz już Magazyn kluczy lub grupę zasobów, możesz użyć ich ponownie. Należy jednak pamiętać o włączeniu [funkcji **usuwania nietrwałego** ](../key-vault/general/overview-soft-delete.md) w istniejącym magazynie kluczy. Jeśli nie włączono usuwania nietrwałego, można użyć następujących poleceń, aby je włączyć:
+    Jeśli masz już Magazyn kluczy lub grupę zasobów, możesz użyć ich ponownie. Należy jednak pamiętać o włączeniu [funkcji **usuwania nietrwałego** ](../key-vault/general/soft-delete-overview.md) w istniejącym magazynie kluczy. Jeśli nie włączono usuwania nietrwałego, można użyć następujących poleceń, aby je włączyć:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
