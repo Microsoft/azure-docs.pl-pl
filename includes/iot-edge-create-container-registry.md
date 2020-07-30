@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75564675"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387623"
 ---
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
@@ -25,17 +25,18 @@ Jeśli nie masz jeszcze rejestru kontenerów, wykonaj następujące kroki, aby u
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Nazwa rejestru | Podaj unikatową nazwę. |
    | Subskrypcja | Wybierz subskrypcję z listy rozwijanej. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych tworzonych podczas pracy z przewodnikami Szybki Start i samouczkami usługi IoT Edge. Na przykład **IoTEdgeResources**. |
-   | Lokalizacja | Wybierz bliską lokalizację. |
-   | Administrator | Ustaw na wartość **Włącz**. |
-   | SKU | Wybierz pozycję **podstawowa**. |
+   | Nazwa rejestru | Podaj unikatową nazwę. |
+   | Location | Wybierz bliską lokalizację. |
+   | Jednostka SKU | Wybierz pozycję **Podstawowa**. |
 
 3. Wybierz przycisk **Utwórz**.
 
 4. Po utworzeniu rejestru kontenerów przejdź do niego, a następnie w okienku po lewej stronie wybierz pozycję **klucze dostępu** z menu znajdującego się w obszarze **Ustawienia**.
 
-5. Skopiuj wartości dla opcji **serwer logowania**, **Nazwa użytkownika**i **hasło** i Zapisz je w wygodnym miejscu. Te wartości są używane w tym samouczku, aby zapewnić dostęp do rejestru kontenerów.
+5. Kliknij, aby włączyć administratora, aby wyświetlić **nazwę użytkownika** i **hasło** dla rejestru kontenerów.
+
+6. Skopiuj wartości dla opcji **serwer logowania**, **Nazwa użytkownika**i **hasło** i Zapisz je w wygodnym miejscu. Te wartości są używane w tym samouczku, aby zapewnić dostęp do rejestru kontenerów.
 
    ![Kopiuj serwer logowania, nazwę użytkownika i hasło dla rejestru kontenerów](./media/iot-edge-create-container-registry/registry-access-key.png)

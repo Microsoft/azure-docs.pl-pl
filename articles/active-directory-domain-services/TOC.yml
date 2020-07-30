@@ -49,6 +49,8 @@
       href: synchronization.md
     - name: Jak działa synchronizacja skrótów haseł
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Zagadnienia dotyczące sieci wirtualnej
+      href: network-considerations.md
     - name: Korzyści z migracji wdrożenia klasycznego
       href: concepts-migration-benefits.md
     - name: Co to jest usługa Azure Active Directory?
@@ -65,10 +67,6 @@
           href: create-ou.md
         - name: Tworzenia konta usługi zarządzanego przez grupę (gMSA)
           href: create-gmsa.md
-    - name: Planowanie usługi Azure AD DS
-      items:
-        - name: Zagadnienia dotyczące sieci wirtualnej
-          href: network-considerations.md
     - name: Zarządzanie usługą Azure AD DS
       items:
         - name: Administrowanie zasadami grupy

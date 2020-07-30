@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387170"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Znane problemy i rozwiązania z standard scim 2,0 zgodności protokołów aprowizacji użytkowników usługi Azure AD
 
@@ -42,7 +42,7 @@ W tym artykule opisano bieżące i wcześniejsze problemy związane z przystąpi
 
 Nie. Ponieważ spowodowałoby to nieprzerwaną zmianę Standard scim aplikacji, które zostały zakodowane w celu współdziałania ze starszym zachowaniem, zmiany nie zostały automatycznie zastosowane do istniejących aplikacji.
 
-Zmiany są stosowane do wszystkich nowych [aplikacji Standard scim, które nie](../manage-apps/configure-single-sign-on-non-gallery-applications.md) są w galerii skonfigurowane w Azure Portal, po dacie poprawki.
+Zmiany są stosowane do wszystkich nowych aplikacji Standard scim, które nie są w galerii skonfigurowane w Azure Portal, po dacie poprawki.
 
 Aby uzyskać informacje na temat migrowania istniejącego zadania aprowizacji użytkownika w celu uwzględnienia najnowszych poprawek, zobacz następną sekcję.
 

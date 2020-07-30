@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241514"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387408"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL-Citus w Azure Portal
 
@@ -62,7 +62,7 @@ CREATE TABLE github_users
 );
 ```
 
-`payload` Pole elementu `github_events` zawiera JSONB typu danych. JSONB jest typem danych JSON w postaci binarnej w Postgres. Typ danych ułatwia przechowywanie elastycznego schematu w jednej kolumnie.
+`payload`Pole elementu `github_events` zawiera JSONB typu danych. JSONB jest typem danych JSON w postaci binarnej w Postgres. Typ danych ułatwia przechowywanie elastycznego schematu w jednej kolumnie.
 
 Postgres może utworzyć `GIN` indeks tego typu, który będzie indeksować każdy klucz i jego wartość. Indeks umożliwia szybkie i łatwe wykonywanie zapytań dotyczących ładunku z różnych warunków. Przed załadowaniem danych przejdźmy do siebie i utworzysz kilka indeksów. W PSQL:
 
@@ -71,12 +71,14 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Następnie zajmiemy się tymi tabelami Postgres na węźle koordynatora i przekażemy je do fragmentui przez pracowników. W tym celu uruchomimy zapytanie dla każdej tabeli, określając klucz, na który fragmentu. W bieżącym przykładzie będziemy fragmentu zarówno tabelę zdarzeń, jak i użytkowników `user_id`:
+Następnie zajmiemy się tymi tabelami Postgres na węźle koordynatora i przekażemy je do fragmentui przez pracowników. W tym celu uruchomimy zapytanie dla każdej tabeli, określając klucz, na który fragmentu. W bieżącym przykładzie będziemy fragmentu zarówno tabelę zdarzeń, jak i użytkowników `user_id` :
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 Jesteśmy gotowi do ładowania danych. W programie PSQL nadal poprowadzisz pobieranie plików z powłoki:
 
@@ -113,9 +115,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub\_, ale możemy połączyć te informacje z użytkownikami usługi GitHub\_. Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak`user_id`i zdarzenia w tym samym identyfikatorze (), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) w tych samych węzłach bazy danych i można je łatwo dołączyć.
+Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub \_ , ale możemy połączyć te informacje z użytkownikami usługi GitHub \_ . Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak i zdarzenia w tym samym identyfikatorze ( `user_id` ), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) w tych samych węzłach bazy danych i można je łatwo dołączyć.
 
-Jeśli dołączymy `user_id`się, funkcja skalowania może wypchnąć wykonywanie sprzężenia do fragmentów w celu wykonania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
+Jeśli dołączymy `user_id` się, funkcja skalowania może wypchnąć wykonywanie sprzężenia do fragmentów w celu wykonania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
 
 ```sql
 SELECT gu.login, count(*)

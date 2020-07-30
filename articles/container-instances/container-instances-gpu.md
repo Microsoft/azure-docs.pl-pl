@@ -2,13 +2,13 @@
 title: Wdróż wystąpienie kontenera z obsługą procesora GPU
 description: Dowiedz się, jak wdrożyć usługę Azure Container Instances, aby uruchamiać aplikacje kontenera intensywnie korzystające z obliczeń przy użyciu zasobów procesora GPU.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076875"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387097"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Wdrażanie wystąpień kontenerów korzystających z zasobów procesora GPU
 
@@ -33,9 +33,6 @@ Obsługa zostanie dodana dla dodatkowych regionów w czasie.
 
 ## <a name="about-gpu-resources"></a>Informacje o zasobach procesora GPU
 
-> [!IMPORTANT]
-> Zasoby procesora GPU są dostępne tylko na żądanie. Aby zażądać dostępu do zasobów procesora GPU, Prześlij [żądanie pomocy technicznej systemu Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Liczba i jednostka SKU
 
 Aby użyć procesorów GPU w wystąpieniu kontenera, określ *zasób procesora GPU* z następującymi informacjami:
@@ -52,6 +49,9 @@ Aby użyć procesorów GPU w wystąpieniu kontenera, określ *zasób procesora G
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 Podczas wdrażania zasobów procesora GPU należy ustawić zasoby procesora i pamięci odpowiednie dla obciążenia, maksymalnie do wartości maksymalnych przedstawionych w powyższej tabeli. Te wartości są obecnie większe niż zasoby procesora i pamięci dostępne w grupach kontenerów bez zasobów procesora GPU.  
+
+> [!IMPORTANT]
+> Domyślne [limity subskrypcji](container-instances-quotas.md) (limity przydziału) zasobów procesora GPU różnią się w zależności od jednostki SKU. Domyślne limity procesorów dla jednostek SKU P100 i V100 są początkowo ustawione na 0. Aby zażądać zwiększenia dostępnego regionu, Prześlij [żądanie pomocy technicznej systemu Azure][azure-support].
 
 ### <a name="things-to-know"></a>Co należy wiedzieć
 
@@ -207,7 +207,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Ponieważ korzystanie z zasobów procesora GPU może być kosztowne, należy się upewnić, że kontenery nie działają nieoczekiwanie przez długi czas. Monitoruj kontenery w Azure Portal lub Sprawdź stan grupy kontenerów za pomocą polecenia [AZ Container show][az-container-show] . Na przykład:
 

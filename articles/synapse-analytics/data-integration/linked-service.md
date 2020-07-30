@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496081"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387249"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych 
+# <a name="secure-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych 
 
 W tym artykule dowiesz się, jak zabezpieczyć połączoną usługę w Synapse za pomocą prywatnego punktu końcowego.
 
@@ -52,7 +52,7 @@ W przypadku, gdy testujesz powyższe połączenie, nie klikasz w nim hiperłącz
 1. Wybierz pozycję **Utwórz**
 1. Po odczekaniu kilku sekund powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 
-## <a name="approval-of-a-private-link"></a>Zatwierdzenie prywatnego linku
+## <a name="private-link-approval"></a>Zatwierdzenie linku prywatnego
 1. Wybierz utworzony powyżej prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie konta magazynu. *Alternatywą jest przejście bezpośrednio do konta magazynu Azure Portal i przejście do bloku **połączenia prywatnego punktu końcowego** .*
 1. Zaznacz prywatny punkt końcowy utworzony w Studio i wybierz pozycję **Zatwierdź**.
 1. Dodaj opis, a następnie kliknij przycisk **tak** .

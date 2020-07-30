@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002050"
 ---
 ## <a name="create-a-device-template"></a>Tworzenie szablonu urządzenia
 
@@ -34,8 +34,8 @@ Model możliwości urządzenia obejmuje dwa interfejsy: standardowy interfejs **
 | Właściwość | Stan urządzenia     | Stan urządzenia. Dostępne są dwa stany online/offline. |
 | Właściwość (zapisywalny) | Nazwa klienta    | Nazwa klienta, na którym aktualnie działa urządzenie. |
 | Właściwość (zapisywalny) | Poziom jasności | Poziom jasności światła na urządzeniu. Może być określona jako 1 (wysoka), 2 (średnia), 3 (niska). |
-| Telemetria | Temperatura | Bieżąca temperatura wykryta przez urządzenie. |
-| Telemetria | Wilgotność    | Bieżąca wilgotność wykryta przez urządzenie. |
+| Telemetry | Temperature | Bieżąca temperatura wykryta przez urządzenie. |
+| Telemetry | Wilgotność    | Bieżąca wilgotność wykryta przez urządzenie. |
 | Polecenie | wskaźnika          | Rozpocznij miganie diody LED na urządzeniu dla danego interwału czasu. |
 | Polecenie | wlacza         | Włącz diodę LED na urządzeniu. |
 | Polecenie | Wyłączanie        | Wyłącz diodę LED na urządzeniu. |
@@ -79,13 +79,12 @@ W aplikacji IoT Central platformy Azure Dodaj rzeczywiste urządzenie do szablon
 
 1. Na stronie **urządzenia** wybierz szablon urządzenia **czujnika środowiska** .
 
-    > [!TIP]
-    > Upewnij się, że wybierasz szablon do użycia przed wybraniem opcji **+ New**, w przeciwnym razie utworzysz nieskojarzone urządzenie.
+1. Wybierz pozycję **+ Nowe**.
 
-1. Wybierz pozycję **+ Nowy**.
+1. W oknie dialogowym **Tworzenie nowego urządzenia** upewnij się, że **czujnik środowiska** jest typem szablonu i który **symuluje to urządzenie?** jest ustawiony na wartość **nie**.
 
-1. Upewnij się, że **symulowane** jest **wyłączone**. Następnie wybierz pozycję **Utwórz**.
+1. Następnie wybierz przycisk **Utwórz**.
 
 Kliknij nazwę urządzenia, a następnie wybierz pozycję **Połącz**. Zanotuj informacje o połączeniu urządzenia w **zakresie identyfikatora**strony **połączenia urządzenia** , **identyfikatora urządzenia**i **klucza podstawowego**. Te wartości są potrzebne podczas tworzenia kodu urządzenia:
 
-![Informacje o połączeniu z urządzeniem](./media/iot-central-add-environmental-sensor/device-connection.png)
+![Informacje dotyczące połączenia z urządzeniem](./media/iot-central-add-environmental-sensor/device-connection.png)

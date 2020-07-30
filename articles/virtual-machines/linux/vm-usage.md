@@ -3,24 +3,19 @@ title: Informacje o użyciu maszyny wirtualnej platformy Azure
 description: Informacje o użyciu maszyny wirtualnej
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
-ms.openlocfilehash: 9abb6948a91545439b429316dc2b71c14a1792d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/28/2020
+ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284833"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387714"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../../cost-management-billing/understand/review-individual-bill.md).
@@ -29,87 +24,86 @@ Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacj
 Aby rozpocząć, [Pobierz szczegóły użycia](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Poniższa tabela zawiera definicje i przykładowe wartości użycia dla Virtual Machines wdrożonych za pośrednictwem Azure Resource Manager. Ten dokument nie zawiera szczegółowych informacji o maszynach wirtualnych wdrożonych za pośrednictwem naszego modelu klasycznego.
 
 
-| Pola             | Znaczenie                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Przykładowe wartości                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data wykorzystania         | Data, kiedy zasób był używany.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  "11/23/2017"                                                                                                                                                                                                                                                                                                                                                     |
-| Meter ID           | Określa usługę najwyższego poziomu, do której należy to użycie.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | "Virtual Machines"                                                                                                                                                                                                                                                                                                                                               |
-| Meter Sub-Category | Identyfikator miernika, za którego została naliczona opłata. <ul><li>W przypadku użycia godzin obliczeniowych istnieje miernik dla każdego rozmiaru maszyny wirtualnej + system operacyjny (Windows, system inny niż Windows) + region.</li><li>W przypadku użycia oprogramowania w warstwie Premium istnieje miernik dla każdego typu oprogramowania. Większość obrazów oprogramowania w warstwie Premium ma różne liczniki dla każdego rozmiaru rdzenia. Aby uzyskać więcej informacji, odwiedź [stronę z cennikiem obliczania.](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>                                                                                                                                                                                                                                                                                                                                         | "2005544f-659d-49c9-9094-8e0aea1be3a5"                                                                                                                                                                                                                                                                                                                           |
-| Meter Name         | Jest to specyficzne dla każdej usługi platformy Azure. W przypadku obliczeń jest to zawsze "Godziny obliczeniowe".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | "Godziny obliczeniowe"                                                                                                                                                                                                                                                                                                                                                  |
-| Meter Region       | Określa lokalizację centrum danych pewnych usług, które są wyceniane na podstawie lokalizacji centrum danych.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  "JA Wschód"                                                                                                                                                                                                                                                                                                                                                       |
-| Jednostka               | Identyfikuje jednostkę, w której rozliczana jest usługa. Zasoby obliczeniowe są rozliczane na godzinę.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Liczb                                                                                                                                                                                                                                                                                                                                                          |
-| Zużyte           | Ilość zasobu wykorzystana w danym dniu. W przypadku obliczeń opłata jest naliczana za każdą minutę, gdy maszyna wirtualna działała przez daną godzinę (do 6 cyfr dziesiętnych dokładności).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    "1", "0,5"                                                                                                                                                                                                                                                                                                                                                    |
-| Resource Location  | Identyfikuje centrum danych, w którym jest uruchamiany zasób.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "JA Wschód"                                                                                                                                                                                                                                                                                                                                                        |
-| Consumed Service   | Użyta usługa platformy Azure.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft. COMPUTE"                                                                                                                                                                                                                                                                                                                                              |
-| Grupa zasobów     | Grupa zasobów, w której działa wdrożony zasób. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager przegląd.]()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    Mojagz                                                                                                                                                                                                                                                                                                                                                        |
-| Instance ID        | Identyfikator zasobu. Identyfikator zawiera nazwę, która została określona dla zasobu, gdy został on utworzony. W przypadku maszyn wirtualnych identyfikator wystąpienia będzie zawierać identyfikatory subskrypcji, ResourceGroupName i VMName (lub nazwę zestawu skalowania dla użycia zestawu skalowania).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/Mojagz/Providers/Microsoft. COMPUTE/virtualMachines/MyVM1"<br><br>lub<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/Mojagz/Providers/Microsoft. COMPUTE/virtualMachineScaleSets/MyVMSS1"                                                                                           |
-| Tagi               | Tag przypisany do zasobu. Użyj tagów, aby zgrupować rekordy rozliczeń. Dowiedz się, jak [oznaczyć Virtual Machines.](tag.md) Jest on dostępny tylko dla Menedżer zasobów maszyn wirtualnych.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{" Moja Wydział ":" RD "," WebUser ":" ServiceName "}"                                                                                                                                                                                                                                                                                                                        |
-| Dodatkowe informacje    | Metadane dotyczące konkretnej usługi. W przypadku maszyn wirtualnych w polu dodatkowe informacje są wypełniane następujące dane: <ul><li>Obraz, który został uruchomiony. Znajdź pełną listę obsługiwanych ciągów poniżej w obszarze typy obrazów.</li><li>Typ usługi: wdrożony rozmiar.</li><li>VMName: Nazwa maszyny wirtualnej. To pole jest wypełniane tylko dla maszyn wirtualnych z zestawem skalowania. Jeśli potrzebujesz nazwy maszyny wirtualnej dla maszyn wirtualnych zestawu skalowania, możesz ją znaleźć w powyższym ciągu identyfikatora wystąpienia.</li><li>UsageType: określa typ użycia, który reprezentuje.<ul><li>ComputeHR to użycie godzin obliczeniowych dla źródłowej maszyny wirtualnej, takie jak Standard_D1_v2.</li><li>ComputeHR_SW to opłata za oprogramowanie w warstwie Premium, jeśli maszyna wirtualna korzysta z oprogramowania Premium, takiego jak Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType": "kanoniczny", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType": "kanoniczny", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Software Premium {"ImageType": "", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR_SW"} |
+| Pola | Znaczenie | Przykładowe wartości | 
+|---|---|---|
+| Data wykorzystania | Data użycia zasobu | `11/23/2017` |
+| Meter ID | Określa usługę najwyższego poziomu, do której należy to użycie| `Virtual Machines`|
+| Meter Sub-Category | Identyfikator miernika, za którego została naliczona opłata. <br><br> W przypadku użycia godzin obliczeniowych istnieje miernik dla każdego rozmiaru maszyny wirtualnej + system operacyjny (Windows, system inny niż Windows) + region. <br><br> W przypadku użycia oprogramowania w warstwie Premium istnieje miernik dla każdego typu oprogramowania. Większość obrazów oprogramowania w warstwie Premium ma różne liczniki dla każdego rozmiaru rdzenia. Aby uzyskać więcej informacji, odwiedź [stronę z cennikiem obliczania](https://azure.microsoft.com/pricing/details/virtual-machines/) .</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Meter Name| Jest to specyficzne dla każdej usługi platformy Azure. W przypadku obliczeń jest to zawsze "Godziny obliczeniowe".| `Compute Hours`|
+| Meter Region| Określa lokalizację centrum danych pewnych usług, które są wyceniane na podstawie lokalizacji centrum danych.|  `JA East`|
+| Jednostka| Identyfikuje jednostkę, w której rozliczana jest usługa. Zasoby obliczeniowe są rozliczane na godzinę.| `Hours`|
+| Zużyte| Ilość zasobu wykorzystana w danym dniu. W przypadku obliczeń opłata jest naliczana za każdą minutę, gdy maszyna wirtualna działała przez daną godzinę (do 6 cyfr dziesiętnych dokładności).| `1, 0.5`|
+| Resource Location  | Identyfikuje centrum danych, w którym jest uruchamiany zasób.| `JA East`|
+| Consumed Service | Użyta usługa platformy Azure.| `Microsoft.Compute`|
+| Grupa zasobów | Grupa zasobów, w której działa wdrożony zasób. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager przegląd.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| Instance ID | Identyfikator zasobu. Identyfikator zawiera nazwę, która została określona dla zasobu, gdy został on utworzony. W przypadku maszyn wirtualnych identyfikator wystąpienia będzie zawierać identyfikatory subskrypcji, ResourceGroupName i VMName (lub nazwę zestawu skalowania dla użycia zestawu skalowania).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>lub<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Tagi| Tag przypisany do zasobu. Użyj tagów, aby zgrupować rekordy rozliczeń. Dowiedz się, jak [oznaczyć Virtual Machines.](tag.md) Jest on dostępny tylko dla Menedżer zasobów maszyn wirtualnych.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Dodatkowe informacje | Metadane dotyczące konkretnej usługi. W przypadku maszyn wirtualnych w polu dodatkowe informacje są wypełniane następujące dane: <br><br> Obraz, który został uruchomiony. Znajdź pełną listę obsługiwanych ciągów poniżej w obszarze typy obrazów.<br><br> Typ usługi: wdrożony rozmiar.<br><br> VMName: Nazwa maszyny wirtualnej. To pole jest wypełniane tylko dla maszyn wirtualnych z zestawem skalowania. Jeśli potrzebujesz nazwy maszyny wirtualnej dla maszyn wirtualnych zestawu skalowania, możesz ją znaleźć w powyższym ciągu identyfikatora wystąpienia.<br><br> UsageType: określa typ użycia, który reprezentuje.<br><br> ComputeHR to użycie godzin obliczeniowych dla źródłowej maszyny wirtualnej, takie jak Standard_D1_v2.<br><br> ComputeHR_SW to opłata za oprogramowanie w warstwie Premium, jeśli maszyna wirtualna korzysta z oprogramowania Premium, takiego jak Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Oprogramowanie w warstwie Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Typ obrazu
 W przypadku niektórych obrazów w galerii platformy Azure typ obrazu jest wypełniany w polu dodatkowe informacje. Dzięki temu użytkownicy mogą zrozumieć i śledzić te, które zostały wdrożone na ich maszynach wirtualnych. Następujące wartości, które są wypełniane w tym polu na podstawie wdrożonego obrazu:
-  - BitRock 
-  - Canonical 
-  - FreeBSD 
-  - Otwórz logikę 
-  - Oracle 
-  - SLES dla SAP 
-  - Wersja zapoznawcza SQL Server 14 w systemie Windows Server 2012 R2 Preview 
-  - SUSE
-  - SUSE Premium
-  - Urządzenie w chmurze StorSimple 
-  - Red Hat
-  - Business Applications firmy Red Hat dla oprogramowania SAP     
-  - Red Hat dla SAP HANA 
-  - BYOL klienta systemu Windows 
-  - BYOL systemu Windows Server 
-  - Wersja zapoznawcza systemu Windows Server 
+- BitRock 
+- FreeBSD kanoniczny 
+- Otwórz logikę 
+- Oracle 
+- SLES dla SAP 
+- Wersja zapoznawcza SQL Server 14 w systemie Windows Server 2012 R2 Preview 
+- SUSE
+- SUSE Premium
+- Urządzenie w chmurze StorSimple 
+- Red Hat
+- Business Applications firmy Red Hat dla oprogramowania SAP     
+- Red Hat dla SAP HANA 
+- BYOL klienta systemu Windows 
+- BYOL systemu Windows Server 
+- Wersja zapoznawcza systemu Windows Server 
 
 ## <a name="service-type"></a>Typ usługi
-Pole Typ usługi w polu dodatkowe informacje odpowiada dokładnemu rozmiarowi wdrożonej maszyny wirtualnej. W przypadku maszyn wirtualnych magazynu w warstwie Premium (opartych na dyskach SSD) i maszyn wirtualnych z systemem innym niż Premium (na DYSKach twardych) są naliczane opłaty. W przypadku wdrożenia rozmiaru opartego na dyskach SSD, takiego jak standardowa \_ DS2 \_ v2, \_ w kolumnie podkategorii miernika ("standardowa D2 v2") zostanie wyświetlony rozmiar dysku SSD ("standardowa \_ DS2 v2") w \_ \_ polu dodatkowe informacje.
+Pole Typ usługi w polu dodatkowe informacje odpowiada dokładnemu rozmiarowi wdrożonej maszyny wirtualnej. W przypadku maszyn wirtualnych magazynu w warstwie Premium (opartych na dyskach SSD) i maszyn wirtualnych z systemem innym niż Premium (na DYSKach twardych) są naliczane opłaty. W przypadku wdrożenia rozmiaru opartego na dyskach SSD, takiego jak standardowa \_ DS2 \_ v2, rozmiar inny niż SSD ( `Standard\_D2\_v2 VM` ) w kolumnie podkategorii miernika i rozmiar SSD () można znaleźć `Standard\_DS2\_v2` w polu dodatkowe informacje.
 
 ## <a name="region-names"></a>Nazwy regionów
 Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia różni się od nazwy regionu używanej w Azure Resource Manager. Poniżej znajduje się mapowanie między wartościami regionu:
 
-|    **Nazwa regionu Menedżer zasobów**       |    **Lokalizacja zasobu w szczegółach użycia**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    Australia Wschodnia                               |
-|    australiasoutheast    |    Australia Południowo-Wschodnia                          |
-|    brazilsouth           |    Brazylia Południowa                              |
-|    CanadaCentral         |    Kanada Środkowa                            |
-|    CanadaEast            |    Kanada Wschodnia                               |
-|    CentralIndia          |    Indie Środkowe                            |
-|    centralus             |    Central US                            |
-|    chinaeast             |    Chiny Wschodnie                            |
-|    chinanorth            |    Chiny Północne                           |
-|    eastasia              |    Azja Wschodnia                             |
-|    eastus                |    East US                               |
-|    eastus2               |    Wschodnie stany USA 2                             |
-|    GermanyCentral        |    Niemcy środkowe                            |
-|    GermanyNortheast      |    DE północny                          |
-|    japaneast             |    Japonia Wschodnia                               |
-|    japanwest             |    Japonia Zachodnia                               |
-|    KoreaCentral          |    Korea Środkowa                            |
-|    KoreaSouth            |    Korea Południowa                              |
-|    northcentralus        |    Północno-środkowe stany USA                      |
-|    northeurope           |    Europa Północna                          |
-|    southcentralus        |    South Central US                      |
-|    southeastasia         |    Southeast Asia                        |
-|    SouthIndia            |    Indie Południowe                              |
-|    UKNorth               |    Północne stany USA                              |
-|    uksouth               |    Południowe Zjednoczone Królestwo                              |
-|    UKSouth2              |    Południowe Zjednoczone Królestwo 2                            |
-|    ukwest                |    Zachodnie Zjednoczone Królestwo                               |
-|    USDoDCentral          |    US DoD (region środkowy)                        |
-|    USDoDEast             |    US DoD (region wschodni)                           |
-|    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    USGov Teksas                           |
-|    usgovvirginia         |    USGov Wirginia                        |
-|    Zachodnio-środkowe stany USA         |    Zachodnio-środkowe stany USA                       |
-|    westeurope            |    West Europe                           |
-|    WestIndia             |    Indie Zachodnie                               |
-|    westus                |    Zachodnie stany USA                               |
-|    westus2               |    Zachodnie stany USA 2                             |
+| **Nazwa regionu Menedżer zasobów** | **Lokalizacja zasobu w szczegółach użycia** |
+|---|---|
+| australiaeast |Australia Wschodnia|
+| australiasoutheast | Australia Południowo-Wschodnia|
+| brazilsouth | Brazylia Południowa|
+| CanadaCentral | Kanada Środkowa|
+| CanadaEast | Kanada Wschodnia|
+| CentralIndia | Indie Środkowe|
+| centralus | Central US|
+| chinaeast | Chiny Wschodnie|
+| chinanorth | Chiny Północne|
+| eastasia | Azja Wschodnia|
+| eastus | East US|
+| eastus2 | Wschodnie stany USA 2|
+| GermanyCentral | Niemcy środkowe|
+| GermanyNortheast | DE północny|
+| japaneast | Japonia Wschodnia|
+| japanwest | Japonia Zachodnia|
+| KoreaCentral | Korea Środkowa|
+| KoreaSouth | Korea Południowa|
+| northcentralus | Północno-środkowe stany USA|
+| northeurope | Europa Północna|
+| southcentralus | South Central US|
+| southeastasia | Southeast Asia|
+| SouthIndia | Indie Południowe|
+| UKNorth | Północne stany USA|
+| uksouth | Południowe Zjednoczone Królestwo|
+| UKSouth2 | Południowe Zjednoczone Królestwo 2|
+| ukwest | Zachodnie Zjednoczone Królestwo|
+| USDoDCentral | US DoD (region środkowy)|
+| USDoDEast | US DoD (region wschodni)|
+| USGovArizona | USGov Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | USGov Teksas|
+| usgovvirginia | USGov Wirginia|
+| Zachodnio-środkowe stany USA | Zachodnio-środkowe stany USA|
+| westeurope | West Europe|
+| WestIndia | Indie Zachodnie|
+| westus | Zachodnie stany USA|
+| westus2 | Zachodnie stany USA 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Często zadawane pytania dotyczące użycia maszyn wirtualnych

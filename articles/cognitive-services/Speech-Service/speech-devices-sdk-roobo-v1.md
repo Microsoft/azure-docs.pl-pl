@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74815580"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387986"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Urządzenie: roobo Smart audio dev Kit
 
@@ -52,9 +52,9 @@ Ten artykuł zawiera informacje dotyczące urządzeń dla zestawu roobo Smart au
    ```
 
     > [!NOTE]
-    > Te polecenia używają Android Debug Bridge, `adb.exe`, który jest częścią instalacji Android Studio. To narzędzie znajduje się w nazwie\[użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb`. W przeciwnym razie należy określić pełną ścieżkę do instalacji programu ADB. exe w każdym poleceniu, które wywołuje `adb`.
+    > Te polecenia używają Android Debug Bridge, `adb.exe` , który jest częścią instalacji Android Studio. To narzędzie znajduje się w \[ nazwie użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb` . W przeciwnym razie należy określić pełną ścieżkę do instalacji adb.exe w każdym poleceniu, które wywołuje `adb` .
     >
-    > Jeśli zobaczysz błąd `no devices/emulators found` , sprawdź, czy kabel USB jest podłączony i jest kablem wysokiej jakości. Możesz użyć `adb devices` , aby sprawdzić, czy komputer może komunikować się z zestawem deweloperskim, ponieważ zwróci listę urządzeń.
+    > Jeśli zobaczysz błąd, `no devices/emulators found` Sprawdź, czy kabel USB jest podłączony i jest kablem wysokiej jakości. Możesz użyć, `adb devices` Aby sprawdzić, czy komputer może komunikować się z zestawem deweloperskim, ponieważ zwróci listę urządzeń.
     >
     > [!TIP]
     > Wycisz mikrofon i prelegenta, aby upewnić się, że pracujesz z mikrotelefonem zestawu deweloperskiego. W ten sposób nie można przypadkowo wyzwolić urządzenia z dźwiękiem z komputera.
@@ -69,7 +69,7 @@ Aby uzyskać więcej informacji na temat programowania, zobacz [Przewodnik progr
 
 ## <a name="audio"></a>Dźwięk
 
-Roobo zapewnia narzędzie, które przechwytuje cały dźwięk do pamięci flash. Może pomóc w rozwiązywaniu problemów z dźwiękiem. Dostępna jest wersja narzędzia dla każdej konfiguracji zestawu deweloperskiego. W [witrynie roobo](https://ddk.roobo.com/)wybierz urządzenie, a następnie wybierz łącze **Narzędzia roobo** w dolnej części strony.
+Roobo zapewnia narzędzie, które przechwytuje cały dźwięk do pamięci flash. Może pomóc w rozwiązywaniu problemów z dźwiękiem. Dostępna jest wersja narzędzia dla każdej konfiguracji zestawu deweloperskiego. W [witrynie roobo](http://ddk.roobo.com/)wybierz urządzenie, a następnie wybierz łącze **Narzędzia roobo** w dolnej części strony.
 
 ## <a name="next-steps"></a>Następne kroki
 
