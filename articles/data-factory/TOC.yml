@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration Runtime
       href: concepts-integration-runtime.md
-    - name: Zarządzana sieć wirtualna
-      href: managed-virtual-network-private-endpoint.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń
@@ -588,6 +586,8 @@
           href: data-factory-service-identity.md
         - name: Szyfrowanie klucza zarządzanego przez klienta
           href: enable-customer-managed-key.md
+        - name: Zarządzana sieć wirtualna
+          href: managed-virtual-network-private-endpoint.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Monitorowanie wizualne
@@ -732,6 +732,8 @@
           href: connector-troubleshoot-guide.md
         - name: Przepływy danych
           href: data-flow-troubleshoot-guide.md
+        - name: Narzędzie do kopiowania danych
+          href: copy-data-tool-troubleshoot-guide.md
         - name: Własne środowiska Integration Runtime
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Infrastruktura Azure SSIS Integration Runtime

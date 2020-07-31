@@ -16,6 +16,7 @@
   expanded: true
   items:
     - name: Studio
+      expanded: true
       items:
         - name: Projektant (przeciągnij i upuść)
           items:
@@ -37,6 +38,7 @@
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
     - name: Zestaw SDK dla języka Python
+      expanded: true
       items:
         - name: Tworzenie pierwszego eksperymentu uczenia maszynowego
           items:

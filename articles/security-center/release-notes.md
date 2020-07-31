@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430463"
+ms.locfileid: "87438945"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -32,11 +32,11 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 Aktualizacje w lipcu obejmują:
-- [Ocena luk w zabezpieczeniach dla maszyn wirtualnych jest teraz dostępna dla obrazów nienależących do witryny Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)        
+- [Ocena luk w zabezpieczeniach dla maszyn wirtualnych jest teraz dostępna dla obrazów spoza witryny Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Ochrona przed zagrożeniami dla usługi Azure Storage rozwinięta w celu uwzględnienia Azure Files i Azure Data Lake Storage Gen2 (wersja zapoznawcza)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Osiem nowych zaleceń dotyczących włączania funkcji ochrony przed zagrożeniami](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Udoskonalenia zabezpieczeń kontenerów — szybsze skanowanie rejestru i odświeżone dokumenty](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Nowe zalecenie, aby zaktualizować reguły adaptacyjnych kontrolek aplikacji](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Adaptacyjne kontrolki aplikacji zostały zaktualizowane z nowym zaleceniem i obsługą symboli wieloznacznych w regułach ścieżki](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Sześć zasad usługi SQL Advanced Data Security zostało wycofane](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Dowiedz się więcej o zabezpieczeniach kontenerów Security Center w następuj�
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nowe zalecenie, aby zaktualizować reguły adaptacyjnych kontrolek aplikacji
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Adaptacyjne kontrolki aplikacji zostały zaktualizowane z nowym zaleceniem i obsługą symboli wieloznacznych w regułach ścieżki
 
-Funkcja adaptacyjnych kontroli aplikacji stale monitoruje aktywność maszyn w skonfigurowanych grupach. W ramach tej aktualizacji otrzymasz powiadomienie o potencjalnie wiarygodnym zachowaniu, które nie było wcześniej dozwolone, co może spowodować fałszywe alerty dodatnie.
+Funkcja adaptacyjnych kontrolek aplikacji otrzymała dwie istotne aktualizacje:
 
-Nowe zalecenie, **dozwolonych reguły w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować**, monituje o dodanie nowych reguł do istniejących zasad w celu zmniejszenia liczby fałszywych dodatnich w ramach adaptacyjnych kontroli aplikacji.
+- Nowe zalecenie identyfikuje potencjalnie wiarygodne zachowanie, które wcześniej nie było dozwolone. Nowe zalecenie, **dozwolonych reguły w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować**, monituje o dodanie nowych reguł do istniejących zasad w celu zmniejszenia liczby fałszywych dodatnich w ramach adaptacyjnych kontroli aplikacji.
+
+- Reguły ścieżek obsługują teraz symbole wieloznaczne. W ramach tej aktualizacji można skonfigurować dozwolone reguły ścieżek przy użyciu symboli wieloznacznych. Istnieją dwa obsługiwane scenariusze:
+
+    - Używanie symbolu wieloznacznego na końcu ścieżki, aby zezwolić na wszystkie pliki wykonywalne w tym folderze i podfolderach
+    - Użycie symbolu wieloznacznego w środku ścieżki w celu włączenia znanej nazwy pliku wykonywalnego ze zmianą nazwy folderu (np. osobiste foldery użytkowników z znanym plikiem wykonywalnym, automatycznie wygenerowanymi nazwami folderów itp.). 
 
 [Dowiedz się więcej na temat adaptacyjnych kontrolek aplikacji](security-center-adaptive-application.md).
 

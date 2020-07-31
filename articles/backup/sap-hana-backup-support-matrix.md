@@ -4,12 +4,12 @@ description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia do
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: beea96180e9e8bc8d128e8970d0149922161398c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076982"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439579"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -24,7 +24,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA działa tylko na maszynach wirtualnych z systemem Linux Azure                    | Duże wystąpienia HANA (HLI)                                   |
 | **Regiony**                   | **POWSZECHNE**<br> **Ameryki** — środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, zachodnie stany USA, Europa Zachodnia, Kanada środkowa, Kanada Wschodnia, Brazylia Południowa <br> **Azja i Pacyfik** — Australia Środkowa, Australia Środkowa 2, Australia Wschodnia, Australia Południowo-Wschodnia, Japonia Zachodnia, Japonia zachodni, Korea środkowa, Korea Południowa, Republika Azja Wschodnia Południowej południowo-wschodnia, Chiny Północne Chiny Północne Chiny Wschodnie Indie Południowe <br> **Europa** — Europa Zachodnia, Europa Północna, Francja środkowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Niemcy Północne, Niemcy Środkowo-Zachodnie, Szwajcaria Północna, Szwajcaria Zachodnia, środkowe Szwajcaria Północna, Norwegia Wschodnia, Norwegia Zachodnia <br> **Afryka/Me** -Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, środkowe Zjednoczone Emiraty Arabskie  <BR>  **Regiony Azure Government** | Francja Południowa, Niemcy środkowe, Niemcy północny, US Gov IOWA |
-| **Wersje systemu operacyjnego**            | SLES 12 z dodatkiem SP2, SP3 i SP4; SLES 15 z SP0 i SP1 <br><br>   **Wersja zapoznawcza** — RHEL 7,4, 7,6, 7,7 i 8,1  <br>     [Wprowadzenie](./tutorial-backup-sap-hana-db.md) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 i 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .                |                                             |
+| **Wersje systemu operacyjnego**            | SLES 12 z dodatkiem SP2, SP3 i SP4; SLES 15 z SP0 i SP1 <br><br>  Od 1 sierpnia 2020 SAP HANA kopia zapasowa RHEL (7,4, 7,6, 7,7 & 8,1) jest ogólnie dostępna.                |                                             |
 | **Wersje platformy HANA**          | SDC na platformie HANA 1. x, MDC w systemie HANA 2. x <= SPS04 Rev 48, SPS05 (jeszcze nie można sprawdzić poprawności scenariuszy z włączoną obsługą szyfrowania)      |                                                            |
 | **Wdrożenia HANA**       | SAP HANA pojedynczą maszynę wirtualną platformy Azure — skalowanie w górę. <br><br> W przypadku wdrożeń o wysokiej dostępności oba węzły są traktowane jako pojedyncze węzły z osobnymi łańcuchami danych.               | Skalowanie w poziomie <br><br> W przypadku wdrożeń o wysokiej dostępności kopia zapasowa nie jest automatycznie przełączena w tryb failover do węzła pomocniczego. Konfigurowanie kopii zapasowej należy wykonać oddzielnie dla każdego węzła.                                           |
 | **Wystąpienia HANA**         | Pojedyncze wystąpienie SAP HANA na pojedynczej maszynie wirtualnej platformy Azure — skalowanie w górę | Wiele wystąpień SAP HANA na jednej maszynie wirtualnej                  |
@@ -44,7 +44,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 
 
 > [!NOTE]
-> Teraz można [monitorować zadania tworzenia kopii zapasowej i przywracania](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (na tym samym komputerze) wyzwalane w ramach Azure Portal z natywnych klientów platformy HANA (SAP HANA Studio/Panel sterowania/administrator).
+> Teraz można [monitorować zadania tworzenia kopii zapasowej i przywracania](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (na tym samym komputerze) wyzwalane przez klientów natywnych platformy HANA (SAP HANA Studio/Panel sterowania/dba) w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

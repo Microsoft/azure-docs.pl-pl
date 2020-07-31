@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/15/2020
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76167008"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439728"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Samouczek: wykonywanie klasyfikacji obrazów na urządzeniach brzegowych za pomocą usługi Custom Vision
 
@@ -53,7 +53,7 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 Aby utworzyć moduł IoT Edge przy użyciu usługi Custom Vision, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim:
 
 * [Python](https://www.python.org/downloads/)
-* [Git](https://git-scm.com/downloads)
+* [Narzędzia](https://git-scm.com/downloads)
 * [Rozszerzenie języka Python dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Tworzenie klasyfikatora obrazów za pomocą usługi Custom Vision
@@ -68,7 +68,7 @@ Po utworzeniu i wyszkoleniu klasyfikatora obrazów możesz wyeksportować go w p
 
 2. Wybierz pozycję **Sign in** (Zaloguj się) i zaloguj się za pomocą tego samego konta, którego używasz, aby uzyskać dostęp do zasobów platformy Azure.
 
-3. Wybierz pozycję **New project** (Nowy projekt).
+3. Wybierz pozycję **Nowy projekt**.
 
 4. Utwórz projekt z następującymi wartościami:
 
@@ -77,9 +77,9 @@ Po utworzeniu i wyszkoleniu klasyfikatora obrazów możesz wyeksportować go w p
    | Nazwa | Podaj nazwę dla projektu, na przykład **EdgeTreeClassifier**. |
    | Opis | Opcjonalny opis projektu. |
    | Zasób | Wybierz jedną z grup zasobów platformy Azure, która zawiera zasób Custom Vision Service lub **Utwórz nowy** , jeśli jeszcze nie został dodany. |
-   | Project Types (Typy projektów) | **Klasyfikacja** |
-   | Classification Types (Typy klasyfikacji) | **Multiclass (single tag per image)** (Multiklasa (pojedynczy tag na obrazie)) |
-   | Domeny | **General (compact)** (Ogólne (kompaktowe)) |
+   | Typy projektów | **Klasyfikacja** |
+   | Classification Types (Typy klasyfikacji) | **Klasa wieloklasowa (pojedynczy tag na obraz)** |
+   | Domains | **General (compact)** (Ogólne (kompaktowe)) |
    | Możliwości eksportu | **Platformy podstawowe (Tensorflow, CoreML, ONNX,...)** |
 
 5. Wybierz pozycję **Create project** (Utwórz projekt).
@@ -142,17 +142,17 @@ Na maszynie deweloperskiej masz teraz pliki dla wersji kontenera Twojego klasyfi
 
 Rozwiązanie jest logicznym sposobem tworzenia i organizowania wielu modułów dla pojedynczego wdrożenia usługi IoT Edge. Zawiera ono kod dla jednego lub więcej modułów, a także manifest wdrożenia deklarujący sposób skonfigurowania ich na urządzeniu usługi IoT Edge. 
 
-1. Wybierz pozycję **Widok** > **paleta poleceń** , aby otworzyć paletę poleceń vs Code. 
+1. W Visual Studio Code wybierz pozycję **Widok**  >  **paleta poleceń** , aby otworzyć paletę poleceń vs Code. 
 
 1. W palecie poleceń wprowadź i uruchom polecenie **Azure IoT Edge: nowe rozwiązanie usługi IoT Edge**. W palecie poleceń podaj następujące informacje, aby utworzyć rozwiązanie: 
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Wybierz folder | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
+   | Wybieranie folderu | Wybierz lokalizację na maszynie deweloperskiej dla programu VS Code, aby utworzyć pliki rozwiązania. |
    | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania, na przykład **CustomVisionSolution**, lub zaakceptuj nazwę domyślną. |
    | Wybierz szablon modułu | Wybierz pozycję **Moduł Python**. |
    | Podaj nazwę modułu | Nadaj modułowi nazwę **classifier**.<br><br>Nazwa modułu musi być pisana małymi literami. Podczas odwoływania się do modułów usługa IoT Edge rozróżnia wielkość liter, a to rozwiązanie korzysta z biblioteki, która formatuje wszystkie żądania małymi literami. |
-   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany w ostatnim kroku. Zastąp ciąg **localhost:5000** wartością serwera logowania z rejestru kontenerów platformy Azure. Serwer logowania możesz pobrać ze strony Przegląd rejestru kontenerów w witrynie Azure Portal.<br><br>Końcowy ciąg wygląda jak ** \<nazwa\>rejestru. azurecr.IO/Classifier**. |
+   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany w ostatnim kroku. Zastąp wartość **localhost: 5000** wartością **serwera logowania** z usługi Azure Container Registry. Serwer logowania można pobrać ze strony Przegląd rejestru kontenerów w Azure Portal.<br><br>Końcowy ciąg wygląda jak ** \<registry name\> . azurecr.IO/Classifier**. |
  
    ![Udostępnianie repozytorium obrazów platformy Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -161,6 +161,8 @@ W oknie programu Visual Studio Code zostanie załadowany obszar roboczy rozwiąz
 ### <a name="add-your-registry-credentials"></a>Dodawanie poświadczeń rejestru
 
 W pliku środowiska przechowywane są poświadczenia rejestru kontenerów udostępniane środowisku uruchomieniowemu usługi IoT Edge. Środowisko uruchomieniowe wymaga tych poświadczeń do ściągnięcia prywatnych obrazów na urządzenie usługi IoT Edge.
+
+Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru kontenera z platformy Azure i wypełniania ich w pliku środowiska. Sprawdź, czy Twoje poświadczenia zostały już uwzględnione. Jeśli nie, Dodaj je teraz:
 
 1. W eksploratorze programu VS Code otwórz plik env.
 2. Zaktualizuj pola, używając **nazwy użytkownika** i **hasła**, które zostały skopiowane z usługi Azure Container Registry.
@@ -214,10 +216,10 @@ W tej sekcji dodasz nowy moduł do tego samego rozwiązania CustomVisionSolution
 
    | Monit | Wartość | 
    | ------ | ----- |
-   | Wybierz plik szablonu wdrożenia | Wybierz plik deployment.template.json w folderze CustomVisionSolution. |
+   | Wybierz plik szablonu wdrożenia | Wybierz **deployment.template.js** w pliku w folderze CustomVisionSolution. |
    | Wybierz szablon modułu | Wybierz pozycję **Moduł Python** |
    | Podaj nazwę modułu | Nadaj modułowi nazwę **cameraCapture** |
-   | Podaj repozytorium obrazów platformy Docker dla modułu | Zastąp ciąg **localhost:5000** wartością serwera logowania dla rejestru kontenerów platformy Azure.<br><br>Końcowy ciąg wygląda jak ** \<registryname\>. azurecr.IO/cameracapture**. |
+   | Podaj repozytorium obrazów platformy Docker dla modułu | Zastąp wartość **localhost: 5000** wartością **serwera logowania** dla usługi Azure Container Registry.<br><br>Końcowy ciąg wygląda jak ** \<registryname\> . azurecr.IO/cameracapture**. |
 
    W oknie programu VS Code do obszaru roboczego rozwiązania zostanie załadowany nowy moduł, a następnie zostanie zaktualizowany plik deployment.template.json. Teraz powinny być widoczne dwa foldery modułów: classifier i cameraCapture. 
 
@@ -322,11 +324,11 @@ W tej sekcji dodasz nowy moduł do tego samego rozwiązania CustomVisionSolution
 
 Zamiast dostarczać źródło obrazów dla tego scenariusza przy użyciu prawdziwej kamery, użyjemy pojedynczego obrazu testowego. Obraz testowy znajduje się w repozytorium GitHub, które zostało pobrane na potrzeby obrazów szkoleniowych we wcześniejszej części tego samouczka. 
 
-1. Przejdź do obrazu testowego znajdującego się w**Images** / **teście** **"poznawcze-CustomVision-Windows** / **Samples** / test". 
+1. Przejdź do obrazu testowego znajdującego się w teście **"poznawcze-CustomVision-Windows**  /  **Samples**  /  **Images**  /  **test**". 
 
 2. Skopiuj plik **test_image.jpg** 
 
-3. Przejdź do katalogu rozwiązania IoT Edge i Wklej obraz testowy w folderze **moduły** / **cameraCapture** . Obraz powinien znajdować się w tym samym folderze co plik main.py, który był edytowany w poprzedniej sekcji. 
+3. Przejdź do katalogu rozwiązania IoT Edge i Wklej obraz testowy w folderze **moduły**  /  **cameraCapture** . Obraz powinien znajdować się w tym samym folderze co plik main.py, który był edytowany w poprzedniej sekcji. 
 
 4. W programie Visual Studio Code otwórz plik **Dockerfile.amd64** modułu cameraCapture.
 
@@ -364,7 +366,7 @@ Rozszerzenie usługi IoT Edge dla programu Visual Studio Code zawiera w każdym 
 
     ```json
         "routes": {
-          "CameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
+          "cameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
         },
     ```
 
@@ -372,31 +374,51 @@ Rozszerzenie usługi IoT Edge dla programu Visual Studio Code zawiera w każdym 
 
 7. Zapisz plik **deployment.template.json**.
 
-## <a name="build-and-deploy-your-iot-edge-solution"></a>Tworzenie i wdrażanie rozwiązania usługi IoT Edge
+## <a name="build-and-push-your-iot-edge-solution"></a>Kompilowanie i wypychanie rozwiązania IoT Edge
 
-Mając utworzone oba moduły i skonfigurowany szablon manifestu wdrożenia, możesz przystąpić do tworzenia obrazów kontenerów i wypychania ich do rejestru kontenerów. 
+Mając utworzone oba moduły i skonfigurowany szablon manifestu wdrożenia, możesz przystąpić do tworzenia obrazów kontenerów i wypychania ich do rejestru kontenerów.
 
 Gdy obrazy znajdą się w rejestrze, możesz wdrożyć rozwiązanie na urządzeniu usługi IoT Edge. Moduły można ustawić na urządzeniu za pomocą usługi IoT Hub, ale dostęp do usługi IoT Hub i urządzeń można również uzyskać za pomocą programu Visual Studio Code. W tej sekcji skonfigurujesz dostęp do usługi IoT Hub, a następnie użyjesz programu VS Code do wdrożenia rozwiązania na urządzeniu usługi IoT Edge.
 
-Najpierw skompiluj swoje rozwiązanie i wypchnij je do rejestru kontenerów. 
+Najpierw skompiluj swoje rozwiązanie i wypchnij je do rejestru kontenerów.
 
-1. W Eksploratorze VS Code kliknij prawym przyciskiem myszy plik **Deployment. Template. JSON** , a następnie wybierz polecenie **Kompiluj i wypchnij IoT Edge rozwiązanie**. Postęp tej operacji możesz obserwować w zintegrowanym terminalu w programie VS Code. 
-2. Zwróć uwagę, że nowy folder został dodany do rozwiązania, **Konfiguracja**. Rozwiń ten folder i Otwórz plik **Deployment. JSON** w programie.
-3. Przejrzyj informacje w pliku deployment.json. Plik deployment.json jest tworzony (lub aktualizowany) automatycznie na podstawie skonfigurowanego pliku szablonu wdrożenia oraz informacji z rozwiązania, w tym pliku ENV i plików module.json. 
+1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl**  >  **Terminal**.
 
-Następnie wybierz urządzenie i Wdróż swoje rozwiązanie.
+2. Zaloguj się do platformy Docker, wprowadzając następujące polecenie w terminalu. Zaloguj się przy użyciu nazwy użytkownika, hasła i serwera logowania z usługi Azure Container Registry. Te wartości można pobrać z sekcji **klucze dostępu** rejestru w Azure Portal.
 
-1. W eksploratorze programu VS rozwiń sekcję **Urządzenia usługi Azure IoT Hub**. 
-2. Kliknij prawym przyciskiem myszy urządzenie, które ma być urządzeniem docelowym wdrożenia, i wybierz polecenie **Create deployment for single device** (Utwórz wdrożenie dla pojedynczego urządzenia). 
-3. W Eksploratorze plików przejdź do folderu **config** wewnątrz rozwiązania i wybierz plik **deployment.json**. Kliknij pozycję **Wybierz manifest wdrożenia usługi Edge**. 
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
 
-Jeśli wdrożenie zakończy się pomyślnie, komunikat potwierdzenia zostanie wydrukowany w danych wyjściowych programu VS Code. W eksploratorze programu VS Code rozwiń szczegółowe informacje o urządzeniu usługi IoT Edge, które zostało użyte na potrzeby tego wdrożenia. Umieść kursor na nagłówku **Urządzenia usługi Azure IoT Hub**, aby włączyć przycisk odświeżania, jeśli moduły nie pojawiają się natychmiast. Uruchomienie modułów i wysłanie raportów do usługi IoT Hub może zająć kilka chwil. 
+   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin` . Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-Możesz również sprawdzić, czy wszystkie moduły są wdrożone i uruchomione na samym urządzeniu. Na urządzeniu usługi IoT Edge uruchom następujące polecenie, aby wyświetlić stan modułów. Uruchomienie modułów może zająć kilka chwil.
+3. W eksploratorze programu VS Code kliknij prawym przyciskiem myszy plik **deployment.template.json** i wybierz polecenie **Skompiluj i wypchnij rozwiązanie usługi IoT Edge**.
+
+   Polecenie Build i push uruchamia trzy operacje. Po pierwsze tworzy nowy folder w rozwiązaniu o nazwie **config** , który zawiera pełny manifest wdrażania, który jest skompilowany w szablonie wdrożenia i innych plikach rozwiązania. Następnie jest uruchamiany `docker build` w celu skompilowania obrazu kontenera na podstawie odpowiednich pliku dockerfile dla architektury docelowej. Następnie jest uruchamiany `docker push` w celu wypchnięcia repozytorium obrazów do rejestru kontenerów.
+
+   Ten proces może potrwać kilka minut po raz pierwszy, ale jest szybszy przy następnym uruchomieniu poleceń.
+
+## <a name="deploy-modules-to-device"></a>Wdrażanie modułów na urządzeniu
+
+Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, **deployment.amd64.jsna** pliku w folderze konfiguracyjnym. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
+
+Upewnij się, że urządzenie IoT Edge zostało uruchomione.
+
+1. W Eksploratorze Visual Studio Code w sekcji **IoT Hub platformy Azure** rozwiń węzeł **urządzenia** , aby wyświetlić listę urządzeń IoT.
+
+2. Kliknij prawym przyciskiem myszy nazwę urządzenia usługi IoT Edge, a następnie wybierz pozycję **Utwórz wdrożenie dla pojedynczego urządzenia**.
+
+3. Wybierz **deployment.amd64.jsw** pliku w folderze **config** , a następnie kliknij pozycję **Wybierz manifest wdrożenia Edge**. Nie używaj pliku deployment.template.json.
+
+4. W obszarze urządzenia rozwiń węzeł **moduły** , aby wyświetlić listę wdrożonych i uruchomionych modułów. Kliknij przycisk Odśwież. Powinna zostać wyświetlona nowa **klasyfikatora** i moduły **cameraCapture** z systemami **$edgeAgent** i **$edgeHub**.  
+
+Możesz również sprawdzić, czy wszystkie moduły są wdrożone i uruchomione na samym urządzeniu. Na urządzeniu usługi IoT Edge uruchom następujące polecenie, aby wyświetlić stan modułów.
 
    ```bash
    iotedge list
    ```
+
+Uruchomienie modułów może potrwać kilka minut. Środowisko uruchomieniowe IoT Edge musi otrzymać nowy manifest wdrożenia, ściągnąć obrazy modułów z środowiska uruchomieniowego kontenera, a następnie uruchomić każdy nowy moduł.
 
 ## <a name="view-classification-results"></a>Wyświetlanie wyników klasyfikacji
 
@@ -410,7 +432,12 @@ Na urządzeniu możesz wyświetlać dzienniki modułu cameraCapture, aby zobaczy
 
 W Visual Studio Code kliknij prawym przyciskiem myszy nazwę urządzenia IoT Edge i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. 
 
-Wyniki z modułu usługi Custom Vision, które są wysyłane jako komunikaty z modułu cameraCapture, uwzględniają prawdopodobieństwo, że obraz przedstawia cykutę lub drzewo wiśni. Ponieważ obraz przedstawia cykutę, powinno być widoczne prawdopodobieństwo 1.0. 
+> [!NOTE]
+> W danych wyjściowych modułu cameraCapture można początkowo zobaczyć błędy połączeń. Jest to spowodowane opóźnieniem między wdrożeniem i rozpoczęciem modułów.
+>
+> Moduł cameraCapture automatycznie podejmie ponowną próbę połączenia do momentu pomyślnego. Następnie należy zacząć widzieć oczekiwane komunikaty klasyfikacji obrazów opisane poniżej.
+
+Wyniki z modułu usługi Custom Vision, które są wysyłane jako komunikaty z modułu cameraCapture, uwzględniają prawdopodobieństwo, że obraz przedstawia cykutę lub drzewo wiśni. Ponieważ obraz przedstawia cykutę, powinno być widoczne prawdopodobieństwo 1.0.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

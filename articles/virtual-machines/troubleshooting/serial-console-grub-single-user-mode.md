@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284714"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439549"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika
 Całkowite, ujednolicone program inicjujący (GRUB) jest prawdopodobnie pierwszym elementem w przypadku uruchamiania maszyny wirtualnej (VM). Ponieważ jest ona wyświetlana przed uruchomieniem systemu operacyjnego, GRUB nie jest dostępna za pośrednictwem protokołu SSH. W programie GRUB można zmodyfikować konfigurację rozruchu w taki sposób, aby uruchamiała się w trybie jednego użytkownika między innymi.
 
 Tryb jednego użytkownika jest minimalnym środowiskiem o minimalnej funkcjonalności. Może być przydatne do badania problemów z rozruchem, problemów z systemem plików lub problemów z siecią. Mniej usług można uruchomić w tle i, w zależności od runlevel, system plików może nie być nawet automatycznie instalowany.
 
-Tryb pojedynczego użytkownika jest również przydatny w sytuacjach, w których można skonfigurować maszynę wirtualną do akceptowania tylko kluczy SSH w celu zalogowania się. W takim przypadku może być możliwe użycie trybu pojedynczego użytkownika w celu utworzenia konta z uwierzytelnianiem przy użyciu hasła. 
+Tryb pojedynczego użytkownika jest również przydatny w sytuacjach, w których można skonfigurować maszynę wirtualną do akceptowania tylko kluczy SSH w celu zalogowania się. W takim przypadku może być możliwe użycie trybu pojedynczego użytkownika w celu utworzenia konta z uwierzytelnianiem przy użyciu hasła.
 
 > [!NOTE]
 > Usługa konsola szeregowa zezwala tylko użytkownikom z poziomem *współautor* lub wyższymi uprawnieniami dostępu do konsoli SZEREGOWEJ maszyny wirtualnej.
@@ -66,6 +66,9 @@ RHEL jest GRUB z włączoną obsługą pola. Aby wprowadzić GRUB, uruchom ponow
 
 **RHEL 8**
 
+>[!NOTE]
+> Red Hat zaleca użycie Grubby do konfigurowania parametrów wiersza polecenia jądra w RHEL 8 +. Obecnie nie można zaktualizować limitu czasu grub i parametrów terminalu przy użyciu Grubby. Aby zmodyfikować GRUB_CMDLINE_LINUX argument dla wszystkich wpisów rozruchowych, uruchom polecenie `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"` . Więcej szczegółów można znaleźć [tutaj](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -90,8 +93,7 @@ Użytkownik główny jest domyślnie wyłączony. Tryb pojedynczego użytkownika
 1. Przejdź do katalogu głównego.
 1. Włącz hasło dla użytkownika root, wykonując następujące czynności:
     * Uruchom `passwd root` (Ustaw silne hasło główne).
-1. Upewnij się, że użytkownik główny może logować się tylko za pośrednictwem ttyS0, wykonując następujące czynności:  
-    a. Uruchom `edit /etc/ssh/sshd_config` polecenie i upewnij się, że PermitRootLogIn jest ustawiony na `no` .  
+1. Upewnij się, że użytkownik główny może logować się tylko za pośrednictwem ttyS0, wykonując następujące czynności: a. Uruchom `edit /etc/ssh/sshd_config` polecenie i upewnij się, że PermitRootLogIn jest ustawiony na `no` .
     b. Uruchom `edit /etc/securetty file` , aby zezwolić na logowanie tylko za pośrednictwem ttyS0.
 
 Teraz, jeśli system jest uruchamiany w trybie jednego użytkownika, można zalogować się przy użyciu hasła głównego.
@@ -106,7 +108,7 @@ Jeśli skonfigurowano GRUB i dostęp do katalogu głównego przy użyciu powyżs
 1. Znajdź wiersz jądra. Na platformie Azure rozpoczyna się od *linux16*.
 1. Naciśnij klawisze Ctrl + E, aby przejść do końca wiersza.
 1. Na końcu wiersza Dodaj *System. Unit = ratowniczy. Target*.
-    
+
     Ta akcja uruchamia użytkownika w trybie jednego użytkownika. Jeśli chcesz używać trybu awaryjnego, Dodaj *systemd. Unit = Nagł. Target* do końca wiersza (zamiast *System. Unit = ratowniczy. Target*).
 
 1. Naciśnij klawisze Ctrl + X, aby wyjść i ponownie uruchomić przy użyciu zastosowanych ustawień.
@@ -130,11 +132,11 @@ Jeśli użytkownik główny nie został włączony zgodnie z wcześniejszymi ins
     Ta akcja przerywa proces rozruchu przed przekazaniem kontroli z `initramfs` do `systemd` , zgodnie z opisem w [dokumentacji Red Hat](https://aka.ms/rhel7rootpassword).
 1. Naciśnij klawisze Ctrl + X, aby wyjść i ponownie uruchomić przy użyciu zastosowanych ustawień.
 
-   Po ponownym uruchomieniu nastąpi przerwanie trybu awaryjnego w systemie plików tylko do odczytu. 
-   
+   Po ponownym uruchomieniu nastąpi przerwanie trybu awaryjnego w systemie plików tylko do odczytu.
+
 1. W powłoce wpisz, `mount -o remount,rw /sysroot` Aby ponownie zainstalować główny system plików z uprawnieniami do odczytu i zapisu.
 1. Po przeprowadzeniu rozruchu w trybie jednego użytkownika wpisz polecenie, `chroot /sysroot` Aby przełączyć się do `sysroot` złamanymi.
-1. Jesteś teraz w katalogu głównym. Hasło główne można zresetować, wprowadzając `passwd` , a następnie użyć powyższych instrukcji w celu przejścia do trybu pojedynczego użytkownika. 
+1. Jesteś teraz w katalogu głównym. Hasło główne można zresetować, wprowadzając `passwd` , a następnie użyć powyższych instrukcji w celu przejścia do trybu pojedynczego użytkownika.
 1. Po wykonaniu tych czynności wpisz polecenie, `reboot -f` Aby przeprowadzić ponowny rozruch.
 
 ![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wybiera serwer, lokalizuje koniec wiersza jądra i wprowadza określone polecenia.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)

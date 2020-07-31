@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079829"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439258"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Rozwiązywanie problemów z ogólnym błędem protokołu RDP na maszynie wirtualnej platformy Azure
 
@@ -81,7 +81,7 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemu operacyjne
 1. Sprawdź, czy protokół RDP jest wyłączony przez zasady grupy.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Jeśli zasady grupy określają, że protokół RDP jest wyłączony (wartość fDenyTSConnections jest 0x1), uruchom następujące polecenie, aby włączyć usługę TermService. Jeśli klucz rejestru nie zostanie znaleziony, nie ma żadnych zasad grupy skonfigurowanych do wyłączania protokołu RDP. Możesz przejść do następnego kroku.

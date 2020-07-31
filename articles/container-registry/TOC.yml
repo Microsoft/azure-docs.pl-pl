@@ -45,6 +45,9 @@
       items:
         - name: Zabezpieczenia
           items:
+            - name: Kontrole zabezpieczeń usługi Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
         - name: Warstwy i limity rejestru kontenerów

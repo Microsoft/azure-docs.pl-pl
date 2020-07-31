@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80667306"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439562"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Omówienie usługi Azure FarmBeats (wersja zapoznawcza)
 
 Azure FarmBeats to oferta biznesowa dostępna w witrynie Azure Marketplace. Umożliwia agregację zestawów danych rolnictwa między dostawcami. Usługa Azure FarmBeats umożliwia tworzenie modeli sztucznej inteligencją (AI) lub uczenia maszynowego (ML) w oparciu o wyrzucane zestawy danych. Korzystając z usługi Azure FarmBeats, firmy rolnicze mogą skupić się na podstawowych wartościach, a nie w bardzo zróżnicowanym zakresie inżynierii danych.
 
 > [!NOTE]
-> Usługa Azure FarmBeats jest obecnie dostępna w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Usługa Azure FarmBeats jest świadczona bez umowy dotyczącej poziomu usług. Skorzystaj z [Forum usługi Azure FarmBeats](https://aka.ms/FarmBeatsMSDN ) , aby uzyskać pomoc techniczną.
+> Usługa Azure FarmBeats jest obecnie dostępna w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Usługa Azure FarmBeats jest świadczona bez umowy dotyczącej poziomu usług. Skorzystaj z [forum pomocy technicznej platformy Azure FarmBeats](https://aka.ms/farmbeatssupport) , aby uzyskać pomoc techniczną.
 
 ![Farmy projektów](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 

@@ -4,6 +4,8 @@
   items:
     - name: Usługa Azure App Configuration — informacje
       href: overview.md
+    - name: Najlepsze rozwiązania
+      href: howto-best-practices.md
     - name: Często zadawane pytania
       href: faq.md
 - name: Przewodniki Szybki start
@@ -111,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: Automatyczne magazynowanie konfiguracji kopii zapasowej
       href: howto-backup-config-store.md
-    - name: Najlepsze rozwiązania
-      href: howto-best-practices.md
 - name: Dokumentacja
   items:
     - name: Konfigurowanie
@@ -147,7 +147,7 @@
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Zasoby
   items:
-    - name: Cennik
+    - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: Filmy wideo
       items:

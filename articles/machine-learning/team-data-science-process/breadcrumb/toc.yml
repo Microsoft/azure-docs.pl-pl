@@ -4,20 +4,20 @@
   items:
     - name: Usługa Machine Learning
       tocHref: /azure/storage/
-      topicHref: /azure/machine-learning/index
+      topicHref: /azure/index
       items:
         - name: Zespołowe przetwarzanie danych dla celów naukowych
           tocHref: /azure/storage/
           topicHref: /azure/machine-learning/team-data-science-process/index
           items:
-            - name: Storage
+            - name: Magazyn
               tocHref: /azure/storage/blobs/
               topicHref: /azure/storage/index
               items:
                 - name: Obiekty blob
                   tocHref: /azure/storage/blobs/
                   topicHref: /azure/storage/blobs/index
-            - name: Storage
+            - name: Magazyn
               tocHref: /azure/storage/common/
               topicHref: /azure/storage/index
               items:
@@ -30,7 +30,7 @@
   items:
     - name: Usługa Machine Learning
       tocHref: /azure/machine-learning/
-      topicHref: /azure/machine-learning/index
+      topicHref: /azure/index
       items:
         - name: Zespołowe przetwarzanie danych dla celów naukowych
           tocHref: /azure/machine-learning/
@@ -45,7 +45,7 @@
   items:
     - name: Usługa Machine Learning
       tocHref: /azure/hdinsight/
-      topicHref: /azure/machine-learning/index
+      topicHref: /azure/index
       items:
         - name: Zespołowe przetwarzanie danych dla celów naukowych
           tocHref: /azure/hdinsight/spark/
@@ -64,7 +64,7 @@
   items:
     - name: Usługa Machine Learning
       tocHref: /azure/hdinsight/
-      topicHref: /azure/machine-learning/index
+      topicHref: /azure/index
       items:
         - name: Zespołowe przetwarzanie danych dla celów naukowych
           tocHref: /azure/hdinsight/spark/

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525504"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439474"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -100,6 +100,9 @@ W przypadku obrazów RHEL 7. x istnieje kilka różnych typów obrazów. W poni�
 
 ## <a name="rhel-8-image-types"></a>RHEL 8 — typy obrazów
 
+>[!NOTE]
+> Red Hat zaleca użycie Grubby do konfigurowania parametrów wiersza polecenia jądra w RHEL 8 +. Więcej szczegółów można znaleźć [tutaj](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 
 |Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
@@ -147,7 +150,7 @@ Wersja pomocnicza |Przykład obrazu EUS              |Stan EUS                  
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Obrazy opublikowane w kwietniu 2019 i nowszych są domyślnie EUS.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Obrazy opublikowane czerwiec 2019 i nowsze są domyślnie EUS. |
 RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Obrazy opublikowane z maja 2019 i nowsze są domyślnie EUS. |
-RHEL 8,0      |Nie dotyczy                            | W Red Hat nie jest dostępny żaden EUS.                               |
+RHEL 8,0      |Brak                            | W Red Hat nie jest dostępny żaden EUS.                               |
 
 ### <a name="update-services-for-sap"></a>Aktualizowanie usług dla oprogramowania SAP
 

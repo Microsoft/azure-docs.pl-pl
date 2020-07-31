@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128101"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439213"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -168,7 +168,9 @@ Początkowa przepustowość zapory platformy Azure to 2,5 – 3 GB/s i jest skal
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Jak długo trwa skalowanie w poziomie zapory platformy Azure?
 
-Usługa Azure firewall stopniowo skaluje się, gdy średnia przepustowość lub użycie procesora CPU wynosi 60%. Skalowanie w poziomie trwa od 5 do siedmiu minut. Podczas testowania wydajności upewnij się, że testujesz przez co najmniej 10 do 15 minut, i Rozpocznij nowe połączenia, aby korzystać z nowo utworzonych węzłów zapory.
+Usługa Azure firewall stopniowo skaluje się, gdy średnia przepustowość lub użycie procesora CPU wynosi 60%. Domyślna maksymalna przepływność wdrożenia wynosi około 2,5-3 GB/s i zaczyna skalowanie w poziomie, gdy osiągnie 60% tej liczby. Skalowanie w poziomie trwa od 5 do siedmiu minut. 
+
+Podczas testowania wydajności upewnij się, że testujesz przez co najmniej 10 do 15 minut, i Rozpocznij nowe połączenia, aby korzystać z nowo utworzonych węzłów zapory.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Czy Zapora platformy Azure domyślnie zezwala na dostęp do Active Directory?
 
@@ -219,4 +221,4 @@ Nie. obecnie należy wdrożyć zaporę platformy Azure z publicznym adresem IP.
 
 ## <a name="where-does-azure-firewall-store-customer-data"></a>Gdzie usługa Azure firewall ma przechowywać dane klienta?
 
-Zapora platformy Azure nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrożony.
+Zapora platformy Azure nie przenosi ani nie zapisuje danych klienta z regionu, w którym został wdrożony.

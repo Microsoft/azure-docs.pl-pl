@@ -4,15 +4,15 @@ description: Dowiedz się, jak zainstalować i skonfigurować lokalną bramę da
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062153"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438959"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalowanie i konfigurowanie bramy danych lokalnych
 
@@ -44,11 +44,11 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 * Zaloguj się do platformy Azure przy użyciu konta w usłudze Azure AD dla tej samej [dzierżawy](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) , która jest zarejestrowana w ramach subskrypcji. Konta B2B (gość) platformy Azure nie są obsługiwane podczas instalowania i rejestrowania bramy.
 * Jeśli źródła danych znajdują się w usłudze Azure Virtual Network (VNet), należy skonfigurować właściwość serwera [AlwaysUseGateway](analysis-services-vnet-gateway.md) .
 
-## <a name="download"></a><a name="download"></a>Pobierz
+## <a name="download"></a>Pobierz
 
  [Pobierz bramę](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>Instalowanie
+## <a name="install"></a>Instalowanie
 
 1. Uruchom Instalatora.
 
@@ -67,7 +67,7 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
    > [!NOTE]
    > Jeśli zalogujesz się przy użyciu konta domeny, zostanie ono zamapowane na konto organizacyjne w usłudze Azure AD. Konto organizacyjne jest używane jako Administrator bramy.
 
-## <a name="register"></a><a name="register"></a>Zarejestruj
+## <a name="register"></a>Zarejestruj
 
 Aby utworzyć zasób bramy na platformie Azure, musisz zarejestrować lokalne wystąpienie zainstalowane w usłudze bramy w chmurze. 
 
@@ -83,7 +83,7 @@ Aby utworzyć zasób bramy na platformie Azure, musisz zarejestrować lokalne wy
    ![Zarejestruj](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Tworzenie zasobu bramy platformy Azure
+## <a name="create-an-azure-gateway-resource"></a>Tworzenie zasobu bramy platformy Azure
 
 Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platformie Azure. Zaloguj się do platformy Azure przy użyciu tego samego konta, które zostało użyte podczas rejestrowania bramy.
 
@@ -107,7 +107,12 @@ Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platf
 
      Gdy skończysz, kliknij przycisk **Utwórz**.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>Łączenie serwerów z zasobem bramy
+## <a name="connect-gateway-resource-to-server"></a>Połącz zasób bramy z serwerem
+
+> [!NOTE]
+> Łączenie z zasobem bramy w innej subskrypcji z serwera nie jest obsługiwane w portalu, ale jest obsługiwane przy użyciu programu PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Na serwerze Azure Analysis Services przegląd kliknij pozycję **lokalna Brama danych**.
 
@@ -125,10 +130,31 @@ Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platf
 
     ![Pomyślne połączenie serwera z bramą](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Użyj [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) , aby pobrać identyfikator zasobu bramy. Następnie połącz zasób bramy z istniejącym lub nowym serwerem przez określenie opcji **-GatewayResourceID** w [poleceniem Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) lub [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+Aby uzyskać identyfikator zasobu bramy:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+Aby skonfigurować istniejący serwer:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
+
 To wszystko. Jeśli konieczne jest otwarcie portów lub Rozwiązywanie problemów, należy sprawdzić, czy [lokalna Brama danych](analysis-services-gateway.md)jest Wyewidencjonuj.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie usługami Analysis Services](analysis-services-manage.md)   
-* [Pobierz dane z Azure Analysis Services](analysis-services-connect.md)   
+* [Pobieranie danych z usługi Azure Analysis Services](analysis-services-connect.md)   
 * [Używanie bramy dla źródeł danych w usłudze Azure Virtual Network](analysis-services-vnet-gateway.md)

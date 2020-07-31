@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373941"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439711"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -88,7 +88,7 @@ Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
      ![Okienko "Wybieranie maszyn wirtualnych"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Wszystkie maszyny wirtualne w tym samym regionie i w ramach subskrypcji w ramach magazynu są dostępne do skonfigurowania kopii zapasowej. Podczas konfigurowania kopii zapasowej można przejść do nazwy maszyny wirtualnej i jej grupy zasobów, nawet jeśli nie masz wymaganych uprawnień do tych maszyn wirtualnych.  
+    > Wszystkie maszyny wirtualne w tym samym regionie i w ramach subskrypcji w ramach magazynu są dostępne do skonfigurowania kopii zapasowej. Podczas konfigurowania kopii zapasowej można przejść do nazwy maszyny wirtualnej i jej grupy zasobów, nawet jeśli nie masz wymaganych uprawnień do tych maszyn wirtualnych. Jeśli maszyna wirtualna jest w stanie nietrwałego usunięcia, nie będzie widoczna na tej liście. Jeśli musisz ponownie włączyć ochronę maszyny wirtualnej, musisz poczekać, aż okres usuwania nietrwałego wygaśnie lub wycofał usunięcie maszyny wirtualnej z listy nietrwałych usuniętych. Aby uzyskać więcej informacji, zobacz [artykuł usuwanie nietrwałego oprogramowania dla maszyn wirtualnych](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. W obszarze **kopia zapasowa**wybierz pozycję **Włącz kopię zapasową**. Spowoduje to wdrożenie zasad w magazynie i na maszynach wirtualnych, a następnie zainstalowanie rozszerzenia kopii zapasowej na agencie maszyny wirtualnej działającym na maszynie wirtualnej platformy Azure.
 

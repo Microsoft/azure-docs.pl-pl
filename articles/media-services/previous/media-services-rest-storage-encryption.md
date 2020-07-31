@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000164"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439612"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu 
 
 > [!NOTE]
 > Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
->   
-
-Zdecydowanie zaleca się zaszyfrowanie zawartości lokalnie przy użyciu szyfrowania AES-256 bitowego, a następnie przekazanie go do usługi Azure Storage, gdzie jest przechowywany w pamięci podręcznej.
+>
 
 Ten artykuł zawiera omówienie szyfrowania magazynu usługi AMS i pokazuje, jak przekazać zaszyfrowaną zawartość magazynu:
 
@@ -203,7 +201,7 @@ Jedną z wartości, które należy ustawić podczas tworzenia klucza zawartości
 
 Poniższy przykład pokazuje, jak utworzyć **ContentKey** z zestawem **ContentKeyType** dla szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną na "0", aby wskazać, że identyfikator klucza ochrony jest odciskiem palca certyfikatu X. 509.  
 
-Request
+Żądanie
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1

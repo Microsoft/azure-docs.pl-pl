@@ -3,16 +3,16 @@ title: Samouczek — Stream Analytics na brzegu przy użyciu Azure IoT Edge
 description: W tym samouczku przedstawiono wdrożenie Azure Stream Analytics jako modułu na urządzeniu IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220282"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439413"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Samouczek: wdrażanie Azure Stream Analytics jako modułu IoT Edge
 
@@ -69,7 +69,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych dla IoT Edge przewodników Szybki Start i samouczków. Na przykład **IoTEdgeResources**. |
    | Nazwa | Wprowadź unikatową nazwę konta magazynu. |
-   | Lokalizacja | Wybierz bliską lokalizację. |
+   | Location | Wybierz bliską lokalizację. |
 
 1. Zachowaj wartości domyślne dla innych pól i wybierz kolejno pozycje **Recenzja + Utwórz**.
 
@@ -86,7 +86,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Nazwa zadania | Podaj nazwę zadania. Na przykład **IoTEdgeJob** |
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych tworzonych podczas pracy z przewodnikami Szybki Start i samouczkami usługi IoT Edge. Na przykład **IoTEdgeResources**. |
-   | Lokalizacja | Wybierz bliską lokalizację. |
+   | Location | Wybierz bliską lokalizację. |
    | Środowisko hostingu | Wybierz pozycję **Edge**. |
 
 1. Wybierz pozycję **Utwórz**.
@@ -107,7 +107,7 @@ Przy użyciu trzech elementów — danych wejściowych, danych wyjściowych i za
 
 1. W okienku **Nowe dane wejściowe** wpisz **temperature** jako alias danych wejściowych.
 
-1. Zachowaj wartości domyślne dla pozostałych pól i wybierz pozycję **Zapisz**.
+1. Pozostaw wartości domyślne dla pozostałych pól, a następnie wybierz pozycję **Zapisz**.
 
 1. W obszarze **Topologia zadania** otwórz pozycję **Dane wyjściowe**, a następnie wybierz pozycję **Dodaj**.
 
@@ -117,9 +117,9 @@ Przy użyciu trzech elementów — danych wejściowych, danych wyjściowych i za
 
 1. W okienku **Nowe dane wyjściowe** wpisz **alert** jako alias danych wyjściowych.
 
-1. Zachowaj wartości domyślne dla pozostałych pól i wybierz pozycję **Zapisz**.
+1. Pozostaw wartości domyślne dla pozostałych pól, a następnie wybierz pozycję **Zapisz**.
 
-1. W obszarze **Topologia zadania** wybierz pozycję **Zapytanie**.
+1. W obszarze **topologia zadania**wybierz pozycję **zapytanie**.
 
 1. Zastąp tekst domyślny poniższym zapytaniem. Kod SQL wysyła polecenie reset do danych wyjściowych alertu, jeśli średnia temperatura maszyny w 30-sekundowym przedziale czasu osiągnie 70 stopni. Polecenie reset zostało wstępnie zaprogramowane w czujniku jako akcja, która może zostać wykonana.
 
@@ -134,7 +134,7 @@ Przy użyciu trzech elementów — danych wejściowych, danych wyjściowych i za
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz zapytanie**.
 
 ### <a name="configure-iot-edge-settings"></a>Konfigurowanie ustawień usługi IoT Edge
 
@@ -189,7 +189,7 @@ W tym samouczku wdrażane są dwa moduły. Pierwszy to **SimulatedTemperatureSen
 
 1. Wybierz pozycję **Aktualizuj** lub **Anuluj**.
 
-1. Zanotuj nazwę modułu Stream Analytics, ponieważ będzie on potrzebny w następnym kroku, a następnie wybierz kolejno pozycje **Dalej: trasy** , aby kontynuować.
+1. Zanotuj nazwę modułu Stream Analytics, ponieważ będzie on potrzebny w następnym kroku. Następnie wybierz pozycję **Dalej: trasy** , aby kontynuować.
 
 1. Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Zastąp `route` wartości domyślne i `upstream` nazwy oraz z parami pokazanymi w poniższej tabeli, przy użyciu następujących par nazwa/wartość, zastępując wystąpienia elementu _{ModuleName}_ nazwą modułu Azure Stream Analytics.
 
