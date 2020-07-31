@@ -4,15 +4,15 @@ description: Uzyskaj informacje na temat ważnych kwestii, które ułatwią Ci z
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807785"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287643"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -34,9 +34,12 @@ Zakres rezerwacji można ograniczyć do subskrypcji lub grup zasobów. Ustawieni
 
 Masz trzy opcje zakresu rezerwacji do wyboru w zależności od potrzeb:
 
-- **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
-- **Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.
-- **Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń. W przypadku klientów korzystających z umowy Enterprise Agreement kontekstem rozliczeń jest rejestracja. W przypadku klientów z umową klienta firmy Microsoft zakres rozliczeniowy to profil rozliczeniowy. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
+- **Zakres pojedynczej grupy zasobów**— rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
+- **Zakres pojedynczej subskrypcji**— rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.
+- **Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń.
+    - W przypadku klientów korzystających z umowy Enterprise Agreement kontekstem rozliczeń jest rejestracja. Zakres udostępniony rezerwacji obejmowałby wiele dzierżaw usługi Active Directory w rejestracji.
+    - W przypadku klientów z Umową z Klientem Microsoft zakres rozliczeniowy to profil rozliczeniowy.
+    - W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
 
 Podczas stosowania rabatów na rezerwację w stosunku do użycia platforma Azure przetwarza rezerwacje w następującej kolejności:
 

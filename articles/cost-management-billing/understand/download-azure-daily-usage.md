@@ -7,13 +7,13 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322038"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Wyświetlanie i pobieranie danych na temat użycia i opłat na platformie Azure
 
@@ -21,7 +21,7 @@ Dzienny podział użycia platformy Azure i opłaty możesz pobrać w witrynie Az
 
 Jeśli masz umowę klienta firmy Microsoft, musisz być właścicielem, współautorem, czytelnikiem lub menedżerem faktur dla profilu rozliczeniowego, aby móc wyświetlić informacje dotyczące użycia i opłat platformy Azure.  Jeśli masz umowę partnerską firmy Microsoft, tylko administrator globalny lub agent administracyjny w organizacji partnerskiej firmy Microsoft może wyświetlać i pobierać użycie oraz opłaty platformy Azure. [Sprawdź typ konta rozliczeniowego w witrynie Azure Portal](#check-your-billing-account-type).
 
-W zależności od używanego typu subskrypcji opcje pobierania danych użycia i opłat są różne. 
+W zależności od używanego typu subskrypcji opcje pobierania danych użycia i opłat są różne.
 
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Pobieranie użycia z witryny Azure Portal (csv)
 
@@ -34,7 +34,6 @@ W zależności od używanego typu subskrypcji opcje pobierania danych użycia i 
 1. Wybierz **ikonę pobierania** lub symbol wielokropka (`...`) po prawej stronie.  
   ![Zrzut ekranu przedstawiający lokalizację pobierania danych użycia i opłat](./media/download-azure-daily-usage/download-usage-others.png)  
 1. Po prawej stronie zostanie otwarte okienko pobierania. Wybierz pozycję **Pobierz** z sekcji **Szczegóły użycia**.  
-
 
 ## <a name="download-usage-for-ea-customers"></a>Pobieranie zestawienia użycia dla klientów z umową EA
 
@@ -54,10 +53,9 @@ Jeśli masz umowę klienta firmy Microsoft, możesz pobrać użycie za bieżący
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wyszukaj pozycję *Zarządzanie kosztami i rozliczenia*.
 3. Wybierz profil rozliczeniowy. W zależności od praw dostępu może być konieczne wybranie najpierw konta rozliczeniowego.
-4. W obszarze **Przegląd** znajdź linki pobierania pod opłatami za bieżący miesiąc.
-5. Wybierz pozycję **Użycie i opłaty platformy Azure**.
-
-    ![Zrzut ekranu przedstawiający pobieranie z obszaru Przegląd](./media/download-azure-daily-usage/open-usage01.png)
+4. W obszarze **Przegląd** znajdź linki pobierania pod ostatnimi opłatami.
+5. Wybierz pozycję **Pobierz użycie i ceny**.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Zrzut ekranu przedstawiający pobieranie z obszaru Przegląd" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## <a name="check-your-billing-account-type"></a>Sprawdzanie typu konta rozliczeniowego
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

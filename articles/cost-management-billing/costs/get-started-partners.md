@@ -3,17 +3,17 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849843"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372148"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -123,9 +123,9 @@ Niezależnie od zasad administratorzy globalni i agenci administratora dostawcy 
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Włączanie zasad w celu wyświetlania opłat za użycie platformy Azure
 
-Partnerzy używają następujących informacji, aby włączyć zasady w celu wyświetlania opłat za użycie platformy Azure dla swoich klientów.
+Aby wyświetlać i aktualizować zasady, musisz być członkiem grupy **agent administrator**. Użyj następujących informacji, aby włączyć zasady umożliwiające klientom wyświetlanie opłat za użycie platformy Azure.
 
-W witrynie Azure Portal zaloguj się do dzierżawy partnera i wybierz pozycję **Zarządzanie kosztami i rozliczenia**. Wybierz odpowiednie konto rozliczeniowe z umową Microsoft Partner Agreement, a następnie wybierz pozycję **Klienci**. Lista klientów jest skojarzona z kontem rozliczeniowym.
+W witrynie Azure Portal zaloguj się do dzierżawy partnera i wybierz pozycję **Zarządzanie kosztami i rozliczenia**. Wybierz odpowiedni zakres rozliczeniowy w obszarze Zakres rozliczeniowy, a następnie wybierz pozycję **Klienci**. Lista klientów jest skojarzona z kontem rozliczeniowym.
 
 Na liście klientów wybierz klienta, który ma być uprawniony do wyświetlania kosztów.
 

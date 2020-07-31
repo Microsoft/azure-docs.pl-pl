@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252440"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385787"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Szybki start: Tworzenie budżetu przy użyciu szablonu usługi ARM
 
@@ -29,13 +29,31 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Szablon ARM obsługuje tylko subskrypcje platformy Azure dla umów Enterprise Agreement (EA). Inne typy subskrypcji nie są obsługiwane przez ten szablon.
-
-Aby tworzyć budżety i zarządzać nimi, musisz mieć uprawnienie współautora. Możesz tworzyć indywidualne budżety dla subskrypcji EA i grup zasobów. Nie możesz jednak tworzyć budżetów dla kont rozliczeniowych EA. W przypadku subskrypcji Azure EA wyświetlanie budżetów wymaga dostępu do odczytu.
-
-Aby móc wyświetlać budżety po ich utworzeniu, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure.
-
 Jeśli masz nową subskrypcję, nie możesz od razu tworzyć budżetu ani korzystać z innych funkcji usługi Cost Management. Aby można było korzystać ze wszystkich funkcji usługi Cost Management, może upłynąć do 48 godzin.
+
+Budżety są obsługiwane dla następujących typów kont i zakresów platformy Azure:
+
+- Zakresy kontroli dostępu opartej na rolach na platformie Azure
+    - Grupy zarządzania
+    - Subskrypcja
+- Zakresy umowy Enterprise Agreement
+    - Konto billingowe
+    - Dział
+    - Konto rejestracji
+- Umowy indywidualne
+    - Konto billingowe
+- Zakresy umowy klienta firmy Microsoft
+    - Konto billingowe
+    - Profil rozliczeniowy
+    - Sekcja faktury
+    - Klient
+- Zakresy platformy AWS
+    - Konto zewnętrzne
+    - Subskrypcja zewnętrzna
+
+Aby wyświetlić budżety, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure.
+
+W przypadku subskrypcji Azure EA wyświetlanie budżetów wymaga dostępu do odczytu. Aby tworzyć budżety i zarządzać nimi, musisz mieć uprawnienie współautora.
 
 Na potrzeby tworzenia budżetów przez użytkownika i grupę w ramach subskrypcji są obsługiwane następujące uprawnienia, czyli zakresy, platformy Azure. Aby uzyskać więcej informacji na temat zakresów, zobacz [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Aby uzyskać więcej informacji na temat przypisywania uprawnień do danych usł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
@@ -63,27 +81,29 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 2. Wybierz lub wprowadź następujące wartości.
 
-   [![Szablon usługi Resource Manager, tworzenie budżetu, wdrażanie portalu](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Szablon usługi Resource Manager, tworzenie budżetu, wdrażanie portalu" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: wybierz pozycję **Utwórz nową** i wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**, bądź wybierz istniejącą grupę zasobów.
-    * **Lokalizacja**: wybierz lokalizację. Na przykład **Środkowe stany USA**.
+    * **Grupa zasobów**: jeśli jest wymagana, wybierz istniejącą grupę zasobów lub **Utwórz nową**.
+    * **Region**: wybierz region platformy Azure. Na przykład **Środkowe stany USA**.
     * **Nazwa budżetu**: wprowadź nazwę budżetu. Nazwa powinna być unikatowa w obrębie grupy zasobów. Dozwolone są tylko znaki alfanumeryczne, podkreślenia i łączniki.
-    * **Kwota**: wprowadź łączną kwotę kosztu lub użycia do śledzenia w ramach budżetu.
-    * **Kategoria budżetu**: wybierz kategorię budżetu (czy budżet ma śledzić **Koszt**, czy **Użycie**).
+    * **Kwota**: wprowadź łączną kwotę kosztu do śledzenia w ramach budżetu.
     * **Ziarno czasu**: wprowadź czas objęty budżetem. Dozwolone wartości to Miesięcznie, Kwartalnie i Rocznie. Budżet jest resetowany na koniec ziarna czasu.
     * **Data rozpoczęcia**: wprowadź datę początkową pierwszego dnia miesiąca w formacie RRRR-MM-DD. Data rozpoczęcia w przyszłości nie powinna być późniejsza niż trzy miesiące od dzisiaj. Dla okresu ziarna czasu możesz określić datę rozpoczęcia z przeszłości.
-    * **Data zakończenia**: wprowadź datę końcową budżetu w formacie RRRR-MM-DD. Jeśli nie zostanie podana, przyjmowana jest wartość domyślna wynosząca 10 lat od daty rozpoczęcia.
-    * **Operator**: wybierz operator porównania. Możliwe wartości to EqualTo (równe), GreaterThan (większe niż) i GreaterThanOrEqualTo (większe lub równe).
-    * **Próg**: wprowadź wartość progową powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
-    * **Adresy e-mail do kontaktu**: wprowadź listę adresów e-mail, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Oczekiwany format to `["user1@domain.com","user2@domain.com"]`.
+    * **Data zakończenia**: wprowadź datę końcową budżetu w formacie RRRR-MM-DD. 
+    * **Pierwszy próg**: wprowadź wartość progową pierwszego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
+    * **Drugi próg**: wprowadź wartość progową drugiego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
     * **Role do kontaktu**: wprowadź listę ról do kontaktu, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Wartości domyślne to Owner (Właściciel), Contributor (Współautor) i Reader (Czytelnik). Oczekiwany format to `["Owner","Contributor","Reader"]`.
+    * **Adresy e-mail do kontaktu**: wprowadź listę adresów e-mail, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Oczekiwany format to `["user1@domain.com","user2@domain.com"]`.
     * **Grupy do kontaktu**: wprowadź listę identyfikatorów zasobów grup akcji, w postaci pełnych identyfikatorów URI zasobów, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Akceptowana jest tablica ciągów. Oczekiwany format to `["action group resource ID1","action group resource ID2"]`. Jeśli nie chcesz używać grup akcji, wprowadź `[]`.
-    * **Filtr zasobów**: wprowadź listę filtrów dla zasobów. Oczekiwany format to `["Resource Filter Name1","Resource Filter Name2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`. Jeśli podasz filtr zasobów, musisz również wprowadzić wartości **filtrów mierników**.
-    * **Filtr mierników**: wprowadź listę filtrów mierników, które są obowiązkowe dla budżetów z kategorii **Użycie**. Oczekiwany format to `["Meter Filter Name1","Meter Filter Name2"]`. Jeśli nie chcesz wprowadzać **filtru zasobów**, wpisz `[]`.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
+    * **Wartości filtru grupy zasobów** wprowadź listę nazw grup zasobów do filtrowania. Oczekiwany format to `["Resource Group Name1","Resource Group Name2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`. 
+    * **Wartości filtru kategorii miernika** wprowadź listę kategorii miernika usług platformy Azure. Oczekiwany format to `["Meter Category1","Meter Category2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`.
+   
+3. W zależności od typu subskrypcji platformy Azure wykonaj jedną z następujących czynności:
+   - Wybierz pozycję **Przegląd + utwórz**.
+   - Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie wybierz pozycję **Kup**.
 
-3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu budżetu otrzymasz powiadomienie:
+4. Jeśli wybrano pozycję **Przegląd + tworzenie**, szablon zostanie zweryfikowany. Wybierz pozycję **Utwórz**.  
 
    ![Szablon usługi Resource Manager, budżet, wdrażanie powiadomienia w portalu](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64710782"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285921"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
 
@@ -23,9 +23,9 @@ Maszyny wirtualne z systemem Windows na platformie Azure zapewniają bezpieczną
 
 Dowiedz się, jak wdrożyć serwer sieci Web usług IIS na maszynie wirtualnej z systemem Windows Server 2016:
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Interfejs wiersza polecenia platformy Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure Portal](../../articles/virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure PowerShell](../../articles/virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Interfejs wiersza polecenia platformy Azure](../../articles/virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
 
@@ -48,7 +48,7 @@ Dowiedz się, jak wdrażać i monitorować maszyny wirtualne z systemem Windows 
 
 - [Administrator platformy Azure](https://go.microsoft.com/fwlink/?linkid=2012827)
 
-## <a name="samples"></a>Przykłady
+## <a name="samples"></a>Samples
 
 Wdrażanie pierwszej aplikacji na platformie Azure.
 

@@ -4,19 +4,19 @@ description: Dowiedz się, jak wyświetlać rezerwacje platformy Azure w witryni
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: fd5d4248e9b1e645628ac8b87df3b4b0a16e2049
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288954"
 ---
 # <a name="view-azure-reservations"></a>Wyświetlanie rezerwacji platformy Azure
 
-Zakupioną rezerwację możesz wyświetlić w witrynie Azure Portal, gdzie możesz też nią zarządzać.   
+Zakupioną rezerwację możesz wyświetlić w witrynie Azure Portal, gdzie możesz też nią zarządzać.
 
 ## <a name="permissions-to-view-a-reservation"></a>Uprawnienia do wyświetlania rezerwacji
 
@@ -24,7 +24,7 @@ Aby wyświetlić rezerwację lub zarządzać nią, musisz mieć do niej uprawnie
 
 Aby uzyskać więcej informacji, zobacz [Dodawanie lub zmienianie użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## <a name="view-reservation-and-utilization-in-azure-portal"></a>Wyświetlanie rezerwacji i użycia w witrynie Azure Portal
+## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Wyświetlanie rezerwacji i użycia w witrynie Azure Portal
 
 Aby wyświetlić rezerwację jako właściciel lub czytelnik:
 

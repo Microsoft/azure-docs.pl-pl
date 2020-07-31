@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267566"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126129"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
@@ -22,7 +22,7 @@ Zarządzanie dostępem do zasobów platformy Azure wymaga odpowiedniej roli admi
 
 W tym artykule opisano sposób dodawania lub zmieniania roli administratora dla użytkownika przy użyciu funkcji RBAC w zakresie subskrypcji.
 
-Firma Microsoft zaleca, aby zarządzać dostępem do zasobów przy użyciu ról RBAC. Jeśli jednak nadal korzystasz z klasycznego modelu wdrażania i zarządzasz zasobami klasycznymi przy użyciu [modułu programu PowerShell do zarządzania usługami platformy Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure), musisz użyć administratora klasycznego.
+Firma Microsoft zaleca, aby zarządzać dostępem do zasobów przy użyciu ról RBAC. Jeśli jednak nadal korzystasz z klasycznego modelu wdrażania i zarządzasz zasobami klasycznymi przy użyciu [modułu programu PowerShell do zarządzania usługami platformy Azure](/powershell/module/servicemanagement/azure.service), musisz użyć administratora klasycznego.
 
 > [!TIP]
 > Jeśli do zarządzania zasobami klasycznymi używasz tylko witryny Azure Portal, nie musisz używać administratora klasycznego.
@@ -69,7 +69,7 @@ Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniż
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Czym jest kontrola dostępu oparta na rolach (RBAC)?](../../role-based-access-control/overview.md)
+* [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure (Omówienie ról na platformie Azure)](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Uprawnienia ról administratorów w usłudze Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

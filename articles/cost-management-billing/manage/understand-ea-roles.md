@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045148"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124344"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Zarządzanie rolami w usłudze Azure Enterprise
 
@@ -32,7 +32,7 @@ Pierwszy administrator rejestracji skonfigurowany podczas aprowizacji rejestracj
 
 Na przykład jeśli typ uwierzytelniania początkowego jest ustawiony na wartość Mieszane, umowa EA zostanie dodana jako konto Microsoft, a kontakt dla rozliczeń będzie miał uprawnienia administratora EA tylko do odczytu. Jeśli administrator EA nie zatwierdzi autoryzacji konta Microsoft dla istniejącego kontaktu dla rozliczeń, może usunąć danego użytkownika i poprosić klienta o dodanie użytkownika jako administratora tylko do odczytu z kontem służbowym ustawionym tylko na poziomie rejestracji w portalu EA.
 
-Te role są specyficzne dla procesu zarządzania umowami Enterprise Agreement platformy Azure. Są one dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+Te role są specyficzne dla procesu zarządzania umowami Enterprise Agreement platformy Azure. Są one dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 W poniższych sekcjach opisano ograniczenia i możliwości poszczególnych ról.
 
@@ -121,4 +121,4 @@ Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawian
 
 - [Manage access to billing information for Azure (Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure)](manage-billing-access.md)
 - [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](../../role-based-access-control/role-assignments-portal.md)
-- [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md)
+- [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: banders
-ms.openlocfilehash: 2d8b529683f4d07bc47010711d65ca40536823fb
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039754"
 ---
 # <a name="cancel-your-azure-subscription"></a>Anulowanie subskrypcji platformy Azure
 
@@ -25,7 +25,7 @@ Chociaż nie jest to wymagane, firma Microsoft *zaleca* wykonanie następującyc
 * Zamknij usługi, z których korzystasz. Przejdź do [strony zasobów w portalu zarządzania](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) i **zatrzymaj** wszystkie uruchomione maszyny wirtualne, aplikacje lub inne usługi.
 * Rozważ wykonanie migracji danych. Zobacz artykuł [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Usuń wszystkie zasoby i wszystkie grupy zasobów.
-* Jeśli masz jakieś role niestandardowe odwołujące się do tej subskrypcji w parametrze `AssignableScopes`, należy zaktualizować te role niestandardowe, aby usunąć subskrypcję. Jeśli spróbujesz zaktualizować rolę niestandardową po anulowaniu subskrypcji, może wystąpić błąd. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z rolami niestandardowymi](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) i [Role niestandardowe dla zasobów platformy Azure](../../role-based-access-control/custom-roles.md).
+* Jeśli masz jakieś role niestandardowe odwołujące się do tej subskrypcji w parametrze `AssignableScopes`, należy zaktualizować te role niestandardowe, aby usunąć subskrypcję. Jeśli spróbujesz zaktualizować rolę niestandardową po anulowaniu subskrypcji, może wystąpić błąd. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z rolami niestandardowymi](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) i [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md).
 
 Jeśli anulujesz płatny plan pomocy technicznej platformy Azure, opłaty będą naliczane za resztę okresu subskrypcji. Aby uzyskać więcej informacji, zobacz [plany pomocy technicznej platformy Azure](https://azure.microsoft.com/support/plans/).
 
