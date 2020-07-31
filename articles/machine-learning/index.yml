@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
+  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87047790"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87433066"
 landingContent:
 - title: Wprowadzenie do uczenia maszynowego
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Korzystanie z projektanta i zautomatyzowanego uczenia maszynowego w środowisku Studio
+- title: Korzystanie z usługi AutoML lub przeciągania i upuszczania w programie Studio
   linkLists:
   - linkListType: overview
     links:
@@ -51,6 +51,12 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Tworzenie projektu etykietowania obrazów
       url: tutorial-labeling.md
+- title: Przenoszenie modelu na platformę Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Wdrażanie modelu lokalnego w chmurze
+      url: how-to-deploy-existing-model.md
 - title: Trenowanie za pomocą zestawu Python SDK
   linkLists:
   - linkListType: tutorial

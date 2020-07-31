@@ -5,16 +5,16 @@ author: vikramdesai01
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 74c00678ca901d163d951e02167c89896c43e7b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281773"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure
 
@@ -105,7 +105,7 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 ## <a name="next-steps"></a>Następne kroki
 
 - Użytkownicy z innymi rolami, takimi jak Właściciel lub Współautor, mogą uzyskać dostęp nie tylko do informacji rozliczeniowych, ale również do usług platformy Azure. Aby zarządzać tymi rolami, zobacz [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
-- Aby uzyskać więcej informacji na temat ról, zobacz [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+- Aby uzyskać więcej informacji o rolach, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

@@ -42,8 +42,10 @@
           href: how-to-use-cli.md
         - name: Konfigurowanie wystąpienia i uwierzytelniania (z użyciem skryptów)
           href: how-to-set-up-instance-scripted.md
-        - name: Konfigurowanie wystąpienia i uwierzytelniania (ręczne)
-          href: how-to-set-up-instance-manual.md
+        - name: Konfigurowanie wystąpienia i uwierzytelniania (interfejs wiersza polecenia)
+          href: how-to-set-up-instance-cli.md
+        - name: Konfigurowanie wystąpienia i uwierzytelniania (portal)
+          href: how-to-set-up-instance-portal.md
         - name: Pisanie kodu uwierzytelniania aplikacji
           href: how-to-authenticate-client.md
     - name: Projektowanie modeli

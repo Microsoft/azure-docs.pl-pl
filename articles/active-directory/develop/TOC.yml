@@ -512,6 +512,8 @@
           href: active-directory-claims-mapping.md
         - name: Konfigurowanie opcjonalnych oświadczeń
           href: active-directory-optional-claims.md
+        - name: Używanie atrybutów rozszerzeń schematów katalogów w oświadczeniach
+          href: active-directory-schema-extensions.md
         - name: Konfigurowanie okresów istnienia tokenu
           href: active-directory-configurable-token-lifetimes.md
         - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome

@@ -220,11 +220,11 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Bezpieczeństwo
       items:
-        - name: Konfigurowanie zapór
+        - name: Zezwalanie na dostęp z określonych adresów IP
           href: service-bus-ip-filtering.md
-        - name: Konfigurowanie punktów końcowych usługi dla sieci wirtualnej
+        - name: Zezwalanie na dostęp z określonych sieci wirtualnych
           href: service-bus-service-endpoints.md
-        - name: Konfigurowanie prywatnych punktów końcowych
+        - name: Zezwalanie na dostęp za pośrednictwem prywatnych punktów końcowych
           href: private-link-service.md
         - name: Konfigurowanie kluczy zarządzanych przez klienta
           href: configure-customer-managed-key.md

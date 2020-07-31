@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: Wyświetlanie ostatniej aktywności logowania
       href: my-account-portal-sign-ins-page.md
-- name: Pomoc dotycząca informacji zabezpieczających (wersja zapoznawcza)
+    - name: Zmiana ustawień portalu
+      href: my-account-portal-settings.md
+- name: Pomoc dotycząca informacji zabezpieczających
   items:
     - name: Dodawanie informacji zabezpieczających podczas logowania
       href: security-info-setup-signin.md

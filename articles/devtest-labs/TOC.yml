@@ -232,6 +232,10 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: Rozwiązywanie problemów ze stosowaniem artefaktów
           href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Szyfrowanie dysków magazynu i systemu operacyjnego używanych przez laboratoria
+      items:
+        - name: Szyfrowanie magazynu używanego przez laboratorium
+          href: encrypt-storage.md
     - name: Integrowanie z ciągłą integracją/ciągłym dostarczaniem
       items:
         - name: Integrowanie laboratoriów z potokiem ciągłej integracji/ciągłego wdrażania usługi Azure Pipelines

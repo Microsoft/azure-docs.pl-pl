@@ -8,6 +8,7 @@
     - name: Co to jest logowanie jednokrotne?
       href: what-is-single-sign-on.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Wyświetlanie aplikacji
       href: view-applications-portal.md
@@ -30,7 +31,7 @@
     - name: Przykłady programu Azure PowerShell dla serwera proxy aplikacji
       href: application-proxy-powershell-samples.md
 - name: Pojęcia
-  expanded: true
+  expanded: false
   items:
     - name: Najlepsze rozwiązania dotyczące zarządzania aplikacjami
       href: application-management-fundamentals.md
@@ -97,195 +98,177 @@
         - name: Porównanie rozwiązań dostępu zdalnego
           href: application-proxy-migration.md
 - name: Przewodniki z instrukcjami
-  expanded: true
+  expanded: false
   items:
-    - name: Aplikacje w chmurze i logowanie jednokrotne
+    - name: Konfigurowanie logowania jednokrotnego
       items:
-        - name: Konfigurowanie logowania jednokrotnego
-          items:
-            - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
-              items:
-                - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
-                  href: configure-saml-single-sign-on.md
-                - name: Dostosowywanie oświadczeń i atrybutów użytkownika
-                  items:
-                    - name: Konfigurowanie oświadczeń grup
-                      href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurowanie oświadczeń roli
-                      href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Dostosowywanie oświadczeń w portalu
-                      href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Dostosowywanie oświadczeń za pomocą programu PowerShell
-                      href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurowanie opcjonalnych oświadczeń
-                      href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurowanie okresów istnienia tokenu
-                      href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Konfigurowanie logowania opartego na haśle
-              href: configure-password-single-sign-on-non-gallery-applications.md
-            - name: Konfigurowanie połączonego logowania
-              href: configure-linked-sign-on.md
-        - name: Przypisywanie użytkowników i zarządzanie dostępem do aplikacji
-          items:
-            - name: Konfigurowanie zgody użytkownika
-              href: configure-user-consent.md
-            - name: Ocenianie żądań zgody i zarządzanie nimi
-              href: manage-consent-requests.md
-            - name: Udzielanie zgody administratora całej dzierżawy
-              href: grant-admin-consent.md
-            - name: Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
-              href: configure-admin-consent-workflow.md
-            - name: Przypisywanie użytkownika lub grupy do aplikacji
-              href: assign-user-or-group-access-portal.md
-            - name: Przeglądanie uprawnień przyznanych aplikacjom
-              href: manage-application-permissions.md
-            - name: Tworzenie kolekcji w Moich aplikacjach
-              href: access-panel-collections.md
-            - name: Używanie dostępu do aplikacji samoobsługowej
-              href: access-panel-manage-self-service-access.md
-            - name: Metody usuwania dostępu użytkownika do aplikacji
-              href: methods-for-removing-user-access.md
-            - name: Usuwanie dostępu użytkownika lub grupy
-              href: remove-user-or-group-access-portal.md
-            - name: Ukrywanie aplikacji przed użytkownikiem
-              href: hide-application-from-user-portal.md
-            - name: Wyłączanie logowania użytkownika
-              href: disable-user-sign-in-portal.md
-            - name: Konfigurowanie samoobsługowego przypisania aplikacji
-              href: manage-self-service-access.md
-            - name: Odnajdowanie obszaru głównego
-              href: configure-authentication-for-federated-users-portal.md
+        - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
+          href: configure-saml-single-sign-on.md
+        - name: Konfigurowanie logowania opartego na haśle
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Konfigurowanie połączonego logowania
+          href: configure-linked-sign-on.md
         - name: Automatyzowanie logowania jednokrotnego opartego na protokole SAML przy użyciu interfejsów API programu MS Graph
           href: application-saml-sso-configure-api.md
-        - name: Migrowanie aplikacji do usługi Azure AD
-          items:
-            - name: Zasoby dotyczące migracji
-              href: migration-resources.md
-            - name: Migrowanie aplikacji usług ADFS na platformę Azure
-              href: migrate-adfs-apps-to-azure.md
-            - name: Korzystanie z raportu aktywności aplikacji usługi AD FS (wersja zapoznawcza)
-              href: migrate-adfs-application-activity.md
-        - name: Rozwiązywanie problemów
-          items:
-            - name: Rozwiązywanie problemów z dodawaniem aplikacji
-              items:
-                - name: Typowe problemy — aplikacje z galerii
-                  href: adding-gallery-app-common-problems.md
-                - name: Typowe problemy — aplikacje spoza galerii
-                  href: adding-non-gallery-app-common-problems.md
-            - name: Rozwiązywanie problemów z logowaniem się użytkownika
-              items:
-                - name: Nieoczekiwany monit o wyrażenie zgody
-                  href: application-sign-in-unexpected-user-consent-prompt.md
-                - name: Błąd zgody użytkownika
-                  href: application-sign-in-unexpected-user-consent-error.md
-                - name: Problemy podczas logowania się z poziomu niestandardowego portalu
-                  href: application-sign-in-other-problem-deeplink.md
-                - name: Problemy podczas logowania się z poziomu panelu dostępu
-                  href: application-sign-in-other-problem-access-panel.md
-                - name: Błąd na stronie logowania aplikacji
-                  href: application-sign-in-problem-application-error.md
-                - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja spoza galerii
-                  href: application-sign-in-problem-password-sso-non-gallery.md
-                - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja z galerii
-                  href: application-sign-in-problem-password-sso-gallery.md
-                - name: Problem podczas logowania się do aplikacji firmy Microsoft
-                  href: application-sign-in-problem-first-party-microsoft.md
-                - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja spoza galerii
-                  href: application-sign-in-problem-federated-sso-non-gallery.md
-                - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja z galerii
-                  href: application-sign-in-problem-federated-sso-gallery.md
-                - name: Problem z aplikacją niestandardową
-                  href: application-sign-in-problem-custom-dev.md
-            - name: Rozwiązywanie problemów z logowaniem jednokrotnym
-              items:
-                - name: Typowe problemy podczas konfigurowania federacji — aplikacje z galerii
-                  href: configure-federated-single-sign-on-gallery-applications-problems.md
-                - name: Typowe problemy podczas konfigurowania federacji — aplikacje spoza galerii
-                  href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-                - name: Typowe problemy podczas konfigurowania hasła — aplikacje z galerii
-                  href: configure-password-single-sign-on-gallery-applications-problems.md
-                - name: Typowe problemy podczas konfigurowania hasła — aplikacje spoza galerii
-                  href: configure-password-single-sign-on-non-gallery-applications-problems.md
-            - name: Rozwiązywanie problemów z listą aplikacji i przypisaniem
-              items:
-                - name: Zarządzanie listą aplikacji dla Twojej dzierżawy
-                  href: application-types.md
-                - name: Przypisano nieoczekiwanego użytkownika
-                  href: ways-users-get-assigned-to-applications.md
-            - name: Rozwiązywanie problemów z panelem dostępu
-              items:
-                - name: Zarządzanie rozszerzeniem przeglądarki
-                  href: manage-access-panel-browser-extension.md
-                - name: Aplikacja nie jest wyświetlana
-                  href: access-panel-troubleshoot-application-not-appearing.md
-                - name: Nieoczekiwane wyświetlanie aplikacji
-                  href: access-panel-troubleshoot-unexpected-application.md
-                - name: Nie można się zalogować
-                  href: access-panel-troubleshoot-web-sign-in-problem.md
-                - name: Błąd podczas instalacji rozszerzenia przeglądarki
-                  href: access-panel-extension-problem-installing.md
-                - name: Błąd podczas używania dostępu do aplikacji samoobsługowej
-                  href: access-panel-troubleshoot-self-service-access.md
-    - name: Serwer proxy aplikacji dla aplikacji lokalnych
+    - name: Przypisywanie użytkowników i zarządzanie dostępem do aplikacji
       items:
-        - name: Konfigurowanie łączników
+        - name: Konfigurowanie zgody użytkownika
+          href: configure-user-consent.md
+        - name: Ocenianie żądań zgody i zarządzanie nimi
+          href: manage-consent-requests.md
+        - name: Udzielanie zgody administratora całej dzierżawy
+          href: grant-admin-consent.md
+        - name: Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
+          href: configure-admin-consent-workflow.md
+        - name: Przypisywanie użytkownika lub grupy do aplikacji
+          href: assign-user-or-group-access-portal.md
+        - name: Przeglądanie uprawnień przyznanych aplikacjom
+          href: manage-application-permissions.md
+        - name: Tworzenie kolekcji w Moich aplikacjach
+          href: access-panel-collections.md
+        - name: Używanie dostępu do aplikacji samoobsługowej
+          href: access-panel-manage-self-service-access.md
+        - name: Metody usuwania dostępu użytkownika do aplikacji
+          href: methods-for-removing-user-access.md
+        - name: Usuwanie dostępu użytkownika lub grupy
+          href: remove-user-or-group-access-portal.md
+        - name: Ukrywanie aplikacji przed użytkownikiem
+          href: hide-application-from-user-portal.md
+        - name: Wyłączanie logowania użytkownika
+          href: disable-user-sign-in-portal.md
+        - name: Konfigurowanie samoobsługowego przypisania aplikacji
+          href: manage-self-service-access.md
+        - name: Odnajdowanie obszaru głównego
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Migrowanie zarządzania tożsamościami do usługi Azure AD
+      items:
+        - name: Zasoby dotyczące migracji
+          href: migration-resources.md
+        - name: Migrowanie aplikacji usług ADFS na platformę Azure
+          href: migrate-adfs-apps-to-azure.md
+        - name: Korzystanie z raportu aktywności aplikacji usługi AD FS (wersja zapoznawcza)
+          href: migrate-adfs-application-activity.md
+    - name: Konfigurowanie łączników lokalnych
+      items:
+        - name: Konfigurowanie za pomocą serwerów proxy
+          href: application-proxy-configure-connectors-with-proxy-servers.md
+        - name: Rejestrowanie łącznika — instalacja dyskretna
+          href: application-proxy-register-connector-powershell.md
+    - name: Konfigurowanie dostępu aplikacji lokalnych
+      items:
+        - name: Konfigurowanie aplikacji obsługujących oświadczenia
+          href: application-proxy-configure-for-claims-aware-applications.md
+        - name: Udzielanie aplikacjom mobilnym i klasycznym dostępu do lokalnych interfejsów API
+          href: application-proxy-secure-api-access.md
+        - name: Konfigurowanie mobilnych i klasycznych aplikacji klienckich
+          href: application-proxy-configure-native-client-application.md
+        - name: Konfigurowanie niestandardowej strony głównej
+          href: application-proxy-configure-custom-home-page.md
+        - name: Tłumaczenie linków w tekście
+          href: application-proxy-configure-hard-coded-link-translation.md
+        - name: Konfigurowanie ustawień plików cookie
+          href: application-proxy-configure-cookie-settings.md
+        - name: Publikowanie przy użyciu symboli wieloznacznych
+          href: application-proxy-wildcard.md
+        - name: Usuwanie danych osobowych
+          href: application-proxy-remove-personal-data.md
+        - name: Konfigurowanie domeny niestandardowej
+          href: application-proxy-configure-custom-domain.md
+        - name: Logowanie jednokrotne przy użyciu serwera proxy aplikacji
           items:
-            - name: Konfigurowanie za pomocą serwerów proxy
-              href: application-proxy-configure-connectors-with-proxy-servers.md
-            - name: Rejestrowanie łącznika — instalacja dyskretna
-              href: application-proxy-register-connector-powershell.md
-        - name: Konfigurowanie dostępu do aplikacji
+            - name: Ograniczone delegowanie protokołu Kerberos (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Przechowywanie haseł w magazynie
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Nagłówki
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: Logowanie jednokrotne SAML
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+        - name: Bezpieczne starsze aplikacje dzięki kontrolerom dostarczania aplikacji lub sieciom
+          href: secure-hybrid-access.md
+        - name: Przewodniki dotyczące publikowania
           items:
-            - name: Konfigurowanie aplikacji obsługujących oświadczenia
-              href: application-proxy-configure-for-claims-aware-applications.md
-            - name: Udzielanie aplikacjom mobilnym i klasycznym dostępu do lokalnych interfejsów API
-              href: application-proxy-secure-api-access.md
-            - name: Konfigurowanie mobilnych i klasycznych aplikacji klienckich
-              href: application-proxy-configure-native-client-application.md
-            - name: Konfigurowanie niestandardowej strony głównej
-              href: application-proxy-configure-custom-home-page.md
-            - name: Tłumaczenie linków w tekście
-              href: application-proxy-configure-hard-coded-link-translation.md
-            - name: Konfigurowanie ustawień plików cookie
-              href: application-proxy-configure-cookie-settings.md
-            - name: Publikowanie przy użyciu symboli wieloznacznych
-              href: application-proxy-wildcard.md
-            - name: Usuwanie danych osobowych
-              href: application-proxy-remove-personal-data.md
-            - name: Konfigurowanie domeny niestandardowej
-              href: application-proxy-configure-custom-domain.md
-            - name: Logowanie jednokrotne przy użyciu serwera proxy aplikacji
-              items:
-                - name: Ograniczone delegowanie protokołu Kerberos (KCD)
-                  href: application-proxy-configure-single-sign-on-with-kcd.md
-                - name: Przechowywanie haseł w magazynie
-                  href: application-proxy-configure-single-sign-on-password-vaulting.md
-                - name: Nagłówki
-                  href: application-proxy-configure-single-sign-on-with-ping-access.md
-                - name: Logowanie jednokrotne SAML
-                  href: application-proxy-configure-single-sign-on-on-premises-apps.md
-            - name: Przewodniki dotyczące publikowania
-              items:
-                - name: Integrowanie z serwerem proxy aplikacji na serwerze usługi NDES
-                  href: active-directory-app-proxy-protect-ndes.md
-                - name: Integracja z usługą Azure AD Domain Services
-                  href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
-                - name: Integracja z usługą Power BI
-                  href: application-proxy-integrate-with-power-bi.md
-                - name: Integracja z usługą Cloud App Security
-                  href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-                - name: Integracja z pulpitem zdalnym
-                  href: application-proxy-integrate-with-remote-desktop-services.md
-                - name: Integracja z programem SharePoint
-                  href: application-proxy-integrate-with-sharepoint-server.md
-                - name: Integracja z aplikacją Teams
-                  href: application-proxy-integrate-with-teams.md
-                - name: Integracja z rozwiązaniem Tableau
-                  href: application-proxy-integrate-with-tableau.md
-                - name: Integracja z rozwiązaniem Qlik
-                  href: application-proxy-qlik.md
-        - name: Rozwiązywanie problemów z serwerem proxy aplikacji
+            - name: Integrowanie z serwerem proxy aplikacji na serwerze usługi NDES
+              href: active-directory-app-proxy-protect-ndes.md
+            - name: Integracja z usługą Azure AD Domain Services
+              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Integracja z usługą Power BI
+              href: application-proxy-integrate-with-power-bi.md
+            - name: Integracja z usługą Cloud App Security
+              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+            - name: Integracja z pulpitem zdalnym
+              href: application-proxy-integrate-with-remote-desktop-services.md
+            - name: Integracja z programem SharePoint
+              href: application-proxy-integrate-with-sharepoint-server.md
+            - name: Integracja z aplikacją Teams
+              href: application-proxy-integrate-with-teams.md
+            - name: Integracja z rozwiązaniem Tableau
+              href: application-proxy-integrate-with-tableau.md
+            - name: Integracja z rozwiązaniem Qlik
+              href: application-proxy-qlik.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z dodawaniem aplikacji
+          items:
+            - name: Typowe problemy — aplikacje z galerii
+              href: adding-gallery-app-common-problems.md
+            - name: Typowe problemy — aplikacje spoza galerii
+              href: adding-non-gallery-app-common-problems.md
+        - name: Rozwiązywanie problemów z logowaniem się użytkownika
+          items:
+            - name: Nieoczekiwany monit o wyrażenie zgody
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Błąd zgody użytkownika
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Problemy podczas logowania się z poziomu niestandardowego portalu
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Problemy podczas logowania się z poziomu panelu dostępu
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Błąd na stronie logowania aplikacji
+              href: application-sign-in-problem-application-error.md
+            - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja spoza galerii
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja z galerii
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Problem podczas logowania się do aplikacji firmy Microsoft
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja spoza galerii
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja z galerii
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Problem z aplikacją niestandardową
+              href: application-sign-in-problem-custom-dev.md
+        - name: Rozwiązywanie problemów z logowaniem jednokrotnym
+          items:
+            - name: Typowe problemy podczas konfigurowania federacji — aplikacje z galerii
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Typowe problemy podczas konfigurowania federacji — aplikacje spoza galerii
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Typowe problemy podczas konfigurowania hasła — aplikacje z galerii
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Typowe problemy podczas konfigurowania hasła — aplikacje spoza galerii
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Rozwiązywanie problemów z listą aplikacji i przypisaniem
+          items:
+            - name: Zarządzanie listą aplikacji dla Twojej dzierżawy
+              href: application-types.md
+            - name: Przypisano nieoczekiwanego użytkownika
+              href: ways-users-get-assigned-to-applications.md
+        - name: Rozwiązywanie problemów z panelem dostępu
+          items:
+            - name: Zarządzanie rozszerzeniem przeglądarki
+              href: manage-access-panel-browser-extension.md
+            - name: Aplikacja nie jest wyświetlana
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: Nieoczekiwane wyświetlanie aplikacji
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Nie można się zalogować
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Błąd podczas instalacji rozszerzenia przeglądarki
+              href: access-panel-extension-problem-installing.md
+            - name: Błąd podczas używania dostępu do aplikacji samoobsługowej
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji
               href: application-proxy-troubleshoot.md
@@ -319,10 +302,6 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: Problemy z funkcją CORS na serwerze proxy aplikacji
               href: application-proxy-understand-cors-issues.md
-    - name: Bezpieczny dostęp hybrydowy (w chmurze i lokalnie)
-      items:
-        - name: Bezpieczne starsze aplikacje dzięki kontrolerom dostarczania aplikacji lub sieciom
-          href: secure-hybrid-access.md
 - name: Dokumentacja
   items:
     - name: Serwer proxy aplikacji — często zadawane pytania

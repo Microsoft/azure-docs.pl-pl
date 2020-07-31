@@ -42,6 +42,8 @@
   items:
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze AI Builder
+      href: tutorial-ai-builder.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie zestawu danych szkoleniowych

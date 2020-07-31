@@ -206,11 +206,11 @@
           href: event-hubs-management-libraries.md
     - name: Bezpieczeństwo
       items:
-        - name: Konfigurowanie zapory IP
+        - name: Zezwalanie na dostęp z określonych adresów IP
           href: event-hubs-ip-filtering.md
-        - name: Konfigurowanie punktów końcowych usługi dla sieci wirtualnej
+        - name: Zezwalanie na dostęp z określonych sieci wirtualnych
           href: event-hubs-service-endpoints.md
-        - name: Konfigurowanie prywatnych punktów końcowych
+        - name: Zezwalanie na dostęp za pośrednictwem prywatnych punktów końcowych
           href: private-link-service.md
         - name: Konfigurowanie kluczy zarządzanych przez klienta
           href: configure-customer-managed-key.md

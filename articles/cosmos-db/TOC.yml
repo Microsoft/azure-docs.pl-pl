@@ -458,12 +458,15 @@
         - name: Zapytanie sparametryzowane
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
-        - name: LINQ to SQL
-          displayName: 'linq, .NET'
-          href: sql-query-linq-to-sql.md
         - name: Wykonywanie zapytań SQL
           displayName: 'query performance, query execution'
           href: sql-query-execution.md
+        - name: Dzielenie na strony
+          displayName: 'page, paging, continuation, token, pagination'
+          href: sql-query-pagination.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
     - name: Praca z kontem usługi Azure Cosmos
       href: account-overview.md
     - name: Kontenery i elementy
@@ -671,7 +674,7 @@
             - name: Zarządzanie przy użyciu programu PowerShell
               href: powershell-samples-cassandra.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples-cassandra.md
+              href: cli-samples.md
     - name: Interfejs API usługi MongoDB
       items:
         - name: Omówienie
@@ -765,7 +768,7 @@
             - name: Zarządzanie przy użyciu programu PowerShell
               href: powershell-samples-mongodb.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples-mongodb.md
+              href: cli-samples.md
             - name: Rozwiązywanie typowych problemów
               href: mongodb-troubleshoot.md
     - name: Interfejs API języka Gremlin
@@ -825,7 +828,7 @@
             - name: Zarządzanie przy użyciu programu PowerShell
               href: powershell-samples-gremlin.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples-gremlin.md
+              href: cli-samples.md
         - name: Dokumentacja
           items:
             - name: Nagłówki odpowiedzi
@@ -896,7 +899,7 @@
             - name: Zarządzanie przy użyciu programu PowerShell
               href: powershell-samples-table.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples-table.md
+              href: cli-samples.md
         - name: Dokumentacja
           items:
             - name: .NET
