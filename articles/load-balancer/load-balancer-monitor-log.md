@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420910"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448840"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa
 
@@ -29,7 +29,7 @@ Możesz użyć różnych typów dzienników na platformie Azure do zarządzania 
 * **Dzienniki sondowania kondycji:** Ten dziennik służy do wyświetlania problemów wykrytych przez sondę kondycji, takich jak liczba wystąpień w puli zaplecza, które nie otrzymują żądań z modułu równoważenia obciążenia z powodu błędów sondy kondycji. Ten dziennik jest zapisywana w przypadku zmiany stanu sondy kondycji.
 
 > [!IMPORTANT]
-> Dzienniki Azure Monitor są obecnie przeznaczone tylko dla publicznych usług równoważenia obciążenia. Dzienniki są dostępne tylko dla zasobów wdrożonych w modelu wdrażania Menedżer zasobów. Nie można używać dzienników dla zasobów w klasycznym modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [opis Menedżer zasobów wdrożenia i wdrożenia klasycznego](../azure-resource-manager/management/deployment-models.md).
+> **Dzienniki zdarzeń sondy kondycji nie są obecnie funkcjonalne i są wymienione w [znanych problemach dotyczących Azure Load Balancer](whats-new.md#known-issues).** Dzienniki Azure Monitor są obecnie przeznaczone tylko dla publicznych usług równoważenia obciążenia. Dzienniki są dostępne tylko dla zasobów wdrożonych w modelu wdrażania Menedżer zasobów. Nie można używać dzienników dla zasobów w klasycznym modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [opis Menedżer zasobów wdrożenia i wdrożenia klasycznego](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Włącz rejestrowanie
 

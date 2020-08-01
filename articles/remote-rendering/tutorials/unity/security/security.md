@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207800"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445901"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Samouczek: Zabezpieczanie zdalnego renderowania i magazynu modeli na platformie Azure
 
@@ -143,7 +143,7 @@ Zmodyfikujmy **RemoteRenderingCoordinator** w celu załadowania modelu niestanda
     }
     ```
 
-    Ten kod dodaje trzy dodatkowe zmienne ciągu do składnika **RemoteRenderingCoordinator** . \
+    Ten kod dodaje trzy dodatkowe zmienne ciągu do składnika **RemoteRenderingCoordinator** .
     ![Połączony model](./media/storage-account-linked-model.png)
 
 1. Dodaj wartości do składnika **RemoteRenderingCoordinator** . Po przeprowadzeniu [szybkiego startu do konwersji modelu](../../../quickstarts/convert-model.md)należy wykonać następujące wartości:
@@ -156,7 +156,7 @@ Zmodyfikujmy **RemoteRenderingCoordinator** w celu załadowania modelu niestanda
     > W przypadku [uruchomienia skryptu **Conversion.ps1** ](../../../quickstarts/convert-model.md#run-the-conversion) bez argumentu "-UseContainerSas" skrypt będzie wyprowadzał wszystkie powyższe wartości zamiast tokenu SAS. ![Połączony model](./media/converted-output.png)
 1. Na czas należy usunąć lub wyłączyć **TestModel**gryobject, aby zwolnić miejsce na załadowanie modelu niestandardowego.
 1. Odtwórz scenę i Połącz się z sesją zdalną.
-1. Kliknij prawym przyciskiem myszy **RemoteRenderingCoordinator** i wybierz pozycję **Załaduj połączony model niestandardowy**. \
+1. Kliknij prawym przyciskiem myszy **RemoteRenderingCoordinator** i wybierz pozycję **Załaduj połączony model niestandardowy**.
     ![Załaduj połączony model](./media/load-linked-model.png)
 
 Te kroki zwiększyły bezpieczeństwo aplikacji przez usunięcie tokenu sygnatury dostępu współdzielonego z lokalnej aplikacji.
@@ -176,16 +176,13 @@ Skrypt **RemoteRenderingCoordinator** ma delegata o nazwie **ARRCredentialGetter
 1. Postępuj zgodnie z instrukcjami w temacie [jak skonfigurować uwierzytelnianie-uwierzytelnianie dla wdrożonych aplikacji](../../../how-tos/authentication.md#authentication-for-deployed-applications). w tym celu wykonaj instrukcje wymienione w dokumentacji kotwice przestrzenne platformy Azure [uwierzytelnianie użytkowników w usłudze Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Obejmuje to rejestrowanie nowej aplikacji Azure Active Directory i Konfigurowanie dostępu do wystąpienia ARR.
 1. Po skonfigurowaniu nowej aplikacji usługi AAD Sprawdź, czy aplikacja AAD wygląda podobnie do następujących obrazów:
 
-    **Aplikacja usługi AAD — uwierzytelnianie >**\
-    ![Uwierzytelnianie aplikacji](./media/app-authentication-public.png)
+    **Aplikacja usługi AAD — uwierzytelnianie >** ![ Uwierzytelnianie aplikacji](./media/app-authentication-public.png)
 
-    **Uprawnienia interfejsu API > aplikacji usługi AAD**\
-    ![Interfejsy API aplikacji](./media/request-api-permissions-step-five.png)
+    Uprawnienia interfejsu API **> aplikacji usługi AAD** ![ Interfejsy API aplikacji](./media/request-api-permissions-step-five.png)
 
 1. Po skonfigurowaniu konta renderowania zdalnego Sprawdź, czy konfiguracja wygląda następująco:
 
-    **AAR — > AccessControl (IAM)**\
-    ![Rola ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR — > AccessControl (IAM)** ![ Rola ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > Rola *właściciela* nie jest wystarczająca do zarządzania sesjami za pośrednictwem aplikacji klienckiej. Dla każdego użytkownika, którym chcesz udzielić możliwości zarządzania sesjami, musisz zapewnić **klientowi zdalne renderowanie**roli. Dla każdego użytkownika, który ma zarządzać sesjami i konwertować modele, musisz zapewnić **administratorowi zdalnego renderowania**roli.
@@ -356,10 +353,8 @@ W edytorze aparatu Unity, gdy uwierzytelnianie w usłudze AAD jest aktywne, nale
 
 1. Naciśnij przycisk Odtwórz w edytorze aparatu Unity i wyrażasz zgodę na uruchomienie sesji.
     Ze względu na to, że składnik **AADAuthentication** ma kontroler widoku, jego automatycznie podłączany do wyświetlenia monitu po modalnym panelu autoryzacji sesji.
-1. Postępuj zgodnie z instrukcjami znajdującymi się w panelu po prawej stronie **AppMenu**. \
-    Powinna zostać wyświetlona coś podobnego do tego: \
-    ![Składnik uwierzytelniania usługi AAD](./media/device-flow-instructions.png)\
-    Po wprowadzeniu zakodowanego na urządzeniu pomocniczym (lub w przeglądarce na tym samym urządzeniu) i zalogowaniu się przy użyciu poświadczeń token dostępu zostanie zwrócony do aplikacji żądającej, w tym przypadku edytora aparatu Unity.
+1. Postępuj zgodnie z instrukcjami znajdującymi się w panelu z prawej strony **AppMenu**.
+    Zobaczysz coś podobnego do tego: ![ składnik uwierzytelniania usługi AAD ](./media/device-flow-instructions.png) po wprowadzeniu podanej zakodowanej na urządzeniu pomocniczym (lub w przeglądarce na tym samym urządzeniu) i zalogowania się przy użyciu poświadczeń, token dostępu zostanie zwrócony do aplikacji żądającej, w tym przypadku edytora Unity.
 1. Po tym momencie wszystko w aplikacji powinno działać normalnie. Sprawdź, czy w konsoli aparatu Unity zostały wykryte błędy, jeśli nie postępują zgodnie z oczekiwaniami.
 
 ## <a name="build-to-device"></a>Kompiluj na urządzenie

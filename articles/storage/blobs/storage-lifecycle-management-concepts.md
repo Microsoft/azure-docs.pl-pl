@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6285c25c44b7b8c5b2c1d9c148424fc36912b57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 624b8e18f8c0fb523c27c41ce9c10af93c8b6190
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528714"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446672"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -34,7 +34,7 @@ Rozważmy scenariusz, w którym dane są często dostępne podczas wczesnych eta
 
 Zasady zarządzania cyklem życia są dostępne z kontami Ogólnego przeznaczenia v2 (GPv2), kontami magazynu obiektów blob i blokami Premium BLOB Storage. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).  
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Funkcja zarządzania cyklem życia jest bezpłatna. Klienci są obciążani kosztami zwykłych operacji dla wywołań interfejsu API [zestawu warstwy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . Operacja usuwania jest bezpłatna. Aby uzyskać więcej informacji na temat cen, zobacz temat [Block BLOB — Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -234,8 +234,8 @@ Każda reguła w ramach zasad ma kilka parametrów:
 
 | Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
-| `name`         | String (ciąg) |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter.  Musi być unikatowa w ramach zasad. | Prawda |
-| `enabled`      | Boolean (wartość logiczna) | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
+| `name`         | String |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter.  Musi być unikatowa w ramach zasad. | Prawda |
+| `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
 | `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | Prawda |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | Prawda |
 
@@ -248,7 +248,8 @@ Każda definicja reguły zawiera zestaw filtrów i ustawioną akcję. [Ustawieni
 Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiektach, które istnieją w `container1` programie, i zacznij od `foo` .  
 
 >[!NOTE]
->Zarządzanie cyklem życia obsługuje tylko typ bloku obiektów BLOB.  
+>- Zarządzanie cyklem życia obsługuje tylko typ bloku obiektów BLOB.<br>
+>- Zarządzanie cyklem życia nie wpływa na kontenery systemowe, takie jak $logs i $web.
 
 - Warstwa BLOB warstwy do warstwy chłodna 30 dni po ostatniej modyfikacji
 - Warstwa BLOB warstwy do archiwum 90 dni po ostatniej modyfikacji
@@ -304,7 +305,7 @@ Akcje są stosowane do filtrowanych obiektów blob, gdy spełniony jest warunek 
 
 Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob oraz usuwanie migawek obiektów BLOB. Zdefiniuj co najmniej jedną akcję dla każdej reguły dla obiektów blob lub migawek obiektów BLOB.
 
-| Akcja        | Podstawowy obiekt BLOB                                   | Migawka      |
+| Akcja        | Podstawowy obiekt BLOB                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Obsługa obiektów BLOB obecnie w warstwie gorąca         | Nieobsługiwane |
 | tierToArchive | Obsługa obiektów BLOB obecnie w warstwie gorąca lub chłodna | Nieobsługiwane |
@@ -472,7 +473,7 @@ W przypadku danych, które są regularnie modyfikowane i dostępne przez cały o
 }
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Po utworzeniu nowych zasad nie są one uruchamiane natychmiast?**  
 Na platformie są uruchamiane zasady cyklu życia raz dziennie. Po skonfigurowaniu zasad może upłynąć nawet 24 godziny, aby niektóre akcje działały po raz pierwszy.  

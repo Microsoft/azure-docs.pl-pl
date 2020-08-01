@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477791"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445466"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
@@ -26,7 +26,7 @@ Aplikacje zarejestrowane w dzierżawie usługi Azure Active Directory (Azure AD)
 
 Podobnie, w [przypadku aplikacji](howto-convert-app-to-be-multi-tenant.md) wielodostępnej, wszyscy użytkownicy w dzierżawie usługi Azure AD, w której ta aplikacja jest obsługiwana, będą mogli uzyskiwać dostęp do tej aplikacji po pomyślnym uwierzytelnieniu w odpowiedniej dzierżawie.
 
-Administratorzy dzierżawy i deweloperzy często mają wymagania, w przypadku których aplikacja musi być ograniczona do określonego zbioru użytkowników. Deweloperzy mogą osiągnąć ten sam sposób, korzystając ze popularnych wzorców autoryzacji, takich jak Access Control oparte na rolach (RBAC), ale takie podejście wymaga dużej ilości pracy na części dewelopera.
+Administratorzy dzierżawy i deweloperzy często mają wymagania, w przypadku których aplikacja musi być ograniczona do określonego zbioru użytkowników. Deweloperzy mogą wykonywać te same czynności, korzystając ze popularnych wzorców autoryzacji, takich jak kontrola dostępu oparta na rolach (RBAC) platformy Azure, ale takie podejście wymaga dużej ilości pracy w ramach dewelopera.
 
 Administratorzy dzierżawy i deweloperzy mogą ograniczyć aplikację do określonego zestawu użytkowników lub grup zabezpieczeń w dzierżawie przy użyciu tej wbudowanej funkcji usługi Azure AD.
 
@@ -65,7 +65,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz pozycję **Zapisz** , aby zapisać tę zmianę konfiguracji.
 
-### <a name="app-registration"></a>Rejestrowanie aplikacji
+### <a name="app-registration"></a>Rejestracja aplikacji
 
 1. Przejdź do [**Azure Portal**](https://portal.azure.com/).
 1. Na górnym pasku wybierz konto zalogowane. 

@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
-  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+  ms.openlocfilehash: b91e63e7e0b639ca969f9a35c6e3352343408194
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85339194"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87385810"
 landingContent:
 - title: Informacje o zarządzaniu aplikacjami
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: Dodawanie aplikacji spoza galerii
       url: add-non-gallery-app.md
     - text: Konfigurowanie logowania jednokrotnego
-      url: configure-single-sign-on-non-gallery-applications.md
+      url: configure-saml-single-sign-on.md
     - text: Przypisywanie użytkownika lub grupy do aplikacji
       url: assign-user-or-group-access-portal.md
 - title: Aprowizowanie użytkowników i grup w aplikacji

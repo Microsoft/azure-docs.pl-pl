@@ -3,12 +3,12 @@ title: Korzystanie z aplikacji sieci Web — Personalizacja
 description: Dostosuj aplikację sieci Web w języku C# przy użyciu pętli personalizacji, aby zapewnić użytkownikowi poprawną zawartość na podstawie akcji (z funkcjami) i funkcji kontekstu.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133133"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446368"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Samouczek: Dodawanie personalizacji do aplikacji sieci Web platformy .NET
 
@@ -41,7 +41,7 @@ W tym samouczku akcje są typami żywności:
 * ekspres
 * zupy
 
-Aby ułatwić personalizację informacji o swoich akcjach, Wyślij obie_Akcje _ z funkcjami_ i _funkcjami kontekstu_ przy użyciu poszczególnych żądań interfejsu API rangi.
+Aby ułatwić personalizację informacji o działaniach, Wyślij obie _akcje z funkcjami_ i _funkcjami kontekstu_ przy użyciu każdego żądania interfejsu API rangi.
 
 **Funkcja** modelu to informacje o akcjach lub kontekście, które mogą być agregowane (pogrupowane) między członkami bazy użytkownika aplikacji sieci Web. Funkcja _nie jest_ pojedynczo specyficzna (na przykład identyfikator użytkownika) lub wysoce konkretnie (na przykład w danym dniu).
 
@@ -579,7 +579,7 @@ Dodatkowe ustawienia do odtworzenia przy użyciu programu obejmują:
 * Procent eksploracji
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Oczyść następujące zasoby:
 

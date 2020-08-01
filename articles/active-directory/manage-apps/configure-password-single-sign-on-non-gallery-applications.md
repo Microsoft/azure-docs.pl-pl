@@ -10,36 +10,36 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419958"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459389"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na hasłach
 
-W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W przewodniku szybki start można skonfigurować Logowanie jednokrotne oparte na języku SAML. Oprócz protokołu SAML istnieje możliwość logowania jednokrotnego opartego na hasłach. W tym artykule znajduje się bardziej szczegółowy opis opcji logowania jednokrotnego na podstawie hasła. 
+W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W przewodniku szybki start można skonfigurować Logowanie jednokrotne oparte na języku SAML. Inną opcją jest logowanie jednokrotne oparte na haśle. W tym artykule opisano opcję logowania jednokrotnego opartego na hasłach. 
 
-Ta opcja jest dostępna dla dowolnej witryny sieci Web ze stroną logowania w formacie HTML. Logowanie jednokrotne oparte na hasłach, nazywane również magazynem haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest to również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji Media społecznościowych w organizacji. 
+Ta opcja jest dostępna dla dowolnej witryny sieci Web ze stroną logowania w formacie HTML. Logowanie jednokrotne oparte na hasłach jest również nazywane magazynem haseł. Logowanie jednokrotne oparte na hasłach umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest on również przydatny, gdy kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji mediów społecznościowych w organizacji.
 
 Logowanie jednokrotne oparte na hasłach to doskonały sposób, aby szybko rozpocząć Integrowanie aplikacji z usługą Azure AD, dzięki czemu można:
 
-- Włączanie logowania jednokrotnego dla użytkowników przez bezpieczne przechowywanie i odtwarzanie nazw użytkownika i haseł dla aplikacji zintegrowanej z usługą Azure AD
+- Włączanie logowania jednokrotnego dla użytkowników przez bezpieczne przechowywanie i odtwarzanie nazw użytkowników i haseł
 
 - Obsługa aplikacji, które wymagają wielu pól logowania dla aplikacji, które wymagają więcej niż tylko nazwy użytkownika i hasła do logowania
 
-- Dostosuj etykiety pól wprowadzania nazwy użytkownika i hasła, które użytkownicy widzą w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
+- Dostosuj etykiety pól username i Password, które użytkownicy widzą w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
 
 - Zezwól użytkownikom na udostępnianie własnych nazw użytkowników i haseł dla wszystkich istniejących kont aplikacji, które są wpisywane ręcznie.
 
 - Zezwól członkowi grupy biznesowej na określanie nazw użytkowników i haseł przypisanych do użytkownika przy użyciu funkcji samoobsługowego [dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Zezwalaj administratorowi na określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
+-   Umożliwia administratorowi określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Korzystanie z usługi Azure AD jako dostawcy tożsamości oraz Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać szczegółowe instrukcje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej i musisz użyć logowania jednokrotnego opartego na hasłach, ten artykuł jest dla Ciebie.
+Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać szczegółowe instrukcje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej i musisz użyć logowania jednokrotnego opartego na hasłach, ten artykuł jest dla Ciebie.
 
 > [!IMPORTANT] 
 > Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie w nawigacji dla aplikacji w **aplikacjach dla przedsiębiorstw**. 
@@ -51,13 +51,13 @@ Korzystanie z usługi Azure AD jako dostawcy tożsamości oraz Konfigurowanie lo
 
 ## <a name="basic-configuration"></a>Konfiguracja podstawowa
 
-W [serii szybkiego startu](view-applications-portal.md)wiesz już, jak dodać aplikację do dzierżawy, aby usługa Azure AD wiedziała, że jest używana jako dostawca tożsamości (dostawcy tożsamości) dla aplikacji. Niektóre aplikacje zostały już wstępnie skonfigurowane i są wyświetlane w galerii usługi Azure AD. Inne aplikacje nie znajdują się w galerii i musisz utworzyć aplikację rodzajową i skonfigurować ją ręcznie. W zależności od aplikacji opcja logowania jednokrotnego opartego na hasłach może być niedostępna. Jeśli lista opcji oparta na haśle nie jest widoczna na stronie logowania jednokrotnego dla aplikacji, jest niedostępna.
+W [serii szybkiego startu](view-applications-portal.md)dowiesz się, jak dodać aplikację do dzierżawy, dzięki czemu usługa Azure AD wie, że jest ona używana jako dostawca tożsamości (dostawcy tożsamości) dla aplikacji. Niektóre aplikacje zostały już wstępnie skonfigurowane i są wyświetlane w galerii usługi Azure AD. Inne aplikacje nie znajdują się w galerii i musisz utworzyć aplikację rodzajową i skonfigurować ją ręcznie. W zależności od aplikacji opcja logowania jednokrotnego opartego na hasłach może być niedostępna. Jeśli lista opcji oparta na haśle nie jest widoczna na stronie logowania jednokrotnego dla aplikacji, jest niedostępna.
 
 Strona konfiguracja logowania jednokrotnego na podstawie hasła jest prosta. Zawiera tylko adres URL strony logowania używanej przez aplikację. Ten ciąg musi być stroną, która zawiera pole wprowadzania nazwy użytkownika.
 
 Po wprowadzeniu adresu URL wybierz pozycję **Zapisz**. Usługa Azure AD analizuje kod HTML strony logowania dla pól wprowadzania nazwy użytkownika i hasła. Jeśli próba powiedzie się, wszystko jest gotowe.
  
-Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane w imieniu użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie wybierz pozycję **Aktualizuj poświadczenia**. Następnie wprowadź nazwę użytkownika i hasło, które będą używane w imieniu użytkownika lub grupy. W przeciwnym razie użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
+Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane dla użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie wybierz pozycję **Aktualizuj poświadczenia**. Na koniec wprowadź nazwę użytkownika i hasło, które mają być używane dla użytkownika lub grupy. Jeśli tego nie zrobisz, użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
  
 
 ## <a name="manual-configuration"></a>Konfiguracja ręczna

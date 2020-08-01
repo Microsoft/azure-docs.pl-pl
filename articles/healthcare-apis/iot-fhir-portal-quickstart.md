@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: punagpal
-ms.openlocfilehash: bc85765666ba3baeae7ec795118f615f6b4b4368
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102190"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446801"
 ---
 # <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika IoT (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -181,9 +181,9 @@ Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane r
 Można wyświetlić FHIR widoczne zasoby utworzone przez łącznik IoT w interfejsie API platformy Azure dla FHIR przy użyciu programu Poster. Skonfiguruj swoje [ogłoszenie, aby uzyskać dostęp do interfejsu API platformy Azure dla usługi FHIR](access-fhir-postman-tutorial.md) , a następnie `GET` Wyślij żądanie, aby `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` wyświetlić obserwacje zasobów FHIR z wartością współczynnika serca. 
 
 > [!TIP]
-> Upewnij się, że użytkownik ma odpowiednie uprawnienia dostępu do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Użyj [Access Control opartej na rolach platformy Azure](configure-azure-rbac.md) , aby przypisać wymagane role płaszczyzny danych.
+> Upewnij się, że użytkownik ma odpowiednie uprawnienia dostępu do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Aby przypisać wymagane role płaszczyzny danych, użyj [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](configure-azure-rbac.md) .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, można usunąć wystąpienie łącznika IoT, usuwając skojarzoną grupę zasobów lub skojarzony interfejs API platformy Azure dla usługi FHIR lub sam wystąpienie łącznika IoT. 
 

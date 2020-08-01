@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf3566e90802f73accdd27f1cd5435e4af7b9be
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281824"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446987"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
@@ -74,10 +74,8 @@ Aby upewnić się, że jest to problem, najpierw Przetestuj, że Agent uwierzyte
 
 Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
-
-
-
-
+> [!IMPORTANT]
+> Jeśli serwer Azure AD Connect nie jest przyłączony do domeny, Azure AD Connect wymagane są [następujące](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites)problemy dotyczące nieprawidłowej nazwy użytkownika i hasła.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Przyczyny niepowodzenia logowania w centrum administracyjnym Azure Active Directory (wymaga licencji Premium)
 

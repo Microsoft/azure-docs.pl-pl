@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085150"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449127"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -33,18 +33,19 @@ Tworzenie funkcji na komputerze lokalnym i publikowanie ich na platformie Azure 
 
 Istnieją trzy wersje Azure Functions Core Tools. Używana wersja zależy od lokalnego środowiska programistycznego, [wyboru języka](supported-languages.md)i wymaganego poziomu pomocy technicznej:
 
-+ **Wersja 1. x**: obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
-
 + [**Wersja 3. x/2. x**](#v2): obsługuje [wersję 3. x lub 2. x środowiska uruchomieniowego Azure Functions](functions-versions.md). Te wersje obsługują [systemy Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2)i [Linux](?tabs=linux#v2) oraz korzystają z menedżerów pakietów lub npm do instalacji.
 
++ **Wersja 1. x**: obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
+
 Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Azure Functions Core Tools obecnie zależy od interfejsu wiersza polecenia platformy Azure na potrzeby uwierzytelniania przy użyciu konta platformy Azure. Oznacza to, że musisz [zainstalować interfejs wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby można było [publikować na platformie azure](#publish) na podstawie Azure Functions Core Tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalowanie podstawowych narzędzi usługi Azure Functions
 
 [Azure Functions Core Tools] obejmuje wersję tego samego środowiska uruchomieniowego, która umożliwia Azure Functions środowisko uruchomieniowe, które można uruchomić na lokalnym komputerze deweloperskim. Udostępnia również polecenia służące do tworzenia funkcji, łączenia się z platformą Azure i wdrażania projektów funkcji.
-
->[!IMPORTANT]
->Aby można było publikować na platformie Azure z Azure Functions Core Tools, musisz mieć zainstalowany [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lokalnie.  
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Wersja 3. x i 2. x
 
@@ -55,27 +56,12 @@ W wersji 3. x/2. x narzędzi jest używane środowisko uruchomieniowe Azure Func
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-Poniższe kroki służą do instalowania podstawowych narzędzi w systemie Windows przy użyciu programu npm. Możesz również użyć [czekolady](https://chocolatey.org/). Aby uzyskać więcej informacji, zobacz [plik Readme podstawowych narzędzi](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+Poniższe kroki służą do instalowania podstawowych narzędzi v3. x przy użyciu Instalatora Windows (MSI). Aby uzyskać więcej informacji na temat innych instalatorów opartych na pakiecie, które są wymagane do zainstalowania podstawowych narzędzi v2. x, zobacz [plik Readme podstawowych narzędzi](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Zainstaluj [Node.js], która obejmuje npm.
-    - W przypadku wersji 3. x narzędzi obsługiwane są tylko Node.js 10 i nowsze wersje.
-    - W przypadku wersji 2. x narzędzi obsługiwane są tylko Node.js 8,5 i nowsze wersje.
+1. Pobierz i uruchom Instalatora podstawowych narzędzi, w zależności od używanej wersji systemu Windows:
 
-1. Zainstaluj pakiet podstawowych narzędzi:
-
-    ##### <a name="v3x-recommended"></a>v3. x (zalecane)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### <a name="v2x"></a>v2. x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   Pobranie i zainstalowanie pakietu podstawowych narzędzi może potrwać kilka minut.
+    - [v3. x-Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (zalecane. [Debugowanie Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) wymaga 64-bitowej.)
+    - [v3. x-Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. Jeśli nie planujesz używania [pakietów rozszerzeń](functions-bindings-register.md#extension-bundles), zainstaluj [zestaw SDK programu .NET Core 3. x dla systemu Windows](https://dotnet.microsoft.com/download).
 
@@ -526,7 +512,7 @@ Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszy
 | **`--nozip`** | Wyłącza tryb domyślny `Run-From-Package` . |
 | **`--build-native-deps`** | Pomija generowanie folderu. kół podczas publikowania aplikacji funkcji języka Python. |
 | **`--build`**, **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
-| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Na przykład: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |
 | **`--no-build`** | Projekt nie został skompilowany podczas publikowania. Dla języka Python `pip install` nie jest wykonywane. |

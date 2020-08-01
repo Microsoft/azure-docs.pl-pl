@@ -4,12 +4,12 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374001"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446595"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -27,7 +27,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | AccountPropertyCannotBeSet | Sprawdź dostępne właściwości konta magazynu. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | W klastrze lub regionie nie ma dostępnych zasobów lub nie można obsłużyć żądanego rozmiaru maszyny wirtualnej. Ponów próbę żądania w późniejszym czasie lub zażądaj innego rozmiaru maszyny wirtualnej. | [Problemy z obsługą i alokacją dla](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md)problemów z systemem Linux, [aprowizacji i alokacji dla systemu Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) i [Rozwiązywanie problemów z błędami alokacji](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Poczekaj na zakończenie operacji współbieżności. | |
-| AuthorizationFailed | Twoje konto lub jednostka usługi nie ma wystarczających uprawnień, aby ukończyć wdrażanie. Sprawdź rolę, do której należy konto, i dostęp do zakresu wdrożenia.<br><br>Ten błąd może pojawić się, jeśli nie zarejestrowano wymaganego dostawcy zasobów. | [Access Control oparte na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Rozwiązywanie rejestracji](error-register-resource-provider.md) |
+| AuthorizationFailed | Twoje konto lub jednostka usługi nie ma wystarczających uprawnień, aby ukończyć wdrażanie. Sprawdź rolę, do której należy konto, i dostęp do zakresu wdrożenia.<br><br>Ten błąd może pojawić się, jeśli nie zarejestrowano wymaganego dostawcy zasobów. | [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | BadRequest | Wartości wdrożeń są wysyłane, które nie są zgodne z oczekiwaniami Menedżer zasobów. Sprawdź wewnętrzny komunikat o stanie, aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołania do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-location.md) |
 | Konflikt | Żądasz operacji, która nie jest dozwolona w bieżącym stanie zasobu. Na przykład zmiany rozmiarów dysków są dozwolone tylko w przypadku tworzenia maszyny wirtualnej lub po cofnięciu przydziału maszyny wirtualnej. | |
 | DeploymentActiveAndUneditable | Poczekaj na ukończenie współbieżnego wdrażania tej grupy zasobów. | |

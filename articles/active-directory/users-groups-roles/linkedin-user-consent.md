@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c35204e37e3aae930577697779b8f945c4fbfbcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ec7f8210df9e41b2620e639eddbc98d4bcb73d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727215"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448677"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Udostępnianie i zgoda danych połączeń konta LinkedIn
 
@@ -39,7 +39,9 @@ Dostęp do informacji w serwisie LinkedIn w ramach aplikacji i usług firmy Micr
 Aby zarządzać ustawieniem organizacji, musisz być administratorem Azure Active Directory. Można ją włączyć dla wszystkich użytkowników lub dla określonego zbioru użytkowników.
 
 1. Aby włączyć lub wyłączyć integrację, wykonaj kroki opisane w sekcji [wyrażanie zgody na integrację serwisu LinkedIn dla organizacji usługi Azure AD](linkedin-integration.md).
-2. Po zaogłaszaniu integracji serwisu LinkedIn w organizacji należy wskazać swoim użytkownikom pytania dotyczące informacji o [serwisie LinkedIn w aplikacjach i usługach firmy Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artykuł zawiera informacje o tym, gdzie znajdują się informacje o serwisie LinkedIn, sposobach łączenia kont i innych.
+2. Po zaogłaszaniu integracji serwisu LinkedIn w organizacji należy wskazać swoim użytkownikom pytania dotyczące informacji o [serwisie LinkedIn w aplikacjach i usługach firmy Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Ten artykuł zawiera informacje o tym, gdzie są wyświetlane informacje o usłudze LinkedIn, [udostępnianiu i poufności danych](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400), [sposobach łączenia kont](https://support.microsoft.com/office/connect-your-linkedin-and-work-or-school-accounts-c7c245f2-fa56-4c9b-ba20-3fceb23c5772) i innych.
+
+Musisz ogłosić integrację serwisu LinkedIn z użytkownikami, dostarczając im wszystkie informacje związane z udostępnianiem danych i ochroną prywatności związane z integracją serwisu LinkedIn. Aby użytkownicy korzystający z licencji mogli nawiązywać połączenia z kontami w 
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Użytkownik wyraża zgodę na dostęp do danych w firmie Microsoft i LinkedIn
 

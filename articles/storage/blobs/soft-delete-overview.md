@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f75b9af6e9b2f92818fd8ec16d59db2f1bd0075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223792"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446882"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Usuwanie nietrwałe dla magazynu obiektów BLOB
 

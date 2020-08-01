@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360133"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447103"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Włączanie zapisywania zwrotnego urządzeń
 > [!NOTE]
@@ -61,7 +61,7 @@ Zainstaluj Azure AD Connect przy użyciu ustawień niestandardowych lub ekspreso
 
     a. **Podaj poświadczenia administratora przedsiębiorstwa**: Jeśli w lesie, w którym mają być zapisywane urządzenia, są podane poświadczenia administratora przedsiębiorstwa, program Azure AD Connect przygotuje Las automatycznie podczas konfigurowania funkcji zapisywania zwrotnego urządzeń.
 
-    b. **Pobierz skrypt programu PowerShell**: Azure AD Connect automatycznie generuje skrypt programu PowerShell umożliwiający przygotowanie usługi Active Directory do zapisywania zwrotnego urządzeń. W przypadku braku poświadczeń administratora przedsiębiorstwa w Azure AD Connect zalecane jest pobranie skryptu programu PowerShell. Podaj pobrany skrypt programu PowerShell **CreateDeviceContainer. PSQ** do administratora przedsiębiorstwa w lesie, w którym urządzenia będą zapisywane z powrotem.
+    b. **Pobierz skrypt programu PowerShell**: Azure AD Connect automatycznie generuje skrypt programu PowerShell umożliwiający przygotowanie usługi Active Directory do zapisywania zwrotnego urządzeń. W przypadku braku poświadczeń administratora przedsiębiorstwa w Azure AD Connect zalecane jest pobranie skryptu programu PowerShell. Podaj pobrany skrypt programu PowerShell **CreateDeviceContainer.ps1** do administratora przedsiębiorstwa w lesie, w którym będą zapisywane urządzenia z powrotem.
     ![Przygotuj Las usługi Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     W przypadku przygotowywania lasu usługi Active Directory wykonywane są następujące operacje:

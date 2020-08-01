@@ -7,15 +7,16 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
-ms.openlocfilehash: c0a397ac71c7c466145357093b6c22f78e627d1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/29/2020
+ms.custom: generated
+ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511589"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448905"
 ---
-# <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
+# <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
 [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](overview.md) ma kilka wbudowanych ról platformy Azure, które można przypisać do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych. Przypisania ról są sposobem kontroli dostępu do zasobów platformy Azure. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe platformy Azure](custom-roles.md).
 
@@ -23,7 +24,7 @@ Ten artykuł zawiera listę wbudowanych ról platformy Azure, które są zawsze 
 
 W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej wbudowanej roli. Kliknij nazwę roli, aby wyświetlić listę `Actions` , `NotActions` , `DataActions` i `NotDataActions` dla każdej roli. Aby uzyskać informacje o tym, co oznaczają te działania oraz o sposobie ich zastosowania do płaszczyzny zarządzania i danych, zobacz [Opis ról roli platformy Azure](role-definitions.md).
 
-## <a name="all"></a>Wszystko
+## <a name="all"></a>Wszystkie
 
 > [!div class="mx-tableFixed"]
 > | Wbudowana rola | Opis | ID |
@@ -48,7 +49,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Współautor sieci](#network-contributor) | Umożliwia zarządzanie sieciami, ale nie umożliwia uzyskiwania do nich dostępu. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Współautor strefy Prywatna strefa DNS](#private-dns-zone-contributor) | Umożliwia zarządzanie prywatnymi zasobami strefy DNS, ale nie z sieciami wirtualnymi, z którymi są one połączone. | b12aa53e-6015-4669-85d0-8515ebb3ae7f |
 > | [Współautor Traffic Manager](#traffic-manager-contributor) | Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowanie użytkowników, którzy mają do nich dostęp. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Magazyn** |  |  |
+> | **Storage** |  |  |
 > | [Współautor avere](#avere-contributor) | Można utworzyć klaster avere vFXT i zarządzać nim. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operator avere](#avere-operator) | Używane przez klaster avere vFXT do zarządzania klastrem | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Współautor kopii zapasowej](#backup-contributor) | Umożliwia zarządzanie usługą kopii zapasowych, ale nie może tworzyć magazynów i zapewniać dostępu innym osobom | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -149,9 +150,9 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Współautor tożsamości zarządzanej](#managed-identity-contributor) | Tworzenie, odczytywanie, aktualizowanie i usuwanie tożsamości przypisanej przez użytkownika | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Operator tożsamości zarządzanej](#managed-identity-operator) | Odczytaj i przypisz tożsamość przypisaną przez użytkownika | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Bezpieczeństwo** |  |  |
-> | [Współautor wskaźnikowego platformy Azure](#azure-sentinel-contributor) | Współautor wskaźnikowego platformy Azure | ab8e14d6-4a74-4a29-9ba8-549422addade |
-> | [Czytnik wskaźnikowy platformy Azure](#azure-sentinel-reader) | Czytnik wskaźnikowy platformy Azure | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
-> | [Obiekt odpowiadający wskaźnikowi platformy Azure](#azure-sentinel-responder) | Obiekt odpowiadający wskaźnikowi platformy Azure | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Współautor usługi Azure Sentinel](#azure-sentinel-contributor) | Współautor usługi Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Czytelnik usługi Azure Sentinel](#azure-sentinel-reader) | Czytelnik usługi Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Obiekt odpowiadający usługi Azure Sentinel](#azure-sentinel-responder) | Obiekt odpowiadający usługi Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Współautor Key Vault](#key-vault-contributor) | Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nich dostępu. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Administrator zabezpieczeń](#security-admin) | Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, jak rola czytelnik zabezpieczeń, mogą także aktualizować zasady zabezpieczeń i odrzucać alerty i zalecenia. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Współautor oceny zabezpieczeń](#security-assessment-contributor) | Umożliwia wypychanie ocen do Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -180,6 +181,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Współautor Cost Management](#cost-management-contributor) | Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. budżetów, eksportów) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Cost Management czytelnik](#cost-management-reader) | Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Administrator ustawień hierarchii](#hierarchy-settings-administrator) | Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii | 350f8d15-c687-4448-8ae1-157740a3936d |
+> | [Klaster Kubernetes — dołączanie do usługi Azure Arc](#kubernetes-cluster---azure-arc-onboarding) | Definicja roli do autoryzacji dowolnego użytkownika/usługi do tworzenia zasobów connectedClusters | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | [Rola współautora aplikacji zarządzanej](#managed-application-contributor-role) | Umożliwia tworzenie zasobów aplikacji zarządzanej. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rola operatora aplikacji zarządzanej](#managed-application-operator-role) | Umożliwia odczytywanie i wykonywanie akcji dotyczących zasobów aplikacji zarządzanej | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Czytnik aplikacji zarządzanych](#managed-applications-reader) | Umożliwia odczytanie zasobów w zarządzanej aplikacji i zażądanie dostępu JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -194,7 +196,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Site Recovery czytelnik](#site-recovery-reader) | Umożliwia wyświetlanie stanu Site Recovery, ale nie wykonywanie innych operacji zarządzania | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Współautor żądania pomocy technicznej](#support-request-contributor) | Pozwala tworzyć żądania pomocy technicznej i zarządzać nimi | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Współautor tagów](#tag-contributor) | Umożliwia zarządzanie tagami w jednostkach bez zapewniania dostępu do samych jednostek. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
-> | **Inne problemy** |  |  |
+> | **Inne** |  |  |
 > | [Współautor BizTalk](#biztalk-contributor) | Umożliwia zarządzanie usługami BizTalk Services, ale nie umożliwia uzyskiwania do nich dostępu. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Użytkownik wirtualizacji pulpitu](#desktop-virtualization-user) | Umożliwia użytkownikom korzystanie z aplikacji w grupie aplikacji. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Współautor kolekcji zadań usługi Scheduler](#scheduler-job-collections-contributor) | Umożliwia zarządzanie kolekcjami zadań harmonogramu, ale nie umożliwia uzyskiwania do nich dostępu. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -373,7 +375,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -666,7 +668,7 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 }
 ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 
 ### <a name="cdn-endpoint-contributor"></a>Współautor punktu końcowego usługi CDN
@@ -1142,7 +1144,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -2567,7 +2569,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -3097,7 +3099,7 @@ Wyświetl listę akcji poświadczeń użytkownika klastra. [Dowiedz się więcej
 
 ### <a name="azure-kubernetes-service-contributor-role"></a>Rola współautora usługi Azure Kubernetes
 
-Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
+Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes, [Dowiedz się więcej](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -3140,7 +3142,7 @@ Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>Administrator RBAC usługi Azure Kubernetes Service
 
-Umożliwia zarządzanie wszystkimi zasobami w obszarze klaster/przestrzeń nazw, z wyjątkiem aktualizacji lub usuwania przydziałów zasobów i przestrzeni nazw. [Dowiedz się więcej](../aks/concepts-identity.md)
+Umożliwia zarządzanie wszystkimi zasobami w obszarze klaster/przestrzeń nazw, z wyjątkiem aktualizacji lub usuwania przydziałów zasobów i przestrzeni nazw. [Dowiedz się więcej](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -3203,7 +3205,7 @@ Umożliwia zarządzanie wszystkimi zasobami w obszarze klaster/przestrzeń nazw,
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Administrator klastra RBAC usługi Azure Kubernetes Service
 
-Umożliwia zarządzanie wszystkimi zasobami w klastrze. [Dowiedz się więcej](../aks/concepts-identity.md)
+Umożliwia zarządzanie wszystkimi zasobami w klastrze. [Dowiedz się więcej](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -3258,7 +3260,7 @@ Umożliwia zarządzanie wszystkimi zasobami w klastrze. [Dowiedz się więcej](.
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>Czytnik RBAC usługi Azure Kubernetes Service
 
-Umożliwia wyświetlenie wszystkich zasobów w klastrze/przestrzeni nazw, z wyjątkiem kluczy tajnych. [Dowiedz się więcej](../aks/concepts-identity.md)
+Umożliwia wyświetlenie wszystkich zasobów w klastrze/przestrzeni nazw, z wyjątkiem kluczy tajnych. [Dowiedz się więcej](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -3319,7 +3321,7 @@ Umożliwia wyświetlenie wszystkich zasobów w klastrze/przestrzeni nazw, z wyj�
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>Składnik zapisywania RBAC usługi Azure Kubernetes Service
 
-Umożliwia aktualizowanie wszystkich elementów klastra/przestrzeni nazw, z wyjątkiem przydziałów zasobów, przestrzeni nazw, zasad zabezpieczeń, żądań podpisywania certyfikatów, ról klastra i powiązań ról (klastra). [Dowiedz się więcej](../aks/concepts-identity.md)
+Umożliwia aktualizowanie wszystkich elementów klastra/przestrzeni nazw, z wyjątkiem przydziałów zasobów, przestrzeni nazw, zasad zabezpieczeń, żądań podpisywania certyfikatów, ról klastra i powiązań ról (klastra). [Dowiedz się więcej](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -6063,7 +6065,7 @@ Odczytaj i przypisz tożsamość przypisanych do użytkownika [Dowiedz się wię
 ## <a name="security"></a>Zabezpieczenia
 
 
-### <a name="azure-sentinel-contributor"></a>Współautor wskaźnikowego platformy Azure
+### <a name="azure-sentinel-contributor"></a>Współautor usługi Azure Sentinel
 
 Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
 
@@ -6128,7 +6130,7 @@ Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
 }
 ```
 
-### <a name="azure-sentinel-reader"></a>Czytnik wskaźnikowy platformy Azure
+### <a name="azure-sentinel-reader"></a>Czytelnik usługi Azure Sentinel
 
 Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md)
 
@@ -6197,7 +6199,7 @@ Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md
 }
 ```
 
-### <a name="azure-sentinel-responder"></a>Obiekt odpowiadający wskaźnikowi platformy Azure
+### <a name="azure-sentinel-responder"></a>Obiekt odpowiadający usługi Azure Sentinel
 
 Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sentinel/roles.md)
 
@@ -6486,12 +6488,12 @@ Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty,
 > | Akcje | Opis |
 > | --- | --- |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
-> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/Read | Przeczytaj klasyczny alert dotyczący metryki |
 > | [Microsoft. operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Wyświetlanie danych usługi log Analytics |
-> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/*/Read |  |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/*/Read | Odczytaj składniki i zasady zabezpieczeń |
-> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/*/Read |  |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Read | Wyświetl listę grup zarządzania dla uwierzytelnionego użytkownika. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -6512,12 +6514,12 @@ Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty,
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.operationalInsights/workspaces/*/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
-        "Microsoft.Support/*",
+        "Microsoft.Support/*/read",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -6688,7 +6690,7 @@ Umożliwia tworzenie nowych laboratoriów na kontach laboratorium platformy Azur
 }
 ```
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorowanie
 
 
 ### <a name="application-insights-component-contributor"></a>Współautor składnika Application Insights
@@ -7641,6 +7643,61 @@ Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii
     }
   ],
   "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="kubernetes-cluster---azure-arc-onboarding"></a>Klaster Kubernetes — dołączanie do usługi Azure Arc
+
+Definicja roli do autoryzacji dowolnego użytkownika/usługi do tworzenia zasobów connectedClusters [Dowiedz się więcej](../azure-arc/kubernetes/connect-cluster.md)
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/Write | Tworzy lub aktualizuje wdrożenie. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Zapisuje connectedClusters |
+> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Read | Odczytaj connectedClusters |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | *brak* |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role definition to authorize any user/service to create connectedClusters resource",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "name": "34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

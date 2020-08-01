@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920619"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447056"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -99,5 +99,5 @@ Istnieje możliwość skonfigurowania *jednego* publicznego zasobu Usługa Load 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak skonfigurować porty HA dla ILB za pośrednictwem portalu (tutorial-Load-Balancer-Standard-Internal-Portal. mdl # Create-a-load-module-Rule), [programu PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [interfejsu wiersza polecenia](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)lub [szablonów](load-balancer-get-started-ilb-arm-template.md).
+- [Dowiedz się, jak skonfigurować porty ha dla ILB za pomocą portalu](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [programu PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [interfejsu wiersza polecenia](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)lub [szablonów](load-balancer-get-started-ilb-arm-template.md).
 - [Dowiedz się więcej o usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)

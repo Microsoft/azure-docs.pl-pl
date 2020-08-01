@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c8c254b2156a6f710c7130503b7c2a18d7168b0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c6d5d752886f47da1321289696feb4261abe7e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420519"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447117"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -82,7 +82,7 @@ Jeśli masz pytania na temat tego procesu wypełniania, napisz na adres `managem
   
 ## <a name="management-group-access"></a>Dostęp do grupy zarządzania
 
-Grupy zarządzania platformy Azure obsługują [kontrolę dostępu opartą na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md) dla wszystkich uprawnień dostępu do zasobów oraz definicji ról.
+Grupy zarządzania platformy Azure obsługują [kontrolę dostępu opartą na rolach (Azure RBAC)](../../role-based-access-control/overview.md) dla wszystkich dostępu do zasobów i definicji ról.
 Te uprawnienia są dziedziczone do zasobów podrzędnych, które istnieją w hierarchii. Każda rola RBAC może być przypisana do grupy zarządzania, która będzie dziedziczyć hierarchię do zasobów. Na przykład można przypisać do grupy zarządzania rolę RBAC Współautor maszyny wirtualnej. Ta rola nie ma żadnej akcji wykonywanej na grupie zarządzania, ale będzie dziedziczona do wszystkich maszyn wirtualnych w ramach tej grupy zarządzania.
 
 Na poniższym wykresie przedstawiono listę ról i obsługiwane akcje na grupach zarządzania.

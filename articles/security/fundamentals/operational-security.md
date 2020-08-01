@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749957"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448364"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -108,7 +108,7 @@ Chronione dane w usłudze Azure Backup są przechowywane w magazynie kopii zapas
 
 ![Rozwiązania do zarządzania](./media/operational-security/azure-operational-security-fig4.png)
 
-Dobrym przykładem rozwiązania korzystającego z wielu usług w celu zapewnienia dodatkowej funkcjonalności jest [rozwiązanie Update Management](../../automation/automation-update-management.md). To rozwiązanie używa agenta [dzienników Azure monitor](../../log-analytics/log-analytics-queries.md) dla systemów Windows i Linux w celu zbierania informacji na temat wymaganych aktualizacji na każdym agencie. Zapisuje te dane w repozytorium dzienników Azure Monitor, w którym można je analizować za pomocą dołączonego pulpitu nawigacyjnego.
+Dobrym przykładem rozwiązania korzystającego z wielu usług w celu zapewnienia dodatkowej funkcjonalności jest [rozwiązanie Update Management](../../automation/update-management/update-mgmt-overview.md). To rozwiązanie używa agenta [dzienników Azure monitor](../../log-analytics/log-analytics-queries.md) dla systemów Windows i Linux w celu zbierania informacji na temat wymaganych aktualizacji na każdym agencie. Zapisuje te dane w repozytorium dzienników Azure Monitor, w którym można je analizować za pomocą dołączonego pulpitu nawigacyjnego.
 
 Podczas tworzenia wdrożenia elementy Runbook w [Azure Automation](../../automation/automation-intro.md) są używane do instalowania wymaganych aktualizacji. Możesz zarządzać całym procesem w portalu, dzięki czemu nie musisz przejmować się szczegółami.
 
@@ -273,7 +273,7 @@ Rejestrowane są następujące typy żądań uwierzytelnionych i anonimowych.
 |   Żądania dotyczące danych analityki |    Żądania GET zakończone niepowodzeniem z kodem błędu 304 (Nie zmodyfikowano) |
 | Żądania wykonywane przez analityka magazynu samego siebie, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz w [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 
 Usługa Azure AD zawiera również pełen zestaw funkcji zarządzania tożsamościami, w tym uwierzytelnianie wieloskładnikowe, rejestrację urządzeń, Samoobsługowe zarządzanie hasłami, Samoobsługowe zarządzanie grupami, zarządzanie kontami uprzywilejowanymi, kontrola dostępu oparta na rolach, monitorowanie użycia aplikacji, zaawansowaną inspekcję oraz monitorowanie zabezpieczeń i alerty.
 

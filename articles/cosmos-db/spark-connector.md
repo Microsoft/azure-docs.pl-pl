@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: ef2691f63d7bb8c468d065b82c9726e8f7740c20
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ce017d1ac92e3aabe7ad0e36b2e8b87dc04b34f6
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203157"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445933"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika
 
@@ -95,7 +95,7 @@ writeConfig = {
 }
 
 # Write to Cosmos DB from the flights DataFrame
-flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
+flights.write.mode("overwrite").format("com.microsoft.azure.cosmosdb.spark").options(
     **writeConfig).save()
 ```
 
@@ -221,7 +221,7 @@ Więcej fragmentów kodu i kompleksowych przykładów, zobacz [Jupyter](https://
 
 Możesz skompilować łącznik ze źródła w usłudze GitHub lub pobrać Uber Jars z Maven w poniższych linkach.
 
-| Spark | Scala | Najnowsza wersja |
+| platforma Spark | Scala | Najnowsza wersja |
 |---|---|---|
 | 2.4.0 | 2,11 | [Azure-cosmosdb — spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG)
 | 2.3.0 | 2,11 | [Azure-cosmosdb-spark_2.3.0 _ 2.11 _ 1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
@@ -299,7 +299,7 @@ Więcej informacji znajduje się w `azure-cosmosdb-spark` [witrynie typu wiki](h
 
 ### <a name="performance"></a>Wydajność
 
-* [Porady dotyczące wydajności](https://github.com/Azure/azure-cosmosdb-spark/wiki/Performance-tips)
+* [Wskazówki dotyczące wydajności](https://github.com/Azure/azure-cosmosdb-spark/wiki/Performance-tips)
 * [Przebiegi testowe zapytania](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
 * [Zapisywanie przebiegów testowych](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
 

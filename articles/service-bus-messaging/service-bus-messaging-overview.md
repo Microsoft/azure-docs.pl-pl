@@ -3,12 +3,12 @@ title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus, a w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 5adcdf10898a7b0ee2d551a3a24b9f80195d645f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341667"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449123"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 
@@ -92,7 +92,7 @@ Błąd może spowodować, że klient ma wątpliwości dotyczące wyniku operacji
 ### <a name="security-protocols"></a>Protokoły zabezpieczeń
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Usługa Service Bus obsługuje protokoły zabezpieczeń, np. [sygnatury dostępu współdzielonego](service-bus-sas.md) (SAS), [kontrolę dostępu na podstawie ról](authenticate-application.md) (RBAC) i [tożsamości zarządzane dla zasobów platformy Azure](service-bus-managed-service-identity.md).
+Service Bus obsługuje protokoły zabezpieczeń, takie jak [sygnatury dostępu współdzielonego](service-bus-sas.md) (SAS), [Kontrola dostępu oparta na ROLACH (Azure RBAC)](authenticate-application.md) (RBAC) i [zarządzane tożsamości dla zasobów platformy Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geograficzne odzyskiwanie po awarii
 

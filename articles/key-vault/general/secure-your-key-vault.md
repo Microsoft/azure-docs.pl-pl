@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 4c888fe0f2f4df722948cc6d22e1ef50fd1a3d42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 463ebf429889968474af5630eb99c41a06916d01
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090505"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448604"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i p�
 
 ## <a name="management-plane-and-rbac"></a>Płaszczyzna zarządzania i kontrola RBAC
 
-Na płaszczyźnie zarządzania należy używać RBAC (Access Control oparte na rolach) do autoryzacji operacji, które może wykonać obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie usługi Azure AD. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+W płaszczyźnie zarządzania należy użyć RBAC (kontrola dostępu oparta na rolach na platformie Azure (RBAC)) w celu autoryzacji operacji, które może wykonać obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie usługi Azure AD. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Utwórz magazyn kluczy w grupie zasobów i Zarządzaj dostępem za pomocą usługi Azure AD. Użytkownicy lub grupy mogą zarządzać magazynami kluczy w grupie zasobów. Przyznanie dostępu do określonego poziomu zakresu przez przypisanie odpowiednich ról RBAC. Aby udzielić użytkownikowi dostępu do zarządzania magazynami kluczy, należy przypisać wstępnie zdefiniowaną `key vault Contributor` rolę do użytkownika w określonym zakresie. Następujące poziomy zakresów można przypisać do roli RBAC:
 

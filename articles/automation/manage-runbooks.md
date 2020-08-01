@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185249"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447823"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
@@ -226,7 +226,7 @@ Aby użyć skryptu niestandardowego:
 
 1. Utwórz konto usługi Automation i uzyskaj [rolę współautor](automation-role-based-access-control.md).
 2. [Połącz konto z obszarem roboczym platformy Azure](../security-center/security-center-enable-data-collection.md).
-3. Włącz [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md), [Update Management](automation-update-management.md)lub inną funkcję automatyzacji. 
+3. Włącz [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md), [Update Management](update-management/update-mgmt-overview.md)lub inną funkcję automatyzacji. 
 4. Jeśli na komputerze z systemem Linux potrzebujesz wysokiego poziomu uprawnień. Zaloguj się, aby wyłączyć [sprawdzanie podpisu](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testowanie elementu Runbook

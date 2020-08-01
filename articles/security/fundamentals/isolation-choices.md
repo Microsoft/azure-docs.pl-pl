@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084056"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447352"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -76,7 +76,7 @@ Usługa Azure RBAC ma trzy podstawowe role, które mają zastosowanie do wszystk
 
 - **Czytelnik** może wyświetlać istniejące zasoby platformy Azure.
 
-![Kontrola dostępu oparta na rolach na platformie Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Kontrola dostępu oparta na rolach (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Pozostałe role RBAC na platformie Azure umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola współautora maszyny wirtualnej pozwala użytkownikom na tworzenie maszyn wirtualnych i zarządzanie nimi. Nie daje im dostępu do Virtual Network platformy Azure lub podsieci, z którą nawiąże połączenie maszyna wirtualna.
 
@@ -273,7 +273,7 @@ Logiczne serwery i bazy danych SQL są pojęciami specyficznymi dla SQL Database
 
 Serwery w SQL Database nie są wystąpieniami fizycznymi ani MASZYNami wirtualnymi, a nie są kolekcjami baz danych, współużytkowania i zasad zabezpieczeń, które są przechowywane w taki sam sposób zwane "logicznymi bazami danych".
 
-![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
+![Baza danych SQL](./media/isolation-choices/azure-isolation-fig11.png)
 
 Logiczne główne bazy danych to:
 

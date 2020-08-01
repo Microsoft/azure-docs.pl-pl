@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372329"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447240"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,7 +44,7 @@ Warto zrozumieć niektóre kluczowe terminy związane z uwierzytelnianiem w usł
 
     Integracja Active Directory Domain Services lokalnych (AD DS) z programem Azure Files udostępnia metody przechowywania danych katalogowych podczas udostępniania ich użytkownikom i administratorom sieci. Zabezpieczenia są zintegrowane z AD DS za pomocą uwierzytelniania logowania i kontroli dostępu do obiektów w katalogu. Za pomocą pojedynczego logowania do sieci administratorzy mogą zarządzać danymi katalogowymi i organizacją w całej sieci, a autoryzowani użytkownicy sieci mogą uzyskiwać dostęp do zasobów w dowolnym miejscu w sieci. AD DS jest zazwyczaj akceptowana przez przedsiębiorstwa w środowiskach lokalnych, a poświadczenia AD DS są używane jako tożsamość kontroli dostępu. Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services przegląd](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Access Control oparte na rolach (RBAC) na platformie Azure**
+-   **Kontrola dostępu oparta na rolach (Azure RBAC)**
 
     Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC można zarządzać dostępem do zasobów, przyznając użytkownikom najmniejsze uprawnienia potrzebne do wykonywania swoich zadań. Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure?](../../role-based-access-control/overview.md)
 

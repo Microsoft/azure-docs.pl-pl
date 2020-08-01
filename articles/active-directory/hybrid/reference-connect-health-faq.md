@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331076"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446981"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu Azure Active Directory (Azure AD) Connect Health. W tych często zadawanych pytań zawarto informacje na temat sposobu korzystania z usługi, która obejmuje model rozliczeń, możliwości, ograniczenia i pomoc techniczną.
@@ -135,7 +135,7 @@ Rejestracja agenta kondycji może zakończyć się niepowodzeniem ze względu na
 
 * Agent nie może komunikować się z wymaganymi punktami końcowymi, ponieważ Zapora blokuje ruch. Jest to szczególnie typowe w przypadku serwerów proxy aplikacji sieci Web. Upewnij się, że zezwolono na wychodzącą komunikację z wymaganymi punktami końcowymi i portami. Szczegółowe informacje znajdują się w [sekcji wymagania](how-to-connect-health-agent-install.md#requirements) .
 * Komunikacja wychodząca podlega inspekcji protokołu TLS przez warstwę sieciową. Powoduje to, że certyfikat, którego używa Agent do zastąpienia przez serwer inspekcji/jednostkę, i kroki, które należy wykonać, aby zakończyć rejestrację agenta kończy się niepowodzeniem.
-* Użytkownik nie ma dostępu do przeprowadzenia rejestracji agenta. Domyślnie Administratorzy globalni mają dostęp. Aby delegować dostęp do innych użytkowników, można użyć [Access Control opartej na rolach](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) .
+* Użytkownik nie ma dostępu do przeprowadzenia rejestracji agenta. Domyślnie Administratorzy globalni mają dostęp. Aby delegować dostęp do innych użytkowników, można użyć [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) .
 
 **P: otrzymuję alerty informujące o tym, że "Usługa kondycji dane są nieaktualne". Jak mogę rozwiązać ten problem?**
 

@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Brak atrybutu źródłowego
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Zadanie aprowizacji działa wolno
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: Dzienniki aprowizowania
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Tworzenie punktu końcowego SCIM i konfigurowanie aprowizacji

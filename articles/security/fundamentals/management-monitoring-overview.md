@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73162747"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448361"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
 Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez platformę Azure w celu ułatwienia zarządzania i monitorowania usług Azure Cloud Services i Virtual Machines.
@@ -32,7 +32,7 @@ Access Control oparte na rolach (RBAC) zapewnia szczegółowe zarządzanie dost�
 Więcej informacji:
 
 * [Blog zespołu Active Directory w sprawie RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Access Control oparte na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Oprogramowanie chroniące przed złośliwym kodem
 
@@ -61,7 +61,7 @@ Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jed
 Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Co to jest usługa Multi-Factor Authentication platformy Azure?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Co to jest usługa Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute

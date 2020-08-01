@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525521"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448758"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -211,7 +211,7 @@ Podczas wstępnego żądania serwer aplikacji łączy się z fragmentu Director 
 
 W przypadku wdrażania obciążeń Oracle na platformie Azure firma Microsoft bierze pod uwagę wszystkie poprawki na poziomie systemu operacyjnego hosta. Wszystkie planowane czynności konserwacyjne na poziomie systemu operacyjnego są przekazywane klientom z wyprzedzeniem, aby umożliwić klientowi zaplanowaną konserwację. Dwa serwery z dwóch różnych Strefy dostępności nigdy nie są jednocześnie poprawiane. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../../virtual-machines/linux/manage-availability.md) , aby uzyskać więcej szczegółowych informacji na temat konserwacji maszyn wirtualnych i stosowania poprawek. 
 
-Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautomatyzowane przy użyciu [Azure Automation](../../../automation/automation-tutorial-update-management.md). Stosowanie poprawek i konserwacji bazy danych Oracle może być zautomatyzowane i zaplanowane przy użyciu [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) lub [Azure Automation](../../../automation/automation-tutorial-update-management.md) w celu zminimalizowania przestojów. Zapoznaj się z [ciągłym dostarczaniem oraz wdrożeniami Blue/Green](/azure/devops/learn/what-is-continuous-delivery) , aby zrozumieć, jak można go używać w kontekście baz danych Oracle.
+Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautomatyzowane przy użyciu [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Stosowanie poprawek i konserwacji bazy danych Oracle może być zautomatyzowane i zaplanowane przy użyciu [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) lub [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) w celu zminimalizowania przestojów. Zapoznaj się z [ciągłym dostarczaniem oraz wdrożeniami Blue/Green](/azure/devops/learn/what-is-continuous-delivery) , aby zrozumieć, jak można go używać w kontekście baz danych Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Zagadnienia dotyczące architektury i projektowania
 

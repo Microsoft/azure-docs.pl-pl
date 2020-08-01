@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043489"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446335"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Przydziały i limity Azure Media Services
@@ -28,14 +28,14 @@ W tym artykule wymieniono niektóre z najczęstszych limitów Microsoft Azure Me
 
 ## <a name="account-limits"></a>Limity kont
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | [Media Services kont](media-services-account-concept.md) w ramach jednej subskrypcji | 25 (stały) |
 
 ## <a name="asset-limits"></a>Limity zasobów
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | [Zasoby](assets-concept.md) na konto Media Services | 1 000 000|
 
 ## <a name="storage-limits"></a>Limity magazynu
@@ -86,9 +86,10 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 ## <a name="packaging--delivery-limits"></a>& limity dostarczania pakietów
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md) (zatrzymane lub uruchomione) dla konta Media Services|2 |
+| Jednostki przesyłania strumieniowego Premium | 10 |
 | [Filtry manifestów dynamicznych](filters-dynamic-manifest-overview.md)|100|
 | [Zasady przesyłania strumieniowego](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unikatowe [lokalizatory przesyłania strumieniowego](streaming-locators-concept.md) skojarzone z elementem zawartości w jednym momencie | 100<sup>(7)</sup> (stałe) |

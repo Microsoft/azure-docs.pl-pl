@@ -3,12 +3,12 @@ title: Azure Machine Learning jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Obszar roboczy usługi Machine Learning z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090675"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458046"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning jako źródło Event Grid
 
@@ -257,11 +257,11 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 | Tytuł | Opis |
 | ----- | ----- |
-| [Korzystanie z zdarzeń Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Omówienie integrowania Azure Machine Learning z Event Grid. |
+| [Korzystanie z zdarzeń Azure Machine Learning](../machine-learning/how-to-use-event-grid.md) | Omówienie integrowania Azure Machine Learning z Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md)
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md)
-* Aby zapoznać się z wprowadzeniem do korzystania z Azure Event Grid z Azure Machine Learning, zobacz temat [Korzystanie z zdarzeń Azure Machine Learning](/azure/machine-learning/concept-event-grid-integration)
-* Przykład korzystania z Azure Event Grid z Azure Machine Learning można znaleźć w temacie [Tworzenie przepływów pracy uczenia maszynowego](/azure/machine-learning/how-to-use-event-grid) na podstawie zdarzeń
+* Aby zapoznać się z wprowadzeniem do korzystania z Azure Event Grid z Azure Machine Learning, zobacz temat [Korzystanie z zdarzeń Azure Machine Learning](../machine-learning/how-to-use-event-grid.md)
+* Przykład korzystania z Azure Event Grid z Azure Machine Learning można znaleźć w temacie [Tworzenie przepływów pracy uczenia maszynowego](../machine-learning/how-to-use-event-grid.md) na podstawie zdarzeń

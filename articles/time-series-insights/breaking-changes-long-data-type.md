@@ -1,6 +1,6 @@
 ---
-title: Dodawanie obsługi dla długich typów danych | Microsoft Docs
-description: Obsługa długich typów danych
+title: Obsługa długich typów danych w Azure Time Series Insights Gen2 | Microsoft Docs
+description: Obsługa długich typów danych w Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,44 +10,65 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: dpalled
-ms.openlocfilehash: c31ca7fd3eca89159d583b8a51b59a7bd6b8ed67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531428"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446635"
 ---
-# <a name="adding-support-for-long-data-type"></a>Dodawanie obsługi dla długich typów danych
+# <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Dodawanie obsługi długich typów danych w Azure Time Series Insights Gen2
 
-Te zmiany zostaną zastosowane tylko do środowisk Gen2. Jeśli masz środowisko Gen1, możesz zignorować te zmiany.
+Dodanie obsługi dla długich typów danych ma wpływ na sposób przechowywania i indeksowania danych liczbowych w Azure Time Series Insights tylko środowiskach Gen2. Jeśli masz środowisko Gen1, możesz zignorować te zmiany.
 
-Wprowadzamy zmiany w sposobie przechowywania i indeksowania danych liczbowych w Azure Time Series Insights Gen2, które mogą mieć wpływ na Ciebie. Jeśli dotyczy to dowolnego z poniższych przypadków, wprowadź niezbędne zmiany tak szybko, jak to możliwe. Twoje dane będą uruchamiane jako długie i podwójne od 29 czerwca do 30 czerwca 2020, w zależności od regionu. Jeśli masz jakieś pytania lub wątpliwości dotyczące tej zmiany, Prześlij bilet pomocy technicznej przez Azure Portal i podaj tę komunikację.
+Od 29 czerwca lub 30 czerwca 2020, w zależności od regionu, Twoje dane będą indeksowane jako **Long** i **Double**.  Jeśli masz jakieś pytania lub wątpliwości dotyczące tej zmiany, Prześlij bilet pomocy technicznej przez Azure Portal i podaj tę komunikację.
 
-Ta zmiana ma wpływ na następujące sytuacje:
+Jeśli masz wpływ na następujące przypadki, wprowadź zalecane zmiany:
 
-1. Jeśli obecnie używasz zmiennych modelu szeregów czasowych i wysyłasz tylko integralne typy danych w danych telemetrycznych.
-1. Jeśli obecnie używasz zmiennych modelu szeregów czasowych i wysyłasz zarówno całkowity, jak i niecałkowity typ danych w danych telemetrycznych.
-1. Jeśli używasz zmiennych kategorii do mapowania wartości całkowitych na kategorie.
-1. Jeśli używasz zestawu SDK języka JavaScript do tworzenia niestandardowej aplikacji frontonu.
-1. Jeśli zbliżasz się do 1 000 — limit nazw właściwości w sklepie ciepłym (WS) i wysyłasz zarówno dane całkowite, jak i niecałkowite, liczba właściwości może być wyświetlana jako Metryka w [Azure Portal](https://portal.azure.com/).
+- **Przypadek 1**: obecnie są używane zmienne modelu szeregów czasowych i wysyłane są tylko integralne typy danych w danych telemetrycznych.
+- **Przypadek 2**: obecnie korzystasz ze zmiennych modelu szeregów czasowych i wysyłaj zarówno całkowite, jak i niecałkowite typy danych w danych telemetrycznych.
+- **Przypadek 3**: użycie zmiennych kategorii do mapowania wartości całkowitych na kategorie.
+- **Przypadek 4**: używasz zestawu SDK języka JavaScript, aby utworzyć niestandardową aplikację frontonu.
+- **Przypadek 5**: zbliża się limit nazw właściwości 1 000 w sklepie ciepłym i wysyła zarówno dane całkowite, jak i niecałkowite. Liczba właściwości może być wyświetlana jako Metryka w [Azure Portal](https://portal.azure.com/).
 
-Jeśli którykolwiek z powyższych przypadków dotyczy Ciebie, należy wprowadzić zmiany w modelu w celu uwzględnienia tej zmiany. Zaktualizuj wyrażenie szeregów czasowych w definicji zmiennej w Eksploratorze Azure Time Series Insights Gen2 i w dowolnym kliencie niestandardowym przy użyciu naszych interfejsów API z zalecanymi zmianami. Aby uzyskać szczegółowe informacje, zobacz poniżej.
+Jeśli którykolwiek z tych przypadków dotyczy Ciebie, wprowadź zmiany w modelu. Zaktualizuj wyrażenie szeregów czasowych (TSX) w definicji zmiennej przy użyciu zalecanych zmian. Aktualizuj oba:
 
-W zależności od rozwiązania IoT i ograniczeń można nie mieć wglądu w dane wysyłane do środowiska Azure Time Series Insights Gen2. Jeśli nie masz pewności, czy dane są tylko integralne, czy zarówno integralne, jak i niecałkowite, możesz korzystać z kilku opcji. Możesz poczekać, aż funkcja zostanie wydana, a następnie poznać zdarzenia pierwotne w interfejsie użytkownika Eksploratora, aby zrozumieć, które właściwości zostały zapisane w dwóch oddzielnych kolumnach. Można zapobiegawczo wprowadzić poniższe zmiany dla wszystkich tagów numerycznych lub tymczasowo przekierować podzestaw zdarzeń do magazynu, aby lepiej zrozumieć i eksplorować schemat. Aby przechowywać zdarzenia, Włącz funkcję [przechwytywania zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dla Event Hubs lub [Roześlij](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) z IoT Hub do BLOB Storage platformy Azure. Dane można także zaobserwować za pośrednictwem [Eksploratora centrum zdarzeń](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)lub za pomocą [hosta procesora zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). Jeśli używasz IoT Hub, zapoznaj się z dokumentacją znajdującą się [tutaj](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) , jak uzyskać dostęp do wbudowanego punktu końcowego.
+- Azure Time Series Insights Explorer Gen2
+- Dowolny klient niestandardowy korzystający z naszych interfejsów API
 
-Należy pamiętać, że jeśli na pewno te zmiany mają wpływ i nie są w stanie wykonać powyższych dat, może wystąpić zakłócenie, w którym zmienne szeregów czasowych, do których uzyskuje się dostęp za pośrednictwem interfejsów API zapytań lub Eksploratora Time Series Insights zwróci *wartość null* (tj. nie pokazywanie danych w Eksploratorze).
+W zależności od rozwiązania IoT i ograniczeń można nie mieć wglądu w dane wysyłane do środowiska Azure Time Series Insights Gen2. Jeśli nie masz pewności, czy dane są tylko integralne, czy zarówno integralna, jak i niecałkowita, masz kilka opcji:
+
+- Możesz poczekać, aż funkcja zostanie wydana. Następnie Zbadaj zdarzenia pierwotne w interfejsie użytkownika Eksploratora, aby zrozumieć, które właściwości są zapisywane w dwóch oddzielnych kolumnach.
+- Można zapobiegawczo wprowadzić zalecane zmiany dla wszystkich tagów numerycznych.
+- Możesz tymczasowo kierować podzestaw zdarzeń do magazynu, aby lepiej zrozumieć i eksplorować schemat.
+
+Aby przechowywać zdarzenia, Włącz funkcję [przechwytywania zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dla platformy Azure Event Hubs lub [roześlij](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) ją z IoT Hub do usługi Azure Blob Storage.
+
+Dane można także zaobserwować za pośrednictwem [Eksploratora centrum zdarzeń](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)lub za pomocą [hosta procesora zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+
+Jeśli używasz IoT Hub, przejdź do pozycji [odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego,](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) Aby uzyskać dostęp do wbudowanego punktu końcowego.
+
+> [!NOTE]
+> Jeśli nie wprowadzisz zalecanych zmian, może wystąpić zakłócenie. Na przykład zmienne Time Series Insights, do których uzyskuje się dostęp za pośrednictwem interfejsów API zapytań lub Eksplorator Time Series Insights zwróci **wartość null** (oznacza to, że w Eksploratorze nie są wyświetlane żadne dane).
 
 ## <a name="recommended-changes"></a>Zalecane zmiany
 
-Przypadek 1 & 2: **Używanie zmiennych modelu szeregów czasowych i wysyłanie tylko całkowitych typów danych lub wysyłanie zarówno typów całkowitych, jak i niecałkowitych w danych telemetrycznych.**
+### <a name="case-1-using-time-series-model-variables-and-sending-only-integral-data-types-in-telemetry-data"></a>Przypadek 1: Używanie zmiennych modelu szeregów czasowych i wysyłanie tylko całkowitych typów danych w danych telemetrycznych
 
-Jeśli aktualnie wysyłasz dane telemetryczne typu Integer, dane zostaną podzielone na dwie kolumny: "propertyValue_double" i "propertyValue_long".
+Zalecane zmiany w przypadku 1 są takie same, jak w przypadku 2. Postępuj zgodnie z instrukcjami w sekcji w przypadku 2.
 
-Dane całkowite będą zapisywane w "propertyValue_long", gdy zmiany zaczną obowiązywać, a poprzednio pozyskiwane (i przyszłe w przyszłości) dane liczbowe w "propertyValue_double" nie będą kopiowane.
+### <a name="case-2-using-time-series-model-variables-and-sending-both-integral-and-nonintegral-types-in-telemetry-data"></a>Przypadek 2: Używanie zmiennych modelu szeregów czasowych i wysyłanie zarówno całkowitych, jak i niecałkowitych typów danych telemetrycznych
 
-Jeśli chcesz wykonywać zapytania dotyczące danych w tych dwóch kolumnach dla właściwości "propertyValue", musisz użyć funkcji skalarnej *łączenia ()* w TSX. Funkcja akceptuje argumenty tego samego typu danych i zwraca pierwszą wartość różną od null na liście argumentów (więcej informacji na temat użycia można znaleźć [tutaj](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions)).
+Jeśli aktualnie wysyłasz dane telemetryczne typu Integer, Twoje dane zostaną podzielone na dwie kolumny:
 
-### <a name="variable-definition-in-time-series-explorer---numeric"></a>Definicja zmiennej w Eksploratorze szeregów czasowych — wartość numeryczna
+- **propertyValue_double**
+- **propertyValue_long**
+
+Dane liczb całkowitych są zapisywane do **propertyValue_long**. Poprzednio pozyskiwane (i przyszłe pozyskiwane) dane liczbowe w **propertyValue_double** nie są kopiowane.
+
+Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwości **PropertyValue** , musisz użyć funkcji skalarnej **łączenia ()** w TSX. Funkcja akceptuje argumenty tego samego **typu danych** i zwraca pierwszą wartość różną od null na liście argumentów. Aby uzyskać więcej informacji, zobacz [Azure Time Series Insights Gen2 Data Access](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+
+#### <a name="variable-definition-in-tsx---numeric"></a>Definicja zmiennej w TSX — wartość liczbowa
 
 *Definicja poprzedniej zmiennej:*
 
@@ -57,9 +78,9 @@ Jeśli chcesz wykonywać zapytania dotyczące danych w tych dwóch kolumnach dla
 
 [![Nowa definicja zmiennej](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Można również użyć *"łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))"* jako niestandardowego [wyrażenia szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-### <a name="inline-variable-definition-using-time-series-query-apis---numeric"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań szeregów czasowych — wartość liczbowa
+#### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — wartość liczbowa
 
 *Definicja poprzedniej zmiennej:*
 
@@ -105,16 +126,16 @@ Można również użyć *"łączenia ($Event. PropertyValue. Double, ToDouble �
 }
 ```
 
-Można również użyć *"łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))"* jako niestandardowego [wyrażenia szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> Zalecamy aktualizowanie tych zmiennych we wszystkich miejscach, w których mogą być używane (model szeregów czasowych, zapisane zapytania, Power BI zapytania łącznika).
+> Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.
 
-Przypadek 3: **Używanie zmiennych kategorii do mapowania wartości całkowitych na kategorie**
+### <a name="case-3-using-categorical-variables-to-map-integer-values-to-categories"></a>Przypadek 3: Używanie zmiennych kategorii do mapowania wartości całkowitych na kategorie
 
-Jeśli obecnie używasz zmiennych kategorii, które mapują wartości całkowite na kategorie, możesz użyć funkcji toLong do konwertowania danych z typu Double na typ Long. Podobnie jak w przypadku powyższych przypadków, należy połączyć kolumny Double i Long typu DataType.
+Jeśli obecnie używasz zmiennych kategorii, które mapują wartości całkowite na kategorie, możesz użyć funkcji **toLong** do konwertowania danych z typu **Double** na typ **Long** . Podobnie jak w przypadku przypadków 1 i 2, należy połączyć kolumny **typu** **Double** i **Long** .
 
-### <a name="variable-definition-in-time-series-explorer---categorical"></a>Definicja zmiennej w Eksploratorze szeregów czasowych — kategorii
+#### <a name="variable-definition-in-time-series-explorer---categorical"></a>Definicja zmiennej w Eksploratorze szeregów czasowych — kategorii
 
 *Definicja poprzedniej zmiennej:*
 
@@ -124,11 +145,11 @@ Jeśli obecnie używasz zmiennych kategorii, które mapują wartości całkowite
 
 [![Nowa definicja zmiennej](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Można również użyć *"łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))"* jako niestandardowego [wyrażenia szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ danych wszystkich argumentów w elemencie łączenia () musi być typu Long w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
-### <a name="inline-variable-definition-using-time-series-query-apis---categorical"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań szeregów czasowych — kategorii
+#### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — kategorii
 
 *Definicja poprzedniej zmiennej:*
 
@@ -206,19 +227,19 @@ Zmienne kategorii nadal wymagają wartości typu Integer. Typ danych wszystkich 
 }
 ```
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ danych wszystkich argumentów w elemencie łączenia () musi być typu Long w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> Zalecamy aktualizowanie tych zmiennych we wszystkich miejscach, w których mogą być używane (model szeregów czasowych, zapisane zapytania, Power BI zapytania łącznika).
+> Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.
 
-Przypadek 4. **Używanie zestawu SDK języka JavaScript do tworzenia niestandardowej aplikacji frontonu**
+### <a name="case-4-using-the-javascript-sdk-to-build-a-custom-front-end-application"></a>Przypadek 4. Używanie zestawu SDK języka JavaScript do tworzenia niestandardowej aplikacji frontonu
 
-Jeśli dotyczy to przypadków 1-3 powyżej i kompilowania niestandardowych aplikacji, należy zaktualizować zapytania tak, aby korzystały z funkcji *łączenia ()* , jak pokazano w powyższym przykładzie.
+Jeśli masz wpływ na przypadki od 1 do 3 i kompilacji aplikacji niestandardowych, musisz zaktualizować zapytania, aby użyć funkcji **łączenia ()** , jak pokazano w poprzednich przykładach.
 
-Przypadek 5: **zbliżanie się limitu właściwości 1 000 w sklepie ciepłym**
+### <a name="case-5-nearing-warm-store-1000-property-limit"></a>Przypadek 5: zbliżanie się limitu właściwości 1 000 w sklepie ciepłym
 
-Jeśli jesteś użytkownikiem sklepu ze zbyt dużą liczbą właściwości i uważasz, że ta zmiana spowodowałaby wypchnięcie środowiska przy użyciu limitu nazw właściwości 1 000 WS, Prześlij bilet pomocy technicznej przez Azure Portal i podaj tę komunikację.
+Jeśli jesteś użytkownikiem sklepu ze zbyt dużą liczbą właściwości i uważasz, że ta zmiana spowodowałaby wypchnięcie środowiska w ramach limitu nazw właściwości magazynu ciepłego 1 000, Prześlij bilet pomocy technicznej przez Azure Portal i podaj tę komunikację.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [obsługiwane typy danych](concepts-supported-data-types.md) , aby wyświetlić pełną listę obsługiwanych typów danych.
+- Zapoznaj się z pełną listą [obsługiwanych typów danych](concepts-supported-data-types.md).

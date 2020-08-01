@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077862"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446844"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Storage
 
@@ -104,12 +104,12 @@ Usługa Azure Storage obsługuje następujące wymiary dla metryk w Azure Monito
 
 | Nazwa wymiaru | Opis |
 | ------------------- | ----------------- |
-| **Obiekt blobtype** | Typ obiektu BLOB tylko dla metryk obiektów BLOB. Obsługiwane wartości to **BlockBlob**, **PageBlob**i **Azure Data Lake Storage**. Dołącz obiekt BLOB jest zawarty w BlockBlob. |
+| **Obiekt blobtype** | Typ obiektu BLOB tylko dla metryk obiektów BLOB. Obsługiwane wartości to **BlockBlob**, **PageBlob**i **Azure Data Lake Storage**. Dołączane obiekty blob są zawarte w **BlockBlob**. |
 | **BlobTier** | Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Zobacz więcej w [warstwie obiektów BLOB usługi Azure Storage](../blobs/storage-blob-storage-tiers.md). Obsługiwane są następujące wartości: <br/> <li>**Gorąca**: warstwa gorąca</li> <li>**Chłodna**: warstwa chłodna</li> <li>**Archiwum**: warstwa Archiwum</li> <li>**Premium**: warstwa Premium dla blokowego obiektu BLOB</li> <li>**P4/P6/P10/P15/P20**/P30/P40/P50/P60: typy warstw dla obiektów BLOB na stronie Premium</li> <li>**Standardowa**: typ warstwy dla standardowego obiektu BLOB strony</li> <li>**Niewarstwowy**: typ warstwy dla konta magazynu ogólnego przeznaczenia w wersji 1</li> |
 | **Typ geotype** | Transakcja z klastra podstawowego lub pomocniczego. Dostępne wartości to **podstawowy** i **pomocniczy**. Dotyczy on dostępu do odczytu geograficznie nadmiarowego magazynu (RA-GRS) podczas odczytywania obiektów z pomocniczej dzierżawy. |
 | **Responsetype** | Typ odpowiedzi transakcji. Dostępne wartości obejmują: <br/><br/> <li>**ServerOtherError**: Wszystkie inne błędy po stronie serwera z wyjątkiem opisanych </li> <li>**ServerBusyError**: Uwierzytelnione żądanie, które zwróciło kod stanu HTTP 503. </li> <li>**ServerTimeoutError**: Uwierzytelnione żądanie z przekroczonym limitem czasu, które zwróciło kod stanu HTTP 500. Przekroczenie limitu czasu wystąpiło z powodu błędu serwera. </li> <li>**AuthorizationError**: Uwierzytelnione żądanie, które nie powiodło się z powodu nieautoryzowanego dostępu do danych lub błędu autoryzacji. </li> <li>**NetworkError**: Uwierzytelnione żądanie, które nie powiodło się z powodu błędów sieci. Najczęściej występuje, gdy klient przedwcześnie zamyka połączenie przed wygaśnięciem limitu czasu. </li><li>**ClientAccountBandwidthThrottlingError**: żądanie jest ograniczane na przepustowość, aby przekroczyć [limity skalowalności konta magazynu](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: żądanie jest ograniczone przy częstotliwości żądania w przypadku przekroczenia [limitów skalowalności konta magazynu](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: inne błędy ograniczania po stronie klienta. ClientAccountBandwidthThrottlingError i ClientAccountRequestThrottlingError są wykluczone.</li> <li>**ClientTimeoutError**: Uwierzytelnione żądanie z przekroczonym limitem czasu, które zwróciło kod stanu HTTP 500. Jeśli limit czasu sieci klienta lub limit czasu żądania jest ustawiony na mniejszą wartość niż oczekiwana przez usługę magazynu, jest to oczekiwany limit czasu. W przeciwnym razie zostanie zgłoszone jako ServerTimeoutError. </li> <li>**ClientOtherError**: Wszystkie inne błędy po stronie klienta z wyjątkiem opisanych. </li> <li>**Success**: Żądanie zakończone powodzeniem</li> <li> **SuccessWithThrottling**: pomyślne żądanie, gdy klient SMB zostanie w pierwszej kolejności określony, ale po ponownych próbach zakończy się pomyślnie.</li> |
 | **ApiName** | Nazwa operacji. Na przykład: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> W przypadku wszystkich nazw operacji zobacz [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Uwierzytelnianie** | Typ uwierzytelniania używany w transakcjach. Dostępne wartości obejmują: <br/> <li>**AccountKey**: transakcja jest uwierzytelniana przy użyciu klucza konta magazynu.</li> <li>**SAS**: transakcja jest uwierzytelniana za pomocą sygnatur dostępu współdzielonego.</li> <li>**OAuth**: transakcja jest uwierzytelniana przy użyciu tokenów dostępu OAuth.</li> <li>**Anonimowe**: transakcja jest wymagana anonimowo. Nie obejmuje to żądań inspekcji wstępnej.</li> <li>**AnonymousPreflight**: transakcja jest żądaniem wstępnym.</li> |
+| **Authentication** | Typ uwierzytelniania używany w transakcjach. Dostępne wartości obejmują: <br/> <li>**AccountKey**: transakcja jest uwierzytelniana przy użyciu klucza konta magazynu.</li> <li>**SAS**: transakcja jest uwierzytelniana za pomocą sygnatur dostępu współdzielonego.</li> <li>**OAuth**: transakcja jest uwierzytelniana przy użyciu tokenów dostępu OAuth.</li> <li>**Anonimowe**: transakcja jest wymagana anonimowo. Nie obejmuje to żądań inspekcji wstępnej.</li> <li>**AnonymousPreflight**: transakcja jest żądaniem wstępnym.</li> |
 
 W przypadku wymiarów pomocniczych metryk należy określić wartość wymiaru, aby wyświetlić odpowiednie wartości metryk. Jeśli na przykład przeszukiwane są wartości **transakcji** dla udanych odpowiedzi, należy filtrować wymiar **responsetype** z **sukcesem**. Lub Jeśli zobaczysz wartość **BlobCount** dla blokowych obiektów blob, musisz filtrować wymiar **blobtype** z **BlockBlob**.
 
@@ -142,20 +142,20 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 | Właściwość | Opis |
 |:--- |:---|
-|**pierwszym** | Czas uniwersalnego czasu koordynowanego (UTC), gdy żądanie zostało odebrane przez magazyn. Na przykład: `2018/11/08 21:09:36.6900118`.|
+|**pierwszym** | Czas uniwersalnego czasu koordynowanego (UTC), gdy żądanie zostało odebrane przez magazyn. Przykład: `2018/11/08 21:09:36.6900118`.|
 |**Identyfikator** | Identyfikator zasobu konta magazynu. Na przykład: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**kategorii** | Kategoria żądanej operacji. Na przykład: `StorageRead` , `StorageWrite` , lub `StorageDelete` .|
 |**operationName** | Typ operacji REST, która została wykonana. <br> Aby uzyskać pełną listę operacji, zobacz [temat analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-|**operationVersion** | Wersja usługi magazynu określona podczas żądania. Jest to odpowiednik wartości nagłówka **x-MS-Version** . Na przykład: `2017-04-17`.|
-|**schemaVersion** | Wersja schematu dziennika. Na przykład: `1.0`.|
+|**operationVersion** | Wersja usługi magazynu określona podczas żądania. Jest to odpowiednik wartości nagłówka **x-MS-Version** . Przykład: `2017-04-17`.|
+|**schemaVersion** | Wersja schematu dziennika. Przykład: `1.0`.|
 |**statusCode** | Kod stanu HTTP dla żądania. Jeśli żądanie zostanie przerwane, ta wartość może być ustawiona na `Unknown` . <br> Na przykład: `206` |
 |**statusText** | Stan wymaganej operacji.  Pełna lista komunikatów o stanie znajduje się w [temacie analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). W wersji 2017-04-17 i nowszych komunikat o stanie `ClientOtherError` nie jest używany. Zamiast tego pole to zawiera kod błędu. Na przykład: `SASSuccess`  |
-|**Milisekundach)** | Łączny czas, wyrażony w milisekundach, w celu wykonania żądanej operacji. Obejmuje to czas odczytywania żądania przychodzącego oraz wysłanie odpowiedzi do osoby żądającej. Na przykład: `12`.|
-|**callerIpAddress** | Adres IP osoby żądającej, w tym numer portu. Na przykład: `192.100.0.102:4362`. |
-|**korelacj** | Identyfikator, który jest używany do skorelowania dzienników między zasobami. Na przykład: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
-|**przeniesienie** | Lokalizacja konta magazynu. Na przykład: `North Europe`. |
+|**Milisekundach)** | Łączny czas, wyrażony w milisekundach, w celu wykonania żądanej operacji. Obejmuje to czas odczytywania żądania przychodzącego oraz wysłanie odpowiedzi do osoby żądającej. Przykład: `12`.|
+|**callerIpAddress** | Adres IP osoby żądającej, w tym numer portu. Przykład: `192.100.0.102:4362`. |
+|**korelacj** | Identyfikator, który jest używany do skorelowania dzienników między zasobami. Przykład: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
+|**przeniesienie** | Lokalizacja konta magazynu. Przykład: `North Europe`. |
 |**protokol**|Protokół, który jest używany w operacji. Na przykład: `HTTP` , `HTTPS` , `SMB` lub`NFS`|
-| **adresu** | Zażądano identyfikatora Uniform Resource Identifier. Na przykład: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
+| **adresu** | Zażądano identyfikatora Uniform Resource Identifier. Przykład: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Pola opisujące sposób uwierzytelniania operacji
 
@@ -193,16 +193,16 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |**tożsamość/typ** | Typ uwierzytelniania, który został użyty do wysłania żądania. Na przykład: `OAuth` , `SAS Key` , `Account Key` lub`Anonymous` |
 |**tożsamość/tokenHash**|To pole jest zarezerwowane wyłącznie do użytku wewnętrznego. |
 |**Autoryzacja/akcja** | Akcja, która jest przypisana do żądania. Na przykład: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-|**Autoryzacja/roleAssignmentId** | Identyfikator przypisania roli. Na przykład: `4e2521b7-13be-4363-aeda-111111111111`.|
-|**Autoryzacja/zduplikowanych** | Identyfikator definicji roli. Na przykład: `ba92f5b4-2d11-453d-a403-111111111111"`.|
-|**nazwy główne/identyfikator** | Identyfikator podmiotu zabezpieczeń. Na przykład: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
-|**podmioty zabezpieczeń/typ** | Typ podmiotu zabezpieczeń. Na przykład: `ServicePrincipal`. |
-|**żądający/appID** | Identyfikator aplikacji Open Authorization (OAuth) używany jako obiekt żądający. <br> Na przykład: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
-|**Obiekt żądający/odbiorcy** | Odbiorcy protokołu OAuth żądania. Na przykład: `https://storage.azure.com`. |
-|**Obiekt żądający/objectId** | Identyfikator obiektu OAuth osoby żądającej. W przypadku uwierzytelniania przy użyciu protokołu Kerberos reprezentuje identyfikator obiektu uwierzytelnionego użytkownika protokołu Kerberos. Na przykład: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
-|**Obiekt żądający/tenantId** | Identyfikator dzierżawy OAuth tożsamości. Na przykład: `72f988bf-86f1-41af-91ab-222222222222`.|
-|**Obiekt żądający/tokenIssuer** | Wystawca tokenu OAuth. Na przykład: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
-|**zleceniodawca/nazwa UPN** | Główna nazwa użytkownika (UPN) obiektu żądającego. Na przykład: `someone@contoso.com`. |
+|**Autoryzacja/roleAssignmentId** | Identyfikator przypisania roli. Przykład: `4e2521b7-13be-4363-aeda-111111111111`.|
+|**Autoryzacja/zduplikowanych** | Identyfikator definicji roli. Przykład: `ba92f5b4-2d11-453d-a403-111111111111"`.|
+|**nazwy główne/identyfikator** | Identyfikator podmiotu zabezpieczeń. Przykład: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
+|**podmioty zabezpieczeń/typ** | Typ podmiotu zabezpieczeń. Przykład: `ServicePrincipal`. |
+|**żądający/appID** | Identyfikator aplikacji Open Authorization (OAuth) używany jako obiekt żądający. <br> Przykład: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
+|**Obiekt żądający/odbiorcy** | Odbiorcy protokołu OAuth żądania. Przykład: `https://storage.azure.com`. |
+|**Obiekt żądający/objectId** | Identyfikator obiektu OAuth osoby żądającej. W przypadku uwierzytelniania przy użyciu protokołu Kerberos reprezentuje identyfikator obiektu uwierzytelnionego użytkownika protokołu Kerberos. Przykład: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
+|**Obiekt żądający/tenantId** | Identyfikator dzierżawy OAuth tożsamości. Przykład: `72f988bf-86f1-41af-91ab-222222222222`.|
+|**Obiekt żądający/tokenIssuer** | Wystawca tokenu OAuth. Przykład: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
+|**zleceniodawca/nazwa UPN** | Główna nazwa użytkownika (UPN) obiektu żądającego. Przykład: `someone@contoso.com`. |
 |**Obiekt żądający/nazwa użytkownika** | To pole jest zarezerwowane wyłącznie do użytku wewnętrznego.|
 
 ### <a name="fields-that-describe-the-service"></a>Pola opisujące usługę
@@ -245,25 +245,25 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 | Właściwość | Opis |
 |:--- |:---|
-|**accountName** | Nazwa konta magazynu. Na przykład: `mystorageaccount`.  |
-|**requestUrl** | Żądany adres URL. Na przykład: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
-|**userAgentHeader** | Wartość **nagłówka User-Agent** w cudzysłowie. Na przykład: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
-|**referrerHeader** | Wartość nagłówka **odwołującego** się. Na przykład: `http://contoso.com/about.html`.|
-|**Identyfikatorem żądania klienta** | Wartość nagłówka **x-MS-Client-Request-ID** żądania. Na przykład: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
-|**element ETag** | Identyfikator ETag dla zwracanego obiektu, w cudzysłowie. Na przykład: `0x8D101F7E4B662C4`.  |
-|**serverLatencyMs** | Łączny czas, wyrażony w milisekundach, aby wykonać żądaną operację. Ta wartość nie obejmuje opóźnienia sieci (czasu odczytu żądania przychodzącego i wysłania odpowiedzi do zleceniodawcy). Na przykład: `22`. |
+|**accountName** | Nazwa konta magazynu. Przykład: `mystorageaccount`.  |
+|**requestUrl** | Żądany adres URL. Przykład: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
+|**userAgentHeader** | Wartość **nagłówka User-Agent** w cudzysłowie. Przykład: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
+|**referrerHeader** | Wartość nagłówka **odwołującego** się. Przykład: `http://contoso.com/about.html`.|
+|**Identyfikatorem żądania klienta** | Wartość nagłówka **x-MS-Client-Request-ID** żądania. Przykład: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
+|**element ETag** | Identyfikator ETag dla zwracanego obiektu, w cudzysłowie. Przykład: `0x8D101F7E4B662C4`.  |
+|**serverLatencyMs** | Łączny czas, wyrażony w milisekundach, aby wykonać żądaną operację. Ta wartość nie obejmuje opóźnienia sieci (czasu odczytu żądania przychodzącego i wysłania odpowiedzi do zleceniodawcy). Przykład: `22`. |
 |**Service** | Usługa skojarzona z tym żądaniem. Na przykład: `blob` , `table` , `files` lub `queue` . |
-|**operationCount** | Liczba każdej zarejestrowanej operacji, która jest uwzględniona w żądaniu. Ta liczba zaczyna się od indeksu `0` . Niektóre żądania wymagają więcej niż jednej operacji, na przykład żądanie skopiowania obiektu BLOB. Większość żądań wykonuje tylko jedną operację. Na przykład: `1`. |
-|**requestHeaderSize** | Rozmiar nagłówka żądania wyrażony w bajtach. Na przykład: `578`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta. |
-|**requestBodySize** | Rozmiar pakietów żądań wyrażony w bajtach, które są odczytywane przez usługę magazynu. <br> Na przykład: `0`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |
-|**responseHeaderSize** | Rozmiar nagłówka odpowiedzi wyrażony w bajtach. Na przykład: `216`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |
-|**responseBodySize** | Rozmiar pakietów odpowiedzi zapisanych przez usługę magazynu w bajtach. Jeśli żądanie nie powiedzie się, ta wartość może być pusta. Na przykład: `216`.  |
-|**requestMd5** | Wartość nagłówka **Content-MD5** lub nagłówka **x-MS-Content-MD5** w żądaniu. Wartość skrótu MD5 określona w tym polu reprezentuje zawartość żądania. Na przykład: `788815fd0198be0d275ad329cafd1830`. <br>To pole może być puste.  |
-|**serverMd5** | Wartość skrótu MD5 obliczonego przez usługę magazynu. Na przykład: `3228b3cf1069a5489b298446321f8521`. <br>To pole może być puste.  |
-|**lastModifiedTime** | Czas ostatniej modyfikacji (LMT) dla zwracanego obiektu.  Na przykład: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>To pole jest puste dla operacji, które mogą zwracać wiele obiektów. |
-|**conditionsUsed** | Rozdzielana średnikami lista par klucz-wartość reprezentujących warunek. Mogą to być następujące warunki: <li> If-Modified — od <li> If-unmodifiedd — od <li> If-Match <li> If-None-Match  <br> Na przykład: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
+|**operationCount** | Liczba każdej zarejestrowanej operacji, która jest uwzględniona w żądaniu. Ta liczba zaczyna się od indeksu `0` . Niektóre żądania wymagają więcej niż jednej operacji, na przykład żądanie skopiowania obiektu BLOB. Większość żądań wykonuje tylko jedną operację. Przykład: `1`. |
+|**requestHeaderSize** | Rozmiar nagłówka żądania wyrażony w bajtach. Przykład: `578`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta. |
+|**requestBodySize** | Rozmiar pakietów żądań wyrażony w bajtach, które są odczytywane przez usługę magazynu. <br> Przykład: `0`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |
+|**responseHeaderSize** | Rozmiar nagłówka odpowiedzi wyrażony w bajtach. Przykład: `216`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |
+|**responseBodySize** | Rozmiar pakietów odpowiedzi zapisanych przez usługę magazynu w bajtach. Jeśli żądanie nie powiedzie się, ta wartość może być pusta. Przykład: `216`.  |
+|**requestMd5** | Wartość nagłówka **Content-MD5** lub nagłówka **x-MS-Content-MD5** w żądaniu. Wartość skrótu MD5 określona w tym polu reprezentuje zawartość żądania. Przykład: `788815fd0198be0d275ad329cafd1830`. <br>To pole może być puste.  |
+|**serverMd5** | Wartość skrótu MD5 obliczonego przez usługę magazynu. Przykład: `3228b3cf1069a5489b298446321f8521`. <br>To pole może być puste.  |
+|**lastModifiedTime** | Czas ostatniej modyfikacji (LMT) dla zwracanego obiektu.  Przykład: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>To pole jest puste dla operacji, które mogą zwracać wiele obiektów. |
+|**conditionsUsed** | Rozdzielana średnikami lista par klucz-wartość reprezentujących warunek. Mogą to być następujące warunki: <li> If-Modified — od <li> If-unmodifiedd — od <li> If-Match <li> If-None-Match  <br> Przykład: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
 |**contentLengthHeader** | Wartość nagłówka Content-Length dla żądania wysłanego do usługi Storage. Jeśli żądanie zakończyło się pomyślnie, ta wartość jest równa requestBodySize. Jeśli żądanie nie powiedzie się, ta wartość nie może być równa requestBodySize lub może być pusta. |
-|**tlsVersion** | Wersja protokołu TLS używana w połączeniu żądania. Na przykład: `TLS 1.2`. |
+|**tlsVersion** | Wersja protokołu TLS używana w połączeniu żądania. Przykład: `TLS 1.2`. |
 |**smbTreeConnectID** | Blok komunikatów serwera (SMB) **treeConnectId** ustanowiony w czasie łączenia drzewa. Na przykład: `0x3` |
 |**smbPersistentHandleID** | Identyfikator dojścia trwałego z żądania SMB2 CREATE, które przeżyje połączenia sieciowe.  Przywoływany w [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 jako **SMB2_FILEID. Trwałe**. Na przykład: `0x6003f` |
 |**smbVolatileHandleID** | Identyfikator dojścia nietrwałego z żądania SMB2 CREATE, które jest odtwarzane w sieci ponownie nawiązuje połączenie.  Przywoływany w [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 jako **SMB2_FILEID. Nietrwały**. Na przykład: `0xFFFFFFFF00000065` |
@@ -275,7 +275,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |**smbCommandMajor UInt32** | Wartość w **SMB2_HEADER. Command**. Obecnie jest to liczba z przedziału od 0 do 18 włącznie. Na przykład: `0x6` |
 |**smbCommandMinor** | Podklasa elementu **SmbCommandMajor**, gdzie to konieczne. Na przykład: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [monitorowanie usługi Azure Storage](monitor-storage.md) , aby zapoznać się z opisem monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie ak
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186184"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448060"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
 
@@ -31,19 +31,19 @@ Automatyzacja procesów obsługuje integrację usług platformy Azure i innych s
 Zarządzanie konfiguracją w programie Azure Automation umożliwia dostęp do dwóch funkcji:
 
 * Śledzenie zmian i spis
-* Azure Automation State Configuration
+* Usługa State Configuration w usłudze Azure Automation
 
 ### <a name="change-tracking-and-inventory"></a>Śledzenie zmian i spis
 
 Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking.md).
 
-### <a name="azure-automation-state-configuration"></a>Azure Automation State Configuration
+### <a name="azure-automation-state-configuration"></a>Usługa State Configuration w usłudze Azure Automation
 
 [Konfiguracja stanu Azure Automation](automation-dsc-overview.md) to oparta na chmurze funkcja konfiguracji żądanego stanu (DSC) programu PowerShell, która udostępnia usługi dla środowisk przedsiębiorstwa. Korzystając z tej funkcji, można zarządzać zasobami DSC w Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych z serwera ściągania DSC w chmurze platformy Azure. 
 
 ## <a name="update-management"></a>Zarządzanie aktualizacjami
 
-Azure Automation zawiera funkcję [Update Management](automation-update-management.md) dla systemów Windows i Linux w środowiskach hybrydowych. Update Management zapewnia wgląd w zgodność aktualizacji na platformie Azure oraz w innych chmurach i lokalnych. Funkcja ta umożliwia tworzenie zaplanowanych wdrożeń, które organizują instalację aktualizacji w ramach zdefiniowanego okna obsługi. Jeśli aktualizacja nie powinna być zainstalowana na komputerze, można użyć funkcji Update Management, aby wykluczyć ją z wdrożenia.
+Azure Automation zawiera funkcję [Update Management](update-management/update-mgmt-overview.md) dla systemów Windows i Linux w środowiskach hybrydowych. Update Management zapewnia wgląd w zgodność aktualizacji na platformie Azure oraz w innych chmurach i lokalnych. Funkcja ta umożliwia tworzenie zaplanowanych wdrożeń, które organizują instalację aktualizacji w ramach zdefiniowanego okna obsługi. Jeśli aktualizacja nie powinna być zainstalowana na komputerze, można użyć funkcji Update Management, aby wykluczyć ją z wdrożenia.
 
 ## <a name="shared-capabilities"></a>Współdzielone możliwości
 
@@ -62,7 +62,7 @@ Usługa Azure Automation zawiera zestaw współdzielonych zasobów, które ułat
 * **[Certyfikaty](./shared-resources/certificates.md)** — Zdefiniuj informacje, które mają być używane podczas uwierzytelniania i zabezpieczania wdrożonych zasobów w przypadku dostępu do elementów Runbook lub konfiguracji DSC w czasie wykonywania. 
 * **[Zmienne](./shared-resources/variables.md)** — Przechowuj zawartość, której można używać w elementach Runbook i konfiguracjach. Można zmienić wartości zmiennych bez konieczności modyfikowania elementów Runbook lub konfiguracji, które odwołują się do nich.
 
-### <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról
+### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
 Azure Automation obsługuje kontrolę dostępu opartą na rolach (RBAC) w celu regulowania dostępu do konta usługi Automation i jego zasobów. Aby dowiedzieć się więcej o konfigurowaniu RBAC na koncie usługi Automation, elementach Runbook i zadaniach, zobacz [Kontrola dostępu oparta na rolach dla Azure Automation](automation-role-based-access-control.md).
 
@@ -94,7 +94,7 @@ Azure Automation obsługuje zarządzanie przez cały cykl życia infrastruktury 
 
 Ceny skojarzone z Azure Automation można sprawdzić na stronie [cennika](https://azure.microsoft.com/pricing/details/automation/) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Tworzenie konta usługi Automation](automation-quickstart-create-account.md)

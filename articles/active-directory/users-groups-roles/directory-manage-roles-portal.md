@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221286"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448693"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Wyświetlanie i przypisywanie ról administratorów w Azure Active Directory
 
@@ -56,6 +56,12 @@ Jeśli jesteś administratorem globalnym lub administratorem roli uprzywilejowan
 Gdy przeglądasz członków roli, wybierz pozycję **Opis** , aby wyświetlić pełną listę uprawnień przyznanych przez przypisanie roli. Strona zawiera linki do odpowiedniej dokumentacji ułatwiające zarządzanie rolami w katalogu.
 
 ![Lista uprawnień dla roli administratora](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="download-role-assignments"></a>Pobieranie przypisań ról
+
+Aby pobrać wszystkie przypisania dla określonej roli, na stronie **role i Administratorzy** wybierz rolę, a następnie wybierz pozycję **Pobierz przypisania ról**. Plik CSV, który wyświetla listę przypisań we wszystkich zakresach dla tej roli, zostanie pobrany.
+
+![pobieranie wszystkich przypisań roli](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Przypisywanie roli
 

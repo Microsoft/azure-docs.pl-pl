@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie Access Control opartej na rolach (RBAC) na platformie Azure dla usługi Azure API for FHIR
+title: Konfigurowanie kontroli dostępu opartej na rolach (Azure RBAC) dla interfejsu API platformy Azure dla usługi FHIR
 description: W tym artykule opisano sposób konfigurowania funkcji RBAC platformy Azure dla usługi Azure API dla płaszczyzny danych FHIR
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417679"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447156"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurowanie kontroli RBAC platformy Azure dla usługi FHIR 
 
-W tym artykule dowiesz się, jak za pomocą usługi Azure [Role Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) przypisywać dostęp do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Azure RBAC to preferowane metody przypisywania dostępu do płaszczyzny danych, gdy użytkownicy płaszczyzny danych są zarządzani w dzierżawie Azure Active Directoryej skojarzonej z subskrypcją platformy Azure. Jeśli używasz dzierżawy zewnętrznej Azure Active Directory, zapoznaj się z [lokalnym odwołaniem do przypisania RBAC](configure-local-rbac.md).
+W tym artykule dowiesz się, jak za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) przypisywać dostęp do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Azure RBAC to preferowane metody przypisywania dostępu do płaszczyzny danych, gdy użytkownicy płaszczyzny danych są zarządzani w dzierżawie Azure Active Directoryej skojarzonej z subskrypcją platformy Azure. Jeśli używasz dzierżawy zewnętrznej Azure Active Directory, zapoznaj się z [lokalnym odwołaniem do przypisania RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Potwierdzenie trybu kontroli RBAC platformy Azure
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187518"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448526"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie sieci dla migracji wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service
 
@@ -39,7 +39,7 @@ Użyj tej topologii, jeśli wystąpienie zarządzane Azure SQL jest połączone 
 Tej topologii sieci należy użyć, jeśli środowisko wymaga co najmniej jednego z następujących scenariuszy:
 
 - Wystąpienie zarządzane SQL jest odizolowane od łączności lokalnej, ale wystąpienie Azure Database Migration Service jest połączone z siecią lokalną.
-- Jeśli są stosowane zasady kontroli dostępu opartej Access Control na rolach (RBAC) i musisz ograniczyć użytkownikom dostęp do tej samej subskrypcji, która obsługuje wystąpienie zarządzane SQL.
+- Jeśli są stosowane zasady kontroli dostępu opartej na rolach (Azure RBAC) i trzeba ograniczyć użytkownikom dostęp do tej samej subskrypcji, która obsługuje wystąpienie zarządzane SQL.
 - Sieci wirtualne używane dla wystąpienia zarządzanego SQL i Azure Database Migration Service znajdują się w różnych subskrypcjach.
 
 ![Topologia sieci dla wystąpienia zarządzanego izolowanego od sieci lokalnej](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Użyj tej topologii, jeśli SQL Server źródłowa jest hostowana na maszynie wi
 Tej topologii sieci należy użyć, jeśli środowisko wymaga co najmniej jednego z następujących scenariuszy:
 
 - Wystąpienie zarządzane SQL jest inicjowane w izolowanej sieci wirtualnej.
-- Jeśli są stosowane zasady kontroli dostępu opartej Access Control na rolach (RBAC) i musisz ograniczyć użytkownikom dostęp do tej samej subskrypcji, która obsługuje wystąpienie zarządzane SQL.
+- Jeśli są stosowane zasady kontroli dostępu opartej na rolach (Azure RBAC) i trzeba ograniczyć użytkownikom dostęp do tej samej subskrypcji, która obsługuje wystąpienie zarządzane SQL.
 - Sieci wirtualne używane do wystąpienia zarządzanego SQL i Azure Database Migration Service znajdują się w różnych subskrypcjach.
 
 ![Topologia sieci dla migracji między chmurą i chmurą i izolowaną siecią wirtualną](media/resource-network-topologies/cloud-to-cloud-isolated.png)

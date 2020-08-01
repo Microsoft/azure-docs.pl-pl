@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024830"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448083"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -90,13 +90,13 @@ Azure Automation hybrydowego procesu roboczego elementu Runbook można użyć w 
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Update Management w hybrydowym procesie roboczym elementu Runbook
 
-Po włączeniu [Update Management](automation-update-management.md) Azure Automation, każda maszyna połączona z obszarem roboczym log Analytics zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook. Każdy proces roboczy może obsługiwać elementy Runbook, których dotyczą usługi zarządzania aktualizacjami.
+Po włączeniu [Update Management](update-management/update-mgmt-overview.md) Azure Automation, każda maszyna połączona z obszarem roboczym log Analytics zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook. Każdy proces roboczy może obsługiwać elementy Runbook, których dotyczą usługi zarządzania aktualizacjami.
 
 Komputer skonfigurowany w ten sposób nie jest zarejestrowany dla żadnych grup hybrydowych procesów roboczych elementów Runbook zdefiniowanych już na koncie usługi Automation. Możesz dodać maszynę do grupy hybrydowych procesów roboczych elementu Runbook, ale musisz użyć tego samego konta Update Management dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Adresy Update Management dla hybrydowego procesu roboczego elementu Runbook
 
-Na podstawie standardowych adresów i portów wymaganych dla hybrydowego procesu roboczego elementu Runbook Update Management ma dodatkowe wymagania dotyczące konfiguracji sieciowej opisane w sekcji [Planowanie sieci](automation-update-management.md#ports) .
+Na podstawie standardowych adresów i portów wymaganych dla hybrydowego procesu roboczego elementu Runbook Update Management ma dodatkowe wymagania dotyczące konfiguracji sieciowej opisane w sekcji [Planowanie sieci](update-management/update-mgmt-overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation konfiguracja stanu w hybrydowym procesie roboczym elementu Runbook
 

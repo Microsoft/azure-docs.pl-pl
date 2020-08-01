@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: 684f85042fd09c14621801ec017fea0e632f2598
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84872677"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446063"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
 
@@ -108,7 +108,7 @@ Jeśli sprawdzisz token dostępu przy użyciu narzędzia, takiego jak [https://j
 }
 ```
 
-W sytuacjach związanych z rozwiązywaniem problemów sprawdzenie, czy masz odpowiednich odbiorców ( `aud` roszczeń), jest dobrym miejscem do rozpoczęcia. Jeśli token jest z poprawnego wystawcy ( `iss` roszczeń) i ma prawidłowych odbiorców ( `aud` roszczeń), ale nadal nie możesz uzyskać dostępu do interfejsu API FHIR, prawdopodobnie użytkownik lub główna usługa ( `oid` Claim) nie ma dostępu do płaszczyzny danych FHIR. Zalecamy [używanie Access Control opartej na rolach platformy Azure](configure-azure-rbac.md) do przypisywania ról płaszczyzny danych do użytkowników. Jeśli używasz zewnętrznej, pomocniczej dzierżawy usługi Azure Active Directory dla danej płaszczyzny danych, musisz [skonfigurować lokalne przypisania RBAC](configure-local-rbac.md).
+W sytuacjach związanych z rozwiązywaniem problemów sprawdzenie, czy masz odpowiednich odbiorców ( `aud` roszczeń), jest dobrym miejscem do rozpoczęcia. Jeśli token jest z poprawnego wystawcy ( `iss` roszczeń) i ma prawidłowych odbiorców ( `aud` roszczeń), ale nadal nie możesz uzyskać dostępu do interfejsu API FHIR, prawdopodobnie użytkownik lub główna usługa ( `oid` Claim) nie ma dostępu do płaszczyzny danych FHIR. Zalecamy [Używanie kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](configure-azure-rbac.md) do przypisywania ról płaszczyzny danych do użytkowników. Jeśli używasz zewnętrznej, pomocniczej dzierżawy usługi Azure Active Directory dla danej płaszczyzny danych, musisz [skonfigurować lokalne przypisania RBAC](configure-local-rbac.md).
 
 Można również [uzyskać token dla interfejsu API platformy Azure dla usługi FHIR przy użyciu interfejsu wiersza polecenia platformy Azure](get-healthcare-apis-access-token-cli.md). Jeśli używasz tokenu uzyskanego w interfejsie wiersza polecenia platformy Azure, należy użyć typu autoryzacji "token okaziciela" i bezpośrednio wkleić token.
 

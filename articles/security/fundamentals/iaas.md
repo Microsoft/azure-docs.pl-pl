@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450019"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448411"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Najlepsze rozwiązania dotyczące zabezpieczeń dla obciążeń IaaS na platformie Azure
 W tym artykule opisano najlepsze rozwiązania w zakresie zabezpieczeń dotyczące maszyn wirtualnych i systemów operacyjnych.
@@ -84,7 +84,7 @@ Możesz zintegrować rozwiązania firmy Microsoft chroniące przed złośliwym o
 Maszyny wirtualne platformy Azure, takie jak wszystkie lokalne maszyny wirtualne, są przeznaczone do zarządzania przez użytkownika. Platforma Azure nie wypycha do nich aktualizacji systemu Windows. Musisz zarządzać aktualizacjami maszyny wirtualnej.
 
 **Najlepsze rozwiązanie**: Zachowaj aktualność maszyn wirtualnych.   
-**Szczegóły**: użyj rozwiązania [Update Management](../../automation/automation-update-management.md) w Azure Automation do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemami Windows i Linux, które są wdrożone na platformie Azure, w środowiskach lokalnych lub w innych dostawcach chmury. Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach agentów oraz zarządzanie procesem instalacji wymaganych aktualizacji serwerów.
+**Szczegóły**: użyj rozwiązania [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemami Windows i Linux, które są wdrożone na platformie Azure, w środowiskach lokalnych lub w innych dostawcach chmury. Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach agentów oraz zarządzanie procesem instalacji wymaganych aktualizacji serwerów.
 
 W celu przeprowadzania ocen i wdrożeń aktualizacji na komputerach zarządzanych przez rozwiązanie Update Management są używane następujące konfiguracje:
 

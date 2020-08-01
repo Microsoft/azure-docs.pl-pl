@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d606cd4f5c4b901c060c97d73524997b94eaf225
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116845"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446293"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Samouczek: odbieranie danych urządzenia za pomocą usługi Azure IoT Hub
 
@@ -96,7 +96,7 @@ Użyj urządzenia (prawdziwe lub symulowane), aby wysłać przykładowy komunika
 Można wyświetlić FHIRe zasoby, które zostały utworzone przez łącznik IoT w interfejsie API platformy Azure dla FHIR przy użyciu programu Poster. Skonfiguruj swoje [ogłoszenie, aby uzyskać dostęp do interfejsu API platformy Azure dla usługi FHIR](access-fhir-postman-tutorial.md) , a następnie `GET` Wyślij żądanie, aby `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` wyświetlić obserwacje zasobów FHIR z wartością współczynnika serca przesłaną w powyższym przykładowym komunikacie.
 
 > [!TIP]
-> Upewnij się, że użytkownik ma odpowiednie uprawnienia dostępu do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Użyj [Access Control opartej na rolach platformy Azure](configure-azure-rbac.md) , aby przypisać wymagane role płaszczyzny danych.
+> Upewnij się, że użytkownik ma odpowiednie uprawnienia dostępu do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Aby przypisać wymagane role płaszczyzny danych, użyj [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](configure-azure-rbac.md) .
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -114,4 +114,3 @@ Dowiedz się, jak skonfigurować łącznik usługi IoT przy użyciu szablonów m
 >[Szablony mapowania łącznika IoT](iot-mapping-templates.md)
 
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
-

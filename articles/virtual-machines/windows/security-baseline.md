@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387017"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445204"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Windows Virtual Machines
 
@@ -562,7 +562,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../../role-based-access-control/overview.md)
 
-* [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -620,9 +620,9 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: użyj rozwiązania Update Management platformy Azure do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów Windows. Narzędzia, takie jak System Center Updates Publisher (aktualizacje wydawcy), umożliwiają publikowanie aktualizacji niestandardowych w programie Windows Server Update Services (WSUS). Ten scenariusz umożliwia Update Management poprawek maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm.
 
-* [Update Management rozwiązanie na platformie Azure](../../automation/automation-update-management.md)
+* [Update Management rozwiązanie na platformie Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](../../automation/automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -632,9 +632,9 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: możesz użyć rozwiązania do zarządzania poprawkami innej firmy. Możesz użyć rozwiązania Update Management platformy Azure do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów Windows. Narzędzia, takie jak System Center Updates Publisher (aktualizacje wydawcy), umożliwiają publikowanie aktualizacji niestandardowych w programie Windows Server Update Services (WSUS). Ten scenariusz umożliwia Update Management poprawek maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm.
 
-* [Update Management rozwiązanie na platformie Azure](../../automation/automation-update-management.md)
+* [Update Management rozwiązanie na platformie Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](../../automation/automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 

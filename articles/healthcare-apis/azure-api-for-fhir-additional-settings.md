@@ -8,12 +8,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 896d5bafd879ff3ba09bd5b8922cde4cd8345689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64bdc60f8f9e291c4dc084b23f8ec5054cdc528f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871952"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447270"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Dodatkowe ustawienia interfejsu API platformy Azure dla usługi FHIR
 
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji na temat zmiany ustawień domyślnych, zobacz [K
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Interfejs API platformy Azure dla usługi FHIR będzie zezwalał tylko autoryzowanym użytkownikom na dostęp do interfejsu API FHIR. Autoryzowanych użytkowników można skonfigurować przy użyciu dwóch różnych mechanizmów. Podstawowym i zalecanym sposobem konfiguracji kontroli dostępu jest użycie [Access Control opartej na rolach (RBAC) na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/), która jest dostępna za pośrednictwem bloku **kontroli dostępu (IAM)** . Usługa Azure RBAC działa tylko wtedy, gdy chcesz zabezpieczyć dostęp do płaszczyzny danych za pomocą dzierżawy Azure Active Directory skojarzonej z Twoją subskrypcją. Jeśli chcesz użyć innej dzierżawy, interfejs API platformy Azure dla FHIR oferuje mechanizm kontroli dostępu lokalnego FHIR płaszczyzny danych. Opcje konfiguracji nie są tak rozbudowane, gdy korzystasz z lokalnego mechanizmu RBAC. Aby uzyskać szczegółowe informacje, wybierz jedną z następujących opcji:
+Interfejs API platformy Azure dla usługi FHIR będzie zezwalał tylko autoryzowanym użytkownikom na dostęp do interfejsu API FHIR. Autoryzowanych użytkowników można skonfigurować przy użyciu dwóch różnych mechanizmów. Podstawowym i zalecanym sposobem konfiguracji kontroli dostępu jest użycie [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/), która jest dostępna za pośrednictwem bloku **kontroli dostępu (IAM)** . Usługa Azure RBAC działa tylko wtedy, gdy chcesz zabezpieczyć dostęp do płaszczyzny danych za pomocą dzierżawy Azure Active Directory skojarzonej z Twoją subskrypcją. Jeśli chcesz użyć innej dzierżawy, interfejs API platformy Azure dla FHIR oferuje mechanizm kontroli dostępu lokalnego FHIR płaszczyzny danych. Opcje konfiguracji nie są tak rozbudowane, gdy korzystasz z lokalnego mechanizmu RBAC. Aby uzyskać szczegółowe informacje, wybierz jedną z następujących opcji:
 
 * [Azure RBAC dla płaszczyzny danych FHIR](configure-azure-rbac.md). Jest to preferowana opcja w przypadku korzystania z dzierżawy Azure Active Directory skojarzonej z Twoją subskrypcją.
 * [Kontrola dostępu do lokalnej płaszczyzny danych FHIR](configure-local-rbac.md). Tej opcji należy używać tylko wtedy, gdy konieczne jest użycie zewnętrznej dzierżawy Azure Active Directory na potrzeby kontroli dostępu do płaszczyzny danych. 

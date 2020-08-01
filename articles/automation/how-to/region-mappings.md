@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261192"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447862"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -78,11 +78,11 @@ Po usunięciu funkcji można wykonać poniższe kroki, aby odłączyć konto us�
 
 Alternatywnie możesz odłączyć obszar roboczy od konta usługi Automation w obszarze roboczym.
 
-1. W obszarze roboczym wybierz pozycję **konto usługi Automation** w obszarze **powiązane zasoby**. 
+1. W obszarze roboczym wybierz pozycję **konto usługi Automation** w obszarze **powiązane zasoby**.
 2. Na stronie konto usługi Automation wybierz opcję **Odłącz konto**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../automation-update-management.md).
+* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../update-management/update-mgmt-overview.md).
 * Dowiedz się więcej na temat Change Tracking i spisu w temacie [Change Tracking i spisu](../change-tracking.md).
 * Dowiedz się więcej na temat Start/Stop VMs during off-hours w [Start/Stop VMS during off-hours Omówienie](../automation-solution-vm-management.md).

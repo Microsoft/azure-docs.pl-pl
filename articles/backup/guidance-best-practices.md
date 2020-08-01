@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4a5f7e1f55eb5b4a68ee889ef6e1378eb573a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099182"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447289"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -137,7 +137,7 @@ Aby pomóc w ochronie danych kopii zapasowych i spełnieniu potrzeb związanych 
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
-* Access Control oparte na rolach (RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem, segregowanie obowiązków w zespole i udzielanie dostępu tylko użytkownikom potrzebnym do wykonywania swoich zadań. [Dowiedz się więcej tutaj](backup-rbac-rs-vault.md).
+* Kontrola dostępu oparta na rolach na platformie Azure (RBAC) umożliwia precyzyjne zarządzanie dostępem, segregowanie obowiązków w zespole i udzielanie dostępu tylko użytkownikom potrzebnym do wykonywania swoich zadań. [Dowiedz się więcej tutaj](backup-rbac-rs-vault.md).
 
 * Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi: Współautorzy, operatorzy i czytelnicy kopii zapasowych. [Dowiedz się więcej tutaj](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 

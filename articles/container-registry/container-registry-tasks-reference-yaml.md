@@ -2,13 +2,13 @@
 title: Odwołanie YAML — ACR zadań
 description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, takich jak właściwości zadania, typy kroków, właściwości kroku i wbudowane zmienne.
 ms.topic: article
-ms.date: 10/23/2019
-ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/08/2020
+ms.openlocfilehash: 1d680fd8512ec96fa4fb5762e4a3552e5e2e4dd3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171061"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446925"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
 
@@ -18,7 +18,7 @@ Ten artykuł zawiera informacje dotyczące tworzenia wieloetapowych plików YAML
 
 ## <a name="acr-taskyaml-file-format"></a>ACR — format pliku Task. YAML
 
-Zadania ACR obsługują Wieloetapową deklarację zadań w standardowej składni YAML. Zdefiniuj kroki zadania w pliku YAML. Następnie można uruchomić zadanie ręcznie, przekazując plik do polecenia [AZ ACR Run][az-acr-run] . Lub użyj pliku, aby utworzyć zadanie za pomocą [AZ ACR Task Create][az-acr-task-create] , które jest wyzwalane automatycznie w ramach zatwierdzenia Git lub aktualizacji obrazu podstawowego. Mimo że ten artykuł odnosi się do `acr-task.yaml` pliku zawierającego kroki, ACR zadania obsługują dowolną prawidłową nazwę pliku z [obsługiwanym rozszerzeniem](#supported-task-filename-extensions).
+Zadania ACR obsługują Wieloetapową deklarację zadań w standardowej składni YAML. Zdefiniuj kroki zadania w pliku YAML. Następnie można uruchomić zadanie ręcznie, przekazując plik do polecenia [AZ ACR Run][az-acr-run] . Lub użyj pliku, aby utworzyć zadanie za pomocą [AZ ACR Task Create][az-acr-task-create] , które jest wyzwalane automatycznie w zatwierdzeniu git, podstawowej aktualizacji obrazu lub harmonogramie. Mimo że ten artykuł odnosi się do `acr-task.yaml` pliku zawierającego kroki, ACR zadania obsługują dowolną prawidłową nazwę pliku z [obsługiwanym rozszerzeniem](#supported-task-filename-extensions).
 
 Elementy podstawowe najwyższego poziomu `acr-task.yaml` to **właściwości zadania**, **typy kroków**i **Właściwości kroków**:
 
@@ -80,9 +80,10 @@ Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i s�
 | `version` | ciąg | Tak | Wersja `acr-task.yaml` pliku, przeanalizowana przez usługę zadań ACR. Chociaż zadania ACR dążą do zachowania zgodności z poprzednimi wersjami, ta wartość umożliwia ACR zadań w celu zachowania zgodności w ramach zdefiniowanej wersji. Jeśli nie zostanie określony, wartość domyślna to Najnowsza wersja. | Nie | Brak |
 | `stepTimeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać uruchomiony. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `timeout` Właściwość wszystkich kroków. Jeśli `timeout` Właściwość jest określona w kroku, zastępuje właściwość dostarczoną przez zadanie. | Tak | 600 (10 minut) |
 | `workingDirectory` | ciąg | Tak | Katalog roboczy kontenera w czasie wykonywania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `workingDirectory` Właściwość wszystkich kroków. Jeśli określono w kroku, zastępuje on Właściwość dostarczoną przez zadanie. | Tak | `/workspace` |
-| `env` | [ciąg, String,...] | Tak |  Tablica ciągów w `key=value` formacie, która definiuje zmienne środowiskowe dla zadania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `env` Właściwość wszystkich kroków. Jeśli jest określony w kroku, zastępuje wszystkie zmienne środowiskowe dziedziczone z zadania. | Brak |
-| `secrets` | [Secret, Secret,...] | Tak | Tablica obiektów [tajnych](#secret) . | Brak |
-| `networks` | [Sieć, Sieć,...] | Tak | Tablica obiektów [sieciowych](#network) . | Brak |
+| `env` | [ciąg, String,...] | Tak |  Tablica ciągów w `key=value` formacie, która definiuje zmienne środowiskowe dla zadania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `env` Właściwość wszystkich kroków. Jeśli jest określony w kroku, zastępuje wszystkie zmienne środowiskowe dziedziczone z zadania. | Tak | Brak |
+| `secrets` | [Secret, Secret,...] | Tak | Tablica obiektów [tajnych](#secret) . Nie | Brak |
+| `networks` | [Sieć, Sieć,...] | Tak | Tablica obiektów [sieciowych](#network) . Nie | Brak |
+| `volumes` | [wolumin, wolumin,...] | Tak | Tablica obiektów [woluminu](#volume) . Określa woluminy z zawartością źródłową do zainstalowania w kroku. | Nie | Brak |
 
 ### <a name="secret"></a>wpis tajny
 
@@ -104,7 +105,16 @@ Obiekt sieciowy ma następujące właściwości.
 | `driver` | ciąg | Tak | Sterownik do zarządzania siecią. | Brak |
 | `ipv6` | bool | Tak | Czy jest włączona obsługa sieci IPv6. | `false` |
 | `skipCreation` | bool | Tak | Określa, czy pominąć tworzenie sieci. | `false` |
-| `isDefault` | bool | Tak | Czy sieć jest siecią domyślną zapewnianą przez Azure Container Registry | `false` |
+| `isDefault` | bool | Tak | Czy sieć jest siecią domyślną udostępnianą Azure Container Registry. | `false` |
+
+### <a name="volume"></a>wolumin
+
+Obiekt woluminu ma następujące właściwości.
+
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Może zawierać tylko znaki alfanumeryczne, "-" i "_". | Brak |
+| `secret` | ciąg [ciąg] mapy | Nie | Każdy klucz mapy jest nazwą pliku, który został utworzony i wypełniony w woluminie. Każda wartość to ciąg wersji klucza tajnego. Wartości tajne muszą być zakodowane w formacie base64. | Brak |
 
 ## <a name="task-step-types"></a>Typy kroków zadań
 
@@ -161,6 +171,7 @@ steps:
 | `secret` | object | Opcjonalne |
 | `startDelay` | int (sekundy) | Opcjonalne |
 | `timeout` | int (sekundy) | Opcjonalne |
+| `volumeMount` | object | Opcjonalne |
 | `when` | [ciąg, String,...] | Opcjonalne |
 | `workingDirectory` | ciąg | Opcjonalne |
 
@@ -278,6 +289,7 @@ steps:
 | `secret` | object | Opcjonalne |
 | `startDelay` | int (sekundy) | Opcjonalne |
 | `timeout` | int (sekundy) | Opcjonalne |
+| `volumeMount` | object | Opcjonalne |
 | `when` | [ciąg, String,...] | Opcjonalne |
 | `workingDirectory` | ciąg | Opcjonalne |
 
@@ -352,6 +364,38 @@ Przy użyciu standardowej `docker run` Konwencji odwołania do obrazu `cmd` moż
       - cmd: $Registry/myimage:mytag
     ```
 
+#### <a name="access-secret-volumes"></a>Dostęp do woluminów tajnych
+
+`volumes`Właściwość umożliwia określenie woluminów i ich zawartości tajnej do określenia dla `build` i `cmd` kroków w zadaniu. W każdym kroku opcjonalna `volumeMounts` Właściwość wyświetla woluminy i odpowiednie ścieżki kontenerów, które mają zostać zainstalowane do kontenera w tym kroku. Wpisy tajne są dostarczane jako pliki w ścieżce instalacji każdego woluminu.
+
+Wykonaj zadanie i zainstaluj dwa wpisy tajne w kroku: jeden jest przechowywany w magazynie kluczy i jeden określony w wierszu polecenia:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+
+```yml
+# This template demonstrates mounting a custom volume into a container at a CMD step
+secrets:
+  - id: sampleSecret
+    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
+
+volumes:
+  - name: mysecrets
+    secret:
+      mysecret1: {{.Secrets.sampleSecret | b64enc}}
+      mysecret2: {{.Values.mysecret | b64enc}}
+
+steps:
+  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
+    volumeMounts:
+      - name: mysecrets
+        mountPath: /run/test
+```
+
 ## <a name="task-step-properties"></a>Właściwości kroku zadania
 
 Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla tego typu. W poniższej tabeli zdefiniowano wszystkie dostępne właściwości kroku. Nie wszystkie typy kroków obsługują wszystkie właściwości. Aby zobaczyć, które z tych właściwości są dostępne dla każdego typu kroku, zapoznaj się z sekcjami odwołania dla kroków [cmd](#cmd), [Build](#build)i [push](#push) .
@@ -379,7 +423,17 @@ Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla teg
 | `timeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać wykonany przed zakończeniem. | 600 |
 | [`when`](#example-when) | [ciąg, String,...] | Tak | Konfiguruje zależność kroku od jednego lub kilku innych kroków w ramach zadania. | Brak |
 | `user` | ciąg | Tak | Nazwa użytkownika lub identyfikator UID kontenera | Brak |
+| `volumeMounts` | object | Nie | Tablica obiektów [volumeMount](#volumemount) . | Brak |
 | `workingDirectory` | ciąg | Tak | Ustawia katalog roboczy dla kroku. Domyślnie zadania ACR tworzą katalog główny jako katalog roboczy. Jeśli jednak kompilacja zawiera kilka kroków, wcześniejsze kroki mogą współużytkować artefakty z późniejszymi krokami, określając ten sam katalog roboczy. | `/workspace` |
+
+### <a name="volumemount"></a>volumeMount
+
+Obiekt volumeMount ma następujące właściwości.
+
+| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Musi być dokładnie zgodna z nazwą z `volumes` właściwości. | Brak |
+| `mountPath`   | ciąg | nie | Ścieżka bezwzględna do instalowania plików w kontenerze.  | Brak |
 
 ### <a name="examples-task-step-properties"></a>Przykłady: właściwości kroku zadania
 
@@ -454,7 +508,7 @@ Zadania ACR zawierają domyślny zestaw zmiennych, które są dostępne dla krok
 * `Run.Branch`
 * `Run.TaskName`
 
-Nazwy zmiennych nie są generalnie objaśniane. Szczegóły dotyczące często używanych zmiennych. Od wersji YAML `v1.1.0` można użyć skróconego, wstępnie zdefiniowanego [aliasu zadania](#aliases) zamiast większości zmiennych uruchomieniowych. Na przykład zamiast `{{.Run.Registry}}` , użyj `$Registry` aliasu.
+Nazwy zmiennych nie są generalnie objaśniane. Szczegóły znajdują się poniżej w przypadku często używanych zmiennych. Od wersji YAML `v1.1.0` można użyć skróconego, wstępnie zdefiniowanego [aliasu zadania](#aliases) zamiast większości zmiennych uruchomieniowych. Na przykład zamiast `{{.Run.Registry}}` , użyj `$Registry` aliasu.
 
 ### <a name="runid"></a>Run.ID
 
@@ -538,7 +592,7 @@ steps:
 
 Każdy z następujących aliasów wskazuje stabilny obraz w programie Microsoft Container Registry (MCR). Można odwołać się do każdego z nich w `cmd` sekcji pliku zadania bez używania dyrektywy.
 
-| Alias | Obraz |
+| Alias | Image (Obraz) |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |

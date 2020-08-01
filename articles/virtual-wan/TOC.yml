@@ -58,8 +58,6 @@
               href: scenario-route-through-nva.md
             - name: Rozsyłanie za pomocą urządzenia WUS — niestandardowe (wersja zapoznawcza)
               href: scenario-route-through-nvas-custom.md
-            - name: Azure Firewall — Interhub (wersja zapoznawcza)
-              href: scenario-route-between-hubs-firewall.md
             - name: Azure Firewall — wersja niestandardowa
               href: scenario-route-between-vnets-firewall.md
     - name: Monitorowanie

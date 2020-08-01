@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: d956ce273a7ea630bfdcf900fbbba5e8be30b254
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288446"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448978"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Szybkie kroki: Tworzenie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -37,10 +37,10 @@ Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i d
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH przy użyciu `--generate-ssh-keys` opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. `--generate-ssh-keys`Opcja nie spowoduje zastąpienia istniejących plików kluczy, zamiast zwraca błąd. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
+Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH przy użyciu `--generate-ssh-keys` opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. Jeśli para kluczy SSH już istnieje i `--generate-ssh-keys` jest używana opcja, Nowa para kluczy nie zostanie wygenerowana, ale zamiast tego zostanie użyta istniejąca para kluczy. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
 ```
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Podaj klucz publiczny SSH podczas wdrażania maszyny wirtualnej

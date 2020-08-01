@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781637"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445649"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -50,7 +50,7 @@ Usługa Azure AD zapewnia samoobsługową integrację dowolnej aplikacji przy u�
 
 Wymagane są odpowiednie licencje dla aplikacji, które mają być automatycznie inicjowane. Należy omówić z właścicielami aplikacji, czy użytkownicy przypisani do aplikacji mają odpowiednie licencje dla ich ról aplikacji. Jeśli usługa Azure AD zarządza automatyczną obsługą administracyjną opartą na rolach, role przypisane w usłudze Azure AD muszą być wyrównane do licencji aplikacji. Nieprawidłowe licencje należące do aplikacji mogą prowadzić do błędów podczas aprowizacji/aktualizowania użytkownika.
 
-### <a name="terms"></a>Terminologia
+### <a name="terms"></a>Warunki
 
 W tym artykule są stosowane następujące warunki:
 
@@ -256,7 +256,7 @@ Wybierz kroki, które należy dostosować do wymagań dotyczących rozwiązania.
 
 Gdy usługa Azure AD Provisioning jest uruchamiana po raz pierwszy, cykl początkowy względem systemu źródłowego i systemów docelowych tworzy migawkę wszystkich obiektów użytkownika dla każdego systemu docelowego.
 
-Po włączeniu automatycznej aprowizacji aplikacji cykl początkowy może zająć od 20 minut do kilku godzin. Czas trwania zależy od rozmiaru katalogu usługi Azure AD oraz liczby użytkowników w zakresie aprowizacji. Zobacz [, jak zwiększyć wydajność aprowizacji](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Po włączeniu automatycznej aprowizacji aplikacji cykl początkowy może zająć od 20 minut do kilku godzin. Czas trwania zależy od rozmiaru katalogu usługi Azure AD oraz liczby użytkowników w zakresie aprowizacji.
 
 Usługa aprowizacji przechowuje stan obu systemów po początkowym cyklu, poprawiając wydajność kolejnych cykli przyrostowych.
 
@@ -299,8 +299,6 @@ Skorzystaj z poniższych linków, aby rozwiązać wszelkie problemy, które mog�
 * [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Synchronizowanie atrybutu z Active Directory lokalnego z usługą Azure AD w celu aprowizacji aplikacji](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [Inicjowanie obsługi administracyjnej użytkowników w aplikacji z galerii usługi Azure AD trwa kilka godzin](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

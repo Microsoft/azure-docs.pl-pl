@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: b1e550fde0d43b4d2c7bd1a64856edeac607cab3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14beaf4fc0f207abe652a9ed62c974f7ab4b8e79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999092"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449106"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-windows"></a>Planowanie migracji zasobów IaaS z klasycznej do Azure Resource Manager w systemie Windows
 
@@ -197,7 +197,7 @@ Zagadnienia, które należy wziąć pod uwagę:
 
 Nigdy wykonywane celowo usługi, które chcesz teraz włączyć w Azure Resource Manager.  Wielu klientów znalazł poniżej atrakcyjny dla środowisk platformy Azure:
 
-- [Access Control oparte na rolach](../../role-based-access-control/overview.md).
+- [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md).
 - [Azure Resource Manager szablonów dla łatwiejszego i bardziej kontrolowanego wdrożenia](../../azure-resource-manager/templates/overview.md).
 - [Tagi](../../azure-resource-manager/management/tag-resources.md).
 - [Kontrolka działania](../../azure-resource-manager/management/view-activity-logs.md)

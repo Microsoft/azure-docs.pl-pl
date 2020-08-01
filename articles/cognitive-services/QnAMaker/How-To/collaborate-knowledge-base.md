@@ -1,14 +1,14 @@
 ---
 title: Współpraca z bazą wiedzy — QnA Maker
-description: QnA Maker umożliwia wielu osobom współpracę w bazie wiedzy. Ta funkcja jest dostępna z Access Control opartych na rolach platformy Azure.
+description: QnA Maker umożliwia wielu osobom współpracę w bazie wiedzy. Ta funkcja jest dostępna w ramach kontroli dostępu opartej na rolach platformy Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054056"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446938"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Współpraca z autorami i edytorami
 

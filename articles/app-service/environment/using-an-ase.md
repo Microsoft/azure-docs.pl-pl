@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042186"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448207"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
@@ -126,15 +126,15 @@ W przypadku korzystania z zewnętrznego środowiska ASE aplikacje utworzone w ś
 
 Aby skonfigurować system DNS na własnym serwerze DNS przy użyciu środowiska ILB ASE:
 
-1. Tworzenie strefy dla elementu <ASE name> . appserviceenvironment.NET
+1. Utwórz strefę dla &lt; nazwy środowiska ASE &gt; . appserviceenvironment.NET
 1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
 1. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
-1. Tworzenie strefy w programie <ASE name> . appserviceenvironment.NET o nazwie SCM
+1. Utwórz strefę w programie &lt; ASE Name &gt; . appserviceenvironment.NET o nazwie SCM
 1. Utwórz rekord A w strefie SCM, który wskazuje * na adres IP ILB
 
 Aby skonfigurować serwer DNS w Azure DNS strefach prywatnych:
 
-1. Utwórz Azure DNS strefę prywatną o nazwie <ASE name> . appserviceenvironment.NET
+1. Utwórz strefę prywatną Azure DNS o nazwie &lt; ASE Name &gt; . appserviceenvironment.NET
 1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
 1. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
 1. Utwórz rekord A w tej strefie, który wskazuje *. SCM na adres IP ILB
@@ -161,7 +161,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie**  >  **podstawowe** i również w obszarze **Właściwości**).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 
@@ -169,7 +169,7 @@ Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modu
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Komunikat |
+| Istniał | Wiadomość |
 |---------|----------|
 | Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
@@ -218,7 +218,7 @@ Jeśli używasz programu https://resources.azure.com , wykonaj następujące kro
 1. Przejdź do resources.azure.com i zaloguj się przy użyciu konta platformy Azure.
 1. Zapoznaj się z tematem Resources for subscriptions \/ \[ name \] \/ resourceGroups nazwa \/ \[ grupy zasobów \] \/ providers \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE Name \] .
 1. Na górze wybierz pozycję **Odczyt/zapis** .
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 1. Ustaw **upgradePreference** na jedną z trzech wartości, które chcesz.
 1. Wybierz pozycję **poprawka**.
 

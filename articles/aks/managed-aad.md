@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 06a97126df449b77bf3fcc48bd23231512c9dff2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 896986775f0132ef08b17bdfefc00e5e06cf3d9f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056647"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448135"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -146,7 +146,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Skonfiguruj [Access Control oparte na rolach (RBAC)](./azure-ad-rbac.md) , aby skonfigurować dodatkowe grupy zabezpieczeń dla klastrów.
+Konfigurowanie [kontroli dostępu opartej na rolach (Azure RBAC)](./azure-ad-rbac.md) na platformie Azure w celu skonfigurowania dodatkowych grup zabezpieczeń dla klastrów.
 
 ## <a name="troubleshooting-access-issues-with-azure-ad"></a>Rozwiązywanie problemów z dostępem za pomocą usługi Azure AD
 

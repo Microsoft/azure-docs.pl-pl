@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367634"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449057"
 ---
 # <a name="tutorial-manipulating-models"></a>Samouczek: manipulowanie modelami
 
@@ -332,18 +332,14 @@ Po pomyślnym zakończeniu rzutowania promienia w **RemoteRayCastPointerHandler*
 
 2. Na utworzonej wcześniej **TestModel** gameobject Dodaj składnik **RemoteRayCastPointerHandler** i składnik **RemoteEntityHelper** .
 1. Przypisz `EntityToDebugLog` metodę do `OnRemoteEntityClicked` zdarzenia. Gdy typ danych wyjściowych zdarzenia i typ danych wejściowych metody są zgodne, możemy użyć dynamicznego zdarzenia podłączenie środowiska Unity, które automatycznie przekaże wartość zdarzenia do metody.
-    1. Utwórz nowe pole wywołania zwrotnego \
-    ![Dodawanie wywołania zwrotnego](./media/add-callback-remote-entity-clicked.png)
-    1. Przeciągnij składnik **pomocnika jednostki zdalnej** do pola Object, aby odwołać się do elementu nadrzędnegoobject \
-    ![Przypisz obiekt](./media/assign-object.png)
-    1. Przypisz element `EntityToDebugLog` as jako wywołanie zwrotne \
-    ![Przypisywanie wywołania zwrotnego](./media/remote-entity-event.png)
+    1. Utwórz nowe pole wywołania zwrotnego ![ Dodaj wywołanie zwrotne](./media/add-callback-remote-entity-clicked.png)
+    1. Przeciągnij składnik **pomocnika jednostki zdalnej** do pola Object, aby odwołać się do obiektu nadrzędnegoobject ![ Assign](./media/assign-object.png)
+    1. Przypisywanie wywołania zwrotnego `EntityToDebugLog` przypisania wywołania zwrotnego ![](./media/remote-entity-event.png)
 1. Naciśnij kolejno pozycje Odtwórz w edytorze aparatu Unity, aby rozpocząć scenę, nawiązać połączenie z sesją zdalną i załadować model testowy.
 1. Za pomocą symulacji dłoni MRTK naciśnij i przytrzymaj lewy klawisz Shift.
 1. Przekierowania symulowanej dłoni tak, aby promień dłoni został skierowany do modelu testowego.
 1. Długa kliknij, aby symulować wybór powietrza, wykonując `OnPointerClicked` zdarzenie.
-1. Zwróć uwagę na konsolę Unity dla komunikatu dziennika o nazwie wybranej jednostki podrzędnej. Na przykład: \
-![Przykład jednostki podrzędnej](./media/child-entity-example.png)
+1. Zwróć uwagę na konsolę Unity dla komunikatu dziennika o nazwie wybranej jednostki podrzędnej. Przykład: obiekt ![ podrzędny](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Synchronizowanie grafu zdalnego obiektu z hierarchią aparatu Unity
 
@@ -351,9 +347,9 @@ Do tego momentu oglądamy tylko jeden lokalny obiekt gameobject reprezentujący 
 
 1. Rozpocznij scenę i Załaduj model testowy.
 1. Rozwiń elementy podrzędne **TestModel** gameobject w hierarchii aparatu Unity i wybierz **TestModel_Entity** gameobject.
-1. W Inspektorze kliknij przycisk *Pokaż elementy podrzędne* . \
+1. W Inspektorze kliknij przycisk *Pokaż elementy podrzędne* .
 ![Pokaż elementy podrzędne](./media/show-remote-children.png)
-1. Kontynuuj rozszerzanie elementów podrzędnych w hierarchii i klikanie pozycji *Pokaż elementy podrzędne* do momentu wyświetlenia dużej listy elementów podrzędnych. \
+1. Kontynuuj rozszerzanie elementów podrzędnych w hierarchii i klikanie pozycji *Pokaż elementy podrzędne* do momentu wyświetlenia dużej listy elementów podrzędnych.
 ![Wszystkie elementy podrzędne](./media/test-model-children.png)
 
 Lista dziesiątek jednostek będzie teraz wypełniać hierarchię. Wybranie jednego z nich spowoduje wyświetlenie `Transform` `RemoteEntitySyncObject` składników i w Inspektorze. Domyślnie każda jednostka nie jest automatycznie synchronizowana z każdą ramką, więc lokalne zmiany `Transform` nie są synchronizowane z serwerem. Możesz sprawdzić *synchronizację każdej ramki* , a następnie przenieść, skalować lub obrócić transformację w widoku sceny, w widoku sceny nie zobaczysz renderowanego modelu, Obejrzyj widok gry, aby zobaczyć, jak zmienia się położenie i rotacja modelu.
@@ -371,13 +367,13 @@ Ten sam proces można wykonać programowo, a pierwszy krok polega na zmodyfikowa
     }
     ```
 
-1. Dodaj dodatkowe wywołanie zwrotne do **RemoteRayCastPointerHandler** zdarzenia RemoteRayCastPointerHandler `OnRemoteEntityClicked` , ustawiając je na `MakeSyncedGameObject` . \
+1. Dodaj dodatkowe wywołanie zwrotne do **RemoteRayCastPointerHandler** zdarzenia RemoteRayCastPointerHandler `OnRemoteEntityClicked` , ustawiając je na `MakeSyncedGameObject` .
 ![Dodatkowe wywołanie zwrotne](./media/additional-callback.png)
 1. Za pomocą symulacji dłoni MRTK naciśnij i przytrzymaj lewy klawisz Shift.
 1. Przekierowania symulowanej dłoni tak, aby promień dłoni został skierowany do modelu testowego.
 1. Długa kliknij, aby symulować wybór powietrza, wykonując `OnPointerClicked` zdarzenie.
-1. Zaznacz i rozwiń hierarchię, aby wyświetlić nowy obiekt podrzędny reprezentujący klikniętą jednostkę. \
-![Reprezentacja gameobject](./media/gameobject-representing-entity.png)\
+1. Zaznacz i rozwiń hierarchię, aby wyświetlić nowy obiekt podrzędny reprezentujący klikniętą jednostkę.
+![Reprezentacja gameobject](./media/gameobject-representing-entity.png)
 1. Po zakończeniu testowania Usuń wywołanie zwrotne dla `MakeSyncedGameObject` , ponieważ zostanie ono dołączone jako część innych efektów później.
 
 > [!NOTE]

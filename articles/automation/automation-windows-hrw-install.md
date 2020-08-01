@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015021"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448049"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -28,7 +28,7 @@ Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego
 
 Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/platform/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
 
-Jeśli masz obszar roboczy, ale nie jest on połączony z kontem usługi Automation, włączenie funkcji automatyzacji powoduje dodanie funkcji dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po włączeniu jednej z Azure Automation funkcji w obszarze roboczym Log Analytics, w odróżnieniu od [Update Management](automation-update-management.md) lub [Change Tracking i spisu](change-tracking.md), składniki procesu roboczego są automatycznie wypychane do komputera agenta.
+Jeśli masz obszar roboczy, ale nie jest on połączony z kontem usługi Automation, włączenie funkcji automatyzacji powoduje dodanie funkcji dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po włączeniu jednej z Azure Automation funkcji w obszarze roboczym Log Analytics, w odróżnieniu od [Update Management](update-management/update-mgmt-overview.md) lub [Change Tracking i spisu](change-tracking.md), składniki procesu roboczego są automatycznie wypychane do komputera agenta.
 
    Aby dodać funkcję Update Management do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell:
 
@@ -77,7 +77,7 @@ Aby uzyskać więcej wymagań sieci dla hybrydowego procesu roboczego elementu R
 Możesz dodać maszynę procesu roboczego do grupy hybrydowych procesów roboczych elementu Runbook na Twoim koncie usługi Automation. Należy pamiętać, że musisz obsługiwać elementy Runbook usługi Automation, o ile używasz tego samego konta zarówno dla funkcji Azure Automation, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
 >[!NOTE]
->Włączenie Azure Automation [Update Management](automation-update-management.md) automatycznie skonfiguruje wszystkie maszyny z systemem Windows, które są połączone z obszarem roboczym log Analytics jako hybrydowy proces roboczy elementu Runbook w celu obsługi zarządzania aktualizacjami systemu operacyjnego. Jednak ten proces roboczy nie jest zarejestrowany w żadnych grup hybrydowych procesów roboczych elementu Runbook zdefiniowanych już na koncie usługi Automation.
+>Włączenie Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatycznie skonfiguruje wszystkie maszyny z systemem Windows, które są połączone z obszarem roboczym log Analytics jako hybrydowy proces roboczy elementu Runbook w celu obsługi zarządzania aktualizacjami systemu operacyjnego. Jednak ten proces roboczy nie jest zarejestrowany w żadnych grup hybrydowych procesów roboczych elementu Runbook zdefiniowanych już na koncie usługi Automation.
 
 ## <a name="enabling-machines-for-management-with-azure-automation-state-configuration"></a>Włączanie maszyn na potrzeby zarządzania przy użyciu konfiguracji stanu Azure Automation
 
@@ -169,7 +169,7 @@ Heartbeat
 
 W wynikach wyszukiwania powinny być widoczne rekordy pulsu dla maszyny, co oznacza, że jest ona podłączona i zgłaszana do usługi. Domyślnie każdy agent przekazuje rekord pulsu do przypisanego im obszaru roboczego. Aby ukończyć instalację i konfigurację agenta, wykonaj następujące czynności.
 
-1. Włącz tę funkcję, aby dodać maszynę agenta. Aby uzyskać Update Management i maszyn wirtualnych platformy Azure, zobacz [Włączanie maszyn wirtualnych platformy Azure](automation-onboard-solutions-from-automation-account.md#enable-azure-vms)oraz maszyn wirtualnych spoza platformy Azure, zobacz [Włączanie maszyn w obszarze roboczym](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). Aby uzyskać Change Tracking i maszyn wirtualnych platformy Azure, zobacz [Włączanie maszyn wirtualnych platformy Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)oraz maszyn wirtualnych spoza platformy Azure, zobacz [Włączanie maszyn w obszarze roboczym](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Włącz tę funkcję, aby dodać maszynę agenta. Aby uzyskać Update Management i maszyn wirtualnych platformy Azure, zobacz [włączanie Update Management na podstawie konta usługi Automation](update-management/update-mgmt-enable-automation-account.md), [Włączanie Update Management przez przeglądanie Azure Portal](update-management/update-mgmt-enable-portal.md), [Włączanie Update Management z elementu Runbook](update-management/update-mgmt-enable-runbook.md)lub [Włączanie Update Management z maszyny wirtualnej platformy Azure](update-management/update-mgmt-enable-vm.md). Aby uzyskać Change Tracking i maszyn wirtualnych platformy Azure, zobacz [Włączanie maszyn wirtualnych platformy Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)oraz maszyn wirtualnych spoza platformy Azure, zobacz [Włączanie maszyn w obszarze roboczym](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
 2. Aby potwierdzić wersję hybrydowego procesu roboczego elementu Runbook, przejdź do `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` podfolderu **wersji** i zanotuj go.
 

@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463454"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446851"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiowanie obiektu BLOB za pomocą platformy .NET
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono sposób kopiowania obiektu BLOB za pomocą konta us
 
 W przypadku kopiowania obiektu BLOB w ramach tego samego konta magazynu jest to operacja synchroniczna. Podczas kopiowania między kontami jest to operacja asynchroniczna. Metody [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) i [STARTCOPYASYNC](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) zwracają wartość identyfikatora kopii, która jest używana do sprawdzania stanu lub przerywania operacji kopiowania.
 
-Źródłowy obiekt BLOB operacji kopiowania może być blokowym obiektem BLOB, obiektem BLOB, obiektem BLOB lub migawką. Jeśli docelowy obiekt BLOB już istnieje, musi być tego samego typu obiektów BLOB co źródłowy obiekt BLOB. Istniejący docelowy obiekt BLOB zostanie nadpisany. 
+Źródłowy obiekt BLOB operacji kopiowania może być blokowym obiektem BLOB, obiektem BLOB, obiektem BLOB lub migawką. Jeśli docelowy obiekt BLOB już istnieje, musi być tego samego typu obiektów BLOB co źródłowy obiekt BLOB. Istniejący docelowy obiekt BLOB zostanie nadpisany.
 
 Nie można zmodyfikować docelowego obiektu BLOB, gdy operacja kopiowania jest w toku. Docelowy obiekt BLOB może mieć tylko jedną zaległą operację kopiowania obiektu BLOB. Innymi słowy, obiekt BLOB nie może być miejscem docelowym dla wielu oczekujących operacji kopiowania.
 
@@ -35,18 +35,18 @@ Dla wszystkich typów obiektów BLOB można sprawdzić Właściwość [CopyState
 
 Operacja kopiowania może przyjmować jedną z następujących form:
 
-  - Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB z inną nazwą. Docelowy obiekt BLOB może być istniejącym obiektem BLOB tego samego typu obiektów BLOB (blok, dołączanie lub strona) lub może być nowym obiektem BLOB utworzonym przez operację kopiowania.
-  - Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB o takiej samej nazwie, co skutecznie zastępuje docelowy obiekt BLOB. Taka operacja kopiowania usuwa wszystkie niezatwierdzone bloki i zastępuje metadane docelowego obiektu BLOB.
-  - Plik źródłowy można skopiować do docelowego obiektu BLOB za pomocą usługi plików platformy Azure. Docelowy obiekt BLOB może być istniejącym blokowym obiektem BLOB lub może być nowym blokowym obiektem BLOB utworzonym przez operację kopiowania. Kopiowanie plików do stronicowych obiektów blob lub dołączanie obiektów BLOB nie jest obsługiwane.
-  - Migawkę można skopiować za pomocą jej podstawowego obiektu BLOB. Podwyższanie poziomu migawki do pozycji podstawowego obiektu BLOB pozwala przywrócić wcześniejszą wersję obiektu BLOB.
-  - Migawkę można skopiować do docelowego obiektu BLOB z inną nazwą. Otrzymany docelowy obiekt BLOB jest zapisywalnym obiektem BLOB, a nie z migawką.
+- Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB z inną nazwą. Docelowy obiekt BLOB może być istniejącym obiektem BLOB tego samego typu obiektów BLOB (blok, dołączanie lub strona) lub może być nowym obiektem BLOB utworzonym przez operację kopiowania.
+- Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB o takiej samej nazwie, co skutecznie zastępuje docelowy obiekt BLOB. Taka operacja kopiowania usuwa wszystkie niezatwierdzone bloki i zastępuje metadane docelowego obiektu BLOB.
+- Plik źródłowy można skopiować do docelowego obiektu BLOB za pomocą usługi plików platformy Azure. Docelowy obiekt BLOB może być istniejącym blokowym obiektem BLOB lub może być nowym blokowym obiektem BLOB utworzonym przez operację kopiowania. Kopiowanie plików do stronicowych obiektów blob lub dołączanie obiektów BLOB nie jest obsługiwane.
+- Migawkę można skopiować za pomocą jej podstawowego obiektu BLOB. Podwyższanie poziomu migawki do pozycji podstawowego obiektu BLOB pozwala przywrócić wcześniejszą wersję obiektu BLOB.
+- Migawkę można skopiować do docelowego obiektu BLOB z inną nazwą. Otrzymany docelowy obiekt BLOB jest zapisywalnym obiektem BLOB, a nie z migawką.
 
 ## <a name="copy-a-blob"></a>Kopiowanie obiektu BLOB
 
 Aby skopiować obiekt BLOB, wywołaj jedną z następujących metod:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 Poniższy przykład kodu pobiera odwołanie do obiektu BLOB utworzonego wcześniej i kopiuje go do nowego obiektu BLOB w tym samym kontenerze:
 

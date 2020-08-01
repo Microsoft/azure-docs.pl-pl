@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a49497cbe71dddb8ab6e76be9b3679dd62b0cee
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321619"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449031"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -369,7 +369,7 @@ Można je również znaleźć na liście [operacji dostawcy zasobów](/azure/rol
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>PYTANIE: Jakie są typowe pytania dotyczące usługi w przypadku korzystania z usługi Azure RBAC?
 
-Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypadku korzystania z kontroli dostępu opartej na rolach na platformie Azure:
+Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypadku korzystania z kontroli dostępu opartej na rolach (Azure RBAC):
 
 - Podczas tworzenia zasobu na platformie Azure Załóżmy, że nie jesteś bezpośrednio właścicielem obszaru roboczego. Rola jest dziedziczona od najwyższej roli zakresu, do której masz autoryzację w ramach tej subskrypcji. Przykładowo jeśli jesteś administratorem sieci i masz uprawnienia do tworzenia obszaru roboczego Machine Learning, przypiszesz rolę administratora sieci do tego obszaru roboczego, a nie rolę właściciela.
 - Jeśli istnieją dwa przypisania ról do tego samego użytkownika usługi AAD z sprzecznymi sekcjami akcji/nienaruszonych, operacje wymienione w "noactions" z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)

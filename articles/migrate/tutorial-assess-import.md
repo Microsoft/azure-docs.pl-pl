@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114214"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447073"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
 
@@ -73,7 +73,7 @@ Aby skonfigurować nowy projekt Azure Migrate:
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz opcję **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
@@ -103,12 +103,12 @@ Zbierz dane serwera i Dodaj je do pliku CSV.
 
 Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
-**Nazwa pola** | **Obowiązkowy** | **Szczegóły**
+**Nazwa pola** | **Wypełnione** | **Szczegóły**
 --- | --- | ---
 **Nazwa serwera** | Tak | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
 **Rdzenie** | Tak | Liczba rdzeni procesora przypisanych do serwera.
-**Memory (Pamięć)** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
+**Pamięć** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
 **Nazwa systemu operacyjnego** | Tak | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
 **Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowa lub 64-bitowy
@@ -152,7 +152,7 @@ Na przykład aby określić wszystkie pola dla drugiego dysku, Dodaj następują
 Po dodaniu informacji do szablonu CSV zaimportuj serwery do oceny serwera.
 
 1. W Azure Migrate w obszarze **odnajdywanie maszyn**przejdź do ukończonego szablonu.
-2. Wybierz pozycję **Import**.
+2. Wybierz pozycję **Importuj**.
 3. Stan importowania jest pokazywany.
     - Jeśli w stanie pojawiły się ostrzeżenia, możesz je rozwiązać lub kontynuować bez rozwiązywania problemów.
     - Aby poprawić dokładność oceny, Popraw informacje o serwerze zgodnie z opisem w ostrzeżeniach.
@@ -182,7 +182,7 @@ Za pomocą oceny serwera można utworzyć dwa typy ocen.
 
 **Typ oceny** | **Szczegóły**
 --- | --- 
-**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. (concepts-assessment-calculation.md)
+**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny.
 **Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### <a name="sizing-criteria"></a>Kryteria ustalania wielkości
@@ -252,7 +252,7 @@ Informacje na temat oceny maszyn wirtualnych platformy Azure:
 
 ### <a name="review-cost-details"></a>Przejrzyj szczegóły kosztów
 
-Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Możesz:
+Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Można:
 
 - Zapoznaj się z miesięcznymi kosztami obliczeniowymi i magazynem. Koszty są agregowane dla wszystkich serwerów w ocenianej grupie.
 

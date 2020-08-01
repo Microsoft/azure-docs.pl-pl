@@ -3,12 +3,12 @@ title: Blob Storage platformy Azure jako źródło Event Grid
 description: Opisuje właściwości, które są dostarczane dla zdarzeń usługi BLOB Storage z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458947"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Blob Storage platformy Azure jako źródło Event Grid
 
@@ -25,7 +25,7 @@ Ten artykuł zawiera właściwości i schemat zdarzeń usługi BLOB Storage.Aby 
 Te zdarzenia są wyzwalane, gdy klient tworzy, zastępuje lub usuwa obiekt BLOB przez wywoływanie interfejsów API REST obiektów BLOB.
 
 > [!NOTE]
-> Użycie punktu końcowego systemu plików DFS *`(abfss://URI) `* dla niehierarchicznych kont z obsługą przestrzeni nazw nie spowoduje wygenerowanie zdarzeń. W przypadku takich kont tylko punkt końcowy obiektów BLOB *`(wasb:// URI)`* będzie generować zdarzenia.
+> `$logs` `$blobchangefeed` Kontenery i nie są zintegrowane z Event Grid, więc działanie w tych kontenerach nie spowoduje wygenerowania zdarzeń. Ponadto użycie punktu końcowego systemu plików DFS *`(abfss://URI) `* dla niehierarchicznych kont z obsługą przestrzeni nazw nie spowoduje wygenerowania zdarzeń, ale punkt końcowy obiektów BLOB *`(wasb:// URI)`* będzie generować zdarzenia.
 
  |Nazwa zdarzenia |Opis|
  |----------|-----------|
@@ -33,7 +33,7 @@ Te zdarzenia są wyzwalane, gdy klient tworzy, zastępuje lub usuwa obiekt BLOB 
  |**Microsoft. Storage. BlobDeleted** |Wyzwalane po usunięciu obiektu BLOB. <br>To zdarzenie jest wyzwalane, gdy klienci wywołują `DeleteBlob` operację, która jest dostępna w interfejsie API REST usługi BLOB. |
 
 > [!NOTE]
-> Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, przefiltruj zdarzenie dla `CopyBlob` `PutBlob` `PutBlockList` wywołań interfejsu API, i. Te wywołania interfejsu API wyzwalają zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, przefiltruj zdarzenie dla `CopyBlob` `PutBlob` `PutBlockList` wywołań interfejsu API, i. Te wywołania interfejsu API wyzwalają zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](./how-to-filter-events.md).
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista zdarzeń dla Azure Data Lake Storage interfejsu API REST generacji 2
 
@@ -49,7 +49,7 @@ Te zdarzenia są wyzwalane po włączeniu hierarchicznej przestrzeni nazw na kon
 |**Microsoft. Storage. DirectoryDeleted**|Wyzwalane po usunięciu katalogu. <br>To zdarzenie jest wyzwalane, gdy klienci używają tej `DeleteDirectory` operacji, która jest dostępna w interfejsie API REST Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
-> Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, odfiltruj zdarzenie dla `FlushWithClose` wywołania interfejsu API REST. To wywołanie interfejsu API wyzwala zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, odfiltruj zdarzenie dla `FlushWithClose` wywołania interfejsu API REST. To wywołanie interfejsu API wyzwala zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](./how-to-filter-events.md).
 
 <a name="example-event"></a>
 ### <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
@@ -307,8 +307,8 @@ Obiekt danych ma następujące właściwości:
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | api | ciąg | Operacja, która wyzwoliła zdarzenie. |
-| Identyfikatorem żądania klienta | ciąg | Identyfikator żądania dostarczonego przez klienta dla operacji interfejsu API magazynu. Tego identyfikatora można użyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Client-Request-ID" w dziennikach i można go podać w żądaniach klientów przy użyciu nagłówka "x-MS-Client-Request-ID". Zobacz [format dziennika](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| IdentyfikatorŻądania | ciąg | Identyfikator żądania wygenerowanego przez usługę dla operacji interfejsu API magazynu. Może służyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Request-ID-Header" w dziennikach i jest zwracana z inicjowania wywołania interfejsu API w nagłówku "x-MS-Request-ID". Zobacz [format dziennika](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| Identyfikatorem żądania klienta | ciąg | Identyfikator żądania dostarczonego przez klienta dla operacji interfejsu API magazynu. Tego identyfikatora można użyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Client-Request-ID" w dziennikach i można go podać w żądaniach klientów przy użyciu nagłówka "x-MS-Client-Request-ID". Zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
+| IdentyfikatorŻądania | ciąg | Identyfikator żądania wygenerowanego przez usługę dla operacji interfejsu API magazynu. Może służyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Request-ID-Header" w dziennikach i jest zwracana z inicjowania wywołania interfejsu API w nagłówku "x-MS-Request-ID". Zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
 | Element ETag | ciąg | Wartość, której można użyć do warunkowego wykonywania operacji. |
 | contentType | ciąg | Typ zawartości określony dla obiektu BLOB. |
 | contentLength | liczba całkowita | Rozmiar obiektu BLOB w bajtach. |

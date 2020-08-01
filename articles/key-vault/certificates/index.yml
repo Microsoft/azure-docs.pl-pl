@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 78963c02d35d93b4756c12f948c5ba214fb23e90
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 365f0b07370937a73d3925373be0be544a182865
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81423534"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87386779"
 landingContent:
 - title: Certyfikaty
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: Co to są certyfikaty usługi Azure Key Vault?
       url: about-certificates.md
+    - text: Ważne wiadomości dotyczące usuwania nietrwałego
+      url: ../general/soft-delete-change.md
     - text: Rozpoczynanie pracy z certyfikatami usługi Key Vault
       url: certificate-scenarios.md
     - text: Metody tworzenia certyfikatów
@@ -53,7 +55,7 @@ landingContent:
     - text: Podstawowe pojęcia
       url: ../general/basic-concepts.md
     - text: Omówienie usuwania nietrwałego
-      url: ../general/overview-soft-delete.md
+      url: ../general/soft-delete-overview.md
     - text: Omówienie zabezpieczeń
       url: ../general/overview-security.md
 - title: Microsoft Learn

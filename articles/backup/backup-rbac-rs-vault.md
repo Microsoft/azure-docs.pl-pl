@@ -4,12 +4,12 @@ description: Access Control oparte na rolach umożliwiają zarządzanie dostępe
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371706"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445318"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Zarządzanie Azure Backup punktów odzyskiwania przy użyciu Access Control opartych na rolach
 
@@ -77,7 +77,7 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Access Control oparte na rolach](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli RBAC w Azure Portal.
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli rbac w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:
   * [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)

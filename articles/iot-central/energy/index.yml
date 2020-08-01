@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f62c2249f6a29e8bda04c3056da5c9fcf639b85e
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: bc856e9a6a20c262f49cb4c2a730d8ba5157530a
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024578"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337062"
 landingContent:
 - title: Tworzenie rozwiązań dla branży energetycznej
   linkLists:
@@ -38,13 +38,9 @@ landingContent:
     - text: Konfigurowanie szablonu urządzenia
       url: ../core/howto-set-up-template.md
     - text: Łączenie urządzenia
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Łączenie urządzenia IoT Plug and Play (wersja zapoznawcza)
-      url: ../core/tutorial-connect-pnp-device.md
+      url: ../core/tutorial-connect-device.md
   - linkListType: how-to-guide
     links:
-    - text: Przygotowywanie i łączenie zestawu MX Chip IoT DevKit
-      url: ../core/howto-connect-devkit.md
     - text: Łączenie innych chmur IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Zachowanie łączności

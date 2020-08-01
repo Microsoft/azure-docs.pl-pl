@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/11/2020
+ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478335"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445580"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
 
@@ -37,7 +37,7 @@ Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formaci
 
 | Typ konta               | tokeny v 1.0 | tokeny v 2.0 |
 |----------------------------|-------------|-------------|
-| konto Microsoft osobiste | Nie dotyczy         | Obsługiwane   |
+| konto Microsoft osobiste | Brak         | Obsługiwane   |
 | Konto usługi Azure AD           | Obsługiwane   | Obsługiwane   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>zestaw oświadczeń opcjonalnych 1.0 i v 2.0
@@ -53,12 +53,10 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Godzina ostatniego uwierzytelnienia użytkownika. Zobacz OpenID Connect Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Region dzierżawy zasobów | JWT        |           | |
-| `home_oid`                 | Dla użytkowników-Gości, identyfikator obiektu użytkownika w dzierżawie głównej użytkownika.| JWT        |           | |
 | `sid`                      | Identyfikator sesji używany do wylogowywania użytkownika na sesję. | JWT        |  Konta osobiste i usługi Azure AD.   |         |
 | `platf`                    | Platforma urządzeń    | JWT        |           | Ograniczone do zarządzanych urządzeń, które mogą weryfikować typ urządzenia.|
 | `verified_primary_email`   | Źródłem z PrimaryAuthoritativeEmail użytkownika      | JWT        |           |         |
 | `verified_secondary_email` | Źródłem z SecondaryAuthoritativeEmail użytkownika   | JWT        |           |        |
-| `enfpolids`                | Wymuszane identyfikatory zasad. Lista identyfikatorów zasad, które zostały ocenione dla bieżącego użytkownika. | JWT |  |  |
 | `vnet`                     | Informacje o specyfikatorze sieci wirtualnej. | JWT        |           |      |
 | `fwd`                      | Adres IP.| JWT    |   | Dodaje oryginalny adres IPv4 klienta żądającego (w sieci wirtualnej) |
 | `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne, jeśli jest obecne, a wartość zgłoszenia to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
@@ -68,8 +66,8 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `xms_tpl`                  | Preferowany język dzierżawy| JWT | | Preferowany język dzierżawy zasobu, jeśli został ustawiony. Sformatowane w szystkie ("en"). |
 | `ztdid`                    | Identyfikator wdrożenia bez dotknięcia | JWT | | Tożsamość urządzenia używana na potrzeby [Autopilotażu systemu Windows](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adres e-mail dla tego użytkownika, jeśli użytkownik go ma.  | JWT, SAML | MSA, Azure AD | Ta wartość jest uwzględniana domyślnie, jeśli użytkownik jest gościem w dzierżawie.  W przypadku użytkowników zarządzanych (użytkowników w ramach dzierżawy) należy zażądać ich przez to opcjonalne żądanie lub tylko w wersji 3.0, z zakresem OpenID Connect.  W przypadku użytkowników zarządzanych adres e-mail musi być ustawiony w [portalu administracyjnym pakietu Office](https://portal.office.com/adminportal/home#/users).|
-| `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`                | Stan konta użytkowników w dzierżawie | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0` . Jeśli jest gościem, wartość to `1` . |
+| `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Chociaż to zgłoszenie jest automatycznie dołączane, można je określić jako opcjonalne, aby dołączyć dodatkowe właściwości, aby zmodyfikować jego zachowanie w przypadku użytkownika-gościa.  |
 | `idtyp`                    | Typ tokenu   | Tokeny dostępu JWT | Specjalne: tylko w tokenach dostępu tylko do aplikacji |  Wartość jest `app` , gdy token jest tokenem obsługującym tylko aplikację. Jest to najdokładniejszy sposób, aby określić, czy token jest tokenem aplikacji, czy aplikacją i tokenem użytkownika.|
 
@@ -99,7 +97,7 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 | Nazwa właściwości  | Dodatkowa nazwa właściwości | Opis |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Może być używany w przypadku odpowiedzi SAML i JWT oraz dla tokenów v 1.0 i v 2.0. |
-|                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład: `foo_hometenant.com#EXT#@resourcetenant.com` |
+|                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład`foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Przykład dodatkowych właściwości
@@ -127,7 +125,7 @@ Ten obiekt OptionalClaims powoduje, że token identyfikatora zwrócony klientowi
 
 Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfejsu użytkownika lub manifestu aplikacji.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
 
@@ -234,7 +232,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wybierz **Azure Active Directory** z menu po lewej stronie
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**
@@ -243,11 +241,11 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 1. Wybieranie **żądania dodania grup**
 1. Wybierz typy grup do zwrócenia (**wszystkie grupy**, **zabezpieczenia**lub **DirectoryRole**). Opcja **wszystkie grupy** zawiera pozycje **Security**Group, **DirectoryRole**i **DistributionList**
 1. Opcjonalnie: wybierz właściwości określonego typu tokenu, aby zmodyfikować wartość roli role, aby zawierała atrybuty grupy lokalnej lub aby zmienić typ zgłoszenia na rolę
-1. Wybierz pozycję **Zapisz**
+1. Wybierz pozycję **Zapisz**.
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wybierz **Azure Active Directory** z menu po lewej stronie
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne na liście
@@ -260,7 +258,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - Grupy securitygroup
    - "DirectoryRole"
 
-   Przykład:
+   Na przykład:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"
@@ -377,7 +375,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 **Konfiguracja interfejsu użytkownika:**
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 

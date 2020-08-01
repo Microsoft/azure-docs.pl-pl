@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092001"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446203"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
 
@@ -46,6 +46,8 @@ W przypadku korzystania z domyślnego punktu końcowego przesyłania strumieniow
 ## <a name="types"></a>Typy
 
 Istnieją dwa typy **punktów końcowych przesyłania strumieniowego** : **standardowa** (wersja zapoznawcza) i **Premium**. Typ jest definiowany przez liczbę jednostek skalowania ( `scaleUnits` ) przydzielonego dla punktu końcowego przesyłania strumieniowego.
+
+Maksymalny limit jednostek przesyłania strumieniowego to zwykle 10. Skontaktuj się z nami [tutaj](https://azure.microsoft.com/support/create-ticket/) , aby zgłosić limit dla konta.
 
 Tabela zawiera opis typów:
 
@@ -163,7 +165,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

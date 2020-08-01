@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325342"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445288"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -62,7 +62,7 @@ Użyj agenta Log Analytics, jeśli zachodzi taka potrzeba:
 * Wyślij dane do obszaru roboczego Log Analytics, aby korzystać z funkcji obsługiwanych przez [dzienniki Azure monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , takie jak [zapytania dziennika](../log-query/log-query-overview.md).
 * Użyj [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) , która pozwala monitorować maszyny wirtualne w odpowiedniej skali i monitoruje ich procesy oraz zależności od innych zasobów i procesów zewnętrznych.  
 * Zarządzaj zabezpieczeniami maszyn wirtualnych przy użyciu [Azure Security Center](../../security-center/security-center-intro.md) lub [platformy Azure](../../sentinel/overview.md).
-* Użyj [Azure Automation zarządzania aktualizacjami](../../automation/automation-update-management.md), [Azure Automation konfiguracji stanu](../../automation/automation-dsc-overview.md)lub [Azure Automation Change Tracking i spisu](../../automation/change-tracking.md) , aby zapewnić kompleksowe zarządzanie maszynami wirtualnymi platformy Azure
+* Użyj [Azure Automation zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md), [Azure Automation konfiguracji stanu](../../automation/automation-dsc-overview.md)lub [Azure Automation Change Tracking i spisu](../../automation/change-tracking.md) , aby zapewnić kompleksowe zarządzanie maszynami wirtualnymi platformy Azure
 * Użyj różnych [rozwiązań](../monitor-reference.md#insights-and-core-solutions) do monitorowania określonej usługi lub aplikacji.
 
 Ograniczenia Log Analytics agenta obejmują:
@@ -118,6 +118,6 @@ Log Analytics rozszerzenie dla [systemów Windows](../../virtual-machines/extens
 Więcej informacji na temat każdego z agentów znajduje się w następujących tematach:
 
 - [Przegląd agenta Log Analytics](log-analytics-agent.md)
-- [Przegląd rozszerzenia Diagnostyka Azure](diagnostics-extension-overview.md)
+- [Omówienie rozszerzenia Diagnostyki Azure](diagnostics-extension-overview.md)
 - [Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md)
 

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: b8e2f580bb21d2f432ce5dcbc3e06c15ba6f380b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327212"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446169"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Tworzenie alertów metryk dla dzienników w Azure Monitor
 
@@ -25,7 +25,7 @@ Można używać alertów metryk dla popularnych dzienników Log Analytics wyodr�
 
 - [Liczniki wydajności](./data-sources-performance-counters.md) dla maszyn z systemem Windows & Linux
 - [Rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md)
-- [Aktualizowanie rekordów zarządzania](../../automation/automation-update-management.md)
+- [Aktualizowanie rekordów zarządzania](../../automation/update-management/update-mgmt-overview.md)
 - Dzienniki [danych zdarzeń](./data-sources-windows-events.md)
 
 Istnieje wiele korzyści związanych z korzystaniem z **alertów metryk w przypadku dzienników** w ramach [alertów dzienników](./alerts-log.md) opartych na kwerendach na platformie Azure. Poniżej wymieniono niektóre z nich:
@@ -55,7 +55,7 @@ Przed użyciem metryki dzienników zebranych na Log Analytics danych, należy sk
 
 1. **Obszar roboczy active log Analytics**: prawidłowy i aktywny obszar roboczy log Analytics musi być obecny. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../learn/quick-create-workspace.md).
 2. **Agent jest skonfigurowany dla log Analytics obszaru roboczego**: należy skonfigurować agenta dla maszyn wirtualnych platformy Azure (i/lub) lokalnych maszyn wirtualnych do wysyłania danych do log Analytics obszaru roboczego używanego we wcześniejszym kroku. Aby uzyskać więcej informacji, zobacz [log Analytics-Agent — Omówienie](./agents-overview.md).
-3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](./data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/automation-update-management.md)i [danych zdarzeń](./data-sources-windows-events.md).
+3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](./data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md)i [danych zdarzeń](./data-sources-windows-events.md).
 4. **Log Analytics rozwiązania skonfigurowane do wysyłania dzienników**: rozwiązanie log Analytics powinno mieć wymagane dzienniki/dane odpowiadające [metrykom obsługiwanym dla log Analyticsych obszarów roboczych](./metrics-supported.md#microsoftoperationalinsightsworkspaces) . Na przykład dla licznika *% dostępnej pamięci* należy najpierw skonfigurować w rozwiązaniu [liczniki wydajności](./data-sources-performance-counters.md) .
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurowanie alertu metryki dla dzienników

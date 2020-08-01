@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457825"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -112,7 +112,7 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
     **Format pliku**: CSV
 
     > [!NOTE]
-    > W tym artykule przyjęto założenie, że masz dostęp do magazynu danych zarejestrowanego w bieżącym obszarze roboczym Azure Machine Learning. Aby uzyskać instrukcje dotyczące sposobu konfigurowania magazynu danych, zobacz [nawiązywanie połączenia z usługami Azure Storage](how-to-access-data.md#azure-machine-learning-studio).
+    > W tym artykule przyjęto założenie, że masz dostęp do magazynu danych zarejestrowanego w bieżącym obszarze roboczym Azure Machine Learning. Aby uzyskać instrukcje dotyczące sposobu konfigurowania magazynu danych, zobacz [nawiązywanie połączenia z usługami Azure Storage](how-to-access-data.md#studio).
 
     Jeśli nie masz magazynu danych, możesz utworzyć go teraz. Na przykład w tym artykule zostaną zapisane zestawy danych na domyślnym koncie usługi BLOB Storage skojarzonym z obszarem roboczym. Spowoduje to zapisanie zestawów danych do `azureml` kontenera w nowym folderze o nazwie `data` .
 

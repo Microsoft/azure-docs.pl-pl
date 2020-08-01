@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045907"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447711"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -220,7 +220,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics](./how-to/region-mappings.md)
 
-* [Dzienniki Update Management zapytań](./automation-update-management-query-logs.md)
+* [Dzienniki Update Management zapytań](./update-management/update-mgmt-query-logs.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -646,9 +646,9 @@ W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook dys
 
 Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są obsługiwane przez usługi Azure Virtual Machines, Użyj usługi Azure Update Management do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów Windows. Narzędzia, takie jak System Center Updates Publisher (aktualizacje wydawcy), umożliwiają publikowanie aktualizacji niestandardowych w programie Windows Server Update Services (WSUS). Ten scenariusz umożliwia Update Management poprawek maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm.
 
-* [Update Management na platformie Azure](./automation-update-management.md)
+* [Update Management na platformie Azure](./update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](./automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -660,9 +660,9 @@ Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są o
 
 Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są obsługiwane przez usługi Azure Virtual Machines, możesz użyć usługi Azure Update Management do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów Windows. Narzędzia, takie jak System Center Updates Publisher (program Updates Publisher), umożliwiają publikowanie aktualizacji niestandardowych w programie Windows Server Update Services (WSUS). Ten scenariusz umożliwia Update Management poprawek maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm.
 
-* [Update Management rozwiązanie na platformie Azure](./automation-update-management.md)
+* [Update Management rozwiązanie na platformie Azure](./update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](./automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

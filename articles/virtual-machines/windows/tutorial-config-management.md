@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508322"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448862"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
-Dzięki platformie Azure [Change Tracking](../../automation/change-tracking.md) i [Update Management](../../automation/automation-update-management.md)można łatwo identyfikować zmiany w maszynach wirtualnych z systemem Windows na platformie Azure oraz zarządzać aktualizacjami systemu operacyjnego dla tych maszyn wirtualnych.
+Dzięki platformie Azure [Change Tracking](../../automation/change-tracking.md) i [Update Management](../../automation/update-management/update-mgmt-overview.md)można łatwo identyfikować zmiany w maszynach wirtualnych z systemem Windows na platformie Azure oraz zarządzać aktualizacjami systemu operacyjnego dla tych maszyn wirtualnych.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -112,10 +112,10 @@ Aby zaplanować nowe wdrożenie aktualizacji dla maszyny wirtualnej, wybierz poz
 | --- | --- |
 | **Nazwa** |Wprowadź unikatową nazwę identyfikującą wdrożenie aktualizacji. |
 |**System operacyjny**| Wybierz system **Linux** lub **Windows**.|
-| **Grupy do zaktualizowania** |W przypadku maszyn wirtualnych hostowanych na platformie Azure Zdefiniuj zapytanie na podstawie kombinacji subskrypcji, grup zasobów, lokalizacji i tagów. To zapytanie tworzy dynamiczną grupę maszyn wirtualnych hostowanych na platformie Azure do uwzględnienia we wdrożeniu. </br></br>W przypadku maszyn wirtualnych, które nie są hostowane na platformie Azure, wybierz istniejące zapisane wyszukiwanie. Korzystając z tego wyszukiwania, możesz wybrać grupę tych maszyn wirtualnych, które mają zostać uwzględnione we wdrożeniu. </br></br> Aby dowiedzieć się więcej, zobacz [grupy dynamiczne](../../automation/automation-update-management-groups.md).|
+| **Grupy do zaktualizowania** |W przypadku maszyn wirtualnych hostowanych na platformie Azure Zdefiniuj zapytanie na podstawie kombinacji subskrypcji, grup zasobów, lokalizacji i tagów. To zapytanie tworzy dynamiczną grupę maszyn wirtualnych hostowanych na platformie Azure do uwzględnienia we wdrożeniu. </br></br>W przypadku maszyn wirtualnych, które nie są hostowane na platformie Azure, wybierz istniejące zapisane wyszukiwanie. Korzystając z tego wyszukiwania, możesz wybrać grupę tych maszyn wirtualnych, które mają zostać uwzględnione we wdrożeniu. </br></br> Aby dowiedzieć się więcej, zobacz [grupy dynamiczne](../../automation/update-management/update-mgmt-groups.md).|
 | **Maszyny do zaktualizowania** |Wybierz pozycję **zapisane wyszukiwanie**, **zaimportowana Grupa**lub **maszyny**.<br/><br/>W przypadku wybrania opcji **maszyny**można wybrać poszczególne komputery z listy rozwijanej. Gotowość poszczególnych maszyn jest pokazywana w kolumnie **Aktualizuj gotowość agenta** tabeli.</br></br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
 |**Klasyfikacje aktualizacji**|Wybierz wszystkie niezbędne klasyfikacje aktualizacji.|
-|**Uwzględnij/Wyklucz aktualizacje**|Wybierz tę opcję, aby otworzyć okienko **Uwzględnij/wykluczania** . Aktualizacje do uwzględnienia, które mają zostać wykluczone, znajdują się na oddzielnych kartach. Aby uzyskać więcej informacji na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Uwzględnij/Wyklucz aktualizacje**|Wybierz tę opcję, aby otworzyć okienko **Uwzględnij/wykluczania** . Aktualizacje do uwzględnienia, które mają zostać wykluczone, znajdują się na oddzielnych kartach. Aby uzyskać więcej informacji na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
 |**Ustawienia harmonogramu**|Wybierz godzinę do uruchomienia i wybierz **jeden raz** lub **cyklicznie**.|
 | **Skrypty przed skryptami + po skrypcie**|Wybierz skrypty do uruchomienia przed i po wdrożeniu.|
 | **Okno obsługi** | Wprowadź liczbę minut ustawioną dla aktualizacji. Prawidłowe wartości mieszczą się w zakresie od 30 do 360 minut. |

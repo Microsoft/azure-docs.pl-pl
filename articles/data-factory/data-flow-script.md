@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
-ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298605"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448534"
 ---
 # <a name="data-flow-script-dfs"></a>Skrypt przepływu danych (DFS)
 
@@ -195,13 +195,21 @@ Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Liczba aktualizacji, upserts, wstawienia, usunięcia
-W przypadku korzystania z przekształcenia ALTER Row można obliczyć liczbę aktualizacji, upserts, wstawienia, usunąć wynik z zasad zmiany wiersza. Dodaj transformację zagregowaną po zmianie wiersza i wklej ten skrypt przepływu danych do definicji agregacji dla tych liczników:
+W przypadku korzystania z przekształcenia ALTER Row można obliczyć liczbę aktualizacji, upserts, wstawienia, usunąć wynik z zasad zmiany wiersza. Dodaj transformację zagregowaną po zmianie wiersza i wklej ten skrypt przepływu danych do definicji agregacji dla tych liczników.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
         inserts = countIf(isInsert(), 1),
         upserts = countIf(isUpsert(), 1),
         deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### <a name="distinct-row-using-all-columns"></a>Unikatowy wiersz ze wszystkimi kolumnami
+Ten fragment kodu doda nowe Przekształcenie agregacji do przepływu danych, który będzie przyjmować wszystkie przychodzące kolumny, wygenerowanie skrótu, który jest używany do grupowania, aby wyeliminować duplikaty, a następnie podać pierwsze wystąpienie każdego duplikatu jako dane wyjściowe. Nie musisz jawnie określać nazw kolumn, zostaną one automatycznie wygenerowane na podstawie przychodzącego strumienia danych.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## <a name="next-steps"></a>Następne kroki

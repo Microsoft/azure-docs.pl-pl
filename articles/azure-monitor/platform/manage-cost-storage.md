@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: bba634fa20c3bab6e3763f6cedcbeb77f4546098
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bbc6b4c1317ac31d6262892ac32e2d45cf4863db
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327875"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449080"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -579,7 +579,7 @@ Aby alertować, jeśli ilość danych do rozliczenia w ostatnich 24 godzinach by
 - **Zdefiniuj warunek alertu** — określ obszar roboczy usługi Log Analytics jako element docelowy zasobu.
 - **Kryteria alertu** — określ następujące informacje:
    - **Nazwa sygnału** — wybierz pozycję **Przeszukiwanie dzienników niestandardowych**
-   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Jeśli chcesz differetn 
+   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - **Alert logiki****opiera się na** *liczbie wyników*, a **warunek** jest *większy niż ***próg ** wynoszący *0*
    - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do każdego *1440* minutesto są uruchamiane raz dziennie.
 - **Zdefiniuj szczegóły alertu** — określ następujące informacje:

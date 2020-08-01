@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ae3d0ac6fb332fa17fbe938572b94c51e0785089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200755"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449011"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Samouczek: interfejsy i modele niestandardowe
 
@@ -75,14 +75,14 @@ Teraz możesz dodać PREFAB **AppMenu** do sceny, aby uzyskać wizualną opinię
 1. Znajdź **AppMenu** PREFAB w obszarze *Assets/RemoteRenderingTutorial/prefabs/AppMenu*
 1. Przeciągnij PREFAB **AppMenu** do sceny.
 1. Prawdopodobnie zobaczysz okno dialogowe dla **importera tmp**, ponieważ po raz pierwszy dołączymy zasoby w postaci *siatki tekstu Pro* w scenie. Postępuj zgodnie z monitami, aby zaimportować informacje o programie **tmp Essentials**. Następnie zamknij okno dialogowe importera, przykłady i dodatki nie są zbędne.
-1. **AppMenu** jest skonfigurowany do automatycznego podłączania i zapewniania modalności do wyrażania zgody na łączenie się z sesją, dzięki czemu można usunąć obejście umieszczone wcześniej. Na **RemoteRenderingCoordinator** gameobject Usuń obejście na potrzeby autoryzacji, które zostały zaimplementowane wcześniej, naciskając przycisk "-" w zdarzeniu **żądanie autoryzacji** . \
- ![Usuń obejście ](./media/remove-bypass-event.png) . \
+1. **AppMenu** jest skonfigurowany do automatycznego podłączania i zapewniania modalności do wyrażania zgody na łączenie się z sesją, dzięki czemu można usunąć obejście umieszczone wcześniej. Na **RemoteRenderingCoordinator** gameobject Usuń obejście dla autoryzacji, którą wprowadziliśmy wcześniej, naciskając przycisk "-" w zdarzeniu **żądanie autoryzacji** .
+ ![Usuń obejście ](./media/remove-bypass-event.png) .
 1. Przetestuj kontroler widoku, naciskając **Odtwórz** w edytorze aparatu Unity.
 1. W edytorze teraz, gdy MRTK jest skonfigurowany, możesz użyć kluczy WASD, aby zmienić położenie widoku i trzymać prawy przycisk myszy, a następnie przenieść wskaźnik myszy, aby zmienić kierunek widoku. Wypróbuj "kierowanie", aby uzyskać działanie dla kontrolek.
 1. Na urządzeniu możesz podnieść swój komputer, aby móc wymyślić **AppMenu**, w edytorze Unity, użyć klawisza skrótu.
 1. Jeśli dowiesz się, jak uzyskać informacje o menu, naciśnij klawisz "'M", aby wymyślić menu. Menu zostanie umieszczone blisko aparatu, aby można było łatwo obsłużyć interakcję.
-1. Autoryzacja będzie teraz widoczna jako prośba o prawo od **AppMenu**, od teraz do, będzie używana do autoryzowania aplikacji do zarządzania zdalnymi sesjami renderowania. \
- ![Autoryzacja interfejsu użytkownika](./media/authorize-request-ui.png)\
+1. Autoryzacja będzie teraz widoczna jako prośba o prawo od **AppMenu**, od teraz do, zostanie użyta do autoryzowania aplikacji do zarządzania zdalnymi sesjami renderowania.
+ ![Autoryzacja interfejsu użytkownika](./media/authorize-request-ui.png)
 1. Zatrzymaj odtwarzanie aparatu Unity, aby kontynuować pracę z samouczkiem.
 
 ## <a name="manage-model-state"></a>Zarządzanie stanem modelu
@@ -255,11 +255,11 @@ W najbardziej podstawowych terminach **RemoteRenderedModel** przechowuje dane, k
 Przetestujmy nowy skrypt, ponownie ładując model testowy. Utworzymy obiekt gry, aby zawierał skrypt i będzie elementem nadrzędnym dla modelu testowego.
 
 1. Utwórz nowy pusty obiekt gry w scenie i nadaj mu nazwę **TestModel**.
-1. Dodaj skrypt *RemoteRenderedModel* do **TestModel**. \
+1. Dodaj skrypt *RemoteRenderedModel* do **TestModel**.
 ![Dodaj składnik RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
-1. Wypełnij odpowiednio pola `Model Display Name` i `Model Path` z opcją "*TestModel*" i "*BUILTIN://Engine*". \
+1. Wypełnij odpowiednio pola `Model Display Name` i `Model Path` z opcją "*TestModel*" i "*BUILTIN://Engine*".
 ![Określ szczegóły modelu](./media/add-model-script.png)
-1. Umieść obiekt **TestModel** przed kamerą w pozycji **x = 0, y = 0, z = 3**. \
+1. Umieść obiekt **TestModel** przed kamerą w pozycji **x = 0, y = 0, z = 3**.
 ![Position — obiekt](./media/test-model-position.png)
 1. Upewnij się, że **AutomaticallyLoad** jest włączona.
 1. Naciśnij pozycję **Odtwórz** w edytorze aparatu Unity, aby przetestować aplikację.
@@ -280,7 +280,7 @@ Wykonaj kroki opisane w [przewodniku szybki start: konwertowanie modelu do rende
 ## <a name="load-and-rendering-a-custom-model"></a>Ładowanie i renderowanie modelu niestandardowego
 
 1. Utwórz nową pustą grę gameobject w scenie i nadaj jej nazwę podobną do modelu niestandardowego.
-1. Dodaj skrypt *RemoteRenderedModel* do nowo utworzonej gry gameobject. \
+1. Dodaj skrypt *RemoteRenderedModel* do nowo utworzonej gry.
  ![Dodaj składnik RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
 1. Wypełnij `Model Display Name` odpowiednie nazwy dla modelu.
 1. Wypełnij pole `Model Path` przy użyciu identyfikatora URI *sygnatury dostępu współdzielonego (SAS)* , który został utworzony w powyższym kroku pozyskiwania.

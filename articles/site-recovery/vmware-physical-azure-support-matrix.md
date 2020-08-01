@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c7eebfee771a9c65901bd89336e49c026a944a65
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528863"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458029"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -91,7 +91,7 @@ Linux: CentOS | 5,2 do 5,11</b><br/> 6,1 do 6,10</b><br/> 7,0 do 7,8<br/> <br/> 
 Ubuntu | Serwer Ubuntu 14,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)<br/><br/>Serwer Ubuntu 16,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Serwer Ubuntu 18,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (obejmuje obsługę wszystkich 7. *x*, 8. *x* wersje) [(Przejrzyj obsługiwane wersje jądra)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 z dodatkiem SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Uaktualnianie zreplikowanych maszyn z programu SUSE Linux Enterprise Server 11 z dodatkiem SP3 do wersji SP4 nie jest obsługiwane. Aby przeprowadzić uaktualnienie, wyłącz replikację i włącz ją ponownie po uaktualnieniu.
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/) <br/><br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane. Obsługa pozostałych RedHat jądra będzie dostępna w 9,36 oczekiwanych przez koniec sierpnia.
 
 > [!Note]
 > Dla każdej wersji systemu Windows Azure Site Recovery obsługuje tylko kompilacje [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  W tej chwili nie są obecnie obsługiwane [półroczne wersje kanałów](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
@@ -147,7 +147,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Systemy plików | ext3, EXT4, XFS, BTRFS (warunki odpowiednie dla tej tabeli)
 Inicjowanie obsługi zarządzania woluminami logicznymi (LVM)| Grube udostępnianie — tak <br></br> Alokowanie elastyczne — nie
@@ -171,7 +171,7 @@ Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wył
 
 ## <a name="network"></a>Sieć
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Tworzenie zespołu kart interfejsu sieciowego hosta | Obsługiwane przez maszyny wirtualne VMware. <br/><br/>Nieobsługiwane w przypadku replikacji maszyn fizycznych.
 Sieć VLAN hosta | Tak.
@@ -188,7 +188,7 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się w
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Azure ExpressRoute | Tak
 ILB | Tak
@@ -201,8 +201,8 @@ Zachowaj źródłowy adres IP | Tak
 Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
-## <a name="storage"></a>Storage
-**Składnik** | **Obsługiwane**
+## <a name="storage"></a>Magazyn
+**Składnik** | **Obsługiwał**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
@@ -233,7 +233,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
-|**Typ replikacji**   |**Obsługiwane**  |
+|**Typ replikacji**   |**Obsługiwał**  |
 |---------|---------|
 |Odciążone transfery danych (ODX)    |       Nie  |
 |Rozmieszczanie w trybie offline        |   Nie      |
@@ -241,7 +241,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Magazyn lokalnie nadmiarowy | Tak
 Magazyn geograficznie nadmiarowy | Tak
@@ -260,7 +260,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwane**
+**Funkcja** | **Obsługiwał**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -317,7 +317,7 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 
-**Akcja** | **Obsługiwane**
+**Akcja** | **Obsługiwał**
 --- | ---
 Przenoszenie magazynu między grupami zasobów | Nie
 Przenoszenie magazynu w ramach subskrypcji i między subskrypcjami | Nie

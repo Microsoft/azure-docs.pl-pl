@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457808"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -50,21 +50,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Arabski (Arabia Saudyjska)             | Nie                                                |
 | `ar-SY` | Arabski (Syria)                    | Model językowy                                    |
 | `ca-ES` | Kataloński                           | Model językowy                                    |
+| `cs-CZ` | Czeski (Czechy)            | Model języka                                    | 
 | `da-DK` | Duński (Dania)                  | Model językowy                                    |
 | `de-DE` | Niemiecki (Niemcy)                  | Model akustyczny<br>Model językowy<br>Fonetyczn |
 | `en-AU` | Angielski (Australia)               | Model akustyczny<br>Model językowy                  |
 | `en-CA` | Angielski (Kanada)                  | Model akustyczny<br>Model językowy                  |
 | `en-GB` | Angielski (Zjednoczone Królestwo)          | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-HK` | Angielski (Hongkong SAR)               | Model języka                                    | 
+| `en-IE` | Angielski (Irlandia)                 | Model języka                                    | 
 | `en-IN` | Angielski (Indie)                   | Model akustyczny<br>Model językowy                  |
 | `en-NZ` | Angielski (Nowa Zelandia)             | Model akustyczny<br>Model językowy                  |
+| `en-PH` | Angielski (Filipiny)             | Model języka                                    | 
+| `en-SG` | Angielski (Singapur)               | Model języka                                    | 
 | `en-US` | Angielski (Stany Zjednoczone)           | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-ZA` | Angielski (Republika Południowej Afryki)            | Model języka                                    | 
+| `es-AR` | Hiszpański (Argentyna)               | Model języka                                    | 
+| `es-BO` | Hiszpański (Boliwia)                 | Model języka                                    | 
+| `es-CL` | Hiszpański (Chile)                   | Model języka                                    | 
+| `es-CO` | Hiszpański (Kolumbia)                | Model języka                                    | 
+| `es-CR` | Hiszpański (Kostaryka)              | Model języka                                    | 
+| `es-CU` | Hiszpański (Kuba)                    | Model języka                                    | 
+| `es-DO` | Hiszpański (Dominikana)      | Model języka                                    | 
+| `es-EC` | Hiszpański (Ekwador)                 | Model języka                                    | 
 | `es-ES` | hiszpański (Hiszpania)                   | Model akustyczny<br>Model językowy                  |
+| `es-GT` | Hiszpański (Gwatemala)               | Model języka                                    | 
+| `es-HN` | Hiszpański (Honduras)                | Model języka                                    | 
 | `es-MX` | Hiszpański (Meksyk)                  | Model akustyczny<br>Model językowy                  |
+| `es-NI` | Hiszpański (Nikaragua)               | Model języka                                    | 
+| `es-PA` | Hiszpański (Panama)                  | Model języka                                    | 
+| `es-PE` | Hiszpański (Peru)                    | Model języka                                    | 
+| `es-PR` | Hiszpański (Portoryko)             | Model języka                                    | 
+| `es-PY` | Hiszpański (Paragwaj)                | Model języka                                    | 
+| `es-SV` | Hiszpański (Salwador)             | Model języka                                    | 
+| `es-US` | Hiszpański (USA)                     | Model języka                                    | 
+| `es-UY` | Hiszpański (Urugwaj)                 | Model języka                                    | 
+| `es-VE` | Hiszpański (Wenezuela)               | Model języka                                    | 
 | `fi-FI` | Fiński (Finlandia)                 | Model językowy                                    |
 | `fr-CA` | francuski (Kanada)                   | Model akustyczny<br>Model językowy                  |
 | `fr-FR` | Francuski (Francja)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
 | `gu-IN` | Gudżarati (Indyjski)                 | Model językowy                                    |
 | `hi-IN` | Hindi (Indie)                     | Model akustyczny<br>Model językowy                  |
+| `hu-HU` | Węgierski (Węgry)               | Model języka                                    | 
 | `it-IT` | Włoski (Włochy)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
 | `ja-JP` | Japoński (Japonia)                  | Model językowy                                    |
 | `ko-KR` | Koreański (Korea)                    | Model językowy                                    |

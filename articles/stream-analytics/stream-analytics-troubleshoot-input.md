@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045080"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448883"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Znajdź centrum zdarzeń.
 
@@ -161,7 +161,11 @@ SELECT foo FROM DataTwo
 
 ```
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Czytelnicy na partycję przekraczają limit IoT Hub
+
+Stream Analytics zadania używają wbudowanego [punktu końcowego zgodnego z centrum zdarzeń](../iot-hub/iot-hub-devguide-messages-read-builtin.md) IoT Hub, aby nawiązać połączenie i odczytać zdarzenia z IoT Hub. Jeśli odczyt na partycję przekracza limity IoT Hub, można użyć [rozwiązań dla centrum zdarzeń](#readers-per-partition-exceeds-event-hubs-limit) , aby rozwiązać ten problem. Grupę odbiorców można utworzyć dla wbudowanego punktu końcowego za pomocą sesji punktu końcowego portalu IoT Hub Portal lub [zestawu IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

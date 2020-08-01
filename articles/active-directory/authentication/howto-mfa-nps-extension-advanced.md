@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie rozszerzenia serwera NPS usługi Azure MFA — Azure Active Directory
-description: Po zainstalowaniu rozszerzenia serwera NPS wykonaj następujące kroki, aby uzyskać konfigurację zaawansowaną, taką jak listy dozwolonych IP i zastąpienie nazwy UPN.
+description: Po zainstalowaniu rozszerzenia serwera NPS wykonaj następujące kroki, aby uzyskać konfigurację zaawansowaną, taką jak dozwolone listy adresów IP i zamiana nazwy UPN.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beaed8a3e23cba90b2afe476b1e993ed1f99dae7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653785"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445520"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Zaawansowane opcje konfiguracji rozszerzenia serwera NPS dla uwierzytelniania wieloskładnikowego
 
@@ -33,7 +33,7 @@ Aby skonfigurować Alternatywne identyfikatory logowania, przejdź do `HKLM\SOFT
 | Nazwa | Typ | Wartość domyślna | Opis |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | ciąg | Pusty | Określ nazwę atrybutu Active Directory, który ma być używany zamiast nazwy UPN. Ten atrybut jest używany jako atrybut AlternateLoginId. Jeśli dla tej wartości rejestru jest ustawiony [prawidłowy atrybut Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (na przykład mail lub DisplayName), wartość atrybutu jest używana zamiast nazwy UPN użytkownika w celu uwierzytelnienia. Jeśli ta wartość rejestru jest pusta lub nie została skonfigurowana, AlternateLoginId jest wyłączona, a nazwa UPN użytkownika jest używana do uwierzytelniania. |
-| LDAP_FORCE_GLOBAL_CATALOG | wartość logiczna | Fałsz | Użyj tej flagi, aby wymusić użycie wykazu globalnego na potrzeby wyszukiwania LDAP podczas wyszukiwania AlternateLoginId. Skonfiguruj kontroler domeny jako wykaz globalny, Dodaj atrybut AlternateLoginId do wykazu globalnego, a następnie Włącz tę flagę. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany (Niepuste), **Ta flaga jest wymuszana jako true**, niezależnie od wartości ustawienia rejestru. W takim przypadku rozszerzenie serwera NPS wymaga skonfigurowania wykazu globalnego z atrybutem AlternateLoginId dla każdego lasu. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | Fałsz | Użyj tej flagi, aby wymusić użycie wykazu globalnego na potrzeby wyszukiwania LDAP podczas wyszukiwania AlternateLoginId. Skonfiguruj kontroler domeny jako wykaz globalny, Dodaj atrybut AlternateLoginId do wykazu globalnego, a następnie Włącz tę flagę. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany (Niepuste), **Ta flaga jest wymuszana jako true**, niezależnie od wartości ustawienia rejestru. W takim przypadku rozszerzenie serwera NPS wymaga skonfigurowania wykazu globalnego z atrybutem AlternateLoginId dla każdego lasu. |
 | LDAP_LOOKUP_FORESTS | ciąg | Pusty | Podaj rozdzieloną średnikami listę lasów do przeszukania. Na przykład *contoso. com; Foobar. com*. W przypadku skonfigurowania tej wartości rejestru rozszerzenie serwera zasad sieciowych iteracyjnie przeszukuje wszystkie lasy w kolejności, w której zostały wymienione, i zwraca pierwszą pomyślną wartość AlternateLoginId. Jeśli ta wartość rejestru nie jest skonfigurowana, wyszukiwanie AlternateLoginId jest ograniczone do bieżącej domeny.|
 
 Aby rozwiązać problemy z alternatywnymi identyfikatorami logowania, należy użyć zalecanych kroków dla [alternatywnych błędów identyfikatorów logowania](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).

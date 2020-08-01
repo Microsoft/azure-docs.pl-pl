@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133065"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448929"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
@@ -34,7 +34,7 @@ W poniższych sekcjach opisano każdą z opcji zarządzania kluczami w bardziej 
 
 ### <a name="platform-managed-keys"></a>Klucze zarządzane przez platformę
 
-Domyślnie dyski zarządzane korzystają z kluczy szyfrowania zarządzanych przez platformę. Od 10 czerwca 2017 wszystkie nowe dyski zarządzane, migawki, obrazy i nowe dane zapisywane na istniejących dyskach zarządzanych są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę.
+Domyślnie dyski zarządzane korzystają z kluczy szyfrowania zarządzanych przez platformę. Wszystkie dyski zarządzane, migawki, obrazy i dane zapisywane na istniejących dyskach zarządzanych są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę.
 
 ### <a name="customer-managed-keys"></a>Klucze zarządzane przez klienta
 

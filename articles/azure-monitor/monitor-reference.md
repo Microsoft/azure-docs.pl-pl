@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 1f76966b0ed82ae3d4b32e54627a28e99b0dba2f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505724"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447312"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -57,7 +57,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 
 | Usługa | Metryki | Dzienniki | Szczegółowe informacje | Uwagi |
 |:---|:---|:---|:---|:---|
-|Active Directory | Nie | Yes | [Tak](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Usługa Active Directory | Nie | Yes | [Tak](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Nie | Nie | Nie |  |
 |Active Directory Domain Services | Nie | Yes | Nie |  |
 |Dziennik aktywności | Nie | Yes | Nie | |
@@ -90,7 +90,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Cost Management | Nie | Nie | Nie |  |
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
-|Eksplorator danych | Tak | Tak | Nie |  |
+|Data Explorer | Tak | Tak | Nie |  |
 |Data Factory | Tak | Tak | Nie |  |
 |Data Factory v2 | Nie | Yes | Nie |  |
 |Data Share | Nie | Nie | Nie |  |
@@ -117,10 +117,10 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Information Protection | Nie | Yes | Nie |  |
 |Intune | Nie | Yes | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
-|IoT Hub | Tak | Tak | Nie |  |
-|Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
+|Usługa IoT Hub | Tak | Tak | Nie |  |
+|Usługa Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
-|Load Balancer | Tak | Tak | Nie |  |
+|Moduł równoważenia obciążenia | Tak | Tak | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
 |Usługa Machine Learning | Nie | Nie | Nie |  |
 |Aplikacje zarządzane  | Nie | Nie | Nie |  |
@@ -131,7 +131,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Microsoft PowerApps | Nie | Nie | Nie |  |
 |Microsoft Social Engagement | Nie | Nie | Nie |  |
 |Usługa Microsoft Stream | Tak | Tak | Nie |  |
-|Migrate | Nie | Nie | Nie |  |
+|Migrate (Migracja) | Nie | Nie | Nie |  |
 |Multi-Factor Authentication | Nie | Yes | Nie |  |
 |Network Watcher | Tak | Tak | Nie |  |
 |Notification Hubs | Yes | Nie | Nie |  |
@@ -152,10 +152,10 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Site Recovery | Nie | Yes | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |SQL Data Warehouse | Tak | Tak | Nie |  |
-|SQL Database | Tak | Tak | Nie |  |
+|Baza danych SQL | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Storage | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Magazyn | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |
@@ -163,7 +163,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |TINA | Nie | Nie | Nie |  |
 |Traffic Manager | Tak | Tak | Nie |  |
 |Wydruk uniwersalny | Nie | Nie | Nie |  |
-|Virtual Machine Scale Sets | Nie | Yes | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Zestawy skali maszyn wirtualnych | Nie | Yes | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Machines | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Network | Tak | Tak | [Tak](insights/network-insights-overview.md) |  |
 |Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Yes | Nie |  |
@@ -176,7 +176,7 @@ Usługi i rozwiązania w poniższej tabeli przechowują swoje dane w Log Analyti
 
 | Produkt/usługa | Opis |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Zarządzaj aktualizacjami systemu operacyjnego i Śledź zmiany na komputerach z systemem Windows i Linux. Zobacz [Change Tracking](../automation/change-tracking.md) i [Update Management](../automation/automation-update-management.md). |
+| [Azure Automation](../automation/index.yml) | Zarządzaj aktualizacjami systemu operacyjnego i Śledź zmiany na komputerach z systemem Windows i Linux. Zobacz [Change Tracking](../automation/change-tracking.md) i [Update Management](../automation/update-management/update-mgmt-overview.md). |
 | [Azure Information Protection](/azure/information-protection/) | Klasyfikowanie i opcjonalne chronienie dokumentów i wiadomości e-mail. Zobacz [centralne raportowanie dla Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Zbieraj i Analizuj zdarzenia zabezpieczeń oraz przeprowadzaj analizę zagrożeń. Zobacz [zbieranie danych w Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Łączy się z różnymi źródłami, w tym z pakietem Office 365 i Amazon Web Services w chmurze. Zobacz [łączenie ze źródłami danych](../sentinel/connect-data-sources.md). |

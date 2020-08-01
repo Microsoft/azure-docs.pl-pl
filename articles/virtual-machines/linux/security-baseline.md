@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385487"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446544"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 
@@ -568,7 +568,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../../role-based-access-control/overview.md)
 
-* [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -628,9 +628,9 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: użyj rozwiązania Update Management platformy Azure do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów.
 
-* [Update Management rozwiązanie na platformie Azure](../../automation/automation-update-management.md)
+* [Update Management rozwiązanie na platformie Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](../../automation/automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -640,9 +640,9 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: możesz użyć rozwiązania do zarządzania poprawkami innej firmy. Możesz użyć rozwiązania Update Management platformy Azure do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów.
 
-* [Update Management rozwiązanie na platformie Azure](../../automation/automation-update-management.md)
+* [Update Management rozwiązanie na platformie Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](../../automation/automation-tutorial-update-management.md)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 

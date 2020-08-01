@@ -3,12 +3,12 @@ title: 'Samouczek: wysyłanie zdarzeń niestandardowych do połączenia hybrydow
 description: 'Samouczek: publikowanie tematu za pomocą Azure Event Grid i interfejsu wiersza polecenia platformy Azure oraz subskrybowanie tego zdarzenia. Połączenie hybrydowe jest używane dla punktu końcowego.'
 ms.date: 07/07/2020
 ms.topic: tutorial
-ms.openlocfilehash: 208d8584736a0d7ff591c3a8ed7a08bcbf6dcba4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: acb3f3021722a612d6f07ec83d344f4be62c60f3
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114894"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459508"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Samouczek: kierowanie zdarzeń niestandardowych do Azure Relay Połączenia hybrydowe za pomocą interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -16,7 +16,7 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Połączenia hybrydowe
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że masz już dostęp do połączenia hybrydowego i aplikacji odbiornika. Aby rozpocząć pracę z połączeniami hybrydowymi, zobacz [Wprowadzenie do połączeń hybrydowych usługi Relay — platforma .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) lub [Wprowadzenie do połączeń hybrydowych usługi Relay — oprogramowanie Node](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+W tym artykule przyjęto założenie, że masz już dostęp do połączenia hybrydowego i aplikacji odbiornika. Aby rozpocząć pracę z połączeniami hybrydowymi, zobacz [Wprowadzenie do połączeń hybrydowych usługi Relay — platforma .NET](/azure/azure-relay/relay-hybrid-connections-dotnet-get-started) lub [Wprowadzenie do połączeń hybrydowych usługi Relay — oprogramowanie Node](/azure/azure-relay/relay-hybrid-connections-node-get-started).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -104,7 +104,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 Aplikacja odbiornika powinna odebrać komunikat zdarzenia.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 ```azurecli-interactive

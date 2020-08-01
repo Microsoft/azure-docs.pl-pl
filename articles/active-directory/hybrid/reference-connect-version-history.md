@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230387"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445323"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -30,7 +30,7 @@ Temat |  Szczegóły
 --------- | --------- |
 Procedura uaktualniania z programu Azure AD Connect | Różne metody [uaktualniania z poprzedniej wersji do najnowszego](how-to-upgrade-previous-version.md) wydania Azure AD Connect.
 Wymagane uprawnienia | Aby uzyskać uprawnienia wymagane do zastosowania aktualizacji, zobacz [konta i uprawnienia](reference-connect-accounts-permissions.md#upgrade).
-Pobieranie| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Pobierz| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Wydanie nowej wersji Azure AD Connect to proces, który wymaga kilku kroków kontroli jakości, aby zapewnić działanie usługi i przechodząc przez ten proces, numer wersji nowej wersji, a także stan wydania zostanie zaktualizowany w celu odzwierciedlenia najnowszego stanu.
@@ -47,6 +47,20 @@ Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania.
 >Jeśli włączono Azure AD Connect do synchronizacji, wkrótce rozpocznie się automatyczne otrzymywanie powiadomień o kondycji, które ostrzegają o nadchodzących zastosowaniach, gdy korzystasz z jednej ze starszych wersji.
 >
 >Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) , aby dowiedzieć się więcej o tym, jak uaktualnić Azure AD Connect do najnowszej wersji.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Stan wydania
+07/29/2020: wydano do pobrania
+
+### <a name="functional-changes"></a>Zmiany funkcjonalne
+Jest to poprawka do rozwiązania problemu. W tej wersji nie ma żadnych zmian funkcjonalnych.
+
+### <a name="fixed-issues"></a>Naprawione problemy
+
+- Rozwiązano problem polegający na tym, że administrator nie może włączyć "bezproblemowego logowania jednokrotnego", jeśli konto komputera AZUREADSSOACC już istnieje w "Active Directory".
+- Rozwiązano problem, który spowodował błąd przemieszczania podczas importowania różnicowego interfejsu API w wersji 2 dla obiektu powodującego konflikt, który został naprawiony za pośrednictwem portalu kondycji.
+- Rozwiązano problem z konfiguracją importu/eksportu, gdzie wyłączona reguła niestandardowa została zaimportowana jako włączona.
 
 ## <a name="15420"></a>1.5.42.0
 
@@ -231,8 +245,8 @@ Rozwiązano błąd w narzędziu kompresji błędy synchronizacji, które nie obs
 > Aby rozwiązać ten problem, należy zaimportować moduł **AdSync** , a następnie uruchomić `Set-ADSyncDirSyncConfiguration` polecenie cmdlet programu PowerShell na serwerze Azure AD Connect.  Można wykonać następujące czynności:
 >
 >1. Otwórz program PowerShell w trybie administrator.
->2. Należy uruchomić polecenie `Import-Module "ADSync"`.
->3. Należy uruchomić polecenie `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
+>2. Uruchom polecenie `Import-Module "ADSync"`.
+>3. Uruchom polecenie `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
 ### <a name="release-status"></a>Stan wydania 
 
@@ -585,7 +599,7 @@ Zablokuj dostęp do konta AD DS, implementując następujące zmiany uprawnień 
 *   Usuń wszystkie wpisy kontroli dostępu do określonego obiektu, z wyjątkiem ACE określonych dla siebie. Chcemy zachować domyślne uprawnienia, które są niezmienione, gdy nastąpi samodzielne.
 *   Przypisz te określone uprawnienia:
 
-Typ     | Nazwa                          | Dostęp               | Dotyczy:
+Typ     | Nazwa                          | Access               | Dotyczy:
 ---------|-------------------------------|----------------------|--------------|
 Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Enterprise Admins             | Pełna kontrola         | Ten obiekt  |
@@ -937,7 +951,7 @@ CBool(
   * CertPublicKeyParametersOid
   * CertVersion
   * CertSignatureAlgorithmOid
-  * Wybierz
+  * Wybierz pozycję
   * CertKeyAlgorithmParams
   * CertHashString
   * Lokalizacja
@@ -1186,7 +1200,7 @@ Wydanie: sierpień 2016
 
 * Zmiany interwału synchronizacji nie są wykonywane do momentu zakończenia następnego cyklu synchronizacji.
 * Kreator Azure AD Connect nie akceptuje konta usługi Azure AD, którego nazwa użytkownika zaczyna się od znaku podkreślenia ( \_ ).
-* Kreator Azure AD Connect nie może uwierzytelnić konta usługi Azure AD, jeśli hasło konta zawiera zbyt wiele znaków specjalnych. Komunikat o błędzie "nie można zweryfikować poświadczeń. Wystąpił nieoczekiwany błąd ". jest zwracany.
+* Kreator Azure AD Connect nie może uwierzytelnić konta usługi Azure AD, jeśli hasło konta zawiera zbyt wiele znaków specjalnych. Komunikat o błędzie "nie można zweryfikować poświadczeń. Wystąpił nieoczekiwany błąd ". .
 * Odinstalowanie serwera tymczasowego powoduje wyłączenie synchronizacji haseł w dzierżawie usługi Azure AD i powoduje niepowodzenie synchronizacji haseł z aktywnym serwerem.
 * Synchronizacja haseł kończy się niepowodzeniem w przypadku nietypowych przypadków, gdy użytkownik nie przechowuje skrótu hasła.
 * Gdy na serwerze Azure AD Connect jest włączony tryb przejściowy, funkcja zapisywania zwrotnego haseł nie jest tymczasowo wyłączona.

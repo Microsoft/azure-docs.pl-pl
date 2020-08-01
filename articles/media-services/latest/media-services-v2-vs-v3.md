@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011638"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448380"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
 
@@ -83,7 +83,8 @@ Interfejs API v3 ma następujące luki w odniesieniu do interfejsu API w wersji 
     * Wstawianie dyskretnej ścieżki audio, gdy dane wejściowe nie zawierają dźwięku
     * Wstawianie ścieżki wideo, gdy dane wejściowe nie zawierają wideo
 * Zdarzenia na żywo z transkodowaniem obecnie nie obsługują wstawiania poza strumień i znacznik usługi AD za pośrednictwem wywołania interfejsu API. 
- 
+* Zapoznaj się z `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` przykładowym kodem, aby uzyskać najlepsze rozwiązania i wzorce dotyczące korzystania z interfejsu API REST w wersji 2. Rdzeń SDK.
+
 ## <a name="asset-specific-changes"></a>Zmiany dotyczące zasobów
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapuj właściwości zasobu v3 do wersji 2
