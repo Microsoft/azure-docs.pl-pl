@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 20372d9584becf18c65e13c81b99403ce88d27e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568725"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460137"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Grupy adresów IP w zasadach zapory platformy Azure
 
@@ -27,7 +27,7 @@ Grupa adresów IP może mieć jeden adres IP, wiele adresów IP lub jeden lub wi
 
 Grupy adresów IP mogą być ponownie używane w regułach DNAT, sieci i aplikacji zapory platformy Azure dla wielu zapór w różnych regionach i subskrypcjach na platformie Azure. Nazwy grup muszą być unikatowe. Grupę adresów IP można skonfigurować w Azure Portal, w interfejsie wiersza polecenia platformy Azure lub interfejsu API REST. Przykładowy szablon jest dostarczany, aby pomóc Ci rozpocząć pracę.
 
-## <a name="sample-format"></a>Przykładowy format
+## <a name="sample-format"></a>Format próbki
 
 Następujące przykłady formatu adresu IPv4 są prawidłowe do użycia w grupach adresów IP:
 
@@ -66,43 +66,7 @@ Teraz można wybrać **grupę adresów** IP jako **typ źródłowy** lub **docel
 
 ## <a name="ip-address-limits"></a>Limity adresów IP
 
-W przypadku grup IP 50 lub mniej można mieć maksymalnie 5000 pojedynczych adresów IP dla każdego wystąpienia zapory. W przypadku 51 do 100 grup adresów IP można dla każdego wystąpienia zapory 500 poszczególne adresy IP.
-
-### <a name="examples"></a>Przykłady
-
-#### <a name="example-1-supported"></a>Przykład 1: obsługiwane
-
-|Grupy adresów IP  |Liczba adresów IP  |Notacja  |Reguła  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**Łącznie 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>Przykład 2: obsługiwane
-
-|Grupy adresów IP  |Liczba adresów IP  |Notacja  |Reguła  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**Łącznie 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>Przykład 3: nieobsługiwane
-
-|Grupy adresów IP  |Liczba adresów IP  |Notacja  |Reguła  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**Łącznie 8192**|||
-
-#### <a name="example-4-supported"></a>Przykład 4: obsługiwane
-
-|Grupy adresów IP  |Liczba adresów IP  |Notacja  |Reguła  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Ograniczeniem zakresu wystąpień|
-|     |**Łącznie 8192**|         |         |
-
+Dla każdej zapory można mieć maksymalnie 100 grup adresów IP z maksymalnie 5000 indywidualnymi adresami IP lub prefiksami IP dla każdej grupy adresów IP.
 
 ## <a name="related-azure-powershell-cmdlets"></a>Pokrewne polecenia cmdlet Azure PowerShell
 

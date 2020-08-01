@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337827"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461021"
 ---
 # <a name="export-data-module"></a>Eksportuj moduł danych
 
@@ -26,8 +26,8 @@ Ten moduł obsługuje eksportowanie danych do następujących usług danych w ch
 
 - Kontener obiektów blob platformy Azure
 - Udział plików platformy Azure
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Usługa Azure Data Lake Storage 1. generacji
+- Usługa Azure Data Lake Storage 2. generacji
 - Baza danych Azure SQL Database
 
 Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w obszarze roboczym Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [dostęp do danych w usługach Azure Storage](../how-to-access-data.md).
@@ -43,7 +43,7 @@ Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w ob
 1. W obszarze **Magazyn**danych wybierz istniejący magazyn danych z listy rozwijanej. Możesz również utworzyć nowy magazyn danych. Sprawdź, jak odwiedzać [dane dostępu w usługach Azure Storage](../how-to-access-data.md).
 
     > [!NOTE]
-    > Eksportowanie danych określonego typu danych do kolumny bazy danych SQL określonej jako inny typ danych nie jest obsługiwane.
+    > Eksportowanie danych określonego typu danych do kolumny bazy danych SQL określonej jako inny typ danych nie jest obsługiwane. Tabela docelowa nie musi najpierw istnieć.
 
 1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 

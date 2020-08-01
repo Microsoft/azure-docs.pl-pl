@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326583"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460360"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -78,7 +78,7 @@ W programie [`ApplicationInsights.config`](./configuration-with-applicationinsig
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    Szybkość docelowa, którą algorytm adaptacyjny ma dla **każdego hosta serwera**. Jeśli aplikacja sieci Web jest uruchamiana na wielu hostach, Zmniejsz tę wartość tak, aby pozostawała w docelowym wskaźniku ruchu w portalu Application Insights.
+    Docelowa szybkość [operacji logicznych](./correlation.md#data-model-for-telemetry-correlation) , którą algorytm adaptacyjny ma zbierać **na każdym hoście serwera**. Jeśli aplikacja sieci Web jest uruchamiana na wielu hostach, Zmniejsz tę wartość tak, aby pozostawała w docelowym wskaźniku ruchu w portalu Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

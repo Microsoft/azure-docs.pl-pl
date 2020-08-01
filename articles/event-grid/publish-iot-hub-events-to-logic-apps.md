@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 49c91a2b96ebf02ec87637c3176e9263302184bf
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460936"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Samouczek: Wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu usług Event Grid i Logic Apps
 
@@ -24,12 +24,12 @@ W tym artykule przedstawiono przykładową konfigurację, która używa IoT Hub 
 
 * Aktywna subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [utworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Azure Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. To konto e-mail służy do wysyłania powiadomień o zdarzeniach. Aby zapoznać się z pełną listą obsługiwanych łączników aplikacji logiki, zobacz [Omówienie łączników](https://docs.microsoft.com/connectors/).
+* Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Azure Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. To konto e-mail służy do wysyłania powiadomień o zdarzeniach. Aby zapoznać się z pełną listą obsługiwanych łączników aplikacji logiki, zobacz [Omówienie łączników](/connectors/).
 
   > [!IMPORTANT]
-  > Przed użyciem usługi Gmail Sprawdź, czy masz konto biznesowe usługi G (adres e-mail z domeną niestandardową), czy konto użytkownika usługi Gmail (adres e-mail z @gmail.com lub @googlemail.com ). Tylko konta firmowe usługi G mogą korzystać z łącznika usługi Gmail z innymi łącznikami bez ograniczeń w aplikacjach logiki. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi usługami zatwierdzonymi przez firmę Google lub można [utworzyć aplikację kliencką Google do użycia na potrzeby uwierzytelniania](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Przed użyciem usługi Gmail Sprawdź, czy masz konto biznesowe usługi G (adres e-mail z domeną niestandardową), czy konto użytkownika usługi Gmail (adres e-mail z @gmail.com lub @googlemail.com ). Tylko konta firmowe usługi G mogą korzystać z łącznika usługi Gmail z innymi łącznikami bez ograniczeń w aplikacjach logiki. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi usługami zatwierdzonymi przez firmę Google lub można [utworzyć aplikację kliencką Google do użycia na potrzeby uwierzytelniania](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Centrum IoT Hub na platformie Azure. Jeśli jeszcze go nie masz, zobacz przewodnik [Wprowadzenie do usługi IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md).
+* Centrum IoT Hub na platformie Azure. Jeśli jeszcze go nie masz, zobacz przewodnik [Wprowadzenie do usługi IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md).
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -47,7 +47,7 @@ Najpierw Utwórz aplikację logiki i Dodaj wyzwalacz usługi Event Grid monitoru
 
    ![Pola dla tworzenia aplikacji logiki](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po utworzeniu zasobu przejdź do aplikacji logiki. W tym celu wybierz pozycję **grupy zasobów**, a następnie wybierz grupę zasobów utworzoną dla tego samouczka. Następnie znajdź aplikację logiki na liście zasobów i wybierz ją. 
 
@@ -135,11 +135,11 @@ Akcje to kroki, które są wykonywane, gdy wyzwalacz uruchomi przepływ pracy ap
 
 1. Utwórz szablon wiadomości e-mail. 
 
-   * **Do**: wpisz adres e-mail, na który mają być wysyłane wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, które nadaje się do celów testowych. 
+   * **Do**: Wprowadź adres e-mail, na który mają być wysyłane wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, do którego masz dostęp, w celach testowych. 
 
-   * **Temat**: wprowadź tekst tematu. Po kliknięciu pola tekstowego temat możesz wybrać zawartość dynamiczną do uwzględnienia. Na przykład w tym samouczku używamy `IoT Hub alert: {event Type}` . Jeśli nie widzisz zawartości dynamicznej, zaznacz hiperlink **Dodawanie zawartości dynamicznej** — spowoduje to włączenie i wyłączenie tej opcji.
+   * **Temat**: Wpisz tekst tematu. Po kliknięciu pola tekstowego temat możesz wybrać zawartość dynamiczną do uwzględnienia. Na przykład w tym samouczku używamy `IoT Hub alert: {event Type}` . Jeśli nie widzisz zawartości dynamicznej, zaznacz hiperlink **Dodawanie zawartości dynamicznej** — spowoduje to włączenie i wyłączenie tej opcji.
 
-   * **Treść**: Napisz tekst wiadomości e-mail. Za pomocą narzędzia do wybierania wybierz właściwości JSON w celu dołączenia zawartości dynamicznej opartej na danych zdarzenia. Jeśli zawartość dynamiczna nie jest widoczna, zaznacz hiperlink **Dodaj zawartość dynamiczną** poniżej pola tekstowego **treść** . Jeśli nie pokazywane są odpowiednie pola, kliknij przycisk *więcej* na ekranie zawartości dynamicznej, aby uwzględnić pola z poprzedniej akcji.
+   * **Treść**: Wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Jeśli zawartość dynamiczna nie jest widoczna, zaznacz hiperlink **Dodaj zawartość dynamiczną** poniżej pola tekstowego **treść** . Jeśli nie pokazywane są odpowiednie pola, kliknij przycisk *więcej* na ekranie zawartości dynamicznej, aby uwzględnić pola z poprzedniej akcji.
 
    Przykładowy szablon wiadomości e-mail może wyglądać następująco:
 
@@ -192,27 +192,27 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
 
          ![wybieranie adresu url punktu końcowego](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-         Gdy skończysz, okienko powinno wyglądać podobnie do poniższego przykładu: 
+         Po zakończeniu okienko powinno wyglądać tak, jak w poniższym przykładzie: 
 
         ![Przykładowy formularz subskrypcji zdarzeń](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Możesz teraz zapisać subskrypcję zdarzeń, aby otrzymywać powiadomienia o wszystkich urządzeniach tworzonych w centrum IoT Hub. Jednak w tym samouczku użyjemy opcjonalnych filtrów, aby odfiltrować konkretne urządzenia. Wybierz pozycję **filtry** w górnej części okienka.
+5. Możesz teraz zapisać subskrypcję zdarzeń, aby otrzymywać powiadomienia o wszystkich urządzeniach tworzonych w centrum IoT Hub. Jednak na potrzeby tego samouczka użyjemy pól opcjonalnych, aby filtrować zdarzenia pod kątem określonych urządzeń. Wybierz pozycję **Filtry** w górnej części okienka.
 
-6. Wybierz pozycję **Dodaj nowy filtr**. Wypełnij pola następującymi wartościami:
+6. Wybierz pozycję **Dodaj nowy filtr**. Wprowadź następujące wartości w polach:
 
-   * **Klucz**: Wybierz `Subject` .
+   * **Klucz**: Wybierz pozycję `Subject`.
 
-   * **Operator**: SELECT `String begins with` .
+   * **Operator**: Wybierz pozycję `String begins with`.
 
    * **Wartość**: wprowadź `devices/Building1_` , aby odfiltrować zdarzenia urządzenia podczas tworzenia 1.
   
-   Dodaj inny filtr z następującymi wartościami:
+   Dodaj kolejny filtr z następującymi wartościami:
 
-   * **Klucz**: Wybierz `Subject` .
+   * **Klucz**: Wybierz pozycję `Subject`.
 
-   * **Operator**: SELECT `String ends with` .
+   * **Operator**: Wybierz pozycję `String ends with`.
 
-   * **Wartość**: wprowadź `_Temperature` , aby odfiltrować zdarzenia urządzenia związane z temperaturą.
+   * **Wartość**: Wpisz `_Temperature`, aby filtrować pod kątem zdarzeń związanych z temperaturą.
 
    Karta **filtry** subskrypcji zdarzeń powinna teraz wyglądać podobnie do tego obrazu:
 
@@ -222,34 +222,34 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
 
 ## <a name="create-a-new-device"></a>Tworzenie nowego urządzenia
 
-Aby przetestować aplikację logiki, utwórz nowe urządzenie w celu wyzwolenia wiadomości e-mail z powiadomieniem o zdarzeniu. 
+Przetestuj aplikację logiki, tworząc nowe urządzenie w celu wyzwolenia wiadomości e-mail z powiadomieniem o zdarzeniu. 
 
-1. W centrum IoT Hub wybierz pozycję **Urządzenia IoT**. 
+1. Z poziomu usługi IoT Hub wybierz pozycję **urządzenia IoT**. 
 
 2. Wybierz pozycję **Nowy**.
 
-3. W polu **Identyfikator urządzenia** wpisz ciąg `Building1_Floor1_Room1_Light`.
+3. W polu **Identyfikator urządzenia** wpisz `Building1_Floor1_Room1_Light`.
 
 4. Wybierz pozycję **Zapisz**. 
 
-5. Aby przetestować filtry subskrypcji zdarzeń, możesz dodać wiele urządzeń z różnymi identyfikatorami. Wypróbuj te przykłady: 
+5. Aby przetestować filtry subskrypcji zdarzeń, możesz dodać wiele urządzeń z różnymi identyfikatorami. Wypróbuj następujące wartości: 
 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-   Jeśli dodano cztery przykłady, lista urządzeń IoT powinna wyglądać jak na poniższej ilustracji:
+   Po dodaniu tych czterech przykładowych urządzeń lista urządzeń IoT powinna być podobna do tej na poniższej ilustracji:
 
-   ![Lista urządzeń IoT Hub](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
+   ![Lista urządzeń w usłudze IoT Hub](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
 
 6. Po dodaniu kilku urządzeń do centrum IoT Hub sprawdź pocztę e-mail, aby zobaczyć, które z nich wyzwoliły działanie aplikacji logiki. 
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
-Nie musisz korzystać z witryny Azure Portal — kroki w centrum IoT Hub możesz wykonać przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
+Nie musisz korzystać z witryny Azure Portal — kroki w centrum IoT Hub możesz wykonać przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Użycie zasobów w tym samouczku powoduje naliczanie opłat w ramach Twojej subskrypcji platformy Azure. Po zakończeniu próby wykonania samouczka i przetestowaniu wyników należy wyłączyć lub usunąć zasoby, które nie mają być zachowywane. 
 

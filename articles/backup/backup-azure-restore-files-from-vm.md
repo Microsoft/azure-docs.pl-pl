@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514088"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475060"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -132,28 +132,96 @@ Aby przenieść te partycje w tryb online, uruchom polecenia w poniższych sekcj
 
 #### <a name="for-lvm-partitions"></a>Dla partycji LVM
 
-Aby wyświetlić listę nazw grup woluminów w woluminie fizycznym:
+Po uruchomieniu skryptu partycje LVM są instalowane w woluminach fizycznych/Disk określonych w danych wyjściowych skryptu. Proces ma
+
+1. Pobieranie unikatowej listy nazw grup woluminów z woluminów fizycznych lub dysków
+2. Następnie Wyświetl listę woluminów logicznych w tych grupach woluminów
+3. Następnie zainstaluj woluminy logiczne do żądanej ścieżki.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>Wyświetlanie listy nazw grup woluminów z woluminów fizycznych
+
+Aby wyświetlić listę nazw grup woluminów:
+
+```bash
+pvs -o +vguuid
+```
+
+To polecenie spowoduje wyświetlenie listy wszystkich woluminów fizycznych (łącznie z tymi, które są obecne przed uruchomieniem skryptu), odpowiadających im nazw grup woluminów i unikatowych identyfikatorów użytkowników (UUID) grupy woluminu. Poniżej przedstawiono przykładowe dane wyjściowe polecenia.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+Kolumna 1 (WA) pokazuje wolumin fizyczny, kolejne kolumny przedstawiają odpowiednią nazwę, format, atrybuty, rozmiar, wolne miejsce i unikatowy identyfikator grupy woluminów. W danych wyjściowych polecenia są wyświetlane wszystkie woluminy fizyczne. Zapoznaj się z danymi wyjściowymi skryptu i zidentyfikuj woluminy związane z kopią zapasową. W powyższym przykładzie w danych wyjściowych skryptu przedstawiono/dev/SDF i/dev/SDD. Tak więc Grupa woluminów datavg_db należy do skryptu, a grupa woluminów Appvg_new należy do maszyny. Ostatnim pomysłem jest upewnienie się, że unikatowa nazwa grupy woluminów powinna mieć 1 unikatowy identyfikator.
+
+###### <a name="duplicate-volume-groups"></a>Zduplikowane grupy woluminów
+
+Istnieją scenariusze, w których nazwy grup woluminów mogą mieć 2 UUID po uruchomieniu skryptu. Oznacza to, że nazwy grup woluminów na komputerze, na którym skrypt jest wykonywany, a kopia zapasowa maszyny wirtualnej jest taka sama. Następnie należy zmienić nazwy grup woluminów maszyn wirtualnych z kopią zapasową. Zapoznaj się z poniższym przykładem.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+Dane wyjściowe skryptu byłyby pokazane/dev/SDG,/dev/SDH,/dev/sdm2 jako dołączone. Dlatego odpowiednie nazwy VG są Appvg_new i rootvg. Jednak te same nazwy znajdują się również na liście VG maszyny. Możemy sprawdzić, czy 1 Nazwa VG ma 2 Identyfikatory UUID.
+
+Teraz musimy zmienić nazwy VG dla woluminów opartych na skryptach, takich jak/dev/SDG,/dev/SDH,/dev/sdm2. Aby zmienić nazwę grupy woluminów, użyj następującego polecenia
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Teraz mamy wszystkie nazwy VG z unikatowymi identyfikatorami.
+
+###### <a name="active-volume-groups"></a>Aktywne grupy woluminów
+
+Upewnij się, że grupy woluminów odpowiadające woluminom skryptu są aktywne. Poniższe polecenie służy do wyświetlania aktywnych grup woluminów. Sprawdź, czy na tej liście znajdują się grupy woluminów powiązane ze skryptem.
+
+```bash
+vgdisplay -a
+```  
+
+W przeciwnym razie Aktywuj grupę woluminów przy użyciu poniższego polecenia.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-Aby wyświetlić listę wszystkich woluminów logicznych, nazw i ich ścieżek w grupie woluminów:
+##### <a name="listing-logical-volumes-within-volume-groups"></a>Wyświetlanie listy woluminów logicznych w grupach woluminów
+
+Po otrzymaniu unikatowej aktywnej listy VGs związanych ze skryptem woluminy logiczne występujące w tych grupach woluminów można wyświetlić przy użyciu poniższego polecenia.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-```lvdisplay```Polecenie pokazuje również, czy grupy woluminów są aktywne, nie. Jeśli grupa woluminów jest oznaczona jako nieaktywna, należy ją ponownie aktywować, aby ją zainstalować. Jeśli grupa woluminów jest wyświetlana jako nieaktywna, użyj następującego polecenia, aby ją aktywować.
+To polecenie wyświetla ścieżkę każdego woluminu logicznego jako "ścieżka LV".
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-Gdy nazwa grupy woluminów jest aktywna, uruchom ```lvdisplay``` polecenie jeszcze raz, aby zobaczyć wszystkie odpowiednie atrybuty.
+##### <a name="mounting-logical-volumes"></a>Instalowanie woluminów logicznych
 
 Aby zainstalować woluminy logiczne do wybranej ścieżki:
 
@@ -161,6 +229,9 @@ Aby zainstalować woluminy logiczne do wybranej ścieżki:
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> Nie należy używać elementu "Mount-a". To polecenie służy do instalowania wszystkich urządzeń opisanych w temacie "/etc/fstab". Może to oznaczać, że duplikaty urządzeń mogą zostać zainstalowane. Dane można przekierowywać do urządzeń utworzonych przez skrypt, które nie utrwalają danych, co może spowodować utratę danych.
 
 #### <a name="for-raid-arrays"></a>Macierze RAID
 

@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460987"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -66,6 +66,9 @@ W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza ma
 
 Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](./how-to-discover-applications.md) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
 
+## <a name="operating-system-version-not-available"></a>Wersja systemu operacyjnego jest niedostępna
+
+W przypadku serwerów fizycznych informacje o pomocniczej wersji systemu operacyjnego powinny być dostępne. Jeśli nie jest dostępny, skontaktuj się z pomoc techniczna firmy Microsoft. W przypadku maszyn VMware Ocena serwera używa informacji o systemie operacyjnym określonych dla maszyny wirtualnej w vCenter Server. Jednak vCenter Server nie zapewnia wersji pomocniczej dla systemów operacyjnych. Aby odnaleźć wersję pomocniczą, należy skonfigurować [Odnajdowanie aplikacji](./how-to-discover-applications.md). W przypadku maszyn wirtualnych funkcji Hyper-V odnajdowanie wersji pomocniczej systemu operacyjnego nie jest obsługiwane. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
 

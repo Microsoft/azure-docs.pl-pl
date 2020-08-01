@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Tworzenie aplikacji dla systemu iOS'
-description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć aplikację dla systemu iOS przy użyciu usługi Spatial Anchors.
+description: Dowiedz się, jak utworzyć aplikację dla systemu iOS przy użyciu kotwic przestrzennych platformy Azure programowo w postaci SWIFT lub w języku C.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 99f3b5bc763c6ffb43fd143cf394be9157b2c83f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873105"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460273"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Szybki Start: Tworzenie aplikacji dla systemu iOS z zakotwiczeniami przestrzennymi platformy Azure w postaci SWIFT lub w celu-C
 
@@ -58,7 +58,7 @@ Przejdź do adresu `iOS/Swift/`.
 cd ./iOS/Swift/
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Przejdź do adresu `iOS/Objective-C/`.
 
@@ -81,7 +81,7 @@ Następnie otwórz plik `.xcworkspace` w programie Xcode.
 open ./SampleSwift.xcworkspace
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 ```bash
 open ./SampleObjC.xcworkspace
@@ -103,7 +103,7 @@ Znajdź pole `spatialAnchorsAccountId` i zastąp wartość `Set me` identyfikato
 
 Znajdź `startSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `cloudSession!.configuration.accountDomain = "MyAccountDomain";` .
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Otwórz plik `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
@@ -146,7 +146,7 @@ brew link --overwrite cocoapods
 
 Jeśli aplikacja dla systemu iOS zostanie wdrożona w systemie iOS 10.3.1 z poziomu osobistego profilu aprowizacji/konta dewelopera, może zostać wyświetlony następujący błąd: `Library not loaded: @rpath/ADAL...` . 
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 - Użyj profilu aprowizacji, który nie jest osobistym profilem zespołu (płatne konto dewelopera).
 - Wdróż aplikację na urządzeniu z systemem iOS z systemem iOS 13,3 lub starszym lub na jednym komputerze z systemem iOS 13,4 beta lub wydaniem wersji.

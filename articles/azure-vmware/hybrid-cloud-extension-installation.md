@@ -3,12 +3,12 @@ title: Zainstaluj rozszerzenie chmury hybrydowej (HCX)
 description: Skonfiguruj rozwiązanie VMware hybrydowego Extension (HCX) dla chmury prywatnej dla rozwiązania Azure VMware (Automatyczna synchronizacja)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539163"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475451"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
@@ -31,10 +31,10 @@ Po zakończeniu instalacji możesz wykonać czynności opisane w kolejnych kroka
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
     
-* Zapoznaj się z [serią samouczka](tutorial-network-checklist.md) podstawowe oprogramowanie do automatycznej synchronizacji (SDDC)
-* Zapoznaj się z [dokumentacją programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) , w tym podręczniku użytkownika HCX
-* Przejrzyj dokumentację oprogramowania VMware [migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
-* Opcjonalnie Przejrzyj [zagadnienia dotyczące wdrażania oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* Zapoznaj się z [serią samouczka](tutorial-network-checklist.md)podstawowa definicja oprogramowania do automatycznej synchronizacji (SDDC).
+* Zapoznaj się z [dokumentacją programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) , w tym podręczniku użytkownika HCX.
+* Przejrzyj dokumentację oprogramowania VMware [migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* Zapoznaj się z [zaleceniami dotyczącymi wdrażania programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Zapoznaj VMware vSphere się z tematem "HCX", na przykład z [serii blogów](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) w witrynie HCX. 
 * Zamów aktywację automatycznej synchronizacji HCX Enterprise za pomocą kanałów pomocy technicznej dotyczącej automatycznej synchronizacji.
 
@@ -52,7 +52,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Globalne zasięgi należy skonfigurować między obwodami SDDC lokalnego i automatyczna synchronizacja.
+* ExpressRoute Global Reach należy skonfigurować między obwodami lokalnymi i automatycznej synchronizacji SDDC ExpressRoute.
 
 * Wszystkie wymagane porty powinny być otwarte między środowiskiem lokalnym i SDDC (zobacz [dokumentację programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 

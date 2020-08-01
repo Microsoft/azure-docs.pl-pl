@@ -2,14 +2,14 @@
 title: Utrwalanie danych wyjściowych w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 description: Dowiedz się, jak za pomocą interfejsu API usługi Batch utrwalać dane wyjściowe zadania i zadania wsadowego w usłudze Azure Storage.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143516"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475621"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Utrwalanie danych zadań w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 
@@ -19,6 +19,9 @@ Interfejs API usługi Batch obsługuje utrwalanie danych wyjściowych w usłudze
 
 Korzystanie z interfejsu API usługi Batch do utrwalania danych wyjściowych zadania polega na tym, że nie trzeba modyfikować aplikacji, w której uruchomiono zadanie. Zamiast tego za pomocą kilku modyfikacji aplikacji klienckiej można utrwalać dane wyjściowe zadania z tego samego kodu, który tworzy zadanie.
 
+> [!IMPORTANT]
+> Utrwalanie danych zadań w usłudze Azure Storage za pomocą interfejsu API usługi Batch nie działa z pulami utworzonymi przed [1 lutego 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Kiedy używać interfejsu API usługi Batch do utrwalania danych wyjściowych zadania?
 
 Azure Batch zapewnia więcej niż jeden sposób utrwalania danych wyjściowych zadania. Korzystanie z interfejsu API usługi Batch to wygodne podejście, które najlepiej odpowiada tym scenariuszom:
@@ -26,9 +29,9 @@ Azure Batch zapewnia więcej niż jeden sposób utrwalania danych wyjściowych z
 - Chcesz napisać kod, aby utrzymać dane wyjściowe zadania z poziomu aplikacji klienckiej bez modyfikowania aplikacji, która jest uruchomiona.
 - Chcesz utrwalać dane wyjściowe z zadań wsadowych i zadań Menedżera zadań w pulach utworzonych za pomocą konfiguracji maszyny wirtualnej.
 - Chcesz utrwalać dane wyjściowe do kontenera usługi Azure Storage przy użyciu dowolnej nazwy.
-- Chcesz utrwalać dane wyjściowe do kontenera usługi Azure Storage o nazwie zgodnej ze [standardem Konwencji plików wsadowych](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Chcesz utrwalać dane wyjściowe do kontenera usługi Azure Storage o nazwie zgodnej ze [standardem Konwencji plików wsadowych](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Jeśli Twój Scenariusz różni się od wymienionych powyżej, może być konieczne rozważenie innego podejścia. Na przykład interfejs API usługi Batch nie obsługuje obecnie przesyłania strumieniowego do usługi Azure Storage, gdy zadanie jest uruchomione. Aby przesłać strumieniowo dane wyjściowe, należy rozważyć użycie biblioteki Konwencji plików wsadowych dostępnej dla platformy .NET. W przypadku innych języków należy wdrożyć własne rozwiązanie. Aby uzyskać więcej informacji na temat innych opcji utrwalania danych wyjściowych zadania, zobacz [utrwalanie zadań i zadań wyjściowych w usłudze Azure Storage](batch-task-output.md).
+Jeśli Twój Scenariusz różni się od wymienionych powyżej, może być konieczne rozważenie innego podejścia. Na przykład interfejs API usługi Batch nie obsługuje obecnie przesyłania strumieniowego do usługi Azure Storage, gdy zadanie jest uruchomione. Aby przesłać strumieniowo dane wyjściowe, należy rozważyć użycie biblioteki Konwencji plików wsadowych dostępnej dla platformy .NET. W przypadku innych języków należy wdrożyć własne rozwiązanie. Aby uzyskać informacje na temat innych opcji utrwalania danych wyjściowych zadania, zobacz [utrwalanie zadań i zadań wyjściowych w usłudze Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Tworzenie kontenera w usłudze Azure Storage
 
@@ -88,6 +91,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
             uploadCondition: OutputFileUploadCondition.TaskCompletion)),
 }
 ```
+
+> [!NOTE]
+> Jeśli używasz tego przykładu z systemem Linux, pamiętaj, aby zmienić ukośniki odwrotne na ukośniki.
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Określ wzorzec pliku do dopasowania
 
@@ -169,7 +175,7 @@ Jeśli tworzysz w języku innym niż C#, musisz samodzielnie zaimplementować st
 
 ## <a name="code-sample"></a>Przykład kodu
 
-Przykładowy projekt [PersistOutputs][github_persistoutputs] jest jednym z [przykładów kodu Azure Batch][github_samples] w witrynie GitHub. W tym rozwiązaniu programu Visual Studio pokazano, jak używać biblioteki klienta usługi Batch dla platformy .NET do utrwalania danych wyjściowych zadań w magazynie trwałym. Aby uruchomić przykład, wykonaj następujące kroki:
+Przykładowy projekt [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) jest jednym z [przykładów kodu Azure Batch](https://github.com/Azure/azure-batch-samples) w witrynie GitHub. W tym rozwiązaniu programu Visual Studio pokazano, jak używać biblioteki klienta usługi Batch dla platformy .NET do utrwalania danych wyjściowych zadań w magazynie trwałym. Aby uruchomić przykład, wykonaj następujące kroki:
 
 1. Otwórz projekt w programie **Visual Studio 2019**.
 2. Dodaj **poświadczenia konta** magazynu i partii do **AccountSettings. settings** w projekcie Microsoft.Azure.Batch. Samples. Common.
@@ -181,8 +187,5 @@ Przykładowy projekt [PersistOutputs][github_persistoutputs] jest jednym z [przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat utrwalania danych wyjściowych zadań przy użyciu biblioteki Konwencji plików dla platformy .NET, zobacz [trwałe dane zadania i zadania do usługi Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET](batch-task-output-file-conventions.md).
-- Aby uzyskać informacje na temat innych metod utrwalania danych wyjściowych w Azure Batch, zobacz [utrwalanie zadań i zadań wyjściowych w usłudze Azure Storage](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
+- Aby dowiedzieć się więcej na temat utrwalania danych wyjściowych zadań przy użyciu biblioteki Konwencji plików dla platformy .NET, zobacz [trwałe dane zadania i zadania do usługi Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET](batch-task-output-file-conventions.md).
+- Aby dowiedzieć się więcej na temat innych metod utrwalania danych wyjściowych w Azure Batch, zobacz [trwałe zadania i zadania do usługi Azure Storage](batch-task-output.md).

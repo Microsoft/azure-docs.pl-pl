@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a763a3bb4d46ba03808423d4d1283381c1174a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605391"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475604"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -25,7 +25,7 @@ Tryb debugowania Azure Data Factory mapowania przepływu danych pozwala interakt
 
 ![Suwak debugowania](media/data-flow/debugbutton.png "Suwak debugowania")
 
-Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfiguracji środowiska Integration Runtime, która ma być używana. Jeśli wybrano AutoResolveIntegrationRuntime, klaster zawierający osiem rdzeni obliczeń ogólnych z 60-minutowym czasem na żywo zostanie przypadany. Aby uzyskać więcej informacji na temat środowisk integracji przepływu danych, zobacz [wydajność przepływu danych](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfiguracji środowiska Integration Runtime, która ma być używana. Jeśli wybrano AutoResolveIntegrationRuntime, klaster zawierający osiem rdzeni obliczeń ogólnych z 60-minutowym czasem na żywo zostanie przypadany. Aby uzyskać więcej informacji na temat środowisk integracji przepływu danych, zobacz [wydajność przepływu danych](concepts-data-flow-performance.md#ir).
 
 ![Debuguj wybór IR](media/data-flow/debugbutton2.png "Debuguj wybór IR")
 

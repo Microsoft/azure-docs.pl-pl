@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f2d9407d9c7172839027e2650486695244f67889
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352344"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475689"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Architektura Plug and Play IoT w wersji zapoznawczej
+# <a name="iot-plug-and-play-preview-architecture"></a>Architektura technologii IoT Plug and Play (wersja zapoznawcza)
 
 Wersja zapoznawcza Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
 
@@ -38,7 +38,7 @@ Interfejs użytkownika sieci Web umożliwia zarządzanie modelami i interfejsami
 
 Repozytorium modelu używa RBAC, aby umożliwić ograniczenie dostępu do definicji interfejsu.
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Konstruktor urządzeń implementuje kod do uruchomienia na urządzeniu inteligentnym IoT przy użyciu jednego z [zestawów SDK urządzeń usługi Azure IoT](./libraries-sdks.md). Zestawy SDK urządzeń pomagają konstruktorowi urządzeń:
 
@@ -79,5 +79,5 @@ Rozwiązanie zaplecza może używać informacji z definicji interfejsu do:
 Teraz, gdy już masz Przegląd architektury rozwiązania IoT Plug and Play, kolejne kroki zawierają informacje na temat:
 
 - [Repozytorium modelu](./concepts-model-repository.md)
-- [Proces odnajdywania modelu](./concepts-model-discovery.md)
+- [Integracja modelu cyfrowej przędzy](./concepts-model-discovery.md)
 - [Opracowywanie Plug and Play IoT](./concepts-developer-guide.md)

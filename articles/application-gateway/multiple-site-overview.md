@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474329"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
-Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym porcie bramy aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny, contoso.com, fabrikam.com i adatum.com wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki z wieloma lokacjami i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu. 
+Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym porcie bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie nawet ponad 100 witryn internetowych do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny — contoso.com, fabrikam.com i adatum.com — wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki obejmujące wiele witryn i skonfigurujesz każdy odbiornik dla odpowiedniego portu i ustawienia protokołu. 
 
-Można również zdefiniować symbole wielolokacjowe i maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](#wildcard-host-names-in-listener-preview).
+Możesz również określić nazwy hosta z symbolami wieloznacznymi w odbiorniku obejmującym wiele witryn, z maksymalnie pięcioma nazwami hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](#wildcard-host-names-in-listener-preview).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Application Gateway wiele lokacji":::
 
@@ -42,6 +42,7 @@ Używając symbolu wieloznacznego w nazwie hosta, można dopasować wiele nazw h
 
 >[!NOTE]
 >Ta funkcja jest obecnie dostępna tylko za pomocą [Azure PowerShell](tutorial-multiple-sites-powershell.md) i [interfejsu wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md). Obsługa portalu będzie dostępna wkrótce.
+> Należy pamiętać, że ponieważ obsługa portalu nie jest w pełni dostępna, jeśli używasz tylko parametru HostNames, odbiornik zostanie wyświetlony jako odbiornik podstawowy w portalu, a kolumna Nazwa hosta w widoku listy odbiorników nie będzie zawierać skonfigurowanych nazw hostów. W przypadku wszelkich zmian w odbiorniku z symbolami wieloznacznymi upewnij się, że używasz Azure PowerShell lub interfejsu wiersza polecenia, dopóki nie zostanie ono obsługiwane w portalu.
 
 W [Azure PowerShell](tutorial-multiple-sites-powershell.md)należy użyć `-HostNames` zamiast `-HostName` . Za pomocą nazw hostów można wspominać do 5 nazw hostów jako wartości rozdzielane przecinkami i używać symboli wieloznacznych. Na przykład `-HostNames "*.contoso.com,*.fabrikam.com"`
 

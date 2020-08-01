@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684679"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474363"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorowanie konta magazynu w witrynie Azure Portal
 
@@ -141,7 +141,7 @@ Można nakazać usłudze Azure Storage zapisywanie dzienników diagnostycznych d
     ![Skonfiguruj rejestrowanie w Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Kliknij pozycję **Zapisz**.
 
-Dzienniki diagnostyczne są zapisywane w kontenerze obiektów BLOB o nazwie *$Logs* na koncie magazynu. Dane dziennika można wyświetlić za pomocą Eksploratora usługi Storage, takiego jak [Microsoft Eksplorator usługi Storage](https://storageexplorer.com), lub programowo przy użyciu biblioteki klienta usługi Storage lub programu PowerShell.
+Dzienniki diagnostyczne są zapisywane w kontenerze obiektów BLOB o nazwie *$Logs* na koncie magazynu. Dane dziennika można wyświetlić za pomocą Eksploratora usługi Storage, takiego jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com), lub programowo przy użyciu biblioteki klienta usługi Storage lub programu PowerShell.
 
 Aby uzyskać informacje o uzyskiwaniu dostępu do kontenera $logs, zobacz [Rejestrowanie analizy magazynu](storage-analytics-logging.md).
 

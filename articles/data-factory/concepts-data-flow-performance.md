@@ -6,171 +6,277 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/06/2020
-ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114384"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475342"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Mapowanie przepływów danych w Azure Data Factory zapewnia interfejs bez kodu do projektowania, wdrażania i organizowania transformacji danych na dużą skalę. Jeśli nie masz doświadczenia w mapowaniu przepływów danych, zobacz [Omówienie przepływu danych mapowania](concepts-data-flow-overview.md).
+Mapowanie przepływów danych w Azure Data Factory zapewnia interfejs bez kodu do projektowania i uruchamiania przekształceń danych na dużą skalę. Jeśli nie masz doświadczenia w mapowaniu przepływów danych, zobacz [Omówienie przepływu danych mapowania](concepts-data-flow-overview.md). W tym artykule przedstawiono różne sposoby dostrajania i optymalizowania przepływów danych, dzięki czemu są one zgodne z wynikami testów wydajności.
 
-Podczas projektowania i testowania przepływów danych z poziomu środowiska ADF APD upewnij się, że jest włączona opcja tryb debugowania, aby wykonać przepływy danych w czasie rzeczywistym bez oczekiwania na rozgrzewanie się klastra. Aby uzyskać więcej informacji, zobacz [tryb debugowania](concepts-data-flow-debug-mode.md).
+Obejrzyj poniższy film wideo, aby zobaczyć kilka przykładowych chronometraży przekształcania danych za pomocą przepływów danych.
 
-Ten film wideo pokazuje przykładowy chronometraż przekształcania danych za pomocą przepływów danych:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
+
+## <a name="testing-data-flow-logic"></a>Testowanie logiki przepływu danych
+
+W przypadku projektowania i testowania przepływów danych z poziomu środowiska APD ADF tryb debugowania pozwala interaktywnie testować się w przypadku klastra Spark na żywo. Pozwala to na podgląd danych i wykonywanie przepływów danych bez oczekiwania na rozgrzewanie się klastra. Aby uzyskać więcej informacji, zobacz [tryb debugowania](concepts-data-flow-debug-mode.md).
 
 ## <a name="monitoring-data-flow-performance"></a>Monitorowanie wydajności przepływu danych
 
-Podczas projektowania mapowania przepływów danych można testować poszczególne przekształcenia, klikając kartę Podgląd danych w panelu konfiguracja. Po zweryfikowaniu logiki Przetestuj przepływ danych jako działanie w potoku. Dodaj działanie wykonaj przepływ danych i użyj przycisku Debuguj, aby przetestować wydajność przepływu danych. Aby otworzyć plan wykonania i profil wydajności przepływu danych, kliknij ikonę okularów w obszarze "akcje" na karcie dane wyjściowe potoku.
+Po zweryfikowaniu logiki transformacji przy użyciu trybu debugowania, Uruchom przepływ danych jako działanie w potoku. Przepływy danych są uruchamiane w potoku za pomocą [działania wykonaj przepływ danych](control-flow-execute-data-flow-activity.md). Działanie przepływu danych ma unikatowe środowisko monitorowania w porównaniu z innymi działaniami Azure Data Factory, które wyświetlają szczegółowy plan wykonania i profil wydajności logiki transformacji. Aby wyświetlić szczegółowe informacje o monitorowaniu przepływu danych, kliknij ikonę okularów w danych wyjściowych uruchomienia działania potoku. Aby uzyskać więcej informacji, zobacz [monitorowanie przepływów danych mapowania](concepts-data-flow-monitoring.md).
 
-![Monitor przepływu danych](media/data-flow/mon002.png "Monitor przepływu danych 2")
+![Monitor przepływu danych](media/data-flow/monitoring-details.png "Monitor przepływu danych 2")
 
- Korzystając z tych informacji, można oszacować wydajność przepływu danych w oparciu o różne źródła danych o różnych rozmiarach. Aby uzyskać więcej informacji, zobacz [monitorowanie przepływów danych mapowania](concepts-data-flow-monitoring.md).
+W przypadku monitorowania wydajności przepływu danych istnieją cztery możliwe wąskie gardła do wyszukania:
 
-![Monitorowanie przepływu danych](media/data-flow/mon003.png "Monitor przepływu danych 3")
+* Czas uruchamiania klastra
+* Odczytywanie ze źródła
+* Czas transformacji
+* Zapisywanie w ujścia 
 
- W przypadku uruchomienia debugowania potoku około jednej minuty czasu konfiguracji klastra jest wymagana w przypadku klastra ciepłego. W przypadku inicjowania domyślnego Azure Integration Runtime czas pracy może trwać około 4 minut.
+![Monitorowanie przepływu danych](media/data-flow/monitoring-performance.png "Monitor przepływu danych 3")
 
-## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Zwiększanie rozmiaru obliczeń w Azure Integration Runtime
+Czas uruchamiania klastra to czas, jaki zajmuje Klaster Apache Spark. Ta wartość znajduje się w prawym górnym rogu ekranu monitorowania. Przepływy danych są uruchamiane w modelu just-in-Time, gdzie każde zadanie używa izolowanego klastra. Ten czas uruchamiania zwykle trwa 3-5 minut. W przypadku zadań sekwencyjnych można to zmniejszyć, włączając wartość czasu wygaśnięcia. Aby uzyskać więcej informacji, zobacz [optymalizacja Azure Integration Runtime](#ir).
 
-Integration Runtime o większej liczbie rdzeni zwiększa liczbę węzłów w środowiskach obliczeniowych platformy Spark i zapewnia większą moc obliczeniową do odczytywania, zapisywania i przekształcania danych. Przepływy danych ADF wykorzystują platformę Spark dla aparatu obliczeniowego. Środowisko Spark działa bardzo dobrze w przypadku zasobów zoptymalizowanych pod kątem pamięci.
+Przepływy danych wykorzystują Optymalizator Spark, który zmienia kolejność i uruchamia logikę biznesową w fazie "etapy", tak szybko, jak to możliwe. Dla każdego ujścia, do którego przepływ danych zapisuje, do, dane wyjściowe monitorowania wyświetlają czas trwania każdego etapu transformacji oraz czas potrzebny do zapisu danych w zlewie. Czas, który jest największy jest najprawdopodobniej wąskim gardłem przepływu danych. Jeśli etap przekształcenia, który ma największą wartość, zawiera źródło, warto przyjrzeć się dalszemu optymalizacji czasu odczytu. Jeśli przekształcenie zajmuje dużo czasu, może być konieczne ponowne partycjonowanie lub zwiększenie rozmiaru środowiska Integration Runtime. Jeśli czas przetwarzania ujścia jest duży, może być konieczne skalowanie w górę bazy danych lub zweryfikowanie, że nie są one umieszczane w pojedynczym pliku.
 
-Zalecamy używanie **pamięci zoptymalizowanej pod** kątem większości obciążeń produkcyjnych. Będzie można przechowywać więcej danych w pamięci i zminimalizować błędy braku pamięci. Zoptymalizowane pod kątem pamięci ma wyższy poziom cen na rdzeń niż zoptymalizowany od obliczeń, ale prawdopodobnie spowoduje to szybsze przyspieszenie transformacji i więcej pomyślnych potoków. Jeśli podczas wykonywania przepływów danych wystąpią błędy związane z pamięcią, przełącz się do konfiguracji Azure IR zoptymalizowanej pod kątem pamięci.
+Po zidentyfikowaniu wąskiego gardła przepływu danych należy skorzystać z poniższych strategii optymalizacji, aby zwiększyć wydajność.
 
-**Optymalizacja pod kątem obliczeń** może wystarczyć w przypadku debugowania i podglądu danych ograniczonej liczby wierszy danych. Optymalizacja pod kątem obliczeń prawdopodobnie nie będzie działać również w przypadku obciążeń produkcyjnych.
+## <a name="optimize-tab"></a>Karta optymalizacji
 
-![Nowy IR](media/data-flow/ir-new.png "Nowy IR")
+Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematu partycjonowania klastra Spark. Ta karta istnieje w każdej transformacji przepływu danych i określa, czy chcesz ponownie podzielić dane **po** zakończeniu transformacji. Dostosowanie partycjonowania zapewnia kontrolę nad dystrybucją danych między węzłami obliczeniowymi i optymalizacją lokalizacji danych, które mogą mieć pozytywne i negatywne skutki dla ogólnej wydajności przepływu danych.
+
+![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
+
+Domyślnie należy zaznaczyć opcję *Użyj bieżącego partycjonowania* , która instruuje Azure Data Factory zachować bieżące partycjonowanie danych wyjściowych transformacji. Gdy trwa ponowne Partycjonowanie danych, należy *użyć bieżącego partycjonowania* w większości scenariuszy. Scenariusze, w których może być konieczne ponowne Partycjonowanie danych, to między innymi agregacje i sprzężenia, które znacząco pochylają dane lub w przypadku korzystania z partycjonowania źródła w bazie danych SQL.
+
+Aby zmienić partycjonowanie na dowolnym przekształceniu, wybierz kartę **Optymalizacja** i wybierz przycisk radiowy **Ustaw partycjonowanie** . Zostanie wyświetlona seria opcji partycjonowania. Najlepsza Metoda partycjonowania różni się w zależności od ilości danych, kluczy kandydujących, wartości null i kardynalności. 
+
+> [!IMPORTANT]
+> Pojedyncza partycja łączy wszystkie dane rozproszone w jedną partycję. Jest to bardzo niska operacja, która znacznie wpływa na wszystkie przekształcenie i zapis podrzędny. Azure Data Factory zdecydowanie zaleca się korzystanie z tej opcji, chyba że istnieje wyraźny powód firmy.
+
+Następujące opcje partycjonowania są dostępne w każdej transformacji:
+
+### <a name="round-robin"></a>Działania okrężne 
+
+Metoda okrężna dystrybuuje dane równomiernie między partycjami. Użyj działania okrężnego, gdy nie masz dobrych sugestii kluczowych do wdrożenia pełnej, inteligentnej strategii partycjonowania. Można ustawić liczbę partycji fizycznych.
+
+### <a name="hash"></a>Skrót
+
+Azure Data Factory tworzy skrót kolumn do tworzenia jednolitych partycji, takich jak wiersze o podobnych wartościach, mieszczą się w tej samej partycji. W przypadku korzystania z opcji skrótu Sprawdź możliwe pochylenie partycji. Można ustawić liczbę partycji fizycznych.
+
+### <a name="dynamic-range"></a>Zakres dynamiczny
+
+Zakres dynamiczny używa zakresów dynamicznych platformy Spark na podstawie kolumn lub wyrażeń, które podano. Można ustawić liczbę partycji fizycznych. 
+
+### <a name="fixed-range"></a>Stały zakres
+
+Utwórz wyrażenie, które udostępnia stały zakres dla wartości w kolumnach danych partycjonowanych. Aby uniknąć pochylenia partycji, przed użyciem tej opcji należy dobrze zrozumieć swoje dane. Wartości wprowadzane dla wyrażenia są używane jako część funkcji partycji. Można ustawić liczbę partycji fizycznych.
+
+### <a name="key"></a>Klucz
+
+Jeśli masz dobrą wiedzę o kardynalności danych, partycjonowanie kluczy może być dobrą strategią. Partycjonowanie kluczy tworzy partycje dla każdej unikatowej wartości w kolumnie. Nie można ustawić liczby partycji, ponieważ liczba jest oparta na unikatowych wartościach danych.
+
+> [!TIP]
+> Ręczne ustawienie schematu partycjonowania powoduje oddzielenie danych i może przesunięte korzyści wynikające z optymalizacji programu Spark. Najlepszym rozwiązaniem jest nie ręczne ustawianie partycjonowania, chyba że jest to konieczne.
+
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Optymalizacja Azure Integration Runtime
+
+Przepływy danych są uruchamiane w klastrach Spark, które są w czasie wykonywania. Konfiguracja używanego klastra jest definiowana w środowisku Integration Runtime (IR) działania. Podczas definiowania środowiska Integration runtime można utworzyć trzy zagadnienia dotyczące wydajności: typ klastra, rozmiar klastra i czas do wygaśnięcia.
 
 Aby uzyskać więcej informacji na temat tworzenia Integration Runtime, zobacz [Integration Runtime w Azure Data Factory](concepts-integration-runtime.md).
 
-### <a name="increase-the-size-of-your-debug-cluster"></a>Zwiększ rozmiar klastra debugowania
+### <a name="cluster-type"></a>Typ klastra
 
-Domyślnie włączenie debugowania będzie używać domyślnego środowiska Azure Integration Runtime, które jest tworzone automatycznie dla każdej fabryki danych. Ten domyślny Azure IR jest ustawiany dla ośmiu rdzeni, czterech dla węzła sterownika i czterech dla węzła procesu roboczego, przy użyciu ogólnych właściwości obliczeń. Podczas testowania większej ilości danych można zwiększyć rozmiar klastra debugowania, tworząc Azure IR z większą liczbą konfiguracji i wybierając tę nową Azure IR po włączeniu debugowania. Spowoduje to, że funkcja ADF użyje tego Azure IR do wyświetlania podglądu danych i debugowania potoku przy użyciu przepływów danych.
+Dostępne są trzy opcje dla typu klastra Spark w wersjach: ogólnego przeznaczenia, zoptymalizowane pod kątem pamięci i zoptymalizowane pod kątem obliczeń.
 
-### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Zmniejsz czas uruchamiania obliczeń klastra przy użyciu czasu wygaśnięcia
+Klastry **ogólnego przeznaczenia** to wybór domyślny i idealny w przypadku większości obciążeń przepływu danych. Jest to najlepszy balans wydajności i kosztów.
 
-W Azure IR w obszarze właściwości przepływu danych istnieje właściwość, która umożliwi rozłożenia puli zasobów obliczeniowych klastra dla fabryki. Za pomocą tej puli można sekwencyjnie przesyłać działania przepływu danych do wykonania. Po ustanowieniu puli każde kolejne zadanie zajmie 1-2 minut, aby klaster Spark na żądanie wykonywał zadanie. Początkowa konfiguracja puli zasobów zajmie około 4 minut. Określ ilość czasu, przez jaki chcesz zachować pulę zasobów w ustawieniu czasu wygaśnięcia (TTL).
+Jeśli przepływ danych ma wiele sprzężeń i wyszukiwań, możesz chcieć użyć klastra **zoptymalizowanego pod kątem pamięci** . Klastry zoptymalizowane pod kątem pamięci mogą przechowywać więcej danych w pamięci i zminimalizować błędy braku pamięci, które mogą zostać wyświetlone. Zoptymalizowane pod kątem pamięci mają najwyższy poziom cen na rdzeń, ale również prowadzi do bardziej pomyślnych potoków. Jeśli podczas wykonywania przepływów danych wystąpią błędy braku pamięci, przejdź do konfiguracji Azure IR zoptymalizowanej pod kątem pamięci. 
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optymalizacja pod kątem Azure SQL Database i Azure SQL Data Warehouse Synapse
+**Zoptymalizowane obliczenia** nie są idealnym rozwiązaniem dla przepływów pracy ETL i nie są zalecane przez zespół Azure Data Factory w przypadku większości obciążeń produkcyjnych. W przypadku uproszczonych, niezwiązanych z pamięcią transformacji danych, takich jak filtrowanie danych lub Dodawanie kolumn pochodnych, można używać klastrów zoptymalizowanych pod kątem obliczeń przy tańszej cenie za rdzeń.
 
-### <a name="partitioning-on-source"></a>Partycjonowanie na serwerze źródłowym
+### <a name="cluster-size"></a>Rozmiar klastra
 
-1. Przejdź do karty **Optymalizacja** i wybierz pozycję **Ustaw partycjonowanie**
-1. Wybierz pozycję **Źródło**.
-1. W obszarze **liczba partycji**Ustaw maksymalną liczbę połączeń z bazą danych SQL Azure. Możesz wypróbować wyższe ustawienie, aby uzyskać równoległe połączenia z bazą danych. Jednak niektóre przypadki mogą spowodować szybszą wydajność dzięki ograniczonej liczbie połączeń.
-1. Wybierz, czy chcesz podzielić na partycje według określonej kolumny tabeli czy zapytania.
-1. W przypadku wybrania **kolumny**wybierz kolumnę partycji.
-1. W przypadku wybrania **zapytania**wprowadź zapytanie zgodne ze schematem partycjonowania tabeli bazy danych. To zapytanie pozwala aparatowi źródłowej bazy danych korzystać z eliminacji partycji. Tabele źródłowej bazy danych nie muszą być partycjonowane. Jeśli źródło nie jest już podzielone na partycje, moduł ADF nadal będzie używać partycjonowania danych w środowisku transformacji platformy Spark na podstawie klucza wybieranego w transformacji źródłowej.
+Przepływy danych dystrybuują przetwarzanie danych między różnymi węzłami w klastrze Spark w celu równoległego wykonywania operacji. Klaster Spark o większej liczbie rdzeni zwiększa liczbę węzłów w środowisku obliczeniowym. Więcej węzłów zwiększa moc przetwarzania przepływu danych. Zwiększenie rozmiaru klastra jest często prostym sposobem na skrócenie czasu przetwarzania.
 
-![Część źródłowa](media/data-flow/sourcepart3.png "Część źródłowa")
+Domyślny rozmiar klastra to cztery węzły sterownika i cztery węzły procesu roboczego.  Podczas przetwarzania większej ilości danych zalecane są większe klastry. Poniżej przedstawiono możliwe opcje ustalania wielkości:
+
+| Rdzenie procesu roboczego | Rdzenie sterowników | Całkowita liczba rdzeni | Uwagi |
+| ------------ | ------------ | ----------- | ----- |
+| 4 | 4 | 8 | Niedostępne w przypadku obliczeń zoptymalizowanych |
+| 8 | 8 | 16 | |
+| 16 | 16 | 32 | |
+| 32 | 16 | 48 | |
+| 64 | 16 | 80 | |
+| 128 | 16 | 144 | |
+| 256 | 16 | 272 | |
+
+Opłaty za przepływy danych są naliczane w rdzeń wirtualny godzinie, co oznacza, że zarówno rozmiar klastra, jak i czas wykonania. W miarę skalowania w górę koszt klastra zostanie zwiększony, ale całkowity czas ulegnie zmniejszeniu.
+
+> [!TIP]
+> Istnieje granica rozmiaru klastra wpływającego na wydajność przepływu danych. W zależności od rozmiaru danych istnieje punkt, w którym zwiększenie rozmiaru klastra spowoduje przetrzymywanie poprawy wydajności. Na przykład jeśli masz więcej węzłów niż partycji danych, dodawanie dodatkowych węzłów nie powiedzie się. Najlepszym rozwiązaniem jest rozpoczęcie małych i skalowalnych rozwiązań w celu spełnienia potrzeb związanych z wydajnością. 
+
+### <a name="time-to-live"></a>Czas wygaśnięcia
+
+Domyślnie każde działanie przepływu danych uruchamia nowy klaster na podstawie konfiguracji środowiska IR. Czas uruchamiania klastra trwa kilka minut, a przetwarzanie danych nie będzie możliwe, dopóki nie zostanie ukończone. Jeśli potoki zawierają wiele **sekwencyjnych** przepływów danych, można włączyć wartość czasu wygaśnięcia (TTL). Określenie wartości czasu wygaśnięcia powoduje, że klaster działa przez określony czas po zakończeniu jego wykonywania. Jeśli nowe zadanie zostanie uruchomione przy użyciu środowiska IR w czasie trwania czasu wygaśnięcia, spowoduje to ponowne użycie istniejącego klastra, a czas rozpoczęcia będzie wynosić kilka sekund, a nie minut. Po zakończeniu drugiego zadania klaster będzie nadal działać przez czas TTL.
+
+Tylko jedno zadanie można uruchomić w pojedynczym klastrze naraz. Jeśli jest dostępny klaster, ale rozpocznie się dwa przepływy danych, tylko jedna z nich będzie korzystać z klastra na żywo. Drugie zadanie spowoduje przejęcie własnego klastra izolowanego.
+
+Jeśli większość przepływów danych jest wykonywanych równolegle, nie zaleca się włączania czasu wygaśnięcia. 
 
 > [!NOTE]
-> Dobry przewodnik ułatwiający wybranie liczby partycji dla źródła jest oparty na liczbie rdzeni ustawionych dla Azure Integration Runtime i pomnożenie liczby przez pięć. Tak więc, na przykład, jeśli przekształcasz serię plików w folderach ADLS i zamierzasz korzystać z 32-rdzeniowego Azure IR, liczba partycji, które będą docelowe, to 32 x 5 = 160 partitions.
+> Czas wygaśnięcia nie jest dostępny w przypadku korzystania z rozwiązania Integration Runtime
 
-### <a name="source-batch-size-input-and-isolation-level"></a>Rozmiar partii źródłowej, dane wejściowe i poziom izolacji
+## <a name="optimizing-sources"></a>Optymalizowanie źródeł
 
-W obszarze **Opcje źródła** w transformacji źródłowej następujące ustawienia mogą mieć wpływ na wydajność:
+Dla każdego źródła, z wyjątkiem Azure SQL Database, zalecane jest zachowanie **bieżącego partycjonowania** jako wybranej wartości. Podczas odczytywania ze wszystkich innych systemów źródłowych dane są automatycznie partycjonowane na podstawie rozmiaru danych. Utworzona zostanie Nowa partycja dla każdego 128 MB danych. W miarę wzrostu rozmiaru danych liczba partycji rośnie.
 
-* Rozmiar wsadu powoduje, że moduł ADF zapisuje dane w zestawach w pamięci platformy Spark, a nie wiersz po wierszu. Rozmiar wsadu jest ustawieniem opcjonalnym, a w węzłach obliczeniowych można wypróbować zasoby, jeśli ich rozmiar nie jest prawidłowy. Ustawienie tej właściwości spowoduje użycie domyślnych ustawień wsadowych buforowania platformy Spark.
-* Ustawienie zapytania może umożliwić filtrowanie wierszy w źródle przed ich nadejściem do przepływu danych w celu przetworzenia. Może to spowodować szybsze pozyskiwanie danych. Jeśli używasz zapytania, możesz dodać opcjonalne wskazówki dotyczące zapytań dla bazy danych Azure SQL, takie jak Odczyt niezatwierdzony.
-* Odczytanie niezatwierdzone zapewni szybsze wyniki zapytania dotyczące transformacji źródłowej
+Każde partycjonowanie niestandardowe następuje *po* odczytaniu danych przez program Spark i negatywnie wpłynie na wydajność przepływu danych. Ponieważ dane są równomiernie partycjonowane podczas odczytu, nie jest to zalecane. 
 
-![Element źródłowy](media/data-flow/source4.png "Element źródłowy")
+> [!NOTE]
+> Szybkości odczytu mogą być ograniczone przez przepływność systemu źródłowego.
 
-### <a name="sink-batch-size"></a>Rozmiar wsadu ujścia
+### <a name="azure-sql-database-sources"></a>Azure SQL Database źródła
 
-Aby uniknąć przetwarzania wierszy na wierszach przepływów danych, ustaw **rozmiar wsadu** na karcie Ustawienia dla usługi Azure SQL DB i ujścia usługi Azure SQL DW. W przypadku ustawienia rozmiaru wsadu ADF przetwarza operacje zapisu bazy danych w partiach na podstawie podanego rozmiaru. Ustawienie tej właściwości spowoduje użycie domyślnych ustawień wsadowych buforowania platformy Spark.
+Azure SQL Database ma unikatową opcję partycjonowania o nazwie partycjonowanie "Źródło". Włączenie partycjonowania źródła może zwiększyć czas odczytu z bazy danych Azure SQL DB przez włączenie połączeń równoległych w systemie źródłowym. Określ liczbę partycji i sposób partycjonowania danych. Użyj kolumny partycji o dużej kardynalności. Możesz również wprowadzić zapytanie zgodne ze schematem partycjonowania tabeli źródłowej.
 
-![Ujście](media/data-flow/sink4.png "Ujście")
+> [!TIP]
+> W przypadku partycjonowania źródłowego we/wy SQL Server jest wąskim gardłem. Dodanie zbyt wielu partycji może spowodować nasycenie źródłowej bazy danych. Zazwyczaj cztery lub pięć partycji jest idealnym rozwiązaniem w przypadku korzystania z tej opcji.
 
-### <a name="partitioning-on-sink"></a>Partycjonowanie na ujścia
+![Partycjonowanie źródła](media/data-flow/sourcepart3.png "Partycjonowanie źródła")
 
-Nawet jeśli nie masz partycjonowanych danych w tabelach docelowych, zaleca się, aby dane były partycjonowane w transformację ujścia. Partycjonowane dane często są znacznie szybsze niż w przypadku wymuszania wszystkich połączeń przy użyciu jednego węzła/partycji. Przejdź do karty Optymalizacja ujścia i wybierz *opcję partycjonowanie okrężne* , aby wybrać idealną liczbę partycji do zapisu w ujściach.
+#### <a name="isolation-level"></a>Poziom izolacji
 
-### <a name="disable-indexes-on-write"></a>Wyłącz indeksy przy zapisie
+Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
-W potoku Dodaj [działanie procedury składowanej](transform-data-using-stored-procedure.md) przed działaniem przepływu danych, które powoduje wyłączenie indeksów w tabelach docelowych zapisanych w ujściach. Po działaniu przepływu danych Dodaj kolejne działanie procedury składowanej, które włącza te indeksy. Lub użyj skryptów przed przetwarzaniem i po przetworzeniu w ujścia bazy danych.
+#### <a name="read-using-query"></a>Przeczytaj przy użyciu zapytania
 
-### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Zwiększanie rozmiaru bazy danych Azure SQL i serwera DW
+Możesz czytać z Azure SQL Database przy użyciu tabeli lub zapytania SQL. Jeśli wykonujesz zapytanie SQL, zapytanie musi zostać zakończone przed rozpoczęciem transformacji. Zapytania SQL mogą być przydatne do wypychania operacji, które mogą być wykonywane szybciej i zmniejszają ilość danych odczytywanych z SQL Server, takich jak instrukcje SELECT, WHERE i JOIN. Podczas wypychania operacji, utracisz możliwość śledzenia elementów i wydajności przekształceń przed wprowadzeniem danych do przepływu danych.
+
+### <a name="azure-synapse-analytics-sources"></a>Źródła analiz usługi Azure Synapse
+
+W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu [bazy](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), która znacznie zwiększa wydajność odczytu. Włączenie układu wielobase wymaga określenia Blob Storage platformy Azure Azure Data Lake Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
+
+![Włączanie trybu przejściowego](media/data-flow/enable-staging.png "Włączanie trybu przejściowego")
+
+### <a name="file-based-sources"></a>Źródła oparte na plikach
+
+Podczas gdy przepływy danych obsługują różne typy plików, Azure Data Factory zaleca użycie natywnego formatu Parquet platformy Spark w celu uzyskania optymalnego czasu odczytu i zapisu.
+
+Jeśli używasz tego samego przepływu danych na zestawie plików, zalecamy odczytywanie z folderu przy użyciu ścieżek symboli wieloznacznych lub odczytywanie z listy plików. Pojedynczy przebieg działania przepływu danych może przetwarzać wszystkie pliki w usłudze Batch. Więcej informacji na temat sposobu ustawiania tych ustawień można znaleźć w dokumentacji łącznika, takiej jak [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
+
+Jeśli to możliwe, Unikaj używania dla każdego działania do uruchamiania przepływów danych przez zestaw plików. Spowoduje to, że każda iteracja dla — każdego będzie uruchamiać własny klaster Spark, który często nie jest konieczny i może być kosztowny. 
+
+## <a name="optimizing-sinks"></a>Optymalizowanie ujścia
+
+Gdy dane są zapisywane w ujściach, wszelkie niestandardowe partycjonowanie będą wykonywane bezpośrednio przed zapisem. Podobnie jak w przypadku źródła, zaleca się, aby w większości przypadków zachować **bieżące partycjonowanie** jako opcję wybranej partycji. Partycjonowane dane będą zapisywane znacznie szybciej niż dane niepartycjonowane, nawet jeśli miejsce docelowe nie zostanie podzielone na partycje. Poniżej przedstawiono poszczególne zagadnienia dotyczące różnych typów ujścia. 
+
+### <a name="azure-sql-database-sinks"></a>Azure SQL Database ujścia
+
+W przypadku Azure SQL Database domyślne partycjonowanie powinno być wykonywane w większości przypadków. Istnieje prawdopodobieństwo, że ujścia może mieć zbyt wiele partycji, aby Twoja baza danych SQL mogła obsłużyć. Jeśli używasz tego programu, zmniejsz liczbę partycji przeszukanych przez SQL Database ujścia.
+
+#### <a name="disabling-indexes-using-a-sql-script"></a>Wyłączanie indeksów przy użyciu skryptu SQL
+
+Wyłączenie indeksów przed obciążeniem w bazie danych SQL może znacznie poprawić wydajność zapisu w tabeli. Uruchom poniższe polecenie przed zapisaniem w usłudze SQL sink.
+
+`ALTER INDEX ALL ON dbo.[Table Name] DISABLE`
+
+Po zakończeniu zapisu Odbuduj indeksy przy użyciu następującego polecenia:
+
+`ALTER INDEX ALL ON dbo.[Table Name] REBUILD`
+
+Mogą one być wykonywane w sposób natywny za pomocą skryptów poprzedzających i podanych po zainicjowaniu w ramach usługi Azure SQL DB lub ujścia Synapse w celu mapowania przepływów danych.
+
+![Wyłącz indeksy](media/data-flow/disable-indexes-sql.png "Wyłącz indeksy")
+
+> [!WARNING]
+> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) .
+
+#### <a name="scaling-up-your-database"></a>Skalowanie bazy danych w górę
 
 Zaplanuj zmianę rozmiarów źródła i ujścia usługi Azure SQL DB oraz DW przed uruchomieniem potoku, aby zwiększyć przepływność i zminimalizować ograniczenie przepustowości platformy Azure po osiągnięciu limitów jednostek DTU. Po zakończeniu wykonywania potoku Zmień rozmiar baz danych z powrotem na ich normalną szybkość uruchamiania.
 
-* Tabela źródłowa usługi SQL DB z 887k wierszami i kolumnami 74 w tabeli bazy danych SQL z pojedynczą transformację kolumn pochodnych zajmują około 3 minuty na zakończenie korzystania z zoptymalizowanej pod kątem pamięci 80-rdzeniowego debugowania platformy Azure.
+### <a name="azure-synapse-analytics-sinks"></a>Ujścia usługi Azure Synapse Analytics
 
-### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Tylko Azure Synapse SQL DW] Ładowanie danych luzem przy użyciu funkcji przemieszczania za pośrednictwem bazy
+Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu ADF można napisać przy użyciu [bazy](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) danych, która efektywnie ładuje dane zbiorczo. W przypadku korzystania z bazy danych należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
 
-Aby uniknąć wstawiania wierszy w wierszu do magazynu danych, zaznacz pole wyboru **Włącz przemieszczanie** w ustawieniach ujścia, aby można było użyć [bazy](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)danych ADF. Baza danych wielobase pozwala na ładowanie zbiorczych modułów ADF.
-* Gdy wykonujesz działanie przepływu danych z potoku, musisz wybrać obiekt BLOB lub ADLS Gen2 lokalizację przechowywania danych podczas ładowania zbiorczego.
+Podobnie jak w przypadku bazy wiedzy, te same najlepsze rozwiązania dotyczą usługi Azure Synapse Analytics jako Azure SQL Database.
 
-* Źródło pliku 421Mb z kolumnami 74 w tabeli Synapse i pojedyncza transformacja kolumn pochodnych zajmie około 4 minut, korzystając z zoptymalizowanej pod kątem pamięci 80-rdzeniowego debugowania platformy Azure.
+### <a name="file-based-sinks"></a>Ujścia oparte na plikach 
 
-## <a name="optimizing-for-files"></a>Optymalizacja dla plików
+Podczas gdy przepływy danych obsługują różne typy plików, Azure Data Factory zaleca użycie natywnego formatu Parquet platformy Spark w celu uzyskania optymalnego czasu odczytu i zapisu.
 
-W każdym przekształceniu można ustawić schemat partycjonowania, który ma być używany przez fabrykę danych na karcie Optymalizacja. Dobrym sposobem jest pierwsze przetestowanie sink opartych na plikach, zachowując domyślne partycjonowanie i optymalizacje. Pozostawienie partycjonowania na "bieżące partycjonowanie" w ujścia dla miejsca docelowego pliku umożliwi platformie Spark ustawienie odpowiedniego domyślnego partycjonowania dla obciążeń. Domyślne partycjonowanie używa 128 MB na partycję.
+Jeśli dane są dystrybuowane równomiernie, **Użyj bieżącego partycjonowania** , który będzie najszybszą opcją partycjonowania plików.
 
-* W przypadku mniejszych plików można znaleźć mniejszą liczbę partycji, które czasami mogą pracować lepiej i szybciej niż w przypadku, gdy platforma Spark ma dzielić małe pliki.
-* Jeśli nie masz wystarczającej ilości informacji na temat danych źródłowych, wybierz partycjonowanie działania *okrężne* i ustaw liczbę partycji.
-* Jeśli dane zawierają kolumny, które mogą być dobrymi kluczami skrótów, wybierz opcję *partycjonowanie skrótów*.
+#### <a name="file-name-options"></a>Opcje nazwy pliku
 
-* Źródło pliku z datasinkem pliku 421Mb z kolumnami 74 i pojedyncza transformacja kolumn pochodnych trwa około 2 minuty, używając zoptymalizowanej pod kątem pamięci 80-rdzeniowego debugowania platformy Azure.
+Podczas pisania plików można wybrać opcje nazewnictwa, które mają wpływ na wydajność.
 
-W przypadku debugowania w podglądzie danych i debugowaniu potoku, rozmiary i próbkowanie dla źródłowych elementów DataSet opartych na plikach są stosowane tylko do liczby zwracanych wierszy, a nie liczby odczytanych wierszy. Może to mieć wpływ na wydajność wykonywania debugowania i może spowodować niepowodzenie przepływu.
-* Klastry debugowania są domyślnie małymi klastrami z jednym węzłem, a firma Microsoft zaleca korzystanie z przykładowych małych plików na potrzeby debugowania. Przejdź do pozycji Ustawienia debugowania i wskaż mały podzestaw danych przy użyciu pliku tymczasowego.
+![Opcje ujścia](media/data-flow/file-sink-settings.png "Opcje ujścia")
 
-    ![Ustawienia debugowania](media/data-flow/debugsettings3.png "Ustawienia debugowania")
+Wybranie opcji **domyślnej** spowoduje zapisanie najszybciej. Każda partycja będzie równa plikowi z domyślną nazwą platformy Spark. Jest to przydatne, jeśli właśnie czytasz z folderu danych.
 
-### <a name="file-naming-options"></a>Opcje nazewnictwa plików
+Ustawienie **wzorca** nazewnictwa zmieni nazwę każdego pliku partycji na bardziej przyjazną nazwę użytkownika. Ta operacja jest wykonywana po zapisie i jest nieco wolniejsza niż wybór domyślny. Na partycję można ręcznie nazwać poszczególne partycje.
 
-Najbardziej typowym sposobem zapisu przekształconych danych w mapowaniu przepływów danych, pisząc obiekty blob lub ADLS. W ujściach musisz wybrać zestaw danych, który wskazuje na kontener lub folder, a nie plik o nazwie. Ponieważ przepływ danych mapowania używa platformy Spark do wykonania, dane wyjściowe są podzielone na wiele plików na podstawie schematu partycjonowania.
+Jeśli kolumna odnosi się do sposobu wyprowadzania danych, można wybrać **jako dane w kolumnie**. Spowoduje to ponowne rozłożenie danych i może mieć wpływ na wydajność, jeśli kolumny nie są równomiernie dystrybuowane.
 
-Typowy schemat partycjonowania polega na wybraniu _danych wyjściowych do pojedynczego pliku_, który scala wszystkie pliki składników wyjściowych w jeden plik w ujścia. Ta operacja wymaga, aby dane wyjściowe były ograniczone do pojedynczej partycji w jednym węźle klastra. Możesz wylogować się z zasobów węzłów klastra, jeśli łączysz wiele dużych plików źródłowych w jeden plik wyjściowy.
+Dane **wyjściowe do pojedynczego pliku** łączą wszystkie dane w jedną partycję. Prowadzi to do długotrwałych czasów zapisu, szczególnie w przypadku dużych zestawów danych. Zespół Azure Data Factory zdecydowanie zaleca **rezygnację** z tej opcji, chyba że istnieje wyraźny powód firmy.
 
-Aby uniknąć wyczerpania zasobów węzłów obliczeniowych, Zachowaj domyślny, zoptymalizowany schemat w przepływie danych i Dodaj działanie kopiowania w potoku, które scala wszystkie pliki części z folderu wyjściowego z nowym pojedynczym plikiem. Ta technika oddziela akcję transformacji od scalania plików i osiąga ten sam wynik, co ustawienie _danych wyjściowych do pojedynczego pliku_.
+### <a name="cosmosdb-sinks"></a>Ujścia CosmosDB
 
-### <a name="looping-through-file-lists"></a>Zapętlenie za poorednictwem list plików
+Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas wykonywania przepływu danych może zwiększyć wydajność. Te zmiany zaczną obowiązywać tylko w trakcie działania przepływu danych i po zakończeniu zostaną przywrócone do oryginalnych ustawień kolekcji. 
 
-Przepływ danych mapowania będzie wykonywany lepiej, gdy transformacja źródłowa wykonuje iterację wielu plików zamiast pętli za pośrednictwem dla każdego działania. Zalecamy używanie symboli wieloznacznych lub list plików w transformacji źródłowej. Proces przepływu danych będzie wykonywany szybciej, umożliwiając zapętlenie w klastrze Spark. Aby uzyskać więcej informacji, zobacz [symbol wieloznaczny w transformacji źródłowej](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+**Rozmiar wsadu:** Oblicz przybliżony rozmiar wiersza danych i upewnij się, że rozmiar wiersza * rozmiar wsadu jest mniejszy niż 2 000 000. Jeśli tak, Zwiększ rozmiar partii, aby uzyskać lepszą przepływność
 
-Na przykład jeśli masz listę plików danych z lipca 2019, które chcesz przetworzyć w folderze w Blob Storage, poniżej jest symbolem wieloznacznym, którego można użyć w transformacji źródłowej.
+**Przepływność:** W tym miejscu ustaw wyższą wartość ustawienia przepływności, aby zezwolić na szybsze pisanie dokumentów w programie CosmosDB. Należy pamiętać o wyższych kosztach RU na podstawie ustawienia Wysoka przepływność.
 
-```DateFiles/*_201907*.txt```
+**Budżet przepływności zapisu:** Użyj wartości, która jest mniejsza niż łączna liczba jednostek ru na minutę. Jeśli istnieje przepływ danych o dużej liczbie partycji platformy Spark, ustawienie przepływności budżetu pozwoli na zwiększenie równowagi między tymi partycjami.
 
-Używając symboli wieloznacznych, potok będzie zawierać tylko jedno działanie przepływu danych. Będzie to wykonywane lepiej niż wyszukiwanie w magazynie obiektów blob, który następnie iteruje we wszystkich dopasowanych plikach za pomocą działania ForEach z działaniem przepływu danych wewnątrz.
 
-Potok dla każdego w trybie równoległym spowoduje duplikowanie wielu klastrów przez odwirowanie klastrów zadań dla każdego wykonanego działania przepływu danych. Może to spowodować ograniczenie usługi platformy Azure o dużą liczbę współbieżnych wykonań. Jednak użycie przepływu danych Execute wewnątrz dla każdego z sekwencyjnym zestawem w potoku spowoduje uniknięcie ograniczenia przepustowości i wyczerpania zasobów. Spowoduje to wymuszenie Data Factory wykonywania każdego z plików względem przepływu danych sekwencyjnie.
+## <a name="optimizing-transformations"></a>Optymalizowanie transformacji
 
-Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie ponosić pełny czas uruchamiania klastra o wartości 4 minuty w iteratoru.
+### <a name="optimizing-joins-exists-and-lookups"></a>Optymalizowanie sprzężeń, EXISTS i Lookups
 
-### <a name="optimizing-for-cosmosdb"></a>Optymalizacja pod kątem CosmosDB
+#### <a name="broadcasting"></a>Emisji
 
-Ustawianie przepływności i właściwości partii w ujściach CosmosDB zacznie obowiązywać tylko podczas wykonywania tego przepływu danych z działania przepływu danych potoku. Oryginalne ustawienia kolekcji zostaną uznane przez CosmosDB po wykonaniu przepływu danych.
+W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
 
-* Rozmiar wsadu: Oblicz przybliżony rozmiar wiersza danych i upewnij się, że rozmiar wsadu rowSize * jest mniejszy niż 2 000 000. Jeśli tak, Zwiększ rozmiar partii, aby uzyskać lepszą przepływność
-* Przepływność: w tym miejscu ustaw wyższą wartość ustawienia przepływności, aby zezwolić na szybsze pisanie dokumentów w programie CosmosDB. Pamiętaj o wyższych kosztach RU na podstawie ustawień o wysokiej przepływności.
-*   Zapisz budżet przepływności: Użyj wartości, która jest mniejsza niż łączna liczba jednostek ru na minutę. Jeśli istnieje przepływ danych o dużej liczbie partycji platformy Spark, ustawienie przepływności budżetu pozwoli na zwiększenie równowagi między tymi partycjami.
+Jeśli rozmiar emitowanych danych jest zbyt duży dla węzła Spark, może wystąpić błąd braku pamięci. Aby uniknąć błędów w pamięci, użyj klastrów **zoptymalizowanych pod kątem pamięci** . Jeśli podczas wykonywania przepływu danych wystąpią limity czasu emisji, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych.
 
-## <a name="join-and-lookup-performance"></a>Wydajność przyłączania i wyszukiwania
+![Optymalizacja transformacji sprzężeń](media/data-flow/joinoptimize.png "Optymalizacja dołączania")
 
-Zarządzanie wydajnością sprzężeń w przepływie danych jest bardzo powszechną operacją wykonywaną w całym cyklu życia przekształceń danych. W podajniku ADF przepływy danych nie wymagają sortowania danych przed sprzężeniem, ponieważ te operacje są wykonywane jako sprzężenia skrótu w platformie Spark. Można jednak skorzystać z ulepszonej wydajności z optymalizacją sprzężenia "broadcast", która dotyczy transformacji, EXISTS i przeszukiwania.
+#### <a name="cross-joins"></a>Sprzężenia krzyżowe
 
-Spowoduje to uniknięcie losowego odtwarzania przez wypchnięcie zawartości obu stron relacji sprzężenia do węzła Spark. Jest to dobre rozwiązanie w przypadku mniejszych tabel, które są używane do wyszukiwania odwołań. Większe tabele, które mogą nie pasować do pamięci węzła, nie są dobrymi kandydatami do optymalizacji emisji.
+Jeśli używasz wartości literału w warunkach sprzężenia lub jeśli masz wiele dopasowań po obu stronach sprzężenia, platforma Spark uruchomi sprzężenie jako sprzężenie krzyżowe. Sprzężenie krzyżowe to pełny kartezjańskiego produkt, który następnie filtruje połączone wartości. Jest to znacznie wolniejsze niż inne typy sprzężeń. Upewnij się, że masz odwołania do kolumn na obu stronach warunków sprzężenia, aby uniknąć wpływu na wydajność.
 
-Zalecaną konfiguracją przepływów danych z wieloma operacjami łączenia jest zachowanie ustawienia optymalizacji "automatycznej" dla "emisji" i użycie ***zoptymalizowanej pod kątem pamięci*** Azure Integration Runtime konfiguracji. Jeśli występują błędy związane z pamięcią lub emisja przekroczenia limitu czasu podczas wykonywania przepływu danych, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych. Opcjonalnie można nakazać przepływ danych do przekazywania tylko lewej lub prawej strony sprzężenia lub obu tych elementów.
+#### <a name="sorting-before-joins"></a>Sortowanie przed sprzężeniami
 
-![Ustawienia emisji](media/data-flow/newbroad.png "Ustawienia emisji")
+W przeciwieństwie do łączenia scalania w narzędziach takich jak SSIS, transformacja sprzężenia nie jest obowiązkową operacją scalania sprzężenia. Klucze sprzężenia nie wymagają sortowania przed przekształceniem. Zespół Azure Data Factory nie zaleca używania transformacji sortowania w mapowaniu przepływów danych.
 
-Inną optymalizacją sprzężenia jest skompilowanie sprzężeń w taki sposób, aby uniknąć tendencji platformy Spark w celu zaimplementowania sprzężenia krzyżowego. Na przykład po dołączeniu wartości literału w warunkach sprzężenia platforma Spark może zobaczyć, że jako wymaganie najpierw wykonać pełny kartezjańskiego produkt, a następnie odfiltrować połączone wartości. Ale jeśli masz pewność, że masz wartości kolumn po obu stronach warunku sprzężenia, możesz uniknąć tego kartezjańskiegoego produktu platformy Spark i zwiększyć wydajność sprzężeń i przepływów danych.
+### <a name="repartitioning-skewed-data"></a>Ponowne partycjonowanie pochylonych danych
+
+Niektóre przekształcenia, takie jak sprzężenia i agregacje, przełączają się na partycje danych i mogą czasami prowadzić do pochylenia danych. Skośne dane oznaczają, że dane nie są równomiernie dystrybuowane między partycjami. Silnie skośne dane mogą prowadzić do wolniejszych transformacji podrzędnych i zapisów ujścia. Skośność danych można sprawdzić w dowolnym momencie przebiegu przepływu danych, klikając transformację na ekranie monitorowanie.
+
+![Skośność i kurtoza](media/data-flow/skewness-kurtosis.png "Skośność i kurtoza")
+
+Na ekranie monitorowanie zostanie wyświetlona, jak dane są dystrybuowane między każdą partycję, oraz z dwiema metrykami, skośnością i kurtoza. **Skośność** to miara asymetrycznego danych i może mieć wartość dodatnią, zero, ujemną lub niezdefiniowaną. Skośność ujemna oznacza, że lewy ogon jest dłuższy od prawej. **Kurtoza** to miara, czy dane są intensywnie rozrzutne czy też z jasne. Wartości z dużą wartością kurtoza nie są pożądane. Idealne zakresy skośności mieszczą się w zakresie od-3 do 3, a zakresy kurtoza są mniejsze niż 10. Prostym sposobem interpretacji tych liczb jest przeszukanie wykresu partycji i zobaczenie, czy 1 słupek jest znacznie większy od reszty.
+
+Jeśli dane nie są równomiernie partycjonowane po przekształceniu, można użyć [karty Optymalizacja](#optimize-tab) do ponownego partycjonowania. Dane reshuffling zajmują czas i mogą nie poprawić wydajności przepływów danych.
+
+> [!TIP]
+> W przypadku ponownej partycjonowania danych, ale istnieją przekształcenia podrzędne, które powodują ponowne wygenerowanie danych, użyj podziału skrótu w kolumnie używanej jako klucz sprzężenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz inne artykuły dotyczące przepływu danych związane z wydajnością:
 
-- [Karta Optymalizacja przepływu danych](concepts-data-flow-overview.md#optimize)
 - [Działanie przepływu danych](control-flow-execute-data-flow-activity.md)
 - [Monitorowanie wydajności przepływu danych](concepts-data-flow-monitoring.md)

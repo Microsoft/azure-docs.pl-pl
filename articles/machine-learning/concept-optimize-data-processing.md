@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012641"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461803"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
 
@@ -70,7 +70,7 @@ Jeśli poprzednie zalecenia są niewystarczające i nie możesz uzyskać maszyny
 
 W poniższej tabeli zaleca się dystrybuowanie struktur zintegrowanych z Azure Machine Learning w oparciu o preferencję kodu lub rozmiar danych.
 
-Środowisko lub rozmiar danych | Rekomendacja
+Środowisko lub rozmiar danych | Zalecenie
 ------|------
 Jeśli znasz już program`Pandas`| `Modin`lub `Dask` ramka danych
 Jeśli wolisz`Spark` | `PySpark`
@@ -82,4 +82,4 @@ Możesz tworzyć `Dask` klastry w klastrze obliczeniowym Azure ml przy użyciu p
 ## <a name="next-steps"></a>Następne kroki
 
 * [Opcje pozyskiwania danych z Azure Machine Learning](concept-data-ingestion.md).
-* Pozyskiwanie [danych z Azure Data Factory](how-to-data-ingest-adf.md).
+* [Tworzenie i Rejestrowanie zestawów danych](how-to-create-register-datasets.md).

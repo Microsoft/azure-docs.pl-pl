@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067705"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474958"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -146,7 +146,7 @@ Można ręcznie wykonać **połączenie**, **rozłączyć**i **ponownie nawiąza
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-### <a name="connect"></a>Połącz
+### <a name="connect"></a>Connect
 
 Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta tej maszyny, jeśli nie została określona.
 
@@ -181,6 +181,9 @@ Aby rozłączyć się z poświadczeniami logowania z podniesionymi uprawnieniami
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Ponowne łączenie
+
+> [!WARNING]
+> `reconnect`Polecenie jest przestarzałe i nie powinno być używane. Polecenie zostanie usunięte w przyszłej wersji agenta, a istniejący agenci nie będą mogli zakończyć żądania ponownego połączenia. Zamiast tego [Odłącz](#disconnect) maszynę, a następnie [Podłącz](#connect) ją ponownie.
 
 Ten parametr służy do łączenia już zarejestrowanej lub podłączonej maszyny z usługą Azure ARC dla serwerów (wersja zapoznawcza). Może to być konieczne, jeśli maszyna została wyłączona, co najmniej 45 dni, aby jej certyfikat wygaśnie. Ten parametr używa podanych opcji uwierzytelniania do pobrania nowych poświadczeń odpowiadających zasobowi Azure Resource Manager reprezentującemu ten komputer.
 

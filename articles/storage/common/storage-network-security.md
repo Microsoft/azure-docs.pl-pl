@@ -9,16 +9,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070660"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475417"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
-Usługa Azure Storage udostępnia warstwowy model zabezpieczeń. Ten model pozwala zabezpieczyć i kontrolować poziom dostępu do kont magazynu używanych przez aplikacje i środowiska korporacyjne na podstawie typu i podzestawu używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do konta magazynu można ograniczyć do żądań pochodzących z określonych adresów IP, zakresów adresów IP lub z listy podsieci w usłudze Azure Virtual Network (VNet).
+Usługa Azure Storage zapewnia warstwowy model zabezpieczeń. Ten model umożliwia zabezpieczenie i kontrolowanie poziomu dostępu do kont magazynu żądanych przez aplikację i przedsiębiorstwo na podstawie typu i podsieci używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do konta magazynu można ograniczyć do żądań pochodzących z określonych adresów IP, zakresów adresów IP lub z listy podsieci w usłudze Azure Virtual Network (VNet).
 
 Konta magazynu mają publiczny punkt końcowy, który jest dostępny za pomocą Internetu. Możesz również utworzyć [prywatne punkty końcowe dla konta magazynu](storage-private-endpoints.md), które przypisuje prywatny adres IP z sieci wirtualnej do konta magazynu, i zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Zapora usługi Azure Storage zapewnia dostęp do kontroli dostępu do publicznego punktu końcowego konta magazynu. Możesz również użyć zapory, aby zablokować dostęp za pośrednictwem publicznego punktu końcowego podczas korzystania z prywatnych punktów końcowych. Konfiguracja zapory magazynu umożliwia także wybranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu.
 
@@ -60,7 +60,7 @@ Domyślnie konta magazynu akceptują połączenia od klientów w dowolnej sieci.
 
 Można zarządzać domyślnymi regułami dostępu do sieci dla kont magazynu za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -120,7 +120,7 @@ Konta magazynu można skonfigurować tak, aby zezwalały na dostęp tylko z okre
 
 Włącz [punkt końcowy usługi](/azure/virtual-network/virtual-network-service-endpoints-overview) dla magazynu Azure w sieci wirtualnej. Punkt końcowy usługi kieruje ruch z sieci wirtualnej przez optymalną ścieżkę do usługi Azure Storage. Tożsamości podsieci i sieci wirtualnej są również przesyłane z każdym żądaniem. Administratorzy mogą następnie skonfigurować reguły sieci dla konta magazynu, które zezwalają na odbieranie żądań z określonych podsieci w sieci wirtualnej. Klienci, którym udzielono dostępu za pomocą tych reguł sieci, muszą nadal spełnić wymagania dotyczące autoryzacji konta magazynu, aby uzyskać dostęp do danych.
 
-Każde konto magazynu obsługuje do 100 reguł sieci wirtualnej, które mogą być połączone z [regułami sieci IP](#grant-access-from-an-internet-ip-range).
+Każde konto magazynu obsługuje do 200 reguł sieci wirtualnej, które mogą być połączone z [regułami sieci IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Dostępne regiony sieci wirtualnej
 
@@ -144,7 +144,7 @@ Konto magazynu i dostępne sieci wirtualne mogą znajdować się w różnych sub
 
 Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -268,7 +268,7 @@ jeśli korzystasz z usługi [ExpressRoute](/azure/expressroute/expressroute-intr
 
 Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -388,7 +388,7 @@ Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia równie
 
 | Usługa                        | Nazwa dostawcy zasobów                 | Przeznaczenie            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | Umożliwia usłudze API Management dostęp do kont magazynu za zaporą przy użyciu zasad. [Dowiedz się więcej](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
+| Usługa Azure API Management           | Microsoft.ApiManagement/service        | Umożliwia usłudze API Management dostęp do kont magazynu za zaporą przy użyciu zasad. [Dowiedz się więcej](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft. Search/searchServices        | Umożliwia Wyszukiwanie poznawcze usługom dostęp do kont magazynu na potrzeby indeksowania, przetwarzania i wykonywania zapytań. |
 | Usługa Azure Container Registry Tasks | Microsoft. ContainerRegistry/rejestry | Zadania ACR mogą uzyskać dostęp do kont magazynu podczas kompilowania obrazów kontenerów. |
 | Azure Data Factory             | Microsoft. DataFactory/fabryki        | Zezwala na dostęp do kont magazynu za pomocą środowiska uruchomieniowego ADF. |
@@ -410,7 +410,7 @@ W niektórych przypadkach dostęp do odczytu dzienników zasobów i metryk jest 
 
 Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure w wersji 2.
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 

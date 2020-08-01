@@ -1,25 +1,25 @@
 ---
-title: Azure IoT Connector for FHIR (łącznik IoT) — Przewodnik rozwiązywania problemów i instrukcje
-description: Jak rozwiązywać typowe komunikaty o błędach i warunki programu IoT Connector oraz kopiować pliki mapowania
+title: Azure IoT Connector for FHIR (wersja zapoznawcza) — Przewodnik rozwiązywania problemów i instrukcje
+description: Jak rozwiązywać problemy z typowym łącznikiem usługi Azure IoT for FHIR (wersja zapoznawcza) komunikaty o błędach i warunki i kopiować pliki mapowania
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8c372a865e34b2cbd1b5b3e6d8619c3ef0f438e0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285581"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460426"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z programem IoT Connector (wersja zapoznawcza)
+# <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
 
-W tym artykule przedstawiono kroki rozwiązywania typowych komunikatów o błędach i warunków programu IoT Connector (wersja zapoznawcza).  
+W tym artykule przedstawiono procedurę rozwiązywania problemów z typowym łącznikiem usługi Azure IoT na potrzeby FHIR komunikatów o błędach i warunków.  
 
-Dowiesz się również, jak tworzyć kopie plików mapowania JSON łącznika usługi IoT (wersja zapoznawcza) w celu edytowania i archiwizowania poza Azure Portal.
+Dowiesz się również, jak utworzyć kopie łącznika usługi Azure IoT dla plików mapowania FHIR JSON w celu edytowania i archiwizowania poza Azure Portal lub zapewnienia pomocy technicznej platformy Azure podczas otwierania biletu pomocy technicznej. 
 
 ## <a name="error-messages-and-fixes"></a>Komunikaty o błędach i poprawki
 
@@ -27,22 +27,21 @@ Dowiesz się również, jak tworzyć kopie plików mapowania JSON łącznika us�
 |----------|-----------|------------|
 |Nieprawidłowa nazwa mapowania, nazwa mapowania powinna być urządzeniem lub FHIR|Dostarczony typ mapowania nie jest urządzeniem ani FHIR|Użyj jednego z dwóch obsługiwanych typów mapowania (na przykład: Device lub FHIR)|
 |Nie zdefiniowano ponownie parametrów klucza|Żądanie ponownego wygenerowania klucza|Uwzględnij parametry w żądaniu klucza regeneracji|
-|Osiągnięto maksymalną liczbę wystąpień łącznika usługi IoT, które mogą być obsługiwane w ramach tej subskrypcji|Osiągnięto limit przydziału subskrypcji łącznika usługi IoT (wartość domyślna to 2 na subskrypcję)|Usuń jedno z istniejących łączników, użyj innej subskrypcji, która nie osiągnęła (2) łączników na przydział subskrypcji lub zażądaj zwiększenia limitu przydziału subskrypcji|
-|Przenoszenie zasobu nie jest obsługiwane w przypadku usługi Azure API Enabled dla zasobu FHIR|Podjęto próbę wykonania operacji przenoszenia na interfejsie API platformy Azure dla zasobu FHIR, który ma co najmniej jeden łącznik IoT|Usuń istniejące łączniki, aby wykonać/zakończyć operacje przenoszenia|
-|W przypadku zasobu Azure API for FHIR jest włączone łącze prywatne.  Link prywatny nie jest obsługiwany w przypadku łącznika IoT|Podjęto próbę dodania łącznika IoT do zasobu usługi Azure API for FHIR z włączonym prywatnym linkiem|Wybierz lub Utwórz interfejs API platformy Azure dla zasobu FHIR (wersja R4), dla którego nie włączono linku prywatnego|
-|Nie zainicjowano obsługi łącznika IoT|Podjęto próbę użycia usług podrzędnych (połączeń & mapowania), gdy nie zainicjowano obsługi administracyjnej elementu nadrzędnego (łącznik usługi IoT)|Inicjowanie obsługi administracyjnej łącznika IoT|
+|Osiągnięto maksymalną liczbę wystąpień łącznika IoT *, które mogą być obsługiwane w ramach tej subskrypcji|Osiągnięto limit przydziału subskrypcji łącznika usługi Azure IoT dla FHIR (wartość domyślna to 2) na subskrypcję)|Usuń jedno z istniejących wystąpień łącznika usługi Azure IoT dla programu FHIR, użyj innej subskrypcji, która nie osiągnęła limitu przydziału subskrypcji lub zażądaj zwiększenia limitu przydziału subskrypcji|
+|Przenoszenie zasobu nie jest obsługiwane w przypadku usługi Azure API Enabled dla zasobu FHIR|Podjęto próbę wykonania operacji przenoszenia na interfejsie API platformy Azure dla zasobu FHIR z co najmniej jednym wystąpieniem łącznika usługi Azure IoT dla FHIR|Usuń istniejące wystąpienia łącznika usługi Azure IoT dla FHIR do wykonania i ukończenia operacji przenoszenia|
+|Nie zainicjowano obsługi łącznika IoT|Podjęto próbę użycia usług podrzędnych (połączeń & mapowania), gdy nie zainicjowano obsługi administracyjnej elementu nadrzędnego (łącznik usługi Azure IoT dla FHIR)|Inicjowanie obsługi administracyjnej łącznika usługi Azure IoT dla FHIR|
 |Żądanie nie jest obsługiwane|Określone żądanie interfejsu API nie jest obsługiwane|Użyj poprawnego żądania interfejsu API|
-|Konto nie istnieje|Podjęto próbę dodania łącznika IoT i zasobu Azure API for FHIR nie istnieje|Utwórz zasób interfejsu API platformy Azure dla usługi FHIR, a następnie spróbuj ponownie wykonać operację.|
-|Wersja usługi Azure API for FHIR Resource FHIR nie jest obsługiwana w przypadku łącznika IoT|Podjęto próbę użycia łącznika IoT z niezgodną wersją zasobu usługi Azure API for FHIR|Tworzenie nowego interfejsu API platformy Azure dla zasobu FHIR (wersja R4) lub korzystanie z istniejącego interfejsu API platformy Azure dla zasobu FHIR (wersja R4)
+|Konto nie istnieje|Podjęto próbę dodania łącznika usługi Azure IoT dla programu FHIR, a interfejs API platformy Azure dla usługi FHIR nie istnieje|Utwórz zasób interfejsu API platformy Azure dla usługi FHIR, a następnie spróbuj ponownie wykonać operację.|
+|Wersja usługi Azure API for FHIR Resource FHIR nie jest obsługiwana w przypadku łącznika IoT|Podjęto próbę użycia łącznika usługi Azure IoT dla FHIR z niezgodną wersją interfejsu API platformy Azure dla zasobu FHIR|Tworzenie nowego interfejsu API platformy Azure dla zasobu FHIR (wersja R4) lub korzystanie z istniejącego interfejsu API platformy Azure dla zasobu FHIR (wersja R4)
 
-## <a name="creating-copies-of-the-iot-connector-preview-mapping-files"></a>Tworzenie kopii plików mapowania łącznika IoT (wersja zapoznawcza)
+## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-mapping-files"></a>Tworzenie kopii pliku mapowania łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
+Kopiowanie łącznika usługi Azure IoT dla plików mapowania FHIR może być przydatne do edytowania i archiwizowania poza witryną sieci Web Azure Portal oraz do świadczenia pomocy technicznej platformy Azure podczas otwierania biletu pomocy technicznej.
+
 > [!NOTE]
 > KOD JSON jest jedynym obsługiwanym formatem plików mapowania urządzeń i FHIR.
 
 > [!TIP]
-> Kopiowanie plików mapowania łącznika IoT może być przydatne w przypadku edytowania i archiwizowania poza witryną sieci Web w witrynie Azure Portal oraz do świadczenia pomocy technicznej platformy Azure podczas otwierania biletu pomocy technicznej.
-> 
-> Dowiedz się więcej o urządzeniu łącznik IoT [i FHIR mapowania plików JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Dowiedz się więcej na temat łącznika usługi Azure IoT dla [urządzeń FHIR i mapowania FHIR plików JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
 1. Wybierz pozycję **"IoT Connector (wersja zapoznawcza)"** w lewej dolnej części pulpitu nawigacyjnego zasobów usługi Azure API for FHIR w sekcji **"Dodatki"** .
 
@@ -52,12 +51,12 @@ Dowiesz się również, jak tworzyć kopie plików mapowania JSON łącznika us�
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Łącznik IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
+> [!NOTE]
+> Ten proces może również służyć do kopiowania i zapisywania zawartości JSON **"Konfigurowanie mapowania FHIR"** .
+
 3. Wybierz pozycję **"Konfiguruj mapowanie urządzenia"**.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Łącznik IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
-
-> [!NOTE]
-> Ten proces może również służyć do kopiowania/zapisywania zawartości JSON **"Konfigurowanie mapowania FHIR"** .
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Łącznik IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Wybierz zawartość JSON i wykonaj operację kopiowania (na przykład: wybierz CTRL + c). 
 
@@ -66,14 +65,15 @@ Dowiesz się również, jak tworzyć kopie plików mapowania JSON łącznika us�
 5. Wykonaj operację wklejania (na przykład: wybierz kombinację klawiszy CTRL + v) do nowego pliku w edytorze (na przykład: Visual Studio Code, Notatnik) i Zapisz plik z rozszerzeniem *. JSON.
 
 > [!TIP]
-> W przypadku otwierania biletu pomocy technicznej [platformy Azure](https://azure.microsoft.com/support/create-ticket/) dla łącznika IoT upewnij się, że zostały dołączone kopie plików mapowania, aby ułatwić proces rozwiązywania problemów.
+> Jeśli otworzysz bilet [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/) dla łącznika usługi Azure IoT dla programu FHIR, upewnij się, że zostały dołączone kopie plików mapowania, aby ułatwić proces rozwiązywania problemów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika IoT
+Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika usługi Azure IoT dla FHIR.
 
 >[!div class="nextstepaction"]
->[Często zadawane pytania dotyczące łącznika IoT](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR (wersja zapoznawcza) — często zadawane pytania](fhir-faq.md#iot-connector-preview)
 
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
 
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.

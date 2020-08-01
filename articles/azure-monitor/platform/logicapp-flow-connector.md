@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081563"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475740"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Łącznik Azure Monitor dzienników dla Logic Apps i przepływu
-[Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://ms.flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Łącznik Azure Monitor Logs dla Logic Apps i automatyzacji
+[Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
 
 Na przykład możesz utworzyć aplikację logiki, która będzie używać danych dziennika Azure Monitor w powiadomieniach e-mail z pakietu Office 365, utworzyć usterkę w usłudze Azure DevOps lub opublikować komunikat o zapasach.  Przepływ pracy można wyzwolić według prostego harmonogramu lub z niektórych akcji w połączonej usłudze, takiej jak w przypadku otrzymania wiadomości e-mail lub tweetu. 
 
@@ -126,4 +126,4 @@ Po zakończeniu działania aplikacji logiki Sprawdź pocztę określonego adresa
 
 - Dowiedz się więcej [na temat zapytań dzienników w Azure monitor](../log-query/log-query-overview.md).
 - Dowiedz się więcej o [Logic Apps](../../logic-apps/index.yml)
-- Dowiedz się więcej o [Microsoft Flow](https://ms.flow.microsoft.com).
+- Dowiedz się więcej o [automatyzacji](https://flow.microsoft.com).

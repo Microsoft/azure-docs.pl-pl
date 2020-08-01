@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284391"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475638"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -40,13 +40,13 @@ Administrator użytkowników  |  Może zarządzać wszystkimi aspektami użytkow
 
 ## <a name="assign-a-scoped-role"></a>Przypisywanie roli w zakresie
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną, w której chcesz przypisać rolę do użytkownika. W okienku po lewej stronie wybierz pozycję Role i Administratorzy, aby wyświetlić listę wszystkich dostępnych ról.
 
 ![Wybierz jednostkę administracyjną, aby zmienić zakres roli](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania**. Spowoduje to otwarcie panelu po prawej stronie, w którym można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do roli.
+Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania**. Zostanie otwarty panel po prawej stronie, w którym można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do roli.
 
 ![Wybierz rolę do zakresu, a następnie wybierz pozycję Dodaj przypisania](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -80,7 +80,7 @@ Request body
 
 ## <a name="list-the-scoped-admins-on-an-au"></a>Wyświetl listę administratorów o określonym zakresie w usłudze AU
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Wszystkie przypisania ról wykonane z zakresem jednostki administracyjnej można wyświetlić w [sekcji jednostki administracyjne w usłudze Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną dla przypisań ról, które chcesz wyświetlić. Wybierz **role i Administratorzy** i Otwórz rolę, aby wyświetlić przypisania w jednostce administracyjnej.
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jednostki administracyjne Rozwiązywanie problemów i często zadawane pytania](roles-admin-units-faq-troubleshoot.md)
+- [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](roles-groups-faq-troubleshooting.md)

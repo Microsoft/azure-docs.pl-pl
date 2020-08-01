@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c89bc434d9d67144a95b5c2f23e7664078fe7825
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063828"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474312"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft. Common. TextBox — element interfejsu użytkownika
 
@@ -29,6 +29,7 @@ Kontrolka, która może służyć do edycji niesformatowanego tekstu.
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -60,6 +61,7 @@ Kontrolka, która może służyć do edycji niesformatowanego tekstu.
 - `isValid`Właściwość zawiera wyrażenie, którego wynikiem jest wartość true lub false. W wyrażeniu definiujesz warunek określający, czy pole tekstowe jest prawidłowe.
 - `message`Właściwość jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się.
 - Możliwe jest określenie wartości parametru `regex` when, `required` która jest ustawiona na **wartość false**. W tym scenariuszu wartość nie jest wymagana, aby pole tekstowe zostało pomyślnie zweryfikowane. Jeśli jest określony, musi być zgodny ze wzorcem wyrażenia regularnego.
+- `placeholder`Właściwość jest tekstem pomocy, który znika, gdy użytkownik rozpoczyna edycję. Jeśli `placeholder` i `defaultValue` są zdefiniowane, `defaultValue` ma pierwszeństwo i jest pokazywany.
 
 ## <a name="example"></a>Przykład
 

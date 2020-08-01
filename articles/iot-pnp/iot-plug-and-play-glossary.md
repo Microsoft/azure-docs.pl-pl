@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d88ac62d9117df9d24c6d865e684a0972c87dae
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337317"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475468"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Słownik terminów dotyczących usługi IoT Plug and Play w wersji zapoznawczej
 
@@ -95,13 +95,9 @@ Język zapytań IoT Hub jest używany w wielu celach. Można na przykład użyć
 
 Urządzenie IoT Plug and Play jest zazwyczaj niewielką skalowalnym urządzeniem komputerowym, które zbiera dane lub steruje innymi urządzeniami, a także uruchamia oprogramowanie lub oprogramowanie układowe implementujące [model urządzenia](#device-model).  Na przykład urządzenie IoT Plug and Play może być urządzeniem monitorującym środowisko lub kontrolerem systemu nawadniania inteligentnego. Możesz napisać rozwiązanie IoT hostowane w chmurze, aby móc polecenie, kontrolować i odbierać dane z urządzeń Plug and Play IoT.
 
-## <a name="iot-plug-and-play-conventions"></a>Konwencje Plug and Play IoT
+## <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
 Usługi IoT [Plug and Play są](#iot-plug-and-play-device) zgodne z zestawem [Konwencji](concepts-convention.md) podczas wymiany danych z rozwiązaniem.
-
-## <a name="model-discovery"></a>Odnajdywanie modelu
-
-Gdy [urządzenie iot Plug and Play](#iot-plug-and-play-device) nawiązuje połączenie z rozwiązaniem IoT, rozwiązanie może odnaleźć możliwości urządzenia przez znalezienie [modelu urządzenia](#device-model). Rozwiązanie może znaleźć model urządzenia w [repozytorium modelu](#model-repository) lub w innej lokalizacji.
 
 ## <a name="model-id"></a>Identyfikator modelu
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1c26164ed7a2b7c335d3977e143fcef28c8955db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373746"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475825"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym
 
@@ -64,7 +64,7 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 | ------------- | ------------- |
 |**Porzuć wysoką Kardynalność lub brak funkcji wariancji*** |Porzuć te funkcje z poziomu szkoleń i zestawów walidacji. Dotyczy funkcji mających wszystkie brakujące wartości, o tej samej wartości we wszystkich wierszach lub o dużej kardynalności (na przykład skrótów, identyfikatorów lub identyfikatorów GUID).|
 |**Brak wartości w postaci kalkulacyjne*** |W przypadku funkcji liczbowych można obliczyć wartości w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
-|**Generuj dodatkowe funkcje*** |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
+|**Generuj dodatkowe funkcje*** |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> *W przypadku zadań prognozowania* są tworzone następujące dodatkowe funkcje: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, am/pm (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (12hr)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
 |**Przekształcanie i kodowanie***|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
 |**Osadzanie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu modelu przedniego. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
 |**Kodowanie docelowe**|W przypadku funkcji kategorii ten krok mapuje każdą kategorię ze średnią wartością docelową dla problemów z regresją oraz do prawdopodobieństwa klasy dla każdej klasy w przypadku problemów z klasyfikacją. Wagi oparte na częstotliwościach i k-zgięcie krzyżowe są stosowane w celu zmniejszenia zamontowania mapowania i szumów spowodowanych przez kategorie danych rozrzedzonych.|
@@ -163,9 +163,11 @@ text_transformations_used
 
 3. W kroku odliczania funkcji AutoML porównuje BERT z linią bazową (zbiorem słów Features + preszkolne osadzania wyrazów) na próbce danych i określa, czy BERT da ulepszenia dokładności. Jeśli ustali, że BERT wykonuje lepsze niż linia bazowa, AutoML następnie używa BERT dla cechowania tekstu jako optymalnej strategii cechowania i kontynuuje pracę z featurizingem całych danych. W takim przypadku zobaczysz "PretrainedTextDNNTransformer" w modelu końcowym.
 
+BERT zazwyczaj działa dłużej niż większość innych featurizers. Może być przyspieszyło, zapewniając więcej obliczeń w klastrze. AutoML będzie dystrybuować szkolenia BERT w wielu węzłach, jeśli są dostępne (maksymalnie 8 węzłów). Można to zrobić przez ustawienie [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) na wartość większą niż 1. W celu uzyskania lepszej wydajności zalecamy korzystanie z jednostek SKU z funkcjami RDMA (takimi jak "STANDARD_NC24r" lub "STANDARD_NC24rs_V3").
+
 AutoML obecnie obsługuje około 100 języków i w zależności od języka zestawu danych AutoML wybiera odpowiedni model BERT. W przypadku danych niemieckich korzystamy z niemieckiego modelu BERT. W przypadku języka angielskiego używany jest model BERT w języku angielskim. W przypadku wszystkich innych języków używamy wielojęzykowego modelu BERT.
 
-W poniższym kodzie jest wyzwalany niemiecki model BERT, ponieważ język DataSet został określony jako "DEU", kod języka 3 litery dla języka niemieckiego zgodnie z [klasyfikacją ISO](https://iso639-3.sil.org/code/hbs):
+W poniższym kodzie jest wyzwalany niemiecki model BERT, ponieważ język DataSet został określony jako "DEU", kod języka 3 litery dla języka niemieckiego zgodnie z [klasyfikacją ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

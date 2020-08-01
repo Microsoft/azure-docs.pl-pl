@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497781"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474907"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -56,6 +56,10 @@ Błędy alokacji puli mogą wystąpić w dowolnym momencie podczas pierwszego pr
 Istnieje możliwość, że pule usługi Batch mogą mieć zdarzenia przestoju na platformie Azure. Należy pamiętać o tym, gdy planujesz i opracowujesz swój scenariusz lub przepływ pracy dla usługi Batch.
 
 W przypadku awarii węzła funkcja Batch automatycznie próbuje odzyskać te węzły obliczeniowe w Twoim imieniu. Może to spowodować ponowne zaplanowanie uruchomionego zadania w węźle, który został odzyskany. Zobacz temat [projektowanie pod kątem ponownych prób](#design-for-retries-and-re-execution) , aby dowiedzieć się więcej o przerwanych zadaniach.
+
+### <a name="third-party-images"></a>Obrazy innych firm
+
+Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu Azure Marketplace. Przy użyciu kont usługi Batch w trybie subskrypcji użytkownika może zostać wyświetlony komunikat o błędzie "Alokacja nie powiodła się z powodu sprawdzania uprawnień do zakupu w witrynie Marketplace" podczas tworzenia puli z niektórymi obrazami innych firm. Aby rozwiązać ten problem, zaakceptuj warunki określone przez wydawcę obrazu. Można to zrobić za pomocą [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
 

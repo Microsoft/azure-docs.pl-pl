@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325733"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460392"
 ---
 # <a name="payout-summary-overview"></a>Omówienie podsumowania wypłat
 
@@ -23,7 +23,7 @@ Jeśli sprzedajesz oferty w portalu Azure Marketplace, zobaczysz również infor
 > [!NOTE]
 > Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać [próg płatności](./payment-thresholds-methods-timeframes.md) wynoszący $50. Aby uzyskać szczegółowe informacje na temat progu płatności, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
-Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania Transact są dostępne w sekcji Analiza Centrum partnerskiego, do których dostęp jest uzyskiwany za pomocą tej ikony w prawym górnym rogu portalu:
+Aby wyświetlić szczegóły wypłaty, zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home) i wybierz ikonę wypłaty w prawym górnym rogu ekranu:
 
 ![Przedstawia ikonę wypłaty w prawym górnym rogu portalu Centrum partnerskiego.](./media/payout-overview.png)
 

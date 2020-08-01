@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f735668e1519a6a12082537dabfe17be3e96ffdd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168152"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460015"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
 
@@ -82,10 +82,7 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 
 `Microsoft.Azure.CosmosDB.Table`Biblioteka jest obecnie dostępna tylko dla .NET Framework i jest w trybie konserwacji i zostanie wkrótce wycofana. Nowe funkcje i możliwości i optymalizacje są dodawane tylko do biblioteki .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). w związku z tym zaleca się uaktualnienie do [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-Pakiet [windowsazure. Storage-Premium](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) w wersji zapoznawczej został uznany za przestarzały. Zestaw SDK WindowsAzure. Storage-Premium zostanie wycofany 15 listopada 2018, gdy żądania do wycofanego zestawu SDK nie będą dozwolone. 
-
-Wszystkie żądania do Azure Cosmos DB za pomocą wycofanego zestawu SDK są odrzucane przez usługę.
-<br/>
+Pakiet [windowsazure. Storage-Premium](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) w wersji zapoznawczej został uznany za przestarzały. Zestaw SDK WindowsAzure. Storage-Premium zostanie wycofany 15 listopada 2018, gdy żądania do wycofanego zestawu SDK nie będą dozwolone.
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |

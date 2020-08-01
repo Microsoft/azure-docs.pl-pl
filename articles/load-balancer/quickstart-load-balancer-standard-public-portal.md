@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125194"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475810"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
 Rozpocznij pracę z Azure Load Balancer przy użyciu Azure Portal, aby utworzyć publiczny moduł równoważenia obciążenia i trzy maszyny wirtualne.
 
@@ -36,7 +36,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opcja 1 (domyślnie): Tworzenie modułu równoważenia obciążenia (standardowa jednostka SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opcja 1 (domyślnie): Tworzenie publicznego modułu równoważenia obciążenia (standardowa jednostka SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych.  Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
@@ -58,7 +58,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | SKU           | Wybierz pozycję **standardowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz opcję **strefa nadmiarowa** , aby utworzyć odporny moduł równoważenia obciążenia. Aby utworzyć strefowy moduł równoważenia obciążenia, wybierz określoną strefę z 1, 2 lub 3 |
@@ -76,7 +76,7 @@ W tej sekcji skonfigurujesz:
 
 * Ustawienia usługi równoważenia obciążenia dla puli adresów zaplecza.
 * Sonda kondycji.
-* Reguła modułu równoważenia obciążenia i automatyczna Reguła ruchu wychodzącego.
+* Reguła modułu równoważenia obciążenia.
 
 ### <a name="create-a-backend-pool"></a>Tworzenie puli zaplecza
 
@@ -225,7 +225,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | **Monitorowanie** |  |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
    
-7. Wybierz pozycję **Przeglądanie + tworzenie**. 
+7. Wybierz pozycję **Przegląd + utwórz**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -281,7 +281,7 @@ Aby uzyskać więcej informacji na temat połączeń wychodzących, zobacz [poł
 
 8. Wybierz pozycję **Zapisz**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opcja 2. Tworzenie modułu równoważenia obciążenia (podstawowa jednostka SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opcja 2: Tworzenie publicznego modułu równoważenia obciążenia (podstawowa jednostka SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych.  Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
@@ -303,7 +303,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
+    | SKU           | Wybierz pozycję **podstawowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Przypisanie | Wybierz **dynamiczny** |
@@ -468,12 +468,13 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
 5. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej** > **Zarządzanie**.
 
 6. Na karcie **Zarządzanie** wybierz lub wprowadź:
+    
     | Ustawienie | Wartość |
-    |-|-|
+    |---|---|
     | **Monitorowanie** | |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
 
-7. Wybierz pozycję **Przeglądanie + tworzenie**. 
+7. Wybierz pozycję **Przegląd + utwórz**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -484,6 +485,24 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Nazwa |  **myVM2** |**myVM3**|
     | Zestaw dostępności| Wybierz **myAvailabilitySet** | Wybierz **myAvailabilitySet**|
     | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**| Wybierz istniejący **myNSG**|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Dodawanie maszyn wirtualnych do puli zaplecza
+
+Maszyny wirtualne utworzone w poprzednich krokach należy dodać do puli zaplecza **myLoadBalancer**.
+
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
+
+2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **myBackendPool**.
+
+3. Wybierz **maszyny wirtualne** **powiązane**z.
+
+4. W sekcji **maszyny wirtualne** wybierz pozycję **+ Dodaj**.
+
+5. Zaznacz pola obok pozycji **myVM1**, **myVM2**i **myVM3**.
+
+6. Wybierz pozycję **Dodaj**.
+
+7. Wybierz pozycję **Zapisz**.
 
 ---
 
@@ -530,7 +549,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
 
 Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch między wszystkimi trzema maszynami wirtualnymi, można dostosować domyślną stronę każdego z serwerów sieci Web usług IIS na maszynie wirtualnej, a następnie wymusić odświeżenie przeglądarki sieci Web na komputerze klienckim.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu wybierz grupę zasobów **myResourceGroupLB** , która zawiera zasoby, a następnie wybierz pozycję **Usuń**.
 

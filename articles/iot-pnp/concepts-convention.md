@@ -7,14 +7,14 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352423"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475672"
 ---
-# <a name="iot-plug-and-play-conventions"></a>Konwencje Plug and Play IoT
+# <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
 Urządzenia usługi IoT Plug and Play w wersji zapoznawczej muszą przestrzegać zestawu konwencji podczas wymiany komunikatów z Centrum IoT. Urządzenia w wersji zapoznawczej IoT Plug and Play używają protokołu MQTT do komunikacji z IoT Hub.
 
@@ -25,11 +25,11 @@ Opisz dane telemetryczne, właściwości i polecenia, które urządzenie Plug an
 
 Aby uzyskać więcej informacji, zobacz [składniki Plug and Play IoT w modelach](concepts-components.md).
 
-## <a name="model-discovery"></a>Odnajdywanie modelu
+## <a name="identify-the-model"></a>Identyfikowanie modelu
 
 Aby zaanonsować model, który implementuje, urządzenie usługi IoT Plug and Play obejmuje Identyfikator modelu w pakiecie połączenia MQTT przez dodanie `model-id` do `USERNAME` pola.
 
-Aby odnaleźć model, który implementuje urządzenie, usługa może pobrać identyfikator modelu z:
+Aby zidentyfikować model, który implementuje urządzenie, usługa może pobrać identyfikator modelu z:
 
 - Pole "sznurka urządzenia" `modelId` .
 - Pole cyfrowej przędzy `$metadata.$model` .

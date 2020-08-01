@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 23ec482de740cc1ac8800a5de1c0e3be1f055df7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6437e25a2d6afc547b03f2b2144df63728116ef4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045488"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460239"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -45,6 +45,7 @@ Ta sekcja zawiera odwołania do aplikacji systemu Windows i rozwiązań SQL Serv
 ### <a name="file-sharing-and-global-file-caching"></a>Udostępnianie plików i globalne buforowanie plików
 
 * [Wdrożenie Talon/Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
+* [Utworzyć własny system plików NFS systemu Azure? Udziały plików w systemie Wrestling Linux w chmurze](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 
 ### <a name="sql-server"></a>SQL Server
 

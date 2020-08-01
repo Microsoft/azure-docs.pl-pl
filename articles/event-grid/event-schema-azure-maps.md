@@ -3,16 +3,16 @@ title: Azure Maps jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Maps z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106692"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461990"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń Azure Maps. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](https://docs.microsoft.com/azure/event-grid/event-schema). Zawiera również listę przewodników Szybki Start i samouczków do użycia Azure Maps jako źródło zdarzenia.
+Ten artykuł zawiera właściwości i schemat zdarzeń Azure Maps. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](./event-schema.md). Zawiera również listę przewodników Szybki Start i samouczków do użycia Azure Maps jako źródło zdarzenia.
 
 ## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
@@ -103,8 +103,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Dane zdarzenia geofencingu. |
@@ -159,7 +159,7 @@ Obiekt danych ma następujące właściwości:
 | expiredGeofenceGeometryId | ciąg [] | Listy o IDENTYFIKATORze geometrii geofencingu, które wygasły względem czasu użytkownika w żądaniu. |
 | geometrie | geometrie [] |Wyświetla listę ograniczników geometrie, które zawierają położenie współrzędnych lub nakładają się na searchBuffer wokół pozycji. |
 | invalidPeriodGeofenceGeometryId | ciąg []  | Listy identyfikatorów geometrycznych geoogrodzenia, które znajdują się w nieprawidłowym okresie względem czasu użytkownika w żądaniu. |
-| isEventPublished | wartość logiczna | Wartość true, jeśli co najmniej jedno zdarzenie jest publikowane na subskrybencie zdarzenia Azure Maps, wartość false, jeśli żadne zdarzenie nie jest publikowane na subskrybencie zdarzenia Azure Maps. |
+| isEventPublished | boolean | Wartość true, jeśli co najmniej jedno zdarzenie jest publikowane na subskrybencie zdarzenia Azure Maps, wartość false, jeśli żadne zdarzenie nie jest publikowane na subskrybencie zdarzenia Azure Maps. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł  |Opis  |

@@ -5,22 +5,23 @@ services: azure-portal
 keywords: Ustawienia, limit czasu, język, regionalne
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763962"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461944"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Ustawianie preferencji witryny Azure Portal
 
 Ustawienia domyślne Azure Portal można zmienić, aby spełniały własne preferencje. Można zmienić każde z wymienionych poniżej ustawień:
 
 * [Limit czasu nieaktywnej sesji](#change-the-idle-duration-for-inactive-sign-out)
+* [Domyślna subskrypcja](#choose-your-default-subscription)
 * [Widok domyślny](#choose-your-default-view)
 * [Tryb menu portalu](#choose-a-portal-menu-mode)
 * [Motyw koloru i dużego kontrastu](#choose-a-theme)
@@ -54,6 +55,18 @@ Jeśli administrator włączył zasadę limitu czasu braku aktywności, zaznacz 
 > [!NOTE]
 > Jeśli jesteś administratorem i chcesz wymusić nieaktywne ustawienie limitu czasu dla wszystkich użytkowników Azure Portal, zobacz [Ustawianie limitu czasu nieaktywności na poziomie katalogu dla użytkowników Azure Portal](admin-timeout.md)
 >
+
+### <a name="choose-your-default-subscription"></a>Wybierz swoją subskrypcję domyślną
+
+Możesz zmienić subskrypcję, która jest otwierana domyślnie po zalogowaniu się do Azure Portal. Jest to przydatne, jeśli masz podstawową subskrypcję, z którą pracujesz, ale używasz innych okresów czasu. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtruj listę zasobów według subskrypcji.":::
+
+1. Wybierz ikonę filtr katalogu i subskrypcji w górnym obszarze nawigacji.
+1. Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu."::: 
+
 
 ### <a name="choose-your-default-view"></a>Wybierz widok domyślny 
 

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 07/30/2020
+ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423868"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475434"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
 W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje. 
 
-+ W warstwie magazynu szyfrowanie danych w spoczynku jest podane na poziomie platformy, ale Wyszukiwanie poznawcze oferuje także opcję "podwójne szyfrowanie" dla klientów, którzy chcą mieć podwójną ochronę kluczy zarządzanych przez użytkownika i firmę Microsoft.
++ W warstwie magazynu szyfrowanie w spoczynku jest podawane na poziomie platformy, ale Wyszukiwanie poznawcze udostępnia również klucze zarządzane przez klienta za pomocą Azure Key Vault dla dodatkowej warstwy szyfrowania.
 
 + Zabezpieczenia przychodzące chronią punkt końcowy usługi wyszukiwania przy jednoczesnym zwiększeniu poziomu zabezpieczeń: od kluczy interfejsu API w żądaniu do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
 
@@ -125,7 +125,11 @@ Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak mo�
 
 Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na stronie oficjalne raporty inspekcji.
 
-## <a name="see-also"></a>Zobacz też
+W celu zapewnienia zgodności można użyć [Azure Policy](../governance/policy/overview.md) , aby pomóc w zaimplementowaniu najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Usługa Azure Security test jest zbiorem zaleceń dotyczących zabezpieczeń, które zostały zamapowane na funkcje kontroli zabezpieczeń, które mapują na kluczowe akcje, które należy podjąć w celu ograniczenia zagrożeń dla usług i danych. Obecnie istnieją 11 kontroli zabezpieczeń, w tym [zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md), [Rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md)oraz [Ochrona danych](../security/benchmarks/security-control-data-protection.md) .
+
+Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzanie zgodnością wielu standardów, w tym z cenami testów zabezpieczeń platformy Azure. W przypadku dobrze znanych wzorców Azure Policy udostępnia wbudowane definicje, dzięki czemu można łatwiej tworzyć zasady. W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja rejestrowania diagnostycznego, co oznacza, że można przypisać zasady, które identyfikują i naprawiają usługę wyszukiwania niezgodną z kontrolą zabezpieczeń rejestrowania i monitorowania. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
+
+## <a name="see-also"></a>Zobacz także
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)

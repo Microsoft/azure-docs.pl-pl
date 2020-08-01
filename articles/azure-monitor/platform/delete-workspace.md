@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505197"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461735"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
@@ -43,7 +43,7 @@ Operacja usuwania obszaru roboczego służy do usuwania obszaru roboczego Mened�
 
 Obszar roboczy można usunąć przy użyciu [programu PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [interfejsu API REST](/rest/api/loganalytics/workspaces/delete)lub w [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
@@ -64,7 +64,7 @@ Metoda usuwania nietrwałego może nie mieścić się w niektórych scenariuszac
 > [!IMPORTANT]
 > Użyj trwałej operacji usuwania obszaru roboczego z zachowaniem ostrożności od nieodwracalnej i nie będzie możliwe odzyskanie obszaru roboczego i jego danych.
 
-Dodaj tag "-forceDelete", aby trwale usunąć obszar roboczy:
+Dodaj tag "-ForceDelete", aby trwale usunąć obszar roboczy. Opcja "-ForceDelete" jest obecnie dostępna z AZ. OperationalInsights 2.3.0 lub nowszą. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -80,7 +80,7 @@ Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dan
 - Nazwa obszaru roboczego
 - Region
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**. Zostanie wyświetlona lista obszarów roboczych, które znajdują się w wybranym zakresie.

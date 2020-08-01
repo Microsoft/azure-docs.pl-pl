@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1875c9147f62619d8961096adb6a0f3986496b41
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203660"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459445"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny RESTful w zasadach niestandardowych Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ServiceUrl | Tak | Adres URL punktu końcowego interfejsu API REST. |
-| AuthenticationType | Tak | Typ uwierzytelniania wykonywanego przez dostawcę oświadczeń RESTful. Możliwe wartości: `None` , `Basic` , `Bearer` lub `ClientCertificate` . `None`Wartość wskazuje, że interfejs API REST nie jest anonimowy. `Basic`Wartość oznacza, że interfejs API REST jest zabezpieczony za pomocą uwierzytelniania podstawowego protokołu HTTP. Tylko zweryfikowani użytkownicy, w tym Azure AD B2C, mogą uzyskiwać dostęp do interfejsu API. `ClientCertificate`Wartość (zalecane) wskazuje, że interfejs API REST ogranicza dostęp przy użyciu uwierzytelniania za pomocą certyfikatu klienta. Do interfejsu API można uzyskać dostęp tylko do usług, które mają odpowiednie certyfikaty, na przykład Azure AD B2C. `Bearer`Wartość wskazuje, że interfejs API REST ogranicza dostęp przy użyciu tokenu okaziciela OAuth2 klienta. |
+| AuthenticationType | Tak | Typ uwierzytelniania wykonywanego przez dostawcę oświadczeń RESTful. Możliwe wartości: `None` , `Basic` , `Bearer` lub `ClientCertificate` . `None`Wartość oznacza, że interfejs API REST jest anonimowy. `Basic`Wartość oznacza, że interfejs API REST jest zabezpieczony za pomocą uwierzytelniania podstawowego protokołu HTTP. Tylko zweryfikowani użytkownicy, w tym Azure AD B2C, mogą uzyskiwać dostęp do interfejsu API. `ClientCertificate`Wartość (zalecane) wskazuje, że interfejs API REST ogranicza dostęp przy użyciu uwierzytelniania za pomocą certyfikatu klienta. Do interfejsu API można uzyskać dostęp tylko do usług, które mają odpowiednie certyfikaty, na przykład Azure AD B2C. `Bearer`Wartość wskazuje, że interfejs API REST ogranicza dostęp przy użyciu tokenu okaziciela OAuth2 klienta. |
 | AllowInsecureAuthInProduction| Nie| Wskazuje, czy `AuthenticationType` można ustawić na `none` w środowisku produkcyjnym ( `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) jest ustawiona na `Production` lub nie określono). Możliwe wartości: true lub false (wartość domyślna). |
 | SendClaimsIn | Nie | Określa sposób, w jaki oświadczenia wejściowe są wysyłane do dostawcy oświadczeń RESTful. Możliwe wartości: `Body` (wartość domyślna), `Form` , `Header` lub `QueryString` . `Body`Wartość jest wartością wejściową, która jest wysyłana w treści żądania w formacie JSON. `Form`Wartość jest wartością wejściową, która jest wysyłana w treści żądania w formacie wartości klucza "&". `Header`Wartość jest wartością wejściową, która jest wysyłana w nagłówku żądania. `QueryString`Wartość jest wartością wejściową, która jest wysyłana w ciągu zapytania żądania. Zlecenia HTTP wywoływane przez poszczególne są następujące:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Pobierz</li><li>`QueryString`: Pobierz</li></ul> |
 | ClaimsFormat | Nie | Obecnie nie są używane, można je zignorować. |

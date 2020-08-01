@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256967"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460103"
 ---
 # <a name="manage-the-mobility-agent"></a>Zarządzanie agentem mobilności 
 
 Agenta mobilności konfiguruje się na serwerze, korzystając z Azure Site Recovery na potrzeby odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure. Agent mobilności koordynuje komunikację między komputerem chronionym, serwerem konfiguracji/skalowalnym w poziomie serwerem przetwarzania i zarządza replikacją danych. Ten artykuł zawiera podsumowanie typowych zadań związanych z zarządzaniem agentem mobilności po jego wdrożeniu.
 
+>[!TIP]
+>Aby pobrać Instalatora dla określonego dystrybucji systemu operacyjnego/Linux, zapoznaj się ze wskazówkami [tutaj](vmware-physical-mobility-service-overview.md#locate-installer-files). Aby automatycznie zaktualizować z portalu, nie trzeba pobierać Instalatora. Usługa [ASR automatycznie pobiera Instalatora z serwera konfiguracji i aktualizuje agenta](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Agenta mobilności konfiguruje się na serwerze, korzystając z Azure Site Recov
 
      ![Lista replikowanych elementów maszyn wirtualnych](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. Zadanie aktualizowania usługi mobilności jest uruchamiane dla każdej z wybranych maszyn.
+5. Zadanie aktualizowania usługi mobilności jest uruchamiane dla każdej z wybranych maszyn. Agent mobilności został zaktualizowany do wersji serwera konfiguracji. Na przykład jeśli serwer konfiguracji jest w wersji 9,33, Agent mobilności na chronionej maszynie wirtualnej jest również aktualizowany do wersji 9,33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Aktualizowanie usługi mobilności za pomocą skryptu programu PowerShell w systemie Windows Server
 

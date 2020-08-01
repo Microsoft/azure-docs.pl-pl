@@ -7,12 +7,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128815"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475264"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Dowiedz się, jak rozwiązywać błędy środowiska uruchomieniowego U-SQL ze względu na zmiany w czasie wykonywania
 
@@ -46,11 +46,6 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 Na przykład release_20190318_adl_3394512_2 oznacza drugą wersję kompilacji 3394512 wydania w czasie wykonywania z marca 18 2019 i release_20190318_adl_3394512_private oznacza prywatną kompilację tej samej wersji. Uwaga: Data jest zależna od tego, kiedy ostatnie zaewidencjonowanie zostało wykonane dla tej wersji i nie musi być oficjalną datą wydania.
 
-Poniżej znajdują się obecnie dostępne wersje środowiska uruchomieniowego.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 bieżący domyślny
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>Rozwiązywanie problemów z wersją środowiska uruchomieniowego U-SQL
 
@@ -60,7 +55,7 @@ Istnieją dwie możliwe problemy z wersją środowiska uruchomieniowego, które 
 
 2. Użyto niedomyślnego środowiska uruchomieniowego jawnie lub niejawnie, gdy został on przypięty do Twojego konta, i że środowisko uruchomieniowe zostało usunięte po pewnym czasie. Jeśli napotkasz brakujące środowiska uruchomieniowe, Uaktualnij skrypty, aby były uruchamiane przy użyciu bieżącego domyślnego środowiska uruchomieniowego. Jeśli potrzebujesz dodatkowego czasu, skontaktuj się z pomoc techniczna firmy Microsoft
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Przegląd Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Zarządzanie Azure Data Lake Analytics przy użyciu Azure Portal](data-lake-analytics-manage-use-portal.md)

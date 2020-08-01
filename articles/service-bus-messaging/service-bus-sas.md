@@ -2,13 +2,13 @@
 title: Azure Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dostępu współdzielonego — Omówienie, szczegółowe informacje na temat autoryzacji SAS i Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340962"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460698"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -89,6 +89,9 @@ Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do któ
 Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/contosoTopics/T1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
 Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów poprzedzonych prefiksem `<resourceURI>` używanym w `signature-string` .
+
+> [!NOTE]
+> Przykłady generowania tokenu sygnatury dostępu współdzielonego przy użyciu różnych języków programowania można znaleźć w temacie [Generuj token SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Ponowne generowanie kluczy
 
@@ -177,7 +180,7 @@ W przypadku przyznania nadawcy lub klienta tokenu sygnatury dostępu współdzie
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Użyj sygnatury dostępu współdzielonego (na poziomie AMQP)
 
-W poprzedniej sekcji pokazano, jak używać tokenu sygnatury dostępu współdzielonego z żądaniem HTTP POST w celu wysyłania danych do Service Bus. Jak wiadomo, możesz uzyskać dostęp do Service Bus przy użyciu Advanced Message Queuing Protocol (AMQP), który jest preferowanym protokołem używanym ze względu na wydajność, w wielu scenariuszach. Użycie tokenu sygnatury dostępu współdzielonego z AMQP został opisany w dokumencie [AMQP zabezpieczenia oparte na żądaniach 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , który jest w roboczym projekcie od 2013, ale jest dobrze obsługiwany przez platformę Azure.
+W poprzedniej sekcji pokazano, jak używać tokenu sygnatury dostępu współdzielonego z żądaniem HTTP POST w celu wysyłania danych do Service Bus. Jak wiadomo, możesz uzyskać dostęp do Service Bus przy użyciu Advanced Message Queuing Protocol (AMQP), który jest preferowanym protokołem używanym ze względu na wydajność, w wielu scenariuszach. Użycie tokenu sygnatury dostępu współdzielonego z AMQP został opisany w dokumencie [AMQP zabezpieczenia oparte na żądaniach 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , który jest w roboczym projekcie od 2013, ale jest obecnie obsługiwany przez platformę Azure.
 
 Przed rozpoczęciem wysyłania danych do Service Bus, Wydawca musi wysłać token sygnatury dostępu współdzielonego w komunikacie AMQP do dobrze zdefiniowanego węzła AMQP o nazwie **$CBS** (można go zobaczyć jako "Specjalna" Kolejka używana przez usługę, aby uzyskać i zweryfikować wszystkie tokeny sygnatury dostępu współdzielonego). Wydawca musi określić pole **ReplyTo** wewnątrz komunikatu AMQP; jest to węzeł, w którym usługa odpowiada na wydawcę, z wynikiem walidacji tokenu (prosty wzorzec żądania/odpowiedzi między wydawcą a usługą). Ten węzeł odpowiedzi jest tworzony "na bieżąco" mówiąc o "dynamicznym tworzeniu węzła zdalnego" zgodnie z opisem w specyfikacji AMQP 1,0. Po sprawdzeniu, czy token sygnatury dostępu współdzielonego jest prawidłowy, Wydawca może przejść do przodu i rozpocząć wysyłanie danych do usługi.
 

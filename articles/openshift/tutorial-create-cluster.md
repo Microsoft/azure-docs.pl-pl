@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260683"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475655"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -33,42 +33,12 @@ Aby utworzyć klaster usługi Azure Red Hat OpenShift, sprawdź następujące up
 |**Administrator dostępu użytkowników**|X|X| |
 |**Współautor**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>Zainstaluj `az aro` rozszerzenie
-`az aro`Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
-
-Uruchom następujące polecenie, aby zainstalować `az aro` rozszerzenie.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Jeśli rozszerzenie jest już zainstalowane, można je zaktualizować, uruchamiając następujące polecenie.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
 Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów w ramach subskrypcji.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Sprawdź, czy rozszerzenie jest zarejestrowane.
-
-```azurecli-interactive
-az -v
-```
-
-  Powinno zostać wyświetlone dane wyjściowe podobne do poniższego.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Pobierz wpis tajny Red Hat (opcjonalnie)

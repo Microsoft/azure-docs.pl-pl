@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3699213fe61c64d7677ba026a8df54ccbbfe4b33
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352363"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475485"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalowanie i używanie rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure
 
-[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Hub. Interfejs wiersza polecenia platformy Azure jest dostępny w systemach Windows, Linux i MacOS. Interfejs wiersza polecenia platformy Azure jest również wstępnie zainstalowany w [Azure Cloud Shell](https://shell.azure.com). Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning Service i połączonymi centrami bez instalowania żadnych rozszerzeń.
+[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Hub. Interfejs wiersza polecenia platformy Azure jest dostępny w systemach Windows, Linux i macOS. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning Service i połączonymi centrami bez instalowania żadnych rozszerzeń.
 
 Rozszerzenie Azure IoT dla interfejsu wiersza polecenia platformy Azure to narzędzie wiersza poleceń umożliwiające współdziałanie z urządzeniami w wersji zapoznawczej IoT Plug and Play i testowanie ich. Możesz użyć rozszerzenia, aby:
 
@@ -51,9 +51,6 @@ Aby zalogować się do subskrypcji platformy Azure, uruchom następujące polece
 ```azurecli
 az login
 ```
-
-> [!NOTE]
-> Jeśli używasz usługi Azure Cloud Shell, nastąpi automatyczne zalogowanie i nie trzeba uruchamiać poprzedniego polecenia.
 
 Aby korzystać z rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure, potrzebne są:
 
@@ -109,6 +106,65 @@ Monitoruj wszystkie usługi IoT Plug and Play zdarzenia cyfrowego przędzy z okr
 az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 ```
 
+### <a name="manage-models-in-the-model-repository"></a>Zarządzanie modelami w repozytorium modeli
+
+Aby zarządzać modelami w repozytorium, można użyć poleceń repozytorium modelu interfejsu wiersza polecenia platformy Azure.
+
+#### <a name="create-model-repository"></a>Utwórz repozytorium modelu
+
+Utwórz nowe repozytorium firmowe usługi IoT Plug and Play dla Twojej dzierżawy, jeśli jesteś pierwszym użytkownikiem w dzierżawie:
+
+```azurecli
+az iot pnp repo create
+```
+
+#### <a name="manage-model-repository-tenant-roles"></a>Zarządzaj rolami dzierżawy repozytorium modelu
+
+Utwórz przypisanie roli dla użytkownika lub nazwy głównej usługi do określonego zasobu.
+
+Na przykład nadaj user@consoso.com roli **ModelsCreator** dzierżawcy:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {tenant_id} --resource-type Tenant --subject-id {user@contoso.com} --subject-type User --role ModelsCreator
+```
+
+Lub nadaj user@consoso.com roli **ModelAdministrator** dla określonego modelu:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {model_id} --resource-type Model --subject-id {user@contoso.com} --subject-type User --role ModelAdministrator
+```
+
+#### <a name="create-a-model"></a>Tworzenie modelu
+
+Utwórz nowy model w repozytorium firmy:
+
+```azurecli
+az iot pnp model create --model {model_json or path_to_file}
+```
+
+#### <a name="search-a-model"></a>Przeszukiwanie modelu
+
+Utwórz listę modeli pasujących do określonego słowa kluczowego:
+
+```azurecli
+az iot pnp model list -q {search_keyword}
+```
+
+#### <a name="publish-a-model"></a>Publikowanie modelu
+
+Opublikuj model urządzenia znajdujący się w repozytorium firmy w repozytorium publicznym.
+
+Na przykład utwórz publiczny model z IDENTYFIKATORem `dtmi:com:example:ClimateSensor;1` :
+
+```azurecli
+az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
+```
+
+Aby opublikować model, muszą zostać spełnione następujące wymagania:
+
+- Dzierżawa firmy lub organizacji musi być partnerem firmy Microsoft. 
+- Nazwa główna użytkownika lub usługi musi być członkiem roli **wydawcy** dzierżawy repozytorium.
+
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule poznasz sposób instalowania i używania rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure w celu współdziałania z urządzeniami Plug and Play. Sugerowany następny krok to Dowiedz się, jak używać programu [Azure IoT Explorer z urządzeniami](./howto-use-iot-explorer.md).
+W tym artykule poznasz sposób instalowania i używania rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure w celu współdziałania z urządzeniami Plug and Play IoT. Sugerowany następny krok to Dowiedz się, jak używać programu [Azure IoT Explorer z urządzeniami](./howto-use-iot-explorer.md).

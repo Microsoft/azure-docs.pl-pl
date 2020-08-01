@@ -1,19 +1,19 @@
 ---
-title: Mapowanie wizualizacji przepływu danych
-description: Jak wizualnie monitorować Azure Data Factory przepływy danych
+title: Monitorowanie przepływów danych mapowania
+description: Jak wizualnie monitorować mapowanie przepływów danych w Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958904"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475553"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
@@ -27,7 +27,7 @@ Podczas wykonywania potoku można monitorować potok i wszystkie działania zawa
 
 Na tym poziomie są wyświetlane statystyki, w tym również czasy i Stany uruchomienia. Identyfikator przebiegu na poziomie działania różni się od identyfikatora uruchomienia na poziomie potoku. Identyfikator uruchomienia na poprzednim poziomie dotyczy potoku. Wybranie okularów zapewnia szczegółowe informacje o wykonywaniu przepływu danych.
 
-![Monitorowanie przepływu danych](media/data-flow/mon002.png "Monitorowanie przepływu danych")
+![Monitorowanie przepływu danych](media/data-flow/monitoring-details.png "Monitorowanie przepływu danych")
 
 Gdy jesteś w widoku monitorowanie węzła graficznego, zobaczysz uproszczoną wersję widoku wykresu przepływu danych.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025702"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461769"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -121,6 +121,9 @@ Sprzężenie hybrydowe usługi Azure AD współdziała z systemami, zarządzanym
 Środowisko zarządzane można wdrożyć przy użyciu opcji [Synchronizacja skrótów haseł (PHS)](/azure/active-directory/hybrid/whatis-phs) lub [uwierzytelnianie przekazywane (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) z [bezproblemowym logowaniem jednokrotnym](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uwierzytelniania.
+
+> [!NOTE]
+> [Uwierzytelnianie w chmurze przy użyciu wdrożenia etapowego](/hybrid/how-to-connect-staged-rollout) jest obsługiwane tylko po uruchomieniu aktualizacji systemu Windows 10 1903
 
 ### <a name="federated-environment"></a>Środowisko federacyjne
 

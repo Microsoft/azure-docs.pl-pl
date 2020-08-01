@@ -3,19 +3,19 @@ title: Dostarczanie zdarzeń elementu webhook
 description: Ten artykuł zawiera opis dostarczania zdarzeń elementu webhook i walidacji punktu końcowego podczas korzystania z elementów webhook.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118957"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461242"
 ---
 # <a name="webhook-event-delivery"></a>Dostarczanie zdarzeń elementu webhook
 Elementy webhook to jeden z wielu sposobów odbierania zdarzeń z Azure Event Grid. Gdy nowe zdarzenie jest gotowe, usługa Event Grid ogłasza żądanie HTTP do skonfigurowanego punktu końcowego przy użyciu zdarzenia w treści żądania.
 
 Podobnie jak w przypadku wielu innych usług, które obsługują elementy webhook, Event Grid wymaga potwierdzenia własności punktu końcowego elementu webhook przed rozpoczęciem dostarczania zdarzeń do tego punktu końcowego. To wymaganie uniemożliwia złośliwemu użytkownikowi przelanie punktu końcowego ze zdarzeniami. W przypadku korzystania z jednej z trzech usług platformy Azure wymienionych poniżej infrastruktura platformy Azure automatycznie obsługuje tę weryfikację:
 
-- Azure Logic Apps za pomocą [łącznika Event Grid](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Logic Apps za pomocą [łącznika Event Grid](/connectors/azureeventgrid/)
 - Azure Automation za pośrednictwem [elementu webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions z [wyzwalaczem Event Grid](../azure-functions/functions-bindings-event-grid.md)
 

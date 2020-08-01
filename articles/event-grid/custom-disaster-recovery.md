@@ -3,12 +3,12 @@ title: Odzyskiwanie po awarii dla tematów niestandardowych w Azure Event Grid
 description: Ten samouczek przeprowadzi Cię przez proces konfigurowania architektury zdarzeń do odzyskania, jeśli usługa Event Grid stanie się zła w danym regionie.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: da796a9ac4d03f7ad6999b8fa4530fddfb60cbfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420264"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461684"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Tworzenie własnego odzyskiwania po awarii dla tematów niestandardowych w programie Event Grid
 Odzyskiwanie po awarii powinno być skoncentrowane na odzyskiwaniu po poważnej utracie funkcjonalności aplikacji. Ten samouczek przeprowadzi Cię przez konfigurowanie architektury obsługi zdarzeń pod kątem odzyskiwania w przypadku pogorszenia kondycji usługi Event Grid w konkretnym regionie.
@@ -207,4 +207,4 @@ Podobnie można zaimplementować logikę powrotu po awarii — w zależności od
 
 - Dowiedz się, jak [odbierać zdarzenia w punkcie końcowym http](./receive-events.md)
 - Dowiedz się, jak [kierować zdarzenia do połączeń hybrydowych](./custom-event-to-hybrid-connection.md)
-- Dowiedz się więcej na temat [odzyskiwania po awarii przy użyciu usług Azure DNS i Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Dowiedz się więcej na temat [odzyskiwania po awarii przy użyciu usług Azure DNS i Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)

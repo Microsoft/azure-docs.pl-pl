@@ -3,12 +3,12 @@ title: Dołącz do Azure Event Grid partnera
 description: Dołącz jako typ tematu partnera Azure Event Grid. Poznaj model zasobów i przepływ publikowania tematów dotyczących partnerów.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116118"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461259"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Dołącz do Azure Event Grid partnera
 
@@ -105,7 +105,7 @@ Publikuj zdarzenia do Azure Event Grid przy użyciu schematu CloudEvents 1,0. Ev
 1.  Usługa publikowania wykonuje wpis HTTP do `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 1.  W żądaniu Dołącz wartość nagłówka o nazwie AEG-SAS-Key, która zawiera klucz do uwierzytelniania. Ten klucz jest inicjowany podczas tworzenia przestrzeni nazw partnera. Na przykład prawidłowa wartość nagłówka to AEG-SAS-Key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
 1.  Ustaw nagłówek Content-Type na wartość "Application/cloudevents-Batch + JSON; charset = UTF-8a.
-1.  Wykonaj wpis HTTP w adresie URL publikowania przy użyciu partii zdarzeń odpowiadających temu regionowi. Przykład:
+1.  Wykonaj wpis HTTP w adresie URL publikowania przy użyciu partii zdarzeń odpowiadających temu regionowi. Na przykład:
 
 ``` json
 [
@@ -146,17 +146,17 @@ Po opublikowaniu w punkcie końcowym partnerNamespace otrzymujesz odpowiedź. Od
 |------------------------------------|-----------------------|
 | Powodzenie                            | 200 OK                |
 | Dane zdarzenia mają niepoprawny format    | 400 Nieprawidłowe żądanie       |
-| Nieprawidłowy klucz dostępu                 | 401 — nieautoryzowane      |
+| Nieprawidłowy klucz dostępu                 | 401 Brak autoryzacji      |
 | Nieprawidłowy punkt końcowy                 | 404 — Nie znaleziono         |
 | Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Materiały źródłowe
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Szablon ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Schemat szablonu ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [Interfejsy API REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Rozszerzenie interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [Interfejsy API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [Rozszerzenie interfejsu wiersza polecenia](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>Zestawy SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

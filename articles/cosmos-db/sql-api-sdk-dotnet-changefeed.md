@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2c846298fecdc771dd5d9831a558b99c74b2737
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392067"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461072"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
@@ -48,7 +48,11 @@ ms.locfileid: "85392067"
 
 ### <a name="v2-builds"></a>2 kompilacje
 
-### <a name="230"></a><a name="2.3.0"></a>2.3.0
+### <a name="231"></a><a name="2.3.1"/>ppkt
+* Poprawiono przypadek, gdy `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` powód zamknięcia został wysłany do `FeedProcessing.IChangeFeedObserver.CloseAsync` , jeśli nie można odnaleźć partycji lub jeśli replika docelowa nie jest aktualna w sesji odczytu. W tych przypadkach `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` są teraz używane bliskie powody.
+* Dodano nowy powód zamknięcia `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` , który jest wysyłany w celu zamknięcia obserwatora źródła zmian, gdy replika docelowa nie jest aktualna w czasie sesji odczytu.
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
 * Dodano nową metodę `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` i odpowiedni interfejs publiczny `ICheckpointPartitionProcessorFactory` . Umożliwia to implementację `IPartitionProcessor` interfejsu przy użyciu wbudowanego mechanizmu tworzenia punktów kontrolnych. Nowa fabryka jest podobna do istniejącej `IPartitionProcessorFactory` , z tą różnicą, że jej `Create` Metoda pobiera również `ILeaseCheckpointer` parametr.
 * Tylko jedna z dwóch metod (lub) `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` może być używana dla tego samego `ChangeFeedProcessorBuilder` wystąpienia.
 
@@ -178,16 +182,16 @@ ms.locfileid: "85392067"
 
 ## <a name="release--retirement-dates"></a>Data wycofania &
 
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
+Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
-Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe. 
-
-Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone przez usługę.
+> [!WARNING]
+> Po 31 sierpnia 2022 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x Azure Cosmos DB .NET lub zestaw .NET Core SDK dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 1. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
 
 <br/>
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
+| [ppkt](#2.3.1) |30 lipca 2020 |--- |
 | [2.3.0](#2.3.0) |2 kwietnia 2020 |--- |
 | [2.2.8](#2.2.8) |28 października 2019 |--- |
 | [2.2.7](#2.2.7) |14 maja 2019 r. |--- |

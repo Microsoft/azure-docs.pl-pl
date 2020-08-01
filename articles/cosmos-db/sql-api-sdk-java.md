@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323829"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461038"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -256,19 +256,11 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * ZESTAW SDK GA
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
 
-Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
-
-Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone przez usługę.
+Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
 > [!WARNING]
-> Wszystkie wersje **1. x** zestawu SQL SDK dla języka Java zostaną wycofane z **30 maja 2020**.
-> 
->
-
-> [!WARNING]
-> Wszystkie wersje zestawu SQL SDK dla języka Java sprzed wersji **1.0.0** zostały wycofane **29 lutego 2016**.
+> Wszystkie wersje **1. x** zestawu SQL SDK dla języka Java zostaną wycofane z **30 maja 2020**. Wszystkie wersje zestawu SQL SDK dla języka Java sprzed wersji **1.0.0** zostały wycofane **29 lutego 2016**.
 > 
 > 
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243209"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461004"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować rejestrację użytkownika i subskrypcję produktu
 
@@ -49,8 +49,6 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
 1. Odbierz żądanie w następującej postaci:
    
    > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&ReturnUrl = {URL strony źródłowej} &soli = {String} &SIG = {String}*
-   > 
-   > 
    
     Parametry zapytania dotyczące przypadku logowania/rejestracji:
    
@@ -84,6 +82,7 @@ Oprócz operacji **logowania** można także wykonać zarządzanie kontami, wyko
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **Wylogowaniu**
 
 Należy przekazać następujące parametry zapytania dla operacji zarządzania kontami.
 
@@ -93,6 +92,7 @@ Należy przekazać następujące parametry zapytania dla operacji zarządzania k
 * **SIG**: obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegowanie subskrypcji produktu
+
 Delegowanie subskrypcji produktu działa podobnie do delegowania logowania użytkowników. Końcowy przepływ pracy będzie następujący:
 
 1. Deweloper wybiera produkt w portalu dla deweloperów API Management i klika przycisk Subskrybuj.
@@ -114,9 +114,9 @@ Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące c
      * "Subskrybuj": żądanie subskrybowania użytkownika dla danego produktu o podanym IDENTYFIKATORze (patrz poniżej)
      * "Anuluj subskrypcję": żądanie anulowania subskrypcji użytkownika z produktu
      * "Odnów": żądanie odnowienia subskrypcji (na przykład może wygasnąć)
-   * **ProductID**: Identyfikator produktu, którego użytkownik zażądał subskrybowania
+   * **ProductID**: w *subskrypcji* — identyfikator produktu, którego użytkownik zażądał subskrybowania
    * Identyfikator **subskrypcji: po** *anulowaniu subskrypcji* i *odnowieniu* identyfikatora
-   * **userId**: identyfikator użytkownika, dla którego wykonano żądanie
+   * **userId**: w *subskrypcji* — identyfikator użytkownika, dla którego wykonano żądanie
    * **sól**: specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
    * **SIG**: obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
 

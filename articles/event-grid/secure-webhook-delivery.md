@@ -3,16 +3,16 @@ title: Dostarczanie bezpiecznego elementu webhook za pomocą usługi Azure AD w 
 description: Opisuje sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez Azure Active Directory przy użyciu Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119127"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460715"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikuj zdarzenia w celu Azure Active Directory chronionych punktów końcowych
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikowanie zdarzeń w punktach końcowych chronionych przez usługę Azure Active Directory
 
-W tym artykule opisano, jak korzystać z Azure Active Directory, aby zabezpieczyć połączenie między subskrypcją zdarzeń a punktem końcowym elementu webhook. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+W tym artykule opisano, jak korzystać z Azure Active Directory, aby zabezpieczyć połączenie między subskrypcją zdarzeń a punktem końcowym elementu webhook. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](../active-directory/develop/v2-overview.md).
 
 W tym artykule jest używana Azure Portal dla demonstracji, jednak funkcja ta może być również włączona przy użyciu interfejsu wiersza polecenia, programu PowerShell lub zestawów SDK.
 
@@ -28,7 +28,7 @@ Zacznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowe
 Użyj poniższego skryptu programu PowerShell, aby utworzyć rolę i nazwę główną usługi w aplikacji usługi Azure AD. Wymagany jest identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD:
 
    > [!NOTE]
-   > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) .
+   > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) .
     
 1. Zmodyfikuj $myTenantId skryptu programu PowerShell, aby użyć identyfikatora dzierżawy usługi Azure AD.
 1. Zmodyfikuj $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: afc012329d0d9e337dfca93a88615ba7c28f1754
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407952"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460375"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -77,6 +77,7 @@ Wybierz system operacyjny Windows lub Linux jako podstawę.
 Wirtualny dysk twardy systemu operacyjnego na potrzeby obrazu maszyny wirtualnej z systemem Windows musi być oparty na podstawowym obrazie zaakceptowanym przez platformę Azure, który zawiera system Windows Server lub SQL Server. Aby rozpocząć, Utwórz maszynę wirtualną na podstawie jednego z następujących obrazów z Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 z dodatkiem SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise)
 * [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
 * [SQL Server 2012 z dodatkiem SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
 
@@ -182,7 +183,7 @@ Utwórz obraz przy użyciu Azure Portal lub Azure PowerShell.
     | Hasło administratora | Hasło konta administratora dla nowej maszyny wirtualnej |
     | Typ systemu operacyjnego | System operacyjny maszyny wirtualnej: system Windows lub Linux |
     | Identyfikator subskrypcji | Identyfikator wybranej subskrypcji |
-    | Location | Lokalizacja geograficzna wdrożenia |
+    | Lokalizacja | Lokalizacja geograficzna wdrożenia |
     | Rozmiar maszyny wirtualnej | [Rozmiar maszyny wirtualnej platformy Azure](../../virtual-machines/windows/sizes.md), na przykład Standard_A2 |
     | Nazwa publicznego adresu IP | Nazwa publicznego adresu IP |
     | Nazwa maszyny wirtualnej | Nazwa nowej maszyny wirtualnej |

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635133"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475570"
 ---
 # <a name="what-are-mapping-data-flows"></a>Czym są przepływy danych mapowania?
 
@@ -93,41 +93,9 @@ Pierwsza karta w okienku Konfiguracja każdej transformacji zawiera ustawienia s
 
 #### <a name="optimize"></a>Optymalizacja
 
-Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematów partycjonowania.
+Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematów partycjonowania. Aby dowiedzieć się więcej na temat optymalizowania przepływów danych, zobacz [Przewodnik dotyczący wydajności przepływu danych](concepts-data-flow-performance.md).
 
-![Optymalizacja](media/data-flow/optimize1.png "Optymalizacja")
-
-Ustawieniem domyślnym jest **użycie bieżącego partycjonowania**, które instruuje Azure Data Factory, aby używać schematu partycjonowania natywnego dla przepływów danych uruchomionych w systemie Spark. W większości scenariuszy zalecamy to ustawienie.
-
-Istnieją wystąpienia, w których można chcieć dostosować partycjonowanie. Na przykład jeśli chcesz wyprowadzić przekształcenia do pojedynczego pliku w Lake, wybierz **jedną partycję** w transformacji ujścia.
-
-Innym przypadkiem, gdzie warto kontrolować schematy partycjonowania, jest Optymalizacja wydajności. Dostosowanie partycjonowania zapewnia kontrolę nad dystrybucją danych między węzłami obliczeniowymi i optymalizacją lokalizacji danych, które mogą mieć pozytywne i negatywne skutki dla ogólnej wydajności przepływu danych. Aby uzyskać więcej informacji, zobacz [Przewodnik po wydajności przepływu danych](concepts-data-flow-performance.md).
-
-Aby zmienić partycjonowanie na dowolnym przekształceniu, wybierz kartę **Optymalizacja** i wybierz przycisk radiowy **Ustaw partycjonowanie** . Zostanie wyświetlona seria opcji partycjonowania. Najlepsza Metoda partycjonowania różni się w zależności od ilości danych, kluczy kandydujących, wartości null i kardynalności. 
-
-Najlepszym rozwiązaniem jest rozpoczęcie od domyślnego partycjonowania, a następnie wypróbowanie innych opcji partycjonowania. Testy można testować przy użyciu przebiegów debugowania potoku, a także wyświetlać czas wykonywania i korzystać z partycji w każdym grupowaniu transformacji z widoku monitorowanie. Aby uzyskać więcej informacji, zobacz [monitorowanie przepływów danych](concepts-data-flow-monitoring.md).
-
-Dostępne są następujące opcje partycjonowania.
-
-##### <a name="round-robin"></a>Działania okrężne 
-
-Round Robin to prosta partycja, która automatycznie dystrybuuje dane równomiernie między partycjami. Użyj działania okrężnego, gdy nie masz dobrych sugestii kluczowych do wdrożenia pełnej, inteligentnej strategii partycjonowania. Można ustawić liczbę partycji fizycznych.
-
-##### <a name="hash"></a>Skrót
-
-Azure Data Factory tworzy skrót kolumn do tworzenia jednolitych partycji, takich jak wiersze o podobnych wartościach, mieszczą się w tej samej partycji. W przypadku korzystania z opcji skrótu Sprawdź możliwe pochylenie partycji. Można ustawić liczbę partycji fizycznych.
-
-##### <a name="dynamic-range"></a>Zakres dynamiczny
-
-Zakres dynamiczny używa zakresów dynamicznych platformy Spark na podstawie kolumn lub wyrażeń, które podano. Można ustawić liczbę partycji fizycznych. 
-
-##### <a name="fixed-range"></a>Stały zakres
-
-Utwórz wyrażenie, które udostępnia stały zakres dla wartości w kolumnach danych partycjonowanych. Aby uniknąć pochylenia partycji, przed użyciem tej opcji należy dobrze zrozumieć swoje dane. Wartości wprowadzane dla wyrażenia są używane jako część funkcji partycji. Można ustawić liczbę partycji fizycznych.
-
-##### <a name="key"></a>Klucz
-
-Jeśli masz dobrą wiedzę o kardynalności danych, partycjonowanie kluczy może być dobrą strategią. Partycjonowanie kluczy tworzy partycje dla każdej unikatowej wartości w kolumnie. Nie można ustawić liczby partycji, ponieważ liczba jest oparta na unikatowych wartościach danych.
+![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
 
 #### <a name="inspect"></a>Skontrol
 

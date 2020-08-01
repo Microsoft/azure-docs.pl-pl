@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413981"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460086"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -40,16 +40,19 @@ Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatn
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?
 
-W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
+W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. Minimalny rozmiar pliku kwalifikującego się do obsługi warstw w chmurze jest obliczany przez 2. rozmiar klastra i co najmniej 8 KB. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
 
 |Rozmiar klastra objętościowego (w bajtach) |Pliki o tym rozmiarze lub większe mogą być warstwowe  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB lub mniejsze (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) i większych    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)               | 128 KB  |
 
-Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Jeśli rozmiary plików nie są dostępne nawet w przypadku wielokrotnego rozmiaru klastra, należy użyć dodatkowego miejsca do przechowywania pliku (do kolejnej wielokrotności rozmiaru klastra).
+W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 i nowszej obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów do 64 KB.
+
+Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Gdy rozmiary plików nie są dostępne nawet dla wielu rozmiarów klastra, należy użyć dodatkowego miejsca do przechowywania plików do kolejnej wielokrotności rozmiaru klastra.
 
 Azure File Sync jest obsługiwana na woluminach NTFS w systemie Windows Server 2012 R2 lub nowszym. W poniższej tabeli opisano domyślne rozmiary klastra podczas tworzenia nowego woluminu NTFS. 
 
@@ -62,7 +65,9 @@ Azure File Sync jest obsługiwana na woluminach NTFS w systemie Windows Server 2
 |128TB – 256 TB | 64 KB         |
 |> 256 TB       | Nieobsługiwane |
 
-Istnieje możliwość, że podczas tworzenia woluminu ręcznie sformatowano wolumin z innym rozmiarem klastra (jednostki alokacji). Jeśli wolumin jest rdzeniem ze starszej wersji systemu Windows, domyślne rozmiary klastra mogą być różne. [Ten artykuł zawiera więcej informacji na temat domyślnych rozmiarów klastra.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+Po utworzeniu woluminu można ręcznie sformatować wolumin z innym rozmiarem klastra. Jeśli wolumin jest rdzeniem ze starszej wersji systemu Windows, domyślne rozmiary klastra mogą być różne. [Ten artykuł zawiera więcej informacji na temat domyślnych rozmiarów klastra.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Nawet w przypadku wybrania rozmiaru klastra mniejszego niż 4 KB obowiązuje limit 8 KB jako najmniejszy rozmiar pliku, który może być warstwowy. (Nawet jeśli technicznie rozmiar klastra będzie równy mniej niż 8 KB).
+
+Przyczyna bezwzględnego minimum znajduje się w sposobie, w jaki system NTFS przechowuje bardzo małe pliki — 1 KB do 4 plików z rozmiarem. W zależności od innych parametrów woluminu jest możliwe, że małe pliki nie są przechowywane w klastrze na dysku. Pliki te można przechowywać bezpośrednio w głównej tabeli plików woluminu lub w rekordzie tabeli MFT. Punkt ponownej analizy warstw w chmurze jest zawsze przechowywany na dysku i pobiera dokładnie jeden klaster. Obsługa warstw takich małych plików może się nie potrwać bez oszczędzania miejsca. Ekstremalne przypadki mogą nawet kończyć się większą ilością miejsca z włączoną obsługą warstw w chmurze. Aby zapewnić ochronę przed tym, najmniejszy rozmiar pliku, który będzie warstwą chmury, to 8 KB w rozmiarze 4 KB lub mniejszym.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Jak działają zasady obsługi warstw wolnego miejsca na woluminie?
@@ -124,7 +129,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy plik został warstwowy w udziale p
         | P | Plik rozrzedzony | Wskazuje, że plik jest plikiem rozrzedzonym. Plik rozrzedzony to wyspecjalizowany typ pliku, który oferuje system plików NTFS do wydajnego użycia, gdy plik w strumieniu dysku jest w większości pusty. Azure File Sync używa plików rozrzedzonych, ponieważ plik jest w pełni warstwowy lub częściowo ponownie wywoływany. W przypadku w pełni warstwowego pliku strumień plików jest przechowywany w chmurze. W częściowo odwywoływanym pliku, ta część pliku znajduje się już na dysku. Jeśli plik jest w pełni wywoływany na dysk, Azure File Sync konwertuje go z pliku rozrzedzonego na zwykły plik. Ten atrybut jest ustawiany tylko w systemie Windows Server 2016 i starszych.|
         | M | Odwołaj dostęp do danych | Wskazuje, że dane pliku nie są w pełni obecne w magazynie lokalnym. Odczytanie pliku spowoduje pobranie co najmniej niektórych zawartości pliku z udziału plików platformy Azure, do którego jest podłączony punkt końcowy serwera. Ten atrybut jest ustawiany tylko w systemie Windows Server 2019. |
         | L | Punkt ponownej analizy | Wskazuje, że plik ma punkt ponownej analizy. Punkt ponownej analizy to specjalny wskaźnik używany przez filtr systemu plików. Azure File Sync używa punktów ponownej analizy do zdefiniowania do Azure File Sync filtr systemu plików (StorageSync.sys) lokalizacji w chmurze, w której jest przechowywany plik. Zapewnia to bezproblemowe dostęp. Użytkownicy nie muszą wiedzieć, że Azure File Sync są używane, lub jak uzyskać dostęp do pliku w udziale plików platformy Azure. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa punkt ponownej analizy z pliku. |
-        | O | W trybie offline | Wskazuje, że część lub cała zawartość pliku nie jest przechowywana na dysku. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa ten atrybut. |
+        | O | Tryb offline | Wskazuje, że część lub cała zawartość pliku nie jest przechowywana na dysku. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa ten atrybut. |
 
         ![Okno dialogowe właściwości dla pliku, z wybraną kartą szczegóły](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
