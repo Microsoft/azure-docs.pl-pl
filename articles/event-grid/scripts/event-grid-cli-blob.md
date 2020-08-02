@@ -4,12 +4,13 @@ description: Ten artykuł zawiera przykładowy skrypt interfejsu wiersza polecen
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: cb411d5f56da6e0f8b6053e924dc5e9482372eaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b7648a8ef71b151c94fac4fa28cfa8eafa239c68
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460902"
+ms.locfileid: "87494149"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Subskrybowanie do zdarzeń dla konta usługi Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 

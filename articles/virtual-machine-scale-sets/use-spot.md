@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer
-ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: jagaveer, devx-track-azurecli
+ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527459"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491803"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -23,7 +23,7 @@ Korzystanie z usługi Azure spot w ramach zestawów skalowania pozwala korzysta�
 Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania wystąpień obliczeniowych w zestawach skalowania platforma Azure przydzieli to wystąpienie tylko wtedy, gdy jest dostępna pojemność, ale dla tych wystąpień nie ma umowy SLA. Zestaw skalowania punktowego jest wdrażany w jednej domenie błędów i nie oferuje gwarancji wysokiej dostępności.
 
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Cennik wystąpień dodatkowych to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik dla systemów [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
@@ -47,7 +47,7 @@ Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wir
 - [Witryna Azure Portal](#portal)
 - [Interfejs wiersza polecenia platformy Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Szablony Azure Resource Manager](#resource-manager-templates)
+- [Szablony usługi Azure Resource Manager](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
@@ -101,7 +101,7 @@ W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 

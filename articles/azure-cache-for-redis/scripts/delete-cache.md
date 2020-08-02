@@ -8,12 +8,13 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.openlocfilehash: e5178ab4069cc5ffa8607c5feea6ffac86284a5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b1e044c6f61e51de1d8f2ba07f64918307109e46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411079"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494727"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Usuwanie pamięci podręcznej platformy Azure dla usługi Redis
 

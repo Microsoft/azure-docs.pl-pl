@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: fcd82297ae698707503a69d9e47f6ca4241d6db9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: b0801d00e8b7e33b34ccae9023de4d85f81b3eea
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80044865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495458"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Skalowanie aplikacji usługi App Service na całym świecie przy użyciu architektury wysokiej dostępności za pomocą interfejsu wiersza polecenia platformy Azure
 

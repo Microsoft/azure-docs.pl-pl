@@ -16,13 +16,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 027165f797977311fd77f3cd3e626b126c26e47b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703353"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494676"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Kierowanie ruchu sieciowego za pomocą tabeli tras przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -269,7 +269,7 @@ Teraz możesz zobaczyć, że pierwszym przeskokiem jest 10.0.2.4, czyli prywatny
 
 Zamknij sesje SSH zarówno na maszynach wirtualnych *myVmPublic* , jak i *myVmPrivate* .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 

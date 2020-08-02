@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281552"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497600"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -47,8 +47,22 @@ Migawki woluminów można tworzyć na żądanie.
 
 Można zaplanować automatyczne podejmowanie migawek woluminów przy użyciu zasad migawek. Możesz również zmodyfikować zasady migawek odpowiednio do potrzeb lub usunąć zasady migawek, które nie są już potrzebne.  
 
-> [!IMPORTANT] 
-> Korzystanie z funkcji zasad migawek wymaga listy dozwolonych. Wyślij wiadomość e-mail anffeedback@microsoft.com z identyfikatorem subskrypcji, aby zażądać tej funkcji.
+### <a name="register-the-feature"></a>Rejestrowanie funkcji
+
+1. Funkcja **zasad migawek** jest obecnie w wersji zapoznawczej. Jeśli korzystasz z tej funkcji po raz pierwszy, Zarejestruj tę funkcję przed jej użyciem: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Sprawdź stan rejestracji funkcji: 
+
+    > [!NOTE]
+    > **RegistrationState** może być w `Registering` stanie przez kilka minut przed zmianą na `Registered` . Przed kontynuowaniem Zaczekaj na **zarejestrowanie** stanu.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Tworzenie zasad migawek 
 
@@ -139,12 +153,12 @@ Obecnie można przywrócić migawkę tylko do nowego woluminu.
         
         Nazwa musi być unikatowa w obrębie grupy zasobów. Musi zawierać co najmniej trzy znaki.  Dozwolone są dowolne znaki alfanumeryczne.
 
-    * **Limit przydziału**  
+    * **limit przydziału**  
         Określ ilość pamięci logicznej, która ma zostać przydzielona do woluminu.  
 
     ![Przywróć do nowego woluminu](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij pozycję **Utwórz**.   
+4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij przycisk **Utwórz**.   
     Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 

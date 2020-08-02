@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763758"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499504"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
@@ -38,6 +38,8 @@ Niektóre warunki muszą być spełnione, aby użytkownik mógł wyrazić zgodę
 Ten błąd występuje, gdy użytkownik, który nie jest administratorem firmy, próbuje użyć aplikacji, która żąda uprawnień, które może udzielić tylko administrator. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
 
 Ten błąd może również wystąpić, gdy użytkownik nie jest w stanie przesłać do aplikacji z powodu wykrycia przez firmę Microsoft, że żądanie uprawnień jest ryzykowne. W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z kategorią "ApplicationManagement", typ działania "Zgoda na aplikację" i Przyczyna stanu "wykryto ryzykowną aplikację".
+
+Innym scenariuszem, w którym ten błąd może wystąpić, jest wymagane przypisanie użytkownika do aplikacji, ale nie podano zgody administratora. W takim przypadku administrator musi najpierw podać zgodę administratora.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Zasady uniemożliwiają udzielenie błędu uprawnień
 * **AADSTS90093:** Administrator usługi &lt; tenantDisplayName &gt; ustawił zasady, które uniemożliwiają przyznanie &lt; nazwy aplikacji &gt; , do której żądają uprawnienia. Skontaktuj się z administratorem &lt; tenantDisplayName &gt; , który może udzielić uprawnień do tej aplikacji w Twoim imieniu.

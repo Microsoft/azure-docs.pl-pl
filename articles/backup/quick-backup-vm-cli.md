@@ -4,13 +4,13 @@ description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn 
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 275a53c0ae5e1058d58516e9c01fa894ddad2120
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b263d5394d642301c5fc53e169186e4aea56ecab
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054598"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497464"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia
 

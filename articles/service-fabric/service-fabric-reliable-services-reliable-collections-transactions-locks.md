@@ -4,12 +4,12 @@ description: Usługa Azure Service Fabric niezawodny Menedżer stanu i niezawodn
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245113"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500286"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transakcje i tryby blokowania w usłudze Azure Service Fabric niezawodne Kolekcje
 

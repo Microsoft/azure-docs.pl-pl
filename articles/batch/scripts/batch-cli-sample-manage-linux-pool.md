@@ -3,12 +3,13 @@ title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Pula s
 description: Ten skrypt demonstruje niektóre polecenia dostępne w interfejsie wiersza polecenia platformy Azure w celu utworzenia puli węzłów obliczeniowych systemu Linux w Azure Batch i zarządzania nią.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 21236ef2f314cb1306adc7346e620b80db540034
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7aba6e64fdf39a069eb010ef032fcc5391fd47ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964063"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494391"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Przykład interfejsu wiersza polecenia: tworzenie puli systemu Linux w usłudze Azure Batch i zarządzanie nią
 

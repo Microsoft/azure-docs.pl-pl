@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021668"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495947"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu nawiązania połączenia z dodatkową lokacją lokalną po przejściu do trybu failover
 
@@ -63,11 +63,11 @@ Poniższe grafiki ilustrują podsieci przed i po przejściu do trybu failover.
 
 **Przed przejściem w tryb failover**
 
-![Przed przejściem w tryb failover](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagram przedstawiający podsieci przed przejściem w tryb failover.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Po przejściu w tryb failover**
 
-![Po przejściu w tryb failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagram przedstawiający podsieci po przejściu do trybu failover.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Po przejściu w tryb failover Site Recovery przydziela adres IP dla każdego interfejsu sieciowego na maszynie wirtualnej. Adres jest przypisywany z puli statycznych adresów IP w odpowiedniej sieci dla każdego wystąpienia maszyny wirtualnej.
 
@@ -118,11 +118,11 @@ W tym przykładzie mamy różne adresy IP w lokacjach głównych i dodatkowych, 
 
 **Przed przejściem w tryb failover**
 
-![Inny adres IP — przed przejściem w tryb failover](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagram przedstawiający różne adresy IP przed przełączeniem w tryb failover.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Po przejściu w tryb failover**
 
-![Inny adres IP — po przejściu w tryb failover](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagram przedstawiający różne adresy IP po przejściu w tryb failover.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

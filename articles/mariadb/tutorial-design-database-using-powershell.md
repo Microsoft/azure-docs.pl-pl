@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.custom: mvc
-ms.openlocfilehash: 6af5fa85306db885359d3de66a9a50f187015b75
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6c17c746dfe0ce81da4cfe486b830837c37cdda4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053315"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496036"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Samouczek: projektowanie Azure Database for MariaDB przy użyciu programu PowerShell
 

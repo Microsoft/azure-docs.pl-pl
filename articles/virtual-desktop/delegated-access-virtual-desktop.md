@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2dc96f587a9e5db9d9810a4d1ab7d32c4ff49f7d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: df4d1b98eac782641fb36c614d2df9508c6131ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289857"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498671"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Dostęp delegowany w usłudze Windows Virtual Desktop
 
@@ -40,7 +40,7 @@ Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące 
 
 Przed rozpoczęciem upewnij się, że postępuj zgodnie z instrukcjami w temacie [Konfigurowanie modułu programu PowerShell](powershell-module.md) w celu skonfigurowania modułu programu PowerShell dla pulpitu wirtualnego systemu Windows, jeśli jeszcze tego nie zrobiono.
 
-Pulpit wirtualny systemu Windows korzysta z kontroli dostępu opartej na rolach (RBAC) na platformie Azure podczas publikowania grup aplikacji dla użytkowników lub grup użytkowników. Rola użytkownika wirtualizacji pulpitu jest przypisana do grupy użytkowników lub użytkowników, a zakres jest grupą aplikacji. Ta rola daje użytkownikowi specjalny dostęp do danych w grupie aplikacji.  
+Pulpit wirtualny systemu Windows korzysta z kontroli dostępu opartej na rolach (Azure RBAC) podczas publikowania grup aplikacji dla użytkowników lub grup użytkowników. Rola użytkownika wirtualizacji pulpitu jest przypisana do grupy użytkowników lub użytkowników, a zakres jest grupą aplikacji. Ta rola daje użytkownikowi specjalny dostęp do danych w grupie aplikacji.  
 
 Uruchom następujące polecenie cmdlet, aby dodać Azure Active Directory użytkowników do grupy aplikacji:
 

@@ -3,13 +3,13 @@ title: Usuwanie grupy zasobów i zasobów
 description: Opisuje sposób usuwania grup zasobów i zasobów. Opisano w nim, jak Azure Resource Manager zamówienia usunięcia zasobów podczas usuwania grupy zasobów. Opisano w nim kody odpowiedzi i sposób, w jaki Menedżer zasobów je obsłużyć, aby określić, czy usunięcie zakończyło się pomyślnie.
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 2720a9ae8c0a67d8e6f9c1105b33c0a3c343cf47
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82136485"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498501"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager grupy zasobów i usuwania zasobów
 

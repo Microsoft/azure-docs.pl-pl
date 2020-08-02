@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130915"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498977"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Przygotowywanie platformy Azure do lokalnego odzyskiwania po awarii na platformie Azure
 
@@ -60,9 +60,9 @@ Aby można było wykonać te zadania, do konta musi być przypisana wbudowana ro
 4. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Na potrzeby tego samouczka używamy grupy **contosoRG**.
 5. W polu **Nazwa magazynu**wprowadź przyjazną nazwę identyfikującą magazyn. Na potrzeby tej serii samouczków należy użyć nazwy **ContosoVMVault**.
 6. W **obszarze region**wybierz region, w którym powinien się znajdować magazyn. Użyj wartości **Europa Zachodnia**.
-7. Wybierz pozycję **Przeglądanie + tworzenie**.
+7. Wybierz pozycję **Przegląd + utwórz**.
 
-   ![Tworzenie nowego magazynu](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Zrzut ekranu przedstawiający stronę tworzenie magazynu Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    Nowy magazyn będzie teraz widoczny w obszarze **pulpit nawigacyjny**  >  **wszystkie zasoby**oraz na stronie głównych **magazynów Recovery Services** .
 
@@ -79,9 +79,9 @@ Maszyny lokalne są replikowane do usługi Azure Managed Disks. W przypadku prze
 7. W obszarze **Lokalizacja**wybierz ten sam region, w którym został utworzony magazyn Recovery Services. W naszym samouczku jest **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn.
 8. W obszarze **zakres adresów**Wprowadź zakres sieci. Korzystamy z **10.1.0.0/24**, a nie do korzystania z podsieci.
 9. Opuszczamy domyślne opcje podstawowej ochrony DDoS, bez punktu końcowego usługi ani zapory w sieci.
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
-   ![Tworzenie sieci wirtualnej](media/tutorial-prepare-azure/create-network.png)
+   ![Zrzut ekranu przedstawiający opcje tworzenia sieci wirtualnej.](media/tutorial-prepare-azure/create-network.png)
 
 Utworzenie sieci wirtualnej zajmuje kilka sekund. Po jego utworzeniu zobaczysz go na pulpicie nawigacyjnym Azure Portal.
 

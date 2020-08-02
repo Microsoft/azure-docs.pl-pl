@@ -6,14 +6,14 @@ author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/07/2019
+ms.date: 07/30/2019
 ms.author: mihansen
-ms.openlocfilehash: 72e199e45047e1b425b2587c6b4028efb84060df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b083231ee4c302643b4ea5c361901ab07c3d068d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087445"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496665"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Co to jest Azure API for FHIR &reg; ?
 
@@ -82,19 +82,19 @@ Funkcje FHIR firmy Microsoft są dostępne w dwóch konfiguracjach:
 
 W przypadku przypadków użycia, które wymagają rozszerzenia lub dostosowania serwera FHIR lub wymagania dostępu do podstawowych usług, takich jak baza danych — bez przechodzenia przez interfejsy API FHIR, deweloperzy powinni wybrać serwer typu open source FHIR dla platformy Azure.   W celu wdrożenia z podwyższeniem poziomu, gotowego do produkcji interfejsu API FHIR i usługi zaplecza, w której dane utrwalane mają być dostępne tylko za pomocą interfejsu API FHIR, deweloperzy powinni wybrać interfejs API platformy Azure dla usługi FHIR
 
-## <a name="iot-connector-preview"></a>Łącznik IoT (wersja zapoznawcza)
+## <a name="azure-iot-connector-for-fhir-preview"></a>Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza)
 
-Łącznik IoT to opcjonalna funkcja interfejsu API platformy Azure dla usługi FHIR, która zapewnia możliwość pozyskiwania danych z urządzeń z Internetu (IoMT). Internet rzeczy medycznych to kategoria urządzeń IoT, które przechwytują i programu Exchange Health & dane Wellness z innymi systemami informatycznymi IT za pośrednictwem sieci. Niektóre przykłady urządzeń IoMT obejmują przydatność i kliniczne noszenia, czujniki monitorowania, śledzenie działań, punkty kiosków opieki, a nawet inteligentne pill. Funkcja łącznika IoT umożliwia szybkie skonfigurowanie usługi do pozyskiwania danych IoMT w interfejsie API platformy Azure dla FHIR w skalowalnej, bezpiecznej i zgodnej sposób.
+Azure IoT Connector for FHIR (wersja zapoznawcza) to opcjonalna funkcja interfejsu API platformy Azure dla FHIR, która zapewnia możliwość pozyskiwania danych z Internetu (IoMT) urządzeń. Internet rzeczy medycznych to kategoria urządzeń IoT, które przechwytują i programu Exchange Health & dane Wellness z innymi systemami informatycznymi IT za pośrednictwem sieci. Niektóre przykłady urządzeń IoMT obejmują przydatność i kliniczne noszenia, czujniki monitorowania, śledzenie działań, punkty kiosków opieki, a nawet inteligentne pill. Funkcja Azure IoT Connector for FHIR (wersja zapoznawcza) umożliwia szybkie skonfigurowanie usługi do pozyskiwania danych IoMT w usłudze Azure API dla FHIR w sposób skalowalny, bezpieczny i zgodny.
 
-Łącznik IoT może akceptować wszystkie komunikaty oparte na notacji JSON wysyłane przez urządzenie IoMT. Te dane są najpierw przekształcane w odpowiednie FHIR [obserwacje](https://www.hl7.org/fhir/observation.html) oparte na systemie, a następnie utrwalane w interfejsie API platformy Azure dla FHIR. Logika transformacji danych jest definiowana za pośrednictwem pary szablonów mapowania skonfigurowanych w oparciu o schemat wiadomości i wymagania FHIR. Dane urządzenia mogą być wypychane bezpośrednio do łącznika IoT lub bezproblemowo wykorzystywane w połączeniu z innymi rozwiązaniami Azure IoT ([azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) i [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). Łącznik IoT zapewnia bezpieczny Potok danych, a jednocześnie umożliwia zarządzanie rozwiązaniami Azure IoT i konserwacją urządzeń fizycznych.
+Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza) może akceptować komunikaty oparte na notacji JSON wysyłane przez urządzenie IoMT. Te dane są najpierw przekształcane w odpowiednie FHIR [obserwacje](https://www.hl7.org/fhir/observation.html) oparte na systemie, a następnie utrwalane w interfejsie API platformy Azure dla FHIR. Logika transformacji danych jest definiowana za pośrednictwem pary szablonów mapowania skonfigurowanych w oparciu o schemat wiadomości i wymagania FHIR. Dane urządzenia mogą być wypychane bezpośrednio do łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza) lub bezproblemowo wykorzystywane w połączeniu z innymi rozwiązaniami Azure IoT ([azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) i [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza) zapewnia bezpieczny Potok danych, a jednocześnie umożliwia zarządzanie zainicjowaniem i konserwacją urządzeń fizycznych przez rozwiązania Azure IoT.
 
-### <a name="applications-of-iot-connector-preview"></a>Aplikacje łącznika IoT (wersja zapoznawcza)
+### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Aplikacje łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)
 
-Korzystanie z urządzeń IoMT jest gwałtownym powiększaniem w dziedzinie opieki zdrowotnej, a łącznik IoT został zaprojektowany z założeniami, aby połączyć wiele urządzeń z zabezpieczeniami i zgodnością z interfejsem API platformy Azure dla FHIR. Umieszczenie danych IoMT na serwerze FHIR umożliwia całościowe wglądy w dane oraz innowacyjne kliniczne przepływy pracy. Niektóre typowe scenariusze dotyczące łącznika IoT są następujące:
-- **Monitorowanie zdalnego pacjenta/telekondycja:** Zdalne monitorowanie pacjentów umożliwia zbieranie danych dotyczących kondycji pacjenta poza tradycyjnymi ustawieniami opieki zdrowotnej. Instytucje opieki zdrowotnej mogą używać łącznika IoT do przenoszenia danych o kondycji generowanych przez urządzenia zdalne do interfejsu API platformy Azure dla FHIR. Te dane mogą być używane do dokładnego śledzenia stanu kondycji pacjentów, monitorowania pacjentów przestrzegania planu obróbki i zapewnienia spersonalizowanej opieki.
-- **Badania i nauki przyrodnicze:** Badania kliniczne to szybkie przyjmowanie urządzeń IoMT, takich jak Biosensors, noszenia, Mobile Apps do przechwytywania danych z wersji próbnej. Te wersje próbne umożliwiają korzystanie z łącznika IoT do przesyłania danych urządzenia do usługi Azure API for FHIR w bezpieczny, wydajny i efektywny sposób. Raz w interfejsie API platformy Azure dla FHIR można użyć danych wersji próbnej do uruchomienia analizy danych w czasie rzeczywistym.
-- **Zaawansowana analiza:** Urządzenia IoMT mogą zapewniać duże ilości danych w dużej szybkości, co sprawia, że są one bardzo przydatne do obsługi szkoleń i testowania danych dla modeli uczenia maszynowego. Łącznik IoT jest zaprojektowany z myślą o pracy z szerokim zakresem częstotliwości danych, elastycznego schematu danych i skalowaniu w chmurze z małymi opóźnieniami. Te atrybuty sprawiają, że łącznik IoT ma doskonały wybór do przechwytywania danych urządzenia na potrzeby zaawansowanych analiz.
-- **Inteligentne szpitale/kliniki:** Obecnie inteligentne szpitale i kliniki konfigurują infrastrukturę połączonych zasobów cyfrowych. Łącznik IoT może służyć do przechwytywania i integrowania danych z tych połączonych składników. Szczegółowe informacje z możliwością działania z tego zestawu danych umożliwiają lepszą opiekę przed pacjentami i wydajność operacyjną.
+Korzystanie z urządzeń IoMT jest gwałtownym powiększaniem w dziedzinie opieki zdrowotnej, a usługa Azure IoT Connector dla FHIR (wersja zapoznawcza) została zaprojektowana w celu przydzielenia luki w zabezpieczeniach i zgodności z usługą Azure API for FHIR. Umieszczenie danych IoMT na serwerze FHIR umożliwia całościowe wglądy w dane oraz innowacyjne kliniczne przepływy pracy. Niektóre typowe scenariusze dotyczące łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) są następujące:
+- **Monitorowanie zdalnego pacjenta/telekondycja:** Zdalne monitorowanie pacjentów umożliwia zbieranie danych dotyczących kondycji pacjenta poza tradycyjnymi ustawieniami opieki zdrowotnej. Instytucje opieki zdrowotnej mogą korzystać z usługi Azure IoT Connector for FHIR (wersja zapoznawcza) w celu przenoszenia danych o kondycji generowanych przez urządzenia zdalne do usługi Azure API dla FHIR Te dane mogą być używane do dokładnego śledzenia stanu kondycji pacjentów, monitorowania pacjentów przestrzegania planu obróbki i zapewnienia spersonalizowanej opieki.
+- **Badania i nauki przyrodnicze:** Badania kliniczne szybko przyjmują urządzenia IoMT, takie jak Czujniki biometryczne, noszenia, aplikacje mobilne do przechwytywania danych z wersji próbnej. Te wersje próbne umożliwiają korzystanie z łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) w celu przesyłania danych urządzenia do interfejsu API platformy Azure w celu zapewnienia bezpiecznego, wydajnej i efektywnej pracy. Raz w interfejsie API platformy Azure dla FHIR można użyć danych wersji próbnej do uruchomienia analizy danych w czasie rzeczywistym.
+- **Zaawansowana analiza:** Urządzenia IoMT mogą zapewniać duże ilości danych w dużej szybkości, co sprawia, że są one bardzo przydatne do obsługi szkoleń i testowania danych dla modeli uczenia maszynowego. Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza) jest zaprojektowana z myślą o pracy z szeroką gamęm częstotliwości danych, elastycznym schematem danych i skalowaniem chmury z małymi opóźnieniami. Te atrybuty sprawiają, że usługa Azure IoT Connector for FHIR (wersja zapoznawcza) umożliwia doskonałe rozwiązanie do przechwytywania danych urządzeń na potrzeby zaawansowanych analiz.
+- **Inteligentne szpitale/kliniki:** Obecnie inteligentne szpitale i kliniki konfigurują infrastrukturę połączonych zasobów cyfrowych. Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza) może służyć do przechwytywania i integrowania danych z tych połączonych składników. Szczegółowe informacje z możliwością działania z tego zestawu danych umożliwiają lepszą opiekę przed pacjentami i wydajność operacyjną.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -103,10 +103,11 @@ Aby rozpocząć pracę z interfejsem API platformy Azure dla usługi FHIR, wykon
 >[!div class="nextstepaction"]
 >[Wdrażanie usługi Azure API for FHIR](fhir-paas-portal-quickstart.md)
 
-Aby wypróbować funkcję łącznika IoT, zapoznaj się z przewodnikiem Szybki Start, aby wdrożyć łącznik usługi IoT przy użyciu Azure Portal.
+Aby wypróbować funkcję łącznika usługi Azure IoT for FHIR (wersja zapoznawcza), zapoznaj się z tematem Szybki Start, aby wdrożyć łącznik IoT przy użyciu Azure Portal.
 
 >[!div class="nextstepaction"]
->[Wdróż łącznik IoT](iot-fhir-portal-quickstart.md)
+>[Wdrażanie łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)](iot-fhir-portal-quickstart.md)
 
+W Azure Portal łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza) jest określany jako łącznik IoT (wersja zapoznawcza).
 
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.

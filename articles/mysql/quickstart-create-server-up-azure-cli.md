@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc
-ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608029"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495350"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Szybki Start: Tworzenie Azure Database for MySQL przy użyciu prostego polecenia platformy Azure — polecenie AZ MySQL up (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ nazwa-serwera | Wygenerowano system | Unikatowa nazwa, która identyfikuje serwe
 resource-group | Wygenerowano system | Nowa grupa zasobów platformy Azure.
 sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne} w skrócie. Wartość domyślna to Ogólnego przeznaczenia serwer 5 rdzeń z 2 rdzeni wirtualnych. Aby uzyskać więcej informacji o warstwach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/) .
 backup-retention | 7 | Jak długo należy przechowywać kopię zapasową. Jednostka to dni.
-geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
+geo-redundant-backup | Disabled | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
 location | westus2 | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Enabled (Włączony) | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).

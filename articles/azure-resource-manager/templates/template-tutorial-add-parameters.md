@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b1454106c4498f4519972633df8a871585d254f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80437829"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497549"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Samouczek: Dodawanie parametrów do szablonu ARM
 
@@ -44,7 +45,7 @@ Wdróżmy szablon. Poniższy przykład wdraża szablon przy użyciu interfejsu w
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,7 +57,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \
@@ -72,7 +73,7 @@ az deployment group create \
 
 W poprzedniej sekcji zostało wdrożone konto magazynu o tej samej nazwie, która została wcześniej utworzona. Możesz zastanawiać się, w jaki sposób zasób ma wpływ na ponowne wdrożenie.
 
-Jeśli zasób już istnieje i żadna zmiana nie zostanie wykryta we właściwościach, nie zostanie podjęta żadna akcja. Jeśli zasób już istnieje, a właściwość została zmieniona, zasób zostanie zaktualizowany. Jeśli zasób nie istnieje, zostanie utworzony.
+Jeśli zasób już istnieje i żadna zmiana nie zostanie wykryta we właściwościach, nie jest podejmowana żadna akcja. Jeśli zasób już istnieje, ale dokonano zmiany właściwości, zasób zostanie zaktualizowany. Jeśli zasób nie istnieje, zostanie utworzony.
 
 Ten sposób obsługi aktualizacji oznacza, że szablon może obejmować wszystkie zasoby potrzebne do rozwiązania platformy Azure. Możesz bezpiecznie ponownie wdrożyć szablon i wiedzieć, że zasoby są zmieniane lub tworzone tylko w razie konieczności. Na przykład jeśli dodano pliki do konta magazynu, można ponownie wdrożyć konto magazynu bez utraty tych plików.
 
@@ -90,7 +91,7 @@ Parametr **storageSKU** ma wartość domyślną. Ta wartość jest używana, gdy
 
 Wszystko jest gotowe do ponownego wdrożenia. Ponieważ domyślna jednostka SKU jest ustawiona na **Standard_LRS**, nie trzeba podawać wartości dla tego parametru.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -117,7 +118,7 @@ az deployment group create \
 
 Aby sprawdzić elastyczność szablonu, wdróż ponownie. Tym razem ustaw parametr SKU na **Standard_GRS**. Możesz przekazać nową nazwę, aby utworzyć inne konto magazynu, lub użyć tej samej nazwy do zaktualizowania istniejącego konta magazynu. Obie opcje działają.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -142,7 +143,7 @@ az deployment group create \
 
 Na koniec Uruchommy jeszcze jeden test i zobacz, co się dzieje po przejściu do jednostki SKU, która nie jest jedną z dozwolonych wartości. W takim przypadku testuje scenariusz, w którym użytkownik szablonu traktuje **podstawową** , jest jedną z jednostek SKU.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `

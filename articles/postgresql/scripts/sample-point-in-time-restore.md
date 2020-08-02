@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 1f772f710f0146048fcde04d884fbe3458722743
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b02b81e650eabea6f3f5f09347dc4aa2382671a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66154544"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496512"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Przywracanie serwera usługi Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia przywraca jeden serwer usługi Azure Database for PostgreSQL do wcześniejszego punktu w czasie.

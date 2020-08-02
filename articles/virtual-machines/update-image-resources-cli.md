@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 4126b7e0b48b455d9e5fcf65d6707f7e04de13ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6fcd7ba0e3582a614acab46bffd5f76e5baa982f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797099"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496359"
 ---
 # <a name="list-update-and-delete-image-resources"></a>Wyświetlanie listy, aktualizowanie i usuwanie zasobów obrazów 
 

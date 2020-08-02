@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765084"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499844"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
 Dowiedz się, jak zarządzać kontrolą dostępu do obszarów roboczych, danych i potoków w obszarze roboczym usługi Azure Synapse Analytics (wersja zapoznawcza).
 
 > [!NOTE]
-> W odniesieniu do usługi RBAC będzie bardziej opracowywany przez wprowadzenie ról RBAC dla konkretnych Synapse.
+> W odniesieniu do usługi RBAC będzie bardziej opracowywany poprzez wprowadzenie ról platformy Azure specyficznych dla Synapse
 
 ## <a name="access-control-for-workspace"></a>Access Control dla obszaru roboczego
 
@@ -47,7 +47,7 @@ W przypadku wdrożenia produkcyjnego w obszarze roboczym usługi Azure Synapse s
 
 Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) i kontener dla systemu plików, który będzie używany przez obszar roboczy.
 
-1. Otwórz [Azure Portal](https://portal.azure.com)
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 2. Przejdź do konta Azure Data Lake Storage Gen2
 3. Przejdź do kontenera (systemu plików) wybranego dla obszaru roboczego usługi Azure Synapse
 4. Kliknij **Access Control (IAM)**

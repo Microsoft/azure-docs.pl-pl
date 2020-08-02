@@ -13,12 +13,13 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 3e76f2c23944dec69393a7b01dddc2d9f4fed7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080951"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498008"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -182,7 +183,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
    > [!NOTE]
    > [Przestrzeń nazw centrum powiadomień](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) i [centrum powiadomień](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) mają oddzielne zasady dostępu.  Upewnij się, że używasz poprawnego odwołania do interfejsu wiersza polecenia platformy Azure podczas wykonywania zapytań dotyczących kluczy i parametrów połączenia.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów i wszystkie powiązane zasoby.
 

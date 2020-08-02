@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130981"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498994"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Przygotowywanie zasobów platformy Azure na potrzeby odzyskiwania po awarii funkcji Hyper-V
 
@@ -34,7 +34,7 @@ W tym samouczku przedstawiono sposób przygotowania składników platformy Azure
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="sign-in"></a>Zaloguj
+## <a name="sign-in"></a>Logowanie
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -63,7 +63,7 @@ Obrazy replikowanych maszyn są przechowywane w usłudze Azure Storage. Maszyny 
 9. W obszarze **Lokalizacja**wybierz lokalizację geograficzną dla swojego konta magazynu. W tym samouczku należy użyć **Europa Zachodnia**.
 10. Wybierz pozycję **Utwórz**, aby utworzyć konto magazynu.
 
-   ![Tworzenie konta magazynu](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Zrzut ekranu przedstawiający opcje Utwórz konto magazynu.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -74,7 +74,7 @@ Obrazy replikowanych maszyn są przechowywane w usłudze Azure Storage. Maszyny 
 3. W obszarze **Lokalizacja**wybierz region, w którym powinien się znajdować magazyn. W tym samouczku należy użyć **Europa Zachodnia**.
 4. Aby szybko uzyskać dostęp do magazynu z pulpitu nawigacyjnego, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**  >  **Utwórz**.
 
-![Tworzenie nowego magazynu](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Zrzut ekranu przedstawiający stronę tworzenie magazynu Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 Nowy magazyn będzie wyświetlany na **pulpicie nawigacyjnym**  >  **wszystkie zasoby**i na stronie **magazyny główne Recovery Services** .
 
@@ -89,9 +89,9 @@ Gdy maszyny wirtualne platformy Azure są tworzone na podstawie magazynu po prze
 5. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć sieć.
 6. W obszarze **Lokalizacja**wybierz pozycję **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
 7. Pozostaw domyślne opcje podstawowej ochrony DDoS bez punktu końcowego usługi w sieci.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
-![Tworzenie sieci wirtualnej](media/tutorial-prepare-azure/create-network.png)
+![Zrzut ekranu przedstawiający opcje tworzenia sieci wirtualnej.](media/tutorial-prepare-azure/create-network.png)
 
 Utworzenie sieci wirtualnej zajmuje kilka sekund. Po jego utworzeniu zobaczysz go na pulpicie nawigacyjnym Azure Portal.
 

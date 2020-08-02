@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 91910915384aca27ede9f836d7fe8599d4463f58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: bb20bfcecbf869dfb9b784b02c43c9d50bc922d3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057686"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495441"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Ręczne skalowanie aplikacji usługi App Service przy użyciu interfejsu wiersza polecenia platformy Azure
 

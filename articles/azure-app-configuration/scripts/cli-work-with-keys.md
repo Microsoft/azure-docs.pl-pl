@@ -9,12 +9,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e3407a1da469bf4f31e5d54d83ee837bddbafffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523655"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494761"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Praca z parami klucz-wartość w magazynie usługi Azure App Configuration
 

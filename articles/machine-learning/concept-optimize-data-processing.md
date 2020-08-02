@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461803"
+ms.locfileid: "87500967"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
 
@@ -64,7 +64,6 @@ Jeśli poprzednie zalecenia są niewystarczające i nie możesz uzyskać maszyny
 * Użyj struktury, takiej jak `Spark` lub `Dask` , aby przetworzyć dane za mało pamięci. W przypadku tej opcji ramka Dataframe jest ładowana do partycji RAM przez partycję i przetworzoną, a końcowy wynik jest zbierany na końcu.  
 
 * Skalowanie w poziomie do klastra przy użyciu rozproszonej struktury. W tej opcji obciążenia przetwarzania danych są dzielone i przetwarzane na wielu procesorach, które pracują równolegle, wraz z końcowym wynikiem zebranym na końcu.
-
 
 ### <a name="recommended-distributed-frameworks"></a>Zalecane platformy rozproszone
 

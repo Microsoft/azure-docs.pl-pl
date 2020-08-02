@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc816f54a690a4c72c44d70ecbf2cc0156ac84ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672153"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498314"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Kierowanie zdarzeń konfiguracji aplikacji platformy Azure do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -121,7 +122,7 @@ Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu
 }]
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli planujesz kontynuować pracę z tą konfiguracją aplikacji i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuowania pracy, użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 Zamień `<resource_group_name>` na utworzoną powyżej grupę zasobów.

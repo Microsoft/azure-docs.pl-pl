@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038957"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501239"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
 
@@ -178,7 +179,7 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)

@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 467d14e1f00e88999e130d28ee0e5a00dac47825
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db762b62af610559391552451df7402d9e84ab22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120963"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495351"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL.

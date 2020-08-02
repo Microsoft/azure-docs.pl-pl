@@ -3,13 +3,13 @@ title: Tworzenie aplikacji funkcji z podłączonym magazynem — interfejs wiers
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie funkcji platformy Azure łączącej się z usługą Azure Storage
 ms.topic: sample
 ms.date: 04/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922686"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498552"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Tworzenie aplikacji funkcji z nazwanym połączeniem konta magazynu 
 

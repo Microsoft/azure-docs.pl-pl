@@ -7,12 +7,13 @@ ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 64b71c135126ebb540d5ccf72f829f83c74ed0b3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477038"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495322"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift
 
@@ -26,7 +27,7 @@ Aby kompilować i uruchamiać Microsoft Azure aplikacje Red Hat OpenShift, nale�
 
 Poniższe instrukcje przeprowadzą Cię przez wszystkie te wymagania wstępne.
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+## <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 
 Na platformie Azure Red Hat OpenShift jest wymagany system 2.0.65 lub nowszy interfejsu wiersza polecenia platformy Azure. Jeśli zainstalowano już interfejs wiersza polecenia platformy Azure, możesz sprawdzić, która wersja została zainstalowana, uruchamiając polecenie:
 

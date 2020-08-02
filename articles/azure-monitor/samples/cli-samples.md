@@ -6,12 +6,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 5433eeff4c01c136e62cb71a53fafcae3a81859b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: abfac23ad37d750a6d7ef84e5dec2559904ebb1f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496308"
 ---
 # <a name="azure-monitor-cli-samples"></a>Przykłady interfejsu wiersza polecenia Azure Monitor
 W tym artykule przedstawiono przykładowe polecenia interfejsu wiersza polecenia (CLI) ułatwiające dostęp do funkcji Azure Monitor. Azure Monitor pozwala na automatyczne skalowanie Cloud Services, Virtual Machines i Web Apps oraz wysyłanie powiadomień o alertach lub wywoływanie adresów URL sieci Web na podstawie wartości skonfigurowanych danych telemetrycznych.

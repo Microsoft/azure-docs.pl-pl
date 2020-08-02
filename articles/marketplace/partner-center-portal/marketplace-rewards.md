@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 2ae8e170e3f31090b6babfee23e4505f5b736655
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319953"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496019"
 ---
 # <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
@@ -21,7 +21,7 @@ Nagrody w witrynie Marketplace obsługują Twój określony etap wzrostu, rozpoc
 
 Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu ułatwiają postępy z następnym etapem, dzięki czemu możesz rozwijać swoją firmę do klientów firmy Microsoft przy użyciu pola firmy Microsoft i kanałów firmy Microsoft, korzystając z komercyjnej witryny Marketplace jako platformy.
 
-Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](../determine-your-listing-type.md#choose-a-publishing-option)).
+Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](../determine-your-listing-type.md#choose-a-call-to-action).
 
 Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień.
 

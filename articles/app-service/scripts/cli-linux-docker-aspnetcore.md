@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8eb95644db5b1cb00ef6e245db6197cf2a2f301b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: d0872657bbca169ab1671b1f44c36c967e71fa63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80044771"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495489"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker z usługi Docker Hub przy użyciu interfejsu wiersza polecenia platformy Azure
 

@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: c957e2ee1d1e596ca8e3525e0f4a9802c4039107
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: adb3104fe5874ab80134f267553b90a4b8823039
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206813"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497991"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -156,7 +157,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
 1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
-2. Wprowadź polecenie  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
+2. Wprowadź  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
     Zostanie wyświetlony komunikat podobny do tego:
     ```azurepowershell
@@ -188,7 +189,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 Gdy nie jest już potrzebne, można użyć polecenie AZ Group Delete, aby usunąć grupę zasobów i wszystkie jej zasoby: 
 
 ```azurecli-interactive

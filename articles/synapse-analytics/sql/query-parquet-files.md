@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386626"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496240"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL na
 
 `OPENROWSET`funkcja umożliwia odczytywanie zawartości pliku Parquet, podając adres URL pliku.
 
-### <a name="reading-parquet-file"></a>Odczytywanie pliku Parquet
+### <a name="read-parquet-file"></a>Odczytaj plik Parquet
 
 Najprostszym sposobem, aby zobaczyć zawartość `PARQUET` pliku, jest podanie adresu URL pliku do `OPENROWSET` działania i określenie Parquet `FORMAT` . Jeśli plik jest publicznie dostępny lub jeśli tożsamość usługi Azure AD ma dostęp do tego pliku, powinna być widoczna zawartość pliku przy użyciu zapytania, jak pokazano w następującym przykładzie:
 
@@ -37,7 +37,7 @@ from openrowset(
 
 Upewnij się, że masz dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, konieczne będzie skonfigurowanie [poświadczeń na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Używanie źródła danych
+### <a name="data-source-usage"></a>Użycie źródła danych
 
 Poprzedni przykład używa pełnej ścieżki do pliku. Alternatywnie można utworzyć zewnętrzne źródło danych z lokalizacją wskazującą folder główny magazynu, a następnie użyć tego źródła danych i ścieżki względnej do pliku w `OPENROWSET` funkcji:
 
@@ -182,7 +182,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |data |
+| ELEMENTEM |DATE |date |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

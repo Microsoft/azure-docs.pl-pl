@@ -5,19 +5,19 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497056"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Zastrzegaj przepływność skalowania automatycznego dla bazy danych lub kontenera w Azure Cosmos DB
 
 W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skalowania dla bazy danych lub kontenera (kolekcji, grafu lub tabeli) w Azure Cosmos DB. Możesz włączyć funkcję automatycznego skalowania na jednym kontenerze lub udostępnić przepływność automatycznego skalowania w bazie danych i udostępniać ją między wszystkimi kontenerami w bazie danych.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Tworzenie nowej bazy danych lub kontenera przy użyciu automatycznego skalowania
 
@@ -242,13 +242,13 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ---
 
-## <a name="cassandra-api"></a>Interfejs API rozwiązania Cassandra
+## <a name="cassandra-api"></a>Interfejs API bazy danych Cassandra
 
-Azure Cosmos DB kont interfejs API Cassandra można zainicjować obsługę automatycznego skalowania przy użyciu [poleceń CQL](manage-scale-cassandra.md#use-autoscale), [interfejsu wiersza polecenia platformy Azure](cli-samples.md)lub [szablonów Azure Resource Manager](resource-manager-samples.md).
+Azure Cosmos DB kont interfejs API Cassandra można obsługiwać automatyczne skalowanie przy użyciu [poleceń CQL](manage-scale-cassandra.md#use-autoscale), szablonów [interfejsu wiersza polecenia platformy Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) lub [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB
 
-Obsługa kont Azure Cosmos DB dla interfejsu API MongoDB może być inicjowana na potrzeby automatycznego skalowania przy użyciu [poleceń rozszerzenia MongoDB](mongodb-custom-commands.md), [interfejsu wiersza polecenia platformy Azure](cli-samples.md)lub [szablonów Azure Resource Manager](resource-manager-samples.md).
+Obsługa kont Azure Cosmos DB dla interfejsu API MongoDB może być obsługiwana na potrzeby automatycznego skalowania przy użyciu [poleceń rozszerzenia MongoDB](mongodb-custom-commands.md), szablonów [interfejsu wiersza polecenia platformy Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) lub [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -257,6 +257,10 @@ Szablony Azure Resource Manager mogą służyć do aprowizacji przepływności a
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure może służyć do aprowizacji przepływności automatycznego skalowania dla bazy danych lub zasobów na poziomie kontenera dla wszystkich Azure Cosmos DB interfejsów API. Aby uzyskać przykłady, zobacz [przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell może służyć do aprowizacji przepływności automatycznego skalowania dla bazy danych lub zasobów na poziomie kontenera dla wszystkich Azure Cosmos DB interfejsów API. Aby uzyskać przykłady, zobacz [Azure PowerShell Samples for Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

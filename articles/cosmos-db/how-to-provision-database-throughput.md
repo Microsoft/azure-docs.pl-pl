@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a63e5a8b59c1e043b4af7b35c34cde6be0314d22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263643"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497022"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w Azure Cosmos DB
 
@@ -69,7 +70,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API bazy danych Cassandra
 
 Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z CQL.
 

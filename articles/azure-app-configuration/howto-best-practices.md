@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367524"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500304"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
@@ -86,6 +86,10 @@ Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lu
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importowanie danych konfiguracji do konfiguracji aplikacji
 
 Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](https://aka.ms/azconfig-importexport1) ustawień konfiguracji z bieżących plików konfiguracji przy użyciu Azure Portal lub interfejsu wiersza polecenia. Możesz również użyć tych samych opcji, aby wyeksportować wartości z konfiguracji aplikacji, na przykład między powiązanymi magazynami. Jeśli chcesz skonfigurować trwającą synchronizację z repozytorium GitHub, możesz użyć naszej [akcji GitHub](https://aka.ms/azconfig-gha2) , aby móc nadal korzystać z istniejących rozwiązań kontroli źródła podczas uzyskiwania korzyści z konfiguracji aplikacji.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Wdrożenie w ramach wieloregionu w konfiguracji aplikacji
+
+Konfiguracja aplikacji to usługa regionalna. W przypadku aplikacji z różnymi konfiguracjami na region przechowywanie tych konfiguracji w jednym wystąpieniu może stworzyć single point of failure. Wdrożenie jednego wystąpienia konfiguracji aplikacji na region w wielu regionach może być lepszym rozwiązaniem. Może być pomocna w przypadku regionalnego odzyskiwania po awarii, wydajności i silosu zabezpieczeń. Konfiguracja według regionów poprawia również opóźnienia i używa przydzielonych przydziałów ograniczania przepustowości, ponieważ ograniczanie przepustowości odbywa się na każdym wystąpieniu. Aby zastosować rozwiązanie do rozwiązywania problemów z odzyskiwaniem po awarii, można użyć [wielu magazynów konfiguracji](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 

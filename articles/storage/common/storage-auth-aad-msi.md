@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 28563dc1e8acf4e521d75a7f4f8986d92d2a8348
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423766"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497940"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoryzuj dostęp do danych obiektów blob i kolejek z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -45,7 +45,7 @@ Po uwierzytelnieniu Biblioteka klienta tożsamości platformy Azure Pobiera poś
 
 Aby uzyskać więcej informacji na temat biblioteki klienta tożsamości platformy Azure dla platformy .NET, zobacz [Biblioteka klienta tożsamości platformy Azure dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Aby uzyskać dokumentację referencyjną dla biblioteki klienta tożsamości platformy Azure, zobacz [przestrzeń nazw Azure. Identity](/dotnet/api/azure.identity).
 
-### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Przypisywanie ról kontroli dostępu opartej na rolach (RBAC) na potrzeby dostępu do danych
+### <a name="assign-azure-roles-for-access-to-data"></a>Przypisywanie ról platformy Azure na potrzeby dostępu do danych
 
 Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektu BLOB lub kolejki, musi mieć uprawnienia do tego zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy konto użytkownika usługi Azure AD z uruchomionym kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę RBAC, która przyznaje dostęp do danych obiektów blob lub kolejki w usłudze Azure Storage. Informacje o przypisywaniu uprawnień za pośrednictwem RBAC zawiera sekcja zatytułowana **Przypisywanie ról RBAC dla praw dostępu** w artykule [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 

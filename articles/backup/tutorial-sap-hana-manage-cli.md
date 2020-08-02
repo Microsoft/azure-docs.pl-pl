@@ -3,12 +3,13 @@ title: 'Samouczek: Zarządzanie kopią zapasową SAP HANA DB przy użyciu interf
 description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SAP HANA baz danych uruchomionych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 40cfb46faf993a995248d79d60c62de912bd88ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538143"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489439"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

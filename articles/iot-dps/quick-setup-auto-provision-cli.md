@@ -7,19 +7,19 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: ea1cae1f5a30d4cd76df39fec43f3818178fc213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 313dfe930dec5233f96b89fdebf978a41fdcdf80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77484200"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497668"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Ten przewodnik Szybki Start zawiera szczegółowe informacje dotyczące tworzenia Centrum IoT Hub i IoT Hub Device Provisioning Service oraz łączenia tych dwóch usług przy użyciu interfejsu wiersza polecenia platformy Azure. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > Centrum IoT i usługa aprowizacji utworzone w tym przewodniku Szybki Start będą publicznie wykrywalne jako punkty końcowe DNS. Pamiętaj, że należy unikać wszelkich poufnych informacji, jeśli zdecydujesz się zmienić nazwy używane dla tych zasobów.

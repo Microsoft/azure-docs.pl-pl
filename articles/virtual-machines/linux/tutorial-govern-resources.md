@@ -11,13 +11,13 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
-ms.custom: mvc
-ms.openlocfilehash: b2e7153cfe9e355ae86beae66723ec0b44513001
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 487342fdacfcf8e321bb2a65b6bd6577fc67be36
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010618"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497957"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -202,7 +202,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Zablokowanej sieciowej grupy zabezpieczeń nie można usunąć, dopóki blokada nie zostanie zdjęta. Aby zdjąć blokadę, pobierz identyfikatory blokad i podaj je w poleceniu [az lock delete](/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete):
 

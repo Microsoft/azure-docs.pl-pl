@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ce25047ae93a332b62b7e785b23da5794031a98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411699"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497515"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Samouczek: Dodawanie tagów w szablonie ARM
 
@@ -32,7 +33,7 @@ Po wdrożeniu tych zasobów może być konieczne śledzenie kosztów i znajdowan
 
 ## <a name="add-tags"></a>Dodawanie tagów
 
-Oznacz zasoby, aby dodać wartości, które ułatwiają identyfikację ich użycia. Na przykład można dodać tagi, które wyświetlają środowisko i projekt. Można dodać tagi, które identyfikują centrum kosztów lub zespół, który jest właścicielem zasobu. Dodaj wszystkie wartości, które mają sens dla organizacji.
+Zasoby taguje się, aby dodać wartości, które ułatwiają identyfikację ich zastosowania. Na przykład można dodać tagi, które wyświetlają środowisko i projekt. Można dodać tagi, które identyfikują centrum kosztów lub zespół, który jest właścicielem zasobu. Dodaj dowolne wartości, które mają sens w przypadku organizacji.
 
 Poniższy przykład wyróżnia zmiany w szablonie. Skopiuj cały plik i Zastąp jego zawartość.
 
@@ -44,7 +45,7 @@ Czas na wdrożenie szablonu i sprawdzenie wyników.
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -58,7 +59,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \

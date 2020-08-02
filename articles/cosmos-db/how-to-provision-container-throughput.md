@@ -6,19 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e02b169cbaf515217b0a9fdbaa844b9022fb4e12
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: fa03ae10239be4ec735a2d450343bf98fde00e70
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422168"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497039"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
 W tym artykule wyjaśniono, jak zainicjować standardową (ręczną) przepływność na kontenerze (kolekcji, grafie lub tabeli) w Azure Cosmos DB. Można zainicjować przepływność na jednym kontenerze lub [zainicjować przepływność dla bazy danych](how-to-provision-database-throughput.md) i udostępnić ją między kontenerami w bazie danych. Przepływność można zainicjować przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure Cosmos DB zestawów SDK.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -121,7 +121,7 @@ mongoDatabase = mongoClient.GetDatabase("testdb");
 var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API bazy danych Cassandra
 
 Podobne polecenia mogą być wydawane za poorednictwem dowolnego sterownika zgodnego z CQL.
 

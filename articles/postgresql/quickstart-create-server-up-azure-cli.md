@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146812"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496580"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: korzystanie z interfejsu wiersza polecenia platformy Azure, AZ Postgres up (wersja zapoznawcza) w celu utworzenia Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -61,11 +62,11 @@ nazwa-serwera | Wygenerowano system | Unikatowa nazwę, która identyfikuje serw
 resource-group | Wygenerowano system | Nowa grupa zasobów platformy Azure.
 sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne} w skrócie. Wartość domyślna to Ogólnego przeznaczenia serwer 5 rdzeń z 2 rdzeni wirtualnych. Aby uzyskać więcej informacji o warstwach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) .
 backup-retention | 7 | Czas przechowywania kopii zapasowej. Jednostka to dni.
-geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
+geo-redundant-backup | Disabled | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
 location | westus2 | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | Disabled (Wyłączony) | Czy na tym serwerze powinien być włączony protokół TLS/SSL.
+ssl-enforcement | Disabled | Czy na tym serwerze powinien być włączony protokół TLS/SSL.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
-Wersja | 10 | Wersja główna PostgreSQL.
+version | 10 | Wersja główna PostgreSQL.
 admin-user | Wygenerowano system | Nazwa użytkownika administratora.
 admin-password | Wygenerowano system | Hasło użytkownika administratora.
 
@@ -84,7 +85,7 @@ Po utworzeniu serwera dostępne są następujące ustawienia:
 
 ## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
 
-Po zakończeniu `az postgres up` działania polecenia zostanie wykazana lista parametrów połączenia dla popularnych języków programowania. Te parametry połączenia są wstępnie skonfigurowane z określonymi atrybutami nowo utworzonego serwera Azure Database for PostgreSQL.
+Po zakończeniu działania `az postgres up` polecenia zostanie wykazana lista parametrów połączenia dla popularnych języków programowania. Te parametry połączenia są wstępnie skonfigurowane z określonymi atrybutami nowo utworzonego serwera Azure Database for PostgreSQL.
 
 Aby ponownie wyświetlić te parametry połączenia, można użyć polecenia [AZ Postgres show-Connection-String](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) .
 

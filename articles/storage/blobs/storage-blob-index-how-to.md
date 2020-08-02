@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: d4ea5889cbecbbb8609f90eed83ec9bd6b0032f9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448234"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500389"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Korzystanie z tagów indeksu obiektów BLOB (wersja zapoznawcza) w celu zarządzania danymi w usłudze Azure Blob Storage i znajdowania ich
 
@@ -32,11 +32,9 @@ Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarz
 # <a name="net"></a>[.NET](#tab/net)
 Ponieważ indeks obiektów BLOB jest w publicznej wersji zapoznawczej, pakiet programu .NET Storage jest publikowany w kanale informacyjnym narzędzia NuGet. Ta biblioteka może ulec zmianie między tymi elementami i po jej Urzędowym udostępnieniu. 
 
-1. W programie Visual Studio Dodaj adres URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` do źródeł pakietów NuGet. 
+1. Skonfiguruj projekt programu Visual Studio, aby rozpocząć pracę z biblioteką klienta usługi Azure Blob Storage V12 dla platformy .NET. Aby dowiedzieć się więcej, zobacz [.NET — szybki start](storage-quickstart-blobs-dotnet.md)
 
-   Aby dowiedzieć się, jak to zrobić, zobacz [źródła pakietów](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
-
-2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.5.0-dev. 20200422.2** w projekcie. Możesz również uruchomić polecenie```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
+2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.5.0-Preview. 6** lub nowszą dla projektu. Możesz również uruchomić polecenie```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    Aby dowiedzieć się, jak to zrobić, zobacz [Znajdowanie i instalowanie pakietu](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327008"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495375"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ Zalecamy użycie [zestawów](concept-data.md#datasets) danych w celu zaimportowa
 
 ### <a name="register-a-dataset"></a>Rejestrowanie zestawu danych
 
-Istnieje możliwość rejestrowania istniejących zestawów danych [programowo za pomocą zestawu SDK](how-to-create-register-datasets.md#use-the-sdk) lub [wizualizacji w programie Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+Istnieje możliwość rejestrowania istniejących zestawów danych [programowo za pomocą zestawu SDK](how-to-create-register-datasets.md#datasets-sdk) lub [wizualizacji w programie Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
 
 Możesz również zarejestrować dane wyjściowe dla dowolnego modułu projektanta jako zestaw danych.
 
@@ -59,7 +59,7 @@ Chociaż zalecamy używanie zestawów danych do importowania danych, można rów
 Aby uzyskać szczegółowe informacje na temat korzystania z modułu Importuj dane, zobacz [stronę Importowanie danych źródłowych](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Jeśli zestaw danych zawiera zbyt wiele kolumn, może wystąpić następujący błąd: "Walidacja nie powiodła się z powodu ograniczenia rozmiaru". Aby tego uniknąć, [zarejestruj zestaw danych w interfejsie DataSets](how-to-create-register-datasets.md#use-the-ui).
+> Jeśli zestaw danych zawiera zbyt wiele kolumn, może wystąpić następujący błąd: "Walidacja nie powiodła się z powodu ograniczenia rozmiaru". Aby tego uniknąć, [zarejestruj zestaw danych w interfejsie DataSets](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Obsługiwane źródła
 

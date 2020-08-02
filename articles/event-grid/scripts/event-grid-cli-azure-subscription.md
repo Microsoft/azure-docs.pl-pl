@@ -4,12 +4,13 @@ description: Ten artykuł zawiera przykładowy skrypt interfejsu wiersza polecen
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: a1e8da9d6fc03117ac145d540eaac4c71f4bc95f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe81be64ea4672d233564726cfdae5b60951057d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460919"
+ms.locfileid: "87494336"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Subskrybowanie do zdarzeń dla subskrypcji platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

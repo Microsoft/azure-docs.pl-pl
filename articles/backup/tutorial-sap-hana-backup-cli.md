@@ -3,12 +3,13 @@ title: Samouczek — Tworzenie kopii zapasowej bazy danych na platformie Azure z
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 30e1f9fbda16841bbabf1407ef1f3d6ef658ecf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003461"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489507"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

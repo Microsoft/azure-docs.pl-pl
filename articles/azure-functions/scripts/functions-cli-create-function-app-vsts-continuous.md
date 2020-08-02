@@ -3,13 +3,13 @@ title: Tworzenie aplikacji funkcji przy użyciu wdrożenia DevOps — interfejs 
 description: Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
-ms.custom: mvc
-ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 773a08646f7a69e1ed828621bad48a6c6729eb88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922639"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498532"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Tworzenie funkcji na platformie Azure wdrożonej z usługi Azure DevOps
 

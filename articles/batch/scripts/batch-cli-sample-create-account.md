@@ -3,12 +3,13 @@ title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Tworze
 description: Ten skrypt tworzy konto usługi Azure Batch w trybie usługi Batch oraz przedstawia sposób wykonywania zapytań o różne właściwości konta i aktualizowania ich.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 5fce745340c583b902c98716678a9b7afcfc002c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 42f2766130c9809fe2e05d9ce82bf8a78fc712f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681924"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494421"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Przykład interfejsu wiersza polecenia: tworzenie konta usługi Batch w trybie usługi Batch
 

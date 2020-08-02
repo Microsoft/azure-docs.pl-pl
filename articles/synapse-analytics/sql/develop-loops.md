@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495305"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
 Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań z pulą SQL w Synapse SQL.
@@ -26,7 +26,7 @@ Synapse SQL obsługuje pętlę [while](https://docs.microsoft.com/sql/t-sql/lang
 
 Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc pętle [WHILE] są świetną alternatywą dla zastępowania kursorów.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Zastępowanie kursorów w puli SQL
+## <a name="replace-cursors-in-sql-pool"></a>Zastąp kursory w puli SQL
 
 Przed napisaniem w programie należy wziąć pod uwagę następujące kwestie: "czy można ponownie napisać ten kursor, aby użyć operacji ustawionych?". W wielu przypadkach odpowiedź ma wartość yes i jest często najlepszym rozwiązaniem. Operacja oparta na zestawie często wykonuje się szybciej niż iteracyjne, sekwencyjne wiersz po wierszu.
 

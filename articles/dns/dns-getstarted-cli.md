@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a15209351f95e44c7cf10993513e03ba35b53d27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937196"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494370"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Szybki start: tworzenie strefy i rekordu usługi Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +26,7 @@ Azure DNS obsługuje również prywatne strefy DNS. Aby uzyskać więcej informa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
@@ -83,7 +84,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Przykład:
+   Na przykład:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -93,7 +94,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Nazwa hosta **www\.contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
+Nazwa hosta **www \. contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 

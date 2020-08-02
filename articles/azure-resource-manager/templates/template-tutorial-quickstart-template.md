@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 90d5c2688d20b62a4a5fda78eb67ed01777bc28c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80408507"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496886"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Samouczek: korzystanie z szablonów szybkiego startu platformy Azure
 
@@ -36,7 +37,7 @@ Ten szablon działa w przypadku wdrażania kont magazynu i planów usługi App S
 1. W obszarze **wyszukiwania**wprowadź polecenie **Wdróż aplikację sieci Web systemu Linux**.
 1. Wybierz ten element z tytułem **Wdróż podstawową aplikację sieci Web**w systemie Linux. Jeśli masz problemy z znalezieniem go, Oto [link bezpośredni](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Wybierz pozycję **Przeglądaj w witrynie GitHub**.
-1. Wybierz **azuredeploy. JSON**.
+1. Wybierz **azuredeploy.js**.
 1. Zapoznaj się z szablonem. W szczególności poszukaj `Microsoft.Web/sites` zasobu.
 
     ![Witryna sieci Web szybkiego startu szablonu Menedżer zasobów](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -63,7 +64,7 @@ Użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby wdr
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -77,7 +78,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \

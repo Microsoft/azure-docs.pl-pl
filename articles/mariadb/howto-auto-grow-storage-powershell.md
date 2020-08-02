@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: 8519d7e66ae57b00a96adc60cf09c953c6ee7114
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2d03a67fc8a8172573598662ad9770b28493e9a2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120028"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497107"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>Powiększ magazyn na serwerze Azure Database for MariaDB przy użyciu programu PowerShell
 

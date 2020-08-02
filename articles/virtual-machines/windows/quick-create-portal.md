@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5cf23a9c66c76f778dbd5d2b126b28a5a577c978
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82098003"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494523"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal
 
 Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie maszyn wirtualnych i powiązanych z nimi zasobów. W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal wdrożyć maszynę wirtualną (VM) na platformie Azure z systemem Windows Server 2019. Aby zobaczyć działanie maszyny wirtualnej, połączysz się z nią za pomocą protokołu RDP i zainstalujesz serwer internetowy usług IIS.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -32,38 +32,38 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**. 
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę *myResourceGroup*. 
 
-    ![Tworzenie nowej grupy zasobów dla maszyny wirtualnej](./media/quick-create-portal/project-details.png)
+    ![Zrzut ekranu przedstawiający sekcję Szczegóły projektu, w której można wybrać subskrypcję platformy Azure i grupę zasobów dla maszyny wirtualnej](./media/quick-create-portal/project-details.png)
 
 1. W obszarze **szczegóły wystąpienia**wpisz *myVM* dla **nazwy maszyny wirtualnej** i wybierz pozycję *Wschodnie stany USA* dla **regionu**, a następnie wybierz pozycję *Windows Server 2019 Datacenter* dla tego **obrazu**. Inne wartości pozostaw domyślne.
 
-    ![Sekcja Szczegóły wystąpienia](./media/quick-create-portal/instance-details.png)
+    ![Zrzut ekranu przedstawiający sekcję Szczegóły wystąpienia, w której podano nazwę maszyny wirtualnej i wybierz jej region, obraz i rozmiar](./media/quick-create-portal/instance-details.png)
 
 1. W obszarze **Konto administratora** podaj nazwę użytkownika, taką jak *azureuser*, oraz hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Wprowadzanie nazwy użytkownika i hasła](./media/quick-create-portal/administrator-account.png)
+    ![Zrzut ekranu przedstawiający sekcję konta administratora, w której podano nazwę użytkownika i hasło administratora](./media/quick-create-portal/administrator-account.png)
 
 1. W obszarze **reguły portów ruchu przychodzącego**wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **RDP (3389)** i **http (80)** z listy rozwijanej.
 
-    ![Otwieranie portów dla protokołów RDP i HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Zrzut ekranu przedstawiający sekcję reguły portów ruchu przychodzącego, w której wybierane są dozwolone porty przychodzące](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
 
-    ![Przejrzyj i utwórz](./media/quick-create-portal/review-create.png)
+    ![Zrzut ekranu przedstawiający przycisk przegląd i Utwórz w dolnej części strony](./media/quick-create-portal/review-create.png)
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
 Utwórz połączenie pulpitu zdalnego z maszyną wirtualną. Te kroki pozwolą Ci połączyć się z maszyną wirtualną z komputera z systemem Windows. Na komputerze Mac należy skorzystać z klienta RDP, takiego jak ten [klient pulpitu zdalnego](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) ze sklepu Mac App Store.
 
-1. Kliknij przycisk **Połącz** na stronie Przegląd dla swojej maszyny wirtualnej. 
+1. Wybierz przycisk **Połącz** na stronie Przegląd dla swojej maszyny wirtualnej. 
 
-    ![Nawiązywanie połączenia z maszyną wirtualną na platformie Azure z portalu](./media/quick-create-portal/portal-quick-start-9.png)
+    ![Zrzut ekranu przedstawiający stronę przegląd maszyny wirtualnej z informacją o lokalizacji przycisku Połącz](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. Na stronie **Połącz z maszyną wirtualną** zachowaj domyślne opcje łączenia przy użyciu adresu IP i portu 3389, a następnie kliknij pozycję **Pobierz plik RDP**.
 
 2. Otwórz pobrany plik RDP i kliknij **Połącz**, gdy wyświetli się odpowiedni monit. 
 
-3. W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako **localhost**\\*nazwę użytkownika*localhost, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
+3. W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako **localhost** \\ *nazwę użytkownika*localhost, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
 
 4. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij pozycję **Tak** lub **Kontynuuj**, aby utworzyć połączenie.
 
@@ -82,7 +82,7 @@ Po zakończeniu zamknij połączenie RDP z maszyną wirtualną.
 
 W portalu wybierz maszynę wirtualną, a następnie w obszarze przegląd maszyny wirtualnej Użyj przycisku **kliknij, aby skopiować** na prawo od adresu IP, aby skopiować go i wkleić do karty przeglądarki. Zostanie otwarta domyślna strona powitalna usług IIS, która powinna wyglądać następująco:
 
-![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png)
+![Zrzut ekranu witryny domyślnej usług IIS w przeglądarce](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

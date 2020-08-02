@@ -8,12 +8,13 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.openlocfilehash: 54920017f4a0598a74a54114e3d1e0a5392d7d2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8874a17b40b60a194811630b2f93d2be9d7faf7f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411055"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494710"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Pobierz szczegóły pamięci podręcznej platformy Azure dla usługi Redis
 

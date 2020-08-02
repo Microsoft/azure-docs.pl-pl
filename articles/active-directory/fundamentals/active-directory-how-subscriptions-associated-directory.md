@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025342"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494438"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji
 
@@ -95,6 +95,6 @@ Po skojarzeniu subskrypcji z innym katalogiem, może być konieczne wykonanie na
 
 - Aby utworzyć nową dzierżawę usługi Azure AD, zobacz [Szybki Start: Tworzenie nowej dzierżawy w Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- Aby dowiedzieć się więcej o tym, jak Microsoft Azure kontroluje dostęp do zasobów, zobacz Role [administratora subskrypcji klasycznej, role RBAC platformy Azure i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- Aby dowiedzieć się więcej o tym, jak Microsoft Azure kontroluje dostęp do zasobów, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - Aby dowiedzieć się więcej o sposobach przypisywania ról w usłudze Azure AD, zobacz [Przypisywanie ról administratora i niebędących administratorami do użytkowników z Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

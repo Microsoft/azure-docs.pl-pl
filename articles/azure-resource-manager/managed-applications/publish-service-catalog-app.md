@@ -3,15 +3,15 @@ title: Publikowanie aplikacji zarządzanej katalogu usług
 description: Przedstawia sposób tworzenia aplikacji zarządzanej platformy Azure przeznaczonej dla członków Twojej organizacji.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6a3a16fe7fd6b0036b36520262e85a9066a4e63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249040"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497858"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Szybki start: Tworzenie i publikowanie definicji aplikacji zarządzanej
 
@@ -195,7 +195,7 @@ az storage blob upload \
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Tworzenie grupy użytkowników aplikacji usługi Azure Active Directory
 
-Następnym krokiem jest wybranie grupy użytkowników, użytkownika lub aplikacji w celu zarządzania zasobami dla klienta. Ta tożsamość ma uprawnienia w zarządzanej grupie zasobów zgodne z przypisaną rolą. Może to być dowolna wbudowana rola w ramach kontroli dostępu opartej na rolach (RBAC), na przykład Właściciel lub Współautor. Jeśli chcesz utworzyć nową grupę użytkowników usługi Active Directory, zobacz [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) (Tworzenie grupy i dodawanie do niej członków w usłudze Azure Active Directory).
+Następnym krokiem jest wybranie grupy użytkowników, użytkownika lub aplikacji w celu zarządzania zasobami dla klienta. Ta tożsamość ma uprawnienia w zarządzanej grupie zasobów zgodne z przypisaną rolą. Rolą może być dowolna wbudowana rola platformy Azure, taka jak właściciel lub współautor. Jeśli chcesz utworzyć nową grupę użytkowników usługi Active Directory, zobacz [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) (Tworzenie grupy i dodawanie do niej członków w usłudze Azure Active Directory).
 
 Aby umożliwić zarządzanie zasobami, potrzebujesz identyfikatora obiektu grupy użytkowników. 
 
@@ -311,7 +311,7 @@ Skopiuj identyfikator zasobu konta magazynu. Będzie on używany później podcz
 
 Aby można było wdrożyć definicję aplikacji zarządzanej na koncie magazynu, należy nadać uprawnienia współautora roli **dostawcy zasobów urządzenia** , aby można było napisać pliki definicji do kontenera konta magazynu.
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
+1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu.
 1. Wybierz pozycję **Kontrola dostępu (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla konta magazynu. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę **współautor** . 
 1. W polu **Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.

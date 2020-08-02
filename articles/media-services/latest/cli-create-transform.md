@@ -14,12 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 365c6a6a10ee79d96c1054416669e84c5392344c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 538f48d427a4d8b51f77ae50bb0bee95909f0b09
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092171"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494472"
 ---
 # <a name="cli-example-create-a-transform"></a>Przykład interfejsu wiersza polecenia: tworzenie przekształcenia
 
