@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c75b6e67932cfd26a3374eab3f3efa34ceade577
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132249"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504487"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Kontrola dostępu oparta na rolach (RBAC) dla kont Media Services
 
@@ -40,8 +40,8 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Role klasycznego administratora subskrypcji, role kontroli na podstawie ról (RBAC) platformy Azure i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md)
+- [Role administratora klasycznej subskrypcji, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Zarządzanie dostępem przy użyciu RBAC](../../role-based-access-control/role-assignments-rest.md)
 - [Operacje dostawcy zasobów Media Services](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 

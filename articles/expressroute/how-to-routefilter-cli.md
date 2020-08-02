@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: kumud
-ms.openlocfilehash: 43a3e7672a6bfdf89bce67ec54e4500cd84b6dcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e4098d0f0e81ae2abe8146f0f8d5119173a04d8c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521636"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504555"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft: interfejs wiersza polecenia platformy Azure
 
@@ -26,7 +27,7 @@ Filtry tras to sposób na korzystanie z podzestawu obsługiwanych usług przy u�
 
 Usługi Office 365, takie jak Exchange Online, SharePoint Online i Skype dla firm, są dostępne za pomocą komunikacji równorzędnej firmy Microsoft. W przypadku skonfigurowania komunikacji równorzędnej firmy Microsoft w obwodzie usługi ExpressRoute wszystkie prefiksy związane z tymi usługami są anonsowane za pomocą ustanowionych przez siebie sesji protokołu BGP. Wartość atrybutu Community protokołu BGP jest dołączana do każdego prefiksu w celu zidentyfikowania usługi oferowanej za pośrednictwem prefiksu. Aby zapoznać się z listą wartości społeczności BGP i usług, do których są mapowane, zobacz [społeczności protokołu BGP](expressroute-routing.md#bgp).
 
-Jeśli wymagana jest łączność ze wszystkimi usługami, wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Znacznie zwiększa to rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Dostępne możliwości:
+Jeśli wymagana jest łączność ze wszystkimi usługami, wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Znacznie zwiększa to rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Można:
 
 * Odfiltruj niechciane prefiksy, stosując filtry tras dla społeczności protokołu BGP. Jest to standardowa metoda sieciowa i jest używana często w wielu sieciach.
 

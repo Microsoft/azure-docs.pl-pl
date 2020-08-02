@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów — QnA Maker
 description: Zanadzorowana lista najbardziej często zadawanych pytań dotyczących usługi QnA Maker pomoże Ci szybciej wdrożyć usługę i uzyskać lepsze wyniki.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131994"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502583"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Rozwiązywanie problemów dotyczących QnA Maker
 
@@ -87,7 +87,7 @@ Wszystkie usunięcia są trwałe, w tym pary pytań i odpowiedzi, pliki, adresy 
 <details>
 <summary><b>Czy można udostępnić bazę wiedzy z współautorem, który nie znajduje się w tej samej dzierżawie usługi AAD, aby zmodyfikować bazę wiedzy?</b></summary>
 
-**Odpowiedź**: udostępnianie odbywa się na podstawie kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure. Jeśli możesz udostępnić _dowolny_ zasób na platformie Azure innym użytkownikom, możesz również udostępnić QNA Maker.
+**Odpowiedź**: udostępnianie odbywa się na podstawie kontroli dostępu opartej na rolach (Azure RBAC). Jeśli możesz udostępnić _dowolny_ zasób na platformie Azure innym użytkownikom, możesz również udostępnić QNA Maker.
 
 </details>
 

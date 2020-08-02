@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 6ba5e433839d1f27c9522749fd7a8831c7243aae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201885"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503144"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Samouczek: Tworzenie klastra Apache Kafka z włączonym serwerem proxy REST w usłudze HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -57,8 +58,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     |storageAccount|Zastąp STORAGEACCOUNTNAME nazwą nowego konta magazynu.|
     |httpPassword|Zastąp hasło hasłem logowania klastra, **administrator**.|
     |sshPassword|Zastąp hasło hasłem dla nazwy użytkownika Secure Shell **sshuser**.|
-    |securityGroupName|Zastąp SECURITYGROUPNAME nazwą grupy zabezpieczeń klienta usługi AAD dla Kafka proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-name` parametru dla. `az-hdinsight-create`|
-    |securityGroupID|Zastąp SECURITYGROUPID IDENTYFIKATORem grupy zabezpieczeń usługi AAD klienta dla Kafka serwera proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-id` parametru dla. `az-hdinsight-create`|
+    |securityGroupName|Zastąp SECURITYGROUPNAME nazwą grupy zabezpieczeń klienta usługi AAD dla Kafka proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-name` parametru dla `az-hdinsight-create` .|
+    |securityGroupID|Zastąp SECURITYGROUPID IDENTYFIKATORem grupy zabezpieczeń usługi AAD klienta dla Kafka serwera proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-id` parametru dla `az-hdinsight-create` .|
     |storageContainer|Kontener magazynu, który będzie używany przez klaster, dla tego samouczka należy pozostawić wartość ". Ta zmienna zostanie ustawiona z nazwą klastra.|
     |workernodeCount|Liczba węzłów procesu roboczego w klastrze, w tym samouczku należy pozostawić jako-. Aby zapewnić wysoką dostępność, Kafka wymaga co najmniej 3 węzłów procesu roboczego|
     |clustertype|Typ klastra usługi HDInsight, w tym samouczku pozostaw polecenie "As".|
@@ -142,9 +143,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
         |--Version|Wersja klastra usługi HDInsight musi być równa co najmniej 4,0. Wartość jest przenoszona ze zmiennej **$clusterVersion**.|
         |--wersja składnika|Wersja Kafka musi wynosić co najmniej 2,1. Wartość jest przenoszona ze zmiennej **$componentVersion**.|
     
-        Jeśli chcesz utworzyć klaster bez serwera proxy REST, `--kafka-management-node-size`Usuń, `--kafka-client-group-id`i `--kafka-client-group-name` z `az hdinsight create` polecenia.
+        Jeśli chcesz utworzyć klaster bez serwera proxy REST, Usuń `--kafka-management-node-size` , `--kafka-client-group-id` i `--kafka-client-group-name` z `az hdinsight create` polecenia.
 
-    1. Jeśli masz istniejącą sieć wirtualną, Dodaj parametry `--vnet-name` i `--subnet`i ich wartości.
+    1. Jeśli masz istniejącą sieć wirtualną, Dodaj parametry `--vnet-name` i `--subnet` i ich wartości.
 
     Wprowadź następujące polecenie, aby utworzyć klaster:
 

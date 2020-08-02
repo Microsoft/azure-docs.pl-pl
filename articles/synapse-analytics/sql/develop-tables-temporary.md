@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020564"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503212"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabele tymczasowe w Synapse SQL
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowy
 
 Zarówno zasoby puli SQL, jak i SQL na żądanie (wersja zapoznawcza) mogą korzystać z tabel tymczasowych. SQL na żądanie zawiera ograniczenia, które zostały omówione na końcu tego artykułu. 
 
-## <a name="what-are-temporary-tables"></a>Co to są tabele tymczasowe?
+## <a name="temporary-tables"></a>Tabele tymczasowe
 
 Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku języka SQL Synapse tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
 
@@ -98,7 +98,7 @@ GROUP BY
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Usuwanie tabel tymczasowych
+### <a name="drop-temporary-tables"></a>Usuwanie tabel tymczasowych
 Po utworzeniu nowej sesji nie powinny istnieć tabele tymczasowe.  Jednakże w przypadku wywołania tej samej procedury składowanej, która tworzy tymczasową o tej samej nazwie, aby upewnić się, że `CREATE TABLE` instrukcje zostały wykonane pomyślnie, należy użyć prostej kontroli wstępnej z `DROP` : 
 
 ```sql
@@ -116,7 +116,7 @@ W opracowywaniu procedury składowanej, często widzisz polecenia upuszczania po
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Kod Modularizing
+### <a name="modularize-code"></a>Kod modularyzacji
 Tabel tymczasowych można używać w dowolnym miejscu w sesji użytkownika. Można następnie wykorzystać tę możliwość do modularyzacji kodu aplikacji.  W celu zademonstrowania następującej procedury składowanej generuje kod DDL w celu zaktualizowania wszystkich statystyk w bazie danych według nazwy statystycznej:
 
 ```sql

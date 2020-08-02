@@ -3,12 +3,13 @@ title: 'Samouczek: wysyłanie zdarzeń niestandardowych do połączenia hybrydow
 description: 'Samouczek: publikowanie tematu za pomocą Azure Event Grid i interfejsu wiersza polecenia platformy Azure oraz subskrybowanie tego zdarzenia. Połączenie hybrydowe jest używane dla punktu końcowego.'
 ms.date: 07/07/2020
 ms.topic: tutorial
-ms.openlocfilehash: acb3f3021722a612d6f07ec83d344f4be62c60f3
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 679cccf892d7b30964881d9a6146e02f3ee5dc90
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459508"
+ms.locfileid: "87503178"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Samouczek: kierowanie zdarzeń niestandardowych do Azure Relay Połączenia hybrydowe za pomocą interfejsu wiersza polecenia platformy Azure i Event Grid
 

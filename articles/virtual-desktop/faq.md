@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075630"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504419"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Pulpit wirtualny systemu Windows — często zadawane pytania
+# <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania i wyjaśniono najlepsze rozwiązania dotyczące pulpitu wirtualnego systemu Windows.
 
@@ -46,7 +46,7 @@ Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Czy obsługa pulpitów wirtualnych systemu Windows jest dzielona Azure Active Directory modele?
 
-Gdy użytkownik jest przypisany do grupy aplikacji, usługa wykonuje proste przypisanie roli kontroli dostępu opartej na rolach (RBAC) na platformie Azure. W związku z tym Azure Active Directory użytkownika (AD) i usługi Azure AD grupy aplikacji muszą znajdować się w tej samej lokalizacji. Wszystkie obiekty usługi, takie jak pule hostów, grupy aplikacji i obszary robocze, muszą również znajdować się w tej samej usłudze Azure AD jako użytkownik.
+Gdy użytkownik jest przypisany do grupy aplikacji, usługa wykonuje proste przypisanie roli platformy Azure. W związku z tym Azure Active Directory użytkownika (AD) i usługi Azure AD grupy aplikacji muszą znajdować się w tej samej lokalizacji. Wszystkie obiekty usługi, takie jak pule hostów, grupy aplikacji i obszary robocze, muszą również znajdować się w tej samej usłudze Azure AD jako użytkownik.
 
 Maszyny wirtualne można tworzyć w innej usłudze Azure AD, o ile Active Directory z usługą Azure AD użytkownika w tej samej sieci wirtualnej (VNET).
 

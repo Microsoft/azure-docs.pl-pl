@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
-ms.openlocfilehash: d4a72017b1ec86f10a746a9530a1ff9a2742fa20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 90d3de9dff2d3af99c720868d3342d39f8fb47e8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806277"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502765"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -145,7 +146,7 @@ az network public-ip show \
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-manage-web-traffic-cli/tutorial-nginxtest.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

@@ -7,18 +7,19 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fdf78c0a3dd2f7a130d827751ce93c5539575df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76935427"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502960"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Szybki Start: Tworzenie prywatnej strefy DNS platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Ten przewodnik Szybki Start przeprowadzi Cię przez kroki tworzenia pierwszej prywatnej strefy i rekordu DNS przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy Autorejestracja jest włączona, Azure DNS aktualizuje także rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia jej adres IP lub został usunięty.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, należy określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy Autorejestracja jest włączona, Azure DNS aktualizuje także rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia jej adres IP lub został usunięty.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
@@ -160,7 +161,7 @@ Powtórz dla maszyny wirtualnej myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   Powinny pojawić się dane wyjściowe podobne do następujących:
+   Wyświetlone dane wyjściowe powinny wyglądać mniej więcej tak:
 
    ```
    PS C:\> ping myvm01.private.contoso.com
@@ -184,7 +185,7 @@ Powtórz dla maszyny wirtualnej myVM02.
    ping db.private.contoso.com
    ```
 
-   Powinny pojawić się dane wyjściowe podobne do następujących:
+   Wyświetlone dane wyjściowe powinny wyglądać mniej więcej tak:
 
    ```
    PS C:\> ping db.private.contoso.com

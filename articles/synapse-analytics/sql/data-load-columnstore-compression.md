@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4496b74f162bfaeda7205963cbbe7e355db841f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495486"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503909"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maksymalizowanie jakości grupy wierszy dla wydajności indeksu magazynu kolumn
+# <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maksymalizuj jakość grupy wierszy dla wydajności indeksu magazynu kolumn
 
 Jakość grupy wierszy jest określana na podstawie liczby wierszy w grupy wierszy. Zwiększenie dostępnej pamięci może zmaksymalizować liczbę wierszy, które są kompresowane przez indeks magazynu kolumn do poszczególnych grupy wierszy.  Użyj tych metod, aby zwiększyć szybkość kompresji i wydajność zapytań dla indeksów magazynu kolumn.
 

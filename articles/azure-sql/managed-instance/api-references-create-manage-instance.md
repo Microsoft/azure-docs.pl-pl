@@ -4,19 +4,19 @@ description: Dowiedz się więcej na temat tworzenia i konfigurowania wystąpie�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3f0eb2c1ecb26475b25cd5ca41c9c61d5e2b47a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695610"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503008"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Dokumentacja zarządzanego interfejsu API dla wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

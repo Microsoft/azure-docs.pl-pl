@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c26412c37efbfcce340ce90753d0860307a08e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c1e7db129b29cfa1109b3c79bd8590a99779e361
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503093"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Ponowne uruchamianie Azure Database for MariaDB serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for MariaDB. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.

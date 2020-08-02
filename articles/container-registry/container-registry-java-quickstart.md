@@ -2,16 +2,16 @@
 title: Szybki Start — tworzenie i wypychanie obrazów kontenerów Java do Azure Container Registry przy użyciu Maven i wysięgnik
 description: Kompiluj aplikację w języku Java, a następnie Wypchnij ją do Azure Container Registry przy użyciu wtyczki Maven.
 author: KarlErickson
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9310fb92b4b0ad1163d343f13daf42c15923ec20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327416"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501308"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki Start: Tworzenie i wypychanie obrazów kontenera Java do Azure Container Registry
 

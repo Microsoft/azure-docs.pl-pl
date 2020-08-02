@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 79a239148647467185e407e1e07fdea658a7be40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517908"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502764"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>tworzenie bramy aplikacji hostującej wiele witryn internetowych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -125,7 +125,7 @@ Dodaj detektory, które są konieczne do kierowania ruchem za pomocą polecenia 
 
 >[!NOTE]
 > W przypadku jednostki SKU Application Gateway lub WAF v2 można także skonfigurować maksymalnie 5 nazw hostów na odbiornik i można użyć symboli wieloznacznych w nazwie hosta. Aby uzyskać więcej informacji, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, musisz użyć `--host-names` zamiast `--host-name` . Nazwy hostów mogą zawierać do 5 nazw hostów jako wartości rozdzielane przecinkami. Na przykład: `--host-names "*.contoso.com,*.fabrikam.com"`
+>Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, musisz użyć `--host-names` zamiast `--host-name` . Nazwy hostów mogą zawierać do 5 nazw hostów jako wartości rozdzielane przecinkami. Na przykład `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -248,7 +248,7 @@ Zmień adres na drugą domenę. Powinny zostać wyświetlone informacje, jak w n
 
 ![Testowanie witryny fabrikam w bramy aplikacji](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest2.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

@@ -3,18 +3,18 @@ title: Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji —
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322415"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502107"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji — Event Hubs platformy Azure
 Artykuł [Rozwiązywanie problemów z łącznością](troubleshooting-guide.md) zawiera wskazówki dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs. Ten artykuł zawiera porady i zalecenia dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Jeśli używasz Azure Active Directory
-Jeśli używasz usługi Azure Active Directory (Azure AD) do uwierzytelniania i autoryzacji za pomocą usługi Azure Event Hubs, upewnij się, że tożsamość uzyskującego dostęp do centrum zdarzeń jest członkiem właściwej **roli kontroli dostępu opartej na rolach (RBAC)** w odpowiednim **zakresie zasobów** (grupy odbiorców, centrum zdarzeń, przestrzeni nazw, grupy zasobów lub subskrypcji).
+Jeśli używasz usługi Azure Active Directory (Azure AD) do uwierzytelniania i autoryzacji za pomocą usługi Azure Event Hubs, potwierdź, że tożsamość uzyskujący dostęp do centrum zdarzeń jest członkiem odpowiedniej **roli platformy Azure** w odpowiednim **zakresie zasobów** (grupy konsumentów, centrum zdarzeń, przestrzeni nazw, grupy zasobów lub subskrypcji).
 
 ### <a name="rbac-roles"></a>Role RBAC
 - [Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) w celu uzyskania pełnego dostępu do zasobów Event Hubs.

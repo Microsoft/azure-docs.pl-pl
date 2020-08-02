@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 19a7cf2ec3a8a7a95952fcebfcf3a127c4dfd013
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792187"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504521"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -121,7 +122,7 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Materiały źródłowe
 * Dokumentacja szablonu ARM: [Dokumentacja szablonu Azure Key Vault ARM](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
 * Polecenie interfejsu wiersza polecenia platformy Azure: [AZ datamagazyn Network-Rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Polecenia cmdlet Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)

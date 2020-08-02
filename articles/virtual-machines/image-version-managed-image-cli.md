@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502898"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502889"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrowanie z obrazu zarządzanego do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 Jeśli masz istniejący obraz zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).

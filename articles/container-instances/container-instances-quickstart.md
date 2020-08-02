@@ -8,12 +8,13 @@ ms.custom:
 - seodec18
 - mvc
 - devx-track-javascript
-ms.openlocfilehash: 88d051d980f905ae241200b29f4e79d76461c116
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+- devx-track-azurecli
+ms.openlocfilehash: 31e7e7d6785e8fd52f4c76171f6ca9d7f5c8383c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408037"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501325"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

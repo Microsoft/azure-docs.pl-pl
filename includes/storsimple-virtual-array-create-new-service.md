@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183418"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507473"
 ---
 #### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 
@@ -29,7 +29,7 @@ ms.locfileid: "67183418"
 
     2.  Wybierz opcję **Subskrypcja** z listy rozwijanej. Subskrypcja jest połączona z kontem rozliczeniowym. To pole nie jest widoczne, jeśli istnieje tylko jedna subskrypcja.
 
-    3.  W obszarze **Grupa zasobów**wybierz istniejącą lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  W obszarze **Grupa zasobów**wybierz istniejącą lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
     4.  Wypełnij pole **Lokalizacja** dla usługi. Zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services) , aby uzyskać więcej informacji na temat usług dostępnych w tym regionie. Ogólnie rzecz biorąc, wybierz **lokalizację** najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. Możesz także użyć następujących składników:
 

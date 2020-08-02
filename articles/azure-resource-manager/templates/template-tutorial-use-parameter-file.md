@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411521"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502804"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów
 
@@ -34,13 +35,13 @@ Ten szablon działa dobrze, ale teraz chcesz łatwo zarządzać parametrami prze
 
 Pliki parametrów to pliki JSON ze strukturą podobną do szablonu. W pliku podaj wartości parametrów, które mają być przekazywane podczas wdrażania.
 
-W VS Code Utwórz nowy plik z następującą zawartością. Zapisz plik o nazwie **azuredeploy. Parameters. dev. JSON**.
+W VS Code Utwórz nowy plik z następującą zawartością. Zapisz plik o nazwie **azuredeploy.parameters.dev.jsna**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Ten plik jest plikiem parametrów środowiska deweloperskiego. Zwróć uwagę, że używa Standard_LRS dla konta magazynu, nazw zasobów z prefiksem **dev** i ustawia tag **środowiska** na **dev**.
 
-Utwórz nowy plik o następującej zawartości. Zapisz plik o nazwie **azuredeploy. Parameters. prod. JSON**.
+Utwórz nowy plik o następującej zawartości. Zapisz plik o nazwie **azuredeploy.parameters.prod.jsna**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
@@ -54,7 +55,7 @@ Jako ostatni test szablonu Utwórzmy dwie nowe grupy zasobów. Jeden dla środow
 
 Po pierwsze wdrożenie zostanie wdrożone w środowisku deweloperskim.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{path-to-the-template-file}"
@@ -71,7 +72,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 templateFile="{path-to-the-template-file}"
@@ -90,7 +91,7 @@ az deployment group create \
 
 Teraz wdrażamy je w środowisku produkcyjnym.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $parameterFile="{path-to-azuredeploy.parameters.prod.json}"
@@ -141,7 +142,7 @@ Możesz zweryfikować wdrożenie, przeeksplorowanie grup zasobów z Azure Portal
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gratulacje, wprowadzenie do wdrożenia szablonów na platformie Azure. Daj nam znać, jeśli masz jakieś komentarze i sugestie w sekcji Opinie. Dziękujemy.
+Gratulacje, wprowadzenie do wdrożenia szablonów na platformie Azure. Daj nam znać, jeśli masz jakieś komentarze i sugestie w sekcji Opinie. Dziękujemy!
 
 Kolejna seria samouczków prowadzi do bardziej szczegółowych informacji na temat wdrażania szablonów.
 
