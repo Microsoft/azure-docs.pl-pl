@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226426"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507564"
 ---
-Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom ponownie w trybie debugowania polecenie powodujące niepowodzenie. Tryb debugowania jest aktywowany przez przekazanie `--debug` przełącznika przy użyciu interfejsu wiersza polecenia i `-Debug` przełącznika przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
+Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom polecenie powodujące niepowodzenie ponownie w trybie debugowania. Tryb debugowania jest aktywowany przez przekazanie `--debug` przełącznika przy użyciu interfejsu wiersza polecenia i `-Debug` przełącznika przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Nie można utworzyć galerii obrazów udostępnionych
@@ -76,7 +76,7 @@ Możliwe przyczyny:
 
 *Użytkownik próbujący utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych nie ma dostępu do odczytu do wersji obrazu.*
 
-Skontaktuj się z właścicielem subskrypcji i poproś o przyznanie dostępu do odczytu wersji obrazu lub zasobów nadrzędnych (takich jak Galeria obrazów udostępnionych lub definicja obrazu) za pomocą [Access Control opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Skontaktuj się z właścicielem subskrypcji i poproś o przyznanie dostępu do odczytu do wersji obrazu lub zasobów nadrzędnych (takich jak Galeria obrazów udostępnionych lub definicja obrazu) za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *Nie znaleziono wersji obrazu.*
 
@@ -97,6 +97,3 @@ Użyj flagi **--expand ReplicationStatus** , aby sprawdzić, czy replikacja do w
 ## <a name="azure-limits-and-quotas"></a>Limity przydziału i ograniczenia platformy Azure 
 
 [Ograniczenia i limity platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) mają zastosowanie do całej galerii obrazów udostępnionych, definicji obrazu i zasobów wersji obrazu. Upewnij się, że jesteś w ramach limitów subskrypcji. 
-
-
-

@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077866"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502175"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -58,7 +58,7 @@ Sygnaturę dostępu współdzielonego można podpisać na jeden z dwóch sposob�
 
 - Za pomocą *klucza delegowania użytkownika* , który został utworzony przy użyciu poświadczeń Azure Active Directory (Azure AD). Sygnatura dostępu współdzielonego delegowania użytkownika jest podpisywana przy użyciu klucza delegowania użytkownika.
 
-    Aby można było uzyskać klucz delegowania użytkownika i utworzyć sygnaturę dostępu współdzielonego, podmiot zabezpieczeń usługi Azure AD musi mieć przypisaną rolę z rolą sterowania dostępem opartym na rolach (RBAC), która obejmuje akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Aby uzyskać szczegółowe informacje o rolach RBAC z uprawnieniami do uzyskiwania klucza delegowania użytkownika, zobacz [Tworzenie sygnatury dostępu współdzielonego użytkownika (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+    Aby uzyskać klucz delegowania użytkownika i utworzyć sygnaturę dostępu współdzielonego, podmiot zabezpieczeń usługi Azure AD musi mieć przypisaną rolę platformy Azure, która zawiera akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Aby uzyskać szczegółowe informacje na temat ról platformy Azure z uprawnieniami do uzyskiwania klucza delegowania użytkownika, zobacz temat [Tworzenie sygnatury dostępu współdzielonego użytkownika (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Za pomocą klucza konta magazynu. Sygnatura dostępu współdzielonego usługi i sygnatura dostępu współdzielonego konta są podpisane przy użyciu klucza konta magazynu. Aby utworzyć sygnaturę dostępu współdzielonego, która jest podpisana przy użyciu klucza konta, aplikacja musi mieć dostęp do klucza konta.
 

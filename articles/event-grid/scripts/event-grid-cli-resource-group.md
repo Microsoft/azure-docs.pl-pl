@@ -4,12 +4,13 @@ description: Ten artykuł zawiera przykładowy skrypt interfejsu wiersza polecen
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 4282c9d92692e1772a0555bda098e9b59b5f245b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: f655ed3f2b6a3cef89c493137bd34732a60e414a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460851"
+ms.locfileid: "87494098"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Subskrybowanie zdarzeń dla grupy zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 

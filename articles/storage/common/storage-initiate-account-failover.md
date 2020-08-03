@@ -10,12 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01718b4f3d539f77f4496a7914b027335cc45618
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807590"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503280"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicjowanie trybu failover konta magazynu
 
@@ -43,7 +44,7 @@ Aby uzyskać więcej informacji o nadmiarowości usługi Azure Storage, zobacz [
 
 Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki:
 
-1. Przejdź do swojego konta magazynu.
+1. Przejdź do konta magazynu.
 1. W obszarze **Ustawienia**wybierz pozycję **replikacja geograficzna**. Na poniższej ilustracji przedstawiono stan replikacji geograficznej i trybu failover dla konta magazynu.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Zrzut ekranu przedstawiający replikację geograficzną i stan trybu failover":::
@@ -55,7 +56,7 @@ Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover":::
 
-## <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Funkcja trybu failover konta jest ogólnie dostępna, ale nadal bazuje na module w wersji zapoznawczej dla programu PowerShell. Aby można było zainicjować tryb failover konta przy użyciu programu PowerShell, należy najpierw zainstalować moduł AZ. Storage [1.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/1.1.1-preview) . Wykonaj następujące kroki, aby zainstalować moduł:
 

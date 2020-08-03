@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089451"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501937"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Przyznawanie uprawnień do tożsamości zarządzanej przez obszar roboczy (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób udzielania uprawnień zarządzanej tożsamości w
 >[!NOTE]
 >Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Przyznaj zarządzaną tożsamość do puli SQL
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Przyznawanie uprawnień do zarządzania tożsamościami w puli SQL
 
 Zarządzana tożsamość przyznaje uprawnienia do pul SQL w obszarze roboczym. Z przyznanymi uprawnieniami można organizować potoki, które wykonują działania związane z pulą SQL. Podczas tworzenia obszaru roboczego usługi Azure Synapse przy użyciu Azure Portal można przyznać zarządzanym kontrolom kontroli tożsamości w pulach SQL.
 

@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 56af984ef83d2e237f0aa05af5cfef4dd6205256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738332"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503586"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute za pomocą interfejsu wiersza polecenia
 
@@ -20,10 +21,10 @@ ms.locfileid: "84738332"
 W tym artykule opisano sposób tworzenia obwodu usługi Azure ExpressRoute za pomocą interfejsu wiersza polecenia (CLI). W tym artykule pokazano również, jak sprawdzić stan, zaktualizować lub usunąć i anulować obsługę administracyjną obwodu. Jeśli chcesz użyć innej metody do pracy z obwodami usługi ExpressRoute, możesz wybrać artykuł z poniższej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
-> * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Szablon Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >

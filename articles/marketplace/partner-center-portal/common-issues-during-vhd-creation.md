@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: d717d93b616e8acd296c89322b7277cda5ade3a3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323999"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504317"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Typowe problemy podczas tworzenia wirtualnego dysku twardego
 
@@ -34,8 +34,8 @@ Nie możesz. Po utworzeniu maszyny wirtualnej użytkownicy (w tym właściciele)
 
 W tych artykułach wyjaśniono, jak wykonać Resetowanie usług pulpitu zdalnego dla maszyn wirtualnych z systemem Windows i Linux:
 
-* [Jak zresetować usługę Pulpit zdalny lub jej hasło logowania dla maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [Jak zresetować hasło maszyny wirtualnej systemu Linux lub klucz SSH, napraw konfigurację SSH i Sprawdź spójność dysku przy użyciu rozszerzenia VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Jak zresetować usługę Pulpit zdalny lub jej hasło logowania dla maszyny wirtualnej z systemem Windows](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [Jak zresetować hasło maszyny wirtualnej systemu Linux lub klucz SSH, napraw konfigurację SSH i Sprawdź spójność dysku przy użyciu rozszerzenia VMAccess](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>Jak mogę generować nowe certyfikaty SSH?
 
@@ -59,7 +59,7 @@ Tak, jeśli jest hostowana na platformie Azure. Platforma Azure przypisuje unika
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Jak zarządzać rozszerzeniem niestandardowego skryptu w maszynie wirtualnej?
 
-Aby uzyskać szczegółowe informacje na temat używania niestandardowego rozszerzenia skryptu przy użyciu modułu Azure PowerShell, szablonów Azure Resource Manager i kroków rozwiązywania problemów w systemach Windows, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+Aby uzyskać szczegółowe informacje na temat używania niestandardowego rozszerzenia skryptu przy użyciu modułu Azure PowerShell, szablonów Azure Resource Manager i kroków rozwiązywania problemów w systemach Windows, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Czy obsługiwane są 32-bitowe aplikacje lub usługi w portalu Azure Marketplace?
 

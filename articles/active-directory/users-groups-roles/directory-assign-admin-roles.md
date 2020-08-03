@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f732fbfff23e71096a89a7c04c65d1bd7959
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432344"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502481"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -392,7 +392,7 @@ Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia bez hasł
 
 ### <a name="privileged-role-administrator"></a>[Administrator ról uprzywilejowanych](#privileged-role-administrator-permissions)
 
-Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w Azure Active Directory, a także w Azure AD Privileged Identity Management. Ponadto ta rola umożliwia zarządzanie wszystkimi aspektami Privileged Identity Management i jednostek administracyjnych.
+Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w Azure Active Directory, a także w Azure AD Privileged Identity Management. Mogą oni tworzyć i zarządzać grupami, które można przypisać do ról usługi Azure AD. Ponadto ta rola umożliwia zarządzanie wszystkimi aspektami Privileged Identity Management i jednostek administracyjnych.
 
 > [!IMPORTANT]
 > Ta rola umożliwia zarządzanie przypisaniami wszystkich ról usługi Azure AD, w tym roli administratora globalnego. Ta rola nie obejmuje żadnych innych uprzywilejowanych możliwości w usłudze Azure AD, takich jak tworzenie i aktualizowanie użytkowników. Jednak użytkownicy przypisani do tej roli mogą udzielić sobie lub innym dodatkowym uprawnieniem, przypisując dodatkowe role.
@@ -748,6 +748,9 @@ Może zarządzać wszystkimi aspektami usługi Azure AD i usługami firmy Micros
 | Microsoft. Directory/directoryRoleTemplates/allProperties/allTasks | Tworzenie i usuwanie directoryRoleTemplates oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/domen/allProperties/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/Groups/allProperties/allTasks | Tworzenie i usuwanie grup oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Create | Utwórz grupy z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
 | Microsoft. Directory/groupSettings/allProperties/allTasks | Tworzenie i usuwanie groupSettings oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/groupSettingTemplates/allProperties/allTasks | Tworzenie i usuwanie groupSettingTemplates oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/loginTenantBranding/allProperties/allTasks | Tworzenie i usuwanie loginTenantBranding oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
@@ -1582,7 +1585,10 @@ Może zarządzać przypisaniami ról w usłudze Azure AD i wszystkimi aspektami 
 
 | **Akcje** | **Opis** |
 | --- | --- |
-| Microsoft. AAD. privilegedIdentityManagement/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Microsoft. AAD. privilegedIdentityManagement. |
+| Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Create | Utwórz grupy z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Delete | Usuń grupy z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
+| Microsoft. Directory/privilegedIdentityManagement/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Microsoft. AAD. privilegedIdentityManagement. |
 | Microsoft. Directory/serviceprincipals/appRoleAssignedTo/allTasks | Odczytaj i skonfiguruj Właściwość serviceprincipals. appRoleAssignedTo w Azure Active Directory. |
 | Microsoft. Directory/serviceprincipals/elementu oauth2permissiongrants/allTasks | Odczytaj i skonfiguruj Właściwość serviceprincipals. elementu oauth2permissiongrants w Azure Active Directory. |
 | Microsoft. Directory/administrativeUnits/allProperties/allTasks | Tworzenie jednostek administracyjnych (w tym członków) i zarządzanie nimi |

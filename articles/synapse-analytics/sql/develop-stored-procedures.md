@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958382"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494999"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Korzystanie z procedur składowanych w puli SQL
 
@@ -27,7 +27,7 @@ Pula SQL obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co wa
 
 Jednak aby zachować skalę i wydajność puli SQL, istnieją także pewne funkcje i funkcje, które mają różnice zachowania i inne, które nie są obsługiwane.
 
-## <a name="introducing-stored-procedures"></a>Wprowadzenie procedur składowanych
+## <a name="stored-procedures-in-sql-pool"></a>Procedury składowane w puli SQL
 
 Procedury składowane to świetny sposób hermetyzowania kodu SQL; przechowywanie go blisko danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez hermetyzację kodu w jednostkach do zarządzania; zwiększenie możliwości ponownego wykorzystania kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność.
 

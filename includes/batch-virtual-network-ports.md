@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506613"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507579"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
 
@@ -69,8 +69,8 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 | Źródłowe adresy IP | Tag usługi źródłowej | Porty źródłowe | Element docelowy | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Nie dotyczy | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/security-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
-| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Nie dotyczy | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
+| Brak | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/security-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
+| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Brak | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
 
 > [!WARNING]
 > Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Dlatego zdecydowanie zaleca się użycie `BatchNodeManagement` znacznika usługi (lub wariantu regionalnego) dla reguł sieciowej grupy zabezpieczeń. Unikaj wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu określonych adresów IP usługi Batch.
@@ -89,7 +89,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Uprawnienia** — jednostka usługi `Microsoft Azure Batch` musi mieć rolę `Classic Virtual Machine Contributor` w ramach kontroli dostępu opartej na rolach (RBAC) dla określonej sieci wirtualnej.
+**Uprawnienia** — jednostka `Microsoft Azure Batch` usługi musi mieć `Classic Virtual Machine Contributor` rolę platformy Azure dla określonej sieci wirtualnej.
 
 #### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 

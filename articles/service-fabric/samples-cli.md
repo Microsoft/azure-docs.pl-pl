@@ -3,12 +3,13 @@ title: Przykłady dotyczące interfejsu wiersza polecenia platformy Azure (az) o
 description: Przykłady interfejsu wiersza polecenia platformy Azure (az) i interfejsu wiersza polecenia platformy Azure Service Fabric (sfctl) na temat zarządzania klastrami, aplikacjami i usługami.
 ms.topic: sample
 ms.date: 04/09/2018
-ms.openlocfilehash: b54efcf6ca6ef66beb655c423283ea1ad0a59d72
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 12a48c525d1458b2d920f6a25d91d67e58749a96
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182818"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502430"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Przykłady dotyczące interfejsu wiersza polecenia platformy Azure (az) oraz interfejsu wiersza polecenia usługi Azure Service Fabric (sfctl)
 

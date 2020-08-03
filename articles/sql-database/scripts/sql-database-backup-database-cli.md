@@ -3,19 +3,19 @@ title: 'Interfejs wiersza polecenia platformy Azure: Tworzenie kopii zapasowej b
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowej pojedynczej bazy danych SQL Azure w kontenerze usługi Azure Storage
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 33ac44f4910c858dd4d5cfc9d4288ce4970f7f4c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022713"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501988"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Tworzenie kopii zapasowej pojedynczej bazy danych SQL Azure w kontenerze usługi Azure Storage przy użyciu interfejsu wiersza polecenia
 
@@ -25,7 +25,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

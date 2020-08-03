@@ -3,13 +3,13 @@ title: Uruchamianie zadań na koniec do końca przy użyciu szablonów
 description: Korzystając tylko z poleceń interfejsu wiersza polecenia, można utworzyć pulę, przekazać dane wejściowe, utworzyć zadania i skojarzone zadania i pobrać wynikowe dane wyjściowe.
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83815999"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494931"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
 
@@ -139,7 +139,7 @@ Jeśli plik szablonu ma nazwę _pool-ffmpeg.json_, następnie Wywołaj szablon w
 az batch pool create --template pool-ffmpeg.json
 ```
 
-Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `nodeCount` . Możesz również podać parametry w pliku JSON. Przykład:
+Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `nodeCount` . Możesz również podać parametry w pliku JSON. Na przykład:
 
 ```json
 {

@@ -4,15 +4,15 @@ description: Opisuje źródła danych i łączniki obsługiwane w przypadku tabe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077443"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503603"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -71,7 +71,7 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Magazyn danych SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Baza danych Sybase     |  Yes | Nie |  |
-|Teradata | Tak  | Yes  | <sup>[10](#teradata)</sup> |
+|Teradata | Tak  | Yes  | <sup>[dziesięć](#teradata)</sup> |
 |Plik TXT  |Yes | Nie |  |
 |Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
@@ -80,7 +80,7 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 <a name="tab1400b">6</a> -tabelaryczne 1400 i wyższe modele.  
 <a name="sqlim">7</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, określ Sterownik OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
 <a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  
-<a name="oracle">9</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych Oracle dla platformy .NET.  
+<a name="oracle">9</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych Oracle dla platformy .NET. Jeśli określono jako źródło danych ze strukturą, należy [włączyć dostawcę zarządzanego](#enable-oracle-managed-provider)przez program Oracle.   
 <a name="teradata">10</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych programu Teradata dla platformy .NET.  
 <a name="filesSP">11</a> — pliki w lokalnym programie SharePoint nie są obsługiwane.
 
@@ -123,6 +123,43 @@ W przypadku źródeł danych w chmurze:
 Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci, Azure SQL Database, Azure Synapse (dawniej SQL Data Warehouse), Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia za pomocą programu SSMS.
 
 Tryb zapytania bezpośredniego nie jest obsługiwany z poświadczeniami uwierzytelniania OAuth.
+
+## <a name="enable-oracle-managed-provider"></a>Włącz dostawcę zarządzanego przez program Oracle
+
+W niektórych przypadkach zapytania języka DAX do źródła danych Oracle mogą zwracać nieoczekiwane wyniki. Przyczyną może być dostawca używany do połączenia ze źródłem danych.
+
+Zgodnie z opisem w sekcji [Informacje o dostawcach](#understanding-providers) modele tabelaryczne łączą się ze źródłami danych jako *strukturalnym* źródłem danych lub źródłem danych *dostawcy* . W przypadku modeli ze źródłem danych Oracle określonych jako źródło danych dostawcy upewnij się, że określony dostawca to Oracle Dostawca danych dla platformy .NET (Oracle. DataAccess. Client). 
+
+Jeśli źródło danych Oracle jest określone jako strukturalne źródło danych, należy włączyć właściwość serwera **MDataEngine\UseManagedOracleProvider** . Ustawienie tej właściwości zapewnia, że model nawiązuje połączenie ze źródłem danych Oracle przy użyciu zalecanej Dostawca danych Oracle dla dostawcy zarządzanego przez platformę .NET.
+ 
+Aby włączyć dostawcę zarządzanego przez program Oracle:
+
+1. W SQL Server Management Studio Połącz się z serwerem.
+2. Utwórz zapytanie XMLA z następującym skryptem. Zastąp wartość **servername** pełną nazwą serwera, a następnie wykonaj zapytanie.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Uruchom ponownie serwer.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

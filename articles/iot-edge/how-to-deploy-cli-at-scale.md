@@ -8,13 +8,14 @@ ms.author: kgremban
 ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726166"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501563"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Wdrażanie i monitorowanie modułów IoT Edge na dużą skalę przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -148,7 +149,7 @@ Poniżej przedstawiono podstawowy manifest wdrożenia warstwowego z jednym modu�
 }
 ```
 
-W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Przykład:
+W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Na przykład:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -196,7 +197,7 @@ Polecenie wdrożenia Create przyjmuje następujące parametry:
 * **--Deployment-ID** — nazwa wdrożenia, które zostanie utworzone w usłudze IoT Hub. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` . Parametr wymagany.
 * **--Content** -FilePath do pliku JSON manifestu wdrożenia. Parametr wymagany.
 * **--Hub-Name** -Name Centrum IoT, w którym zostanie utworzone wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Zmień bieżącą subskrypcję za pomocą `az account set -s [subscription name]` polecenia.
-* **--etykiety** — Dodawanie etykiet w celu ułatwienia śledzenia wdrożeń. Etykiety to nazwy i pary wartości opisujące wdrożenie. Etykiety przyjmują formatowanie JSON dla nazw i wartości. Na przykład: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--etykiety** — Dodawanie etykiet w celu ułatwienia śledzenia wdrożeń. Etykiety to nazwy i pary wartości opisujące wdrożenie. Etykiety przyjmują formatowanie JSON dla nazw i wartości. Na przykład `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--Target-Condition** -wprowadź warunek docelowy, aby określić, które urządzenia będą ukierunkowane na to wdrożenie.Warunek jest oparty na tagach bliźniaczych urządzeń lub w raportowanych właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--Priority** -dodatnia liczba całkowita. W przypadku, gdy co najmniej dwa wdrożenia są przeznaczone dla tego samego urządzenia, stosowane będzie wdrożenie o najwyższej wartości liczbowej dla priorytetu.
 * **--Metrics** — Utwórz metryki, które wysyłają zapytania do edgeHub raportowanych właściwości, aby śledzić stan wdrożenia. Metryki pobierają dane wejściowe JSON lub ścieżki. Na przykład `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.

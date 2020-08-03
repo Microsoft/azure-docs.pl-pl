@@ -4,12 +4,12 @@ description: Dowiedz się, jak kontrolować dostęp do pliku Kubernetes Configur
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255272"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501631"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 Podczas pracy z klastrem AKS przy użyciu `kubectl` narzędzia jest używany plik konfiguracji, który definiuje informacje o połączeniu z klastrem. Ten plik konfiguracji jest zwykle przechowywany w *~/.Kube/config*. W tym pliku *kubeconfig* można zdefiniować wiele klastrów. Można przełączać się między klastrami przy użyciu polecenia [polecenia kubectl config use-Context][kubectl-config-use-context] .
 
-Polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] pozwala uzyskać poświadczenia dostępu do klastra AKS i scalić je z plikiem *kubeconfig* . Za pomocą kontroli dostępu opartej na rolach (RBAC) platformy Azure można kontrolować dostęp do tych poświadczeń. Te role RBAC platformy Azure umożliwiają zdefiniowanie osób, które mogą pobrać plik *kubeconfig* i jakie uprawnienia są następnie w klastrze.
+Polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] pozwala uzyskać poświadczenia dostępu do klastra AKS i scalić je z plikiem *kubeconfig* . Za pomocą kontroli dostępu opartej na rolach (RBAC) platformy Azure można kontrolować dostęp do tych poświadczeń. Te role platformy Azure umożliwiają zdefiniowanie osób, które mogą pobrać plik *kubeconfig* i jakie mają uprawnienia w klastrze.
 
 Dwie wbudowane role to:
 

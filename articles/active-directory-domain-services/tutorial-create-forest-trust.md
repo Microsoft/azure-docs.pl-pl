@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024676"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492160"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services (wersja zapoznawcza)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services
 
-W środowiskach, w których nie można synchronizować skrótów haseł lub masz użytkowników, którzy logują się wyłącznie przy użyciu kart inteligentnych, aby nie wiedzieli hasła, możesz użyć lasu zasobów w Azure Active Directory Domain Services (Azure AD DS). Las zasobów używa jednokierunkowego zaufania wychodzącego z platformy Azure AD DS do co najmniej jednego środowiska AD DS lokalnego. Ta relacja zaufania umożliwia użytkownikom, aplikacjom i komputerom uwierzytelnianie w domenie lokalnej z domeny zarządzanej AD DS platformy Azure. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+W środowiskach, w których nie można synchronizować skrótów haseł lub masz użytkowników, którzy logują się wyłącznie przy użyciu kart inteligentnych, aby nie wiedzieli hasła, możesz użyć lasu zasobów w Azure Active Directory Domain Services (Azure AD DS). Las zasobów używa jednokierunkowego zaufania wychodzącego z platformy Azure AD DS do co najmniej jednego środowiska AD DS lokalnego. Ta relacja zaufania umożliwia użytkownikom, aplikacjom i komputerom uwierzytelnianie w domenie lokalnej z domeny zarządzanej AD DS platformy Azure. W lesie zasobów lokalne skróty haseł nigdy nie są synchronizowane.
 
 ![Diagram zaufania lasów z usługi Azure AD DS do lokalnego AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 

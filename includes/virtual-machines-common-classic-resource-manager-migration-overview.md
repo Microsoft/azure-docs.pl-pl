@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192766"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507312"
 ---
 W tym artykule opisano sposób migrowania zasobów infrastruktury jako usługi (IaaS) z klasycznego do Menedżer zasobów modeli wdrażania i szczegółowe informacje dotyczące sposobu łączenia zasobów z dwóch modeli wdrażania współdziałających z subskrypcją za pomocą bram sieci VPN typu lokacja-lokacja. Więcej informacji o [Azure Resource Manager funkcjach i korzyściach](../articles/azure-resource-manager/management/overview.md)można znaleźć w artykule. 
 
@@ -22,10 +22,10 @@ Menedżer zasobów umożliwia wdrażanie złożonych aplikacji za pośrednictwem
 
 Prawie wszystkie funkcje z klasycznego modelu wdrażania są obsługiwane w przypadku obliczeń, sieci i magazynu w obszarze Azure Resource Manager. Aby skorzystać z nowych możliwości w Azure Resource Manager, można migrować istniejące wdrożenia z klasycznego modelu wdrażania.
 
-## <a name="supported-resources-for-migration"></a>Obsługiwane zasoby na potrzeby migracji
-Te klasyczne zasoby IaaS są obsługiwane podczas migracji
+## <a name="supported-resources--configurations-for-migration"></a>Obsługiwane zasoby & konfiguracje do migracji
 
-* Maszyny wirtualne
+### <a name="supported-resources-for-migration"></a>Obsługiwane zasoby na potrzeby migracji
+* Virtual Machines
 * Zestawy dostępności
 * Konta magazynu
 * Sieci wirtualne
@@ -34,6 +34,13 @@ Te klasyczne zasoby IaaS są obsługiwane podczas migracji
 * Grupy zabezpieczeń sieci
 * Tabele tras
 * Zastrzeżone adresy IP
+
+## <a name="supported-configurations-for-migration"></a>Obsługiwane konfiguracje migracji
+Te klasyczne zasoby IaaS są obsługiwane podczas migracji
+
+| Usługa | Konfigurowanie |
+| --- | --- |
+| Azure AD Domain Services | [Sieci wirtualne, które zawierają usługi domenowe Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Obsługiwane zakresy migracji
 Istnieją cztery różne sposoby przeprowadzenia migracji zasobów obliczeniowych, sieciowych i magazynowych:
@@ -75,7 +82,7 @@ Jeśli konto magazynu nie ma żadnych skojarzonych dysków lub Virtual Machines 
 
 Poniższe zrzuty ekranu pokazują, jak uaktualnić klasyczne konto magazynu do konta magazynu Azure Resource Manager przy użyciu Azure Portal:
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Przejdź do swojego konta magazynu.
+2. Przejdź do konta magazynu.
 3. W sekcji **Ustawienia** kliknij pozycję **Migruj do ARM**.
 4. Kliknij przycisk **Sprawdź poprawność** , aby określić wykonalność migracji.
 5. Jeśli walidacja przebiega pomyślnie, kliknij przycisk **Przygotuj** , aby utworzyć zmigrowane konto magazynu.
@@ -100,7 +107,7 @@ Niektóre funkcje i konfiguracje nie są obecnie obsługiwane; w poniższych sek
 ### <a name="unsupported-features"></a>Nieobsługiwane funkcje
 Następujące funkcje nie są obecnie obsługiwane. Opcjonalnie można usunąć te ustawienia, przeprowadzić migrację maszyn wirtualnych, a następnie ponownie włączyć ustawienia w Menedżer zasobów model wdrażania.
 
-| Dostawca zasobów | Cecha | Zalecenie |
+| Dostawca zasobów | Cechy | Zalecenie |
 | --- | --- | --- |
 | Wystąpienia obliczeniowe | Nieskojarzone dyski maszyny wirtualnej. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
 | Wystąpienia obliczeniowe | Obrazy maszyn wirtualnych. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
@@ -129,5 +136,4 @@ Następujące konfiguracje nie są obecnie obsługiwane.
 | Azure App Service |Sieci wirtualne, które zawierają środowiska App Service |Nie jest to obecnie obsługiwane. |
 | Azure HDInsight |Sieci wirtualne, które zawierają usługi HDInsight |Nie jest to obecnie obsługiwane. |
 | Usługi Microsoft Dynamics cykl życia |Sieci wirtualne z maszynami wirtualnymi zarządzanymi przez usługi Dynamics cykle życia |Nie jest to obecnie obsługiwane. |
-| Azure AD Domain Services |Sieci wirtualne, które zawierają usługi domenowe Azure AD |Nie jest to obecnie obsługiwane. |
 | Usługa Azure API Management |Sieci wirtualne zawierające wdrożenia usługi Azure API Management |Nie jest to obecnie obsługiwane. Aby przeprowadzić migrację sieci wirtualnej IaaS, Zmień sieć wirtualną wdrożenia API Management, która nie jest operacją przestoju. |

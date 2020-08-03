@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 33c3cf4b9da33b15d7a7d1c14b0c3fb892b60121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317811"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503569"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
 ## <a name="transactions-by-publishing-option"></a>Transakcje według opcji publikowania
 
-Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na oprogramowanie dla ofert w portalu komercyjnym. Opcja publikowania wybrana dla oferty określi, kto będzie zarządzać transakcją. Zobacz [Określanie opcji publikowania](./determine-your-listing-type.md#choose-a-publishing-option) pod kątem dostępności i wyjaśnień każdej opcji publikacji.
+Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na oprogramowanie dla ofert w portalu komercyjnym. Opcja publikowania wybrana dla oferty określi, kto będzie zarządzać transakcją. Zobacz [Określanie opcji publikowania](./determine-your-listing-type.md#choose-a-call-to-action) pod kątem dostępności i wyjaśnień każdej opcji publikacji.
 
 ### <a name="list-trial-and-byol-publishing-options"></a>Opcje publikowania list, wersji próbnych i BYOL
 
@@ -136,7 +136,7 @@ W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogram
 |Firma Microsoft płaci 80% kosztu licencji <br> \*Firma Microsoft płaci 90% kosztu licencji dla wszystkich zakwalifikowanych aplikacji SaaS   |   $80,00 miesięcznie <br> \*$90,00 miesięcznie    |
 |Firma Microsoft utrzymuje 20% kosztów licencji <br> \*Firma Microsoft utrzymuje 10% kosztów licencji na wszystkie kwalifikowane aplikacje SaaS.  |  $20,00 miesięcznie <br> \*$10,00     |
 
-W przypadku niektórych ofert opublikowanych w portalu komercyjnym firma Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP incetivized. Przed końcem każdego miesiąca kalendarzowego należy spełnić co najmniej pięć dni roboczych, aby otrzymać obniżoną opłatę za usługę Marketplace dla danego miesiąca. Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych ofert IaaS z obsługą transakcji, które są udostępniane za pośrednictwem komercyjnej witryny Marketplace.
+W przypadku niektórych ofert opublikowanych w portalu komercyjnym firma Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Przed końcem każdego miesiąca kalendarzowego należy spełnić co najmniej pięć dni roboczych, aby otrzymać obniżoną opłatę za usługę Marketplace dla danego miesiąca. Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych ofert IaaS z obsługą transakcji, które są udostępniane za pośrednictwem komercyjnej witryny Marketplace.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faktury dla klientów, płatności, rozliczeń i kolekcji
 
@@ -163,7 +163,7 @@ Klienci zazwyczaj kupują przy użyciu Umowa Enterprise lub z włączoną kartą
 
 #### <a name="billing-questions-and-support"></a>Pytania i pomoc techniczna dotyczące rozliczeń
 
-Aby uzyskać więcej informacji i zasad prawnych, zobacz [umowę wydawcy](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (dostępną w centrum partnerskim).
+Aby uzyskać więcej informacji i zasad prawnych, zobacz [umowę wydawcy](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (dostępną w centrum partnerskim).
 
 Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu Marketplace](https://aka.ms/marketplacepublishersupport).
 

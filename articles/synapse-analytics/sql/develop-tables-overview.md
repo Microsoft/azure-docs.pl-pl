@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431880"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494829"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Projektowanie tabel przy użyciu języka SQL Synapse
 
@@ -45,7 +45,7 @@ W poniższej tabeli wymieniono tematy istotne dla puli SQL i programu SQL na ż�
 | [Statystyki](#statistics)                                    | Tak                | Tak                     |
 | [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Yes                | Nie                      |
 | [Polecenia służące do tworzenia tabel](#commands-for-creating-tables) | Yes                | Nie                      |
-| [Wyrównywanie danych źródłowych z magazynem danych](#aligning-source-data-with-the-data-warehouse) | Yes                | Nie                      |
+| [Wyrównywanie danych źródłowych z magazynem danych](#align-source-data-with-the-data-warehouse) | Yes                | Nie                      |
 | [Nieobsługiwane funkcje tabeli](#unsupported-table-features)    | Yes                | Nie                      |
 | [Zapytania o rozmiar tabeli](#table-size-queries)                    | Yes                | Nie                      |
 
@@ -144,7 +144,7 @@ Kategoria tabeli często określa optymalną opcję dystrybucji tabeli.
 |:---------------|:--------------------|
 | Fact           | Używaj dystrybucji skrótów z klastrowanym indeksem magazynu kolumn. Zwiększona wydajność, gdy dwie tabele skrótów są przyłączone do tej samej kolumny dystrybucji. |
 | Wymiar      | Użyj replikacji dla mniejszych tabel. Jeśli tabele są zbyt duże, aby były przechowywane w poszczególnych węzłach obliczeniowych, użyj rozproszonego tworzenia skrótów. |
-| Przygotowanie        | Użyj działania okrężnego dla tabeli przemieszczania. Ładowanie za pomocą CTAS jest szybkie. Gdy dane są w tabeli przemieszczania, użyj instrukcji INSERT... Wybierz, aby przenieść dane do tabel produkcyjnych. |
+| Podział na etapy        | Użyj działania okrężnego dla tabeli przemieszczania. Ładowanie za pomocą CTAS jest szybkie. Gdy dane są w tabeli przemieszczania, użyj instrukcji INSERT... Wybierz, aby przenieść dane do tabel produkcyjnych. |
 
 ## <a name="partitions"></a>Partycje
 
@@ -214,7 +214,7 @@ Tabelę można utworzyć jako nową pustą tabelę. Możesz również utworzyć 
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Wypełnia nową tabelę wynikami instrukcji SELECT. Kolumny tabeli i typy danych są oparte na wynikach instrukcji SELECT. Aby zaimportować dane, ta instrukcja może zostać wybrana z tabeli zewnętrznej. |
 | [UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO WYBRANĄ](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Tworzy nową tabelę zewnętrzną przez wyeksportowanie wyników instrukcji SELECT do lokalizacji zewnętrznej.  Lokalizacją jest usługa Azure Blob Storage lub Azure Data Lake Storage. |
 
-## <a name="aligning-source-data-with-the-data-warehouse"></a>Wyrównywanie danych źródłowych z magazynem danych
+## <a name="align-source-data-with-the-data-warehouse"></a>Wyrównaj dane źródłowe z magazynem danych
 
 Tabele magazynu danych są wypełniane przez załadowanie danych z innego źródła danych. Aby osiągnąć pomyślne obciążenie, liczba i typy danych kolumn w danych źródłowych muszą być wyrównane z definicją tabeli w magazynie danych.
 

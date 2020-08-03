@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7dc0fcae9a6fea789d30bac10511007454ecc5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045692"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504019"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -191,6 +191,10 @@ Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielok
    ![Run-Cells-above-lub-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
+### <a name="cancel-all-running-cells"></a>Anuluj wszystkie uruchomione komórki
+Kliknij przycisk **Anuluj wszystko** , aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
+   ![Anuluj — wszystkie komórki](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+
 ### <a name="cell-status-indicator"></a>Wskaźnik stanu komórki
 
 Poniżej komórki zostanie wyświetlony stan wykonania komórki krok po kroku, aby ułatwić wyświetlenie bieżącego postępu. Po zakończeniu przebiegu komórki zostanie wyświetlone podsumowanie wykonywania z łącznym czasem trwania i zakończenia, które będą przechowywane w przyszłości.
@@ -200,6 +204,7 @@ Poniżej komórki zostanie wyświetlony stan wykonania komórki krok po kroku, a
 ### <a name="spark-progress-indicator"></a>Wskaźnik postępu platformy Spark
 
 Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. Komórki kodu są wykonywane zdalnie w puli Spark. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z paskiem postępu w czasie rzeczywistym, który pomoże zrozumieć stan wykonywania zadania.
+Liczba zadań poszczególnych zadań lub etapów ułatwia identyfikowanie równoległego poziomu zadania platformy Spark. Możesz również przejść do szczegółów do interfejsu użytkownika Spark określonego zadania (lub etapu) przez kliknięcie linku w nazwie zadania (lub etapu).
 
 
 ![Spark-Progress-wskaźnik](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -208,7 +213,11 @@ Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. 
 
 Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, który ma zostać przypisany do bieżącej sesji platformy Spark w obszarze **Konfigurowanie sesji**. Aby zmiany konfiguracji zaczęły obowiązywać, należy ponownie uruchomić sesję platformy Spark. Wszystkie buforowane zmienne notesu są wyczyszczone.
 
-![Zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+[![Zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+
+Zalecany jest teraz moduł polecający sesji platformy Spark na panelu konfiguracji sesji platformy Spark. Pulę platformy Spark można wybrać bezpośrednio z poziomu panelu konfiguracja sesji i zobaczyć, ile węzłów jest używanych i ile pozostałych wykonawców jest dostępnych. Te informacje ułatwiają odpowiednie Ustawianie rozmiaru sesji, a nie ich modyfikowanie i wykonywanie.
+
+![sesja — zalecane](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
 
 ## <a name="bring-data-to-a-notebook"></a>Przenoszenie danych do notesu
@@ -264,15 +273,25 @@ Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. 
 
 ## <a name="visualize-data-in-a-notebook"></a>Wizualizowanie danych w notesie
 
-### <a name="display"></a>Display ()
+### <a name="produce-rendered-table-view"></a>Generuj renderowany widok tabeli
 
 Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
 
-Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Aby utworzyć renderowany widok tabeli, można wywołać funkcję **Display ( `<DataFrame name>` )** na platformie Spark dataframes lub odporną na błędy rozproszone zestawy danych (RDD).
+Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Możesz wywołać <code>display(df)</code> funkcję Spark Dataframes lub odporną na błędy rozproszone zestawy danych (RDD), aby utworzyć renderowany widok tabeli.
 
-   ![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   [![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
-### <a name="displayhtml"></a>DisplayHTML()
+### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Wizualizuj wbudowane wykresy z zestawu danych o dużej skali 
+
+Domyślnie <code>display(df)</code> funkcja będzie przyjmować wykresy tylko z pierwszych 1000 wierszy danych. Sprawdź **agregację dla wszystkich wyników** , a następnie kliknij przycisk **Zastosuj** . zostanie zastosowana generacja wykresu z całego zestawu danych. Zadanie Spark zostanie wyzwolone w przypadku zmiany ustawienia wykresu, trwa wykonywanie obliczeń i renderowanie wykresu. 
+    [![wbudowane — wykresy — agregacja — wszystko](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
+
+
+### <a name="visualize-data-statistic-information"></a>Wizualizacja informacji statystycznych dotyczących danych
+Można użyć <code>display(df, summary = true)</code> do sprawdzenia podsumowania statystyk danej ramki danych platformy Spark, która zawiera nazwę kolumny, typ kolumny, unikatowe wartości i brakujące wartości dla każdej kolumny. Możesz również wybrać opcję dla konkretnej kolumny, aby zobaczyć jej wartość minimalną, wartość maksymalną, wartość średnią i odchylenie standardowe.
+    [![wbudowane — wykresy — podsumowanie ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
+
+### <a name="render-html-or-interactive-libraries"></a>Renderowanie bibliotek HTML lub interaktywnych
 
 Można renderować biblioteki HTML lub interaktywne, takie jak **bokeh**, przy użyciu **displayHTML ()**.
 
@@ -332,9 +351,36 @@ We właściwościach notesu można określić, czy podczas zapisywania mają by�
 ## <a name="magic-commands"></a>Magic — polecenia
 Możesz użyć znanych poleceń Jupyter Magic w notesach usługi Azure Synapse Studio. Sprawdź poniższą listę jako bieżące dostępne polecenia Magic. Przekaż nam swoje przypadki użycia w serwisie GitHub, aby można było dalej tworzyć bardziej magicowe polecenia, aby zaspokoić Twoje potrzeby.
 
-Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% CSharp](#use-multiple-languages)
+
+
+## <a name="orchestrate-notebook"></a>Organizowanie notesu
+
+### <a name="add-a-notebook-to-a-pipeline"></a>Dodawanie notesu do potoku
+
+Kliknij przycisk **Dodaj do potoku** w prawym górnym rogu, aby dodać Notes do istniejącego potoku lub utworzyć nowy potok.
+
+![Dodaj do potoku](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+
+### <a name="designate-a-parameters-cell"></a>Wyznaczanie komórki parametrów
+
+Aby Sparametryzuj Notes, wybierz wielokropek (...), aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie. Następnie wybierz pozycję **Przełącz komórkę parametru** , aby wyznaczyć komórkę jako komórkę Parameters.
+
+![Przełącznik — parametr](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
+
+Azure Data Factory szuka komórki Parameters i traktuje tę komórkę jako wartości domyślne parametrów przekazywania w czasie wykonywania. Aparat wykonywania doda nową komórkę poniżej komórki Parameters z parametrami wejściowymi w celu zastąpienia wartości domyślnych. Gdy nie jest wyznaczono żadnej komórki parametrów, wprowadzona komórka zostanie wstawiona w górnej części notesu.
+
+### <a name="assign-parameters-values-from-a-pipeline"></a>Przypisywanie wartości parametrów z potoku
+
+Po utworzeniu notesu z parametrami można wykonać go z potoku za pomocą działania notesu Azure Synapse. Po dodaniu działania do kanwy potoku będzie możliwe ustawienie wartości parametrów w sekcji **parametry podstawowe** na karcie **Ustawienia** . 
+
+![Assign — parametr](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+
+Podczas przypisywania wartości parametrów można użyć [języka wyrażenia potoku](../../data-factory/control-flow-expression-language-functions.md) lub [zmiennych systemowych](../../data-factory/control-flow-system-variables.md).
+
+
 
 ## <a name="shortcut-keys"></a>Klawisze skrótów
 
@@ -390,7 +436,7 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 |Przełącz do trybu polecenia| Esc |
 
 ## <a name="next-steps"></a>Następne kroki
-
+- [Zapoznaj się z przykładowymi notesami Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
 - [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 - [Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics](spark-dotnet.md)

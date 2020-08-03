@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ca13cbd8bdba911882f7452e34c45cbc7918dd7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b02296d5d9aed5866c0efcdf85fa1c9946617d0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077704"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501903"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowiska notesu.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL dołączonej do obszaru roboczego
+### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL dołączonej do obszaru roboczego
 
 > [!NOTE]
 > **Importy niewymagane w środowisku notesu**
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>W przypadku transferu danych do lub z puli SQL lub bazy danych poza obszarem roboczym
+### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>W przypadku transferu danych do lub z puli lub bazy danych SQL lub spoza obszaru roboczego
 
 > [!NOTE]
 > Importy niewymagane w środowisku notesu
@@ -160,7 +160,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-sql-auth-instead-of-aad"></a>Używanie uwierzytelniania SQL zamiast usługi AAD
+### <a name="use-sql-auth-instead-of-aad"></a>Użyj uwierzytelniania SQL zamiast usługi AAD
 
 #### <a name="read-api"></a>Odczytaj interfejs API
 
@@ -184,7 +184,7 @@ option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-the-pyspark-connector"></a>Korzystanie z łącznika PySpark
+### <a name="use-the-pyspark-connector"></a>Korzystanie z łącznika PySpark
 
 > [!NOTE]
 > Ten przykład ma na uwadze tylko środowisko notesu.
@@ -208,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Podobnie w scenariuszu odczytu Odczytaj dane przy użyciu Scala i Zapisz je w tabeli tymczasowej, a następnie użyj platformy Spark SQL w PySpark, aby zbadać tabelę tymczasową w ramce Dataframe.
 
-## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Zezwalanie innym użytkownikom na korzystanie z usługi Azure Synapse Apache Spark do Synapse łącznika SQL w obszarze roboczym
+## <a name="allow-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Zezwalaj innym użytkownikom na korzystanie z usługi Azure Synapse Apache Spark do Synapse łącznika SQL w obszarze roboczym
 
 Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADLS Gen2 połączonym z obszarem roboczym, aby zmienić brakujące uprawnienia dla innych. Upewnij się, że użytkownik ma dostęp do obszaru roboczego i uprawnień do uruchamiania notesów.
 

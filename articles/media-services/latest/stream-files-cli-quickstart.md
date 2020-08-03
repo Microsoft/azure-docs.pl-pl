@@ -10,15 +10,15 @@ keywords: azure media services, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80382787"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504453"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumień wideo — interfejs wiersza polecenia platformy Azure
 
@@ -48,7 +48,7 @@ az group create -n amsResourceGroup -l westus2
 
 W tym przykładzie utworzymy standardowe konto LRS w wersji 2.
 
-Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. W przypadku wybrania jednostki SKU do produkcji należy rozważyć użycie `--sku Standard_RAGRS`, która zapewnia replikację geograficzną dla ciągłości działania. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](/cli/azure/storage/account).
+Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. W przypadku wybrania jednostki SKU do produkcji należy rozważyć użycie `--sku Standard_RAGRS` , która zapewnia replikację geograficzną dla ciągłości działania. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](/cli/azure/storage/account).
 
 ```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
@@ -192,7 +192,7 @@ Po uruchomieniu polecenia `az ams job start` można ustawić etykietę dla danyc
 - W przypadku przypisywania wartości do etykiety ustaw wartość "--Output-Assets" na "assetname = Label".
 - Jeśli nie przypiszesz wartości do etykiety, ustaw wartość "--Output-Assets" na "assetname =".
 
-  Zwróć uwagę, że dodajemy "=" `output-assets`do.
+  Zwróć uwagę, że dodajemy "=" do `output-assets` .
 
 ```azurecli-interactive
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
@@ -308,7 +308,7 @@ Otrzymujesz odpowiedź w następujący sposób:
 }
 ```
 
-Skopiuj ścieżkę HTTP Live Streaming (HLS). W tym przypadku jest `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`to.
+Skopiuj ścieżkę HTTP Live Streaming (HLS). W tym przypadku jest to `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)` .
 
 ## <a name="build-the-url"></a>Tworzenie adresu URL
 
@@ -318,13 +318,13 @@ Skopiuj ścieżkę HTTP Live Streaming (HLS). W tym przypadku jest `/e01b2be1-5e
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
 
-Skopiuj wartość `hostName`. W tym przypadku jest `amsaccount-usw22.streaming.media.azure.net`to.
+Skopiuj wartość `hostName`. W tym przypadku jest to `amsaccount-usw22.streaming.media.azure.net` .
 
 ### <a name="assemble-the-url"></a>Złóż adres URL
 
 „https://” + &lt;wartość hostName&gt; + &lt;wartość ścieżki Hls&gt;
 
-Przykład:
+Oto przykład:
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
@@ -333,14 +333,14 @@ Przykład:
 > [!NOTE]
 > Jeśli odtwarzacz jest hostowany w witrynie HTTPS, upewnij się, że adres URL został uruchomiony przy użyciu protokołu HTTPS.
 
-1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. W polu **adres URL** Wklej adres URL skompilowany w poprzedniej sekcji. Możesz wkleić adres URL w HLS, myślniku lub gładkim formacie. Azure Media Player automatycznie użyje odpowiedniego protokołu przesyłania strumieniowego do odtwarzania na urządzeniu.
 3. Wybierz pozycję **Aktualizuj odtwarzacz**.
 
 >[!NOTE]
 >Usługi Azure Media Player można użyć do testowania, ale nie należy jej używać w środowisku produkcyjnym.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już żadnych zasobów w grupie zasobów, w tym Media Services i kont magazynu utworzonych dla tego samouczka, Usuń grupę zasobów.
 

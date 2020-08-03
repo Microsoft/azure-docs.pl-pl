@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370278"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501954"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Podstawowa usługa Azure Security Synapse Analytics
 
@@ -328,7 +328,7 @@ W przypadku operacji zarządzania Użyj wbudowanych ról platformy Azure, które
 
 * [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Wbudowane role platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Role wbudowane platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -584,7 +584,7 @@ Ponadto można skonfigurować zasady dynamicznego maskowania danych (DDM) w Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby zarządzać dostępem do baz danych Azure SQL Database w puli SQL Synapse.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zarządzać dostępem do baz danych Azure SQL Database w puli SQL Synapse.
 
 Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta użytkownika i uprawnień na poziomie obiektów. Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 
@@ -1014,7 +1014,7 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 **Wskazówki**: migawki puli SQL Synapse są automatycznie podejmowane przez cały dzień tworzenia punktów przywracania dostępnych przez siedem dni. Nie można zmienić tego okresu przechowywania. Pula SQL obsługuje osiem godzin cel punktu odzyskiwania (RPO). Magazyn danych można przywrócić w regionie podstawowym z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni. Należy zauważyć, że w razie potrzeby można także ręcznie wyzwolić migawki.
 
-* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

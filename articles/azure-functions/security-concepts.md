@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502685"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -26,7 +26,7 @@ W tej sekcji przedstawiono jak najszybciej skonfigurować i uruchomić aplikacj�
 
 Security Center integruje się z aplikacją funkcji w portalu. Umożliwia ona bezpłatne, szybką ocenę potencjalnych luk w zabezpieczeniach związanych z konfiguracją. Aplikacje funkcji działające w ramach dedykowanego planu mogą również korzystać z funkcji zabezpieczeń w czasie rzeczywistym Security Center, aby uzyskać dodatkowe koszty. Aby dowiedzieć się więcej, zobacz [Ochrona aplikacji sieci web Azure App Service i interfejsów API](../security-center/security-center-app-services.md). 
 
-### <a name="log-and-monitor"></a>Rejestruj i monitoruj
+### <a name="log-and-monitor"></a>Rejestrowanie i monitorowanie
 
 Jeden do wykrywania ataków polega na monitorowaniu działań i analizie rejestrowania. Funkcje integrują się z Application Insights w celu zbierania danych dotyczących dzienników, wydajności i błędów dla aplikacji funkcji. Application Insights automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu korzystania z funkcji. Aby dowiedzieć się więcej, zobacz [Monitor Azure Functions](functions-monitoring.md).
 
@@ -83,7 +83,7 @@ Podobnie jak w przypadku dowolnej aplikacji lub usługi, celem jest uruchomienie
 
 #### <a name="user-management-permissions"></a>Uprawnienia do zarządzania użytkownikami
 
-Funkcje obsługują wbudowaną [kontrolę dostępu opartą na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md). Role RBAC obsługiwane przez funkcje to [współautor](../role-based-access-control/built-in-roles.md#contributor), [właściciel](../role-based-access-control/built-in-roles.md#owner)i [czytelnik](../role-based-access-control/built-in-roles.md#owner). 
+Funkcje obsługują wbudowaną [kontrolę dostępu opartą na rolach (Azure RBAC)](../role-based-access-control/overview.md). Role platformy Azure obsługiwane przez funkcje to [współautor](../role-based-access-control/built-in-roles.md#contributor), [właściciel](../role-based-access-control/built-in-roles.md#owner)i [czytelnik](../role-based-access-control/built-in-roles.md#owner). 
 
 Uprawnienia są skuteczne na poziomie aplikacji funkcji. Rola współautor jest wymagana do wykonywania większości zadań na poziomie aplikacji. Tylko rola właściciela może usunąć aplikację funkcji. 
 
@@ -207,4 +207,3 @@ Usługi bramy, takie jak [azure Application Gateway](../application-gateway/over
 
 + [Podstawa zabezpieczeń platformy Azure dla Azure Functions](security-baseline.md)
 + [Diagnostyka Azure Functions](functions-diagnostics.md)
-        

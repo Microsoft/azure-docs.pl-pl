@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318236"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502634"
 ---
 # <a name="payout-summaries"></a>Podsumowania wypłat
 
 Podsumowanie wypłaty zawiera szczegółowe informacje o pieniędzy uzyskanych w firmie Microsoft. Pozwala on również wiedzieć, kiedy otrzymasz płatności i ile będziesz płacić.
 
-Jeśli sprzedajesz produkty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać szczegółowe informacje, zobacz [Microsoft Azure Marketplace zasad uczestnictwa](https://docs.microsoft.com/legal/marketplace/participation-policy) oraz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Jeśli sprzedajesz produkty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać szczegółowe informacje, zobacz [Microsoft Azure Marketplace zasad uczestnictwa](https://docs.microsoft.com/legal/marketplace/participation-policy) oraz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać [próg płatności](payment-thresholds-methods-timeframes.md) wynoszący $50. Aby uzyskać szczegółowe informacje na temat progu płatności, zobacz Tę stronę i zapoznaj się z umową Developer App.
@@ -43,7 +43,7 @@ Aby wyeksportować wszystkie dane transakcji na tej stronie, użyj strony **Eksp
 
 ## <a name="payments-page"></a>Strona płatności
 
-Sumy na tej stronie reprezentują wszystkie programy, z których korzystasz. Możesz filtrować według identyfikatora uczestnika, programu, identyfikatora płatności i typu zdobywania. Kwoty są wyrażane w dolarach amerykańskich. Wartość płatna jest również wyświetlana w polu płatność na walutę.
+Sumy na tej stronie reprezentują wszystkie programy, z których korzystasz. Możesz filtrować według identyfikatora uczestnika, programu, identyfikatora płatności i typu zarobków. Kwoty są podane w dolarach amerykańskich. Wartość płatności jest wyświetlana również w walucie płatności.
 
 | Obszar                   | Opis                                                                                |
 |------------------------|---------------------------------------------------------------------------------------------|
@@ -220,7 +220,7 @@ Historia transakcji przed lipca 1 2019 jest obsługiwana osobno. Instrukcje będ
 | Nazwa produktu nadrzędnego     | Nazwa produktu nadrzędnego. Jeśli nie ma produktu nadrzędnego dla transakcji, nazwa produktu nadrzędnego = Nazwa produktu.                                  |
 | Nazwa produktu            | Nazwa produktu                                                                                                                                                    |
 | Typ produktu            | Typ produktu, taki jak aplikacja, dodatek lub gra                                                                                                                       |
-| Ilość                | Gdy źródło przychodu jest Microsoft Store dla firm, ilość reprezentuje liczbę zakupionych licencji. Dla wszystkich innych źródeł przychodu wartość ta będzie zawsze wynosić 1. Nawet wtedy, gdy pojedyncza transakcja jest dzielona na dwa elementy wiersza, ponieważ użyto dwóch różnych metod płatności, każdy element wiersza będzie wyświetlał liczbę 1. |
+| Liczba                | Gdy źródło przychodu jest Microsoft Store dla firm, ilość reprezentuje liczbę zakupionych licencji. Dla wszystkich innych źródeł przychodu wartość ta będzie zawsze wynosić 1. Nawet wtedy, gdy pojedyncza transakcja jest dzielona na dwa elementy wiersza, ponieważ użyto dwóch różnych metod płatności, każdy element wiersza będzie wyświetlał liczbę 1. |
 | Typ transakcji        | Typ transakcji, taki jak zakup, zwrot, odwrócenie lub obciążenia zwrotnego                                                                                              |
 | Forma płatności          | Instrument płatniczy klienta używany do transakcji, taki jak karta, rozliczenia przez przewoźnika komórkowego lub w systemie PayPal                                                               |
 | Kraj/region        | Kraj/region, w którym wystąpiła transakcja                                                                                                                          |

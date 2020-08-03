@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 127f0cdfc8cecf9789a68210f4b7ce1927333cc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422585"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504538"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure 
 
@@ -117,7 +118,7 @@ az provider register -n Microsoft.KeyVault
 
 ### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Użyj polecenia `az keyvault create` , aby utworzyć magazyn kluczy. Ten skrypt ma trzy obowiązkowe parametry: nazwę grupy zasobów, nazwę magazynu kluczy i lokalizację geograficzną.
+Użyj `az keyvault create` polecenia, aby utworzyć magazyn kluczy. Ten skrypt ma trzy obowiązkowe parametry: nazwę grupy zasobów, nazwę magazynu kluczy i lokalizację geograficzną.
 
 Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault**, w grupie zasobów **ContosoResourceGroup**, znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
 
@@ -128,7 +129,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 Dane wyjściowe tego polecenia przedstawiają właściwości utworzonego magazynu kluczy. Dwie najważniejsze właściwości to:
 
 * **Nazwa**: w tym przykładzie nazwa to ContosoKeyVault. Ta nazwa będzie używana do innych poleceń Key Vault.
-* **vaultUri**: w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **vaultUri**: w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net . Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Od tej pory nikt nie jest autoryzowany.
 
@@ -146,7 +147,7 @@ Jeśli masz istniejący klucz w pliku PEM, możesz go przekazać do Azure Key Va
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Teraz można odwołać się do klucza utworzonego lub przekazanego do Azure Key Vault przy użyciu identyfikatora URI. Użyj **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** , aby zawsze pobrać bieżącą wersję. Użyj protokołu https://[nazwa magazynu kluczy]. magazyn. Azure. NET/Key/[NazwaKlucza]/[klucz-Unique-ID], aby uzyskać tę określoną wersję. Na przykład **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+Teraz można odwołać się do klucza utworzonego lub przekazanego do Azure Key Vault przy użyciu identyfikatora URI. Użyj, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** Aby zawsze pobrać bieżącą wersję. Użyj protokołu https://[nazwa magazynu kluczy]. magazyn. Azure. NET/Key/[NazwaKlucza]/[klucz-Unique-ID], aby uzyskać tę określoną wersję. Przykładowy adres URL to **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
 Dodaj wpis tajny do magazynu, który jest hasłem o nazwie SQLPassword i ma wartość "hVFkk965BuUv" do magazynów kluczy platformy Azure. 
 
@@ -154,7 +155,7 @@ Dodaj wpis tajny do magazynu, który jest hasłem o nazwie SQLPassword i ma wart
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Odwołuje się do tego hasła przy użyciu identyfikatora URI. Użyj **https://ContosoVault.vault.azure.net/secrets/SQLPassword** , aby zawsze pobrać bieżącą wersję, i https://[nazwa usługi magazynu]. magazyn. Azure. NET/Secret/[Secret-Name]/[Secret-Unique-ID], aby uzyskać tę określoną wersję. Na przykład **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Odwołuje się do tego hasła przy użyciu identyfikatora URI. Użyj **https://ContosoVault.vault.azure.net/secrets/SQLPassword** , aby zawsze pobrać bieżącą wersję, i https://[nazwa usługi magazynu]. magazyn. Azure. NET/Secret/[Secret-Name]/[Secret-Unique-ID], aby uzyskać tę określoną wersję. Przykładowy adres URL to **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
 
 Zaimportuj certyfikat do magazynu przy użyciu pliku PEM lub PFX.
 

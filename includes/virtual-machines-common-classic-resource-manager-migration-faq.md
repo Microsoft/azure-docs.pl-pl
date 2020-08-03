@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 014d1ea4575b17b1d4017c9519bee6c5ea66ceb5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527216"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515296"
 ---
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Co to jest platforma Azure Service Manager i co to znaczy przez klasyczne?
+
+Słowo "klasyczne" w maszynie wirtualnej IaaS (klasyczny) odnosi się do maszyn wirtualnych zarządzanych przez usługę Azure Service Manager (ASM). Azure Service Manager (ASM) to stara płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
+
+## <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
+
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) to najnowsza płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
+
 ## <a name="what-is-the-time-required-for-migration"></a>Jaki jest czas wymagany do migracji?
 
 Planowanie i wykonywanie migracji znacznie zależy od złożoności architektury i może trwać kilka miesięcy.  

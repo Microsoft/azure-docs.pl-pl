@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075713"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503195"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Optymalizowanie transakcji w puli SQL
+# <a name="optimize-transactions-in-sql-pool"></a>Optymalizowanie transakcji w puli SQL
 
 Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL, jednocześnie minimalizując ryzyko długotrwałego wycofywania.
 
@@ -82,7 +82,7 @@ Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklast
 
 Ładowanie danych do niepustej tabeli z indeksem klastrowanym może często zawierać kombinację całkowicie zarejestrowanych i minimalnych zarejestrowanych wierszy. Klastrowany indeks to zrównoważone drzewo (b-Tree) stron. Jeśli strona, w której jest zapisywana, zawiera już wiersze z innej transakcji, te zapisy zostaną w pełni zarejestrowane. Jeśli jednak strona jest pusta, zapis na tej stronie zostanie zapisany w sposób minimalny.
 
-## <a name="optimizing-deletes"></a>Optymalizowanie usunięć
+## <a name="optimize-deletes"></a>Optymalizuj usunięcia
 
 Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optymalizowanie aktualizacji
+## <a name="optimize-updates"></a>Optymalizowanie aktualizacji
 
 Aktualizacja jest w pełni zarejestrowanej operacji.  Jeśli trzeba zaktualizować dużą liczbę wierszy w tabeli lub partycji, często może być dużo bardziej wydajna, aby użyć operacji zarejestrowanej minimalnie, takiej jak [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) .
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > Ponowne utworzenie dużych tabel może skorzystać z używania funkcji zarządzania obciążeniami puli SQL. Aby uzyskać więcej informacji, zobacz [klasy zasobów dla zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="optimizing-with-partition-switching"></a>Optymalizacja przy użyciu przełączania partycji
+## <a name="optimize-with-partition-switching"></a>Optymalizuj z przełączaniem do partycji
 
 Jeśli jest to na przykład w przypadku modyfikacji o dużej skali wewnątrz [partycji tabeli](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), to zrozumiały jest wzorzec przełączania partycji. Jeśli modyfikacja danych jest istotna i obejmuje wiele partycji, a następnie iteracja na partycjach uzyskuje ten sam wynik.
 

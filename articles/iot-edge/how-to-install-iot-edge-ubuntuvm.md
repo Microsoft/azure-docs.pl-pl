@@ -9,16 +9,17 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800566"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494081"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Uruchom Azure IoT Edge na Ubuntu Virtual Machines
 
-Środowisko uruchomieniowe Azure IoT Edge to włączenie urządzenia do urządzenia IoT Edge. Środowisko uruchomieniowe można wdrożyć na urządzeniach jako niewielkich jako Raspberry Pi lub jako serwer przemysłowy. Po skonfigurowaniu urządzenia przy użyciu środowiska uruchomieniowego IoT Edge można rozpocząć wdrażanie logiki biznesowej z poziomu chmury.
+Środowisko uruchomieniowe Azure IoT Edge to włączenie urządzenia do urządzenia IoT Edge. Środowisko uruchomieniowe można wdrożyć na urządzeniach jako niewielkich jako Raspberry Pi lub jako serwer przemysłowy. Po skonfigurowaniu urządzenia przy użyciu środowiska uruchomieniowego usługi IoT Edge można rozpocząć wdrażanie na nim logiki biznesowej z chmury.
 
 Aby dowiedzieć się więcej o tym, jak działa środowisko uruchomieniowe IoT Edge i jakie składniki są uwzględnione, zobacz [Omówienie środowiska uruchomieniowego Azure IoT Edge i jego architektury](iot-edge-runtime.md).
 
@@ -34,12 +35,12 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
 
 1. Wdrażamy Azure IoT Edgeą maszynę wirtualną z systemem Linux przy użyciu szablonu Azure Resource Manager iotedge-VM-Deploy.  Aby rozpocząć, kliknij poniższy przycisk:
 
-    [![Przycisk Wdróż na platformie Azure dla iotedge-VM-Deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Przycisk Wdrażanie na platformie Azure dla szablonu iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. W nowo uruchomionym oknie Wypełnij pola dostępne formularza:
 
     > [!div class="mx-imgBorder"]
-    > [![Zrzut ekranu przedstawiający szablon iotedge-VM-Deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+    > [![Zrzut ekranu przedstawiający szablon iotedge-vm-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **Subskrypcja**: aktywna subskrypcja platformy Azure, w której ma zostać wdrożona maszyna wirtualna.
 
@@ -63,9 +64,9 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
 
     Gdy wypełniono wszystkie pola, zaznacz pole wyboru u dołu strony, aby zaakceptować warunki i wybierz pozycję **Kup** , aby rozpocząć wdrażanie.
 
-1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Zanotuj również powiązaną **nazwę DNS**, która powinna być w formacie `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    **Nazwę DNS** można uzyskać z sekcji **Przegląd** nowo wdrożonej maszyny wirtualnej w ramach Azure Portal.
+    **Nazwa DNS** znajduje się w sekcji **Przegląd** nowo wdrożonej maszyny wirtualnej w witrynie Azure Portal.
 
     > [!div class="mx-imgBorder"]
     > [![Zrzut ekranu przedstawiający nazwę DNS maszyny wirtualnej iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -138,7 +139,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Zanotuj również powiązaną **nazwę DNS**, która powinna być w formacie `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     **Nazwę DNS** można uzyskać z formatu danych wyjściowych w formacie JSON poprzedniego kroku w sekcji dane **wyjściowe** w ramach **publicznego wpisu SSH** .  Wartość tego wpisu może być używana do użycia protokołu SSH w przypadku nowo wdrożonej maszyny.
 

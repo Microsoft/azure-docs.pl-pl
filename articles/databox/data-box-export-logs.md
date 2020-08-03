@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258400"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494489"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówień eksportu
 
@@ -34,7 +34,7 @@ W poniższej tabeli przedstawiono podsumowanie kroków kolejności eksportu urz�
 
 ## <a name="set-up-access-control-on-the-order"></a>Konfigurowanie kontroli dostępu w kolejności
 
-Możesz kontrolować, kto może uzyskiwać dostęp do zamówienia podczas pierwszego tworzenia zamówienia. Skonfiguruj role Access Control oparte na rolach (RBAC) w różnych zakresach, aby kontrolować dostęp do urządzenie Data Box kolejności. Rola RBAC określa typ dostępu — do odczytu i zapisu, tylko do odczytu, do odczytu i zapisu do podzbioru operacji.
+Możesz kontrolować, kto może uzyskiwać dostęp do zamówienia podczas pierwszego tworzenia zamówienia. Skonfiguruj role platformy Azure w różnych zakresach, aby kontrolować dostęp do kolejności urządzenie Data Box. Rola platformy Azure określa typ dostępu — do odczytu i zapisu, tylko do odczytu, do odczytu i zapisu do podzbioru operacji.
 
 Dwie role, które można zdefiniować dla usługi Azure Data Box są następujące:
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się [, jak rozwiązywać problemy dotyczące urządzenie Data Box i Data Box Heavy](data-box-troubleshoot.md).
-
-
-
-

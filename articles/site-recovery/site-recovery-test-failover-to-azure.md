@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699060"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503501"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Uruchamianie testu pracy w trybie failover (do testowania odzyskiwania po awarii) na platformie Azure 
 
@@ -25,7 +25,7 @@ Przeprowadzasz test pracy w trybie failover, aby zweryfikować strategię replik
 ## <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
 W tej procedurze opisano, jak uruchomić test pracy w trybie failover dla planu odzyskiwania. Jeśli chcesz uruchomić test pracy w trybie failover dla pojedynczej maszyny wirtualnej, wykonaj kroki opisane [tutaj](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm) .
 
-![Test pracy w trybie failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Zrzut ekranu strony testowej pracy w trybie failover w Azure Portal.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. W Site Recovery w Azure Portal kliknij kolejno pozycje **plany odzyskiwania**  >  *recoveryplan_name*  >  **test pracy w trybie failover**.
@@ -48,7 +48,7 @@ W tej procedurze opisano, jak uruchomić test pracy w trybie failover dla planu 
 8. W obszarze **uwagi**Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover.
 
 
-![Test pracy w trybie failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Zrzut ekranu przedstawiający kartę zadania testowania pracy w trybie failover.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Po wyzwoleniu testowej pracy w trybie failover następuje:
 

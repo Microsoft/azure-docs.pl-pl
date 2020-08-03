@@ -3,12 +3,13 @@ title: Publikowanie zdarzeń przy użyciu domen zdarzeń z Azure Event Grid
 description: Pokazuje, jak zarządzać dużymi zestawami tematów w Azure Event Grid i publikować zdarzenia do nich za pomocą domen zdarzeń.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460562"
+ms.locfileid: "87502039"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Zarządzanie tematami i publikowanie zdarzeń przy użyciu domen zdarzeń
 
@@ -44,7 +45,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -92,7 +93,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 Poniższe polecenia programu PowerShell są ograniczone `alice@contoso.com` do tworzenia i usuwania subskrypcji zdarzeń tylko w temacie `demotopic1` :
 
 ```azurepowershell-interactive
@@ -122,7 +123,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -188,7 +189,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 Aby uzyskać punkt końcowy domeny za pomocą programu PowerShell, użyj polecenia
 
 ```azurepowershell-interactive

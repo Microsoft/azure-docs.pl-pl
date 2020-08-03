@@ -6,16 +6,16 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 877545eb22331e724520102814ec8a00b2c205e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370822"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503535"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (RBAC)
 
-Kontrola dostępu oparta na rolach (RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC można rozdzielić obowiązki w zespole i udzielić użytkownikom tylko określonych uprawnień dostępu w celu wykonywania określonych zadań.
+Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC można rozdzielić obowiązki w zespole i udzielić użytkownikom tylko określonych uprawnień dostępu w celu wykonywania określonych zadań.
 
 Azure Site Recovery udostępnia 3 wbudowane role do kontrolowania operacji zarządzania Site Recovery. Dowiedz się więcej o [rolach wbudowanych platformy Azure](../role-based-access-control/built-in-roles.md)
 

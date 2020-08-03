@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102873"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507440"
 ---
 ## <a name="benefits-of-managed-disks"></a>Zalety dysków zarządzanych
 
@@ -41,7 +41,7 @@ Aby chronić przed awariami regionalnymi, [Azure Backup](../articles/backup/back
 
 ### <a name="granular-access-control"></a>Szczegółowa kontrola dostępu
 
-Za pomocą [kontroli dostępu opartej na rolach (RBAC) platformy Azure](../articles/role-based-access-control/overview.md) można przypisać określone uprawnienia dla dysku zarządzanego do jednego lub większej liczby użytkowników. W przypadku dysków zarządzanych są dostępne różne operacje, takie jak Odczyt, zapis (Tworzenie/aktualizowanie), usuwanie i pobieranie [identyfikatora URI sygnatury dostępu współdzielonego (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) dla dysku. Można udzielić dostępu tylko do operacji wykonywanych przez osobę. Na przykład, jeśli nie chcesz, aby użytkownik skopiował dysk zarządzany do konta magazynu, możesz zrezygnować z udzielenia dostępu do akcji eksportowania dla tego dysku zarządzanego. Podobnie, jeśli nie chcesz, aby użytkownik korzystał z identyfikatora URI sygnatury dostępu współdzielonego w celu skopiowania dysku zarządzanego, możesz zrezygnować z przyznania tego uprawnienia do dysku zarządzanego.
+Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../articles/role-based-access-control/overview.md) można przypisać określone uprawnienia dla dysku zarządzanego do jednego lub większej liczby użytkowników. W przypadku dysków zarządzanych są dostępne różne operacje, takie jak Odczyt, zapis (Tworzenie/aktualizowanie), usuwanie i pobieranie [identyfikatora URI sygnatury dostępu współdzielonego (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) dla dysku. Można udzielić dostępu tylko do operacji wykonywanych przez osobę. Na przykład, jeśli nie chcesz, aby użytkownik skopiował dysk zarządzany do konta magazynu, możesz zrezygnować z udzielenia dostępu do akcji eksportowania dla tego dysku zarządzanego. Podobnie, jeśli nie chcesz, aby użytkownik korzystał z identyfikatora URI sygnatury dostępu współdzielonego w celu skopiowania dysku zarządzanego, możesz zrezygnować z przyznania tego uprawnienia do dysku zarządzanego.
 
 ### <a name="upload-your-vhd"></a>Przekazywanie wirtualnego dysku twardego
 

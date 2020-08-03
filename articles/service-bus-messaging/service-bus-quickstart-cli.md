@@ -6,13 +6,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-java
-ms.openlocfilehash: 26748b6847ab7061b0038ef9ca18f1b721d320e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: e962047c08dec336ba293aee96eadc0c96d1fc0f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320769"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504470"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Szybki Start: Tworzenie kolejki Service Bus przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty za pomocą usługi Service Bus przy użyciu interfejsu wiersza polecenia Azure oraz biblioteki Java usługi Service Bus. Jeśli interesują Cię inne szczegóły techniczne, możesz [przeczytać wyjaśnienie](#understand-the-sample-code) dotyczące kluczowych elementów przykładowego kodu.
@@ -24,7 +24,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 Jeśli używasz przycisku **Wypróbuj** , aby uruchomić Cloud Shell, zaloguj się do platformy Azure przy użyciu swoich poświadczeń. 
 
 Jeśli Cloud Shell w przeglądarce internetowej zostało uruchomione bezpośrednio lub w Azure Portal, przejdź do **bash** , jeśli w lewym górnym rogu Cloud Shell znajduje się program **PowerShell** . 
@@ -183,7 +183,7 @@ Po utworzeniu przestrzeni nazw i kolejki (i jeśli użytkownik ma wszystkie niez
                                                     Content: [ firstName = Isaac, name = Newton ]
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W usłudze Azure Cloud Shell uruchom następujące polecenie, aby usunąć grupę zasobów, przestrzeń nazw i wszystkie powiązane zasoby:
 

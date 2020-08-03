@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800334"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501818"
 ---
-# <a name="what-is-the-speech-cli"></a>Co to jest interfejs wiersza polecenia mowy?
+# <a name="what-is-the-speech-cli"></a>Co to jest interfejs wiersza polecenia usługi Mowa?
 
 Interfejs wiersza polecenia rozpoznawania mowy to narzędzie do obsługi mowy, które umożliwia korzystanie z usługi Speech bez pisania kodu. Interfejs wiersza polecenia mowy wymaga minimalnej konfiguracji i od razu można zacząć eksperymentować z kluczowymi funkcjami usługi mowy, aby sprawdzić, czy można spełnić przypadki użycia. W ciągu kilku minut można uruchamiać proste testowe przepływy pracy, takie jak przetwarzanie wsadowe mowy — rozpoznawanie z katalogu plików, lub zamiana tekstu na mowę w kolekcji ciągów z pliku. Oprócz prostych przepływów pracy interfejs wiersza polecenia mowy jest gotowy do produkcji i można go skalować w celu uruchomienia większych procesów przy użyciu skryptów zautomatyzowanych `.bat` lub powłoki.
 

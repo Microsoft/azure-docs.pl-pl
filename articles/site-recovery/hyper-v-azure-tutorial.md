@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134094"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504232"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurowanie odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -49,16 +49,16 @@ Jest to trzeci samouczek z tej serii. Przyjęto założenie, że zadania został
 4. W obszarze **gdzie chcesz replikować maszyny?** wybierz pozycję **na platformie Azure**.
 5. W obszarze **czy maszyny są zwirtualizowane?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 6. Czy w programie **System Center VMM jest używany do zarządzania hostami funkcji Hyper-V?** wybierz pozycję **nie**.
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
-    ![Cel replikacji](./media/hyper-v-azure-tutorial/replication-goal.png)
+    ![Zrzut ekranu przedstawiający opcje celu ochrony w temacie Przygotowanie infrastruktury.](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## <a name="confirm-deployment-planning"></a>Potwierdzanie planowania wdrożenia
 
 1. W przypadku **planowania wdrożenia**, jeśli planujesz duże wdrożenie, Pobierz planista wdrażania dla funkcji Hyper-V z linku na stronie. [Dowiedz się więcej](hyper-v-deployment-planner-overview.md) o planowaniu wdrożenia funkcji Hyper-V.
 2. W tym samouczku nie są potrzebne Planista wdrażania. Czy w programie **wykonano Planowanie wdrożenia?** zaznacz opcję **chcę zrobić to później**, a następnie wybierz **przycisk OK**.
 
-    ![Planowanie wdrożenia](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![Zrzut ekranu przedstawiający Opcje planowania wdrożenia w temacie Przygotowanie infrastruktury.](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
@@ -68,17 +68,17 @@ Aby skonfigurować środowisko źródłowe, należy utworzyć lokację funkcji H
 2. W obszarze **przygotowanie źródła**wybierz pozycję **+ Lokacja funkcji Hyper-V**.
 3. W obszarze **Utwórz lokację funkcji Hyper-V**Określ nazwę lokacji. Korzystamy z usługi **ContosoHyperVSite**.
 
-    ![Lokacja funkcji Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
+    ![Zrzut ekranu przedstawiający wybór witryny funkcji Hyper-V w obszarze Przygotowanie infrastruktury.](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
 4. Po utworzeniu lokacji w obszarze **Przygotuj Źródło**  >  **krok 1: Wybierz lokację funkcji Hyper-V**, wybierz utworzoną witrynę.
 5. Wybierz pozycję **+ serwer funkcji Hyper-V**.
 
-    ![Serwer funkcji Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
+    ![Zrzut ekranu przedstawiający wybór serwera funkcji Hyper-V w obszarze Przygotowanie infrastruktury.](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 6. Pobierz Instalatora dla dostawcy Site Recovery Microsoft Azure.
 7. Pobierz klucz rejestracji magazynu. Ten klucz jest wymagany do zainstalowania dostawcy. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
-    ![Pobierz dostawcę i klucz rejestracji](./media/hyper-v-azure-tutorial/download.png)
+    ![Zrzut ekranu przedstawiający opcje pobierania dostawcy i klucza rejestracji.](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### <a name="install-the-provider"></a>Instalowanie dostawcy

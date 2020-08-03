@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281280"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503824"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrowanie serwerów z systemem Windows Server 2008 na platformę Azure
 
@@ -104,7 +104,7 @@ Wykonaj następujące zadania w celu przygotowania subskrypcji platformy Azure i
 5. Określ region platformy Azure. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Aby szybko uzyskać dostęp do magazynu z pulpitu nawigacyjnego, kliknij pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**.
 
-   ![Nowy magazyn](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Zrzut ekranu przedstawiający nowe opcje tworzenia magazynu.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 Nowy magazyn zostanie dodany do sekcji **Pulpit nawigacyjny** w obszarze **Wszystkie zasoby** oraz pojawi się na stronie głównej **Magazyny usługi Recovery Services**.
 
@@ -136,15 +136,15 @@ Zasady zostaną automatycznie skojarzone z serwerem konfiguracji.
 > [!WARNING]
 > Upewnij się, że wartość **WYŁĄCZONE** została określona w ustawieniu częstotliwości wykonywania migawek spójnych na poziomie aplikacji w zasadach replikacji. Podczas replikowania serwerów z systemem Windows Server 2008 obsługiwane są tylko punkty odzyskiwania spójne na poziomie awarii. Określenie jakiejkolwiek innej wartości dla częstotliwości wykonywania migawek spójnych na poziomie aplikacji spowoduje fałszywe alerty przez przełączanie kondycji replikacji serwera w stan krytyczny z powodu braku punktów odzyskiwania spójnych na poziomie aplikacji.
 
-   ![Tworzenie zasad replikacji](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Zrzut ekranu przedstawiający opcje tworzenia zasad replikacji.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Włączanie replikacji
 
 [Włączanie replikacji](physical-azure-disaster-recovery.md#enable-replication) dla migrowanego serwera z systemem Windows Server 2008 z dodatkiem SP2 / Windows Server 2008 R2 z dodatkiem SP1.
    
-   ![Dodawanie serwera fizycznego](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Zrzut ekranu przedstawiający opcje dodawania maszyn fizycznych.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Włączanie replikacji](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Zrzut ekranu przedstawiający opcje włączania replikacji.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Uruchamianie migracji testowej
 
@@ -152,7 +152,7 @@ Możesz przeprowadzić test pracy w trybie failover serwerów replikacji po uko�
 
 Uruchom [testowanie trybu failover](tutorial-dr-drill-azure.md), aby upewnić się, że wszystko działa zgodnie z oczekiwaniami.
 
-   ![Testowanie pracy w trybie failover](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Zrzut ekranu przedstawiający polecenie testowego przełączania do trybu failover.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migracja na platformę Azure
@@ -168,7 +168,7 @@ Uruchom tryb failover dla maszyn, które chcesz migrować.
     - Powoduje zakończenie procesu migracji, zatrzymanie replikacji serwera oraz zatrzymanie naliczania opłat za usługę Site Recovery dla serwera.
     - W tym kroku oczyszczane są dane replikacji. Nie są jednak usuwane migrowane maszyny wirtualne.
 
-   ![Kończenie migracji](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Zrzut ekranu przedstawiający kompletne polecenie migracji.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

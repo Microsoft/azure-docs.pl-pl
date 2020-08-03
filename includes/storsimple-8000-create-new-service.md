@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76020885"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507309"
 ---
 #### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 
@@ -29,7 +29,7 @@ ms.locfileid: "76020885"
 
    2. Wybierz opcję **Subskrypcja** z listy rozwijanej. Subskrypcja jest połączona z kontem rozliczeniowym. To pole nie jest widoczne, jeśli istnieje tylko jedna subskrypcja.
 
-   3. W obszarze **Grupa zasobów** wybierz opcję **użycia istniejącej** grupy lub **utworzenia nowej**. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. W obszarze **Grupa zasobów** wybierz opcję **użycia istniejącej** grupy lub **utworzenia nowej**. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Wypełnij pole **Lokalizacja** dla usługi. Ogólnie rzecz biorąc, wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. Weź także pod uwagę następujące kwestie:
 

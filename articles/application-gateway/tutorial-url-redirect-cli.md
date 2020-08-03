@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: daee09de544e12d07b28d4e88a4847f71bd2e01f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239504"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502719"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Samouczek: tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ Poniższy przykład przedstawia kierowanie ruchu w witrynie, przychodzącego z p
 
 Jeśli chcesz, możesz wykonać kroki tego samouczka przy użyciu [programu Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -284,7 +284,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8080/video/test.htm`,, lub `http://40.121.222.19:8081/images/test.htm`.
+Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak,,, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8080/video/test.htm` lub `http://40.121.222.19:8081/images/test.htm` .
 
 ```azurecli-interactive
 az network public-ip show \
@@ -296,17 +296,17 @@ az network public-ip show \
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Zmień adres URL na http://&lt;IP-address&gt;: 8080/images/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do następującego przykładu:
+Zmień adres URL na http:// &lt; IP-Address &gt; : 8080/images/test.html, zastępując adres IP adresem &lt; IP &gt; i powinien wyglądać podobnie do poniższego przykładu:
 
 ![Testowanie adresu URL obrazów w bramie aplikacji](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Zmień adres URL na http://&lt;IP-address&gt;: 8080/Video/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do następującego przykładu:
+Zmień adres URL na http:// &lt; IP-Address &gt; : 8080/video/test.html, zastępując adres IP adresem &lt; IP &gt; i powinien wyglądać podobnie do poniższego przykładu:
 
 ![Testowanie adresu URL wideo w bramie aplikacji](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Teraz&lt;Zmień adres URL na http://IP-address&gt;: 8081/images/test.htm, zastępując adres IP dla &lt;adresu&gt;IP i powinien zostać wyświetlony ruch przekierowany z powrotem do puli zaplecza obrazów pod adresem IP http://&lt;&gt;: 8080/images.
+Teraz zmień adres URL na http:// &lt; IP-Address &gt; : 8081/images/test.htm, zastępując adres IP adresem &lt; IP &gt; i powinien zostać wyświetlony ruch przekierowany z powrotem do puli zaplecza obrazów pod adresem IP http:// &lt; &gt; : 8080/images.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

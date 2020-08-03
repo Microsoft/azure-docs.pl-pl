@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68782587"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502396"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Przełączanie w tryb failover i ponowne Włączanie ochrony maszyn wirtualnych platformy Azure między regionami
 
@@ -38,7 +38,7 @@ W tym samouczku opisano sposób przełączenia maszyny wirtualnej platformy Azur
 
 1. W obszarze **Replikowane elementy** wybierz maszynę wirtualną, która ma być przełączona w tryb failover, a następnie wybierz pozycję **Tryb failover**
 
-   ![Tryb failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Zrzut ekranu przedstawiający opcje trybu failover dla maszyny wirtualnej.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, do którego przełączenie w tryb failover ma zostać wykonane. Możesz użyć jednej z następujących opcji:
 
@@ -58,16 +58,16 @@ W tym samouczku opisano sposób przełączenia maszyny wirtualnej platformy Azur
 > [!NOTE]
 > Po przełączeniu maszyny wirtualnej w tryb failover, do której dodano dysk po włączeniu replikacji dla maszyny wirtualnej, punkty replikacji będą zawierać dyski dostępne do odzyskania. Na przykład jeśli maszyna wirtualna ma jeden dysk i dodasz nowy, punkty replikacji, które zostały utworzone przed dodaniem dysku, będą wskazywać, że punkt replikacji składa się z "1 z 2 dysków".
 
-![Tryb failover z dodanym dyskiem](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Zrzut ekranu przedstawiający tryb failover z dodanym dyskiem.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Ponowne włączanie ochrony pomocniczej maszyny wirtualnej
 
 Po przełączeniu maszyny wirtualnej w tryb failover należy ponownie włączyć jej ochronę, aby ponownie zreplikować ją do regionu podstawowego.
 
 1. Upewnij się, że maszyna wirtualna jest w stanie **Tryb failover zatwierdzony**, a następnie sprawdź, czy region podstawowy jest dostępny oraz czy możesz utworzyć w nim nowe zasoby i uzyskać do nich dostęp.
-2. W obszarze**zreplikowane elementy** **magazynu** > kliknij prawym przyciskiem myszy maszynę wirtualną, która została przełączona w tryb failover, a następnie wybierz pozycję **Włącz ponownie ochronę**.
+2. W **Vault**obszarze  >  **zreplikowane elementy**magazynu kliknij prawym przyciskiem myszy maszynę wirtualną, która została przełączona w tryb failover, a następnie wybierz pozycję **Włącz ponownie ochronę**.
 
-   ![Kliknięcie prawym przyciskiem myszy w celu ponownego włączenia ochrony](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Zrzut ekranu opcji ponownej ochrony maszyny wirtualnej.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Sprawdź, czy kierunek ochrony, dodatkowy do regionu podstawowego, jest już zaznaczony.
 3. Przejrzyj informacje o **grupie zasobów, sieci, magazynie i zestawach dostępności**. Wszystkie zasoby oznaczone jako nowe są tworzone w ramach operacji ponownego włączania ochrony.

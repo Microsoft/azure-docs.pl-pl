@@ -7,12 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
-ms.openlocfilehash: 1281f5c3355a09659f2f45c4cf944271936f50d8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 73e1067a7d2d1ff9cc9e2086070c9cb9bf7a000a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636375"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504249"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS 
 
@@ -48,7 +49,7 @@ W przypadku kroków rejestracji przy użyciu portalu Otwórz sesję Cloud Shell,
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub nowszego. Uruchom polecenie `Get-Module -ListAvailable Az`, aby określić bieżącą wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli wolisz, możesz zamiast tego użyć konsoli Cloud Shell w sesji programu PowerShell.
 
@@ -92,7 +93,7 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
 
 4. Kliknij przycisk **Utwórz** , aby utworzyć nowe konto NetApp.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Zdefiniuj pewne zmienne, aby można było odwoływać się do nich w pozostałej części przykładów:
 
@@ -175,7 +176,7 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
 
 5. Kliknij przycisk **OK**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Definiowanie nowych zmiennych do użytku w przyszłości
 
@@ -252,7 +253,7 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
       
   ![Określanie protokołu NFS dla przewodnika Szybki Start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Kliknij pozycję **Przegląd + utwórz**.
+5. Kliknij pozycję **Przejrzyj i utwórz**.
 
     ![Przeglądanie i tworzenie okna](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
@@ -261,7 +262,7 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
 
     ![Utworzono wolumin](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Utwórz delegowanie podsieci do "Microsoft. NetApp/Volumes" przy użyciu polecenia [New-AzDelegation](/powershell/module/az.network/new-azdelegation) .
 
@@ -354,7 +355,7 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -380,7 +381,7 @@ Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. 
 
     ![Usuwanie grupy zasobów](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. Akcja usuwania grupy zasobów jest nieodwracalna.  
 

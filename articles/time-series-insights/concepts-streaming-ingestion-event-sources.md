@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: c2a25632942c0c39a20fa0c7f51a1e8937bdd873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059388"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491973"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -27,7 +27,7 @@ Zdarzenia muszą być wysyłane jako zakodowany w formacie UTF-8 kod JSON.
 
 ## <a name="create-or-edit-event-sources"></a>Tworzenie lub edytowanie źródeł zdarzeń
 
-Zasoby źródłowe zdarzeń mogą się znajdować w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Możesz użyć [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [szablonów ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
+Zasoby źródłowe zdarzeń mogą się znajdować w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Możesz użyć [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [szablonów ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
 
 Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series Insights Gen2 odczytuje wszystkie zdarzenia przechowywane obecnie w usłudze IoT lub centrum zdarzeń, rozpoczynając od najstarszego zdarzenia.
 

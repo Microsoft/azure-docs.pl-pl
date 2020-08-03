@@ -3,12 +3,12 @@ title: Korzystanie z centrum zdarzeń w programie Apache Kafka App — Azure Eve
 description: Ten artykuł zawiera informacje na temat obsługi Apache Kafka przez usługę Azure Event Hubs.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002482"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501597"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Korzystanie z Event Hubs platformy Azure z aplikacji Apache Kafka
 Event Hubs udostępnia punkt końcowy Kafka, który może być używany przez istniejące aplikacje oparte na Kafka jako alternatywę dla uruchamiania własnego klastra Kafka. Event Hubs obsługuje [protokół Apache Kafka 1,0 i nowsze](https://kafka.apache.org/documentation/)i współpracuje z istniejącymi aplikacjami Kafka, w tym narzędzia MirrorMaker.  
@@ -65,6 +65,9 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!NOTE]
+> W przypadku korzystania z uwierzytelniania SAS z klientami Kafka ustanowione połączenia nie są rozłączane po ponownym wygenerowaniu klucza SAS. 
 
 #### <a name="samples"></a>Samples 
 **Samouczek** zawierający instrukcje krok po kroku dotyczące tworzenia centrum zdarzeń i uzyskiwania dostępu do niego przy użyciu SAS lub OAuth zawiera temat [Szybki Start: przesyłanie strumieniowe danych za pomocą Event Hubs przy użyciu protokołu Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
