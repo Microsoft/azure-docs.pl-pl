@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: a5aed10927a808d0002f765d493709e0e49483ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 11af10b6ce42a7ed3633a814396da3ac6d836aa0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104813"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87493809"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Konfigurowanie parametrów serwera w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 Można wyświetlić, wyświetlić i zaktualizować parametry konfiguracji dla serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure, narzędzia wiersza poleceń platformy Azure. Podzestaw konfiguracji aparatu jest uwidoczniony na poziomie serwera i można go modyfikować.
