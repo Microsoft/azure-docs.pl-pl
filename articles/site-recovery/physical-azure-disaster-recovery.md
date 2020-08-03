@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130189"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500435"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych serwerów fizycznych
 
@@ -111,7 +111,7 @@ Skonfiguruj serwer konfiguracji, zarejestruj go w magazynie i odnajdź maszyny w
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 5. Pobierz klucz rejestracji magazynu. Jest on potrzebny po uruchomieniu ujednoliconej konfiguracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
-   ![Konfiguracja źródła](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Zrzut ekranu przedstawiający opcje pobrania pliku instalacyjnego i klucza rejestracji.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Rejestrowanie serwera konfiguracji w magazynie
@@ -136,7 +136,6 @@ Uruchom ujednoliconą konfigurację jako administrator lokalny, aby zainstalowa�
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Po zakończeniu rejestracji serwer konfiguracji zostanie wyświetlony na stronie **Ustawienia**  >  **serwery** w magazynie.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurowanie środowiska docelowego
 
@@ -146,7 +145,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 2. Określ docelowy model wdrażania.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
-   ![Środowisko docelowe](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Zrzut ekranu przedstawiający opcje konfigurowania środowiska docelowego.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
@@ -157,7 +156,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ (w godzinach), jak długie jest okno przechowywania dla każdego punktu odzyskiwania. Replikowane maszyny wirtualne można odzyskać do dowolnego punktu w tym oknie. Przechowywanie do 24 godzin jest obsługiwane dla maszyn replikowanych do magazynu w warstwie Premium, zaś do 72 godzin dla magazynu w warstwie Standardowa.
 5. W obszarze **częstotliwość tworzenia migawek**na poziomie aplikacji Określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Kliknij przycisk **OK**, aby utworzyć zasady.
 
-    ![Zasady replikacji](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Zrzut ekranu przedstawiający opcje tworzenia zasad replikacji.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 Zasady zostaną automatycznie skojarzone z serwerem konfiguracji. Domyślnie są też automatycznie tworzone odpowiadające im zasady powrotu po awarii. Na przykład jeśli zasady replikacji są typu **"przedstawiciel"** , zostanie utworzona zasada powrotu po awarii nr **przedstawiciel-zasady-powrót** po awarii. Te zasady są używane wyłącznie po zainicjowaniu powrotu po awarii z platformy Azure.

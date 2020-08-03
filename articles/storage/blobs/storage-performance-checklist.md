@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473933"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495135"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista kontrolna wydajności i skalowalności usługi BLOB Storage
 
@@ -32,9 +32,9 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Tarcze skalowalności |[Czy duża liczba klientów uzyskuje dostęp do pojedynczego obiektu BLOB współbieżnie?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Tarcze skalowalności |[Czy Twoja aplikacja mieści się w celach skalowalności dla pojedynczego obiektu BLOB?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Partycjonowanie |[Czy Twoja Konwencja nazewnictwa została zaprojektowana w celu umożliwienia lepszego równoważenia obciążenia?](#partitioning) |
-| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
-| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
-| &nbsp; |Sieć |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
+| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
+| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
+| &nbsp; |Networking |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
 | &nbsp; |Bezpośredni dostęp klienta |[Czy używasz sygnatur dostępu współdzielonego (SAS) i udostępniania zasobów między źródłami (CORS), aby umożliwić bezpośredni dostęp do usługi Azure Storage?](#sas-and-cors) |
 | &nbsp; |Buforowanie |[Czy aplikacja buforuje dane, które są często używane i rzadko zmieniane?](#reading-data) |
 | &nbsp; |Buforowanie |[Czy aplikacja wsadowa aktualizuje aktualizacje przez buforowanie ich na kliencie, a następnie przekazywanie ich w większych zestawach?](#uploading-data-in-batches) |
@@ -65,7 +65,7 @@ Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zob
 Jeśli zbliżasz się do maksymalnej liczby kont magazynu dozwolonych dla konkretnej kombinacji subskrypcji/regionu, Oceń swój scenariusz i ustal, czy są spełnione następujące warunki:
 
 - Czy używasz kont magazynu do przechowywania dysków niezarządzanych i dodawania tych dysków do maszyn wirtualnych? W tym scenariuszu firma Microsoft zaleca używanie dysków zarządzanych. Skalowanie dysków zarządzanych automatycznie i bez konieczności tworzenia poszczególnych kont magazynu i zarządzania nimi. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md)
-- Czy używasz jednego konta magazynu dla każdego klienta na potrzeby izolacji danych? W tym scenariuszu firma Microsoft zaleca używanie kontenera obiektów BLOB dla każdego klienta, a nie całego konta magazynu. Usługa Azure Storage umożliwia teraz Przypisywanie ról kontroli dostępu opartej na rolach (RBAC) do poszczególnych kontenerów. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](../common/storage-auth-aad-rbac-portal.md).
+- Czy używasz jednego konta magazynu dla każdego klienta na potrzeby izolacji danych? W tym scenariuszu firma Microsoft zaleca używanie kontenera obiektów BLOB dla każdego klienta, a nie całego konta magazynu. Usługa Azure Storage umożliwia teraz Przypisywanie ról platformy Azure dla poszczególnych kontenerów. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](../common/storage-auth-aad-rbac-portal.md).
 - Czy używasz wielu kont magazynu do fragmentu, aby zwiększyć ruch przychodzący, ruch wychodzący, operacje we/wy na sekundę (IOPS) lub pojemność? W tym scenariuszu firma Microsoft zaleca użycie zwiększonych limitów dla kont magazynu w celu zmniejszenia liczby kont magazynu wymaganych do obciążenia, jeśli jest to możliwe. Skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/) , aby zażądać zwiększonych limitów dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie większych kont magazynu](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)o większej skali.
 
 ### <a name="capacity-and-transaction-targets"></a>Pojemność i cele transakcji
@@ -115,7 +115,7 @@ Aby zmniejszyć częstotliwość takich operacji, można wykonać kilka najlepsz
   
 - Aby uzyskać więcej informacji o schemacie partycjonowania używanym w usłudze Azure Storage, zobacz [Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Ograniczenia sieci fizycznej aplikacji mogą mieć znaczący wpływ na wydajność. W poniższych sekcjach opisano niektóre ograniczenia, które mogą napotkać użytkownicy.  
 

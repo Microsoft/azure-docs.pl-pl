@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 0fce972b6b0ceb426ab4b08ab26e664d068af16f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498926"
 ---
-# <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
+# <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark w usłudze Azure Synapse Analytics
 
 Apache Spark jest platformą przetwarzania równoległego, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Apache Spark w usłudze Azure Synapse Analytics jest jednym z implementacji Apache Spark w chmurze firmy Microsoft. Usługa Azure Synapse ułatwia tworzenie i Konfigurowanie puli platformy Spark (wersja zapoznawcza) na platformie Azure. Pule platformy Spark w usłudze Azure Synapse są zgodne z usługą Azure Storage i magazynem Azure Data Lake generacji 2. Do przetwarzania danych przechowywanych na platformie Azure można używać pul platformy Azure Spark.
 
@@ -70,7 +70,7 @@ Pule Spark w usłudze Synapse Analytics umożliwiają korzystanie z następując
 
 Apache Spark zawiera wiele funkcji języka do obsługi przygotowania i przetwarzania dużych ilości danych, dzięki czemu może być bardziej cenne i zużywane przez inne usługi w ramach analizy Synapse. Jest to możliwe za pośrednictwem wielu języków (C#, Scala, PySpark, Spark SQL) i dostarczonych bibliotek do przetwarzania i łączności.
 
-### <a name="machine-learning"></a>Machine Learning
+### <a name="machine-learning"></a>Usługa Machine Learning
 
 Apache Spark to [MLlib](https://spark.apache.org/mllib/), biblioteka uczenia maszynowego oparta na platformie Spark, która może być używana z puli platformy Spark w usłudze Synapse Analytics. Pule Spark w usłudze Synapse Analytics obejmują również Anaconda, dystrybucję języka Python z wieloma pakietami do nauki o danych, w tym uczenia maszynowego. W połączeniu z wbudowaną obsługą notesów masz środowisko do tworzenia aplikacji do uczenia maszynowego.
 

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: f551c934d3d77cd3d6cf80ca060005064bdc4289
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1ef4136e65c2d5c58eff5b63bacd8e3cffe802e3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069213"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500848"
 ---
 # <a name="use-an-azure-cli-sample-script-to-load-balance-traffic-between-highly-available-virtual-machines"></a>Używanie przykładowego skryptu interfejsu wiersza polecenia platformy Azure w celu równoważenia obciążenia ruchu między maszynami wirtualnymi o wysokiej dostępności
 

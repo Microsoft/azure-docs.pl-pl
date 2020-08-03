@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370755"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501342"
 ---
 # <a name="manage-storage-account-access-keys"></a>Zarządzanie kluczami dostępu do konta magazynu
 
@@ -38,7 +39,7 @@ Aby wyświetlić i skopiować klucze dostępu do konta magazynu lub parametry po
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania kluczy dostępu w Azure Portal":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby pobrać klucze dostępu do konta za pomocą programu PowerShell, wywołaj polecenie [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) .
 
@@ -65,7 +66,7 @@ az storage account keys list \
 
 Aby uzyskać dostęp do usługi Azure Storage, możesz użyć jednego z tych dwóch kluczy, ale ogólnie rzecz biorąc, warto użyć pierwszego klucza i zastrzec użycie drugiego klucza w przypadku rotacji kluczy.
 
-Aby wyświetlić lub odczytać klucze dostępu konta, użytkownik musi być administratorem usługi lub musi mieć przypisaną rolę RBAC obejmującą element **Microsoft. Storage/storageAccounts/ListKeys/Action**. Niektóre wbudowane role platformy Azure, które obejmują tę akcję, to role **roli usługi operatora kluczy** **właściciel**, **współautor**i konto magazynu. Aby uzyskać więcej informacji o roli administratora usługi, zobacz [klasyczne role administratora subskrypcji, role RBAC platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Aby uzyskać szczegółowe informacje na temat ról wbudowanych usługi Azure Storage, zobacz sekcję dotyczącą **magazynu** w [rolach wbudowanych platformy Azure dla usługi Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Aby wyświetlić lub odczytać klucze dostępu konta, użytkownik musi być administratorem usługi lub musi mieć przypisaną rolę platformy Azure, która zawiera element **Microsoft. Storage/storageAccounts/ListKeys/Action**. Niektóre wbudowane role platformy Azure, które obejmują tę akcję, to role **roli usługi operatora kluczy** **właściciel**, **współautor**i konto magazynu. Aby uzyskać więcej informacji o roli administratora usługi, zobacz [klasyczne role administratora subskrypcji, role platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Aby uzyskać szczegółowe informacje na temat ról wbudowanych usługi Azure Storage, zobacz sekcję dotyczącą **magazynu** w [rolach wbudowanych platformy Azure dla usługi Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Zarządzanie kluczami dostępu za pomocą Azure Key Vault
 
@@ -94,7 +95,7 @@ Aby obrócić klucze dostępu do konta magazynu w Azure Portal:
 1. Zaktualizuj parametry połączenia w kodzie za pomocą odwołania do nowego podstawowego klucza dostępu.
 1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby obrócić klucze dostępu do konta magazynu za pomocą programu PowerShell:
 
@@ -132,7 +133,7 @@ Aby obrócić klucze dostępu do konta magazynu za pomocą interfejsu wiersza po
 > [!NOTE]
 > Firma Microsoft zaleca używanie tylko jednego z kluczy we wszystkich aplikacjach w tym samym czasie. Jeśli używasz klucza 1 w niektórych miejscach i w innym miejscu niż 2, nie będziesz w stanie obrócić swoich kluczy bez utraty dostępu do aplikacji.
 
-Aby można było obrócić klucze dostępu konta, użytkownik musi być administratorem usługi lub musi mieć przypisaną rolę RBAC obejmującą element **Microsoft. Storage/storageAccounts/regeneratekey/Action**. Niektóre wbudowane role platformy Azure, które obejmują tę akcję, to role **roli usługi operatora kluczy** **właściciel**, **współautor**i konto magazynu. Aby uzyskać więcej informacji o roli administratora usługi, zobacz [klasyczne role administratora subskrypcji, role RBAC platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Aby uzyskać szczegółowe informacje na temat wbudowanych ról platformy Azure dla usługi Azure Storage, zobacz sekcję dotyczącą **magazynu** w [rolach wbudowanych platformy Azure dla usługi Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Aby można było obrócić klucze dostępu konta, użytkownik musi być administratorem usługi lub musi mieć przypisaną rolę platformy Azure, która zawiera element **Microsoft. Storage/storageAccounts/regeneratekey/Action**. Niektóre wbudowane role platformy Azure, które obejmują tę akcję, to role **roli usługi operatora kluczy** **właściciel**, **współautor**i konto magazynu. Aby uzyskać więcej informacji o roli administratora usługi, zobacz [klasyczne role administratora subskrypcji, role platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Aby uzyskać szczegółowe informacje na temat wbudowanych ról platformy Azure dla usługi Azure Storage, zobacz sekcję dotyczącą **magazynu** w [rolach wbudowanych platformy Azure dla usługi Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552637"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500984"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -50,7 +50,7 @@ Na poniższym diagramie przedstawiono wizualizację tego zalecanego przepływu p
 
 ![Diagram koncepcji danych](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Magazynów danych
+## <a name="datastores"></a>Magazyny danych
 
 Azure Machine Learning magazyny danych bezpiecznie przechowują informacje o połączeniu z usługą Azure Storage, dzięki czemu nie trzeba będzie kodu w skryptach. [Zarejestruj i Utwórz magazyn](how-to-access-data.md) danych, aby łatwo nawiązać połączenie z kontem magazynu i uzyskać dostęp do danych w podstawowej usłudze Azure Storage. 
 
@@ -67,14 +67,17 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 
 ## <a name="datasets"></a>Zestawy danych
 
-Azure Machine Learning zestawy danych to odwołania wskazujące na dane w usłudze magazynu. Nie są to kopie danych, więc nie są naliczane żadne dodatkowe koszty związane z magazynem. Aby móc korzystać z danych w magazynie, [Utwórz zestaw danych](how-to-create-register-datasets.md) , który będzie pakować dane do obiektu, który można wywoływać, w celu wykonywania zadań uczenia maszynowego. Zarejestruj zestaw danych w obszarze roboczym, aby udostępnić go i ponownie użyć w różnych eksperymentach bez złożonych danych.
+Azure Machine Learning zestawy danych to odwołania wskazujące na dane w usłudze magazynu. Nie są one kopiami danych, więc nie są naliczane żadne dodatkowe koszty związane z magazynem i integralność oryginalnych źródeł danych nie są zagrożone.
+
+ Aby móc korzystać z danych w magazynie, [Utwórz zestaw danych](how-to-create-register-datasets.md) , który będzie pakować dane do obiektu, który można wywoływać, w celu wykonywania zadań uczenia maszynowego. Zarejestruj zestaw danych w obszarze roboczym, aby udostępnić go i ponownie użyć w różnych eksperymentach bez złożonych danych.
 
 Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych adresów URL, [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/)lub usług Azure Storage za pośrednictwem magazynów danych. Aby utworzyć zestaw danych na podstawie Pandas pamięci Dataframe, Zapisz dane w lokalnym pliku, takim jak Parquet, i Utwórz zestaw danych z tego pliku.  
 
 Obsługujemy 2 typy zestawów danych: 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
++ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
+
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Dodatkowe możliwości zestawów danych można znaleźć w następującej dokumentacji:
 

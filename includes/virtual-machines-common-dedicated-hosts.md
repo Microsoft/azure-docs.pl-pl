@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133885"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386536"
 ---
 ## <a name="limitations"></a>Ograniczenia
 
@@ -53,7 +53,7 @@ Jeśli grupa hostów zostanie przypisana do strefy dostępności, wszystkie masz
 
 Hosta można utworzyć w określonej domenie błędów. Podobnie jak w przypadku maszyn wirtualnych w zestawie skalowania lub zestawie dostępności, hosty w różnych domenach błędów będą umieszczane w różnych stojakach fizycznych w centrum danych. Podczas tworzenia grupy hostów należy określić liczbę domen błędów. Podczas tworzenia hostów w grupie hostów należy przypisać domenę błędów dla każdego hosta. Maszyny wirtualne nie wymagają przypisywania domeny błędów.
 
-Domeny błędów nie są takie same jak kolokacja. Posiadanie tej samej domeny błędów dla dwóch hostów nie oznacza, że są one blisko siebie.
+Domeny błędów nie są takie same jak w przypadku wspólnej lokalizacji. Posiadanie tej samej domeny błędów dla dwóch hostów nie oznacza, że są one blisko siebie.
 
 Domeny błędów są objęte zakresem grupy hostów. Nie należy wprowadzać żadnych założeń między dwiema grupami hostów (chyba że znajdują się w różnych strefach dostępności).
 
@@ -77,7 +77,7 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie aktualizacjami platform pr
 
 Po aprowizacji dedykowanego hosta platforma Azure przypisze ją do serwera fizycznego. Gwarantuje to dostępność pojemności, gdy trzeba zainicjować obsługę administracyjną maszyny wirtualnej. Platforma Azure używa całej pojemności w regionie (lub strefie), aby wybrać serwer fizyczny dla hosta. Oznacza to również, że klienci mogą być w stanie rozwijać dedykowane hosty bez obaw o wykorzystaniu miejsca w klastrze.
 
-## <a name="quotas"></a>Limity przydziału
+## <a name="quotas"></a>Przydziały
 
 Istnieją dwa typy przydziałów, które są używane podczas wdrażania dedykowanego hosta.
 

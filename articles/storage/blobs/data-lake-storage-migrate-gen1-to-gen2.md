@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466021"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496427"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 
@@ -81,7 +81,7 @@ Migrowanie danych, obciążeń i aplikacji przy użyciu preferowanego wzorca. Za
    
 6. Wyszukaj odwołania do identyfikatorów URI, które zawierają ciąg `adl://` w plikach kodu lub notesy datacegły, Apache Hive pliki HQL lub dowolny inny plik używany jako część obciążeń. Zamień te odwołania na [Gen2 sformatowany identyfikator URI](data-lake-storage-introduction-abfs-uri.md) nowego konta magazynu. Na przykład: identyfikator URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` może stać się `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
-7. Skonfiguruj zabezpieczenia na koncie, aby obejmowały [role kontroli dostępu opartej na rolach (RBAC)](../common/storage-auth-aad-rbac-portal.md), [zabezpieczenia na poziomie plików i folderów](data-lake-storage-access-control.md)oraz [zapory i sieci wirtualne usługi Azure Storage](../common/storage-network-security.md).
+7. Skonfiguruj zabezpieczenia na koncie w taki sposób, aby obejmowały [role platformy Azure](../common/storage-auth-aad-rbac-portal.md), [zabezpieczenia na poziomie plików i folderów](data-lake-storage-access-control.md)oraz [zapory i sieci wirtualne usługi Azure Storage](../common/storage-network-security.md).
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>Krok 4: uruchomienie produkcyjne z Gen1 do Gen2
 
@@ -97,7 +97,7 @@ W tej tabeli porównano możliwości Gen1 z Gen2.
 |---|---|---|
 |Organizacja danych|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa plików i folderów|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa kontenera, plików i folderów |
 |Nadmiarowość geograficzna| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Authentication|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usługi](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usługi](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Authentication|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autoryzacja|Zarządzanie — [RBAC](../../role-based-access-control/overview.md)<br>Dane — [listy ACL](data-lake-storage-access-control.md)|Zarządzanie — [RBAC](../../role-based-access-control/overview.md)<br>Dane — [listy ACL](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
 |Szyfrowanie — dane przechowywane w spoczynku|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|
 |Obsługa sieci wirtualnej|[Integracja z siecią wirtualną](../../data-lake-store/data-lake-store-network-security.md)|[Punkty końcowe usługi](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [prywatne punkty końcowe](../common/storage-private-endpoints.md)|
@@ -207,4 +207,3 @@ Jest to najprostszy wzorzec.
 - Dowiedz się więcej na temat różnych części konfigurowania zabezpieczeń dla konta magazynu. Zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](../common/storage-security-guide.md).
 - Zoptymalizuj wydajność Data Lake Store. Zobacz [optymalizacja Azure Data Lake Storage Gen2 pod kątem wydajności](data-lake-storage-performance-tuning-guidance.md)
 - Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi zarządzania Data Lake Store. Zapoznaj się [z najlepszymi rozwiązaniami dotyczącymi używania Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
-

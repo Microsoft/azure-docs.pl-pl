@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371043"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500882"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -33,9 +33,7 @@ Usługa Azure Lighthouse zapewnia większą elastyczność zarządzania zasobami
 
 Zadania zarządzania można wykonywać w odniesieniu do zasobów delegowanych bezpośrednio w portalu lub za pomocą interfejsów API i narzędzi do zarządzania (takich jak interfejs wiersza polecenia platformy Azure i Azure PowerShell). Wszystkie istniejące interfejsy API mogą być używane podczas pracy z delegowanymi zasobami, o ile funkcjonalność jest obsługiwana w przypadku zarządzania między dzierżawcami, a użytkownik ma odpowiednie uprawnienia.
 
-Azure PowerShell [polecenie cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) przedstawia `tenantID` dla każdej subskrypcji, co pozwala określić, czy zwrócona subskrypcja należy do dzierżawy dostawcy usług, czy do zarządzanej dzierżawy klienta.
-
-Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) , wyświetla atrybuty **homeTenantId** i **managedByTenants** .
+Polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) , wyświetla atrybuty **homeTenantId** i **managedByTenants** dla każdej subskrypcji, co pozwala określić, czy zwrócona subskrypcja należy do dzierżawy dostawcy usług, czy do zarządzanej dzierżawy klienta.
 
 > [!TIP]
 > Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
@@ -70,7 +68,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 [Azure Cost Management i rozliczanie](../../cost-management-billing/index.yml):
 
-- Od dzierżawy zarządzającej partnerzy CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów, którzy podlegają planowi Azure. Koszt będzie oparty na stawkach detalicznych i dostępie kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+- Od dzierżawy zarządzającej partnerzy CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów, którzy podlegają planowi Azure. Koszt będzie uzależniony od stawek detalicznych i dostępu do kontroli dostępu opartej na rolach (Azure RBAC) dla partnera klienta.
 
 [Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml):
 

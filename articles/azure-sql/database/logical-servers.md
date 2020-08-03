@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367579"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498093"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Serwer w SQL Database i Azure Synapse:
 - Jest zasobem nadrzędnym dla baz danych, pul elastycznych i magazynów danych
 - Zapewnia przestrzeń nazw dla baz danych, pul elastycznych i bazy danych magazynu danych
 - Jest kontenerem logicznym ze silną semantyką okresu istnienia — usunięcie serwera i usunięcie jego baz danych, pul elastycznych i pul SQK
-- Uczestnictwo w programie [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](/azure/role-based-access-control/overview) — bazy danych, pule elastyczne i baza danych magazynu danych na serwerze dziedziczą prawa dostępu z serwera
+- Uczestnictwo w [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](/azure/role-based-access-control/overview) — bazy danych, pule elastyczne i baza danych magazynu danych na serwerze dziedziczą prawa dostępu z serwera
 - To wysoce uporządkowany element tożsamości baz danych, pul elastycznych i bazy danych magazynu danych na potrzeby zarządzania zasobami platformy Azure (patrz schemat adresu URL dla baz danych i pul)
 - Rozmieszcza zasoby w regionie
 - Udostępnia punkt końcowy połączenia dla dostępu do baz danych (`<serverName>`.database.windows.net)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290668"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501205"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych maszyn wirtualnych VMware
 
@@ -87,7 +87,7 @@ Wszystkie te składniki są instalowane razem na maszynach lokalnych, które są
 1. Zaloguj się do serwera VMware vCenter lub hosta vSphere ESXi przy użyciu klienta VMware vSphere.
 2. W menu **plik** wybierz polecenie **Wdróż szablon OVF** , aby uruchomić **Kreatora wdrażania szablonu OVF**.
 
-     ![Szablon OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Zrzut ekranu przedstawiający polecenie Wdróż szablon OVF w kliencie programu VMWare vSphere.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. Na stronie **Select source** (Wybierz źródło) wprowadź lokalizację pobranego szablonu OVF.
 4. Na stronie **Review details** (Przejrzyj szczegóły) wybierz pozycję **Next** (Dalej).
@@ -153,7 +153,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 1. Wybierz pozycję **Przygotuj**  >  **cel**infrastruktury. Wybierz subskrypcję platformy Azure, której chcesz użyć. Firma Microsoft korzysta z modelu Resource Manager.
 2. Site Recovery sprawdza, czy istnieje co najmniej jedna sieć wirtualna. Powinny one być dostępne po skonfigurowaniu składników Azure zgodnie z [pierwszym samouczkiem](tutorial-prepare-azure.md) z serii.
 
-   ![Karta celu](./media/vmware-azure-tutorial/storage-network.png)
+   ![Zrzut ekranu przedstawiający opcje elementu docelowego przygotowywania infrastruktury >.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
 
@@ -165,7 +165,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 6. W polu **Przechowywanie punktu odzyskiwania** określ czas przechowywania każdego punktu odzyskiwania. Na potrzeby tego samouczka wybierz 72 godziny. Replikowane maszyny wirtualne można odzyskać do dowolnego punktu w oknie przechowywania.
 7. W polu **Częstotliwość wykonywania migawek na poziomie aplikacji** określ, jak często są tworzone migawki na poziomie aplikacji. W tym scenariuszu jest używana wartość domyślna 60 minut. Wybierz pozycję **OK**, aby utworzyć zasady.
 
-   ![Tworzenie zasad replikacji](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Zrzut ekranu przedstawiający opcje tworzenia zasad replikacji.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - Zasady zostaną automatycznie skojarzone z serwerem konfiguracji.
 - Domyślnie są też automatycznie tworzone odpowiadające im zasady powrotu po awarii. Na przykład jeśli zasady replikacji noszą nazwę **rep-policy**, zasady powrotu po awarii będą nosić nazwę **rep-policy-failback**. Te zasady są używane wyłącznie po zainicjowaniu powrotu po awarii z platformy Azure.

@@ -3,12 +3,13 @@ title: Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub do
 description: W tym artykule opisano sposób konfigurowania prywatnych punktów końcowych dla tematów Azure Event Grid lub domen.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7796c4160cbf40a241db901e31cc91edc361b00d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115339"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495288"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
@@ -43,7 +44,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt koń
 
             ![Prywatny punkt końcowy — Strona zasobów](./media/configure-private-endpoints/resource-page.png)
     2. W przypadku wybrania opcji **Połącz z zasobem przy użyciu identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
-        1. Wprowadź identyfikator zasobu. Na przykład: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
+        1. Wprowadź identyfikator zasobu. Przykład: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. W obszarze **zasób**wprowadź **temat** lub **domenę**. 
         3. obowiązkowe Dodaj komunikat żądania. 
         4. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 

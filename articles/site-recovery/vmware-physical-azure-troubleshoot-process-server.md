@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499759"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
 
@@ -91,7 +91,7 @@ Jeśli nie ma pulsu z serwera przetwarzania (kod błędu 806), wykonaj następuj
 
  Początkowe i ciągłe błędy replikacji są często spowodowane problemami z łącznością między maszynami źródłowymi i serwerem przetwarzania albo między serwerem przetwarzania i platformą Azure. Te kroki zostały podsumowane na poniższej ilustracji, a następnie procedury ułatwiające wykonanie tych czynności.
 
-![Rozwiązywanie problemów z łącznością i replikacją](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Schemat blokowy przedstawiający kroki rozwiązywania problemów z łącznością i replikacją.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Krok 4. Weryfikowanie synchronizacji czasu na maszynie źródłowej
@@ -113,7 +113,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 3. Sprawdź, czy połączenie zostało nawiązane pomyślnie.
 
 
-**Połączenia** | **Szczegóły** | **Akcja**
+**Łączność** | **Szczegóły** | **Akcja**
 --- | --- | ---
 **Wybran** | Program Telnet wyświetla pusty ekran, a serwer przetwarzania jest osiągalny. | Nie są wymagane żadne dalsze działania.
 **Niepomyślnych** | Nie można nawiązać połączenia | Upewnij się, że na serwerze przetwarzania jest dozwolony port 9443 dla ruchu przychodzącego. Na przykład jeśli masz sieć obwodową lub podsieć z osłoną. Sprawdź połączenie ponownie.
@@ -170,7 +170,7 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
   2. Wybierz kartę **wydajność** > **Otwórz Monitor zasobów**.
   3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywność sieci**Sprawdź, czy cbengine.exe aktywnie wysyła dużą ilość danych.
 
-       ![Woluminy w ramach procesów z aktywnością sieciową](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Zrzut ekranu przedstawiający dużą liczbę woluminów w ramach procesów z aktywnością sieciową.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Jeśli cbengine.exe nie wysyła dużej ilości danych, wykonaj kroki opisane w poniższych sekcjach.
 
@@ -179,7 +179,7 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
 1. W Monitor zasobów wybierz pozycję **cbengine.exe**.
 2. W obszarze **połączenia protokołu TCP**Sprawdź, czy istnieje łączność z serwerem przetwarzania do usługi Azure Storage.
 
-  ![Łączność między cbengine.exe i adresem URL usługi Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Zrzut ekranu przedstawiający łączność między cbengine.exe i adresem URL usługi Azure Blob Storage.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Sprawdź usługi
 

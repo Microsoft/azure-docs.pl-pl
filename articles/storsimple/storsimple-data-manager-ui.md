@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78933756"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496444"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Zarządzanie usługą StorSimple Data Manager w programie Azure Portal
 
@@ -42,13 +42,13 @@ Wykonaj następujące kroki, aby utworzyć usługę StorSimple Data Manager.
 
    2. Wybierz **subskrypcję** z listy rozwijanej. Subskrypcja jest połączona z kontem rozliczeniowym. To pole jest wypełniane automatycznie (i nie można go wybierać), jeśli masz tylko jedną subskrypcję.
 
-   3. Wybierz istniejącą grupę zasobów lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Wybierz istniejącą grupę zasobów lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Określ **lokalizację** usługi, która przechowuje Twoje konta magazynu i usługę StorSimple Data Manager. Usługa StorSimple Menedżer urządzeń, Usługa Data Manager i skojarzone konto magazynu powinny znajdować się w obsługiwanych regionach.
     
    5. Aby uzyskać link do tej usługi na pulpicie nawigacyjnym, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**.
     
-   6. Kliknij pozycję **Utwórz**.
+   6. Kliknij przycisk **Utwórz**.
 
       ![Tworzenie usługi StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
@@ -131,7 +131,7 @@ Wykonaj następujące kroki, aby utworzyć definicję zadania.
 
     Nowo utworzona Definicja zadania zostanie dodana do listy definicji zadań dla tej usługi.
 
-### <a name="run-the-job-definition"></a>Uruchom definicję zadania
+### <a name="run-the-job-definition"></a>Uruchamianie definicji zadania
 
 Za każdym razem, gdy zachodzi potrzeba przeniesienia danych z StorSimple na konto magazynu określone w definicji zadania, należy je uruchomić. W czasie wykonywania niektóre parametry można określić inaczej. Kroki tego procesu są następujące:
 

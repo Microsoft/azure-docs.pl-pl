@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024028"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500150"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,17 +42,17 @@ Warstwy usług oparte na rdzeń wirtualny są zróżnicowane w zależności od d
 
 | | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
-| **Optymalne zastosowanie** |Wszystko|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
+| **Optymalne zastosowanie** |Wszystkie|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Typ zasobu** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncza baza danych | Wystąpienie zarządzane SQL Database/SQL |
 | **Rozmiar obliczeń**|SQL Database * | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych * | od 1 do 80 rdzeni wirtualnych |
-| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
-| **Typ magazynu** | Wszystko |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Brak | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| **Typ magazynu** | Wszystkie |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar magazynu** | SQL Database *| 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
+| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
 | **Liczba operacji we/wy na sekundę** | Pojedyncza baza danych | 500 operacji we/wy na sekundę z 7000 maksymalną liczbą IOPS | Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia. | 5000 operacji we/wy z maksymalną liczbą IOPS 200 000|
-| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Nie dotyczy | 1375 operacji we/wy na sekundę |
-|**Dostępność**|Wszystko|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
-|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Brak | 1375 operacji we/wy na sekundę |
+|**Dostępność**|Wszystkie|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
+|**Tworzenie kopii zapasowych**|Wszystkie|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 
 \*Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
 
@@ -331,7 +331,7 @@ W przypadku większości problemów z wydajnością, szczególnie tych, które n
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>Jak długo trwa skalowanie w górę i w dół repliki obliczeniowej
 
-Skalowanie obliczeniowe w górę lub w dół powinno trwać 5-10 minut niezależnie od rozmiaru danych.
+Skalowanie obliczeniowe w górę lub w dół zazwyczaj trwa do 2 minut, niezależnie od rozmiaru danych.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Czy moja baza danych jest w trybie offline, gdy trwa skalowanie w górę/w dół
 

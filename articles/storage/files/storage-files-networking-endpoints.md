@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510326"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497770"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
 Azure Files udostępnia dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -62,7 +63,7 @@ Address:  192.168.0.5
 Aliases:  storageaccount.file.core.windows.net
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 Jeśli masz maszynę wirtualną w sieci wirtualnej lub usługa przekazywania DNS została skonfigurowana zgodnie z opisem w temacie [Konfigurowanie przekazywania DNS dla Azure Files](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został prawidłowo skonfigurowany przy użyciu następujących poleceń:
@@ -155,5 +156,5 @@ W przypadku ograniczenia konta magazynu do określonych sieci wirtualnych można
 
 ## <a name="see-also"></a>Zobacz także
 - [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
-- [Konfigurowanie przekazywania DNS dla Azure Files](storage-files-networking-dns.md)
+- [Konfigurowanie przekazywania DNS dla usługi Azure Files](storage-files-networking-dns.md)
 - [Konfigurowanie sieci VPN S2S dla Azure Files](storage-files-configure-s2s-vpn.md)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066344"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495611"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
@@ -24,7 +24,7 @@ Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utw
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utw
 
 ## <a name="foreach-loop"></a>Pętla "foreach"
 
-"Pętla foreach" powtarza jedną lub więcej akcji dla każdego elementu tablicy i działa tylko w tablicach. Iteracje w pętli "foreach" są uruchamiane równolegle. Można jednak uruchamiać iteracje pojedynczo przez skonfigurowanie [sekwencyjnej pętli "foreach"](#sequential-foreach-loop). 
+"Pętla foreach" powtarza jedną lub więcej akcji dla każdego elementu tablicy i działa tylko w tablicach. Poniżej przedstawiono niektóre zagadnienia dotyczące użycia pętli "foreach":
 
-Poniżej przedstawiono niektóre zagadnienia dotyczące użycia pętli "foreach":
+* Domyślnie iteracje w pętli "foreach" są uruchamiane w tym samym czasie lub równolegle. To zachowanie różni [się od automatyzowania w **celu zastosowania do każdej** pętli](/power-automate/apply-to-each) , w której iteracje są uruchamiane pojedynczo lub sekwencyjnie. Można jednak [skonfigurować sekwencyjne iteracje pętli "foreach"](#sequential-foreach-loop). Na przykład jeśli chcesz wstrzymać następną iterację w pętli "foreach" przy użyciu [akcji Opóźnij](../connectors/connectors-native-delay.md), musisz ustawić pętlę, aby uruchamiała się sekwencyjnie.
 
-* W zagnieżdżonych pętlach iteracje są zawsze uruchamiane sekwencyjnie, a nie równolegle. Aby wykonać operacje równolegle dla elementów w pętli zagnieżdżonej, Utwórz i [Wywołaj podrzędną aplikację logiki](../logic-apps/logic-apps-http-endpoint.md).
+  Wyjątkiem zachowania domyślnego są zagnieżdżone pętle, w których iteracje są zawsze uruchamiane sekwencyjnie, a nie równolegle. Aby wykonać operacje równolegle dla elementów w pętli zagnieżdżonej, Utwórz i [Wywołaj podrzędną aplikację logiki](../logic-apps/logic-apps-http-endpoint.md).
 
 * Aby uzyskać przewidywalne wyniki operacji na zmiennych w każdej iteracji pętli, Uruchom te pętle sekwencyjnie. Na przykład gdy zakończona współbieżnie uruchomiona pętla, zwiększanie, zmniejszanie i dołączanie do zmiennych operacji zwraca przewidywalne wyniki. Jednak podczas każdej iteracji w pętli współbieżnie działającej operacje te mogą zwracać nieprzewidywalne wyniki. 
 
@@ -192,7 +192,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
    | Właściwość | Wartość | Opis |
    | -------- | ----- | ----------- |
    | **Nazwa** | Limit | Nazwa zmiennej | 
-   | **Typ** | Integer | Typ danych zmiennej | 
+   | **Typ** | Liczba całkowita | Typ danych zmiennej | 
    | **Wartość** | 0 | Wartość początkowa zmiennej | 
    |||| 
 
@@ -233,7 +233,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
       | Właściwość | Wartość | Opis |
       | -------- | ----- | ----------- | 
       | **Do** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
-      | **Podmiot** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
+      | **Temat** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
       | **Treść** | <*Poczta e-mail — zawartość*> | Określ zawartość wiadomości e-mail, która ma zostać wysłana. Na potrzeby tego przykładu wpisz dowolny tekst. | 
       |||| 
 
@@ -249,7 +249,7 @@ Pętla "until" ma domyślne limity, które przerywają wykonywanie w przypadku w
 
 | Właściwość | Wartość domyślna | Opis | 
 | -------- | ------------- | ----------- | 
-| **Liczba** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
+| **Liczbą** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
 | **Limit czasu** | PT1H | Najwięcej czasu na uruchomienie pętli przed wyjściem z pętli. Wartość domyślna to jedna godzina i jest określona w formacie ISO 8601. <p>Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. | 
 |||| 
 

@@ -9,14 +9,14 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197655"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496410"
 ---
-# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
+# <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
 Synapse połączenia obsługiwane przez program SQL Server z SQL Server Management Studio (SSMS) przy użyciu *uwierzytelniania uniwersalnego Active Directory*. 
 
@@ -84,13 +84,13 @@ Należy zauważyć, że użytkownik `steve@gmail.com` jako gość musi zaznaczy�
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Ograniczenia uwierzytelniania uniwersalnego dla Synapse SQL
 
-- Narzędzie SSMS i sqlpackage. exe są jedynymi narzędziami obecnie włączonymi dla usługi MFA za pomocą uwierzytelniania uniwersalnego Active Directory.
+- Narzędzie SSMS i SqlPackage.exe są jedynymi narzędziami obecnie włączonych dla usługi MFA za pomocą uwierzytelniania uniwersalnego Active Directory.
 - Program SSMS w wersji 17,2 obsługuje współbieżne dostęp użytkowników przy użyciu uwierzytelniania uniwersalnego w ramach usługi MFA. Wersje 17,0 i 17,1, ograniczone logowanie do wystąpienia programu SSMS przy użyciu uwierzytelniania uniwersalnego na pojedynczym koncie Azure Active Directory. Aby zalogować się jako inne konto usługi Azure AD, musisz użyć innego wystąpienia programu SSMS. To ograniczenie jest ograniczone do Active Directory uwierzytelniania uniwersalnego. możesz zalogować się do różnych serwerów przy użyciu uwierzytelniania za pomocą hasła Active Directory, Active Directory uwierzytelniania zintegrowanego lub SQL Server uwierzytelniania).
 - Program SSMS obsługuje uwierzytelnianie uniwersalne Active Directory w przypadku Eksplorator obiektów, edytora zapytań i wizualizacji magazynu zapytań.
 - Program SSMS w wersji 17,2 zapewnia obsługę kreatora DacFx dla bazy danych eksport/Extract/Deploy. Gdy określony użytkownik zostanie uwierzytelniony za pośrednictwem okna dialogowego uwierzytelniania początkowego przy użyciu uwierzytelniania uniwersalnego, Kreator DacFx działa tak samo jak w przypadku wszystkich innych metod uwierzytelniania.
 - Projektant tabel programu SSMS nie obsługuje uwierzytelniania uniwersalnego.
 - Nie ma dodatkowych wymagań dotyczących oprogramowania dla Active Directory uwierzytelniania uniwersalnego, z tą różnicą, że należy użyć obsługiwanej wersji programu SSMS.  
-- Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej udostępnionej wersji biblioteki ADAL. dll 3.13.9. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej ADAL.dll 3.13.9 dostępna wersja udostępniona. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, zobacz artykuł [Connect to Synapse SQL with SQL Server Management Studio](get-started-ssms.md) . 

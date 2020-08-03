@@ -2,28 +2,34 @@
 title: Przegląd specyfikacji szablonu
 description: Opisuje sposób tworzenia specyfikacji szablonu i udostępniania ich innym użytkownikom w organizacji.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47dcf44b35ad5c0b77dd0b88d683071a7f2f4ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097725"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497804"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
-Specyfikacja szablonu to nowy typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, można użyć kontroli dostępu opartej na rolach (RBAC), aby udostępnić specyfikację szablonu. Użytkownicy muszą mieć dostęp do odczytu do specyfikacji szablonu, aby wdrożyć jej szablon, dzięki czemu można udostępnić szablon bez zezwalania innym na jego Modyfikowanie.
+Specyfikacja szablonu to nowy typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, można użyć kontroli dostępu opartej na rolach (RBAC) do udostępniania specyfikacji szablonu.
 
 **Microsoft. resources/templateSpecs** to nowy typ zasobu dla specyfikacji szablonu. Składa się z szablonu głównego i dowolnej liczby połączonych szablonów. Platforma Azure bezpiecznie przechowuje specyfikacje szablonu w grupach zasobów. Specyfikacje szablonu obsługują [przechowywanie wersji](#versioning).
 
 Do wdrożenia specyfikacji szablonu można używać standardowych narzędzi platformy Azure, takich jak PowerShell, interfejs wiersza polecenia platformy Azure, Azure Portal, REST i inne obsługiwane zestawy SDK i klienci. Użyj tych samych poleceń i przekaż te same parametry dla szablonu.
 
-Zaletą korzystania z specyfikacji szablonu jest to, że zespoły w organizacji nie muszą ponownie tworzyć ani kopiować szablonów dla typowych scenariuszy. Tworzysz szablony kanoniczne i udostępniaj je. Szablony zawarte w specyfikacji szablonu powinny być weryfikowane przez administratorów w organizacji, aby przestrzegać wymagań i wskazówek dotyczących organizacji.
-
 > [!NOTE]
 > Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, musisz [zarejestrować się w celu uzyskania listy oczekiwania](https://aka.ms/templateSpecOnboarding).
+
+## <a name="why-use-template-specs"></a>Dlaczego warto używać specyfikacji szablonu?
+
+Jeśli masz obecnie szablony w repozytorium GitHub lub koncie magazynu, będziesz mieć kilka wyzwań podczas próby udostępnienia szablonów i używania ich. Aby użytkownik mógł wdrożyć ten szablon, musi być on lokalny lub adres URL szablonu musi być dostępny publicznie. Aby obejść to ograniczenie, można udostępnić kopie szablonu użytkownikom, którzy muszą je wdrożyć, lub otworzyć dostęp do repozytorium lub konta magazynu. Gdy użytkownicy są właścicielami lokalnych szablonów, te kopie mogą ostatecznie zależeć od oryginalnego szablonu. W przypadku udostępnienia publicznie repozytorium lub konta magazynu możesz zezwolić niektórym użytkownikom na dostęp do tego szablonu.
+
+Zaletą korzystania z specyfikacji szablonów jest możliwość tworzenia szablonów kanonicznych i udostępniania ich zespołom w organizacji. Specyfikacje szablonu są bezpieczne, ponieważ są dostępne do Azure Resource Manager do wdrożenia, ale nie są dostępne dla użytkowników bez uprawnień RBAC. Użytkownicy potrzebują tylko dostępu do odczytu specyfikacji szablonu, aby wdrożyć jej szablon, dzięki czemu można udostępnić szablon bez zezwalania innym osobom na jego Modyfikowanie.
+
+Szablony zawarte w specyfikacji szablonu powinny być weryfikowane przez administratorów w organizacji, aby przestrzegać wymagań i wskazówek dotyczących organizacji.
 
 ## <a name="create-template-spec"></a>Utwórz specyfikację szablonu
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
-ms.openlocfilehash: e32a9053e4ab7cc3618f7b50b7291a660a14e1b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b48aa215b621ab617ef3ff99ce66d972059a4ffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053496"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498760"
 ---
 # <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
 
@@ -114,7 +115,7 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)
 * [Dołączanie magazynu pomocniczego do konta Media Services](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

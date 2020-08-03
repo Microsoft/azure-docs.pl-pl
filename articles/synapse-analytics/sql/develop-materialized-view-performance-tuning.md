@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955067"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495696"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
@@ -36,11 +36,11 @@ Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z mat
 |Definicja widoku                 | Przechowywane w usłudze Azure Data Warehouse.              | Przechowywane w usłudze Azure Data Warehouse.
 |Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzone i przechowywane w usłudze Azure Data Warehouse podczas tworzenia widoku. Zaktualizowano w miarę dodawania danych do tabel bazowych.
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
-|Szybkość pobierania danych widoku z złożonych zapytań     | Opóźnienie                                         | Fast  
+|Szybkość pobierania danych widoku z złożonych zapytań     | Mała                                         | Duża  
 |Dodatkowy magazyn                   | Nie                                           | Tak
 |Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
-## <a name="benefits-of-using-materialized-views"></a>Zalety korzystania z widoków z materiałami
+## <a name="benefits-of-materialized-views"></a>Zalety widoków z materiałami
 
 Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści:
 
@@ -117,7 +117,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
 
 ```sql
 -- Query 1 would benefit from having a materialized view created with this SELECT statement

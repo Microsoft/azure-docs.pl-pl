@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3abd6411197c9e7994e9ae642b07e72a0a24735
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033046"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496291"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,14 +95,21 @@ Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagr
 
 ## <a name="testing-application-fault-resiliency"></a>Testowanie odporności błędów aplikacji
 
-Wysoka dostępność to podstawowa część SQL Database i platformy wystąpienia zarządzanego SQL, która działa w sposób przezroczysty dla aplikacji bazy danych. Jednak firma Microsoft rozpoznaje, że można testować, w jaki sposób automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń byłyby wpływać na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Można wywołać specjalny interfejs API w celu ponownego uruchomienia bazy danych lub puli elastycznej, która spowoduje wyzwolenie pracy w trybie failover. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych lub puli elastycznej.
+Wysoka dostępność to podstawowa część SQL Database i platformy wystąpienia zarządzanego SQL, która działa w sposób przezroczysty dla aplikacji bazy danych. Jednak firma Microsoft rozpoznaje, że można testować, w jaki sposób automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń byłyby wpływać na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych lub puli elastycznej. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych lub puli elastycznej.
 
-Przejście w tryb failover można zainicjować za pomocą interfejsu API REST lub programu PowerShell. W przypadku interfejsu API REST zobacz [tryb failover bazy danych](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) i [tryb failover puli elastycznej](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). W przypadku programu PowerShell zobacz [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) i [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). Wywołania interfejsu API REST można także wykonywać z interfejsu wiersza polecenia platformy Azure przy użyciu poleceń [AZ REST](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) .
+Przejście w tryb failover można zainicjować przy użyciu programu PowerShell, interfejsu API REST lub wiersza polecenia platformy Azure:
+
+|Typ wdrożenia|PowerShell|Interfejs API REST| Interfejs wiersza polecenia platformy Azure|
+|:---|:---|:---|:---|
+|Baza danych|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Wystąpienie zarządzane|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Wystąpienia zarządzane — tryb failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[AZ SQL mi tryb failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+
 
 > [!IMPORTANT]
-> Polecenie przełączenia w tryb failover nie jest obecnie dostępne w warstwie usługi i w przypadku wystąpienia zarządzanego.
+> Polecenie przełączenia w tryb failover nie jest obecnie dostępne w warstwie usługi.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric w przypadku wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia (jak wspomniano wcześniej w dokumencie nie dotyczy jeszcze wystąpienia zarządzanego Azure SQL). Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z wystąpienia SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
 

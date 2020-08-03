@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424413"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498956"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
@@ -30,9 +30,7 @@ Poniższa tabela i grafika zawierają ogólny widok składników służących do
 **Serwery VMware** | Maszyny wirtualne VMware są hostowane na lokalnych serwerach vSphere ESXi. Zalecamy serwer vCenter do zarządzania hostami. | Podczas wdrażania Site Recovery należy dodać serwery VMware do magazynu Recovery Services.
 **Zreplikowane maszyny** | Usługa mobilności jest instalowana na wszystkich zreplikowanych maszynach wirtualnych VMware. | Zalecamy, aby zezwalać na automatyczną instalację z serwera przetwarzania. Alternatywnie możesz zainstalować usługę ręcznie lub użyć zautomatyzowanej metody wdrażania, takiej jak Configuration Manager.
 
-**Architektura VMware–Azure**
-
-![Składniki](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagram przedstawiający relacje architektury replikacji z programu VMware do platformy Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Konfigurowanie wychodzącej łączności sieciowej
 
@@ -48,7 +46,7 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
@@ -71,9 +69,7 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
     - Serwer przetwarzania odbiera dane replikacji, optymalizuje je i szyfruje oraz wysyła do usługi Azure Storage przez port 443 wychodzące.
 5. Dane replikacji są najpierw przechowywane na koncie magazynu pamięci podręcznej na platformie Azure. Te dzienniki są przetwarzane, a dane są przechowywane na dysku zarządzanym platformy Azure (wywoływana jako dysk inicjujący ASR). Na tym dysku są tworzone punkty odzyskiwania.
 
-**Proces replikacji z programu VMware do platformy Azure**
-
-![Proces replikacji](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagram przedstawiający proces replikacji oprogramowania VMware do platformy Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Proces ponownej synchronizacji
 
@@ -108,9 +104,8 @@ Po skonfigurowaniu replikacji i uruchomieniu funkcji drążenia odzyskiwania po 
     - Etap 3. po niepomyślnym zakończeniu obciążeń ponowne włączenie replikacji lokalnych maszyn wirtualnych jest możliwe.
     
  
-**Powrót po awarii programu VMware z platformy Azure**
 
-![Powrót po awarii](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagram przedstawiający powrót po awarii programu VMware z platformy Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

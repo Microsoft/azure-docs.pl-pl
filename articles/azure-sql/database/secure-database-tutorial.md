@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092936"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496920"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Aby dodać użytkownika przy użyciu uwierzytelniania SQL:
 Uwierzytelnianie w usłudze Azure Active Directory wymaga utworzenia użytkowników bazy danych jako użytkowników zawartej bazy danych. Użytkownik zawartej bazy danych jest mapowany na tożsamość w katalogu usługi Azure AD skojarzoną z bazą danych i nie ma danych logowania w bazie danych *master*. Tożsamość usługi Azure AD może być skonfigurowana dla jednego użytkownika lub grupy. Aby uzyskać więcej informacji, zobacz [Contained database users, make your database portable (Użytkownicy zawartej bazy danych — tworzene przenośnej bazy danych)](/sql/relational-databases/security/contained-database-users-making-your-database-portable) i zapoznaj się z [samouczkiem usługi Azure AD](authentication-aad-configure.md) dotyczącym uwierzytelniania przy użyciu usługi Azure AD.
 
 > [!NOTE]
-> Użytkowników bazy danych (z wyjątkiem administratorów) nie można tworzyć za pośrednictwem witryny Azure Portal. Role RBAC platformy Azure nie są stosowane na serwerach SQL, w bazach danych i magazynach danych. Służą wyłącznie do zarządzania zasobami platformy Azure i nie mają zastosowania do uprawnień do bazy danych.
+> Użytkowników bazy danych (z wyjątkiem administratorów) nie można tworzyć za pośrednictwem witryny Azure Portal. Role platformy Azure nie są propagowane do serwerów SQL, baz danych ani magazynów danych. Służą wyłącznie do zarządzania zasobami platformy Azure i nie mają zastosowania do uprawnień do bazy danych.
 >
 > Na przykład osoba o roli *Współautor serwera SQL Server* nie może udzielać dostępu do połączenia z bazą danych lub magazynem danych. Uprawnienia te należy nadać w bazie danych za pomocą instrukcji języka T-SQL.
 
@@ -250,7 +250,7 @@ Aby włączyć zaawansowane zabezpieczenia danych:
 
 1. Na stronie **SQL Server** znajdź sekcję **Zabezpieczenia** i wybierz pozycję **Advanced Data Security**.
 
-   1. Wybierz opcję **WŁĄCZONE** dla pozycji **Advanced Data Security**, aby włączyć tę funkcję. Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz przycisk **Zapisz**.
+   1. Wybierz opcję **WŁĄCZONE** dla pozycji **Advanced Data Security**, aby włączyć tę funkcję. Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz pozycję **Zapisz**.
 
       ![Okienko nawigacji](./media/secure-database-tutorial/threat-settings.png)
 

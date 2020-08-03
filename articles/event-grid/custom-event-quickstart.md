@@ -3,12 +3,13 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych za pomocą Event Grid
 description: Przewodnik Szybki Start służy Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu niestandardowego oraz subskrybowania zdarzeń dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: ecf7e753df4f6fb3de6095ba295a07fd57b458cf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 46341a9cd4f7880333cb2653691328f4969f1fb4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101719"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497379"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 

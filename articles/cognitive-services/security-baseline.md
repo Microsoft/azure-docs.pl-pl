@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375113"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498348"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Podstawa zabezpieczeń platformy Azure dla Cognitive Services
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
-**Wskazówki**: usługa Azure Cognitive Services udostępnia model zabezpieczeń warstwowych. Ten model umożliwia Zabezpieczanie kont Cognitive Services w określonym podzestawie sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta. Można ograniczyć dostęp do zasobów za pomocą filtrowania żądań, zezwalając tylko na żądania pochodzące z określonych adresów IP, zakresów adresów IP lub z listy podsieci w sieciach wirtualnych platformy Azure.
+**Wskazówki**: usługa Azure Cognitive Services udostępnia model zabezpieczeń warstwowych. Ten model umożliwia zabezpieczanie kont usług Cognitive Services w określonym podzestawie sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta. Można ograniczyć dostęp do zasobów za pomocą filtrowania żądań, zezwalając tylko na żądania pochodzące z określonych adresów IP, zakresów adresów IP lub z listy podsieci w sieciach wirtualnych platformy Azure.
 
 Obsługa punktów końcowych sieci wirtualnych i usług dla Cognitive Services jest ograniczona do określonego zestawu regionów.
 
@@ -73,7 +73,7 @@ Należy również pamiętać, że należy wyłączyć głębokie inspekcje pakie
 **Wskazówki**: gdy maszyny wirtualne są wdrażane w tej samej sieci wirtualnej co kontener Cognitive Services platformy Azure, zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla powiązanych zasobów sieciowych z Azure Policy. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. CognitiveServices" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci w pamięci podręcznej platformy Azure dla wystąpień Redis. Możesz również używać wbudowanych definicji zasad, takich jak:
 - Należy włączyć Standard DDoS Protection
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach na platformie Azure (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
 Jeśli używasz Cognitive Services w kontenerze, możesz rozszerzyć wdrożenie kontenera za pomocą wbudowanego rozwiązania zapory aplikacji sieci Web, które filtruje złośliwy ruch i obsługuje kompleksowe szyfrowanie protokołu TLS, utrzymując i bezpieczny punkt końcowy kontenera.
 

@@ -3,12 +3,13 @@ title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337538"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499997"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 

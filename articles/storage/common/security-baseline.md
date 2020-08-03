@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371689"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501376"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -292,7 +292,7 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
-**Wskazówki**: konta usługi Azure Storage i Azure Active Directory mają koncepcję domyślnych lub pustych haseł. Usługa Azure Storage implementuje model kontroli dostępu, który obsługuje funkcję kontroli dostępu opartej na rolach (RBAC) na platformie Azure, a także klucz współużytkowany i sygnatury dostępu współdzielonego (SAS). Charakterystyka klucza współużytkowanego i uwierzytelniania SAS polega na tym, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień. 
+**Wskazówki**: konta usługi Azure Storage i Azure Active Directory mają koncepcję domyślnych lub pustych haseł. Usługa Azure Storage implementuje model kontroli dostępu obsługujący funkcję kontroli dostępu opartej na rolach (RBAC) na platformie Azure oraz klucz współużytkowany i sygnatury dostępu współdzielonego (SAS). Charakterystyka klucza współużytkowanego i uwierzytelniania SAS polega na tym, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień. 
 
 - [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

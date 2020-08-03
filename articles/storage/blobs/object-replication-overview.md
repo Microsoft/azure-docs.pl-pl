@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036985"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495169"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -92,7 +93,7 @@ Włączenie kanału informacyjnego zmiany i przechowywanie wersji obiektów BLOB
 
 Możesz zarejestrować się w celu uzyskania podglądu replikacji obiektów przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Upewnij się, że rejestrujesz się również dla podglądów zmian i wersji zapoznawczych obiektów blob, jeśli jeszcze tego nie zrobiono.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby zarejestrować się w celu korzystania z wersji zapoznawczej przy użyciu programu PowerShell, uruchom następujące polecenia:
 
@@ -127,7 +128,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 Stan żądań rejestracji można sprawdzić przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby sprawdzić stan żądań rejestracji przy użyciu programu PowerShell, uruchom następujące polecenia:
 

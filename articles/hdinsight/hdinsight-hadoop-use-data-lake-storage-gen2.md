@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2a534bd0cb89e837ff2315cb3fb9cfe70ad01f5f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078990"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497651"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight
 
@@ -39,9 +39,9 @@ Utwórz tożsamość zarządzaną przypisaną przez użytkownika, jeśli jeszcze
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu kliknij pozycję **Utwórz zasób**.
 1. W polu wyszukiwania wpisz przypisane przez **użytkownika** , a następnie kliknij pozycję **tożsamość zarządzana przypisana przez użytkownika**.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Wprowadź nazwę tożsamości zarządzanej, wybierz odpowiednią subskrypcję, grupę zasobów i lokalizację.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych w usłudze Azure HDInsight, zobacz [zarządzane tożsamości w usłudze Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -54,14 +54,14 @@ Utwórz konto usługi Azure Data Lake Storage Gen2.
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu kliknij pozycję **Utwórz zasób**.
 1. W polu wyszukiwania wpisz **Storage** i kliknij pozycję **konto magazynu**.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Na ekranie **Tworzenie konta magazynu** :
     1. Wybierz prawidłową subskrypcję i grupę zasobów.
     1. Wprowadź nazwę konta Data Lake Storage Gen2.
     1. Kliknij kartę **Zaawansowane** .
     1. Kliknij pozycję **włączone** obok **hierarchicznej przestrzeni nazw** w obszarze **Data Lake Storage Gen2**.
-    1. Kliknij pozycję **Przegląd + utwórz**.
-    1. Kliknij przycisk **Utwórz**
+    1. Kliknij pozycję **Przejrzyj i utwórz**.
+    1. Kliknij pozycję **Utwórz**
 
 Aby uzyskać więcej informacji na temat innych opcji podczas tworzenia konta magazynu, zobacz [Szybki Start: Tworzenie konta magazynu Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
@@ -159,7 +159,7 @@ Data Lake Storage Gen2 używa modelu kontroli dostępu, który obsługuje zarów
 
 Funkcja RBAC korzysta z przypisań ról w celu efektywnego stosowania zestawów uprawnień dla użytkowników, grup i jednostek usługi dla zasobów platformy Azure. Zazwyczaj te zasoby platformy Azure są ograniczone do zasobów najwyższego poziomu (na przykład kont usługi Azure Storage). W przypadku usługi Azure Storage, a także Data Lake Storage Gen2, ten mechanizm został rozszerzony do zasobu systemu plików.
 
- Aby uzyskać więcej informacji na temat uprawnień do plików za pomocą RBAC, zobacz [Kontrola dostępu oparta na rolach (RBAC) na platformie Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ Aby uzyskać więcej informacji na temat uprawnień do plików za pomocą RBAC, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 Aby uzyskać więcej informacji o uprawnieniach plików z listami ACL, zobacz [listy kontroli dostępu do plików i katalogów](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

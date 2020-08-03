@@ -5,12 +5,13 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 140eb73cdf6d5bb701c08b0dd8d5f85b6f137df6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102087"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497481"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -20,7 +21,7 @@ Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię 
 
 Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Azure Resource Manager templates](overview.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="get-tools"></a>Pobierz narzędzia
 
@@ -34,7 +35,7 @@ Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor J
 
 Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz mieć najnowszą wersję. Instrukcje instalacji znajdują się w temacie:
 
-- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
+- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
@@ -79,7 +80,7 @@ Teraz możesz zacząć uczenie się o szablonach.
 
 Gratulacje, utworzono pierwszy szablon.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure, zaloguj się przy użyciu poświadczeń platformy Azure.
 
@@ -152,7 +153,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
@@ -166,7 +167,7 @@ az deployment group create \
 
 Polecenie wdrożenia zwraca wyniki. Wyszukaj `ProvisioningState` , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Stan aprowizacji wdrożenia programu PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 

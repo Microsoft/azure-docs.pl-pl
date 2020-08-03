@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035829"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495662"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -174,7 +174,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
    3. Przetestuj sekwencję wykonywania kopii zapasowej/przywracania i chronometrażu i wprowadź poprawki, jeśli zachodzi taka potrzeba. Upewnij się, że czasy wykonywania kopii zapasowej są wystarczające. Należy również przetestować działania przywracania i przywracania. Upewnij się, że czasy przywracania znajdują się w RTO umowy SLA wszędzie tam, gdzie RTO korzysta z bazy danych lub procesu przywracania maszyny wirtualnej.
    4. Testowanie funkcjonalności i architektury odzyskiwania między regionami.
 1. Sprawdzanie zabezpieczeń.
-   1. Przetestuj ważność architektury kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Celem jest oddzielenie i ograniczenie dostępu i uprawnień różnych zespołów. Na przykład członkowie zespołu podstawy SAP powinni mieć możliwość wdrażania maszyn wirtualnych i przypisywania dysków z usługi Azure Storage do danej sieci wirtualnej platformy Azure. Jednak zespół podstawy SAP nie powinien mieć możliwości tworzenia własnych sieci wirtualnych ani zmieniać ustawień istniejących sieci wirtualnych. Członkowie zespołu sieci nie powinni mieć możliwości wdrażania maszyn wirtualnych w sieciach wirtualnych, w których są uruchomione maszyny wirtualne aplikacji SAP i DBMS. Ani członkowie tego zespołu mogą zmieniać atrybuty maszyn wirtualnych, a nawet usuwać maszyny wirtualne lub dyski.  
+   1. Przetestuj ważność architektury kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure. Celem jest oddzielenie i ograniczenie dostępu i uprawnień różnych zespołów. Na przykład członkowie zespołu podstawy SAP powinni mieć możliwość wdrażania maszyn wirtualnych i przypisywania dysków z usługi Azure Storage do danej sieci wirtualnej platformy Azure. Jednak zespół podstawy SAP nie powinien mieć możliwości tworzenia własnych sieci wirtualnych ani zmieniać ustawień istniejących sieci wirtualnych. Członkowie zespołu sieci nie powinni mieć możliwości wdrażania maszyn wirtualnych w sieciach wirtualnych, w których są uruchomione maszyny wirtualne aplikacji SAP i DBMS. Ani członkowie tego zespołu mogą zmieniać atrybuty maszyn wirtualnych, a nawet usuwać maszyny wirtualne lub dyski.  
    1.  Sprawdź, czy [sieciowe grupy zabezpieczeń i zasady ASC](../../../virtual-network/security-overview.md) działają zgodnie z oczekiwaniami, i Włącz ochronę chronionych zasobów.
    1.  Upewnij się, że wszystkie zasoby, które muszą być szyfrowane, są szyfrowane. Zdefiniuj i Implementuj procesy w celu tworzenia kopii zapasowych certyfikatów, przechowywania i uzyskiwania dostępu do tych certyfikatów oraz przywracania zaszyfrowanych jednostek.
    1.  Użyj [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) dla dysków systemu operacyjnego, jeśli to możliwe, z punktu widzenia obsługi systemu operacyjnego.

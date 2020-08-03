@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: b36b5b1700df1767ad4323fed72ee05fdb05321f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: mvc, devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290969"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499130"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — interfejs wiersza polecenia platformy Azure
 
@@ -185,7 +185,7 @@ Skopiuj i wklej publiczny adres IP na pasku adresu przeglądarki.
 
 Po odświeżeniu przeglądarki powinna zostać wyświetlona nazwa drugiej maszyny wirtualnej. Oznacza to, że Brama aplikacji została pomyślnie utworzona i może nawiązać połączenie z zapleczem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, użyj `az group delete` polecenia, aby usunąć grupę zasobów. Po usunięciu grupy zasobów należy również usunąć bramę aplikacji i wszystkie powiązane z nią zasoby.
 

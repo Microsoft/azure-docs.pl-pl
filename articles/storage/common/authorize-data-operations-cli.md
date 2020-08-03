@@ -10,12 +10,13 @@ ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1e0b3890c50a476e4c3b3247db435c6032bf9bbc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4f04671283a4888770e29606b6869c832b22e6a3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417305"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499164"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 

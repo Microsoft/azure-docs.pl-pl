@@ -2,14 +2,14 @@
 title: Kontenery bezserwerowe na platformie Azure
 description: Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchamiania wyizolowanych kontenerów na platformie Azure, bez konieczności zarządzania jakimikolwiek maszynami wirtualnymi ani korzystania z orkiestratora wyższego poziomu.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 572557860f5d715d6c708acb640acc24e1dd4a35
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424158"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498688"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
 
@@ -20,6 +20,11 @@ Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scen
 ## <a name="fast-startup-times"></a>Krótki czas uruchamiania
 
 Kontenery oferują znaczące korzyści związane z uruchamianiem w porównaniu do maszyn wirtualnych. Usługa Azure Container Instances umożliwia uruchamianie kontenera na platformie Azure w ciągu kilku sekund bez konieczności aprowizowania maszyn wirtualnych i zarządzania nimi.
+
+Przenoszenie obrazów kontenera systemu Linux lub Windows z usługi Docker Hub, prywatnego [rejestru kontenera platformy Azure](../container-registry/index.yml)lub innego rejestru platformy Docker opartego na chmurze. Azure Container Instances buforuje kilka typowych obrazów podstawowych systemów operacyjnych, pomagając przyspieszyć wdrażanie niestandardowych obrazów aplikacji.
+
+> [!NOTE]
+> Obecnie nie można wdrożyć obrazu z rejestru lokalnego do Azure Container Instances.
 
 ## <a name="container-access"></a>Dostęp do kontenera
 

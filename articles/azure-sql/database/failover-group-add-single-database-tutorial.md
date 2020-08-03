@@ -4,19 +4,19 @@ description: Dodaj bazę danych w Azure SQL Database do grupy autotrybu failover
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045270"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496342"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Samouczek: Dodawanie Azure SQL Database do grupy autotrybu failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następujący
 
 - Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 
@@ -93,7 +93,7 @@ Utwórz grupę trybu failover i Dodaj do niej swoją bazę danych przy użyciu A
 
    ![Dodawanie SQL Database do grupy trybu failover](./media/failover-group-add-single-database-tutorial/add-sqldb-to-failover-group.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover i Dodaj do niej swoją bazę danych przy użyciu programu PowerShell.
 
@@ -230,7 +230,7 @@ Testowanie pracy w trybie failover przy użyciu Azure Portal.
 1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
 1. Wybierz ponownie **tryb failover** , aby powrócić do błędów serwerów do ich oryginalnych ról.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover przy użyciu programu PowerShell.
 
@@ -339,7 +339,7 @@ Usuń grupę zasobów przy użyciu Azure Portal.
 1. Wybierz pozycję **Usuń grupę zasobów** , aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów.
 1. Wpisz nazwę grupy zasobów, `myResourceGroup` w polu tekstowym, a następnie wybierz pozycję **Usuń** , aby usunąć grupę zasobów.  
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Usuń grupę zasobów przy użyciu programu PowerShell.
 
@@ -382,7 +382,7 @@ Ta część samouczka używa następujących poleceń cmdlet interfejsu wiersza 
 
 ## <a name="full-scripts"></a>Pełne skrypty
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add database to a failover group")]
 

@@ -4,16 +4,17 @@ description: Dowiedz się, jak wdrożyć połączony szablon
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 63383f810b6f5643bad9feb86360745cd2f9b000
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80672917"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501137"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Samouczek: wdrażanie połączonego szablonu
 
-W [poprzednich samouczkach](./deployment-tutorial-local-template.md)przedstawiono sposób wdrażania szablonu, który jest przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, możesz przerwać szablon do wielu szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do połączonego szablonu. Gdy główny szablon zostanie wdrożony, wyzwala wdrożenie połączonego szablonu. Dowiesz się również, jak przechowywać i zabezpieczyć połączony szablon przy użyciu tokenu SAS. Ukończenie może potrwać około **12 minut** .
+W [poprzednich samouczkach](./deployment-tutorial-local-template.md)przedstawiono sposób wdrażania szablonu, który jest przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, możesz przerwać szablon do wielu szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do połączonego szablonu. Po wdrożeniu głównego szablonu są wywoływane wdrożenia szablonów połączonych. Dowiesz się również, jak przechowywać i zabezpieczyć połączony szablon przy użyciu tokenu SAS. Ukończenie może potrwać około **12 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +36,7 @@ Następujący szablon jest głównym szablonem.  Wyróżniony obiekt **Microsoft
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Zapisz kopię głównego szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy. JSON. Nie musisz zapisywać kopii połączonego szablonu.  Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
+Zapisz kopię głównego szablonu na komputerze lokalnym z rozszerzeniem JSON, na przykład azuredeploy.json. Nie musisz zapisywać kopii połączonego szablonu.  Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
 
 ## <a name="store-the-linked-template"></a>Zapisz połączony szablon
 
@@ -94,7 +95,7 @@ Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](
 > [!NOTE]
 > W poniższym kodzie interfejsu wiersza polecenia platformy Azure parametr Date-d byłby nieprawidłowym argumentem w macOS. Tak więc macOS użytkownicy, aby dodać 2 godziny do bieżącego czasu w terminalu na macOS, należy użyć-v + 2H.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 
@@ -164,7 +165,7 @@ az deployment group create \
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

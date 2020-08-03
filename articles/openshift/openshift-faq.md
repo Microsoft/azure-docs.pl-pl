@@ -5,13 +5,13 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219234"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497583"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -235,3 +235,7 @@ W przypadku klastrów 3,11 dane nie są szyfrowane na poziomie etcd. Opcja włą
 W przypadku klastrów 4. x dysk platformy Azure (Premium_LRS) jest skonfigurowany jako domyślna Klasa magazynu. Dodatkowe dostawcy magazynu i szczegółowe informacje dotyczące konfiguracji (w tym plik platformy Azure) znajdują się w dokumentacji Red Hat w [magazynie trwałym](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
 W przypadku klastrów 3,11 domyślnie są dostępne dwie klasy magazynu: jeden dla dysku platformy Azure (Premium_LRS) i jeden dla plików platformy Azure.
+
+## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>Czy te dane klienta są przechowywane poza regionem klastra?
+
+Nie. Wszystkie dane utworzone w klastrze ARO są przechowywane w regionie klastra.

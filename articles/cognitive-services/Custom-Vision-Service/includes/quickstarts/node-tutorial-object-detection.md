@@ -3,14 +3,15 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: cc4cd4b099a37ef103e2da79b8c15269008e7423
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0cb31f5470519e33b76c6cad83d7b47972f21381
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837923"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407317"
 ---
-W tym artykule pokazano, jak rozpocząć pracę z zestawem SDK Custom Vision przy użyciu środowiska Node. js w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji Node.js.
+W tym artykule pokazano, jak rozpocząć korzystanie z zestawu SDK Custom Vision z Node.js w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji Node.js.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,7 +26,7 @@ W tym artykule pokazano, jak rozpocząć pracę z zestawem SDK Custom Vision prz
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalowanie zestawu Custom Vision SDK
 
-Aby zainstalować zestawy SDK usługi Custom Vision dla środowiska Node. js w projekcie, uruchom następujące polecenia:
+Aby zainstalować zestawy SDK usługi Custom Vision dla Node.js w projekcie, uruchom następujące polecenia:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training

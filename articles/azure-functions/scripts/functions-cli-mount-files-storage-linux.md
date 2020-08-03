@@ -3,12 +3,13 @@ title: Instalowanie udziału plików w aplikacji funkcji języka Python — inte
 description: Utwórz bezserwerową aplikację funkcji języka Python i zainstaluj istniejący udział plików przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: sample
 ms.date: 03/01/2020
-ms.openlocfilehash: 3d66f84d124b36f1be335c3a2204f21690510ee8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 63ab9ba3219dc600187e73bbf124d62d3f51317a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79086460"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498212"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Instalowanie udziału plików w aplikacji funkcji języka Python przy użyciu interfejsu wiersza polecenia platformy Azure
 
