@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838923"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451333"
 ---
 Ten artykuł zawiera zalecenia dotyczące zabezpieczeń dla usługi Azure Virtual Machines. Postępuj zgodnie z tymi zaleceniami, aby pomóc w spełnieniu obowiązków związanych z zabezpieczeniami opisanymi w naszym modelu dla współdzielonej odpowiedzialności. Zalecenia ułatwią również poprawę ogólnego bezpieczeństwa rozwiązań aplikacji sieci Web. Aby uzyskać więcej informacji na temat tego, co firma Microsoft może spełnić obowiązki dostawcy usług, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -26,7 +26,7 @@ Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to je
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
 | Podczas tworzenia niestandardowych obrazów maszyn wirtualnych należy zastosować najnowsze aktualizacje. | Przed utworzeniem obrazów Zainstaluj najnowsze aktualizacje systemu operacyjnego i dla wszystkich aplikacji, które będą częścią obrazu.  | - |
-| Utrzymuj aktualność maszyn wirtualnych. | [Update Management](../articles/automation/automation-update-management.md) rozwiązanie w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemem Windows i Linux na platformie Azure. | [Tak](../articles/security-center/security-center-apply-system-updates.md) |
+| Utrzymuj aktualność maszyn wirtualnych. | [Update Management](../articles/automation/update-management/update-mgmt-overview.md) rozwiązanie w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemem Windows i Linux na platformie Azure. | [Tak](../articles/security-center/security-center-apply-system-updates.md) |
 | Utwórz kopię zapasową maszyn wirtualnych. | [Azure Backup](../articles/backup/backup-overview.md) pomaga chronić dane aplikacji i ma minimalne koszty operacyjne. Błędy aplikacji mogą uszkodzić dane, a błędy ludzkie mogą wprowadzać usterki do aplikacji. Azure Backup chroni maszyny wirtualne z systemem Windows i Linux. | - |
 | Używaj wielu maszyn wirtualnych w celu uzyskania większej odporności i dostępności. | Jeśli na maszynie wirtualnej są uruchomione aplikacje, które muszą mieć wysoką dostępność, Użyj wielu maszyn wirtualnych lub [zestawów dostępności](../articles/virtual-machines/windows/manage-availability.md). | - |
 | Zastosuj strategię ciągłości działania i odzyskiwania po awarii (BCDR). | Azure Site Recovery umożliwia wybór spośród różnych opcji, które są przeznaczone do obsługi ciągłości biznesowej. Obsługuje inne scenariusze replikacji i trybu failover. Aby uzyskać więcej informacji, zobacz [Informacje o Site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |

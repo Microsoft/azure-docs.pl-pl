@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a03f1d1b1007845c1df516192da22d74705af0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385029"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481737"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Samouczek: Dostosowywanie interfejsu środowiska użytkownika w Azure Active Directory B2C
 
@@ -139,7 +139,7 @@ W tym samouczku zostaną zapisane pliki utworzone na koncie magazynu, dzięki cz
 ## <a name="update-the-user-flow"></a>Aktualizowanie przepływu użytkownika
 
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-2. Wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
+2. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
 3. Wybierz pozycję **układy stron**, a następnie w obszarze **ujednolicone rejestrowanie lub logowanie**kliknij pozycję **tak** , aby **użyć niestandardowej zawartości strony**.
 4. W polu **Identyfikator URI strony niestandardowej**wprowadź identyfikator URI zarejestrowanego wcześniej pliku *custom-ui.html* .
 5. W górnej części strony wybierz pozycję **Zapisz**.

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abc1f1de45fe846f9f50a6a7aa3dae2ed837b52b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495299"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486798"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytania dotyczącego danych z Azure Time Series Insights Gen2
 
@@ -37,7 +37,7 @@ Obsługiwane są następujące podstawowe interfejsy API.
 
 ## <a name="environment-apis"></a>Interfejsy API środowiska
 
-* [Interfejs API środowiska Get](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get)environments: zwraca listę środowisk, do których obiekt wywołujący ma autoryzację dostęp.
+* [Interfejs API środowiska Get](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment)environments: zwraca listę środowisk, do których obiekt wywołujący ma autoryzację dostęp.
 * [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową zdarzenia `$ts` . Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
 * [Pobierz interfejs API schematu zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): zwraca metadane schematu zdarzenia dla danego zakresu wyszukiwania. Ten interfejs API pomaga pobrać wszystkie metadane i właściwości dostępne w schemacie dla danego przedziału wyszukiwania.
 

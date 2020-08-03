@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040269"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480411"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Koncepcje i funkcje lasu zasobów dla Azure Active Directory Domain Services
 
@@ -23,10 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) oferuje środowisko logowan
 
 Chociaż bezpieczeństwo i zapewnia dodatkowe korzyści z zabezpieczeń, niektóre organizacje nie mogą synchronizować tych skrótów haseł użytkowników z usługą Azure AD lub Azure AD DS. Użytkownicy w organizacji mogą nie znać hasła, ponieważ korzystają tylko z uwierzytelniania za pomocą kart inteligentnych. Te ograniczenia uniemożliwiają niektórym organizacjom korzystanie z usługi Azure AD DS w celu podnoszenia i przesunięcia lokalnych aplikacji klasycznych na platformę Azure.
 
-Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
-
-> [!IMPORTANT]
-> Lasy zasobów AD DS platformy Azure nie obsługują obecnie usługi Azure HDInsight ani Azure Files. Domyślne lasy użytkownika platformy Azure AD DS obsługują obie te dodatkowe usługi.
+Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania.
 
 ## <a name="what-are-forests"></a>Co to są lasy?
 
@@ -36,7 +33,7 @@ W domenie zarządzanej AD DS platformy Azure Las zawiera tylko jedną domenę. L
 
 Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio względem domeny zarządzanej, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
 
-W lesie *zasobów* domeny zarządzanej użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu od ich AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z domeną zarządzaną. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+W lesie *zasobów* domeny zarządzanej użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu od ich AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z domeną zarządzaną. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane.
 
 Lasy zasobów zapewniają również możliwość podnoszenia i przenoszenia aplikacji po jednym składniku jednocześnie. Wiele starszych aplikacji lokalnych jest w wielu warstwach, często przy użyciu serwera sieci Web lub frontonu i wielu składników związanych z bazą danych. Te warstwy sprawiają, że trudno jest podnieść i przenieść całą aplikację do chmury w jednym kroku. W przypadku lasów zasobów można podnieść swoją aplikację do chmury w podejściu fazowym, co ułatwia przenoszenie aplikacji na platformę Azure.
 
@@ -116,7 +113,7 @@ Relacje zaufania zapewniają ten mechanizm do weryfikowania żądań uwierzyteln
 
 Aby dowiedzieć się więcej na temat relacji zaufania, zobacz [jak działają relacje zaufania lasów na platformie Azure AD DS?][concepts-trust]
 
-Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
+Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

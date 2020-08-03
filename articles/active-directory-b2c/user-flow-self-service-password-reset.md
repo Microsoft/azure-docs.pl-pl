@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481499"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Konfigurowanie samoobsługowego resetowania haseł dla klientów
 
 Dzięki funkcji samoobsługowego resetowania hasła Klienci, którzy zarejestrowali się do kont lokalnych, mogą samodzielnie resetować swoje hasła. Znacznie zmniejsza to obciążenie personelu pomocy technicznej, zwłaszcza jeśli aplikacja ma miliony klientów regularnie korzystających z nich. Obecnie przy użyciu zweryfikowanego adresu e-mail jest jedyną obsługiwaną metodą odzyskiwania.
 
 > [!NOTE]
-> Ten artykuł ma zastosowanie do funkcji samoobsługowego resetowania hasła używanej w kontekście usługi przepływu użytkowników **logowania** w wersji 1, która używa **konta lokalnego logowania** jako dostawcy tożsamości. Jeśli chcesz w pełni dostosowywalne przepływy użytkownika resetowania haseł wywoływane z poziomu aplikacji, zobacz [ten artykuł](user-flow-overview.md).
+> Ten artykuł ma zastosowanie do samoobsługowego resetowania hasła używanego w kontekście standardowego **logowania w** przepływie użytkownika, który używa **konta lokalnego logowania** jako dostawcy tożsamości. Jeśli chcesz w pełni dostosowywalne przepływy użytkownika resetowania haseł wywoływane z poziomu aplikacji, zobacz [ten artykuł](user-flow-overview.md).
 >
 >
 

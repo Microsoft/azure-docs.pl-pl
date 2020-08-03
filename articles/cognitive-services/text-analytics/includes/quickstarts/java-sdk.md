@@ -10,16 +10,16 @@ ms.date: 07/27/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 6e8e00d7f9f529010cf99ae5a180c1ecb0a74177
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e0edd688fa34033209798603ef15352b42cd9497
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375401"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451252"
 ---
 <a name="HOLTop"></a>
 
-[Dokumentacja](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  źródłowy biblioteki [Pakiet](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Dokumentacja](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  źródłowy biblioteki [Pakiet](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ ms.locfileid: "87375401"
 
 ### <a name="add-the-client-library"></a>Dodawanie biblioteki klienta
 
-Utwórz projekt Maven w preferowanym środowisku IDE lub środowiska deweloperskiego. Następnie Dodaj następujący zależność do pliku *pom.xml* projektu. Możesz znaleźć składnię implementacji [dla innych narzędzi kompilacji w](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) trybie online.
+Utwórz projekt Maven w preferowanym środowisku IDE lub środowiska deweloperskiego. Następnie Dodaj następujący zależność do pliku *pom.xml* projektu. Możesz znaleźć składnię implementacji [dla innych narzędzi kompilacji w](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) trybie online.
 
 ```xml
 <dependencies>

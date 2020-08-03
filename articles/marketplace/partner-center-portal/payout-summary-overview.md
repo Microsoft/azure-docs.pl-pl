@@ -7,21 +7,21 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460392"
+ms.locfileid: "87479816"
 ---
 # <a name="payout-summary-overview"></a>Omówienie podsumowania wypłat
 
 [Podsumowanie wypłaty](./payout-summary.md) zawiera szczegółowe informacje o pieniędzy uzyskanych w firmie Microsoft. Pozwala on również wiedzieć, kiedy otrzymasz płatności i ile będziesz płacić.
 
-Jeśli sprzedajesz oferty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać więcej informacji o płatnościach w portalu Azure Marketplace, zobacz [zasady uczestnictwa w portalu Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) i [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Jeśli sprzedajesz oferty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać więcej informacji o płatnościach w portalu Azure Marketplace, zobacz [zasady uczestnictwa w portalu Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) i [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać [próg płatności](./payment-thresholds-methods-timeframes.md) wynoszący $50. Aby uzyskać szczegółowe informacje na temat progu płatności, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać [próg płatności](./payment-thresholds-methods-timeframes.md) wynoszący $50. Aby uzyskać szczegółowe informacje na temat progu płatności, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Aby wyświetlić szczegóły wypłaty, zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home) i wybierz ikonę wypłaty w prawym górnym rogu ekranu:
 

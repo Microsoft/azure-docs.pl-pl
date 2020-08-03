@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757623"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482587"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Omówienie tokenów w Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ W poniższej tabeli wymieniono oświadczenia, których można oczekiwać w token
 | Skrót kodu | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Skrót kodu zawarty w tokenie identyfikatora tylko wtedy, gdy token jest wystawiany wraz z kodem autoryzacji OAuth 2,0. Skrót kodu może służyć do weryfikowania autentyczności kodu autoryzacji. Aby uzyskać więcej informacji o tym, jak wykonać to sprawdzanie poprawności, zobacz [specyfikację OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Skrót tokenu dostępu | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Skrót tokenu dostępu zawarty w tokenie identyfikatora tylko wtedy, gdy token jest wystawiany wraz z tokenem dostępu OAuth 2,0. Skrót tokenu dostępu może służyć do weryfikowania autentyczności tokenu dostępu. Aby uzyskać więcej informacji o tym, jak wykonać to sprawdzanie poprawności, zobacz [Specyfikacja OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Jednorazow | `nonce` | `12345` | Identyfikator jednorazowy jest strategią używaną do ograniczania ataków metodą powtórzeń tokenu. Aplikacja może określić identyfikator jednorazowy w żądaniu autoryzacji za pomocą `nonce` parametru zapytania. Wartość podaną w żądaniu jest emitowana w niezmienionej postaci tylko w ramach żądania `nonce` tokenu identyfikatora. To zastrzeżenie umożliwia aplikacji zweryfikowanie wartości względem wartości określonej w żądaniu. Twoja aplikacja powinna przeprowadzić tę weryfikację podczas procesu weryfikacji tokenu identyfikatora. |
-| Podmiot | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu. Domyślnie, zgłoszenie podmiotu jest wypełniane IDENTYFIKATORem obiektu użytkownika w katalogu. |
+| Temat | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu. Domyślnie, zgłoszenie podmiotu jest wypełniane IDENTYFIKATORem obiektu użytkownika w katalogu. |
 | Odwołanie do klasy kontekstu uwierzytelniania | `acr` | Nie dotyczy | Używany tylko ze starszymi zasadami. |
 | Zasady dotyczące struktury zaufania | `tfp` | `b2c_1_signupsignin1` | Nazwa zasad, która została użyta w celu uzyskania tokenu identyfikatora. |
 | Czas uwierzytelniania | `auth_time` | `1438535543` | Godzina, o której ostatnio wprowadzono poświadczenia, reprezentowane w czasie epoki. Nie ma żadnej dyskryminacji między tym uwierzytelnianiem, czyli sesją logowania jednokrotnego (SSO) lub innym typem logowania. `auth_time`Jest to godzina ostatniego zainicjowania przez aplikację (lub użytkownika) próby uwierzytelnienia w odniesieniu do Azure AD B2C. Metoda używana do uwierzytelniania nie jest rozróżniana. |
@@ -97,7 +97,7 @@ Do [zarządzania zgodnością tokenów](configure-tokens.md)służą następują
 
 ## <a name="pass-through"></a>Przekazywanie
 
-Po rozpoczęciu podróży użytkownika Azure AD B2C otrzymuje token dostępu od dostawcy tożsamości. Azure AD B2C używa tego tokenu do pobierania informacji o użytkowniku. Możesz [włączyć w przepływie użytkownika](idp-pass-through-user-flow.md) lub [zdefiniować w zasadach niestandardowych](idp-pass-through-custom.md) zastrzeżenie dotyczące przekazywania tokenu do aplikacji rejestrowanych w Azure AD B2C. Aby skorzystać z przekazywania tokenu jako żądania, aplikacja musi używać [przepływu użytkownika w wersji 2](user-flow-versions.md) .
+Po rozpoczęciu podróży użytkownika Azure AD B2C otrzymuje token dostępu od dostawcy tożsamości. Azure AD B2C używa tego tokenu do pobierania informacji o użytkowniku. Możesz [włączyć w przepływie użytkownika](idp-pass-through-user-flow.md) lub [zdefiniować w zasadach niestandardowych](idp-pass-through-custom.md) zastrzeżenie dotyczące przekazywania tokenu do aplikacji rejestrowanych w Azure AD B2C. Aby skorzystać z przekazywania tokenu jako żądania, aplikacja musi używać [zalecanego przepływu użytkownika](user-flow-versions.md) .
 
 Azure AD B2C obecnie obsługuje tylko przekazywanie tokenu dostępu dla dostawców tożsamości OAuth 2,0, w tym Facebook i Google. W przypadku wszystkich innych dostawców tożsamości, zgłoszenie jest zwracane puste.
 

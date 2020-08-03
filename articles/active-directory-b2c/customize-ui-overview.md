@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116438"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486741"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -188,7 +188,7 @@ Po skonfigurowaniu znakowania firmowego włącz je w przepływach użytkownika.
 
 1. W menu po lewej stronie Azure Portal wybierz pozycję **Azure AD B2C**.
 1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**.
-1. Wybierz przepływ użytkownika, dla którego chcesz włączyć znakowanie firmowe. Znakowanie firmowe **nie jest obsługiwane** w przypadku *logowania w wersji 1* i profilu Edytowanie typów przepływów użytkownika w *wersji 1* .
+1. Wybierz przepływ użytkownika, dla którego chcesz włączyć znakowanie firmowe. Znakowanie firmowe **nie jest obsługiwane** w przypadku standardowych typów przepływów *użytkowników* *logowania* standardowego i standardowego.
 1. W obszarze **Dostosowywanie**wybierz pozycję **układy stron**, a następnie wybierz układ, który chcesz oznaczyć marką. Na przykład wybierz pozycję **ujednolicone rejestrowanie lub strona logowania**.
 1. W polu **wersja układu strony (wersja zapoznawcza)** wybierz pozycję wersja **1.2.0** lub nowsza.
 1. Wybierz pozycję **Zapisz**.

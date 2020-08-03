@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ae431d27af4a1717a32e348ba852f9b2b9fe9331
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226409"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451079"
 ---
 | Zasób | Standardowe udziały plików | Udziały plików w warstwie Premium |
 |----------|---------------|------------------------------------------|
 | Minimalny rozmiar udziału plików | Brak wartości minimalnej; płatność zgodnie z rzeczywistym użyciem | 100 GiB; aprowizowane |
 | Maksymalny rozmiar udziału plików | 100 TiB *, 5 TiB | 100 TiB |
-| Maksymalny rozmiar pliku w udziale plików | 1 TiB | 1 TiB |
+| Maksymalny rozmiar pliku w udziale plików | 1 TiB | 4 TiB |
 | Maksymalna liczba plików w udziale plików | Bez ograniczeń | Bez ograniczeń |
 | Maksymalna liczba operacji we/wy na udział | 10 000 IOPS *, 1 000 OPERACJI WE/WY | LICZBA OPERACJI WE/WY 100 000 |
 | Maksymalna liczba przechowywanych zasad dostępu na udział plików | 5 | 5 |

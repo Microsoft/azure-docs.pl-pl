@@ -3,12 +3,12 @@ title: Odwołanie YAML — ACR zadań
 description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, takich jak właściwości zadania, typy kroków, właściwości kroku i wbudowane zmienne.
 ms.topic: article
 ms.date: 07/08/2020
-ms.openlocfilehash: 1d680fd8512ec96fa4fb5762e4a3552e5e2e4dd3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4710afe0d10a81f2a84437a335d3a012f3bac326
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446925"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479782"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
 
@@ -81,8 +81,8 @@ Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i s�
 | `stepTimeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać uruchomiony. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `timeout` Właściwość wszystkich kroków. Jeśli `timeout` Właściwość jest określona w kroku, zastępuje właściwość dostarczoną przez zadanie. | Tak | 600 (10 minut) |
 | `workingDirectory` | ciąg | Tak | Katalog roboczy kontenera w czasie wykonywania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `workingDirectory` Właściwość wszystkich kroków. Jeśli określono w kroku, zastępuje on Właściwość dostarczoną przez zadanie. | Tak | `/workspace` |
 | `env` | [ciąg, String,...] | Tak |  Tablica ciągów w `key=value` formacie, która definiuje zmienne środowiskowe dla zadania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `env` Właściwość wszystkich kroków. Jeśli jest określony w kroku, zastępuje wszystkie zmienne środowiskowe dziedziczone z zadania. | Tak | Brak |
-| `secrets` | [Secret, Secret,...] | Tak | Tablica obiektów [tajnych](#secret) . Nie | Brak |
-| `networks` | [Sieć, Sieć,...] | Tak | Tablica obiektów [sieciowych](#network) . Nie | Brak |
+| `secrets` | [Secret, Secret,...] | Tak | Tablica obiektów [tajnych](#secret) . | Nie | Brak |
+| `networks` | [Sieć, Sieć,...] | Tak | Tablica obiektów [sieciowych](#network) . | Nie | Brak |
 | `volumes` | [wolumin, wolumin,...] | Tak | Tablica obiektów [woluminu](#volume) . Określa woluminy z zawartością źródłową do zainstalowania w kroku. | Nie | Brak |
 
 ### <a name="secret"></a>wpis tajny

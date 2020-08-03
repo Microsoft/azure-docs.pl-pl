@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285462"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486446"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -136,7 +136,7 @@ Aby rozwiązać ten problem:
     ```
 1. Upewnij się, że masz zainstalowane następujące rozszerzenia. W przypadku publikacji tego artykułu rozszerzenia i ich wersje są następujące:
 
-    | Rozszerzenie | Wersja |
+    | Wewnętrzny | Wersja |
     |---|---|
     |azure-cli   |      2.5.1|
     |Moduły Command-nspkg         |   2.0.3|
@@ -234,7 +234,7 @@ Analiza wideo na żywo za pośrednictwem procesora rozszerzeń HTTP może rozsze
 
     ![Zrzut ekranu przedstawiający stan uruchomienia modułów w usłudze Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Sprawdź, czy są wysyłane zdarzenia do prawidłowego punktu końcowego adresu URL. Zewnętrzny kontener AI udostępnia adres URL i port, za pośrednictwem którego odbiera i zwraca dane z żądań POST. Ten adres URL jest określony jako `endpoint: url` Właściwość procesora rozszerzenia http. Jak widać w [adresie URL topologii](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), punkt końcowy jest ustawiony na parametr adresu URL inferencing. Upewnij się, że wartość domyślna [parametru](http://yolov3/score) lub wartości przekazywania jest dokładna. Możesz sprawdzić, czy działa on przy użyciu adresu URL klienta (zwinięcie).  
+* Sprawdź, czy są wysyłane zdarzenia do prawidłowego punktu końcowego adresu URL. Zewnętrzny kontener AI udostępnia adres URL i port, za pośrednictwem którego odbiera i zwraca dane z żądań POST. Ten adres URL jest określony jako `endpoint: url` Właściwość procesora rozszerzenia http. Jak widać w [adresie URL topologii](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), punkt końcowy jest ustawiony na parametr adresu URL inferencing. Upewnij się, że wartość domyślna parametru lub wartości przekazywania jest dokładna. Możesz sprawdzić, czy działa on przy użyciu adresu URL klienta (zwinięcie).  
 
     Na przykład poniżej znajduje się kontener Yolo v3, który jest uruchomiony na komputerze lokalnym z adresem IP 172.17.0.3. Użyj inspekcji platformy Docker, aby znaleźć adres IP.
 

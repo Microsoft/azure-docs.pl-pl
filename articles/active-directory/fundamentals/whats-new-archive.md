@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111453b30a0c2fd7c0b2a2077b31b2cf16ebda06
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445664"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483913"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -3407,7 +3407,7 @@ Korzystając z publicznej wersji zapoznawczej programu Azure AD Privileged Ident
 
 * Używaj wystarczającej ilości miejsca do administrowania.
 * Wymagaj zatwierdzenia w celu aktywowania ról zasobów.
-* Zaplanuj przyszłą aktywację roli wymagającą zatwierdzenia dla ról usługi Azure AD i kontroli RBAC platformy Azure.
+* Zaplanuj przyszłą aktywację roli wymagającą zatwierdzenia zarówno dla ról usługi Azure AD, jak i platformy Azure.
 
 Aby uzyskać więcej informacji, zobacz [Privileged Identity Management dla zasobów platformy Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385420"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482842"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
 
@@ -60,7 +60,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2C przepływów użytkownika. Wymagany jest również identyfikator URI punktu końcowego wystawcy tokenów, który ma być obsługiwany na platformie Azure API Management.
 
 1. Przejdź do dzierżawy Azure AD B2C w [Azure Portal](https://portal.azure.com).
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**.
+1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
 1. Wybierz istniejące zasady, na przykład *B2C_1_signupsignin1*, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
 1. Zapisz adres URL w hiperłączu wyświetlanym w nagłówku przebiegu **użytkownika** w górnej części strony. Ten adres URL jest dobrze znanym punktem końcowym wykrywania OpenID Connect Connect dla przepływu użytkownika i jest używany w następnej sekcji podczas konfigurowania zasad ruchu przychodzącego w usłudze Azure API Management.
 
@@ -73,7 +73,7 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -126,7 +126,7 @@ Aby wywołać interfejs API, wymagany jest token dostępu wystawiony przez Azure
 Najpierw musisz mieć token wystawiony przez Azure AD B2C do użycia w `Authorization` nagłówku w programie Poster. Możesz uzyskać jeden z nich, korzystając z funkcji **Uruchom teraz** przepływu użytkownika tworzenia konta/logowania, który powinien zostać utworzony jako jedno z wymagań wstępnych.
 
 1. Przejdź do dzierżawy Azure AD B2C w [Azure Portal](https://portal.azure.com).
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**.
+1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
 1. Wybierz istniejący przepływ użytkownika rejestracji/logowania, na przykład *B2C_1_signupsignin1*.
 1. W przypadku **aplikacji**wybierz pozycję *webapp1*.
 1. Dla **adresu URL odpowiedzi**wybierz opcję `https://jwt.ms` .
@@ -154,7 +154,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

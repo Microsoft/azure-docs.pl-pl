@@ -1,5 +1,6 @@
 ---
 title: Przepływy użytkownika w Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Dowiedz się więcej o rozszerzalnym środowisku zasad Azure Active Directory B2C i sposobach tworzenia różnych przepływów użytkowników.
 services: active-directory-b2c
 author: msmimart
@@ -7,24 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc0e297ca16bf2605993e36942de9d31c331680
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115851"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481601"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w Azure Active Directory B2C
 
-Rozszerzalna struktura zasad Azure Active Directory B2C (Azure AD B2C) jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie **przepływy użytkownika**.
-
-## <a name="what-are-user-flows"></a>Co to są przepływy użytkowników?
-
-Przepływ użytkownika umożliwia kontrolowanie zachowań w aplikacjach przez skonfigurowanie następujących ustawień:
+Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami dla aplikacji, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie **przepływy użytkownika**. Przepływ użytkownika umożliwia określenie sposobu, w jaki użytkownicy korzystają z aplikacji, gdy wykonują takie czynności jak logowanie, tworzenie konta, edytowanie profilu lub Resetowanie hasła. W przypadku przepływów użytkowników można kontrolować następujące możliwości:
 
 - Typy kont używane do logowania, takie jak konta społecznościowe, takie jak konta w serwisie Facebook lub konto lokalne
 - Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy i rozmiar butów
@@ -62,13 +59,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Wersje przepływu użytkownika
 
-W Azure Portal nowe [wersje przepływów użytkowników](user-flow-versions.md) są dodawane przez cały czas. Po rozpoczęciu pracy z Azure AD B2C przetestowane przepływy użytkowników są zalecane do użycia. Podczas tworzenia nowego przepływu użytkownika należy wybrać wymagany przepływ użytkownika z karty **zalecane** .
+Azure AD B2C obejmuje kilka typów przepływów użytkownika:
 
-Obecnie zalecane są następujące przepływy użytkowników:
-
-- **Rejestracja i logowanie** — obsługuje zarówno środowisko rejestracji, jak i logowania przy użyciu jednej konfiguracji. Użytkownicy są w stanie wyprowadzić właściwą ścieżkę w zależności od kontekstu. Zaleca się użycie tego przepływu użytkownika w przepływie użytkownika podczas **rejestrowania** lub w przepływie użytkownika **logowania** .
+- **Rejestracja i logowanie** — obsługuje zarówno środowisko rejestracji, jak i logowania przy użyciu jednej konfiguracji. Użytkownicy są w stanie wyprowadzić właściwą ścieżkę w zależności od kontekstu. Uwzględniono również oddzielne przepływy **rejestracji** lub **użytkowników logujących się.** Zwykle zalecamy łączenie się z przepływem użytkowników i logowaniem.
 - **Edytowanie profilów** — umożliwia użytkownikom edytowanie informacji o profilu.
 - **Resetowanie hasła** — pozwala określić, czy i jak użytkownicy mogą resetować swoje hasła.
+
+Większość typów przepływów użytkownika ma zarówno **zalecaną** wersję, jak i wersję **standardową** . Aby uzyskać szczegółowe informacje, zobacz [wersje przepływu użytkownika](user-flow-versions.md).
+
+> [!IMPORTANT]
+> Jeśli pracujesz z przepływami użytkowników w Azure AD B2C wcześniej, zobaczysz, że został zmieniony sposób odniesienia do wersji przepływu użytkownika. Wcześniej oferujemy wersje V1 (produkcyjne gotowe) i wersje 1.1 i v2 (wersja zapoznawcza). Teraz zostały skonsolidowane przepływy użytkowników w dwie wersje:
+>
+>- **Zalecane** przepływy użytkowników to nowe wersje zapoznawcze przepływów użytkowników. Są one dokładnie przetestowane i łączą wszystkie funkcje starszych wersji **v2** i **1.1** . W przód nowe zalecane przepływy użytkowników zostaną utrzymane i zaktualizowane. Po przejściu do tych nowych zalecanych przepływów użytkowników będziesz mieć dostęp do nowych funkcji po ich udostępnieniu.
+>- **Standardowe** przepływy użytkowników, znane wcześniej jako **V1**, są ogólnie dostępne, gotowe do użycia w środowisku produkcyjnym. Jeśli przepływ użytkownika jest krytyczny i zależy od wysoce stabilnych wersji, można nadal używać standardowych przepływów użytkowników, w przypadku których te wersje nie będą przechowywane i aktualizowane.
+>
+>Wszystkie starsze przepływy użytkowników w wersji zapoznawczej (wersja 1.1 i v2) znajdują się na ścieżce do wycofania od **1 sierpnia 2021**. O ile to możliwe, zdecydowanie zalecamy [przełączenie do nowych **zalecanych** przepływów użytkownika](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) najszybciej, jak to możliwe, aby zawsze korzystać z najnowszych funkcji i aktualizacji.
 
 ## <a name="linking-user-flows"></a>Łączenie przepływów użytkowników
 

@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046874"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483556"
 ---
-# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
+# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Dostęp do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
 W tym dokumencie opisano, jak użytkownik może odczytywać dane z plików przechowywanych w usłudze Azure Storage w programie Synapse SQL (na żądanie). Użytkownicy mają następujące opcje dostępu do magazynu:
 
@@ -59,7 +59,7 @@ Jeśli nie ma poświadczeń na poziomie serwera pasujących do adresu URL lub u�
 > [!NOTE]
 > Ta wersja usługi OPENROWSET została zaprojektowana z myślą o szybkiej i łatwej eksploracji danych przy użyciu domyślnego uwierzytelniania. Aby wykorzystać personifikację lub tożsamość zarządzaną, użyj funkcji OPENROWSET ze źródłem danych opisanym w następnej sekcji.
 
-### <a name="querying-data-sources-using-openrowset"></a>Wykonywanie zapytań względem źródeł danych przy użyciu funkcji OPENROWSET
+### <a name="query-data-sources-using-openrowset"></a>Tworzenie zapytań o źródła danych przy użyciu funkcji OPENROWSET
 
 Funkcja OPENROWSET umożliwia użytkownikowi wykonywanie zapytań dotyczących plików umieszczonych w niezależnym zewnętrznym źródle danych:
 
@@ -91,7 +91,7 @@ Obiekt wywołujący musi mieć jedno z następujących uprawnień, aby wykonać 
   - `ADMINISTER DATABASE BULK OPERATIONS`umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
 - Odwołuje się do poświadczenia w zakresie bazy danych do poświadczeń, do których odwołuje się zewnętrzne źródło danych
 
-#### <a name="accessing-anonymous-data-sources"></a>Uzyskiwanie dostępu do anonimowych źródeł danych
+#### <a name="access-anonymous-data-sources"></a>Dostęp do anonimowych źródeł danych
 
 Użytkownik może utworzyć zewnętrzne źródło danych bez poświadczeń, które odwołują się do magazynu dostępu publicznego lub uwierzytelniania przy użyciu usługi Azure AD Passthrough:
 
@@ -132,7 +132,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 Poświadczenie o zakresie bazy danych określa, jak uzyskać dostęp do plików w źródle danych, którego dotyczy odwołanie.
 
-### <a name="reading-external-files-with-external-table"></a>Odczytywanie zewnętrznych plików z TABELą ZEWNĘTRZną
+### <a name="read-external-files-with-external-table"></a>Odczytaj pliki zewnętrzne z TABELą ZEWNĘTRZną
 
 TABELA zewnętrzna umożliwia odczytywanie danych z plików, do których odwołuje się źródło danych za pomocą standardowej instrukcji SELECT języka SQL:
 

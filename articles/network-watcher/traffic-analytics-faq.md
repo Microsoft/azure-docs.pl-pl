@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165332"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479850"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -36,7 +36,7 @@ Analiza ruchu wymaga następujących wstępnie wymaganych elementów:
 
 Aby możliwe było włączenie analizy ruchu, Twoje konto musi spełniać następujące warunki:
 
-- Twoje konto musi mieć jedną z następujących ról kontroli dostępu opartej na rolach (RBAC) w zakresie subskrypcji: właściciel, współautor, czytelnik lub współautor sieci.
+- Twoje konto musi mieć jedną z następujących ról platformy Azure w zakresie subskrypcji: właściciel, współautor, czytelnik lub współautor sieci.
 - Jeśli Twoje konto nie jest przypisane do jednej z wcześniej wymienionych ról, musi być przypisane do roli niestandardowej, do której przypisano następujące akcje na poziomie subskrypcji.
             
     - Microsoft. Network/applicationGateways/odczyt
@@ -401,4 +401,3 @@ Na stronie topologia podsieci wirtualnych znajdują się dwie główne sekcje:
 - Aby przejść do innych wyróżnionych węzłów w widoku topologii, użyj `Shift+Right arrow` klawisza do przesunięcia do przodu. 
 - W zaznaczonych węzłach fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku **więcej szczegółów** w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przenieść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
 - Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.    
-

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: ef243d5b151f95a00e22ac7636a46b93090ccce3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/31/2020
+ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006538"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484163"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -23,16 +23,19 @@ Ten artykuł zawiera informacje **o najnowszych aktualizacjach wersji usługi Az
 
 Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korporacyjnych na potrzeby analiz typu open source na platformie Azure.
 
-## <a name="release-date-07132020"></a>Data wydania: 07/13/2020
+## <a name="release-date-07302020"></a>Data wydania: 07/30/2020
 
 Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
-### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Obsługa Skrytka klienta dla Microsoft Azure
-Usługa Azure HDInsight obsługuje teraz usługę Azure Skrytka klienta. Umożliwia ona klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest on używany, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klienta w trakcie żądania obsługi. Aby uzyskać więcej informacji, zobacz [Skrytka klienta Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
-
-### <a name="service-endpoint-policies-for-storage"></a>Zasady punktu końcowego usługi dla magazynu
-Klienci mogą teraz używać zasad punktu końcowego usług (SEP) w podsieci klastra usługi HDInsight. Dowiedz się więcej na temat [zasad punktu końcowego usługi platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+### <a name="support-for-sparkcruise"></a>Obsługa SparkCruise
+SparkCruise to system automatycznego ponownego użycia obliczeń dla platformy Spark. Wybiera wspólne podwyrażeniey do zmaterializowania w oparciu o obciążenie przeszłe zapytania. SparkCruise materializuje te podwyrażenia w ramach przetwarzania zapytań i ponownego wykorzystania obliczeń są automatycznie stosowane w tle. Można korzystać z SparkCruise bez żadnych modyfikacji kodu Spark.
+ 
+### <a name="support-hive-view-for-hdinsight-40"></a>Obsługa widoku programu Hive dla usługi HDInsight 4,0
+Widok Hive platformy Apache Ambari został zaprojektowany z założeniami ułatwiającymi tworzenie, optymalizowanie i wykonywanie zapytań Hive z poziomu przeglądarki sieci Web. Widok Hive jest obsługiwany natywnie dla klastrów usługi HDInsight 4,0, począwszy od tej wersji. Nie dotyczy istniejących klastrów. Musisz porzucić i utworzyć ponownie klaster, aby uzyskać wbudowany widok Hive.
+ 
+### <a name="support-tez-view-for-hdinsight-40"></a>Obsługa widoku tez dla usługi HDInsight 4,0
+Widok Apache Tez służy do śledzenia i debugowania wykonywania zadania Hive tez. Widok tez jest obsługiwany natywnie dla usługi HDInsight 4,0 od tej wersji. Nie dotyczy istniejących klastrów. Aby uzyskać wbudowany widok tez, należy porzucić i ponownie utworzyć klaster.
 
 ## <a name="deprecation"></a>Przestarzałe
 ### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.1 i 2.2 w klastrze platformy Spark w usłudze HDInsight 3.6
@@ -45,21 +48,22 @@ Począwszy od 1 2020 lipca, klienci nie mogą tworzyć nowych klastrów Spark z 
 Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Kafka 2.1 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
-Nie ma żadnych zmian w zachowaniu, do których należy zwrócić uwagę.
+### <a name="ambari-stack-version-change"></a>Zmiana wersji stosu Ambari
+W tej wersji Ambari wersja została zmieniona z 2. x. x. x na 4,1. Możesz uzyskać wersję Ambari z interfejsu użytkownika Ambari > informacje o programie.
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
-Następujące zmiany zostaną wykonane w przyszłych wydaniach. 
-
-### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Możliwość wybrania innej jednostki SKU dozorcy dla usług Spark, Hadoop i ML
-Usługa HDInsight obecnie nie obsługuje zmieniania jednostki SKU dozorcy dla typów klastrów usług Spark, Hadoop i ML. Używa A2_v2 jednostki SKU/a2 dla węzłów dozorcy i klienci nie są dla nich obciążani. W nadchodzącym wydaniu klienci będą mogli zmienić dozorcy jednostki SKU dla usług Spark, Hadoop i ML zgodnie z potrzebami. Dozorcy węzły z jednostką SKU inną niż A2_v2/a2 zostaną rozliczone. Domyślna jednostka SKU będzie nadal A2_V2/a2 i bezpłatna.
+Brak przyszłych zmian, do których należy zwrócić uwagę.
 
 ## <a name="bug-fixes"></a>Poprawki błędów
 Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
-### <a name="fixed-hive-warehouse-connector-issue"></a>Problem z rozwiązanym łącznikiem magazynu Hive
-Wystąpił problem z użytecznością łącznika magazynu Hive w poprzedniej wersji. Problem został rozwiązany. 
 
-### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Stały problem z obcinaniem wiodących notesów Zeppelin
-Zeppelin nieprawidłowo obciąć wiodących zer w tabeli wyjściowej w formacie ciągu. Rozwiązano ten problem w tej wersji.
+Poniżej JIRAs są ponownie przyłączone do platformy Hive:
+* [GAŁĄŹ-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [GAŁĄŹ-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [GAŁĄŹ-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [GAŁĄŹ-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [GAŁĄŹ-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [GAŁĄŹ-18786](https://issues.apache.org/jira/browse/HIVE-18786)
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

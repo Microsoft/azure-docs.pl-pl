@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d85ffca8c72e7a247d5bbd1e593335fd7995b594
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170145"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481691"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Wersje języka JavaScript i układu strony w Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ We **właściwościach**przepływu użytkownika można włączyć język JavaScr
 
 ## <a name="select-a-page-layout-version"></a>Wybierz wersję układu strony
 
-Niezależnie od tego, czy w obszarze właściwości przepływu użytkownika jest włączone JavaScript, możesz określić wersję układu strony dla stron przepływu użytkownika. Otwórz przepływ użytkownika i wybierz pozycję **układy strony**. W obszarze **Nazwa układu**wybierz stronę przepływ użytkownika i wybierz **wersję układu strony**.
+Niezależnie od tego, czy w obszarze właściwości przepływu użytkownika jest włączone JavaScript, możesz określić wersję układu strony dla stron przepływu użytkownika. Otwórz przepływ użytkownika i wybierz pozycję **układy strony**. W obszarze **Nazwa układu**wybierz stronę przepływ użytkownika i wybierz **wersję układu strony (wersja zapoznawcza)**.
 
 Informacje o różnych wersjach układów stron można znaleźć w [dzienniku zmian wersji układu strony](page-layout.md).
 

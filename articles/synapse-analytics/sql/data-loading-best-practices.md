@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963890"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486820"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Najlepsze rozwiązania dotyczące ładowania danych na potrzeby magazynowania danych
 
 Zalecenia i optymalizacje wydajności dotyczące ładowania danych
 
-## <a name="preparing-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
+## <a name="prepare-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 
 Aby zminimalizować opóźnienie, warstwa magazynu i magazyn danych powinny znajdować się w jednej lokalizacji.
 
@@ -34,13 +34,13 @@ Różne typy plików mają różną charakterystykę wydajności. Najszybsze ła
 
 Duże pliki skompresowane można podzielić na mniejsze.
 
-## <a name="running-loads-with-enough-compute"></a>Uruchamianie zadań ładowania przy użyciu wystarczających zasobów obliczeniowych
+## <a name="run-loads-with-enough-compute"></a>Uruchom ładowanie z wystarczającą ilością obliczeń
 
 Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchamiaj jak najmniejszą liczbę zadań ładowania jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie puli SQL przed obciążeniem.
 
 Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążeń. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
 
-### <a name="example-of-creating-a-loading-user"></a>Przykład tworzenia użytkownika ładującego
+### <a name="create-a-loading-user"></a>Tworzenie użytkownika ładującego
 
 Ten przykład umożliwia utworzenie użytkownika ładującego dla klasy zasobów staticrc20. Pierwszym krokiem jest **nawiązanie połączenia z główną bazą danych** i utworzenie nazwy logowania.
 
@@ -62,7 +62,7 @@ Aby uruchomić obciążenie za pomocą zasobów dla klas zasobów staticRC20, za
 
 Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Korzystanie z klas zasobów statycznych gwarantuje te same zasoby, niezależnie od [jednostek magazynu danych](resource-consumption-models.md). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług. W przypadku dynamicznych klas zasobów niższy poziom usług oznacza, że prawdopodobnie konieczne będzie użycie większej klasy zasobów na potrzeby użytkownika ładującego.
 
-## <a name="allowing-multiple-users-to-load"></a>Umożliwianie ładowania danych wielu użytkownikom
+## <a name="allow-multiple-users-to-load"></a>Zezwalaj wielu użytkownikom na ładowanie
 
 Często istnieje potrzeba umożliwienia ładowania danych do magazynu danych wielu użytkownikom. Ładowanie przy użyciu [CREATE TABLE jako Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) wymaga uprawnień kontroli bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów. Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
 
@@ -75,13 +75,13 @@ Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema
 
 User_A i user_B są teraz zablokowane w schemacie innego działu.
 
-## <a name="loading-to-a-staging-table"></a>Ładowanie do tabeli przejściowej
+## <a name="load-to-a-staging-table"></a>Ładowanie do tabeli przejściowej
 
 Aby osiągnąć największą szybkość ładowania dla przenoszenie danych do tabeli magazynu danych, załaduj dane do tabeli przejściowej.  Zdefiniuj tabelę przejściową jako stertę i użyj opcji dystrybucji z działaniem okrężnym.
 
 Pamiętaj, że ładowanie to zwykle proces dwuetapowy, w którym dane są najpierw ładowane do tabeli przejściowej, a następnie wstawianie do tabeli produkcyjnej magazynu danych. Jeśli tabela produkcyjna korzysta z dystrybucji skrótów, łączny czas ładowania i wstawiania może być krótszy w przypadku zdefiniowania tabeli przejściowej za pomocą dystrybucji skrótów. Ładowanie do tabeli przejściowej trwa dłużej, ale drugi etap wstawiania wierszy do tabeli produkcyjnej nie powoduje przenoszenia danych między dystrybucjami.
 
-## <a name="loading-to-a-columnstore-index"></a>Ładowanie do indeksu magazynu kolumn
+## <a name="load-to-a-columnstore-index"></a>Ładowanie do indeksu magazynu kolumn
 
 Indeksy magazynu kolumn wymagają dużej ilości pamięci w celu skompresowania danych w grupy wierszy wysokiej jakości. Najlepsza wydajność kompresji i indeksu występuje wówczas, gdy indeks magazynu kolumn kompresuje maksymalnie 1 048 576 wierszy w każdej grupie wierszy. Jeśli pamięci jest za mało, indeks magazynu kolumn może nie osiągać maksymalnej szybkości kompresji. To z kolei wpływa na wydajność zapytań. Aby zapoznać się ze szczegółowymi informacjami, zobacz [Columnstore memory optimizations (Optymalizowanie pamięci na potrzeby magazynu kolumn)](data-load-columnstore-compression.md).
 
@@ -92,19 +92,19 @@ Indeksy magazynu kolumn wymagają dużej ilości pamięci w celu skompresowania 
 
 Jak wspomniano wcześniej, ładowanie z użyciem bazy danych Base oferuje najwyższą przepływność przy użyciu puli SQL Synapse. Jeśli nie można użyć podstawy do załadowania i należy użyć interfejsu API SQLBulkCopy (lub BCP), należy rozważyć zwiększenie rozmiaru wsadu w celu uzyskania lepszej przepływności — dobrą regułą przewijania jest rozmiar wsadu między 100 000 do 1M wierszy.
 
-## <a name="handling-loading-failures"></a>Postępowanie w przypadku błędów ładowania
+## <a name="manage-loading-failures"></a>Zarządzaj błędami ładowania
 
 Ładowanie z użyciem tabeli zewnętrznej może zakończyć się wystąpieniem błędu *Zapytanie zostało przerwane — osiągnięto maksymalny próg odrzuceń podczas odczytu ze źródła zewnętrznego*. Ten komunikat wskazuje, że dane zewnętrzne zawierają zanieczyszczone rekordy. Rekord danych jest uznawany za zanieczyszczony, jeśli typy danych i liczba kolumn nie odpowiadają definicjom kolumn w tabeli zewnętrznej lub jeśli dane nie są zgodne z określonym zewnętrznym formatem pliku.
 
 Aby poprawić zanieczyszczone rekordy, upewnij się, że definicje tabeli zewnętrznej i zewnętrznego formatu pliku są prawidłowe, a dane zewnętrzne są zgodne z tymi definicjami. Jeśli podzestaw rekordów danych zewnętrznych jest zanieczyszczony, możesz odrzucić te rekordy w zapytaniach, używając opcji odrzucania w kodzie CREATE EXTERNAL TABLE.
 
-## <a name="inserting-data-into-a-production-table"></a>Wstawianie danych do tabeli produkcyjnej
+## <a name="insert-data-into-a-production-table"></a>Wstawianie danych do tabeli produkcyjnej
 
 Jednorazowe ładowanie do małej tabeli za pomocą [instrukcji INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) lub nawet okresowe ponowne ładowanie wyszukiwania to strategie, które mogą sprawdzić się w przypadku instrukcji takich jak `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Jednak pojedyncze wstawienia są mniej wydajne niż ładowanie zbiorcze.
 
 Jeśli w ciągu dnia wykonujesz kilka tysięcy lub więcej wstawień, utwórz partię wstawień i załaduj je zbiorczo.  Opracuj proces dołączania pojedynczych wstawień do pliku, a następnie kolejny proces okresowo ładujący ten plik.
 
-## <a name="creating-statistics-after-the-load"></a>Tworzenie statystyk po załadowaniu
+## <a name="create-statistics-after-the-load"></a>Tworzenie statystyk po załadowaniu
 
 Aby poprawić wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie danych.  Można to zrobić ręcznie lub włączyć funkcję [AutoCreate Statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 960fff073353375cd50b31bc7284134ca733f142
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337929"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488027"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -20,23 +20,7 @@ Odwołaj się do tego, że centrum Digital bliźniaczych reprezentacji na platfo
 
 Aby przesłać zapytanie do usługi z aplikacji klienckiej, użyj [**interfejsu API zapytań**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview)Digital bliźniaczych reprezentacji platformy Azure. Pozwala to deweloperom pisać zapytania i stosować filtry do znajdowania zestawów bliźniaczych reprezentacji cyfrowych w grafie bliźniaczym oraz inne informacje o scenariuszu Digital bliźniaczych reprezentacji platformy Azure.
 
-## <a name="query-language-features"></a>Funkcje języka zapytań
-
-Usługa Azure Digital bliźniaczych reprezentacji zapewnia szeroką gamę możliwości zapytań w odniesieniu do grafu bliźniaczych. Zapytania są opisane przy użyciu składni podobnej do języka SQL, w języku zapytania podobnym do [IoT Hub język zapytań](../iot-hub/iot-hub-devguide-query-language.md) z wieloma porównywalnymi funkcjami.
-
-> [!NOTE]
-> Wszystkie operacje zapytań usługi Azure Digital bliźniaczych reprezentacji są zależne od wielkości liter.
-
-Oto operacje dostępne w języku magazynu zapytań usługi Azure Digital bliźniaczych reprezentacji:
-* Pobierz bliźniaczych reprezentacji za pomocą właściwości Digital bliźniaczych reprezentacjis (w tym [tagów](how-to-use-tags.md)).
-* Pobierz bliźniaczych reprezentacji przez interfejsy Digital bliźniaczych reprezentacji '.
-* Pobierz bliźniaczych reprezentacji według właściwości relacji.
-* Pobierz bliźniaczych reprezentacji przez wiele typów relacji ( `JOIN` zapytania). Istnieją ograniczenia liczby `JOIN` dozwolonych elementów (jeden poziom dla publicznej wersji zapoznawczej).
-* Użyj funkcji niestandardowej `IS_OF_MODEL(twinCollection, twinTypeName)` , która umożliwia filtrowanie na podstawie [modelu](concepts-models.md)przędzy. Obsługuje dziedziczenie.
-* Użyj funkcji skalarnych: `IS_BOOL` ,,,, `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` ,,, `IS_PRIMITIVE` `IS_STRING` `STARTS_WITH` , `ENDS_WITH` .
-* Użyj operatorów porównania zapytania: `IN` / `NIN` , `=` ,,, `!=` `<` `>` , `<=` , `>=` .
-* Użyj dowolnej kombinacji ( `AND` , `OR` , `NOT` operator) powyższego.
-* Użyj kontynuacji: obiekt zapytania jest skonkretyzowany przy użyciu rozmiaru strony (do 100). Możesz pobrać cyfrowy bliźniaczych reprezentacji jedną stronę jednocześnie, dostarczając token kontynuacji podczas kolejnych wywołań interfejsu API.
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 746c406c4e6d458f699eb844156190e47d5c7a26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bdb7637624a1da5270eb1cba49e9f66e5042ccf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384910"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482009"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Samouczek: Dodawanie dostawców tożsamości do aplikacji w Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Po utworzeniu aplikacji dla dostawcy tożsamości, który chcesz dodać, należy
 
 W samouczku, który został ukończony w ramach wymagań wstępnych, został utworzony przepływ użytkownika na potrzeby rejestracji i logowania o nazwie *B2C_1_signupsignin1*. W tej sekcji dodasz dostawców tożsamości do przepływu użytkownika *B2C_1_signupsignin1* .
 
-1. Wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
+1. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
 2. Wybierz pozycję **dostawcy tożsamości**, wybierz dostawców tożsamości w usłudze **Facebook** i **contoso usługi Azure AD** .
 3. Wybierz pozycję **Zapisz**.
 

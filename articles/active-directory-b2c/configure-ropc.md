@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389602"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482859"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C
 
@@ -30,13 +30,14 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) to standardowy przep�
 
 1. Zaloguj się w witrynie Azure Portal jako administrator globalny dzierżawy usługi Azure AD B2C.
 2. Aby przełączyć się do dzierżawy Azure AD B2C, wybierz katalog B2C w prawym górnym rogu portalu.
-3. Kliknij pozycję **przepływy użytkownika**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
-4. Kliknij kartę **wszystkie** i wybierz pozycję **Zaloguj się przy użyciu ROPC**.
-5. Podaj nazwę przepływu użytkownika, na przykład *ROPC_Auth*.
-6. W obszarze **oświadczenia aplikacji**kliknij przycisk **Pokaż więcej**.
-7. Wybierz oświadczenia aplikacji, które są potrzebne dla aplikacji, takie jak nazwa wyświetlana, adres E-mail i dostawca tożsamości.
-8. Wybierz przycisk **OK**, a następnie wybierz pozycję **Utwórz**.
-9. Kliknij pozycję **Uruchom przepływ użytkownika**.
+3. Wybierz pozycję **przepływy użytkownika**i wybierz pozycję **Nowy przepływ użytkownika**.
+4. Wybierz pozycję **Zaloguj się przy użyciu poświadczeń hasła właściciela zasobu (ROPC)**.
+5. W obszarze **wersja**, upewnij się, że jest zaznaczona opcja **Podgląd** , a następnie wybierz pozycję **Utwórz**.
+7. Podaj nazwę przepływu użytkownika, na przykład *ROPC_Auth*.
+8. W obszarze **oświadczenia aplikacji**kliknij przycisk **Pokaż więcej**.
+9. Wybierz oświadczenia aplikacji, które są potrzebne dla aplikacji, takie jak nazwa wyświetlana, adres E-mail i dostawca tożsamości.
+10. Wybierz przycisk **OK**, a następnie wybierz pozycję **Utwórz**.
+11. Kliknij pozycję **Uruchom przepływ użytkownika**.
 
    Następnie zobaczysz punkt końcowy, na przykład:
 
@@ -131,7 +132,3 @@ Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 Implementacja Azure AD B2C spełnia standardy protokołu OAuth 2,0 dla poświadczeń hasła właściciela publicznego zasobu klienta i powinny być zgodne z większością zestawów SDK klienta. Ten przepływ został przetestowany w środowisku produkcyjnym z AppAuth dla systemów iOS i AppAuth dla systemu Android. Najnowsze informacje znajdują się w temacie [Native App SDK for OAuth 2,0 i OpenID Connect Connect implementujące nowoczesne najlepsze rozwiązania](https://appauth.io/).
 
 Pobierz przykłady robocze, które zostały skonfigurowane do użycia z Azure AD B2C z usługi GitHub [dla systemów Android](https://aka.ms/aadb2cappauthropc) i [iOS](https://aka.ms/aadb2ciosappauthropc).
-
-
-
-

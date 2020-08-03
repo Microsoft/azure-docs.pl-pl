@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040337"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480649"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Jak działają relacje zaufania dla lasów zasobów w Azure Active Directory Domain Services
 
@@ -280,7 +280,7 @@ Administratorzy mogą używać *domen Active Directory i relacji zaufania*, *net
 
 Aby dowiedzieć się więcej o lasach zasobów, zobacz [jak działają relacje zaufania lasów na platformie Azure AD DS?][concepts-trust]
 
-Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
+Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

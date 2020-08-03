@@ -8,17 +8,13 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c564db3d454c138a62cae1adcd9971d305ec15ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9c287588d229d8743a146848cc55514286ff308e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535772"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451116"
 ---
 Prywatne linki do importowania lub eksportowania dysków zarządzanych są obecnie dostępne tylko w programie:
 
-- Wschodnie stany USA
-- Zachodnie stany USA 2
-- South Central US
-- US Gov Wirginia
-- US Gov Arizona
+- Północno-środkowe stany USA

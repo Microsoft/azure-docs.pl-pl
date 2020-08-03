@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337606"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486662"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
 W tym artykule przedstawiono przykłady i więcej szczegółów dotyczących używania [języka magazynu zapytań Digital bliźniaczych reprezentacji na platformie Azure](concepts-query-language.md) w celu wykonywania zapytań dotyczących [grafu bliźniaczyego](concepts-twins-graph.md) w celu uzyskania informacji. Zapytania można uruchamiać na grafie przy użyciu [**interfejsów API**](how-to-use-apis-sdks.md)cyfrowych bliźniaczych reprezentacji kwerend platformy Azure.
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+Pozostała część tego artykułu zawiera przykłady sposobu korzystania z tych operacji.
+
 ## <a name="query-syntax"></a>Składnia zapytań
 
-Oto przykładowe zapytania, które ilustrują strukturę języka zapytań i wykonują możliwe operacje zapytań.
+Ta sekcja zawiera przykładowe zapytania, które ilustrują strukturę języka zapytań i wykonują możliwe operacje zapytań.
 
 Pobieranie [bliźniaczych reprezentacji cyfrowych](concepts-twins-graph.md) według właściwości (łącznie z identyfikatorami i metadanymi):
 ```sql
@@ -31,16 +35,55 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Pobierz bliźniaczych reprezentacji cyfrowy według [modelu](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > Identyfikator dwucyfrowego podpisu jest wysyłany przy użyciu pola metadanych `$dtId` .
+
+Możesz również uzyskać bliźniaczych reprezentacji według ich właściwości *tagów* , zgodnie z opisem w temacie [Dodawanie tagów do Digital bliźniaczych reprezentacji](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Wybierz pierwsze elementy
+
+Można wybrać kilka elementów "Top" w zapytaniu przy użyciu `Select TOP` klauzuli.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Zapytanie według modelu
+
+`IS_OF_MODEL`Operatora można użyć do filtrowania na podstawie [modelu](concepts-models.md)sznurka. Obsługuje dziedziczenie i ma kilka opcji przeciążenia.
+
+Najprostszym zastosowaniem jest `IS_OF_MODEL` tylko `twinTypeName` parametr: `IS_OF_MODEL(twinTypeName)` .
+Oto przykład zapytania, który przekazuje wartość w tym parametrze:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Aby określić kolekcję przędzy do przeszukania, gdy istnieje więcej niż jeden (jak w przypadku `JOIN` użycia), Dodaj `twinCollection` parametr: `IS_OF_MODEL(twinCollection, twinTypeName)` .
+Oto przykład zapytania, które dodaje wartość dla tego parametru:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Aby wykonać dokładne dopasowanie, Dodaj `exact` parametr: `IS_OF_MODEL(twinTypeName, exact)` .
+Oto przykład zapytania, które dodaje wartość dla tego parametru:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+Można również przekazać wszystkie trzy argumenty jednocześnie: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
+Oto przykład zapytania określającego wartość dla wszystkich trzech parametrów:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
 
 ### <a name="query-based-on-relationships"></a>Zapytanie w oparciu o relacje
 
