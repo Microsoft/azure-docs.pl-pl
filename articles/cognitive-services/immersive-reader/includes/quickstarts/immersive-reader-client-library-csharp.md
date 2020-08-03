@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 68009797e48ab15c1c8df983b3413d7b7dac54b0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038355"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425001"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
@@ -27,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](../../how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. W przypadku konfigurowania przykładowych właściwości projektu konieczne będzie utworzenie niektórych wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 
-## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci Web
+## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji internetowej
 
 Utwórz nowy projekt w programie Visual Studio przy użyciu szablonu aplikacji sieci Web ASP.NET Core z wbudowanym modelem-View-Controller i ASP.NET Core 2,1. Nadaj projektowi nazwę "QuickstartSampleWebApp".
 
@@ -289,7 +290,7 @@ W dolnej części _Views\Home\Index.cshtml_Dodaj następujący kod:
 }
 ```
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 Na pasku menu wybierz kolejno opcje **debuguj > Rozpocznij debugowanie**lub naciśnij klawisz **F5** , aby uruchomić aplikację.
 

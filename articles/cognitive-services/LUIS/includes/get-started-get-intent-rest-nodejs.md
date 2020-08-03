@@ -1,5 +1,5 @@
 ---
-title: Pobierz zamierzenia z wywołaniem REST w programie Node. js
+title: Pobierz zamierzenia z wywołaniem REST w Node.js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 05142c1d98906a591fae41658c5c7b9d36cdb8c4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0c8217ba2c8c6c7681e649f4e519ef14ced6f596
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418061"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405277"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-predict-with-rest/predict.js)
 
@@ -26,9 +27,9 @@ ms.locfileid: "84418061"
 
 [!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
-## <a name="create-the-nodejs-project"></a>Tworzenie projektu Node. js
+## <a name="create-the-nodejs-project"></a>Tworzenie projektu Node.js
 
-1. Utwórz nowy folder do przechowywania projektu Node. js, takiego jak `node-predict-with-rest` .
+1. Utwórz nowy folder do przechowywania projektu Node.js, na przykład `node-predict-with-rest` .
 
 1. Otwórz nowy wiersz polecenia, przejdź do utworzonego folderu i wykonaj następujące polecenie:
 
@@ -48,7 +49,7 @@ ms.locfileid: "84418061"
 
 ## <a name="get-intent-programmatically"></a>Pobieranie intencji w sposób programistyczny
 
-Użyj środowiska Node. js, aby wykonać zapytanie dotyczące [punktu końcowego przewidywania](https://aka.ms/luis-apim-v3-prediction) i uzyskać wynik przewidywania.
+Użyj Node.js, aby wysłać zapytanie do [punktu końcowego przewidywania](https://aka.ms/luis-apim-v3-prediction) i uzyskać wynik przewidywania.
 
 1. Skopiuj następujący fragment kodu do pliku o nazwie `predict.js` :
 
@@ -230,7 +231,7 @@ Użyj środowiska Node. js, aby wykonać zapytanie dotyczące [punktu końcowego
     }
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń folder projektu z systemu plików.
 

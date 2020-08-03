@@ -24,7 +24,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *webapi1*.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź punkt końcowy, w którym Azure AD B2C powinien zwrócić tokeny, których aplikacja żąda. W tym samouczku przykładowa aplikacja jest uruchamiana lokalnie i nasłuchuje na `http://localhost:5000`.
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 Następnie Włącz przepływ niejawnego przydzielenia:
@@ -45,5 +45,5 @@ Następnie Włącz przepływ niejawnego przydzielenia:
 1. W obszarze **Zezwalaj na niejawny przepływ**wybierz pozycję **tak**.
 1. Dla pozycji **Adres URL odpowiedzi** wprowadź punkt końcowy, w którym usługa Azure AD B2C powinna zwracać wszelkie tokeny żądane przez Twoją aplikację. W tym samouczku przykładowa aplikacja jest uruchamiana lokalnie i nasłuchuje na `https://localhost:5000`.
 1. W przypadku identyfikatora **URI aplikacji**Dodaj identyfikator punktu końcowego interfejsu API do pokazanego identyfikatora URI. Na potrzeby tego samouczka wprowadź `api` , aby pełny identyfikator URI był podobny do `https://contosob2c.onmicrosoft.com/api` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zapisz **Identyfikator aplikacji** do użycia w późniejszym kroku.

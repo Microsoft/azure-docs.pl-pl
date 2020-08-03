@@ -1,5 +1,5 @@
 ---
-title: 'Pobierz model z wywołaniem REST w języku C #'
+title: Pobierz model z wywołaniem REST w Node.js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: a1a72d9be339ed1ee0a1c525ee426047b1768f2f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d2dd43366068c8b0d5f280a4c5c22ac774824f59
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416416"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407266"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
 
@@ -26,9 +27,9 @@ ms.locfileid: "84416416"
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="create-the-nodejs-project"></a>Tworzenie projektu Node. js
+## <a name="create-the-nodejs-project"></a>Tworzenie projektu Node.js
 
-1. Utwórz nowy folder do przechowywania projektu Node. js, takiego jak `node-model-with-rest` .
+1. Utwórz nowy folder do przechowywania projektu Node.js, na przykład `node-model-with-rest` .
 
 1. Otwórz nowy wiersz polecenia, przejdź do utworzonego folderu i wykonaj następujące polecenie:
 
@@ -154,7 +155,7 @@ ms.locfileid: "84416416"
     done
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń folder projektu z systemu plików.
 

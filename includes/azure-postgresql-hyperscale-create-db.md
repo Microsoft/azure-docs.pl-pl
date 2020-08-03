@@ -63,7 +63,7 @@ Podczas tworzenia serwera Azure Database for PostgreSQL zostanie utworzona domy�
    psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
-   Skopiuj ciąg. Należy zastąpić "{\_hasło}" wybranym wcześniej hasłem administracyjnym. System nie przechowuje hasła w postaci zwykłego tekstu i dlatego nie może wyświetlić go w parametrach połączenia.
+   Skopiuj ciąg. Należy zastąpić "{ \_ hasło}" wybranym wcześniej hasłem administracyjnym. System nie przechowuje hasła w postaci zwykłego tekstu i dlatego nie może wyświetlić go w parametrach połączenia.
 
 2. Otwórz okno terminalu na komputerze lokalnym.
 

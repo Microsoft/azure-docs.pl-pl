@@ -34,7 +34,7 @@ Model możliwości urządzenia obejmuje dwa interfejsy: standardowy interfejs **
 | Właściwość | Stan urządzenia     | Stan urządzenia. Dostępne są dwa stany online/offline. |
 | Właściwość (zapisywalny) | Nazwa klienta    | Nazwa klienta, na którym aktualnie działa urządzenie. |
 | Właściwość (zapisywalny) | Poziom jasności | Poziom jasności światła na urządzeniu. Może być określona jako 1 (wysoka), 2 (średnia), 3 (niska). |
-| Telemetry | Temperature | Bieżąca temperatura wykryta przez urządzenie. |
+| Telemetry | Temperatura | Bieżąca temperatura wykryta przez urządzenie. |
 | Telemetry | Wilgotność    | Bieżąca wilgotność wykryta przez urządzenie. |
 | Polecenie | wskaźnika          | Rozpocznij miganie diody LED na urządzeniu dla danego interwału czasu. |
 | Polecenie | wlacza         | Włącz diodę LED na urządzeniu. |

@@ -28,8 +28,8 @@ Jeśli nie masz jeszcze rejestru kontenerów, wykonaj następujące kroki, aby u
    | Subskrypcja | Wybierz subskrypcję z listy rozwijanej. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych tworzonych podczas pracy z przewodnikami Szybki Start i samouczkami usługi IoT Edge. Na przykład **IoTEdgeResources**. |
    | Nazwa rejestru | Podaj unikatową nazwę. |
-   | Location | Wybierz bliską lokalizację. |
-   | Jednostka SKU | Wybierz pozycję **Podstawowa**. |
+   | Lokalizacja | Wybierz bliską lokalizację. |
+   | SKU | Wybierz pozycję **Podstawowa**. |
 
 3. Wybierz przycisk **Utwórz**.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500608"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425237"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -25,6 +25,8 @@ Podczas udostępniania Ultra disks obowiązują następujące dodatkowe ogranicz
 
 - Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK. 
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyślnie obsługują usługi Ultra disks i nie wymagają rejestrowania się w celu korzystania z nich.
 
 ### <a name="premium-ssds"></a>Dyski SSD w warstwie Premium
 
@@ -38,4 +40,4 @@ Podczas udostępniania Ultra disks obowiązują następujące dodatkowe ogranicz
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Obsługa Azure Backup i Azure Site Recovery nie jest jeszcze dostępna.
 
-Jeśli interesują Cię próby przeprowadzenia udostępniania dysków, [Utwórz konto w celu uzyskania dostępu](https://aka.ms/AzureSharedDiskGASignUp).
+Jeśli interesuje Cię podjęcie próby udostępnienia dysków SSD Premium, [Utwórz konto w celu uzyskania dostępu](https://aka.ms/AzureSharedDiskGASignUp).
