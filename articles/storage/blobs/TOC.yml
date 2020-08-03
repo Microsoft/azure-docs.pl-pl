@@ -262,7 +262,7 @@
           items:
             - name: Monitorowanie konta magazynu
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrowanie z metryk klasycznych
+            - name: Przejście z metryk klasycznych
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitorowanie (klasyczne)
               items:
@@ -685,7 +685,7 @@
           items:
             - name: Monitorowanie konta magazynu
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrowanie z metryk klasycznych
+            - name: Przejście z metryk klasycznych
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitorowanie (klasyczne)
               items:

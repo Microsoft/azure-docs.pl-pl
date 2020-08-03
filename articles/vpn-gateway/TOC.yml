@@ -42,6 +42,8 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Strefowo nadmiarowe bramy dla stref dostępności — informacje
       href: about-zone-redundant-vnet-gateways.md
+    - name: Wbudowane mechanizmy zabezpieczeń
+      href: vpn-gateway-security-controls.md
     - name: Współdziałanie łączności z zapleczem
       items:
         - name: Wstęp i konfiguracja testu
@@ -52,15 +54,13 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: Analiza płaszczyzny danych
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Wbudowane mechanizmy zabezpieczeń
-      href: vpn-gateway-security-controls.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie bramy VPN Gateway i zarządzanie nią
       items:
         - name: Tworzenie bramy sieci VPN opartej na trasie
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: create-routebased-vpn-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -72,7 +72,7 @@
           href: vpn-gateway-resetgw-classic.md
         - name: Usuwanie bramy VPN Gateway
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -82,7 +82,7 @@
       items:
         - name: Konfigurowanie połączeń typu lokacja-lokacja
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -98,7 +98,7 @@
       items:
         - name: Konfigurowanie połączeń między sieciami wirtualnymi
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -106,7 +106,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -160,8 +160,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Konfigurowanie klientów OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-        - name: Przechodzenie na protokół OpenVPN lub IKEv2 z SSTP
-          href: ikev2-openvpn-from-sstp.md
+            - name: Przechodzenie na protokół OpenVPN lub IKEv2 z SSTP
+              href: ikev2-openvpn-from-sstp.md
         - name: Przejście do certyfikatu bramy publicznego urzędu certyfikacji dla połączenia punkt-lokacja
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurowanie tunelu zawsze włączonego urządzenia sieci VPN
@@ -170,12 +170,6 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Anonsowanie tras niestandardowych klientom P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Tworzenie strefowo nadmiarowej bramy
-      href: create-zone-redundant-vnet-gateway.md
-    - name: Konfigurowanie zasad IPsec/IKE dla połączeń
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Konfigurowanie połączeń między elementami aktywnymi
-      href: vpn-gateway-activeactive-rm-powershell.md
     - name: 'Routing, protokół BGP i komunikacja równorzędna sieci wirtualnych'
       items:
         - name: Konfigurowanie protokołu BGP dla bramy sieci VPN
@@ -218,6 +212,18 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Konfigurowanie przechwytywania pakietów
       href: packet-capture.md
+    - name: Bramy strefowo nadmiarowe
+      items:
+        - name: Tworzenie strefowo nadmiarowej bramy
+          href: create-zone-redundant-vnet-gateway.md
+    - name: Konfigurowanie zasad IPsec/IKE dla połączeń
+      items:
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Konfigurowanie połączeń między elementami aktywnymi
+      items:
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Rozwiązywanie problemów
       href: vpn-gateway-troubleshoot.md
       items:

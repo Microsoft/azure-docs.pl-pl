@@ -46,18 +46,24 @@
       href: manage-dhcp.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
-    - name: Serwer Azure Backup Server dla usługi AVS
-      items:
-        - name: Konfigurowanie serwera Azure Backup Server dla usługi AVS
-          href: set-up-mabs-for-avs.md
-        - name: Tworzenie kopii zapasowych maszyn wirtualnych usługi AVS za pomocą usługi Azure Backup Server
-          href: backup-avs-vms-with-mabs.md
     - name: Integracja z funkcjami macierzystymi platformy Azure
       items:
         - name: API Management
           href: concepts-api-management.md
         - name: Gwiazda
           href: concepts-avs-hub-and-spoke-integration.md
+        - name: Serwer Azure Backup Server dla usługi AVS
+          items:
+            - name: Konfigurowanie usługi Backup Server dla usługi AVS
+              href: set-up-mabs-for-avs.md
+            - name: Tworzenie kopii zapasowych maszyn wirtualnych usługi AVS za pomocą usługi Backup Server
+              href: backup-avs-vms-with-mabs.md
+        - name: Brama aplikacji w usłudze AVS
+          href: protect-avs-web-apps-with-app-gateway.md
+    - name: Rozwiązania VMware
+      items:
+        - name: Konfigurowanie operacji vRealize na potrzeby usługi AVS
+          href: vrealize-operations-for-avs.md
 - name: Dokumentacja
   items: null
 - name: Zasoby

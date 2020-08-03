@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegowanie uprawnień administratora aplikacji
               href: roles-delegate-app-roles.md
+        - name: Zarządzanie przypisaniami ról za pomocą grup
+          items:
+            - name: Wersja zapoznawcza przypisywania ról na podstawie grup
+              href: roles-groups-concept.md
+            - name: Tworzenie grupy z możliwością przypisania do roli
+              href: roles-groups-create-eligible.md
+            - name: Przypisywanie ról do grupy
+              href: roles-groups-assign-role.md
+            - name: Usuwanie przypisań ról z grupy
+              href: roles-groups-remove-assignment.md
+            - name: Wyświetlanie przypisań ról grupy
+              href: roles-groups-view-assignments.md
+            - name: Ustawianie grupy jako kwalifikującej się do roli w usłudze PIM
+              href: roles-groups-pim-eligible.md
+            - name: Często zadawane pytania i rozwiązywanie problemów
+              href: roles-groups-faq-troubleshooting.md
         - name: Najmniej uprzywilejowane role według zadania
           href: roles-delegate-by-task.md
         - name: Role usługi Microsoft 365

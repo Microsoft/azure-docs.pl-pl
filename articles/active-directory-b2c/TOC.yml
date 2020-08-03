@@ -452,6 +452,8 @@
       displayName: security
     - name: Wersje przepływu użytkownika
       href: user-flow-versions.md
+    - name: Starsze wersje przepływu użytkownika
+      href: user-flow-versions-legacy.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

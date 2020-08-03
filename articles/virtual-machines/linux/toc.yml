@@ -634,6 +634,8 @@
               href: mac-create-ssh-keys.md
             - name: W systemie Windows
               href: ssh-from-windows.md
+            - name: W portalu
+              href: ../ssh-keys-portal.md
             - name: Szczegółowe procedury
               href: create-ssh-keys-detailed.md
     - name: Ochrona maszyn wirtualnych

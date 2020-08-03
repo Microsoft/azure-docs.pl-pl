@@ -592,6 +592,8 @@
           href: policy.md
     - name: Przydziały usług
       href: concepts-limits.md
+    - name: Automatyczne zalecenia
+      href: automated-recommendations.md
 - name: 'Cassandra, MongoDB i inne interfejsy API'
   expanded: true
   items:

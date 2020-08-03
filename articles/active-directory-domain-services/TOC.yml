@@ -9,7 +9,7 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: Tworzenie podstawowej domeny zarządzanej
+    - name: Tworzenie domeny zarządzanej
       href: tutorial-create-instance.md
     - name: Konfigurowanie sieci wirtualnej dla aplikacji
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Konfigurowanie synchronizacji skrótów haseł
       href: tutorial-configure-password-hash-sync.md
-    - name: Tworzenie zaawansowanej domeny zarządzanej
+    - name: Tworzenie zestawu replik (wersja zapoznawcza)
+      href: tutorial-create-replica-set.md
+    - name: Tworzenie dostosowanej domeny zarządzanej
       href: tutorial-create-instance-advanced.md
-    - name: Tworzenie relacji zaufania lasu (wersja zapoznawcza)
+    - name: Tworzenie relacji zaufania lasu
       href: tutorial-create-forest-trust.md
 - name: Samples
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: Konfigurowanie synchronizacji o określonym zakresie przy użyciu programu PowerShell usługi Azure AD
       href: powershell-scoped-synchronization.md
+    - name: Tworzenie lasu zasobów i relacji zaufania przy użyciu programu Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Pojęcia
   items:
     - name: Podstawy administracji
       href: administration-concepts.md
     - name: Typowe scenariusze wdrażania
       href: scenarios.md
+    - name: Zestawy replik (wersja zapoznawcza)
+      href: concepts-replica-sets.md
     - name: Lasy i relacje zaufania
       items:
         - name: Lasy zasobów

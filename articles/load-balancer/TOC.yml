@@ -10,14 +10,16 @@
       href: load-balancer-faqs.md
 - name: Szybki start
   items:
-    - name: Tworzenie modułu równoważenia obciążenia — portal
+    - name: Tworzenie publicznego modułu równoważenia obciążenia — portal
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Tworzenie modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
+    - name: Tworzenie publicznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Tworzenie modułu równoważenia obciążenia — program Azure PowerShell
+    - name: Tworzenie publicznego modułu równoważenia obciążenia — Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Tworzenie modułu równoważenia obciążenia — szablon usługi ARM
+    - name: Tworzenie publicznego modułu równoważenia obciążenia — szablon usługi Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
+      href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Samouczki
   items:

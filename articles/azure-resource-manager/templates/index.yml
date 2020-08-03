@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/07/2020
-  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
+  ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86118872"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87446736"
 landingContent:
 - title: Informacje o szablonach usługi ARM
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: template-best-practices.md
     - text: Często zadawane pytania
       url: frequently-asked-questions.md
+    - text: Specyfikacje szablonu
+      url: template-specs.md
     - text: Tryby wdrażania
       url: deployment-modes.md
     - text: Połączone szablony
@@ -47,18 +49,18 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Tworzenie szablonów — program VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: Tworzenie szablonów — program Visual Studio
-      url: create-visual-studio-deployment-project.md
   - linkListType: tutorial
     links:
     - text: Samouczki dla początkujących
       url: template-tutorial-create-first-template.md
-    - text: Wdrażanie wielu wystąpień
-      url: template-tutorial-create-multiple-instances.md
-    - text: Ustawianie kolejności wdrażania
-      url: template-tutorial-create-templates-with-dependent-resources.md
-    - text: Integrowanie usługi Key Vault
-      url: template-tutorial-use-key-vault.md
+    - text: Wdrożenie
+      url: deployment-tutorial-local-template.md
+  - linkListType: learn
+    links:
+    - text: Spójna infrastruktura
+      url: /learn/modules/create-azure-resource-manager-template-vs-code/
+    - text: Wiele środowisk
+      url: /learn/modules/modify-azure-resource-manager-template-reuse/
 - title: Tworzenie szablonów
   linkLists:
   - linkListType: how-to-guide
@@ -91,6 +93,8 @@ landingContent:
       url: deploy-portal.md
     - text: Interfejs API REST
       url: deploy-rest.md
+    - text: Przycisk Wdróż na platformie Azure
+      url: deploy-to-azure-button.md
     - text: Wdrożenie warunkowe
       url: template-deploy-what-if.md
 - title: Wdrożenia w zakresie
@@ -103,6 +107,8 @@ landingContent:
       url: deploy-to-management-group.md
     - text: Dzierżawa
       url: deploy-to-tenant.md
+    - text: Wdrożenia między zakresami
+      url: cross-scope-deployment.md
 - title: Eksplorowanie zawartości referencyjnej
   linkLists:
   - linkListType: reference
@@ -125,6 +131,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Zestaw narzędzi do testowania
+      url: test-toolkit.md
     - text: Eksportowanie szablonów
       url: export-template-portal.md
     - text: CI/CD

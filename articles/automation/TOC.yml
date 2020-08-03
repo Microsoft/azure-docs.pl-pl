@@ -244,43 +244,49 @@
     - name: Zarządzanie aktualizacjami
       items:
         - name: Omówienie
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
           href: how-to/region-mappings.md
         - name: Włączanie
           items:
             - name: Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Włączanie rozwiązania Update Management w witrynie Azure Portal
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Włączanie rozwiązania Update Management z poziomu konta usługi Automation
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Włączanie rozwiązania Update Management z poziomu elementu runbook
-              href: automation-onboard-solutions.md
-        - name: Zarządzanie aktualizacjami maszyn wirtualnych platformy Azure
-          href: automation-tutorial-update-management.md
-        - name: Zarządzanie aktualizacjami dla wielu maszyn wirtualnych
-          href: manage-update-multi.md
-        - name: Wyświetlanie ocen aktualizacji
-          href: automation-view-update-assessments.md
-        - name: Zarządzanie skryptami wstępnymi i końcowymi
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: Zarządzanie aktualizacjami maszyn wirtualnych
+          items:
+            - name: Rozpoczęcie pracy
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: Ocena zgodności
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: Wdrażanie aktualizacji i przeglądanie stanu
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: Używanie skryptów wstępnych i końcowych
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Konfigurowanie alertów
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Integracja z programem Configuration Manager
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Konfigurowanie klienta usługi Windows Update
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: Używanie grup dynamicznych
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: Wykonywanie zapytań względem dzienników rozwiązania Update Management
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Praca z konfiguracjami zakresu
-          href: automation-scope-configurations-update-management.md
-        - name: Odłączanie obszaru roboczego od konta usługi Automation
-          href: automation-unlink-workspace-update-management.md
-        - name: Usuwanie maszyn wirtualnych z rozwiązania Update Management
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: Wyłączanie
+          items:
+            - name: Usuwanie rozwiązania Update Management
+              href: update-management/update-mgmt-remove-feature.md
+            - name: Usuwanie maszyn wirtualnych z rozwiązania Update Management
+              href: update-management/update-mgmt-remove-vms.md
         - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z wdrażaniem funkcji
