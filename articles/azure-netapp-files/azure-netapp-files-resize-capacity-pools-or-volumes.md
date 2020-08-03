@@ -1,6 +1,6 @@
 ---
 title: Zmień rozmiar puli pojemności lub woluminu dla Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób zmiany rozmiaru puli pojemności lub woluminu.
+description: Dowiedz się, jak zmienić rozmiar puli pojemności lub woluminu. Zmiana rozmiarów puli pojemności zmienia zakupione Azure NetApp Files pojemności.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: 7da604e8e49b0732680e5f641d1ff6e899ad474d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483486"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512877"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Zmienianie rozmiaru puli pojemności lub woluminu
 W razie potrzeby można zmienić rozmiar puli pojemności lub woluminu. 

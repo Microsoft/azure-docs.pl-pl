@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files zestawy SDK i narzędzia interfejsu wiersza polecenia | Microsoft Docs
-description: Wyświetla listę zestawów SDK i narzędzi wiersza polecenia (CLI) obsługiwanych przez Azure NetApp Files.
+description: 'Więcej informacji o obsługiwanych zestawach SDK dla Azure NetApp Files i ich opublikowanych lokalizacji w usłudze GitHub oraz o obsługiwanych narzędziach wiersza polecenia: Azure CLI i PowerShell.'
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045471"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513625"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
 

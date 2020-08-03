@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure NetApp Files | Microsoft Docs
-description: Omówienie usługi Azure NetApp Files i kluczowych zadań.
+description: Dowiedz się więcej na temat Azure NetApp Files, klasy korporacyjnej o wysokiej wydajności, zmierzonej usługi magazynu plików, która obsługuje dowolny typ obciążenia i ma wysoką dostępność.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 33a90f876f5ce35b52bb2d5625fa9d91a0a33dee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ad556a6c720cb4eaac9a0c9cdf5c4346e2aa857
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "65522992"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512945"
 ---
 # <a name="what-is-azure-netapp-files"></a>Co to jest usługa Azure NetApp Files
 

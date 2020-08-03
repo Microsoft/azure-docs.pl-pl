@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie woluminami przy użyciu Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób zarządzania woluminami przy użyciu usługi Azure NetApp Files.
+description: Dowiedz się, jak wyświetlać, aktualizować lub usuwać wolumin w Azure NetApp Files. Aby usunąć wolumin, najpierw usuń wszystkie obiekty podrzędne woluminu.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 64d83cc88f66eefad8980bead7fe37ad1782873f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50de55846ba22a0be1bb2e9fa5a9224abe87a49
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483554"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513829"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>Zarządzanie woluminami przy użyciu Azure NetApp Files
 Wolumin można zarządzać przez przeglądanie, aktualizowanie lub usuwanie woluminu. 

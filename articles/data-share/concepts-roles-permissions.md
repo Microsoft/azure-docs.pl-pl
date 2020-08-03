@@ -1,17 +1,17 @@
 ---
 title: Role i wymagania dotyczące usługi Azure Data Share
 description: Dowiedz się więcej o uprawnieniach wymaganych do udostępniania i odbierania danych przy użyciu udziału danych platformy Azure.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111001"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513769"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -90,7 +90,13 @@ Aby dowiedzieć się więcej na temat dodawania przypisania roli, zapoznaj się 
 
 ## <a name="resource-provider-registration"></a>Rejestracja dostawcy zasobów 
 
-Aby wyświetlić zaproszenie do udziału danych platformy Azure po raz pierwszy w dzierżawie platformy Azure, może być konieczne ręczne zarejestrowanie dostawcy zasobów Microsoft. datashare w ramach subskrypcji platformy Azure. Wykonaj następujące kroki, aby zarejestrować dostawcę zasobów Microsoft. datashare w ramach subskrypcji platformy Azure. Do zarejestrowania dostawcy zasobów potrzebny jest dostęp *współautora* do subskrypcji platformy Azure.
+Może być konieczne ręczne zarejestrowanie dostawcy zasobów Microsoft. datashare w ramach subskrypcji platformy Azure w następujących scenariuszach: 
+
+* Przeglądanie zaproszenia udziału danych platformy Azure po raz pierwszy w dzierżawie platformy Azure
+* Udostępnianie danych z magazynu danych platformy Azure w innej subskrypcji platformy Azure z zasobu udziału danych platformy Azure
+* Odbieranie danych do magazynu danych platformy Azure w innej subskrypcji platformy Azure z zasobu udziału danych platformy Azure
+
+Wykonaj następujące kroki, aby zarejestrować dostawcę zasobów Microsoft. datashare w ramach subskrypcji platformy Azure. Do zarejestrowania dostawcy zasobów potrzebny jest dostęp *współautora* do subskrypcji platformy Azure.
 
 1. W Azure Portal przejdź do **subskrypcji**.
 1. Wybierz subskrypcję używaną dla udziału danych platformy Azure.

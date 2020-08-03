@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 166909f1e048ac54184ef5eee2ecee3bfedcdb02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0707d578f90f70318c2a01f324b50092d9962965
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284136"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513846"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -153,11 +153,48 @@ Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania za
 
 Poniżej przedstawiono kilka typowych łączników standardowych, które Logic Apps zapewniają dostęp do danych i zasobów w systemach lokalnych. Aby można było utworzyć połączenie z systemem lokalnym, należy najpierw [pobrać, zainstalować i skonfigurować lokalną bramę danych][gateway-doc]. Ta brama zapewnia bezpieczny kanał komunikacyjny bez konieczności konfigurowania niezbędnej infrastruktury sieciowej.
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![Ikona interfejsu API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc] | [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc] | [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ikona interfejsu API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc] | [![Ikona interfejsu API ][mysql-icon]<br> **MySQL**][mysql-doc] |
-| [![Ikona interfejsu API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc] | [![Ikona interfejsu API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc] | [![Ikona interfejsu API ][sharepoint-server-icon]<br> **programu SharePoint <br> Server**][sharepoint-server-doc] | [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ikona interfejsu API ][teradata-icon]<br> **Teradata**][teradata-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
+    :::column-end:::
+    :::column:::
+        [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][mysql-icon]<br> **MySQL**][mysql-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][sharepoint-server-icon]<br> **programu SharePoint <br> Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][teradata-icon]<br> **Teradata**][teradata-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="integration-account-connectors"></a>
 
@@ -165,12 +202,48 @@ Poniżej przedstawiono kilka typowych łączników standardowych, które Logic A
 
 Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między firmami (B2B, Business-to-Business) za pomocą aplikacji logiki, gdy tworzysz i płacisz za [konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), które jest dostępne za pomocą pakiet INTEGRACYJNY dla przedsiębiorstw (EIP) na platformie Azure. Za pomocą tego konta możesz tworzyć i przechowywać artefakty B2B, takie jak partnerzy handlowi, umowy, mapy, schematy, certyfikaty itd. Aby użyć tych artefaktów, skojarz Aplikacje logiki z kontem integracji. Jeśli obecnie używasz BizTalk Server, te łączniki mogą wydawać się już znane.
 
-|___|___|___|___|
-|---|---|---|---|
-| [![Ikona interfejsu API ][as2-icon]<br> ** <br> dekodowanie AS2**][as2-doc] | [![Ikona interfejsu API ][as2-icon]<br> ** <br> kodowanie AS2**][as2-doc] | [![Ikona interfejsu API ][edifact-icon]<br> ** <br> dekodowanie EDIFACT**][edifact-decode-doc] | [![Ikona interfejsu API ][edifact-icon]<br> ** <br> kodowanie EDIFACT**][edifact-encode-doc] |
-| [![Ikona interfejsu API — ][flat-file-decode-icon]<br> ** <br> dekodowanie pliku prostego**][flat-file-decode-doc] | [![Ikona interfejsu API — ][flat-file-encode-icon]<br> ** <br> kodowanie pliku prostego**][flat-file-encode-doc] | [![Ikona interfejsu API ][integration-account-icon]<br> ** <br> konto integracji**][integration-account-doc] | [![Ikona interfejsu API ][liquid-icon]<br> **Liquid** <br> **transformacje** płynne][json-liquid-transform-doc] |
-| [![Ikona interfejsu API ][x12-icon]<br> ** <br> dekodowanie X12**][x12-decode-doc] | [![Ikona interfejsu API ][x12-icon]<br> ** <br> kodowanie X12**][x12-encode-doc] | [![Ikona interfejsu API ][xml-transform-icon]<br> **XML** <br> **przekształcenia** XML][xml-transform-doc] | [![][xml-validate-icon]<br>** <br> Weryfikacja kodu XML** ikony interfejsu API][xml-validate-doc] |
-|||||
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][as2-icon]<br> ** <br> dekodowanie AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][as2-icon]<br> ** <br> kodowanie AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][edifact-icon]<br> ** <br> dekodowanie EDIFACT**][edifact-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][edifact-icon]<br> ** <br> kodowanie EDIFACT**][edifact-encode-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API — ][flat-file-decode-icon]<br> ** <br> dekodowanie pliku prostego**][flat-file-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API — ][flat-file-encode-icon]<br> ** <br> kodowanie pliku prostego**][flat-file-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][integration-account-icon]<br> ** <br> konto integracji**][integration-account-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][liquid-icon]<br> **Liquid** <br> **transformacje** płynne][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][x12-icon]<br> ** <br> dekodowanie X12**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][x12-icon]<br> ** <br> kodowanie X12**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][xml-transform-icon]<br> **XML** <br> **przekształcenia** XML][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![][xml-validate-icon]<br>** <br> Weryfikacja kodu XML** ikony interfejsu API][xml-validate-doc]
+    :::column-end:::
+:::row-end:::
 
 <a name="enterprise-connectors"></a>
 
@@ -178,10 +251,20 @@ Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między f
 
 Logic Apps udostępnia te łączniki przedsiębiorstwa do uzyskiwania dostępu do systemów przedsiębiorstwa, takich jak SAP i IBM MQ:
 
-|___|___|___|
-|---|---|---|
-| [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-|||
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="ise-connectors"></a>
 
@@ -189,14 +272,90 @@ Logic Apps udostępnia te łączniki przedsiębiorstwa do uzyskiwania dostępu d
 
 W przypadku aplikacji logiki, które tworzysz i uruchamiasz w dedykowanym [środowisku usługi integracji (ISE)](#integration-service-environment), projektant aplikacji logiki identyfikuje wbudowane wyzwalacze i akcje, które są uruchamiane w ISE przy użyciu **podstawowej** etykiety. Łączniki zarządzane, które działają w ISE wyświetlają etykietę **ISE** , podczas gdy łączniki działające w globalnej, wielodostępnej usłudze Logic Apps nie wyświetlają żadnej etykiety. Ta lista zawiera łączniki, które obecnie mają wersje ISE:
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![Ikona interfejsu API ][as2-icon]<br> **AS2**][as2-doc] | [![Ikona interfejsu API ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc] | [![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | [![Ikona interfejsu API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![Ikona interfejsu API ][azure-event-hubs-icon]<br> **usługi Azure Event <br> Hub**][azure-event-hubs-doc] |
-| [![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc] | [![Ikona interfejsu API ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc] | [![Ikona interfejsu API ][azure-key-vault-icon]<br> **Azure Key <br> magazynu**][azure-key-vault-doc] | [![Ikona interfejsu API ][azure-monitor-logs-icon]<br> **Azure monitor <br> dzienniki**][azure-monitor-logs-doc] | [![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service <br> Bus**][azure-service-bus-doc] |
-| [![Ikona interfejsu API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc] | [![Ikona interfejsu API ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc] | [![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc] | [![Ikona interfejsu API ][edifact-icon]<br> **EDIFACT**][edifact-doc] | [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc] |
-| [![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc] | [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-| [![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | [![Ikona interfejsu API ][smtp-icon]<br> **SMTP**][smtp-doc] | [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ikona interfejsu API ][x12-icon]<br> **X12**][x12-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][as2-icon]<br> **AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-event-hubs-icon]<br> **usługi Azure Event <br> Hub**][azure-event-hubs-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-key-vault-icon]<br> **Azure Key <br> magazynu**][azure-key-vault-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-monitor-logs-icon]<br> **Azure monitor <br> dzienniki**][azure-monitor-logs-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service <br> Bus**][azure-service-bus-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][edifact-icon]<br> **EDIFACT**][edifact-doc]
+    :::column-end:::
+    :::column:::
+        [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][smtp-icon]<br> **SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Ikona interfejsu API ][x12-icon]<br> **X12**][x12-doc]
+    :::column-end:::
+:::row-end:::
 
 Więcej informacji można znaleźć w następujących tematach:
 

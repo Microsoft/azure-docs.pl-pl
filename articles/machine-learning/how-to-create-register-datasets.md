@@ -11,19 +11,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.openlocfilehash: 5f58698de289efc0b74550260c2229f2a08d798d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.date: 07/31/2020
+ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461378"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513098"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych w celu uzyskania dostępu do danych dla eksperymentów lokalnych lub zdalnych. Aby dowiedzieć się, gdzie zestawy danych mieszczą się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
+
+Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie ponosisz żadnych dodatkowych kosztów magazynu i nie ryzykują integralności źródeł danych. Ponadto zestawy danych są opóźnieniem-oceniane, co ułatwia szybkość działania przepływu pracy.
 
 Za pomocą Azure Machine Learning zestawów danych można:
 
@@ -50,38 +52,59 @@ Aby tworzyć zestawy danych i korzystać z nich, potrzebne są:
 
 ## <a name="compute-size-guidance"></a>Wskazówki dotyczące rozmiaru obliczeń
 
-Podczas tworzenia zestawu danych sprawdź moc obliczeniową obliczeniową i rozmiar danych w pamięci. Rozmiar danych w magazynie nie jest taki sam jak rozmiar danych w ramce Dataframe. Na przykład dane w plikach CSV można rozszerzyć o do 10X w ramce Dataframe, dzięki czemu plik CSV o pojemności 1 GB może być 10 GB w ramce Dataframe. 
+Podczas tworzenia zestawu danych Przejrzyj moc obliczeniową obliczeniową i rozmiar danych w pamięci. Rozmiar danych w magazynie nie jest taki sam jak rozmiar danych w ramce Dataframe. Na przykład dane w plikach CSV można rozszerzyć o do 10X w ramce Dataframe, dzięki czemu plik CSV o pojemności 1 GB może być 10 GB w ramce Dataframe. 
 
 Jeśli dane są skompresowane, można zwiększyć ich rozmiar. 20 GB stosunkowo rozrzedzonych danych przechowywanych w skompresowanym formacie Parquet można zwiększyć do ~ 800 GB w pamięci. Ponieważ pliki Parquet przechowują dane w formacie kolumnowym, w przypadku, gdy potrzebna jest tylko połowa kolumn, wystarczy załadować ~ 400 GB w pamięci.
- 
-Jeśli używasz Pandas, nie ma potrzeby używania więcej niż 1 vCPU, ponieważ będzie on używany przez cały siebie. W razie potrzeby można łatwo zrównoleglanie wiele procesorów wirtualnych vCPU na jednym Azure Machine Learning wystąpienia obliczeniowego/węźle za pośrednictwem Modin i Dask/ray oraz skalować w poziomie do dużego klastra, po prostu zmieniając opcję `import pandas as pd` na `import modin.pandas as pd` . 
- 
-[Dowiedz się więcej na temat optymalizowania przetwarzania danych w Azure Machine Learning](concept-optimize-data-processing.md)
+
+[Dowiedz się więcej na temat optymalizowania przetwarzania danych w Azure Machine Learning](concept-optimize-data-processing.md).
 
 ## <a name="dataset-types"></a>Typy zestawów danych
 
-Istnieją dwa typy zestawów danych, w zależności od tego, jak użytkownicy zużywają je w szkoleniu:
+Istnieją dwa typy zestawów danych, w zależności od tego, jak użytkownicy zużywają je w szkoleniu. FileDatasets i TabularDatasets. Oba typy mogą być używane w Azure Machine Learning szkoleń dotyczących przepływów pracy obejmujących, szacowania, AutoML, moje napędy i potoki. 
 
-* Klasa [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Za pomocą tej metody można pobrać lub zainstalować pliki do obliczeń jako obiekt FileDataset. Pliki mogą być w dowolnym formacie, co umożliwia szersze korzystanie z wielu scenariuszy uczenia maszynowego, w tym uczenie głębokie. 
+### <a name="filedataset"></a>FileDataset
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Zapewnia to możliwość zmaterializowania danych do Pandas lub Spark Dataframe. Można utworzyć `TabularDataset` obiekt z plików CSV,. tsv,. Parquet,. JSON i z wyników zapytania SQL. Aby uzyskać pełną listę, zobacz [TabularDatasetFactory Class](https://aka.ms/tabulardataset-api-reference).
+[FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować](how-to-train-with-datasets.md#mount-vs-download) pliki do obliczeń jako obiekt FileDataset. 
+
+Zalecamy FileDatasets dla przepływów pracy usługi Machine Learning, ponieważ pliki źródłowe mogą być w dowolnym formacie, co pozwala na szersze scenariusze uczenia maszynowego, w tym uczenie głębokie.
+
+Tworzenie FileDataset przy użyciu [zestawu SDK języka Python](#create-a-filedataset) lub [Azure Machine Learning Studio](#create-datasets-in-the-studio)
+
+### <a name="tabulardataset"></a>TabularDataset
+
+[TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Zapewnia to możliwość zmaterializowania danych w Pandas lub Spark Dataframe, dzięki czemu możesz współpracować ze znanymi bibliotekami przygotowywania i uczenia danych bez konieczności opuszczania Twojego notesu. Można utworzyć `TabularDataset` obiekt z plików CSV,. tsv,. Parquet,. JSON i z [wyników zapytania SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+
+Za pomocą TabularDatasets można określić sygnaturę czasową z kolumny w danych lub z dowolnego miejsca, w którym są przechowywane dane wzorca ścieżki, aby włączyć cechę szeregów czasowych. Ta specyfikacja umożliwia łatwe i wydajne filtrowanie według czasu. Aby zapoznać się z przykładem, zobacz [Tabelaryczny pokaz interfejsu API związany z szeregiem czasowym z danymi pogody NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
+
+Utwórz TabularDataset za pomocą [zestawu SDK języka Python](#create-a-tabulardataset) lub [Azure Machine Learning Studio](#create-datasets-in-the-studio).
+
+>[!NOTE]
+> Przepływy pracy AutoML wygenerowane za pośrednictwem Azure Machine Learning Studio obsługują obecnie tylko TabularDatasets. 
+
+## <a name="access-datasets-in-a-virtual-network"></a>Dostęp do zestawów danych w sieci wirtualnej
+
+Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować zestaw danych, aby pominąć walidację. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+
+<a name="datasets-sdk"></a>
 
 ## <a name="create-datasets-via-the-sdk"></a>Tworzenie zestawów danych za pośrednictwem zestawu SDK
 
-Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie pociąga to za sobą dodatkowych kosztów magazynu. Aby można było uzyskać dostęp do danych przez Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [usłudze Azure datastores](how-to-access-data.md) lub publicznych adresów URL sieci Web. 
+ Aby można było uzyskać dostęp do danych przez Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [usłudze Azure datastores](how-to-access-data.md) lub publicznych adresów URL sieci Web. 
 
-Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) przy użyciu zestawu SDK języka Python:
+Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) za pomocą zestawu SDK języka Python:
 
 1. Sprawdź, czy masz `contributor` lub masz `owner` dostęp do zarejestrowanego magazynu danych platformy Azure.
 
-2. Utwórz zestaw danych, odwołując się do ścieżek w magazynie danych.
+2. Utwórz zestaw danych, odwołując się do ścieżek w magazynie danych. Można utworzyć zestaw danych z wielu ścieżek w wielu magazynach. Nie ma żadnego sztywnego limitu liczby plików lub rozmiaru danych, z których można utworzyć zestaw danych. 
 
 > [!Note]
-> Można utworzyć zestaw danych z wielu ścieżek w wielu magazynach. Nie ma żadnego sztywnego limitu liczby plików lub rozmiaru danych, z których można utworzyć zestaw danych. Jednak dla każdej ścieżki danych do usługi magazynu wysyłane są kilka żądań, aby sprawdzić, czy wskazuje ona plik lub folder. To obciążenie może prowadzić do obniżenia wydajności lub niepowodzenia. Zestaw danych odwołujący się do jednego folderu z plikami 1000 wewnątrz jest traktowany jako odwołujący się do jednej ścieżki danych. Zalecamy utworzenie zestawu danych, do którego odwołuje się mniej niż 100 ścieżek w magazynach datastores w celu uzyskania optymalnej wydajności.
+> Dla każdej ścieżki danych do usługi magazynu wysyłane są kilka żądań, aby sprawdzić, czy wskazuje ona plik lub folder. To obciążenie może prowadzić do obniżenia wydajności lub niepowodzenia. Zestaw danych odwołujący się do jednego folderu z plikami 1000 wewnątrz jest traktowany jako odwołujący się do jednej ścieżki danych. Zalecamy utworzenie zestawu danych, do którego odwołuje się mniej niż 100 ścieżek w magazynach datastores w celu uzyskania optymalnej wydajności.
 
-#### <a name="create-a-filedataset"></a>Utwórz FileDataset
+### <a name="create-a-filedataset"></a>Utwórz FileDataset
 
-Użyj [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) metody `FileDatasetFactory` klasy, aby załadować pliki w dowolnym formacie i utworzyć niezarejestrowane FileDataset. Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, należy ustawić parametr `validate=False` w `from_files()` metodzie. Pomija początkowy krok walidacji i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików.
+Użyj [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) metody `FileDatasetFactory` klasy, aby załadować pliki w dowolnym formacie i utworzyć niezarejestrowane FileDataset. 
+
+Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, należy ustawić parametr `validate=False` w `from_files()` metodzie. Pomija początkowy krok walidacji i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików. Dowiedz się więcej o sposobach używania [magazynów danych i zestawów w sieci wirtualnej](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -94,9 +117,11 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-#### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
+### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
 
 Użyj [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) metody `TabularDatasetFactory` klasy, aby odczytać pliki w formacie CSV lub TSV oraz utworzyć niezarejestrowane TabularDataset. W przypadku odczytywania z wielu plików wyniki zostaną zagregowane w jednej reprezentacji tabelarycznej. 
+
+Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, należy ustawić parametr `validate=False` w `from_delimited_files()` metodzie. Pomija początkowy krok walidacji i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików. Dowiedz się więcej o sposobach używania [magazynów danych i zestawów w sieci wirtualnej](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 Poniższy kod pobiera istniejący obszar roboczy i żądany magazyn danych według nazwy. Następnie przekazuje magazyn danych i lokalizacje plików do `path` parametru, aby utworzyć nowy TabularDataset `weather_ds` .
 
@@ -119,10 +144,8 @@ datastore_paths = [(datastore, 'weather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Domyślnie podczas tworzenia TabularDataset typy danych kolumny są wywnioskowane automatycznie. Jeśli wywnioskowane typy nie pasują do oczekiwań, można określić typy kolumn za pomocą następującego kodu. Ten parametr `infer_column_type` ma zastosowanie tylko w przypadku zestawów danych utworzonych na podstawie rozdzielanych plików. Możesz również [dowiedzieć się więcej na temat obsługiwanych typów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+Domyślnie podczas tworzenia TabularDataset typy danych kolumny są wywnioskowane automatycznie. Jeśli wywnioskowane typy nie pasują do oczekiwań, można określić typy kolumn za pomocą następującego kodu. Ten parametr `infer_column_type` ma zastosowanie tylko w przypadku zestawów danych utworzonych na podstawie rozdzielanych plików. [Dowiedz się więcej na temat obsługiwanych typów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
-> [!IMPORTANT] 
-> Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, obsługiwane jest tylko tworzenie zestawu danych za pomocą zestawu SDK. Aby utworzyć zestaw danych, pamiętaj o uwzględnieniu parametrów `validate=False` i `infer_column_types=False` w `from_delimited_files()` metodzie. Spowoduje to Pominięcie sprawdzania poprawności początkowej i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików. 
 
 ```Python
 from azureml.core import Dataset
@@ -142,15 +165,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|Prawda|1|Cumings, Pani. Jan Bradley (Florencji Briggs th...|kobieta|38,0|1|0|KOMPUTER 17599|71,2833|C85|C
 2|3|Prawda|3|Heikkinen, chybień. Laina|kobieta|26,0|0|0|STON/O2. 3101282|7,9250||S
 
-Aby utworzyć zestaw danych na podstawie Pandas pamięci Dataframe, Zapisz dane w lokalnym pliku, takim jak wolumin CSV, i Utwórz zestaw danych z tego pliku. Poniższy kod demonstruje ten przepływ pracy.
+### <a name="create-a-dataset-from-pandas-dataframe"></a>Tworzenie zestawu danych z Pandas Dataframe
+
+Aby utworzyć TabularDataset z ramki datapandas Dataframe, Zapisz dane w lokalnym pliku, takim jak wolumin CSV, i Utwórz zestaw danych z tego pliku. Poniższy kod demonstruje ten przepływ pracy.
 
 ```python
+# azureml-core of version 1.0.72 or higher is required
+# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+
+from azureml.core import Workspace, Dataset
 local_path = 'data/prepared.csv'
 dataframe.to_csv(local_path)
 upload the local file to a datastore on the cloud
-# azureml-core of version 1.0.72 or higher is required
-# azureml-dataprep[pandas] of version 1.1.34 or higher is required
-from azureml.core import Workspace, Dataset
 
 subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
 resource_group = 'xxxxxx'
@@ -163,42 +189,12 @@ datastore = workspace.get_default_datastore()
 
 # upload the local file from src_dir to the target_path in datastore
 datastore.upload(src_dir='data', target_path='data')
+
 # create a dataset referencing the cloud location
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
-Użyj [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-) metody `TabularDatasetFactory` klasy, aby odczytać z Azure SQL Database:
-
-```Python
-
-from azureml.core import Dataset, Datastore
-
-# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
-sql_datastore = Datastore.get(workspace, 'mssql')
-sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
-```
-
-W TabularDatasets można określić sygnaturę czasową z kolumny w danych lub z dowolnego miejsca, w którym są przechowywane dane wzorca ścieżki, aby włączyć cechę szeregów czasowych. Ta specyfikacja umożliwia łatwe i wydajne filtrowanie według czasu.
-
-Użyj [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metody `TabularDataset` klasy, aby określić kolumnę sygnatury czasowej i włączyć filtrowanie według czasu. Aby uzyskać więcej informacji, zobacz [Tabelaryczny pokaz interfejsu API związany z serią czasową z danymi pogody NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
-
-```Python
-# create a TabularDataset with time series trait
-datastore_paths = [(datastore, 'weather/*/*/*/data.parquet')]
-
-# get a coarse timestamp column from the path pattern
-dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_format='weather/{coarse_time:yyy/MM/dd}/data.parquet')
-
-# set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
-dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
-
-# filter with time-series-trait-specific methods
-data_slice = dataset.time_before(datetime(2019, 1, 1))
-data_slice = dataset.time_after(datetime(2019, 1, 1))
-data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
-data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
-```
-### <a name="register-datasets"></a>Rejestrowanie zestawów danych
+## <a name="register-datasets"></a>Rejestrowanie zestawów danych
 
 Aby ukończyć proces tworzenia, zarejestruj zestawy danych w obszarze roboczym. Użyj [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) metody, aby zarejestrować zestawy danych w obszarze roboczym, aby udostępnić je innym osobom i ponownie wykorzystać je w ramach eksperymentów w obszarze roboczym:
 
@@ -208,8 +204,8 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  description='titanic training data')
 ```
 
+<a name="datasets-ui"></a>
 ## <a name="create-datasets-in-the-studio"></a>Tworzenie zestawów danych w programie Studio
-
 Poniższe kroki i animacje pokazują, jak utworzyć zestaw danych w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
 > [!Note]
@@ -227,6 +223,10 @@ Aby utworzyć zestaw danych w programie Studio:
 1. Wybierz pozycję **dalej** , aby wypełnić **Ustawienia, Podgląd** i formularze **schematów** ; są one inteligentnie wypełniane na podstawie typu pliku i można później skonfigurować zestaw danych przed utworzeniem w tych formularzach. 
 1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
+
+## <a name="train-with-datasets"></a>Szkolenie przy użyciu zestawów danych
+
+Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia modeli ML. [Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md)
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure
 
@@ -284,31 +284,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
-## <a name="access-datasets-in-your-script"></a>Dostęp do zestawów danych w skrypcie
-
-Zarejestrowane zestawy danych są dostępne lokalnie i zdalnie w klastrach obliczeniowych, takich jak Azure Machine Learning COMPUTE. Aby uzyskać dostęp do zarejestrowanego zestawu danych w ramach eksperymentów, użyj następującego kodu, aby uzyskać dostęp do obszaru roboczego i zarejestrowano zestaw danych według nazwy. Domyślnie [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) Metoda `Dataset` klasy zwraca najnowszą wersję zestawu danych, który jest zarejestrowany w obszarze roboczym.
-
-```Python
-%%writefile $script_folder/train.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-workspace = run.experiment.workspace
-
-dataset_name = 'titanic_ds'
-
-# Get a dataset by name
-titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
-
-# Load a TabularDataset into pandas DataFrame
-df = titanic_ds.to_pandas_dataframe()
-```
-
-## <a name="access-datasets-in-a-virtual-network"></a>Dostęp do zestawów danych w sieci wirtualnej
-
-Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować zestaw danych, aby pominąć walidację. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 ## <a name="next-steps"></a>Następne kroki
 

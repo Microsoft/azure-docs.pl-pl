@@ -1,6 +1,6 @@
 ---
 title: Tworzenie woluminu NFS dla Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób tworzenia woluminu NFS dla Azure NetApp Files.
+description: W tym artykule opisano sposób tworzenia woluminu NFS w Azure NetApp Files. Dowiedz się więcej na temat zagadnień, takich jak używane wersje oraz najlepsze rozwiązania.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2e1e6ad6625586e882551521111057a2a20f0fff
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169462"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513047"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Tworzenie woluminu NFS dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje woluminy NFS (NFSv3 i NFSv 4.1) i SMBv3. Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. Jeśli chcesz utworzyć wolumin SMB, zobacz [Tworzenie woluminu SMB dla Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
@@ -70,7 +70,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     * **Pula pojemności**  
         Określ pulę pojemności, w której ma zostać utworzony wolumin.
 
-    * **Limit przydziału**  
+    * **limit przydziału**  
         Określ wielkość magazynu logicznego, który zostanie przydzielony do woluminu.  
 
         W polu **Dostępny limit przydziału** jest wyświetlana ilość nieużywanego miejsca w wybranej puli pojemności, które można wykorzystać do utworzenia nowego woluminu. Rozmiar nowego woluminu nie może przekraczać dostępnego limitu przydziału.  

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086034"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513795"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -40,11 +40,11 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Interfejsy API magazynu obiektów BLOB|Ogólnie dostępne|Wersja zapoznawcza|[Szybki start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET](storage-quickstart-blobs-dotnet.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java](storage-quickstart-blobs-java.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python](storage-quickstart-blobs-python.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript V12 w Node.js](storage-quickstart-blobs-nodejs.md)|
 |Dzienniki diagnostyczne|Ogólnie dostępne|Wersja zapoznawcza <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Rejestrowanie analityki magazynu platformy Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Archiwizowanie warstwy dostępu|Ogólnie dostępne|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
+|Zasady zarządzania cyklem życia|Ogólnie dostępne|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Logowanie Azure Monitor|Wersja zapoznawcza |Jeszcze nieobsługiwane|[Monitorowanie usługi Azure Storage](../common/monitor-storage.md)|
 |Migawki|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Migawki obiektów BLOB](snapshots-overview.md)|
 |Statyczne witryny internetowe|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
 |Niezmienny magazyn|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
-|Zasady zarządzania cyklem życia|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Blobfuse|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
 |Tryb failover konta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -58,7 +58,7 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 
 <div id="preview-form"><sup>3</sup> Aby korzystać z migawek, niezmiennego magazynu lub statycznych witryn internetowych z Data Lake Storage Gen2, musisz zarejestrować się w wersji zapoznawczej, wypełniając ten <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formularz</a>.  </div>
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

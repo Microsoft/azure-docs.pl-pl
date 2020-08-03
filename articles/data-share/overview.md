@@ -1,17 +1,17 @@
 ---
 title: Co to jest usługa Azure Data Share?
 description: Uzyskaj informacje na temat udostępniania danych w sposób zwykły i bezpieczny dla wielu klientów i partnerów przy użyciu udziału danych platformy Azure.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/10/2019
-ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 07/30/2020
+ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636782"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511925"
 ---
 # <a name="what-is-azure-data-share"></a>Co to jest usługa Azure Data Share?
 
@@ -25,7 +25,7 @@ Dostawca danych może zachować kontrolę nad sposobem obsługi ich danych, okre
 
 Udział danych platformy Azure ułatwia zwiększenie wglądu w dane, ułatwiając łączenie danych od innych firm w celu wzbogacania scenariuszy analizy i AI. Korzystaj z możliwości narzędzi analitycznych platformy Azure, aby przygotować, przetwarzać i analizować dane udostępnione za pomocą udziału danych platformy Azure. 
 
-Dostawca danych i odbiorca danych muszą mieć subskrypcję platformy Azure, aby udostępniać i odbierać dane. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+Dostawca danych i odbiorca danych muszą mieć subskrypcję platformy Azure, aby udostępniać i odbierać dane. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="scenarios-for-azure-data-share"></a>Scenariusze dotyczące udziału danych platformy Azure
 

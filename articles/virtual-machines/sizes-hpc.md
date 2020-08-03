@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421369"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512010"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
@@ -42,9 +42,11 @@ Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie si
 > Funkcja RDMA przez IB jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
 > Protokół IP over IB jest obsługiwany tylko na maszynach wirtualnych z włączoną funkcją SR-IOV.
 
-- **System operacyjny** — Linux jest bardzo dobrze obsługiwany dla maszyn wirtualnych HPC; dystrybucje, takie jak CentOS, RHEL, Ubuntu, SUSE są powszechnie używane. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 i nowsze wersje są obsługiwane we wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV (H16r, H16mr, A8 i A9). Należy pamiętać, że [system Windows Server 2012 R2 nie jest obsługiwany na HBv2 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **System operacyjny** — Linux jest bardzo dobrze obsługiwany dla maszyn wirtualnych HPC; dystrybucje, takie jak CentOS, RHEL, Ubuntu, SUSE są powszechnie używane. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 i nowsze wersje są obsługiwane we wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV (H16r, H16mr, A8 i A9). Należy pamiętać, że [system Windows Server 2012 R2 nie jest obsługiwany na HBv2 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Zobacz [obrazy maszyn wirtualnych](./workloads/hpc/configure.md) , aby zapoznać się z listą obsługiwanych obrazów maszyn wirtualnych w witrynie Marketplace oraz jak można odpowiednio je skonfigurować.
 
-- **Sterowniki InfiniBand i RDMA** — na maszynach wirtualnych z włączoną funkcją InfiniBand wymagane są odpowiednie sterowniki, aby włączyć funkcję RDMA. W systemie Linux obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Na maszynach wirtualnych z serii H i N z obsługą wirtualizacji SR-IOV [rozszerzenia maszyny wirtualnej InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) można użyć do zainstalowania sterowników Mellanox OFED i włączenia funkcji InfiniBand. Dowiedz się więcej na temat włączania funkcji InfiniBand w przypadku maszyn wirtualnych obsługujących funkcję [RDMA.](./workloads/hpc/overview.md)
+- **Sterowniki InfiniBand i RDMA** — na maszynach wirtualnych z włączoną funkcją InfiniBand wymagane są odpowiednie sterowniki, aby włączyć funkcję RDMA. W systemie Linux dla maszyn wirtualnych z obsługą wirtualizacji SR-IOV i bez wirtualizacji SR-IOV obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Zobacz [Konfigurowanie i optymalizowanie maszyn wirtualnych dla systemu operacyjnego Linux,](./workloads/hpc/configure.md) Aby uzyskać więcej szczegółowych informacji o gotowych do użycia obrazach systemu operacyjnego Linux dla maszyn wirtualnych.
+
+   W systemie Linux [rozszerzenie maszyny wirtualnej InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) może służyć do instalowania sterowników Mellanox OFED i włączania InfiniBand na maszynach wirtualnych z serii H i l z obsługą wirtualizacji SR-IOV. Dowiedz się więcej na temat włączania funkcji InfiniBand na maszynach wirtualnych obsługujących funkcję RDMA w [obciążeniach HPC](./workloads/hpc/enable-infiniband.md).
 
    W systemie Windows [rozszerzenie maszyny wirtualnej InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instaluje sterowniki bezpośrednie sieci systemu Windows (na maszynach wirtualnych innych niż SR-IOV) lub sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA. W niektórych wdrożeniach wystąpień A8 i A9 rozszerzenie HpcVmDrivers jest dodawane automatycznie. Należy pamiętać, że rozszerzenie maszyny wirtualnej HpcVmDrivers jest przestarzałe; nie zostanie ona zaktualizowana.
 
@@ -99,5 +101,5 @@ Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z sys
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat optymalizowania aplikacji HPC na platformie Azure i niektórych przykładów w [obciążeniach HPC](./workloads/hpc/overview.md).
-
 - Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

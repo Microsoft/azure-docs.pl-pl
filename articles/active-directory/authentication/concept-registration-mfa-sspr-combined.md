@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050954"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512979"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
 Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
+
+> [!NOTE]
+> Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej.
 
 W tym artykule przedstawiono łączną rejestrację zabezpieczeń. Aby rozpocząć pracę z łączną rejestracją zabezpieczeń, zobacz następujący artykuł:
 

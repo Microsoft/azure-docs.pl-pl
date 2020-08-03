@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171873"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513727"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -27,7 +27,7 @@ Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wir
 W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtualnego.
 
 > [!NOTE]
-> Niektóre z tych nowych koncepcji dotyczące tabel tras centrum, skojarzenia, propagacji i trasy statyczne w połączeniu z siecią wirtualną mogą być w dalszym ciągu wycofywane i oczekiwane w tygodniu przed 3 sierpnia.
+> Niektóre z tych nowych koncepcji tabeli tras centrum, skojarzenia, propagacji i trasy statyczne w połączeniu z siecią wirtualną mogą być nadal wdrażane i oczekiwane w tygodniu od sierpnia sie.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela tras centrum
@@ -77,9 +77,9 @@ Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela 
 
 * **Klienci sieci wirtualnej w warstwie Standardowa ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**:
 
-Aby skorzystać z nowych możliwości tabeli tras, zaczekaj, aż do ukończenia wdrożenia na platformie Azure z dniem tygodnia od trzeciej sierpnia. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
+Aby skorzystać z nowych możliwości tabeli tras, zaczekaj, aż do ukończenia wdrożenia na platformie Azure zostanie zadłużony tydzień sierpnia. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
 
-* **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj na zakończenie tygodnia od trzeciej sierpnia dla wdrożenia na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
+* **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj, aż tydzień sierpnia zakończył wdrażanie na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Zagadnienia dotyczące routingu wirtualnej sieci WAN
 

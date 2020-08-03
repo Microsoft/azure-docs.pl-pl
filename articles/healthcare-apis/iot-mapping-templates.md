@@ -1,26 +1,26 @@
 ---
-title: 'Koncepcje: mapowanie szablonów w usłudze IoT Connector (wersja zapoznawcza) interfejsu API platformy Azure dla FHIR'
-description: Dowiedz się, jak utworzyć dwa typy szablonów mapowania w łączniku IoT. Szablon mapowania urządzeń przekształca dane urządzenia w znormalizowany schemat. Szablon mapowania FHIR przekształca znormalizowany komunikat do ego zasobu na podstawie FHIR.
+title: 'Koncepcje: mapowanie szablonów w usłudze Azure IoT Connector for FHIR (wersja zapoznawcza) funkcja interfejsu API platformy Azure dla FHIR'
+description: Dowiedz się, jak utworzyć dwa typy szablonów mapowania w usłudze Azure IoT Connector for FHIR (wersja zapoznawcza). Szablon mapowania urządzeń przekształca dane urządzenia w znormalizowany schemat. Szablon mapowania FHIR przekształca znormalizowany komunikat do ego zasobu na podstawie FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: dadd14d4ca28f367eaa7fd07099514bf420af5af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099402"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513353"
 ---
-# <a name="iot-connector-preview-mapping-templates"></a>Szablony mapowania łącznika IoT (wersja zapoznawcza)
-W tym artykule szczegółowo opisano sposób konfigurowania łącznika IoT przy użyciu szablonów mapowania.
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
+W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT dla FHIR * przy użyciu szablonów mapowania.
 
-Łącznik IoT wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia**, jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR**, steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
+Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia**, jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR**, steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
 
-Szablony mapowania składają się na dokument JSON w oparciu o ich typ. Te dokumenty JSON są następnie dodawane do łącznika IoT za pomocą Azure Portal. Dokument mapowania urządzeń zostanie dodany za pomocą strony **Konfigurowanie mapowania urządzenia** i dokumentu mapowania FHIR na stronie **Konfigurowanie mapowania FHIR** .
+Szablony mapowania składają się na dokument JSON w oparciu o ich typ. Te dokumenty JSON są następnie dodawane do łącznika usługi Azure IoT dla FHIR za pomocą Azure Portal. Dokument mapowania urządzeń zostanie dodany za pomocą strony **Konfigurowanie mapowania urządzenia** i dokumentu mapowania FHIR na stronie **Konfigurowanie mapowania FHIR** .
 
 > [!NOTE]
 > Szablony mapowania są przechowywane w źródłowym magazynie obiektów blob i ładowane z obiektów BLOB na wykonanie obliczeń. Po zaktualizowaniu powinny one obowiązywać od razu. 
@@ -32,7 +32,7 @@ Mapowanie urządzeń udostępnia funkcje mapowania umożliwiające Wyodrębnieni
 | - | - |
 |**Typ**|Nazwa/Typ do klasyfikowania miary. Ta wartość jest używana do powiązania z wymaganym szablonem mapowania FHIR.  Wiele szablonów można wyprowadzić do tego samego typu, co pozwala na mapowanie różnych reprezentacji na wiele urządzeń do jednego wspólnego danych wyjściowych.|
 |**OccurenceTimeUtc**|Czas wystąpienia pomiaru.|
-|**DeviceId**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
+|**Identyfikator**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
  |**Właściwości**|Wyodrębnij co najmniej jedną właściwość, aby można było zapisać wartość w tworzonym zasobie.  Właściwości są kolekcją par wartości klucza wyodrębnionych podczas normalizacji.|
 
 Poniżej znajduje się przykład koncepcji, co dzieje się podczas normalizacji.
@@ -362,7 +362,7 @@ Reprezentuje typ danych [SampledData](http://hl7.org/fhir/datatypes.html#Sampled
 |**DefaultPeriod**|Domyślny okres w milisekundach do użycia. 
 |**Jednostka**|Jednostka, która ma zostać ustawiona w pochodzeniu SampledData. 
 
-#### <a name="quantity"></a>Ilość
+#### <a name="quantity"></a>Liczba
 Przedstawia typ danych FHIR [ilość](http://hl7.org/fhir/datatypes.html#Quantity) . Jeśli w grupowaniu występuje więcej niż jedna wartość, zostanie użyta tylko pierwsza wartość. Po nadejściu nowej wartości, która mapuje na tę samą obserwację, spowoduje zastąpienie starej wartości.
 
 | Właściwość | Opis 
@@ -562,10 +562,11 @@ Reprezentuje typ danych [CodeableConcept](http://hl7.org/fhir/datatypes.html#Cod
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika IoT
+Zapoznaj się z często zadawanymi pytaniami dotyczącymi usługi Azure IoT Connector FHIR (wersja zapoznawcza).
 
 >[!div class="nextstepaction"]
->[Często zadawane pytania dotyczące łącznika IoT](fhir-faq.md#iot-connector-preview)
+>[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md#iot-connector-preview)
 
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
 
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.

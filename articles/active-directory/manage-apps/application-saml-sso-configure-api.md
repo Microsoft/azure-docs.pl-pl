@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bae5770baf8cfad7e5f28d5cc0499949912c1146
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273426"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513132"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatyzowanie konfiguracji aplikacji SSO opartej na protokole SAML za pomocą interfejsu API Microsoft Graph
 
@@ -113,6 +113,11 @@ Przy użyciu identyfikatora szablonu, który został pobrany dla aplikacji w ost
 
 > [!NOTE] 
 > Możesz użyć interfejsu API applicationTemplate, aby utworzyć wystąpienie [aplikacji innych niż Galeria](add-non-gallery-app.md). Użyj applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` .
+
+> [!NOTE]
+> Poczekaj chwilę, aż aplikacja zostanie zainicjowana w dzierżawie usługi Azure AD. Nie jest to błyskawiczne. Jedną z strategii jest wykonanie zapytania GET w obiekcie głównym aplikacji/usługi co 5-10 sekund do momentu pomyślnego wykonania zapytania.
+
+
 #### <a name="request"></a>Żądanie
 
 <!-- {
@@ -194,6 +199,8 @@ Użyj odpowiedzi z poprzedniego wywołania, aby pobrać i zapisać identyfikator
 
 W tym przykładzie ustawisz `saml` jako tryb logowania jednokrotnego w [typie zasobu serviceprincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Inne właściwości logowania jednokrotnego SAML, które można skonfigurować, to: `notificationEmailAddresses` , `loginUrl` i`samlSingleSignOnSettings.relayState`
 
+Zanim to zapytanie będzie działało, musisz wyrazić zgodę na karcie **Modyfikowanie uprawnień** w Eksploratorze grafu. Upewnij się również, że używasz identyfikatora **podmiotu zabezpieczeń** uzyskanym wcześniej.
+
 #### <a name="request"></a>Żądanie
 
 <!-- {
@@ -224,6 +231,8 @@ HTTP/1.1 204
 ### <a name="set-basic-saml-urls-such-as-identifier-reply-url-sign-on-url"></a>Ustaw podstawowe adresy URL SAML, takie jak identyfikator, adres URL odpowiedzi, adres URL logowania
 
 Ustaw identyfikatory i adresy URL odpowiedzi dla AWS w obiekcie aplikacji.
+
+Upewnij się, że używasz pozyskanego wcześniej identyfikatora **aplikacji** .
 
 #### <a name="request"></a>Żądanie
 
@@ -341,6 +350,9 @@ Oprócz podstawowych oświadczeń skonfiguruj następujące oświadczenia usług
 
 Aby uzyskać więcej informacji, zobacz [Dostosowywanie oświadczeń emitowanych w tokenie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
+> [!NOTE]
+> W niektórych kluczach w zasadzie mapowania oświadczeń jest uwzględniana wielkość liter (np. "wersja"). Jeśli zostanie wyświetlony komunikat o błędzie, taki jak "właściwość ma nieprawidłową wartość", może to być problem z rozróżnianiem wielkości liter.
+
 #### <a name="request"></a>Żądanie
 
 <!-- {
@@ -451,7 +463,7 @@ Użycie interfejsu API [applicationTemplate](https://docs.microsoft.com/graph/ap
 
 ### <a name="create-a-custom-signing-certificate"></a>Tworzenie niestandardowego certyfikatu podpisywania
 
-Aby przetestować, możesz użyć następującego polecenia programu PowerShell, aby uzyskać certyfikat z podpisem własnym. Aby utworzyć certyfikat podpisywania dla środowiska produkcyjnego, należy użyć najlepszych rozwiązań w zakresie zabezpieczeń firmy.
+Aby przetestować, możesz użyć następującego polecenia programu PowerShell, aby uzyskać certyfikat z podpisem własnym. Następnie konieczne będzie manipulowanie i ściąganie potrzebnych wartości ręcznie przy użyciu innych narzędzi. Aby utworzyć certyfikat podpisywania dla środowiska produkcyjnego, należy użyć najlepszych rozwiązań w zakresie zabezpieczeń firmy.
 
 ```powershell
 Param(
@@ -478,6 +490,99 @@ Export-PfxCertificate -cert $path -FilePath $pfxFile -Password $pwdSecure
 Export-Certificate -cert $path -FilePath $cerFile
 ```
 
+Alternatywnie można użyć następującej aplikacji konsolowej w języku C# jako dowodu koncepcji, aby zrozumieć, jak można uzyskać wymagane wartości. Należy zauważyć, że ten kod jest przeznaczony **wyłącznie do uczenia i referencyjnego** i nie powinien być używany jako — w środowisku produkcyjnym.
+
+```csharp
+using System;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+
+
+/* CONSOLE APP - PROOF OF CONCEPT CODE ONLY!!
+ * This code uses a self signed certificate and should not be used 
+ * in production. This code is for reference and learning ONLY.
+ */
+namespace Self_signed_cert
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Generate a guid to use as a password and then create the cert.
+            string password = Guid.NewGuid().ToString();
+            var selfsignedCert = buildSelfSignedServerCertificate(password);
+
+            // Print values so we can copy paste into the JSON fields.
+            // Print out the private key in base64 format.
+            Console.WriteLine("Private Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Pfx, password)), Environment.NewLine);
+
+            // Print out the start date in ISO 8601 format.
+            DateTime startDate = DateTime.Parse(selfsignedCert.GetEffectiveDateString()).ToUniversalTime();
+            Console.WriteLine("For All startDateTime: " + startDate.ToString("o"));
+
+            // Print out the end date in ISO 8601 format.
+            DateTime endDate = DateTime.Parse(selfsignedCert.GetExpirationDateString()).ToUniversalTime();
+            Console.WriteLine("For All endDateTime: " + endDate.ToString("o"));
+
+            // Print the GUID used for keyId
+            string signAndPasswordGuid = Guid.NewGuid().ToString();
+            string verifyGuid = Guid.NewGuid().ToString();
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Sign and passwordCredentials: " + signAndPasswordGuid);
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Verify: " + verifyGuid);
+
+            // Print out the password.
+            Console.WriteLine("Password is: {0}", password);
+
+            // Print out a displayName to use as an example.
+            Console.WriteLine("displayName to use: CN=Example");
+            Console.WriteLine();
+
+            // Print out the public key.
+            Console.WriteLine("Public Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Cert)), Environment.NewLine);
+            Console.WriteLine();
+
+            // Generate the customKeyIdentifier using hash of thumbprint.
+            Console.WriteLine("You can generate the customKeyIdentifier by getting the SHA256 hash of the certs thumprint.\nThe certs thumbprint is: {0}{1}", selfsignedCert.Thumbprint, Environment.NewLine);
+            Console.WriteLine("The hash of the thumbprint that we will use for customeKeyIdentifier is:");
+            string keyIdentifier = GetSha256FromThumbprint(selfsignedCert.Thumbprint);
+            Console.WriteLine(keyIdentifier);
+        }
+
+        // Generate a self-signed certificate.
+        private static X509Certificate2 buildSelfSignedServerCertificate(string password)
+        {
+            const string CertificateName = @"Microsoft Azure Federated SSO Certificate TEST";
+            DateTime certificateStartDate = DateTime.UtcNow;
+            DateTime certificateEndDate = certificateStartDate.AddYears(2).ToUniversalTime();
+
+            X500DistinguishedName distinguishedName = new X500DistinguishedName($"CN={CertificateName}");
+
+            using (RSA rsa = RSA.Create(2048))
+            {
+                var request = new CertificateRequest(distinguishedName, rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+
+                request.CertificateExtensions.Add(
+                    new X509KeyUsageExtension(X509KeyUsageFlags.DataEncipherment | X509KeyUsageFlags.KeyEncipherment | X509KeyUsageFlags.DigitalSignature, false));
+
+                var certificate = request.CreateSelfSigned(new DateTimeOffset(certificateStartDate), new DateTimeOffset(certificateEndDate));
+                certificate.FriendlyName = CertificateName;
+
+                return new X509Certificate2(certificate.Export(X509ContentType.Pfx, password), password, X509KeyStorageFlags.Exportable);
+            }
+        }
+
+        // Generate hash from thumbprint.
+        public static string GetSha256FromThumbprint(string thumbprint)
+        {
+            var message = Encoding.ASCII.GetBytes(thumbprint);
+            SHA256Managed hashString = new SHA256Managed();
+            return Convert.ToBase64String(hashString.ComputeHash(message));
+        }
+    }
+}
+```
+
 ### <a name="add-a-custom-signing-key"></a>Dodawanie niestandardowego klucza podpisywania
 
 Dodaj następujące informacje do jednostki usługi:
@@ -488,18 +593,7 @@ Dodaj następujące informacje do jednostki usługi:
 
 Wyodrębnij klucz prywatny i publiczny szyfrowany algorytmem Base64 z pliku PFX. Aby dowiedzieć się więcej o właściwościach, Odczytaj [Typ zasobu poświadczenia](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
 
-Upewnij się, że keyId dla poświadczenia dla poświadczeń użyty dla "Sign" pasuje do keyId passwordCredential.
-
-Można wygenerować, pobierając `customkeyIdentifier` skrót odcisku palca certyfikatu.
-
-```csharp
-  public string GetSha256FromThumbprint(string thumbprint)
-  {
-      var message = Encoding.ASCII.GetBytes(thumbprint);
-      SHA256Managed hashString = new SHA256Managed();
-      return Convert.ToBase64String(hashString.ComputeHash(message));
-  }
-```
+Upewnij się, że keyId dla poświadczenia dla poświadczeń użyty dla "Sign" pasuje do keyId passwordCredential. Można wygenerować, pobierając `customkeyIdentifier` skrót odcisku palca certyfikatu. Zobacz kod odwołania C# powyżej.
 
 #### <a name="request"></a>Żądanie
 
@@ -522,7 +616,7 @@ Content-type: servicePrincipals/json
             "endDateTime": "2021-04-22T22:10:13Z",
             "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
             "startDateTime": "2020-04-22T21:50:13Z",
-            "type": "AsymmetricX509Cert",
+            "type": "X509CertAndPassword",
             "usage": "Sign",
             "key":"MIIKIAIBAz.....HBgUrDgMCERE20nuTptI9MEFCh2Ih2jaaLZBZGeZBRFVNXeZmAAgIH0A==",
             "displayName": "CN=awsAPI"

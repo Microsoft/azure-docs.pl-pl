@@ -1,17 +1,17 @@
 ---
 title: 'Samouczek: akceptowanie & odbierania danych — udział danych platformy Azure'
 description: Samouczek — akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
-ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/30/2020
+ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82145149"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512095"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure  
 
@@ -29,7 +29,7 @@ Przed zaakceptowaniem zaproszenia do udziału danych musisz udostępnić kilka z
 Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wymagania wstępne zostały ukończone. 
 
 * Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-* Zaproszenie do udziału danych: zaproszenie od Microsoft Azure z podmiotem zatytułowanym "zaproszenie do udziału danych platformy Azure **<yourdataprovider@domain.com>**".
+* Zaproszenie do udziału danych: zaproszenie od Microsoft Azure z podmiotem zatytułowanym "zaproszenie do udziału danych platformy Azure **<yourdataprovider@domain.com>** ".
 * Zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji platformy Azure, w której utworzysz zasób udziału danych i subskrypcję platformy Azure, w której znajdują się docelowe magazyny danych platformy Azure.
 
 ### <a name="receive-data-into-a-storage-account"></a>Odbierz dane do konta magazynu: 
@@ -74,7 +74,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal. 
 
-   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com>udziału danych platformy Azure **. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
+   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure **. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
 
    Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Spowoduje to przejście do listy zaproszeń udziału danych.
 

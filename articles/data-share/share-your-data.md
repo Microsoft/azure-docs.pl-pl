@@ -5,13 +5,13 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
-ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/30/2020
+ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77083053"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511977"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: udostępnianie danych za pomocą udziału danych platformy Azure  
 
@@ -107,7 +107,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![EnterShareDetails](./media/enter-share-details.png "Wprowadź szczegóły udostępniania") 
 
-1. Wybierz pozycję **Kontynuuj**
+1. Wybierz przycisk **Kontynuuj**
 
 1. Aby dodać zbiory danych do swojego udziału, wybierz pozycję **Dodaj zestawy**. 
 
@@ -125,7 +125,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Addrecipients](./media/add-recipient.png "Dodawanie adresatów") 
 
-1. Wybierz pozycję **Kontynuuj**
+1. Wybierz przycisk **Kontynuuj**
 
 1. W przypadku wybrania typu udziału migawek można skonfigurować harmonogram migawek w taki sposób, aby dostarczał aktualizacje danych do konsumenta danych. 
 
@@ -133,7 +133,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz czas rozpoczęcia i interwał cyklu. 
 
-1. Wybierz pozycję **Kontynuuj**
+1. Wybierz przycisk **Kontynuuj**
 
 1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**
 

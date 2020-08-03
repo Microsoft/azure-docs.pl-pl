@@ -1,6 +1,6 @@
 ---
 title: Tworzenie woluminu SMB dla Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób tworzenia woluminu SMB dla Azure NetApp Files.
+description: W tym artykule pokazano, jak utworzyć wolumin SMBv3 w Azure NetApp Files. Dowiedz się więcej o wymaganiach dotyczących Active Directory połączeń i usług domenowych.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169978"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513081"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje woluminy NFS i SMBv3. Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin SMBv3. Jeśli chcesz utworzyć wolumin systemu plików NFS, zobacz [Tworzenie woluminu NFS dla Azure NetApp Files](azure-netapp-files-create-volumes.md). 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
@@ -163,8 +163,20 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
      * **Użytkownicy zasad tworzenia kopii zapasowych**  
         Można uwzględnić dodatkowe konta, które wymagają podwyższonego poziomu uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmienić uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Na przykład można określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w Azure NetApp Files.  
 
-        > [!IMPORTANT] 
-        > Korzystanie z funkcji użytkownika zasady tworzenia kopii zapasowych wymaga listy dozwolonych. Wyślij wiadomość e-mail anffeedback@microsoft.com z identyfikatorem subskrypcji, aby zażądać tej funkcji. 
+        Funkcja **Użytkownicy zasad kopii zapasowych** jest obecnie w wersji zapoznawczej. Jeśli korzystasz z tej funkcji po raz pierwszy, Zarejestruj tę funkcję przed jej użyciem: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Sprawdź stan rejestracji funkcji: 
+
+        > [!NOTE]
+        > **RegistrationState** może być w `Registering` stanie przez kilka minut przed zmianą na `Registered` . Przed kontynuowaniem Zaczekaj na **zarejestrowanie** stanu.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Poświadczenia, w tym **Nazwa użytkownika** i **hasło**
 
@@ -196,7 +208,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
     * **Pula pojemności**  
         Określ pulę pojemności, w której ma zostać utworzony wolumin.
 
-    * **Limit przydziału**  
+    * **limit przydziału**  
         Określ wielkość magazynu logicznego, który zostanie przydzielony do woluminu.  
 
         W polu **Dostępny limit przydziału** jest wyświetlana ilość nieużywanego miejsca w wybranej puli pojemności, które można wykorzystać do utworzenia nowego woluminu. Rozmiar nowego woluminu nie może przekraczać dostępnego limitu przydziału.  

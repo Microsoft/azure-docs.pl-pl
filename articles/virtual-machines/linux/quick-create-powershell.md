@@ -5,19 +5,19 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510331"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513455"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux za pomocą programu Azure PowerShell
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Z tego przewodnika Szybki start dowiesz się, jak za pomocą modułu programu Azure PowerShell wdrożyć maszynę wirtualną z systemem Linux na platformie Azure. W ramach tego przewodnika Szybki start jest używany obraz systemu Ubuntu 16.04 LTS od firmy Canonical pochodzący z witryny Marketplace. Aby zobaczyć działanie maszyny wirtualnej, połączysz się z nią za pomocą protokołu SSH i zainstalujesz serwer internetowy NGINX.
+Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Z tego przewodnika Szybki start dowiesz się, jak za pomocą modułu programu Azure PowerShell wdrożyć maszynę wirtualną z systemem Linux na platformie Azure. Ten przewodnik Szybki Start używa obrazu Ubuntu 18,04 LTS Marketplace z poziomu kanonicznego. Aby zobaczyć działanie maszyny wirtualnej, połączysz się z nią za pomocą protokołu SSH i zainstalujesz serwer internetowy NGINX.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -29,17 +29,18 @@ Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym gór
 
 ## <a name="create-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
-Do wykonania kroków tego przewodnika Szybki start konieczne jest posiadanie pary kluczy SSH. Jeśli masz już parę kluczy SSH, możesz pominąć ten krok.
+Użyj protokołu [ssh-keygen](https://www.ssh.com/ssh/keygen/) do utworzenia pary kluczy SSH. Jeśli masz już parę kluczy SSH, możesz pominąć ten krok.
 
-Otwórz powłokę Bash i użyj polecenia [ssh-keygen](https://www.ssh.com/ssh/keygen/), aby utworzyć parę kluczy SSH. Jeśli nie masz powłoki Bash na swoim komputerze lokalnym, możesz użyć usługi [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Aby uzyskać bardziej szczegółowe informacje na temat tworzenia par kluczy SSH, łącznie z użyciem programu PuTTy, zobacz [Jak używać kluczy SSH w systemie Windows](ssh-from-windows.md).
+Zostanie wyświetlony monit o podanie nazwy pliku dla pary kluczy lub można nacisnąć klawisz **Enter** , aby użyć domyślnej lokalizacji `/home/<username>/.ssh/id_rsa` . Możesz również utworzyć hasło dla kluczy, jeśli chcesz.
 
-Jeśli utworzysz parę kluczy SSH przy użyciu usługi Cloud Shell, będzie ona przechowywana w obrazie kontenera w ramach [konta magazynu automatycznie tworzonego przez usługę Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Nie usuwaj tego konta magazynu ani znajdującego się w nim udziału plików, dopóki nie pobierzesz kluczy. W przeciwnym razie utracisz dostęp do maszyny wirtualnej. 
+Aby uzyskać szczegółowe informacje na temat tworzenia par kluczy SSH, zobacz [jak używać kluczy SSH w systemie Windows](ssh-from-windows.md).
+
+Jeśli utworzysz parę kluczy SSH przy użyciu Cloud Shell, będzie ona przechowywana na [koncie magazynu, które jest tworzone automatycznie przez Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Nie usuwaj konta magazynu ani udostępniania plików w nim, dopóki nie zostaną pobrane klucze lub utracisz dostęp do maszyny wirtualnej. 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -147,7 +148,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -178,7 +179,7 @@ Nawiąż połączenie SSH z maszyną wirtualną przy użyciu publicznego adresu 
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Korzystając z tej samej powłoki Bash, która została użyta do utworzenia pary kluczy SSH, takiej jak usługa [Azure Cloud Shell](https://shell.azure.com/bash) lub lokalna powłoka Bash, wklej polecenie połączenia SSH w powłoce, aby utworzyć sesję SSH.
+Korzystając z tej samej powłoki, która została użyta do utworzenia pary kluczy SSH, wklej następujące polecenie do powłoki, aby utworzyć sesję SSH. Zastąp *10.111.12.123* adresem IP maszyny wirtualnej.
 
 ```bash
 ssh azureuser@10.111.12.123
@@ -205,7 +206,7 @@ Użyj wybranej przeglądarki internetowej, aby wyświetlić domyślną strona po
 
 ![NGINX domyślna strona powitalna](./media/quick-create-cli/nginix-welcome-page.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 

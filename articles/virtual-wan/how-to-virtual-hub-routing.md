@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144993"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513064"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Jak skonfigurować rozsyłanie na koncentratorze wirtualnym
 
@@ -22,7 +22,7 @@ Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN ty
 Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Niektóre z tych funkcji mogą być nadal wycofywane. Jest to oczekiwane w przypadku 3 sierpnia.
+> Niektóre z tych funkcji mogą być nadal wycofywane. Jest to oczekiwane w sierpniu.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Tworzenie tabeli tras

@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037770"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513710"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Wyświetlanie obowiązujących tras koncentratora wirtualnego
 
 Wszystkie trasy wirtualnego koncentratora sieci WAN można wyświetlić w Azure Portal. W tym artykule przedstawiono kroki umożliwiające wyświetlenie obowiązujących tras. Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Na Azure Portal niektóre z tych funkcji mogą być nadal wycofywane i niedostępne do tygodnia od 3 sierpnia. 
+> Na Azure Portal niektóre z tych funkcji mogą być nadal wycofywane i niedostępne do tygodnia od siedemnastego do sierpnia. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Wybieranie połączeń lub tabel tras
@@ -52,7 +52,7 @@ Wartości w poniższej tabeli przykładowej wykazują, że połączenie koncentr
 
 Użyj paska przewijania u dołu tabeli, aby wyświetlić ścieżkę "AS".
 
-| **Prefiks** |  **Typ następnego skoku** | **Następny przeskok** |  **Źródło trasy** |**Ścieżka AS** |
+| **Prefiks** |  **Typ następnego przeskoku** | **Narzędzie Następny przeskok** |  **Źródło trasy** |**Ścieżka AS** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 

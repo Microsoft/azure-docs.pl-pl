@@ -1,30 +1,30 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 12/21/2018
+ms.date: 07/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3f9b86dd3716a25ab95265cf46b616144f57163b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 612e7dc2f3d1ef6aa5d3598999aa214a2f377e1f
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71168632"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513194"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>Omówienie protokołów SSH i kluczy
 
-[SSH](https://www.ssh.com/ssh/) to protokół połączenia szyfrowanego, który umożliwia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, używanie haseł z połączeniami SSH nadal pozostawia maszynę wirtualną narażoną na ataki lub zgadywanie haseł. Bezpieczniejsza i preferowana metoda łączenia się z maszyną wirtualną przy użyciu protokołu SSH polega na użyciu pary kluczy publiczny-prywatny, znanej również jako *klucze SSH*. 
+[SSH](https://www.ssh.com/ssh/) jest protokołem szyfrowanego połączenia, który zapewnia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, używanie haseł z połączeniami SSH nadal pozostawia maszynę wirtualną zagrożoną atakami na rachunek. Zalecamy łączenie się z maszyną wirtualną za pośrednictwem protokołu SSH przy użyciu pary kluczy publiczny-prywatny, znanych także jako *klucze SSH*. 
 
-* *Klucz publiczny* jest umieszczany na maszynie wirtualnej z systemem Linux lub dowolnej innej usłudze, która ma być używana z kryptografią klucza publicznego.
+- *Klucz publiczny* jest umieszczany na maszynie wirtualnej z systemem Linux.
 
-* *Klucz prywatny* pozostaje w systemie lokalnym. Klucz prywatny należy chronić. Nie należy go udostępniać.
+- *Klucz prywatny* pozostaje w systemie lokalnym. Klucz prywatny należy chronić. Nie należy go udostępniać.
 
-W przypadku korzystania z klienta SSH do nawiązywania połączenia z maszyną wirtualną z systemem Linux (która ma klucz publiczny) zdalna maszyna wirtualna testuje klienta, aby upewnić się, że dysponuje kluczem prywatnym. Jeśli klient ma klucz prywatny, zostanie mu udzielony dostęp do maszyny wirtualnej. 
+Gdy używasz klienta SSH do nawiązywania połączenia z maszyną wirtualną z systemem Linux (która ma klucz publiczny), zdalna maszyna wirtualna testuje klienta, aby upewnić się, że ma prawidłowy klucz prywatny. Jeśli klient ma klucz prywatny, zostanie mu udzielony dostęp do maszyny wirtualnej. 
 
 W zależności od zasad zabezpieczeń organizacji można użyć pojedynczej pary kluczy publiczny-prywatny, aby uzyskać dostęp do wielu maszyn wirtualnych i usług platformy Azure. Nie potrzebujesz oddzielnej pary kluczy dla każdej maszyny wirtualnej lub usługi, do której chcesz uzyskać dostęp. 
 
-Klucz publiczny może być współużytkowany z każdą osobą, ale tylko ty (lub Twoja lokalna infrastruktura zabezpieczeń) powinna mieć swój klucz prywatny.
+Klucz publiczny może być współużytkowany z każdą osobą, ale tylko ty (lub Twoja lokalna infrastruktura zabezpieczeń) powinna mieć dostęp do Twojego klucza prywatnego.

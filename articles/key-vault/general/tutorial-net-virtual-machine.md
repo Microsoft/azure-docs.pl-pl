@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101576"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513115"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w programie .NET
 
@@ -56,21 +56,15 @@ Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
+## <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>Wypełnij swój magazyn kluczy kluczem tajnym
+## <a name="populate-your-key-vault-with-a-secret"></a>Wypełnij swój magazyn kluczy kluczem tajnym
 
-Teraz Dodaj wpis tajny do magazynu kluczy za pomocą polecenia [AZ Key magazynu tajnego Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Aby utworzyć wpis tajny w magazynie kluczy o nazwie **dbsecret**, wprowadź następujące polecenie:
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-Ten wpis tajny zawiera wartość **MySecret**.
-
-### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
+## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 Utwórz maszynę wirtualną z systemem Windows lub Linux przy użyciu jednej z następujących metod:
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ Utwórz maszynę wirtualną z systemem Windows lub Linux przy użyciu jednej z n
 | [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [Program PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>Przypisywanie tożsamości do maszyny wirtualnej
+## <a name="assign-an-identity-to-the-vm"></a>Przypisywanie tożsamości do maszyny wirtualnej
 Utwórz tożsamość przypisaną do systemu dla maszyny wirtualnej za pomocą polecenia [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
 
 ```azurecli
@@ -95,16 +89,16 @@ Zanotuj tożsamość przypisaną przez system, która jest wyświetlana w poniż
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>Przypisywanie uprawnień do tożsamości maszyny wirtualnej
+## <a name="assign-permissions-to-the-vm-identity"></a>Przypisywanie uprawnień do tożsamości maszyny wirtualnej
 Przypisz wcześniej utworzone uprawnienia tożsamości do magazynu kluczy za pomocą polecenia [AZ Key magazynu Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) :
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>Zaloguj się do maszyny wirtualnej
+## <a name="sign-in-to-the-virtual-machine"></a>Zaloguj się do maszyny wirtualnej
 
-Aby zalogować się do maszyny wirtualnej, postępuj zgodnie z instrukcjami podanymi w temacie [łączenie i logowanie do maszyny wirtualnej platformy Azure z systemem Windows](../../virtual-machines/windows/connect-logon.md) lub łączenie się z [maszyną wirtualną platformy Azure z systemem Linux i logowanie się do](../../virtual-machines/linux/login-using-aad.md)niej.
+Aby zalogować się do maszyny wirtualnej, postępuj zgodnie z instrukcjami podanymi w temacie łączenie się z [maszyną wirtualną platformy Azure](../../virtual-machines/windows/connect-logon.md) lub Nawiązywanie połączenia z maszyną wirtualną platformy Azure z systemem [Linux i logowanie się do](../../virtual-machines/linux/login-using-aad.md)niej.
 
 ## <a name="set-up-the-console-app"></a>Konfigurowanie aplikacji konsolowej
 
@@ -203,7 +197,7 @@ Dodaj te wiersze, aktualizując identyfikator URI w celu odzwierciedlenia `vault
     }
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie są już potrzebne, Usuń maszynę wirtualną i Magazyn kluczy.
 

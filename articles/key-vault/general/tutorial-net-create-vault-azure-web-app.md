@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013270"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513336"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją sieci Web platformy Azure przy użyciu platformy .NET
 
@@ -53,11 +53,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Zanotuj zwracaną wartość `vaultUri` , która będzie w formacie "https:// &lt; -the-Vault.Azure.NET/-Name &gt; Zostanie ona użyta w kroku [Aktualizuj kod](#update-the-code) .
 
-Wpis tajny można teraz umieścić w magazynie kluczy za pomocą polecenia [AZ Key magazynu tajnego Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Dla nazwy wpisu tajnego ustaw wartość "powodzenie!".
-
-```azurecli-interactive
-az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## <a name="create-a-net-web-app"></a>Tworzenie aplikacji internetowej platformy .NET
 

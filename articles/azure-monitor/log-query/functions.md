@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2018
-ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649395"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511942"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Używanie funkcji w kwerendach dzienników Azure Monitor
 
@@ -33,6 +33,9 @@ Utwórz funkcję z Log Analytics w Azure Portal, klikając przycisk **Zapisz** ,
 
 ## <a name="use-a-function"></a>Korzystanie z funkcji
 Użyj funkcji, dołączając jej alias w innym zapytaniu. Może być używana tak jak jakakolwiek inna tabela.
+
+## <a name="function-parameters"></a>Parametry funkcji 
+Można dodać parametry do funkcji, aby można było podać wartości dla niektórych zmiennych podczas ich wywoływania. Jedynym sposobem na obecnie utworzenie funkcji z parametrami jest użycie szablonu Menedżer zasobów. Zapoznaj się z przykładami [Menedżer zasobów szablonów dla zapytań dzienników w Azure monitor](../samples/resource-manager-log-queries.md#parameterized-function) .
 
 ## <a name="example"></a>Przykład
 Następujące przykładowe zapytanie zwraca wszystkie brakujące aktualizacje zabezpieczeń zgłoszone w ciągu ostatniego dnia. Zapisz to zapytanie jako funkcję z aliasem _security_updates_last_day_. 
