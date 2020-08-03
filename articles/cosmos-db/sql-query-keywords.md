@@ -4,14 +4,14 @@ description: Dowiedz się więcej na temat słów kluczowych SQL dla Azure Cosmo
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261571"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496685"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Słowa kluczowe w Azure Cosmos DB
 
@@ -35,9 +35,6 @@ Można również użyć `BETWEEN` słowa kluczowego w `SELECT` klauzuli, jak w p
 ```
 
 W przypadku interfejsu SQL API, w przeciwieństwie do ANSI SQL, można wyznaczać zapytania zakresowe względem właściwości typów mieszanych. Na przykład `grade` może być liczbą jak `5` w niektórych elementach i ciągiem podobnym do `grade4` innych. W takich przypadkach, podobnie jak w języku JavaScript, porównanie między dwoma różnymi typami powoduje `Undefined` , że element jest pomijany.
-
-> [!TIP]
-> Aby przyspieszyć wykonywanie zapytań, Utwórz zasady indeksowania, które używają typu indeksu zakresu względem wszystkich właściwości liczbowych lub ścieżek, które są `BETWEEN` filtrowane w klauzuli.
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -76,7 +73,7 @@ Wyniki są następujące:
 ]
 ```
 
-Elementu DISTINCT można także użyć w projekcji w podzapytaniu:
+`DISTINCT`można go również użyć w projekcji w podzapytaniu:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

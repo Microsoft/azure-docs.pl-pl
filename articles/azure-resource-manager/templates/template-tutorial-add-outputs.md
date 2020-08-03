@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4c90f1ce4bc3f3f5ed91bee86bb1f6f9093876c7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80743552"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497787"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie danych wyjściowych do szablonu ARM
 
@@ -52,7 +53,7 @@ Wszystko jest gotowe do wdrożenia szablonu i przeszukania zwracanej wartości.
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -65,7 +66,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \
@@ -123,7 +124,7 @@ Teraz przyjrzyjmy się grupie zasobów i historii wdrażania.
 
    ![Pokaż szablon](./media/template-tutorial-add-outputs/show-template.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 

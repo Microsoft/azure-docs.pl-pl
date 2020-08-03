@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8ba2478bbfb2a26951d682ab12cb5b98df73be97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629562"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497974"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
 
@@ -27,7 +28,7 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Przejdź do swojego konta magazynu.
+2. Przejdź do konta magazynu.
 3. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja**.
 4. W obszarze **rodzaj konta**kliknij pozycję **Uaktualnij**.
 5. W obszarze **Potwierdź uaktualnianie**wpisz nazwę konta.
@@ -35,7 +36,7 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 
     ![Typ konta uaktualnienia](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

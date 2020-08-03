@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461055"
+ms.locfileid: "87500661"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -63,7 +63,30 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 
 ## <a name="release-history"></a>Historia wersji
 
+### <a name="440-beta1-unreleased"></a>4.4.0 — wersja beta. 1 (nieopublikowana)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>Nowe funkcje
+* Zaktualizowano wersję biblioteki reaktora do programu `3.3.8.RELEASE` . 
+* Zaktualizowano wersję biblioteki reaktorów z `0.9.10.RELEASE` . 
+* Zaktualizowano wersję biblioteki sieci na `4.1.51.Final` . 
+* Dodano nowe interfejsy API przeciążenia dla programu `upsertItem` `partitionKey` . 
+* Dodano obsługę śledzenia otwartej telemetrii. 
+#### <a name="key-bug-fixes"></a>Poprawki klucza
+* Rozwiązano problem polegający na tym, że SSLException jest zgłaszany w przypadku anulowania żądań w trybie bramy.
+* Ustalone zasady ponawiania przepustowości zasobów w ramach wykonywania procedur składowanych.
+* Rozwiązano problem polegający na tym, że zestaw SDK zawiesza się w trybie debugowania poziomu dziennika. 
+* Naprawiono okresowe opóźnienia w trybie bezpośrednim. 
+* Rozwiązano problem związany z czasem inicjowania klienta. 
+* Stała usterka serwera proxy HTTP podczas dostosowywania klienta z trybem bezpośrednim i trybem bramy. 
+* Stałe potencjalnego aparatu NPE w przypadku użytkowników przekazują opcje o wartości null. 
+* Dodano timeUnit do `requestLatency` ciągu diagnostyki.
+* Usunięto zduplikowany ciąg identyfikatora URI z ciągu diagnostyki. 
+* Stały ciąg diagnostyczny w prawidłowym formacie JSON dla operacji na punktach.
+* Rozwiązano problem z `.single()` operatorem powodującym porzucanie łańcucha reaktora w przypadku nieznalezionego wyjątku. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Nowe funkcje
 * Dodano interfejs API z włączoną obsługą rejestrowania skryptów do programu `CosmosStoredProcedureRequestOptions` .
 * Zaktualizowano `DirectConnectionConfig` wartość domyślną `idleEndpointTimeout` 1 godz, a wartość domyślna `connectTimeout` to 5 s.
 #### <a name="key-bug-fixes"></a>Poprawki klucza

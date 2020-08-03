@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: cli
 ms.date: 06/25/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 1456301f1cc1da33835206e10dc1550ed8fcbbf2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 97fc21f111e9b95fb9645fd042e47cc53b0af42c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503068"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499708"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten skrypt umożliwia utworzenie zestawu skalowania maszyn wirtualnych platformy Azure z systemem operacyjnym Ubuntu i powiązanymi zasobami sieciowymi łącznie z modułem równoważenia obciążenia. Po uruchomieniu skryptu dostęp do wystąpień maszyn wirtualnych możesz uzyskać za pomocą protokołu SSH.

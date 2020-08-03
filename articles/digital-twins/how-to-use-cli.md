@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537466"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499096"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
 
@@ -25,13 +25,19 @@ Poza zarządzaniem wystąpieniem usługi Azure Digital bliźniaczych reprezentac
 * Zarządzanie [trasami](concepts-route-events.md)
 * Konfigurowanie [zabezpieczeń](concepts-security.md) za pośrednictwem kontroli dostępu opartej na ROLACH (RBAC)
 
-Polecenia usługi Azure Digital bliźniaczych reprezentacji są częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Dokumentację referencyjną tych poleceń można wyświetlić w ramach `az iot` zestawu poleceń: [AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
-
-## <a name="deploy-and-validate"></a>Wdróż i sprawdź poprawność
+## <a name="uses-deploy-and-validate"></a>Używa (Wdróż i Weryfikuj)
 
 Oprócz ogólnego zarządzania wystąpieniem, interfejs wiersza polecenia jest również użytecznym narzędziem do wdrażania i walidacji.
 * Za pomocą poleceń płaszczyzny kontroli można wykonać wdrożenie nowego wystąpienia powtarzalnego lub zautomatyzowanego.
 * Za pomocą poleceń płaszczyzny danych można szybko sprawdzać wartości w wystąpieniu i sprawdzać, czy operacje zostały wykonane zgodnie z oczekiwaniami.
+
+## <a name="get-the-extension"></a>Pobierz rozszerzenie
+
+Polecenia usługi Azure Digital bliźniaczych reprezentacji są częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Dokumentację referencyjną tych poleceń można wyświetlić w ramach `az iot` zestawu poleceń: [AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+
+Aby upewnić się, że masz najnowszą wersję rozszerzenia, wykonaj te kroki. Te polecenia można uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md) lub [lokalnego interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

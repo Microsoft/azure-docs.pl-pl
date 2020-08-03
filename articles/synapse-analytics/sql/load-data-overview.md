@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046784"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490289"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych bazowych dla puli SQL Synapse platformy Azure
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych podstawowych dla puli SQL Synapse platformy Azure
 
 Tradycyjne magazyny danych SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Korzystanie z procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z funkcji MPP i wyeliminować zasoby konieczne do przekształcenia danych przed ich załadowaniem.
 
@@ -25,7 +25,7 @@ Chociaż Pula SQL obsługuje wiele metod ładowania, w tym opcje inne niż podst
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>Co to jest ELT?
+## <a name="extract-load-and-transform-elt"></a>Wyodrębnij, Załaduj i Przekształć (ELT)
 
 Wyodrębnij, Załaduj i Przekształć (ELT) to proces polegający na tym, że dane są wyodrębniane z systemu źródłowego, ładowane do magazynu danych, a następnie przekształcane.
 
@@ -69,12 +69,12 @@ Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia B
 |        ciąg         |                           varchar                            |
 |        binarny         |                            binarny                            |
 |        binarny         |                          varbinary                           |
-|       sygnatura czasowa       |                             data                             |
+|       sygnatura czasowa       |                             date                             |
 |       sygnatura czasowa       |                        smalldatetime                         |
 |       sygnatura czasowa       |                          datetime2                           |
 |       sygnatura czasowa       |                           datetime                           |
 |       sygnatura czasowa       |                             time                             |
-|       data            |                             data                             |
+|       date            |                             date                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. wyląduj dane do usługi Azure Blob Storage lub Azure Data Lake Store

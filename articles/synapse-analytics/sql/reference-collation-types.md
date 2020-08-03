@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080713"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496206"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Obsługa sortowania bazy danych dla Synapse SQL
 
@@ -23,7 +23,7 @@ Podczas tworzenia nowej bazy danych puli SQL można zmienić domyślne sortowani
 
 Przy użyciu instrukcji CREATE DATABASE można określić domyślne sortowanie bazy danych na żądanie w usłudze SQL Synapse podczas tworzenia.
 
-## <a name="changing-collation"></a>Zmiana sortowania
+## <a name="change-collation"></a>Zmień sortowanie
 Aby zmienić domyślne sortowanie bazy danych puli SQL, można wykonać prostą aktualizację pola sortowania w środowisku aprowizacji. Na przykład jeśli chcesz zmienić domyślne sortowanie na uwzględniające wielkość liter, po prostu zmień nazwę sortowania z SQL_Latin1_General_CP1_CI_AS na SQL_Latin1_General_CP1_CS_AS. 
 
 Aby zmienić domyślne sortowanie dla bazy danych SQL na żądanie, można użyć instrukcji ALTER DATABASE.
@@ -104,7 +104,7 @@ Ponadto Pula SQL nie obsługuje następujących typów sortowania:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Sprawdzanie bieżącego sortowania
+## <a name="check-the-current-collation"></a>Sprawdź bieżące sortowanie
 Aby sprawdzić bieżące sortowanie bazy danych, można uruchomić następujące fragmenty kodu T-SQL:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

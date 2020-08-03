@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
-ms.custom: mvc,seodec18
-ms.openlocfilehash: e0939e452627cc9f624f7d96da1059b539fa5546
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc,seodec18, devx-track-azurecli
+ms.openlocfilehash: 8edde588b6329385398f32300ee019ca092509b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509872"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489898"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Eksportowanie/kopiowanie dysków zarządzanych na konto magazynu przy użyciu wiersza polecenia platformy Azure
 

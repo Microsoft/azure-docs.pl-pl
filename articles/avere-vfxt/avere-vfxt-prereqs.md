@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124735"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496716"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Przygotowanie do utworzenia systemu Avere vFXT
 
@@ -32,7 +32,7 @@ Aby utworzyć nową subskrypcję platformy Azure w Azure Portal:
 
 Użytkownik z uprawnieniami właściciela dla subskrypcji powinien utworzyć klaster vFXT. Tworzenie klastra wymaga od właściciela zaakceptowania warunków użytkowania oprogramowania i autoryzacji zmian w zasobach sieciowych i pamięci masowej.
 
-Istnieją pewne obejścia, aby umożliwić innym firmom tworzenie avere vFXT dla klastra platformy Azure. Te scenariusze obejmują ograniczanie zasobów i przypisywanie dodatkowych ról kontroli dostępu opartej na rolach (RBAC) do twórcy. We wszystkich tych przypadkach właściciel subskrypcji również musi [zaakceptować warunki oprogramowania avere vFXT](#accept-software-terms) przed czasem.
+Istnieją pewne obejścia, aby umożliwić innym firmom tworzenie avere vFXT dla klastra platformy Azure. Te scenariusze wymagają ograniczenia zasobów i przypisywania do twórcy dodatkowych ról platformy Azure. We wszystkich tych przypadkach właściciel subskrypcji również musi [zaakceptować warunki oprogramowania avere vFXT](#accept-software-terms) przed czasem.
 
 | Scenariusz | Ograniczenia | Role dostępu wymagane do utworzenia klastra avere vFXT |
 |----------|--------|-------|

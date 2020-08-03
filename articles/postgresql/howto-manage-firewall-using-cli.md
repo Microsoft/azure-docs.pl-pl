@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 9b2c1021f88eab15a1f8803a4439dc0cb9b6ed97
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 17a41030adeb302f2c85b1bd4576caad9e723544
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489762"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tworzenie reguł zapory i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for PostgreSQL z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem reguł zapory Azure Database for PostgreSQL, zobacz [reguły zapory Azure Database for PostgreSQL Server](concepts-firewall-rules.md).

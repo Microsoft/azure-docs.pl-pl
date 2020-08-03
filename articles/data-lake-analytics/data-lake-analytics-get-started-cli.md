@@ -5,12 +5,13 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 44648f1c01aed221e90029eb64d48576b899b1c4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: be7f9d66a10f3f0f4a1ae0f9e28e226f268a7f7c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132589"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497447"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +26,7 @@ Przed rozpoczęciem musisz mieć następujące elementy:
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Aby zalogować się do subskrypcji platformy Azure:
 

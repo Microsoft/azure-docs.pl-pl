@@ -8,13 +8,14 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220290"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489116"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorowanie wdrożeń IoT Edge
 

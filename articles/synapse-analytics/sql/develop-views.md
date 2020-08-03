@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500746"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Widoki T-SQL korzystające z Synapse SQL
 W tym artykule znajdziesz porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań przy użyciu języka SQL Synapse. 
 
-## <a name="why-use-views"></a>Dlaczego warto używać widoków?
+## <a name="why-use-views"></a>Dlaczego warto używać widoków
 
 Widoki mogą być używane na wiele różnych sposobów ulepszania jakości rozwiązania.  W tym artykule przedstawiono kilka przykładów sposobu wzbogacania rozwiązania o widoki i uwzględniono ograniczenia, które należy wziąć pod uwagę.
 

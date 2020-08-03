@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369020"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489575"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
@@ -27,7 +27,7 @@ SQL na żądanie jest płatność za usługę zapytań, która nie wymaga wybran
 
 Zalecenia dotyczące wyboru idealnej liczby jednostek magazynu danych (jednostek dwu) w celu zoptymalizowania cen i wydajności oraz sposobu zmiany liczby jednostek.
 
-### <a name="what-are-data-warehouse-units"></a>Co to są jednostki magazynu danych
+### <a name="data-warehouse-units"></a>Jednostki magazynu danych
 
 Synapse Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane. Zasoby analityczne są definiowane jako kombinacja procesora CPU, pamięci i operacji we/wy. Te trzy zasoby są powiązane z jednostkami skali obliczeniowej o nazwie jednostki magazynu danych (jednostek dwu). Jednostka DWU to abstrakcyjna, znormalizowana miara zasobów obliczeniowych i wydajności. Zmiana poziomu usługi zmienia liczbę jednostek dwu, które są dostępne dla systemu, co z kolei dostosowuje wydajność i koszt systemu.
 
@@ -79,7 +79,7 @@ W miarę zwiększania liczby jednostek magazynu danych zwiększa się liniowo za
 
 Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>Ile jest potrzebnych jednostek magazynu danych
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Oceń liczbę potrzebnych jednostek magazynu danych
 
 Idealna liczba jednostek magazynu danych zależy znacznie od obciążenia i ilości danych załadowanych do systemu.
 

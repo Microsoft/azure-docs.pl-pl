@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438902"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498127"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -119,7 +119,7 @@ Zobacz więcej, jak używać funkcji RBAC platformy Azure, aby zabezpieczyć dos
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC dla autoryzacji Kubernetes (wersja zapoznawcza)
 
-Dzięki integracji z usługą Azure RBAC AKS będzie używać serwera elementu webhook autoryzacji Kubernetes w celu umożliwienia zarządzania uprawnieniami i przypisaniami zasobów klastra K8s zintegrowanych z usługą Azure AD przy użyciu definicji roli RBAC platformy Azure i przypisywania ról.
+Dzięki integracji z usługą Azure RBAC AKS będzie używać serwera elementu webhook autoryzacji Kubernetes, aby umożliwić zarządzanie uprawnieniami i przypisaniami zasobów klastra K8s zintegrowanych z usługą Azure AD przy użyciu definicji ról platformy Azure i przypisań ról.
 
 ![Przepływ autoryzacji usługi Azure RBAC dla Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

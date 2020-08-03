@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: dc225cef2981bd6307a919d52b75d3e0791e46cf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024727"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491004"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services
 
@@ -99,7 +99,7 @@ Wypełnij pola w oknie *podstawy* Azure Portal, aby utworzyć domenę zarządzan
     Na potrzeby tego samouczka wybierz *standardową* jednostkę SKU.
 1. *Las* to konstrukcja logiczna używana przez Active Directory Domain Services do grupowania jednej lub wielu domen. Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS.
 
-    Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].
+    Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].
 
     Na potrzeby tego samouczka wybierz opcję utworzenia lasu *użytkownika* .
 

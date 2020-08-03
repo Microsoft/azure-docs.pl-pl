@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170109"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489473"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrowanie Trusona z Azure Active Directory B2C
 
@@ -125,25 +125,26 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
 
 ### <a name="create-a-user-flow-policy"></a>Tworzenie zasad przepływu użytkownika
 
-1. Teraz powinien być widoczny Trusona jako **Nowy dostawca tożsamości programu OpenID Connect Connect** wymieniony w ramach dostawców tożsamości B2C.
+Teraz powinien być widoczny Trusona jako **Nowy dostawca tożsamości programu OpenID Connect Connect** wymieniony w ramach dostawców tożsamości B2C.
 
-2. Wybierz pozycję **przepływy użytkownika (zasady)** w okienku nawigacji po lewej stronie.
+1. W dzierżawie Azure AD B2C w obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
 
-3. Wybierz pozycję **Dodaj**  >  **Nowy przepływ użytkownika**  >  **Utwórz konto i zaloguj się**.
+1. Wybierz pozycję **Nowy przepływ użytkownika**.
 
-### <a name="configure-the-policy"></a>Konfigurowanie zasad
+1. Wybierz pozycję **zarejestruj się i zaloguj**, wybierz wersję, a następnie wybierz pozycję **Utwórz**.
 
-1. Nadaj nazwę zasadom.
+1. Podaj **nazwę** zasad.
 
-2. Wybierz nowo utworzonego **dostawcę tożsamości Trusona**.
+1. W sekcji **dostawcy tożsamości** wybierz nowo utworzonego **dostawcę tożsamości Trusona**.
 
-3. Ponieważ Trusona jest z własnym czynnikiem wieloskładnikowym, najlepszym rozwiązaniem jest pozostawienie wyłączonego uwierzytelniania wieloskładnikowego.
+   > [!NOTE]
+   > Ponieważ Trusona jest z własnym czynnikiem wieloskładnikowym, najlepszym rozwiązaniem jest pozostawienie wyłączonego uwierzytelniania wieloskładnikowego.
 
-4. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-5. W obszarze **atrybuty użytkownika i oświadczenia**wybierz pozycję **Pokaż więcej**. W formularzu wybierz co najmniej jeden atrybut, który został określony podczas instalacji dostawcy tożsamości w poprzedniej sekcji.
+1. W obszarze **atrybuty użytkownika i oświadczenia**wybierz pozycję **Pokaż więcej**. W formularzu wybierz co najmniej jeden atrybut, który został określony podczas instalacji dostawcy tożsamości w poprzedniej sekcji.
 
-6. Wybierz przycisk **OK**.  
+1. Wybierz przycisk **OK**.  
 
 ### <a name="test-the-policy"></a>Testowanie zasad
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735051"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489677"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Pojęcia dotyczące zarządzania kontami użytkowników, hasłami i administracją w programie Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ W usłudze Azure AD DS Las zawiera tylko jedną domenę. Lokalne lasy AD DS czę
 
 Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio względem domeny zarządzanej, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
 
-W lesie *zasobów* AD DS platformy Azure użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu z AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z usługą Azure AD DS. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+W lesie *zasobów* AD DS platformy Azure użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu z AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z usługą Azure AD DS. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane.
 
 Aby uzyskać więcej informacji na temat typów lasów w usłudze Azure AD DS, zobacz [co to są lasy zasobów?][concepts-forest] czy [relacje zaufania lasów działają w usłudze Azure AD DS?][concepts-trust]
 
@@ -80,8 +80,8 @@ Na platformie Azure AD DS dostępna wydajność i funkcje są oparte na jednostk
 
 | Nazwa jednostki SKU   | Maksymalna liczba obiektów | Częstotliwość wykonywania kopii zapasowych | Maksymalna liczba wychodzących relacji zaufania lasów |
 |------------|----------------------|------------------|----|
-| Standardowa (Standard)   | Nieograniczona liczba            | Co 7 dni     | 0  |
-| Enterprise | Nieograniczona liczba            | Co 3 dni     | 5  |
+| Standard   | Nieograniczona liczba            | Co 7 dni     | 0  |
+| Przedsiębiorstwa | Nieograniczona liczba            | Co 3 dni     | 5  |
 | Premium    | Nieograniczona liczba            | Codziennie            | 10 |
 
 Przed rozpoczęciem korzystania z tych jednostek SKU AD DS platformy Azure zostanie użyty model rozliczeń oparty na liczbie obiektów (konta użytkowników i komputerów) w domenie zarządzanej. Nie ma już zmiennych cenowych na podstawie liczby obiektów w domenie zarządzanej.
@@ -102,7 +102,7 @@ W miarę wzrostu poziomu jednostki SKU częstotliwość tych migawek kopii zapas
 
 ### <a name="outbound-forest-trusts"></a>Wychodzące zaufania lasów
 
-W poprzedniej sekcji szczegółowo określono jednokierunkowe zaufanie lasu wychodzącego z domeny zarządzanej do środowiska lokalnego AD DS (obecnie w wersji zapoznawczej). Jednostka SKU określa maksymalną liczbę relacji zaufania lasu, które można utworzyć dla domeny zarządzanej. Zapoznaj się z wymaganiami biznesowymi i aplikacjami, aby określić, ile relacji zaufania rzeczywiście potrzebujesz, i wybierz odpowiednią jednostkę SKU platformy Azure AD DS. Ponownie, jeśli wymagania biznesowe zmienią się i konieczne jest utworzenie dodatkowych relacji zaufania lasu, możesz przełączyć się do innej jednostki SKU.
+W poprzedniej sekcji szczegółowo opisano jednokierunkowe zaufanie lasu wychodzącego z domeny zarządzanej do środowiska lokalnego AD DS. Jednostka SKU określa maksymalną liczbę relacji zaufania lasu, które można utworzyć dla domeny zarządzanej. Zapoznaj się z wymaganiami biznesowymi i aplikacjami, aby określić, ile relacji zaufania rzeczywiście potrzebujesz, i wybierz odpowiednią jednostkę SKU platformy Azure AD DS. Ponownie, jeśli wymagania biznesowe zmienią się i konieczne jest utworzenie dodatkowych relacji zaufania lasu, możesz przełączyć się do innej jednostki SKU.
 
 ## <a name="next-steps"></a>Następne kroki
 

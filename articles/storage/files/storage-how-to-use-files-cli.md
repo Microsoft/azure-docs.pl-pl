@@ -7,17 +7,18 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77598599"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495779"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu interfejsu wiersza polecenia platformy Azure. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują standardowy w branży protokół SMB i umożliwiają udostępnianie plików między wieloma maszynami, aplikacjami i wystąpieniami. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -59,7 +60,7 @@ az storage account create \
 ```
 
 > [!Note]  
-> Udziały większe niż 5 TiB (maksymalnie 100 TiB na udział) są dostępne tylko na kontach magazynu lokalnie nadmiarowy (LRS) i strefowo nadmiarowe (ZRS). Aby utworzyć konto magazynu geograficznie nadmiarowego (GRS) lub strefy geograficznie nadmiarowe (GZRS), `--enable-large-file-share` Usuń parametr.
+> Udziały większe niż 5 TiB (maksymalnie 100 TiB na udział) są dostępne tylko na kontach magazynu lokalnie nadmiarowy (LRS) i strefowo nadmiarowe (ZRS). Aby utworzyć konto magazynu geograficznie nadmiarowego (GRS) lub strefy geograficznie nadmiarowe (GZRS), Usuń `--enable-large-file-share` parametr.
 
 ### <a name="get-the-storage-account-key"></a>Pobieranie klucza konta magazynu
 Klucze konta magazynu kontrolują dostęp do zasobów na koncie magazynu. Klucze są tworzone automatycznie podczas tworzenia konta magazynu. Klucze konta magazynu możesz pobrać przy użyciu polecenia [az storage account keys list](/cli/azure/storage/account/keys): 
@@ -147,7 +148,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Pobieranie pliku
-Możesz użyć [`az storage file download`](/cli/azure/storage/file) polecenia, aby pobrać kopię pliku, który został przekazany do Cloud Shell dysku zapasowego:
+Możesz użyć polecenia, [`az storage file download`](/cli/azure/storage/file) Aby pobrać kopię pliku, który został przekazany do Cloud Shell dysku zapasowego:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -202,7 +203,7 @@ az storage file list \
     --output table
 ```
 
-Chociaż `az storage file copy start` polecenie jest wygodne w przypadku przenoszenia plików między udziałami plików platformy Azure, w przypadku migracji i większych przepływów danych `rsync` zalecamy w systemach macOS i `robocopy` Linux oraz w systemie Windows. `rsync`i `robocopy` Użyj protokołu SMB, aby wykonać przesunięcia danych zamiast interfejsu API FileREST.
+Chociaż `az storage file copy start` polecenie jest wygodne w przypadku przenoszenia plików między udziałami plików platformy Azure, w przypadku migracji i większych przepływów danych zalecamy `rsync` w systemach MacOS i Linux oraz `robocopy` w systemie Windows. `rsync`i `robocopy` Użyj protokołu SMB, aby wykonać przesunięcia danych zamiast interfejsu API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Tworzenie migawek udziałów i zarządzanie nimi
 Inną przydatną czynnością, którą można wykonywać na udziałach plików platformy Azure, jest tworzenie migawek udziałów. Migawka zachowuje kopię udziału plików Azure w określonym momencie w czasie. Migawki udziałów są podobne do niektórych technologii systemów operacyjnych, które być może już znasz:
@@ -286,7 +287,7 @@ az storage share delete \
     --output none
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz, możesz użyć [`az group delete`](/cli/azure/group) polecenia, aby usunąć grupę zasobów i wszystkie powiązane zasoby: 
 
 ```azurecli-interactive 

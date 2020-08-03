@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082957"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500468"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -121,7 +121,7 @@ Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [inie
 - W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi w zakresie są tworzone raz na wykonanie. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
 - **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `DocumentClient` lub dla `HttpClient` wystąpień.
 
-Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://aka.ms/functions/di-sample) w serwisie GitHub.
+Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) w serwisie GitHub.
 
 ## <a name="logging-services"></a>Usługi rejestrowania
 

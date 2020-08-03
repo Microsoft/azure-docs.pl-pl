@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 2e12da29a8388bf4a232930c3737be7ddce80d12
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 55805402037edac230aa225b74ce2eeb731945b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611946"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495407"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -26,7 +26,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia `Install-Module -Name Az.MySql -AllowPrerelease`:.
+> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > Po ogólnym udostępnieniu modułu AZ. MySql PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i dostępne natywnie z poziomu Azure Cloud Shell.
 
 Jeśli używasz usługi Azure Database for MySQL po raz pierwszy, musisz zarejestrować dostawcę zasobów **Microsoft. DBforMySQL** .
@@ -63,7 +63,7 @@ Poniższa tabela zawiera listę często używanych parametrów i wartości przyk
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Nazwa                       | mydemoserver     | Wybierz globalnie unikatową nazwę na platformie Azure, która identyfikuje serwer Azure Database for MySQL. Nazwa serwera może zawierać tylko litery, cyfry i znak łącznika (-). Wszystkie wielkie litery, które są określone, są automatycznie konwertowane na małe litery podczas procesu tworzenia. Musi zawierać od 3 do 63 znaków. |
 | ResourceGroupName          | myresourcegroup  | Podaj nazwę grupy zasobów platformy Azure.                                                                                                                                                                                                                                                                                            |
-| SKU                        | GP_Gen5_2        | Nazwa jednostki SKU. Postępuj zgodnie z Konwencją **\_\_rdzeni wirtualnych obliczeń warstwy cenowej** . Aby uzyskać więcej informacji na temat parametru SKU, zobacz informacje przedstawione w tej tabeli.                                                                                                                                           |
+| SKU                        | GP_Gen5_2        | Nazwa jednostki SKU. Postępuj zgodnie z Konwencją ** \_ \_ rdzeni wirtualnych obliczeń warstwy cenowej** . Aby uzyskać więcej informacji na temat parametru SKU, zobacz informacje przedstawione w tej tabeli.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres wynosi od 7 do 35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled (Włączony)          | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe. Tej wartości nie można włączyć dla serwerów w warstwie cenowej podstawowa i nie można jej zmienić po utworzeniu serwera. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                      |
 | Lokalizacja                   | westus           | Region świadczenia usługi Azure dla serwera.                                                                                                                                                                                                                                                                                                         |
@@ -73,7 +73,7 @@ Poniższa tabela zawiera listę często używanych parametrów i wartości przyk
 | AdministratorUserName      | myadmin          | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Hasło użytkownika administrator w postaci bezpiecznego ciągu. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.                                       |
 
-Wartość parametru **SKU** jest zgodna z Konwencją **rdzeni wirtualnych generacji\_\_obliczeń warstwy** , jak pokazano w poniższych przykładach.
+Wartość parametru **SKU** jest zgodna z Konwencją ** \_ \_ rdzeni wirtualnych generacji obliczeń warstwy** , jak pokazano w poniższych przykładach.
 
 - `-Sku B_Gen5_1` — warstwa podstawowa, 5. generacja, 1 rdzeń wirtualny. Ta opcja to najmniejsza dostępna jednostka SKU.
 - `-Sku GP_Gen5_32` — warstwa ogólnego przeznaczenia, 5. generacja, 32 rdzenie wirtualne.
@@ -98,7 +98,7 @@ Należy rozważyć użycie warstwy cenowej Basic, jeśli lekkie obliczenia i we/
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurowanie reguły zapory
 
-Utwórz regułę zapory na poziomie serwera Azure Database for MySQL przy użyciu `New-AzMySqlFirewallRule` polecenia cmdlet. Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak narzędzie wiersza `mysql` polecenia lub Workbench MySQL, łączyć się z serwerem za pomocą zapory usługi Azure Database for MySQL.
+Utwórz regułę zapory na poziomie serwera Azure Database for MySQL przy użyciu `New-AzMySqlFirewallRule` polecenia cmdlet. Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak `mysql` Narzędzie wiersza polecenia lub Workbench MySQL, łączyć się z serwerem za pomocą zapory usługi Azure Database for MySQL.
 
 Poniższy przykład tworzy regułę zapory o nazwie **AllowMyIP** , która umożliwia nawiązywanie połączeń z określonego adresu IP (192.168.0.1). Zastąp adres IP lub zakres adresów IP odpowiadających lokalizacji, z której nawiązujesz połączenie.
 
@@ -139,9 +139,9 @@ mydemoserver.mysql.database.azure.com       myadmin
 
 ## <a name="connect-to-the-server-using-the-mysql-command-line-tool"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia MySQL
 
-Połącz się z serwerem za pomocą `mysql` narzędzia wiersza polecenia. Aby pobrać i zainstalować narzędzie wiersza polecenia, zobacz artykuł dotyczący [pobierania społeczności MySQL](https://dev.mysql.com/downloads/shell/). Możesz również uzyskać dostęp do wstępnie zainstalowanej wersji narzędzia wiersza `mysql` polecenia w Azure Cloud Shell, wybierając przycisk **Wypróbuj** dla przykładu kodu w tym artykule. Innymi sposobami dostępu do Azure Cloud Shell jest wybranie przycisku **>_** w prawym górnym rogu Azure Portal lub przez odwiedzenie [Shell.Azure.com](https://shell.azure.com/).
+Połącz się z serwerem za pomocą `mysql` narzędzia wiersza polecenia. Aby pobrać i zainstalować narzędzie wiersza polecenia, zobacz artykuł dotyczący [pobierania społeczności MySQL](https://dev.mysql.com/downloads/shell/). Możesz również uzyskać dostęp do wstępnie zainstalowanej wersji `mysql` narzędzia wiersza polecenia w Azure Cloud Shell, wybierając przycisk **Wypróbuj** dla przykładu kodu w tym artykule. Innymi sposobami dostępu do Azure Cloud Shell jest wybranie przycisku **>_** w prawym górnym rogu Azure Portal lub przez odwiedzenie [Shell.Azure.com](https://shell.azure.com/).
 
-1. Nawiąż połączenie z serwerem za `mysql` pomocą narzędzia wiersza polecenia.
+1. Nawiąż połączenie z serwerem za pomocą `mysql` narzędzia wiersza polecenia.
 
    ```azurepowershell-interactive
    mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -216,7 +216,7 @@ Aby zapoznać się z dodatkowymi poleceniami, zobacz [MySQL 5.7 Reference Manual
 
 1. Wybierz połączenie, aby nawiązać połączenie z serwerem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby utworzone w tym przewodniku Szybki Start nie są potrzebne do korzystania z innego przewodnika Szybki start lub samouczka, możesz je usunąć, uruchamiając Poniższy przykład.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495730"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V to Azure disaster recovery architecture (Architektura odzyskiwania po awarii z maszyn wirtualnych funkcji Hyper-V na platformę Azure)
 
@@ -36,7 +36,7 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 
 **Architektura funkcji Hyper-V do platformy Azure (bez programu VMM)**
 
-![Architektura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagram przedstawiający lokalną lokację funkcji Hyper-V do architektury platformy Azure bez programu VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Składniki architektury — funkcja Hyper-V z programem VMM
@@ -53,7 +53,7 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 
 **Architektura funkcji Hyper-V do platformy Azure (z programem VMM)**
 
-![Składniki](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagram przedstawiający lokalną lokację funkcji Hyper-V w architekturze platformy Azure przy użyciu programu VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Konfigurowanie wychodzącej łączności sieciowej
 
@@ -69,14 +69,14 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
 
 ## <a name="replication-process"></a>Proces replikacji
 
-![Replikacja funkcji Hyper-V do platformy Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagram przedstawiający proces replikacji funkcji Hyper-V do platformy Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Proces replikacji i odzyskiwania**
 
@@ -86,7 +86,7 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 1. Po włączeniu ochrony dla maszyny wirtualnej funkcji Hyper-V, w witrynie Azure Portal lub środowisku lokalnym, zostanie uruchomione zadanie **Włącz ochronę**.
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
-4. Zadanie można monitorować na karcie **zadania** .      ![ ](media/hyper-v-azure-architecture/image1.png) Lista ![ zadań Włącz przechodzenie do szczegółów ochrony](media/hyper-v-azure-architecture/image2.png)
+4. Zadanie można monitorować na karcie **zadania** .      ![Zrzut ekranu przedstawiający listę zadań na karcie zadania. ](media/hyper-v-azure-architecture/image1.png) Zrzut ekranu przedstawiający ![ ekran Włącz ochronę z dodatkowymi szczegółami.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Początkowa replikacja danych
@@ -123,7 +123,7 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 2. Po ukończeniu ponownej synchronizacji replikacja różnicowa powinna zostać wznowiona.
 3. Jeśli nie chcesz czekać na domyślną ponowną synchronizację poza godzinami, możesz ponownie zsynchronizować maszynę wirtualną ręcznie. Na przykład jeśli wystąpi awaria. W tym celu w Azure Portal wybierz maszynę wirtualną > ponownie **zsynchronizuj**.
 
-    ![Ręczna ponowna synchronizacja](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Zrzut ekranu przedstawiający opcję ponownej synchronizacji.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Ponów próbę wykonania procesu

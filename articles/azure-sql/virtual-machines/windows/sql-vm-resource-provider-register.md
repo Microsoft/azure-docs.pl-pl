@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60d184b3739d05063a0cddd108a2b2d7d49b57d7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962769"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497073"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Rejestrowanie SQL Server maszyny wirtualnej na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +43,7 @@ Wdrożenie SQL Server maszyny wirtualnej w portalu Azure Marketplace za pomocą 
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -108,7 +109,7 @@ Zarejestruj dostawcę zasobów maszyny wirtualnej SQL w ramach subskrypcji platf
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -137,7 +138,7 @@ Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu i
   ```
 
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu programu PowerShell:  
 
@@ -197,7 +198,7 @@ Zarejestruj maszynę wirtualną SQL Server 2008 R2 w trybie noagent przy użyciu
    --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Zarejestruj maszynę wirtualną SQL Server 2008 w trybie noagent przy użyciu programu PowerShell: 
 
@@ -262,7 +263,7 @@ Uruchom następujący fragment kodu interfejsu wiersza polecenia platformy Azure
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Uruchom następujący fragment kodu programu PowerShell:
 
@@ -299,7 +300,7 @@ Sprawdź bieżące SQL Server stanu rejestracji maszyny wirtualnej przy użyciu 
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -351,7 +352,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Aby wyrejestrować SQL Serverą maszynę wirtualną z dostawcy zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Spowoduje to usunięcie SQL Server *zasobów* maszyn wirtualnych, ale nie spowoduje usunięcia maszyny wirtualnej. 
 
 ```powershell-interactive

@@ -5,12 +5,13 @@ ms.date: 06/23/2020
 ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 5340ec8d3d7a479fb349ce5ed1d32f917668d0d8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340994"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500474"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu interfejsu wiersza polecenia oraz tematów/subskrypcji
 
@@ -46,7 +47,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Każda [subskrypcja tematu](service-bus-messaging-overview.md#topics) może otrzymywać kopie wszystkich komunikatów. Tematy są w pełni protokołowane i semantycznie zgodne z kolejkami usługi Service Bus. Tematy usługi Service Bus obsługują najróżniejsze reguły wyboru z warunkami filtru, z użyciem opcjonalnych akcji, które ustawiają lub modyfikują właściwości komunikatów. Za każdym razem, gdy reguła pasuje, generuje komunikat. Aby dowiedzieć się więcej o regułach, filtrach i akcjach, kliknij ten [link](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Po zainstalowaniu interfejsu wiersza polecenia otwórz wiersz polecenia i uruchom następujące polecenia, aby zalogować się na platformie Azure. Te kroki nie są konieczne, jeśli używasz usługi Cloud Shell:
 
@@ -151,7 +152,7 @@ Po aprowizowaniu przestrzeni nazw i tematu/subskrypcji i jeśli posiadasz niezb�
 
    ![dane wyjściowe programu](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Uruchom następujące polecenie, aby usunąć grupę zasobów, przestrzeń nazw i wszystkie powiązane zasoby:
 

@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075702"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500763"
 ---
-# <a name="using-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
+# <a name="use-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
 
 Porady dotyczące implementowania transakcji w puli SQL (magazyn danych) na potrzeby tworzenia rozwiązań.
 
@@ -183,7 +183,7 @@ Wszystko, co zostało zmienione, polega na tym, że WYCOFANie transakcji musiał
 
 Warto również zauważyć, że Pula SQL nie implementuje ani nie obsługuje funkcji ERROR_LINE (). Jeśli masz ten kod, musisz go usunąć, aby był zgodny z pulą SQL. Zamiast zaimplementować równoważne funkcje, użyj etykiet zapytań w kodzie. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [etykiet](develop-label.md) .
 
-## <a name="using-throw-and-raiserror"></a>Korzystanie z funkcji THROW i RAISERROR
+## <a name="use-of-throw-and-raiserror"></a>Użycie instrukcji THROW i RAISERROR
 
 THROW to bardziej nowoczesny implementacja do wywoływania wyjątków w puli SQL, ale również jest obsługiwana wartość RAISERROR. Istnieje jednak kilka różnic, które warto zwrócić uwagę.
 

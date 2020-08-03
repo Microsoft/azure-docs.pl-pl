@@ -3,12 +3,13 @@ title: 'Szybki Start: nowe przypisanie zasad przy użyciu interfejsu wiersza pol
 description: W tym przewodniku szybki start utworzysz przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: 33db6b4098dc0a69f4dabbea62fc9627cdc948eb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2c289aa01362fcf0ede24bc1da7e8aef9e9be072
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558926"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496699"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,8 +51,8 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 Poprzednie polecenie korzysta z następujących informacji:
 
 - **Nazwa** —rzeczywista nazwa przypisania. W tym przykładzie użyto nazwy _audit-vm-manageddisks_.
-- **DisplayName** — nazwa wyświetlana przypisania zasad. W tym przypadku użyj nazwy przypisania _Audit VMs without managed disks Assignment_ (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
-- **Zasady** — identyfikator definicji zasad, na podstawie której tworzysz przypisanie. W tym przypadku jest to identyfikator definicji zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie korzystają z dysków zarządzanych). Aby uzyskać identyfikator definicji zasad, uruchom następujące polecenie: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **DisplayName** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_.
+- **Zasady** — identyfikator definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_. Aby uzyskać identyfikator definicji zasad, uruchom następujące polecenie: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów. Pamiętaj, aby zastąpić fragment &lt;zakres&gt; nazwą grupy zasobów.
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
@@ -98,7 +99,7 @@ Wyniki powinny wyglądać podobnie do następujących:
 
 Wyniki są porównywalne z zawartością zwykle wyświetlaną w obszarze **Niezgodne zasoby** w widoku witryny Azure Portal.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone przypisanie, wykonaj następujące polecenie:
 

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: b0b8cd79c464a101210d8ca56d09d9703abbc614
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: e62a60212495df033a2e967b3547f4ac98559cda
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088958"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499674"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Tworzenie jednostrefowego zestawu skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Ubuntu w jednej strefie dostępności. Po uruchomieniu skryptu dostęp do maszyny wirtualnej można uzyskać za pomocą protokołu RDP.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118396"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498053"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych o
 
 ## <a name="storefront-offer-details"></a>Szczegóły oferty witryny sklepu
 
-| Ustawienie witryny sklepu | Najlepsze rozwiązania |
+| Ustawienie witryny sklepu | Najlepsze rozwiązanie |
 |:--- |:--- |  
 | Offer Name | W przypadku aplikacji podaj czytelny tytuł zawierający słowa kluczowe wyszukiwania, aby pomóc klientom w znalezieniu oferty. <br> <br> W przypadku usług doradczych postępuj zgodnie z tym formatem: [nazwa oferty: [Duration] [typ oferty] (na przykład Contoso: implementacja 2-tygodniowa) <br> <br> Przestrzeganie wytycznych dotyczących marki: należy przestrzegać wytycznych dotyczących znaków [towarowych firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) i innych istotnych wytycznych dotyczących produktu w przypadku odwoływania się do znaków towarowych firmy Microsoft oraz nazw oprogramowania, produktów i usług firmy Microsoft. |
 | Opis oferty | Podaj jasny opis, który opisuje swoją pozycję oferty w pierwszych kilku zdaniach.  Należy pamiętać, że te zdania mogą być używane w wynikach wyszukiwarki. Podstawowe składniki Twojej pozycji wartości powinny obejmować: <ul> <li>Opis produktu lub rozwiązania. </li> <li> Użytkownik korzystający z produktu lub rozwiązania. </li> <li> Klient wymaga lub nie korzysta z adresów produktów lub rozwiązań. </li> </ul> <br> Jeśli to możliwe, korzystaj z słów w standardzie branżowym lub w oparciu o korzyści.  Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt.  Zamiast tego należy skoncentrować się na dostarczanej wartości. <br> <br> Aby zapoznać się z listą usług doradczych, zastanów się w tym miejscu. |
@@ -56,89 +56,7 @@ Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i 
 * Do dwóch (2) kategorii, w tym podstawowej i pomocniczej kategorii (opcjonalnie).
 * Do dwóch (2) podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna tylko w wybranej kategorii.
 
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (informatyków i deweloperów)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (użytkownicy biznesowi)|
-| :------------------- |:----------------|
-|**Analiza** | **Analiza** |
-| &nbsp;&nbsp;Wgląd w dane | &nbsp;&nbsp;Analiza zaawansowana  |
-| &nbsp;&nbsp;Analiza danych |  &nbsp;&nbsp;Wizualizacja & raporty |
-| &nbsp;&nbsp;Dane Big Data | **SI i uczenie maszynowe**  |
-| &nbsp;&nbsp;Analiza predykcyjna | &nbsp;&nbsp;AI dla firm |
-| &nbsp;&nbsp;Analiza czasu rzeczywistego/przesyłania strumieniowego | &nbsp;&nbsp;Aplikacje bot |
-| **SI i uczenie maszynowe** | **Współpraca** |
-| &nbsp;&nbsp;Usługa bot | &nbsp;&nbsp;Kontakt & osób |
-| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Zarządzanie spotkaniami |
-| &nbsp;&nbsp;Usługa ML | &nbsp;&nbsp;Zarządzanie & projektu lokacji |
-| &nbsp;&nbsp;Automatyczna ML | &nbsp;&nbsp;Zarządzanie projektem & zadań |
-| &nbsp;&nbsp;Automatyzacja procesów biznesowych/zautomatyzowanych | &nbsp;&nbsp;Konferencje wideo & głosu |
-| &nbsp;&nbsp;Etykietowanie danych | **Zgodność & prawny** |
-| &nbsp;&nbsp;Przygotowywanie danych | &nbsp;&nbsp;Inspekcja & podatkowych |
-| &nbsp;&nbsp;Wyszukiwanie merytoryczne | &nbsp;&nbsp;Prawidłowe |
-| &nbsp;&nbsp;Operacje ML | &nbsp;&nbsp;Dane, nadzór & prywatność |
-| **Łańcuch bloków**  | &nbsp;&nbsp;Kondycja & |
-| &nbsp;&nbsp;Akceleratory aplikacji | **Customer Service**  |
-| &nbsp;&nbsp;Księga z jednym węzłem | &nbsp;&nbsp;Centrum kontaktów |
-| &nbsp;&nbsp;Księga wielowęzłowa | &nbsp;&nbsp;Usługa do rozpoznawania |
-| &nbsp;&nbsp;Narzędzi | &nbsp;&nbsp;Zaplecze usługi Office & Employee |
-| **Obliczanie**  | &nbsp;&nbsp;Zarządzanie sprawami & wiedzy |
-| &nbsp;&nbsp;Infrastruktura aplikacji | &nbsp;&nbsp;Media społecznościowe & omnichannel Engagement |
-| &nbsp;&nbsp;Systemy operacyjne | **Finanse** |
-| &nbsp;&nbsp;Chow | &nbsp;&nbsp;Sprawozdań |
-| **Containers**  | &nbsp;&nbsp;Zarządzanie zasobami |
-| &nbsp;&nbsp;Wprowadzenie do kontenerów | &nbsp;&nbsp;Analiza, konsolidacja & raportowanie |
-| &nbsp;&nbsp;Aplikacje kontenera | &nbsp;&nbsp;Kredyty &owe |
-| &nbsp;&nbsp;Obrazy kontenerów | &nbsp;&nbsp;Zgodność & zarządzanie ryzykiem |
-| **Bazy danych**  | **Geolokalizacja** |
-| &nbsp;&nbsp;Bazy danych NoSQL | &nbsp;&nbsp;Odwzorowywan |
-| &nbsp;&nbsp;Relacyjne bazy danych | &nbsp;&nbsp;Wiadomości & Pogoda |
-| &nbsp;&nbsp;Bazy danych księgi/łańcucha bloków | **Human Resources** |
-| &nbsp;&nbsp;Jeziora dotyczące danych | &nbsp;&nbsp;Talent pozyskiwanie |
-| &nbsp;&nbsp;Magazyn danych | &nbsp;&nbsp;Talent Management |
-| **Narzędzia programistyczne**  | &nbsp;&nbsp;Operacje na HR |
-| &nbsp;&nbsp;Narzędzi | &nbsp;&nbsp;Planowanie pracowników & Analytics |
-| &nbsp;&nbsp;Znajduj | **Narzędzia do zarządzania & IT** |
-| &nbsp;&nbsp;Usługa dla deweloperów | &nbsp;&nbsp;Rozwiązania do zarządzania |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integracja**  | **Internet rzeczy** |
-| &nbsp;&nbsp;Przesyłanie | &nbsp;&nbsp;Operacje & zarządzania zasobami |
-| **Narzędzia do zarządzania & IT**  | &nbsp;&nbsp;Połączone produkty |
-| &nbsp;&nbsp;Rozwiązania do zarządzania | &nbsp;&nbsp;Inteligentny łańcuch dostaw |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Konserwacja predykcyjna |
-| **Tożsamość**  | &nbsp;&nbsp;Zdalne monitorowanie |
-| &nbsp;&nbsp;Zarządzanie dostępem | &nbsp;&nbsp;Bezpieczeństwo & zabezpieczenia |
-| **Internet rzeczy**  | &nbsp;&nbsp;Infrastruktura inteligentna & zasoby |
-| &nbsp;&nbsp;Łączność IoT | &nbsp;&nbsp;Pojazdy & Mobility |
-| &nbsp;&nbsp;Usługi IoT Core | **Marketing** |
-| &nbsp;&nbsp;Moduły IoT Edge | &nbsp;&nbsp;Nagłówek |
-| &nbsp;&nbsp;Rozwiązania IoT | &nbsp;&nbsp;Wersję |
-| &nbsp;&nbsp;Wizualizacja & analizy danych | &nbsp;&nbsp;Automatyzacja & zarządzania kampaniami |
-| **Media**  | &nbsp;&nbsp;Marketing poczty e-mail |
-| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Zdarzenia & zarządzanie zasobami |
-| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Analiza & Research |
-| &nbsp;&nbsp;Przesyłanie strumieniowe na żywo & na żądanie | &nbsp;&nbsp;Media społecznościowe |
-| **Monitorowanie diagnostyki &**  | **Łańcuch dostaw & operacji** |
-| **Migracja**  | &nbsp;&nbsp;Zarządzanie zasobami & produkcji |
-| &nbsp;&nbsp;Migracja danych | &nbsp;&nbsp;Prognozowanie popytu |
-| **Rzeczywistość mieszana**  | &nbsp;&nbsp;Zarządzanie informacjami & łączności |
-| **Sieć**  | &nbsp;&nbsp;Planowanie, kupowanie & raportowania |
-| &nbsp;&nbsp;Menedżerowie urządzeń | &nbsp;&nbsp;& zarządzanie usługami |
-| &nbsp;&nbsp;Łączność | &nbsp;&nbsp;Zarządzanie zamówieniami & sprzedaży |
-| &nbsp;&nbsp;Zapory | &nbsp;&nbsp;Transport & Zarządzanie magazynem |
-| &nbsp;&nbsp;Moduły równoważenia obciążenia | **Zwiększając** |
-| **Bezpieczeństwo**  | &nbsp;&nbsp;Tworzenie zawartości & zarządzanie |
-| &nbsp;&nbsp;Zarządzanie dostępem & tożsamości | &nbsp;&nbsp;Zarządzanie dokumentami |
-| &nbsp;&nbsp;Ochrona przed zagrożeniami | &nbsp;&nbsp;Zarządzanie pocztą e-mail |
-| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Tłumaczenie & języka |
-| **Storage**  | &nbsp;&nbsp;Wyszukaj informacje & |
-| &nbsp;&nbsp;Odzyskiwanie & kopii zapasowej | &nbsp;&nbsp;Grywalizacji |
-| &nbsp;&nbsp;Magazyn hybrydowy przedsiębiorstwa | **Sales** |
-| &nbsp;&nbsp;Udostępnianie plików | &nbsp;&nbsp;Sprzedaż |
-| &nbsp;&nbsp;Zarządzanie cyklem życia danych | &nbsp;&nbsp;Konfigurowanie, Cena, oferta (CPQ) |
-| **Sieć Web**  | &nbsp;&nbsp;Zarządzanie kontraktami |
-| &nbsp;&nbsp;Blogi & CMS | &nbsp;&nbsp;CRM |
-| &nbsp;&nbsp;Web Apps Starter | &nbsp;&nbsp;Handel elektroniczny |
-| &nbsp;&nbsp;Handel elektroniczny | &nbsp;&nbsp;Wzbogacanie danych firmowych  |
-| &nbsp;&nbsp;Struktury aplikacji sieci Web | &nbsp;&nbsp;Włączenie sprzedaży  |
-| &nbsp;&nbsp;Web Apps |  |
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 **Ważne: SaaSe oferty i dodatki Microsoft 365**
 
@@ -199,7 +117,7 @@ Wybierz odpowiednie produkty, z którymi aplikacja działa, aby oferta była wy�
 Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania. Zidentyfikuj najważniejsze słowa kluczowe wyszukiwania dla swojej oferty, Dołącz je do podsumowania oferty oraz opis, a także w sekcji słowo kluczowe w sekcji Szczegóły oferty.
 
 ## <a name="storefront-marketing-details"></a>Szczegóły marketingu w sklepie
-| Ustawienie witryny sklepu | Najlepsze rozwiązania |
+| Ustawienie witryny sklepu | Najlepsze rozwiązanie |
 |:--- |:--- |  
 | Logo oferty (format PNG, 48 &nbsp; &times; &nbsp; 48): Strona wyszukiwania | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony wyszukiwania oferty. |
 | Logo oferty (format PNG, 216 &nbsp; &times; &nbsp; 216): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. |

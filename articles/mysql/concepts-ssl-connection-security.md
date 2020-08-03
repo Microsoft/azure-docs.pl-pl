@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 97f9635cf6bba9ee276e6775c1718a5d83e9af3e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282130"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495084"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Łączność SSL/TLS w Azure Database for MySQL
 
 Azure Database for MySQL obsługuje łączenie serwera bazy danych z aplikacjami klienckimi przy użyciu protokołu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
 
 > [!NOTE]
-> Aktualizowanie `require_secure_transport` wartości parametru serwera nie ma wpływu na zachowanie usługi MySQL. Użyj funkcji wymuszania protokołów SSL i TLS opisanych w tym artykule, aby zabezpieczyć połączenia z usługą.
+> Aktualizowanie `require_secure_transport` wartości parametru serwera nie ma wpływu na zachowanie usługi MySQL. Użyj funkcji wymuszania protokołów SSL i TLS opisanych w tym artykule, aby zabezpieczyć połączenia z bazą danych.
 
 ## <a name="ssl-default-settings"></a>Ustawienia domyślne protokołu SSL
 

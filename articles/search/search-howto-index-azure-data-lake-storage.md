@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 880238558c03cca6a582960eef4e647c0e6875e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe05a474f4f6ee70c07e0e19621487d51d92966d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084113"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490630"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indeksowanie dokumentów w Azure Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ Indeksowanie zawartości w Data Lake Storage Gen2 jest takie samo jak indeksowan
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) , który obsługuje kontrolę dostępu opartą na ROLACH (RBAC) na platformie Azure oraz listę kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
+Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) , który obsługuje zarówno kontrolę dostępu opartą na rolach (Azure RBAC), jak i oparte na systemie POSIX listy kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
 
 Jeśli zachowanie kontroli dostępu dla każdego dokumentu w indeksie jest ważne, to Deweloper aplikacji może wdrożyć [przycinanie zabezpieczeń](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
 

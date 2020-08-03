@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 839aae2ccf9433dafec0ddee692c476611924aa0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74771711"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497396"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Przywracanie serwera usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia przywraca pojedynczy serwer usługi Azure Database for MariaDB do wcześniejszego punktu w czasie.

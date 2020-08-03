@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2e13d00e48c83ff56cc21f23f513d17f545b4e4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283456"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496053"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Przykłady
 
-**Uzyskiwanie dostępu do publicznie dostępnego źródła danych**
+### <a name="access-a-publicly-available-data-source"></a>**Dostęp do publicznie dostępnego źródła danych**
 
 Użyj poniższego skryptu, aby utworzyć tabelę, która uzyskuje dostęp do publicznie dostępnego źródła danych.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Uzyskiwanie dostępu do źródła danych przy użyciu poświadczeń**
+### <a name="access-a-data-source-using-credentials"></a>**Uzyskiwanie dostępu do źródła danych przy użyciu poświadczeń**
 
 Zmodyfikuj Poniższy skrypt, aby utworzyć zewnętrzną tabelę, która uzyskuje dostęp do usługi Azure Storage przy użyciu tokenu SAS, tożsamości usługi Azure AD dla użytkownika lub zarządzanej tożsamości obszaru roboczego.
 

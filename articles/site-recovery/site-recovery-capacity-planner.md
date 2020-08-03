@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129955"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490578"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planowanie pojemności na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V 
 
@@ -47,7 +47,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
 2. W polu listy **Wybierz typ planisty** wybierz pozycję **Quick Planner**.
 
-   ![Wprowadzenie](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Zrzut ekranu przedstawiający opcję Wybierz typ planisty z wybranym szybkim terminarzem.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. W arkuszu **planista wydajności** wprowadź wymagane informacje. Wypełnij wszystkie pola wyróżnione czerwonymi na poniższym zrzucie ekranu:
 
@@ -61,7 +61,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
    e. W **godzinach, w których replikacja początkowa partii maszyn wirtualnych powinna zakończyć** się i **Liczba maszyn wirtualnych na partię replikacji początkowej**, wprowadź ustawienia, które są używane do obliczania wymagań replikacji początkowej. Po wdrożeniu Site Recovery cały początkowy zestaw danych zostanie przekazany.
 
-   ![Dane wejściowe](./media/site-recovery-capacity-planner/inputs.png)
+   ![Zrzut ekranu przedstawiający arkusz Planista wydajności, pokazujący wymagane informacje wejściowe.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. Po wprowadzeniu wartości dla środowiska źródłowego wyświetlane dane wyjściowe obejmują:
 
@@ -77,7 +77,7 @@ Narzędzie można uruchomić w dwóch trybach:
    * **Liczba dodatkowych wymaganych serwerów przetwarzania**: wskazuje, czy oprócz serwera przetwarzania, który jest domyślnie uruchomiony na serwerze konfiguracji, jest wymagane dodatkowe serwery przetwarzania.
    * **100% dodatkowego magazynu w źródle**: wskazuje, czy w lokalizacji źródłowej jest wymagany dodatkowy magazyn.
 
-      ![Dane wyjściowe](./media/site-recovery-capacity-planner/output.png)
+      ![Zrzut ekranu przedstawiający wyświetlane dane wyjściowe na podstawie podanego wejścia.](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Uruchamianie szczegółowego planisty
 
@@ -85,7 +85,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
 2. W obszarze **Wybierz typ planisty**wybierz pozycję **szczegółowy planista** w polu listy.
 
-   ![Przewodnik z wprowadzeniem](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Zrzut ekranu przedstawiający opcję Wybierz typ planisty z wybraną szczegółowym terminarzem.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. W arkuszu **kwalifikacje obciążenia** wprowadź wymagane informacje. Musisz wypełnić wszystkie pola oznaczone.
 
@@ -105,7 +105,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
    h. W obszarze **Mapowanie rozmiaru maszyny wirtualnej platformy Azure**wprowadź rozmiar maszyny wirtualnej platformy Azure, która ma zostać zmapowana. Jeśli nie chcesz tego robić ręcznie, wybierz pozycję **obliczenia IaaS maszyny wirtualne**. Jeśli wprowadzasz ustawienia ręczne, a następnie wybierzesz pozycję **COMPUTE IaaS maszyny wirtualne**, ustawienie ręczne może zostać nadpisane. Proces obliczeń automatycznie identyfikuje najlepsze dopasowanie rozmiaru maszyny wirtualnej platformy Azure.
 
-   ![Arkusz kwalifikacji obciążeń](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Zrzut ekranu arkusza kwalifikacji obciążeń przedstawiający wymagane informacje wejściowe.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. W przypadku wybrania opcji **Oblicz IaaS maszyny wirtualne**można wykonać następujące czynności:
 
@@ -117,12 +117,12 @@ Narzędzie można uruchomić w dwóch trybach:
 
 Kolumny AA do AE są danymi wyjściowymi i zawierają informacje dla każdej maszyny wirtualnej.
 
-![Kolumny wyjściowe od AA do AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Zrzut ekranu przedstawiający kolumny wyjściowe od AA do AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Przykład
 Przykładowo w przypadku sześciu maszyn wirtualnych z wartościami podanymi w tabeli narzędzie oblicza i przypisuje najlepszą zgodność z maszyną wirtualną platformy Azure oraz wymagania dotyczące usługi Azure Storage.
 
-![Przypisania kwalifikacji obciążeń](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Zrzut ekranu przedstawiający przypisania kwalifikacji obciążeń.](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * W przykładzie danych wyjściowych Zwróć uwagę na następujące kwestie:
 
@@ -144,7 +144,7 @@ Po wprowadzeniu wszystkich informacji wybierz pozycję **Prześlij dane do narz�
 
 2. Jeśli chcesz wprowadzić zmiany, musisz zmodyfikować arkusz **kwalifikacji obciążeń** . Następnie wybierz ponownie polecenie **Prześlij dane do narzędzia Planner** .
 
-   ![Planista wydajności](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Zrzut ekranu przedstawiający zmodyfikowane dane wejściowe i wynikowe wyniki w arkuszu Planista wydajności.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Następne kroki
 [Dowiedz się, jak uruchomić](./hyper-v-deployment-planner-overview.md) narzędzie planowania pojemności.

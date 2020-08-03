@@ -10,18 +10,20 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 472ff9de069e7d95cb1753a6b05830649806d2fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6efd33b9f8825b5b5699b6106dadafec851ed454
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734558"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488554"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Co to jest Azure Active Directory Domain Services?
 
 Azure Active Directory Domain Services (Azure AD DS) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP (Lightweight Directory Access Protocol) oraz uwierzytelnianie Kerberos/NTLM. Te usługi domenowe są używane bez konieczności wdrażania kontrolerów domeny (DC) w chmurze i zarządzania nimi.
 
-Domena zarządzana jest przestrzenią nazw DNS i pasującym katalogiem. Domena zarządzana integruje się z istniejącą dzierżawą usługi Azure AD, co umożliwia użytkownikom logowanie się przy użyciu istniejących poświadczeń. Istnieje również możliwość użycia istniejących grup i kont użytkowników w celu zabezpieczenia dostępu do zasobów, co zapewnia płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
+Podczas tworzenia domeny zarządzanej AD DS platformy Azure należy zdefiniować unikatową przestrzeń nazw. Ta przestrzeń nazw jest nazwą domeny, na przykład *aaddscontoso.com*, a dwa kontrolery domeny (DC) są wdrażane w wybranym regionie platformy Azure. To wdrożenie kontrolerów domeny jest znane jako zestaw replik. Domena zarządzana integruje się z istniejącą dzierżawą usługi Azure AD, co umożliwia użytkownikom logowanie się przy użyciu istniejących poświadczeń. Istnieje również możliwość użycia istniejących grup i kont użytkowników w celu zabezpieczenia dostępu do zasobów, co zapewnia płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
+
+Można rozszerzyć domenę zarządzaną, aby mieć więcej niż jeden zbiór replik dla dzierżawy usługi Azure AD. Zestawy replik można dodawać do dowolnej komunikacji równorzędnej sieci wirtualnej w dowolnym regionie świadczenia usługi Azure, który obsługuje usługę Azure AD DS. Dodatkowe zestawy replik w różnych regionach platformy Azure zapewniają geograficzne odzyskiwanie po awarii dla starszych aplikacji, jeśli region platformy Azure przejdzie w tryb offline. Zestawy replik są obecnie dostępne w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz temat [zestawy replik i funkcje dla domen zarządzanych][concepts-replica-sets].
 
 Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta Integracja umożliwia użytkownikom logowanie się do usługi i aplikacji podłączonych do domeny zarządzanej przy użyciu istniejących poświadczeń. Do zabezpieczenia dostępu do zasobów można także używać istniejących grup i kont użytkowników. Te funkcje zapewniają płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
 
@@ -150,3 +152,4 @@ Aby rozpocząć, [Utwórz domenę zarządzaną przy użyciu Azure Portal][tutori
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
+[concepts-replica-sets]: concepts-replica-sets.md

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480443"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496393"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -31,7 +31,7 @@ SQL na żądanie jest bezserwerowy, dlatego nie istnieje infrastruktura do konfi
 
 W przypadku korzystania z Apache Spark platformy Azure Synapse w potoku danych w celu przygotowania, oczyszczenia lub wzbogacania danych można [wykonywać zapytania dotyczące zewnętrznych tabel platformy Spark](develop-storage-files-spark-tables.md) utworzonych w procesie bezpośrednio z poziomu bazy danych SQL na żądanie. Użyj [linku prywatnego](../security/how-to-connect-to-workspace-with-private-links.md) , aby przenieść punkt końcowy na żądanie SQL do [zarządzanej sieci wirtualnej obszaru roboczego](../security/synapse-workspace-managed-vnet.md).  
 
-## <a name="who-is-sql-on-demand-for"></a>Kto jest SQL na żądanie
+## <a name="sql-on-demand-benefits"></a>Korzyści związane z programem SQL na żądanie
 
 Jeśli zachodzi potrzeba eksplorowania danych w usłudze Data Lake, uzyskania szczegółowych informacji z niej lub optymalizacji istniejącego potoku transformacji danych, można skorzystać z funkcji SQL na żądanie. Jest to odpowiednie dla następujących scenariuszy:
 
@@ -46,7 +46,7 @@ Różne role profesjonalne mogą korzystać z usługi SQL na żądanie:
 - Analitycy danych mogą [eksplorować dane i bazy danych platformy Spark](develop-storage-files-spark-tables.md) utworzone przez analityków danych lub inżynierów danych przy użyciu znanego języka T-SQL lub ich ulubionych narzędzi, które mogą łączyć się z serwerem SQL na żądanie.
 - Specjaliści analizy biznesowej mogą szybko [tworzyć Power BI raporty na podstawie danych w tabelach Lake](tutorial-connect-power-bi-desktop.md) i Spark.
 
-## <a name="what-do-i-need-to-do-to-start-using-it"></a>Co należy zrobić, aby rozpocząć korzystanie z niego?
+## <a name="how-to-start-using-sql-on-demand"></a>Jak zacząć korzystać z programu SQL na żądanie
 
 Punkt końcowy SQL na żądanie jest udostępniany w każdym obszarze roboczym usługi Azure Synapse. Możesz utworzyć obszar roboczy i szybko zacząć wysyłać zapytania o dane za pomocą narzędzi, które znasz.
 
@@ -54,7 +54,7 @@ Punkt końcowy SQL na żądanie jest udostępniany w każdym obszarze roboczym u
 
 SQL na żądanie umożliwia korzystanie z istniejących narzędzi SQL ad hoc do wykonywania zapytań i analiz biznesowej w celu wybrania usługi Data Lake. Ponieważ zapewnia znaną składnię T-SQL, dowolne narzędzie mogące nawiązywać połączenia z usługą SQL dla połączeń TDS może łączyć się z [programem SQL Server na żądanie i wysyłać do nich zapytania Synapse](connect-overview.md) . Możesz łączyć się z Azure Data Studio i uruchamiać zapytania ad hoc lub łączyć się z Power BI, aby uzyskać wgląd w kilka minut.
 
-## <a name="is-full-t-sql-supported"></a>Czy jest pełna obsługa języka T-SQL?
+## <a name="t-sql-support"></a>Obsługa języka T-SQL
 
 SQL na żądanie oferuje obszar powierzchni zapytania T-SQL, który jest nieco ulepszony/rozszerzony w niektórych aspektach, aby pomieścić środowiska związane z wykonywaniem zapytań dotyczących danych z częściową strukturą i bez struktury. Ponadto niektóre aspekty języka T-SQL nie są obsługiwane ze względu na projekt SQL na żądanie, na przykład funkcja DML nie jest obecnie obsługiwana.
 

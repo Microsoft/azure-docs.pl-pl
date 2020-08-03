@@ -4,12 +4,13 @@ description: Przy pierwszym użyciu Language Understanding (LUIS) nie trzeba two
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144632"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496903"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -58,7 +59,7 @@ Publikowanie regionów różni się od regionów tworzenia. Upewnij się, że tw
 
 Limity użycia są zależne od warstwy cenowej.
 
-W przypadku przekroczenia limitu przydziału transakcji na sekundę (TPS) pojawia się błąd HTTP 429. W przypadku przekroczenia limitu przydziału transakcji na miesiąc (TPS) pojawia się błąd HTTP 403.
+W przypadku przekroczenia limitu przydziału transakcji na sekundę (TPS) otrzymasz błąd HTTP 429. W przypadku przekroczenia limitu przydziału transakcji na miesiąc (TPS) otrzymasz błąd HTTP 403.
 
 
 ### <a name="reset-authoring-key"></a>Resetuj klucz tworzenia
@@ -130,7 +131,7 @@ Można kontrolować, kto widzi klucz środowiska uruchomieniowego LUIS, wywołuj
 
 Środowisko uruchomieniowe aplikacji prywatnej jest dostępne tylko dla następujących:
 
-|Klucz i użytkownik|Objaśnienie|
+|Klucz i użytkownik|Wyjaśnienie|
 |--|--|
 |Klucz autorstwa właściciela| Do 1000 trafień punktów końcowych|
 |Współautorzy/klucze autorstwa| Do 1000 trafień punktów końcowych|
@@ -232,7 +233,7 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     Ten POST API wymaga następujących ustawień:
 
-    |Nagłówek|Wartość|
+    |Header|Wartość|
     |--|--|
     |`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
     |`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
@@ -245,9 +246,9 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     |Typ|Ustawienie|Wartość|
     |--|--|--|
-    |Nagłówek|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
-    |Nagłówek|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
-    |Nagłówek|`Content-type`|`application/json`|
+    |Header|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
+    |Header|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
+    |Header|`Content-type`|`application/json`|
     |Kwerendy|`appid`|Identyfikator aplikacji usługi LUIS.
     |Treść||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceName": "resourceName-2",<br>"AccountName": "Luis-uswest-S0-2"}|
 

@@ -3,12 +3,13 @@ title: Zarządzanie wpisami tajnymi aplikacji usługi Azure Service Fabric siatk
 description: Zarządzanie wpisami tajnymi aplikacji umożliwia bezpieczne tworzenie i wdrażanie aplikacji usługi Service Fabric Mesh.
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 379560b73c38558fe0b712ed5e036c7a3736b600
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461918"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500712"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Zarządzanie wpisami tajnymi aplikacji usługi Service Fabric Mesh
 Usługa Service Fabric Mesh obsługuje wpisy tajne jako zasoby platformy Azure. Wpis tajny usługi Service Fabric Mesh może być dowolnym poufnym tekstem, takim jak parametry połączenia magazynu, hasła lub inne wartości, które powinny być przechowywane i przesyłane w bezpieczny sposób. W tym artykule pokazano, jak za pomocą usługi bezpiecznego magazynu usługi Service Fabric można wdrażać wpisy tajne i konserwować je.
@@ -200,7 +201,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Przekaż parametr **template-file** lub **template-uri** (lecz nie oba).
 
-Przykład:
+Na przykład:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - AZ siatki Deployment Create--https: \/ /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

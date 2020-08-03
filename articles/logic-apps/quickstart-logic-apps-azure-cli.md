@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/09/2020
-ms.openlocfilehash: aabb42dc8d86e500875819cbfc169bcc86733219
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/30/2020
+ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102153"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499555"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Szybki Start: Tworzenie aplikacji logiki i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -271,3 +271,11 @@ Za pomocą poleceń można użyć następujących opcjonalnych globalnych parame
 | Debugowanie | `--debug` | Pokazuje wszystkie dzienniki debugowania. |
 | Komunikat pomocy | `--help -h` | Pokaż okno dialogowe pomocy. |
 | Zapytanie | `--query` | Ustaw ciąg zapytania JMESPath dla danych wyjściowych JSON. |
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest).
+
+Aby zapoznać się z przykładem tworzenia podstawowej aplikacji logiki za pomocą interfejsu wiersza polecenia, zobacz [przykładowy skrypt i definicja przepływu pracy](sample-logic-apps-cli-script.md).
+
+Logic Apps dodatkowe przykłady skryptów interfejsu wiersza polecenia można znaleźć w [przeglądarce przykładów kodu firmy Microsoft](/samples/browse/?products=azure-logic-apps).

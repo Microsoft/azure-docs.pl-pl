@@ -12,15 +12,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-javascript
+- devx-track-azurecli
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 68ea8122164856b09558d9154abb523233f16cb7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f6ac83a0fc32b426a914b76d27c2920ff8ce6731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424498"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500252"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
@@ -263,7 +264,7 @@ Po otrzymaniu aktualizacji żądanej właściwości z centrum urządzenie symulo
 
 Oprócz otrzymywania na bieżąco żądanych zmian właściwości urządzenie symulowane automatycznie sprawdza dostępność żądanych właściwości przy uruchomieniu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorials-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń**.
 

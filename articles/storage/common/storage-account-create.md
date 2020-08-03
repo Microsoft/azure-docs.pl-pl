@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 219638f70797fc5ea413e4db72e528262df2fa87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 636efe27ec82fa870267d2cf69d5cdf990fd509a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037054"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501359"
 ---
 # <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
@@ -32,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Brak.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby utworzyć konto usługi Azure Storage przy użyciu programu PowerShell, upewnij się, że zainstalowano moduł Azure PowerShell module AZ w wersji 0,7 lub nowszej. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
 
@@ -71,13 +72,13 @@ Brak.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -97,7 +98,7 @@ az login
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
@@ -241,7 +242,7 @@ Usunięcie konta magazynu spowoduje usunięcie całego konta, w tym wszystkich d
 1. Przejdź do konta magazynu w [Azure Portal](https://portal.azure.com).
 1. Kliknij polecenie **Usuń**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby usunąć konto magazynu, użyj polecenia [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
@@ -293,7 +294,7 @@ W tym artykule z tego artykułu opisano tworzenie standardowego konta magazynu o
 > [!div class="nextstepaction"]
 > [Praca z obiektami blob za pomocą witryny Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Praca z obiektami blob za pomocą programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)

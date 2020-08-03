@@ -3,12 +3,13 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do Event Hubs-Event G
 description: 'Szybki Start: używanie Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu i subskrybowania tego zdarzenia. Centrum zdarzeń jest używane dla punktu końcowego.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1d27ebe0151c6a49d21975216e146f1daa20e4e2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462041"
+ms.locfileid: "87497359"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure Event Hubs przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -101,7 +102,7 @@ Zazwyczaj jest tworzona aplikacja, która pobiera zdarzenia z centrum zdarzeń. 
 * [Odbieranie zdarzeń z usługi Azure Event Hubs za pomocą języka Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Odbieranie zdarzeń z usługi Event Hubs za pomocą usługi Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 ```azurecli-interactive

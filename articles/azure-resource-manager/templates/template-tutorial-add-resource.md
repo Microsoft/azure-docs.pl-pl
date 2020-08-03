@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0163fcc62ea6c813af8e9e5693ca35fa0e650f96
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411734"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497532"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Samouczek: Dodawanie zasobu do szablonu ARM
 
@@ -61,7 +62,7 @@ Możesz wdrożyć szablon, aby utworzyć konto magazynu. Nadaj wdrożenieowi inn
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -72,7 +73,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \
@@ -108,7 +109,7 @@ Można zweryfikować wdrożenie, przeeksplorowanie grupy zasobów z Azure Portal
 1. Zobaczysz, że konto magazynu zostało wdrożone.
 1. Zauważ, że etykieta wdrożenia brzmi teraz: **wdrożenia: 2**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 
@@ -124,4 +125,4 @@ Jeśli zatrzymasz się teraz, możesz chcieć wyczyścić wdrożone zasoby, usuw
 Utworzono prosty szablon służący do wdrażania konta usługi Azure Storage.  W kolejnych samouczkach dowiesz się, jak dodawać parametry, zmienne, zasoby i dane wyjściowe do szablonu. Te funkcje są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów.
 
 > [!div class="nextstepaction"]
-> [Dodaj parametry](template-tutorial-add-parameters.md)
+> [Dodawanie parametrów](template-tutorial-add-parameters.md)

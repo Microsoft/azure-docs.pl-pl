@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327892"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489456"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze r
 W tym artykule wyjaśniono, jak zarządzać dostępem do dzienników i administrować obszarami roboczymi, które je zawierają, w tym w jaki sposób udzielić dostępu do: 
 
 * Obszar roboczy przy użyciu uprawnień obszaru roboczego.
-* Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure — znanego również jako [kontekst zasobów](design-logs-deployment.md#access-mode)
+* Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) — znanego również jako [kontekst zasobów](design-logs-deployment.md#access-mode)
 * Użytkownicy, którzy potrzebują dostępu do danych dziennika w określonej tabeli w obszarze roboczym przy użyciu funkcji RBAC platformy Azure.
 
 Aby zrozumieć koncepcje dotyczące strategii RBAC i dostępu, przeczytaj artykuł [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md)
@@ -313,4 +313,3 @@ Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośr
 * Zobacz [Omówienie agenta log Analytics](./log-analytics-agent.md) , aby zebrać dane z komputerów w centrum danych lub w innym środowisku chmury.
 
 * Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../learn/quick-collect-azurevm.md) .
-

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408122"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498025"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -26,7 +26,7 @@ Korzyści z witryny Marketplace zaprojektowano w taki sposób, aby obsługiwały
 
 Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu zaprojektowano w celu przeprowadzenia kolejnego etapu, dzięki czemu możesz rozwijać swoją firmę dla klientów firmy Microsoft, w tym firmę Microsoft, a także za pośrednictwem kanału firmowego, korzystając z komercyjnej witryny Marketplace jako platformy.
 
-Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](determine-your-listing-type.md#choose-a-publishing-option).
+Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](determine-your-listing-type.md#choose-a-call-to-action).
 
 Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień.
 

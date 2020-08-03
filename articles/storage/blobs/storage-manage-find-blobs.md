@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355662"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499878"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -63,7 +63,7 @@ Możesz zastosować wiele tagów w obiekcie blob, aby uzyskać bardziej opisowe 
 > "Priorytet" = "01" 
 >
 
-Aby zmodyfikować istniejące atrybuty tagu indeksu, należy najpierw pobrać istniejące atrybuty tagu, zmodyfikować atrybuty tagu i zastąpić operacją SetBlobTags. Aby usunąć wszystkie Tagi indeksu z obiektu BLOB, wywołaj operację SetBlobTags bez określonych atrybutów tagu. Jako że Tagi indeksów obiektów BLOB są podzbiorem zawartości danych obiektów blob, SetBlobTags nie modyfikuje żadnej źródłowej zawartości i nie zmienia obiektu BLOB Last-Modified-Time ani ETag (tag jednostki). Możesz tworzyć lub modyfikować Tagi indeksów dla wszystkich bieżących podstawowych obiektów blob i poprzednich wersji; nie można jednak modyfikować tagów migawek ani nietrwałych usuniętych obiektów BLOB. 
+Aby zmodyfikować istniejące atrybuty tagu indeksu, należy najpierw pobrać istniejące atrybuty tagu, zmodyfikować atrybuty tagu i zastąpić operacją SetBlobTags. Aby usunąć wszystkie Tagi indeksu z obiektu BLOB, wywołaj operację SetBlobTags bez określonych atrybutów tagu. Jako że Tagi indeksów obiektów BLOB są podzbiorem zawartości danych obiektów blob, SetBlobTags nie modyfikuje żadnej źródłowej zawartości i nie zmienia obiektu BLOB Last-Modified-Time ani eTag (tag jednostki). Możesz tworzyć lub modyfikować Tagi indeksów dla wszystkich bieżących podstawowych obiektów blob i poprzednich wersji; nie można jednak modyfikować tagów migawek ani nietrwałych usuniętych obiektów BLOB. 
 
 Do tagów indeksów obiektów BLOB mają zastosowanie następujące ograniczenia:
 - Każdy obiekt BLOB może mieć do 10 tagów indeksów obiektów BLOB
@@ -228,7 +228,7 @@ Do obsługi filtrowania tagów obiektów BLOB mogą być przyznawane następują
 
 |  Uprawnienie  |  Symbol URI  | Dozwolone operacje |
 |--------------|--------------|--------------------|
-| Tagi indeksu     |      k       | Znajdowanie obiektów blob z tagami indeksów obiektów BLOB | 
+| Tagi indeksu     |      f       | Znajdowanie obiektów blob z tagami indeksów obiektów BLOB | 
 
 ## <a name="choosing-between-metadata-and-blob-index-tags"></a>Wybór między metadanymi a tagami indeksów obiektów BLOB 
 Zarówno Tagi indeksu obiektów blob, jak i metadane umożliwiają przechowywanie dowolnych właściwości klucza/wartości zdefiniowanych przez użytkownika obok zasobu obiektu BLOB. Obie te funkcje mogą być pobierane i ustawiane bezpośrednio, bez zwracania ani modyfikowania zawartości obiektu BLOB. Istnieje możliwość użycia zarówno znaczników metadanych, jak i indeksów.
@@ -293,6 +293,7 @@ W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zap
 -   Tryb failover konta nie jest obecnie obsługiwany. Indeks obiektów BLOB może nie zostać poprawnie zaktualizowany po przejściu do trybu failover.
 -   Zarządzanie cyklem życia obecnie obsługuje tylko sprawdzanie równości przy użyciu dopasowania indeksu obiektów BLOB.
 -   CopyBlob nie kopiuje tagów indeksów obiektów BLOB ze źródłowego obiektu BLOB do nowego docelowego obiektu BLOB. Można określić Tagi, które mają być stosowane do docelowego obiektu BLOB podczas operacji kopiowania. 
+- CopyBlob (kopia asynchroniczna) z innego konta magazynu z zastosowanymi tagami w docelowym obiekcie blob aktualnie powoduje, że aparat indeksu obiektów BLOB nie zwraca obiektu BLOB i jego tagów w zestawie filtrów. Zalecane jest użycie CopyBlob z adresu URL (kopia synchroniczna) w tymczasowym.
 -   Tagi są utrwalane podczas tworzenia migawki; jednak promowanie migawek nie jest obecnie obsługiwane i może spowodować powstanie pustego zestawu tagów.
 
 ## <a name="faq"></a>Często zadawane pytania
@@ -308,5 +309,7 @@ Nie, Azure Resource Manager Tagi ułatwiają organizowanie zasobów płaszczyzny
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz przykład użycia indeksu obiektów BLOB. Zobacz [Korzystanie z indeksu obiektów BLOB do zarządzania danymi i ich znajdowania](storage-blob-index-how-to.md)
+Aby zapoznać się z przykładem użycia indeksu obiektów blob, zobacz temat [Korzystanie z indeksu obiektów BLOB do zarządzania danymi i ich znajdowania](storage-blob-index-how-to.md).
+
+Więcej informacji na temat [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) i ustawiania reguły z dopasowaniem indeksu obiektów BLOB.
 

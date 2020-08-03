@@ -4,12 +4,12 @@ description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyj
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057294"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499623"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
@@ -161,8 +161,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Szyfrowanie dysków danych obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej   
-* Dostępne tylko w regionach, w których jest obsługiwany BYOK
+* Szyfrowanie dysków danych obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej
 * Szyfrowanie z kluczami zarządzanymi przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów
 
 ## <a name="next-steps"></a>Następne kroki

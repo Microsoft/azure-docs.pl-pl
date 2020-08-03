@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 242e2a2bf743777dd43a4c84194ebd894b5edd3c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c97d5d3119644a6426152b1b832fabac3dde4863
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290400"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498416"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Używanie programu PowerShell do tworzenia roli niestandardowej w laboratorium w Azure DevTest Labs
 
@@ -41,7 +41,7 @@ W tym skrypcie użyto następujących poleceń:
 | Polecenie | Uwagi |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Pobiera operacje dla dostawcy zasobów platformy Azure, które są zabezpieczane za pomocą funkcji RBAC platformy Azure. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Wyświetla wszystkie role RBAC platformy Azure, które są dostępne do przypisania. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Wyświetla listę wszystkich ról platformy Azure, które są dostępne do przypisania. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Tworzy rolę niestandardową. |
 
 ## <a name="next-steps"></a>Następne kroki

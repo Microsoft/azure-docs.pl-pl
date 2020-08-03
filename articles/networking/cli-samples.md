@@ -14,12 +14,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d503e4c8eacd27ac7495ad56c4256455cf3885e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c038f0d238646f43b93ba2a2c6a1120ab5feccee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287820"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497294"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla sieci
 

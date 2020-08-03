@@ -8,13 +8,14 @@ ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 2ac6a38d99f588c9dbab7a40bc092aa01b27649a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f41dbb4e6231e804249c3fce3dfc8275dcc00aa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726013"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489014"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Rejestrowanie urządzenia Azure IoT Edge
 
@@ -122,7 +123,7 @@ Interfejs wiersza polecenia [platformy Azure](https://docs.microsoft.com/cli/azu
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Tworzenie urządzenia IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Użyj polecenia [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) , aby utworzyć nową tożsamość urządzenia w centrum IoT. Przykład:
+Użyj polecenia [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) , aby utworzyć nową tożsamość urządzenia w centrum IoT. Na przykład:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +139,7 @@ To polecenie zawiera trzy parametry:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Wyświetlanie IoT Edge urządzeń za pomocą interfejsu wiersza polecenia platformy Azure
 
-Użyj polecenia [AZ IoT Hub Device-Identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) , aby wyświetlić wszystkie urządzenia w centrum IoT Hub. Przykład:
+Użyj polecenia [AZ IoT Hub Device-Identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) , aby wyświetlić wszystkie urządzenia w centrum IoT Hub. Na przykład:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]

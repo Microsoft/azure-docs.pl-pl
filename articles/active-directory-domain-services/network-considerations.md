@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040031"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488656"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -62,10 +62,10 @@ Jak wspomniano w poprzedniej sekcji, można utworzyć tylko domenę zarządzaną
 
 Możesz połączyć obciążenia aplikacji hostowane w innych sieciach wirtualnych platformy Azure, korzystając z jednej z następujących metod:
 
-* Wirtualne sieci równorzędne
+* Komunikacja równorzędna sieci wirtualnych
 * Wirtualne sieci prywatne (VPN)
 
-### <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
+### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
 Komunikacja równorzędna sieci wirtualnych jest mechanizmem, który łączy dwie sieci wirtualne w tym samym regionie za pomocą sieci szkieletowej platformy Azure. Globalne wirtualne sieci równorzędne mogą łączyć się z siecią wirtualną w różnych regionach platformy Azure. Po nawiązaniu połączenia równorzędnego dwie sieci wirtualne zezwalają na zasoby, takie jak maszyny wirtualne, komunikują się ze sobą bezpośrednio przy użyciu prywatnych adresów IP. Używanie komunikacji równorzędnej sieci wirtualnej umożliwia wdrożenie domeny zarządzanej z obciążeniami aplikacji wdrożonymi w innych sieciach wirtualnych.
 
@@ -114,6 +114,8 @@ Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarz
 | 3389        | TCP      | CorpNetSaw                         | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
 
+Tworzony jest standardowy moduł równoważenia obciążenia platformy Azure, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej. Nie usuwaj tej sieciowej grupy zabezpieczeń. Usługa równoważenia obciążenia nie będzie działała prawidłowo.
+
 > [!WARNING]
 > Nie edytuj ręcznie tych zasobów sieciowych i konfiguracji. W przypadku kojarzenia nieskonfigurowanej grupy zabezpieczeń sieci lub tabeli tras zdefiniowanych przez użytkownika z podsiecią, w której wdrożono domenę zarządzaną, możesz przerwać możliwość usługi i zarządzania domeną przez firmę Microsoft. Nieprzerwana synchronizacja dzierżawy usługi Azure AD i domeny zarządzanej.
 >
@@ -153,7 +155,7 @@ Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarz
     >
     > Aby uzyskać więcej informacji, zobacz [oficjalne powiadomienie o zaniechaniu](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
-## <a name="user-defined-routes"></a>Trasy definiowane przez użytkownika
+## <a name="user-defined-routes"></a>Trasy zdefiniowane przez użytkownika
 
 Trasy zdefiniowane przez użytkownika nie są domyślnie tworzone i nie są potrzebne do poprawnego działania usługi Azure AD DS. Jeśli wymagane jest użycie tabel tras, unikaj wprowadzania jakichkolwiek zmian w marszrucie *0.0.0.0* . Zmiany w tej trasie zakłócają działanie usługi Azure AD DS i umieszczają domenę zarządzaną w nieobsługiwanym stanie.
 

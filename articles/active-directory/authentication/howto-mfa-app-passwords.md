@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485602"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489796"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
 
@@ -88,6 +88,12 @@ Domyślnie użytkownicy nie mogą tworzyć haseł aplikacji. Funkcja haseł apli
 5. Na stronie **Ustawienia usługi** wybierz opcję **zezwól użytkownikom na tworzenie haseł aplikacji do logowania się do aplikacji niekorzystających z przeglądarki** .
 
     ![Zrzut ekranu przedstawiający Azure Portal, w którym są wyświetlane ustawienia usługi uwierzytelniania wieloskładnikowego, aby zezwolić użytkownikowi na hasła aplikacji](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Po wyłączeniu możliwości tworzenia haseł aplikacji przez użytkowników istniejące hasła aplikacji nadal będą działały. Jednak użytkownicy nie mogą zarządzać istniejącymi hasłami aplikacji ani ich usuwać po wyłączeniu tej możliwości.
+>
+> Wyłączenie możliwości tworzenia haseł aplikacji zaleca również [utworzenie zasad dostępu warunkowego w celu wyłączenia korzystania ze starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md). Takie podejście uniemożliwia pracę istniejących haseł aplikacji i wymusza korzystanie z nowoczesnych metod uwierzytelniania.
 
 ## <a name="create-an-app-password"></a>Utwórz hasło aplikacji
 

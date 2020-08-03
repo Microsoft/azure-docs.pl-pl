@@ -6,13 +6,14 @@ ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: e49f71c100911d9186a0e4693ef133f548e7bc66
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 72978636b878aac9120b356e7be5fe5c978d1738
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037974"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499793"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Jak zarządzać IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure i rozszerzenia IoT
 
@@ -30,7 +31,7 @@ W tym samouczku należy najpierw wykonać kroki konfigurowania interfejsu wiersz
 
 Wymagany jest język [Python 2.7x lub Python 3.x](https://www.python.org/downloads/).
 
-### <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+### <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 
 Postępuj zgodnie z [instrukcjami instalacji](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby skonfigurować interfejs wiersza polecenia platformy Azure w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az –version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack. Prostym sposobem instalowania w systemie Windows jest pobranie i zainstalowanie instalatora [MSI](https://aka.ms/InstallAzureCliWindows).
 

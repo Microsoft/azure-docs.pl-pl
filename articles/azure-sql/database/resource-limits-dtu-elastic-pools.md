@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498297"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu jednostek DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ W przypadku pul elastycznych Azure SQL Database w poniższych tabelach przedstaw
 
 Limity zasobów poszczególnych baz danych w pulach elastycznych są generalnie takie same jak w przypadku pojedynczych baz danych poza pulami na podstawie DTU i warstwy usług. Na przykład maksymalna liczba współbieżnych procesów roboczych dla bazy danych S2 to 120 procesów roboczych. W związku z tym Maksymalna liczba współbieżnych procesów roboczych dla bazy danych w puli standardowej to 120 pracowników, jeśli Maksymalna liczba jednostek DTU na bazę danych w puli to 50 DTU (co jest równoważne S2).
  
-Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione pojedynczej bazie danych poza pulą elastyczną dla tej samej liczby DTU. Oznacza to, że możliwe jest, że użycie jednostek eDTU w puli elastycznej jest mniejsze niż suma użycia jednostek DTU w obrębie baz danych w puli, w zależności od wzorców obciążenia. Na przykład w skrajnym przypadku z tylko jedną bazą danych w puli elastycznej, w której wykorzystanie jednostek DTU bazy danych wynosi 100%, możliwe jest użycie jednostek eDTU puli do 50% dla niektórych wzorców obciążenia. Może się to zdarzyć nawet wtedy, gdy nie ustawiono żadnej jawnej maksymalnej liczby jednostek DTU na bazę danych. W takim przypadku użycie jednostek DTU bazy danych w puli jest ograniczone w taki sam sposób jak użycie jednostek DTU dla pojedynczej bazy danych z pasującym celem usługi.
+W przypadku tej samej liczby DTU zasoby udostępniane puli elastycznej mogą przekroczyć zasoby udostępniane pojedynczej bazie danych spoza puli elastycznej. Oznacza to, że możliwe jest, że użycie jednostek eDTU w puli elastycznej jest mniejsze niż suma użycia jednostek DTU w obrębie baz danych w puli, w zależności od wzorców obciążenia. Na przykład w skrajnym przypadku z tylko jedną bazą danych w puli elastycznej, w której wykorzystanie jednostek DTU bazy danych wynosi 100%, możliwe jest użycie jednostek eDTU puli do 50% dla niektórych wzorców obciążenia. Może się to zdarzyć nawet wtedy, gdy maksymalna wartość liczby jednostek DTU na bazę danych pozostanie maksymalną obsługiwaną wartością dla danego rozmiaru puli.
 
 > [!NOTE]
 > Limit zasobów magazynu na pulę w każdej z poniższych tabel nie obejmuje bazy danych tempdb ani magazynu dzienników.
@@ -51,12 +51,12 @@ Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione po
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Uwzględniony magazyn na pulę (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maksymalny rozmiar magazynu na pulę (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | Brak | Brak | Brak | Brak | Brak | Brak | Brak | Brak |
+| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 | Maksymalna liczba baz danych na pulę <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maksymalna liczba współbieżnych sesji na pulę <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba opcji jednostek eDTU na bazę danych | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Maksymalna liczba opcji jednostek eDTU na bazę danych | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Minimalna liczba jednostek DTU na bazę danych | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Maksymalna liczba jednostek DTU na bazę danych | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Maksymalny rozmiar magazynu na bazę danych (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -70,12 +70,12 @@ Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione po
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Uwzględniony magazyn na pulę (GB) <sup>1</sup> | 50 | 100 | 200 | 300 | 400 | 800 |
 | Maksymalny rozmiar magazynu na pulę (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | Brak | Brak | Brak | Brak | Brak | Brak |
+| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 | Maksymalna liczba baz danych na pulę <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maksymalna liczba współbieżnych sesji na pulę <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba opcji jednostek eDTU na bazę danych | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Maksymalna liczba opcji jednostek eDTU na bazę danych | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Minimalna liczba jednostek DTU na bazę danych | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Maksymalna liczba jednostek DTU na bazę danych | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Maksymalny rozmiar magazynu na bazę danych (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -91,12 +91,12 @@ Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione po
 |:---|---:|---:|---:| ---: | ---: |
 | Uwzględniony magazyn na pulę (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Maksymalny rozmiar magazynu na pulę (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | Brak | Brak | Brak | Brak | Brak |
+| Maksymalna pojemność magazynu OLTP w pamięci na pulę (GB) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 | Maksymalna liczba baz danych na pulę <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maksymalna liczba współbieżnych sesji na pulę <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba opcji jednostek eDTU na bazę danych | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Maksymalna liczba opcji jednostek eDTU na bazę danych | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Minimalna liczba jednostek DTU na bazę danych | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Maksymalna liczba jednostek DTU na bazę danych | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Maksymalny rozmiar magazynu na bazę danych (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -137,8 +137,8 @@ Zasoby udostępnione puli elastycznej mogą przekroczyć zasoby udostępnione po
 | Maksymalna liczba baz danych na pulę <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Maksymalna liczba współbieżnych sesji na pulę <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba opcji jednostek eDTU na bazę danych | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Maksymalna liczba opcji jednostek eDTU na bazę danych | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Minimalna liczba jednostek DTU na bazę danych | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Maksymalna liczba jednostek DTU na bazę danych | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Maksymalny rozmiar magazynu na bazę danych (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

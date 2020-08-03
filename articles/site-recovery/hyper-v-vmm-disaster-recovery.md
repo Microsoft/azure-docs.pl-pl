@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134003"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495979"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do dodatkowej lokacji lokalnej
 
@@ -80,7 +80,7 @@ Zainstaluj dostawcę usługi Azure Site Recovery na serwerach VMM oraz odnajdź 
 4. Pobierz plik instalacyjny dostawcy usługi Azure Site Recovery.
 5. Pobierz klucz rejestracji. Jest to potrzebne podczas instalacji dostawcy. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
-    ![Konfiguracja źródła](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Zrzut ekranu przedstawiający opcje pobierania dostawcy i klucza rejestracji.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Zainstaluj dostawcę na każdym serwerze VMM. Nie musisz niczego jawnie instalować na hostach funkcji Hyper-V.
 
@@ -94,7 +94,7 @@ Zainstaluj dostawcę usługi Azure Site Recovery na serwerach VMM oraz odnajdź 
 4. W obszarze **Instalacja** zaakceptuj lub zmodyfikuj domyślną lokalizację instalacji i kliknij przycisk **Zainstaluj**.
 5. Po zakończeniu instalacji kliknij przycisk **Zarejestruj**, aby zarejestrować serwer w magazynie.
 
-    ![Lokalizacja instalacji](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Zrzut ekranu przedstawiający ekran instalacja dostawcy, w tym lokalizację instalacji.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. Zweryfikuj, że w polu **Nazwa magazynu** jest wpisana nazwa magazynu, w którym serwer zostanie zarejestrowany. Kliknij przycisk **Dalej**.
 7. W obszarze **Połączenie serwera proxy** określ, jak dostawca uruchomiony na serwerze VMM łączy się z platformą Azure.
    - Możesz określić, czy dostawca powinien łączyć się bezpośrednio z Internetem, czy też za pośrednictwem serwera proxy. Określ ustawienia serwera proxy odpowiednio do potrzeb.
@@ -115,7 +115,7 @@ Wybierz docelowy serwer VMM i chmurę:
 1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz docelowy serwer programu VMM.
 2. Zostaną wyświetlone chmury programu VMM, które są zsynchronizowane z usługą Site Recovery. Wybierz chmurę docelową.
 
-   ![Środowisko docelowe](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Zrzut ekranu przedstawiający docelowy serwer VMM i wybrane w chmurze.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurowanie zasad replikacji
@@ -138,7 +138,7 @@ Przed rozpoczęciem upewnij się, że wszystkie hosty, które korzystają z zasa
 5. Wybierz pozycję **Usuń replikę maszyny wirtualnej**, aby określić, że replika maszyny wirtualnej powinna zostać usunięta w razie wyłączenia ochrony źródłowej maszyny wirtualnej. Jeśli włączysz to ustawienie, po wyłączeniu ochrony dla źródłowej maszyny wirtualnej zostanie ona usunięta z konsoli usługi Site Recovery, ustawienia usługi Site Recovery dla programu VMM zostaną usunięte z konsoli programu VMM i replika zostanie usunięta.
 6. W obszarze **Metoda replikacji początkowej**, jeśli przeprowadzasz replikację za pośrednictwem sieci, określ, czy rozpocząć replikację początkowa, czy też ją zaplanować. Aby oszczędzić przepustowość sieci, warto zaplanować ją poza godzinami dużego obciążenia. Następnie kliknij przycisk **OK**.
 
-     ![Zasady replikacji](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Zrzut ekranu przedstawiający opcje zasad replikacji.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. Nowe zasady zostaną automatycznie skojarzone z chmurą programu VMM. W obszarze **Zasady replikacji** kliknij przycisk **OK**. 
 

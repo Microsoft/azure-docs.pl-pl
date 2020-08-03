@@ -7,19 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78207102"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499572"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> [.NET Examples](hdinsight-sdk-dotnet-samples.md)Przykłady dla
-> [języka](hdinsight-sdk-java-samples.md) Python przykłady dla platformy .NET[Python Examples](hdinsight-sdk-python-samples.md)
-> 
+> Przykłady dla platformy [.NET](hdinsight-sdk-dotnet-samples.md) 
+>  [Przykłady](hdinsight-sdk-python-samples.md) 
+>  języka Python [Przykłady w języku Java](hdinsight-sdk-java-samples.md)
 
 Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przykładu należy zaktualizować zmienne przy użyciu odpowiednich wartości, a następnie wykonać polecenie.
 

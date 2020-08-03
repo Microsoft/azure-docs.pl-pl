@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011452"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495186"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -66,7 +67,7 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz i Zastosuj** , aby utworzyć zasady replikacji i rozpocząć replikowanie danych.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby utworzyć zasady replikacji przy użyciu programu PowerShell, najpierw Zainstaluj wersję [2.0.1 — wersja zapoznawcza](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) lub nowszą w module programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
 
@@ -243,7 +244,7 @@ Aby usunąć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 1. Kliknij przycisk **więcej** obok nazwy zasad.
 1. Wybierz pozycję **Usuń reguły**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby usunąć zasady replikacji, Usuń zasady z konta źródłowego i docelowego. Usunięcie zasad spowoduje również usunięcie skojarzonych z nią reguł.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475434"
+ms.locfileid: "87501495"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -125,9 +125,11 @@ Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak mo�
 
 Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na stronie oficjalne raporty inspekcji.
 
-W celu zapewnienia zgodności można użyć [Azure Policy](../governance/policy/overview.md) , aby pomóc w zaimplementowaniu najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Usługa Azure Security test jest zbiorem zaleceń dotyczących zabezpieczeń, które zostały zamapowane na funkcje kontroli zabezpieczeń, które mapują na kluczowe akcje, które należy podjąć w celu ograniczenia zagrożeń dla usług i danych. Obecnie istnieją 11 kontroli zabezpieczeń, w tym [zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md), [Rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md)oraz [Ochrona danych](../security/benchmarks/security-control-data-protection.md) .
+Aby zapewnić zgodność, można użyć [Azure Policy](../governance/policy/overview.md) do wdrożenia najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Usługa Azure Security test jest zbiorem zaleceń dotyczących zabezpieczeń, które zostały zamapowane na funkcje kontroli zabezpieczeń, które mapują na kluczowe akcje, które należy podjąć w celu ograniczenia zagrożeń dla usług i danych. Obecnie istnieją 11 kontroli zabezpieczeń, w tym [zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md), [Rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md)oraz [Ochrona danych](../security/benchmarks/security-control-data-protection.md) .
 
-Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzanie zgodnością wielu standardów, w tym z cenami testów zabezpieczeń platformy Azure. W przypadku dobrze znanych wzorców Azure Policy udostępnia wbudowane definicje, dzięki czemu można łatwiej tworzyć zasady. W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja rejestrowania diagnostycznego, co oznacza, że można przypisać zasady, które identyfikują i naprawiają usługę wyszukiwania niezgodną z kontrolą zabezpieczeń rejestrowania i monitorowania. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
+Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzanie zgodnością wielu standardów, w tym z cenami testów zabezpieczeń platformy Azure. W przypadku dobrze znanych wzorców Azure Policy udostępnia wbudowane definicje, które zawierają zarówno kryteria, jak i odpowiedzi z możliwością podejmowania działań, które nie są zgodne. 
+
+W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja. Służy do rejestrowania diagnostycznego. Za pomocą tego wbudowanego programu można przypisać zasady, które identyfikują dowolną usługę wyszukiwania, w której brakuje rejestrowania diagnostycznego, a następnie włącza ją. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
 
 ## <a name="see-also"></a>Zobacz także
 

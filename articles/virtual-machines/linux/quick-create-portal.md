@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392856"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499980"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux w witrynie Azure Portal
 
@@ -21,7 +21,7 @@ Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Port
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego nie zrobiono.
 
@@ -32,11 +32,11 @@ Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego n
 1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**. Zostanie otwarta strona **Tworzenie maszyny wirtualnej** .
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę *zasobu* . *. 
 
-    ![Tworzenie nowej grupy zasobów dla maszyny wirtualnej](./media/quick-create-portal/project-details.png)
+    ![Zrzut ekranu przedstawiający sekcję Szczegóły projektu, w której można wybrać subskrypcję platformy Azure i grupę zasobów dla maszyny wirtualnej](./media/quick-create-portal/project-details.png)
 
 1. W obszarze **szczegóły wystąpienia**wpisz *myVM* dla **nazwy maszyny wirtualnej**, wybierz *Wschodnie stany USA* dla **regionu**i wybierz *Ubuntu 18,04 LTS* dla Twojego **obrazu**. Inne wartości pozostaw domyślne.
 
-    ![Sekcja Szczegóły wystąpienia](./media/quick-create-portal/instance-details.png)
+    ![Zrzut ekranu przedstawiający sekcję Szczegóły wystąpienia, w której podano nazwę maszyny wirtualnej i wybierz jej region, obraz i rozmiar](./media/quick-create-portal/instance-details.png)
 
 1. W obszarze **konto administratora**wybierz pozycję **publiczny klucz SSH**.
 
@@ -44,11 +44,11 @@ Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego n
 
 1. W polu **Źródło klucza publicznego SSH**pozostaw wartość domyślną **Generuj nową parę kluczy**, a następnie wpisz *klucze* dla **nazwy pary kluczy**.
 
-    ![Konto administratora](./media/quick-create-portal/administrator-account.png)
+    ![Zrzut ekranu przedstawiający sekcję konta administratora, w której wybierasz typ uwierzytelniania i podaj poświadczenia administratora](./media/quick-create-portal/administrator-account.png)
 
 1. W obszarze publiczne porty przychodzące dla **reguł portów ruchu**przychodzącego  >  **Public inbound ports**wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **SSH (22)** i **http (80)** z listy rozwijanej. 
 
-    ![Otwieranie portów dla protokołów RDP i HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Zrzut ekranu przedstawiający sekcję reguły portów ruchu przychodzącego, w której wybierane są dozwolone porty przychodzące](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
 
@@ -61,7 +61,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com) , jeśli jeszcze tego n
 1. Na stronie nowej maszyny wirtualnej wybierz publiczny adres IP i skopiuj go do Schowka.
 
 
-    ![Skopiuj publiczny adres IP](./media/quick-create-portal/ip-address.png)
+    ![Zrzut ekranu przedstawiający sposób kopiowania adresu IP dla maszyny wirtualnej](./media/quick-create-portal/ip-address.png)
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
@@ -94,9 +94,9 @@ Gdy skończysz, wpisz polecenie `exit`, aby opuścić sesję SSH.
 
 Użyj wybranej przeglądarki internetowej, aby wyświetlić domyślną strona powitalną serwera NGINX. Wpisz publiczny adres IP maszyny wirtualnej jako adres sieci Web. Publiczny adres IP można znaleźć na stronie przeglądu maszyny wirtualnej lub jako część wcześniej użytych parametrów połączenia SSH.
 
-![Domyślna witryna serwera NGINX](./media/quick-create-portal/nginx.png)
+![Zrzut ekranu przedstawiający domyślną witrynę NGINX w przeglądarce](./media/quick-create-portal/nginx.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz opcję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383889"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489711"
 ---
 # <a name="query-csv-files"></a>Pliki CSV zapytania
 
@@ -31,7 +31,7 @@ Wszystkie powyższe zmiany zostaną omówione poniżej.
 
 `OPENROWSET`funkcja umożliwia odczytywanie zawartości pliku CSV przez podanie adresu URL pliku.
 
-### <a name="reading-csv-file"></a>Odczytywanie pliku CSV
+### <a name="read-a-csv-file"></a>Odczytaj plik CSV
 
 Najprostszym sposobem, aby zobaczyć zawartość `CSV` pliku, jest podanie adresu URL pliku do `OPENROWSET` działania, określenie woluminu csv `FORMAT` i 2,0 `PARSER_VERSION` . Jeśli plik jest publicznie dostępny lub jeśli tożsamość usługi Azure AD ma dostęp do tego pliku, powinna być widoczna zawartość pliku przy użyciu zapytania, jak pokazano w następującym przykładzie:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 Opcja `firstrow` służy do pomijania pierwszego wiersza w pliku CSV, który reprezentuje nagłówek w tym przypadku. Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub tożsamości niestandardowej, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Używanie źródła danych
+### <a name="data-source-usage"></a>Użycie źródła danych
 
 Poprzedni przykład używa pełnej ścieżki do pliku. Alternatywnie można utworzyć zewnętrzne źródło danych z lokalizacją wskazującą folder główny magazynu:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > To zapytanie zwróci te same wyniki, jeśli pominięto parametr FIELDQUOTE, ponieważ wartość domyślna dla FIELDQUOTE jest podwójnym cudzysłowem.
 
-## <a name="escaping-characters"></a>Znaki ucieczki
+## <a name="escape-characters"></a>Znaki ucieczki
 
 Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem systemu UNIX, kolumnami rozdzielonymi przecinkami oraz znakiem ucieczki używanym przez Ogranicznik pola (przecinek) w obrębie wartości. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > To zapytanie nie powiedzie się, jeśli ESCAPECHAR nie zostanie określony, ponieważ przecinek w "slov, enia" byłby traktowany jako ogranicznik pola zamiast części nazwy kraju/regionu. "Slov, enia" byłyby traktowane jak dwie kolumny. W związku z tym, konkretny wiersz może mieć jedną kolumnę więcej niż pozostałe wiersze, a jedna kolumna jest większa niż zdefiniowana w klauzuli WITH.
 
-### <a name="escaping-quoting-characters"></a>Znakowanie znaków ucieczki
+### <a name="escape-quoting-characters"></a>Znaki Quote ucieczki
 
 Poniższe zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem w stylu systemu UNIX, kolumnami rozdzielanymi przecinkami oraz znakami podwójnego cudzysłowu w obrębie wartości. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Zwracanie podzbioru kolumn
+## <a name="return-a-subset-of-columns"></a>Zwracanie podzbioru kolumn
 
 Do tej pory określono schemat plików CSV za pomocą polecenia WITH i lista wszystkich kolumn. W zapytaniu można określić tylko kolumny, które są w rzeczywistości potrzebne, używając numeru porządkowego dla każdej kolumny. Pomijasz również kolumny bez zainteresowania.
 

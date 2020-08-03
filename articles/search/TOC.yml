@@ -112,6 +112,8 @@
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: Zabezpieczenia
       items:
+        - name: Omówienie zabezpieczeń
+          href: search-security-overview.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -329,8 +331,6 @@
           href: search-api-migration.md
     - name: Zabezpieczenia
       items:
-        - name: Omówienie
-          href: search-security-overview.md
         - name: Szyfrowanie danych
           items:
             - name: Klucze zarządzane przez klienta

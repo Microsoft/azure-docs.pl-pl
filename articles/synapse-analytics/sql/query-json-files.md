@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386643"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489728"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na 
 - Standardowe pliki JSON, w których wiele dokumentów JSON jest przechowywanych jako tablica JSON.
 - Rozdzielane wierszami pliki JSON, w których dokumenty JSON są rozdzielone znakami nowego wiersza. Typowymi rozszerzeniami tych typów plików są `jsonl` , `ldjson` , i `ndjson` .
 
-## <a name="reading-json-documents"></a>Odczytywanie dokumentów JSON
+## <a name="read-json-documents"></a>Odczytaj dokumenty JSON
 
 Najprostszym sposobem, aby zobaczyć zawartość pliku JSON, jest podanie adresu URL pliku do `OPENROWSET` działania, określenie woluminu CSV `FORMAT` i ustawienie wartości `0x0b` dla `fieldterminator` i `fieldquote` . Jeśli musisz odczytywać pliki JSON rozdzielane wierszami, to jest to wystarczające. Jeśli masz klasyczny plik JSON, musisz ustawić wartości `0x0b` dla `rowterminator` . `OPENROWSET`funkcja będzie analizować kod JSON i zwracać każdy dokument w następującym formacie:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 To zapytanie zwróci każdy dokument JSON jako oddzielny wiersz zestawu wyników. Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub tożsamości niestandardowej, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Używanie źródła danych
+### <a name="data-source-usage"></a>Użycie źródła danych
 
 Poprzedni przykład używa pełnej ścieżki do pliku. Alternatywnie można utworzyć zewnętrzne źródło danych z lokalizacją wskazującą folder główny magazynu, a następnie użyć tego źródła danych i ścieżki względnej do pliku w `OPENROWSET` funkcji:
 

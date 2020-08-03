@@ -4,12 +4,13 @@ description: Dowiedz się, jak wdrożyć szablon Azure Resource Manager z komput
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ef52d20b20446e3b8f3b761949bf255b99d358cc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118906"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499589"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Samouczek: Wdrażanie szablonu Azure Resource Manager lokalnego
 
@@ -25,7 +26,7 @@ Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do wdrożenia szablo
 
 Do wdrożenia szablonu wymagane są Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Instrukcje instalacji znajdują się w temacie:
 
-- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
+- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
 
@@ -46,7 +47,7 @@ Szablon wdraża konto magazynu, plan usługi App Service i aplikację internetow
 
 Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy.json. Ten szablon zostanie wdrożony w dalszej części tego samouczka.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure w celu wdrożenia szablonu, zaloguj się przy użyciu poświadczeń platformy Azure.
 
@@ -113,7 +114,7 @@ az group create \
 
 Użyj jednej lub obu opcji wdrażania, aby wdrożyć szablon.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name"
@@ -165,4 +166,4 @@ Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 Wiesz już, jak wdrożyć szablon lokalny. W następnym samouczku można rozdzielić szablon na szablon główny i połączony szablon oraz dowiedzieć się, jak przechowywać i zabezpieczać połączony szablon.
 
 > [!div class="nextstepaction"]
-> [Wdróż połączony szablon](./deployment-tutorial-linked-template.md)
+> [Wdrażanie szablonu połączonego](./deployment-tutorial-linked-template.md)

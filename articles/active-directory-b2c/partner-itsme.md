@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170126"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489519"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Konfigurowanie itsme OpenID Connect Connect (OIDC) z Azure Active Directory B2C
 
@@ -94,9 +94,9 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Nazwa wyświetlana | name |
    |Imię | given_name |
    |Nazwisko | family_name |
-   |Wiadomość e-mail | poczta e-mail|
+   |E-mail | poczta e-mail|
 
-5. Wybierz przycisk **Save** (Zapisz).
+5. Wybierz pozycję **Zapisz**.
 
 ### <a name="configure-a-user-flow"></a>Konfigurowanie przepływu użytkownika
 
@@ -104,13 +104,13 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Wybierz pozycję **Nowy przepływ użytkownika**.
 
-3. Wybierz pozycję **Utwórz konto i zaloguj się**.
+3. Wybierz pozycję **zarejestruj się i zaloguj**, wybierz wersję, a następnie wybierz pozycję **Utwórz**.
 
 4. Wprowadź **nazwę**.
 
 5. W sekcji **dostawcy tożsamości** wybierz pozycję **itsme**.
 
-6. Wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 7. Otwórz nowo utworzony przepływ użytkownika, wybierając nazwę przepływu użytkownika.
 
@@ -131,7 +131,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
    a. W celach testowych wybierz pozycję **uwierzytelnianie**i w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatorów** .  
 
-   b. Wybierz przycisk **Save** (Zapisz).
+   b. Wybierz pozycję **Zapisz**.
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 

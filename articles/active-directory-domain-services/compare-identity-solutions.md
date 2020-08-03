@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555146"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489592"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Porównaj Active Directory Domain Services samozarządzane, Azure Active Directory i zarządzane Azure Active Directory Domain Services
 
@@ -47,7 +47,7 @@ Jeśli masz aplikacje i usługi, które wymagają dostępu do tradycyjnych mecha
 
 Dzięki usłudze Azure AD DS podstawowe składniki usługi są wdrażane i obsługiwane przez firmę Microsoft jako środowisko domeny *zarządzanej* . Nie można wdrażać, instalować, poprawiać i zabezpieczać infrastruktury AD DS dla składników, takich jak maszyny wirtualne, system operacyjny Windows Server lub kontrolery domeny (DC).
 
-Usługa Azure AD DS udostępnia mniejszy podzbiór funkcji dla tradycyjnego, samodzielnego środowiska AD DS, co zmniejsza stopień złożoności projektu i zarządzania. Na przykład nie istnieją żadne linki AD, domeny, witryny i replikacja do projektowania i konserwowania. Można nadal [tworzyć relacje zaufania lasów między usługą Azure AD DS i środowiskami lokalnymi (obecnie w wersji zapoznawczej)][create-forest-trust].
+Usługa Azure AD DS udostępnia mniejszy podzbiór funkcji dla tradycyjnego, samodzielnego środowiska AD DS, co zmniejsza stopień złożoności projektu i zarządzania. Na przykład nie istnieją żadne linki AD, domeny, witryny i replikacja do projektowania i konserwowania. Można nadal [tworzyć relacje zaufania lasów między usługą Azure AD DS i środowiskami lokalnymi][create-forest-trust].
 
 W przypadku aplikacji i usług, które działają w chmurze i potrzebują dostępu do tradycyjnych mechanizmów uwierzytelniania, takich jak Kerberos lub NTLM, usługa Azure AD DS zapewnia środowisko domeny zarządzanej z minimalną ilością kosztów administracyjnych. Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące zarządzania kontami użytkowników, hasłami i administracją w usłudze Azure AD DS][administration-concepts].
 
@@ -62,7 +62,7 @@ Typowe modele wdrażania dla samozarządzanego środowiska AD DS, które zapewni
 
 W poniższej tabeli przedstawiono niektóre funkcje, które mogą być potrzebne w organizacji, oraz różnice między zarządzaną domeną platformy Azure AD DS lub samozarządzaną domeną AD DS:
 
-| **Funkcja** | **AD DS platformy Azure** | **AD DS samozarządzane** |
+| **Funkcja** | **Azure AD DS** | **AD DS samozarządzane** |
 | ----------- |:---------------:|:----------------------:|
 | **Usługa zarządzana**                               | **&#x2713;** | **&#x2715;** |
 | **Bezpieczne wdrożenia**                            | **&#x2713;** | Administrator zabezpiecza wdrożenie |

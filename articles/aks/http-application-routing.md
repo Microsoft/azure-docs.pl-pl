@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025306"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495152"
 ---
 # <a name="http-application-routing"></a>Routing aplikacji protokołu HTTP
 
@@ -20,7 +20,7 @@ Rozwiązanie do routingu aplikacji HTTP ułatwia uzyskiwanie dostępu do aplikac
 Gdy dodatek jest włączony, tworzy strefę DNS w Twojej subskrypcji. Aby uzyskać więcej informacji na temat kosztu usługi DNS, zobacz [Cennik usługi DNS][dns-pricing].
 
 > [!CAUTION]
-> Dodatek routingu aplikacji protokołu HTTP jest przeznaczony do szybkiego tworzenia kontrolera transferu danych przychodzących i uzyskiwania dostępu do aplikacji. Ten dodatek nie jest zalecany do użycia w środowisku produkcyjnym. W przypadku gotowych do produkcji wdrożeń przychodzących obejmujących wiele replik i obsługę protokołu TLS zobacz [Tworzenie kontrolera protokołu HTTPS](./ingress-tls.md).
+> Dodatek routingu aplikacji protokołu HTTP jest przeznaczony do szybkiego tworzenia kontrolera transferu danych przychodzących i uzyskiwania dostępu do aplikacji. Ten dodatek nie jest obecnie przeznaczony do użycia w środowisku produkcyjnym i nie jest zalecany do użytku produkcyjnego. W przypadku gotowych do produkcji wdrożeń przychodzących obejmujących wiele replik i obsługę protokołu TLS zobacz [Tworzenie kontrolera protokołu HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Omówienie rozwiązania routingu HTTP
 
@@ -203,7 +203,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Powtórz poprzedni `kubectl delete` krok dla wszystkich zasobów *routingu protokołu HTTP i aplikacji* , które pozostały w klastrze.
 
-## <a name="troubleshoot"></a>Rozwiąż problemy
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Użyj [polecenia kubectl dzienników][kubectl-logs] , aby wyświetlić dzienniki aplikacji dla zewnętrznej aplikacji DNS. Dzienniki powinny potwierdzić pomyślne utworzenie rekordu DNS a i TXT.
 

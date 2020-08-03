@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090114"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489779"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -33,6 +33,8 @@ W Media Services [punkt końcowy przesyłania strumieniowego](streaming-endpoint
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Aby przygotować pliki źródłowe do dostarczenia
 
 Aby skorzystać z funkcji dynamicznego tworzenia pakietów, musisz [zakodować](encoding-concept.md) plik Mezzanine (Source) do zestawu wielu plików MP4 (ISO Base Media 14496-12). Musisz mieć [zasób](assets-concept.md) z zakodowanymi plikami konfiguracyjnymi MP4 i przesyłania strumieniowego, które są potrzebne do Media Services dynamicznego tworzenia pakietów. Z tego zestawu plików MP4 można użyć pakowania dynamicznego do dostarczania wideo za pośrednictwem protokołów multimediów strumieniowych opisanych poniżej.
+
+Azure Media Services dynamiczne pakowanie obsługuje tylko pliki wideo i audio w formacie kontenera MP4. Pliki audio muszą być zakodowane w kontenerze MP4, a także przy użyciu alternatywnych koderów-dekoder, takich jak Dolby.  
 
 > [!TIP]
 > Jednym ze sposobów uzyskania plików konfiguracji MP4 i przesyłania strumieniowego jest [zakodowanie pliku mezzanine przy użyciu Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ Na poniższym diagramie przedstawiono strumień przesyłania strumieniowego na �
 
 ![Diagram przepływu pracy na potrzeby przesyłania strumieniowego na żądanie z użyciem dynamicznego tworzenia pakietów](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Ścieżka pobierania znajduje się na powyższym obrazie, aby pokazać, że można pobrać plik MP4 bezpośrednio za pomocą *punktu końcowego przesyłania strumieniowego* (Źródło) (można określić [zasady przesyłania strumieniowego](streaming-policy-concept.md) do pobrania w lokalizatorze przesyłania strumieniowego).<br/>Pakowarka dynamiczna nie zmienia pliku. 
+Ścieżka pobierania znajduje się na powyższym obrazie, aby pokazać, że można pobrać plik MP4 bezpośrednio za pomocą *punktu końcowego przesyłania strumieniowego* (Źródło) (można określić [zasady przesyłania strumieniowego](streaming-policy-concept.md) do pobrania w lokalizatorze przesyłania strumieniowego).<br/>Pakowarka dynamiczna nie zmienia pliku. Opcjonalnie możesz użyć interfejsów API usługi Azure Blob Storage, aby uzyskać dostęp do plików MP4 bezpośrednio na potrzeby pobierania progresywnego, jeśli chcesz ominąć funkcję *punktu końcowego przesyłania strumieniowego* . 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Kodowanie do adaptacyjnej szybkości transmisji bitów pliki MP4
 
@@ -123,17 +125,17 @@ Aby uzyskać informacje na temat przesyłania strumieniowego na żywo w Media Se
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Kodery-dekoder wideo obsługiwane przez pakowanie dynamiczne
 
-Dynamiczne pakowanie obsługuje pliki MP4, które zawierają wideo kodowane przy użyciu [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC lub avc1) lub [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 lub hvc1).
+Dynamiczne pakowanie obsługuje pliki wideo, które znajdują się w formacie pliku kontenera MP4 i zawierają wideo zakodowane przy użyciu [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (AVC MPEG-avc1) lub [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 lub hvc1).
 
 > [!NOTE]
 > Rozdzielczości do 4 KB i szybkości klatek dla maksymalnie 60 klatek na sekundę zostały przetestowane przy użyciu *dynamicznego tworzenia pakietów*. [Koder w warstwie Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) obsługuje kodowanie do H. 265 za pośrednictwem starszych interfejsów API v2.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Kodery-dekoder audio obsługiwane przez pakowanie dynamiczne
 
-Pakowanie dynamiczne obsługuje dźwięk kodowany przy użyciu następujących protokołów:
+Pakowanie dynamiczne obsługuje również pliki audio, które są przechowywane w formacie kontenera plików MP4 zawierający zakodowany strumień audio, w jednym z następujących koderów-dekoder:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, IT-AAC v1 lub AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (ulepszone AC-3 lub E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, IT-AAC v1 lub AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (ulepszone AC-3 lub E-AC3).  Zakodowane audio musi być przechowywane w formacie kontenera MP4, aby można było korzystać z dynamicznego tworzenia pakietów.
 * Dolby Atmos
 
    Przesyłanie strumieniowe zawartości Dolby Atmos jest obsługiwane w przypadku standardów, takich jak protokół MPEG-KRESKa, przy użyciu wspólnego formatu przesyłania strumieniowego (CSF) lub Common Media Application Format (CMAF) i za pośrednictwem HTTP Live Streaming (HLS) z CMAF.
@@ -146,6 +148,10 @@ Pakowanie dynamiczne obsługuje dźwięk kodowany przy użyciu następujących p
     * DTS — bezstratny dysk HD (bez rdzenia) (DTSL)
 
 Dynamiczne pakowanie obsługuje wiele ścieżek audio z KRESKami lub HLS (w wersji 4 lub nowszej) dla zasobów przesyłania strumieniowego z wieloma dźwiękami i wieloma językami.
+
+W przypadku wszystkich powyższych koderów audio, zakodowane audio musi być przechowywane w formacie kontenera MP4, aby można było korzystać z dynamicznego tworzenia pakietów. Usługa nie obsługuje nieprzetworzonych formatów plików strumieni podstawowych w usłudze BLOB Storage (na przykład następujące elementy nie są obsługiwane — DTS,. AC3.) 
+
+W przypadku pakowania audio obsługiwane są tylko pliki z rozszerzeniem MP4 of. mp4a. 
 
 ### <a name="limitations"></a>Ograniczenia
 

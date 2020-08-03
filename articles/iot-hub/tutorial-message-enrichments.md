@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770078"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500218"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Samouczek: korzystanie z wzbogacania komunikatów IoT Hub platformy Azure
 
@@ -279,7 +279,7 @@ W tym momencie wszystkie zasoby są skonfigurowane i skonfigurowano Routing komu
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Tworzenie i Konfigurowanie przy użyciu szablonu Menedżer zasobów
 Za pomocą szablonu Menedżer zasobów można tworzyć i konfigurować zasoby, routing komunikatów i wzbogacenia komunikatów.
 
-1. Zaloguj się do witryny Azure Portal. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu*i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
+1. Zaloguj się w witrynie Azure Portal. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu*i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
 
    ![Template deployment w Azure Portal](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -356,7 +356,7 @@ Aplikacja wysyła nowy komunikat z urządzenia do centrum IoT Hub co sekundę. K
 
 Po wysłaniu kilku komunikatów magazynu Wyświetl dane.
 
-1. Wybierz pozycję **Grupy zasobów**. Znajdź grupę zasobów, **ContosoResourcesMsgEn**i wybierz ją.
+1. Wybierz pozycję **grupy zasobów**. Znajdź grupę zasobów, **ContosoResourcesMsgEn**i wybierz ją.
 
 2. Wybierz konto magazynu, które jest **contosostorage**. Następnie wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)** w okienku po lewej stronie.
 

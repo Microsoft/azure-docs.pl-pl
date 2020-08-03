@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281161"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499181"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -174,7 +174,7 @@ else {
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell dla wystąpienia zarządzanego SQL
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 
@@ -268,7 +268,7 @@ Aby później usunąć administratora, w górnej części strony **administrator
 
 ### <a name="powershell-for-sql-database-and-azure-synapse"></a>Program PowerShell dla SQL Database i Azure Synapse
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
@@ -291,7 +291,7 @@ Poniższy skrypt inicjuje grupę administratorów usługi Azure AD o nazwie **DB
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
+Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Przykład: ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
 
 > [!NOTE]
 > Polecenie Azure PowerShell nie ```Set-AzSqlServerActiveDirectoryAdministrator``` uniemożliwia aprowizacji administratorów usługi Azure AD dla nieobsługiwanych użytkowników. Nieobsługiwany użytkownik może zostać zainicjowany, ale nie może nawiązać połączenia z bazą danych.
@@ -360,7 +360,7 @@ Ponieważ wystąpienie zarządzane SQL obsługuje nazwy główne (logowania) ser
 Jednak używanie uwierzytelniania Azure Active Directory z usługami SQL Database i Azure Synapse wymaga korzystania z użytkowników zawartej bazy danych w oparciu o tożsamość usługi Azure AD. Użytkownik zawartej bazy danych nie ma nazwy logowania w bazie danych Master i mapuje na tożsamość w usłudze Azure AD, która jest skojarzona z bazą danych. Tożsamość w usłudze Azure AD może być indywidualnym kontem użytkownika lub grupą. Aby uzyskać więcej informacji na temat użytkowników zawartej bazy danych, patrz [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartych baz danych — tworzenie przenośnej bazy danych).
 
 > [!NOTE]
-> Użytkowników bazy danych (z wyjątkiem administratorów) nie można tworzyć za pośrednictwem witryny Azure Portal. Role RBAC nie są propagowane do bazy danych w SQL Database, wystąpieniu zarządzanym SQL lub Azure Synapse. Role RBAC na platformie Azure są używane do zarządzania zasobami platformy Azure i nie mają zastosowania do uprawnień do bazy danych. Na przykład rola **współautor SQL Server** nie udziela dostępu do łączenia się z bazą danych w SQL Database, wystąpieniu zarządzanym SQL lub Azure Synapse. Uprawnienie dostępu należy nadać bezpośrednio w bazie danych za pomocą instrukcji języka Transact-SQL.
+> Użytkowników bazy danych (z wyjątkiem administratorów) nie można tworzyć za pośrednictwem witryny Azure Portal. Role platformy Azure nie są propagowane do bazy danych w SQL Database, wystąpienia zarządzanego SQL lub Azure Synapse. Role platformy Azure służą do zarządzania zasobami platformy Azure i nie mają zastosowania do uprawnień bazy danych. Na przykład rola **współautor SQL Server** nie udziela dostępu do łączenia się z bazą danych w SQL Database, wystąpieniu zarządzanym SQL lub Azure Synapse. Uprawnienie dostępu należy nadać bezpośrednio w bazie danych za pomocą instrukcji języka Transact-SQL.
 
 > [!WARNING]
 > Znaki specjalne, takie jak dwukropek `:` lub znak ampersand, `&` gdy są zawarte jako nazwy użytkowników w instrukcjach T-SQL `CREATE LOGIN` i `CREATE USER` nie są obsługiwane.
@@ -544,4 +544,3 @@ Wskazówki dotyczące rozwiązywania problemów z uwierzytelnianiem za pomocą u
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

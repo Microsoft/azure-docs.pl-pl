@@ -4,14 +4,14 @@ description: Dowiedz się więcej na temat operatorów SQL, takich jak równoś�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063570"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498841"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatory w Azure Cosmos DB
 
@@ -21,19 +21,27 @@ W tym artykule szczegółowo opisano różne operatory obsługiwane przez Azure 
 
 W poniższej tabeli przedstawiono wynik porównań równości w interfejsie API SQL między dwoma dowolnymi typami JSON.
 
-| **Operator** | **Niezdefiniowane** | **Null** | **Boolean** | **Liczba** | **Ciąg** | **Obiekt** | **Macierzy** |
+| **Operator** | **Niezdefiniowane** | **Null** | **Wartość logiczna** | **Liczba** | **Ciąg** | **Stream** | **Macierzy** |
 |---|---|---|---|---|---|---|---|
 | **Niezdefiniowane** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Null** | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
-| **Boolean** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
+| **Wartość logiczna** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Liczba** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Ciąg** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane |
-| **Obiekt** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane |
+| **Stream** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane |
 | **Macierzy** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** |
 
 Dla operatorów porównania, takich jak `>` , `>=` ,,, `!=` `<` i `<=` , porównywanie między typami lub między dwoma obiektami lub tablicami powstaje `Undefined` .  
 
 Jeśli wynik wyrażenia skalarnego to `Undefined` , element nie jest uwzględniony w wyniku, ponieważ nie jest `Undefined` równe `true` .
+
+Na przykład porównanie następującej kwerendy między liczbą a wartością ciągu `Undefined` . W związku z tym filtr nie zawiera żadnych wyników.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>Operatory logiczne (AND, OR i NOT)
 

@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128730"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501410"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Używanie Azure Portal do uzyskiwania dostępu do danych obiektu BLOB lub kolejki
 
@@ -38,7 +38,7 @@ Aby uzyskać dostęp do danych obiektów blob i kolejek przy użyciu klucza dost
 W przypadku próby uzyskania dostępu do danych obiektu BLOB lub kolejki w Azure Portal Portal najpierw sprawdza, czy przypisano rolę z **firmą Microsoft. Storage/storageAccounts/ListKeys/Action**. Jeśli przypisano rolę z tą akcją, Portal używa klucza konta do uzyskiwania dostępu do danych obiektów blob i kolejek. Jeśli nie masz przypisanej roli z tą akcją, Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
 
 > [!NOTE]
-> Administrator usług ról i administrator z uprawnieniami administratora klasycznego ma odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action**, dzięki czemu użytkownik z jedną z tych ról administracyjnych może również uzyskać dostęp do danych obiektów blob i kolejek przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz [Role klasycznego administratora subskrypcji, role kontroli na podstawie ról (RBAC) platformy Azure i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Administrator usług ról i administrator z uprawnieniami administratora klasycznego ma odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action**, dzięki czemu użytkownik z jedną z tych ról administracyjnych może również uzyskać dostęp do danych obiektów blob i kolejek przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Korzystanie z konta usługi Azure AD
 

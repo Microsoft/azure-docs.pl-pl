@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489541"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
 Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawek i ulepszeń w ich elementach strony. Następujący dziennik zmian określa zmiany wprowadzone w każdej wersji.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Strona z własnym potwierdzeniem ( `selfasserted` )
+  - Poprawki lokalizacji i ułatwień dostępu.
+- Ujednolicona Strona dostawcy SSP ( `unifiedssp` )
+  - Dodano obsługę wielu linków do rejestracji.
+  - Dodano obsługę walidacji danych wejściowych użytkownika zgodnie z regułami predykatów zdefiniowanymi w zasadach.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
   - Obsługa funkcji tłumaczenia dla programu Chrome
 - Ujednolicone i samodzielne strony
   - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
+- Strona z własnym potwierdzeniem
+  - Dodano konfigurowalne opóźnienie sprawdzania poprawności danych użytkownika w celu ulepszenia środowiska użytkownika.
 
 ## <a name="110"></a>1.1.0
 

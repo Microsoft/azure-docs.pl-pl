@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
-ms.openlocfilehash: 080e4b119048f2c204e6617405c7c053c7f24cea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 6f79460f00ce52fd54d0cda34467d3df35185ba0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80382838"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496801"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -53,7 +53,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
 Serwer usługi Azure Database for MySQL można utworzyć za pomocą polecenia az mysql server create. Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
 
-W poniższym przykładzie w regionie `westus` w grupie zasobów `myresourcegroup` jest tworzony serwer usługi Azure Database for MySQL o nazwie `mydemoserver`. Serwer ma administratora o nazwie `myadmin`. Jest to serwer 5. generacji ogólnego przeznaczenia z 2 rdzeniami wirtualnymi. Zastąp zmienną `<server_admin_password>` swoją własną wartością.
+W poniższym przykładzie w regionie `westus` w grupie zasobów `myresourcegroup` jest tworzony serwer usługi Azure Database for MySQL o nazwie `mydemoserver`. Serwer ma administratora o nazwie `myadmin` . Jest to serwer 5. generacji ogólnego przeznaczenia z 2 rdzeniami wirtualnymi. Zastąp zmienną `<server_admin_password>` swoją własną wartością.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7

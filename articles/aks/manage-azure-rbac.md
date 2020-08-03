@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056734"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498110"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -283,7 +283,7 @@ az group delete -n MyResourceGroup
 
 - Więcej informacji na temat uwierzytelniania AKS, autoryzacji i RBAC można znaleźć [tutaj](concepts-identity.md).
 - Więcej informacji na temat usługi Azure RBAC można znaleźć [tutaj](../role-based-access-control/overview.md).
-- Przeczytaj więcej na temat wszystkich akcji, których można użyć, aby szczegółowo zdefiniować niestandardowe role RBAC platformy Azure na [potrzeby autoryzacji Kubernetes](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Przeczytaj więcej na temat wszystkich akcji, których można użyć, aby szczegółowo zdefiniować niestandardowe role platformy Azure na [potrzeby autoryzacji Kubernetes](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 
 <!-- LINKS - Internal -->

@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bd04d037f7852bd7d9ea51719abf27f09093b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85101011"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495679"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Przypisywanie zmiennych przy użyciu języka SQL Synapse
+# <a name="assign-variables-with-synapse-sql"></a>Przypisywanie zmiennych przy użyciu języka SQL Synapse
 
 W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za pomocą języka SQL Synapse.
 
-## <a name="setting-variables-with-declare"></a>Ustawianie zmiennych przy użyciu deklaracji DECLARE
+## <a name="set-variables-with-declare"></a>Ustaw zmienne z deklaracją DECLARE
 
 Zmienne w Synapse SQL są ustawiane przy użyciu `DECLARE` instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w Synapse SQL.
 
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Ustawianie wartości przy użyciu zestawu
+## <a name="set-values-with-set"></a>Ustaw wartości za pomocą zestawu
 
 SET to wspólna metoda ustawiania pojedynczej zmiennej.
 

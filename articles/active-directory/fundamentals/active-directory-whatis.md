@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6b7d40512fe3537610efa42ccc33c9f8e80212
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: ddfb0343e925354a57a54e02f3eb98b7a1d01bcb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484387"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495118"
 ---
 # <a name="what-is-azure-active-directory"></a>Co to jest usługa Azure Active Directory?
 
@@ -90,9 +90,9 @@ Aby lepiej zrozumieć usługę Azure AD i jej dokumentację, zalecamy zapoznanie
 |Tożsamość| Element, który może zostać uwierzytelniony. Tożsamość może być użytkownikiem z nazwą użytkownika i hasłem. Tożsamości obejmują również aplikacje lub inne serwery, które mogą wymagać uwierzytelnienia za poorednictwem kluczy tajnych lub certyfikatów.|
 |Konto| Tożsamość, z którą są skojarzone dane. Nie możesz mieć konta bez tożsamości.|
 |Konto usługi Azure AD| Tożsamość utworzona za pośrednictwem usługi Azure AD lub innej usługi firmy Microsoft w chmurze, takiej jak Office 365. Tożsamości są przechowywane w usłudze Azure AD i dostępne dla subskrypcji usług w chmurze organizacji. To konto jest też czasami nazywane kontem służbowym.|
-|Administrator konta|Ta klasyczna rola administratora subskrypcji określa właściciela subskrypcji odpowiedzialnego za rozliczenia. Ta rola ma dostęp do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) i pozwala zarządzać wszystkimi subskrypcjami na koncie. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role kontroli dostępu opartej na rolach (RBAC) na platformie Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrator usługi|Ta klasyczna rola administratora subskrypcji umożliwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola ma takie same uprawnienia dostępu co użytkownik, któremu przypisano rolę właściciela w zakresie subskrypcji. Aby uzyskać więcej informacji, zobacz [Role klasycznego administratora subskrypcji, role kontroli na podstawie ról (RBAC) platformy Azure i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Właściciel|Ta rola ułatwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola bazuje na nowszym systemie autoryzacji, nazywanym kontrolą dostępu opartą na rolach (RBAC), który umożliwia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [Role klasycznego administratora subskrypcji, role kontroli na podstawie ról (RBAC) platformy Azure i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrator konta|Ta klasyczna rola administratora subskrypcji określa właściciela subskrypcji odpowiedzialnego za rozliczenia. Ta rola ma dostęp do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) i pozwala zarządzać wszystkimi subskrypcjami na koncie. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrator usługi|Ta klasyczna rola administratora subskrypcji umożliwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola ma takie same uprawnienia dostępu co użytkownik, któremu przypisano rolę właściciela w zakresie subskrypcji. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Właściciel|Ta rola ułatwia zarządzanie wszystkimi zasobami platformy Azure, włącznie z dostępem. Ta rola bazuje na nowszym systemie autoryzacji, nazywanym kontrolą dostępu opartą na rolach (RBAC), który umożliwia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrator globalny usługi Azure AD|Ta rola administratora jest automatycznie przypisywana osobie, która utworzyła dzierżawę usługi Azure AD. Administratorzy globalni mogą wykonywać wszystkie funkcje administracyjne usługi Azure AD i wszystkie usługi, które sfederować do usługi Azure AD, takie jak Exchange Online, SharePoint Online i Skype dla firm Online. Może istnieć wielu administratorów globalnych, ale tylko administratorzy globalni mogą przypisywać użytkownikom role administratora (włącznie z przypisywaniem innych administratorów globalnych). Należy pamiętać, że ta rola administratora jest nazywana administratorem globalnym w Azure Portal, ale jest nazywana **administratorem firmy** w interfejsie API Microsoft Graph i programie Azure AD PowerShell. Aby uzyskać więcej informacji na temat różnych ról administratorów, zobacz [uprawnienia roli administratora w Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Subskrypcja platformy Azure| Używana do płacenia za usługi platformy Azure w chmurze. Możesz mieć wiele subskrypcji. Są one połączone z kartą kredytową.|
 |Dzierżawa platformy Azure| Dedykowane, zaufane wystąpienie usługi Azure AD, które jest automatycznie tworzone, gdy organizacja rejestruje się w subskrypcji usługi w chmurze firmy Microsoft, takiej jak Microsoft Azure, Microsoft Intune lub Office 365. Dzierżawa usługi Azure reprezentuje jedną organizację.|

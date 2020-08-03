@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025017"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489626"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -118,7 +118,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 | */1433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
 | */5671, 5672, 443          | Wychodzący           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
 | */445                      | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
-| */443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
+| */443, 12000                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
 | */1886, 443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publikowanie [dzienników diagnostycznych i metryk](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) i [Application Insights](api-management-howto-app-insights.md)                   | Wewnętrzna & zewnętrzna  |
 | */25, 587, 25028                       | Wychodzący           | TCP                | VIRTUAL_NETWORK/INTERNET            | Nawiązywanie połączenia z przekaźnikiem SMTP w celu wysyłania wiadomości e-mail                    | Wewnętrzna & zewnętrzna  |
 | */6381 – 6383              | Przychodzące & wychodzące | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Dostęp do usługi Redis dla zasad [pamięci podręcznej](api-management-caching-policies.md) między maszynami         | Wewnętrzna & zewnętrzna  |

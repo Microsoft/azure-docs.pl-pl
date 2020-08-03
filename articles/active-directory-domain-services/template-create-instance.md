@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223010"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489813"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Tworzenie Azure Active Directory Domain Services domeny zarządzanej przy użyciu szablonu Azure Resource Manager
 
@@ -126,7 +126,7 @@ W ramach definicji zasobu Menedżer zasobów wymagane są następujące parametr
 | domainName              | Nazwa domeny DNS dla domeny zarządzanej, biorąc pod uwagę poprzednie kwestie dotyczące prefiksów nazw i konfliktów. |
 | filteredSync            | Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup.<br /><br /> Aby uzyskać więcej informacji na temat synchronizacji z zakresem, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].|
 | notificationSettings    | W przypadku wygenerowania alertów w domenie zarządzanej powiadomienia e-mail mogą być wysyłane. <br /><br />*Administratorzy globalni* dzierżawy platformy Azure i członkowie grupy *Administratorzy usługi AAD* mogą *włączyć* te powiadomienia.<br /><br /> W razie potrzeby można dodać kolejnych adresatów dla powiadomień, gdy istnieją alerty wymagające uwagi.|
-| domainConfigurationType | Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Nie musisz określać wartości *atrybutem domainconfiguration* , aby utworzyć Las użytkownika.<br /><br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Ustaw wartość *ResourceTrusting* , aby utworzyć Las zasobów.<br /><br />Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].|
+| domainConfigurationType | Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Nie musisz określać wartości *atrybutem domainconfiguration* , aby utworzyć Las użytkownika.<br /><br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Ustaw wartość *ResourceTrusting* , aby utworzyć Las zasobów.<br /><br />Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].|
 
 Następująca skrócona Definicja parametrów pokazuje, jak te wartości są zadeklarowane. Las użytkownika o nazwie *aaddscontoso.com* jest tworzony dla wszystkich użytkowników z usługi Azure AD zsynchronizowanych z domeną zarządzaną:
 

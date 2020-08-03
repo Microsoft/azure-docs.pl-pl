@@ -10,12 +10,13 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 3eda4cd8dc10bd9128186b2ff4f8d6ac0254fe5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- devx-track-azurecli
+ms.openlocfilehash: b31fc9df5451665b79a41172286a0cc471b681fd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770611"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501001"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników diagnostycznych za pomocą Centrum IoT Hub oraz korzystanie z nich
 
@@ -38,7 +39,7 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Zainstaluj [program Visual Studio](https://www.visualstudio.com/). 
 
@@ -363,7 +364,7 @@ Kliknij pozycję **Pobierz**, aby go pobrać i otworzyć. Zostaną wyświetlone 
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 
 Aby usunąć wszystkie zasoby utworzone w ramach tego samouczka, usuń grupę zasobów. Ta akcja spowoduje również usunięcie wszystkich zasobów znajdujących się w grupie. W takim przypadku następuje również usunięcie centrum IoT, konta magazynu i samej grupy zasobów. Jeśli do pulpitu nawigacyjnego są przypięte metryki, musisz usunąć je ręcznie, klikając wielokropek w prawym górnym rogu każdej z nich i wybierając pozycję **Usuń**.
 

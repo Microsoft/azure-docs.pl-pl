@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83655754"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500797"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linia bazowa zabezpieczeń platformy Azure dla Azure Database for PostgreSQL pojedynczego serwera
 
@@ -549,7 +549,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Azure Database for PostgreSQL (np. Azure Portal). Aby uzyskać dostęp do płaszczyzny danych (w samej bazie danych), należy użyć zapytań SQL do tworzenia użytkowników i konfigurowania uprawnień użytkownika. RBAC nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Azure Database for PostgreSQL (np. Azure Portal). Aby uzyskać dostęp do płaszczyzny danych (w samej bazie danych), należy użyć zapytań SQL do tworzenia użytkowników i konfigurowania uprawnień użytkownika. RBAC nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
 
 Jak skonfigurować RBAC na platformie Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 

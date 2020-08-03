@@ -4,12 +4,13 @@ description: Ten artykuł zawiera przykładowy skrypt interfejsu wiersza polecen
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: ab05de118793ae9f62fe483d59087873fb4cc151
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 80eff2853db1083fa2805cdd719f03a3235fccac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460834"
+ms.locfileid: "87499028"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Subskrybowanie do zdarzeń związanych z tematem niestandardowym przy użyciu interfejsu wiersza polecenia platformy Azure
 

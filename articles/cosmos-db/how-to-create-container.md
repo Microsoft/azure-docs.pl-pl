@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429713"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498365"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Tworzenie kontenera usługi Azure Cosmos
 
@@ -119,17 +120,17 @@ Aby zapoznać się z listą wszystkich przykładów interfejsu wiersza polecenia
 * [Tworzenie grafu Gremlin przy użyciu interfejsu wiersza polecenia platformy Azure](./scripts/cli/gremlin/create.md)
 * [Tworzenie tabeli interfejs API tabel przy użyciu interfejsu wiersza polecenia platformy Azure](./scripts/cli/table/create.md)
 
-## <a name="create-a-container-using-powershella-idps-mongodba-idps-gremlin"></a>Tworzenie kontenera przy użyciu programu PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## <a name="create-a-container-using-powershell"></a>Tworzenie kontenera przy użyciu programu PowerShell
 
 Poniższe linki pokazują, jak utworzyć zasoby kontenera dla Azure Cosmos DB przy użyciu programu PowerShell.
 
-Aby zapoznać się z listą wszystkich przykładów programu PowerShell dla wszystkich Azure Cosmos DB interfejsów API, zobacz, interfejs API [SQL](powershell-samples-sql.md), [interfejs API Cassandra](powershell-samples-cassandra.md), [interfejs API MongoDB](powershell-samples-mongodb.md), [interfejs API Gremlin](powershell-samples-gremlin.md)i [interfejs API tabel](powershell-samples-table.md)
+Aby uzyskać listę wszystkich przykładów programu PowerShell dla wszystkich Azure Cosmos DB interfejsów API, zobacz, [przykłady dla programu PowerShell](powershell-samples.md)
 
 * [Tworzenie kontenera przy użyciu programu PowerShell](manage-with-powershell.md#create-container)
-* [Tworzenie kolekcji dla Azure Cosmos DB interfejsu API MongoDB przy użyciu programu PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Tworzenie tabeli Cassandra przy użyciu programu PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Tworzenie grafu Gremlin przy użyciu programu PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Tworzenie tabeli interfejs API tabel przy użyciu programu PowerShell](./scripts/powershell/table/ps-table-create.md)
+* [Tworzenie kolekcji dla Azure Cosmos DB interfejsu API MongoDB przy użyciu programu PowerShell](./scripts/powershell/mongodb/create.md)
+* [Tworzenie tabeli Cassandra przy użyciu programu PowerShell](./scripts/powershell/cassandra/create.md)
+* [Tworzenie grafu Gremlin przy użyciu programu PowerShell](./scripts/powershell/gremlin/create.md)
+* [Tworzenie tabeli interfejs API tabel przy użyciu programu PowerShell](./scripts/powershell/table/create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Tworzenie kontenera przy użyciu zestawu .NET SDK
 

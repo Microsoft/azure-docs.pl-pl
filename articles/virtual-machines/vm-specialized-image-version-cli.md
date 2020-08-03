@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: a22c0941a405dd2fcf37403e3a12113bc51cb774
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 478413132a09334c6b5fe6e4d7c4c31c988cd38d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005807"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501052"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 

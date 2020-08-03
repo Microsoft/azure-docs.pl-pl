@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: ca7feacf5d631b4e85a0b3f4e7a039bbb79abe45
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f30f2b45944281ed74da2026eb14e8938260b259
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460205"
+ms.locfileid: "87496104"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,13 +92,13 @@ Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagan
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
-**W ramach początkowego procesu tworzenia i rejestrowania magazynu**danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu oraz czy podany przez użytkownika podmiot zabezpieczeń (nazwa użytkownika, główna usługa lub token sygnatury dostępu współdzielonego) ma dostęp do określonego magazynu.
+**W ramach początkowego procesu tworzenia i rejestrowania magazynu**danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu oraz czy podany przez użytkownika podmiot zabezpieczeń (username, główna usługi lub token SAS) ma dostęp do określonego magazynu.
 
 **Po utworzeniu magazynu**danych sprawdzanie poprawności jest wykonywane tylko w przypadku metod, które wymagają dostępu do źródłowego kontenera magazynu, a **nie** do pobierania obiektów magazynu danych. Na przykład sprawdzanie poprawności ma miejsce, jeśli chcesz pobrać pliki z magazynu danych; ale jeśli chcesz jedynie zmienić domyślny magazyn danych, walidacja nie następuje.
 
-Aby uwierzytelnić dostęp do podstawowej usługi magazynu, możesz podać klucz konta, tokeny sygnatur dostępu współdzielonego (SAS) lub jednostkę usługi w odpowiedniej `register_azure_*()` metodzie typu magazynu danych, który chcesz utworzyć. [Macierz typ magazynu](#matrix) zawiera listę obsługiwanych typów uwierzytelniania, które odpowiadają każdemu typowi magazynu danych.
+Aby uwierzytelnić dostęp do podstawowej usługi magazynu, możesz podać swój klucz konta, tokeny sygnatur dostępu współdzielonego (SAS) lub nazwę główną usługi w odpowiedniej `register_azure_*()` metodzie typu magazynu danych, który chcesz utworzyć. [Macierz typ magazynu](#matrix) zawiera listę obsługiwanych typów uwierzytelniania, które odpowiadają każdemu typowi magazynu danych.
 
-Na [Azure Portal](https://portal.azure.com)można znaleźć klucz konta, token sygnatury dostępu współdzielonego i nazwę główną usługi.
+Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i nazwy głównej usługi znajdują się w [Azure Portal](https://portal.azure.com).
 
 * Jeśli planujesz użyć klucza konta lub tokenu sygnatury dostępu współdzielonego w celu uwierzytelnienia, wybierz pozycję **konta magazynu** w okienku po lewej stronie i wybierz konto magazynu, które chcesz zarejestrować. 
   * Na stronie **Przegląd** znajdują się takie informacje, jak nazwa konta, kontener i nazwa udziału plików. 
@@ -176,7 +176,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) należy użyć [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu danych poświadczeń połączonego z magazynem usługi Azure datalake Generation 2 z [uprawnieniami nazw głównych](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). 
 
-Aby można było korzystać z jednostki usługi, należy [zarejestrować aplikację](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i przyznać jednostce usługi dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Aby można było korzystać z nazwy głównej usługi, należy [zarejestrować aplikację](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i udzielić jej jednostce usługi z dostępem **czytnika danych obiektów blob magazynu** . Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Poniższy kod powoduje utworzenie i zarejestrowanie `adlsgen2_datastore_name` magazynu danych w `ws` obszarze roboczym. Ten magazyn danych uzyskuje dostęp do systemu plików `test` na `account_name` koncie magazynu przy użyciu podanych poświadczeń jednostki usługi.
 
@@ -202,7 +202,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 <a name="studio"></a>
 
+
 ## <a name="create-datastores-in-the-studio"></a>Tworzenie magazynów danych w programie Studio 
+
 
 Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Learning Studio.
 
@@ -219,10 +221,9 @@ Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazyn
 ![Formularz dla nowego magazynu danych](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
-
 ## <a name="use-data-in-your-datastores"></a>Korzystanie z danych w twoich sklepach
 
-Po utworzeniu magazynu danych [utwórz Azure Machine Learning zestaw danych](how-to-create-register-datasets.md) , który będzie współpracujący z danymi. Zestawy danych pakują dane do opóźnieniemego obiektu, który można wyszukiwać w celu wykonywania zadań uczenia maszynowego, takich jak szkolenie. Zapewniają one również możliwość [pobierania lub instalowania](how-to-train-with-datasets.md#mount-vs-download) plików dowolnego formatu z usług Azure Storage, takich jak Azure Blob Storage i ADLS Gen 2. Można ich również użyć do załadowania danych tabelarycznych do Pandas lub Spark Dataframe.
+Po utworzeniu magazynu danych [utwórz Azure Machine Learning zestaw danych](how-to-create-register-datasets.md) , który będzie współpracujący z danymi. Zestawy danych pakują dane do opóźnieniemego, który można z niego korzystać na potrzeby zadań uczenia maszynowego, takich jak szkolenie. Zapewniają one również możliwość [pobierania lub instalowania](how-to-train-with-datasets.md#mount-vs-download) plików dowolnego formatu z usług Azure Storage, takich jak Azure Blob Storage i ADLS Gen 2. Można ich również użyć do załadowania danych tabelarycznych do Pandas lub Spark Dataframe.
 
 <a name="get"></a>
 
