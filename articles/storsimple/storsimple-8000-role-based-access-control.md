@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500048"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535114"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Access Control oparte na rolach dla StorSimple
 
@@ -29,7 +29,7 @@ Ten artykuł dotyczy urządzeń z serii StorSimple 8000 z uruchomioną aktualiza
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>Role RBAC dla StorSimple
+## <a name="azure-roles-for-storsimple"></a>Role platformy Azure dla usługi StorSimple
 
 Kontrolę RBAC można przypisać na podstawie ról. Role zapewniają pewne poziomy uprawnień na podstawie dostępnych zasobów w środowisku. Istnieją dwa typy ról, z których mogą wybierać użytkownicy StorSimple: wbudowane lub niestandardowe.
 
@@ -58,7 +58,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Otwórz plik JSON w programie Visual Studio. Zobaczysz **, że**typowa rola RBAC zawiera trzy główne sekcje, **akcje, noactions**i **AssignableScopes**.
+4. Otwórz plik JSON w programie Visual Studio. Zobaczysz, że typowa rola platformy Azure obejmuje trzy główne sekcje, akcje **,** **noactions**i **AssignableScopes**.
 
     W sekcji **Akcja** zostaną wyświetlone wszystkie dozwolone operacje dla tej roli. Każda akcja jest przypisana z dostawcy zasobów. W przypadku administratora infrastruktury StorSimple Użyj `Microsoft.StorSimple` dostawcy zasobów.
 
@@ -68,9 +68,9 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
 
     Możesz również sprawdzić wszystkie dostępne polecenia cmdlet programu PowerShell, aby zarządzać dostawcami zasobów.
 
-    W **sekcjach** noactions są wyświetlane wszystkie akcje ograniczone dla określonej roli RBAC. W tym przykładzie żadne akcje nie są ograniczone.
+    W **sekcjach** noactions są wyświetlane wszystkie akcje ograniczone dla określonej roli platformy Azure. W tym przykładzie żadne akcje nie są ograniczone.
     
-    W obszarze **AssignableScopes**są wyświetlane identyfikatory subskrypcji. Upewnij się, że rola RBAC zawiera jawny Identyfikator subskrypcji, w której jest używany. Jeśli nie określono prawidłowego identyfikatora subskrypcji, nie będzie można zaimportować roli w ramach subskrypcji.
+    W obszarze **AssignableScopes**są wyświetlane identyfikatory subskrypcji. Upewnij się, że rola platformy Azure zawiera jawny Identyfikator subskrypcji, w której jest używany. Jeśli nie określono prawidłowego identyfikatora subskrypcji, nie będzie można zaimportować roli w ramach subskrypcji.
 
     Edytuj plik, pamiętając o powyższych kwestiach.
 
@@ -109,7 +109,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
 
 Ta rola powinna teraz pojawić się na liście ról w bloku **Kontrola dostępu** .
 
-![Wyświetlanie ról RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Wyświetlanie ról platformy Azure](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 Aby uzyskać więcej informacji, przejdź do [ról niestandardowych](../role-based-access-control/custom-roles.md).
 
@@ -167,7 +167,7 @@ Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która j
 
 1. Przejdź do **kontroli dostępu (IAM)**. Kliknij pozycję **+ Dodaj** w bloku kontrola dostępu.
 
-    ![Dodawanie dostępu do roli RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Dodawanie dostępu do roli platformy Azure](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Wybierz rolę, którą chcesz przypisać, w tym przypadku jest to **administrator infrastruktury StorSimple**.
 
@@ -175,7 +175,7 @@ Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która j
 
 4. Wybierz pozycję **Zapisz** , aby utworzyć przypisanie.
 
-    ![Dodawanie uprawnień do roli RBAC](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Dodawanie uprawnień do roli platformy Azure](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 **Dodawanie powiadomienia użytkownika** śledzi postęp. Po pomyślnym dodaniu użytkownika zostanie zaktualizowana lista użytkowników w kontroli dostępu.
 

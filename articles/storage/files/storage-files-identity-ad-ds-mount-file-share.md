@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999602"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535063"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Część czwarta: Instalowanie udziału plików z maszyny wirtualnej przyłączonej do domeny
 
 Przed rozpoczęciem tego artykułu upewnij się, że wykonano Poprzedni artykuł, [Skonfiguruj uprawnienia katalogu i poziomu plików za pośrednictwem protokołu SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-Proces opisany w tym artykule sprawdza, czy udział plików i uprawnienia dostępu są poprawnie skonfigurowane oraz czy można uzyskać dostęp do udziału plików platformy Azure z poziomu maszyny wirtualnej przyłączonej do domeny. Przypisanie roli RBAC na poziomie udziału może zająć trochę czasu. 
+Proces opisany w tym artykule sprawdza, czy udział plików i uprawnienia dostępu są poprawnie skonfigurowane oraz czy można uzyskać dostęp do udziału plików platformy Azure z poziomu maszyny wirtualnej przyłączonej do domeny. Przypisanie roli platformy Azure na poziomie udziału może zająć trochę czasu. 
 
 Zaloguj się do klienta przy użyciu poświadczeń, do których udzielono uprawnień, jak pokazano na poniższej ilustracji.
 

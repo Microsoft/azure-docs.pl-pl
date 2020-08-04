@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510624"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535097"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Część druga: przypisywanie uprawnień na poziomie udziału do tożsamości
 
@@ -38,11 +38,11 @@ Istnieją trzy wbudowane role platformy Azure do udzielania użytkownikom uprawn
 
 Możesz użyć interfejsu wiersza polecenia Azure Portal, Azure PowerShell lub Azure, aby przypisać wbudowane role do tożsamości usługi Azure AD użytkownika w celu udzielenia uprawnień na poziomie udziału.
 
-## <a name="assign-an-rbac-role"></a>Przypisywanie roli RBAC
+## <a name="assign-an-azure-role"></a>Przypisywanie roli platformy Azure
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby przypisać rolę RBAC do tożsamości usługi Azure AD przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
+Aby przypisać rolę platformy Azure do tożsamości usługi Azure AD przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
 
 1. W Azure Portal przejdź do udziału plików lub [Utwórz udział plików](storage-how-to-create-file-share.md).
 1. Wybierz pozycję **Access Control (IAM)**.
@@ -52,7 +52,7 @@ Aby przypisać rolę RBAC do tożsamości usługi Azure AD przy użyciu [Azure P
 
 ### <a name="powershell"></a>PowerShell
 
-Poniższy przykład programu PowerShell przedstawia sposób przypisywania roli RBAC do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról RBAC przy użyciu programu PowerShell, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Poniższy przykład programu PowerShell pokazuje, jak przypisać rolę platformy Azure do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure za pomocą programu PowerShell, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Przed uruchomieniem następującego przykładowego skryptu Zastąp wartości symboli zastępczych, w tym nawiasów, wartościami.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>Interfejs wiersza polecenia
   
-Następujące polecenie interfejsu wiersza polecenia 2,0 przypisuje rolę RBAC do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról RBAC przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Zarządzanie dostępem przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md). 
+Następujące polecenie interfejsu wiersza polecenia 2,0 przypisuje rolę platformy Azure do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji o przypisywaniu ról platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Zarządzanie dostępem przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 Przed uruchomieniem następującego przykładowego skryptu pamiętaj, aby zastąpić wartości symboli zastępczych, w tym nawiasów, z własnymi wartościami.
 
