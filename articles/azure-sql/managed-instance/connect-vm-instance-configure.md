@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706362"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542657"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Szybki Start: Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,7 +53,7 @@ Poniższe kroki tworzą nową podsieć w sieci wirtualnej wystąpienia zarządza
    | ---------------- | ----------------- | ----------- |
    | **Nazwa** | Dowolna prawidłowa nazwa|Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming).|
    | **Zakres adresów (blok CIDR)** | Prawidłowy zakres | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
-   | **Sieciowa Grupa zabezpieczeń** | Brak | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
+   | **Sieciowa grupa zabezpieczeń** | Brak | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
    | **Tabela tras** | Brak | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
    | **Punkty końcowe usługi** | Wybrano 0 | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
    | **Delegowanie podsieci** | Brak | Wartość domyślna jest dobra dla tego przewodnika Szybki Start.|
@@ -74,7 +74,7 @@ Najprostszym sposobem utworzenia klienckiej maszyny wirtualnej przy użyciu wszy
 
 1. Upewnij się, że zalogowano się do Azure Portal na innej karcie przeglądarki. Następnie wybierz poniższy przycisk, aby utworzyć maszynę wirtualną klienta i zainstalować SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Wypełnij formularz, korzystając z informacji podanych w poniższej tabeli:
 
@@ -91,7 +91,7 @@ Najprostszym sposobem utworzenia klienckiej maszyny wirtualnej przy użyciu wszy
    | **Nazwa Virtual Network**|Sieć wirtualna, w której utworzono wystąpienie zarządzane|
    | **Nazwa podsieci**|Nazwa podsieci, która została utworzona w poprzedniej procedurze| Nie wybieraj podsieci, w której utworzono wystąpienie zarządzane.|
    | **Lokalizacja artefaktów** | [Deployment (). Properties. templateLink. URI] | Nie zmieniaj tej wartości. |
-   | **token SAS lokalizacji artefaktów** | Pozostaw puste | Nie zmieniaj tej wartości. |
+   | **token SAS lokalizacji artefaktów** | Pozostaw puste. | Nie zmieniaj tej wartości. |
 
    ![tworzenie maszyny wirtualnej klienta](./media/connect-vm-instance-configure/create-client-sql-vm.png)
 
@@ -112,13 +112,13 @@ Poniższe kroki pokazują, jak nawiązać połączenie z nowo utworzoną maszyn�
 
     ![VM](./media/connect-vm-instance-configure/vm.png)  
 
-2. Wybierz pozycję **Połącz**.
+2. Wybierz polecenie **Połącz**.
 
    Zostanie wyświetlony formularz Remote Desktop Protocol pliku (RDP) z publicznym adresem IP i numerem portu dla maszyny wirtualnej.
 
    ![Formularz RDP](./media/connect-vm-instance-configure/rdp.png)  
 
-3. Wybierz opcję **Pobierz plik RDP**.
+3. Wybierz pozycję **Pobierz plik RDP**.
 
    > [!NOTE]
    > Do nawiązania połączenia z maszyną wirtualną można także użyć protokołu SSH.

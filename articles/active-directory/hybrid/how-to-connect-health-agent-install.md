@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7267da7db91e153190e98b09e9a3c505837bd042
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446321"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542097"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
@@ -154,6 +154,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
 8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem i Inspekcje zakończone niepowodzeniem**, a następnie kliknij przycisk **OK**.
+10. Pełne rejestrowanie można włączyć za pomocą programu PowerShell przy użyciu polecenia: ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2016
 

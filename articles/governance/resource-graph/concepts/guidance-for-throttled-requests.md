@@ -1,14 +1,14 @@
 ---
 title: Wskazówki dotyczące ograniczonych żądań
 description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682058"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541842"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
@@ -29,6 +29,8 @@ W każdej odpowiedzi na zapytanie wykres zasobów platformy Azure dodaje dwa nag
 
 - `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
 - `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika.
+
+Gdy podmiot zabezpieczeń ma dostęp do ponad 5000 subskrypcji w ramach [zakresu zapytania](./query-language.md#query-scope)dzierżawy lub grupy zarządzania, odpowiedź jest ograniczona do pierwszych subskrypcji 5000, a `x-ms-tenant-subscription-limit-hit` nagłówek jest zwracany jako `true` .
 
 Aby zilustrować, jak działają nagłówki, przyjrzyjmy się odpowiedzi kwerendy zawierającej nagłówek i wartości `x-ms-user-quota-remaining: 10` i `x-ms-user-quota-resets-after: 00:00:03` .
 
@@ -185,7 +187,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Dzielenia na strony
+## <a name="pagination"></a>Dzielenie na strony
 
 Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w pojedynczej odpowiedzi na zapytanie, może być konieczne podział [zapytań na strony](./work-with-data.md#paging-results) , aby uzyskać kompletny zestaw danych, którego szukasz. Niektórzy klienci grafu zasobów platformy Azure obsługują jednak stronicowanie w inny sposób niż inne.
 

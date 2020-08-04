@@ -5,12 +5,12 @@ description: Informacje o najlepszych rozwiązaniach dotyczących operatorów kl
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208061"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542708"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
 
@@ -37,7 +37,9 @@ Interfejs sieciowy kontenera (CNI) to protokół neutralny od dostawcy, który u
 
 ![Diagram przedstawiający dwa węzły z mostkami łączącymi każdy z jedną siecią wirtualną platformy Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-W przypadku większości wdrożeń produkcyjnych należy używać sieci Azure CNI. Ten model sieci umożliwia rozdzielenie kontroli i zarządzanie zasobami. Z punktu widzenia zabezpieczeń często chcesz, aby inne zespoły zarządzali i zabezpieczali te zasoby. Usługa Azure CNI Networking umożliwia łączenie się z istniejącymi zasobami platformy Azure, zasobami lokalnymi lub innymi usługami bezpośrednio za pośrednictwem adresów IP przypisanych do każdego z nich.
+W przypadku wdrożeń produkcyjnych zarówno korzystającą wtyczki kubenet, jak i Azure CNI są prawidłowymi opcjami.
+
+Istotną zaletą usługi Azure CNI Networking dla środowiska produkcyjnego jest model sieci umożliwiający rozdzielenie kontroli i zarządzanie zasobami. Z punktu widzenia zabezpieczeń często chcesz, aby inne zespoły zarządzali i zabezpieczali te zasoby. Usługa Azure CNI Networking umożliwia łączenie się z istniejącymi zasobami platformy Azure, zasobami lokalnymi lub innymi usługami bezpośrednio za pośrednictwem adresów IP przypisanych do każdego z nich.
 
 W przypadku korzystania z sieci Azure CNI, zasób sieci wirtualnej znajduje się w osobnej grupie zasobów do klastra AKS. Delegowanie uprawnień dla jednostki usługi AKS w celu uzyskania dostępu do tych zasobów i zarządzania nimi. Nazwa główna usługi używana przez klaster AKS musi mieć co najmniej uprawnienia [współautora sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`

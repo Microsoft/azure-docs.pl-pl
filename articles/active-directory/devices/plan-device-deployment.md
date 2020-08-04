@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165774"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541876"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -112,7 +112,7 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 | Hasło| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Numer PIN urządzenia| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Windows Hello dla firm| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Klucze zabezpieczeń FIDO 2,0| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Aplikacja Microsoft Authenticator (bezhaseł)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 |**Najważniejsze możliwości**| | |  |
@@ -226,10 +226,6 @@ Po zarejestrowaniu lub dołączeniu urządzeń do usługi Azure AD Użyj [Azure 
 
 * [Konfigurowanie ustawień urządzenia](device-management-azure-portal.md#configure-device-settings)
 * Aby zarządzać urządzeniami z systemem Windows, musisz być administratorem lokalnym. [Usługa Azure AD aktualizuje te członkostwo dla urządzeń przyłączonych do usługi Azure AD](assign-local-admin.md), automatycznie dodając je do roli Menedżera urządzeń jako administratorów do wszystkich dołączonych urządzeń.
-
-* [Lokalizowanie urządzeń](device-management-azure-portal.md#locate-devices)
-
-* [Wykonywanie zadań zarządzania tożsamościami urządzeń](device-management-azure-portal.md#device-identity-management-tasks)
 
 Upewnij się, że środowisko jest oczyszczane przez [Zarządzanie przestarzałymi urządzeniami](manage-stale-devices.md)i skoncentrowanie się na zasobach związanych z zarządzaniem bieżącymi urządzeniami.
 

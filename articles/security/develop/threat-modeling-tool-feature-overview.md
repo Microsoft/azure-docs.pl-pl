@@ -1,18 +1,18 @@
 ---
 title: Omówienie funkcji Microsoft Threat Modeling Tool — Azure
-description: Dowiedz się więcej o wszystkich funkcjach dostępnych w Threat Modeling Tool
+description: Dowiedz się więcej o wszystkich funkcjach dostępnych w Threat Modeling Tool, takich jak widok analizy i raporty.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552121"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540006"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji Threat Modeling Tool
 
@@ -43,7 +43,7 @@ Przed przedyskutowaniem wbudowanych funkcji przejdźmy do najważniejszych skła
 | --------------------------------------- | ------------ |
 | **Plik** | <ul><li>Otwieranie, zapisywanie i zamykanie plików</li><li>Zaloguj się i wyloguj się z kont usługi OneDrive.</li><li>Udostępnij linki (Wyświetl i edytuj).</li><li>Wyświetl informacje o pliku.</li><li>Zastosuj nowy szablon do istniejących modeli.</li></ul> |
 | **Edytuj** | Akcje cofania i ponawiania, a także kopiowanie, wklejanie i usuwanie. |
-| **Widok** | <ul><li>Przełączaj się między widokiem **Analizowanie** i **projektowanie** .</li><li>Otwórz zamknięte okna (na przykład wzorników, właściwości elementów i komunikatów).</li><li>Zresetuj układ do ustawień domyślnych.</li></ul> |
+| **Wyświetlanie** | <ul><li>Przełączaj się między widokiem **Analizowanie** i **projektowanie** .</li><li>Otwórz zamknięte okna (na przykład wzorników, właściwości elementów i komunikatów).</li><li>Zresetuj układ do ustawień domyślnych.</li></ul> |
 | **4b** | Dodawanie i usuwanie diagramów oraz poruszanie się po kartach diagramów. |
 | **Raporty** | Twórz raporty HTML, aby udostępniać je innym osobom. |
 | **Pomoc** | Znajdź przewodniki ułatwiające korzystanie z tego narzędzia. |
@@ -75,7 +75,7 @@ Kanwa to miejsce, w którym można przeciągać i upuszczać elementy. Przeciąg
 
 ![Właściwości elementu](./media/threat-modeling-tool-feature-overview/canvasdrop2.png)
 
-### <a name="stencils"></a>Wzorników
+### <a name="stencils"></a>Wzorniki
 
 W oparciu o wybrany szablon można znaleźć wszystkie wzorniki dostępne do użycia. Jeśli nie możesz znaleźć odpowiednich elementów, użyj innego szablonu. Można też zmodyfikować szablon, aby odpowiadał Twoim potrzebom. Ogólnie rzecz biorąc, można znaleźć kombinację kategorii takich jak:
 
@@ -174,7 +174,7 @@ Po skompilowaniu diagramu wybierz symbol **analizy** (Lupa) na pasku narzędzi s
 
 Po wybraniu zagrożenia można użyć trzech odrębnych funkcji:
 
-| Cecha                               | Informacje      |
+| Cechy                               | Informacje      |
 | --------------------------------------- | ------------ |
 | **Wskaźnik odczytu** | <p>Zagrożenie jest oznaczone jako przeczytane, co pomaga śledzić przeglądane elementy.</p><p>![Wskaźnik odczytu/odczytania](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Fokus interakcji** | <p>Wyróżniono interakcje na diagramie należącym do zagrożenia.</p><p>![Fokus interakcji](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |

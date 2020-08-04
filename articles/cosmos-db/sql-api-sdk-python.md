@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d68fc7b01e6204cb9ad00ea60e413c73856d758e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247068"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542450"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK dla interfejsu API SQL: informacje o wersji i zasoby
 
@@ -301,10 +301,8 @@ Wersja 4.0.0 B1 to pierwsza wersja zapoznawcza naszych działań w celu utworzen
 
 Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
-Wszystkie żądania Azure Cosmos DB korzystania z wycofanego zestawu SDK są odrzucane przez usługę.
-
 > [!WARNING]
-> Wszystkie wersje zestawu SDK języka Python dla interfejsu API SQL w wersji starszej niż **1.0.0** zostały wycofane **29 lutego 2016**. Wszystkie wersje 1. x i 2. x zestawu SDK języka Python dla interfejsu API SQL zostaną wycofane w dniu **30 sierpnia 2020**.
+> Po 31 sierpnia 2022 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x lub 2. x zestawu SDK Azure Cosmos DB języka Python dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 1. x i 2. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |

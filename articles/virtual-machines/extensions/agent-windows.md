@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 100e75520d1165d4772579ba9b179cd350d6df18
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010958"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542623"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie agenta maszyny wirtualnej platformy Azure
 Agent maszyny wirtualnej Microsoft Azure (Agent VM) to bezpieczny, lekki proces zarządzający interakcją maszyny wirtualnej z kontrolerem sieci szkieletowej Azure. Agent maszyny wirtualnej odgrywa podstawową rolę w procesie włączania i wykonywania rozszerzeń maszyny wirtualnej platformy Azure. Rozszerzenia maszyn wirtualnych umożliwiają konfigurację po wdrożeniu maszyny wirtualnej, taką jak instalowanie i Konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych umożliwiają również włączenie funkcji odzyskiwania, takich jak resetowanie hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny wirtualnej platformy Azure nie można uruchomić rozszerzeń maszyn wirtualnych.
@@ -111,7 +111,7 @@ Po zalogowaniu się do maszyny wirtualnej z systemem Windows Menedżer zadań mo
 
 
 ## <a name="upgrade-the-vm-agent"></a>Uaktualnianie agenta maszyny wirtualnej
-Agent maszyny wirtualnej platformy Azure dla systemu Windows jest automatycznie uaktualniany. Gdy nowe maszyny wirtualne są wdrażane na platformie Azure, otrzymują najnowszego agenta maszyny wirtualnej na czas udostępniania maszyny wirtualnej. Niestandardowe obrazy maszyn wirtualnych należy zaktualizować ręcznie, aby uwzględnić nowego agenta maszyny wirtualnej podczas tworzenia obrazu.
+Agent maszyny wirtualnej platformy Azure dla systemu Windows jest automatycznie uaktualniany na obrazach wdrożonych z portalu Azure Marketplace. Gdy nowe maszyny wirtualne są wdrażane na platformie Azure, otrzymują najnowszego agenta maszyny wirtualnej na czas udostępniania maszyny wirtualnej. Jeśli Agent został zainstalowany ręcznie lub wdraża niestandardowe obrazy maszyn wirtualnych, należy ręcznie zaktualizować, aby uwzględnić nowego agenta maszyny wirtualnej podczas tworzenia obrazu.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Automatyczne zbieranie dzienników agenta gościa systemu Windows
 Agent gościa systemu Windows zawiera funkcję automatycznego zbierania niektórych dzienników. Ta funkcja jest kontrolerem przez proces CollectGuestLogs.exe. Istnieje zarówno dla PaaS Cloud Services, jak i Virtual Machines IaaS, a jej celem jest szybkie & Automatyczne zbieranie niektórych dzienników diagnostycznych z maszyny wirtualnej, dzięki czemu mogą one być używane do analizy w trybie offline. Zbierane dzienniki to dzienniki zdarzeń, Dzienniki systemu operacyjnego, dzienniki platformy Azure i niektóre klucze rejestru. Tworzy plik ZIP, który jest przesyłany do hosta maszyny wirtualnej. Ten plik ZIP może następnie być oglądany przez zespoły inżynieryjne i specjalistów pomocy technicznej w celu zbadania problemów na żądanie klienta będącego właścicielem maszyny wirtualnej.

@@ -1,6 +1,6 @@
 ---
-title: Odnajdywanie grup przypisanych do ról w celu zarządzania nimi w usłudze PIM — Azure AD | Microsoft Docs
-description: Informacje o odnajdywaniu grup z uprawnieniami do przypisywania ról w celu zarządzania nimi w Privileged Identity Management (PIM).
+title: Identyfikowanie grupy do zarządzania w usłudze Privileged Identity Management — Azure AD | Microsoft Docs
+description: Dowiedz się, jak dołączyć grupy, które można przypisać do ról, aby zarządzać grupami dostępu uprzywilejowanego w Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,39 +11,39 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b66a41f0f1aa48433dac77fca56d5e2877989a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 76f7b61b6fb065409a2fe4b2ed8f599f321cd1db
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506006"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542300"
 ---
-# <a name="discover-privileged-access-groups-preview-to-manage-in-privileged-identity-management"></a>Odnajdywanie uprzywilejowanych grup dostępu (wersja zapoznawcza) w celu zarządzania nimi w Privileged Identity Management
+# <a name="bring-a-privileged-access-groups-preview-into-privileged-identity-management"></a>Przenoszenie uprzywilejowanych grup dostępu (wersja zapoznawcza) do Privileged Identity Management
 
-W Azure Active Directory (Azure AD) można przypisać wbudowane role usługi Azure AD do grup w chmurze, aby uprościć zarządzanie przypisaniami ról. Teraz można użyć Privileged Identity Management (PIM), aby przypisać uprawnienia do członkostwa lub własności tych grup, chronić role usługi Azure AD i uzyskiwać zabezpieczenia dostępu. Aby można było zarządzać grupą umożliwiającą Przypisywanie roli usługi Azure AD jako uprzywilejowaną grupę dostępu w Privileged Identity Management, należy ją odnaleźć i zarządzać w usłudze PIM.
+W Azure Active Directory (Azure AD) można przypisać wbudowane role usługi Azure AD do grup w chmurze, aby uprościć zarządzanie przypisaniami ról. Aby chronić role usługi Azure AD i zabezpieczyć dostęp, można teraz używać Privileged Identity Management (PIM) do zarządzania dostępem just in Time dla członków lub właścicieli tych grup. Aby zarządzać grupą umożliwiającą Przypisywanie roli usługi Azure AD jako uprzywilejowaną grupę dostępu w Privileged Identity Management, należy ją w obszarze zarządzania w usługach PIM.
 
-## <a name="discover-resources"></a>Odnajdywanie zasobów
+## <a name="identify-groups-to-manage"></a>Identyfikowanie grup do zarządzania
+
+Można utworzyć grupę umożliwiającą Przypisywanie ról w usłudze Azure AD zgodnie z opisem w temacie Tworzenie grupy z możliwością [przypisywania ról w Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md). Jesteś właścicielem grupy, aby zarządzać nią za pomocą Privileged Identity Management.
 
 1. [Zaloguj się do usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień roli administrator ról uprzywilejowanych.
-1. Utwórz grupę z możliwością przypisywania ról w usłudze Azure AD. Musisz być właścicielem grupy, aby odnajdywać ją i zarządzać nią przy użyciu Privileged Identity Management.
-1. Otwórz **Privileged Identity Management**.
-1. Wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
+1. Wybierz pozycję **grupy** , a następnie wybierz grupę, która ma zostać przypisana do roli, którą chcesz zarządzać w usłudze PIM. Można wyszukiwać i filtrować listę.
 
-    ![Polecenie odnajdywania grup po raz pierwszy](./media/groups-discover-groups/groups-discover-groups.png)
+    ![Znajdowanie grupy przypisanej do roli do zarządzania w usłudze PIM](./media/groups-discover-groups/groups-list-in-azure-ad.png)
 
-1. Wybierz pozycję **odnajdywanie grup**.
-1. Wyszukaj według nazwy grupy.
-1. Wybierz grupę i wybierz pozycję **Zarządzaj grupami** , aby wprowadzić ją w obszarze Zarządzanie PIM.
+1. Otwórz grupę i wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
 
-    ![Odnajdywanie grup bez zasobów wymienionych na potrzeby pierwszego uruchomienia](./media/groups-discover-groups/groups-bring-under-management.png)
+    ![Otwórz środowisko Privileged Identity Management](./media/groups-discover-groups/groups-discover-groups.png)
 
-    > [!NOTE]
-    > Gdy grupa uprzywilejowanych dostępu jest zarządzana, nie można jej wyprowadzić z zarządzania. Zapobiega to usunięciu przez innego administratora zasobów Privileged Identity Management ustawień.
+1. Rozpocznij zarządzanie przypisaniami w usłudze PIM.
 
-1. Jeśli zostanie wyświetlony komunikat z prośbą o potwierdzenie dołączenia wybranego zasobu do zarządzania, wybierz pozycję **tak**.
+    ![Zarządzanie przypisaniami w Privileged Identity Management](./media/groups-discover-groups/groups-bring-under-management.png)
+
+> [!NOTE]
+> Gdy grupa uprzywilejowanych dostępu jest zarządzana, nie można jej wyprowadzić z zarządzania. Zapobiega to usunięciu przez innego administratora zasobów Privileged Identity Management ustawień.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415044"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542216"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -314,6 +314,9 @@ Istnieje prosty protokół REST umożliwiający uzyskanie tokenu w App Service i
 
 ### <a name="using-the-rest-protocol"></a>Korzystanie z protokołu REST
 
+> [!NOTE]
+> Starsza wersja tego protokołu używająca wersji interfejsu API "2017-09-01", `secret` zamiast `X-IDENTITY-HEADER` i tylko zaakceptowana `clientid` Właściwość przypisana przez użytkownika. Zwraca również `expires_on` w formacie sygnatury czasowej. MSI_ENDPOINT może służyć jako alias IDENTITY_ENDPOINT, a MSI_SECRET może służyć jako alias dla IDENTITY_HEADER. Ta wersja protokołu jest obecnie wymagana w przypadku planów hostingu zużycia w systemie Linux.
+
 Aplikacja z zarządzaną tożsamością ma zdefiniowane dwie zmienne środowiskowe:
 
 - IDENTITY_ENDPOINT — adres URL usługi tokenu lokalnego.
@@ -324,8 +327,8 @@ Aplikacja z zarządzaną tożsamością ma zdefiniowane dwie zmienne środowisko
 > | Nazwa parametru    | W     | Opis                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | zasób          | Zapytanie  | Identyfikator URI zasobu usługi Azure AD dla zasobu, dla którego ma zostać uzyskany token. Może to być jedna z [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) lub dowolny inny identyfikator URI zasobu.    |
-> | api-version       | Zapytanie  | Wersja interfejsu API tokenu, który ma być używany. Użyj "2019-08-01" lub nowszej.                                                                                                                                                                                                                                                                 |
-> | ZNAK X-IDENTITY-HEADER | Nagłówek | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
+> | api-version       | Zapytanie  | Wersja interfejsu API tokenu, który ma być używany. Użyj "2019-08-01" lub nowszej (chyba że korzystasz z używania systemu Linux, które obecnie tylko oferują wartość "2017-09-01" — Zobacz uwagi powyżej).                                                                                                                                                                                                                                                                 |
+> | ZNAK X-IDENTITY-HEADER | Header | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
 > | client_id         | Zapytanie  | Obowiązkowe Identyfikator klienta tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `mi_res_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                             |
 > | principal_id      | Zapytanie  | Obowiązkowe Identyfikator podmiotu zabezpieczeń przypisany do tożsamości przypisanej do użytkownika. `object_id`jest aliasem, który może być używany w zamian. Nie można użyć dla żądania, które zawiera client_id, mi_res_id lub object_id. Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu. |
 > | mi_res_id         | Zapytanie  | Obowiązkowe Identyfikator zasobu platformy Azure dla tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `client_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                      |
@@ -345,9 +348,6 @@ Pomyślne odpowiedź 200 OK zawiera treść JSON o następujących właściwośc
 > | token_type    | Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD jest FBearer. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Ta odpowiedź jest taka sama jak [odpowiedź na żądanie tokenu dostępu usługi Azure AD do usługi](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-> [!NOTE]
-> Starsza wersja tego protokołu używająca wersji interfejsu API "2017-09-01", `secret` zamiast `X-IDENTITY-HEADER` i tylko zaakceptowana `clientid` Właściwość przypisana przez użytkownika. Zwraca również `expires_on` w formacie sygnatury czasowej. MSI_ENDPOINT może służyć jako alias IDENTITY_ENDPOINT, a MSI_SECRET może służyć jako alias dla IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Przykłady protokołu REST
 
@@ -427,7 +427,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"

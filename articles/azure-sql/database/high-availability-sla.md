@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: d3abd6411197c9e7994e9ae642b07e72a0a24735
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496291"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542012"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,19 +95,18 @@ Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagr
 
 ## <a name="testing-application-fault-resiliency"></a>Testowanie odporności błędów aplikacji
 
-Wysoka dostępność to podstawowa część SQL Database i platformy wystąpienia zarządzanego SQL, która działa w sposób przezroczysty dla aplikacji bazy danych. Jednak firma Microsoft rozpoznaje, że można testować, w jaki sposób automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń byłyby wpływać na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych lub puli elastycznej. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych lub puli elastycznej.
+Wysoka dostępność to podstawowa część SQL Database i platformy wystąpienia zarządzanego SQL, która działa w sposób przezroczysty dla aplikacji bazy danych. Jednak firma Microsoft rozpoznaje, że można testować, w jaki sposób automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń byłyby wpływać na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych, puli elastycznej lub wystąpienia zarządzanego. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych, elastycznej puli lub wystąpienia zarządzanego.
 
 Przejście w tryb failover można zainicjować przy użyciu programu PowerShell, interfejsu API REST lub wiersza polecenia platformy Azure:
 
 |Typ wdrożenia|PowerShell|Interfejs API REST| Interfejs wiersza polecenia platformy Azure|
 |:---|:---|:---|:---|
-|Baza danych|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
-|Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Baza danych|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
+|Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
 |Wystąpienie zarządzane|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Wystąpienia zarządzane — tryb failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[AZ SQL mi tryb failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
-
 > [!IMPORTANT]
-> Polecenie przełączenia w tryb failover nie jest obecnie dostępne w warstwie usługi.
+> Polecenie przełączenia w tryb failover nie jest dostępne do odczytu pomocniczych replik baz danych.
 
 ## <a name="conclusion"></a>Podsumowanie
 

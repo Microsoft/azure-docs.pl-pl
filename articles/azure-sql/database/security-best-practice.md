@@ -1,7 +1,7 @@
 ---
 title: Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: W tym artykule przedstawiono typowe wymagania dotyczące zabezpieczeń i najlepsze rozwiązania dotyczące Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
+description: W tym artykule przedstawiono typowe wymagania dotyczące zabezpieczeń i najlepsze rozwiązania w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371791"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541723"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -241,7 +241,7 @@ Przypisz tylko niezbędne [uprawnienia](https://docs.microsoft.com/sql/relationa
 
 - W Azure Resource Manager:
   - Użyj wbudowanych ról, jeśli są dostępne lub role niestandardowe platformy Azure i przypisz niezbędne uprawnienia.
-    - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
+    - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
     - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
 
 **Najlepsze rozwiązania**:
@@ -291,7 +291,7 @@ Rozdzielenie obowiązków, nazywane także rozdzieleniem obowiązków, zawiera o
 - Zidentyfikuj kompleksową hierarchię użytkowników (i zautomatyzowanych procesów), które uzyskują dostęp do systemu.
 
 - Utwórz role zgodnie z wymaganymi grupami użytkowników i przypisz uprawnienia do ról.
-  - W przypadku zadań na poziomie zarządzania w Azure Portal lub za pośrednictwem programu PowerShell — Automatyzacja używaj ról RBAC. Znajdź wbudowaną rolę zgodną z wymaganiem lub Utwórz rolę niestandardową platformy Azure przy użyciu dostępnych uprawnień
+  - W przypadku zadań na poziomie zarządzania w Azure Portal lub za pośrednictwem programu PowerShell — Automatyzacja Użyj ról platformy Azure. Znajdź wbudowaną rolę zgodną z wymaganiem lub Utwórz rolę niestandardową platformy Azure przy użyciu dostępnych uprawnień
   - Utwórz role serwera dla zadań na całym serwerze (tworzenie nowych nazw logowania, baz danych) w wystąpieniu zarządzanym.
   - Utwórz role bazy danych dla zadań na poziomie bazy danych.
 
@@ -318,7 +318,7 @@ Rozdzielenie obowiązków, nazywane także rozdzieleniem obowiązków, zawiera o
 
 - Tworzenie i używanie ról zdefiniowanych przez użytkownika, gdy wbudowane role udzielą zbyt wielu uprawnień lub nie są niewystarczające uprawnienia.
 
-- Przypisania ról można także wykonać tymczasowo, znane także jako dynamiczne separacje obowiązków (DSD), w ramach kroków zadania agenta SQL w języku T-SQL lub przy użyciu usługi Azure PIM dla ról RBAC.
+- Przypisania ról można także wykonać tymczasowo, znane także jako dynamiczne separacje obowiązków (DSD), w ramach kroków zadania agenta SQL w języku T-SQL lub przy użyciu usługi Azure PIM dla ról platformy Azure.
 
 - Upewnij się, że przetwarzający nie mają dostępu do kluczy szyfrowania lub magazynów kluczy, a administratorzy zabezpieczeń z dostępem do kluczy nie mają z kolei dostępu do bazy danych. Korzystanie z [rozszerzalnego zarządzania kluczami (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) może ułatwić osiągnięcie tego rozbarwień. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) może służyć do implementowania EKM.
 
@@ -342,7 +342,7 @@ W przypadku czytelników, którzy chcą szczegółowe w SoD, zalecamy użycie na
   - [Procedury składowane podpisywania](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - W przypadku usługi Azure Resource Management:
-  - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
+  - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
   - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
   - [Używanie Azure AD Privileged Identity Management do uzyskiwania dostępu z podwyższonym poziomem uprawnień](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 

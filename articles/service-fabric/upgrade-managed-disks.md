@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255901"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542867"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -165,7 +165,7 @@ Poniżej przedstawiono modyfikacje sekcji dotyczące oryginalnego szablonu wdro�
 
 #### <a name="parameters"></a>Parametry
 
-Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy pamiętać, że `vmNodeType1Name` jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
+Dodaj parametr dla nazwy wystąpienia nowego zestawu skalowania. Należy pamiętać, że `vmNodeType1Name` jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
 
 **Plik szablonu**
 
@@ -174,18 +174,7 @@ Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowa
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-},
-"nt1InstanceCount": {
-    "type": "int",
-    "defaultValue": 5,
-    "metadata": {
-        "description": "Instance count for node type"
-    }
-},
-"vmNodeType1Size": {
-    "type": "string",
-    "defaultValue": "Standard_D2_v2"
-},
+}
 ```
 
 **Plik parametrów**
@@ -193,12 +182,6 @@ Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowa
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
-},
-"nt1InstanceCount": {
-    "value": 5
-},
-"vmNodeType1Size": {
-    "value": "Standard_D2_v2"
 }
 ```
 
@@ -216,13 +199,13 @@ W sekcji szablon wdrożenia `variables` Dodaj wpis dla puli adresów NAT dla ruc
 
 W sekcji *zasoby* szablonu wdrożenia Dodaj nowy zestaw skalowania maszyn wirtualnych, pamiętając o następujących kwestiach:
 
-* Nowy zestaw skalowania odwołuje się do tego samego typu węzła co oryginalny:
+* Nowy zestaw skalowania odwołuje się do nowego typu węzła:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
     ```
 
-* Nowy zestaw skalowania odwołuje się do tego samego adresu zaplecza i podsieci usługi równoważenia obciążenia (ale używa innej puli NAT dla ruchu przychodzącego modułu równoważenia obciążenia):
+* Nowy zestaw skalowania odwołuje się do tego samego adresu zaplecza modułu równoważenia obciążenia i podsieci co wersja oryginalna, ale używa innej puli NAT dla ruchu przychodzącego modułu równoważenia obciążenia:
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -253,6 +236,33 @@ W sekcji *zasoby* szablonu wdrożenia Dodaj nowy zestaw skalowania maszyn wirtua
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
+
+Następnie Dodaj wpis do `nodeTypes` listy zasobów *Microsoft. servicefabric/klastrów* . Użyj takich samych wartości jak pierwotny wpis typu węzła, z wyjątkiem `name` , który powinien odwoływać się do nowego typu węzła (*vmNodeType1Name*).
+
+```json
+"nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        ...
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    }
+],
+```
 
 Po zaimplementowaniu wszystkich zmian w plikach szablonu i parametrów przejdź do następnej sekcji, aby uzyskać informacje dotyczące Key Vault i wdrożyć aktualizacje w klastrze.
 

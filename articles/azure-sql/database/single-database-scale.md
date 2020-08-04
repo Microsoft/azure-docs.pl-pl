@@ -4,19 +4,19 @@ description: W tym artykule opisano, jak skalować zasoby obliczeniowe i magazyn
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/31/2020
-ms.openlocfilehash: 42a4d1288c7daeb4579e481f0258666d8e2cdbce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502991"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541689"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w Azure SQL Database
 
@@ -145,7 +145,7 @@ Aby zmienić rozmiar bazy danych zreplikowanej pomocniczej bazy danych, Zmień r
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11 i P15, gdy maksymalny rozmiar jest większy niż 1 TB
 
-Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystkich regionach z wyjątkiem: Chiny Wschodnie, Chiny Północne, Niemcy środkowe, Niemcy północno-zachodnie stany USA, regiony US DoD oraz centralne stany USA. W tych regionach maksymalna wielkość magazynu w warstwie Premium jest ograniczona do 1 TB. Następujące zagadnienia i ograniczenia mają zastosowanie do baz danych P11 i P15 o maksymalnym rozmiarze większym niż 1 TB:
+Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystkich regionach z wyjątkiem: Chiny Wschodnie, Chiny Północne, Niemcy środkowe i Niemcy północno-wschodnie. W tych regionach maksymalna wielkość magazynu w warstwie Premium jest ograniczona do 1 TB. Następujące zagadnienia i ograniczenia mają zastosowanie do baz danych P11 i P15 o maksymalnym rozmiarze większym niż 1 TB:
 
 - Jeśli maksymalny rozmiar bazy danych P11 lub P15 został kiedykolwiek ustawiony na wartość większą niż 1 TB, można go przywrócić lub skopiować do bazy danych P11 lub P15.  Następnie można ponownie przeskalować bazę danych do innego rozmiaru obliczeniowego, o ile ilość miejsca przydzieloną w czasie operacji ponownego skalowania nie przekracza maksymalnego limitu rozmiaru nowego rozmiaru obliczenia.
 - W przypadku aktywnych scenariuszy replikacji geograficznej:

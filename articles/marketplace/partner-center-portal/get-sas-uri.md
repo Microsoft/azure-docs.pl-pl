@@ -7,12 +7,12 @@ ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2bc129fc37347bd108ad62409490c5ce31b7728f
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431691"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538935"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
@@ -31,10 +31,10 @@ Podczas generowania identyfikatorów URI sygnatury dostępu współdzielonego dl
 
 Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
-* **Microsoft Eksplorator usługi Storage** — narzędzie graficzne dostępne w Azure Portal.
+* **Eksplorator usługi Microsoft Azure Storage** — narzędzie graficzne dostępne w Azure Portal.
 * **Interfejs wiersza polecenia Microsoft Azure** — zalecane dla systemów operacyjnych innych niż Windows oraz zautomatyzowanych lub ciągłych środowisk integracji.
 
-### <a name="use-microsoft-storage-explorer"></a>Korzystanie z programu Microsoft Eksplorator usługi Storage
+### <a name="use-microsoft-azure-storage-explorer"></a>Użyj Eksplorator usługi Microsoft Azure Storage
 
 1. Przejdź do swojego konta magazynu w Azure Portal.
 2. W okienku Eksploratora po lewej stronie Otwórz narzędzie **Eksplorator usługi Storage** (wersja zapoznawcza).

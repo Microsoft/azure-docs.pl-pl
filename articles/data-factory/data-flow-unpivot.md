@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537718"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541655"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory przekształcenie Unpivot
 
@@ -46,7 +46,7 @@ Obowiązkowe Można ustawić wzorzec nazewnictwa z prefiksem, środkową i sufik
 
 Na przykład przestawianie "Sales" według "region" po prostu daje nowe wartości kolumny na podstawie każdej wartości sprzedaży. Na przykład: "25", "50", "1000",... Jeśli jednak ustawisz wartość prefiksu "Sales", "Sales" zostanie poprzedzona wartościami.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Obraz przedstawiający kolumny ZZ, dostawcy i owoce przed i po unipivot transformację przy użyciu kolumny owoce jako klucza unipivot.](media/data-flow/unpivot3.png)
 
 Ustawienie kolumny "normalny" spowoduje grupowanie wszystkich kolumn przestawnych z wartościami zagregowanymi. Ustawienie kolumn rozmieszczenia na "boczne" będzie odróżniać się od kolumn i wartości.
 

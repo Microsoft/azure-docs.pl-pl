@@ -1,6 +1,6 @@
 ---
 title: Wykrywanie zaawansowanych zagrożeń na platformie Azure | Microsoft Docs
-description: Dowiedz się więcej na temat Azure AD Identity Protection i jego możliwości.
+description: Dowiedz się więcej na temat wbudowanych funkcji zaawansowanego wykrywania zagrożeń na platformie Azure, takich jak usługa Azure AD Identity Protection.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503289"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541026"
 ---
 # <a name="azure-advanced-threat-detection"></a>Zaawansowane wykrywanie zagrożeń na platformie Azure
 
@@ -342,7 +342,7 @@ Organizacja może bezpieczniej przenieść się do chmury i jednocześnie utrzym
 
 | Kategoria | Opis |
 | -------- | ----------- |
-| Odnajdź | Ujawniaj zasoby informatyczne niezatwierdzone przez dział IT za pomocą usługi Cloud App Security. Zyskaj widoczność przez odnajdywanie aplikacji, działań, użytkowników, danych i plików w Twoim środowisku chmury. Odnajduj aplikacje innych firm, które są połączone z Twoją chmurą.|
+| Odnajdywanie | Ujawniaj zasoby informatyczne niezatwierdzone przez dział IT za pomocą usługi Cloud App Security. Zyskaj widoczność przez odnajdywanie aplikacji, działań, użytkowników, danych i plików w Twoim środowisku chmury. Odnajduj aplikacje innych firm, które są połączone z Twoją chmurą.|
 |Zbadaj | Badaj aplikacje w chmurze, używając narzędzi śledczych dla chmury, aby z bliska przyjrzeć się ryzykownym aplikacjom, konkretnym użytkownikom i plikom w Twojej sieci. Znajduj wzorce w danych zebranych z chmury. Generuj raporty w celu monitorowania chmury. |
 | Kontrola | Ogranicz ryzyko przez skonfigurowanie zasad i alertów, aby osiągnąć maksymalną kontrolę ruchu sieciowego w chmurze. Użyj usługi Cloud App Security, aby przenieść użytkowników do bezpiecznych, alternatywnych, oficjalnie zaakceptowanych aplikacji w chmurze. |
 | Ochrona | Użyj Cloud App Security do zaakceptowania lub zabronienia działania aplikacji, wymuszania ochrony przed utratą danych, kontrolowania uprawnień i udostępniania oraz generowania niestandardowych raportów i alertów. |
@@ -365,7 +365,7 @@ Przy zbieraniu danych z tych źródeł Cloud App Security uruchamia zaawansowan�
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Zaawansowane możliwości wykrywania zagrożeń innych firm za pomocą witryny Azure Marketplace
 
-### <a name="web-application-firewall"></a>Web Application Firewall
+### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
 
 Zapora aplikacji sieci Web sprawdza przychodzący ruch internetowy i blokuje iniekcje SQL, skrypty między lokacjami, operacje przekazywania złośliwego oprogramowania, ataki DDoS aplikacji oraz inne ataki, które są używane w aplikacjach sieci Web. Sprawdza także odpowiedzi z serwerów zaplecza sieci Web w celu zapobiegania utracie danych (DLP). Zintegrowany aparat kontroli dostępu umożliwia administratorom tworzenie szczegółowych zasad kontroli dostępu do uwierzytelniania, autoryzacji i ewidencjonowania aktywności (AAA), które zapewniają organizacjom silne uwierzytelnianie i kontrolę użytkownika.
 

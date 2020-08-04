@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, tracking-python
-ms.openlocfilehash: dcb2a50a91bec70dfe5d9adda7518f3510a8c973
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4741c6348c2a4077776d2d79bee56de26f62e2d1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373202"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540941"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -48,7 +48,7 @@ Zalecanym podejściem do wdrażania modelu jest za pośrednictwem interfejsu API
 
 Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-management-and-deployment.md) wprowadzenie.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W przypadku wystąpienia dowolnego problemu najpierw należy podzielić zadanie wdrożenia (opisane wcześniej) na poszczególne kroki, aby wyizolować problem.
 
@@ -153,7 +153,7 @@ Aby uzyskać więcej informacji na temat dostosowywania środowiska języka Pyth
 Podczas testowania lokalnego może być konieczne zaktualizowanie `score.py` pliku w celu dodania rejestrowania lub podjęcia próby rozwiązania problemów, które zostały wykryte. Aby ponownie załadować zmiany do `score.py` pliku, użyj `reload()` . Na przykład poniższy kod ponownie ładuje skrypt dla usługi, a następnie wysyła do niej dane. Dane są oceniane przy użyciu zaktualizowanego `score.py` pliku:
 
 > [!IMPORTANT]
-> `reload`Metoda jest dostępna tylko dla wdrożeń lokalnych. Aby uzyskać informacje na temat aktualizowania wdrożenia do innego obiektu docelowego obliczeń, zobacz sekcję Update ( [Wdrażanie modeli](how-to-deploy-and-where.md#update)).
+> `reload`Metoda jest dostępna tylko dla wdrożeń lokalnych. Aby uzyskać informacje na temat aktualizowania wdrożenia do innego obiektu docelowego obliczeń, zobacz [jak zaktualizować usługę sieci Web](how-to-deploy-update-web-service.md).
 
 ```python
 service.reload()

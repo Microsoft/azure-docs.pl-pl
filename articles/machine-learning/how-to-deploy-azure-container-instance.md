@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 6ad6ca72f0861324a10e93a1eadbdc11c6104574
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320973"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541128"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Wdróż model do Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,14 +96,12 @@ Zobacz [Wdrażanie modeli przy użyciu vs Code](tutorial-train-deploy-image-clas
 > [!IMPORTANT]
 > Nie musisz tworzyć kontenera ACI w celu przetestowania z góry. Kontenery ACI są tworzone zgodnie z wymaganiami.
 
-## <a name="update-the-web-service"></a>Aktualizowanie usługi sieci Web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
+* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
 * [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)

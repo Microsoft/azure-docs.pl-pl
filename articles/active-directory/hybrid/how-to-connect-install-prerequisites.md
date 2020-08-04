@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447004"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542063"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -125,6 +125,7 @@ Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar a
         </system.net>
     ```
 
+* Jeśli konfiguracja serwera proxy jest wykonywana w istniejącej konfiguracji, należy ponownie uruchomić **usługę synchronizacji Microsoft Azure AD** , aby Azure AD Connect odczytać konfigurację serwera proxy i zaktualizować behviour. 
 * Gdy Azure AD Connect wysyła żądanie sieci Web do usługi Azure AD w ramach synchronizacji katalogów, odpowiedź usługi Azure AD może potrwać do 5 minut. W przypadku serwerów proxy często istnieje możliwość skonfigurowania limitu czasu bezczynności połączenia. Upewnij się, że konfiguracja jest równa co najmniej 6 minut.
 
 Aby uzyskać więcej informacji, zobacz MSDN dotyczący [domyślnego elementu proxy](https://msdn.microsoft.com/library/kd3cf2ex.aspx).

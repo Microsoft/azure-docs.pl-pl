@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082122"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542233"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
 W tym temacie wymieniono atrybuty, które są synchronizowane przez Azure AD Connect Sync.  
@@ -64,7 +64,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
-| description | | |X | |
+| description (opis) | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -165,7 +165,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
@@ -185,7 +185,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -247,7 +247,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -265,7 +265,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | company |X |X | | |
 | działu, |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -298,7 +298,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | tytuł |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
@@ -325,7 +325,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
 | CN |X | |X | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | mail (poczta) |X |X |X | |
 | mailNickname |X |X |X | |
@@ -346,7 +346,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |

@@ -1,6 +1,6 @@
 ---
 title: Funkcje zabezpieczeń platformy Azure, które pomagają zarządzać tożsamościami | Microsoft Docs
-description: " Ten artykuł zawiera omówienie podstawowych funkcji zabezpieczeń platformy Azure, które ułatwiają zarządzanie tożsamościami. Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak Multi-Factor Authentication i zasady dostępu warunkowego. "
+description: Dowiedz się więcej na temat podstawowych funkcji zabezpieczeń platformy Azure, które ułatwiają zarządzanie tożsamościami. Zobacz informacje na temat tematów, takich jak logowanie jednokrotne i zwrotny serwer proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384535"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542080"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
 
@@ -98,8 +98,8 @@ Kontrola dostępu oparta na rolach stanowi system autoryzacji oparty na usłudze
 
 Więcej informacji:
 
-* [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](/azure/role-based-access-control/overview)
-* [Wbudowane role platformy Azure](/azure/role-based-access-control/built-in-roles)
+* [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 

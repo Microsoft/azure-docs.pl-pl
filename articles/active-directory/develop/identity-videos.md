@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/05/2020
+ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 2452d1e0cc07767922b86810a914bba2e6f56dba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 74ca7f80f483a722cc8dabde76d295210074bebe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200942"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540295"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Wideo poświęcone platformie tożsamości firmy Microsoft
 
@@ -66,24 +66,11 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        6 — <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">jakie aspekty używania protokołów ułatwiają wykonywanie BIBLIOTEK MSAL? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (15:52)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        7 — <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Jeśli używasz MSAL, jakie podstawowe pojęcia dotyczące protokołu należy znać? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (1:51)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
+
 
 <!-- IMAGES -->
 [id-plat-01-img]: ./media/identity-videos/id-for-devs-01.jpg
@@ -99,7 +86,7 @@ ___
 [id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
 [id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
 
-## <a name="authentication-fundamentals"></a>Podstawowe informacje uwierzytelniania
+## <a name="authentication-fundamentals"></a>Podstawy uwierzytelniania
 
 Jeśli jesteś nowym zagadnieniami, takimi jak dostawcy tożsamości, tokeny zabezpieczające, oświadczenia i odbiorcy, ta seria filmów może pomóc w wyczyszczeniu koncepcji i składników w nowoczesnej uwierzytelnianiu.
 ___
@@ -146,20 +133,7 @@ ___
         <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column:::
-        7 — <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Jaka jest relacja między żądaniem autoryzacji i tokenami? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (1:45)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
-        8 — <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Jaka jest różnica między tokenami identyfikatora, tokenami dostępu, tokenami odświeżania i tokenami <span class="docon docon-navigate-external x-hidden-focus"></span> sesji?</a> (2:10)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-:::row-end:::
+
 
 <!-- IMAGES -->
 [auth-fund-01-img]: ./media/identity-videos/aad-auth-fund-01.jpg
@@ -284,6 +258,34 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Jeśli używasz MSAL, jakie podstawowe pojęcia dotyczące protokołu należy znać?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Jaka jest różnica między tokenami identyfikatora, tokenami dostępu, tokenami odświeżania i tokenami sesji?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Jaka jest relacja między żądaniem autoryzacji i tokenami?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">Jakie aspekty używania protokołów ułatwiają tworzenie bibliotek MSAL?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
     :::column-end:::

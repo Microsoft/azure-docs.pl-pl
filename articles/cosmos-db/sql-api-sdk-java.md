@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461038"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541672"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -260,11 +260,10 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
 > [!WARNING]
-> Wszystkie wersje **1. x** zestawu SQL SDK dla języka Java zostaną wycofane z **30 maja 2020**. Wszystkie wersje zestawu SQL SDK dla języka Java sprzed wersji **1.0.0** zostały wycofane **29 lutego 2016**.
-> 
-> 
+> Po 30 maju 2020 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x Azure Cosmos DB Java SDK dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 1. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
+>
+> Po 29 lutego 2016 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 0. x Azure Cosmos DB Java SDK dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 0. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
 
-<br/>
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051311"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540839"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -74,7 +74,7 @@ Aplikacja Authenticator może pomóc zapobiec nieautoryzowanemu dostępowi do ko
 ![Zrzut ekranu przedstawiający przykładowy monit przeglądarki sieci Web dla powiadomienia aplikacji uwierzytelniania w celu ukończenia procesu logowania](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Jeśli Twoja organizacja ma pracę w podróży lub podróżuje z Chinami, *powiadomienie za pomocą metody aplikacji mobilnej* na urządzeniach z systemem Android nie działa w tym kraju/regionie. Dla tych użytkowników należy udostępnić alternatywne metody uwierzytelniania.
+> Jeśli Twoja organizacja ma pracę pracowników lub podróżujących z Chin, *powiadomienie za pomocą metody aplikacji mobilnej* na urządzeniach z systemem Android nie działa w tym kraju/regionie, ponieważ usługi Google Play (w tym powiadomienia wypychane) są blokowane w regionie. Jednak powiadomienia dla systemu iOS działają. W przypadku urządzeń z systemem Android należy udostępnić alternatywną metodę uwierzytelniania dla tych użytkowników.
 
 ### <a name="verification-code-from-mobile-app"></a>Kod weryfikacyjny z aplikacji mobilnej
 

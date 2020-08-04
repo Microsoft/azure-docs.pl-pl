@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047551"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542382"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
 
@@ -49,7 +49,7 @@ Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiekt�
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+[![Diagram przedstawiający niektóre z najczęściej używanych obiektów podczas tworzenia względem modelu danych Azure Media Services obiektów.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
 Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -179,8 +179,8 @@ Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy prze
 
 |Nazwa|Stan|Centra danych
 |---|---|---|
-|Standard|Ogólna dostępność|Wszystko|
-|Premium|Ogólna dostępność|Wszystko|
+|Standard|Ogólna dostępność|Wszystkie|
+|Premium|Ogólna dostępność|Wszystkie|
 
 ### <a name="live-encoding"></a>Kodowanie na żywo
 
@@ -196,7 +196,7 @@ Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Medi
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Usługa Media Encoder Standard|Ogólna dostępność|Wszystko|
+|Usługa Media Encoder Standard|Ogólna dostępność|Wszystkie|
 |Przepływ pracy usługi Media Encoder w warstwie Premium|Ogólna dostępność|Wszystkie z wyjątkiem Chin|
 
 ### <a name="analytics-media-processors"></a>Procesory multimediów usługi analizy
@@ -210,12 +210,12 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Azure Media Face Detector|Wersja zapoznawcza|Wszystko|
-|Azure Media Indexer|Ogólna dostępność|Wszystko|
-|Azure Media Motion Detector|Wersja zapoznawcza|Wszystko|
-|Azure Media OCR|Wersja zapoznawcza|Wszystko|
-|Azure Media Redactor|Ogólna dostępność|Wszystko|
-|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystko|
+|Azure Media Face Detector|Wersja zapoznawcza|Wszystkie|
+|Azure Media Indexer|Ogólna dostępność|Wszystkie|
+|Azure Media Motion Detector|Wersja zapoznawcza|Wszystkie|
+|Azure Media OCR|Wersja zapoznawcza|Wszystkie|
+|Azure Media Redactor|Ogólna dostępność|Wszystkie|
+|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystkie|
 
 ### <a name="protection"></a>Ochrona
 
@@ -225,10 +225,10 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Centra danych|
 |---|---|---| 
-|Storage|Ogólna dostępność|Wszystko|
-|Klucze AES-128|Ogólna dostępność|Wszystko|
-|FairPlay|Ogólna dostępność|Wszystko|
-|PlayReady|Ogólna dostępność|Wszystko|
+|Magazyn|Ogólna dostępność|Wszystkie|
+|Klucze AES-128|Ogólna dostępność|Wszystkie|
+|FairPlay|Ogólna dostępność|Wszystkie|
+|PlayReady|Ogólna dostępność|Wszystkie|
 |Widevine|Ogólna dostępność|Wszystkie regiony z wyjątkiem Niemiec, Rządu Federalnego i Chin.
 
 ### <a name="reserved-units-rus"></a>Jednostki zarezerwowane (RU)
@@ -251,7 +251,7 @@ Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scalin
 
 |Nazwa typu jednostki zarezerwowanej|Stan|Centra danych
 |---|---|---|
-|S1|Ogólna dostępność|Wszystko|
+|S1|Ogólna dostępność|Wszystkie|
 |S2|Ogólna dostępność|Wszystkie regiony z wyjątkiem Brazylii Południowej i Indii Zachodnich|
 |S3|Ogólna dostępność|Wszystkie regiony z wyjątkiem Indii Zachodnich|
 
@@ -265,5 +265,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

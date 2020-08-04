@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023588"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542640"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Proces obracania klucza głównego jest prosty.
 
 ### <a name="code-sample-to-use-a-master-key"></a>Przykład kodu, aby użyć klucza głównego
 
-Poniższy przykład kodu ilustruje, jak używać punktu końcowego konta Cosmos DB i klucza głównego do tworzenia wystąpienia DocumentClient i utworzenia bazy danych.
+Poniższy przykład kodu ilustruje sposób użycia punktu końcowego konta Cosmos DB i klucza głównego do tworzenia wystąpienia DocumentClient i utworzenia bazy danych:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -69,6 +69,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+Poniższy przykład kodu ilustruje sposób używania punktu końcowego konta Azure Cosmos DB i klucza głównego do tworzenia wystąpienia `CosmosClient` obiektu:
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="resource-tokens"></a>Tokeny zasobów<a id="resource-tokens"></a>
 

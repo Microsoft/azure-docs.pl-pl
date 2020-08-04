@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407034"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540074"
 ---
-# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
+# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
 W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure do użycia z obszarem roboczym Azure Machine Learning.
+
+> [!IMPORTANT]
+> Informacje zawarte w tym dokumencie opierają się na korzystaniu z zapory platformy Azure, dlatego można z nich korzystać z innych produktów zapory. Jeśli masz pytania dotyczące sposobu zezwalania na komunikację za pośrednictwem zapory, zapoznaj się z dokumentacją używanej zapory.
 
 Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning, które są opisane w tym artykule.
 
@@ -53,6 +56,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **vault.azure.net** | W usłudze Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
+| **your-acr-server-name.azurecr.io** | Wymagany tylko wtedy, gdy Azure Container Registry znajduje się za siecią wirtualną. W tej konfiguracji link prywatny jest tworzony ze środowiska firmy Microsoft do wystąpienia usługi ACR w ramach subskrypcji. Użyj nazwy serwera ACR dla obszaru roboczego Azure Machine Learning. |
 
 ## <a name="python-hosts"></a>Hosty języka Python
 

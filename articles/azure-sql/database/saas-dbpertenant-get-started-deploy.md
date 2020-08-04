@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254314"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542250"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wdróż i Eksploruj wielodostępną aplikację SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
 
@@ -57,7 +57,7 @@ Wybierz swoje nazwy teraz i Zapisz je w dół.
 
 1. Aby otworzyć szablon wdrożenia Wingtip bilety SaaS bazy danych dla dzierżawy w Azure Portal, wybierz pozycję **Wdróż na platformie Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Wprowadź wartości w szablonie dla wymaganych parametrów.
 

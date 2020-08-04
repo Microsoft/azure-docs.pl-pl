@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 163087461dbbcfd036b348f69362f0ad0010e791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383856"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540346"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Jak uzyskać certyfikat AppSource dla Azure Active Directory
 
@@ -58,14 +58,13 @@ Aplikacje z jedną dzierżawą mogą umożliwić *kontakt ze mną* , ale jeśli 
 Wersja próbna podwyższenia poziomu klienta to środowisko, które AppSource zalecane, ponieważ oferuje on dostęp jednego kliknięcia do aplikacji. Poniższy przykład pokazuje, jak wygląda to środowisko:
 
 <table >
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Użytkownik odnajduje aplikację w witrynie sieci Web AppSource</li><li>Wybiera opcję "bezpłatna wersja próbna"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource przekierowuje użytkownika do adresu URL w witrynie sieci Web</li><li>Witryna sieci Web uruchamia proces <i>logowania</i> jednokrotnego automatycznie (przy ładowaniu strony)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Użytkownik zostanie przekierowany do strony logowania firmy Microsoft</li><li>Użytkownik podaje poświadczenia do logowania</li></ul></td>
+<tr>    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt="Shows Free trial for customer-led trial experience."/><ul><li>Użytkownik odnajduje aplikację w witrynie sieci Web AppSource</li><li>Wybiera opcję "bezpłatna wersja próbna"</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt="Shows how user is redirected to a URL in your web site."/><ul><li>AppSource przekierowuje użytkownika do adresu URL w witrynie sieci Web</li><li>Witryna sieci Web uruchamia proces <i>logowania</i> jednokrotnego automatycznie (przy ładowaniu strony)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt="Shows the Microsoft sign-in page."/><ul><li>Użytkownik zostanie przekierowany do strony logowania firmy Microsoft</li><li>Użytkownik podaje poświadczenia do logowania</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Użytkownik wyrazi zgodę na aplikację</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Logowanie kończy się i użytkownik zostaje przekierowany z powrotem do witryny sieci Web</li><li>Użytkownik uruchamia bezpłatną wersję próbną</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt="Example: Consent page for an application."/><ul><li>Użytkownik wyrazi zgodę na aplikację</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt="Shows the experience the user sees when redirected back to your site."/><ul><li>Logowanie kończy się i użytkownik zostaje przekierowany z powrotem do witryny sieci Web</li><li>Użytkownik uruchamia bezpłatną wersję próbną</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -76,20 +75,20 @@ Możesz skorzystać z wersji próbnej partnera, gdy konieczne jest wykonanie rę
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Użytkownik odnajduje aplikację w witrynie sieci Web AppSource</li><li>Wybiera opcję "Skontaktuj się z nami"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Wypełnia formularz informacjami kontaktowymi</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt="Shows Contact me for partner-led trial experience"/><ul><li>Użytkownik odnajduje aplikację w witrynie sieci Web AppSource</li><li>Wybiera opcję "Skontaktuj się z nami"</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt="Shows an example form with contact info"/><ul><li>Wypełnia formularz informacjami kontaktowymi</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/usercontact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/usercontact.png" width="55%" alt="Shows placeholder for user information"/></td>
             <td>Otrzymujesz informacje o użytkowniku</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt="Shows placeholder for setup environment info"/></td>
             <td>Środowisko konfiguracji</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt="Shows placeholder for trial info"/></td>
             <td>Skontaktuj się z użytkownikiem z informacjami dotyczącymi wersji próbnej</td>
         </tr>
         </table><br/><br/>
@@ -97,10 +96,9 @@ Możesz skorzystać z wersji próbnej partnera, gdy konieczne jest wykonanie rę
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Użytkownik uzyskuje dostęp do aplikacji i kończy proces logowania jednokrotnego</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Użytkownik wyrazi zgodę na aplikację</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Logowanie kończy się i użytkownik zostaje przekierowany z powrotem do witryny sieci Web</li><li>Użytkownik uruchamia bezpłatną wersję próbną</li></ul></td>
-   
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt="Shows the application sign-in screen"/><ul><li>Użytkownik uzyskuje dostęp do aplikacji i kończy proces logowania jednokrotnego</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt="Shows an example consent page for an application"/><ul><li>Użytkownik wyrazi zgodę na aplikację</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt="Shows the experience the user sees when redirected back to your site"/><ul><li>Logowanie kończy się i użytkownik zostaje przekierowany z powrotem do witryny sieci Web</li><li>Użytkownik uruchamia bezpłatną wersję próbną</li></ul></td>  
 </tr>
 </table>
 

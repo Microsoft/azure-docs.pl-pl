@@ -1,14 +1,14 @@
 ---
 title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970454"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541825"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -19,6 +19,7 @@ W tym artykule omówiono składniki językowe obsługiwane przez program Resourc
 - [Tabele grafu zasobów](#resource-graph-tables)
 - [Niestandardowe elementy języka grafu zasobów](#resource-graph-custom-language-elements)
 - [Obsługiwane elementy języka KQL](#supported-kql-language-elements)
+- [Zakres zapytania](#query-scope)
 - [Znaki ucieczki](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabele grafu zasobów
@@ -112,10 +113,35 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[projekt — poza](/azure/kusto/query/projectawayoperator) |[Usuń kolumny z wyników](../samples/advanced.md#remove-column) | |
 |[porządku](/azure/kusto/query/sortoperator) |[Wyświetl listę zasobów posortowanych według nazwy](../samples/starter.md#list-resources) |Synonim`order` |
 |[Podsumuj](/azure/kusto/query/summarizeoperator) |[Liczba zasobów platformy Azure](../samples/starter.md#count-resources) |Uproszczona tylko pierwsza strona |
-|[czasochłonn](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim`limit` |
-|[Do góry](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
+|[take (pobierz)](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim`limit` |
+|[top (pierwsze)](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
 |[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
 |[miejscu](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
+
+## <a name="query-scope"></a>Zakres zapytania
+
+Zakres subskrypcji, z których zasoby są zwracane przez zapytanie, zależy od metody uzyskiwania dostępu do grafu zasobów. Interfejs wiersza polecenia platformy Azure i Azure PowerShell wypełnić listę subskrypcji do uwzględnienia w żądaniu na podstawie kontekstu autoryzowanego użytkownika. Listę subskrypcji można określić ręcznie dla każdej z użyciem odpowiednio **subskrypcji** i parametrów **subskrypcji** .
+W interfejsie API REST i wszystkich innych zestawów SDK Lista subskrypcji do uwzględnienia zasobów musi być jawnie zdefiniowana w ramach żądania.
+
+Wersja **zapoznawcza**interfejsu API REST `2020-04-01-preview` dodaje właściwość do zakresu zapytania do [grupy zarządzania](../../management-groups/overview.md). Ten interfejs API w wersji zapoznawczej powoduje również, że właściwość subskrypcji jest opcjonalna. Jeśli nie zdefiniowano żadnej grupy zarządzania ani listy subskrypcji, zakres zapytania to wszystkie zasoby, do których uwierzytelniony użytkownik może uzyskać dostęp. Nowa `managementGroupId` Właściwość przyjmuje identyfikator grupy zarządzania, który różni się od nazwy grupy zarządzania.
+Gdy `managementGroupId` jest określony, uwzględniane są zasoby z pierwszych 5000 subskrypcji w lub poniżej określonej hierarchii grupy zarządzania. `managementGroupId`nie mogą być używane w tym samym czasie co `subscriptions` .
+
+Przykład: wykonywanie zapytania dotyczącego wszystkich zasobów w hierarchii grupy zarządzania o nazwie "moja grupa zarządzania" o IDENTYFIKATORze "myMG".
+
+- Identyfikator URI interfejsu API REST
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Treść żądania
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## <a name="escape-characters"></a>Znaki ucieczki
 

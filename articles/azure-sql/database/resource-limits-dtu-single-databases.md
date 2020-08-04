@@ -4,19 +4,19 @@ description: Ta strona zawiera opis niektórych typowych limitów zasobów DTU d
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: references_regions
+ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fa8901f2a219b0693cee17bc4d0ab78da615c415
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa15a5f95c2163309ecfd9cc0130d1860eb3b634
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325104"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542691"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limity zasobów dla pojedynczych baz danych korzystających z modelu zakupu jednostek DTU — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ W poniższych tabelach przedstawiono zasoby dostępne dla pojedynczej bazy danyc
 | Maksymalna liczba jednostek DTU | 10 | 20 | 50 | 100 |
 | Uwzględniony magazyn (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
 | Maksymalna ilość miejsca w magazynie (GB) | 250 | 250 | 250 | 1024 |
-| Maksymalna pojemność magazynu OLTP w pamięci (GB) | Brak | Brak | Brak | Brak |
+| Maksymalna pojemność magazynu OLTP w pamięci (GB) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań)| 60 | 90 | 120 | 200 |
 | Maksymalna liczba współbieżnych sesji |600 | 900 | 1200 | 2400 |
 ||||||
@@ -77,7 +77,7 @@ W poniższych tabelach przedstawiono zasoby dostępne dla pojedynczej bazy danyc
 | Maksymalna liczba jednostek DTU | 200 | 400 | 800 | 1600 | 3000 |
 | Uwzględniony magazyn (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
 | Maksymalna ilość miejsca w magazynie (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
-| Maksymalna pojemność magazynu OLTP w pamięci (GB) | Brak | Brak | Brak | Brak |Brak |
+| Maksymalna pojemność magazynu OLTP w pamięci (GB) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |NIE DOTYCZY |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań)| 400 | 800 | 1600 | 3200 |6000 |
 | Maksymalna liczba współbieżnych sesji |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -101,7 +101,7 @@ W poniższych tabelach przedstawiono zasoby dostępne dla pojedynczej bazy danyc
 <sup>2</sup> od 1024 gb do 4096 GB w przyrostach wynoszących 256 GB.
 
 > [!IMPORTANT]
-> Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystkich regionach z wyjątkiem: Chiny Wschodnie, Chiny Północne, Niemcy środkowe, Niemcy północno-zachodnie stany USA, regiony US DoD oraz centralne stany USA. W tych regionach maksymalna wielkość magazynu w warstwie Premium jest ograniczona do 1 TB.  Aby uzyskać więcej informacji, zobacz [bieżące ograniczenia poziomów P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+> Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystkich regionach z wyjątkiem: Chiny Wschodnie, Chiny Północne, Niemcy środkowe i Niemcy północno-wschodnie. W tych regionach maksymalna wielkość magazynu w warstwie Premium jest ograniczona do 1 TB.  Aby uzyskać więcej informacji, zobacz [bieżące ograniczenia poziomów P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
 > Aby uzyskać `tempdb` limity, zobacz [limity tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

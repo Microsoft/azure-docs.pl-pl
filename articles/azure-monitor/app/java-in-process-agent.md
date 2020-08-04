@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Applica
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f35d661761f1bea4dbd6b691fb0667c6dad3e72e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014341"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541859"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
 
@@ -126,7 +126,22 @@ Naszym celem w programie 3.0 + jest umożliwienie wysyłania niestandardowych da
 
 Obsługujemy interfejs API Micrometer, OpenTelemetry i popularne struktury rejestrowania. Application Insights Java 3,0 automatycznie przechwytuje dane telemetryczne i skorelowanie ich wraz ze wszystkimi automatycznie zebranymi danymi telemetrycznymi.
 
-Z tego powodu nie planujemy wydania zestawu SDK z Application Insights 3,0 w tym momencie.
+### <a name="supported-custom-telemetry"></a>Obsługiwana niestandardowa Telemetria
+
+Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych telemetrycznych, które można włączyć, aby uzupełnić agenta Java 3,0. Podsumowując, metryki niestandardowe są obsługiwane za pomocą micrometer, niestandardowe wyjątki i ślady mogą być włączane za pomocą platform rejestrowania, a dowolny typ telemetrii niestandardowej jest obsługiwany za pomocą [Application Insights Java 2. x SDK](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+
+|                 | Mikrometr | Log4J, logback, lip | zestaw SDK 2. x |
+|-----------------|------------|---------------------|---------|
+| Zdarzenia niestandardowe   |            |                     |  Tak    |
+| Metryki niestandardowe  |  Tak       |                     |  Tak    |
+| Zależności    |            |                     |  Tak    |
+| Wyjątki      |            |  Tak                |  Tak    |   
+| Wyświetlenia strony      |            |                     |  Tak    |
+| Żądania        |            |                     |  Tak    |
+| Ślady          |            |  Tak                |  Tak    |
+
+W tej chwili nie planujemy zwolnić zestawu SDK z Application Insights 3,0.
 
 Application Insights Java 3,0 już nasłuchuje na danych telemetrycznych wysyłanych do Application Insights Java SDK 2. x. Ta funkcja jest ważną częścią wątku uaktualnienia dla istniejących użytkowników w wersji 2. x i pełni ważną lukę w naszej niestandardowej pomocy technicznej telemetrii do momentu, w którym interfejs API OpenTelemetry jest w całości.
 

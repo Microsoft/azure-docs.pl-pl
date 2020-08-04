@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356410"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541740"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
 W tym artykule wyjaśniono, jak działa połączenie między Azure AD Connect i usługą Azure AD oraz jak rozwiązywać problemy z łącznością. Te problemy najprawdopodobniej będą widoczne w środowisku z serwerem proxy.
@@ -32,7 +32,7 @@ Azure AD Connect korzysta z nowoczesnego uwierzytelniania (przy użyciu bibliote
 
 W tym artykule pokazano, jak firma Fabrikam nawiązuje połączenie z usługą Azure AD za pomocą serwera proxy. Serwer proxy ma nazwę fabrikamproxy i używa portu 8080.
 
-Najpierw należy upewnić się, że [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany.
+Najpierw należy upewnić się, że [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany, a **usługa synchronizacji Microsoft Azure AD** została uruchomiona ponownie po aktualizacji pliku machine.config.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Łączenie z usługą Azure AD**
 
-| Godzina | Adres URL |
+| Czas | Adres URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Ustaw opcję**
 
-| Godzina | Adres URL |
+| Czas | Adres URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Synchronizacja początkowa**
 
-| Godzina | Adres URL |
+| Czas | Adres URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

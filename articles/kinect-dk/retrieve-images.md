@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, pobieranie, czujnik, aparat, zestaw SDK, Głębokość, RGB, obrazy, kolor, przechwytywanie, rozdzielczość, bufor
-ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277463"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538918"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Pobieranie danych obrazu usługi Azure urządzenia Kinect
 
-Ta strona zawiera szczegółowe informacje dotyczące pobierania obrazów z usługi Azure urządzenia Kinect. W tym artykule pokazano, jak przechwytywać i uzyskiwać dostęp do obrazów koordynowanych między kamerą koloru i głębią urządzenia. urządzenie. Aby uzyskać dostęp do obrazów, należy najpierw otworzyć i skonfigurować urządzenie, a następnie można przechwytywać obrazy.
+Ta strona zawiera szczegółowe informacje dotyczące pobierania obrazów z usługi Azure urządzenia Kinect. W tym artykule przedstawiono sposób przechwytywania i uzyskiwania dostępu do obrazów koordynowanych między kolorem i głębokością urządzenia. Aby uzyskać dostęp do obrazów, należy najpierw otworzyć i skonfigurować urządzenie, a następnie można przechwytywać obrazy.
 Przed skonfigurowaniem i przechwyceniem obrazu należy [znaleźć i otworzyć urządzenie](find-then-open-device.md).
 
 Możesz również zapoznać się z [przykładem przesyłania strumieniowego zestawu SDK](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) , który pokazuje, jak używać funkcji w tym artykule.

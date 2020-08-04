@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133099"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542029"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie wielu puli węzłów dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nimi
 
@@ -489,6 +489,8 @@ Na węzłach w *gpunodepool*można zaplanować tylko te, dla których zastosowan
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Określ przebarwienie, etykietę lub tag dla puli węzłów
 
+### <a name="setting-nodepool-taints"></a>Ustawianie nodepool
+
 Podczas tworzenia puli węzłów można dodawać do niej takie same, etykiety lub Tagi. Po dodaniu opcji przeciąganie, etykietka lub tag wszystkie węzły w puli węzłów również pobierają ten obiekt, etykietę lub tag.
 
 Aby utworzyć pulę węzłów z przebarwieniem, użyj [AZ AKS nodepool Add][az-aks-nodepool-add]. Określ nazwę *taintnp* i użyj parametru, `--node-taints` Aby określić *jednostkę SKU = GPU: NoSchedule dla zmiany* czasu.
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Informacje o zasobie są widoczne w Kubernetes na potrzeby obsługi reguł planowania dla węzłów.
 
+### <a name="setting-nodepool-labels"></a>Ustawianie etykiet nodepool
+
 Podczas tworzenia puli węzłów można również dodać etykiety do puli węzłów. Etykiety ustawione w puli węzłów są dodawane do każdego węzła w puli węzłów. Te [etykiety są widoczne w Kubernetes][kubernetes-labels] na potrzeby obsługi reguł planowania dla węzłów.
 
 Aby utworzyć pulę węzłów za pomocą etykiety, użyj [AZ AKS nodepool Add][az-aks-nodepool-add]. Określ nazwę *labelnp* i użyj parametru, `--labels` Aby określić *Wydział = IT* i *costcenter = 9999* dla etykiet.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Ustawianie tagów platformy Azure nodepool
+
 Możesz zastosować tag platformy Azure do pul węzłów w klastrze AKS. Tagi zastosowane do puli węzłów są stosowane do każdego węzła w puli węzłów i są utrwalane za pomocą uaktualnień. Tagi są również stosowane do nowych węzłów dodanych do puli węzłów podczas operacji skalowania w poziomie. Dodanie tagu może ułatwić wykonywanie zadań, takich jak śledzenie zasad lub szacowanie kosztów.
+
+Tagi platformy Azure mają klucze, w których wielkość liter nie jest uwzględniana w operacjach, np. podczas pobierania tagu przez przeszukiwanie klucza. W takim przypadku tag z danym kluczem zostanie zaktualizowany lub pobrany niezależnie od wielkości liter. W wartościach tagów jest rozróżniana wielkość liter.
+
+W AKS, jeśli wiele tagów jest ustawionych z identycznymi kluczami, ale z inną wielkością liter, używany tag to pierwszy w kolejności alfabetycznej. Na przykład `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` wyniki `Key1` `val1` są ustawiane.
 
 Utwórz pulę węzłów za pomocą polecenia [AZ AKS nodepool Add][az-aks-nodepool-add]. Określ nazwę *tagnodepool* i użyj parametru, `--tag` Aby określić *Wydział = IT* i *costcenter = 9999* dla tagów.
 

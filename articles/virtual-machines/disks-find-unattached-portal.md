@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085762"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542742"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Znajdowanie i usuwanie niedołączonych dysków zarządzanych i niezarządzanych platformy Azure — Azure Portal
 
@@ -27,7 +27,7 @@ Jeśli masz niedołączone dyski zarządzane i nie są już potrzebne dane, w po
 
     W bloku **dyski** zostanie wyświetlona lista wszystkich dysków. Dowolny dysk o postaci " **-** " w kolumnie **właściciel** jest niedołączonym dyskiem.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Zrzut ekranu przedstawiający blok dyski zarządzane, jeśli dysk znajduje się w kolumnie Właściciel, jest niedołączonym dyskiem.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Wybierz niedołączony dysk, który chcesz usunąć. spowoduje to otwarcie bloku dysku.
 1. W bloku dysku możesz potwierdzić, że stan dysku jest niedołączony, a następnie wybierz pozycję **Usuń**.
