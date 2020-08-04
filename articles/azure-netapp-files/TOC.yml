@@ -55,22 +55,30 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Delegowanie podsieci do usługi Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Tworzenie woluminu SMB dla usługi Azure NetApp Files
+    - name: Tworzenie woluminu NFS i zarządzanie nim
+      items:
+        - name: Tworzenie woluminu NFS
+          href: azure-netapp-files-create-volumes.md
+        - name: Konfigurowanie domyślnej domeny NFSv4.1
+          href: azure-netapp-files-configure-nfsv41-domain.md
+        - name: Konfigurowanie szyfrowania Kerberos NFSv4.1
+          href: configure-kerberos-encryption.md
+        - name: Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files
+          href: configure-nfs-clients.md
+        - name: Konfigurowanie zasad eksportu dla woluminu NFS
+          href: azure-netapp-files-configure-export-policy.md
+    - name: Tworzenie woluminu SMB
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Tworzenie woluminu NFS dla usługi Azure NetApp Files
-      href: azure-netapp-files-create-volumes.md
-    - name: Konfigurowanie domyślnej domeny NFSv4.1 dla usługi Azure NetApp Files
-      href: azure-netapp-files-configure-nfsv41-domain.md
-    - name: Konfigurowanie zasad eksportu dla woluminu NFS
-      href: azure-netapp-files-configure-export-policy.md
-    - name: Zarządzanie woluminami
-      href: azure-netapp-files-manage-volumes.md
+    - name: Tworzenie woluminu dwuprotokołowego
+      href: create-volumes-dual-protocol.md
     - name: Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Zarządzanie migawkami
       href: azure-netapp-files-manage-snapshots.md
     - name: Zmienianie rozmiaru puli pojemności lub woluminu
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Dynamiczna zmiana poziomu usługi woluminu
+      href: dynamic-change-volume-service-level.md
     - name: Programowanie
       items:
         - name: Interfejs API REST

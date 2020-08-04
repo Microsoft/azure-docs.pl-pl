@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: Łączenie urządzenia z wieloma składnikami (Python)
       href: tutorial-multiple-components-python.md
+    - name: Nawiązywanie połączenia z urządzeniem za pomocą protokołu MQTT
+      href: tutorial-use-mqtt.md
 - name: Pojęcia
   items:
     - name: Architektura

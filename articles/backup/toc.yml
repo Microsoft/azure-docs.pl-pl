@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Konfigurowanie kopii zapasowych maszyn wirtualnych platformy Azure z systemem Linux spójnych na poziomie aplikacji
               href: backup-azure-linux-app-consistent.md
+            - name: Selektywne tworzenie kopii zapasowej dysku
+              href: selective-disk-backup-restore.md
         - name: Przywracanie
           items:
             - name: Informacje o przywracaniu maszyny wirtualnej platformy Azure

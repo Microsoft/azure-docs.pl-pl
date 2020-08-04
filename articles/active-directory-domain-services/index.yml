@@ -13,12 +13,12 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 72fda19e35792e25ba31de2c3d7d4882e9d0e0ef
+  ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70010560"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87480377"
 landingContent:
 - title: Informacje o usłudze Azure AD Domain Services
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
       url: synchronization.md
     - text: Często zadawane pytania
       url: faqs.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: deploy
     links:
@@ -74,13 +74,13 @@ landingContent:
       url: check-health.md
     - text: Konfigurowanie powiadomień e-mail
       url: notifications.md
-    - text: Włączanie inspekcji zabezpieczeń (wersja zapoznawcza)
+    - text: Włączanie inspekcji zabezpieczeń
       url: security-audit-events.md
 - title: Dołączanie maszyn wirtualnych do domeny
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Oprogramowanie Windows Server
+    - text: Windows Server
       url: join-windows-vm.md
   - linkListType: how-to-guide
     links:
