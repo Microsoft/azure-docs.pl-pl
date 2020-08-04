@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bd641b57cfdd7f9481e17a90dbbd81d5e43f8ad2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311113"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529229"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity platform i przepływ poświadczeń klienta OAuth 2,0
 
@@ -53,7 +53,7 @@ Typowym przypadkiem użycia jest użycie listy ACL do uruchamiania testów dla a
 Ten typ autoryzacji jest typowy dla demonów i kont usług, które muszą uzyskiwać dostęp do danych należących do użytkowników indywidualnych, którzy mają osobiste konta Microsoft. W przypadku danych należących do organizacji zalecamy uzyskanie niezbędnej autoryzacji za pomocą uprawnień aplikacji.
 
 > [!NOTE]
-> Aby można było włączyć ten wzorzec autoryzacji oparty na listach ACL, usługa Azure AD nie wymaga, aby aplikacje były autoryzowane do uzyskiwania tokenów dla innej aplikacji — w związku z tym tokeny tylko dla aplikacji mogą być wystawiane bez `rules` zgłoszenia. Aplikacje uwidaczniające interfejsy API muszą implementować testy uprawnień w celu akceptowania tokenów.
+> Aby można było włączyć ten wzorzec autoryzacji oparty na listach ACL, usługa Azure AD nie wymaga, aby aplikacje były autoryzowane do uzyskiwania tokenów dla innej aplikacji — w związku z tym tokeny tylko dla aplikacji mogą być wystawiane bez `roles` zgłoszenia. Aplikacje uwidaczniające interfejsy API muszą implementować testy uprawnień w celu akceptowania tokenów.
 
 ### <a name="application-permissions"></a>Uprawnienia aplikacji
 

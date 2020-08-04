@@ -3,12 +3,12 @@ title: Zabezpieczenia sieci dla Azure Relay
 description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322159"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532989"
 ---
 # <a name="network-security-for-azure-relay"></a>Zabezpieczenia sieci dla Azure Relay 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Relay: 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 ## <a name="ip-firewall"></a>Zapora IP 
 Domyślnie przestrzenie nazw przekaźnika są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-Ta funkcja jest przydatna w scenariuszach, w których Azure Relay powinny być dostępne tylko z niektórych dobrze znanych witryn. Reguły zapory umożliwiają konfigurowanie reguł w celu akceptowania ruchu pochodzącego z określonych adresów IPv4. Na przykład, jeśli używasz przekaźnika z [usługą Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), możesz utworzyć **regułę zapory** , aby zezwolić na ruch tylko z adresów IP infrastruktury lokalnej. 
+Ta funkcja jest przydatna w scenariuszach, w których Azure Relay powinny być dostępne tylko z niektórych dobrze znanych witryn. Reguły zapory umożliwiają konfigurowanie reguł w celu akceptowania ruchu pochodzącego z określonych adresów IPv4. Na przykład, jeśli używasz przekaźnika z [usługą Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), możesz utworzyć **regułę zapory** , aby zezwolić na ruch tylko z adresów IP infrastruktury lokalnej. 
 
 Reguły zapory adresów IP są stosowane na poziomie przestrzeni nazw przekaźnika. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Wszystkie próby połączenia z adresu IP, które nie pasują do dozwolonej reguły adresów IP w przestrzeni nazw przekaźnika, są odrzucane jako nieautoryzowane. Odpowiedź nie zawiera wzmianki o regule adresów IP. Reguły filtrowania adresów IP są stosowane w podanej kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 

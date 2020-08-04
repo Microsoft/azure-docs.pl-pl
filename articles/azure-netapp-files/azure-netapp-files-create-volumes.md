@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: 2e1e6ad6625586e882551521111057a2a20f0fff
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f176e8fceb4d3e2e07398e6cb878180c8fe2321b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513047"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533159"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Tworzenie woluminu NFS dla usługi Azure NetApp Files
 
-Azure NetApp Files obsługuje woluminy NFS (NFSv3 i NFSv 4.1) i SMBv3. Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. Jeśli chcesz utworzyć wolumin SMB, zobacz [Tworzenie woluminu SMB dla Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
+Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), SMBv3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem 
-Potrzebujesz skonfigurowanej puli pojemności.   
-[Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
-Podsieć musi być delegowana do usługi Azure NetApp Files.  
-[Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* Potrzebujesz skonfigurowanej puli pojemności.  
+    Zobacz [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md).   
+* Podsieć musi być delegowana do usługi Azure NetApp Files.  
+    Zobacz [delegowanie podsieci do Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
 
@@ -44,22 +44,19 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 
 ## <a name="best-practice"></a>Najlepsze rozwiązanie
 
-* Należy upewnić się, że używasz odpowiednich instrukcji instalacji dla woluminu.  Zobacz [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Upewnij się, że używasz odpowiednich instrukcji instalacji dla woluminu.  Zobacz [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * Klient systemu plików NFS powinien znajdować się w tej samej sieci wirtualnej lub komunikacji równorzędnej co Azure NetApp Files woluminie. Połączenie spoza sieci wirtualnej jest obsługiwane; jednak spowoduje to wprowadzenie dodatkowych opóźnień i zmniejszenie ogólnej wydajności.
 
-* Należy upewnić się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
+* Upewnij się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
 
 ## <a name="create-an-nfs-volume"></a>Tworzenie woluminu NFS
 
-1.  Kliknij blok **woluminy** w bloku pule pojemności. 
+1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin. 
 
-    ![Przejdź do woluminów](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Przejdź do woluminów](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin.  
-    Zostanie wyświetlone okno Tworzenie woluminu.
-
-3.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz** i podaj informacje dla następujących pól:   
+2.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz**, a następnie podaj informacje dotyczące następujących pól na karcie podstawowe:   
     * **Nazwa woluminu**      
         Określ nazwę tworzonego woluminu.   
 
@@ -92,11 +89,11 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 
     * Jeśli chcesz zastosować istniejące zasady migawek do woluminu, kliknij pozycję **Pokaż sekcję zaawansowaną** , aby ją rozwinąć, a następnie wybierz pozycję Zasady migawek w menu rozwijanym. 
 
-        Aby uzyskać informacje na temat tworzenia zasad migawek, zobacz [Zarządzanie migawkami](azure-netapp-files-manage-snapshots.md).
+        Aby uzyskać informacje na temat tworzenia zasad migawek, zobacz [Zarządzanie zasadami migawek](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Pokaż zaznaczenie zaawansowane](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
+3. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
     * Wybierz system **plików NFS** jako typ protokołu dla woluminu.   
     * Określ **ścieżkę pliku** , która zostanie użyta do utworzenia ścieżki eksportu dla nowego woluminu. Ścieżka eksportu służy do instalowania woluminu oraz uzyskiwania do niego dostępu.
 
@@ -105,11 +102,16 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
         Ścieżka pliku musi być unikatowa w ramach każdej subskrypcji i każdego regionu. 
 
     * Wybierz wersję systemu plików NFS (**NFSv3** lub **nfsv 4.1**) dla woluminu.  
+
+    * Jeśli używasz NFSv 4.1, wskaż, czy chcesz włączyć szyfrowanie **Kerberos** dla woluminu.  
+
+        Dodatkowe konfiguracje są wymagane, jeśli używasz protokołu Kerberos z NFSv 4.1. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie nfsv 4.1 szyfrowanie Kerberos](configure-kerberos-encryption.md).
+
     * Opcjonalnie [Skonfiguruj zasady eksportowania dla woluminu systemu plików NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Określanie protokołu NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-5. Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć szczegóły woluminu.  Następnie kliknij przycisk **Utwórz** , aby utworzyć wolumin systemu plików NFS.
+4. Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć szczegóły woluminu.  Następnie kliknij przycisk **Utwórz** , aby utworzyć wolumin.
 
     Utworzony wolumin zostanie wyświetlony na stronie woluminy. 
  
@@ -119,6 +121,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 ## <a name="next-steps"></a>Następne kroki  
 
 * [Konfigurowanie domyślnej domeny NFSv4.1 dla usługi Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
+* [Konfigurowanie szyfrowania Kerberos w NFSv 4.1](configure-kerberos-encryption.md)
 * [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Konfigurowanie zasad eksportu dla woluminu NFS](azure-netapp-files-configure-export-policy.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

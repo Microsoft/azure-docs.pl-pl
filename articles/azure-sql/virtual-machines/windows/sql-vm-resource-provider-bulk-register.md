@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 74757b2f5e272c7e7dbc0dc7f033c7899be1414b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184314"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533805"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,11 +36,11 @@ Aby uzyskać więcej informacji na temat dostawcy zasobów, zobacz [dostawca zas
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów, potrzebne są następujące elementy: 
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana w dostawcy zasobów](sql-vm-resource-provider-register.md#register-subscription-with-rp) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
-- Poświadczenia klienta używane do rejestrowania maszyn wirtualnych znajdują się w następujących rolach RBAC: współautor, **współautor**lub **właściciel** **maszyny wirtualnej**. 
+- Poświadczenia klienta używane do rejestrowania maszyn wirtualnych istnieją w żadnej z następujących ról platformy Azure: współautor, **współautor**lub **właściciel** **maszyny wirtualnej**. 
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 

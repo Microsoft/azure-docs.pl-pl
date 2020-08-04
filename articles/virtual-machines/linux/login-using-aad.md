@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291137"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534740"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
-Zasady kontroli dostępu opartej na rolach (RBAC) na platformie Azure określają, kto może logować się do maszyny wirtualnej. Do autoryzacji logowania maszyn wirtualnych służą dwie role RBAC:
+Zasady kontroli dostępu opartej na rolach (RBAC) na platformie Azure określają, kto może logować się do maszyny wirtualnej. Dwie role platformy Azure są używane do autoryzacji logowania do maszyny wirtualnej:
 
 - **Logowanie administratora maszyny wirtualnej**: Użytkownicy z przypisaną tą rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora systemu Windows lub użytkownika root w systemie Linux.
 - **Logowanie użytkownika maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.
@@ -181,9 +181,9 @@ Z tym wierszem:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem
 
-Niektóre typowe błędy podczas próby połączenia SSH z poświadczeniami usługi Azure AD nie obejmują żadnych przypisanych ról RBAC i powtarzające się polecenia logowania. Skorzystaj z poniższych sekcji, aby rozwiązać te problemy.
+Niektóre typowe błędy podczas próby połączenia SSH z poświadczeniami usługi Azure AD nie obejmują żadnych przypisanych ról platformy Azure, a także powtórzonych wierszy logowania. Skorzystaj z poniższych sekcji, aby rozwiązać te problemy.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Odmowa dostępu: rola RBAC nie została przypisana
+### <a name="access-denied-azure-role-not-assigned"></a>Odmowa dostępu: rola platformy Azure nie jest przypisana
 
 Jeśli w monicie SSH zostanie wyświetlony następujący błąd, sprawdź, czy skonfigurowano zasady RBAC dla maszyny wirtualnej, która przyznaje użytkownikowi uprawnienia do *logowania administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* :
 

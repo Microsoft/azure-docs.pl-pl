@@ -1,5 +1,5 @@
 ---
-title: Przypisywanie roli RBAC na potrzeby dostępu do danych przy użyciu programu PowerShell
+title: Przypisywanie roli platformy Azure na potrzeby dostępu do danych za pomocą programu PowerShell
 titleSuffix: Azure Storage
 description: Informacje dotyczące przypisywania uprawnień do Azure Active Directory podmiotu zabezpieczeń z kontrolą dostępu opartą na rolach (RBAC) przy użyciu programu PowerShell. Usługa Azure Storage obsługuje wbudowaną i niestandardową rolę platformy Azure do uwierzytelniania za pośrednictwem usługi Azure AD.
 services: storage
@@ -10,24 +10,24 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c090343e6f63a71b639e5c2f0e9c9fbd0f3e0c2d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9c13662bd49de2a04e11eeb90910e4d8d0429921
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370482"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534139"
 ---
-# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Używanie programu PowerShell do przypisywania roli RBAC na potrzeby dostępu do danych obiektów blob i kolejek
+# <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Przypisywanie roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek przy użyciu programu PowerShell
 
 Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do kontenerów lub kolejek.
 
-Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 W tym artykule opisano, jak używać Azure PowerShell do wyświetlania listy ról wbudowanych platformy Azure i przypisywania ich do użytkowników. Aby uzyskać więcej informacji o korzystaniu z Azure PowerShell, zobacz [omówienie Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>Role RBAC dla obiektów blob i kolejek
+## <a name="azure-roles-for-blobs-and-queues"></a>Role platformy Azure dla obiektów blob i kolejek
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -35,7 +35,7 @@ W tym artykule opisano, jak używać Azure PowerShell do wyświetlania listy ró
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Wyświetl dostępne role RBAC
+## <a name="list-available-azure-roles"></a>Wyświetl listę dostępnych ról platformy Azure
 
 Aby wyświetlić listę dostępnych wbudowanych ról platformy Azure z Azure PowerShell, użyj polecenia [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) :
 
@@ -55,9 +55,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Przypisywanie roli RBAC do podmiotu zabezpieczeń
+## <a name="assign-an-azure-role-to-a-security-principal"></a>Przypisywanie roli platformy Azure do podmiotu zabezpieczeń
 
-Aby przypisać rolę RBAC do podmiotu zabezpieczeń, użyj polecenia [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Format polecenia może różnić się w zależności od zakresu przypisania. Aby uruchomić polecenie, musisz mieć przypisaną rolę właściciela lub współautora w odpowiednim zakresie. W poniższych przykładach pokazano, jak przypisać rolę do użytkownika w różnych zakresach, ale można użyć tego samego polecenia, aby przypisać rolę do dowolnego podmiotu zabezpieczeń.
+Aby przypisać rolę platformy Azure do podmiotu zabezpieczeń, użyj polecenia [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Format polecenia może różnić się w zależności od zakresu przypisania. Aby uruchomić polecenie, musisz mieć przypisaną rolę właściciela lub współautora w odpowiednim zakresie. W poniższych przykładach pokazano, jak przypisać rolę do użytkownika w różnych zakresach, ale można użyć tego samego polecenia, aby przypisać rolę do dowolnego podmiotu zabezpieczeń.
 
 ### <a name="container-scope"></a>Zakres kontenera
 

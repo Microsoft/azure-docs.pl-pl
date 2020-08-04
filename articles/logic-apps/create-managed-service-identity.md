@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060978"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533346"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
 
@@ -55,7 +55,7 @@ Aby skonfigurować tożsamość zarządzaną, która ma być używana, Użyj lin
 W przeciwieństwie do tożsamości przypisanych przez użytkownika nie trzeba ręcznie tworzyć tożsamości przypisanej do systemu. Aby skonfigurować tożsamość przypisaną przez system dla aplikacji logiki, poniżej przedstawiono opcje, których można użyć:
 
 * [Witryna Azure Portal](#azure-portal-system-logic-app)
-* [Szablony Azure Resource Manager](#template-system-logic-app)
+* [Szablony usługi Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -133,7 +133,7 @@ Gdy platforma Azure utworzy definicję zasobu aplikacji logiki, `identity` obiek
 Aby skonfigurować tożsamość zarządzaną przez użytkownika dla aplikacji logiki, należy najpierw utworzyć tę tożsamość jako osobny autonomiczny zasób platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
 * [Witryna Azure Portal](#azure-portal-user-identity)
-* [Szablony Azure Resource Manager](#template-user-identity)
+* [Szablony usługi Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Tworzenie tożsamości przypisanej do użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Dodaj przypisanie roli](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -305,7 +305,7 @@ Jeśli szablon zawiera również definicję zasobu tożsamości zarządzanej, mo
 Aby można było użyć tożsamości zarządzanej aplikacji logiki na potrzeby uwierzytelniania, Skonfiguruj dostęp dla tej tożsamości w zasobie platformy Azure, w którym planujesz używać tożsamości. Aby wykonać to zadanie, przypisz odpowiednią rolę do tej tożsamości w docelowym zasobie platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
 * [Witryna Azure Portal](#azure-portal-assign-access)
-* [Szablon usługi Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* [Szablon Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu usług Azure RBAC i Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Interfejs wiersza polecenia platformy Azure ([AZ role Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu funkcji Azure RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md).
 * [Interfejs API REST platformy Azure](../role-based-access-control/role-assignments-rest.md)
@@ -325,7 +325,7 @@ Aby można było użyć tożsamości zarządzanej aplikacji logiki na potrzeby u
 
 1. W obszarze **Dodaj przypisanie roli**wybierz **rolę** , która zapewnia tożsamości wymagane do uzyskania dostępu do zasobu docelowego.
 
-   Na przykład w tym temacie tożsamość musi mieć [rolę, która może uzyskiwać dostęp do obiektu BLOB w kontenerze usługi Azure Storage](../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+   Na przykład w tym temacie tożsamość musi mieć [rolę, która może uzyskiwać dostęp do obiektu BLOB w kontenerze usługi Azure Storage](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
    ![Wybierz rolę "Współautor danych obiektu blob magazynu"](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -384,7 +384,7 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
    | **URI** | Tak | Adres URL punktu końcowego służący do uzyskiwania dostępu do docelowego zasobu lub jednostki platformy Azure. Składnia identyfikatora URI zwykle zawiera [Identyfikator zasobu](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) dla usługi lub zasobu platformy Azure. |
    | **Nagłówki** | Nie | Wszystkie wartości nagłówka, które są potrzebne lub które mają zostać uwzględnione w żądaniu wychodzącym, takie jak typ zawartości. |
    | **Zapytania** | Nie | Wszystkie parametry zapytania, które są potrzebne lub które mają zostać uwzględnione w żądaniu, takie jak parametr określonej operacji lub wersja interfejsu API dla operacji, którą chcesz uruchomić |
-   | **Uwierzytelnianie** | Tak | Typ uwierzytelniania używany do uwierzytelniania dostępu do zasobu lub jednostki docelowej |
+   | **Authentication** | Tak | Typ uwierzytelniania używany do uwierzytelniania dostępu do zasobu lub jednostki docelowej |
    ||||
 
    Na przykład załóżmy, że chcesz uruchomić [operację tworzenia migawek obiektów](/rest/api/storageservices/snapshot-blob) BLOB na obiekcie BLOB na koncie usługi Azure Storage, na którym wcześniej skonfigurowano dostęp do Twojej tożsamości. Jednak [Łącznik usługi Azure Blob Storage](/connectors/azureblob/) nie oferuje obecnie tej operacji. Zamiast tego można uruchomić tę operację za pomocą [akcji http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) lub innej [operacji interfejsu API REST usługi BLOB Service](/rest/api/storageservices/operations-on-blobs).
@@ -452,7 +452,7 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
 Aby zatrzymać korzystanie z tożsamości zarządzanej dla aplikacji logiki, możesz skorzystać z następujących opcji:
 
 * [Witryna Azure Portal](#azure-portal-disable)
-* [Szablony Azure Resource Manager](#template-disable)
+* [Szablony usługi Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Usuń przypisanie roli](../role-based-access-control/role-assignments-powershell.md)
   * [Usuwanie tożsamości przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)

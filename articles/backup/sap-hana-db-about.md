@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnyc
 description: W tym artykule dowiesz się, jak tworzyć kopie zapasowe baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503510"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533448"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -60,7 +60,7 @@ Oprócz tworzenia kopii zapasowych i odzyskiwania na poziomie bazy danych za pom
 
 Do tworzenia kopii zapasowych i odzyskiwania bazy danych można używać [BACKINT certyfikowane rozwiązanie do tworzenia kopii zapasowych w usłudze Azure SAP HANA](#backup-architecture) .
 
-[Kopia zapasowa maszyny wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowej systemu operacyjnego i innych dysków nienależących do bazy danych. Kopia zapasowa maszyny wirtualnej jest wykonywana raz dziennie i zawiera kopie zapasowe wszystkich dysków (z wyjątkiem **Akcelerator zapisu (WA) dysków** i **UltraDisks**). Ponieważ kopia zapasowa bazy danych jest tworzona przy użyciu rozwiązania do tworzenia kopii zapasowych w usłudze Azure SAP HANA, można utworzyć kopię zapasową spójną na poziomie plików tylko dla dysków systemu operacyjnego i innych niż bazy danych za pomocą funkcji Wyklucz dysk, która jest obecnie dostępna w wersji zapoznawczej.
+[Kopia zapasowa maszyny wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowej systemu operacyjnego i innych dysków nienależących do bazy danych. Kopia zapasowa maszyny wirtualnej jest wykonywana raz dziennie i zawiera kopie zapasowe wszystkich dysków (z wyjątkiem **dysków akcelerator zapisu (WA)** i **Ultra disks**). Ponieważ kopia zapasowa bazy danych jest tworzona przy użyciu rozwiązania do tworzenia kopii zapasowych w usłudze Azure SAP HANA, można wykonać kopię zapasową spójną na poziomie plików tylko dla dysków systemu operacyjnego i innych niż bazy danych za pomocą funkcji [tworzenia kopii zapasowych i przywracania dysków dla maszyn wirtualnych platformy Azure](selective-disk-backup-restore.md) .
 
 >[!NOTE]
 > Używanie skryptów gotowych do utworzenia kopii zapasowej maszyny wirtualnej platformy Azure umożliwia tworzenie kopii zapasowych spójnych na poziomie aplikacji dla woluminów danych bazy danych. Jeśli jednak obszar dziennika znajduje się na dyskach WA, wykonanie migawki tych dysków może nie zagwarantować spójności obszaru dziennika. HANA ma jawny sposób generowania kopii zapasowych dzienników z tego powodu. Włącz te same w SAP HANA i można utworzyć ich kopię zapasową za pomocą usługi Azure SAP HANA Backup.

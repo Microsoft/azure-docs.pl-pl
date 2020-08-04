@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476173"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530150"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -59,12 +59,13 @@ Następujące scenariusze nie są obecnie obsługiwane:
 ## <a name="known-issues"></a>Znane problemy
 
 - Nie można utworzyć ani zmodyfikować grupy dynamicznej, gdy rola jest przypisana za pośrednictwem grupy.
-- Azure Information Protection nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Bezpośrednie przypisania ról nadal działają. Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Bezpośrednie przypisania ról nadal działają. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.
 - **Włączenie wdrażania etapowego dla funkcji logowania użytkownika zarządzanego** nie obsługuje przypisywania przez grupę.
 - *Tylko licencjonowani klienci usługi Azure AD P2*: Nie przypisuj grupy jako aktywnej do roli za pomocą usługi Azure AD i Privileged Identity Management. Dzięki temu użytkownicy nie mogą zobaczyć aktywnych przypisań ról w programie PIM, jak również uniemożliwić usunięcie tego przypisania programu PIM. W tym scenariuszu nie ma żadnych zmian w kwalifikujących się przypisaniach. Jeśli podjęto próbę wykonania tego przypisania, może wystąpić nieoczekiwane zachowanie, takie jak:
   - Godzina zakończenia przypisywania roli może być błędnie wyświetlana.
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
-- *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.
+- *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  
+- Centrum administracyjne programu Exchange nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy, ale działa polecenie cmdlet programu PowerShell.
+- Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.
 
 Naprawiamy te problemy.
 
@@ -74,5 +75,5 @@ Korzystanie z tej funkcji wymaga posiadania dostępnej licencji Azure AD — wer
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie grupy przypisanej do roli](roles-groups-create-eligible.md)
+- [Tworzenie grupy z możliwością przypisania do roli](roles-groups-create-eligible.md)
 - [Przypisywanie roli do grupy przypisanej do roli](roles-groups-assign-role.md)

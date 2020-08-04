@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514309"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532496"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -120,16 +120,15 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 - Po utworzeniu magazynu tworzony jest również "DefaultPolicy" i może służyć do tworzenia kopii zapasowych zasobów.
 - Wszelkie zmiany wprowadzone w okresie przechowywania zasad tworzenia kopii zapasowych będą stosowane z mocą wstecz do wszystkich starszych punktów odzyskiwania od nowych.
 
-### <a name="additional-reference"></a>Dodatkowe informacje 
+### <a name="additional-reference"></a>Dodatkowe informacje
 
--   Maszyna wirtualna platformy Azure: jak [tworzyć](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) i [modyfikować](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) zasady? 
--   SQL Server bazy danych na maszynie wirtualnej platformy Azure: jak [tworzyć](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) i [modyfikować](./manage-monitor-sql-database-backup.md#modify-policy) zasady? 
--   Udział plików platformy Azure: jak [tworzyć](./backup-afs.md#discover-file-shares-and-configure-backup) i [modyfikować](./manage-afs-backup.md#modify-policy) zasady? 
--   SAP HANA: jak [tworzyć](./backup-azure-sap-hana-database.md#create-a-backup-policy) i [modyfikować](./sap-hana-db-manage.md#change-policy) zasady? 
--   MARS: jak [utworzyć](./backup-windows-with-mars-agent.md#create-a-backup-policy) i [zmodyfikować](./backup-azure-manage-mars.md#modify-a-backup-policy) zasady? 
--   [Czy istnieją jakieś ograniczenia dotyczące planowania tworzenia kopii zapasowych na podstawie typu obciążenia?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- Maszyna wirtualna platformy Azure: jak [tworzyć](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) i [modyfikować](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) zasady.
+- SQL Server bazy danych na maszynie wirtualnej platformy Azure: jak [tworzyć](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) i [modyfikować](./manage-monitor-sql-database-backup.md#modify-policy) zasady.
+- Udział plików platformy Azure: jak [tworzyć](./backup-afs.md) i [modyfikować](./manage-afs-backup.md#modify-policy) zasady.
+- SAP HANA: jak [tworzyć](./backup-azure-sap-hana-database.md#create-a-backup-policy) i [modyfikować](./sap-hana-db-manage.md#change-policy) zasady.
+- MARS: [Tworzenie](./backup-windows-with-mars-agent.md#create-a-backup-policy) i [Modyfikowanie](./backup-azure-manage-mars.md#modify-a-backup-policy) zasad.
+- [Czy istnieją jakieś ograniczenia dotyczące planowania tworzenia kopii zapasowych na podstawie typu obciążenia?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [Co się stanie z istniejącymi punktami odzyskiwania, jeśli zmienię zasady przechowywania?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure
 

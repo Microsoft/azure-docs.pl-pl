@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 50d893ef42c7b870d5fbf2be1feed798d46c86a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78e7fc6b2a4c9804fbba60aa9946cc612b494461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81409970"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531289"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Kopiowanie danych z Zoho za pomocą Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -36,6 +36,8 @@ Ten łącznik Zoho jest obsługiwany dla następujących działań:
 
 Dane z Zoho można skopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
+Ten łącznik obsługuje uwierzytelnianie tokenu dostępu Xero i uwierzytelnianie OAuth 2,0.
+
 Azure Data Factory udostępnia wbudowany sterownik umożliwiający połączenie, dlatego nie trzeba ręcznie instalować żadnego sterownika przy użyciu tego łącznika.
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -51,13 +53,19 @@ Dla połączonej usługi Zoho są obsługiwane następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Zoho** | Tak |
+| connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z Zoho. | Tak |
+| ***W obszarze `connectionProperties` :*** | | |
 | endpoint | Punkt końcowy serwera Zoho ( `crm.zoho.com/crm/private` ). | Tak |
+| authenticationType | Dozwolone wartości to `OAuth_2.0` i `Access Token` . | Tak |
+| clientId | Identyfikator klienta skojarzony z aplikacją Zoho. | Tak dla uwierzytelniania OAuth 2,0 | 
+| clientSecrect | Clientsecret skojarzony z aplikacją Zoho. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak dla uwierzytelniania OAuth 2,0 | 
+| refreshToken | Token odświeżenia OAuth 2,0 skojarzony z aplikacją Zoho, używany do odświeżania tokenu dostępu po jego wygaśnięciu. Token odświeżania nigdy nie wygaśnie. Aby uzyskać token odświeżania, musisz zażądać `offline` access_type, Dowiedz się więcej z [tego artykułu](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).| Tak dla uwierzytelniania OAuth 2,0 |
 | accessToken | Token dostępu do uwierzytelniania Zoho. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 
-**Przykład:**
+**Przykład: uwierzytelnianie OAuth 2,0**
 
 ```json
 {
@@ -65,11 +73,50 @@ Dla połączonej usługi Zoho są obsługiwane następujące właściwości:
     "properties": {
         "type": "Zoho",
         "typeProperties": {
-            "endpoint" : "crm.zoho.com/crm/private",
-            "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
-            }
+            "connectionProperties": { 
+                "authenticationType":"OAuth_2.0", 
+                "endpoint": "crm.zoho.com/crm/private", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<client secret>"
+                },
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+```
+
+**Przykład: uwierzytelnianie tokenu dostępu**
+
+```json
+{
+    "name": "ZohoLinkedService",
+    "properties": {
+        "type": "Zoho",
+        "typeProperties": {
+            "connectionProperties": { 
+                "authenticationType":"Access Token", 
+                "endpoint": "crm.zoho.com/crm/private", 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
         }
     }
 }
@@ -114,7 +161,7 @@ Aby skopiować dane z Zoho, ustaw typ źródła w działaniu Copy na **ZohoSourc
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ZohoSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Accounts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Accounts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

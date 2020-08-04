@@ -3,12 +3,12 @@ title: Dostarczanie zdarzeń przy użyciu tożsamości usługi zarządzanej
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499827"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534247"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
 W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 Polecenie aktualizowania istniejącej domeny jest podobne ( `az eventgrid domain update` ).
 
-## <a name="supported-destinations-and-rbac-roles"></a>Obsługiwane miejsca docelowe i role RBAC
+## <a name="supported-destinations-and-azure-roles"></a>Obsługiwane miejsca docelowe i role platformy Azure
 Po włączeniu tożsamości dla tematu lub domeny w usłudze Event Grid platforma Azure automatycznie tworzy tożsamość w Azure Active Directory. Dodaj tę tożsamość do odpowiednich ról platformy Azure, aby temat lub domena mogły przesyłać zdarzenia do obsługiwanych miejsc docelowych. Na przykład Dodaj tożsamość do roli **nadawca danych usługi azure Event Hubs** dla przestrzeni nazw usługi Azure Event Hubs, aby temat usługi Event Grid mógł przesyłać zdarzenia do centrów zdarzeń w tej przestrzeni nazw. 
 
 Obecnie usługa Azure Event Grid obsługuje tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna znajdować się tożsamość, aby temat mógł przesłać dalej zdarzenia.
 
-| Element docelowy | Rola RBAC | 
+| Element docelowy | Rola platformy Azure | 
 | ----------- | --------- | 
 | Service Bus kolejki i tematy | [Nadawca danych Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Nadawca danych Event Hubs platformy Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Współautor danych obiektu blob magazynu](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Azure Queue Storage |[Nadawca komunikatu o danych kolejki magazynu](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Azure Blob Storage | [Współautor danych obiektu blob magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Queue Storage |[Nadawca komunikatu o danych kolejki magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Dodawanie tożsamości do ról RBAC w lokalizacjach docelowych
-W tej sekcji opisano, jak dodać tożsamość tematu lub domeny do roli RBAC. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Dodawanie tożsamości do ról platformy Azure w miejscach docelowych
+W tej sekcji opisano, jak dodać tożsamość tematu lub domeny do roli platformy Azure. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Za pomocą Azure Portal można przypisać temat lub tożsamość domeny do odpowiedniej roli, aby temat lub domena mogły przesyłać zdarzenia do miejsca docelowego. 
@@ -94,7 +94,7 @@ Poniższy przykład dodaje tożsamość zarządzaną dla tematu usługi Event Gr
 Kroki są podobne do dodawania tożsamości do innych ról wymienionych w tabeli. 
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
-W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli RBAC przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
+W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Pobierz identyfikator podmiotu zabezpieczeń dla tożsamości systemu tematu 
 Najpierw Pobierz identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przez system i przypisz tożsamość do odpowiednich ról.

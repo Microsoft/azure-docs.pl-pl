@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 4de585a965cfefa6399b0c0929a8f732d0712617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76939424"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529198"
 ---
 # <a name="azure-private-dns-faq"></a>Prywatna strefa DNS — Często zadawane pytania
 
@@ -38,7 +38,7 @@ Tak. Można połączyć prywatną strefę DNS z tysiącami sieci wirtualnych. Ab
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Czy sieć wirtualna, która należy do innej subskrypcji, jest połączona ze strefą prywatną?
 
-Tak. Musisz mieć uprawnienie do zapisu w sieciach wirtualnych i prywatnej strefie DNS. Uprawnienie do zapisu można przyznawać do kilku ról RBAC. Na przykład rola RBAC współautor sieci klasycznej ma uprawnienia do zapisu sieci wirtualnych i rola współautor Prywatna strefa DNS strefy ma uprawnienia do zapisu w prywatnych strefach DNS. Aby uzyskać więcej informacji na temat ról RBAC, zobacz [Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md).
+Tak. Musisz mieć uprawnienie do zapisu w sieciach wirtualnych i prywatnej strefie DNS. Uprawnienie do zapisu można udzielić kilku rolom platformy Azure. Na przykład rola współautor współautora sieci klasycznej ma uprawnienia do zapisu sieci wirtualnych i rola współautor Prywatna strefa DNS strefy ma uprawnienia do zapisu w prywatnych strefach DNS. Aby uzyskać więcej informacji na temat ról platformy Azure, zobacz [Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Czy rekordy DNS maszyn wirtualnych automatycznie zarejestrowane w strefie prywatnej będą automatycznie usuwane po usunięciu maszyny wirtualnej?
 

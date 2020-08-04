@@ -4,12 +4,12 @@ description: Jak wdrożyć i skonfigurować sieć szkieletową z systemem webled
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286057"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533431"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 
@@ -305,12 +305,12 @@ Z poziomu klienta organizacji równorzędnej wydaj polecenie, aby ustawić eleme
   - Ustaw `<anchorPeersList>` jako "Peer1", jeśli chcesz ustawić tylko węzeł Peer1 jako zakotwiczenie elementu równorzędnego.
   - Ustaw `<anchorPeersList>` jako "Peer1" "peer3", jeśli chcesz ustawić zarówno węzeł Peer1, jak i peer3 jako zakotwiczenie elementu równorzędnego.
 
-### <a name="chaincode-management-commands"></a>Polecenia zarządzania Chaincode
+## <a name="chaincode-management-commands"></a>Polecenia zarządzania Chaincode
 
 >[!NOTE]
 > Przed rozpoczęciem pracy z dowolną operacją chaincode upewnij się, że jest wykonywana początkowa konfiguracja aplikacji klienckiej.  
 
-**Ustaw następujące zmienne środowiskowe chaincode**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Ustaw następujące zmienne środowiskowe chaincode
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-Następujące operacje chaincode można wykonać:  
-
-- [Zainstaluj chaincode](#install-chaincode)  
-- [Tworzenie wystąpienia chaincode](#instantiate-chaincode)  
-- [Wywołaj chaincode](#invoke-chaincode)
-- [Chaincode zapytania](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Zainstaluj chaincode  
 
@@ -358,13 +350,13 @@ Wykonaj następujące czynności:
 Z aplikacji klienckiej równorzędnej wykonaj poniższe polecenie, aby utworzyć wystąpienie chaincode w kanale.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Przekaż nazwę funkcji tworzenia wystąpień i listę oddzielonych spacjami argumentów w `<instantiateFunc>` i `<instantiateFuncArgs>` odpowiednio. Na przykład w chaincode_example02. Przejdź do chaincode, aby utworzyć wystąpienie chaincode ustawione `<instantiateFunc>` na `init` i `<instantiateFuncArgs>` na wartość "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Wykonaj polecenie dla raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. W związku z tym chaincode jest tworzona na wszystkich węzłach równorzędnych na wszystkich organizacjach równorzędnych w kanale.  
-
 
 ### <a name="invoke-chaincode"></a>Wywołaj chaincode  
 

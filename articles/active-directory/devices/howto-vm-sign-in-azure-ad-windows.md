@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419788"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529113"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -144,7 +144,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
-Po utworzeniu maszyny wirtualnej należy skonfigurować zasady RBAC platformy Azure, aby określić, kto może logować się do maszyny wirtualnej. Do autoryzacji logowania maszyn wirtualnych służą dwie role RBAC:
+Po utworzeniu maszyny wirtualnej należy skonfigurować zasady RBAC platformy Azure, aby określić, kto może logować się do maszyny wirtualnej. Dwie role platformy Azure są używane do autoryzacji logowania do maszyny wirtualnej:
 
 - **Logowanie administratora maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora.
 - **Logowanie użytkownika maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.
@@ -208,7 +208,7 @@ Można wymusić zasady dostępu warunkowego, takie jak uwierzytelnianie wielosk�
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logowanie przy użyciu poświadczeń usługi Azure AD z maszyną wirtualną z systemem Windows
 
 > [!IMPORTANT]
-> Połączenie zdalne z maszynami wirtualnymi przyłączonymi do usługi Azure AD jest dozwolone tylko z komputerów z systemem Windows 10, które są zarejestrowane w usłudze Azure AD (minimalna wymagana kompilacja to 20H1) lub usługa Azure AD przyłączona do tego **samego** katalogu co maszyna wirtualna. Ponadto do protokołu RDP przy użyciu poświadczeń usługi Azure AD użytkownik musi należeć do jednej z dwóch ról RBAC, identyfikatora logowania administratora maszyny wirtualnej lub logowania użytkownika maszyny wirtualnej. Jeśli korzystasz z zarejestrowanego komputera z systemem Windows 10 w usłudze Azure AD, musisz wprowadzić poświadczenia w formacie AzureAD\UPN (np. AzureAD\john@contoso.com ). W tej chwili nie można zalogować się za pomocą usługi Azure bastionu przy użyciu uwierzytelniania Azure Active Directory z rozszerzeniem AADLoginForWindows; obsługiwany jest tylko bezpośredni protokół RDP.
+> Połączenie zdalne z maszynami wirtualnymi przyłączonymi do usługi Azure AD jest dozwolone tylko z komputerów z systemem Windows 10, które są zarejestrowane w usłudze Azure AD (minimalna wymagana kompilacja to 20H1) lub usługa Azure AD przyłączona do tego **samego** katalogu co maszyna wirtualna. Ponadto do protokołu RDP przy użyciu poświadczeń usługi Azure AD użytkownik musi należeć do jednej z dwóch ról platformy Azure, identyfikatora logowania administratora maszyny wirtualnej lub logowania użytkownika maszyny wirtualnej. Jeśli korzystasz z zarejestrowanego komputera z systemem Windows 10 w usłudze Azure AD, musisz wprowadzić poświadczenia w formacie AzureAD\UPN (np. AzureAD\john@contoso.com ). W tej chwili nie można zalogować się za pomocą usługi Azure bastionu przy użyciu uwierzytelniania Azure Active Directory z rozszerzeniem AADLoginForWindows; obsługiwany jest tylko bezpośredni protokół RDP.
 
 Aby zalogować się do maszyny wirtualnej z systemem Windows Server 2019 przy użyciu usługi Azure AD: 
 
@@ -315,13 +315,13 @@ W publicznej wersji zapoznawczej rozszerzenie AADLoginForWindows jest przeznaczo
 
 ### <a name="troubleshoot-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem
 
-Niektóre typowe błędy podczas próby połączenia RDP z poświadczeniami usługi Azure AD nie obejmują żadnych przypisanych ról RBAC, nieautoryzowanego klienta lub metody logowania funkcji 2FA. Skorzystaj z poniższych informacji, aby rozwiązać te problemy.
+Niektóre typowe błędy podczas próby połączenia RDP z poświadczeniami usługi Azure AD nie obejmują żadnych ról platformy Azure przypisanych, nieautoryzowanego klienta lub metody logowania funkcji 2FA. Skorzystaj z poniższych informacji, aby rozwiązać te problemy.
 
 Stan urządzenia i logowania jednokrotnego można wyświetlić, uruchamiając `dsregcmd /status` . Celem jest stan urządzenia, który ma być wyświetlany jako `AzureAdJoined : YES` i `SSO State` do wyświetlenia `AzureAdPrt : YES` .
 
 Ponadto logowanie za pomocą protokołu RDP przy użyciu kont usługi Azure AD jest przechwytywane w Podglądzie zdarzeń w dzienniku zdarzeń AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>Rola RBAC nie została przypisana
+#### <a name="azure-role-not-assigned"></a>Rola platformy Azure nie jest przypisana
 
 Jeśli po zainicjowaniu połączenia pulpitu zdalnego z maszyną wirtualną zobaczysz następujący komunikat o błędzie: 
 

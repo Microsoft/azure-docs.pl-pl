@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 6923bb31e53493dd01f41cb0b0449f2093bc7e91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092477"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532598"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -118,7 +118,7 @@ Właściciel konta magazynu musi jawnie dodać rolę współautor danych [wspó�
 
 Można to zrobić wcześniej lub przez kliknięcie linku na stronie, w którym można dodać obiekt docelowy magazynu obiektów BLOB. Należy pamiętać, że może upłynąć do 5 minut, zanim ustawienia roli są propagowane za pomocą środowiska platformy Azure, więc przed utworzeniem elementu docelowego magazynu należy poczekać kilka minut.
 
-Procedura dodawania ról RBAC:
+Kroki umożliwiające dodanie ról platformy Azure:
 
 1. Otwórz stronę **kontroli dostępu (IAM)** dla konta magazynu. (Link na stronie **Dodaj miejsce docelowe magazynu** automatycznie otwiera Tę stronę dla wybranego konta).
 

@@ -3,12 +3,12 @@ title: Zainstaluj agenta Microsoft Azure Recovery Services (MARS)
 description: Dowiedz się, jak zainstalować agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079370"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533482"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalowanie agenta Azure Backup MARS
 
@@ -155,7 +155,7 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 
     ![Dodawanie poświadczeń magazynu za pomocą Kreatora rejestrowania serwera](./media/backup-configure-vault/register1.png)
 
-1. Na stronie **ustawienie szyfrowania** określ hasło, które będzie używane do szyfrowania i odszyfrowywania kopii zapasowych na komputerze.
+1. Na stronie **ustawienie szyfrowania** określ hasło, które będzie używane do szyfrowania i odszyfrowywania kopii zapasowych na komputerze. [Zobacz tutaj](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) , aby uzyskać więcej informacji na temat dozwolonych znaków hasła.
 
     * Zapisz hasło w bezpiecznej lokalizacji. Jest on potrzebny do przywrócenia kopii zapasowej.
     * Jeśli utracisz lub zapomnisz hasło, firma Microsoft nie będzie mogła odzyskać danych kopii zapasowej.

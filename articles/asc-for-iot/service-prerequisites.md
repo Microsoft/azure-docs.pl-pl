@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
-ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ce903271accd3f63df7634dc5045932655ac2a7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193212"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531153"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center wymagań wstępnych usługi IoT
 
@@ -30,8 +30,8 @@ W tym artykule opisano różne składniki Azure Security Center usługi IoT, co 
 ## <a name="minimum-requirements"></a>Minimalne wymagania
 
 - Warstwa standardowa IoT Hub
-  - Uprawnienia na poziomie **właściciela** roli RBAC
-- [Log Analytics obszar roboczy](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+  - Uprawnienia na poziomie **właściciela** roli platformy Azure
+- [Obszar roboczy usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (zalecane)
   - Korzystanie z Azure Security Center jest zaleceniem, a nie wymaganiem. Bez Azure Security Center nie będzie można wyświetlać innych zasobów platformy Azure w ramach usługi IoT Hub.
 
@@ -43,8 +43,8 @@ Azure Security Center usługi IoT Insights i raportowania są dostępne za pomoc
 
 Azure Security Center usługi IoT jest obecnie obsługiwana w przypadku centrów IoT w następujących regionach platformy Azure:
 
-- Środkowe stany USA
-- Wschodnie stany USA
+- Central US
+- East US
 - Wschodnie stany USA 2
 - Zachodnio-środkowe stany USA
 - Zachodnie stany USA
@@ -54,18 +54,18 @@ Azure Security Center usługi IoT jest obecnie obsługiwana w przypadku centrów
 - Kanada Środkowa
 - Kanada Wschodnia
 - Europa Północna
-- Brazylia Południowa
+- Brazil South
 - Francja Środkowa
 - Zachodnie Zjednoczone Królestwo
 - Południowe Zjednoczone Królestwo
-- Europa Zachodnia
+- West Europe
 - Europa północna
 - Japonia Zachodnia
-- Japonia Wschodnia
+- Japan East
 - Australia Południowo-Wschodnia
 - Australia Wschodnia
 - Azja Wschodnia
-- Azja Południowo-Wschodnia
+- Southeast Asia
 - Korea Środkowa
 - Korea Południowa
 - Indie Środkowe

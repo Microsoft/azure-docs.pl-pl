@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325563"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533278"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Role, uprawnienia i zabezpieczenia w Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Wiele zespołów musi ściśle regulować dostęp do danych i ustawień monitorowania. Na przykład jeśli masz członków zespołu, którzy pracują wyłącznie w zakresie monitorowania (inżynierów pomocy technicznej, inżynierów DevOps) lub jeśli używasz dostawcy usług zarządzanych, możesz udzielić im dostępu tylko do monitorowania danych, jednocześnie ograniczając możliwość tworzenia, modyfikowania lub usuwania zasobów. W tym artykule pokazano, jak szybko zastosować wbudowaną rolę RBAC monitorowania do użytkownika na platformie Azure lub utworzyć własną rolę niestandardową dla użytkownika, który wymaga ograniczonych uprawnień monitorowania. W tym artykule omówiono zagadnienia dotyczące zabezpieczeń zasobów związanych z Azure Monitor i sposób ograniczania dostępu do zawartych w nich danych.
+Wiele zespołów musi ściśle regulować dostęp do danych i ustawień monitorowania. Na przykład jeśli masz członków zespołu, którzy pracują wyłącznie w zakresie monitorowania (inżynierów pomocy technicznej, inżynierów DevOps) lub jeśli używasz dostawcy usług zarządzanych, możesz udzielić im dostępu tylko do monitorowania danych, jednocześnie ograniczając możliwość tworzenia, modyfikowania lub usuwania zasobów. W tym artykule pokazano, jak szybko zastosować wbudowaną rolę monitorowania roli platformy Azure dla użytkownika na platformie Azure lub utworzyć własną rolę niestandardową dla użytkownika, który wymaga ograniczonych uprawnień monitorowania. W tym artykule omówiono zagadnienia dotyczące zabezpieczeń zasobów związanych z Azure Monitor i sposób ograniczania dostępu do zawartych w nich danych.
 
 ## <a name="built-in-monitoring-roles"></a>Wbudowane role monitorowania
 Wbudowane role Azure Monitor zaprojektowano w celu ułatwienia ograniczenia dostępu do zasobów w ramach subskrypcji, a jednocześnie włączenie tych osób odpowiedzialnych za monitorowanie infrastruktury w celu uzyskania i skonfigurowania potrzebnych danych. Azure Monitor udostępnia dwie wbudowane role: czytnik monitorowania i współautor monitorowania.

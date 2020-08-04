@@ -3,12 +3,12 @@ title: Dzienniki diagnostyczne dla Połączenia hybrydowe
 description: Ten artykuł zawiera omówienie wszystkich dzienników działań i diagnostyki, które są dostępne dla Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314895"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533006"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Włączanie dzienników diagnostycznych dla Azure Relay Połączenia hybrydowe
 Po rozpoczęciu korzystania z Azure Relay Połączenia hybrydowe można monitorować, jak i kiedy odbiorniki i nadawcy są otwierane i zamykane oraz Połączenia hybrydowe jak są tworzone i wysyłane wiadomości. Ten artykuł zawiera omówienie dzienników działań i diagnostyki dostarczonych przez usługę Azure Relay. 
@@ -46,7 +46,7 @@ Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
         ![Przykładowe ustawienia diagnostyki](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia.
 
-Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** . Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** . Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schemat zdarzeń połączeń hybrydowych
@@ -56,10 +56,10 @@ Ciągi JSON połączeń hybrydowych dziennika zdarzeń zawierają elementy wymie
 | ------- | ------- |
 | ResourceId | Identyfikator zasobu Azure Resource Manager |
 | ActivityId | Wewnętrzny identyfikator używany do identyfikowania określonej operacji. Może być również znana jako "TrackingId" |
-| Endpoint | Adres zasobu przekaźnika |
+| Punkt końcowy | Adres zasobu przekaźnika |
 | OperationName | Typ rejestrowanej operacji Połączenia hybrydowe |
 | EventTimeString | Sygnatura czasowa UTC rekordu dziennika |
-| Komunikat | Szczegółowy komunikat zdarzenia |
+| Wiadomość | Szczegółowy komunikat zdarzenia |
 | Kategoria | Kategoria zdarzenia. Obecnie występuje tylko `HybridConnectionsEvents` . 
 
 

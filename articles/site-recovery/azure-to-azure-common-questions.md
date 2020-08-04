@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201210"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534026"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -70,6 +70,10 @@ Skonfiguruj odzyskiwanie po awarii [w różnych subskrypcjach](https://azure.mic
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>Czy można replikować przypięte do strefy maszyny wirtualne platformy Azure do innego regionu?
 
 Tak, można [replikować przypięte strefy maszyny wirtualne](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) do innego regionu.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>Czy można replikować maszyny wirtualne w regionie, w którym znajdują się strefy od strefy nienależącej do warstwy?
+
+Nie, to nie jest obecnie obsługiwane. Aby obejść ten sposób, można replikować maszynę wirtualną przy użyciu funkcji ASR do konfiguracji stref w innym regionie, a następnie wyłączyć replikację. Następnie ponownie Włącz replikację z tego regionu do oryginalnego regionu i wybierz strefę konfiguracji dla trybu failover.
 
 ### <a name="can-i-exclude-disks"></a>Czy można wykluczać dyski?
 

@@ -3,16 +3,16 @@ title: Azure Relay — migracja do autoryzacji sygnatury dostępu współdzielon
 description: Opisuje sposób migrowania aplikacji Azure Relay z używania Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314314"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532870"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay — migracja z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego
 
-Aplikacje Azure Relay w historyczny sposób mogli korzystać z dwóch różnych modeli autoryzacji: modelu tokenu [sygnatury dostępu współdzielonego (SAS)](../service-bus-messaging/service-bus-sas.md) dostarczonego bezpośrednio przez usługę przekaźnika oraz modelem federacyjnym, w którym zarządzanie regułami autoryzacji jest zarządzane w ramach [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) i tokeny uzyskane z usługi ACS są przekazywane do przekaźnika w celu autoryzowania dostępu do żądanych funkcji.
+Aplikacje Azure Relay w historyczny sposób mogli korzystać z dwóch różnych modeli autoryzacji: modelu tokenu [sygnatury dostępu współdzielonego (SAS)](../service-bus-messaging/service-bus-sas.md) dostarczonego bezpośrednio przez usługę przekaźnika oraz modelem federacyjnym, w którym zarządzanie regułami autoryzacji jest zarządzane w ramach [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS) i tokeny uzyskane z usługi ACS są przekazywane do przekaźnika w celu autoryzowania dostępu do żądanych funkcji.
 
 Model autoryzacji usług ACS został zastąpiony przez [autoryzację SAS](../service-bus-messaging/service-bus-authentication-and-authorization.md) jako preferowany model, a cała dokumentacja, wskazówki i przykłady używają wyłącznie sygnatury dostępu współdzielonego. Ponadto nie można już tworzyć nowych przestrzeni nazw przekaźnika, które są sparowane z usługą ACS.
 
@@ -56,5 +56,3 @@ Aby dowiedzieć się więcej o uwierzytelnianiu Azure Relay, zobacz następując
 
 * [Azure Relay uwierzytelnianie i autoryzacja](relay-authentication-and-authorization.md)
 * [Uwierzytelnianie Service Bus przy użyciu sygnatur dostępu współdzielonego](../service-bus-messaging/service-bus-sas.md)
-
-

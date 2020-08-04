@@ -4,12 +4,12 @@ description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w int
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea3f91615a488a1013ac4821ce7ba14b2006c14a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494948"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531681"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -79,7 +79,7 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
     
     W razie logowania się interakcyjnego na platformie Azure, zgodnie z opisem w poprzedniej sekcji, poświadczenia są buforowane, dzięki czemu interfejs wiersza polecenia platformy Azure może zalogować użytkownika na koncie usługi Batch za ich pomocą. W razie logowania się na platformie Azure za pomocą jednostki usługi te poświadczenia także są używane do zalogowania się na koncie usługi Batch.
 
-    Przewagą wynikającą z korzystania z usługi Azure AD jest to, że zapewnia ona kontrolę dostępu opartą na rolach. W przypadku kontroli dostępu opartej na rolach poziom dostępu użytkownika zależy od przypisanej mu roli, a nie od tego, czy posiada on klucze konta. Zamiast zarządzać kluczami konta, można zarządzać rolami kontroli dostępu opartej na rolach oraz obsługiwać dostęp i uwierzytelnianie w usłudze Azure AD.  
+    Przewagą wynikającą z korzystania z usługi Azure AD jest to, że zapewnia ona kontrolę dostępu opartą na rolach. W przypadku kontroli dostępu opartej na rolach poziom dostępu użytkownika zależy od przypisanej mu roli, a nie od tego, czy posiada on klucze konta. Zamiast zarządzać kluczami kont, możesz zarządzać rolami platformy Azure i zezwalać usłudze Azure AD na dostęp i uwierzytelnianie.  
 
      Aby zalogować się na koncie usługi Batch za pomocą usługi Azure AD, wywołaj polecenie [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/30/2020
+ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529504"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiuj dane z i do płatne za pomocą Azure Data Factory
 
@@ -49,7 +49,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
 | Właściwość         | Opis                                                  | Wymagane |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | typ             | Właściwość Type musi mieć wartość **Płatne**.              | Tak      |
-| Parametry połączenia | Skonfiguruj [pełną nazwę konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (w tym dodatkowe segmenty, które identyfikują region i platformę w chmurze), nazwę użytkownika, hasło, bazę danych i magazyn. Określ parametry połączenia JDBC, aby połączyć się z wystąpieniem płatnego śniegu. Możesz również wprowadzić hasło w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.| Tak      |
+| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem płatnego śniegu. Możesz wybrać opcję umieszczenia hasła lub całego ciągu połączenia w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.<br><br>Niektóre typowe ustawienia:<br>- **Nazwa konta:** [Pełna nazwa konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Twojego konta płatnego śniegu (w tym dodatkowe segmenty, które identyfikują region i platformę chmury), np. xy12345. wschód-US-2. Azure.<br/>- **Nazwa użytkownika:** Nazwa logowania użytkownika dla połączenia.<br>- **Hasło:** Hasło użytkownika.<br>- **Baza danych:** Domyślna baza danych do użycia po nawiązaniu połączenia. Powinna to być istniejąca baza danych, dla której określona rola ma uprawnienia.<br>- **Magazyn:** Magazyn wirtualny, który ma być używany po nawiązaniu połączenia. Powinien być istniejącym magazynem, dla którego określona rola ma uprawnienia.<br>- **Rola:** Domyślna rola kontroli dostępu do użycia w sesji płatnych śniegu. Określona rola powinna być istniejącą rolą, która została już przypisana do określonego użytkownika. Rola domyślna to PUBLIC. | Tak      |
 | Właściwością connectvia       | [Środowisko Integration Runtime](concepts-integration-runtime.md) , które jest używane do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska Azure Integration Runtime. | Nie       |
 
 **Przykład:**
@@ -60,7 +60,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -105,7 +105,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 | Właściwość  | Opis                                                  | Wymagane                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
-| schematy | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
+| schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
 | table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**

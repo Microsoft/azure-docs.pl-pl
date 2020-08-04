@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475060"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533555"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -24,13 +24,13 @@ Azure Backup oferuje możliwość przywracania [maszyn wirtualnych platformy Azu
 
 Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wirtualnej i wybierz żądany punkt odzyskiwania.
 
-1. Zaloguj się do [Azure Portal](https://portal.Azure.com) i w lewym okienku kliknij pozycję **Virtual Machines (maszyny wirtualne**). Z listy maszyn wirtualnych wybierz maszynę wirtualną, aby otworzyć pulpit nawigacyjny maszyny wirtualnej.
+1. Zaloguj się do [Azure Portal](https://portal.Azure.com) i w okienku po lewej stronie wybierz pozycję **maszyny wirtualne**. Z listy maszyn wirtualnych wybierz maszynę wirtualną, aby otworzyć pulpit nawigacyjny maszyny wirtualnej.
 
-2. W menu maszyny wirtualnej kliknij pozycję **kopia zapasowa** , aby otworzyć pulpit nawigacyjny kopii zapasowych.
+2. W menu maszyny wirtualnej wybierz pozycję **kopia zapasowa** , aby otworzyć pulpit nawigacyjny kopii zapasowych.
 
     ![Otwórz element kopii zapasowej magazynu Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. W menu pulpitu nawigacyjnego kopia zapasowa kliknij pozycję **odzyskiwanie plików**.
+3. W menu pulpitu nawigacyjnego kopii zapasowej wybierz pozycję **odzyskiwanie plików**.
 
     ![Przycisk odzyskiwania plików](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 4. Z menu rozwijanego **Wybieranie punktu odzyskiwania** wybierz punkt odzyskiwania, w którym znajdują się odpowiednie pliki. Domyślnie jest już wybrany najnowszy punkt odzyskiwania.
 
-5. Aby pobrać oprogramowanie używane do kopiowania plików z punktu odzyskiwania, kliknij przycisk **Pobierz plik wykonywalny** (dla maszyn wirtualnych z systemem Windows Azure) lub **Pobierz skrypt** (w przypadku maszyn wirtualnych z systemem Linux Azure zostanie wygenerowany skrypt w języku Python).
+5. Aby pobrać oprogramowanie używane do kopiowania plików z punktu odzyskiwania, wybierz pozycję **Pobierz plik wykonywalny** (dla maszyn wirtualnych z systemem Windows Azure) lub **Pobierz skrypt** (w przypadku maszyn wirtualnych z systemem Linux Azure zostanie wygenerowany skrypt w języku Python).
 
     ![Wygenerowane hasło](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
     Aby uruchomić plik wykonywalny lub skrypt jako administrator, sugerujemy zapisanie pobranego pliku na komputerze.
 
-6. Plik wykonywalny lub skrypt jest chroniony hasłem i wymaga hasła. W menu **odzyskiwanie plików** kliknij przycisk Kopiuj, aby załadować hasło do pamięci.
+6. Plik wykonywalny lub skrypt jest chroniony hasłem i wymaga hasła. W menu **odzyskiwanie plików** wybierz przycisk Kopiuj, aby załadować hasło do pamięci.
 
     ![Wygenerowane hasło](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ W systemie Linux woluminy punktu odzyskiwania są instalowane do folderu, w któ
 
 ## <a name="closing-the-connection"></a>Zamykanie połączenia
 
-Po zidentyfikowaniu plików i skopiowaniu ich do lokalizacji magazynu lokalnego należy usunąć (lub odinstalować) dodatkowe dyski. Aby odinstalować dyski, w menu **odzyskiwanie plików** w Azure Portal kliknij polecenie **odinstalowania dysków**.
+Po zidentyfikowaniu plików i skopiowaniu ich do lokalizacji magazynu lokalnego należy usunąć (lub odinstalować) dodatkowe dyski. Aby odinstalować dyski, w menu **odzyskiwanie plików** w Azure Portal wybierz opcję **odinstalowania dysków**.
 
 ![Odinstalowywanie dysków](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -146,7 +146,7 @@ Aby wyświetlić listę nazw grup woluminów:
 pvs -o +vguuid
 ```
 
-To polecenie spowoduje wyświetlenie listy wszystkich woluminów fizycznych (łącznie z tymi, które są obecne przed uruchomieniem skryptu), odpowiadających im nazw grup woluminów i unikatowych identyfikatorów użytkowników (UUID) grupy woluminu. Poniżej przedstawiono przykładowe dane wyjściowe polecenia.
+To polecenie spowoduje wyświetlenie listy wszystkich woluminów fizycznych (w tym tych, które są obecne przed uruchomieniem skryptu), odpowiadających im nazw grup woluminów i unikatowych identyfikatorów użytkowników w grupie woluminów (UUID). Poniżej przedstawiono przykładowe dane wyjściowe polecenia.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -162,11 +162,11 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
 ```
 
-Kolumna 1 (WA) pokazuje wolumin fizyczny, kolejne kolumny przedstawiają odpowiednią nazwę, format, atrybuty, rozmiar, wolne miejsce i unikatowy identyfikator grupy woluminów. W danych wyjściowych polecenia są wyświetlane wszystkie woluminy fizyczne. Zapoznaj się z danymi wyjściowymi skryptu i zidentyfikuj woluminy związane z kopią zapasową. W powyższym przykładzie w danych wyjściowych skryptu przedstawiono/dev/SDF i/dev/SDD. Tak więc Grupa woluminów datavg_db należy do skryptu, a grupa woluminów Appvg_new należy do maszyny. Ostatnim pomysłem jest upewnienie się, że unikatowa nazwa grupy woluminów powinna mieć 1 unikatowy identyfikator.
+Pierwsza kolumna (WA) przedstawia wolumin fizyczny, kolejne kolumny przedstawiają odpowiednią nazwę, format, atrybuty, rozmiar, wolne miejsce i unikatowy identyfikator grupy woluminów. W danych wyjściowych polecenia są wyświetlane wszystkie woluminy fizyczne. Zapoznaj się z danymi wyjściowymi skryptu i zidentyfikuj woluminy związane z kopią zapasową. W powyższym przykładzie w danych wyjściowych skryptu przedstawiono/dev/SDF i/dev/SDD. Tak więc Grupa woluminów *datavg_db* należy do skryptu, a grupa woluminów *Appvg_new* należy do maszyny. Ostatnim pomysłem jest upewnienie się, że unikatowa nazwa grupy woluminów powinna mieć jeden unikatowy identyfikator.
 
 ###### <a name="duplicate-volume-groups"></a>Zduplikowane grupy woluminów
 
-Istnieją scenariusze, w których nazwy grup woluminów mogą mieć 2 UUID po uruchomieniu skryptu. Oznacza to, że nazwy grup woluminów na komputerze, na którym skrypt jest wykonywany, a kopia zapasowa maszyny wirtualnej jest taka sama. Następnie należy zmienić nazwy grup woluminów maszyn wirtualnych z kopią zapasową. Zapoznaj się z poniższym przykładem.
+Istnieją scenariusze, w których nazwy grup woluminów mogą mieć 2 UUID po uruchomieniu skryptu. Oznacza to, że nazwy grup woluminów na komputerze, na którym skrypt jest wykonywany i w kopii zapasowej maszyny wirtualnej są takie same. Następnie należy zmienić nazwy grup woluminów maszyn wirtualnych z kopią zapasową. Zapoznaj się z poniższym przykładem.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -184,9 +184,9 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
 ```
 
-Dane wyjściowe skryptu byłyby pokazane/dev/SDG,/dev/SDH,/dev/sdm2 jako dołączone. Dlatego odpowiednie nazwy VG są Appvg_new i rootvg. Jednak te same nazwy znajdują się również na liście VG maszyny. Możemy sprawdzić, czy 1 Nazwa VG ma 2 Identyfikatory UUID.
+Dane wyjściowe skryptu byłyby pokazane/dev/SDG,/dev/SDH,/dev/sdm2 jako dołączone. Dlatego odpowiednie nazwy VG są Appvg_new i rootvg. Jednak te same nazwy znajdują się również na liście VG maszyny. Możemy sprawdzić, czy jedna nazwa VG ma dwa identyfikatory UUID.
 
-Teraz musimy zmienić nazwy VG dla woluminów opartych na skryptach, takich jak/dev/SDG,/dev/SDH,/dev/sdm2. Aby zmienić nazwę grupy woluminów, użyj następującego polecenia
+Teraz musimy zmienić nazwy VG dla woluminów opartych na skryptach, na przykład:/dev/SDG,/dev/SDH,/dev/sdm2. Aby zmienić nazwę grupy woluminów, użyj następującego polecenia
 
 ```bash
 vgimportclone -n rootvg_new /dev/sdm2
@@ -343,7 +343,7 @@ Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowe
     - Node. poł. [0]. Timeo. noop_out_timeout = 5 do węzła. poł. [0]. Timeo. noop_out_timeout = 30
 - Po wprowadzeniu zmiany należy ponownie uruchomić skrypt. Po wprowadzeniu tych zmian bardzo prawdopodobne jest, że odzyskiwanie plików powiedzie się.
 - Za każdym razem, gdy użytkownik pobiera skrypt, Azure Backup inicjuje proces przygotowywania punktu odzyskiwania do pobrania. W przypadku dużych dysków ten proces zajmie dużo czasu. W przypadku kolejnych serii żądań przygotowanie docelowe przejdzie do spirali pobierania. Dlatego zaleca się pobranie skryptu z portalu/programu PowerShell/interfejsu wiersza polecenia, odczekanie przez 20-30 minut (heurystyka), a następnie uruchomienie go. W tym czasie obiekt docelowy powinien być gotowy do połączenia ze skryptem.
-- Po odzyskaniu plików upewnij się, że Wróć do portalu i kliknij opcję **odinstalowania dysków** dla punktów odzyskiwania, w których nie można było zainstalować woluminów. Zasadniczo ten krok spowoduje wyczyszczenie wszystkich istniejących procesów/sesji i zwiększenie możliwości odzyskania.
+- Po odzyskaniu plików upewnij się, że Wróć do portalu i wybierz opcję **odinstalowania dysków** dla punktów odzyskiwania, w których nie można było zainstalować woluminów. Zasadniczo ten krok spowoduje wyczyszczenie wszystkich istniejących procesów/sesji i zwiększenie możliwości odzyskania.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -357,7 +357,7 @@ Jeśli występują problemy podczas odzyskiwania plików z maszyn wirtualnych, z
 | Na komputerze, na którym jest uruchamiany plik wykonywalny: nowe woluminy nie są odinstalowywane po kliknięciu przycisku Odinstaluj | Inicjator iSCSI na komputerze nie odpowiada/nie odświeża połączenia z elementem docelowym i utrzymuje pamięć podręczną. |  Po kliknięciu przycisku **Odinstaluj**odczekaj kilka minut. Jeśli nowe woluminy nie zostaną odinstalowane, przejrzyj wszystkie woluminy. Przeglądanie wszystkich woluminów zmusza inicjatora do odświeżenia połączenia, a wolumin zostanie odinstalowany z komunikatem o błędzie, że dysk nie jest dostępny.|
 | Wyjściowy plik exe: skrypt jest uruchamiany pomyślnie, ale "nowe woluminy dołączone" nie są wyświetlane w danych wyjściowych skryptu |    Jest to błąd przejściowy    | Woluminy będą już dołączone. Otwórz Eksploratora, aby przeglądać. Jeśli używasz tego samego komputera do uruchamiania skryptów za każdym razem, Rozważ ponowne uruchomienie komputera, a lista powinna zostać wyświetlona w kolejnych uruchomieniach programu exe. |
 | Specyficzne dla systemu Linux: nie można wyświetlić żądanych woluminów | System operacyjny maszyny, na której jest uruchamiany skrypt, może nie rozpoznać podstawowego systemu plików chronionej maszyny wirtualnej | Sprawdź, czy punkt odzyskiwania jest spójny pod kątem awarii lub spójny z plikiem. Jeśli plik jest spójny, uruchom skrypt na innym komputerze, którego system operacyjny rozpoznaje chronioną system plików maszyny wirtualnej. |
-| Specyficzne dla systemu Windows: nie można wyświetlić żądanych woluminów | Dyski mogły zostać dołączone, ale nie skonfigurowano woluminów | Na ekranie Zarządzanie dyskami Zidentyfikuj dodatkowe dyski związane z punktem odzyskiwania. Jeśli którykolwiek z tych dysków znajduje się w stanie offline, spróbuj przełączyć je w tryb online, klikając dysk prawym przyciskiem myszy, a następnie kliknij pozycję **online**.|
+| Specyficzne dla systemu Windows: nie można wyświetlić żądanych woluminów | Dyski mogły zostać dołączone, ale nie skonfigurowano woluminów | Na ekranie Zarządzanie dyskami Zidentyfikuj dodatkowe dyski związane z punktem odzyskiwania. Jeśli którykolwiek z tych dysków znajduje się w stanie offline, spróbuj przełączyć je w tryb online, klikając dysk prawym przyciskiem myszy i wybierz pozycję **online**.|
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -383,7 +383,7 @@ Wygenerowany skrypt jest podpisany za pomocą oficjalnego certyfikatu firmy Micr
 
 Tylko administrator może uruchomić skrypt i powinien działać w trybie podniesionych uprawnień. Skrypt uruchamia tylko wstępnie wygenerowany zestaw kroków i nie akceptuje danych wejściowych ze źródła zewnętrznego.
 
-Aby uruchomić skrypt, wymagane jest hasło, które jest wyświetlane tylko dla autoryzowanego użytkownika w czasie generowania skryptu w Azure Portal lub PowerShell/CLI. Ma to na celu upewnienie się, że autoryzowany użytkownik, który pobiera ten skrypt, jest również odpowiedzialny za uruchamianie skryptu.
+Aby uruchomić skrypt, wymagane jest hasło, które jest wyświetlane tylko dla autoryzowanego użytkownika w czasie generowania skryptu w Azure Portal lub PowerShell/CLI. Ma to na celu upewnienie się, że autoryzowany użytkownik, który pobiera ten skrypt, jest również odpowiedzialny za uruchomienie skryptu.
 
 #### <a name="browse-files-and-folders"></a>Przeglądanie plików i folderów
 
@@ -393,7 +393,7 @@ Używamy mechanizmu uwierzytelniania wzajemnego CHAP, aby każdy składnik uwier
 
 Przepływ danych między usługą odzyskiwania i komputerem jest chroniony przez utworzenie bezpiecznego tunelu protokołu TLS za pośrednictwem protokołu TCP (protokół[tls 1,2 powinien być obsługiwany](#system-requirements) na komputerze, na którym jest uruchamiany skrypt).
 
-Wszystkie pliki Access Control List (ACL) obecne w nadrzędnej/kopii zapasowej maszyny wirtualnej są zachowane również w zainstalowanym systemie plików.
+Wszystkie pliki Access Control List (ACL), które znajdują się w nadrzędnym/kopii zapasowej maszyny wirtualnej, również są zachowywane w zainstalowanym systemie plików.
 
 Skrypt zapewnia dostęp tylko do odczytu do punktu odzyskiwania i jest prawidłowy tylko przez 12 godzin. Jeśli chcesz usunąć dostęp wcześniej, zaloguj się do witryny Azure Portal/programu PowerShell/interfejsu wiersza polecenia i przeprowadź **dezinstalację dysków** dla danego punktu odzyskiwania. Skrypt zostanie natychmiast unieważniony.
 

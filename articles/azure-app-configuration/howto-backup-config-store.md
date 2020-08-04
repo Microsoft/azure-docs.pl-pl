@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367779"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528552"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -191,7 +191,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Użyj poniższego polecenia lub [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) , aby przyznać zarządzaną tożsamość usługi Azure aplikacja funkcji dostęp do kolejki magazynu. 
+Użyj poniższego polecenia lub [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) , aby przyznać zarządzaną tożsamość usługi Azure aplikacja funkcji dostęp do kolejki magazynu. 
 - Przypisz `Storage Queue Data Contributor` rolę w kolejce magazynu.
 
 ```azurecli-interactive
@@ -244,7 +244,7 @@ Jeśli nowe ustawienie nie jest widoczne w magazynie pomocniczym:
 - Możesz również skonfigurować monitorowanie i alerty dla Azure Functions przy użyciu [usługi Azure Application Insights.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli planujesz kontynuować pracę z tą konfiguracją aplikacji i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuowania pracy, użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 ```azurecli-interactive

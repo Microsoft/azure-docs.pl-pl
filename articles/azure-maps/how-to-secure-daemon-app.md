@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126775"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531375"
 ---
 # <a name="secure-a-daemon-application"></a>Zabezpieczanie aplikacji demona
 
@@ -109,7 +109,7 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Przyznaj dostęp oparty na rolach dla aplikacji demona Azure Maps
 
-*Kontrolę dostępu opartą na rolach* (RBAC) można przypisywać, przypisując utworzoną tożsamość zarządzaną lub jednostkę usługi do co najmniej jednej Azure Maps definicji ról kontroli dostępu. Aby wyświetlić definicje ról RBAC dostępne dla Azure Maps, przejdź do pozycji **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
+*Kontrolę dostępu opartą na rolach* (RBAC) można przypisywać, przypisując utworzoną tożsamość zarządzaną lub jednostkę usługi do co najmniej jednej Azure Maps definicji ról kontroli dostępu. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl dostępne role](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -124,7 +124,7 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
     > [!div class="mx-imgBorder"]
     > ![Dodaj przypisanie roli](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika**zarządzaną tożsamością  /  **System assigned Managed identity**. Wybierz podmiot zabezpieczeń. Następnie wybierz przycisk **Zapisz**.
+3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika**zarządzaną tożsamością  /  **System assigned Managed identity**. Wybierz podmiot zabezpieczeń. Następnie wybierz pozycję **Zapisz**.
 
     > [!div class="mx-imgBorder"]
     > ![Dodaj przypisanie roli](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

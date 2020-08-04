@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji —
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502107"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533890"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji — Event Hubs platformy Azure
 Artykuł [Rozwiązywanie problemów z łącznością](troubleshooting-guide.md) zawiera wskazówki dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs. Ten artykuł zawiera porady i zalecenia dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs. 
@@ -16,13 +16,13 @@ Artykuł [Rozwiązywanie problemów z łącznością](troubleshooting-guide.md) 
 ## <a name="if-you-are-using-azure-active-directory"></a>Jeśli używasz Azure Active Directory
 Jeśli używasz usługi Azure Active Directory (Azure AD) do uwierzytelniania i autoryzacji za pomocą usługi Azure Event Hubs, potwierdź, że tożsamość uzyskujący dostęp do centrum zdarzeń jest członkiem odpowiedniej **roli platformy Azure** w odpowiednim **zakresie zasobów** (grupy konsumentów, centrum zdarzeń, przestrzeni nazw, grupy zasobów lub subskrypcji).
 
-### <a name="rbac-roles"></a>Role RBAC
+### <a name="azure-roles"></a>Role platformy Azure
 - [Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) w celu uzyskania pełnego dostępu do zasobów Event Hubs.
 - [Nadawca danych usługi Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) dla dostępu do wysyłania.
 - [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) dla dostępu do odbioru.
 
 ### <a name="resource-scopes"></a>Zakresy zasobów
-- **Grupa konsumentów**: w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli RBAC do podmiotu zabezpieczeń na tym poziomie. 
+- **Grupa konsumentów**: w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli platformy Azure do podmiotu zabezpieczeń na tym poziomie. 
 - **Centrum zdarzeń**: przypisanie roli dotyczy jednostki centrum zdarzeń i grupy konsumentów.
 - **Przestrzeń nazw**: przypisanie roli obejmuje całą topologię Event Hubs w przestrzeni nazw oraz do skojarzonej z nią grupy odbiorców.
 - **Grupa zasobów**: przypisanie roli dotyczy wszystkich zasobów Event Hubs w grupie zasobów.

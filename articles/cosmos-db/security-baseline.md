@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: edcecefab6243645c47af0ec1b8dd4b26fe22bb7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501120"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531510"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
 
@@ -286,7 +286,7 @@ Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą
 
 **Wskazówki**: Aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC) i zachować spis zasobów Azure Cosmos DB, można użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
 
-Azure Cosmos DB zapewnia wbudowaną kontrolę RBAC dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w usłudze Azure Active Directory (AD) może przypisywać te role kontroli dostępu do użytkowników, grup, nazw podmiotów usługi lub tożsamości zarządzanych w celu udzielenia lub odmowy dostęp do zasobów i operacji na zasobach Azure Cosmos DB.
+Azure Cosmos DB zapewnia wbudowaną kontrolę RBAC dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w usłudze Azure Active Directory (AD) może przypisywać te role platformy Azure do użytkowników, grup, podmiotów usługi lub tożsamości zarządzanych, aby udzielać lub odmawiać dostępu do zasobów i operacji na zasobach Azure Cosmos DB.
 
 Przy użyciu modułu Azure AD PowerShell można również wykonywać zapytania ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych. 
 
@@ -528,7 +528,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Azure Cosmos DB zapewnia wbudowaną kontrolę dostępu opartą na ROLACH (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role kontroli dostępu do użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych w celu udzielenia lub odmowy dostęp do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
+**Wskazówki**: Azure Cosmos DB zapewnia wbudowaną kontrolę dostępu opartą na ROLACH (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
 Jak zaimplementować RBAC w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 

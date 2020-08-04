@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447352"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533907"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -78,7 +78,7 @@ Usługa Azure RBAC ma trzy podstawowe role, które mają zastosowanie do wszystk
 
 ![Kontrola dostępu oparta na rolach (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-Pozostałe role RBAC na platformie Azure umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola współautora maszyny wirtualnej pozwala użytkownikom na tworzenie maszyn wirtualnych i zarządzanie nimi. Nie daje im dostępu do Virtual Network platformy Azure lub podsieci, z którą nawiąże połączenie maszyna wirtualna.
+Pozostałe role platformy Azure na platformie Azure umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola współautora maszyny wirtualnej pozwala użytkownikom na tworzenie maszyn wirtualnych i zarządzanie nimi. Nie daje im dostępu do Virtual Network platformy Azure lub podsieci, z którą nawiąże połączenie maszyna wirtualna.
 
 [Role wbudowane RBAC](../../role-based-access-control/built-in-roles.md) mają listę ról dostępnych na platformie Azure. Określa operacje i zakres, które każda wbudowana rola przyznaje użytkownikom. Jeśli chcesz zdefiniować własne role, aby jeszcze bardziej kontrolować, zobacz jak tworzyć [role niestandardowe na platformie Azure RBAC](../../role-based-access-control/custom-roles.md).
 

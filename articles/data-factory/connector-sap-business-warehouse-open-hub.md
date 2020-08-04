@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224625"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533414"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "86224625"
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programu SAP Business Warehouse (BW) za pośrednictwem usługi Open Hub. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 >[!TIP]
->Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych w systemie SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) z szczegółowym wprowadzeniem, comparsion i wskazówkami.
+>Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) ze szczegółowymi informacjami na temat poszczególnych łączników SAP, comparsion i wskazówek.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
@@ -42,6 +42,7 @@ W ramach tego łącznika centrum danych programu SAP Business Warehouse obsługu
 - Kopiowanie danych za pośrednictwem lokalnej tabeli docelowej centrum, która znajduje się poniżej, może być DSO, InfoCube, wieloelementowy, DataSource itd.
 - Kopiowanie danych przy użyciu uwierzytelniania podstawowego.
 - Nawiązywanie połączenia z serwerem aplikacji SAP lub serwerem komunikatów SAP.
+- Pobieranie danych za pomocą RFC.
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW Otwórz integrację z centrum 
 
@@ -235,14 +236,14 @@ Podczas kopiowania danych z SAP BW otwartego centrum następujące mapowania są
 
 | Typ SAP ABAP | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
-| C (ciąg) | String |
+| C (ciąg) | Ciąg |
 | I (liczba całkowita) | Int32 |
 | F (float) | Double |
-| D (Data) | String |
-| T (godzina) | String |
+| D (Data) | Ciąg |
+| T (godzina) | Ciąg |
 | P (spakowane, walutowe, dziesiętne, ilość) | Wartość dziesiętna |
-| N (NUMC) | String |
-| X (binarny i nieprzetworzony) | String |
+| N (NUMC) | Ciąg |
+| X (binarny i nieprzetworzony) | Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

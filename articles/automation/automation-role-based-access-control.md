@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420485"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528672"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
@@ -19,7 +19,7 @@ Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) um
 
 ## <a name="roles-in-automation-accounts"></a>Role na kontach usługi Automation
 
-W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie użytkownikom, grupom i aplikacjom odpowiednich ról RBAC w zakresie konta usługi. Poniżej przedstawiono wbudowane role obsługiwane przez konto automatyzacji:
+W Azure Automation dostęp jest udzielany przez przypisanie odpowiedniej roli platformy Azure użytkownikom, grupom i aplikacjom w zakresie konta usługi Automation. Poniżej przedstawiono wbudowane role obsługiwane przez konto automatyzacji:
 
 | **Role** | **Opis** |
 |:--- |:--- |
@@ -319,7 +319,7 @@ Możesz usunąć uprawnienie dostępu dla użytkownika, który nie zarządza kon
 
 Możesz również skonfigurować dostęp oparty na rolach do konta usługi Automation przy użyciu następujących [poleceń cmdlet Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role RBAC, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z `Name` parametrem, aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role platformy Azure, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z `Name` parametrem, aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'

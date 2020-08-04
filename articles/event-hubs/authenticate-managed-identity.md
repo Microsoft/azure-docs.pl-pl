@@ -3,12 +3,12 @@ title: Uwierzytelnianie tożsamości zarządzanej przy użyciu Azure Active Dire
 description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 707c93d1f104dcc2982999c4e7461947280918ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537279"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534417"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.
@@ -21,13 +21,13 @@ Aby można było używać zarządzanych tożsamości dla zasobów platformy Azur
 - [Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Szablon Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager biblioteki klienckie](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Przyznawanie uprawnień do zarządzanej tożsamości w usłudze Azure AD
-Aby autoryzować żądanie do Event Hubs usługi z tożsamości zarządzanej w aplikacji, należy najpierw skonfigurować ustawienia kontroli dostępu opartej na rolach (RBAC) dla tej tożsamości zarządzanej. Usługa Azure Event Hubs definiuje role RBAC, które obejmują uprawnienia do wysyłania i odczytywania z Event Hubs. Gdy rola RBAC zostanie przypisana do zarządzanej tożsamości, zarządzana tożsamość otrzymuje dostęp do Event Hubs danych w odpowiednim zakresie.
+Aby autoryzować żądanie do Event Hubs usługi z tożsamości zarządzanej w aplikacji, należy najpierw skonfigurować ustawienia kontroli dostępu opartej na rolach (RBAC) dla tej tożsamości zarządzanej. Usługa Azure Event Hubs definiuje role platformy Azure, które obejmują uprawnienia do wysyłania i odczytywania z Event Hubs. Gdy rola platformy Azure zostanie przypisana do zarządzanej tożsamości, zarządzana tożsamość otrzymuje dostęp do Event Hubs danych w odpowiednim zakresie.
 
-Aby uzyskać więcej informacji na temat przypisywania ról RBAC, zobacz [uwierzytelnianie za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authorize-access-azure-active-directory.md).
+Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [uwierzytelnianie za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Korzystanie z usługi Event Hubs przy użyciu tożsamości zarządzanych
 Aby użyć Event Hubs z tożsamościami zarządzanymi, należy przypisać tożsamość roli i odpowiedniego zakresu. Procedura opisana w tej sekcji używa prostej aplikacji, która działa w ramach zarządzanej tożsamości i uzyskuje dostęp do zasobów Event Hubs.
@@ -46,7 +46,7 @@ Po włączeniu tego ustawienia zostanie utworzona nowa tożsamość usługi w Az
 
 Teraz Przypisz tę tożsamość usługi do roli w wymaganym zakresie w zasobach Event Hubs.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Aby przypisać role RBAC przy użyciu Azure Portal
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Aby przypisać role platformy Azure przy użyciu Azure Portal
 Aby przypisać rolę do Event Hubs zasobów, przejdź do tego zasobu w Azure Portal. Wyświetl ustawienia Access Control (IAM) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
 
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213299"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533941"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Ładowanie danych z Azure Data Lake Storage dla Synapse SQL
 
@@ -30,7 +30,7 @@ W tym przewodniku opisano sposób używania [instrukcji Copy](https://docs.micro
 > * Utwórz tabelę docelową, aby załadować dane z Azure Data Lake Storage.
 > * Utwórz instrukcję COPY, aby załadować dane do magazynu danych.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -39,7 +39,7 @@ Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję progra
 Aby uruchomić ten samouczek, potrzebne są:
 
 * Pula SQL. Zobacz [Tworzenie puli SQL i wykonywanie zapytań dotyczących danych](create-data-warehouse-portal.md).
-* Konto Data Lake Storage. Zobacz [wprowadzenie do Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W przypadku tego konta magazynu musisz skonfigurować lub określić jedno z następujących poświadczeń do załadowania: klucz konta magazynu, klucz sygnatury dostępu współdzielonego, użytkownika aplikacji usługi Azure Directory lub użytkownika AAD, który ma odpowiednią rolę RBAC dla konta magazynu.
+* Konto Data Lake Storage. Zobacz [wprowadzenie do Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W przypadku tego konta magazynu musisz skonfigurować lub określić jedno z następujących poświadczeń do załadowania: klucz konta magazynu, klucz sygnatury dostępu współdzielonego, użytkownika aplikacji usługi Azure Directory lub użytkownika AAD, który ma odpowiednią rolę platformy Azure dla konta magazynu.
 
 ## <a name="create-the-target-table"></a>Tworzenie tabeli docelowej
 
@@ -124,7 +124,7 @@ Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy 
 
 ## <a name="achievement-unlocked"></a>Nieodblokowane osiągnięcie!
 
-Dane zostały pomyślnie załadowane do magazynu danych. Wspaniałe zadanie!
+Dane zostały pomyślnie załadowane do magazynu danych. Dobra robota!
 
 ## <a name="next-steps"></a>Następne kroki
 Ładowanie danych to pierwszy krok tworzenia rozwiązania magazynu danych przy użyciu usługi Azure Synapse Analytics. Zapoznaj się z naszymi zasobami programistycznymi.

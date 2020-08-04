@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 73e1067a7d2d1ff9cc9e2086070c9cb9bf7a000a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504249"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533108"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS 
 
@@ -412,4 +412,6 @@ Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. 
 ## <a name="next-steps"></a>Następne kroki  
 
 > [!div class="nextstepaction"]
-> [Zarządzanie woluminami przy użyciu Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Hierarchia magazynu Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Poziomy usługi dla Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md)   

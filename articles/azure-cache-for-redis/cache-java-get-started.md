@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320701"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528836"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka Java
 
@@ -30,12 +30,24 @@ W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do apli
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Dodaj zmienne środowiskowe dla **NAZWY HOSTA** i **podstawowego** klucza dostępu. Użyj zmiennych z kodu, nie dodawaj wrażliwych informacji bezpośrednio w kodzie.
+## <a name="setting-up-the-working-environment"></a>Konfigurowanie środowiska roboczego 
+
+W zależności od używanego systemu operacyjnego Dodaj zmienne środowiskowe dla **nazwy hosta** i **podstawowego klucza dostępu**. Otwórz wiersz polecenia lub okno terminalu i skonfiguruj następujące wartości:
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Zastąp symbole zastępcze następującymi wartościami:
+
+- `<YOUR_HOST_NAME>`: Nazwa hosta DNS uzyskana z sekcji *Właściwości* w pamięci podręcznej platformy Azure dla zasobu Redis w witrynie Azure Portal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: Podstawowy klucz dostępu uzyskany z sekcji *klucze dostępu* w pamięci podręcznej platformy Azure dla zasobu Redis w witrynie Azure Portal.
 
 ## <a name="create-a-new-java-app"></a>Tworzenie nowej aplikacji Java
 
@@ -130,7 +142,7 @@ W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podr
 
 ![Ukończono aplikację Azure cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie.
 

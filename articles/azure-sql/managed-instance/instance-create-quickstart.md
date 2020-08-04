@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086691"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533873"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie w polu wyszukiwania wpisz **SQL Azure** .
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje na temat wystąpienia zarządzanego Azure SQL, wybierz pozycję **Pokaż szczegóły** na kafelku **wystąpienia zarządzane SQL** .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    ![Tworzenie wystąpienia zarządzanego](./media/instance-create-quickstart/create-managed-instance.png)
 
@@ -56,7 +56,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
    | **Subskrypcja** | Twoja subskrypcja. | Subskrypcja, która zapewnia uprawnienia do tworzenia nowych zasobów. |
    | **Grupa zasobów** | nowa lub istniejąca grupa zasobów.|Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa).|
    | **Nazwa wystąpienia zarządzanego** | Dowolna prawidłowa nazwa.|Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming).|
-   | **Okolicy** |Region, w którym chcesz utworzyć wystąpienie zarządzane.|Aby uzyskać informacje na temat regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/).|
+   | **Region** |Region, w którym chcesz utworzyć wystąpienie zarządzane.|Aby uzyskać informacje na temat regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/).|
    | **Identyfikator logowania administratora wystąpienia zarządzanego** | Dowolna prawidłowa nazwa użytkownika. | Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming). Nie należy używać elementu "serveradmin", ponieważ jest to zastrzeżona rola na poziomie serwera.|
    | **Hasło** | Dowolne prawidłowe hasło.| Hasło musi mieć co najmniej 16 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -98,7 +98,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
    | **Użyj jako dodatkowego trybu failover** | Wybierz pozycję **Tak**. | Włącz tę opcję, aby użyć wystąpienia zarządzanego jako dodatkowej grupy trybu failover.|
    | **Główne wystąpienie zarządzane SQL** (jeśli jest **używane jako pomocnicza praca awaryjna** jest ustawiona na **wartość tak**) | Wybierz istniejące podstawowe wystąpienie zarządzane, które zostanie przyłączone do tej samej strefy DNS z tworzonym wystąpieniem zarządzanym. | W tym kroku zostanie włączona konfiguracja po utworzeniu grupy trybu failover. Aby uzyskać więcej informacji, zobacz [Samouczek: dodawanie wystąpienia zarządzanego do grupy trybu failover](failover-group-add-instance-tutorial.md).|
 
-## <a name="review--create"></a>Przegląd + tworzenie
+## <a name="review--create"></a>Przeglądanie i tworzenie
 
 1. Wybierz pozycję **Recenzja + Utwórz** kartę, aby przejrzeć opcje przed utworzeniem wystąpienia zarządzanego.
 
@@ -124,7 +124,9 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 > 3. Wybierz operację wdrażania wystąpienia zarządzanego SQL w toku.
 
 > [!IMPORTANT]
-> Aby można było uzyskać stan tworzenia wystąpienia zarządzanego, należy mieć **uprawnienia do odczytu** grupy zasobów. Jeśli nie masz tego uprawnienia lub nie odwołajsz go podczas procesu tworzenia wystąpienia zarządzanego, może to spowodować, że wystąpienie zarządzane SQL nie będzie widoczne na liście wdrożeń grup zasobów.
+> - Tworzenie wystąpienia zarządzanego SQL to długotrwała operacja, która może potrwać kilka godzin, w zależności od określonych okoliczności. Zobacz [czas trwania operacji zarządzania](management-operations-overview.md#management-operations-duration) dla typowych czasów tworzenia.
+> - Rozpoczęcie tworzenia wystąpienia zarządzanego przez program SQL może być opóźnione w przypadkach, gdy istnieją inne operacje, takie jak operacje przywracania lub skalowania na innych wystąpieniach zarządzanych w tej samej podsieci. Aby dowiedzieć się więcej, zobacz [wpływ na operacje zarządzania](management-operations-overview.md#management-operations-cross-impact).
+> - Aby można było uzyskać stan tworzenia wystąpienia zarządzanego, należy mieć **uprawnienia do odczytu** grupy zasobów. Jeśli nie masz tego uprawnienia lub nie odwołajsz go podczas procesu tworzenia wystąpienia zarządzanego, może to spowodować, że wystąpienie zarządzane SQL nie będzie widoczne na liście wdrożeń grup zasobów.
 >
 
 ## <a name="view-resources-created"></a>Wyświetl utworzone zasoby

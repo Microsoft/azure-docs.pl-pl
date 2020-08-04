@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374222"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534009"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
 
 Wskaźnik platformy Azure używa [Access Control opartej na rolach (RBAC)](../role-based-access-control/role-assignments-portal.md) , aby udostępnić [wbudowane role](../role-based-access-control/built-in-roles.md),   które można przypisać do użytkowników, grup i usług na platformie Azure.
 
-Za pomocą funkcji RBAC można tworzyć i przypisywać role w zespole operacji zabezpieczeń, aby udzielać odpowiedniego dostępu do platformy Azure. Różne role zapewniają szczegółową kontrolę nad tym, co widzą Użytkownicy platformy Azure. Role RBAC można przypisywać bezpośrednio w obszarze roboczym Azure wskaźnikowym (patrz Uwaga poniżej) lub w subskrypcji lub grupie zasobów, do której należy obszar roboczy, który będzie dziedziczyć na platformie Azure.
+Za pomocą funkcji RBAC można tworzyć i przypisywać role w zespole operacji zabezpieczeń, aby udzielać odpowiedniego dostępu do platformy Azure. Różne role zapewniają szczegółową kontrolę nad tym, co widzą Użytkownicy platformy Azure. Role platformy Azure można przypisywać bezpośrednio w obszarze roboczym Azure wskaźnikowym (patrz Uwaga poniżej) lub w subskrypcji lub grupie zasobów, do której należy ten obszar roboczy, który będzie dziedziczyć na platformie Azure.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Role do pracy na platformie Azure — wskaźnik
 
@@ -64,7 +64,7 @@ Aby zapoznać się z porównaniem równoległym, zobacz [poniższą tabelę](#ro
 
 ### <a name="other-roles-you-might-see-assigned"></a>Inne role, które mogą zostać wyświetlone
 
-W przypadku przypisywania ról RBAC specyficznych dla funkcji kontroli dostępu platformy Azure można korzystać z innych ról usług Azure i Log Analytics RBAC, które mogły zostać przypisane do użytkowników w innych celach. Należy pamiętać, że te role udzielają szerszego zestawu uprawnień, który obejmuje dostęp do obszaru roboczego wskaźnikowego platformy Azure i innych zasobów:
+Przy przypisywaniu ról platformy Azure specyficznych dla platformy Azure można korzystać z innych ról platformy Azure i Log Analytics, które mogą zostać przypisane do użytkowników w innych celach. Należy pamiętać, że te role udzielają szerszego zestawu uprawnień, który obejmuje dostęp do obszaru roboczego wskaźnikowego platformy Azure i innych zasobów:
 
 - **Role platformy Azure:** [właściciel](../role-based-access-control/built-in-roles.md#owner), [współautor](../role-based-access-control/built-in-roles.md#contributor)i [czytelnik](../role-based-access-control/built-in-roles.md#reader). Role platformy Azure umożliwiają dostęp do wszystkich zasobów platformy Azure, w tym Log Analytics obszarów roboczych i zasobów wskaźnikowych platformy Azure.
 
@@ -76,7 +76,7 @@ Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontro
 
 Poniższa tabela zawiera Podsumowanie ról i dozwolonych akcji na platformie Azure — wskaźnik. 
 
-| Rola | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Role | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |

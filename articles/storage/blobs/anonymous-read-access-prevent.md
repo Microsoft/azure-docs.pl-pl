@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133167"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534286"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
@@ -24,7 +24,7 @@ Domyślnie publiczny dostęp do danych obiektów BLOB jest zawsze zabroniony. Je
 
 Jeśli nie dołączysz publicznego dostępu do obiektów BLOB dla konta magazynu, usługa Azure Storage odrzuci wszystkie anonimowe żądania do tego konta. Gdy dostęp publiczny jest niedozwolony dla konta, kontenery w tym koncie nie mogą zostać skonfigurowane do dostępu publicznego. Wszystkie kontenery, które zostały już skonfigurowane do dostępu publicznego, nie będą już akceptować żądań anonimowych. Aby uzyskać więcej informacji, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).
 
-W tym artykule opisano, jak analizować anonimowe żądania na koncie magazynu oraz jak zapobiegać Anonimowemu dostępowi do całego konta magazynu lub dla danego kontenera.
+W tym artykule opisano sposób korzystania z platformy przeciągania (wykrywania-korygowania-Audit-ładu) w celu ciągłego zarządzania dostępem publicznym do kont magazynu.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Wykrywaj anonimowe żądania z aplikacji klienckich
 
@@ -157,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Sprawdź ustawienia dostępu publicznego dla wielu kont
+
+Aby sprawdzić ustawienia dostępu publicznego na zestawie kont magazynu z optymalną wydajnością, można użyć Eksploratora Azure Resource Graph w Azure Portal. Aby dowiedzieć się więcej o korzystaniu z Eksploratora grafów zasobów, zobacz [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+
+Uruchomienie następującego zapytania w Eksploratorze grafu zasobów zwraca listę kont magazynu i wyświetla ustawienia dostępu publicznego dla każdego konta:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Użyj Azure Policy, aby przeprowadzić inspekcję zgodności
+
+Jeśli masz dużą liczbę kont magazynu, możesz chcieć przeprowadzić inspekcję, aby upewnić się, że te konta są skonfigurowane tak, aby uniemożliwić dostęp publiczny. Aby przeprowadzić inspekcję zestawu kont magazynu pod kątem zgodności, użyj Azure Policy. Azure Policy to usługa, za pomocą której można tworzyć i przypisywać zasady stosujące reguły do zasobów platformy Azure oraz zarządzać nimi. Azure Policy pomaga zachować zgodność tych zasobów ze standardami firmy i umowami dotyczącymi poziomu usług. Aby uzyskać więcej informacji, zobacz [omówienie Azure Policy](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Tworzenie zasad z efektem inspekcji
+
+Azure Policy obsługuje efekty, które określają, co się dzieje, gdy reguła zasad zostanie oceniona względem zasobu. Efekt inspekcji tworzy ostrzeżenie, gdy zasób nie jest zgodny, ale nie zatrzymuje żądania. Aby uzyskać więcej informacji na temat efektów, zobacz [opis efektów Azure Policy](../../governance/policy/concepts/effects.md).
+
+Aby utworzyć zasady z efektem inspekcji dla ustawienia dostępu publicznego dla konta magazynu z Azure Portal, wykonaj następujące kroki:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. W sekcji **Tworzenie** wybierz pozycję **definicje**.
+1. Wybierz pozycję **Dodaj definicję zasad** , aby utworzyć nową definicję zasad.
+1. W polu **Lokalizacja definicji** wybierz przycisk **więcej** , aby określić, gdzie znajduje się zasób zasady inspekcji.
+1. Określ nazwę zasad. Opcjonalnie można określić opis i kategorię.
+1. W obszarze **reguła zasad**Dodaj następującą definicję zasad do sekcji **Klasa policyrule** .
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Zapisz zasady.
+
+### <a name="assign-the-policy"></a>Przypisywanie zasad
+
+Następnie przypisz zasady do zasobu. Zakres zasad odpowiada ten zasób i wszystkie znajdujące się w nim zasoby. Aby uzyskać więcej informacji na temat przypisywania zasad, zobacz [Azure Policy struktury przypisywania](../../governance/policy/concepts/assignment-structure.md).
+
+Aby przypisać zasady do Azure Portal, wykonaj następujące kroki:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. W sekcji **Tworzenie** wybierz pozycję **przypisania**.
+1. Wybierz pozycję **Przypisz zasady** , aby utworzyć nowe przypisanie zasad.
+1. Dla pola **zakres** wybierz zakres przypisania zasad.
+1. W polu **Definicja zasad** wybierz przycisk **więcej** , a następnie wybierz zasady zdefiniowane w poprzedniej sekcji z listy.
+1. Podaj nazwę przypisania zasad. Opis jest opcjonalny.
+1. Pozostaw ustawienie **wymuszania zasad** ustawiony na *włączone*. To ustawienie nie ma wpływu na zasady inspekcji.
+1. Wybierz pozycję **Przegląd + Utwórz** , aby utworzyć przypisanie.
+
+### <a name="view-compliance-report"></a>Wyświetl raport zgodności
+
+Po przypisaniu zasad można wyświetlić raport o zgodności. Raport zgodności dla zasad inspekcji zawiera informacje o tym, które konta magazynu nie są zgodne z zasadami. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie danych dotyczących zgodności z zasadami](../../governance/policy/how-to/get-compliance-data.md).
+
+Po utworzeniu przypisania zasad może upłynąć kilka minut, zanim raport zgodności stanie się dostępny.
+
+Aby wyświetlić raport zgodności w Azure Portal, wykonaj następujące kroki:
+
+1. W Azure Portal przejdź do usługi Azure Policy.
+1. Wybierz pozycję **zgodność**.
+1. Filtruje wyniki dla nazwy przypisania zasad utworzonego w poprzednim kroku. Raport przedstawia, ile zasobów nie jest zgodnych z zasadami.
+1. Możesz przejść do raportu, aby uzyskać dodatkowe szczegóły, w tym listę kont magazynu, które nie są zgodne.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający raport zgodności dla zasad inspekcji dla dostępu publicznego obiektu BLOB":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Użyj Azure Policy, aby wymusić autoryzowany dostęp
+
+Azure Policy obsługuje zarządzanie chmurą dzięki zapewnieniu, że zasoby platformy Azure są zgodne z wymaganiami i standardami. Aby zapewnić, że konta magazynu w organizacji zezwalają tylko na autoryzowane żądania, można utworzyć zasady, które uniemożliwiają utworzenie nowego konta magazynu z ustawieniem dostępu publicznego, które zezwala na żądania anonimowe. Te zasady będą również zapobiegać wszystkim zmianom konfiguracji istniejącego konta, jeśli ustawienia dostępu publicznego dla tego konta nie są zgodne z zasadami.
+
+Zasady wymuszania używają efektu Odmów, aby zapobiec żądaniu, które mogłoby utworzyć lub zmodyfikować konto magazynu, aby zezwolić na dostęp publiczny. Aby uzyskać więcej informacji na temat efektów, zobacz [opis efektów Azure Policy](../../governance/policy/concepts/effects.md).
+
+Aby utworzyć zasady z efektem odmowy dla ustawienia dostępu publicznego, które zezwala na żądania anonimowe, wykonaj te same czynności, które opisano w temacie [Use Azure Policy, aby przeprowadzić inspekcję pod kątem zgodności](#use-azure-policy-to-audit-for-compliance), ale podaj następujący kod JSON w sekcji **Klasa policyrule** definicji zasad:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie może utworzyć konta magazynu, które zezwala na dostęp publiczny. Użytkownik nie może wprowadzać żadnych zmian konfiguracji na istniejącym koncie magazynu, które obecnie zezwala na dostęp publiczny. Próba wykonania tej czynności spowoduje wystąpienie błędu. Ustawienie dostępu publicznego dla konta magazynu musi mieć wartość **Fałsz** , aby kontynuować tworzenie lub Konfigurowanie konta.
+
+Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu, które zezwala na dostęp publiczny (domyślnie dla nowego konta), gdy zasady z efektem Odmów wymagają niedozwolonego dostępu publicznego.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
 
 ## <a name="next-steps"></a>Następne kroki
 

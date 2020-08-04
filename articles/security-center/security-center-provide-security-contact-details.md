@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519290"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534638"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
 
 Aby zapewnić właściwym osobom w organizacji powiadomienia o alertach zabezpieczeń w Twoim środowisku, wprowadź ich adresy e-mail na stronie ustawień **powiadomień e-mail** .
 
-Podczas konfigurowania powiadomień możesz skonfigurować wiadomości e-mail do wysłania do określonych osób lub do każdego z nich z określoną rolą RBAC dla subskrypcji. 
+Podczas konfigurowania powiadomień możesz skonfigurować wiadomości e-mail do wysłania do określonych osób lub do wszystkich użytkowników z określoną rolą platformy Azure dla subskrypcji. 
 
 Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzących wiadomości e-mail. Dla każdej subskrypcji Security Center wysyła:
 
@@ -41,7 +41,7 @@ Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzący
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów<a name="email"></a>
 
-Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich użytkowników z określonymi rolami RBAC.
+Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich użytkowników z określonymi rolami platformy Azure.
 
 1. W obszarze **ustawienia & cennika** Security Center, odpowiedniej subskrypcji i wybierz opcję **powiadomienia e-mail**.
 

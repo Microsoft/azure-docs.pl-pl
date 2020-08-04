@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886101"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529793"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest Azure AD Privileged Identity
 
 Aby można było korzystać z Privileged Identity Management, katalog musi mieć jedną z następujących licencji płatnych lub wersji próbnej:
 
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 - Enterprise Mobility + Security (EMS) E5
 - Microsoft 365 Education A5
 - Microsoft 365 Enterprise E5
@@ -100,7 +100,7 @@ W poniższej sekcji znajdują się informacje ułatwiające zidentyfikowanie wsz
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Uczestnicy projektu: Privileged Identity Management dla ról usługi Azure AD
 
-| Nazwa | Rola | Akcja |
+| Nazwa | Role | Akcja |
 | --- | --- | --- |
 | Nazwa i adres e-mail | **Architekt tożsamości lub Administrator globalny platformy Azure**<br/>Przedstawiciel zespołu ds. zarządzania tożsamościami odpowiedzialny za definiowanie sposobu wyrównywania tej zmiany z podstawową infrastrukturą zarządzania tożsamościami w organizacji. | SO/R/I |
 | Nazwa i adres e-mail | **Menedżer linii/właściciela usługi**<br/>Przedstawiciel od właścicieli IT usługi lub grupy usług. Są one kluczowym sposobem podejmowania decyzji i pomocy w rozwinięcia Privileged Identity Management dla zespołu. | SO/R/I |
@@ -110,12 +110,12 @@ W poniższej sekcji znajdują się informacje ułatwiające zidentyfikowanie wsz
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Uczestnicy projektu: Privileged Identity Management dla ról zasobów platformy Azure
 
-| Nazwa | Rola | Akcja |
+| Nazwa | Role | Akcja |
 | --- | --- | --- |
 | Nazwa i adres e-mail | **Właściciel subskrypcji/zasobu**<br/>Przedstawiciel z właścicieli IT dla każdej subskrypcji lub zasobu, który ma zostać wdrożony Privileged Identity Management | SO/R/I |
 | Nazwa i adres e-mail | **Właściciel zabezpieczeń**<br/>Przedstawiciel zespołu ds. zabezpieczeń, który może się wylogować, aby plan spełniał wymagania dotyczące zabezpieczeń Twojej organizacji. | SO/R |
 | Nazwa i adres e-mail | **Menedżer pomocy technicznej IT/pomoc techniczna**<br/>Przedstawiciel firmy z działu pomocy technicznej IT, który może dostarczyć dane wejściowe dotyczące możliwości obsługi tej zmiany w perspektywie pomocy technicznej. | R/I |
-| Nazwa i wiadomość e-mail dla użytkowników pilotażowych | **Użytkownicy roli RBAC**<br/>Grupa użytkowników, dla których zaimplementowano usługi Privileged Identity Management. Muszą wiedzieć, jak aktywować swoje role po zaimplementowaniu Privileged Identity Management. | I |
+| Nazwa i wiadomość e-mail dla użytkowników pilotażowych | **Użytkownicy roli platformy Azure**<br/>Grupa użytkowników, dla których zaimplementowano usługi Privileged Identity Management. Muszą wiedzieć, jak aktywować swoje role po zaimplementowaniu Privileged Identity Management. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Włącz Privileged Identity Management
 
@@ -241,7 +241,7 @@ Przed zaimplementowaniem rozwiązania Privileged Identity Management warto podwy
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Ustawienia Privileged Identity Management dla ról usługi Azure AD
 
-| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Bilet zdarzenia | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator trwały |
+| Role | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Bilet zdarzenia | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator trwały |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrator globalny | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni administratorzy globalni | 1 godzina | Konta dostępu awaryjnego |
 | Administrator programu Exchange | :heavy_check_mark: | :heavy_check_mark: | y | y | Brak | 2 godziny | Brak |
@@ -249,7 +249,7 @@ Przed zaimplementowaniem rozwiązania Privileged Identity Management warto podwy
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Privileged Identity Management ustawienia dla ról zasobów platformy Azure
 
-| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator aktywny | Aktywne wygaśnięcie | Kwalifikujące się wygaśnięcie |
+| Role | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator aktywny | Aktywne wygaśnięcie | Kwalifikujące się wygaśnięcie |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Właściciel krytycznych subskrypcji | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni właściciele subskrypcji | 1 godzina | Brak | nie dotyczy | 3 miesiące |
 | Administrator dostępu użytkowników z mniej krytycznymi subskrypcjami | :heavy_check_mark: | :heavy_check_mark: | y | Brak | 1 godzina | Brak | nie dotyczy | 3 miesiące |
@@ -259,7 +259,7 @@ W poniższej tabeli opisano poszczególne ustawienia.
 
 | Ustawienie | Opis |
 | --- | --- |
-| Rola | Nazwa roli, dla której są definiowane ustawienia. |
+| Role | Nazwa roli, dla której są definiowane ustawienia. |
 | Wymaganie uwierzytelniania wieloskładnikowego | Czy uprawniony użytkownik musi wykonać uwierzytelnianie wieloskładnikowe przed aktywowaniem roli.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** Wymuszanie uwierzytelniania wieloskładnikowego dla wszystkich ról administratora, szczególnie jeśli role mają użytkowników-Gości. |
 | Powiadomienie | Jeśli wartość jest równa true, Administrator globalny, administrator ról uprzywilejowanych i administrator zabezpieczeń w organizacji otrzyma powiadomienie e-mail, gdy uprawniony użytkownik aktywuje rolę.<br/><br/>**Uwaga:** Niektóre organizacje nie mają adresu e-mail powiązanego z kontami administratorów, aby otrzymywać powiadomienia e-mail, należy ustawić alternatywny adres e-mail, aby administratorzy otrzymywali te wiadomości e-mail. |
 | Bilet zdarzenia | Czy uprawniony użytkownik musi zarejestrować numer biletu zdarzenia podczas aktywowania ich roli. To ustawienie pomaga organizacji identyfikować każdą aktywację z wewnętrznym numerem zdarzenia w celu ograniczenia niepożądanej aktywacji.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** korzystanie z numerów biletów zdarzeń, aby powiązać Privileged Identity Management z systemem wewnętrznym. Jest to szczególnie przydatne w przypadku osób zatwierdzających, które wymagają kontekstu aktywacji. |
@@ -319,7 +319,7 @@ Teraz, po zidentyfikowaniu użytkowników testowych, użyj tego kroku, aby skonf
 
 Należy użyć tego etapu, aby sprawdzić, czy cała konfiguracja skonfigurowana dla ról działa prawidłowo. Skorzystaj z poniższej tabeli, aby udokumentować testy. Ten etap powinien również służyć do optymalizowania komunikacji z użytkownikami, których to dotyczy.
 
-| Rola | Oczekiwane zachowanie podczas aktywacji | Rzeczywiste wyniki |
+| Role | Oczekiwane zachowanie podczas aktywacji | Rzeczywiste wyniki |
 | --- | --- | --- |
 | Administrator globalny | (1) Wymagaj uwierzytelniania wieloskładnikowego<br/>(2) Wymagaj zatwierdzenia<br/>(3) osoba zatwierdzająca otrzymuje powiadomienie i może zatwierdzić<br/>(4) rola wygasa po upływie czasu wstępnego |  |
 | Właściciel subskrypcji *X* | (1) Wymagaj uwierzytelniania wieloskładnikowego<br/>(2) kwalifikujące się przypisanie wygasa po upływie skonfigurowanego okresu |  |

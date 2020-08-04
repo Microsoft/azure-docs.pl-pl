@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287358"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533822"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -98,7 +98,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z dyskam
 - Wysoka przepustowość sieci jest wymagana w celu zapewnienia wysokiej wydajności z powodu trwającej replikacji dysków. 
 - Wymaga większego rozmiaru maszyny wirtualnej i podwójnej opłaty za magazyn, ponieważ magazyn jest dołączony do każdej maszyny wirtualnej. 
 
-Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### <a name="premium-file-share"></a>Udział plików w warstwie Premium
 

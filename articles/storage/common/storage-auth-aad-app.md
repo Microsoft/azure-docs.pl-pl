@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369003"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534230"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -27,7 +27,7 @@ Aby zapoznać się z omówieniem przepływu przyznawania kodu OAuth 2,0, zobacz 
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Przypisywanie roli do podmiotu zabezpieczeń usługi Azure AD
 
-Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role platformy Azure, które obejmują uprawnienia do kontenerów i kolejek. Gdy rola RBAC zostanie przypisana do podmiotu zabezpieczeń, ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC](storage-auth-aad-rbac.md).
+Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role platformy Azure, które obejmują uprawnienia do kontenerów i kolejek. Po przypisaniu roli platformy Azure do podmiotu zabezpieczeń ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Rejestrowanie aplikacji w dzierżawie usługi Azure AD
 
@@ -115,7 +115,7 @@ Aby uruchomić przykładowy kod, Utwórz konto magazynu w ramach tej samej subsk
 Następnie jawnie Przypisz rolę **współautor danych obiektu blob magazynu** do konta użytkownika, w ramach którego zostanie uruchomiony przykładowy kod. Aby uzyskać instrukcje dotyczące sposobu przypisywania tej roli w Azure Portal, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki RBAC w Azure Portal](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
-> Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać rolę RBAC do usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
+> Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Tworzenie aplikacji sieci Web, która autoryzuje dostęp do usługi BLOB Storage w usłudze Azure AD
 

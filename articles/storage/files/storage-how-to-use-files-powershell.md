@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340835"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531816"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell 
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu programu PowerShell. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują standardowy w branży protokół SMB i umożliwiają udostępnianie plików między wieloma maszynami, aplikacjami i wystąpieniami. 
@@ -88,7 +88,7 @@ W większości przypadków użyjesz udziału plików platformy Azure za pośredn
 - Korzystasz z zasobów bezserwerowych, takich jak [usługa Azure Functions](../../azure-functions/functions-overview.md). 
 - Tworzysz usługę wartości doprowadzającej, która będzie współdziałać z wieloma udziałami plików platformy Azure, takimi jak wykonywanie skanowania kopii zapasowej lub skanowanie antywirusowe.
 
-W poniższych przykładach przedstawiono, jak używać modułu Azure PowerShell do obsługi udziałów plików platformy Azure przy użyciu protokołu REST usługi Files. Ten `-Context` parametr służy do pobierania klucza konta magazynu w celu wykonania wskazanych akcji względem udziału plików. Aby można było pobrać klucz konta magazynu, należy mieć rolę RBAC `Owner` na koncie magazynu.
+W poniższych przykładach przedstawiono, jak używać modułu Azure PowerShell do obsługi udziałów plików platformy Azure przy użyciu protokołu REST usługi Files. Ten `-Context` parametr służy do pobierania klucza konta magazynu w celu wykonania wskazanych akcji względem udziału plików. Aby można było pobrać klucz konta magazynu, musisz mieć rolę platformy Azure dla `Owner` konta magazynu.
 
 #### <a name="create-directory"></a>Tworzenie katalogu
 Aby utworzyć nowy katalog o nazwie *myDirectory* w katalogu głównym udziału plików platformy Azure, użyj polecenia cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
@@ -247,7 +247,7 @@ Remove-AzStorageShare `
     -Force
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz, możesz usunąć grupę zasobów i wszystkie pokrewne zasoby za pomocą polecenia cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). 
 
 ```azurepowershell-interactive

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418069"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534383"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -28,7 +28,7 @@ ms.locfileid: "81418069"
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programu SAP Business Warehouse (BW). Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 >[!TIP]
->Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych w systemie SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) z szczegółowym wprowadzeniem, comparsion i wskazówkami.
+>Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) ze szczegółowymi informacjami na temat poszczególnych łączników SAP, comparsion i wskazówek.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
@@ -181,27 +181,27 @@ Podczas kopiowania danych z SAP BW następujące mapowania są używane z SAP BW
 | Typ danych SAP BW | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
 | ACCP | int |
-| DELIKATN | String |
-| CLNT | String |
+| DELIKATN | Ciąg |
+| CLNT | Ciąg |
 | WALUCIE | Wartość dziesiętna |
-| CUKY | String |
+| CUKY | Ciąg |
 | GRUDZIEŃ | Wartość dziesiętna |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| BIBLIOGRAFI | String |
-| LCHR | String |
+| BIBLIOGRAFI | Ciąg |
+| LCHR | Ciąg |
 | LRAW | Byte [] |
 | PREC | Int16 |
 | QUAN | Wartość dziesiętna |
 | SUROWCÓW | Byte [] |
 | RAWSTRING | Byte [] |
-| PARAMETRY | String |
-| JEDNOSTKA | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| PARAMETRY | Ciąg |
+| JEDNOSTKA | Ciąg |
+| DATS | Ciąg |
+| NUMC | Ciąg |
+| TIMS | Ciąg |
 
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

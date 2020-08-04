@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091015"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531884"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -106,10 +106,7 @@ Azure Backup obsługuje szyfrowanie danych w trakcie przesyłania i w czasie spo
 ### <a name="data-security"></a>Bezpieczeństwo danych
 
 - Dane kopii zapasowej są przechowywane w magazynie Recovery Services w postaci zaszyfrowanej.
-- Tylko Ty dysponujesz hasłem do odblokowania tych danych. Firma Microsoft nie może odszyfrować danych kopii zapasowej w żadnym punkcie.
-
-    > [!WARNING]
-    > Po skonfigurowaniu magazynu tylko Ty masz dostęp do klucza szyfrowania. Firma Microsoft nigdy nie przechowuje kopii i nie ma dostępu do klucza. W przypadku utraty klucza firma Microsoft nie może odzyskać danych kopii zapasowej.
+- W przypadku tworzenia kopii zapasowej danych z serwerów lokalnych przy użyciu agenta MARS dane są szyfrowane przy użyciu hasła przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup.
 - Podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure należy skonfigurować szyfrowanie *w ramach* maszyny wirtualnej.
 - Usługa Azure Backup obsługuje usługę Azure Disk Encryption, która używa funkcji BitLocker na maszynach wirtualnych z systemem Windows, a programu **dm-crypt** na maszynach wirtualnych z systemem Linux.
 - Na zapleczu Azure Backup używa [platformy Azure szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md), która chroni dane przechowywane w spoczynku.
@@ -130,7 +127,7 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 
 **Maszyna** | **Kompresja do usługi MABS/programu DPM (TCP)** | **Kompresuj do magazynu (HTTPS)**
 --- | --- | ---
-**Bezpośrednia kopia zapasowa lokalnych maszyn z systemem Windows** | Nie dotyczy | ![Tak][green]
+**Bezpośrednia kopia zapasowa lokalnych maszyn z systemem Windows** | Nie dotyczy | ![Yes][green]
 **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu rozszerzenia maszyny wirtualnej** | Nie dotyczy | Nie dotyczy
 **Tworzenie kopii zapasowych na maszynach lokalnych/na platformie Azure przy użyciu serwera usługi MAB/DPM** | ![Tak][green] | ![Tak][green]
 
@@ -153,9 +150,9 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne platformy Azure.  |
-| Agent MARS/lokalnie | Nie                                                           | Nie dotyczy               |
-| SQL/SAP HANA          | Nie                                                           | Nie dotyczy               |
-| AFS                    | Nie                                                           | Nie dotyczy               |
+| Agent MARS/lokalnie | Nie                                                           | Brak               |
+| SQL/SAP HANA          | Nie                                                           | Brak               |
+| AFS                    | Nie                                                           | Brak               |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386218"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531170"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -38,16 +38,37 @@ Aby uzyskać więcej informacji na temat zarządzanych tożsamości dla zasobów
 
 Przed rozpoczęciem pracy z kluczami, wpisami tajnymi lub certyfikatami w magazynie kluczy utworzysz Magazyn kluczy i zarządzasz nim za pomocą interfejsu wiersza polecenia, programu PowerShell, Menedżer zasobów szablonów lub REST, zgodnie z opisem w następujących artykułach:
 
-- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą interfejsu wiersza polecenia](../secrets/quick-create-cli.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu programu PowerShell](../secrets/quick-create-powershell.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Azure Portal](../secrets/quick-create-portal.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Python](../secrets/quick-create-python.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Java](../secrets/quick-create-java.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Node.js](../secrets/quick-create-node.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu platformy .NET (zestaw SDK v4)](../secrets/quick-create-net.md)
-- [Tworzenie magazynu kluczy i Dodawanie wpisu tajnego za pomocą szablonu Azure Resource Manager](../secrets/quick-create-template.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu interfejsu REST](/rest/api/keyvault/)
+- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą interfejsu wiersza polecenia](quick-create-cli.md)
+- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu programu PowerShell](quick-create-powershell.md)
+- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Azure Portal](quick-create-portal.md)
+- [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu interfejsu REST](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>Ustawianie i pobieranie wpisów tajnych
+
+- [Ustawianie i pobieranie wpisu tajnego za pomocą interfejsu wiersza polecenia](../secrets/quick-create-cli.md)
+- [Ustawianie i pobieranie wpisu tajnego przy użyciu programu PowerShell](../secrets/quick-create-powershell.md)
+- [Ustawianie i pobieranie klucza tajnego za pomocą Azure Portal](../secrets/quick-create-portal.md)
+- [Operacje na wpisach tajnych przy użyciu interfejsu REST](/rest/api/keyvault/#secret-operations)
+- [Ustawianie i pobieranie wpisu tajnego przy użyciu języka Python](../secrets/quick-create-python.md)
+- [Ustawianie i pobieranie wpisu tajnego przy użyciu języka Java](../secrets/quick-create-java.md)
+- [Ustawianie i pobieranie klucza tajnego za pomocą Node.js](../secrets/quick-create-node.md)
+- [Ustawianie i pobieranie wpisu tajnego przy użyciu platformy .NET (zestaw SDK v4)](../secrets/quick-create-net.md)
+- [Tworzenie magazynu kluczy i Dodawanie wpisu tajnego za pomocą szablonu Azure Resource Manager](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>Ustawianie i pobieranie kluczy
+
+- [Ustawianie i pobieranie klucza przy użyciu interfejsu wiersza polecenia](../keys/quick-create-cli.md)
+- [Ustawianie i pobieranie klucza przy użyciu programu PowerShell](../keys/quick-create-powershell.md)
+- [Ustawianie i pobieranie klucza z Azure Portal](../keys/quick-create-portal.md)
+- [Operacje na kluczach przy użyciu interfejsu REST](/rest/api/keyvault/#key-operations)
+- [Ustawianie i pobieranie klucza przy użyciu języka Python](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>Ustawianie i pobieranie certyfikatów
+- [Ustawianie i pobieranie certyfikatu za pomocą interfejsu wiersza polecenia](../certificates/quick-create-cli.md)
+- [Ustawianie i pobieranie certyfikatu przy użyciu programu PowerShell](../certificates/quick-create-powershell.md)
+- [Ustawianie i pobieranie certyfikatu z Azure Portal](../certificates/quick-create-portal.md)
+- [Operacje na kluczach przy użyciu interfejsu REST](/rest/api/keyvault/#certificate-operations)
+- [Ustawianie i pobieranie certyfikatu przy użyciu języka Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Kodowanie za pomocą Key Vault
 
@@ -64,8 +85,6 @@ Wszystkie zasoby Key Vault są dostępne za pomocą interfejsu REST; magazyny, k
 #### <a name="net"></a>.NET
 
 [Dokumentacja interfejsu API platformy .NET dla Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-Aby uzyskać więcej informacji na temat wersji 2. x zestawu SDK platformy .NET, zobacz [Informacje o wersji](dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ W Node.js interfejs API zarządzania Key Vault i interfejs API obiektu Key Vault
 Aby zapoznać się z kompletnymi przykładami dotyczącymi używania Key Vault z aplikacjami, zobacz:
 
 - [Przykłady kodu Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) — przykłady kodu dla Azure Key Vault. 
-- [Użyj Azure Key Vault z aplikacji sieci Web](../secrets/quick-create-net.md) — samouczek, aby dowiedzieć się, jak używać Azure Key Vault z aplikacji sieci Web na platformie Azure. 
 
 ## <a name="how-tos"></a>Instrukcje
 
@@ -124,7 +142,6 @@ W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają 
 
 - [Key Vault zachowanie podczas usuwania nietrwałego](soft-delete-overview.md)) opisuje funkcję, która umożliwia Odzyskiwanie usuniętych obiektów, czy usunięcie było przypadkowe lub zamierzone.
 - [Key Vault ograniczanie klientów](overview-throttling.md) ukierunkowane na podstawowe koncepcje ograniczania i oferuje podejście do aplikacji.
-- [Informacje o kluczach konta usługi Key Vault Storage](../secrets/overview-storage-keys.md)) Opisuje Key Vault integracji kluczy kont usługi Azure Storage.
 - [Key Vault światy zabezpieczeń](overview-security-worlds.md) opisuje relacje między regionami i obszarami zabezpieczeń.
 
 ## <a name="social"></a>Funkcje społecznościowe

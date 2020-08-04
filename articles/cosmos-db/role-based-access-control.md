@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086677"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530575"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach w usłudze Azure Cosmos DB
 
-Azure Cosmos DB zapewnia wbudowaną funkcję kontroli dostępu opartej na rolach (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role kontroli dostępu do użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych w celu udzielenia lub odmowy dostęp do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
+Azure Cosmos DB zapewnia wbudowaną funkcję kontroli dostępu opartej na rolach (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
@@ -39,13 +39,13 @@ Okienko **kontroli dostępu (IAM)** w Azure Portal służy do konfigurowania kon
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
-Oprócz wbudowanych ról użytkownicy mogą również tworzyć [role niestandardowe](../role-based-access-control/custom-roles.md) na platformie Azure i stosować te role do jednostek usługi we wszystkich subskrypcjach w ramach dzierżawy Active Directory. Role niestandardowe zapewniają użytkownikom sposób tworzenia definicji ról RBAC z niestandardowym zestawem operacji dostawcy zasobów. Aby dowiedzieć się, które operacje są dostępne do tworzenia ról niestandardowych dla Azure Cosmos DB Zobacz, [Azure Cosmos DB operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+Oprócz wbudowanych ról użytkownicy mogą również tworzyć [role niestandardowe](../role-based-access-control/custom-roles.md) na platformie Azure i stosować te role do jednostek usługi we wszystkich subskrypcjach w ramach dzierżawy Active Directory. Role niestandardowe zapewniają użytkownikom sposób tworzenia definicji ról platformy Azure z niestandardowym zestawem operacji dostawcy zasobów. Aby dowiedzieć się, które operacje są dostępne do tworzenia ról niestandardowych dla Azure Cosmos DB Zobacz, [Azure Cosmos DB operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Uniemożliwianie zmian z zestawów SDK Azure Cosmos DB
 
 Dostawcę zasobów Azure Cosmos DB można zablokować, aby zapobiec wprowadzeniu zmian w zasobach z klienta nawiązującego połączenie przy użyciu kluczy konta (czyli aplikacji łączących się za pośrednictwem zestawu Azure Cosmos SDK). Obejmuje to również zmiany wprowadzone w Azure Portal. Ta funkcja może być pożądana dla użytkowników, którzy chcą mieć wyższe stopnie kontroli i zarządzania w środowiskach produkcyjnych. Uniemożliwianie zmian z zestawu SDK włącza również funkcje, takie jak blokady zasobów i dzienniki diagnostyczne dla operacji na płaszczyźnie kontroli. Klienci łączący się z Azure Cosmos DB SDK nie będą mogli zmieniać żadnej właściwości dla kont, baz danych, kontenerów i przepływności usługi Azure Cosmos. Nie ma to wpływu na operacje dotyczące odczytywania i zapisywania danych w kontenerach Cosmos.
 
-Gdy ta funkcja jest włączona, zmiany dowolnego zasobu mogą zostać wykonane tylko przez użytkownika z odpowiednią rolą RBAC i Azure Active Directory poświadczenia, w tym tożsamości usługi zarządzanej.
+Gdy ta funkcja jest włączona, zmiany dowolnego zasobu mogą zostać wykonane tylko przez użytkownika z odpowiednią rolą platformy Azure i poświadczeniami Azure Active Directory, w tym tożsamości usługi zarządzanej.
 
 > [!WARNING]
 > Włączenie tej funkcji może mieć wpływ na aplikację. Upewnij się, że rozumiesz wpływ przed jego włączeniem.

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4da2572e453339baa3f5e2663a7965fff2035e40
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087354"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531306"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,7 +80,7 @@ Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych za 
 
 W poniższych sekcjach pokazano, jak za pomocą programu PowerShell skonfigurować długoterminowe przechowywanie kopii zapasowych, wyświetlać kopie zapasowe w usłudze Azure Storage i przywracać je z kopii zapasowej w usłudze Azure Storage.
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>Role RBAC do zarządzania długoterminowym przechowywaniem
+### <a name="azure-roles-to-manage-long-term-retention"></a>Role platformy Azure do zarządzania długoterminowym przechowywaniem
 
 W przypadku funkcji **Get-AzSqlDatabaseLongTermRetentionBackup** i **Restore-AzSqlDatabase**konieczne będzie posiadanie jednej z następujących ról:
 

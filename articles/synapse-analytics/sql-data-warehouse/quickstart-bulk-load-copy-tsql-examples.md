@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371961"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528467"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -70,9 +70,9 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zainstaluj Azure PowerShell przy użyciu tego [przewodnika](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz najpierw przeprowadzić uaktualnienie do ogólnego przeznaczenia w wersji 2 przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) .
+1. Zainstaluj program Azure PowerShell, korzystając z tego [przewodnika](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+2. Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto magazynu blob, najpierw musisz przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2, korzystając z tego [przewodnika](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+3. Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Kroki
 
 1. W programie PowerShell **zarejestruj program SQL Server** w usłudze Azure Active Directory (AAD):
@@ -88,13 +88,13 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
    > [!NOTE]
    > Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciela danych obiektów blob, współautora lub czytelnika** do programu SQL Server.
+3. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciela danych obiektów blob magazynu, współautora lub czytelnika** do programu SQL Server.
 
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
     > [!IMPORTANT]
-    > Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
+    > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
 
     ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Uwierzytelnianie Azure Active Directory (AAD)
 #### <a name="steps"></a>Kroki
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciel danych obiektów blob, współautor lub czytelnika** do użytkownika usługi AAD. 
+1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciela danych obiektów blob magazynu, współautora lub czytelnika** do użytkownika usługi AAD. 
 
     > [!IMPORTANT]
-    > Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika.
+    > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika.
 
     ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

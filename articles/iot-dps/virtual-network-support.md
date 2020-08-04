@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532049"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534604"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Obsługa usługi Azure IoT Hub Device Provisioning Service (DPS) dla sieci wirtualnych
 
@@ -59,7 +59,7 @@ Należy zwrócić uwagę na następujące bieżące ograniczenia dotyczące usł
 
 * Prywatne punkty końcowe nie będą działały z usługą DPS, gdy zasób DPS i połączone centrum znajdują się w różnych chmurach. Na przykład [Azure Government i globalny platformę Azure](../azure-government/documentation-government-welcome.md).
 
-* Obecnie [niestandardowe zasady alokacji z Azure Functionsem](how-to-use-custom-allocation-policies.md) usługi DPS nie będą współpracować z siecią wirtualną ani prywatnymi punktami końcowymi. 
+* Obecnie [niestandardowe zasady alokacji z Azure Functionsem](how-to-use-custom-allocation-policies.md) usługi DPS nie będą działać, gdy funkcja platformy Azure zostanie zablokowana w sieci wirtualnej i prywatnych punktach końcowych. 
 
 * Bieżąca obsługa sieci wirtualnych usługi DPS dotyczy tylko danych przychodzących do usługi DPS. Dane wychodzące, które są ruchem z usługi DPS do IoT Hub, korzystają z wewnętrznego mechanizmu usługa-usługa, a nie dedykowanej sieci wirtualnej. Obsługa pełnej, opartej na sieci wirtualnej blokady ruchu wychodzącego między działem DPS a IoT Hub nie jest obecnie dostępna.
 

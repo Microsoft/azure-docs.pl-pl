@@ -4,12 +4,12 @@ description: Access Control oparte na rolach umożliwiają zarządzanie dostępe
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445318"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533465"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Zarządzanie Azure Backup punktów odzyskiwania przy użyciu Access Control opartych na rolach
 
@@ -28,9 +28,9 @@ Jeśli chcesz zdefiniować własne role, aby jeszcze bardziej kontrolować, zoba
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapowanie wbudowanych ról kopii zapasowej na akcje zarządzania kopiami zapasowymi
 
-W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowiadające im minimalne role RBAC wymagane do wykonania tej operacji.
+W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowiadającą jej minimalną rolę platformy Azure wymaganą do wykonania tej operacji.
 
-| Operacja zarządzania | Wymagana minimalna rola RBAC | Wymagany zakres |
+| Operacja zarządzania | Wymagana jest minimalna rola platformy Azure | Wymagany zakres |
 | --- | --- | --- |
 | Tworzenie magazynu usługi Recovery Services | Współautor kopii zapasowej | Grupa zasobów zawierająca magazyn |
 | Włącz tworzenie kopii zapasowych maszyn wirtualnych platformy Azure | Operator kopii zapasowych | Grupa zasobów zawierająca magazyn |

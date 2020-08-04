@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970930"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530406"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -33,15 +33,15 @@ Dzięki planom platformy Azure relacja między definicją strategii (co _należy
 
 Nie trzeba wybierać między szablonem ARM a planem. Każdy plan może składać się z co najmniej zero _artefaktów_szablonu ARM. Ta pomoc techniczna oznacza, że poprzednie wysiłki w zakresie opracowywania i konserwowania biblioteki szablonów ARM są wielokrotnego użytku w planach platformy Azure.
 
-## <a name="how-its-different-from-azure-policy"></a>W czym różni się ona od usługi Azure Policy
+## <a name="how-its-different-from-azure-policy"></a>Czym różni się od usługi Azure Policy
 
 Strategia to pakiet lub kontener umożliwiający tworzenie specyficznych dla kontekstu zestawów standardów, wzorców i wymagań dotyczących implementacji usług Azure Cloud Services, zabezpieczeń i projektów, które mogą zostać ponownie użyte w celu zachowania spójności i zgodności.
 
 [Zasady](../policy/overview.md) to system z domyślnym zezwalaniem i wyraźnym zabranianiem, który jest skoncentrowany na właściwościach wdrażanych i istniejących już zasobów. Obsługuje on zarządzanie chmurą przez weryfikowanie, czy zasoby w ramach subskrypcji są zgodne z wymaganiami i standardami.
 
-Uwzględnienie zasad w strategii umożliwia utworzenie odpowiedniego wzorca lub projektu podczas jej przypisywania. Dołączenie zasad gwarantuje, że w środowisku mogą być wprowadzane tylko zatwierdzone lub oczekiwane zmiany, co umożliwia ochronę stałej zgodności z intencją strategii.
+Uwzględnienie zasad w strategii umożliwia utworzenie odpowiedniego wzorca lub projektu podczas przypisywania strategii. Dołączenie zasad gwarantuje, że w środowisku mogą być wprowadzane tylko zatwierdzone lub oczekiwane zmiany, co umożliwia ochronę stałej zgodności z intencją strategii.
 
-Zasady mogą być dołączane jako jedne z wielu _artefaktów_ w definicji strategii. Strategie obsługują również używanie parametrów z zasadami i inicjatywami.
+Zasady mogą być dołączane jako jeden z wielu _artefaktów_ w definicji strategii. Strategie obsługują również używanie parametrów z zasadami i inicjatywami.
 
 ## <a name="blueprint-definition"></a>Definicja strategii
 
@@ -103,7 +103,7 @@ Aby użytkownik mógł przypisywać strategie lub anulować ich przypisanie, jeg
 
 Dostępne są następujące wbudowane role:
 
-|Rola RBAC | Opis |
+|Rola platformy Azure | Opis |
 |-|-|
 |[Właściciel](../../role-based-access-control/built-in-roles.md#owner) | Oprócz innych uprawnień program zawiera wszystkie Azure Blueprint powiązane uprawnienia. |
 |[Współautor](../../role-based-access-control/built-in-roles.md#contributor) | Oprócz innych uprawnień program może tworzyć i usuwać definicje planów, ale nie ma uprawnień do przypisywania strategii. |

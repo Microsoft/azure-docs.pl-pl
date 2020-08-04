@@ -10,17 +10,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708522"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532530"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji na temat tworzenia wystąpienia zarządzanego, z
 
 Utwórz SQL Server maszynę wirtualną przy użyciu [Azure Portal](https://portal.azure.com). Maszyna wirtualna SQL Server powinna mieć następującą charakterystykę:
 
-- Nazwij`sql-vm-sub`
+- Nazwa: `sql-vm-sub`
 - Obraz: SQL Server 2016 lub większy
 - Grupa zasobów: taka sama jak w przypadku wystąpienia zarządzanego
 - Sieć wirtualna:`sql-vm-sub-vnet`
@@ -247,6 +247,10 @@ Po nawiązaniu połączenia z przykładową bazą danych można skonfigurować d
 1. Otwórz **nowe okno zapytania** i uruchom następujący kod języka Transact-SQL w celu skonfigurowania dystrybucji na wystąpieniu zarządzanym dystrybutora:
 
    ```sql
+   EXEC sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
+   
+   EXEC sp_adddistributiondb @database = N'distribution'
+   
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
         @distribution_db = N'distribution',
         @security_mode = 0,
@@ -277,12 +281,12 @@ Po skonfigurowaniu dystrybucji możesz teraz utworzyć publikację. Aby to zrobi
 1. Nawiąż połączenie z `sql-mi-publisher` wystąpieniem zarządzanym.
 1. W **Eksplorator obiektów**rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.**..
 1. Wybierz pozycję **dalej** , aby przejść poza stronę powitalną.
-1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz przycisk **Dalej**.
-1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz przycisk **Dalej**.
-1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz przycisk **Dalej**.
+1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz pozycję **Dalej**.
+1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz pozycję **Dalej**.
+1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz pozycję **Dalej**.
 1. Na stronie **Filtruj wiersze tabeli** wybierz pozycję **dalej** bez dodawania filtrów.
-1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz przycisk **Dalej**.
-1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz przycisk **Dalej**.
+1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz pozycję **Dalej**.
+1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz pozycję **Dalej**.
 
    ![Konfiguruj zabezpieczenia agenta migawek](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -357,7 +361,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 Agent został skonfigurowany przy użyciu logowania systemu Windows i w zamian musi używać logowania SQL Server. Na stronie **zabezpieczenia agenta** **Właściwości publikacji** można zmienić poświadczenia logowania na nazwę logowania SQL Server.
 
-### <a name="failed-to-connect-to-azure-storage"></a>Nie można nawiązać połączenia z usługą Azure Storage
+### <a name="failed-to-connect-to-azure-storage"></a>Nie można nawiązań połączenia z usługą Azure Storage
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 

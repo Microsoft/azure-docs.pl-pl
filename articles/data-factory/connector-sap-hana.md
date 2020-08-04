@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219303"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529589"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z SAP HANA przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -27,7 +27,7 @@ ms.locfileid: "84219303"
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z bazy danych SAP HANA. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 >[!TIP]
->Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych w systemie SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) z szczegółowym wprowadzeniem, comparsion i wskazówkami.
+>Aby poznać ogólną pomoc techniczną w scenariuszu integracji danych SAP, zobacz [integracja danych SAP przy użyciu Azure Data Factory oficjalny dokument](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) ze szczegółowymi informacjami na temat poszczególnych łączników SAP, comparsion i wskazówek.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
@@ -149,8 +149,8 @@ Aby skopiować dane z SAP HANA, obsługiwane są następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapHanaTable** | Tak |
-| schematy | Nazwa schematu w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
-| tabela | Nazwa tabeli w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| schema | Nazwa schematu w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| table | Nazwa tabeli w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład:**
 
@@ -271,31 +271,31 @@ Podczas kopiowania danych z SAP HANA następujące mapowania są używane z SAP 
 
 | Typ danych SAP HANA | Typ danych pośrednich fabryki danych |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | Ciąg                         |
 | BIGINT             | Int64                          |
 | BINARNY             | Byte []                         |
-| Dwuntext            | String                         |
+| Dwuntext            | Ciąg                         |
 | TWORZENIA               | Byte []                         |
 | LOGICZNA               | Byte                           |
-| OBIEKTÓW CLOB               | String                         |
+| OBIEKTÓW CLOB               | Ciąg                         |
 | DATE               | DateTime                       |
 | DOKŁADNOŚCI            | Wartość dziesiętna                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | LICZBA CAŁKOWITA            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | Ciąg                         |
+| NVARCHAR           | Ciąg                         |
 | LICZBA RZECZYWISTA               | Pojedyncze                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | String                         |
+| SHORTTEXT          | Ciąg                         |
 | SMALLDECIMAL       | Wartość dziesiętna                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte []                         |
 | STPOINTTYPE        | Byte []                         |
-| TEKST               | String                         |
+| TEKST               | Ciąg                         |
 | CZAS               | przedział_czasu                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
+| VARCHAR            | Ciąg                         |
 | ZNACZNIK czasu          | DateTime                       |
 | LICZBY          | Byte []                         |
 

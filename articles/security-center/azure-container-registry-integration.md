@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center i Azure Container Registry
-description: Dowiedz się więcej o integracji Azure Security Center z usługą Azure Container Registry
+description: Dowiedz się więcej na temat skanowania rejestrów kontenerów za pomocą Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,35 +10,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2020
+ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089910"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534672"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integrację z usługą Security Center
+# <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry skanowania obrazów przez Security Center
 
 Azure Container Registry (ACR) to zarządzana usługa rejestru prywatnego platformy Docker, która przechowuje obrazy kontenerów dla wdrożeń platformy Azure i zarządza nimi w rejestrze centralnym. Jest ona oparta na rejestrze platformy Docker open source 2,0.
 
-Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać pakiet rejestrów kontenerów. Ta opcjonalna funkcja zapewnia dokładniejszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na usłudze ARM. Włącz lub Wyłącz pakiet na poziomie subskrypcji, aby uwzględnić wszystkie rejestry w subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie pakietu rejestrów kontenerów zapewnia, że Security Center jest gotowy do skanowania obrazów, które są przekazywane do rejestru. 
-
+Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać pakiet rejestrów kontenerów. Ta opcjonalna funkcja zapewnia dokładniejszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na Azure Resource Manager. Włącz lub Wyłącz pakiet na poziomie subskrypcji, aby uwzględnić wszystkie rejestry w subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie pakietu rejestrów kontenerów zapewnia, że Security Center jest gotowy do skanowania obrazów, które są przekazywane do rejestru. 
 
 ## <a name="availability"></a>Dostępność
 
 - Stan wydania: **Ogólna dostępność**
 - Wymagane role: **czytelnik zabezpieczeń** i [rola czytnika Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Obsługiwane rejestry:
+- Obsługiwane rejestry i obrazy:
     - ✔ Hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.
     - ✘ Rejestry ACR hostowane w systemie Windows.
-    - Rejestry prywatne ✘ — Security Center wymaga, aby rejestry były dostępne z publicznego Internetu. Jeśli masz ograniczony dostęp do rejestrów za pomocą zapory, punktu końcowego usługi lub za pomocą prywatnego punktu końcowego (na przykład link prywatny platformy Azure), Security Center nie może obecnie nawiązać połączenia z rejestrem lub go przeskanować.
+    - Rejestry prywatne ✘ — Security Center wymaga, aby rejestry były dostępne z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.
     - ✘ Minimalistyczny obrazy, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) lub obrazy typu "Distroless", które zawierają tylko aplikację i jej zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.
 - Połączeń 
     - ✔ Chmury komercyjne
     - ✘ W chmurze dla instytucji rządowych USA
-    - Chmura ✘ Chińska dla instytucji rządowych, inne chmury gov
+    - ✘ W chmurze dla instytucji rządowych, inne chmury dla instytucji rządowych
 
 
 ## <a name="when-are-images-scanned"></a>Kiedy są skanowane obrazy?
@@ -51,7 +50,7 @@ Po zakończeniu skanowania (zwykle po około 2 minutach, ale może to być maksy
 
 ## <a name="benefits-of-integration"></a>Zalety integracji
 
-Security Center identyfikuje rejestry ACR oparte na architekturze ARM w Twojej subskrypcji i bezproblemowo udostępnia:
+Security Center identyfikuje Azure Resource Manager oparte na usłudze ACR w ramach subskrypcji i bezproblemowo zapewnia:
 
 * **Skanowanie w poszukiwaniu luk w zabezpieczeniach platformy Azure** w przypadku wszystkich wypychanych obrazów systemu Linux. Security Center skanuje obraz przy użyciu skanera z wiodącej w branży skanowania dostawcy, Qualys. To rozwiązanie natywne jest w sposób ciągły zintegrowane.
 
@@ -62,20 +61,23 @@ Security Center identyfikuje rejestry ACR oparte na architekturze ARM w Twojej s
 
 
 
-## <a name="acr-with-security-center-faq"></a>ACR z Security Center często zadawane pytania
+## <a name="faq-for-azure-container-registry-image-scanning"></a>Często zadawane pytania dotyczące skanowania obrazu Azure Container Registry
 
-### <a name="how-does-azure-security-center-scan-an-image"></a>Jak Azure Security Center skanować obraz?
+### <a name="how-does-security-center-scan-an-image"></a>Jak Security Center skanować obraz?
 Obraz zostanie pobrany z rejestru. Następnie uruchamia się w izolowanej piaskownicy za pomocą skanera Qualys, który wyodrębnia listę znanych luk w zabezpieczeniach.
 
 Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobrej kondycji, Security Center oznacza go jako taki. Security Center generuje zalecenia dotyczące zabezpieczeń tylko dla obrazów, które mają problemy, które mają zostać rozwiązane. Powiadamiając tylko w przypadku problemów, Security Center zmniejsza możliwości niechcianych alertów informacyjnych.
 
-### <a name="how-often-does-azure-security-center-scan-my-images"></a>Jak często Azure Security Center skanować moje obrazy?
+### <a name="how-often-does-security-center-scan-my-images"></a>Jak często Security Center skanować moje obrazy?
 Podczas każdego wypychania są wyzwalane skanowania obrazu.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Czy mogę uzyskać wyniki skanowania za pośrednictwem interfejsu API REST?
 Tak. Wyniki są poniżej [interfejsu API REST podocen](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
  
+### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
+[Sekcja dostępność](#availability) zawiera listę typów rejestrów kontenerów obsługiwanych przez pakiet rejestrów kontenerów. 
 
+Jeśli rejestry, które nie są obsługiwane, są połączone z subskrypcją platformy Azure, nie zostaną przeskanowane i nie zostaną naliczone opłaty.
 
 
 ## <a name="next-steps"></a>Następne kroki

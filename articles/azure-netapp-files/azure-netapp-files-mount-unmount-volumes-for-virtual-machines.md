@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045658"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533091"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux 
 
@@ -43,9 +43,12 @@ W razie potrzeby można zainstalować lub odinstalować wolumin dla maszyn wirtu
     a. Najpierw zainstaluj wolumin na maszynie wirtualnej z systemem UNIX lub Linux.  
     b. Uruchom `chmod 777` polecenie lub w `chmod 775` odniesieniu do woluminu.  
     c. Zainstaluj wolumin za pośrednictwem klienta NFS w systemie Windows.
+    
+5. Jeśli chcesz zainstalować wolumin systemu plików NFS Kerberos, zobacz [Konfigurowanie szyfrowania nfsv 4.1 Kerberos](configure-kerberos-encryption.md) , aby uzyskać dodatkowe szczegóły. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Konfigurowanie domyślnej domeny NFSv4.1 dla usługi Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Często zadawane pytania dotyczące systemu NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [Omówienie systemu plików sieciowych](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [Instalowanie woluminu systemu plików NFS Kerberos](configure-kerberos-encryption.md#kerberos_mount)

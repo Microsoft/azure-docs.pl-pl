@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127540"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531216"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Manage Azure Data Lake Analytics using the Azure portal (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal)
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, �
    3. **Grupa zasobów**: Grupa zasobów platformy Azure, w której ma zostać utworzone konto. 
    4. **Lokalizacja**: centrum danych platformy Azure dla konta Data Lake Analytics. 
    5. **Data Lake Store**: magazyn domyślny, który ma być używany dla konta Data Lake Analytics. Konto Azure Data Lake Store i konto Data Lake Analytics muszą znajdować się w tej samej lokalizacji.
-4. Kliknij pozycję **Utwórz**. 
+4. Kliknij przycisk **Utwórz**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Usuwanie konta Data Lake Analytics
 
@@ -95,7 +95,7 @@ Za pomocą **Kreatora dodawania użytkownika** można łatwo inicjować obsług�
 
 Podobnie jak w przypadku innych usług platformy Azure, można użyć Access Control opartej na rolach (RBAC) do kontrolowania sposobu, w jaki użytkownicy pracują z usługą.
 
-Standardowe role RBAC mają następujące możliwości:
+Standardowe role platformy Azure mają następujące możliwości:
 * **Właściciel**: może przesyłać zadania, monitorować zadania, anulować zadania z dowolnego użytkownika i konfigurować je.
 * **Współautor**: można przesyłać zadania, monitorować zadania, anulować zadania z dowolnego użytkownika i konfigurować je.
 * **Czytelnik**: może monitorować zadania.

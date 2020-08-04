@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: ac968271685c66c8fab8d7723d994a446f49e85f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410310"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529368"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiowanie danych z kwadratu przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,6 @@ Ten łącznik kwadratowy jest obsługiwany dla następujących działań:
 
 - [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
-
 
 Dane można kopiować z kwadratu do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
@@ -52,13 +51,23 @@ Następujące właściwości są obsługiwane dla połączonej usługi kwadratow
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Square** | Tak |
+| connectionProperties | Grupa właściwości, która definiuje sposób łączenia się z kwadratem. | Tak |
+| ***W obszarze `connectionProperties` :*** | | |
 | host | Adres URL wystąpienia kwadratowego. (tj. mystore.mysquare.com)  | Tak |
 | clientId | Identyfikator klienta skojarzony z aplikacją kwadratową.  | Tak |
 | clientSecret | Wpis tajny klienta skojarzony z aplikacją kwadratową. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| redirectUri | Adres URL przekierowania przypisany do kwadratowego pulpitu nawigacyjnego aplikacji. (np. http: \/ /localhost: 2500)  | Tak |
+| accessToken | Token dostępu uzyskany z kwadratu. Przyznaje ograniczony dostęp do kwadratowego konta przez zaproszenie uwierzytelnionego użytkownika o jawne uprawnienia. Tokeny dostępu OAuth wygasają po upływie 30 dni od wystawienia, ale tokeny odświeżania nie wygasają. Tokeny dostępu mogą być odświeżane przez token odświeżania.<br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).  | Tak |
+| refreshToken | Token odświeżania uzyskany z kwadratu. Służy do uzyskiwania nowych tokenów dostępu po wygaśnięciu bieżącego.<br>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
+
+Obsługa kwadratów dwóch typów tokenów dostępu: **Personal** i **OAuth**.
+
+- Osobiste tokeny dostępu są używane do uzyskiwania nieograniczonego dostępu do zasobów interfejsu API w ramach własnych kont.
+- Tokeny dostępu OAuth są używane do uzyskiwania uwierzytelnionego i zakresu dostępu do interfejsu API łączenia z dowolnym kwadratowym kontem. Użyj ich, gdy aplikacja uzyskuje dostęp do zasobów w innych kontach kwadratowych w imieniu właścicieli kont. Tokeny dostępu OAuth mogą być również używane do uzyskiwania dostępu do zasobów w ramach własnego konta kwadratowego.
+
+W Data Factory uwierzytelnianie za pośrednictwem osobistego tokenu dostępu jest wymagane `accessToken` , a uwierzytelnianie za pośrednictwem protokołu OAuth wymaga `accessToken` i `refreshToken` . Dowiedz się, jak pobrać token dostępu z tego [miejsca](https://developer.squareup.com/docs/build-basics/access-tokens).
 
 **Przykład:**
 
@@ -68,13 +77,25 @@ Następujące właściwości są obsługiwane dla połączonej usługi kwadratow
     "properties": {
         "type": "Square",
         "typeProperties": {
-            "host" : "mystore.mysquare.com",
-            "clientId" : "<clientId>",
-            "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
-            },
-            "redirectUri" : "http://localhost:2500"
+            "connectionProperties": {
+                "host": "<e.g. mystore.mysquare.com>", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<clientSecret>"
+                }, 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true 
+            }
         }
     }
 }
@@ -119,7 +140,7 @@ Aby skopiować dane z kwadratu, ustaw typ źródła w działaniu Copy na **Squar
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SquareSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Business"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Business"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

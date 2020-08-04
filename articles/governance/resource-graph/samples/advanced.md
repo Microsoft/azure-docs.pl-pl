@@ -3,12 +3,12 @@ title: Przykłady zapytań zaawansowanych
 description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne zaawansowane zapytania, w tym pracę z kolumnami, używane Tagi list i zgodne zasoby z wyrażeniami regularnymi.
 ms.date: 07/14/2020
 ms.topic: sample
-ms.openlocfilehash: 38013be583c74e968160cb7ec3a4dd32ede213b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087496"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534791"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip"></a>Wyświetlanie listy maszyn wirtualnych z interfejsem sieciowym i publicznym adresem IP
 
-To zapytanie używa dwóch poleceń **leftouter** `join` do łączenia maszyn wirtualnych, powiązanych z nimi interfejsów sieciowych oraz wszelkich publicznych adresów IP związanych z tymi interfejsami sieciowymi.
+To zapytanie używa dwóch poleceń **leftouter** `join` do łączenia maszyn wirtualnych utworzonych przy użyciu modelu wdrażania Menedżer zasobów, powiązanych z nimi interfejsów sieciowych oraz wszelkich publicznych adresów IP związanych z tymi interfejsami sieciowymi.
 
 ```kusto
 Resources

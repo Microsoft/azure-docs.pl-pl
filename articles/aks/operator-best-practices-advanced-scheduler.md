@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077851"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530065"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -71,8 +71,6 @@ Gdy ten temat zostanie wdrożony, na przykład przy użyciu `kubectl apply -f gp
 
 Po zastosowaniu przydziałów należy współpracować z programistami i właścicielami aplikacji, aby mogli definiować wymagane tolerowania w ich wdrożeniach.
 
-Aby uzyskać więcej informacji na temat zmian i odniesień, zobacz [stosowanie zmian i tolerowanych][k8s-taints-tolerations].
-
 Aby uzyskać więcej informacji na temat używania wielu pul węzłów w AKS, zobacz [Tworzenie wielu pul węzłów i zarządzanie nimi w klastrze w AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Zachowanie przyciągania i tolerowania w AKS
@@ -80,6 +78,7 @@ Aby uzyskać więcej informacji na temat używania wielu pul węzłów w AKS, zo
 Po uaktualnieniu puli węzłów w AKS, jego przypisaniach i tolerowaniu stosują się do wzorca zestawu, gdy są one stosowane do nowych węzłów:
 
 - **Domyślne klastry korzystające z zestawów skalowania maszyn wirtualnych**
+  - Można zmienić rozmiar [elementu nodepool][taint-node-pool] z interfejsu API AKS, aby nowo skalowane węzły mogły odbierać zmiany w węzłach interfejsu API.
   - Załóżmy, że masz klaster z dwoma węzłami — *Węzeł1* i *Węzeł2*. Należy uaktualnić pulę węzłów.
   - Tworzone są dwa dodatkowe węzły, *Węzeł3* i *Węzeł4*, a ich przekazanie odbywa się odpowiednio.
   - Oryginalne *Węzeł1* i *Węzeł2* są usuwane.
@@ -198,3 +197,4 @@ Ten artykuł koncentruje się na zaawansowanych funkcjach usługi Kubernetes Sch
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

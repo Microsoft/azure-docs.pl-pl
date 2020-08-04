@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) — często zadawane pytan
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514071"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533584"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
 
@@ -23,6 +23,10 @@ Najnowszy Agent MARS używany podczas tworzenia kopii zapasowych komputerów z s
 ### <a name="how-long-are-vault-credentials-valid"></a>Jak długo poświadczenia magazynu są prawidłowe?
 
 Poświadczenia magazynu wygasną po upływie 10 dni. Jeśli plik poświadczeń wygaśnie, Pobierz go ponownie z Azure Portal.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>Jakie znaki są dozwolone dla hasła?
+
+Hasło powinno używać znaków z zestawu znaków ASCII, z wartościami ASCII mniejszymi lub równymi 127.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Z jakich dysków można tworzyć kopie zapasowe plików i folderów?
 

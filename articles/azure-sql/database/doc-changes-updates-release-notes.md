@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067413"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533363"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 |**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
 |**Azure SQL Database**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
 |**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
-| **Azure SQL**| Nie dotyczy | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
+| **Azure SQL**| Brak | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funkcje w publicznej wersji zapoznawczej
 
@@ -137,7 +137,7 @@ W pewnych okolicznościach modyfikowanie, wyłączanie lub Włączanie istnieją
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Uprawnienia do grupy zasobów nie są stosowane do wystąpienia zarządzanego SQL
 
-Gdy rola RBAC współautor wystąpienia zarządzanego SQL jest stosowana do grupy zasobów (RG), nie jest stosowana do wystąpienia zarządzanego SQL i nie ma żadnego wpływu.
+Gdy rola platformy Azure współautora wystąpienia zarządzanego SQL jest stosowana do grupy zasobów (RG), nie jest ona stosowana do wystąpienia zarządzanego SQL i nie ma żadnego wpływu.
 
 **Obejście**: Skonfiguruj rolę współautora wystąpienia zarządzanego SQL dla użytkowników na poziomie subskrypcji.
 

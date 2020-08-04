@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430257"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530383"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -48,7 +48,7 @@ Aby skopiować bazę danych przy użyciu Azure Portal, Otwórz stronę dla bazy 
 
 Aby skopiować bazę danych, należy użyć następujących przykładów.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 W przypadku programu PowerShell należy użyć polecenia cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 
@@ -133,7 +133,7 @@ Monitoruj proces kopiowania, wykonując zapytania dotyczące widoków [sys. baz 
 > [!IMPORTANT]
 > Jeśli trzeba utworzyć kopię z znacznie mniejszym celem usługi niż źródło, docelowa baza danych może nie mieć wystarczających zasobów do ukończenia procesu tworzenia i może spowodować niepowodzenie operacji kopiowania. W tym scenariuszu Użyj żądania przywracania geograficznego, aby utworzyć kopię na innym serwerze i/lub innym regionie. Aby uzyskać więcej informacji [, zobacz odzyskiwanie Azure SQL Database przy użyciu kopii zapasowych bazy danych](recovery-using-backups.md#geo-restore) .
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Role RBAC do zarządzania kopią bazy danych
+## <a name="azure-roles-to-manage-database-copy"></a>Role platformy Azure do zarządzania kopią bazy danych
 
 Aby utworzyć kopię bazy danych, musisz mieć następujące role:
 
@@ -155,7 +155,7 @@ Aby zarządzać kopią bazy danych przy użyciu Azure Portal, wymagane są równ
 
    Microsoft. resources/subscriptions/zasobów/Odczytaj Microsoft. resources/subscriptions/Resources/Write Microsoft. resources/Deployments/Odczytaj Microsoft. resources/Deployments/Write Microsoft. resources/Deployments
 
-Jeśli chcesz zobaczyć operacje w obszarze wdrożenia w grupie zasobów portalu, operacje między wieloma dostawcami zasobów, w tym operacje SQL, będą potrzebne następujące dodatkowe role RBAC:
+Jeśli chcesz zobaczyć operacje w obszarze wdrożenia w grupie zasobów portalu, operacje między wieloma dostawcami zasobów, w tym operacje SQL, będą potrzebne następujące dodatkowe role platformy Azure:
 
    Microsoft. resources/subscriptions/ResourceGroups/Deployments/Operations/Read Microsoft. resources/subscriptions/ResourceGroups/Deployments/operationstatuses/Read
 

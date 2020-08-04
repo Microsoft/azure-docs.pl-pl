@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a7407ec0f507746198c13a7bbdcdcd2c801c92b6
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407374"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533397"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -217,7 +217,8 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 
 | Połączenia głosowe                   | Styl                     | Opis                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Formalny, pewny i wiarygodny dźwięk na potrzeby dostarczania wiadomości|
+|                         | `style="newscast-casual"` | Uniwersalny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości       |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
 |                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |

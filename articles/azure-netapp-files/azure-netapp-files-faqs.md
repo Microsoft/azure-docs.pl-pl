@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512962"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533142"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -97,11 +97,15 @@ Możesz skonwertować MB/s na operacje we/wy na sekundę, korzystając z następ
 
 ### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Jak mogę zmienić poziomu usługi woluminu?
 
-Zmiana poziomu usługi woluminu nie jest obecnie obsługiwana.
+Możesz zmienić poziom usług istniejącego woluminu, przenosząc wolumin do innej puli pojemności, która używa żądanego [poziomu usługi](azure-netapp-files-service-levels.md) dla woluminu. Zobacz [Dynamiczna zmiana poziomu usługi woluminu](dynamic-change-volume-service-level.md). 
 
 ### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Jak mogę monitorować Azure NetApp Files wydajności?
 
 Azure NetApp Files udostępnia metryki wydajności woluminu. Można również użyć Azure Monitor do monitorowania metryk użycia dla Azure NetApp Files.  Aby uzyskać listę metryk wydajności dla Azure NetApp Files, zobacz [metryki dla Azure NetApp Files](azure-netapp-files-metrics.md) .
+
+### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Jaki jest wpływ na wydajność protokołu Kerberos w systemie NFSv 4.1?
+
+Zobacz [wpływ na wydajność protokołu Kerberos w systemie nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) , aby uzyskać informacje na temat opcji zabezpieczeń dla nfsv 4.1, przetestowanych wektorów wydajności i oczekiwanego wpływu na wydajność. 
 
 ## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące systemu NFS
 
@@ -164,6 +168,15 @@ Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
+
+## <a name="dual-protocol-faqs"></a>Dwa często zadawane pytania dotyczące protokołu
+
+### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Przy próbie uzyskania dostępu do dwuprotokołowego woluminu za pomocą stylu zabezpieczeń NTFS w systemie UNIX próbowano użyć "root" i użytkowników lokalnych. Dlaczego występuje błąd "odmowa uprawnień"?   
+
+Dwuprotokołowy wolumin obsługuje zarówno system plików NFS, jak i protokół SMB.  W przypadku próby uzyskania dostępu do zainstalowanego woluminu w systemie UNIX system próbuje zamapować użytkownika systemu UNIX, którego używasz, do użytkownika systemu Windows. Jeśli nie zostanie znalezione żadne mapowanie, wystąpi błąd "odmowa uprawnień".  Ta sytuacja ma zastosowanie również w przypadku korzystania z użytkownika "root" w celu uzyskania dostępu.    
+
+Aby uniknąć problemu "odmowa uprawnień", należy się upewnić, że Active Directory systemu Windows zawiera `pcuser` przed uzyskaniem dostępu do punktu instalacji. Po dodaniu `pcuser` problemu "odmowa uprawnień" odczekaj 24 godziny na wyczyszczenie wpisu pamięci podręcznej, zanim spróbujesz ponownie uzyskać dostęp.
+
 
 ## <a name="capacity-management-faqs"></a>Często zadawane pytania dotyczące zarządzania pojemnością
 
