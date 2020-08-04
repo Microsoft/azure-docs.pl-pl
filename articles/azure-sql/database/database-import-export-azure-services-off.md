@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045305"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543762"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importowanie lub eksportowanie Azure SQL Database bez zezwalania usługom platformy Azure na dostęp do serwera
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,7 @@ Utwórz maszynę wirtualną platformy Azure, wybierając przycisk **Wdróż na p
 Ten szablon umożliwia wdrożenie prostej maszyny wirtualnej z systemem Windows przy użyciu kilku różnych opcji wersji systemu Windows przy użyciu najnowszej wersji poprawki. Spowoduje to wdrożenie maszyny wirtualnej o rozmiarze a2 w lokalizacji grupy zasobów i zwrócenie w pełni kwalifikowanej nazwy domeny maszyny wirtualnej.
 <br><br>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Aby uzyskać więcej informacji, zobacz [bardzo proste wdrożenie maszyny wirtualnej z systemem Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
@@ -48,13 +46,13 @@ Poniższe kroki pokazują, jak nawiązać połączenie z maszyną wirtualną za 
 
    ![VM](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Wybierz pozycję **Połącz**.
+2. Wybierz polecenie **Połącz**.
 
    Zostanie wyświetlony formularz Remote Desktop Protocol pliku (RDP) z publicznym adresem IP i numerem portu dla maszyny wirtualnej.
 
    ![Formularz RDP](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Wybierz opcję **Pobierz plik RDP**.
+3. Wybierz pozycję **Pobierz plik RDP**.
 
    > [!NOTE]
    > Do nawiązania połączenia z maszyną wirtualną można także użyć protokołu SSH.

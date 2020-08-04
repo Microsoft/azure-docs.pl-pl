@@ -1,32 +1,28 @@
 ---
-title: Planowanie i zarządzanie kosztami usługi Azure Storage
-description: Dowiedz się, jak planować i zarządzać kosztami usługi Azure Storage za pomocą analizy kosztów w Azure Portal.
+title: Planowanie i zarządzanie kosztami usługi Azure Blob Storage
+description: Dowiedz się, jak planować i zarządzać kosztami usługi Azure Blob Storage za pomocą analizy kosztów w Azure Portal.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: aa0b789b31f50c8b1ccf5450700874a02ad4664c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304526"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543099"
 ---
-# <a name="plan-and-manage-costs-for-azure-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Storage
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Blob Storage
 
-W tym artykule opisano sposób planowania i zarządzania kosztami usługi Azure Storage. Najpierw należy skorzystać z kalkulatora cen platformy Azure, aby ułatwić planowanie kosztów magazynowania przed dodaniem zasobów. Po rozpoczęciu korzystania z zasobów usługi Azure Storage Użyj funkcji zarządzania kosztami w celu ustawienia budżetów i monitorowania kosztów. Możesz również przejrzeć przewidywane koszty i monitorować trendy wydatków, aby identyfikować obszary, w których może być konieczne działanie.
+Ten artykuł ułatwia planowanie i zarządzanie kosztami usługi Azure Blob Storage. Najpierw Oszacuj koszty przy użyciu kalkulatora cen platformy Azure. Po utworzeniu konta magazynu Zoptymalizuj konto, aby płacisz tylko za to, czego potrzebujesz. Funkcje zarządzania kosztami umożliwiają ustawianie budżetów i monitorowanie kosztów. Możesz również sprawdzić przewidywane koszty i monitorować trendy wydatków, aby identyfikować obszary, w których może być konieczne działanie.
 
-Należy pamiętać, że koszty usługi Azure Storage to tylko część miesięcznych kosztów rachunku na korzystanie z platformy Azure. Chociaż w tym artykule wyjaśniono, jak planować i zarządzać kosztami usługi Azure Storage, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. Po zapoznaniu się z zarządzaniem kosztami usługi Azure Storage możesz zastosować podobne metody, aby zarządzać kosztami wszystkich usług platformy Azure używanych w ramach subskrypcji.
+Należy pamiętać, że koszty usługi Azure Storage to tylko część miesięcznych kosztów rachunku na korzystanie z platformy Azure. Chociaż w tym artykule wyjaśniono, jak oszacować i zarządzać kosztami usługi Azure Storage, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. Po zapoznaniu się z zarządzaniem kosztami usługi Azure Storage możesz zastosować podobne metody, aby zarządzać kosztami wszystkich usług platformy Azure używanych w ramach subskrypcji.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Analiza kosztów obsługuje różne typy kont platformy Azure. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md). Aby wyświetlić dane kosztów, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure. Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](../../cost-management-billing/costs/assign-access-acm-data.md).
-
-## <a name="estimate-costs-before-creating-an-azure-storage-account"></a>Oszacuj koszty przed utworzeniem konta usługi Azure Storage
+## <a name="estimate-costs"></a>Szacowanie kosztów
 
 Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) , aby oszacować koszty przed utworzeniem i rozpoczęciem transferu danych do konta usługi Azure Storage.
 
@@ -44,7 +40,37 @@ Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/prici
 
 4. Zmodyfikuj pozostałe opcje, aby zobaczyć ich wpływ na oszacowanie.
 
-## <a name="use-budgets-and-cost-alerts"></a>Używanie alertów dotyczących budżetu i kosztów
+## <a name="optimize-costs"></a>Optymalizowanie kosztów
+
+Rozważ użycie tych opcji, aby obniżyć koszty. 
+
+- Rezerwacja pojemności magazynu
+
+- Organizowanie danych w warstwy dostępu
+
+- Automatycznie przenoś dane między warstwami dostępu
+
+Ta sekcja zawiera więcej szczegółów. 
+
+#### <a name="reserve-storage-capacity"></a>Rezerwacja pojemności magazynu
+
+Możesz zaoszczędzić oszczędności związane z magazynowaniem danych obiektów BLOB w usłudze Azure Storage. Zarezerwowana pojemność usługi Azure Storage oferuje rabat na wydajność blokowych obiektów blob oraz Azure Data Lake Storage Gen2 danych na kontach magazynu w warstwie Standardowa po zatwierdzeniu do rezerwacji przez jeden rok lub trzy lata. Rezerwacja zapewnia stałą ilość miejsca w magazynie w przypadku rezerwacji. Zarezerwowana pojemność usługi Azure Storage może znacząco obniżyć koszty pojemności dla blokowych obiektów blob i danych Azure Data Lake Storage Gen2. 
+
+Aby dowiedzieć się więcej, zobacz [Optymalizacja kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+
+#### <a name="organize-data-into-access-tiers"></a>Organizowanie danych w warstwy dostępu
+
+Możesz obniżyć koszty, umieszczając dane obiektów BLOB w najbardziej ekonomicznych warstwach dostępu. Wybieraj spośród trzech warstw, które zaprojektowano w celu optymalizacji kosztów związanych z użyciem danych. Na przykład warstwa *gorąca* ma wyższy koszt magazynowania, ale obniża koszty dostępu. W związku z tym, jeśli planujesz uzyskać dostęp do danych często, warstwa gorąca może być najbardziej wydajnym wyborem. Jeśli planujesz uzyskiwać dostęp do danych rzadziej, warstwa *zimna* lub *archiwum* może być najbardziej sensowna, ponieważ zwiększa koszt uzyskiwania dostępu do danych przy jednoczesnym zmniejszeniu kosztów przechowywania danych.    
+
+Aby dowiedzieć się więcej, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+
+#### <a name="automatically-move-data-between-access-tiers"></a>Automatycznie przenoś dane między warstwami dostępu
+
+Zasady zarządzania cyklem życia umożliwiają okresowe przenoszenie danych między warstwami w celu zaoszczędzenia najbardziej pieniędzy. Te zasady mogą przenosić dane do programu przy użyciu określonych reguł. Można na przykład utworzyć regułę, która przenosi obiekty blob do warstwy archiwum, jeśli ten obiekt BLOB nie został zmodyfikowany w ciągu 90 dni. Tworząc zasady dostosowujące warstwę dostępu do danych, możesz zaprojektować najtańsze opcje magazynu dla Twoich potrzeb.
+
+Aby dowiedzieć się więcej, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+
+## <a name="create-budgets"></a>Tworzenie budżetów
 
 W celu zarządzania kosztami można utworzyć [budżety](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) oraz alerty, które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. Mogą jednak mieć ograniczoną funkcjonalność do zarządzania poszczególnymi kosztami usług platformy Azure, takimi jak koszt usługi Azure Storage, ponieważ są one przeznaczone do śledzenia kosztów na wyższym poziomie.
 
@@ -53,6 +79,9 @@ W celu zarządzania kosztami można utworzyć [budżety](../../cost-management-b
 Gdy korzystasz z zasobów platformy Azure w usłudze Azure Storage, naliczane są koszty. Koszty jednostkowe użycia zasobów różnią się w zależności od interwału czasu (sekundy, minuty, godziny i dni) lub według użycia jednostek (bajty, megabajty itd.). Koszty są naliczane zaraz po rozpoczęciu korzystania z usługi Azure Storage. Koszty można zobaczyć w okienku [Analiza kosztów](../../cost-management-billing/costs/quick-acm-cost-analysis.md) w Azure Portal.
 
 Korzystając z analizy kosztów, można wyświetlać koszty usługi Azure Storage w wykresach i tabelach dla różnych interwałów czasu. Kilka przykładów jest dziennie, bieżącego i poprzedniego miesiąca oraz roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków i sprawdzaniu, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, możesz również łatwo zobaczyć miejsce ich przekroczenia.
+
+>[!NOTE]
+> Analiza kosztów obsługuje różne typy kont platformy Azure. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md). Aby wyświetlić dane kosztów, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure. Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](../../cost-management-billing/costs/assign-access-acm-data.md).
 
 Aby wyświetlić koszty usługi Azure Storage w analizie kosztów:
 
@@ -68,7 +97,7 @@ Aby wyświetlić koszty usługi Azure Storage w analizie kosztów:
 
    ![Monitorowanie kosztów magazynu za pomocą okienka analiza kosztów](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
-W poprzednim przykładzie zobaczysz bieżący koszt usługi. Są również wyświetlane koszty według regionów świadczenia usługi Azure i grup zasobów.  
+W poprzednim przykładzie zobaczysz bieżący koszt usługi. Są również wyświetlane koszty według regionów świadczenia usługi Azure i grup zasobów. Można również dodać inne filtry (na przykład: filtr, aby wyświetlić koszty dla określonych kont magazynu).
 
 ## <a name="next-steps"></a>Następne kroki
 

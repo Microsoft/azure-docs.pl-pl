@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9ea48eedf03c34e5269e65c70f04b45bd73172cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7fcc8d89df6ac346a44e0356a4416e4168933fd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284765"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543915"
 ---
 # <a name="nvv3-series"></a>Seria NVv3
 

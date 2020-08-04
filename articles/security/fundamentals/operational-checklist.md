@@ -1,6 +1,6 @@
 ---
 title: Lista kontrolna zabezpieczeń operacyjnych platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera zestaw list kontrolnych dla zabezpieczeń operacyjnych platformy Azure.
+description: Zapoznaj się z tą listą kontrolną, aby pomóc przedsiębiorstwom w rozważaniu zagadnień związanych z zabezpieczeniami operacyjnymi
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448300"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542929"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista kontrolna zabezpieczeń operacyjnych platformy Azure
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed wdrożeniem aplikacji w chmurze w środowisku produkcyjnym warto wyświetlić listę kontrolną, aby pomóc w ocenie aplikacji w oparciu o listę najważniejszych i zalecanych działań w zakresie zabezpieczeń, które należy wziąć pod uwagę.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091950"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544017"
 ---
 # <a name="streaming-policies"></a>Zasady przesyłania strumieniowego
 
@@ -40,7 +40,7 @@ Poniższe "drzewo decyzyjne" ułatwia wybranie wstępnie zdefiniowanych zasad pr
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagram przedstawiający drzewo decyzyjne mające na celu ułatwienie wyboru wstępnie zdefiniowanych zasad przesyłania strumieniowego dla Twojego scenariusza.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 W przypadku szyfrowania zawartości należy utworzyć [zasady dotyczące kluczy zawartości](content-key-policy-concept.md). **Zasady kluczy zawartości** nie są wymagane do wyczyszczenia przesyłania strumieniowego ani pobierania. 
 

@@ -1,6 +1,6 @@
 ---
 title: Dokumentacja analizy kodu zabezpieczeń firmy Microsoft — często zadawane pytania
-description: Ten artykuł zawiera często zadawane pytania dotyczące rozszerzenia Microsoft Security code Analysis
+description: Dowiedz się więcej o rozszerzeniu analizy kodu zabezpieczeń firmy Microsoft, przeglądając często zadawane pytania.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071448"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543048"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 Masz pytania? Zapoznaj się z poniższymi PYTANIAmi, aby uzyskać więcej informacji.

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 30e70e56eb54815c26521829e4baf82dce574e43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432589"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543439"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Przed dodaniem modelu uczenia maszynowego do zadania Stream Analytics należy wy
 
 1. Użyj Azure Machine Learning [, aby wdrożyć model jako usługę sieci Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Skrypt oceniania powinien zawierać [przykładowe dane wejściowe i wyjściowe](../machine-learning/how-to-deploy-and-where.md#example-entry-script) , które są używane przez Azure Machine Learning do generowania specyfikacji schematu. Stream Analytics używa schematu, aby zrozumieć podpis funkcji usługi sieci Web. Ta [Przykładowa Definicja struktury Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) służy jako odwołanie, aby upewnić się, że została prawidłowo skonfigurowana.
+2. Skrypt oceniania powinien zawierać [przykładowe dane wejściowe i wyjściowe](../machine-learning/how-to-deploy-and-where.md) , które są używane przez Azure Machine Learning do generowania specyfikacji schematu. Stream Analytics używa schematu, aby zrozumieć podpis funkcji usługi sieci Web. Ta [Przykładowa Definicja struktury Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) służy jako odwołanie, aby upewnić się, że została prawidłowo skonfigurowana.
 
 3. Upewnij się, że usługa sieci Web akceptuje i zwraca dane serializowane JSON.
 
@@ -147,7 +147,7 @@ Poniższy kod JSON jest przykładowym żądaniem z poprzedniego zapytania:
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optymalizacja wydajności Azure Machine Learning UDF
 
-Podczas wdrażania modelu w usłudze Azure Kubernetes Service można [profilować model, aby określić wykorzystanie zasobów](../machine-learning/how-to-deploy-and-where.md#profilemodel). Możesz również [włączyć usługi App Insights dla wdrożeń](../machine-learning/how-to-enable-app-insights.md) , aby zrozumieć stawki żądań, czasy odpowiedzi i wskaźniki niepowodzeń.
+Podczas wdrażania modelu w usłudze Azure Kubernetes Service można [profilować model, aby określić wykorzystanie zasobów](../machine-learning/how-to-deploy-profile-model.md). Możesz również [włączyć usługi App Insights dla wdrożeń](../machine-learning/how-to-enable-app-insights.md) , aby zrozumieć stawki żądań, czasy odpowiedzi i wskaźniki niepowodzeń.
 
 Jeśli masz scenariusz o dużej przepływności zdarzeń, może być konieczna zmiana następujących parametrów w Stream Analytics, aby osiągnąć optymalną wydajność z niską opóźnieniami:
 

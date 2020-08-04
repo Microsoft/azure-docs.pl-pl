@@ -1,6 +1,6 @@
 ---
 title: Sieć produkcyjna platformy Azure
-description: Ten artykuł zawiera ogólny opis sieci produkcyjnej platformy Azure.
+description: Dowiedz się więcej o sieci produkcyjnej platformy Azure. Zobacz metody dostępu zabezpieczeń i mechanizmy ochrony w celu nawiązania połączenia z siecią.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68726690"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543813"
 ---
 # <a name="the-azure-production-network"></a>Sieć produkcyjna platformy Azure
 Użytkownicy sieci produkcyjnej platformy Azure obejmują zarówno klientów zewnętrznych, którzy uzyskują dostęp do własnych aplikacji platformy Azure, jak i do wewnętrznego personelu pomocy technicznej platformy Azure, który zarządza siecią produkcyjną. W tym artykule omówiono metody dostępu zabezpieczeń i mechanizmy ochrony na potrzeby ustanawiania połączeń z siecią produkcyjną platformy Azure.

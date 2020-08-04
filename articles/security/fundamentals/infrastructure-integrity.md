@@ -1,6 +1,6 @@
 ---
 title: Integralność infrastruktury platformy Azure
-description: Ten artykuł dotyczy integralności infrastruktury platformy Azure.
+description: Dowiedz się więcej na temat integralności infrastruktury platformy Azure oraz czynności podejmowanych przez firmę Microsoft, takich jak skanowanie wirusów w kompilacjach składników oprogramowania.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0df14dfcf66f53e01989a27a95afa5e19fcb2fe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727188"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543643"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integralność infrastruktury platformy Azure
 

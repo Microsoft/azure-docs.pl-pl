@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292388"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545141"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -53,7 +53,9 @@ Dowiedz się więcej o wdrażaniu maszyny wirtualnej z [systemem Windows](../art
 Zestawy dostępności są inną konfiguracją centrum danych w celu zapewnienia nadmiarowości i dostępności maszyn wirtualnych. Ta konfiguracja w centrum danych gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji jest dostępna co najmniej jedna maszyna wirtualna i spełnia warunki umowy SLA platformy Azure o wartości 99,95%. Aby uzyskać więcej informacji, zobacz [Virtual Machines — umowa SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Pojedyncze wystąpienie maszyny wirtualnej w zestawie dostępności musi używać SSD w warstwie Premium lub Ultra Disk dla wszystkich dysków systemu operacyjnego i dysków z danymi, aby można było zakwalifikować się do umowy SLA dotyczącej łączności z maszyną wirtualną wynoszącą co najmniej 99,9% czasu.
+> Pojedyncze wystąpienie maszyny wirtualnej w zestawie dostępności musi używać SSD w warstwie Premium lub Ultra Disk dla wszystkich dysków systemu operacyjnego i dysków z danymi, aby można było zakwalifikować się do umowy SLA dotyczącej łączności z maszyną wirtualną wynoszącą co najmniej 99,9% czasu. 
+> 
+> W przypadku maszyny wirtualnej o pojedynczej instancji z SSD w warstwie Standardowa będzie dostępna umowa SLA o wartości co najmniej 99,5%, podczas gdy maszyna wirtualna o pojedynczej instancji z HDD w warstwie Standardowa będzie miała umowę SLA równą co najmniej 95%.  Zobacz umowę [SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/)
 
 Każda maszyna wirtualna w zestawie dostępności ma przypisaną **domenę aktualizacji** i **domenę błędów** z odpowiedniej platformy Azure. Dany zestaw dostępności ma pięć domyślnie przypisanych domen aktualizacji, których użytkownik nie może konfigurować (następnie można zwiększyć liczbę wystąpień usługi Resource Manager, aby oferowała do 20 domen aktualizacji). Umożliwia to wskazanie grup maszyn wirtualnych i odpowiedniego sprzętu fizycznego, które mogą być uruchamiane równocześnie. Jeśli w pojedynczym zestawie dostępności skonfigurowano więcej niż pięć maszyn wirtualnych, szósta maszyna wirtualna jest umieszczana w tej samej domenie aktualizacji, co pierwsza maszyna wirtualna, siódma — w tej samej domenie aktualizacji co druga maszyna wirtualna itd. Podczas planowanej konserwacji domeny aktualizacji mogą nie być ponownie uruchamiane kolejno, ale w danym momencie tylko jedna domena aktualizacji jest uruchamiana ponownie. Domena aktualizacji po ponownym rozruchu otrzymuje 30 minut na odzyskanie sprawności zanim konserwacja zostanie zainicjowana w innej domenie aktualizacji.
 

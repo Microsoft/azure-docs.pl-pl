@@ -3,17 +3,17 @@ title: Tworzenie szablonu programu Azure Image Builder (wersja zapoznawcza)
 description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283303"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543609"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -60,7 +60,7 @@ Jest to podstawowy format szablonu:
     "apiVersion": "2020-02-14",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Lokalizacja
 
 Lokalizacja to region, w którym zostanie utworzony obraz niestandardowy. W przypadku wersji zapoznawczej programu Image Builder obsługiwane są następujące regiony:
 
@@ -142,12 +142,13 @@ Aby uzyskać więcej informacji na temat wdrażania tej funkcji, zobacz [Konfigu
 
 ## <a name="properties-source"></a>Właściwości: Źródło
 
-`source`Sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów.
+Konstruktor obrazów obecnie obsługuje tylko obrazy i maszyny wirtualne generacji 1. ta `source` sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów.
 
 Interfejs API wymaga elementu "SourceType", który definiuje Źródło dla kompilacji obrazu, obecnie istnieją trzy typy:
 - PlatformImage — wskazuje, że obraz źródłowy jest obrazem portalu Marketplace.
 - ManagedImage — Użyj tego w przypadku uruchamiania z regularnego zarządzanego obrazu.
 - SharedImageVersion — ta wartość jest używana w przypadku używania wersji obrazu w galerii obrazów udostępnionych jako źródło.
+
 
 > [!NOTE]
 > W przypadku korzystania z istniejących obrazów niestandardowych systemu Windows można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows, aby uzyskać więcej informacji, zobacz dokumentację programu [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
@@ -191,7 +192,10 @@ Możesz również określić informacje o planie, na przykład:
 ```
 ### <a name="managedimage-source"></a>Źródło ManagedImage
 
-Ustawia obraz źródłowy jako istniejący obraz zarządzany uogólnionego wirtualnego dysku twardego lub maszyny wirtualnej. Źródłowy obraz zarządzany musi mieć obsługiwany system operacyjny i znajdować się w tym samym regionie co szablon programu Azure Image Builder. 
+Ustawia obraz źródłowy jako istniejący obraz zarządzany uogólnionego wirtualnego dysku twardego lub maszyny wirtualnej.
+
+> [!NOTE]
+> Źródłowy obraz zarządzany musi być w obsługiwanym systemie operacyjnym, a obraz musi być w tym samym regionie co szablon programu Azure Image Builder. 
 
 ```json
         "source": { 
@@ -204,7 +208,11 @@ Ustawia obraz źródłowy jako istniejący obraz zarządzany uogólnionego wirtu
 
 
 ### <a name="sharedimageversion-source"></a>Źródło SharedImageVersion
-Ustawia obraz źródłowy jako istniejącą wersję obrazu w galerii obrazów udostępnionych. Wersja obrazu musi być w obsługiwanym systemie operacyjnym, a obraz musi być replikowany do tego samego regionu co szablon programu Azure Image Builder. 
+Ustawia obraz źródłowy jako istniejącą wersję obrazu w galerii obrazów udostępnionych.
+
+> [!NOTE]
+> Obraz zarządzany przez źródło musi być obsługiwanym systemem operacyjnym, a obraz musi być w tym samym regionie co szablon usługi Azure Image Builder, a jeśli nie, należy replikować wersję obrazu do regionu szablonu programu Image Builder.
+
 
 ```json
         "source": { 

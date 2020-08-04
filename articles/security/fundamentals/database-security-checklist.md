@@ -1,6 +1,6 @@
 ---
 title: Lista kontrolna zabezpieczeń usługi Azure Database | Microsoft Docs
-description: Ten artykuł zawiera zestaw list kontrolnych dotyczących zabezpieczeń usługi Azure Database.
+description: Lista kontrolna zabezpieczeń usługi Azure Database pozwala upewnić się, że są używane ważne problemy z zabezpieczeniami w chmurze.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021844"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542980"
 ---
 # <a name="azure-database-security-checklist"></a>Lista kontrolna zabezpieczeń usługi Azure Database
 
 Aby pomóc w ulepszaniu zabezpieczeń, usługa Azure Database zawiera szereg wbudowanych mechanizmów kontroli zabezpieczeń, których można użyć do ograniczania i kontrolowania dostępu.
 
-Są to moduły:
+Należą do nich następujące elementy:
 
 -    Zapora umożliwiająca tworzenie [reguł zapory](../../azure-sql/database/firewall-configure.md) ograniczających łączność przy użyciu adresu IP
 -    Zapora na poziomie serwera dostępna z Azure Portal
@@ -48,7 +48,7 @@ Zalecamy zapoznanie się z artykułem [najlepsze rozwiązania w zakresie zabezpi
 | ------------ | -------- |
 |**Ochrona danych**||
 | <br> Szyfrowanie w ruchu/tranzycie| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)do szyfrowania danych, gdy dane są przenoszone do sieci.</li><li>Baza danych wymaga bezpiecznej komunikacji od klientów opartych na protokole [TDS (strumienia danych tabelarycznych)](https://msdn.microsoft.com/library/dd357628.aspx) za pośrednictwem protokołu TLS (Transport Layer Security).</li></ul> |
-|<br>Szyfrowanie w spoczynku| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), gdy nieaktywne dane są przechowywane fizycznie w dowolnym formularzu cyfrowym.</li></ul>|
+|<br>Szyfrowanie danych magazynowanych| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), gdy nieaktywne dane są przechowywane fizycznie w dowolnym formularzu cyfrowym.</li></ul>|
 |**Kontrola dostępu**||  
 |<br> Dostęp do bazy danych | <ul><li>[Uwierzytelnianie usługi Active Directory (Azure Active Directory](../../azure-sql/database/logins-create-manage.md) Authentication) używa tożsamości zarządzanych przez Azure Active Directory.</li><li>[Autoryzacja](../../azure-sql/database/logins-create-manage.md) użytkowników przyznająca im najmniejsze uprawnienia.</li></ul> |
 |<br>Dostęp do aplikacji| <ul><li>[Zabezpieczenia na poziomie wiersza](https://msdn.microsoft.com/library/dn765131) (przy użyciu zasad zabezpieczeń, jednocześnie ograniczając dostęp na poziomie wierszy na podstawie tożsamości użytkownika, roli lub kontekstu wykonania).</li><li>[Dynamiczne maskowanie danych](../../azure-sql/database/dynamic-data-masking-overview.md) (przy użyciu uprawnień & zasad, ograniczanie ekspozycji danych poufnych przez zamaskowanie ich dla użytkowników bez uprawnień)</li></ul>|

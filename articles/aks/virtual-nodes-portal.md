@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 277bdc19635231628cea8c308b30c57b129dc364
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250706"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543711"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
 
@@ -42,7 +42,7 @@ Jeśli dostawca jest wyświetlany jako *NotRegistered*, zarejestruj dostawcę pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Dostępność w regionach
+## <a name="regional-availability"></a>Dostępność regionalna
 
 W przypadku wdrożeń węzłów wirtualnych obsługiwane są następujące regiony:
 
@@ -68,6 +68,7 @@ Funkcjonalność węzłów wirtualnych jest w dużym stopniu zależna od zestawu
 * [Argumenty](../container-instances/container-instances-exec.md#restrictions) dla elementu exec w ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) nie będzie wdrażać zasobników w węźle wirtualnym
 * Węzły Wirtualne obsługują planowanie zasobników systemu Linux. Możesz ręcznie zainstalować dostawcę Open Source [Virtual KUBELET ACI](https://github.com/virtual-kubelet/azure-aci) Provider, aby zaplanować kontenery systemu Windows Server na ACI.
+* Węzły wirtualne wymagają klastrów AKS z obsługą sieci Azure CNI
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -94,7 +95,7 @@ Domyślnie zostanie utworzona jednostka usługi Azure Active Directory. Ta nazwa
 
 Klaster jest również skonfigurowany pod kątem zaawansowanej sieci. Węzły wirtualne są skonfigurowane do używania własnej podsieci sieci wirtualnej platformy Azure. Ta podsieć ma delegowane uprawnienia do łączenia zasobów platformy Azure między klastrem AKS. Jeśli nie masz jeszcze delegowanej podsieci, Azure Portal tworzy i konfiguruje sieć wirtualną platformy Azure oraz podsieć do użycia z węzłami wirtualnymi.
 
-Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
+Wybierz pozycję **Przegląd + utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
 
 Utworzenie klastra usługi AKS i przygotowanie go do użycia trwa kilka minut.
 

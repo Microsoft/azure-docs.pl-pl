@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088210"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543490"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu Azure Portal
 
@@ -48,7 +48,7 @@ Możesz dodać prywatne i publiczne adresy IP do interfejsu sieciowego platformy
 
 5. W okienku, które pojawia się dla wybranej karty interfejsu sieciowego, kliknij pozycję **konfiguracje adresów IP**. Kliknij przycisk **Dodaj**, wykonaj czynności opisane w jednej z poniższych sekcji na podstawie typu adresu IP, który chcesz dodać, a następnie kliknij przycisk **OK**. 
 
-### <a name="add-a-private-ip-address"></a>**Dodawanie prywatnego adresu IP**
+### <a name="add-a-private-ip-address"></a>Dodawanie prywatnego adresu IP
 
 Aby dodać nowy prywatny adres IP, wykonaj następujące kroki:
 

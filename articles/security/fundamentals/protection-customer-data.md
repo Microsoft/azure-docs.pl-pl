@@ -1,6 +1,6 @@
 ---
 title: Ochrona danych klienta na platformie Azure
-description: W tym artykule opisano sposób ochrony danych klienta przez platformę Azure.
+description: Dowiedz się, w jaki sposób platforma Azure chroni dane klientów dzięki segregowaniu danych, nadmiarowości danych i zniszczeniu danych.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076297"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543796"
 ---
 # <a name="azure-customer-data-protection"></a>Ochrona danych klienta platformy Azure   
 Domyślnie odmowa dostępu do danych klienta przez operacje firmy Microsoft i personel pomocy technicznej. W przypadku przyznania dostępu do danych związanych z działem pomocy technicznej jest on przyznawany tylko przy użyciu modelu just-in-Time (JIT), korzystając z zasad, które są poddawane inspekcji, i zbadane się zgodnie z naszymi zasadami zgodności i zasad zachowania poufności informacji.  Wymagania dotyczące kontroli dostępu są określane przez następujące zasady zabezpieczeń platformy Azure:

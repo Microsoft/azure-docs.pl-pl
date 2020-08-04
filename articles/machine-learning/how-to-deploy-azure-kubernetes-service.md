@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433227"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544051"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 
 - Jeśli potrzebujesz usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia) wdrożonego w klastrze zamiast podstawowego Load Balancer (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie dołącz go do obszaru roboczego AML.
 
-- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny Contol AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla obu [par regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) .
+- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny kontroli AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla obu [par regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) .
 
 __Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w warstwie Standardowa.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > Aby pobrać token, należy użyć zestawu SDK Azure Machine Learning lub polecenia [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
-## <a name="update-the-web-service"></a>Aktualizowanie usługi sieci Web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Następne kroki
 
 * [Bezpieczne eksperymentowanie i wnioskowanie w sieci wirtualnej](how-to-enable-virtual-network.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
+* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
 * [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)

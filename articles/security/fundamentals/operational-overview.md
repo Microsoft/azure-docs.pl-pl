@@ -1,6 +1,6 @@
 ---
 title: Omówienie zabezpieczeń operacyjnych platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera omówienie zabezpieczeń operacyjnych platformy Azure.
+description: Informacje o zabezpieczeniach operacyjnych platformy Azure w tym omówieniu. Zabezpieczenia operacyjne odnoszą się do usług, kontroli i funkcji ochrony zasobów.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674228"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542895"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 

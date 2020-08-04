@@ -1,6 +1,6 @@
 ---
 title: Zabezpieczenia infrastruktury platformy Azure | Microsoft Docs
-description: W tym artykule opisano, jak firma Microsoft może zabezpieczyć nasze centra danych platformy Azure.
+description: Dowiedz się, w jaki sposób firma Microsoft może zabezpieczyć centra danych platformy Azure. Centra danych są zarządzane, monitorowane i administrowane przez pracowników operacyjnych firmy Microsoft.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72595404"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543932"
 ---
 # <a name="azure-infrastructure-security"></a>Zabezpieczenia infrastruktury platformy Azure
 Microsoft Azure działa w centrach danych zarządzanych i obsługiwanych przez firmę Microsoft. Te geograficznie rozproszone centra danych są zgodne z najważniejszymi standardami branżowymi, takimi jak ISO/IEC 27001:2013 i NIST SP 800-53, w celu zapewnienia bezpieczeństwa i niezawodności. Centra danych są zarządzane, monitorowane i administrowane przez pracowników operacyjnych firmy Microsoft. Personel operacyjny ma lata doświadczenia w dostarczaniu największych Usługi online na świecie z ciągłością 24 x 7.

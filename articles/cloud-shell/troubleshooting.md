@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421743"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543456"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Rozwiązywanie problemów & ograniczenia Azure Cloud Shell
 
@@ -151,7 +151,8 @@ Azure Cloud Shell poważnie potraktuje dane osobowe, dane przechwycone i przecho
 ### <a name="export"></a>Eksportowanie
 W celu **wyeksportowania** ustawień użytkownika Cloud Shell zapisywanych danych, takich jak preferowana powłoka, rozmiar czcionki i typ czcionki, uruchom następujące polecenia.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Obraz przedstawiający przycisk z etykietą Uruchom Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Uruchom następujące polecenia w programie bash lub PowerShell:
 
 Bash
@@ -174,7 +175,8 @@ Aby **usunąć** ustawienia użytkownika Cloud Shell zapisywanych danych, takich
 >[!Note]
 > Po usunięciu ustawień użytkownika rzeczywisty udział Azure Files nie zostanie usunięty. Przejdź do Azure Files, aby zakończyć tę akcję.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Obraz przedstawiający przycisk z etykietą Uruchom Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Uruchom następujące polecenia w programie bash lub PowerShell:
 
 Bash

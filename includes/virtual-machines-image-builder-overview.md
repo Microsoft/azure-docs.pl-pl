@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83821505"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545257"
 ---
 Standardowe obrazy maszyn wirtualnych (VM) umożliwiają organizacjom Migrowanie do chmury i zapewnianie spójności we wdrożeniach. Obrazy zwykle obejmują wstępnie zdefiniowane ustawienia zabezpieczeń i konfiguracji oraz niezbędne oprogramowanie. Skonfigurowanie własnego potoku obrazu wymaga czasu, infrastruktury i konfiguracji, ale za pomocą konstruktora obrazów maszyn wirtualnych platformy Azure wystarczy utworzyć prostą konfigurację opisującą obraz, przesłać ją do usługi, a obraz został skompilowany i rozdystrybuowany.
  
@@ -35,13 +35,13 @@ W przypadku wersji zapoznawczej te funkcje są obsługiwane:
 
 ## <a name="regions"></a>Regiony
 Usługa Azure Image Builder będzie dostępna w wersji zapoznawczej w tych regionach. Obrazy można rozpowszechniać poza tymi regionami.
-- Wschodnie stany USA
+- East US
 - Wschodnie stany USA 2
 - Zachodnio-środkowe stany USA
 - Zachodnie stany USA
 - Zachodnie stany USA 2
 - Europa Północna
-- Europa Zachodnia
+- West Europe
 
 ## <a name="os-support"></a>Obsługa systemu operacyjnego
 Program AIB obsługuje obrazy podstawowej systemu operacyjnego Azure Marketplace:
@@ -97,6 +97,9 @@ Podczas procesu tworzenia obrazu pliki są pobierane i przechowywane w `IT_<Dest
 Konstruktor obrazów tworzy maszynę wirtualną przy użyciu D1v2 rozmiaru maszyny wirtualnej oraz magazynu i sieci potrzebnych dla maszyny wirtualnej. Te zasoby będą trwać na czas trwania procesu kompilacji i zostaną usunięte po zakończeniu tworzenia obrazu przez konstruktora obrazu. 
  
 Program Azure Image Builder dystrybuuje obraz do wybranych regionów, co może spowodować naliczenie opłat za ruch wychodzący z sieci.
+
+## <a name="hyper-v-generation"></a>Generowanie funkcji Hyper-V
+Konstruktor obrazów jest obecnie włączony do obsługi obrazów i maszyn wirtualnych funkcji Hyper V generacji 1.
  
 ## <a name="next-steps"></a>Następne kroki 
  

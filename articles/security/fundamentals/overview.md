@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do zabezpieczeń platformy Azure | Microsoft Docs
-description: Dowiedz się więcej o zabezpieczeniach platformy Azure, jego usługach i sposobie jego działania.
+description: Zapoznaj się z informacjami o zabezpieczeniach platformy Azure, jej różnych usługach i sposobach działania, odczytując ten przegląd.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371400"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543830"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -142,12 +142,12 @@ W diagnostyce aplikacji można wyświetlać zdarzenia pogrupowane w następując
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń usługi Azure Storage oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
-Konto magazynu można zabezpieczyć za pomocą Access Control opartego na rolach (RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli RBAC do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pośrednictwem Access Control opartych na ROLACH (RBAC).
+Konto magazynu można zabezpieczyć za pomocą Access Control opartego na rolach (RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli platformy Azure do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pośrednictwem Access Control opartych na ROLACH (RBAC).
 
 ### <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 [Sygnatura dostępu współdzielonego (SAS, shared access signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Sygnatura dostępu współdzielonego oznacza, że można udzielić klientowi ograniczonych uprawnień do obiektów na koncie magazynu przez określony czas i z określonym zestawem uprawnień. Można przyznać te ograniczone uprawnienia bez konieczności udostępniania kluczy dostępu do konta.
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas przesyłania
 Szyfrowanie podczas przesyłania jest mechanizmem ochrony danych przesyłanych między sieciami. Za pomocą usługi Azure Storage można zabezpieczyć dane przy użyciu:
 -   [Szyfrowanie na poziomie transportu](../../storage/blobs/security-recommendations.md), takie jak https, podczas transferu danych do usługi Azure Storage lub z niej.
 
@@ -155,7 +155,7 @@ Szyfrowanie podczas przesyłania jest mechanizmem ochrony danych przesyłanych m
 
 -   Szyfrowanie po stronie klienta umożliwia szyfrowanie danych przed ich przesłaniem do magazynu oraz odszyfrowanie danych po ich przeniesieniu poza magazyn.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 W przypadku wielu organizacji szyfrowanie danych w spoczynku stanowi obowiązkowy krok w kierunku prywatności, zgodności i suwerenności danych. Istnieją trzy funkcje zabezpieczeń usługi Azure Storage, które zapewniają szyfrowanie danych "w spoczynku":
 
 -   [Szyfrowanie usługi Storage](../../storage/common/storage-service-encryption.md) pozwala na zażądanie, aby usługa magazynu automatycznie szyfruje dane podczas ich zapisywania do usługi Azure Storage.

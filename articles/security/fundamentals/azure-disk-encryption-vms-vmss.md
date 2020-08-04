@@ -1,20 +1,20 @@
 ---
-title: Azure Disk Encryption maszyn wirtualnych i zestawów skalowania maszyn wirtualnych
-description: Ten artykuł zawiera omówienie Azure Disk Encryption
+title: Usługa Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych
+description: Poznaj usługę Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Usługa Azure Disk Encryption działa zarówno dla maszyn wirtualnych z systemem Linux, jak i Windows.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062123"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543677"
 ---
-# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption maszyn wirtualnych i zestawów skalowania maszyn wirtualnych
+# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych
 
 Usługę Azure Disk Encryption można zastosować zarówno do maszyn wirtualnych z systemem Linux, jak i Windows, jak również do zestawów skalowania maszyn wirtualnych. 
 
@@ -25,7 +25,7 @@ Poniższe artykuły zawierają wskazówki dotyczące szyfrowania maszyn wirtualn
 ### <a name="current-version-of-azure-disk-encryption"></a>Bieżąca wersja Azure Disk Encryption
 
 - [Omówienie usługi Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-overview.md)
-- [Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-linux.md)
+- [Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu programu Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
@@ -77,6 +77,6 @@ Poniższe artykuły zawierają wskazówki dotyczące szyfrowania zestawów skalo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie usługi Azure Encryption](encryption-overview.md)
+- [Omówienie szyfrowania na platformie Azure](encryption-overview.md)
 - [Szyfrowanie danych w spoczynku](encryption-atrest.md)
 - [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych](data-encryption-best-practices.md)

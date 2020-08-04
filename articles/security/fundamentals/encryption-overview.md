@@ -1,6 +1,6 @@
 ---
 title: Omówienie usługi Azure Encryption | Microsoft Docs
-description: Dowiedz się więcej na temat różnych opcji szyfrowania na platformie Azure
+description: Dowiedz się więcej na temat opcji szyfrowania na platformie Azure. Zapoznaj się z informacjami na temat szyfrowania przechowywanych danych, szyfrowania w locie i zarządzania kluczami przy użyciu Azure Key Vault.
 services: security
 author: msmbaldwin
 ms.assetid: ''
@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 14808016b627bc593d90ff88fc9bddf2449f6ee5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083960"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542963"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 
@@ -113,7 +113,7 @@ Platforma Azure oferuje wiele mechanizmów utrzymywania prywatnych danych w trak
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Szyfrowanie warstwy linku danych na platformie Azure
 
-Za każdym razem, gdy ruch klientów platformy Azure jest przenoszony między centrami danych — poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft (lub w imieniu firmy Microsoft) — Metoda szyfrowania warstwy linku z użyciem [IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (znana także jako MACsec) jest stosowana między punkt-punkt w ramach podstawowego sprzętu sieciowego.  Pakiety są szyfrowane i odszyfrowywane na urządzeniach przed ich wysłaniem, co uniemożliwia fizyczne ataki typu "man-in-the-middle" lub "śledzenie/wiretapping".  Ponieważ ta technologia jest zintegrowana z samym sprzętem sieciowym, zapewnia szyfrowanie przy użyciu stawki liniowej sprzętu sieciowego bez wymiernego wzrostu opóźnienia linków.  To szyfrowanie MACsec jest domyślnie włączone dla całego ruchu platformy Azure w obrębie regionu lub między regionami. nie jest wymagane wykonanie jakiejkolwiek czynności przez część klientów do włączenia. 
+Za każdym razem, gdy ruch klientów platformy Azure jest przenoszony między centrami danych — poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft (lub w imieniu firmy Microsoft) — Metoda szyfrowania warstwy linku z użyciem [IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (znana także jako MACsec) jest stosowana między punkt-punkt w ramach podstawowego sprzętu sieciowego. Pakiety są szyfrowane i odszyfrowywane na urządzeniach przed ich wysłaniem, co uniemożliwia fizyczne ataki typu "man-in-the-middle" lub "śledzenie/wiretapping". Ponieważ ta technologia jest zintegrowana z samym sprzętem sieciowym, zapewnia szyfrowanie przy użyciu stawki liniowej sprzętu sieciowego bez wymiernego wzrostu opóźnienia linków. To szyfrowanie MACsec jest domyślnie włączone dla całego ruchu platformy Azure podróżującego w obrębie regionu lub między regionami, a żadna akcja nie jest wymagana przez część klientów do włączenia. 
 
 ### <a name="tls-encryption-in-azure"></a>Szyfrowanie TLS na platformie Azure
 

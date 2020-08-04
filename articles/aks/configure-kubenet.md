@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255442"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543371"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -47,6 +47,17 @@ W przypadku *korzystającą wtyczki kubenet*tylko węzły otrzymują adres IP w 
 Platforma Azure obsługuje maksymalnie 400 tras w UDR, więc nie można mieć klastra AKS większego niż 400 węzłów. AKS [węzły wirtualne][virtual-nodes] i zasady sieci platformy Azure nie są obsługiwane w programie *korzystającą wtyczki kubenet*.  [Zasad sieciowych Calico][calico-network-policies]można użyć, ponieważ są one obsługiwane przez program korzystającą wtyczki kubenet.
 
 W przypadku *usługi Azure CNI*każdy z nich otrzymuje adres IP w podsieci IP i może komunikować się bezpośrednio z innymi identyfikatorami i usługami. Klastry mogą być tak duże jak zakres adresów IP, który określisz. Jednak zakres adresów IP musi być planowany z wyprzedzeniem, a wszystkie adresy IP są używane przez węzły AKS na podstawie maksymalnej liczby jednostek, które mogą obsługiwać. Zaawansowane funkcje sieciowe i scenariusze, takie jak [węzły wirtualne][virtual-nodes] lub zasady sieciowe (Azure lub Calico), są obsługiwane za pomocą *usługi Azure CNI*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Ograniczenia & zagadnienia dotyczące korzystającą wtyczki kubenet
+
+* Wymagany jest dodatkowy przeskok w projekcie korzystającą wtyczki kubenet, który dodaje niewielkie opóźnienie do komunikacji pod względem.
+* Tabele tras i trasy zdefiniowane przez użytkownika są wymagane do korzystania z korzystającą wtyczki kubenet, który zwiększa złożoność operacji.
+* Bezpośrednie adresowanie pod nie jest obsługiwane dla korzystającą wtyczki kubenet ze względu na projekt korzystającą wtyczki kubenet.
+* W przeciwieństwie do klastrów usługi Azure CNI, wiele klastrów korzystającą wtyczki kubenet nie może współdzielić podsieci.
+* Funkcje **nieobsługiwane w programie korzystającą wtyczki kubenet** obejmują:
+   * [Zasady sieci platformy Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), ale zasady sieciowe Calico są obsługiwane w usłudze korzystającą wtyczki kubenet
+   * [Pule węzłów systemu Windows](windows-node-limitations.md)
+   * [Dodatek węzłów wirtualnych](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Dostępność i wyczerpanie adresów IP
 

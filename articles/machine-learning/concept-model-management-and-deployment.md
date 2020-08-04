@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929761"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543388"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Zarządzanie modelami, wdrażanie i monitorowanie za pomocą Azure Machine Learning
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji, zobacz sekcję Register model w artykule [Wdra�
 ### <a name="profile-models"></a>Modele profilów
 
 Azure Machine Learning może pomóc zrozumieć wymagania dotyczące procesora i pamięci usługi, które zostaną utworzone podczas wdrażania modelu. Profilowanie testuje usługę, która uruchamia model i zwraca informacje takie jak użycie procesora CPU, użycie pamięci i opóźnienie odpowiedzi. Zapewnia również zalecenia dotyczące procesora i pamięci na podstawie użycia zasobów.
-Aby uzyskać więcej informacji, zobacz sekcję profilowania w artykule [Wdrażanie modeli](how-to-deploy-and-where.md#profilemodel).
+Aby uzyskać więcej informacji, zobacz sekcję profilowania w artykule [Wdrażanie modeli](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Modele pakietów i debugowania
 
@@ -94,16 +94,16 @@ Aby uzyskać więcej informacji na temat ONNX z Azure Machine Learning, zobacz a
 
 Przeszkolone modele uczenia maszynowego są wdrażane jako usługi sieci Web w chmurze lub lokalnie. Możesz również wdrażać modele na Azure IoT Edge urządzeniach. Wdrożenia używają macierzy procesora CPU, procesora GPU lub programowalnych pól (FPGA) dla inferencing. Można również używać modeli z Power BI.
 
-W przypadku korzystania z modelu jako usługi sieci Web lub IoT Edge urządzenia należy udostępnić następujące elementy:
+W przypadku korzystania z modelu jako usługi internetowej lub urządzenia usługi IoT Edge należy udostępnić następujące elementy:
 
 * Modele, które są używane do oceny danych przesyłanych do usługi/urządzenia.
 * Skrypt wejściowy. Ten skrypt akceptuje żądania, używa modeli do oceny danych i zwracają odpowiedź.
 * Środowisko Azure Machine Learning, które opisuje zależności PIP i Conda wymagane przez modele i skrypt wejścia.
 * Wszelkie dodatkowe zasoby, takie jak tekst, dane itp., które są wymagane przez model (y) i skrypt wejścia.
 
-Należy również podać konfigurację docelowej platformy wdrożenia. Na przykład typ rodziny maszyn wirtualnych, dostępna pamięć i liczba rdzeni podczas wdrażania w usłudze Azure Kubernetes Service.
+Należy również podać konfigurację docelowej platformy wdrażania. Na przykład typ rodziny maszyn wirtualnych, dostępna pamięć i liczba rdzeni podczas wdrażania w usłudze Azure Kubernetes Service.
 
-Po utworzeniu obrazu są również dodawane składniki wymagane przez Azure Machine Learning. Na przykład zasoby, które są konieczne do uruchomienia usługi sieci Web i współdziałają z IoT Edge.
+Po utworzeniu obrazu są również dodawane składniki wymagane przez usługę Azure Machine Learning. Na przykład zasoby, które są konieczne do uruchomienia usługi internetowej i współdziałają z usługą IoT Edge.
 
 #### <a name="batch-scoring"></a>Ocenianie usługi Batch
 Ocenianie wsadowe jest obsługiwane przy użyciu potoków ML. Aby uzyskać więcej informacji, zobacz [przewidywania wsadowe dotyczące danych Big Data](how-to-use-parallel-run-step.md).

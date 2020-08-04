@@ -1,6 +1,6 @@
 ---
 title: Zabezpieczenia operacyjne platformy Azure | Microsoft Docs
-description: Dowiedz się więcej na temat Microsoft Azure monitorowania dzienników, jego usług i sposobu działania.
+description: Zapoznaj się z Microsoft Azure monitorowaniem dzienników, ich usług i sposobu działania, odczytując ten przegląd.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448364"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543337"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -273,7 +273,7 @@ Rejestrowane są następujące typy żądań uwierzytelnionych i anonimowych.
 |   Żądania dotyczące danych analityki |    Żądania GET zakończone niepowodzeniem z kodem błędu 304 (Nie zmodyfikowano) |
 | Żądania wykonywane przez analityka magazynu samego siebie, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz w [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Usługa Azure AD zawiera również pełen zestaw funkcji zarządzania tożsamościami, w tym uwierzytelnianie wieloskładnikowe, rejestrację urządzeń, Samoobsługowe zarządzanie hasłami, Samoobsługowe zarządzanie grupami, zarządzanie kontami uprzywilejowanymi, kontrola dostępu oparta na rolach, monitorowanie użycia aplikacji, zaawansowaną inspekcję oraz monitorowanie zabezpieczeń i alerty.
 

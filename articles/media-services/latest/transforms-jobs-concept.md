@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091933"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543065"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
 
@@ -74,7 +74,7 @@ Na poniższym diagramie przedstawiono obiekt **przekształcenia** i obiekty, do 
 
 Wybierz obraz, aby wyświetlić go w pełnym rozmiarze.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![Diagram przedstawiający obiekt przekształcenia i obiekty, do których się odwołuje, łącznie z relacjami pochodnymi klasy między obiektami.](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox)
 
 ## <a name="jobs"></a>Stanowiska
 
@@ -102,7 +102,7 @@ Na poniższym diagramie przedstawiono obiekt **zadania** i obiekty, do których 
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![Diagram przedstawiający obiekt zadania i obiekty, do których się odwołuje, włącznie z relacjami pochodnymi klasy między obiektami.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
 ## <a name="configure-media-reserved-units"></a>Konfigurowanie jednostek zarezerwowanych multimediów
 
@@ -114,7 +114,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimed
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Kody błędów](/rest/api/media/jobs/get#joberrorcode)
 * [Filtrowanie, porządkowanie, stronicowanie jednostek Media Services](entities-overview.md)

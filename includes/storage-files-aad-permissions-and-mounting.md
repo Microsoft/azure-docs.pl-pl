@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544708"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545122"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 przypisywanie uprawnień dostępu do tożsamości
 
@@ -28,7 +28,7 @@ Wprowadziliśmy trzy wbudowane role platformy Azure na potrzeby udzielania użyt
 > [!IMPORTANT]
 > Pełna kontrola administracyjna udziału plików, w tym możliwość przejęcia na własność pliku, wymaga użycia klucza konta magazynu. Kontrolka administracyjna nie jest obsługiwana w przypadku poświadczeń usługi Azure AD.
 
-Korzystając z Azure Portal, PowerShell lub interfejsu wiersza polecenia platformy Azure, można przypisać wbudowane role do tożsamości usługi Azure AD użytkownika w celu udzielenia uprawnień na poziomie udziału. Należy pamiętać, że przypisanie roli RBAC na poziomie udziału może zająć trochę czasu. 
+Korzystając z Azure Portal, PowerShell lub interfejsu wiersza polecenia platformy Azure, można przypisać wbudowane role do tożsamości usługi Azure AD użytkownika w celu udzielenia uprawnień na poziomie udziału. Należy pamiętać, że w efekcie przypisanie roli platformy Azure na poziomie udziału może zająć trochę czasu. 
 
 > [!NOTE]
 > Pamiętaj, aby [zsynchronizować poświadczenia AD DS z usługą Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) , jeśli planujesz używać lokalnego AD DS do uwierzytelniania. Synchronizacja skrótów haseł z AD DS do usługi Azure AD jest opcjonalna. Uprawnienie na poziomie udziału zostanie przyznane tożsamości usługi Azure AD synchronizowanej z AD DS lokalnej.
@@ -36,7 +36,7 @@ Korzystając z Azure Portal, PowerShell lub interfejsu wiersza polecenia platfor
 Ogólnym zaleceniem jest użycie uprawnienia na poziomie udziału do zarządzania dostępem wysokiego poziomu do grupy usługi AD reprezentującej grupę użytkowników i tożsamości, a następnie skorzystanie z uprawnień systemu plików NTFS w celu uzyskania szczegółowej kontroli dostępu na poziomie katalogu/pliku. 
 
 #### <a name="azure-portal"></a>Azure Portal
-Aby przypisać rolę RBAC do tożsamości usługi Azure AD przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
+Aby przypisać rolę platformy Azure do tożsamości usługi Azure AD przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
 
 1. W Azure Portal przejdź do udziału plików lub [Utwórz udział plików](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Wybierz pozycję **Access Control (IAM)**.
@@ -46,7 +46,7 @@ Aby przypisać rolę RBAC do tożsamości usługi Azure AD przy użyciu [Azure P
 
 #### <a name="powershell"></a>PowerShell
 
-Poniższy przykład programu PowerShell przedstawia sposób przypisywania roli RBAC do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról RBAC przy użyciu programu PowerShell, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Poniższy przykład programu PowerShell pokazuje, jak przypisać rolę platformy Azure do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure za pomocą programu PowerShell, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Przed uruchomieniem następującego przykładowego skryptu pamiętaj, aby zastąpić wartości symboli zastępczych, w tym nawiasów, z własnymi wartościami.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>Interfejs wiersza polecenia
   
-Następujące polecenie interfejsu wiersza polecenia 2,0 pokazuje, jak przypisać rolę RBAC do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji na temat przypisywania ról RBAC przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Zarządzanie dostępem przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../articles/role-based-access-control/role-assignments-cli.md). 
+Następujące polecenie interfejsu wiersza polecenia 2,0 pokazuje, jak przypisać rolę platformy Azure do tożsamości usługi Azure AD na podstawie nazwy logowania. Aby uzyskać więcej informacji o przypisywaniu ról platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Zarządzanie dostępem przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Przed uruchomieniem następującego przykładowego skryptu pamiętaj, aby zastąpić wartości symboli zastępczych, w tym nawiasów, z własnymi wartościami.
 
@@ -130,7 +130,7 @@ Aby uzyskać więcej informacji na temat używania icacls do ustawiania uprawnie
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Instalowanie udziału plików z maszyny wirtualnej przyłączonej do domeny
 
-Następujący proces sprawdza, czy udział plików i uprawnienia dostępu zostały prawidłowo skonfigurowane i że można uzyskać dostęp do udziału plików platformy Azure z poziomu maszyny wirtualnej przyłączonej do domeny. Należy pamiętać, że przypisanie roli RBAC na poziomie udziału może zająć trochę czasu. 
+Następujący proces sprawdza, czy udział plików i uprawnienia dostępu zostały prawidłowo skonfigurowane i że można uzyskać dostęp do udziału plików platformy Azure z poziomu maszyny wirtualnej przyłączonej do domeny. Należy pamiętać, że w efekcie przypisanie roli platformy Azure na poziomie udziału może zająć trochę czasu. 
 
 Zaloguj się do maszyny wirtualnej przy użyciu tożsamości usługi Azure AD, do której udzielono uprawnień, jak pokazano na poniższej ilustracji. Jeśli włączono uwierzytelnianie AD DS lokalnego dla Azure Files, Użyj poświadczeń AD DS. W przypadku uwierzytelniania za pomocą usługi Azure AD DS Zaloguj się przy użyciu poświadczeń usługi Azure AD.
 
