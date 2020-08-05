@@ -4,7 +4,7 @@ summary: Zabezpieczenia są zintegrowane z każdym aspektem platformy Azure. Pla
 brand: azure
 metadata:
   title: Dokumentacja zabezpieczeń platformy Azure
-  description: Zabezpieczenia są zintegrowane z każdym aspektem platformy Azure. Platforma Azure oferuje wyjątkowe korzyści związane z bezpieczeństwem wynikające z globalnej analizy zabezpieczeń, zaawansowanych kontrolek przeznaczonych dla klienta oraz bezpiecznej infrastruktury ze wzmocnionymi zabezpieczeniami. Ta zaawansowana kombinacja pomaga chronić aplikacje i dane, wspierać działania związane z zapewnianiem zgodności oraz udostępniać ekonomiczne zabezpieczenia organizacjom dowolnej wielkości.
+  description: Dowiedz się więcej o zabezpieczeniach na platformie Azure. Zapoznaj się z informacjami na temat podstaw zabezpieczeń, najlepszych rozwiązań i wzorców oraz usługi Azure Security Center.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115363"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540856"
 highlightedContent:
   items:
   - title: Wprowadzenie do zabezpieczeń platformy Azure

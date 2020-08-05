@@ -345,8 +345,8 @@
       items:
         - name: Rozwiązywanie problemów z magazynem
           href: functions-recover-storage-account.md
-        - name: Rozwiązywanie problemów z zależnościami języka Python
-          href: recover-module-not-found.md
+        - name: Rozwiązywanie problemów z funkcjami języka Python
+          href: recover-python-functions.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu API

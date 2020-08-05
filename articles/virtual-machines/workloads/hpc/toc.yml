@@ -2,16 +2,16 @@
   items:
     - name: Omówienie
       items:
-        - name: HPC dla maszyn wirtualnych z serii H
+        - name: Obliczenia o wysokiej wydajności dla maszyn wirtualnych z serii H i N
           href: overview.md
-    - name: Konfiguracja
+    - name: Konfigurowanie
       items:
-        - name: Optymalizacja na potrzeby systemu Linux
+        - name: Konfigurowanie i optymalizowanie maszyn wirtualnych
           href: configure.md
         - name: Włączanie standardu InfiniBand
           href: enable-infiniband.md
-    - name: Konfigurowanie MPI
-      href: setup-mpi.md
+        - name: Konfigurowanie MPI
+          href: setup-mpi.md
     - name: Skalowanie aplikacji
       href: compiling-scaling-applications.md
     - name: Maszyny wirtualne
@@ -28,5 +28,5 @@
               href: hc-series-overview.md
             - name: Wydajność
               href: hc-series-performance.md
-        - name: Znane problemy z maszynami wirtualnymi z serii HB i HC
+        - name: Znane problemy z maszynami wirtualnymi z serii H i N
           href: hb-hc-known-issues.md

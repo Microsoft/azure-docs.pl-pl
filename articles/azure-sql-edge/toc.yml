@@ -8,6 +8,8 @@
       href: features.md
     - name: Informacje o wersji
       href: release-notes.md
+    - name: Zbieranie danych użycia i diagnostyki
+      href: usage-and-diagnostics-data-configuration.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

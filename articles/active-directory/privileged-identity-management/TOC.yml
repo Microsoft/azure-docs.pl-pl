@@ -91,7 +91,7 @@
       items:
         - name: Omówienie dostępu uprzywilejowanego
           href: groups-features.md
-        - name: Odnajdywanie grup
+        - name: Obejmowanie grup zarządzaniem
           href: groups-discover-groups.md
         - name: Przypisywanie członka lub właściciela
           href: groups-assign-member-owner.md

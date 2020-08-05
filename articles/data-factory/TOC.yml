@@ -726,6 +726,8 @@
           href: pricing-concepts.md
     - name: Przewodniki po rozwiązywaniu problemów
       items:
+        - name: Środowisko użytkownika usługi Data Factory
+          href: data-factory-ux-troubleshoot-guide.md
         - name: Działania
           href: data-factory-troubleshoot-guide.md
         - name: Łączniki
