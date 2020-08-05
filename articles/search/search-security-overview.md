@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501495"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553958"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
-W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje. 
+W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje.
 
-+ W warstwie magazynu szyfrowanie w spoczynku jest podawane na poziomie platformy, ale Wyszukiwanie poznawcze udostępnia również klucze zarządzane przez klienta za pomocą Azure Key Vault dla dodatkowej warstwy szyfrowania.
++ W warstwie magazynu szyfrowanie w spoczynku jest wbudowane dla całej zawartości zarządzanej przez usługę, która jest zapisywana na dysku, w tym indeksów, map synonimów i definicji indeksatorów, źródeł danych i umiejętności. Usługa Azure Wyszukiwanie poznawcze obsługuje także dodawanie kluczy zarządzanych przez klienta (CMK) na potrzeby dodatkowej szyfrowania indeksowanej zawartości. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.
 
 + Zabezpieczenia przychodzące chronią punkt końcowy usługi wyszukiwania przy jednoczesnym zwiększeniu poziomu zabezpieczeń: od kluczy interfejsu API w żądaniu do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
 
@@ -29,29 +30,41 @@ Obejrzyj ten krótki film wideo, aby zapoznać się z omówieniem architektury z
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Zaszyfrowane transmisja i magazyn
 
-Szyfrowanie jest rozpowszechnione na platformie Azure Wyszukiwanie poznawcze, począwszy od połączeń i transmisja, rozszerzając do zawartości przechowywanej na dysku. W przypadku usług wyszukiwania w publicznej sieci Internet usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Wszystkie połączenia klient-usługa korzystają z szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.
+Na platformie Azure Wyszukiwanie poznawcze szyfrowanie rozpoczyna się z połączeniami i transmisjami oraz rozciąga się na zawartość przechowywaną na dysku. W przypadku usług wyszukiwania w publicznej sieci Internet usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Wszystkie połączenia klient-usługa korzystają z szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.
 
-### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
+W przypadku danych obsługiwanych wewnętrznie przez usługę wyszukiwania w poniższej tabeli opisano [modele szyfrowania danych](../security/fundamentals/encryption-atrest.md#data-encryption-models). Niektóre funkcje, takie jak magazyn wiedzy, wzbogacanie przyrostowe i indeksowanie oparte na indeksatorach, odczytywanie i zapisywanie struktur danych w innych usługach platformy Azure. Te usługi mają własne poziomy obsługi szyfrowania oddzielone od Wyszukiwanie poznawcze platformy Azure.
 
-Na platformie Azure Wyszukiwanie poznawcze są przechowywane definicje indeksu i zawartość, definicje źródeł danych, definicje indeksatora, definicje zestawu umiejętności oraz mapy synonimów.
+| Model | Ponownie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Wymagania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Ograniczenia | Dotyczy |
+|------------------|-------|-------------|--------------|------------|
+| szyfrowanie po stronie serwera | Klucze zarządzane przez firmę Microsoft | Brak (wbudowane) | Brak, dostępne we wszystkich warstwach, we wszystkich regionach, dla zawartości utworzonej po styczniu 24 2018. | Zawartość (indeksy i mapy synonimów) i definicje (indeksatory, źródła danych, umiejętności) |
+| szyfrowanie po stronie serwera | klucze zarządzane przez klienta | W usłudze Azure Key Vault | Dostępne w warstwach rozliczanych we wszystkich regionach dla zawartości utworzonej po styczniu 2019. | Zawartość (indeksy i mapy synonimów) na dyskach danych |
+| podwójne szyfrowanie po stronie serwera | klucze zarządzane przez klienta | W usłudze Azure Key Vault | Dostępne w warstwach rozliczanych w wybranych regionach w usługach wyszukiwania po 1 2020 sierpnia. | Zawartość (indeksy i mapy synonimów) na dyskach danych i dyskach tymczasowych |
 
-W warstwie magazynu dane są szyfrowane na dysku przy użyciu kluczy zarządzanych przez firmę Microsoft. Nie można włączać ani wyłączać szyfrowania ani wyświetlać ustawień szyfrowania w portalu lub programowo. Szyfrowanie jest w pełni wewnętrzne, bez wymiernego wpływu na indeksowanie czasu do ukończenia lub rozmiaru indeksu. Odbywa się to automatycznie na wszystkich indeksach, w tym w przypadku aktualizacji przyrostowych, do indeksu, który nie jest w pełni szyfrowany (utworzony przed stycznia 2018).
+### <a name="service-managed-keys"></a>Klucze zarządzane przez usługę
 
-Wewnętrznie szyfrowanie jest oparte na [usłudze Azure szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md)przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+Szyfrowanie zarządzane przez usługę jest operacją wewnętrzną firmy Microsoft opartą na [platformie Azure szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md)przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Odbywa się to automatycznie na wszystkich indeksach, w tym na aktualizacjach przyrostowych indeksów, które nie są w pełni szyfrowane (zostały utworzone przed stycznia 2018).
 
-> [!NOTE]
-> Szyfrowanie w spoczynku zostało ogłoszone w 24 stycznia 2018 i ma zastosowanie do wszystkich warstw usług, w tym warstwy Bezpłatna, we wszystkich regionach. Aby można było przeprowadzić pełne szyfrowanie, indeksy utworzone przed tą datą muszą zostać porzucone i ponownie skompilowane w celu zaszyfrowania. W przeciwnym razie tylko nowe dane dodane po 24 stycznia są szyfrowane.
+### <a name="customer-managed-keys-cmk"></a>Klucze zarządzane przez klienta (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Szyfrowanie klucza zarządzanego przez klienta (CMK)
+Klucze zarządzane przez klienta wymagają dodatkowej usługi do obciążania, Azure Key Vault, która może znajdować się w innym regionie, ale w ramach tej samej subskrypcji, co platforma Azure Wyszukiwanie poznawcze. Włączenie szyfrowania CMK spowoduje zwiększenie rozmiaru indeksu i spadek wydajności zapytań. Na podstawie obserwacji do daty można oczekiwać, że w czasie wykonywania zapytań zostanie wyświetlony wzrost o 30%-60%, chociaż Rzeczywista wydajność będzie się różnić w zależności od definicji indeksu i typów zapytań. Ze względu na ten wpływ na wydajność zalecamy włączenie tej funkcji tylko w przypadku indeksów, które naprawdę wymagają tego. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kluczy szyfrowania zarządzanych przez klienta w usłudze Azure wyszukiwanie poznawcze](search-security-manage-encryption-keys.md).
 
-Klienci, którzy chcą mieć dodatkową ochronę magazynu, mogą szyfrować dane i obiekty przed ich zapisaniem i zaszyfrowaniem na dysku. To podejście jest oparte na kluczu należącym do użytkownika, zarządzanym i przechowywanym za pośrednictwem Azure Key Vault niezależnie od firmy Microsoft. Szyfrowanie zawartości przed szyfrowaniem na dysku jest określane jako "podwójne szyfrowanie". Obecnie można wybiórczo selektywnie szyfrować indeksy i mapy synonimów. Aby uzyskać więcej informacji, zobacz [klucze szyfrowania zarządzane przez klienta w usłudze Azure wyszukiwanie poznawcze](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> Szyfrowanie CMK jest ogólnie dostępne dla usług wyszukiwania utworzonych po styczniu 2019. Nie jest obsługiwana w przypadku usług bezpłatnych (udostępnionych). 
->
->Włączenie tej funkcji spowoduje zwiększenie rozmiaru indeksu i spadek wydajności zapytań. Na podstawie obserwacji do daty można oczekiwać, że w czasie wykonywania zapytań zostanie wyświetlony wzrost o 30%-60%, chociaż Rzeczywista wydajność będzie się różnić w zależności od definicji indeksu i typów zapytań. Ze względu na ten wpływ na wydajność zalecamy włączenie tej funkcji tylko w przypadku indeksów, które naprawdę wymagają tego.
+### <a name="double-encryption"></a>Podwójne szyfrowanie 
+
+Na platformie Azure Wyszukiwanie poznawcze podwójne szyfrowanie jest rozszerzeniem CMK. Należy zrozumieć, że jest to szyfrowanie dwustronne (raz przez CMK, a następnie przez klucze zarządzane przez usługę) oraz kompleksowy zakres, obejmujący długoterminowy magazyn, który jest zapisywany na dysku z danymi, i krótkoterminowy magazyn zapisany na dyskach tymczasowych. Różnica między CMK przed sierpnia 1 2020 i po nim, a co czyni CMK funkcją podwójnego szyfrowania w usłudze Azure Wyszukiwanie poznawcze, to dodatkowe szyfrowanie danych na dyskach tymczasowych.
+
+Podwójne szyfrowanie jest obecnie dostępne w nowych usługach, które są tworzone w tych regionach po 1 sierpnia:
+
++ Zachodnie stany USA 2
++ East US
++ South Central US
++ US Gov Wirginia
++ US Gov Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -131,7 +144,7 @@ Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzan
 
 W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja. Służy do rejestrowania diagnostycznego. Za pomocą tego wbudowanego programu można przypisać zasady, które identyfikują dowolną usługę wyszukiwania, w której brakuje rejestrowania diagnostycznego, a następnie włącza ją. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)

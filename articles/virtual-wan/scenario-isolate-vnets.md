@@ -6,24 +6,51 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: f43f17a0f3742831920836e448de3ef757f2dfa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568704"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553397"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenariusz: izolowanie sieci wirtualnych
 
-Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu celem jest zapobieganie sieci wirtualnych się do innych. Jest to znane jako izolowanie sieci wirtualnych. Obciążenie w sieci wirtualnej pozostaje izolowane i nie może komunikować się z innymi sieci wirtualnych, tak jak w przypadku dowolnego scenariusza. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (VPN, ER i VPN użytkownika). W tym scenariuszu wszystkie połączenia sieci VPN, ExpressRoute i VPN użytkowników są skojarzone z tą samą i jedną tabelą tras. Wszystkie połączenia sieci VPN, ExpressRoute i VPN użytkowników propagują trasy do tego samego zestawu tabel tras. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu celem jest zapobieganie sieci wirtualnych się do innych. Jest to znane jako izolowanie sieci wirtualnych. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Przepływ pracy scenariusza
+## <a name="design"></a><a name="design"></a>Projekt
+
+W tym scenariuszu obciążenie w ramach określonej sieci wirtualnej pozostaje izolowane i nie może komunikować się z innymi sieci wirtualnych. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (VPN, ER i VPN użytkownika). Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łączności. W tym scenariuszu będzie wyglądać tak jak w poniższej tabeli, gdzie każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna):
+
+| Źródło |   Działanie |  *Sieci wirtualnych* | *Gałęzie* |
+| -------------- | -------- | ---------- | ---|
+| Sieci wirtualnych     | &#8594;|           |     X    |
+| Gałęzie   | &#8594;|    X     |     X    |
+
+Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu.
+
+Ta macierz łączności daje nam dwa różne wzorce wierszy, które przekładają się na dwie tabele tras. Wirtualna sieć WAN ma już domyślną tabelę tras, dlatego potrzebna jest inna tabela tras. W tym przykładzie zmienimy nazwę tabeli tras **RT_VNET**.
+
+Sieci wirtualnych zostanie skojarzona z tą tabelą tras **RT_VNET** . Ponieważ potrzebują łączności z gałęziami, gałęzie będą musiały zostać rozpropagowane do **RT_VNET** (w przeciwnym razie sieci wirtualnych nie będzie uczyć się prefiksów gałęzi). Ponieważ gałęzie są zawsze skojarzone z domyślną tabelą tras, sieci wirtualnych będzie musiał zostać propagowane do domyślnej tabeli tras. W związku z tym jest to ostateczny projekt:
+
+* Sieci wirtualne:
+  * Skojarzona tabela tras: **RT_VNET**
+  * Propagowanie do tabel tras: **domyślne**
+* Gałęzi
+  * Skojarzona tabela tras: **Domyślna**
+  * Propagowanie do tabel tras: **RT_VNET** i **domyślnych**
+
+Zwróć uwagę, że ponieważ tylko gałęzie są propagowane do tabeli tras **RT_VNET**, będą to jedyne prefiksy, które sieci wirtualnych się uczyć, a nie inne sieci wirtualnych.
+
+Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Aby skonfigurować ten scenariusz, należy wziąć pod uwagę następujące czynności:
 
-1. Utwórz niestandardową tabelę tras. W przykładzie tabela tras jest **RT_VNet**. Aby utworzyć tabelę tras, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md). Aby uzyskać więcej informacji na temat tabel tras, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+1. Utwórz niestandardową tabelę tras w każdym centrum. W przykładzie tabela tras jest **RT_VNet**. Aby utworzyć tabelę tras, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md). Aby uzyskać więcej informacji na temat tabel tras, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 2. Podczas tworzenia tabeli tras **RT_VNet** skonfiguruj następujące ustawienia:
 
    * **Skojarzenie**: Wybierz sieci wirtualnych, które chcesz odizolować.

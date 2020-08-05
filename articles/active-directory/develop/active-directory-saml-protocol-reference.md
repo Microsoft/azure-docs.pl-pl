@@ -1,5 +1,5 @@
 ---
-title: Jak usługa Azure AD używa protokołu SAML
+title: Jak platforma tożsamości firmy Microsoft używa protokołu SAML
 description: Ten artykuł zawiera Omówienie profilów protokołu SAML logowania jednokrotnego i logowania jednokrotnego w programie Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -12,22 +12,22 @@ ms.date: 10/05/2018
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 54d8278a93bfd2d6009422a5c105be14a7bc3c80
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274327"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552802"
 ---
-# <a name="how-azure-ad-uses-the-saml-protocol"></a>Jak usługa Azure AD używa protokołu SAML
+# <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Jak platforma tożsamości firmy Microsoft używa protokołu SAML
 
-Azure Active Directory (Azure AD) korzysta z protokołu SAML 2,0, aby umożliwić aplikacjom udostępnianie użytkownikom funkcji logowania jednokrotnego. Profil SAML [logowania](single-sign-on-saml-protocol.md) jednokrotnego [i logowania jednokrotnego](single-sign-out-saml-protocol.md) w usłudze Azure AD objaśnia, w jaki sposób potwierdzenia SAML, protokoły i powiązania są używane w usłudze dostawca tożsamości.
+Platforma tożsamości firmy Microsoft korzysta z protokołu SAML 2,0, aby umożliwić aplikacjom udostępnianie użytkownikom funkcji logowania jednokrotnego. Profil SAML [logowania](single-sign-on-saml-protocol.md) jednokrotnego [i logowania jednokrotnego](single-sign-out-saml-protocol.md) w usłudze Azure AD objaśnia, w jaki sposób potwierdzenia SAML, protokoły i powiązania są używane w usłudze dostawca tożsamości.
 
-Protokół SAML wymaga od dostawcy tożsamości (Azure AD) i dostawcy usług (aplikacji) do wymiany informacji o sobie.
+Protokół SAML wymaga od dostawcy tożsamości (Microsoft Identity platform) i dostawcy usług (aplikacji) do wymiany informacji o sobie.
 
 Gdy aplikacja jest zarejestrowana w usłudze Azure AD, Deweloper aplikacji rejestruje informacje dotyczące Federacji w usłudze Azure AD. Te informacje obejmują **Identyfikator URI przekierowania** i **Identyfikator URI metadanych** aplikacji.
 
-Usługa Azure AD używa **identyfikatora URI metadanych** usługi w chmurze do pobrania klucza podpisywania i identyfikatora URI wylogowania. Klient może otworzyć aplikację w **usłudze Azure AD — > rejestracji aplikacji** , a następnie we **właściwościach ustawienia->**, które mogą zaktualizować adres URL wylogowywania. Dzięki temu usługa Azure AD może wysłać odpowiedź do poprawnego adresu URL. 
+Platforma tożsamości firmy Microsoft używa **identyfikatora URI metadanych** usługi w chmurze do pobrania klucza podpisywania i identyfikatora URI wylogowania. Klient może otworzyć aplikację w **usłudze Azure AD — > rejestracji aplikacji** , a następnie we **właściwościach ustawienia->**, które mogą zaktualizować adres URL wylogowywania. Dzięki temu platforma tożsamości firmy Microsoft może wysłać odpowiedź do poprawnego adresu URL. 
 
 Azure Active Directory udostępnia specyficzne dla dzierżawców i wspólne (niezależne od dzierżawy) punkty końcowe logowania jednokrotnego i wylogowania jednokrotnego. Te adresy URL przedstawiają lokalizacje adresowane — nie są tylko identyfikatorami, więc możesz przejść do punktu końcowego, aby odczytać metadane.
 

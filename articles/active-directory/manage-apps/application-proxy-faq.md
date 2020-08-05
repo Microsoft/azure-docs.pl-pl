@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128934"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562416"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -44,6 +44,10 @@ Nie, ten scenariusz nie jest obsługiwany. Ustawienia domyślne to:
 
 - Łącznik serwera proxy aplikacji usługi Microsoft AAD — WAPCSvc — usługa sieciowa
 - Aktualizator łączników serwera proxy aplikacji usługi Microsoft AAD-WAPCUpdaterSvc-NT Nt\system
+
+### <a name="can-a-guest-user-with-the-global-administrator-or-the-application-administrator-role-register-the-connector-for-the-guest-tenant"></a>Czy użytkownik-Gość z administratorem globalnym lub rolą administratora aplikacji rejestruje łącznik dla dzierżawy (gość)?
+
+Nie, obecnie nie jest to możliwe. Próba rejestracji jest zawsze podejmowana w dzierżawie głównej użytkownika.
 
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Moja aplikacja zaplecza jest hostowana na wielu serwerach sieci Web i wymaga trwałości sesji użytkownika (lepkość). Jak można osiągnąć trwałość sesji? 
 

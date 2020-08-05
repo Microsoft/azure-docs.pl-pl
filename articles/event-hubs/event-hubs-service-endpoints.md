@@ -3,12 +3,12 @@ title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | 
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420462"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554077"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych sieci wirtualnych 
 
@@ -31,6 +31,7 @@ Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowia
 > Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
 > - Aplikacje internetowe platformy Azure
 > - Azure Functions
+> - Azure Monitor (ustawienie diagnostyczne)
 
 
 > [!IMPORTANT]

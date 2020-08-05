@@ -1,6 +1,6 @@
 ---
-title: Jak przeprowadzić integrację z usługą Azure Active Directory
-description: Poznaj zalety integracji aplikacji z usługą Azure Active Directory i uzyskaj zasoby dla funkcji, takich jak uproszczone logowanie, zarządzanie tożsamościami, uwierzytelnianie wieloskładnikowe i kontrola dostępu.
+title: Jak przeprowadzić integrację z platformą tożsamości firmy Microsoft
+description: Poznaj zalety integracji aplikacji z platformą tożsamości firmy Microsoft i uzyskaj zasoby dla funkcji, takich jak uproszczone logowanie, zarządzanie tożsamościami, uwierzytelnianie wieloskładnikowe i kontrola dostępu.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,28 +12,28 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 4eaca7350ac006a2fcf2eed8d3eb0cb8ef274841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50748334a59dd6b3d7601bd8a32ac99bfe90b0fe
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885705"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552819"
 ---
-# <a name="integrating-with-azure-active-directory"></a>Integracja z usługą Azure Active Directory
+# <a name="integrating-with-microsoft-identity-platform"></a>Integracja z platformą tożsamości firmy Microsoft
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Ten artykuł zawiera informacje na temat korzyści z integracji aplikacji z usługą Azure Active Directory (Azure AD) i uzyskiwaniem zasobów do integracji. Usługa Azure AD udostępnia organizacjom klasy korporacyjnej Zarządzanie tożsamościami dla aplikacji w chmurze. Integracja z usługą Azure AD zapewnia użytkownikom usprawnione środowisko logowania i pomaga aplikacji z zasadami IT.
+W tym artykule omówiono zalety integracji aplikacji z platformą tożsamości firmy Microsoft i uzyskiwania zasobów do integracji. Platforma tożsamości firmy Microsoft i usługa Azure Active Directory (AD) udostępniają organizacjom klasy korporacyjnej Zarządzanie tożsamościami dla aplikacji w chmurze. Integracja z platformą tożsamości firmy Microsoft zapewnia użytkownikom usprawnione środowisko logowania i pomaga aplikacji z zasadami IT.
 
 ## <a name="how-to-integrate"></a>Sposób przeprowadzania integracji
 
-Istnieje kilka sposobów integracji aplikacji z usługą Azure AD. Korzystaj z kilku z tych scenariuszy, które są odpowiednie dla Twojej aplikacji.
+Istnieje kilka sposobów integracji aplikacji z platformą tożsamości firmy Microsoft. Korzystaj z kilku z tych scenariuszy, które są odpowiednie dla Twojej aplikacji.
 
-### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Obsługa usługi Azure AD w celu zalogowania się do aplikacji
+### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Obsługa platformy tożsamości firmy Microsoft w celu zalogowania się do aplikacji
 
-**Zmniejsz liczbę logowań i zmniejsz koszty pomocy technicznej.** Przy użyciu usługi Azure AD do logowania się do aplikacji użytkownicy nie będą mieć jeszcze jednej nazwy i hasła. Jako deweloper będziesz mieć co najmniej jedno hasło do przechowywania i ochrony. Nie trzeba obsługiwać resetowania zapomnianych haseł. Usługa Azure AD umożliwia zalogowanie się do niektórych najpopularniejszych aplikacji w chmurze, w tym pakietów Office 365 i Microsoft Azure. Setki milionów użytkowników z milionów organizacji prawdopodobnie użytkownik jest już zalogowany w usłudze Azure AD. Dowiedz się więcej [na temat dodawania obsługi logowania do usługi Azure AD](authentication-scenarios.md).
+**Zmniejsz liczbę logowań i zmniejsz koszty pomocy technicznej.** Aby zalogować się do aplikacji przy użyciu platformy tożsamości firmy Microsoft, użytkownicy nie będą musieli pamiętać żadnej nazwy i hasła. Jako deweloper będziesz mieć co najmniej jedno hasło do przechowywania i ochrony. Nie trzeba obsługiwać resetowania zapomnianych haseł. Platforma tożsamości firmy Microsoft umożliwia zalogowanie się do niektórych najpopularniejszych aplikacji w chmurze, w tym pakietów Office 365 i Microsoft Azure. Setki milionów użytkowników z milionów organizacji prawdopodobnie użytkownik jest już zalogowany na platformie tożsamości firmy Microsoft. Dowiedz się więcej o [dodawaniu obsługi usługi Microsoft Identity platform](authentication-scenarios.md).
 
-**Uprość rejestrowanie się w aplikacji.**  Podczas tworzenia konta w aplikacji usługa Azure AD może wysyłać podstawowe informacje o użytkowniku, aby można było wstępnie wypełnić formularz tworzenia konta lub całkowicie wyeliminować. Użytkownicy mogą zarejestrować się w celu korzystania z aplikacji przy użyciu konta usługi Azure AD za pomocą dobrze znanego środowiska, podobnego do tych znajdujących się w multimediach społecznościowych i aplikacjach mobilnych. Każdy użytkownik może utworzyć konto i zalogować się do aplikacji zintegrowanej z usługą Azure AD bez konieczności jej zaangażowania. Dowiedz się więcej o [rejestrowaniu aplikacji na potrzeby logowania do konta usługi Azure AD](../../app-service/configure-authentication-provider-aad.md).
+**Uprość rejestrowanie się w aplikacji.**  Podczas tworzenia konta w aplikacji platforma Microsoft Identity platform może wysyłać podstawowe informacje o użytkowniku, aby można było wstępnie wypełnić formularz tworzenia konta lub całkowicie wyeliminować. Użytkownicy mogą zarejestrować się w celu korzystania z aplikacji przy użyciu konta usługi Azure AD za pomocą dobrze znanego środowiska, podobnego do tych znajdujących się w multimediach społecznościowych i aplikacjach mobilnych. Każdy użytkownik może utworzyć konto i zalogować się do aplikacji zintegrowanej z platformą tożsamości firmy Microsoft bez konieczności jej zaangażowania. Dowiedz się więcej o [rejestrowaniu aplikacji na potrzeby logowania do konta usługi Azure AD](../../app-service/configure-authentication-provider-aad.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Przeglądanie w poszukiwaniu użytkowników, zarządzanie aprowizacji użytkowników i kontrolowanie dostępu do aplikacji
 
@@ -41,13 +41,13 @@ Istnieje kilka sposobów integracji aplikacji z usługą Azure AD. Korzystaj z k
 
 **Ponowne używanie grup Active Directory i list dystrybucyjnych, którymi już zarządza Twój klient.**  Usługa Azure AD zawiera grupy, które są już używane przez klienta do dystrybucji poczty e-mail i zarządzania dostępem. Korzystając z interfejsu API Microsoft Graph, należy ponownie używać tych grup zamiast konieczności tworzenia osobnego zestawu grup i zarządzania nim w aplikacji. Informacje o grupach można także wysyłać do aplikacji w tokenach logowania. Dowiedz się więcej o [interfejsie API Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-**Użyj usługi Azure AD, aby kontrolować, kto ma dostęp do aplikacji.**  Administratorzy i właściciele aplikacji w usłudze Azure AD mogą przypisywać dostęp do aplikacji do określonych użytkowników i grup. Za pomocą interfejsu API Microsoft Graph można odczytać tę listę i korzystać z niej w celu kontrolowania aprowizacji i cofania aprowizacji zasobów i dostępu w aplikacji.
+**Użyj platformy tożsamości firmy Microsoft, aby kontrolować, kto ma dostęp do aplikacji.**  Administratorzy i właściciele aplikacji w usłudze Azure AD mogą przypisywać dostęp do aplikacji do określonych użytkowników i grup. Za pomocą interfejsu API Microsoft Graph można odczytać tę listę i korzystać z niej w celu kontrolowania aprowizacji i cofania aprowizacji zasobów i dostępu w aplikacji.
 
-**Użyj usługi Azure AD na potrzeby ról opartych na Access Control.**  Administratorzy i właściciele aplikacji mogą przypisywać użytkowników i grupy do ról zdefiniowanych podczas rejestrowania aplikacji w usłudze Azure AD. Informacje o rolach są wysyłane do aplikacji w tokenach logowania i można je również odczytać przy użyciu interfejsu API Microsoft Graph. Dowiedz się więcej o [korzystaniu z usługi Azure AD do autoryzacji](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Użyj platformy tożsamości firmy Microsoft dla ról opartych na Access Control.**  Administratorzy i właściciele aplikacji mogą przypisywać użytkowników i grupy do ról zdefiniowanych podczas rejestrowania aplikacji na platformie tożsamości firmy Microsoft. Informacje o rolach są wysyłane do aplikacji w tokenach logowania i można je również odczytać przy użyciu interfejsu API Microsoft Graph. Dowiedz się więcej o [korzystaniu z platformy tożsamości firmy Microsoft na potrzeby autoryzacji](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Uzyskiwanie dostępu do profilu, kalendarza, poczty e-mail, kontaktów, plików i innych użytkowników
 
-**Usługa Azure AD to serwer autoryzacji dla pakietu Office 365 i innych usług firmy Microsoft.**  Jeśli usługa Azure AD jest obsługiwana w celu logowania się do aplikacji lub obsługi łączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu w profilu użytkownika, w kalendarzu, w wiadomościach e-mail, kontaktach, plikach i innych informacjach. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej o [uzyskiwaniu dostępu do interfejsów API pakietu Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Platforma tożsamości firmy Microsoft to serwer autoryzacji dla pakietu Office 365 i innych usług firmy Microsoft.**  Jeśli obsługujesz platformę tożsamości firmy Microsoft w celu logowania się do aplikacji lub obsłużenia połączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu do profilu użytkownika, kalendarza, wiadomości e-mail, kontaktów, plików i innych informacji. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej o [uzyskiwaniu dostępu do interfejsów API pakietu Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promuj swoją aplikację w portalu Azure i witrynie Office 365 Marketplace
 
@@ -57,23 +57,23 @@ Istnieje kilka sposobów integracji aplikacji z usługą Azure AD. Korzystaj z k
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Zabezpieczanie komunikacji między urządzeniami i usługami
 
-**Korzystanie z usługi Azure AD do zarządzania tożsamościami usług i urządzeń zmniejsza kod, który trzeba napisać, i umożliwia działowi IT zarządzanie dostępem.**  Usługi i urządzenia mogą uzyskać tokeny z usługi Azure AD przy użyciu protokołu OAuth i używać tych tokenów do uzyskiwania dostępu do interfejsów API sieci Web. Za pomocą usługi Azure AD można uniknąć pisania złożonego kodu uwierzytelniania. Ponieważ tożsamości usług i urządzeń są przechowywane w usłudze Azure AD, może ona zarządzać kluczami i odwołaniami w jednym miejscu, zamiast wykonywać te czynności osobno w aplikacji.
+**Użycie platformy tożsamości firmy Microsoft do zarządzania tożsamościami usług i urządzeń zmniejsza kod, który trzeba napisać, i umożliwia działowi IT zarządzanie dostępem.**  Usługi i urządzenia mogą uzyskać tokeny z platformy tożsamości firmy Microsoft przy użyciu protokołu OAuth i używać tych tokenów do uzyskiwania dostępu do interfejsów API sieci Web. Korzystając z platformy tożsamości firmy Microsoft, można uniknąć pisania złożonego kodu uwierzytelniania. Ponieważ tożsamości usług i urządzeń są przechowywane w usłudze Azure AD, może ona zarządzać kluczami i odwołaniami w jednym miejscu, zamiast wykonywać te czynności osobno w aplikacji.
 
 ## <a name="benefits-of-integration"></a>Zalety integracji
 
-Integracja z usługą Azure AD wiąże się z korzyściami, które nie wymagają pisania dodatkowego kodu.
+Integracja z platformą tożsamości firmy Microsoft obejmuje korzyści, które nie wymagają pisania dodatkowego kodu.
 
 ### <a name="integration-with-enterprise-identity-management"></a>Integracja z zarządzaniem tożsamościami w przedsiębiorstwie
 
-**Pomóż zachować zgodność aplikacji z zasadami IT.**  Organizacje integrują swoje systemy zarządzania tożsamościami przedsiębiorstwa z usługą Azure AD, więc gdy osoba opuści organizację, automatycznie utraci dostęp do aplikacji bez konieczności podejmowania dodatkowych czynności. Może ona zarządzać osobami, które mogą uzyskać dostęp do aplikacji i określić, jakie zasady dostępu są wymagane — na przykład uwierzytelnianie wieloskładnikowe — zmniejszając potrzebę pisania kodu w celu zachowania zgodności ze złożonymi zasadami firmowymi. Usługa Azure AD zapewnia administratorom szczegółowy dziennik inspekcji, który zalogował się w aplikacji, aby mógł śledzić użycie.
+**Pomóż zachować zgodność aplikacji z zasadami IT.**  Organizacje integrują swoje systemy zarządzania tożsamościami przedsiębiorstwa z platformą tożsamości firmy Microsoft, więc gdy osoba opuści organizację, automatycznie utraci dostęp do aplikacji bez konieczności podejmowania dodatkowych czynności. Może ona zarządzać osobami, które mogą uzyskać dostęp do aplikacji i określić, jakie zasady dostępu są wymagane — na przykład uwierzytelnianie wieloskładnikowe — zmniejszając potrzebę pisania kodu w celu zachowania zgodności ze złożonymi zasadami firmowymi. Usługa Azure AD zapewnia administratorom szczegółowy dziennik inspekcji, który zalogował się w aplikacji, aby mógł śledzić użycie.
 
 **Usługa Azure AD rozszerza Active Directory do chmury, dzięki czemu aplikacja może zintegrować się z usługą AD.**  Wiele organizacji na całym świecie używa Active Directory jako ich głównego logowania i systemu zarządzania tożsamościami, a także wymaga, aby ich aplikacje pracowały z usługą AD. Integracja z usługą Azure AD integruje aplikację z Active Directory.
 
 ### <a name="advanced-security-features"></a>Zaawansowane funkcje zabezpieczeń
 
-**Uwierzytelnianie wieloskładnikowe.**  Usługa Azure AD zapewnia natywne uwierzytelnianie wieloskładnikowe. Administratorzy IT mogą wymagać uwierzytelniania wieloskładnikowego, aby uzyskać dostęp do Twojej aplikacji, dzięki czemu nie musisz samodzielnie zakodować tej pomocy technicznej. Dowiedz się więcej o [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Uwierzytelnianie wieloskładnikowe.**  Platforma tożsamości firmy Microsoft zapewnia natywne uwierzytelnianie wieloskładnikowe. Administratorzy IT mogą wymagać uwierzytelniania wieloskładnikowego, aby uzyskać dostęp do Twojej aplikacji, dzięki czemu nie musisz samodzielnie zakodować tej pomocy technicznej. Dowiedz się więcej o [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Wykrywanie nietypowego logowania.**  Usługa Azure AD przetwarza więcej niż miliard logowań dziennie, przy użyciu algorytmów uczenia maszynowego do wykrywania podejrzanych działań i powiadamiania administratorów IT o możliwych problemach. Dzięki obsłudze logowania usługi Azure AD Twoja aplikacja uzyskuje korzyść tej ochrony. Dowiedz się więcej na temat [wyświetlania raportu dostępu Azure Active Directory](../active-directory-view-access-usage-reports.md).
+**Wykrywanie nietypowego logowania.**  Platforma tożsamości firmy Microsoft przetwarza więcej niż miliard logowań dziennie, przy użyciu algorytmów uczenia maszynowego do wykrywania podejrzanych działań i powiadamiania administratorów IT o możliwych problemach. Dzięki obsłudze logowania platformy tożsamości firmy Microsoft Twoja aplikacja uzyskuje korzyść tej ochrony. Dowiedz się więcej na temat [wyświetlania raportu dostępu Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
 **Dostęp warunkowy.**  Oprócz uwierzytelniania wieloskładnikowego Administratorzy mogą wymagać spełnienia określonych warunków, zanim użytkownicy będą mogli zalogować się do aplikacji. Warunki, które można ustawić, obejmują zakres adresów IP urządzeń klienckich, członkostwo w określonych grupach oraz stan urządzenia używanego na potrzeby dostępu. Dowiedz się więcej na temat [Azure Active Directory dostępu warunkowego](../active-directory-conditional-access-azure-portal.md).
 

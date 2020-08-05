@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999585"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553176"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -46,6 +46,8 @@ Przed włączeniem AD DS uwierzytelniania dla udziałów plików platformy Azure
     Tę funkcję można włączyć w nowym lub istniejącym lokalnym środowisku AD DS. Tożsamości używane na potrzeby dostępu muszą być synchronizowane z usługą Azure AD. Dzierżawa usługi Azure AD i udział plików, do których uzyskujesz dostęp, muszą być skojarzone z tą samą subskrypcją.
 
 - Przyłącz do domeny maszynę lokalną lub maszynę wirtualną platformy Azure do AD DS lokalnych. Aby uzyskać informacje o sposobie przyłączania do domeny, zapoznaj się z tematem aby [przyłączyć komputer do domeny](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Jeśli komputer nie jest przyłączony do AD DS, można nadal korzystać z poświadczeń usługi AD na potrzeby uwierzytelniania, jeśli komputer ma wgląd w kontroler domeny usługi AD.
 
 - Wybierz lub Utwórz konto usługi Azure Storage.  W celu uzyskania optymalnej wydajności zalecamy wdrożenie konta magazynu w tym samym regionie, w którym znajduje się klient, z którego planujesz uzyskać dostęp do udziału. Następnie [Zainstaluj udział plików platformy Azure](storage-how-to-use-files-windows.md) przy użyciu klucza konta magazynu. Zainstalowanie z kluczem konta magazynu weryfikuje łączność.
 

@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80877902"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562842"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ Jeśli aplikacje wymagają dysków platformy Azure jako rozwiązania magazynu, Z
 | Typ i rozmiar węzła | Procesor wirtualny | Pamięć (GiB) | Maks. liczba dysków danych | Maksymalna liczba operacji we/wy dysku w pamięci podręcznej | Maksymalna przepływność w pamięci podręcznej (MB/s) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1 920                  | 22,5                           |
-| Standardowa_DS2_v2    | 2    | 7            | 8              | 6 400                  | 96                             |
+| Standard_DS2_v2    | 2    | 7            | 8              | 6 400                  | 96                             |
 
 W tym miejscu *Standard_DS2_v2* umożliwia podwójnej liczby dołączonych dysków i oferuje trzy do cztery razy większą liczbę operacji we/wy na sekundę. Jeśli oglądasz tylko podstawowe zasoby obliczeniowe i porównane koszty, możesz wybrać *Standard_B2ms* rozmiar maszyny wirtualnej i mieć niską wydajność i ograniczenia magazynu. Skontaktuj się z zespołem programistycznym aplikacji, aby poznać ich pojemność magazynu i wydajność. Wybierz odpowiedni rozmiar maszyny wirtualnej dla węzłów AKS, aby spełnić lub przekroczyć ich potrzeby związane z wydajnością. Regularne aplikacje bazowe umożliwiające dostosowanie rozmiaru maszyny wirtualnej zgodnie z wymaganiami.
 
@@ -104,7 +104,7 @@ Ten artykuł koncentruje się na najlepszych rozwiązaniach dotyczących magazyn
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [dynamic-disks]: azure-disks-dynamic-pv.md
 [dynamic-files]: azure-files-dynamic-pv.md
 [reclaim-policy]: concepts-storage.md#storage-classes

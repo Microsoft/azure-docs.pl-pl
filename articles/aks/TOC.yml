@@ -87,7 +87,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -301,7 +301,7 @@
     - name: Opracowywanie i uruchamianie aplikacji
       items:
         - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS

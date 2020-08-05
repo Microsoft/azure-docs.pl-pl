@@ -9,17 +9,28 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
-ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361646"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553414"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
+
+## <a name="ctp-22"></a>CTP 2,2
+### <a name="sql-engine-build-number---15020001546"></a>Numer kompilacji aparatu SQL — 15.0.2000.1546
+### <a name="fixes"></a>Poprawki
+1. Obsługa kontenerów innych niż główne 
+2. Obsługa zbierania danych użycia i diagnostyki 
+3. Aktualizacje przesyłania strumieniowego T-SQL
+   - Obsługa znaków Unicode dla nazw obiektów strumienia
+   - Ulepszenia oczyszczania procesów
+   - Ulepszenia rejestrowania i diagnostyki
+4. Poprawa wydajności na potrzeby pozyskiwania danych
 
 ## <a name="ctp-21"></a>CTP 2,1 
 ### <a name="sql-engine-build-number---15020001545"></a>Numer kompilacji aparatu SQL — 15.0.2000.1545

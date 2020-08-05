@@ -2,16 +2,16 @@
 title: Najlepsze rozwiązania dotyczące długotrwałych operacji w Azure Analysis Services | Microsoft Docs
 description: W tym artykule opisano najlepsze rozwiązania dotyczące długotrwałych operacji.
 author: minewiskan
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
-ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5195d63180d45ad408256264e3cf10174e55cd96
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428110"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551952"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Najlepsze rozwiązania dotyczące długotrwałych operacji
 

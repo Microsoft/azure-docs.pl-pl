@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170381"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564014"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -338,7 +338,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy 
 
 Aby uzyskać kontekst wywołania funkcji podczas wykonywania, należy uwzględnić [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argument w jego podpisie.
 
-Przykład:
+Na przykład:
 
 ```python
 import azure.functions
@@ -434,8 +434,8 @@ Możesz również użyć Azure Pipelines do kompilowania zależności i publikow
 
 ### <a name="remote-build"></a>Kompilacja zdalna
 
-W przypadku korzystania z kompilacji zdalnej zależności przywrócone na serwerze i natywnych zależnościach są zgodne ze środowiskiem produkcyjnym. Powoduje to przekazanie mniejszego pakietu wdrożeniowego. Użyj kompilacji zdalnej podczas tworzenia aplikacji w języku Python w systemie Windows. Jeśli projekt ma zależności niestandardowe, można [użyć zdalnej kompilacji z dodatkowym adresem URL indeksu](#remote-build-with-extra-index-url). 
- 
+W przypadku korzystania z kompilacji zdalnej zależności przywrócone na serwerze i natywnych zależnościach są zgodne ze środowiskiem produkcyjnym. Powoduje to przekazanie mniejszego pakietu wdrożeniowego. Użyj kompilacji zdalnej podczas tworzenia aplikacji w języku Python w systemie Windows. Jeśli projekt ma zależności niestandardowe, można [użyć zdalnej kompilacji z dodatkowym adresem URL indeksu](#remote-build-with-extra-index-url).
+
 Zależności są uzyskiwane zdalnie na podstawie zawartości pliku requirements.txt. [Zdalna kompilacja](functions-deployment-technologies.md#remote-build) jest zalecaną metodą kompilacji. Domyślnie Azure Functions Core Tools żąda kompilacji zdalnej, gdy do publikowania projektu języka Python na platformie Azure jest używane następujące polecenie [Func Azure functionapp Publish](functions-run-local.md#publish) .
 
 ```bash
@@ -456,7 +456,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Pamiętaj, aby zamienić na `<APP_NAME>` nazwę aplikacji funkcji na platformie Azure.
 
-Przy użyciu `--build local` opcji zależności projektu są odczytywane z pliku requirements.txt, a pakiety zależne są pobierane i instalowane lokalnie. Pliki i zależności projektu są wdrażane z komputera lokalnego na platformie Azure. Powoduje to przekazanie większego pakietu wdrożeniowego do platformy Azure. Jeśli z jakiegoś powodu nie można uzyskać zależności w pliku requirements.txt za pomocą podstawowych narzędzi, należy użyć opcji zależności niestandardowe do opublikowania. 
+Przy użyciu `--build local` opcji zależności projektu są odczytywane z pliku requirements.txt, a pakiety zależne są pobierane i instalowane lokalnie. Pliki i zależności projektu są wdrażane z komputera lokalnego na platformie Azure. Powoduje to przekazanie większego pakietu wdrożeniowego do platformy Azure. Jeśli z jakiegoś powodu nie można uzyskać zależności w pliku requirements.txt za pomocą podstawowych narzędzi, należy użyć opcji zależności niestandardowe do opublikowania.
 
 Nie zalecamy używania kompilacji lokalnych podczas tworzenia lokalnie w systemie Windows.
 
@@ -466,7 +466,7 @@ Jeśli projekt nie został znaleziony w [indeksie pakietu języka Python](https:
 
 #### <a name="remote-build-with-extra-index-url"></a>Zdalna kompilacja z dodatkowym adresem URL indeksu
 
-Jeśli pakiety są dostępne z dostępnego niestandardowego indeksu pakietu, użyj kompilacji zdalnej. Przed opublikowaniem upewnij się, że [utworzono ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) o nazwie `PIP_EXTRA_INDEX_URL` . Wartość tego ustawienia jest adresem URL niestandardowego indeksu pakietu. Użycie tego ustawienia instruuje zdalną kompilację do uruchomienia `pip install` przy użyciu `--extra-index-url` opcji. Aby dowiedzieć się więcej, zobacz [dokumentację dotyczącą instalacji narzędzia Python PIP](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+Jeśli pakiety są dostępne z dostępnego niestandardowego indeksu pakietu, użyj kompilacji zdalnej. Przed opublikowaniem upewnij się, że [utworzono ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) o nazwie `PIP_EXTRA_INDEX_URL` . Wartość tego ustawienia jest adresem URL niestandardowego indeksu pakietu. Użycie tego ustawienia instruuje zdalną kompilację do uruchomienia `pip install` przy użyciu `--extra-index-url` opcji. Aby dowiedzieć się więcej, zobacz [dokumentację dotyczącą instalacji narzędzia Python PIP](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
 Możesz również użyć poświadczeń uwierzytelniania podstawowego z dodatkowymi adresami URL indeksu pakietu. Aby dowiedzieć się więcej, zobacz [podstawowe poświadczenia uwierzytelniania](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) w dokumentacji języka Python.
 
@@ -658,11 +658,14 @@ Aby wyświetlić szczegółowe informacje o liście tych bibliotek, Skorzystaj z
 
 Proces roboczy funkcji Python wymaga określonego zestawu bibliotek. Możesz również użyć tych bibliotek w swoich funkcjach, ale nie są one częścią standardu języka Python. Jeśli funkcje są zależne od dowolnej z tych bibliotek, mogą one nie być dostępne dla kodu podczas uruchamiania poza Azure Functions. Aby znaleźć szczegółową listę zależności w sekcji install, **należy \_ podać** w pliku [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) .
 
+> [!NOTE]
+> Jeśli requirements.txt aplikacji funkcji zawiera `azure-functions-worker` wpis, usuń go. Proces roboczy funkcji jest automatycznie zarządzany przez Azure Functions platformę, a firma Microsoft regularnie aktualizuje ją o nowe funkcje i poprawki błędów. Ręczne zainstalowanie starej wersji procesu roboczego w requirements.txt może spowodować nieoczekiwane problemy.
+
 ### <a name="azure-functions-python-library"></a>Azure Functions biblioteki języka Python
 
 Każda aktualizacja procesu roboczego w języku Python obejmuje nową wersję [Azure Functions biblioteki języka Python (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Takie podejście ułatwia Ciągłe aktualizowanie aplikacji funkcji języka Python, ponieważ każda aktualizacja jest zgodna z poprzednimi wersjami. Listę wersji tej biblioteki można znaleźć w temacie [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-Wersja biblioteki środowiska uruchomieniowego jest ustalana przez platformę Azure i nie może zostać zastąpiona przez requirements.txt. `azure-functions`Wpis w requirements.txt jest tylko dla Zaznaczanie błędów i świadomości klientów. 
+Wersja biblioteki środowiska uruchomieniowego jest ustalana przez platformę Azure i nie może zostać zastąpiona przez requirements.txt. `azure-functions`Wpis w requirements.txt jest tylko dla Zaznaczanie błędów i świadomości klientów.
 
 Użyj poniższego kodu, aby śledzić rzeczywistą wersję biblioteki funkcji języka Python w środowisku uruchomieniowym:
 
@@ -689,7 +692,8 @@ Mechanizm CORS jest w pełni obsługiwany w przypadku aplikacji funkcji języka 
 
 Poniżej znajduje się lista przewodników rozwiązywania problemów dotyczących typowych problemów:
 
-* [ModuleNotFoundError i ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError i ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Nie można zaimportować "cygrpc"](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 Wszystkie znane problemy i żądania funkcji są śledzone za pomocą listy [problemów usługi GitHub](https://github.com/Azure/azure-functions-python-worker/issues) . Jeśli napotkasz problem i nie możesz znaleźć problemu w usłudze GitHub, Otwórz nowy problem i podaj szczegółowy opis problemu.
 

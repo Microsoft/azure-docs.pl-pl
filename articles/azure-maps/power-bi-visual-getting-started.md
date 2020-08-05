@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261887"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552003"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Wprowadzenie do Azure Maps Power BI wizualizacji
 
@@ -35,6 +35,9 @@ Wizualizacja Azure Maps nawiązuje połączenie z usługą w chmurze hostowaną 
 
 -   Szczegóły dotyczące obszaru, w którym jest ukierunkowane mapowanie, są wysyłane do platformy Azure w celu pobrania obrazów potrzebnych do renderowania kanwy mapy (nazywanej również kafelkami mapy). 
 -   Dane w zasobnikach lokalizacja, Szerokość geograficzna i długości geograficznej mogą być wysyłane do platformy Azure w celu pobrania współrzędnych mapy (proces nazywany geokodowaniem). 
+-   Dane telemetryczne mogą być zbierane na kondycji wizualizacji (np. raporty o awarii), jeśli opcja telemetrii w Power BI jest włączona.
+
+Poza opisanymi powyżej scenariuszami do serwerów Azure Maps nie są wysyłane żadne inne dane na mapie. Wszystkie operacje renderowania danych są wykonywane lokalnie w ramach klienta.
 
 Może być konieczne zaktualizowanie zapory, aby zezwolić na dostęp do Azure Maps platformy przy użyciu poniższego adresu URL.
 

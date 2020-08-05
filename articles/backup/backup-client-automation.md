@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych systemu Windo
 description: W tym artykule dowiesz się, jak skonfigurować Azure Backup w systemie Windows Server lub kliencie systemu Windows przy użyciu programu PowerShell, a także zarządzać kopiami zapasowymi i odzyskiwaniem.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 116bdd6b5f48a9d5abc0f9f0d9ce61f857196fd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513731"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564031"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 Na komputerze klienckim z systemem Windows Server lub Windows uruchom polecenie cmdlet [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) , aby zarejestrować maszynę w magazynie.
-To i inne polecenia cmdlet używane do tworzenia kopii zapasowych pochodzą z modułu MSONLINE, który został dodany przez AgentInstaller Mars w ramach procesu instalacji.
+To i inne polecenia cmdlet używane do tworzenia kopii zapasowych pochodzą z modułu MSONLINE, który został dodany przez AgentInstaller MARS w ramach procesu instalacji.
 
 Instalator agenta nie aktualizuje $Env:P zmiennej SModulePath. Oznacza to, że automatyczne ładowanie modułu kończy się niepowodzeniem. Aby rozwiązać ten problem, można wykonać następujące czynności:
 

@@ -1,7 +1,7 @@
 ---
-title: Dostosowywanie oświadczeń tokenów SAML aplikacji usługi Azure AD
+title: Dostosowywanie oświadczeń tokenów SAML aplikacji
 titleSuffix: Microsoft identity platform
-description: Informacje o dostosowywaniu oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw w usłudze Azure AD.
+description: Dowiedz się, jak dostosować oświadczenia wystawione przez platformę tożsamości firmy Microsoft w tokenie SAML dla aplikacji dla przedsiębiorstw.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274472"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552836"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
-Obecnie usługa Azure Active Directory (Azure AD) obsługuje logowanie jednokrotne (SSO) z większością aplikacji przedsiębiorstwa, w tym zarówno aplikacje wstępnie zintegrowane w galerii aplikacji usługi Azure AD, jak i aplikacje niestandardowe. Gdy użytkownik uwierzytelnia się w aplikacji za pośrednictwem usługi Azure AD przy użyciu protokołu SAML 2,0, usługa Azure AD wysyła token do aplikacji (za pośrednictwem protokołu HTTP POST). Następnie aplikacja sprawdza poprawność i używa tokenu do zarejestrowania użytkownika w zamiast monitowania o podanie nazwy użytkownika i hasła. Te tokeny SAML zawierają informacje o użytkowniku znanym jako *oświadczenia*.
+Obecnie platforma tożsamości firmy Microsoft obsługuje logowanie jednokrotne (SSO) z większością aplikacji dla przedsiębiorstw, w tym zarówno aplikacje wstępnie zintegrowane w galerii aplikacji usługi Azure AD, jak i aplikacje niestandardowe. Gdy użytkownik uwierzytelnia się w aplikacji za pośrednictwem platformy tożsamości firmy Microsoft przy użyciu protokołu SAML 2,0, platforma tożsamości firmy Microsoft wysyła token do aplikacji (za pośrednictwem protokołu HTTP POST). Następnie aplikacja sprawdza poprawność i używa tokenu do zarejestrowania użytkownika w zamiast monitowania o podanie nazwy użytkownika i hasła. Te tokeny SAML zawierają informacje o użytkowniku znanym jako *oświadczenia*.
 
 Jest *to* informacja, którą dostawca tożsamości informuje o użytkowniku w tokenie, który wystawia dla tego użytkownika. W [tokenie SAML](https://en.wikipedia.org/wiki/SAML_2.0)dane te są zazwyczaj zawarte w instrukcji języka SAML. Unikatowy identyfikator użytkownika jest zazwyczaj reprezentowany przez element SAML subject nazywany również identyfikatorem nazwy.
 
-Domyślnie usługa Azure AD wystawia token języka SAML dla aplikacji, która zawiera `NameIdentifier` zastrzeżenie o wartości nazwy użytkownika (znanej także jako główna nazwa użytkownika) w usłudze Azure AD, która może jednoznacznie identyfikować użytkownika. Token SAML zawiera również dodatkowe oświadczenia zawierające adres e-mail użytkownika, imię i nazwisko.
+Domyślnie platforma tożsamości firmy Microsoft wysyła token SAML do aplikacji, która zawiera `NameIdentifier` zastrzeżenie o wartości nazwy użytkownika (znanej także jako główna nazwa użytkownika) w usłudze Azure AD, która może jednoznacznie identyfikować użytkownika. Token SAML zawiera również dodatkowe oświadczenia zawierające adres e-mail użytkownika, imię i nazwisko.
 
 Aby wyświetlić lub edytować oświadczenia wystawione w tokenie SAML dla aplikacji, Otwórz aplikację w Azure Portal. Następnie otwórz sekcję **atrybuty użytkownika & oświadczenia** .
 
@@ -48,19 +48,19 @@ Aby edytować NameID (wartość identyfikatora nazwy):
 
 ### <a name="nameid-format"></a>Format NameID
 
-Jeśli żądanie SAML zawiera element NameIDPolicy o określonym formacie, usługa Azure AD będzie przestrzegać formatu żądania.
+Jeśli żądanie SAML zawiera element NameIDPolicy o określonym formacie, platforma tożsamości firmy Microsoft będzie przestrzegać formatu w żądaniu.
 
-Jeśli żądanie SAML nie zawiera elementu NameIDPolicy, usługa Azure AD wystawia NameID z określonym formatem. Jeśli żaden format nie zostanie określony, usługa Azure AD będzie używać domyślnego formatu źródłowego skojarzonego z wybranym źródłem usługi.
+Jeśli żądanie SAML nie zawiera elementu NameIDPolicy, platforma tożsamości firmy Microsoft będzie wydawać NameID z określonym formatem. Jeśli żaden format nie zostanie określony, platforma tożsamości Microsoft będzie używać domyślnego formatu źródłowego skojarzonego z wybranym źródłem żądania.
 
 Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną z następujących opcji.
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Wartooć** | Usługa Azure AD będzie używać domyślnego formatu źródła. |
-| **Stale** | Usługa Azure AD będzie używać trwałego formatu NameID. |
-| **EmailAddress (Adres e-mail)** | Usługa Azure AD będzie używać EmailAddress jako formatu NameID. |
-| **Nie określono** | Usługa Azure AD będzie używać nieokreślone jako formatu NameID. |
-| **Kwalifikowana nazwa domeny systemu Windows** | Usługa Azure AD będzie używać WindowsDomainQualifiedName jako formatu NameID. |
+| **Domyślne** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
+| **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
+| **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
+| **Kwalifikowana nazwa domeny systemu Windows** | Platforma tożsamości firmy Microsoft będzie używać WindowsDomainQualifiedName jako formatu NameID. |
 
 Przejściowa NameID jest również obsługiwana, ale nie jest dostępna na liście rozwijanej i nie można jej skonfigurować na stronie platformy Azure. Aby dowiedzieć się więcej o atrybucie NameIDPolicy, zobacz Logowanie jednokrotne [protokołu SAML](single-sign-on-saml-protocol.md).
 
@@ -70,7 +70,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 
 | Nazwa | Opis |
 |------|-------------|
-| Poczta e-mail | Adres e-mail użytkownika |
+| E-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
 | onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |
@@ -169,9 +169,9 @@ Aby dodać warunek roszczeń:
 
 Kolejność, w której zostały dodane warunki, jest ważna. Usługa Azure AD szacuje warunki od góry do dołu, aby zdecydować, która wartość ma być emitowana w ramach tego żądania. 
 
-Na przykład Britta Simon jest użytkownikiem-gościem w dzierżawie contoso. Należy do innej organizacji, która również korzysta z usługi Azure AD. Zgodnie z poniższą konfiguracją aplikacji Fabrikam, gdy Britta próbuje zalogować się do firmy Fabrikam, usługa Azure AD oceni warunki w następujący sposób.
+Na przykład Britta Simon jest użytkownikiem-gościem w dzierżawie contoso. Należy do innej organizacji, która również korzysta z usługi Azure AD. Zgodnie z poniższą konfiguracją aplikacji Fabrikam, gdy Britta próbuje zalogować się do firmy Fabrikam, platforma Microsoft Identity platform oceni warunki w następujący sposób.
 
-Najpierw usługa Azure AD weryfikuje, czy typ użytkownika Britta `All guests` . Ponieważ jest to prawdziwe, usługa Azure AD przypisuje Źródło dla tego żądania `user.extensionattribute1` . Po drugie usługa Azure AD weryfikuje, czy typ użytkownika Britta to `AAD guests` , ponieważ jest to również prawdziwe, usługa Azure AD przypisuje Źródło dla tego żądania `user.mail` . Na koniec zgłoszenie jest emitowane z wartością `user.mail` dla Britta.
+Najpierw platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `All guests` . Ponieważ jest to prawdziwe, firma Microsoft Identity platform przypisuje Źródło dla tego żądania `user.extensionattribute1` . Druga platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `AAD guests` , ponieważ jest to również prawdziwe, firma Microsoft Identity platform przypisuje Źródło dla tego żądania `user.mail` . Na koniec zgłoszenie jest emitowane z wartością `user.mail` dla Britta.
 
 ![Konfiguracja warunkowa oświadczeń](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

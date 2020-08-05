@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087666"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553312"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL w trybie online za pomocą usługi DMS
 
@@ -262,6 +262,9 @@ Po przywróceniu pełnej kopii zapasowej bazy danych w wystąpieniu docelowym wy
 4. Wybierz polecenie **Potwierdź**, a następnie wybierz pozycję **Zastosuj**.
 
     ![Przygotowanie do zakończenia migracji jednorazowej](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > Po uruchomienie produkcyjne dostępność wystąpienia zarządzanego SQL z Krytyczne dla działania firmy warstwy usług może trwać znacznie dłużej niż Ogólnego przeznaczenia, ponieważ trzy repliki pomocnicze muszą być rozsiane dla grupy zawsze włączonych wysokiej dostępności. Ten czas trwania operacji zależy od rozmiaru danych. Aby uzyskać więcej informacji, zobacz temat [czas trwania operacji zarządzania](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. Po **zakończeniu**wyświetlania stanu migracji bazy danych Połącz swoje aplikacje z nowym docelowym wystąpieniem wystąpienia zarządzanego SQL.
 

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529628"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554026"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -30,8 +30,8 @@ Preferujesz program PowerShell? Użyj [szablonu usługi](https://azure.microsoft
 Następujące właściwości usługi są rozwiązane w okresie istnienia usługi — zmiana któregokolwiek z nich wymaga nowej usługi. Ze względu na to, że są stałe, należy wziąć pod uwagę skutki użycia podczas wypełniania każdej właściwości:
 
 * Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
-* Warstwa usługi [ma wpływ na rozliczenia](search-sku-tier.md) i ustawia limit w górę dla pojemności.
-* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli interesujesz się wyszukiwaniem w bazie wiedzy i wzbogacaniem AI, potrzebujesz Cognitive Services i ewentualnie Azure Machine Learning w tym samym regionie, w którym znajduje się usługa Azure Wyszukiwanie poznawcze.
+* Warstwa usługi [ma wpływ na rozliczenia](search-sku-tier.md) i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
+* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz umieścić wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (bezpłatna lub płatna)
 
@@ -51,7 +51,7 @@ Możesz również [aktywować korzyści dla subskrybentów MSDN](https://azure.m
 
 ## <a name="choose-a-subscription"></a>Wybierz subskrypcję
 
-Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich dla usługi wyszukiwania.
+Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich dla usługi wyszukiwania. W przypadku implementowania [podwójnego szyfrowania](search-security-overview.md#double-encryption) lub innych funkcji, które są zależne od tożsamości usługi zarządzanej, wybierz tę samą subskrypcję, która jest używana dla Azure Key Vault lub innych usług, dla których są używane tożsamości zarządzane.
 
 ## <a name="set-a-resource-group"></a>Ustawianie grupy zasobów
 
@@ -89,6 +89,8 @@ Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów. Li
 
 > [!Note]
 > Indie Środkowe i Zjednoczone Emiraty Arabskie są obecnie niedostępne dla nowych usług. W przypadku usług znajdujących się już w tych regionach można skalować w górę bez ograniczeń, a usługa jest w pełni obsługiwana w tym regionie. Ograniczenia są tymczasowe i ograniczone tylko do nowych usług. Ta uwaga zostanie usunięta, gdy ograniczenia nie będą już miały zastosowania.
+>
+> Podwójne szyfrowanie jest dostępne tylko w określonych regionach. Aby uzyskać więcej informacji, zobacz [podwójne szyfrowanie](search-security-overview.md#double-encryption).
 
 ### <a name="requirements"></a>Wymagania
 

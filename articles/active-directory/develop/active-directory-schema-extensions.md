@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 71dcad908884351950c89b590523ffa91d6d47f9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424783"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552785"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach
 
@@ -41,7 +41,7 @@ Atrybuty rozszerzenia schematu katalogu mogą być rejestrowane i wypełniane na
 Atrybuty rozszerzenia schematu katalogu utworzone i zsynchronizowane przy użyciu programu AD Connect są zawsze skojarzone z IDENTYFIKATORem aplikacji używanym przez program AD Connect. Mogą one służyć jako źródło dla oświadczeń zarówno przez skonfigurowanie ich jako oświadczeń w konfiguracji **aplikacji przedsiębiorstwa** w interfejsie użytkownika portalu dla aplikacji SAML zarejestrowanych przy użyciu galerii lub środowiska konfiguracji aplikacji spoza galerii w obszarze **aplikacje dla przedsiębiorstw**, a także za pośrednictwem zasad mapowania oświadczeń dla aplikacji zarejestrowanych za pośrednictwem środowiska rejestracji aplikacji.  Gdy atrybut rozszerzenia katalogu utworzony za pośrednictwem programu AD Connect znajduje się w katalogu, zostanie wyświetlony w interfejsie użytkownika konfiguracji oświadczeń logowania jednokrotnego SAML.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Emitowanie oświadczeń z danymi z atrybutów rozszerzenia schematu katalogu utworzonych dla aplikacji przy użyciu programu Graph lub programu PowerShell
-Jeśli atrybut rozszerzenia schematu katalogu jest zarejestrowany dla aplikacji przy użyciu programu Microsoft Graph lub PowerShell (za pomocą początkowej konfiguracji aplikacji lub kroku aprowizacji dla wystąpienia), ta sama aplikacja może zostać skonfigurowana w Azure Active Directory do odbierania danych w tym atrybucie z obiektu użytkownika w ramach roszczeń po zalogowaniu się użytkownika.  Aplikację można skonfigurować tak, aby odbierać dane w rozszerzeniach schematu katalogu, które są zarejestrowane w tej samej aplikacji przy użyciu [opcjonalnych oświadczeń](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Można je ustawić w manifeście aplikacji.  Dzięki temu aplikacja wielodostępna może rejestrować atrybuty rozszerzenia schematu katalogu do własnego użytku. Gdy aplikacja jest obsługiwana w dzierżawie, skojarzone rozszerzenia schematu katalogu stają się dostępne do ustawienia dla użytkowników w tej dzierżawie i używane.  Po jego skonfigurowaniu w dzierżawie i udzieleniu zgody można go użyć do przechowywania i pobierania danych za pośrednictwem programu Graph oraz do mapowania oświadczeń w tokenach usługi Azure AD emisje do aplikacji.
+Jeśli atrybut rozszerzenia schematu katalogu jest zarejestrowany dla aplikacji przy użyciu programu Microsoft Graph lub PowerShell (za pomocą początkowej konfiguracji aplikacji lub kroku aprowizacji dla wystąpienia), ta sama aplikacja może zostać skonfigurowana w Azure Active Directory do odbierania danych w tym atrybucie z obiektu użytkownika w ramach roszczeń po zalogowaniu się użytkownika.  Aplikację można skonfigurować tak, aby odbierać dane w rozszerzeniach schematu katalogu, które są zarejestrowane w tej samej aplikacji przy użyciu [opcjonalnych oświadczeń](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Można je ustawić w manifeście aplikacji.  Dzięki temu aplikacja wielodostępna może rejestrować atrybuty rozszerzenia schematu katalogu do własnego użytku. Gdy aplikacja jest obsługiwana w dzierżawie, skojarzone rozszerzenia schematu katalogu stają się dostępne do ustawienia dla użytkowników w tej dzierżawie i używane.  Po jego skonfigurowaniu w dzierżawie i udzieleniu zgody można go użyć do przechowywania i pobierania danych za pośrednictwem grafu oraz do mapowania oświadczeń w tokenach platforma Microsoft Identity platform emituje do aplikacji.
 
 Atrybuty rozszerzenia schematu katalogu mogą być rejestrowane i wypełniane dla dowolnej aplikacji.
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388218"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564133"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy
 
@@ -48,7 +48,7 @@ Podmioty zabezpieczeń, które muszą mieć dostęp do trwale usuniętych wpisó
 
 Jeśli masz Azure Policy w magazynach kluczy, które są niezbędne do wyłączenia usuwania nietrwałego, te zasady będą musiały zostać wyłączone.  Może być konieczne eskalacja tego problemu administratorowi kontrolującemu zasady platformy Azure stosowane do danego środowiska. Jeśli ta zasada nie zostanie wyłączona, można utracić możliwość tworzenia nowych magazynów kluczy w zakresie stosowanych zasad.
 
-Jeśli organizacja podlega wymaganiom dotyczącym zgodności i nie może zezwolić na odzyskanie usuniętych magazynów kluczy i kluczy tajnych przez dłuższy czas, trzeba będzie dostosować okres przechowywania nietrwałego usuwania, który można skonfigurować od 7 do 90 dni, aby spełnić standardy organizacji.
+Jeśli organizacja podlega wymaganiom dotyczącym zgodności i nie można zezwolić, aby usunięte magazyny kluczy i wpisy tajne pozostawały w stanie odzyskiwalnym przez dłuższy czas, konieczne będzie dostosowanie okresu przechowywania nietrwałego usuwania, który można skonfigurować od 7 do 90 dni, aby spełnić standardy organizacji.
 
 ## <a name="procedures"></a>Procedury
 
@@ -73,7 +73,7 @@ Teraz powinno być możliwe filtrowanie i przeglądanie, które magazyny kluczy 
 1. Zaloguj się w witrynie Azure Portal.
 2. Wyszukaj Key Vault.
 3. W obszarze Ustawienia wybierz pozycję "właściwości".
-4. W obszarze usuwanie nietrwałe wybierz przycisk radiowy odpowiadający opcji "Włącz odzyskiwanie". tego magazynu i jego obiektów ".
+4. W obszarze usuwanie nietrwałe wybierz przycisk radiowy odpowiadający opcji "Włącz odzyskiwanie tego magazynu i jego obiektów".
 5. Ustaw okres przechowywania dla usuwania nietrwałego.
 6. Wybierz pozycję "Zapisz".
 

@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285734"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551680"
 ---
 # <a name="create-a-data-source"></a>Tworzenie źródła danych
 
 Azure Maps Web SDK przechowuje dane w źródłach danych. Użycie źródeł danych optymalizuje operacje na danych na potrzeby wykonywania zapytań i renderowania. Obecnie istnieją dwa typy źródeł danych:
 
-**Źródło danych GEOJSON**
+- **Źródło GEOJSON**: dane lokalizacji pierwotnej w formacie GEOJSON są zarządzane lokalnie. Dobre dla małych i średnich zestawów danych (w górę setek tysięcy kształtów).
+- **Źródło kafelka wektorowego**: wczytuje dane sformatowane jako kafelki wektorowe dla bieżącego widoku mapy, na podstawie systemu sąsiadującego z mapowaniem. Idealne rozwiązanie w przypadku dużych i wielkich zestawów danych (miliony lub miliardów kształtów).
+
+## <a name="geojson-data-source"></a>Źródło danych GEOJSON
 
 Źródło danych GEOJSON jest ładowane i przechowywane lokalnie przy użyciu `DataSource` klasy. Dane GEOJSON można utworzyć ręcznie lub utworzyć przy użyciu klas pomocnika w przestrzeni nazw [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . `DataSource`Klasa zawiera funkcje do importowania lokalnych lub zdalnych plików GeoJSON. Pliki zdalnego GEOJSON muszą być hostowane w punkcie końcowym z obsługą mechanizmu CORs. `DataSource`Klasa zawiera funkcje dla danych punktu klastrowania. I można łatwo dodawać, usuwać i aktualizować dane przy użyciu `DataSource` klasy. Poniższy kod pokazuje, jak dane GEOJSON można tworzyć w Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Pozwala powiedzieć, że chcesz zastąpić wszystkie dane w `DataSource` . W przypadku wykonywania wywołań do `clear` funkcji then `add` mapa może być ponownie renderowana dwa razy, co może spowodować nieco opóźnienia. Zamiast tego należy użyć `setShapes` funkcji, która spowoduje usunięcie i zamianę wszystkich danych w źródle danych i wyzwala tylko pojedyncze ponowne renderowanie mapy.
 
-**Źródło kafelków wektora**
+## <a name="vector-tile-source"></a>Źródło kafelków wektora
 
 Źródło kafelka wektorowego opisuje, jak uzyskać dostęp do warstwy kafelków wektorowych. Użyj klasy [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) , aby utworzyć wystąpienie źródła kafelka Vector. Warstwy kafelków wektorowych są podobne do warstw kafelków, ale nie są one takie same. Warstwa kafelków jest obrazem rastrowym. Warstwy kafelków wektorowych są skompresowanym plikiem w formacie **PBF** . Ten skompresowany plik zawiera dane mapy wektorowej i co najmniej jedną warstwę. Plik może być renderowany i ustalany na podstawie stylu każdej warstwy. Dane w kafelku wektorowym zawierają funkcje geograficzne w postaci punktów, linii i wielokątów. Istnieje kilka zalet używania warstw kafelków wektorowych zamiast warstw kafelków rastrowych:
 
@@ -88,7 +91,7 @@ Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.
 > [!TIP]
 > W przypadku używania kafelków obrazów wektorowych lub rastrowych z poziomu usługi Azure Maps Render z zestawem SDK sieci Web, można zastąpić `atlas.microsoft.com` symbolem zastępczym `{azMapsDomain}` . Ten symbol zastępczy zostanie zastąpiony tą samą domeną używaną przez mapę i automatycznie dołączać te same dane uwierzytelniania. Znacznie upraszcza to uwierzytelnianie za pomocą usługi renderowania przy użyciu uwierzytelniania Azure Active Directory.
 
-Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źródło do jednej z warstw renderowania danych. Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość w opcjach. FThe Poniższy kod ładuje usługę kafelków wektora przepływu ruchu Azure Maps jako źródło kafelka wektorowego, a następnie wyświetla ją na mapie przy użyciu warstwy liniowej. To źródło kafelka wektorowego zawiera pojedynczy zestaw danych w warstwie źródłowej o nazwie "przepływ ruchu". Dane wiersza w tym zestawie danych mają właściwość o nazwie `traffic_level` , która jest używana w tym kodzie do wybierania koloru i skalowania rozmiaru wierszy.
+Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źródło do jednej z warstw renderowania danych. Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość w opcjach. Poniższy kod ładuje usługę kafelków wektora przepływu ruchu Azure Maps jako źródło kafelka wektora, a następnie wyświetla ją na mapie przy użyciu warstwy liniowej. To źródło kafelka wektorowego zawiera pojedynczy zestaw danych w warstwie źródłowej o nazwie "przepływ ruchu". Dane wiersza w tym zestawie danych mają właściwość o nazwie `traffic_level` , która jest używana w tym kodzie do wybierania koloru i skalowania rozmiaru wierszy.
 
 ```javascript
 //Create a vector tile source and add it to the map.

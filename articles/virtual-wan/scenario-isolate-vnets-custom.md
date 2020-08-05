@@ -6,20 +6,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3719956df0dce62ee69d8e306ff2cad27197616d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568708"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553465"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenariusz: niestandardowa izolacja dla sieci wirtualnych
 
-Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W niestandardowym scenariuszu izolacji dla sieci wirtualnych celem jest uniemożliwienie konkretnego zestawu sieci wirtualnych z możliwością uzyskania dostępu do innego określonego zestawu sieci wirtualnych. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (sieci VPN/ER/użytkownika).
+Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W niestandardowym scenariuszu izolacji dla sieci wirtualnych celem jest uniemożliwienie konkretnego zestawu sieci wirtualnych z możliwością uzyskania dostępu do innego określonego zestawu sieci wirtualnych. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (sieci VPN/ER/użytkownika). Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-W tym scenariuszu połączenia sieci VPN, ExpressRoute i VPN użytkownika (nazywane rozgałęziami) są skojarzone z tą samą tabelą tras (domyślna tabela tras). Wszystkie połączenia sieci VPN, ExpressRoute i VPN użytkowników propagują trasy do tego samego zestawu tabel tras. Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+## <a name="scenario-design"></a><a name="design"></a>Projekt scenariusza
+
+Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łączności. W tym scenariuszu będzie wyglądać podobnie do poniższego, gdzie każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna):
+
+| Źródło | Do:| *Niebieska sieci wirtualnych* | *Red sieci wirtualnych* | *Gałęzie*|
+|---|---|---|---|---|
+| **Niebieska sieci wirtualnych** |   &#8594;|      X        |               |       X      |
+| **Red sieci wirtualnych**  |   &#8594;|              |       X       |       X      |
+| **Gałęzie**   |   &#8594;|     X        |       X       |       X      |
+
+Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu.
+
+Liczba różnych wzorców wierszy będzie wymagana w tym scenariuszu. W takim przypadku trzy tabele tras trasy, które będą wywoływać **RT_BLUE** i **RT_RED** dla sieci wirtualnych, i **domyślne** dla gałęzi. Należy pamiętać, że gałęzie zawsze muszą być skojarzone z domyślną tabelą routingu.
+
+Gałęzie muszą poznać prefiksy z czerwonych i niebieskich sieci wirtualnych, więc wszystkie sieci wirtualnych będą musiały zostać propagowane do wartości domyślnych (również do **RT_BLUE** lub **RT_RED**). Niebieskie i czerwone sieci wirtualnych muszą poznać prefiksy gałęzi, więc gałęzie są propagowane do obu tabel tras **RT_BLUE** i **RT_RED** . W związku z tym jest to ostateczny projekt:
+
+* Niebieskie sieci wirtualne:
+  * Skojarzona tabela tras: **RT_BLUE**
+  * Propagowanie do tabel tras: **RT_BLUE** i **domyślnych**
+* Czerwone sieci wirtualne:
+  * Skojarzona tabela tras: **RT_RED**
+  * Propagowanie do tabel tras: **RT_RED** i **domyślnych**
+* Gałęzi
+  * Skojarzona tabela tras: **Domyślna**
+  * Propagowanie do tabel tras: **RT_BLUE**, **RT_RED** i **domyślnych**
+
+> [!NOTE]
+> Ponieważ wszystkie gałęzie muszą być skojarzone z domyślną tabelą tras, a także do propagowania do tego samego zestawu tabel routingu, wszystkie gałęzie będą miały ten sam profil łączności. Innymi słowy, nie można zastosować koncepcji czerwona/niebieska dla sieci wirtualnych do gałęzi.
+
+> [!NOTE]
+> Jeśli wirtualna sieć WAN jest wdrażana w wielu regionach, należy utworzyć **RT_BLUE** i **RT_RED** tabele tras w każdym centrum, a trasy z poszczególnych połączeń sieci wirtualnej muszą być propagowane do tabel tras w każdym koncentratorze wirtualnym przy użyciu etykiet propagacji.
+
+Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 ## <a name="scenario-workflow"></a><a name="architecture"></a>Przepływ pracy scenariusza
 
@@ -31,8 +63,8 @@ Na **rysunku 1**znajdują się niebieskie i czerwone połączenia sieci wirtualn
 Podczas konfigurowania routingu należy wziąć pod uwagę następujące czynności.
 
 1. Utwórz dwie niestandardowe tabele tras w Azure Portal, **RT_BLUE** i **RT_RED**.
-2. W przypadku tabeli tras **RT_BLUE**w obszarze:
-   * **Skojarzenie**: zaznacz wszystkie niebieskie sieci wirtualnych
+2. Dla **RT_BLUE**tabeli tras dla następujących ustawień:
+   * **Skojarzenie**: zaznacz wszystkie niebieskie sieci wirtualnych.
    * **Propagacja**: w przypadku gałęzi, wybierz opcję dla gałęzi, co oznacza, że połączenia z gałęzią (VPN/er/P2S) będą propagowane tras do tej tabeli tras.
 3. Powtórz te same czynności dla **RT_REDj** tabeli tras dla Red sieci wirtualnych i rozgałęzień (VPN/er/P2S).
 

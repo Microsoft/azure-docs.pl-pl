@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502923"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552479"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym
 
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > Nasza implementacja BERT ogranicza łączną długość tekstu szkolenia do 128 tokenów. Oznacza to, że wszystkie kolumny tekstowe, gdy są połączone, powinny mieć maksymalnie 128 tokenów. W idealnym przypadku, jeśli istnieją wiele kolumn, każda kolumna powinna zostać oczyszczona w taki sposób, że ten warunek jest spełniony. Na przykład jeśli w danych znajdują się dwie kolumny tekstowe, obie kolumny tekstowe należy oczyścić do 64 tokenów (przy założeniu, że obie kolumny mają być równo reprezentowane w ostatniej połączonej kolumnie tekstowej) przed podawaniem danych do AutoML. W przypadku połączonych kolumn o długości >tokeny 128, warstwa tokenizatora BERT będzie obcinać dane wejściowe do tokenów 128.
 
-3. W kroku odliczania funkcji AutoML porównuje BERT z linią bazową (zbiorem słów Features + preszkolne osadzania wyrazów) na próbce danych i określa, czy BERT da ulepszenia dokładności. Jeśli ustali, że BERT wykonuje lepsze niż linia bazowa, AutoML następnie używa BERT dla cechowania tekstu jako optymalnej strategii cechowania i kontynuuje pracę z featurizingem całych danych. W takim przypadku zobaczysz "PretrainedTextDNNTransformer" w modelu końcowym.
+3. W kroku czyszczenia funkcji AutoML porównuje BERT z linią bazową (zbiorem funkcji słowa) na próbkę danych i określa, czy BERT da ulepszenia dokładności. Jeśli ustali, że BERT wykonuje lepsze niż linia bazowa, AutoML następnie używa BERT dla cechowania tekstu jako optymalnej strategii cechowania i kontynuuje pracę z featurizingem całych danych. W takim przypadku zobaczysz "PretrainedTextDNNTransformer" w modelu końcowym.
 
 BERT zazwyczaj działa dłużej niż większość innych featurizers. Może być przyspieszyło, zapewniając więcej obliczeń w klastrze. AutoML będzie dystrybuować szkolenia BERT w wielu węzłach, jeśli są dostępne (maksymalnie 8 węzłów). Można to zrobić przez ustawienie [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) na wartość większą niż 1. W celu uzyskania lepszej wydajności zalecamy korzystanie z jednostek SKU z funkcjami RDMA (takimi jak "STANDARD_NC24r" lub "STANDARD_NC24rs_V3").
 

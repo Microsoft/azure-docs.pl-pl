@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502481"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551697"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -195,8 +195,7 @@ Użytkownicy w tej roli mogą odczytywać podstawowe informacje o katalogu. Ta r
 Nie używaj. Ta rola jest automatycznie przypisana do usługi Azure AD Connect i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku.
 
 ### <a name="directory-writers"></a>[Autorzy katalogów](#directory-writers-permissions)
-
-Jest to Starsza rola, która ma zostać przypisana do aplikacji, które nie obsługują [struktury wyrażania zgody](../develop/quickstart-register-app.md). Nie powinien być przypisany do żadnych użytkowników.
+Użytkownicy w tej roli mogą odczytywać i aktualizować podstawowe informacje o użytkownikach, grupach i nazwach głównych usług. Przypisz tę rolę tylko do aplikacji, które nie obsługują [struktury zgody](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Nie powinien być przypisany do żadnych użytkowników.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrator programu Dynamics 365/programu CRM](#crm-service-administrator-permissions)
 
@@ -1001,22 +1000,36 @@ Może odczytywać & pisać podstawowe informacje o katalogu. Do udzielania dost�
 
 | **Akcje** | **Opis** |
 | --- | --- |
-| Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
-| Microsoft. Directory/Groups/createAsOwner | Utwórz grupy w Azure Active Directory. Twórca jest dodawany jako pierwszy właściciel, a tworzony obiekt jest liczony według przydziału 250 obiektów utworzonych przez twórcę. |
 | Microsoft. Directory/Groups/appRoleAssignments/Update | Zaktualizuj Właściwość groups. appRoleAssignments w Azure Active Directory. |
-| Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory. |
+| Microsoft. Directory/Groups/assignLicense | Zarządzanie licencjami w grupach w Azure Active Directory. |
+| Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory.  |
+| Microsoft. katalog/grupy/Klasyfikacja/aktualizacja | Zaktualizuj Właściwość klasyfikacji grupy w Azure Active Directory. |
+| Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |
+| Microsoft. Directory/Groups/GroupType/Update | Zaktualizuj Właściwość GroupType grupy w Azure Active Directory. |
 | Microsoft. Directory/Groups/Members/Update | Aktualizowanie właściwości groups. Members w Azure Active Directory. |
 | Microsoft. Directory/Groups/Owners/Update | Aktualizacja właściwości groups. Owners w Azure Active Directory. |
+| Microsoft. Directory/Groups/reprocessLicenseAssignment | Przetwórz ponownie przypisania licencji dla grupy w Azure Active Directory. |
+| Microsoft. Directory/Groups/securityEnabled/Update | Zaktualizuj Właściwość secutiryEnabled grupy w Azure Active Directory. |
 | Microsoft. Directory/Groups/Settings/Update | Aktualizowanie właściwości groups. Settings w Azure Active Directory. |
+| Microsoft. Directory/Groups/Visibility/Update | Zaktualizuj Właściwość widoczności grupy |
 | Microsoft. Directory/groupSettings/Basic/Update | Zaktualizuj podstawowe właściwości groupSettings w Azure Active Directory. |
-| Microsoft. Directory/groupSettings/Create | Utwórz groupSettings w Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Create | Utwórz groupSettings w Azure Active Directory.. |
 | Microsoft. Directory/groupSettings/Delete | Usuń groupSettings w Azure Active Directory. |
+| Microsoft. Directory/elementu oauth2permissiongrants/Basic/Update | Zaktualizuj podstawowe właściwości elementu oauth2permissiongrants w Azure Active Directory. |
+| Microsoft. Directory/elementu oauth2permissiongrants/Create | Utwórz elementu oauth2permissiongrants w Azure Active Directory. |
+| Microsoft. Directory/serviceprincipals/synchronizationCredentials/Manage | Zarządzaj wpisami tajnymi i poświadczeniami aprowizacji aplikacji. |
+| Microsoft. Directory/serviceprincipals/synchronizationJobs/Manage | Uruchamianie, ponowne uruchamianie i wstrzymywanie zadań synchronizacji aprowizacji aplikacji. |
+| Microsoft. Directory/serviceprincipals/synchronizationSchema/Manage | Twórz i Zarządzaj zadaniami synchronizacja i schematem aprowizacji aplikacji. |
 | Microsoft. Directory/Users/appRoleAssignments/Update | Zaktualizuj Właściwość Users. appRoleAssignments w Azure Active Directory. |
 | Microsoft. Directory/Users/assignLicense | Zarządzanie licencjami użytkowników w Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Zaktualizuj podstawowe właściwości użytkowników w Azure Active Directory. |
-| Microsoft. Directory/Users/invalidateAllRefreshTokens | Unieważnienie wszystkich tokenów odświeżania użytkownika w Azure Active Directory. |
+| Microsoft. Directory/Users/Disable | Wyłącz konto użytkownika w Azure Active Directory. |
+| Microsoft. Directory/Users/Enable | Włączanie konta użytkownika w Azure Active Directory |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Unieważnienie wszystkich tokenów odświeżania użytkownika w Azure Active Directory, wymaganie od użytkowników ponownego uwierzytelnienia przy następnym logowaniu |
 | Microsoft. Directory/Users/Manager/Update | Aktualizowanie właściwości users. Manager w Azure Active Directory. |
+| Microsoft. Directory/Users/reprocessLicenseAssignment | Przetwórz ponownie przypisania licencji dla użytkownika w Azure Active Directory. |
 | Microsoft. Directory/Users/userPrincipalName/Update | Zaktualizuj Właściwość Users. userPrincipalName w Azure Active Directory. |
+
 
 ### <a name="exchange-service-administrator-permissions"></a>Uprawnienia administratora usługi Exchange
 
@@ -1899,7 +1912,7 @@ Menedżerowie urządzeń | Przestarzałe | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Użytkownicy urządzeń | Przestarzałe | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Czytelnicy katalogów | Czytelnicy katalogów | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | d29b2b05-8046-44ba-8758-1e26182fcf32
-Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | 9360feb5-f418-4baa-8175-e2a00bac4301
+Autorzy katalogów | Autorzy katalogów | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrator usługi Exchange | Administrator programu Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrator przepływu użytkownika z identyfikatorem zewnętrznym | Administrator przepływu użytkownika z identyfikatorem zewnętrznym | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrator atrybutów przepływu użytkownika zewnętrznego ID | Administrator atrybutów przepływu użytkownika zewnętrznego ID | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

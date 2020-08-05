@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519738"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553975"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -61,9 +61,18 @@ Więcej informacji o różnych warstwach można znaleźć na [stronie cennika](h
 Rozwiązanie utworzone na platformie Azure Wyszukiwanie poznawcze może ponosić koszty w następujący sposób:
 
 + Koszt samej usługi, z systemem 24x7, w minimalnej konfiguracji (jedna partycja i replika)
+
 + Dodawanie pojemności (repliki lub partycje)
-+ Opłaty za przepustowość (wychodzący transfer danych) 
-+ Usługi dodatków, takie jak wzbogacanie AI (dołączanie Cognitive Services w umiejętności, które definiują przetwarzanie AI lub przy użyciu usługi Azure Storage dla sklepu z bazami danych) lub do wdrażania usług wyszukiwania w prywatnej sieci wirtualnej
+
++ Opłaty za przepustowość (wychodzący transfer danych)
+
++ Usługi dodatków wymagane do określonych funkcji lub funkcji:
+
+  + Wzbogacanie AI (wymaga [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + Magazyn wiedzy (wymaga [usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + zwiększanie przyrostowe (wymaga [usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/), ma zastosowanie do wzbogacania AI)
+  + klucze zarządzane przez klienta i podwójne szyfrowanie (wymaga [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + prywatne punkty końcowe dla modelu dostępu bez Internetu (wymaga [prywatnego linku platformy Azure](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### <a name="service-costs"></a>Koszty usług
 

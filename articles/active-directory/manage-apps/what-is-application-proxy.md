@@ -6,18 +6,18 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 94d120973939dd1efabee868fc75e9f6c1352bf3
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976510"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562637"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -81,7 +81,7 @@ Po zalogowaniu się użytkownicy zewnętrzni mogą uzyskiwać dostęp do lokalny
 
 ![Architektura usługi Azure serwer proxy aplikacji usługi Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Istnieje kilka sposobów konfigurowania aplikacji do logowania jednokrotnego, a wybrana metoda zależy od uwierzytelniania używanego przez aplikację. Serwer proxy aplikacji obsługuje następujące typy aplikacji:
 
@@ -138,7 +138,7 @@ Na poniższym diagramie przedstawiono ogólnie, jak usługi uwierzytelniania us�
 
 |**Składnik**|**Opis**|
 |:-|:-|
-|Endpoint|Punkt końcowy jest adresem URL lub [portalem użytkowników końcowych](end-user-experiences.md). Użytkownicy mogą uzyskiwać dostęp do aplikacji poza siecią, uzyskując dostęp do zewnętrznego adresu URL. Użytkownicy w sieci mogą uzyskiwać dostęp do aplikacji za pomocą adresu URL lub portalu użytkowników końcowych. Gdy użytkownicy przejdą do jednego z tych punktów końcowych, uwierzytelniają się w usłudze Azure AD, a następnie są kierowani przez łącznik do aplikacji lokalnej.|
+|Punkt końcowy|Punkt końcowy jest adresem URL lub [portalem użytkowników końcowych](end-user-experiences.md). Użytkownicy mogą uzyskiwać dostęp do aplikacji poza siecią, uzyskując dostęp do zewnętrznego adresu URL. Użytkownicy w sieci mogą uzyskiwać dostęp do aplikacji za pomocą adresu URL lub portalu użytkowników końcowych. Gdy użytkownicy przejdą do jednego z tych punktów końcowych, uwierzytelniają się w usłudze Azure AD, a następnie są kierowani przez łącznik do aplikacji lokalnej.|
 |Azure AD|Usługa Azure AD wykonuje uwierzytelnianie przy użyciu katalogu dzierżawy przechowywanego w chmurze.|
 |Usługa serwera proxy aplikacji|Ta usługa serwera proxy aplikacji działa w chmurze w ramach usługi Azure AD. Przekazuje on token logowania od użytkownika do łącznika serwera proxy aplikacji. Serwer proxy aplikacji przekazuje wszystkie dostępne nagłówki w żądaniu i ustawia nagłówki zgodnie z protokołem na adres IP klienta. Jeśli żądanie przychodzące do serwera proxy ma już ten nagłówek, adres IP klienta zostanie dodany na końcu listy rozdzielanej przecinkami, która jest wartością nagłówka.|
 |Łącznik serwera proxy aplikacji|Łącznik jest lekkim agentem działającym na serwerze z systemem Windows w sieci. Łącznik zarządza komunikacją między usługą serwera proxy aplikacji w chmurze a aplikacją lokalną. Łącznik używa tylko połączeń wychodzących, więc nie trzeba otwierać żadnych portów przychodzących ani umieszczać żadnych elementów w strefie DMZ. Łączniki są bezstanowe i pobierają informacje z chmury w razie potrzeby. Aby uzyskać więcej informacji na temat łączników, takich jak równoważenie obciążenia i uwierzytelnianie, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).|
@@ -180,7 +180,7 @@ Aby uzyskać więcej informacji na temat wybierania miejsca instalacji łącznik
 
 ## <a name="other-use-cases"></a>Inne przypadki użycia
 
-Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Obejmują one:
+Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Dostępne są następujące ustawienia:
 
 * **Bezpieczne publikowanie interfejsów API REST**. Jeśli masz logikę biznesową lub interfejsy API działające lokalnie lub hostowane na maszynach wirtualnych w chmurze, serwer proxy aplikacji udostępnia publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API. Dostęp do punktu końcowego interfejsu API umożliwia sterowanie uwierzytelnianiem i autoryzacją bez konieczności używania portów przychodzących. Zapewnia ona dodatkowe zabezpieczenia za pośrednictwem funkcji Azure AD — wersja Premium, takich jak uwierzytelnianie wieloskładnikowe i dostęp warunkowy oparty na urządzeniach dla komputerów stacjonarnych, urządzeń z systemem iOS, MAC i Android przy użyciu usługi Intune. Aby dowiedzieć się więcej, zobacz [jak włączyć natywne aplikacje klienckie do współdziałania z aplikacjami proxy](application-proxy-configure-native-client-application.md) i [chronić interfejs API przy użyciu protokołu OAuth 2,0 z Azure Active Directory i API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
 * **Usługi pulpitu zdalnego** **(RDS)**. Standardowe wdrożenia usług RDS wymagają otwartych połączeń przychodzących. Jednak [wdrożenie usług pulpitu zdalnego z serwerem proxy aplikacji](application-proxy-integrate-with-remote-desktop-services.md) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. W ten sposób możesz zaoferować więcej aplikacji użytkownikom końcowym, publikując aplikacje lokalne za pomocą Usługi pulpitu zdalnego. Możesz również zmniejszyć powierzchnię ataku wdrożenia z ograniczonym zestawem weryfikacji dwuetapowej i kontroli dostępu warunkowego do usług pulpitu zdalnego.

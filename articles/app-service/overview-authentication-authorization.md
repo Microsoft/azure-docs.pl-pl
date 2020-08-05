@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068212"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562382"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -22,15 +22,20 @@ Bezpieczne uwierzytelnianie i autoryzacja wymagają dokładnego poznania zabezpi
 > [!IMPORTANT]
 > Nie jest wymagane korzystanie z tej funkcji do uwierzytelniania i autoryzacji. Możesz użyć wbudowanych funkcji zabezpieczeń w ramach wybranej platformy sieci Web lub można napisać własne narzędzia. Należy jednak pamiętać, że program [chrome 80 wprowadza istotne zmiany w implementacji SameSite dla plików cookie](https://www.chromestatus.com/feature/5088147346030592) (Data wydania około marca 2020), a niestandardowe uwierzytelnianie zdalne lub inne scenariusze, które opierają się na księgowaniu plików cookie między lokacjami, mogą ulec przerwaniu podczas aktualizowania przeglądarek programu Chrome. Obejście jest złożone, ponieważ musi obsługiwać różne zachowania SameSite dla różnych przeglądarek. 
 >
-> W ASP.NET Core 2,1 i nowszych wersjach hostowanych przez App Service są już zainstalowane poprawki dla tej istotnej zmiany i obsługują odpowiednio program Chrome 80 i starsze przeglądarki. Ponadto ta sama poprawka dla ASP.NET Framework 4.7.2 jest wdrażana w App Service wystąpieniach w styczniu 2020. Aby uzyskać więcej informacji, w tym informacje o tym, czy aplikacja otrzymuje poprawkę, zobacz [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> W ASP.NET Core 2,1 i nowszych wersjach hostowanych przez App Service są już zainstalowane poprawki dla tej istotnej zmiany i obsługują odpowiednio program Chrome 80 i starsze przeglądarki. Ponadto ta sama poprawka dla programu ASP.NET Framework 4.7.2 została wdrożona w App Service wystąpieniach w styczniu 2020. Aby uzyskać więcej informacji, zobacz [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 > [!NOTE]
 > Funkcja uwierzytelniania/autoryzacji jest również czasami określana jako "Łatwa autoryzacja".
 
+> [!NOTE]
+> Włączenie tej funkcji spowoduje, że **wszystkie** niezabezpieczone żądania HTTP do aplikacji będą automatycznie przekierowywane do protokołu HTTPS, niezależnie od ustawienia konfiguracji App Service [wymuszania protokołu HTTPS](configure-ssl-bindings.md#enforce-https). W razie potrzeby można je wyłączyć za pomocą `requireHttps` Ustawienia w [pliku konfiguracyjnym ustawień uwierzytelniania](app-service-authentication-how-to.md#configuration-file-reference), ale należy pamiętać o zapewnieniu, że tokeny zabezpieczające nie są przekazywane za pośrednictwem niezabezpieczonych połączeń HTTP.
+
 Aby uzyskać informacje specyficzne dla natywnych aplikacji mobilnych, zobacz [uwierzytelnianie użytkowników i autoryzacja dla aplikacji mobilnych za pomocą Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Jak to działa
+
+### <a name="on-windows"></a>W systemie Windows
 
 Moduł uwierzytelniania i autoryzacji jest uruchamiany w tej samej piaskownicy, w której znajduje się kod aplikacji. Gdy jest włączona, każde przychodzące żądanie HTTP przechodzi przez niego przed przekazaniem przez kod aplikacji.
 
@@ -44,6 +49,10 @@ Ten moduł obsługuje kilka rzeczy dla aplikacji:
 - Wprowadza informacje o tożsamości do nagłówków żądań
 
 Moduł zostanie uruchomiony niezależnie od kodu aplikacji i skonfigurowany przy użyciu ustawień aplikacji. Nie są wymagane żadne zestawy SDK, określone Języki ani zmiany w kodzie aplikacji. 
+
+### <a name="on-containers"></a>W kontenerach
+
+Moduł uwierzytelniania i autoryzacji jest uruchamiany w oddzielnym kontenerze odizolowanym od kodu aplikacji. Za pomocą tego, co jest znane jako [wzorzec ambasadora](https://docs.microsoft.com/azure/architecture/patterns/ambassador), współdziała z ruchem przychodzącym w celu przeprowadzenia podobnej funkcjonalności jak w systemie Windows. Ponieważ nie działa on w procesie, nie jest możliwa Bezpośrednia integracja z określonymi strukturami języka; jednak odpowiednie informacje wymagane przez aplikację są przesyłane za pośrednictwem nagłówków żądań, jak wyjaśniono poniżej.
 
 ### <a name="userapplication-claims"></a>Oświadczenia użytkownika/aplikacji
 

@@ -2,17 +2,17 @@
 title: Odświeżanie za pomocą Logic Apps dla modeli Azure Analysis Services | Microsoft Docs
 description: W tym artykule opisano sposób kodu odświeżania asynchronicznego dla Azure Analysis Services przy użyciu Azure Logic Apps.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025323"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552241"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
 
@@ -20,7 +20,7 @@ Za pomocą Logic Apps i wywołań REST można wykonywać automatyczne operacje o
 
 Aby dowiedzieć się więcej o korzystaniu z interfejsów API REST z Azure Analysis Services, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładach w tym artykule zostanie użyta nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -69,7 +69,7 @@ Skonfiguruj działanie HTTP w następujący sposób:
 |**URI**     | https://*serwera*/Servers/*AAS nazwa serwera*/models/*Nazwa bazy danych*/refreshes <br /> <br /> Na przykład: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/models/AdventureWorks/refreshes|
 |**Nagłówki**     |   Content-Type, Application/JSON <br /> <br />  ![Nagłówki](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Treść**     |   Aby dowiedzieć się więcej na temat tworzenia treści żądania, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST — post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Uwierzytelnianie**     |Active Directory OAuth         |
+|**Authentication**     |Active Directory OAuth         |
 |**Dzierżawa**     |Wypełnij Azure Active Directory TenantId         |
 |**Grupy odbiorców**     |https://*. asazure. Windows. NET         |
 |**Identyfikator klienta**     |Wprowadź nazwę główną usługi ClientID         |

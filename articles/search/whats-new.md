@@ -6,19 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
-ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076338"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553935"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
 ## <a name="feature-announcements-in-2020"></a>Anonse funkcji w 2020
+
+### <a name="august-2020"></a>2020 sierpnia
+
+|Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
+|---------|------------------|-------------|---------------|
+| [podwójne szyfrowanie](search-security-overview.md#encryption) | Zabezpieczenia | Włącz podwójne szyfrowanie w warstwie magazynowania, konfigurując szyfrowanie klucza zarządzanego przez klienta (CMK) w nowych usługach wyszukiwania. Utwórz nową usługę, [Skonfiguruj i Zastosuj klucze zarządzane przez klienta](search-security-manage-encryption-keys.md) do indeksów lub map synonimów, a następnie skorzystaj z podwójnego szyfrowania nad tą zawartością. | Ogólnie dostępna we wszystkich usługach wyszukiwania utworzonych po 1 sierpnia 2020 w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona. Tworzenie usługi przy użyciu portalu, interfejsów API REST zarządzania lub zestawów SDK. |
 
 ### <a name="july-2020"></a>Lipiec 2020 r.
 

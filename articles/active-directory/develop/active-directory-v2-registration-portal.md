@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885637"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552717"
 ---
 # <a name="app-registration-reference"></a>Dokumentacja rejestracji aplikacji
 
@@ -38,11 +38,11 @@ Ta lista zawiera wszystkie aplikacje zarejestrowane do użytku wyłącznie z kon
 
 ## <a name="application-secrets"></a>Wpisy tajne aplikacji
 
-Wpisy tajne aplikacji są poświadczeniami, które umożliwiają aplikacji wykonywanie niezawodnego [uwierzytelniania klienta](https://tools.ietf.org/html/rfc6749#section-2.3) w usłudze Azure AD. W programie OAuth & OpenID Connect Connect, klucz tajny aplikacji jest często określany jako `client_secret` . W protokole v 2.0 wszystkie aplikacje, które odbierają token zabezpieczający w lokalizacji adresowej sieci Web (przy użyciu `https` schematu), muszą używać klucza tajnego aplikacji, aby identyfikować się w usłudze Azure AD po wykorzystaniu tego tokenu zabezpieczającego. Ponadto każdy natywny klient, który odbiera tokeny na urządzeniu, będzie zabroniony przy użyciu klucza tajnego aplikacji w celu uwierzytelniania klientów. Nie zaleca się przechowywania wpisów tajnych w środowiskach niezabezpieczonych.
+Wpisy tajne aplikacji są poświadczeniami, które umożliwiają aplikacji wykonywanie niezawodnego [uwierzytelniania klienta](https://tools.ietf.org/html/rfc6749#section-2.3) za pomocą platformy tożsamości firmy Microsoft. W programie OAuth & OpenID Connect Connect, klucz tajny aplikacji jest często określany jako `client_secret` . W protokole v 2.0 każda aplikacja, która otrzymuje token zabezpieczający w lokalizacji adresowej w sieci Web (przy użyciu `https` schematu), musi używać klucza tajnego aplikacji, aby identyfikować się na platformie tożsamości firmy Microsoft w momencie wykupu tego tokenu zabezpieczającego. Ponadto każdy natywny klient, który odbiera tokeny na urządzeniu, będzie zabroniony przy użyciu klucza tajnego aplikacji w celu uwierzytelniania klientów. Nie zaleca się przechowywania wpisów tajnych w środowiskach niezabezpieczonych.
 
 Każda aplikacja może zawierać dwa prawidłowe wpisy tajne aplikacji w danym momencie. Utrzymując dwa klucze tajne, można wykonywać okresowe Przerzucanie kluczy w całym środowisku aplikacji. Po przeprowadzeniu migracji całości aplikacji do nowego klucza tajnego możesz usunąć stary klucz tajny i udostępnić go nowym.
 
-W tym momencie w portalu rejestracji aplikacji są dozwolone tylko dwa typy wpisów tajnych aplikacji. Wybranie opcji **Generuj nowe hasło** generuje i zapisuje wspólny klucz tajny w odpowiednim magazynie danych, którego można użyć w aplikacji. Wybranie opcji **Generuj nową parę kluczy** powoduje utworzenie nowej pary kluczy publicznych/prywatnych, która może zostać pobrana i użyta do uwierzytelnienia klienta w usłudze Azure AD. Wybranie opcji **Przekaż klucz publiczny** umożliwia użycie własnej pary kluczy publicznych/prywatnych.
+W tym momencie w portalu rejestracji aplikacji są dozwolone tylko dwa typy wpisów tajnych aplikacji. Wybranie opcji **Generuj nowe hasło** generuje i zapisuje wspólny klucz tajny w odpowiednim magazynie danych, którego można użyć w aplikacji. Wybranie opcji **Generuj nową parę kluczy** powoduje utworzenie nowej pary kluczy publicznych/prywatnych, która może zostać pobrana i użyta do uwierzytelniania klientów na platformie tożsamości firmy Microsoft. Wybranie opcji **Przekaż klucz publiczny** umożliwia użycie własnej pary kluczy publicznych/prywatnych.
 Musisz przekazać certyfikat zawierający klucz publiczny.
 
 ## <a name="profile"></a>Profil

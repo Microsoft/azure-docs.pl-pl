@@ -4,13 +4,13 @@ ms.author: cynthn
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+manager: daberry
+ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545257"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554900"
 ---
 Standardowe obrazy maszyn wirtualnych (VM) umożliwiają organizacjom Migrowanie do chmury i zapewnianie spójności we wdrożeniach. Obrazy zwykle obejmują wstępnie zdefiniowane ustawienia zabezpieczeń i konfiguracji oraz niezbędne oprogramowanie. Skonfigurowanie własnego potoku obrazu wymaga czasu, infrastruktury i konfiguracji, ale za pomocą konstruktora obrazów maszyn wirtualnych platformy Azure wystarczy utworzyć prostą konfigurację opisującą obraz, przesłać ją do usługi, a obraz został skompilowany i rozdystrybuowany.
  
@@ -56,6 +56,7 @@ Program AIB obsługuje obrazy podstawowej systemu operacyjnego Azure Marketplace
 - System Windows 2019
 
 Obsługa obrazów ISO RHEL nie jest już obsługiwana.
+
 ## <a name="how-it-works"></a>Jak to działa
 
 
@@ -99,7 +100,7 @@ Konstruktor obrazów tworzy maszynę wirtualną przy użyciu D1v2 rozmiaru maszy
 Program Azure Image Builder dystrybuuje obraz do wybranych regionów, co może spowodować naliczenie opłat za ruch wychodzący z sieci.
 
 ## <a name="hyper-v-generation"></a>Generowanie funkcji Hyper-V
-Konstruktor obrazów jest obecnie włączony do obsługi obrazów i maszyn wirtualnych funkcji Hyper V generacji 1.
+Konstruktor obrazów jest obecnie włączony do obsługi obrazów i maszyn wirtualnych funkcji Hyper-V generacji 1.
  
 ## <a name="next-steps"></a>Następne kroki 
  

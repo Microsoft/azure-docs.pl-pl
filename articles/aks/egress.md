@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć statyczny publiczny adres IP dla ruchu 
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517777"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563249"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego z *podstawową* usługą równoważenia obciążenia SKU w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób tworzenia i używania statycznego publicznego adr
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że korzystasz z usługi Azure Basic Load Balancer.  Zalecamy korzystanie z [usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)i można korzystać z bardziej zaawansowanych funkcji [kontrolujących ruch wychodzący AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+W tym artykule przyjęto założenie, że korzystasz z usługi Azure Basic Load Balancer.  Zalecamy korzystanie z [usługi Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md)i można korzystać z bardziej zaawansowanych funkcji [kontrolujących ruch wychodzący AKS](./limit-egress-traffic.md).
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 

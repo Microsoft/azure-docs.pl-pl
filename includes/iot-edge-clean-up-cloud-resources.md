@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: iot-edge
 author: kgremban
 ms.service: iot-edge
@@ -17,7 +17,7 @@ ms.locfileid: "67183347"
 ---
 ### <a name="delete-azure-resources"></a>Usuwanie zasobów platformy Azure 
 
-Usunięcie zasobów i grup zasobów platformy Azure jest nieodwracalne. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub niewłaściwej grupy zasobów. Jeśli centrum IoT Hub zostało utworzone w istniejącej grupie zasobów zawierającej zasoby, które chcesz zachować, zamiast usuwać całą grupę zasobów, usuń tylko zasób centrum IoT Hub.
+Usuwanie zasobów i grup zasobów platformy Azure jest nieodwracalne. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub niewłaściwej grupy zasobów. Jeśli centrum IoT Hub zostało utworzone w istniejącej grupie zasobów zawierającej zasoby, które chcesz zachować, zamiast usuwać całą grupę zasobów, usuń tylko zasób centrum IoT Hub.
 
 Aby usunąć zasoby:
 

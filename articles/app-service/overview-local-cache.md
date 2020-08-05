@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628797"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562450"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
 
@@ -48,7 +48,7 @@ Funkcja lokalnej pamięci podręcznej Azure App Service udostępnia widok roli s
 ## <a name="enable-local-cache-in-app-service"></a>Włącz lokalną pamięć podręczną w App Service
 Lokalna pamięć podręczna jest konfigurowana przy użyciu kombinacji ustawień aplikacji zarezerwowanych. Te ustawienia aplikacji można skonfigurować przy użyciu następujących metod:
 
-* [Azure Portal](#Configure-Local-Cache-Portal)
+* [Witryna Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurowanie lokalnej pamięci podręcznej przy użyciu Azure Portal
@@ -104,6 +104,9 @@ Jeśli używasz funkcji lokalnej pamięci podręcznej w środowiskach przejścio
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Właśnie opublikowano nowe zmiany, ale moja aplikacja nie wygląda na to. Dlaczego?
 Jeśli aplikacja korzysta z lokalnej pamięci podręcznej, należy ponownie uruchomić lokację, aby uzyskać najnowsze zmiany. Nie chcesz publikować zmian w lokacji produkcyjnej? Zobacz Opcje gniazda w sekcji poprzednie najlepsze rozwiązania.
+
+> [!NOTE]
+> Opcja [uruchamiania z pakietu](deploy-run-package.md) nie jest zgodna z lokalną pamięcią podręczną.
 
 ### <a name="where-are-my-logs"></a>Gdzie znajdują się moje dzienniki?
 W przypadku lokalnej pamięci podręcznej dzienniki i foldery danych wyglądają nieco inaczej. Jednak struktura podfolderów pozostaje taka sama, z tą różnicą, że podfoldery są Nestled w podfolderze o formacie "unikatowy identyfikator maszyny wirtualnej" + sygnatura czasowa.

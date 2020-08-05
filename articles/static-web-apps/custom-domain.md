@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960303"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563351"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurowanie domeny niestandardowej w usłudze Azure Static Web Apps (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Istnieje kilka różnych typów konfiguracji DNS dostępnych dla aplikacji.
 
 ## <a name="map-a-cname-record"></a>Mapowanie rekordu CNAME
 
-Rekord CNAME mapuje jedną domenę na inną. Rekordu CNAME można użyć do zamapowania `www.example.com` na automatycznie wygenerowaną domenę, która jest dostarczana przez usługę Azure Static Web Apps.
+Rekord CNAME mapuje jedną domenę na inną. Możesz użyć rekordu CNAME do mapowania `www.example.com` , `blog.example.com` lub innej poddomeny, na automatycznie wygenerowaną domenę, która jest dostarczana przez statyczne Web Apps platformy Azure.
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 

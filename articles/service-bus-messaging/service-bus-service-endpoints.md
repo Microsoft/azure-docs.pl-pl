@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422950"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552989"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych sieci wirtualnych
 
@@ -32,6 +32,7 @@ Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowia
 > Poniższe usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
 > - Azure App Service
 > - Azure Functions
+> - Azure Monitor (ustawienie diagnostyczne)
 
 > [!IMPORTANT]
 > Sieci wirtualne są obsługiwane tylko w [warstwie Premium](service-bus-premium-messaging.md) Service Bus przestrzenie nazw.

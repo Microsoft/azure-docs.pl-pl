@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564584"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563062"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Połącz wskaźnik platformy Azure z usługą AWS CloudTrail
 
-Za pomocą łącznika AWS można przesyłać strumieniowo wszystkie zdarzenia CloudTrail AWS do platformy Azure. Ten proces połączenia deleguje dostęp do dzienników zasobów usługi Azure AWS, tworząc relacje zaufania między AWS CloudTrail i platformą Azure. Jest to realizowane w witrynie AWS, tworząc rolę, która przyznaje uprawnienia do uzyskiwania dostępu do dzienników AWS na platformie Azure.
+Za pomocą łącznika AWS można przesyłać strumieniowo zdarzenia zarządzania AWS CloudTrail do platformy Azure. Ten proces połączenia deleguje dostęp do dzienników zasobów usługi Azure AWS, tworząc relacje zaufania między AWS CloudTrail i platformą Azure. Jest to realizowane w witrynie AWS, tworząc rolę, która przyznaje uprawnienia do uzyskiwania dostępu do dzienników AWS na platformie Azure.
 
 > [!NOTE]
 > AWS CloudTrail ma [wbudowane ograniczenia](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) w interfejsie API LookupEvents. Umożliwia ona nie więcej niż dwie transakcje na sekundę (TPS) na konto, a każde zapytanie może zwrócić maksymalnie 50 rekordów. W związku z tym, jeśli pojedynczy dzierżawca ciągle generuje więcej niż 100 rekordów na sekundę w jednym regionie, to zaległości i opóźnienia w pozyskiwaniu danych.
@@ -33,7 +33,7 @@ Za pomocą łącznika AWS można przesyłać strumieniowo wszystkie zdarzenia Cl
 Musisz mieć uprawnienie do zapisu w obszarze roboczym wskaźnik platformy Azure.
 
 > [!NOTE]
-> Na platformie Azure wskaźnik zbiera zdarzenia CloudTrail ze wszystkich regionów. Zaleca się, aby nie przesyłać strumieniowo zdarzeń z jednego regionu do innego.
+> Azure Wskaźnikowanie zbiera zdarzenia zarządzania CloudTrail ze wszystkich regionów. Zaleca się, aby nie przesyłać strumieniowo zdarzeń z jednego regionu do innego.
 
 ## <a name="connect-aws"></a>Łączenie usługi AWS 
 

@@ -4,15 +4,15 @@ description: Linia bazowa zabezpieczeń Azure Database for PostgreSQL-ze skalą 
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5f6fca572524d1b0254c777d0820d8781c9f7be8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: debbc47204aca2fbea1307bd4b692921725e5fd0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496631"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563912"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
 
@@ -30,121 +30,41 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: zapora serwera Azure Database for PostgreSQL zapobiega wszystkim dostępowi do węzła koordynatora w skali (Citus) do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania. Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakresy dopuszczalnych adresów IP. Reguły zapory można tworzyć na poziomie serwera.
 
-* [Jak skonfigurować reguły zapory w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Jak skonfigurować reguły zapory w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
 **Odpowiedzialność**: klient
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie może być skojarzony z siecią wirtualną, podsiecią lub grupą zabezpieczeń sieci.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
-
-**Wskazówki**: nie dotyczy; punkty końcowe używane przez Azure Database for PostgreSQL-Citus są zarządzane przez firmę Microsoft. Użytkownik jest odpowiedzialny za wszelkie dodatkowe kontrolki, które mają zostać wdrożone w systemach lokalnych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="15-record-network-packets"></a>1,5: rejestrowanie pakietów sieciowych
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie może być skojarzony z siecią wirtualną, podsiecią lub grupą zabezpieczeń sieci.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: wdrażanie opartych na sieci systemów zapobiegania wykrywaniem i dostępem intruzów (identyfikatorów/adresów IP)
-
-**Wskazówki**: nie dotyczy; punkty końcowe używane przez Azure Database for PostgreSQL-Citus są zarządzane przez firmę Microsoft. Użytkownik jest odpowiedzialny za wszelkie dodatkowe kontrolki, które mają zostać wdrożone w systemach lokalnych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie może być skojarzony z siecią wirtualną, podsiecią lub grupą zabezpieczeń sieci.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych i zasobów sieciowych skojarzonych z wystąpieniami Azure Database for PostgreSQL przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Azure Database for PostgreSQL.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/#network)
 
-* [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
 
-### <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie może być skojarzony z siecią wirtualną, podsiecią lub grupą zabezpieczeń sieci.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie może być skojarzony z siecią wirtualną, podsiecią lub grupą zabezpieczeń sieci.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](/azure/security/benchmarks/security-control-logging-monitoring).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
-
-**Wskazówki**: Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, takie jak Azure Database for PostgreSQL-Citus) dla sygnatur czasowych w dziennikach.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
 **Wskazówki**: na potrzeby rejestrowania inspekcji płaszczyzny kontroli, Włącz ustawienia diagnostyki dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla zasobów platformy Azure.
 
-Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez funkcję Citus. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM).
+Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez funkcję Citus. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM). 
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -156,33 +76,25 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 W przypadku inspekcji płaszczyzny kontroli Włącz rejestrowanie ustawień diagnostycznych dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla zasobów platformy Azure.
 
-Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez funkcję Citus. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM).
+Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez funkcję Citus. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM). 
 
-* [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
 **Odpowiedzialność**: klient
 
-### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
 **Wskazówki**: w Azure monitor, w obszarze roboczym log Analytics używanym do przechowywania dzienników Citus, Ustaw okres przechowywania zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-* [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
-* [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -192,11 +104,11 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 **Wskazówki**: analizowanie i monitorowanie dzienników z wystąpień Citus (deskala) na potrzeby nietypowego zachowania. Użyj Log Analytics Azure Monitor, aby przejrzeć dzienniki i wykonywać zapytania dotyczące danych dziennika. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-* [Aby uzyskać więcej informacji na temat Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Aby uzyskać więcej informacji na temat Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-* [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -208,39 +120,15 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 Dołącz obszar roboczy Log Analytics do usługi Azure o, ponieważ zapewnia ona rozwiązanie do automatycznej reakcji aranżacji zabezpieczeń (). Pozwala to na tworzenie i używanie automatycznych rozwiązań elementy PlayBook w celu korygowania problemów z zabezpieczeniami.
 
-* [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric)
+- [Metryki w obszarze skalowanie (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric)
 
-* [Jak skonfigurować ustawienia diagnostyczne dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak skonfigurować ustawienia diagnostyczne dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
 **Odpowiedzialność**: klient
-
-### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL-Citus) nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
-
-**Wskazówki**: nie dotyczy; Azure Database for PostgreSQL nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="210-enable-command-line-audit-logging"></a>2,10: Włączanie rejestrowania inspekcji w wierszu polecenia
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
@@ -254,15 +142,16 @@ Funkcja Citus) nie obsługuje wbudowanej kontroli dostępu opartej na rolach, al
 
 Ponadto aparat PostgreSQL używa ról w celu kontrolowania dostępu do obiektów bazy danych, a nowo utworzona grupa serwerów w postaci Citusej zawiera kilka wstępnie zdefiniowanych ról. Aby zmodyfikować uprawnienia użytkownika, użyj standardowych poleceń PostgreSQL przy użyciu narzędzia, takiego jak PgAdmin lub PSQL.
 
-* [Informacje o rolach niestandardowych dla subskrypcji platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+- [Informacje o rolach niestandardowych dla subskrypcji platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 
 
-* [Informacje o operacjach dostawcy zasobów Azure Database for PostgreSQL](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql)
+- [Informacje o operacjach dostawcy zasobów Azure Database for PostgreSQL](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
 
-* [Informacje na temat zarządzania dostępem Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management])
+- [Informacje na temat zarządzania dostępem Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management])
 
-* [Jak tworzyć użytkowników w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Jak tworzyć użytkowników w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 
-* [Jak nawiązać połączenie z PostgreSQL-Citus) przy użyciu PSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
+- [Jak nawiązać połączenie z PostgreSQL-Citus) przy użyciu PSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -280,33 +169,22 @@ Ponadto aparat PostgreSQL używa ról w celu kontrolowania dostępu do obiektów
 
 **Wskazówki**: Tworzenie standardowych procedur operacyjnych dotyczących używania dedykowanych kont administracyjnych, które są używane do uzyskiwania dostępu do wystąpień Citus. Konta administratorów służące do zarządzania zasobem platformy Azure są powiązane z Azure Active Directory, istnieją również konta administratora serwera lokalnego, które istnieją w grupie serwerów Citus) do zarządzania uprawnieniami dostępu do bazy danych. Użyj Azure Security Center Zarządzanie tożsamościami i dostępem, aby monitorować liczbę kont administracyjnych w programie Azure Active Directory.
 
-* [Informacje o tożsamości i dostępie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Informacje o tożsamości i dostępie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
 
-* [Jak tworzyć użytkowników w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Jak tworzyć użytkowników w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
-
-**Wskazówki**: logowanie do Azure Database for PostgreSQL-Citus) jest obsługiwane zarówno przy użyciu nazwy użytkownika, jak i hasła skonfigurowanej bezpośrednio w bazie danych, a także przy użyciu tożsamości usługi Azure Active Directory (AD) i korzystania z tokenu usługi Azure AD w celu nawiązania połączenia. W przypadku korzystania z tokenu usługi Azure AD obsługiwane są różne metody, takie jak użytkownik usługi Azure AD, Grupa usługi Azure AD lub aplikacja usługi Azure AD łącząca się z bazą danych.
-
-* [Użyj Azure Active Directory do uwierzytelniania za pomocą Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
-**Wskazówki**: włączanie Azure Active Directory Multi-Factor Authentication (MFA) i przestrzeganie Azure Security Center zaleceń dotyczących zarządzania tożsamościami i dostępem. Przy użyciu tokenów usługi Azure AD do logowania się do bazy danych można wymagać uwierzytelniania wieloskładnikowego na potrzeby logowania do bazy danych.
+**Wskazówki**: w celu uzyskania dostępu do Azure Portal włącz Azure Active Directory Multi-Factor Authentication (MFA) i postępuj zgodnie Azure Security Center z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem.
 
-* [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-* [Użyj Azure Active Directory do uwierzytelniania za pomocą Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication)
+- [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-* [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -316,9 +194,10 @@ Ponadto aparat PostgreSQL używa ról w celu kontrolowania dostępu do obiektów
 
 **Wskazówki**: Użyj stacji roboczych dostępu uprzywilejowanego (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowaną w celu logowania się i konfigurowania zasobów platformy Azure.
 
-* [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -330,9 +209,10 @@ Ponadto aparat PostgreSQL używa ról w celu kontrolowania dostępu do obiektów
 
 Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników.
 
-* [Jak wdrożyć Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Jak wdrożyć Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-* [Omówienie wykrywania ryzyka usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Omówienie wykrywania ryzyka usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -342,7 +222,7 @@ Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i rapo
 
 **Wskazówki**: Użyj dostępu warunkowego o nazwie Locations, aby umożliwić dostęp do portalu i Azure Resource Manager tylko z określonych logicznych grup zakresów adresów IP lub krajów/regionów.
 
-* [Jak skonfigurować nazwane lokalizacje na platformie Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Jak skonfigurować nazwane lokalizacje na platformie Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -350,11 +230,15 @@ Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i rapo
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji do zarządzania zasobami PostgreSQL. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
-Poświadczeń usługi Azure AD można także używać do administrowania na poziomie płaszczyzny zarządzania (np. Azure Portal) do kontrolowania kont administratorów PostgreSQL.
+Użytkownicy w grupie serwerów Citus (moja skala) nie mogą być bezpośrednio powiązane z kontami Azure Active Directory. Aby zmodyfikować uprawnienia użytkownika do dostępu do obiektu bazy danych, użyj standardowych poleceń PostgreSQL z narzędziami, takimi jak PgAdmin lub PSQL.
 
-* [Użyj Azure Active Directory do uwierzytelniania za pomocą Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication)
+- [Modyfikowanie uprawnień dla ról użytkowników](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-modify-privileges-for-user-role)
+
+- [Jak utworzyć i skonfigurować wystąpienie usługi AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -362,15 +246,15 @@ Poświadczeń usługi Azure AD można także używać do administrowania na pozi
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: przegląd i uzgadnianie dostępu dla obu użytkowników, którzy mają dostęp do lokalnej bazy danych, a także za pomocą Azure Active Directory.
+**Wskazówki**: przegląd i uzgadnianie dostępu dla obu użytkowników, którzy mają dostęp do lokalnej bazy danych, a także za pomocą Azure Active Directory do zarządzania zasobami PostgreSQL.
 
-Przejrzyj dzienniki Azure Active Directory (AD), aby ułatwić odnalezienie starych kont, które mogą obejmować role administracyjne z Citus. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, uzyskiwać dostęp do aplikacji firmowych, które mogą być używane w celu uzyskania dostępu do funkcji Moje skalowanie (Citus) i przypisań ról. Dostęp użytkowników powinien być regularnie przeglądany, na przykład co 90 dni, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
+W przypadku użytkowników mających dostęp do zarządzania zasobami platformy Azure bazy danych Przejrzyj dzienniki Azure Active Directory (AD), aby ułatwić odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, uzyskiwać dostęp do aplikacji firmowych, które mogą być używane w celu uzyskania dostępu do funkcji Moje skalowanie (Citus) i przypisań ról. Dostęp użytkowników powinien być regularnie przeglądany, na przykład co 90 dni, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
 
-* [Przeglądanie użytkowników PostgreSQL i przypisanych ról](https://www.postgresql.org/docs/current/database-roles.html)
+- [Przeglądanie użytkowników PostgreSQL i przypisanych ról](https://www.postgresql.org/docs/current/database-roles.html)
 
-* [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
-* [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -378,11 +262,12 @@ Przejrzyj dzienniki Azure Active Directory (AD), aby ułatwić odnalezienie star
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
 
-**Wskazówki**: w Azure Active Directory (AD) masz dostęp do źródeł zdarzeń związanych z logowaniem do usługi Azure AD, inspekcją i ryzykiem związanym z dziennikami, które umożliwiają integrację z dowolnym narzędziem Siem/monitoring.
+**Wskazówki**: w Azure Active Directory (AD) masz dostęp do źródeł zdarzeń związanych z logowaniem do usługi Azure AD, inspekcją i ryzykiem związanym z dziennikami, które umożliwiają integrację z dowolnym narzędziem Siem/monitoring. 
 
-Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active Directory kont użytkowników i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics.
+Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active Directory kont użytkowników i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics. 
 
-* [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -394,11 +279,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 
 Możesz również pozyskiwanie dzienników na platformie Azure — wskaźnik do dalszych badań.
 
-* [Omówienie Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Omówienie Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
 
-* [Jak wyświetlić ryzykowne logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -408,7 +293,7 @@ Możesz również pozyskiwanie dzienników na platformie Azure — wskaźnik do 
 
 **Wskazówki**: obecnie niedostępne; Skrytka klienta nie jest jeszcze obsługiwana dla funkcji Citus.
 
-* [Lista obsługiwanych usług Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista obsługiwanych usług Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -422,7 +307,7 @@ Możesz również pozyskiwanie dzienników na platformie Azure — wskaźnik do 
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu wystąpień Citus (lub powiązanych), które przechowują lub przetwarzają informacje poufne.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -432,27 +317,17 @@ Możesz również pozyskiwanie dzienników na platformie Azure — wskaźnik do 
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Użyj kombinacji ról administracyjnych i reguł zapory, aby wyizolować i ograniczyć dostęp sieciowy do wystąpień Azure Database for PostgreSQL.
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-* [Informacje o regułach zapory w Azure Database for PostgreSQL-ze skalowaniem (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Informacje o regułach zapory w Azure Database for PostgreSQL-ze skalowaniem (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
 
-* [Informacje o rolach w funkcji skalowania automatycznego (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Informacje o rolach w funkcji skalowania automatycznego (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
-
-**Wskazówki**: Firma Microsoft zarządza podstawową infrastrukturą dla Azure Database for PostgreSQL-Citus i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -462,57 +337,39 @@ W przypadku wszystkich serwerów Azure Database for PostgreSQL, które są obsł
 
 W niektórych przypadkach aplikacje innych firm wymagają pliku certyfikatu lokalnego wygenerowanego na podstawie pliku certyfikatu zaufanego urzędu certyfikacji (. cer), aby bezpiecznie nawiązać połączenie.
 
-* [Jak skonfigurować protokół TLS w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Jak skonfigurować protokół TLS w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
 
-* [Aplikacje, które wymagają weryfikacji certyfikatu na potrzeby łączności TLS](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Aplikacje, które wymagają weryfikacji certyfikatu na potrzeby łączności TLS](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+
+
 
 **Monitorowanie Azure Security Center**: tak
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
-
-**Wskazówki**: funkcje do skalowania, klasyfikacji i zapobiegania utracie danych nie są jeszcze dostępne dla funkcji Citus.
-
-W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Citus (np. Azure Portal). RBAC nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
+**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Citus (np. Azure Portal). RBAC nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
 
 Aby zmodyfikować uprawnienia użytkownika na poziomie bazy danych, użyj standardowych poleceń PostgreSQL przy użyciu narzędzia, takiego jak PgAdmin lub PSQL.
 
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Jak skonfigurować dostęp użytkowników przy użyciu programu SQL dla Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Jak skonfigurować dostęp użytkowników przy użyciu programu SQL dla Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+
 
 **Monitorowanie Azure Security Center**: tak
 
 **Odpowiedzialność**: klient
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
-**Wskazówki**: co najmniej raz dziennie Azure Database for PostgreSQL funkcja Citus na potrzeby tworzenia migawek kopii zapasowych plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. (Okres przechowywania jest obecnie 35 dni dla wszystkich klastrów). Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego. Oferta PostgreSQL (Citus) używa kluczy zarządzanych przez firmę Microsoft na potrzeby szyfrowania.
+**Wskazówki**:  
+Co najmniej raz dziennie Azure Database for PostgreSQL funkcja wieloskalowania (Citus) wykonuje kopie zapasowe migawek plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. (Okres przechowywania jest obecnie 35 dni dla wszystkich klastrów). Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego. Oferta PostgreSQL (Citus) używa kluczy zarządzanych przez firmę Microsoft na potrzeby szyfrowania.
 
-* [Informacje o szyfrowaniu kopii zapasowych usługi Azure PostgreSQL-Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Informacje o szyfrowaniu kopii zapasowych usługi Azure PostgreSQL-Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -522,7 +379,7 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wykonywane w wystąpieniach produkcyjnych funkcji Citus) i innych krytycznych lub związanych z nimi zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -536,49 +393,11 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 
 **Wskazówki**: obecnie niedostępne; Azure Security Center nie obsługuje jeszcze oceny luk w zabezpieczeniach dla Azure Database for PostgreSQL-Citus.
 
-* [Pokrycie funkcji dla usług Azure PaaS Services w Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Pokrycie funkcji dla usług Azure PaaS Services w Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
 **Odpowiedzialność**: obecnie niedostępna
-
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Wdróż automatyczne rozwiązanie do zarządzania poprawkami systemu operacyjnego
-
-**Wskazówki**: dla podstawowej platformy, która jest zarządzana przez firmę Microsoft, firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby zapewnić ochronę przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
-### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Wdróż rozwiązanie zautomatyzowanego zarządzania poprawkami dla tytułów oprogramowania innych firm
-
-**Wskazówki**: dla podstawowej platformy, która jest zarządzana przez firmę Microsoft, firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby zapewnić ochronę przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: porównanie luk w zabezpieczeniach z tyłu do tyłu
-
-**Wskazówki**: dla podstawowej platformy, która jest zarządzana przez firmę Microsoft, firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby zapewnić ochronę przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
-
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
-
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
-
-**Wskazówki**: Firma Microsoft przeprowadza zarządzanie lukami w systemach bazowych, które obsługują Azure Database for PostgreSQL-Citus. W przypadku luk w zabezpieczeniach związanych z konfiguracją klastra bazy danych i pokrewnych zasobów należy użyć typowego programu oceny ryzyka (na przykład typowego rozwiązania do oceny luk w zabezpieczeniach) lub domyślnych ocen ryzyka udostępnianych przez narzędzie skanowania innej firmy.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: Microsoft
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -588,11 +407,11 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania wszystkich zasobów (w tym wystąpień Citus) w ramach subskrypcji. Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że można wyliczyć wszystkie subskrypcje platformy Azure oraz zasoby w ramach subskrypcji.
 
-* [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -602,7 +421,7 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 
 **Wskazówki**: stosowanie tagów do wystąpień Citus i innych powiązanych zasobów, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -612,11 +431,11 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie jest to konieczne, do organizowania i śledzenia wystąpień Citus oraz powiązanych zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -625,14 +444,17 @@ Firma Microsoft zarządza podstawową infrastrukturą for Citus) i ma zaimplemen
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i konserwowanie spisu zatwierdzonych zasobów platformy Azure
 
 **Wskazówki**: Użyj usługi Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które można utworzyć w subskrypcjach klientów, korzystając z następujących wbudowanych definicji zasad:
+
 - Niedozwolone typy zasobów
+
 - Dozwolone typy zasobów
 
 Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -641,90 +463,44 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
 **Wskazówki**: Użyj usługi Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które można utworzyć w subskrypcjach klientów, korzystając z następujących wbudowanych definicji zasad:
+
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
 Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: Monitoruj niezatwierdzone aplikacje oprogramowania w ramach zasobów obliczeniowych
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: Usuń niezatwierdzone zasoby platformy Azure i aplikacje oprogramowania
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych i platformy Azure jako całości.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="68-use-only-approved-applications"></a>6,8: Używaj tylko zatwierdzonych aplikacji
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: Używaj tylko zatwierdzonych usług platformy Azure
 
 **Wskazówki**: Użyj usługi Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które można utworzyć w subskrypcjach klientów, korzystając z następujących wbudowanych definicji zasad:
+
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: przechowywanie spisu zatwierdzonych tytułów oprogramowania
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: Ogranicz możliwość korzystania przez użytkowników z Azure Resource Manager
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość współpracy użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management". Może to uniemożliwiać tworzenie i wprowadzanie zmian w zasobach w środowisku wysokiego poziomu zabezpieczeń, takich jak wystąpienia Citus () zawierające informacje poufne.
 
-* [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: Ogranicz możliwość wykonywania skryptów w zasobach obliczeniowych przez użytkowników
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
@@ -734,133 +510,82 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla wystąpień Citus () przy użyciu Azure Policy. Użyj Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Azure Database for PostgreSQL.
 
-Ponadto Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Object Notation (JSON), który powinien zostać sprawdzony, aby upewnić się, że konfiguracje spełniają/przekroczą wymagania dotyczące zabezpieczeń organizacji.
+Ponadto Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Object Notation (JSON), który powinien zostać sprawdzony, aby upewnić się, że konfiguracje spełniają/przekroczą wymagania dotyczące zabezpieczeń organizacji. 
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal) 
+
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
-**Wskazówki**: Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure. Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację.
+**Wskazówki**: Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.  Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
 
-* [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-* [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji zasad platformy Azure dla wystąpień Citus i powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
-**Wskazówki**: Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure. Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację.
+**Wskazówki**: Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.  Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
 
-* [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-* [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+
+
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
-
-### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. DBforPostgreSQL", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj zasad platformy Azure [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla wystąpień Azure Database for PostgreSQL i powiązanych zasobów.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
 **Odpowiedzialność**: klient
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
-### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
-
-**Wskazówki**: nie dotyczy; Możesz bezpiecznie zarządzać hasłem administratora bazy danych za pomocą Azure Key Vault. Przypisz odpowiednie uprawnienia do określonego zakresu dla tego Key Vault tajne ograniczenie dostępu do hasła bazy danych. Należy unikać przechowywania parametrów połączenia lub wpisów tajnych bazy danych w repozytoriach kodu.
-
-* [Jak nawiązać połączenie z bazą danych PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
-
-* [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
-
-* [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: serwer Azure Database for PostgreSQL obsługuje uwierzytelnianie Azure Active Directory w celu uzyskiwania dostępu do baz danych. Podczas tworzenia serwera Azure Database for PostgreSQL podajesz poświadczenia dla użytkownika administratora. Ten administrator może służyć do tworzenia dodatkowych użytkowników bazy danych.
+**Wskazówki**: Azure Database for PostgreSQL-Citus nie obsługuje obecnie zarządzanych tożsamości. Podczas tworzenia serwera Azure Database for PostgreSQL należy podać poświadczenia dla użytkownika administratora. W interfejsie Azure Portal można tworzyć dodatkowe role użytkowników.
 
-W przypadku usługi Azure Virtual Machines lub aplikacji sieci Web działających na Azure App Service używanym do uzyskiwania dostępu do serwera Azure Database for PostgreSQL należy użyć tożsamość usługi zarządzanej w połączeniu z Azure Key Vault do przechowywania i pobierania poświadczeń dla serwera Azure Database for PostgreSQL. Upewnij się, że Key Vault usuwanie trwałe jest włączone.
+- [Tworzenie Azure Database for PostgreSQL-ze skalowaniem (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#create-an-azure-database-for-postgresql---hyperscale-citus)
 
-Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
+- [Tworzenie dodatkowych ról użytkownika](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-create-additional-user-roles)
 
-* [Jak skonfigurować tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-
-* [Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -870,7 +595,7 @@ Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automat
 
 **Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
-* [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -879,16 +604,6 @@ Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automat
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](/azure/security/benchmarks/security-control-malware-defense).*
-
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure App Service), ale nie jest uruchamiane w treści klienta.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
@@ -900,16 +615,6 @@ Przed przeskanowaniem zawartość przekazywana do zasobów platformy Azure, któ
 
 **Odpowiedzialność**: klient
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8,3: Upewnij się, że oprogramowanie chroniące przed złośliwym oprogramowaniem i podpisy zostały zaktualizowane
-
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
-
-Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście obsługującym usługi platformy Azure — na przykład na potrzeby przeskalowania (Citus) — nie jest jednak uruchamiane w treści klienta.
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
-
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
@@ -918,7 +623,7 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 **Wskazówki**: Azure Database for PostgreSQL — funkcja Citus — umożliwia automatyczne tworzenie kopii zapasowych każdego węzła i przechowywanie ich w magazynie lokalnie nadmiarowy. Za pomocą kopii zapasowych można przywrócić klaster z Citus w określonym czasie.
 
-* [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -930,7 +635,8 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 W regionach platformy Azure, które obsługują strefy dostępności, migawki kopii zapasowych są przechowywane w trzech strefach dostępności. Tak długo, jak co najmniej jedna strefa dostępności jest w trybie online, klaster Citus jest dostępnych.
 
-* [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -942,7 +648,7 @@ W regionach platformy Azure, które obsługują strefy dostępności, migawki ko
 
 Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginalnej grupy serwerów; są one resetowane do wartości domyślnych. Zapora uniemożliwi wszystkie połączenia. Po przywróceniu trzeba ręcznie dostosować te ustawienia.
 
-* [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -952,7 +658,7 @@ Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginaln
 
 **Wskazówki**: nie można przywrócić usuniętych klastrów Citus (). Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można go odzyskać. Aby chronić zasoby klastra przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z blokad zarządzania.
 
-* [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Jak utworzyć kopię zapasową i przywrócić w Azure Database for PostgreSQL-Citus](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -964,15 +670,15 @@ Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginaln
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu. 
 
-* [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) 
 
-* [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
-* [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
-* [Klient może również korzystać z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+- [Klient może również korzystać z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -980,7 +686,7 @@ Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginaln
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
-**Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
+**Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu. 
 
 Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure.
 
@@ -990,9 +696,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami. 
 
-* [Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1000,9 +706,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
-**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
+**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę.  Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane. 
 
-* [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1010,11 +716,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
-**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
+**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów. 
 
-* [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export) 
 
-* [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1022,9 +728,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
-**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
+**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń. 
 
-* [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1036,9 +742,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
-**Wskazówki**: * [postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
 
-* [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

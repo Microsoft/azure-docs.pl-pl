@@ -372,7 +372,7 @@
     - name: Monitorowanie
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Tworzenie i przywracanie kopii zapasowych
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: Struktura wdrażania chmury
       href: /azure/cloud-adoption-framework/get-started/
     - name: Centrum architektury

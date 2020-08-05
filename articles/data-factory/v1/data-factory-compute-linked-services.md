@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537568"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563504"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 > [!NOTE]
@@ -114,7 +114,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 > [!IMPORTANT]
 > Klaster usługi HDInsight tworzy *kontener domyślny* w magazynie obiektów blob platformy Azure, który określono we właściwości **linkedServiceName** json. Po zaprojektowaniu Usługa HDInsight nie usuwa tego kontenera w przypadku usunięcia klastra. W połączonej usłudze HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek, chyba że istnieje istniejący klaster na żywo (**TimeToLive**). Klaster jest usuwany po zakończeniu przetwarzania. 
 >
-> Po przetworzeniu większej liczby wycinków w magazynie obiektów BLOB jest widocznych wiele kontenerów. Jeśli nie potrzebujesz kontenerów do rozwiązywania problemów z zadaniami, możesz usunąć kontenery, aby zmniejszyć koszty magazynowania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adf<your Data Factory name>-<linked service name>-<date and time>`. Aby usunąć kontenery w usłudze BLOB Storage, można użyć narzędzia takiego jak [Microsoft Eksplorator usługi Storage](https://storageexplorer.com/) .
+> Po przetworzeniu większej liczby wycinków w magazynie obiektów BLOB jest widocznych wiele kontenerów. Jeśli nie potrzebujesz kontenerów do rozwiązywania problemów z zadaniami, możesz usunąć kontenery, aby zmniejszyć koszty magazynowania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adf<your Data Factory name>-<linked service name>-<date and time>`. Za pomocą narzędzia, takiego jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , można usunąć kontenery w usłudze BLOB Storage.
 >
 > 
 

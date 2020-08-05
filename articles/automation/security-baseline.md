@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447711"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562688"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -34,7 +34,7 @@ Aby zapewnić lepszą izolację elementów Runbook, można używać hybrydowych 
 
 Alternatywnie, jeśli masz określone wymaganie, można również użyć zapory platformy Azure do jej spełnienia.
 
-* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../virtual-machines/windows/network-overview.md)
+* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../virtual-machines/network-overview.md)
 
 * [Jak utworzyć Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe ro
 
 **Wskazówki**: aplikacje o wysokim ryzyku wdrożone w środowisku platformy Azure mogą być izolowane przy użyciu oddzielnych kontenerów sieci i zasobów przy użyciu konstrukcji takich jak sieci wirtualne, podsieci, subskrypcje i grupy zarządzania, które mogą być wystarczająco zabezpieczone za pomocą zapory platformy Azure, zapory aplikacji sieci Web (WAF) lub sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń).
 
-* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../virtual-machines/windows/network-overview.md)
+* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../virtual-machines/network-overview.md)
 
 * [Omówienie Zapory platformy Azure](../firewall/overview.md)
 

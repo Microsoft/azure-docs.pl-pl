@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457808"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554060"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -161,7 +161,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 |         |                                 | Kobiety | `zh-CN-XiaoyouNeural`    | Głos dla dzieci, zoptymalizowany pod kątem narracji w wątku |
 |         |                                 | Mężczyźni   | `zh-CN-YunyangNeural`    | Zoptymalizowane pod kątem czytania wiadomości, dostępne są wiele stylów głosowych |
 |         |                                 | Mężczyźni   | `zh-CN-YunyeNeural`      | Optymalizacja pod kątem narracji w wątku |
-| `zh-HK` | Chiński (kantoński, tranditional)   | Kobiety | `zh-HK-HiuGaaiNeural`| Ogólne |
+| `zh-HK` | Chiński (kantoński, tradycyjny)   | Kobiety | `zh-HK-HiuGaaiNeural`| Ogólne |
 | `zh-TW` | Chiński (tajwański mandarynki)   | Kobiety | `zh-TW-HsiaoYuNeural`    | Ogólne |
 
 > [!IMPORTANT]

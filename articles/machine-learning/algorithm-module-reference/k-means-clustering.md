@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
-ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/04/2020
+ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921168"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553006"
 ---
 # <a name="module-k-means-clustering"></a>Moduł: K-oznacza klastrowanie
 
@@ -62,7 +62,7 @@ Gdy przetwarza dane szkoleniowe, algorytm K-oznacza rozpoczyna się od początko
   
 3.  Dla **liczby centroids**wpisz liczbę klastrów, z którymi ma się rozpoczynać algorytm.  
   
-     Model nie gwarantuje większej liczby klastrów. Algorytm rozpoczyna się od tej liczby punktów danych i iteruje, aby znaleźć optymalną konfigurację.  
+     Model nie gwarantuje większej liczby klastrów. Algorytm rozpoczyna się od tej liczby punktów danych i iteruje, aby znaleźć optymalną konfigurację. Można odwołać się do [kodu źródłowego skryptu sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  **Inicjowanie** właściwości służy do określenia algorytmu, który jest używany do definiowania początkowej konfiguracji klastra.  
   

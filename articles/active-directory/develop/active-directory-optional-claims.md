@@ -1,7 +1,7 @@
 ---
 title: Dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
 titleSuffix: Microsoft identity platform
-description: Jak dodać niestandardowe lub dodatkowe oświadczenia do tokenów tokenów sieci Web SAML 2,0 i JSON (JWT) wystawionych przez Azure Active Directory.
+description: Jak dodać niestandardowe lub dodatkowe oświadczenia do tokenów tokenów sieci Web SAML 2,0 i JSON (JWT) wystawionych przez platformę tożsamości firmy Microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445580"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552870"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
 Deweloperzy aplikacji mogą używać opcjonalnych oświadczeń w swoich aplikacjach usługi Azure AD, aby określić, które oświadczenia mają być wysyłane do aplikacji.
 
 Opcjonalne oświadczenia można używać do:
 
 - Wybierz dodatkowe oświadczenia do uwzględnienia w tokenach aplikacji.
-- Zmień zachowanie niektórych oświadczeń zwracanych przez usługę Azure AD w tokenach.
+- Zmień zachowanie niektórych oświadczeń zwracanych przez platformę tożsamości firmy Microsoft w tokenach.
 - Dodawanie niestandardowych oświadczeń do aplikacji i uzyskiwanie do nich dostępu.
 
 Listę oświadczeń standardowych można znaleźć w dokumentacji [token dostępu](access-tokens.md) i [id_token](id-tokens.md) oświadczenia.

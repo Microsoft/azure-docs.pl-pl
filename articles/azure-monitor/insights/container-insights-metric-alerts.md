@@ -2,13 +2,13 @@
 title: Alerty metryk z Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097800"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563368"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem Potwierdź następujące kwestie:
 
     Wyświetlana wartość powinna być wersją późniejszą niż **ciprod05262020**. Jeśli klaster ma starszą wersję, postępuj zgodnie z instrukcjami w obszarze [AKS Cluster Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby uzyskać najnowszą wersję.
     
-    Aby uzyskać więcej informacji dotyczących wydania agenta, zobacz [Historia wydania agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Aby sprawdzić, czy metryki są zbierane, możesz użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** znajduje się lista **szczegółowych** informacji. Jeśli tak jest, możesz rozpocząć Konfigurowanie alertów.
+    Aby uzyskać więcej informacji dotyczących wydania agenta, zobacz [Historia wydania agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Aby sprawdzić, czy metryki są zbierane, możesz użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** znajduje się lista **szczegółowych** informacji. Jeśli tak jest, możesz rozpocząć Konfigurowanie alertów. Jeśli nie widzisz żadnych zebranych metryk, nazwa główna usługi klastra lub plik MSI nie ma wystarczających uprawnień. Aby sprawdzić, czy nazwa SPN lub plik MSI jest członkiem roli **wydawcy metryk monitorowania** , wykonaj kroki opisane w sekcji [uaktualnianie dla klastra za pomocą interfejsu wiersza polecenia platformy Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) , aby potwierdzić i ustawić przypisanie roli.
 
 ## <a name="alert-rules-overview"></a>Przegląd reguł alertów
 

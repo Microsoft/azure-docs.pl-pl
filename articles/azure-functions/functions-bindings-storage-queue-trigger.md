@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc560f6a0048377f2174805d7e015b55240d7a71
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055857"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564048"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
@@ -163,7 +163,7 @@ Wyzwalacz kolejki magazynu jest zdefiniowany w *function.jsna* miejscu, w który
 }
 ```
 
-Kod * _ \_ init_ \_ . PR* deklaruje parametr AS `func.ServiceBusMessage` , który umożliwia odczytywanie komunikatu w kolejce w funkcji.
+Kod * _ \_ init_ \_ . PR* deklaruje parametr AS `func.QueueMessage` , który umożliwia odczytywanie komunikatu w kolejce w funkcji.
 
 ```python
 import logging

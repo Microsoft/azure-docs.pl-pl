@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073619"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564099"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informacje o sposobie działania narzędzia do migracji
 
@@ -104,7 +104,7 @@ Alerty w przypadku żądań Mongo zakończonych niepowodzeniem muszą być podzi
 
 ### <a name="classic-compute-metrics"></a>Klasyczne metryki obliczeń
 
-Jakiekolwiek alerty dotyczące klasycznych metryk obliczeniowych nie będą migrowane przy użyciu narzędzia migracji, ponieważ klasyczne zasoby obliczeniowe nie są jeszcze obsługiwane w przypadku nowych alertów. Obsługa nowych alertów dotyczących tych typów zasobów zostanie dodana w przyszłości. Po udostępnieniu programu klienci muszą ponownie utworzyć nowe równoważne reguły alertów na podstawie ich klasycznych reguł alertów przed 2020 czerwca.
+Jakiekolwiek alerty dotyczące klasycznych metryk obliczeniowych nie będą migrowane przy użyciu narzędzia migracji, ponieważ klasyczne zasoby obliczeniowe nie są jeszcze obsługiwane w przypadku nowych alertów. Obsługa nowych alertów dotyczących tych typów zasobów jest obecnie w publicznej wersji zapoznawczej, a klienci mogą ponownie tworzyć nowe równoważne reguły alertów na podstawie ich klasycznych reguł alertów.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Klasyczne reguły alertów dla przestarzałych metryk
 

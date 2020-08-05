@@ -1,20 +1,20 @@
 ---
 title: Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)
-description: ''
+description: Dowiedz się, jak utworzyć zakres szyfrowania w celu wyodrębnienia danych obiektów BLOB na poziomie kontenera lub obiektu BLOB.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532472"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564150"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak utworzyć zakres szyfrowania. Przedstawiono w nim r
 
 ## <a name="create-an-encryption-scope"></a>Tworzenie zakresu szyfrowania
 
-Aby utworzyć zakres szyfrowania, należy najpierw utworzyć magazyn kluczy platformy Azure i dodać klucz, który ma być używany dla zakresu. Magazyn kluczy musi mieć włączone zarówno właściwości ochrony **trwałego usuwania** , jak i **przeczyszczania** i muszą znajdować się w tym samym regionie co konto magazynu. Aby uzyskać więcej informacji, zobacz [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../common/encryption-customer-managed-keys.md).
+Zakresy szyfrowania można tworzyć za pomocą klucza zarządzanego przez firmę Microsoft lub z kluczem zarządzanym przez klienta, który jest przechowywany w Azure Key Vault. Aby utworzyć zakres szyfrowania z kluczem zarządzanym przez klienta, należy najpierw utworzyć magazyn kluczy platformy Azure i dodać klucz, który ma być używany dla zakresu. Magazyn kluczy musi mieć włączone zarówno właściwości ochrony **trwałego usuwania** , jak i **przeczyszczania** i muszą znajdować się w tym samym regionie co konto magazynu. Aby uzyskać więcej informacji, zobacz [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../common/encryption-customer-managed-keys.md).
 
 Zakres szyfrowania jest automatycznie włączany podczas jego tworzenia. Po utworzeniu zakresu szyfrowania można go określić podczas tworzenia obiektu BLOB. Podczas tworzenia kontenera można także określić domyślny zakres szyfrowania, który jest automatycznie stosowany do wszystkich obiektów BLOB w kontenerze.
 
@@ -45,7 +45,7 @@ Aby utworzyć zakres szyfrowania w Azure Portal, wykonaj następujące kroki:
 
 Aby uzyskać więcej informacji na temat konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Key Vault na potrzeby szyfrowania usługi Azure Storage, zobacz [Konfigurowanie kluczy zarządzanych przez klienta w Azure Key Vault przy użyciu Azure Portal](../common/storage-encryption-keys-portal.md).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby utworzyć zakres szyfrowania przy użyciu programu PowerShell, najpierw Zainstaluj wersję modułu AZ. Storage Preview. Zalecane jest korzystanie z najnowszej wersji zapoznawczej, ale zakresy szyfrowania są obsługiwane w wersji 1.13.4 — wersja zapoznawcza i nowsza. Usuń wszystkie inne wersje modułu AZ. Storage.
 
@@ -179,7 +179,7 @@ Aby wyświetlić zakresy szyfrowania dla konta magazynu w Azure Portal, przejdź
 
 :::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Zrzut ekranu przedstawiający listę zakresów szyfrowania w Azure Portal":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby wyświetlić listę zakresów szyfrowania dostępnych dla konta magazynu za pomocą programu PowerShell, wywołaj polecenie Get-AzStorageEncryptionScope. Pamiętaj, aby zastąpić wartości symboli zastępczych w przykładzie własnymi wartościami:
 
@@ -219,7 +219,7 @@ Aby utworzyć kontener z domyślnym zakresem szyfrowania w Azure Portal, należy
 
     :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający kontener z domyślnym zakresem szyfrowania":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby utworzyć kontener z domyślnym zakresem szyfrowania przy użyciu programu PowerShell, wywołaj polecenie [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) , określając zakres dla `-DefaultEncryptionScope` parametru. Polecenie **New-AzRmStorageContainer** tworzy kontener przy użyciu dostawcy zasobów usługi Azure Storage, który umożliwia Konfigurowanie zakresów szyfrowania i innych operacji zarządzania zasobami.
 
@@ -273,7 +273,7 @@ Aby przekazać obiekt BLOB z zakresem szyfrowania określonym w Azure Portal, na
 
     :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający sposób przekazywania obiektu BLOB z zakresem szyfrowania":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby przekazać obiekt BLOB z zakresem szyfrowania określonym przy użyciu programu PowerShell, wywołaj polecenie [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) i podaj zakres szyfrowania dla obiektu BLOB.
 
@@ -316,7 +316,7 @@ Aby zmienić klucz chroniący zakres w Azure Portal, wykonaj następujące kroki
 1. W okienku **Edytowanie zakresu szyfrowania** można zmienić typ szyfrowania z klucza zarządzanego przez firmę Microsoft na klucz zarządzany przez klienta lub odwrotnie.
 1. Aby wybrać nowy klucz zarządzany przez klienta, wybierz opcję **Użyj nowego klucza** i określ Magazyn kluczy, klucz i wersję klucza.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby zmienić klucz chroniący zakres szyfrowania z klucza zarządzanego przez klienta do klucza zarządzanego przez firmę Microsoft przy użyciu programu PowerShell, wywołaj polecenie **Update-AzStorageEncryptionScope** i przekaż `-StorageEncryption` parametr:
 
@@ -368,7 +368,7 @@ az storage account encryption-scope update \
 
 Aby wyłączyć zakres szyfrowania w Azure Portal, przejdź do ustawienia **zakresy szyfrowania** dla konta magazynu, wybierz żądany zakres szyfrowania i wybierz pozycję **Wyłącz**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby wyłączyć zakres szyfrowania przy użyciu programu PowerShell, wywołaj polecenie Update-AzStorageEncryptionScope i Uwzględnij `-State` parametr z wartością `disabled` , jak pokazano w poniższym przykładzie. Aby ponownie włączyć zakres szyfrowania, należy wywołać to samo polecenie z `-State` parametrem ustawionym na `enabled` . Pamiętaj, aby zastąpić wartości symboli zastępczych w przykładzie własnymi wartościami:
 

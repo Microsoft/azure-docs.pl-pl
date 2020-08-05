@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3233292f0097330cc5e6ed07460de80934a278e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849301"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563742"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -109,7 +109,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 > [!IMPORTANT]
 > Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów BLOB określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania. 
 >
-> W przypadku większej liczby przebiegów działania zobaczysz wiele kontenerów w magazynie obiektów blob platformy Azure. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Aby usunąć kontenery z usługi Azure Blob Storage, użyj takich narzędzi, jak [Microsoft Storage Explorer](https://storageexplorer.com/).
+> W przypadku większej liczby przebiegów działania zobaczysz wiele kontenerów w magazynie obiektów blob platformy Azure. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
 
 #### <a name="properties"></a>Właściwości
 
@@ -394,7 +394,7 @@ Utworzysz połączoną usługę Azure Machine Learning Studio, aby zarejestrowa�
 ```
 
 ### <a name="properties"></a>Właściwości
-| Właściwość               | Opis                              | Wymagany                                 |
+| Właściwość               | Opis                              | Wymagane                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Typ                   | Właściwość Type powinna mieć wartość: **Azure**. | Tak                                      |
 | mlEndpoint             | Adres URL oceniania partii.                   | Tak                                      |
@@ -438,7 +438,7 @@ Tworzysz Azure Machine Learning połączonej usługi, aby połączyć obszar rob
 ```
 
 ### <a name="properties"></a>Właściwości
-| Właściwość               | Opis                              | Wymagany                                 |
+| Właściwość               | Opis                              | Wymagane                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Typ                   | Właściwość Type powinna mieć wartość: **AzureMLService**. | Tak                                      |
 | subscriptionId         | Identyfikator subskrypcji platformy Azure              | Tak                                      |
@@ -574,7 +574,7 @@ Utworzysz połączoną usługę SQL Server i użyj jej z [działaniem procedury 
 
 Utworzysz połączoną usługę funkcji platformy Azure i użyjesz jej razem z [działaniem funkcji platformy Azure](control-flow-azure-function-activity.md) , aby uruchamiać Azure Functions w potoku Data Factory. Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject` .) Każdy typ zwracany inny niż błąd `JObject` i podnosi zawartość odpowiedzi na błędy użytkownika *nie jest prawidłowym JObject*.
 
-| **Właściwość** | **Opis** | **Wymagane** |
+| **Wartość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
 | typ   | Właściwość Type musi mieć wartość: **AzureFunction** | tak |
 | adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | tak |

@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6e0851a55673792adc905d27fdd3f5c13d572032
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446063"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563963"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
 
@@ -23,6 +23,7 @@ Aplikacja kliencka uzyskuje dostęp do interfejsu API FHIR za pomocą [interfejs
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Punkt końcowy FHIR na platformie Azure. Można skonfigurować, aby korzystać z zarządzanego interfejsu API platformy Azure dla FHIR lub serwera Open Source FHIR dla platformy Azure. Skonfiguruj zarządzany interfejs API platformy Azure dla usługi FHIR przy użyciu [Azure Portal](fhir-paas-portal-quickstart.md), [programu PowerShell](fhir-paas-powershell-quickstart.md)lub [interfejsu wiersza polecenia platformy Azure](fhir-paas-cli-quickstart.md).
+- [Aplikacja kliencka](register-confidential-azure-ad-client-app.md) , która będzie używana w celu uzyskania dostępu do usługi FHIR
 - Zainstalowano notkę. Możesz uzyskać od[https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>FHIR serwer i szczegóły uwierzytelniania

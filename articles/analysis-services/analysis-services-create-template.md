@@ -4,16 +4,16 @@ description: Przewodnik Szybki Start przedstawiający sposób tworzenia zasobu s
 author: minewiskan
 ms.author: owend
 tags: azure-resource-manager
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 7ba678cb71b9bd7a6b941b8e0dc90a0447d165df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 249c678fb6d55f01a9f06e4e1db5f41fa85a700f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015362"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553074"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Szybki Start: Tworzenie szablonu serwera ARM
 

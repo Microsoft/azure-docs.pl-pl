@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187680"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563997"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime (Włączanie uwierzytelniania usługi Azure Active Directory dla środowiska Azure-SSIS Integration Runtime)
 
@@ -128,7 +128,7 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](ht
 
    Polecenie powinno zakończyć się pomyślnie, przyznając zawartemu użytkownikowi możliwość tworzenia bazy danych (SSISDB).
 
-10. Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD, aby uzyskać dostęp do tego Azure-SSIS IR, kliknij prawym przyciskiem myszy pozycję baza danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
+10. Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
 
 11. W oknie zapytania wprowadź następujące polecenie T-SQL, a następnie wybierz pozycję **Wykonaj** na pasku narzędzi.
 
@@ -176,7 +176,7 @@ W tym następnym kroku potrzebujesz [Microsoft SQL Server Management Studio](ht
     
     Polecenie powinno zakończyć się pomyślnie, przyznając zarządzaną tożsamość dla usługi ADF, która umożliwia tworzenie bazy danych (SSISDB).
 
-6.  Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD, aby uzyskać dostęp do tego Azure-SSIS IR, kliknij prawym przyciskiem myszy pozycję baza danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
+6.  Jeśli SSISDB został utworzony przy użyciu uwierzytelniania SQL i chcesz przełączyć się do korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do tego Azure-SSIS IR, najpierw upewnij się, że kroki umożliwiające udzielenie uprawnienia do bazy danych **Master** zostały zakończone pomyślnie. Następnie kliknij prawym przyciskiem myszy bazę danych **SSISDB** , a następnie wybierz pozycję **nowe zapytanie**.
 
 7.  W oknie zapytania wprowadź następujące polecenie T-SQL, a następnie wybierz pozycję **Wykonaj** na pasku narzędzi.
 

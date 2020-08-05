@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) — często zadawane pytan
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533584"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563107"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
 
@@ -19,6 +19,12 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Gdzie można pobrać najnowszą wersję agenta MARS?
 
 Najnowszy Agent MARS używany podczas tworzenia kopii zapasowych komputerów z systemem Windows Server, programu System Center DPM i serwera Microsoft Azure Backup jest dostępny do [pobrania](https://aka.ms/azurebackup_agent).
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Gdzie można pobrać plik poświadczeń magazynu?
+
+W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Kliknij pozycję **Pobierz**.
+
+![Pobierz poświadczenia](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Jak długo poświadczenia magazynu są prawidłowe?
 
@@ -174,7 +180,7 @@ Agent Azure Backup wymaga hasła (podanego podczas rejestracji) do odszyfrowania
 
 Należy rozważyć następujące kwestie:
 
-* Po odinstalowaniu i ponownym zarejestrowaniu agenta na tym samym komputerze oryginalnym z Thee
+* Po odinstalowaniu i ponownym zarejestrowaniu agenta na tym samym komputerze oryginalnym przy użyciu
   * To *samo hasło*, a następnie można przywrócić dane kopii zapasowej.
   * *Inne hasło*, a następnie nie można przywrócić danych kopii zapasowej.
 * Jeśli Agent jest instalowany na *innym komputerze* z

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318117"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563844"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -137,7 +137,7 @@ Rozszerzenie diagnostyki platformy Azure dotyczy maszyn wirtualnych platformy Az
 Ruch do Azure Monitor używa obwodu komunikacji równorzędnej firmy Microsoft. Aby uzyskać opis różnych typów ruchu ExpressRoute, zobacz [dokumentację ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) . 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Jak upewnić się, że Agent Log Analytics może komunikować się z usługą Azure Monitor?
-W panelu sterowania na komputerze agenta wybierz pozycję **zabezpieczenia & ustawienia**, **Microsoft Monitoring Agent** . Na karcie **Azure log Analytics (OMS)** zielona ikona znacznika wyboru potwierdza, że Agent jest w stanie komunikować się z Azure monitor. Żółta ikona ostrzeżenia oznacza, że agent ma problemy. Jednym z typowych przyczyn jest zatrzymanie usługi **Microsoft Monitoring Agent** . Użyj menedżera kontroli usług, aby ponownie uruchomić usługę.
+W panelu sterowania na komputerze agenta wybierz pozycję **zabezpieczenia & ustawienia**, * * Microsoft Monitoring Agent. Na karcie **Azure log Analytics (OMS)** zielona ikona znacznika wyboru potwierdza, że Agent jest w stanie komunikować się z Azure monitor. Żółta ikona ostrzeżenia oznacza, że agent ma problemy. Jednym z typowych przyczyn jest zatrzymanie usługi **Microsoft Monitoring Agent** . Użyj menedżera kontroli usług, aby ponownie uruchomić usługę.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Jak mogę zatrzymać komunikację agenta Log Analytics z Azure Monitor?
 W przypadku agentów podłączonych do Log Analytics bezpośrednio Otwórz Panel sterowania i wybierz pozycję **zabezpieczenia & ustawienia**, **Microsoft Monitoring Agent**. Na karcie **Azure log Analytics (OMS)** Usuń wszystkie obszary robocze wymienione na liście. W System Center Operations Manager Usuń komputer z listy Log Analytics komputery zarządzane. Operations Manager aktualizuje konfigurację agenta, aby nie był już raportowany do Log Analytics. 
@@ -207,7 +207,7 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Konfigurowanie serwera ASP.NET](app/monitor-performance-live-website-now.md)
 * [Konfigurowanie serwera Java](app/java-agent.md)
 
-*Ile Application Insights należy wdrożyć?:*
+*Ile zasobów Application Insights należy wdrożyć:*
 
 * [Jak zaprojektować wdrożenie Application Insights: jeden a wiele zasobów Application Insights?](app/separate-resources.md)
 
@@ -315,7 +315,7 @@ Wyszukujemy adres IP (IPv4 lub IPv6) klienta sieci Web za pomocą [GeoLite2](htt
 
 * Telemetria przeglądarki: Zbieramy adres IP nadawcy.
 * Dane telemetryczne serwera: moduł Application Insights zbiera adres IP klienta. Nie jest zbierane, jeśli `X-Forwarded-For` jest ustawiony.
-* Aby dowiedzieć się więcej o sposobie zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](./app/ip-collection.md).
+* Aby dowiedzieć się więcej na temat sposobu zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](./app/ip-collection.md).
 
 
 Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -509,6 +509,15 @@ Większość Application Insights danych ma opóźnienie poniżej 5 minut. Niekt
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>Odpowiedzi HTTP 502 i 503 nie są zawsze przechwytywane przez Application Insights
+
+błędy "502 zła brama" i "503 Usługa niedostępna" nie zawsze są przechwytywane przez Application Insights. Jeśli do monitorowania jest używany tylko kod JavaScript po stronie klienta, będzie to oczekiwane zachowanie od momentu zwrócenia odpowiedzi na błąd przed stroną zawierającą nagłówek HTML z renderowanym fragmentem kodu JavaScript. 
+
+Jeśli odpowiedź 502 lub 503 została wysłana z serwera z włączoną funkcją monitorowania po stronie serwera, te błędy byłyby zbierane przez zestaw SDK Application Insights. 
+
+Jednak nadal istnieją przypadki, gdy monitorowanie po stronie serwera jest włączone na serwerze sieci Web aplikacji, którego błąd 502 lub 503 nie zostanie przechwycony przez Application Insights. Wiele nowoczesnych serwerów sieci Web nie zezwala klientowi na bezpośrednią komunikację, ale zamiast tego wykorzystuje rozwiązania, takie jak zwrotne serwery proxy, do przekazywania informacji między klientem a serwerem frontonu sieci Web. 
+
+W tym scenariuszu odpowiedź 502 lub 503 może zostać zwrócona do klienta z powodu problemu w warstwie odwrotnego serwera proxy i nie będzie przechwytywana przez Application Insights. Aby pomóc w wykrywaniu problemów w tej warstwie, może być konieczne przekazanie dzienników z zwrotnego serwera proxy w celu Log Analytics i utworzenia niestandardowej reguły w celu sprawdzenia, czy 502/503 odpowiedzi. Aby dowiedzieć się więcej na temat typowych przyczyn błędów 502 i 503, zapoznaj się z [artykułem Rozwiązywanie problemów w Azure App Service dotyczącym "502 zła brama" i "usługa 503 niedostępna"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 

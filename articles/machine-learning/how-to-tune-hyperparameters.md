@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a92aa304d605242063e0d0484317bc8c051959e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a41fe159f3ac7ef91ba943534aaa6baeeab83001
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317845"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552411"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -379,7 +379,7 @@ Ponadto możesz wizualnie zidentyfikować korelację między wydajnością i war
 
 [![Współrzędne równoległe strojenia parametrów](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Możesz również wizualizować wszystkie przebiegi strojenia parametrów w portalu internetowym platformy Azure. Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu internetowym, zobacz [jak śledzić eksperymenty](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+Możesz również wizualizować wszystkie przebiegi strojenia parametrów w portalu internetowym platformy Azure. Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu internetowym, zobacz [jak śledzić eksperymenty](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
 ## <a name="find-the-best-model"></a>Znajdź najlepszy model
 
