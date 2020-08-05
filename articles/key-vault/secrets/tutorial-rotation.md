@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 67fe36cf86c886f9d67d98cc8d34a090db4a71cb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373034"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541423"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
@@ -41,10 +41,11 @@ W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych d
 
 Jeśli nie masz istniejących Key Vault i SQL Server, możesz użyć poniższego linku wdrażania:
 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+[![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation**.
 1. W obszarze **Logowanie administratora SQL**wpisz nazwę logowania administratora SQL. 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przegląd + utwórz**.
 1. Wybierz pozycję **Utwórz**
 
     ![Tworzenie grupy zasobów](../media/rotate2.png)
@@ -76,8 +77,10 @@ Aplikacja funkcji wymaga następujących składników:
 - Zasady dostępu do aplikacja funkcji tożsamości w celu uzyskania dostępu do wpisów tajnych w programie Key Vault
 - Subskrypcja zdarzeń EventGrid dla zdarzenia **SecretNearExpiry**
 
-1. Wybierz link wdrożenie szablonu platformy Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Wybierz link wdrożenie szablonu platformy Azure: 
+
+   [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+
 1. Na liście **Grupa zasobów** wybierz pozycję **akvrotation**.
 1. W polu **Nazwa serwera SQL**wpisz nazwę serwera SQL z hasłem, aby obrócić
 1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy
@@ -217,8 +220,10 @@ Aplikacja sieci Web wymaga następujących składników:
 - Aplikacja internetowa z tożsamością zarządzaną przez system
 - Zasady dostępu do uzyskiwania dostępu do wpisów tajnych w Key Vault przez tożsamość zarządzaną przez aplikację sieci Web
 
-1. Wybierz link wdrożenie szablonu platformy Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Wybierz link wdrożenie szablonu platformy Azure: 
+
+   [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+
 1. Wybierz grupę zasobów **akvrotation** .
 1. W polu **Nazwa serwera SQL**wpisz nazwę serwera SQL z hasłem, aby obrócić
 1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy

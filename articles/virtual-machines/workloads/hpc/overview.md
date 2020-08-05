@@ -8,12 +8,12 @@ ms-subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/29/2020
-ms.openlocfilehash: e8bff2b08782dcced63b5eb35f1baac310a1d3ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431940"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543728"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H i serii N
 
@@ -27,8 +27,8 @@ Maszyny wirtualne z serii H z obsługą InfiniBand i serii N zostały zaprojekto
 
 ### <a name="rdma-and-infiniband"></a>RDMA i InfiniBand
 
-Maszyny wirtualne z serii H i serii N obsługujące funkcję RDMA komunikują się za pośrednictwem sieci InfiniBand o małym opóźnieniu i dużej przepustowości. Funkcja RDMA przez takie połączenie ma kluczowe znaczenie dla zwiększenia skalowalności i wydajności obciążeń w węzłach rozproszonych i systemu AI. Maszyny wirtualne z serii H z obsługą funkcji InfiniBand i serii N są połączone w nieblokującym drzewie FAT o niskiej średnicy dla zoptymalizowanej i spójnej wydajności RDMA.
-Zapoznaj się z [maszynami wirtualnymi obsługującymi funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances) , aby dowiedzieć się więcej na temat możliwości RDMA takich maszyn wirtualnych i obsługiwanych przez macierz systemów operacyjnych, instalacji sterowników InfiniBand, obsługi MPI itp. Aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnych z włączoną funkcją InfiniBand, zobacz [Włączanie InfiniBand](enable-infiniband.md) .
+Maszyny wirtualne z serii [H](../../sizes-hpc.md) [obsługujące funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances) i [N-Series](../../sizes-gpu.md) komunikują się za pośrednictwem sieci InfiniBand o małym opóźnieniu i dużej przepustowości. Funkcja RDMA przez takie połączenie ma kluczowe znaczenie dla zwiększenia skalowalności i wydajności obciążeń w węzłach rozproszonych i systemu AI. Maszyny wirtualne z serii H z obsługą funkcji InfiniBand i serii N są połączone w nieblokującym drzewie FAT o niskiej średnicy dla zoptymalizowanej i spójnej wydajności RDMA.
+Aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnych z włączoną funkcją InfiniBand, zobacz [Włączanie InfiniBand](enable-infiniband.md) .
 
 ### <a name="message-passing-interface"></a>Interfejs przekazywania komunikatów
 
@@ -37,13 +37,14 @@ Zobacz [Konfigurowanie MPI](setup-mpi.md) , aby dowiedzieć się więcej o insta
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Pierwszym krokiem jest wybranie maszyny wirtualnej [serii H](../../sizes-hpc.md) i serii [N](../../sizes-gpu.md) optymalnie dla obciążenia w oparciu o specyfikacje maszyn wirtualnych i [funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances).
+Pierwszym krokiem jest wybranie typu maszyn wirtualnych serii [H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) dla obciążenia w oparciu o specyfikacje maszyn wirtualnych i [funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances).
 Następnie skonfiguruj maszynę wirtualną przez włączenie funkcji InfiniBand. Istnieją różne metody do wykonania tej czynności, w tym używanie zoptymalizowanych obrazów maszyn wirtualnych ze sterownikami rozszerzania. Aby uzyskać szczegółowe informacje, zobacz [Optymalizacja dla systemu Linux](configure.md) i [Włączanie usługi InfiniBand](enable-infiniband.md) .
 Trzeci, w przypadku obciążeń węzła rozproszonego Wybieranie i Konfigurowanie MPI ma krytyczne znaczenie. Aby uzyskać szczegółowe informacje, zobacz [set up MPI](setup-mpi.md) .
 Czwarty, w celu zapewnienia wydajności i skalowalności, optymalnie konfiguruje obciążenia, postępując zgodnie ze wskazówkami dotyczącymi rodziny maszyn wirtualnych, takimi jak [Przegląd z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Dowiedz się więcej o [konfigurowaniu i optymalizowaniu](configure.md) maszyn wirtualnych z serii [H](../../sizes-hpc.md) i serii [N](../../sizes-gpu.md) .
 - Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
 - Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

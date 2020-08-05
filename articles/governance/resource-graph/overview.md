@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
-ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970607"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541791"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -62,6 +62,10 @@ Aby użyć usługi Resource Graph, musisz mieć odpowiednie prawa w [kontroli do
 > Wykres zasobów używa subskrypcji dostępnych dla podmiotu zabezpieczeń podczas logowania. Aby wyświetlić zasoby nowej subskrypcji dodane podczas aktywnej sesji, podmiot zabezpieczeń musi odświeżyć kontekst. Ta akcja odbywa się automatycznie podczas wylogowywania się i z powrotem.
 
 Interfejs wiersza polecenia platformy Azure i Azure PowerShell używają subskrypcji, do których użytkownik ma dostęp. W przypadku bezpośredniego korzystania z interfejsu API REST Lista subskrypcji jest udostępniana przez użytkownika. Jeśli użytkownik ma dostęp do dowolnych subskrypcji na liście, wyniki zapytania są zwracane dla subskrypcji, do których użytkownik ma dostęp. Takie zachowanie jest takie samo jak podczas wywoływania [grup zasobów — lista](/rest/api/resources/resourcegroups/list) \- Pobiera grupy zasobów, do których masz dostęp, bez wskazywania, że wynik może być częściowy. Jeśli na liście subskrypcji nie ma żadnych subskrypcji, do których użytkownik ma odpowiednie prawa, odpowiedź jest _403_ (niedostępna).
+
+> [!NOTE]
+> W wersji **zapoznawczej** interfejsu API REST `2020-04-01-preview` Lista subskrypcji może być ommitted.
+> Gdy `subscriptions` `managementGroupId` właściwości i nie są zdefiniowane w żądaniu, _zakres_ jest ustawiany dla dzierżawy. Aby uzyskać więcej informacji, zobacz [zakres zapytania](./concepts/query-language.md#query-scope).
 
 ## <a name="throttling"></a>Ograniczanie przepływności
 

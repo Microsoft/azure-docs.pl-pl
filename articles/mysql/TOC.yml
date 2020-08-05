@@ -34,6 +34,8 @@
           href: connect-python.md
         - name: Node.js
           href: connect-nodejs.md
+        - name: Azure PowerShell
+          href: connect-powershell.md
         - name: Ruby
           href: connect-ruby.md
         - name: C++
@@ -46,7 +48,7 @@
   items:
     - name: 1 — Projektowanie bazy danych
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: tutorial-design-database-using-cli.md
@@ -166,13 +168,13 @@
           href: howto-create-manage-server-portal.md
     - name: Reguły zapory
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-manage-firewall-using-cli.md
     - name: Przywracanie serwera
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-restore-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restore-server-cli.md
@@ -202,7 +204,7 @@
           href: howto-redirection.md
     - name: Konfigurowanie parametrów serwera
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-server-parameters.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-server-parameters-using-cli.md
@@ -210,7 +212,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Automatyczne zwiększanie rozmiaru magazynu
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-auto-grow-storage-cli.md
@@ -220,13 +222,13 @@
       items:
         - name: Dzienniki wolnych zapytań
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-logs-in-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-logs-in-cli.md
         - name: Dzienniki inspekcji
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-audit-logs-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-audit-logs-cli.md
@@ -260,19 +262,19 @@
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-manage-vnet-using-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-manage-vnet-using-cli.md
     - name: Link prywatny
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-configure-privatelink-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-privatelink-cli.md
     - name: Szyfrowanie danych
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-data-encryption-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-data-encryption-cli.md
@@ -294,7 +296,7 @@
           href: howto-deny-public-network-access.md
     - name: Ponowne uruchamianie serwera
       items:
-        - name: Azure Portal
+        - name: Witryna Azure Portal
           href: howto-restart-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restart-server-cli.md

@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050651"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543569"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -47,7 +47,7 @@ Aby zamapować niestandardową nazwę DNS na aplikację internetową, dla tej ap
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
@@ -95,7 +95,12 @@ Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalow
 
 ## <a name="get-domain-verification-id"></a>Pobierz identyfikator weryfikacji domeny
 
-Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własność domeny, dodając identyfikator weryfikacyjny jako rekord TXT z dostawcą domeny. W lewym panelu nawigacyjnym strony aplikacji kliknij pozycję **domeny niestandardowe** w obszarze **Ustawienia**. W tym miejscu skopiuj wartość identyfikatora weryfikacyjnej domeny niestandardowej. Ten identyfikator weryfikacyjny jest potrzebny do następnego kroku.
+Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własność domeny, dodając identyfikator weryfikacyjny jako rekord TXT z dostawcą domeny. W lewym panelu nawigacyjnym strony aplikacji kliknij pozycję **domeny niestandardowe**. Aby wykonać następny krok, skopiuj **niestandardową nazwę weryfikacyjną domeny** na stronie **domeny niestandardowe** .
+
+![Pobierz identyfikator weryfikacji domeny niestandardowej](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> Dodawanie identyfikatorów weryfikacji domeny do domeny niestandardowej może uniemożliwić zawieszonego wpisów DNS i uniknąć przejęcia domen podrzędnych. Aby uzyskać więcej informacji o tym typowym zagrożeniu o wysokiej ważności, zobacz [przejęcie domeny](../security/fundamentals/subdomain-takeover.md)podrzędnej.
 
 ## <a name="map-your-domain"></a>Mapowanie domeny
 
