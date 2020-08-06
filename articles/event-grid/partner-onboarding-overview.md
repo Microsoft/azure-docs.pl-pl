@@ -3,12 +3,12 @@ title: Dołącz do Azure Event Grid partnera
 description: Dołącz jako typ tematu partnera Azure Event Grid. Poznaj model zasobów i przepływ publikowania tematów dotyczących partnerów.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461259"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826793"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Dołącz do Azure Event Grid partnera
 
@@ -91,7 +91,7 @@ Poniższy model zasobów jest przeznaczony dla tematów partnerskich.
 ### <a name="partner-topic-types"></a>Typy tematów partnerów
 * Zasoby`partnerTopicTypes`
 * Używane przez: klienci
-* Opis: typy tematów partnerów to tenantwide typy zasobów, które umożliwiają klientom odnajdywanie listy zatwierdzonych typów tematów partnerów. Adres URL wygląda następującohttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Opis: typy tematów partnerskich to typy zasobów dla całej dzierżawy, które umożliwiają klientom odnajdywanie listy zatwierdzonych typów tematów partnerów. Adres URL wygląda następującohttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Zakres: globalny
 
 ## <a name="publish-events-to-event-grid"></a>Publikuj zdarzenia do Event Grid
@@ -150,10 +150,10 @@ Po opublikowaniu w punkcie końcowym partnerNamespace otrzymujesz odpowiedź. Od
 | Nieprawidłowy punkt końcowy                 | 404 — Nie znaleziono         |
 | Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 
-## <a name="references"></a>Materiały źródłowe
+## <a name="references"></a>Dokumentacja
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [Szablon ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [Szablon ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schemat szablonu ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [Interfejsy API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [Rozszerzenie interfejsu wiersza polecenia](/cli/azure/ext/eventgrid/?view=azure-cli-latest)

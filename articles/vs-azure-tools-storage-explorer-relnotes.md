@@ -1,6 +1,6 @@
 ---
 title: Informacje o wersji Eksploratora usługi Microsoft Azure Storage
-description: Informacje o wersji Eksplorator usługi Microsoft Azure Storage
+description: Zapoznaj się z informacjami o wersji najnowszej wersji programu Eksplorator usługi Microsoft Azure Storage. Są również wyświetlane informacje o wersji poprzednich wersji.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80351059"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828782"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage
 
@@ -32,7 +32,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 ## <a name="version-1110"></a>1.11.0 wersja
 11/4/2019
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Operacje dla obiektów blob, ADLS Gen2 i Managed Disks używają zintegrowanych AzCopy. Dokładniej mówiąc, następujące operacje są wykonywane przy użyciu AzCopy:
    * Obiekty blob
       * Otwórz do edycji i przekazywania
@@ -46,7 +46,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
       * Kopiuj & wklej
       * Usuń, łącznie z usunięciem folderu
    * Dyski zarządzane
-      * Upload
+      * Przekazywanie
       * Pobierz
       * Kopiuj & wklej
 
@@ -159,7 +159,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 ### <a name="hotfix"></a>Rozwiązującą
 * Niektórzy użytkownicy napotkały błąd w 1.10.0 podczas próby wyświetlenia ich danych na kontach ADLS generacji 1. Ten błąd uniemożliwił prawidłowe renderowanie panelu Eksploratora. Ten problem został rozwiązany. #1853 #1865
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
   * Motyw
   * Serwer proxy
@@ -168,7 +168,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
   * #1526 AutoRefresh
   * Włącz AzCopy
   * AzCopy czas trwania SAS Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) z opisem ustawienia, które chcesz zobaczyć.
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
   * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
   * Pobieranie dysku
   * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -230,7 +230,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ## <a name="version-1100"></a>1.10.0 wersja
 9/12/2019
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
     * Motyw
@@ -242,7 +242,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Czas trwania AzCopy SAS
 
     Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub z opisem ustawienia, które chcesz zobaczyć](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
     * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
     * Pobieranie dysku
     * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -308,7 +308,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 - [Eksplorator usługi Azure Storage 1.9.0 dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Eksplorator usługi Azure Storage 1.9.0 dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz możesz dołączać kontenery obiektów BLOB za pośrednictwem usługi Azure AD (uprawnienia RBAC lub ACL). Ta funkcja ma pomóc użytkownikom mającym dostęp do kontenerów, ale nie kont magazynu, w których znajdują się kontenery. Aby uzyskać więcej informacji na temat tej funkcji, zobacz nasz przewodnik Wprowadzenie.
 * Uzyskaj i Przerwij dzierżawę teraz pracują z RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
@@ -366,7 +366,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 * W systemie Windows pobieranie AzCopy kończy się niepowodzeniem w przypadku pobrania pojedynczego pliku lub folderu, a nazwa pliku lub folderu miała znak, który był nieprawidłowy dla ścieżki systemu Windows. Ten problem został rozwiązany. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
 * W bardzo rzadkich przypadkach podczas przeprowadzania zmiany nazwy udziału plików lub zmiany nazwy w udziale plików, jeśli nie można wykonać operacji zmiany nazwy, lub jeśli usługa Storage nie mogła potwierdzić sukcesu kopii na platformie Azure, istnieje możliwość, że Eksplorator usługi Storage usunąć oryginalne pliki przed ukończeniem kopiowania. Ten problem został rozwiązany.
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Zintegrowana wersja AzCopy została zaktualizowana do wersji 10.1.0.
 * Za pomocą klawiszy Ctrl/CMD + R można teraz odświeżyć aktualnie fokusowy Edytor. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -418,7 +418,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ## <a name="version-180"></a>1.8.0 wersja
 1.05.2019
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Zintegrowana wersja AzCopy została zaktualizowana do wersji 10.1.0.
 * Za pomocą klawiszy Ctrl/CMD + R można teraz odświeżyć aktualnie fokusowy Edytor. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -475,7 +475,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 - [Eksplorator usługi Azure Storage 1.7.0 dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Eksplorator usługi Azure Storage 1.7.0 dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz można zmienić właściciela i grupę będącą właścicielem podczas zarządzania dostępem do kontenera ADLS Gen2, pliku lub folderu.
 * W systemie Windows Aktualizowanie Eksplorator usługi Storage z poziomu produktu jest teraz instalacją przyrostową. Powinno to spowodować szybsze działanie aktualizacji. Jeśli wolisz czystą instalację, możesz pobrać [Instalatora](https://azure.microsoft.com/features/storage-explorer/) samodzielnie, a następnie zainstalować ręcznie. #1089
@@ -557,7 +557,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 * AzCopy Wystąpił błąd podczas próby pobrania folderu z kontenera obiektów BLOB ADLS Gen2, jeśli jego nazwa zawiera spacje. Ten problem został rozwiązany. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * Edytor CosmosDB został przerwany w 1.6.0. Został on rozwiązany. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
@@ -626,7 +626,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 * AzCopy Wystąpił błąd podczas próby pobrania folderu z kontenera obiektów BLOB ADLS Gen2, jeśli jego nazwa zawiera spacje. Ten problem został rozwiązany. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * Edytor CosmosDB został przerwany w 1.6.0. Został on rozwiązany. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
@@ -681,7 +681,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ## <a name="version-160"></a>1.6.0 wersja
 2018-12-05
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
@@ -736,7 +736,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ## <a name="version-150"></a>1.5.0 wersja
 10/29/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Teraz można używać [AzCopy v10 (wersja zapoznawcza)](https://github.com/Azure/azure-storage-azcopy) do przekazywania i pobierania obiektów BLOB. Aby włączyć tę funkcję, przejdź do menu "eksperymentalne", a następnie kliknij polecenie "Użyj AzCopy, aby uzyskać ulepszone przekazywanie i pobieranie obiektów BLOB". Gdy ta funkcja jest włączona, AzCopy będzie używana w następujących scenariuszach:
    * Przekazywanie folderów i plików do kontenerów obiektów BLOB za pośrednictwem paska narzędzi lub przeciągnij i upuść.
@@ -753,7 +753,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Przerywanie dzierżaw można teraz wykonywać tylko na jednym obiekcie blob naraz. Ponadto należy wprowadzić nazwę obiektu BLOB, którego przerywasz. Ta zmiana została wprowadzona w celu zmniejszenia prawdopodobieństwa przypadkowego przerwania dzierżawy, szczególnie w przypadku maszyn wirtualnych. #394
 * Jeśli kiedykolwiek napotykasz problemy z logowaniem, możesz teraz spróbować zresetować uwierzytelnianie. Przejdź do menu "pomoc" i kliknij przycisk "Resetuj", aby uzyskać dostęp do tej funkcji. #419
 
-### <a name="fix"></a>Poprawka
+### <a name="fix"></a>Wprowadzanie poprawek
 
 * Po silnych opiniach użytkowników domyślny węzeł emulatora został jeszcze włączony. Nadal można dodać dodatkowe połączenia emulatora za pośrednictwem okna dialogowego Połącz, ale jeśli emulator jest skonfigurowany do używania portów domyślnych, można również użyć węzła "porty domyślne" emulator * "w obszarze" konta dołączone/magazynu lokalnego &. #669
 * Eksplorator usługi Storage nie pozwoli już ustawiać wartości metadanych obiektów blob, które mają wiodące lub końcowe spacje. #760
@@ -805,12 +805,12 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Wersja interfejsu API usługi Azure Resource Management została wycofana w celu odblokowania użytkowników programu Azure USA dla instytucji rządowych. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Ładowanie pokręteł teraz używa animacji CSS, aby zmniejszyć liczbę procesorów GPU używanych przez Eksplorator usługi Storage. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Zewnętrzne załączniki zasobów, na przykład dla połączeń SAS i emulatorów, zostały znacząco udoskonalone. Co możesz teraz zrobić:
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -861,12 +861,12 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Wersja interfejsu API usługi Azure Resource Management została wycofana w celu odblokowania użytkowników programu Azure USA dla instytucji rządowych. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Ładowanie pokręteł teraz używa animacji CSS, aby zmniejszyć liczbę procesorów GPU używanych przez Eksplorator usługi Storage. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Zewnętrzne załączniki zasobów, na przykład dla połączeń SAS i emulatorów, zostały znacząco udoskonalone. Co możesz teraz zrobić:
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -916,12 +916,12 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ### <a name="hotfixes"></a>Poprawki
 * Zaktualizuj wersję interfejsu API usługi Azure Resource Management do wersji 2018-07-01 w celu dodania obsługi nowych rodzajów kont usługi Azure Storage. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Zewnętrzne załączniki zasobów, na przykład dla połączeń SAS i emulatorów, zostały znacząco udoskonalone. Co możesz teraz zrobić:
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -976,12 +976,12 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Na wolniejszych maszynach z systemem Windows ekran powitalny może czasami trwać znaczną ilość czasu. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
 * Zostanie wyświetlone okno dialogowe Połącz, nawet jeśli zostały dołączone konta lub usługi. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Zewnętrzne załączniki zasobów, na przykład dla połączeń SAS i emulatorów, zostały znacząco udoskonalone. Co możesz teraz zrobić:
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -1028,7 +1028,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-130"></a>1.3.0 wersja
 07/09/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Teraz jest obsługiwane uzyskiwanie dostępu do kontenerów $web używanych przez statyczne witryny sieci Web. Dzięki temu można łatwo przekazywać pliki i foldery używane przez witrynę sieci Web oraz zarządzać nimi. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * Pasek aplikacji na macOS został zreorganizowany. Zmiany obejmują menu plik, niektóre zmiany klawiszy skrótów i kilka nowych poleceń w menu aplikacji. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * Punkt końcowy urzędu certyfikacji w celu zalogowania się do instytucji rządowych usługi Azure USA został zmieniony nahttps://login.microsoftonline.us/
@@ -1085,7 +1085,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-120"></a>1.2.0 wersja
 06/12/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Jeśli usługa Eksplorator usługi Storage nie może załadować subskrypcji tylko z podzbioru dzierżawców, wszystkie pomyślnie załadowane subskrypcje będą wyświetlane wraz z komunikatem o błędzie przeznaczonym dla dzierżawców zakończonych niepowodzeniem. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
 * W systemie Windows po udostępnieniu aktualizacji można teraz wybrać opcję "Aktualizuj przy zamykaniu". Po wybraniu tej opcji Instalator aktualizacji zostanie uruchomiony po zamknięciu Eksplorator usługi Storage. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
 * Migawka przywracania została dodana do menu kontekstowego edytora udziału plików podczas wyświetlania migawki udziału plików. [#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
@@ -1142,7 +1142,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-110"></a>1.1.0 wersja
 05/09/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Eksplorator usługi Storage obsługuje teraz korzystanie z azurite. Uwaga: połączenie z usługą azurite jest stałe do domyślnych punktów końcowych deweloperskich.
 * Eksplorator usługi Storage teraz obsługuje warstwy dostępu tylko dla kont obiektów blob i GPV2. Więcej informacji na temat warstw dostępu [znajdziesz tutaj](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * Godzina rozpoczęcia nie jest już wymagana podczas generowania sygnatury dostępu współdzielonego.
@@ -1197,7 +1197,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-100"></a>Wersja 1.0.0
 04/16/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Rozszerzone uwierzytelnianie, które umożliwia Eksplorator usługi Storage korzystania z tego samego magazynu kont co program Visual Studio 2017. Aby użyć tej funkcji, należy ponownie zalogować się do kont i ponownie ustawić odfiltrowane subskrypcje.
 * W przypadku kont Azure Stack, które są obsługiwane przez usługi AAD, Eksplorator usługi Storage będzie teraz pobierać Azure Stack subskrypcje, gdy zostanie włączony element "Target Azure Stack". Nie trzeba już tworzyć niestandardowego środowiska logowania.
 * Dodano kilka skrótów, które umożliwiają szybszą nawigację. Obejmują one przełączanie różnych paneli i przechodzenie między edytorami. Aby uzyskać szczegółowe informacje, zobacz menu Widok.
@@ -1298,7 +1298,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-095"></a>0.9.5 wersja
 02/06/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Obsługa migawek udziałów plików:
     * Twórz migawki dla udziałów plików i zarządzaj nimi.
@@ -1347,7 +1347,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-094-and-093"></a>Wersja 0.9.4 i 0.9.3
 01/21/2018
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Istniejące okno Eksplorator usługi Storage zostanie ponownie użyte, gdy:
     * Otwieranie bezpośrednich linków wygenerowanych w Eksplorator usługi Storage.
     * Otwieranie Eksplorator usługi Storage z poziomu portalu.
@@ -1401,7 +1401,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Domena punktów końcowych dla instytucji rządowych usługi Azure USA była nieprawidłowa. Został naprawiony.
 * Przycisk Zastosuj na panelu Zarządzaj kontami czasami trudno go kliknąć. Nie powinno to już być możliwe.
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Obsługa podglądu Azure Cosmos DB:
     * [Dokumentacja online](./cosmos-db/storage-explorer.md)
     * Tworzenie baz danych i kolekcji
@@ -1457,7 +1457,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 ## <a name="version-091-and-090"></a>Wersja od 0.9.1 i 0.9.0
 10/20/2017
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Obsługa podglądu Azure Cosmos DB:
     * [Dokumentacja online](./cosmos-db/storage-explorer.md)
     * Tworzenie baz danych i kolekcji
@@ -1514,7 +1514,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ## <a name="version-0816"></a>0.8.16 wersja
 8/21/2017
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 * Po otwarciu obiektu BLOB Eksplorator usługi Storage wyświetli monit o przekazanie pobranego pliku w przypadku wykrycia zmiany
 * Ulepszone środowisko logowania Azure Stack
 * Ulepszona wydajność przekazywania/pobierania wielu małych plików w tym samym czasie
@@ -1554,7 +1554,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ### <a name="version-0814"></a>0.8.14 wersja
 06/22/2017
 
-### <a name="new"></a>Nowa
+### <a name="new"></a>Nowy
 
 * Zaktualizowano wersję elektronów do 1.7.2 w celu skorzystania z kilku krytycznych aktualizacji zabezpieczeń
 * Teraz możesz szybko uzyskać dostęp do przewodnika rozwiązywania problemów online z menu Pomoc
@@ -1581,7 +1581,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ### <a name="version-0813"></a>0.8.13 wersja
 05/12/2017
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * [Przewodnik][2] rozwiązywania problemów Eksplorator usługi Storage
 * [Instrukcje][3] dotyczące nawiązywania połączenia z subskrypcją Azure Stack
@@ -1616,7 +1616,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ### <a name="version-0812-and-0811-and-0810"></a>Wersje 0.8.12 i 0.8.11 i 0.8.10
 04/07/2017
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Eksplorator usługi Storage zostanie teraz automatycznie zamknięte po zainstalowaniu aktualizacji z powiadomienia o aktualizacji
 * Szybki dostęp w miejscu zapewnia ulepszone środowisko pracy z często używanymi zasobami
@@ -1664,7 +1664,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Program Eksplorator usługi Storage 0.8.9 automatycznie pobierze najnowszą wersję dla aktualizacji.
 * Poprawka: użycie identyfikatora URI sygnatury dostępu współdzielonego portalu w celu dołączenia konta magazynu spowoduje wystąpienie błędu.
@@ -1694,7 +1694,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Możesz wybrać sposób rozwiązywania konfliktów na początku aktualizacji, pobierania lub kopiowania sesji w oknie działania
 * Umieść kursor na karcie, aby wyświetlić pełną ścieżkę zasobu magazynu
@@ -1721,7 +1721,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 11/18/2016
 ### <a name="version-086"></a>0.8.6 wersja
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Teraz Możesz przypinać najczęściej używane usługi do szybkiego dostępu w celu ułatwienia nawigacji
 * Teraz można otworzyć wiele edytorów na różnych kartach. Pojedyncze kliknięcie, aby otworzyć kartę tymczasową; Kliknij dwukrotnie, aby otworzyć kartę trwałą. Możesz również kliknąć kartę tymczasową, aby uczynić ją stałą kartą
@@ -1759,7 +1759,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 03.10.2016
 ### <a name="version-085"></a>0.8.5 wersja
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Za pomocą kluczy SAS generowanych przez portal można teraz dołączać do kont magazynu i zasobów
 
@@ -1782,7 +1782,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Generuj bezpośrednie linki do kont magazynu, kontenerów, kolejek, tabel lub udziałów plików w celu udostępniania i łatwego dostępu do zasobów — Windows i obsługa Mac OS
 * Wyszukiwanie kontenerów obiektów blob, tabel, kolejek, udziałów plików lub kont magazynu w polu wyszukiwania
@@ -1803,7 +1803,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Zmień nazwę kontenerów, tabel, udziałów plików
 * Udoskonalone środowisko konstruktora zapytań
@@ -1829,7 +1829,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Konta magazynu są pogrupowane według subskrypcji; Magazyn programistyczny i zasoby dołączone za pośrednictwem klucza lub sygnatury dostępu współdzielonego są wyświetlane w węźle (lokalne i dołączone)
 * Wyloguj się z kont w panelu "Ustawienia konta platformy Azure"
@@ -1856,7 +1856,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Obsługa udziału plików: przeglądanie, przekazywanie, pobieranie, kopiowanie plików i katalogów, identyfikatory URI sygnatury dostępu współdzielonego (Tworzenie i łączenie)
 * Ulepszone środowisko użytkownika do łączenia się z magazynem za pomocą identyfikatorów URI SAS lub kluczy kont
@@ -1879,7 +1879,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 05/17/2016
 ### <a name="version-07201605090"></a>0.7.20160509.0 wersja
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Lepsza obsługa błędów w przypadku awarii aplikacji
 
@@ -1899,7 +1899,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Obsługa tabel: przeglądanie, wykonywanie zapytań, eksportowanie, importowanie i CRUD operacji dla jednostek
 * Obsługa kolejki: przeglądanie, Dodawanie, usuwanie z kolejki komunikatów
@@ -1931,7 +1931,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 ### <a name="version-07201601050"></a>0.7.20160105.0 wersja
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * Obsługa systemu Linux (funkcje z parzystością do OSX)
 * Dodawanie kontenerów obiektów blob z kluczem sygnatury dostępu współdzielonego (SAS)
@@ -1961,7 +1961,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 11/18/2015
 ### <a name="version-07201511160"></a>0.7.20151116.0 wersja
 
-#### <a name="new"></a>Nowa
+#### <a name="new"></a>Nowy
 
 * macOS i wersje systemu Windows
 * Zaloguj się, aby wyświetlić konta magazynu — Użyj konta organizacji, konta Microsoft, funkcji 2FA itp.

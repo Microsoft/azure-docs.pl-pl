@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326073"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825365"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -35,7 +35,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 ## <a name="enable-service-map"></a>Włącz Service Map
 
 1. Włącz rozwiązanie Service Map z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań monitorowania z Galeria rozwiązań](solutions.md).
-1. [Zainstaluj agenta zależności w systemie Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) lub [Zainstaluj agenta zależności programu](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) dla systemu Linux na każdym komputerze, na którym chcesz pobrać dane. Agent Dependency Agent może monitorować połączenia do najbliższych sąsiadów, więc nie jest konieczny na każdym komputerze.
+1. [Zainstaluj agenta zależności w systemie Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) lub [Zainstaluj agenta zależności programu](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) dla systemu Linux na każdym komputerze, na którym chcesz pobrać dane. Agent Dependency Agent może monitorować połączenia do najbliższych sąsiadów, więc nie jest konieczny na każdym komputerze.
 
 Dostęp do Service Map w Azure Portal z obszaru roboczego Log Analytics i wybierz **rozwiązania** opcji w okienku po lewej stronie.<br><br> ![Wybierz opcję rozwiązania w obszarze roboczym ](./media/service-map/select-solution-from-workspace.png) .<br> Z listy rozwiązań wybierz pozycję **ServiceMap (WorkspaceName)** i na stronie przegląd rozwiązania Service map kliknij kafelek podsumowanie Service map.<br><br> ![Kafelek podsumowania Service Map ](./media/service-map/service-map-summary-tile.png) .
 
@@ -571,7 +571,7 @@ Pierwszym działaniem, które może pomóc, jest zainstalowanie [najnowszych bib
 
 W poniższej tabeli przedstawiono numery kodów i sugerowane rozwiązania.
 
-| Kod | Opis | Rozwiązanie |
+| Kod | Description | Rozwiązanie |
 |:--|:--|:--|
 | 0x17 | Instalator biblioteki wymaga aktualizacji systemu Windows, która nie została zainstalowana. | Zapoznaj się z najnowszym dziennikiem instalatora biblioteki.<br><br>Jeśli po odwołaniu `Windows8.1-KB2999226-x64.msu` następuje wiersz `Error 0x80240017: Failed to execute MSU package,` nie spełnia wymagań wstępnych dotyczących instalacji KB2999226. Postępuj zgodnie z instrukcjami zamieszczonymi w sekcji wymagań wstępnych w artykule [Uniwersalne środowisko uruchomieniowe języka C w systemie Windows](https://support.microsoft.com/kb/2999226). Aby zainstalować wymagania wstępne, może być konieczne uruchomienie usługi Windows Update i kilkukrotne ponowne uruchomienie komputera.<br><br>Uruchom ponownie Instalatora programu Microsoft Dependency Agent. |
 
@@ -603,4 +603,3 @@ Sprawdź `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Wi
 ## <a name="suggestions"></a>Sugestie
 
 Czy masz opinię na temat Service Map lub tej dokumentacji?  Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zapoznaj się z istniejącymi sugestiami.
-

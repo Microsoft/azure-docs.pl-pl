@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359164"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828799"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operacje Azure Active Directory Connect Health
 W tym temacie opisano różne operacje, które można wykonać za pomocą programu Azure Active Directory (Azure AD) Connect Health.
@@ -104,7 +104,7 @@ Podczas usuwania wystąpienia usługi należy pamiętać o następujących kwest
 
 [//]: # (Sekcja początkowa kontroli RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach
-[Access Control oparte na rolach (RBAC)](../../role-based-access-control/role-assignments-portal.md) dla Azure AD Connect Health zapewniają dostęp użytkownikom i grupom innym niż administratorzy globalni. RBAC przypisuje role do zamierzonych użytkowników i grup i udostępnia mechanizm ograniczania administratorów globalnych w katalogu.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) dla Azure AD Connect Health zapewnia dostęp do użytkowników i grup innych niż administratorzy globalni. RBAC przypisuje role do zamierzonych użytkowników i grup i udostępnia mechanizm ograniczania administratorów globalnych w katalogu.
 
 ### <a name="roles"></a>Role
 Azure AD Connect Health obsługuje następujące wbudowane role:

@@ -3,12 +3,12 @@ title: Wyświetlanie dzienników aktywności platformy Azure w celu monitorowani
 description: Użyj dzienników aktywności, aby przejrzeć akcje i błędy użytkownika. Pokazuje Azure Portal PowerShell, interfejs wiersza polecenia platformy Azure i REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75478138"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827065"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów
 
@@ -191,7 +191,7 @@ Operacje REST do pracy z dziennikiem aktywności są częścią [interfejsu API 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dzienników aktywności platformy Azure można używać w połączeniu z Power BI, aby uzyskać więcej szczegółowych informacji o akcjach w ramach subskrypcji. Zobacz [Wyświetlanie i analizowanie dzienników aktywności platformy Azure w Power BI i nie tylko](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Aby dowiedzieć się więcej na temat ustawiania zasad zabezpieczeń, zobacz [Access Control oparte na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md).
+* Aby dowiedzieć się więcej o ustawianiu zasad zabezpieczeń, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Aby wyświetlić więcej szczegółów o zmianach w aplikacjach z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji, zobacz [Korzystanie z analizy zmian aplikacji w Azure monitor](../../azure-monitor/app/change-analysis.md).
 * Aby dowiedzieć się więcej na temat poleceń do wyświetlania operacji wdrażania, zobacz [Wyświetlanie operacji wdrażania](../templates/deployment-history.md).
 * Aby dowiedzieć się, jak uniemożliwić usuwanie zasobów dla wszystkich użytkowników, zobacz temat [blokowanie zasobów przy użyciu Azure Resource Manager](lock-resources.md).

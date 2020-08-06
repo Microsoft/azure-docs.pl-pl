@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: cdefca11131a16630e600385bf350465fccc228f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37c5a0fb1addf9f84c8a237b4d185d140553535e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206669"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825977"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu portalu i zarządzanie nim
 
@@ -20,9 +20,9 @@ Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MySQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure
@@ -62,7 +62,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -91,7 +91,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     |||
 
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
@@ -118,7 +118,7 @@ W tej sekcji utworzysz serwer Azure Database for MySQL na platformie Azure.
     |||
  
 7. Wybierz przycisk **OK**. 
-8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
 
@@ -175,7 +175,7 @@ W tej sekcji utworzysz serwer MySQL i dodasz do niego prywatny punkt końcowy.
     > [!Note] 
     > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub podaj nazwę preferowanego strefy DNS. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
 
     ![Utworzono link prywatny](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
@@ -245,7 +245,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera MySQL i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
 1. Wprowadź w polu **wyszukiwania** w górnej części portalu *i wybierz pozycję* *moja zasobów z* wyników wyszukiwania.

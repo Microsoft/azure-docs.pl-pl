@@ -1,6 +1,6 @@
 ---
 title: Warstwy dostępu gorąca, chłodna i archiwalna dla obiektów Blob — Azure Storage
-description: Warstwy dostępu gorąca, chłodna i archiwalna dla kont usługi Azure Storage.
+description: Przeczytaj o warstwach dostępu gorąca, chłodna i archiwalna dla usługi Azure Blob Storage. Przejrzyj konta magazynu obsługujące obsługę warstw. Porównaj opcje magazynu blokowania blogu.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011349"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828276"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
@@ -118,10 +118,10 @@ W poniższej tabeli przedstawiono porównanie magazynu obiektów BLOB wydajnośc
 |                                           | **Wydajność warstwy Premium**   | **Warstwa gorąca** | **Warstwa chłodna**       | **Warstwa Archiwum**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | Tryb offline           |
-| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | Tryb offline           |
+| **Dostępność** <br> **(odczyty RA-GRS)**  | Brak                       | 99,99%       | 99,9%               | Tryb offline           |
 | **Opłaty za użycie**                         | Wyższe koszty magazynowania, niższy dostęp i koszt transakcji | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
-| **Minimalny rozmiar obiektu**                   | Nie dotyczy                       | Nie dotyczy          | Nie dotyczy                 | Nie dotyczy               |
-| **Minimalny czas magazynowania**              | Nie dotyczy                       | Nie dotyczy          | 30 dni<sup>1</sup> | 180 dni
+| **Minimalny rozmiar obiektu**                   | NIE DOTYCZY                       | NIE DOTYCZY          | NIE DOTYCZY                 | NIE DOTYCZY               |
+| **Minimalny czas magazynowania**              | NIE DOTYCZY                       | NIE DOTYCZY          | 30 dni<sup>1</sup> | 180 dni
 | **Opóźnienie** <br> **(czas do pierwszego bajtu)** | Jednocyfrowe milisekundy | milisekundy | milisekundy        | godz.<sup>2</sup> |
 
 <sup>1</sup> obiekty w warstwie chłodna na kontach GPv2 mają minimalny okres przechowywania równy 30 dni. Konta usługi BLOB Storage nie mają minimalnego czasu trwania przechowywania dla warstwy chłodna.
@@ -155,7 +155,7 @@ W tej sekcji przedstawiono następujące scenariusze przy użyciu Azure Portal i
 
 ![Zmień warstwę konta magazynu](media/storage-tiers/account-tier.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Za pomocą poniższego skryptu programu PowerShell można zmienić warstwę konta. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Zmień warstwę konta magazynu](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Za pomocą poniższego skryptu programu PowerShell można zmienić warstwę obiektów BLOB. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. `$containerName`Zmienna musi być zainicjowana przy użyciu nazwy kontenera. `$blobName`Zmienna musi być zainicjowana przy użyciu nazwy obiektu BLOB. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

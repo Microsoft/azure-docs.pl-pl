@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: dcb5277773be1fc45a3d2b0901cf9fda177b7054
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512656"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825569"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak używać kluczy SSH w systemie Windows na platformie Azure
 
@@ -45,7 +45,7 @@ Najnowsze wersje systemu Windows 10 obejmują [polecenia klienta OpenSSH](https:
 
 Możesz również użyć bash w [Azure Cloud Shell](../../cloud-shell/overview.md) , aby nawiązać połączenie z maszyną wirtualną. Możesz użyć Cloud Shell w [przeglądarce internetowej](https://shell.azure.com/bash), z [Azure Portal](https://portal.azure.com)lub jako terminalu w Visual Studio Code przy użyciu [rozszerzenia konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-Możesz również zainstalować [podsystem Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/about) , aby nawiązać połączenie z maszyną wirtualną za pośrednictwem protokołu SSH, i użyć innych natywnych narzędzi systemu Linux w ramach powłoki bash.
+Możesz również zainstalować [podsystem Windows dla systemu Linux](/windows/wsl/about) , aby nawiązać połączenie z maszyną wirtualną za pośrednictwem protokołu SSH, i użyć innych natywnych narzędzi systemu Linux w ramach powłoki bash.
 
 ## <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 

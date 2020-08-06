@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660760"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827864"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -78,10 +78,10 @@ Jak korzystać z tabeli:
 
 Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawdź, czy w tej tabeli od czasu są aktualizowane aktualizacje. Nowe prowadnice zostaną opublikowane, gdy staną się dostępne.
 
-| Element źródłowy | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
+| Źródło | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
 |:---|:--|:--|
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
-| System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
+| System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync i wstępnie rozsiane pliki w chmurze](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 i starsze | <ul><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
 | Magazyn dołączony do sieci (NAS) | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux lub Samba | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |

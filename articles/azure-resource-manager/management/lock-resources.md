@@ -4,12 +4,12 @@ description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania kry
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30a74960113951327f7f89eddc07f8f90a5028c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484780"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827286"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -22,7 +22,7 @@ Jako administrator możesz chcieć zablokować subskrypcję, grupę zasobów lub
 
 W przypadku zastosowania blokady w zakresie nadrzędnym wszystkie zasoby w tym zakresie dziedziczą tę samą blokadę. Nawet zasoby dodawane później dziedziczą blokadę z elementu nadrzędnego. Pierwszeństwo ma najbardziej restrykcyjną blokadę dziedziczenia.
 
-W przeciwieństwie do kontroli dostępu opartej na rolach blokady zarządzania są używane do stosowania ograniczenia do wszystkich użytkowników i ról. Aby dowiedzieć się więcej o ustawianiu uprawnień dla użytkowników i ról, zobacz [Access Control oparte na rolach platformy Azure](../../role-based-access-control/role-assignments-portal.md).
+W przeciwieństwie do kontroli dostępu opartej na rolach blokady zarządzania są używane do stosowania ograniczenia do wszystkich użytkowników i ról. Aby dowiedzieć się więcej o ustawianiu uprawnień dla użytkowników i ról, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszczyźnie zarządzania, która składa się z operacji wysyłanych do witryny `https://management.azure.com`. Blokady nie ograniczają sposobu wykonywania własnych funkcji przez zasoby. Zmiany zasobów są ograniczone, ale operacje zasobów nie są ograniczone. Na przykład blokada tylko do odczytu na SQL Database uniemożliwia usunięcie lub zmodyfikowanie bazy danych. Nie uniemożliwia tworzenia, aktualizowania ani usuwania danych w bazie danych. Transakcje danych są dozwolone, ponieważ te operacje nie są wysyłane do witryny `https://management.azure.com`.
 

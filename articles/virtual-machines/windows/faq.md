@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: a21fbcd04c5916e686f13e375bc1854935d1c4fe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500348"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825195"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Często zadawane pytania dotyczące Windows Virtual Machines
 W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Windows utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Linux tego tematu, zobacz [często zadawane pytania dotyczące Linux Virtual Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -23,7 +23,7 @@ Wszyscy subskrybenci mogą uruchomić oprogramowanie serwerowe na maszynie wirtu
 Niektóre wersje systemów Windows 7, Windows 8.1 i Windows 10 są dostępne dla subskrybentów korzyści MSDN platformy Azure oraz MSDN — Tworzenie i testowanie — płatność zgodnie z rzeczywistym użyciem. Aby uzyskać szczegółowe informacje, łącznie z instrukcjami i ograniczeniami, zobacz [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/) (Obrazy klienta systemu Windows dla subskrybentów MSDN). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Ile pamięci masowej mogę użyć w maszynie wirtualnej?
-Każdy dysk z danymi może mieć do 32 767 GiB. Liczba dysków danych, których możesz użyć, zależy od rozmiaru maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych).
+Każdy dysk z danymi może mieć do 32 767 GiB. Liczba dysków danych, których możesz użyć, zależy od rozmiaru maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych).
 
 Usługa Azure Managed Disks to zalecane oferty magazynu dyskowego do użycia z usługą Azure Virtual Machines na potrzeby trwałego magazynowania danych. Do każdej maszyny wirtualnej można użyć wielu Managed Disks. Managed Disks oferuje dwa typy opcji trwałego magazynu: Managed Disks Premium i standardowa. Aby uzyskać informacje o cenach, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 

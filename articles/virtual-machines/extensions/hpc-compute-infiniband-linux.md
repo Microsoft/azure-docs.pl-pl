@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 9085549486333968b98b4d34679c8616282d960f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099359"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829054"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Rozszerzenie sterownika InfiniBand dla systemu Linux
 
 To rozszerzenie instaluje sterowniki InfiniBand OFED na serwerze InfiniBand i maszynach wirtualnych z obsługą wirtualizacji SR-IOV (rozmiary "r [") oraz](../sizes-hpc.md) maszyny wirtualne [serii N](../sizes-gpu.md) z systemem Linux. W zależności od rodziny maszyn wirtualnych rozszerzenie instaluje odpowiednie sterowniki dla karty sieciowej Connect-X.
 
-Instrukcje dotyczące ręcznej instalacji sterowników OFED są dostępne [tutaj](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
+Instrukcje dotyczące ręcznej instalacji sterowników OFED są dostępne [tutaj](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 Rozszerzenie jest również dostępne do zainstalowania sterowników InfiniBand dla [maszyn wirtualnych z systemem Windows](hpc-compute-infiniband-windows.md).
 
@@ -71,7 +71,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | InfiniBandDriverLinux | ciąg |
 | typeHandlerVersion | 1.1 | int |
@@ -149,7 +149,7 @@ W poniższym przykładzie jest instalowana Najnowsza wersja 1,1 rozszerzenia Inf
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell i interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie.
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261167"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824600"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
 
@@ -19,7 +19,7 @@ Przed utworzeniem dowolnego klastra usługi Azure Service Fabric lub skalowaniem
 Oprócz uwzględniania właściwości typu węzła i klastra należy oczekiwać skalowania operacji trwających dłużej niż godzinę dla środowiska produkcyjnego. Ta kwestia jest prawdziwa niezależnie od liczby dodawanych maszyn wirtualnych.
 
 ## <a name="autoscaling"></a>Skalowanie automatyczne
-Należy wykonywać operacje skalowania za pomocą szablonów Azure Resource Manager, ponieważ najlepszym rozwiązaniem jest traktowanie [konfiguracji zasobów jako kodu]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Należy wykonywać operacje skalowania za pomocą szablonów Azure Resource Manager, ponieważ najlepszym rozwiązaniem jest traktowanie [konfiguracji zasobów jako kodu](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 Używanie skalowania automatycznego za pośrednictwem zestawów skalowania maszyn wirtualnych sprawia, że wersja szablonu Menedżer zasobów w niewłaściwy sposób definiuje liczbę wystąpień dla zestawów skalowania maszyn wirtualnych. Niedokładne definicje zwiększają ryzyko, że przyszłe wdrożenia spowodują niezamierzone operacje skalowania. Ogólnie rzecz biorąc należy używać skalowania automatycznego, jeśli:
 
@@ -72,7 +72,7 @@ Po zadeklarowaniu właściwości węzła i ograniczeń położenia wykonaj nast�
 5. Gdy wszystkie maszyny wirtualne zostaną usunięte (reprezentowane jako "w dół"), w obszarze Sieć szkieletowa:/system/InfrastructureService/[nazwa węzła] zostanie wyświetlony stan błędu. Następnie można zaktualizować zasób klastra, aby usunąć typ węzła. Możesz użyć wdrożenia szablonu ARM lub edytować zasób klastra za pomocą [usługi Azure Resource Manager](https://resources.azure.com). Spowoduje to uruchomienie uaktualnienia klastra, co spowoduje usunięcie usługi sieci szkieletowej:/system/InfrastructureService/[Node Type], która jest w stanie błędu.
  6. Po wybraniu opcjonalnego usunięcia VMScaleSet nadal będą wyświetlane węzły jako "w dół" w widoku Service Fabric Explorer. Ostatnim krokiem jest oczyszczenie ich przy użyciu `Remove-ServiceFabricNodeState` polecenia.
 
-## <a name="horizontal-scaling"></a>skalowanie w poziomie,
+## <a name="horizontal-scaling"></a>Skalowanie w poziomie
 
 Skalowanie w poziomie można przeprowadzić [ręcznie](./service-fabric-cluster-scale-in-out.md) lub [programowo](./service-fabric-cluster-programmatic-scaling.md).
 
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Możesz:
+> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Można:
 > * Wywołaj [polecenie Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) z odpowiednią nazwą węzła.
 > * Wdróż [aplikację pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) w klastrze. Ta aplikacja zapewnia, że węzły skalowane w dół są wyczyszczone z Service Fabric Explorer.
 

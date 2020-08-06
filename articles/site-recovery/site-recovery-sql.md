@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534995"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824532"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Skonfiguruj odzyskiwanie po awarii dla SQL Server
 
@@ -48,7 +48,7 @@ SQL Server na maszynie wirtualnej IaaS platformy Azure lub w środowisku lokalny
 > * Upewnij się, że współczynnik zmian danych zaobserwowany na komputerze mieści się w [granicach Site Recovery](vmware-physical-azure-support-matrix.md#churn-limits). Częstotliwość zmian jest mierzona w bajtach zapisu na sekundę. W przypadku maszyn z systemem Windows można wyświetlić tę stawkę zmiany, wybierając kartę **wydajność** w Menedżerze zadań. Obserwuj szybkość zapisu dla każdego dysku.
 > * Site Recovery obsługuje replikację wystąpień klastra trybu failover w Bezpośrednie miejsca do magazynowania. Aby dowiedzieć się więcej, zobacz [jak włączyć replikację bezpośrednie miejsca do magazynowania](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> Podczas migrowania obciążenia SQL na platformę Azure zaleca się zastosowanie [wytycznych dotyczących wydajności SQL Server w usłudze azure Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
+> Podczas migrowania obciążenia SQL na platformę Azure zaleca się zastosowanie [wytycznych dotyczących wydajności SQL Server w usłudze azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Odzyskiwanie po awarii aplikacji
 

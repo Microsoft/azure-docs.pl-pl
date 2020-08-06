@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526881"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825688"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux w przypadku braku dostępu do konsoli szeregowej platformy Azure, a układ dysku używa LVM (Menedżer woluminów logicznych)
 
@@ -190,7 +190,7 @@ Uruchom polecenie **LVS** , aby sprawdzić, które **LVS** są dostępne do zain
 
 Wyjdź z środowiska **chroot** Zainstaluj wymagane **LV**
 
-![Zaawansowany](./media/chroot-logical-volume-manager/advanced.png)
+![Zaawansowane](./media/chroot-logical-volume-manager/advanced.png)
 
 Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
@@ -198,11 +198,11 @@ Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
 Wszystkie LVs powinny być widoczne jako zainstalowane partycje
 
-![Zaawansowany](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Zaawansowane](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Wykonywanie zapytania dotyczącego zainstalowanego **jądra**
 
-![Zaawansowany](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Zaawansowane](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 W razie konieczności Usuń lub Uaktualnij **jądro** 
  ![ Zaawansowane](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
@@ -272,6 +272,6 @@ Jeśli maszyna wirtualna jest uruchomiona, wymiana dysków zostanie wyłączona,
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o
 
- [Konsola szeregowa platformy Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Konsola szeregowa platformy Azure]( ./serial-console-linux.md)
 
 [Tryb pojedynczego użytkownika](./serial-console-grub-single-user-mode.md)

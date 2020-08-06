@@ -1,6 +1,6 @@
 ---
 title: Jak zainstalować usługę Azure Blob Storage jako system plików w systemie Linux | Microsoft Docs
-description: Instalowanie kontenera usługi Azure Blob Storage z opcją Odmów w systemie Linux
+description: Dowiedz się, jak zainstalować kontener usługi Azure Blob Storage za pomocą blobfuse, wirtualnego sterownika systemu plików w systemie Linux.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc7c16b83816d2b408cef7ade06767bfe2a4582
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465477"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826552"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse
 

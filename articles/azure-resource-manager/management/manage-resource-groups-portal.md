@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: feee3a0d6de97ac6aaa1f9a92f20860f3f461ae3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057555"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827235"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal
 
@@ -27,7 +27,7 @@ Inne artykuły dotyczące zarządzania grupami zasobów:
 
 Grupa zasobów to kontener zawierający powiązane zasoby dla rozwiązania platformy Azure. Grupa zasobów może zawierać wszystkie zasoby dla rozwiązania lub tylko te zasoby, które mają być zarządzane jako grupa. Użytkownik decyduje o sposobie przydziału zasobów do grup zasobów pod kątem tego, co jest najbardziej odpowiednie dla danej organizacji. Ogólnie rzecz biorąc, Dodaj zasoby, które mają ten sam cykl życia do tej samej grupy zasobów, dzięki czemu możesz łatwo wdrażać, aktualizować i usuwać je jako grupę.
 
-Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określając lokalizację dla grupy zasobów, określasz miejsce, w którym przechowywane są metadane. Dla zachowania zgodności może być konieczne upewnienie się, że dane są przechowywane w odpowiednim regionie.
+Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określając lokalizację dla grupy zasobów, określasz miejsce, w którym przechowywane są metadane. W celu zapewnienia zgodności może być konieczne upewnienie się, że dane są przechowywane w konkretnym regionie.
 
 
 ## <a name="create-resource-groups"></a>Tworzenie grup zasobów
@@ -45,7 +45,7 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określaj
 
      ![Utwórz grupę zasobów](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Wybieranie opcji **Recenzja + tworzenie**
-6. Wybierz pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka sekund.
+6. Wybierz przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka sekund.
 7. Wybierz pozycję **Odśwież** z górnego menu, aby odświeżyć listę grup zasobów, a następnie wybierz nowo utworzoną grupę zasobów, aby ją otworzyć. Lub wybierz pozycję **powiadomienie**(ikona dzwonka) u góry, a następnie wybierz pozycję **Przejdź do grupy zasobów** , aby otworzyć nowo utworzoną grupę zasobów.
 
     ![Przejdź do grupy zasobów](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
@@ -62,7 +62,7 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określaj
 ## <a name="open-resource-groups"></a>Otwórz grupy zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Grupy zasobów**.
+2. Wybierz pozycję **grupy zasobów**.
 3. Wybierz grupę zasobów, którą chcesz otworzyć.
 
 ## <a name="delete-resource-groups"></a>Usuwanie grup zasobów
@@ -105,7 +105,7 @@ Aby uzyskać informacje na temat eksportowania szablonów, zobacz [jeden i wiele
 
 ## <a name="manage-access-to-resource-groups"></a>Zarządzanie dostępem do grup zasobów
 
-[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

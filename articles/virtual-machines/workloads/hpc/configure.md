@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c49286f370691c39c3d14d589f2657d6e0bb3c04
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542335"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825144"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurowanie i optymalizowanie maszyn wirtualnych
 
 W tym artykule udostępniono znane techniki konfigurowania i optymalizowania [maszyn wirtualnych z serii](../../sizes-gpu.md) [H](../../sizes-hpc.md) z obsługą InfiniBand dla HPC.
 
 ## <a name="vm-images"></a>Obrazy maszyn wirtualnych
-Na maszynach wirtualnych z włączoną funkcją InfiniBand odpowiednie sterowniki są wymagane do włączenia funkcji RDMA. W systemie Linux obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Zalecane jest również utworzenie [niestandardowych obrazów maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) z odpowiednimi sterownikami i konfiguracją oraz wielokrotne użycie.
+Na maszynach wirtualnych z włączoną funkcją InfiniBand odpowiednie sterowniki są wymagane do włączenia funkcji RDMA. W systemie Linux obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Zalecane jest również utworzenie [niestandardowych obrazów maszyn wirtualnych](../../linux/tutorial-custom-images.md) z odpowiednimi sterownikami i konfiguracją oraz wielokrotne użycie.
 
 ### <a name="centos-hpc-vm-images"></a>Obrazy maszyn wirtualnych CentOS-HPC
 W przypadku [maszyn wirtualnych obsługujących funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances), które nie obsługują funkcji SR-IOV, CentOS-HPC w wersji 6,5 lub nowszej, do 7,5 w portalu Marketplace są odpowiednie. Na przykład w przypadku [maszyn wirtualnych z serii H16](../../h-series.md)zaleca się używanie wersji 7,1 do 7,5. Te obrazy maszyn wirtualnych są wstępnie załadowane za pomocą sterowników sieci bezpośrednio dla funkcji RDMA i Intel MPI w wersji 5,1.
@@ -53,7 +53,7 @@ Poniżej przedstawiono niektóre opcjonalne ustawienia optymalizacji zapewniają
 
 ### <a name="update-lis"></a>Aktualizacja LIS
 
-W razie potrzeby związanych z funkcjonalnością lub wydajnością [sterowniki systemu Linux Integration Services (LIS)](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) można zainstalować lub zaktualizować w obsługiwanych dystrybucje OS, szczególnie w przypadku wdrażania przy użyciu niestandardowego obrazu lub starszej wersji systemu operacyjnego, takiej jak CentOS/RHEL 6. x lub wcześniejsza wersja 7. x.
+W razie potrzeby związanych z funkcjonalnością lub wydajnością [sterowniki systemu Linux Integration Services (LIS)](../../linux/endorsed-distros.md) można zainstalować lub zaktualizować w obsługiwanych dystrybucje OS, szczególnie w przypadku wdrażania przy użyciu niestandardowego obrazu lub starszej wersji systemu operacyjnego, takiej jak CentOS/RHEL 6. x lub wcześniejsza wersja 7. x.
 
 ```bash
 wget https://aka.ms/lis

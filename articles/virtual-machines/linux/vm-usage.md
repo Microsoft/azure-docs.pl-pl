@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387714"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828867"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,7 +35,7 @@ Aby rozpocząć, [Pobierz szczegóły użycia](../../cost-management-billing/man
 | Zużyte| Ilość zasobu wykorzystana w danym dniu. W przypadku obliczeń opłata jest naliczana za każdą minutę, gdy maszyna wirtualna działała przez daną godzinę (do 6 cyfr dziesiętnych dokładności).| `1, 0.5`|
 | Resource Location  | Identyfikuje centrum danych, w którym jest uruchamiany zasób.| `JA East`|
 | Consumed Service | Użyta usługa platformy Azure.| `Microsoft.Compute`|
-| Grupa zasobów | Grupa zasobów, w której działa wdrożony zasób. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager przegląd.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| Grupa zasobów | Grupa zasobów, w której działa wdrożony zasób. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager przegląd.](../../azure-resource-manager/management/overview.md)|`MyRG`|
 | Instance ID | Identyfikator zasobu. Identyfikator zawiera nazwę, która została określona dla zasobu, gdy został on utworzony. W przypadku maszyn wirtualnych identyfikator wystąpienia będzie zawierać identyfikatory subskrypcji, ResourceGroupName i VMName (lub nazwę zestawu skalowania dla użycia zestawu skalowania).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>lub<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Tagi| Tag przypisany do zasobu. Użyj tagów, aby zgrupować rekordy rozliczeń. Dowiedz się, jak [oznaczyć Virtual Machines.](tag.md) Jest on dostępny tylko dla Menedżer zasobów maszyn wirtualnych.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Dodatkowe informacje | Metadane dotyczące konkretnej usługi. W przypadku maszyn wirtualnych w polu dodatkowe informacje są wypełniane następujące dane: <br><br> Obraz, który został uruchomiony. Znajdź pełną listę obsługiwanych ciągów poniżej w obszarze typy obrazów.<br><br> Typ usługi: wdrożony rozmiar.<br><br> VMName: Nazwa maszyny wirtualnej. To pole jest wypełniane tylko dla maszyn wirtualnych z zestawem skalowania. Jeśli potrzebujesz nazwy maszyny wirtualnej dla maszyn wirtualnych zestawu skalowania, możesz ją znaleźć w powyższym ciągu identyfikatora wystąpienia.<br><br> UsageType: określa typ użycia, który reprezentuje.<br><br> ComputeHR to użycie godzin obliczeniowych dla źródłowej maszyny wirtualnej, takie jak Standard_D1_v2.<br><br> ComputeHR_SW to opłata za oprogramowanie w warstwie Premium, jeśli maszyna wirtualna korzysta z oprogramowania Premium, takiego jak Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Oprogramowanie w warstwie Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |

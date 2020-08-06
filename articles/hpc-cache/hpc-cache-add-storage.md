@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532598"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826708"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -112,7 +112,7 @@ Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Dodaj role kontroli dostępu do swojego konta
 
-Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) do autoryzowania usługi pamięci podręcznej w celu uzyskania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
+Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) w celu autoryzowania usługi pamięci podręcznej do uzyskiwania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
 
 Właściciel konta magazynu musi jawnie dodać rolę współautor danych [współautor konta magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) i [obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) dla użytkownika "dostawca zasobów pamięci podręcznej usługi HPC".
 
@@ -147,7 +147,7 @@ Kroki umożliwiające dodanie ról platformy Azure:
 
 Przed dodaniem celu magazynu obiektów BLOB należy sprawdzić, czy pamięć podręczna ma odpowiednie role umożliwiające uzyskanie dostępu do konta magazynu, a ustawienia zapory umożliwiają tworzenie miejsca docelowego magazynu.
 
-Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/index.yml) do autoryzowania usługi pamięci podręcznej w celu uzyskania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
+Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) w celu autoryzowania usługi pamięci podręcznej do uzyskiwania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
 
 Właściciel konta magazynu musi jawnie dodać rolę współautor danych [współautor konta magazynu](../role-based-access-control/built-in-roles.md#storage-account-contributor) i [obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) dla użytkownika "dostawca zasobów pamięci podręcznej usługi HPC".
 

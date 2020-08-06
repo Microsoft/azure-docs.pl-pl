@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421063"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827626"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych na platformie Azure
 
@@ -31,7 +31,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 - Aby uzyskać informacje o cenach różnych rozmiarów, zobacz strony cen dla systemu [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) lub [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Aby uzyskać dostęp do rozmiarów maszyn wirtualnych w regionach platformy Azure, zobacz temat [produkty dostępne według regionów](https://azure.microsoft.com/regions/services/).
 - Aby wyświetlić ogólne limity dotyczące maszyn wirtualnych platformy Azure, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Aby uzyskać więcej informacji na temat nazw maszyn wirtualnych platformy Azure, zobacz [konwencje nazewnictwa maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+- Aby uzyskać więcej informacji na temat nazw maszyn wirtualnych platformy Azure, zobacz [konwencje nazewnictwa maszyn wirtualnych platformy Azure](./vm-naming-conventions.md).
 
 ## <a name="rest-api"></a>Interfejs API REST
 

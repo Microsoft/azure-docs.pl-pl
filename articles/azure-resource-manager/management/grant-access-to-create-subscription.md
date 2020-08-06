@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057623"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824498"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Udzielanie dostępu do tworzenia subskrypcji platformy Azure Enterprise (wersja zapoznawcza)
 
-Jako klient platformy Azure w [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)można przyznać innemu użytkownikowi lub uprawnienia głównej usługi do tworzenia subskrypcji rozliczanych z Twoim kontem. W tym artykule dowiesz się, jak używać [Access Control opartej na rolach (RBAC)](../../role-based-access-control/role-assignments-portal.md) do udostępniania możliwości tworzenia subskrypcji i przeprowadzania inspekcji tworzenia subskrypcji. Musisz mieć rolę właściciela na koncie, które chcesz udostępnić.
+Jako klient platformy Azure w [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)można przyznać innemu użytkownikowi lub uprawnienia głównej usługi do tworzenia subskrypcji rozliczanych z Twoim kontem. W tym artykule dowiesz się, jak korzystać z funkcji [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](../../role-based-access-control/role-assignments-portal.md) w celu udostępniania możliwości tworzenia subskrypcji i przeprowadzania inspekcji tworzenia subskrypcji. Musisz mieć rolę właściciela na koncie, które chcesz udostępnić.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -62,7 +62,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
     Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do SignUpEngineering@contoso.com konta rejestracji, skopiujesz ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId` .
 
-    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     Użyj polecenia cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) , aby wyświetlić listę wszystkich kont rejestracji, do których masz dostęp. Wybierz pozycję **Wypróbuj,** aby otworzyć [Azure Cloud Shell](https://shell.azure.com/). Aby wkleić kod, kliknij prawym przyciskiem myszy okna powłoki i wybierz polecenie **Wklej**.
 
@@ -156,7 +156,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
     }
     ```
 
-    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-2)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
     Uruchom następujące polecenie [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) , zastępując ```<enrollmentAccountObjectId>``` je `ObjectId` zebranym w pierwszym kroku ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Zamień na ```<userObjectId>``` Identyfikator obiektu zebrany w drugim kroku.
 

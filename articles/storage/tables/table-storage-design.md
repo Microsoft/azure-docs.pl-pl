@@ -1,6 +1,6 @@
 ---
 title: Projektowanie skalowalnych i wydajnych tabel w usłudze Azure Table Storage. | Microsoft Docs
-description: Projektowanie skalowalnych i wydajnych tabel w usłudze Azure Table Storage.
+description: Dowiedz się, jak projektować skalowalne i wydajne tabele w usłudze Azure Table Storage. Przejrzyj partycje tabeli, transakcje grupy jednostek oraz informacje o pojemności i kosztach.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656908"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824413"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projektowanie skalowalnych i wydajnych tabel
 
@@ -37,7 +37,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -47,8 +47,8 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
 <th>Poczta e-mail</th>
 </tr>
@@ -67,8 +67,8 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
 <th>Poczta e-mail</th>
 </tr>
@@ -104,8 +104,8 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
 <th>Poczta e-mail</th>
 </tr>

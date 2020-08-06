@@ -1,6 +1,6 @@
 ---
 title: Wysyłanie zdarzeń usługi Azure Blob Storage do punktu końcowego sieci Web — PowerShell | Microsoft Docs
-description: Zasubskrybuj zdarzenia usługi Blob Storage przy użyciu usługi Azure Event Grid.
+description: Użyj Azure Event Grid, aby subskrybować zdarzenia usługi BLOB Storage, wyzwalać zdarzenie i wyświetlać wynik. Użyj Azure PowerShell, aby kierować zdarzenia magazynu do punktu końcowego sieci Web.
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -8,12 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809ab593d4d3f58fa3c91b896e5df3a0db7865f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68847155"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824515"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego w sieci Web przy użyciu programu PowerShell
 
@@ -31,7 +31,7 @@ Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikac
 
 W tym artykule jest wymagane uruchomienie najnowszej wersji programu Azure PowerShell. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -161,7 +161,7 @@ Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu
 
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli planujesz kontynuować pracę z tym kontem magazynu i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuować pracy, użyj następującego polecenia, aby usunąć zasoby utworzone w tym artykule.
 
 ```powershell

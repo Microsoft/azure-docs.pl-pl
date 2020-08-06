@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321109"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828459"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
@@ -190,7 +190,7 @@ Każda reguła alertu dziennika utworzona w Azure Monitor w ramach swojej konfig
 
 ## <a name="alert-rule-quota-was-reached"></a>Osiągnięto limit przydziału reguły alertów
 
-Liczba reguł alertów przeszukiwania dzienników na subskrypcję i zasób podlega limitom przydziału opisanym [tutaj](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Liczba reguł alertów przeszukiwania dzienników na subskrypcję i zasób podlega limitom przydziału opisanym [tutaj](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Zalecane kroki
     
@@ -201,7 +201,7 @@ Jeśli osiągnięto limit przydziału, następujące kroki mogą pomóc w rozwi�
 
     - Identyfikatory subskrypcji, dla których trzeba zwiększyć limity przydziału
     - Przyczyna zwiększenia limitu przydziału
-    - Typ zasobu dla zwiększenia przydziału: **log Analytics**, **Application Insights** danych.
+    - Typ zasobu dla zwiększenia przydziału: **log Analytics**, **Application Insights**itd.
     - Żądany limit przydziału
 
 
@@ -226,4 +226,3 @@ Jeśli osiągnięto limit przydziału, następujące kroki mogą pomóc w rozwi�
 - Dowiedz się więcej [na temat alertów dziennika na platformie Azure](./alerts-unified-log.md).
 - Dowiedz się więcej o [Application Insights](../log-query/log-query-overview.md).
 - Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).
-

@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458029"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826249"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -147,7 +147,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Systemy plików | ext3, EXT4, XFS, BTRFS (warunki odpowiednie dla tej tabeli)
 Inicjowanie obsługi zarządzania woluminami logicznymi (LVM)| Grube udostępnianie — tak <br></br> Alokowanie elastyczne — nie
@@ -169,9 +169,9 @@ BTRFS | BTRFS jest obsługiwana z [pakietu zbiorczego aktualizacji 34](https://s
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover bezpośrednio we właściwościach maszyny wirtualnej. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover powoduje, że zmiany nie będą przechwytywane.<br/><br/> W przypadku zmiany rozmiaru dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover program Site Recovery tworzy nową maszynę wirtualną z aktualizacjami.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
 
-## <a name="network"></a>Sieć
+## <a name="network"></a>Network
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Tworzenie zespołu kart interfejsu sieciowego hosta | Obsługiwane przez maszyny wirtualne VMware. <br/><br/>Nieobsługiwane w przypadku replikacji maszyn fizycznych.
 Sieć VLAN hosta | Tak.
@@ -188,7 +188,7 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się w
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Azure ExpressRoute | Tak
 ILB | Tak
@@ -202,7 +202,7 @@ Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
 ## <a name="storage"></a>Magazyn
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
@@ -229,11 +229,11 @@ Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
-Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
-|**Typ replikacji**   |**Obsługiwał**  |
+|**Typ replikacji**   |**Obsługiwane**  |
 |---------|---------|
 |Odciążone transfery danych (ODX)    |       Nie  |
 |Rozmieszczanie w trybie offline        |   Nie      |
@@ -241,7 +241,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Magazyn lokalnie nadmiarowy | Tak
 Magazyn geograficznie nadmiarowy | Tak
@@ -260,7 +260,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwał**
+**Funkcja** | **Obsługiwane**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -317,7 +317,7 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 
-**Akcja** | **Obsługiwał**
+**Akcja** | **Obsługiwane**
 --- | ---
 Przenoszenie magazynu między grupami zasobów | Nie
 Przenoszenie magazynu w ramach subskrypcji i między subskrypcjami | Nie

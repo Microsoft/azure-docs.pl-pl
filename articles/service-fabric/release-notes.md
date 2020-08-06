@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 08808fa0577077b642d0f21e3995931726d4d8a3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423545"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826283"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
@@ -51,9 +51,9 @@ Przyjemnością ogłaszamy kolejne wydanie Service Fabric. Ta wersja jest ładow
 ### <a name="improve-application-life-cycle-experience"></a>Ulepsz środowisko cyklu życia aplikacji
 
 - **[Wersja zapoznawcza:](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** w trakcie konserwacji zaplanowanej usługi, takiej jak uaktualnienia usług lub dezaktywacja węzła, chcesz zezwolić usługom na bezpieczne opróżnianie połączeń. Ta funkcja dodaje czas trwania opóźnienia zamknięcia w konfiguracji usługi. Podczas planowanych operacji SF usunie adres usługi z odnajdywania, a następnie poczeka ten czas przed zamknięciem usługi.
-- **[Automatyczne wykrywanie i równoważenie klastra](/azure/service-fabric/cluster-resource-manager-subclustering )**: klastrowanie występuje, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia](./service-fabric-cluster-resource-manager-metrics.md). Jeśli obciążenie różnych zestawów węzłów znacznie się różni, klaster Service Fabric Menedżer zasobów uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepsze możliwe saldo z powodu ograniczeń umieszczania. W związku z tym próbuje on ponownie zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "niezrównoważone" nie może być znacząco ulepszone). Począwszy od tej wersji, klaster Menedżer zasobów podejmie teraz próbę automatycznego wykrycia tych rodzajów konfiguracji i zrozumienia sytuacji, w których można nawiązać transrównowaga za pomocą przenoszenia, a kiedy zamiast tego należy pozostawać same w sobie, ponieważ nie można wykonać znacznej poprawy.  
+- **[Automatyczne wykrywanie i równoważenie klastra](./cluster-resource-manager-subclustering.md)**: klastrowanie występuje, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia](./service-fabric-cluster-resource-manager-metrics.md). Jeśli obciążenie różnych zestawów węzłów znacznie się różni, klaster Service Fabric Menedżer zasobów uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepsze możliwe saldo z powodu ograniczeń umieszczania. W związku z tym próbuje on ponownie zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "niezrównoważone" nie może być znacząco ulepszone). Począwszy od tej wersji, klaster Menedżer zasobów podejmie teraz próbę automatycznego wykrycia tych rodzajów konfiguracji i zrozumienia sytuacji, w których można nawiązać transrównowaga za pomocą przenoszenia, a kiedy zamiast tego należy pozostawać same w sobie, ponieważ nie można wykonać znacznej poprawy.  
 - [**Inny koszt przenoszenia dla replik pomocniczych**](./service-fabric-cluster-resource-manager-movement-cost.md): wprowadzono nową VeryHigh kosztu przeniesienia, która zapewnia dodatkową elastyczność w niektórych scenariuszach, aby określić, czy do replik pomocniczych należy używać oddzielnego kosztu przenoszenia.
-- Włączony mechanizm [**sondowania na żywo**](/azure/service-fabric/probes-codepackage ) dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie.
+- Włączony mechanizm [**sondowania na żywo**](./probes-codepackage.md) dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie.
 - [**Uruchom do ukończenia/raz dla usług**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Udoskonalenia Magazyn obrazów

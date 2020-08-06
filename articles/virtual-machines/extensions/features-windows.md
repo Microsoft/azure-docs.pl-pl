@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082634"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829088"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
@@ -36,7 +36,7 @@ Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretn
 
 - Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Windows. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](dsc-overview.md).
 - Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
-- Skonfiguruj maszynę wirtualną platformy Azure przy użyciu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzowanie wdrożenia maszyny wirtualnej platformy Azure za pomocą Chef](../../chef/chef-automation.md).
+- Skonfiguruj maszynę wirtualną platformy Azure przy użyciu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzowanie wdrożenia maszyny wirtualnej platformy Azure za pomocą Chef](/azure/developer/chef/windows-vm-configure).
 - Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia usługi Datadog. Aby uzyskać więcej informacji, zobacz [blog usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension`Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 

@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115923"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828935"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -187,5 +187,5 @@ Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawni
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [utworzyć jednostkę usługi za pomocą Azure PowerShell](howto-authenticate-service-principal-powershell.md).
-* Aby dowiedzieć się więcej na temat określania zasad zabezpieczeń, zobacz [Access Control oparte na rolach platformy Azure](../../role-based-access-control/role-assignments-portal.md).  
+* Aby dowiedzieć się więcej o określaniu zasad zabezpieczeń, zobacz [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
 * Aby uzyskać listę dostępnych akcji, które można udzielić lub odmówić użytkownikom, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md).

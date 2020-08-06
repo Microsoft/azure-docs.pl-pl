@@ -1,7 +1,7 @@
 ---
 title: Nadmiarowość danych
 titleSuffix: Azure Storage
-description: Dane na koncie Microsoft Azure Storage są replikowane w celu zapewnienia trwałości i wysokiej dostępności. Konfiguracje nadmiarowości obejmują Magazyn lokalnie nadmiarowy (LRS), magazyn strefowo nadmiarowy (ZRS), magazyn Geograficznie nadmiarowy (GRS), magazyn Geograficznie nadmiarowy do odczytu (RA-GRS), magazyn Geograficznie nadmiarowy (GZRS) i magazyn Geograficznie nadmiarowy do odczytu (RA-GZRS).
+description: Zrozumienie nadmiarowości danych w usłudze Azure Storage. Dane na koncie Microsoft Azure Storage są replikowane w celu zapewnienia trwałości i wysokiej dostępności.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036730"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827847"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -164,7 +164,7 @@ Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu,
 | Scenariusz przestoju | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Węzeł w centrum danych jest niedostępny | Tak | Tak | Tak | Tak |
-| Całe centrum danych (zona lub non-Zona) staną się niedostępne | Nie | Yes | Tak<sup>1</sup> | Tak |
+| Całe centrum danych (zona lub non-Zona) staną się niedostępne | Nie | Tak | Tak<sup>1</sup> | Tak |
 | Awaria całego regionu występuje w regionie podstawowym | Nie | Nie | Tak<sup>1</sup> | Tak<sup>1</sup> |
 | Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie | Nie | Tak (z RA-GRS) | Tak (z RA-GZRS) |
 
@@ -189,7 +189,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: e9613cdf38eecd750eb8ca3e9f3046112c558ea2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368340"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829020"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Tworzenie kompletnej maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 Aby szybko utworzyć maszynę wirtualną (VM) na platformie Azure, możesz użyć jednego polecenia platformy Azure, które korzysta z wartości domyślnych, aby utworzyć wymagane zasoby pomocnicze. Zasoby, takie jak sieć wirtualna, publiczny adres IP i reguły sieciowej grupy zabezpieczeń, są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym, możesz utworzyć te zasoby przed czasem, a następnie dodać do nich maszyny wirtualne. W tym artykule opisano sposób tworzenia maszyny wirtualnej i wszystkich zasobów pomocniczych.
@@ -324,7 +324,7 @@ Dane wyjściowe:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Tworzenie wirtualnej karty sieciowej
-Karty interfejsu sieci wirtualnej są dostępne programowo, ponieważ można stosować reguły do ich używania. W zależności od [rozmiaru maszyny](sizes.md)wirtualnej można dołączyć wiele wirtualnych kart sieciowych do maszyny wirtualnej. W poniższym poleceniu [AZ Network nic Create Utwórz](/cli/azure/network/nic) kartę sieciową o nazwie *myNic* i skojarz ją z sieciową grupą zabezpieczeń. Publiczny adres IP *myPublicIP* jest również skojarzony z wirtualną kartą sieciową.
+Karty interfejsu sieci wirtualnej są dostępne programowo, ponieważ można stosować reguły do ich używania. W zależności od [rozmiaru maszyny](../sizes.md)wirtualnej można dołączyć wiele wirtualnych kart sieciowych do maszyny wirtualnej. W poniższym poleceniu [AZ Network nic Create Utwórz](/cli/azure/network/nic) kartę sieciową o nazwie *myNic* i skojarz ją z sieciową grupą zabezpieczeń. Publiczny adres IP *myPublicIP* jest również skojarzony z wirtualną kartą sieciową.
 
 ```azurecli
 az network nic create \

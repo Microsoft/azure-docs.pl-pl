@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d074c3f806b36ff530396fbafcb3c7c6f9661fcf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827575"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
 
@@ -44,7 +44,7 @@ Więcej przykładów dotyczących zapytań IMDS można znaleźć w przykładach 
 
 Poniżej znajduje się przykładowy kod służący do pobierania wszystkich metadanych wystąpienia, aby uzyskać dostęp do określonego źródła danych, zobacz sekcję [API metadanych](#metadata-apis) . 
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
@@ -203,7 +203,7 @@ Jeśli żadna wersja nie zostanie określona, zostanie zwrócony błąd z listą
 > [!NOTE]
 > Odpowiedź jest ciągiem JSON. Poniższy przykład wskazuje stan błędu, gdy wersja nie jest określona, odpowiedź jest całkiem wydrukowana pod kątem czytelności.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance
@@ -262,14 +262,14 @@ tagsList | Tagi sformatowane jako tablica JSON dla łatwiejszego analizowania pr
 version | Wersja obrazu maszyny wirtualnej | 2017-04-02
 vmId | [Unikatowy identyfikator](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) dla maszyny wirtualnej | 2017-04-02
 vmScaleSetName | [Nazwa zestawu skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) w zestawie skalowania maszyn wirtualnych | 2017-12-01
-vmSize | [Rozmiar maszyny wirtualnej](sizes.md) | 2017-04-02
+vmSize | [Rozmiar maszyny wirtualnej](../sizes.md) | 2017-04-02
 strefa | [Strefa dostępności](../../availability-zones/az-overview.md) maszyny wirtualnej | 2017-12-01
 
 ### <a name="sample-1-tracking-vm-running-on-azure"></a>Przykład 1: śledzenie maszyny wirtualnej działającej na platformie Azure
 
 Jako usługodawca może być konieczne śledzenie liczby maszyn wirtualnych korzystających z oprogramowania lub agentów, którzy muszą śledzić unikatowość maszyny wirtualnej. Aby można było uzyskać unikatowy identyfikator dla maszyny wirtualnej, użyj `vmId` pola z instance Metadata Service.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
@@ -287,7 +287,7 @@ W niektórych scenariuszach umieszczanie różnych replik danych ma podstawowe z
 Można również użyć [strefy dostępności](../../availability-zones/az-overview.md) , aby wystąpienia mogły podejmować te decyzje.
 Możesz wysyłać zapytania o te dane bezpośrednio za pośrednictwem Instance Metadata Service.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
@@ -303,7 +303,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 Jako dostawca usług możesz uzyskać informacje o pomocy technicznej, w których chcesz poznać więcej informacji o maszynie wirtualnej. Prośba o udostępnienie metadanych obliczeniowych przez klienta może stanowić podstawowe informacje dla specjalistów pomocy technicznej dotyczące rodzaju maszyny wirtualnej na platformie Azure.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
@@ -403,7 +403,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Platforma Azure ma rozmaite suwerenne chmury, takie jak [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Czasami konieczne jest środowisko platformy Azure, aby podejmować pewne decyzje dotyczące środowiska uruchomieniowego. Poniższy przykład pokazuje, jak można to osiągnąć.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
@@ -442,7 +442,7 @@ macAddress | Adres MAC maszyny wirtualnej | 2017-04-02
 
 #### <a name="sample-1-retrieving-network-information"></a>Przykład 1: pobieranie informacji o sieci
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
@@ -537,7 +537,7 @@ writeAcceleratorEnabled | Czy writeAccelerator jest włączona na dysku
 
 Poniższy przykład pokazuje, jak zbadać informacje o magazynowaniu maszyny wirtualnej.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
@@ -609,7 +609,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 Tagi maszyn wirtualnych są dołączone do interfejsu API wystąpienia w punkcie końcowym wystąpienia/obliczenia/Tagi.
 Tagi mogły zostać zastosowane do maszyny wirtualnej platformy Azure, aby logicznie zorganizować je w taksonomię. Tagi przypisane do maszyny wirtualnej można pobrać przy użyciu poniższego żądania.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
@@ -623,7 +623,7 @@ Department:IT;Environment:Test;Role:WebRole
 
 `tags`Pole jest ciągiem zawierającym znaczniki rozdzielane średnikami. Ten wynik może być problemem, jeśli w samych tagach użyto średników. Jeśli parser jest Zapisano w celu programistycznego wyodrębnienia tagów, należy zastanowić się nad tym `tagsList` polem. `tagsList`Pole jest tablicą JSON bez ograniczników i w związku z tym ułatwia analizowanie.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
@@ -657,7 +657,7 @@ Częścią scenariusza obsługiwanego przez Instance Metadata Service jest zapew
 > [!NOTE]
 > Wszystkie odpowiedzi interfejsu API są ciągami JSON. Poniższe przykładowe odpowiedzi są dość drukowane w celu zapewnienia czytelności.
 
-**Request**
+**Żądanie**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"

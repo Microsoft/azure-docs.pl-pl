@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116968"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825960"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie użytkowników w Azure Database for PostgreSQL-Citus
 
 > [!NOTE]
-> Termin "Użytkownicy" odnosi się do użytkowników w grupie serwerów wieloskalowania (Citus). Aby dowiedzieć się więcej o użytkownikach subskrypcji platformy Azure i ich uprawnieniach, odwiedź [artykuł kontroli dostępu opartej na rolach (RBAC) platformy Azure](../role-based-access-control/built-in-roles.md) lub zapoznaj [się z tematem Dostosowywanie ról](../role-based-access-control/custom-roles.md).
+> Termin "Użytkownicy" odnosi się do użytkowników w grupie serwerów wieloskalowania (Citus). Aby dowiedzieć się więcej o użytkownikach subskrypcji platformy Azure i ich uprawnieniach, odwiedź [artykuł kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../role-based-access-control/built-in-roles.md) lub zapoznaj [się z tematem Dostosowywanie ról](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Konto administratora serwera
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042303"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825008"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -146,7 +146,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Opóźnienie | średnio do średnika | - |
 | UMOWA SLA DLA OPERACJI IOPS | TAK | - |
 | Wydajność operacji we/wy na sekundę | Średni liniowy w nawiasach klamrowych  | [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maksymalna liczba operacji we/wy na dysk | 20 000 [zależnie od rozmiaru dysku](https://azure.microsoft.com/pricing/details/managed-disks/) | Uwzględnij również [limity maszyn wirtualnych](../../linux/sizes.md) |
+| Maksymalna liczba operacji we/wy na dysk | 20 000 [zależnie od rozmiaru dysku](https://azure.microsoft.com/pricing/details/managed-disks/) | Uwzględnij również [limity maszyn wirtualnych](../../sizes.md) |
 | Umowa SLA dotycząca przepływności | TAK | - |
 | Przepływność liniowa do pojemności | Średni liniowy w nawiasach klamrowych | [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certyfikowane | TAK | [specjalnie dla SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -335,11 +335,11 @@ W przeciwieństwie do scenariuszy lokalnych wybrany typ wybranej maszyny wirtual
 
 | Typ magazynu| Linux | Windows | Komentarze |
 | --- | --- | --- | --- |
-| Dysk HDD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
-| Dysk SSD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
-| Premium Storage | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
-| Magazyn Ultra Disk | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
-| Azure NetApp Files | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Ruch magazynu wykorzystuje przepustowość sieci, a nie przepustowość magazynu! |
+| Dysk HDD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
+| Dysk SSD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
+| Premium Storage | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
+| Magazyn Ultra Disk | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
+| Azure NetApp Files | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md) | Ruch magazynu wykorzystuje przepustowość sieci, a nie przepustowość magazynu! |
 
 Zgodnie z ograniczeniami można zauważyć, że:
 

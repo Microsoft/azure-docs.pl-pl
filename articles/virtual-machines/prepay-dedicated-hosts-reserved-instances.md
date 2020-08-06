@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501555"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825263"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
@@ -24,7 +24,7 @@ Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy 
 
 Przed zakupieniem rezerwacji należy określić dedykowanego hosta, którego potrzebujesz. Jednostka SKU jest definiowana dla dedykowanego hosta reprezentującego serię maszyn wirtualnych i typ. 
 
-Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](./windows/sizes.md) lub [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby zidentyfikować serię maszyn wirtualnych.
+Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](./sizes.md) lub [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby zidentyfikować serię maszyn wirtualnych.
 
 Następnie sprawdź, czy jest on obsługiwany na dedykowanych hostach platformy Azure. Na stronie [cennika dedykowanych hostów platformy Azure](https://aka.ms/ADHPricing) znajduje się kompletna lista jednostek SKU dedykowanych hostów, ich informacji o procesorach i różnych opcji cenowych (w tym wystąpień zarezerwowanych).
 
@@ -70,18 +70,18 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej**,   Aby szybko do
 
 | **Pole**           | **Opis**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subskrypcja        | Subskrypcja używana do płacenia za rezerwację. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za rezerwację. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są naliczane od salda zobowiązania pieniężnego, jeśli są dostępne lub są naliczane jako nadwyżkowe. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
+| Subskrypcja        | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są odliczane od salda zobowiązania pieniężnego (jeśli jest dostępne) lub naliczane jako nadwyżka. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
 | Zakres               | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | Region świadczenia usługi Azure objęty rezerwacją.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedykowany rozmiar hosta | Rozmiar dedykowanych wystąpień hosta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Termin                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Ilość            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Okres                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Liczba            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 - Zakres pojedynczej **grupy zasobów**   — Stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.
 
 - Zakres pojedynczej **subskrypcji**   — Stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.
 
-- **Zakres udostępniony**   — Stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji z płatnością zgodnie z rzeczywistym użyciem zakres rozliczeniowy to wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
+- **Zakres udostępniony**   — Stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dane użycia i użycie rezerwacji
 
@@ -105,9 +105,9 @@ Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
 
-- Jednostka SKU
+- SKU
 
-- Ilość
+- Liczba
 
 - Czas trwania
 

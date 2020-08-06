@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827898"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure DataBox
 Dane zbiorcze można migrować do Azure File Sync na dwa sposoby:
@@ -89,6 +89,13 @@ Wyłącz tryb transferu danych w trybie offline tylko wtedy, gdy stan jest **zak
 > [!IMPORTANT]
 > Po wyłączeniu trybu transferu danych w trybie offline nie można włączyć go ponownie, nawet jeśli udział przemieszczania z migracji zbiorczej jest nadal dostępny.
 
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Azure File Sync i wstępnie rozsiane pliki w chmurze
+
+Jeśli pliki są umieszczane w udziale plików platformy Azure w inny sposób niż DataBox — na przykład za pośrednictwem AzCopy, RoboCopy z kopii zapasowej w chmurze lub innej metody — należy nadal postępować zgodnie z [procesem transfer danych w trybie offline](#process-for-offline-data-transfer) opisanym w tym artykule. Musisz zignorować DataBox jako metodę przenoszenia plików do chmury. Jednak jest to najważniejsze, aby upewnić się, że nadal następuje proces umieszczania plików w *udziale przemieszczania* , a nie na ostatnim, Azure File Sync połączony udział.
+
+> [!WARNING]
+> **Postępuj zgodnie z procesem umieszczania plików w udziale tymczasowym, a nie końcowym**, Azure File Sync połączonego udziału. Jeśli tego nie zrobisz, mogą wystąpić konflikty plików (wersje plików zostaną zapisane), a także pliki usunięte na serwerze na żywo, jeśli nadal istnieją w starszym, wyznaczonym do użycia zestawie plików. Ponadto zmiany folderów zostaną scalone ze sobą, co bardzo trudne do oddzielenia przestrzeni nazw po wystąpieniu błędu.
+
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)

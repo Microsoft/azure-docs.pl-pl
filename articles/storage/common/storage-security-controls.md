@@ -1,7 +1,7 @@
 ---
 title: Mechanizmy zabezpieczeń
 titleSuffix: Azure Storage
-description: Lista kontrolna zabezpieczeń służąca do oceniania usługi Azure Storage.
+description: Wyświetlanie list kontrolnych kontroli zabezpieczeń na potrzeby oceny usługi Azure Storage. Obszary objęte ochroną danych, siecią, monitorowaniem, rejestrowaniem, tożsamością i konfiguracją.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128034"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826521"
 ---
 # <a name="security-controls-for-azure-storage"></a>Kontrolki zabezpieczeń dla usługi Azure Storage
 
@@ -28,19 +28,19 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Zobacz [szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy |  |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak |  |
 | Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Obsługa standardowych mechanizmów protokołu HTTPS/TLS.  Użytkownicy mogą także szyfrować dane przed ich przesłaniem do usługi. |
 | Wywołania interfejsu API są szyfrowane| Tak |  |
 
-## <a name="network"></a>Sieć
+## <a name="network"></a>Network
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi |
 |---|---|--|
 | Obsługa punktów końcowych usługi| Tak |  |
 | Obsługa tagów usługi| Tak | Zobacz [Omówienie tagów usługi platformy Azure](../../virtual-network/service-tags-overview.md) , aby uzyskać więcej informacji na temat tagów usługi obsługiwanych przez usługę Azure Storage. |
-| Obsługa iniekcji sieci wirtualnej| Nie dotyczy |  |
+| Obsługa iniekcji sieci wirtualnej| Brak |  |
 | Izolacja sieci i obsługa zapory| Tak | |
-| Obsługa tunelowania wymuszonego| Nie dotyczy |  |
+| Obsługa tunelowania wymuszonego| Brak |  |
 
 ## <a name="monitoring--logging"></a>Monitorowanie rejestrowania &
 
