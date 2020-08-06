@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202217"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760955"
 ---
 # <a name="what-is-azure-private-link-service"></a>Co to jest usługa Azure Private Link Service?
 
 Usługa link prywatny platformy Azure to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która jest uruchomiona za [Usługa Load Balancer w warstwie Standardowa platformy Azure](../load-balancer/load-balancer-standard-overview.md) , może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz swojej sieci wirtualnej i zmapować ją na tę usługę. W tym artykule objaśniono koncepcje związane z dostawcą usług. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Przepływ pracy usługi link prywatny" border="true":::
+
+*Rysunek: usługa prywatnego połączenia platformy Azure.*
+
 ## <a name="workflow"></a>Przepływ pracy
 
 ![Przepływ pracy usługi link prywatny](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Rysunek: przepływ pracy usługi Azure Private Link Service.*
 
 ### <a name="create-your-private-link-service"></a>Tworzenie usługi linku prywatnego
 
@@ -46,7 +53,7 @@ Jeśli usługa link prywatny nie jest już używana, możesz ją usunąć. Jedna
 
 Usługa link prywatny określa następujące właściwości: 
 
-|Właściwość |Objaśnienie  |
+|Właściwość |Wyjaśnienie  |
 |---------|---------|
 |Stan aprowizacji (provisioningState)  |Właściwość tylko do odczytu, która wyświetla bieżący stan aprowizacji dla usługi linku prywatnego. Odpowiednie Stany aprowizacji: "Usuwanie; Awarii Powiodło się Aktualizowanie ". Gdy stan aprowizacji to "powodzenie", pomyślnie Zainicjowano obsługę linku prywatnego.        |
 |Alias (alias)     | Alias jest globalnie unikatowym ciągiem tylko do odczytu dla usługi. Ułatwia on maskowanie danych klienta usługi i w tym samym czasie tworzy łatwą do udostępnienia nazwę usługi. Podczas tworzenia usługi linku prywatnego platforma Azure generuje alias dla usługi, który można udostępnić klientom. Klienci mogą używać tego aliasu, aby zażądać połączenia z usługą.          |

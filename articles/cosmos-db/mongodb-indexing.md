@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420655"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761165"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -319,7 +319,12 @@ Szczegóły postępu indeksu pokazują procent postępu dla bieżącej operacji 
 
 Niezależnie od wartości określonej dla właściwości indeks w **tle** , aktualizacje indeksów są zawsze wykonywane w tle. Ponieważ aktualizacje indeksu zużywają jednostki żądań (jednostek ru) o niższym priorytecie niż inne operacje bazy danych, zmiany indeksów nie spowodują przestoju operacji zapisu, aktualizacji lub usunięcia.
 
-Po dodaniu nowego indeksu zapytania będą natychmiast używały indeksu. Oznacza to, że zapytania mogą nie zwracać wszystkich pasujących wyników i nie będą zwracać żadnych błędów. Po zakończeniu transformacji indeksu wyniki zapytania będą spójne. [Postęp indeksowania można śledzić](#track-index-progress).
+Podczas dodawania nowego indeksu nie ma wpływu na dostępność. Zapytania będą korzystać tylko z nowych indeksów po zakończeniu przekształcania indeksu. Podczas przekształcania indeksu aparat zapytań będzie kontynuował korzystanie z istniejących indeksów, więc zobaczysz podobną wydajność odczytu podczas transformacji indeksowania do zaobserwowanego przed zainicjowaniem zmiany indeksowania. Przy dodawaniu nowych indeksów nie jest również ryzykowne żadne niekompletne lub niespójne wyniki zapytania.
+
+W przypadku usuwania indeksów i natychmiastowego wykonywania zapytań filtry mają filtrów dla usuniętych indeksów, wyniki mogą być niespójne i niekompletne do momentu zakończenia transformacji indeksu. W przypadku usunięcia indeksów aparat zapytań nie gwarantuje spójnych ani pełnych wyników, gdy zapytania filtrują te nowo usuniętych indeksów. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje wykonać zapytania do nich, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
+
+> [!NOTE]
+> [Postęp indeksowania można śledzić](#track-index-progress).
 
 ## <a name="migrate-collections-with-indexes"></a>Migrowanie kolekcji z indeksami
 

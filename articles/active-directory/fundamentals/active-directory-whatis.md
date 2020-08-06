@@ -2,7 +2,7 @@
 title: Co to jest usługa Azure Active Directory? — Azure Active Directory | Microsoft Docs
 description: Omówienie i pojęcia dotyczące Azure Active Directory, w tym terminologia, jakie licencje są dostępne, oraz listę powiązanych funkcji z linkami, aby uzyskać więcej informacji.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfb0343e925354a57a54e02f3eb98b7a1d01bcb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495118"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796629"
 ---
 # <a name="what-is-azure-active-directory"></a>Co to jest usługa Azure Active Directory?
 
@@ -66,7 +66,7 @@ Po wybraniu licencji usługi Azure AD uzyskasz dostęp do niektórych lub wszyst
 |Kategoria|Opis|
 |-------|-----------|
 |Zarządzanie aplikacjami|Zarządzanie aplikacjami w chmurze i lokalnymi przy użyciu serwera proxy aplikacji, logowania jednokrotnego, portalu Moje aplikacje (nazywanego też panelem dostępu) i aplikacji typu oprogramowanie jako usługa (SaaS). Aby uzyskać więcej informacji, zobacz temat [Jak zapewnić bezpieczny, zdalny dostęp do aplikacji lokalnych](../manage-apps/application-proxy.md) i [dokumentację zarządzania aplikacjami](../manage-apps/index.yml).|
-|Authentication|Zarządzanie samoobsługowym resetowaniem haseł, uwierzytelnianiem wieloskładnikowym, niestandardowymi listami zakazanych haseł i inteligentną blokadą usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [dokumentację uwierzytelniania w usłudze Azure AD](../authentication/index.yml).|
+|Uwierzytelnianie|Zarządzanie samoobsługowym resetowaniem haseł, uwierzytelnianiem wieloskładnikowym, niestandardowymi listami zakazanych haseł i inteligentną blokadą usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [dokumentację uwierzytelniania w usłudze Azure AD](../authentication/index.yml).|
 |Usługa Azure Active Directory dla deweloperów|Tworzenie aplikacji, które obsługują logowanie za pomocą wszystkich tożsamości firmy Microsoft oraz uzyskują tokeny w celu wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub niestandardowych interfejsów API. Aby uzyskać więcej informacji, zobacz [Platforma tożsamości firmy Microsoft (Azure Active Directory dla deweloperów)](../develop/index.yml).|
 |Działania między firmami (B2B)|Zarządzanie użytkownikami-gośćmi i partnerami zewnętrznymi przy zachowaniu kontroli nad danymi firmowymi. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure Active Directory B2B](../b2b/index.yml).|
 |Działania między firmami i klientami (B2C)|Dostosowywanie i kontrolowanie sposobu tworzenia kont, logowania się i zarządzania profilami przez użytkowników podczas korzystania z aplikacji. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure Active Directory B2C](../../active-directory-b2c/index.yml).|

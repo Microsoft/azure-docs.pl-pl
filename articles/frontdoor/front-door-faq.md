@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809477"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760417"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -28,9 +28,9 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
+### <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
 
-Azure Front Drzwiczks to Application Delivery Network (wdrożenie) jako usługa, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia to przyspieszenie lokacji dynamicznej (DSA) wraz z globalnym równoważeniem obciążenia, które umożliwia przejście w tryb failover niemal w czasie rzeczywistym. Jest to wysoce dostępna i skalowalna usługa, która jest w pełni zarządzana przez platformę Azure.
+Azure Front Drzwiczks to Application Delivery Network (wdrożenie) jako usługa, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia przyspieszanie witryn dynamicznych (DSA) wraz z globalnym równoważeniem obciążenia, umożliwiając przejście w tryb failover prawie w czasie rzeczywistym. Jest to wysoce dostępna i skalowalna usługa, która jest w pełni zarządzana przez platformę Azure.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Jakie funkcje obsługuje usługa Azure front-drzwi?
 
@@ -123,7 +123,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 
@@ -159,9 +159,12 @@ W przypadku opcji certyfikat zarządzany przed drzwiami certyfikaty są obracane
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Jakie są bieżące mechanizmy szyfrowania obsługiwane przez frontony platformy Azure?
 
-W przypadku protokołu TLS 1.2 obsługiwane są następujące mechanizmy szyfrowania
+W przypadku protokołu TLS 1.2 obsługiwane są następujące mechanizmy szyfrowania: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 W przypadku używania domen niestandardowych z włączonym protokołem TLS 1.0/1.1 obsługiwane są następujące mechanizmy szyfrowania:
 

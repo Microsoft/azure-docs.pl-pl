@@ -4,15 +4,15 @@ description: Aby utworzyć aplikacje o wysokiej dostępności i odporności na p
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e13d7a1cb35d2b0c9544a8be36f834efc6970501
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543881"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759652"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiony obsługujące Strefy dostępności na platformie Azure
 
@@ -58,12 +58,11 @@ Usługi dostępne w poszczególnych regionach wraz z nadchodzącym planem dostę
 Platforma Azure oferuje również pomoc techniczną Strefy dostępności w następujących regionach:
 
 - US Gov Wirginia
-- Australia Wschodnia
 - Północna Republika Południowej Afryki
 - South Central US
 - Kanada Środkowa
 
-Aby dowiedzieć się więcej na temat pomocy technicznej Strefy dostępności w tych pięciu regionach, skontaktuj się z przedstawicielem handlowym firmy Microsoft lub klientem lub Otwórz żądanie pomocy technicznej.
+Aby dowiedzieć się więcej na temat pomocy technicznej Strefy dostępności w tych czterech regionach, skontaktuj się z przedstawicielem firmy Microsoft dotyczącym sprzedaży lub klienta lub Otwórz żądanie pomocy technicznej.
 
 ## <a name="next-steps"></a>Następne kroki
 

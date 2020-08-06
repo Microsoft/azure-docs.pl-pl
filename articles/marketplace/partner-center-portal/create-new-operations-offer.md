@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001438"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798260"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Tworzenie oferty Dynamics 365 for Operations
 
@@ -56,7 +56,7 @@ Wybierz opcję, której chcesz użyć dla tej oferty.
 
 #### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
 
-Wystaw swoją ofertę bezpłatnie klientom, podając prawidłowy adres URL (począwszy od *protokołu HTTP* lub *https*), w którym użytkownicy mogą uzyskać dostęp do Twojej aplikacji.  Na przykład: `https://contoso.com/my-app`
+Wystaw swoją ofertę bezpłatnie klientom, podając prawidłowy adres URL (począwszy od *protokołu HTTP* lub *https*), w którym użytkownicy mogą uzyskać dostęp do Twojej aplikacji.  Na przykład `https://contoso.com/my-app`
 
 #### <a name="free-trial-listing"></a>Bezpłatna wersja próbna (lista)
 
@@ -191,11 +191,14 @@ W tej sekcji można podać logo i obrazy, które będą używane podczas wyświe
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Udostępnij logo swojej oferty na dwa rozmiary pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małego** logo (48 x 48 pikseli) rozmiaru. Opcjonalnie można zastąpić ten obraz innym.
+
+Oba rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
 - **Mały** (48 x 48)
-- **Duże** (216 x 216)
+- **Duże** (od 216 x 216 do 350 x 350)
 
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

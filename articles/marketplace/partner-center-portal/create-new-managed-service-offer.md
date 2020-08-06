@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405249"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798192"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -133,23 +133,17 @@ W tej sekcji można podać logo i obrazy, które będą używane podczas wyświe
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="marketplace-logos"></a>Logo witryny Marketplace
+#### <a name="store-logos"></a>Logo sklepu
 
-Podaj logo swojej oferty w postaci czterech pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
+
+Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
 - **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duże** (216 x 216)
-- **Szeroki** (255 x 115)
+- **Duże** (od 216 x 216 do 350 x 350)
 
-Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
-
-- Projekt platformy Azure ma prostą paletę kolorów. Ogranicz liczbę podstawowych i pomocniczych kolorów w logo.
-- Kolory motywu portalu to biały i czarny. Nie używaj tych kolorów jako kolorów tła swojego logo. Użyj koloru, który sprawi, że logo będzie się wyróżniać w portalu. Zalecamy proste kolory podstawowe.
-- Jeśli używasz przezroczystego tła, upewnij się, że logo i tekst nie są białe, czarne ani niebieskie.
-- Logo powinno być proste i bez gradientów. Nie używaj w logo tła gradientowego.
-- Nie umieszczaj tekstu w logo, nawet nazwy firmy ani marki.
-- Upewnij się, że logo nie jest rozciągnięte.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

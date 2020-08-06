@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280957"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797869"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -86,12 +86,12 @@ Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dl
 Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
-Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
+Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu.
 
 |Instalator dla nowych wydawców  |
 |---------|
 |Identyfikator MPN     |
-|Logo firmy (48 x 48, 216 x 216 pikseli)     |
+|Logo firmy: 48 x 48 pikseli (opcjonalnie), 216 x 216 pikseli — 350 x 350 pikseli (wymagane)  |
 |Miejsce docelowe potencjalnego klienta     |
 ||
 

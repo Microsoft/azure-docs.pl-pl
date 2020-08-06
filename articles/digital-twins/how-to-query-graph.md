@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543354"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760400"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -172,7 +172,7 @@ Może istnieć opóźnienie do 10 sekund, po upływie którego zmiany w wystąpi
 W trakcie korzystania z `JOIN` wersji zapoznawczej obowiązują dodatkowe ograniczenia.
 * W instrukcji nie są obsługiwane żadne podzapytania `FROM` .
 * `OUTER JOIN`Semantyka nie jest obsługiwana, znaczenie, jeśli relacja ma rangę zero, cały "wiersz" jest eliminowany z wyjściowego zestawu wyników.
-* W publicznej wersji zapoznawczej głębokość przechodzenia wykresu jest ograniczona: dozwolony jest tylko jeden z nich `JOIN` dla każdego zapytania.
+* W trakcie okresu zapoznawczego głębokość przechodzenia wykresu jest ograniczona do pięciu `JOIN` poziomów na zapytanie.
 * Źródło `JOIN` operacji jest ograniczone: zapytanie musi deklarować bliźniaczych reprezentacji, w którym rozpoczyna się zapytanie.
 
 ## <a name="query-best-practices"></a>Najlepsze rozwiązania dotyczące zapytań

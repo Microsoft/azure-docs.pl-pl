@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87568046"
+ms.locfileid: "87759618"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Konfiguracja danych dotyczących użycia i diagnostyki usługi Azure SQL Edge
 
@@ -87,7 +87,7 @@ Składnik Inspekcja lokalna usługi Azure SQL Edge użycie i zbieranie danych di
 
 Aby włączyć lokalne inspekcje danych użycia i diagnostyki w usłudze Azure SQL Edge
 
-1. Utwórz katalog docelowy dla nowego lokalnego magazynu dziennika inspekcji. Ten katalog docelowy należy utworzyć w tym samym woluminie instalacji, który jest mapowany na ścieżkę/var/opt/MSSQL/w usłudze SQL Edge.
+1. Utwórz katalog docelowy dla nowego lokalnego magazynu dziennika inspekcji. Ten katalog docelowy może znajdować się na hoście lub w kontenerze. W poniższym przykładzie katalog docelowy jest tworzony w tym samym woluminie instalacji, który jest zamapowany na ścieżkę/var/opt/MSSQL/w usłudze SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,14 +95,14 @@ Aby włączyć lokalne inspekcje danych użycia i diagnostyki w usłudze Azure S
 
 2. Skonfiguruj inspekcję danych użycia i diagnostyki przy użyciu zmiennych środowiskowych lub pliku MSSQL. conf.
 
-   - Przy użyciu zmiennych środowiskowych — Dodaj następującą zmienną środowiskową do wdrożenia programu SQL Edge.
+   - Przy użyciu zmiennych środowiskowych — Dodaj następującą zmienną środowiskową do wdrożenia programu SQL Edge i określ katalog docelowy dla plików inspekcji.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Przy użyciu pliku MSSQL. conf Dodaj następujące wiersze w pliku MSSQL. conf.
+   - Przy użyciu pliku MSSQL. conf Dodaj następujące wiersze w pliku MSSQL. conf i określ katalog docelowy dla plików inspekcji.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## <a name="next-steps"></a>Następne kroki

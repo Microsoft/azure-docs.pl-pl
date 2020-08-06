@@ -12,20 +12,20 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7832f2db73655d76cc29dc17dd823fc5e0e7fcb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504266"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761029"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Szybki Start: Konfigurowanie powiadomień wypychanych w centrum powiadomień
 
 Usługa Azure Notification Hubs udostępnia aparat wypychania, który jest łatwy w użyciu i skaluje się. Użyj Notification Hubs, aby wysyłać powiadomienia do dowolnej platformy (iOS, Android, Windows, Baidu) i z dowolnego zaplecza (w chmurze lub lokalnie). Aby uzyskać więcej informacji, zobacz [co to jest platforma Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-W tym przewodniku szybki start użyjesz ustawień systemu powiadomień platformy (PNS) w Notification Hubs, aby skonfigurować powiadomienia wypychane na wielu platformach. W tym przewodniku szybki start przedstawiono kroki, które należy wykonać w Azure Portal.  [Obsługa komunikatów w usłudze Google Firebase Cloud](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) zawiera instrukcje dotyczące korzystania z interfejsu wiersza polecenia platformy Azure.
+W tym przewodniku szybki start użyjesz ustawień systemu powiadomień platformy (PNS) w Notification Hubs, aby skonfigurować powiadomienia wypychane na wielu platformach. W tym przewodniku szybki start przedstawiono kroki, które należy wykonać w Azure Portal. [Obsługa komunikatów w usłudze Google Firebase Cloud](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) zawiera instrukcje dotyczące korzystania z interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie utworzono jeszcze centrum powiadomień, utwórz je teraz. Aby uzyskać więcej informacji, zobacz [Tworzenie centrum powiadomień platformy Azure w Azure Portal](create-notification-hub-portal.md) lub [Tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](create-notification-hub-azure-cli.md)
+Jeśli nie utworzono jeszcze centrum powiadomień, utwórz je teraz. Aby uzyskać więcej informacji, zobacz [Tworzenie centrum powiadomień platformy Azure w Azure Portal](create-notification-hub-portal.md) lub [Tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](create-notification-hub-azure-cli.md).
 
 ## <a name="apple-push-notification-service"></a>Apple Push Notification Service
 
@@ -109,9 +109,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 Pobierz odwołania interfejsu wiersza polecenia platformy Azure dla innych platform za pomocą poleceń [AZ Notification-Hub Credential](/cli/azure/ext/notification-hub/notification-hub/credential) .
 
----
-
-Aby uzyskać więcej informacji na temat wypychania powiadomień do aplikacji systemu Android, zobacz [wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Aby uzyskać więcej informacji na temat wysyłania powiadomień do aplikacji systemu Android, zobacz [wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## <a name="windows-push-notification-service"></a>Usługa powiadomień wypychanych systemu Windows
 

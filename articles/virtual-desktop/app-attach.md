@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291506"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760672"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
@@ -202,12 +202,12 @@ Jeśli aplikacja używa certyfikatu, który nie jest zaufany lub został podpisa
 
 1. Kliknij prawym przyciskiem myszy pakiet i wybierz polecenie **Właściwości**.
 2. W wyświetlonym oknie Wybierz kartę **podpisy cyfrowe** . Na karcie powinna znajdować się tylko jeden element, jak pokazano na poniższej ilustracji. Wybierz ten element, aby wyróżnić element, a następnie wybierz pozycję **szczegóły**.
-3. Po wyświetleniu okna Szczegóły podpisu cyfrowego wybierz kartę **Ogólne** , a następnie wybierz pozycję **Zainstaluj certyfikat**.
+3. Po wyświetleniu okna Szczegóły podpisu cyfrowego wybierz kartę **Ogólne** , a następnie wybierz pozycję **Wyświetl certyfikat**, a następnie wybierz pozycję **Zainstaluj certyfikat**.
 4. Po otwarciu Instalatora wybierz pozycję **komputer lokalny** jako lokalizację magazynu, a następnie wybierz pozycję **dalej**.
 5. Jeśli Instalator wyświetli monit z pytaniem, czy chcesz zezwolić aplikacji na wprowadzanie zmian na urządzeniu, wybierz opcję **tak**.
 6. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie wybierz pozycję **Przeglądaj**.
 7. Po wyświetleniu okna Wybieranie magazynu certyfikatów wybierz pozycję **zaufane osoby**, a następnie wybierz przycisk **OK**.
-8. Wybierz pozycję **Zakończ**.
+8. Wybierz pozycję **dalej** i **Zakończ**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Przygotuj skrypty programu PowerShell do dołączenia do aplikacji MSIX
 

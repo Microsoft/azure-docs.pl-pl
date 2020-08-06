@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386439"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798073"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -31,7 +31,7 @@ Po opublikowaniu ofert w witrynie Azure Marketplace można:
 - Uzyskuj wysokiej jakości potencjalni klienci z tych rynków.
 - Zyskaj swoje usługi przez zespoły ds. sprzedaży i telesprzedaży firmy Microsoft.
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyn wirtualnych](../marketplace-virtual-machines.md) i tym materiałem maszyny wirtualnej platformy Azure:
 
@@ -227,7 +227,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -235,7 +235,7 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="azure-marketplace-media"></a>Nośniki portalu Azure Marketplace
@@ -245,16 +245,17 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="azure-marketplace-logos"></a>Logo portalu Azure Marketplace
+#### <a name="store-logos"></a>Logo sklepu
 
-Podaj pliki PNG logo oferty o następujących czterech wymiarach obrazu:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
 
-- **Mały** (48 &times; 48 pikseli)
-- **Średni** (90 &times; 90 pikseli)
-- **Duże** (216 &times; 216 pikseli)
-- **Szerokie** (255 &times; 115 pikseli)
+Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
-Wszystkie cztery logo są wymagane i są wyświetlane w różnych aukcjach portalu Azure Marketplace.
+- **Mały** (48 x 48)
+- **Średni** (90 x 90)
+- **Duże** (od 216 x 216 do 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
@@ -312,7 +313,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz pozycję **Utwórz**.
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -380,7 +381,7 @@ Jeśli już ustawisz ceny planu w walucie dolarów amerykańskich (USD) i dodasz
 
 Po usunięciu rynku klienci z tego rynku, którzy korzystają z aktywnych wdrożeń, nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Istniejące wdrożenia nie są modyfikowane.
 
-#### <a name="pricing"></a>Ceny
+#### <a name="pricing"></a>Cennik
 
 W polu **model licencji**wybierz **miesięczny plan rozliczeniowy** , aby skonfigurować Cennik dla tego planu, lub wybierz **Bring Your Own License** , aby umożliwić klientom korzystanie z tego planu wraz z istniejącą licencją.
 

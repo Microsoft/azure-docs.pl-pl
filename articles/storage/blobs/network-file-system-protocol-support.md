@@ -1,24 +1,24 @@
 ---
 title: Obsługa systemu plików NFS 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza) | Microsoft Docs
-description: Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub na komputerze lokalnym.
+description: Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemami Windows i Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub z komputera działającego lokalnie.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372896"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760927"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
-Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub na komputerze lokalnym. 
+Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Windows lub Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnego komputera. 
 
 > [!NOTE]
 > Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, Stany Zjednoczone i Kanada środkowa.
@@ -41,7 +41,7 @@ Aby zainstalować kontener konta magazynu, należy wykonać te czynności.
 
 7. Zainstaluj kontener.
 
-Aby uzyskać wskazówki krok po kroku, zobacz [Instalowanie usługi BLOB Storage w systemie Linux przy użyciu protokołu sieciowego systemu plików (NFS) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
+Aby uzyskać wskazówki krok po kroku, zobacz [Instalowanie usługi BLOB Storage przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > Ważne jest, aby wykonać te zadania w kolejności. Nie można zainstalować kontenerów utworzonych przed włączeniem protokołu NFS 3,0 na Twoim koncie. Ponadto po włączeniu protokołu NFS 3,0 na Twoim koncie nie można go wyłączyć.
@@ -113,7 +113,7 @@ Transakcja nie jest naliczana w ramach wersji zapoznawczej. Cennik transakcji mo
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zobacz [Instalowanie usługi BLOB Storage w systemie Linux przy użyciu protokołu sieciowego systemu plików (NFS) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
+Aby rozpocząć, zobacz [Instalowanie usługi BLOB Storage przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
 
 
 

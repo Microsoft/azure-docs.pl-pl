@@ -494,10 +494,8 @@
       items:
         - name: Omówienie niestandardowych słów kluczowych
           href: custom-keyword-overview.md
-        - name: Wskazówki dotyczące nazewnictwa niestandardowych słów kluczowych
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Rozpoznawanie niestandardowych słów kluczowych
-          href: speech-devices-sdk-create-kws.md
+        - name: Podstawy niestandardowych słów kluczowych
+          href: custom-keyword-basics.md
 - name: Rozpoznawanie osoby mówiącej
   items:
     - name: Omówienie

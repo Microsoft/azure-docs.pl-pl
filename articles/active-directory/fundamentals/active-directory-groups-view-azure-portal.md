@@ -2,7 +2,7 @@
 title: Szybki Start — wyświetlanie grup & członków — Azure AD
 description: Instrukcje wyszukiwania i wyświetlania grup w organizacji oraz ich członków.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75423017"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797495"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -61,14 +61,14 @@ Utwórz konto nowego użytkownika, który nazywa się _Alain Charon_. Użytkowni
 
     - **Imię i nazwisko**: wpisz tekst _Alain Charon_.
 
-    - **Nazwa użytkownika:** Wpisz *alain\@contoso.com*.
+    - **Nazwa użytkownika:** Wpisz *alain \@ contoso.com*.
 
 3. Skopiuj hasło automatycznie wygenerowane w polu **Hasło**, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-group-member"></a>Dodawanie członka grupy
 Gdy masz już grupę i konto użytkownika, możesz dodać użytkownika _Alain Charon_ jako członka grupy _MDM policy - West_. Aby uzyskać więcej informacji na temat dodawania członków do grupy, zobacz [How to add or remove group members (Jak dodawać i usuwać członków grupy)](active-directory-groups-members-azure-portal.md).
 
-1. Wybierz **Azure Active Directory** > **grupy**Azure Active Directory.
+1. Wybierz **Azure Active Directory**  >  **grupy**Azure Active Directory.
 
 2. Na stronie **Grupy — Wszystkie grupy** wyszukaj grupę **MDM policy - West** i wybierz ją.
 
@@ -81,7 +81,7 @@ Gdy masz już grupę i konto użytkownika, możesz dodać użytkownika _Alain Ch
 ## <a name="view-all-groups"></a>Wyświetlanie wszystkich grup
 Na stronie **Grupy — Wszystkie grupy** w witrynie Azure Portal są widoczne wszystkie grupy w organizacji.
 
-- Wybierz pozycję **Active Directory** > **grupy**Active Directory platformy Azure.
+- Wybierz pozycję **Active Directory**  >  **grupy**Active Directory platformy Azure.
 
     Zostanie wyświetlona strona **Grupy — Wszystkie grupy** zawierająca wszystkie aktywne grupy.
 

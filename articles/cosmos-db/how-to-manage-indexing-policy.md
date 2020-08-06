@@ -4,15 +4,15 @@ description: Dowiedz się, jak zarządzać zasadami indeksowania, dołączać lu
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: tracking-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: ccee172f4b8df8d930bc06faca929e5206f8765e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3234d524adc8256373acce7480319a8fd4b76ac
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498450"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761110"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 
@@ -344,7 +344,7 @@ W Azure Cosmos DB zasady indeksowania można aktualizować przy użyciu dowolnej
 [Aktualizacja zasad indeksowania](index-policy.md#modifying-the-indexing-policy) wyzwala transformację indeksu. Postęp tego przekształcenia może być również śledzony z zestawów SDK.
 
 > [!NOTE]
-> Podczas aktualizowania zasad indeksowania zapisy do Azure Cosmos DB będą nieprzerwane. Podczas ponownego indeksowania zapytania mogą zwracać częściowe wyniki w miarę aktualizowania indeksu.
+> Podczas aktualizowania zasad indeksowania zapisy do Azure Cosmos DB będą nieprzerwane. Dowiedz się więcej o [przekształceniach indeksowania](indexing-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 

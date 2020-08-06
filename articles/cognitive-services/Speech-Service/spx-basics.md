@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801873"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759040"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -62,7 +62,7 @@ Polecenia w poprzedniej sekcji doskonale sprawdzają się, jak działa usługa S
 Jeśli masz katalog plików audio, możesz łatwo uruchomić interfejs wiersza polecenia mowy, aby szybko uruchamiać rozpoznawanie mowy w usłudze Batch. Po prostu uruchom następujące polecenie, wskazując katalog za pomocą `--files` polecenia. W tym przykładzie dołączysz `\*.wav` do katalogu, aby rozpoznać wszystkie pliki znajdujące się `.wav` w katalogu. Dodatkowo należy określić `--threads` argument, aby uruchomić rozpoznawanie w przypadku 10 wątków równoległych.
 
 > [!NOTE]
-> `--threads`Argument może być również używany w następnej sekcji dla `spx synthesize` poleceń, a dostępne wątki będą zależeć od procesora i bieżącego procentu obciążenia.
+> `--threads`Argument może być również używany w następnej sekcji `spx synthesize` poleceń, a dostępne wątki będą zależeć od procesora i jego bieżącego procentu obciążenia.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10

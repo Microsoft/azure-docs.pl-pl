@@ -3,7 +3,7 @@ title: Znajdź pomoc i Otwórz bilet pomocy technicznej — Azure Active Directo
 description: Instrukcje dotyczące uzyskiwania pomocy i otwierania biletu pomocy technicznej dla Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c49d795b80ed5e9536740e0d8fe877d070da87a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799375"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797291"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory
 Firma Microsoft oferuje globalne wsparcie techniczne, przedsprzedaży, rozliczeń i subskrypcji dla Azure Active Directory (Azure AD). Pomoc techniczna jest dostępna zarówno w trybie online, jak i telefonicznie w przypadku subskrypcji Microsoft Azure płatnych i próbnych. Telefoniczna pomoc techniczna i pomoc online związana z rozliczeniami są dostępne w dodatkowych językach. 
@@ -98,6 +98,6 @@ Zapoznaj [się ze stroną kontakt z firmą Microsoft w](https://portal.office.co
 
 ##  <a name="next-steps"></a>Następne kroki
 
-* [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/)
+* [Witryna Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
 * [Dokumentacja techniczna w witrynie docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)

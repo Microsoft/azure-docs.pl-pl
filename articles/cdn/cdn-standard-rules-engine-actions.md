@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259956"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760128"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Akcje w aparacie reguł standardowych dla Azure CDN
 
@@ -33,8 +33,8 @@ Użyj tej akcji, aby zastąpić wartość czasu wygaśnięcia (TTL) punktu końc
 Zachowanie pamięci podręcznej |  Opis              
 ---------------|----------------
 Pomiń pamięć podręczną | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, zawartość nie jest buforowana.
-Zastąpienie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, wartość czasu wygaśnięcia zwracana z pochodzenia jest zastępowana wartością określoną w akcji.
-Ustaw, jeśli brakuje | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, jeśli wartość czasu wygaśnięcia nie została zwrócona ze źródła, reguła ustawia czas wygaśnięcia na wartość określoną w akcji.
+Zastąpienie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, wartość czasu wygaśnięcia zwracana z pochodzenia jest zastępowana wartością określoną w akcji. Takie zachowanie będzie stosowane tylko w przypadku, gdy odpowiedź jest w pamięci podręcznej. W przypadku nagłówka odpowiedzi Cache-Control z wartościami "no-cache" ("Private", "No-Store") akcja nie będzie stosowana.
+Ustaw, jeśli brakuje | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, jeśli wartość czasu wygaśnięcia nie została zwrócona ze źródła, reguła ustawia czas wygaśnięcia na wartość określoną w akcji. Takie zachowanie będzie stosowane tylko w przypadku, gdy odpowiedź jest w pamięci podręcznej. W przypadku nagłówka odpowiedzi Cache-Control z wartościami "no-cache" ("Private", "No-Store") akcja nie będzie stosowana.
 
 #### <a name="additional-fields"></a>Dodatkowe pola
 
@@ -63,9 +63,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w żądaniach w
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | String
-Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | String
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | String
+Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
+Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
 
 ### <a name="modify-response-header"></a>Modyfikuj nagłówek odpowiedzi
 
@@ -75,9 +75,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w odpowiedziach
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | String
-Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | String
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | String
+Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
+Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
 
 ### <a name="url-redirect"></a>Przekierowywanie adresów URL
 

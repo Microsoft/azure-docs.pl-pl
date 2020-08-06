@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373491"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759703"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,17 +29,20 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Wrzesień 2020
 
-Nowe bramy SQL są dodawane do następujących regionów:
+Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta na 10 września 2020:
+
+- Zachodnio-środkowe stany USA: 13.78.248.43 
+- Północna Republika Południowej Afryki: 102.133.120.2  
+
+Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020:
 
 - Europa Północna: 13.74.104.113 
 - Stany USA 2 zachodni: 40.78.248.10 
 - Europa Zachodnia: 52.236.184.163 
 - Południowo-środkowe stany USA: 20.45.121.1, 20.49.88.1 
 
-Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach:
+Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020. :
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
-
-Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020. 
 
 ### <a name="august-2020"></a>2020 sierpnia
 
@@ -82,7 +85,7 @@ Może mieć to wpływ na następujące działania:
 - Używanie [nadmiarowej konfiguracji strefy](high-availability-sla.md#zone-redundant-configuration) dla bazy danych
 
 Nie będzie to miało wpływu na następujące warunki:
-
+ 
 - Przekierowanie jako zasada połączenia
 - Połączenia do SQL Database z platformy Azure i używanie tagów usługi
 - Połączenia utworzone przy użyciu obsługiwanych wersji sterownika JDBC dla SQL Server nie będą miały wpływu. Aby uzyskać obsługiwane wersje JDBC, zobacz artykuł [pobieranie sterownika programu Microsoft JDBC dla SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

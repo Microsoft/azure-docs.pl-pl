@@ -2,7 +2,7 @@
 title: Dodawanie lub usuwanie użytkowników — Azure Active Directory | Microsoft Docs
 description: Instrukcje dotyczące dodawania nowych użytkowników lub usuwania istniejących użytkowników przy użyciu Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603863"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797104"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory
 
@@ -54,7 +54,7 @@ Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
 1. Skopiuj automatycznie generowane hasło podane w polu **hasło** . Musisz podać to hasło użytkownikowi, aby zalogować się po raz pierwszy.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Użytkownik zostanie utworzony i dodany do organizacji usługi Azure AD.
 

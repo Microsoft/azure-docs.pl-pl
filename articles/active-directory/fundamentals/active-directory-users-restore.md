@@ -2,7 +2,7 @@
 title: Przywracanie lub trwałe usuwanie ostatnio usuniętego użytkownika — Azure AD
 description: Jak wyświetlić dostępnych użytkowników, przywrócić usuniętego użytkownika lub trwale usunąć użytkownika z Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad71d75eb80f15c09e0a4dff4edc4a0eaae9e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603931"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796764"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu Azure Active Directory
 Po usunięciu użytkownika konto pozostaje w stanie wstrzymania przez 30 dni. W tym 30-dniowym oknie można przywrócić konto użytkownika wraz ze wszystkimi jego właściwościami. Po upływie tego 30-dniowego okna użytkownik zostanie automatycznie i trwale usunięty.

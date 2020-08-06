@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b392af17a24b0a5aabdd245af236caa743762244
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448964"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761012"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -32,7 +32,7 @@ Zobacz następujący artykuł, aby dowiedzieć się więcej o konfigurowaniu syn
 **Odpowiedzialność:** Programu
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
-**Wskazówki:** Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje, które zostały wykonane na Azure DevTest Labs wystąpieniach na poziomie płaszczyzny zarządzania. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny zarządzania dla wystąpień usługi DevTest Labs.
+**Wskazówki:** Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje, które zostały wykonane na Azure DevTest Labs wystąpieniach na poziomie płaszczyzny zarządzania. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" w przypadku operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny zarządzania dla wystąpień usługi DevTest Labs.
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/platform/diagnostic-settings.md).
 
@@ -120,7 +120,7 @@ Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak wysyłać a
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
-**Wskazówki:** Azure Active Directory (Azure AD) ma wbudowane role, które muszą zostać jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można uruchamiać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+**Wskazówki:** Azure Active Directory (Azure AD) ma wbudowane role, które muszą zostać jawnie przypisane i są queryable. Przy użyciu modułu Azure AD PowerShell można uruchamiać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
 - [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 - [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
@@ -257,6 +257,110 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
 **Odpowiedzialność:** Dział
+
+## <a name="data-protection"></a>Ochrona danych
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](../security/benchmarks/security-control-data-protection.md).*
+
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
+**Wskazówki:** Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
+
+- [Tworzenie i używanie tagów](../azure-resource-manager/resource-group-using-tags.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
+**Wskazówki:** Zaimplementuj osobne subskrypcje lub grupy zarządzania na potrzeby tworzenia, testowania i produkcji. Wystąpienia Azure DevTest Labs powinny być oddzielone przez sieć wirtualną/podsieć i odpowiednio oznakowane. 
+
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../billing/billing-create-subscription.md)
+- [Tworzenie grup zarządzania](../governance/management-groups/create.md)
+- [Jak skonfigurować sieć wirtualną dla DevTest Labs](devtest-lab-configure-vnet.md)
+- [Tworzenie i używanie tagów](../azure-resource-manager/resource-group-using-tags.md)
+- [Tworzenie i używanie tagów dla DevTest Labs](devtest-lab-add-tag.md)
+
+**Monitorowanie Azure Security Center:** Obecnie niedostępne
+
+**Odpowiedzialność:** Dział
+
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
+**Wskazówki:** Jeszcze niedostępne; funkcje identyfikacji, klasyfikacji i zapobiegania utracie danych nie są jeszcze dostępne dla Azure DevTest Labs.
+
+Firma Microsoft zarządza podstawową infrastrukturą dla Azure DevTest Labs i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
+
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+
+**Monitorowanie Azure Security Center:** Obecnie niedostępne
+
+**Odpowiedzialność:** Udostępniać
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
+**Wskazówki:** Azure DevTest Labs domyślnie wymaga komunikacji szyfrowanej przy użyciu protokołu TLS. Protokół TLS w wersji 1,2 jest obecnie obsługiwany. Jeśli Biblioteka klienta lub narzędzie nie obsługuje protokołu TLS, można włączyć nieszyfrowane połączenia za pomocą Azure Portal lub interfejsów API zarządzania. W takich przypadkach, gdy połączenia szyfrowane nie są możliwe, zaleca się umieszczenie aplikacji laboratorium i klienta w sieci wirtualnej.
+
+[Opis sposobu szyfrowania w scenariuszu przesyłania dla laboratoriów DevTest Labs](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-devtest-labs-enforcing-tls-1-2-starting-may-01-2020/ba-p/1236279)
+
+**Monitorowanie Azure Security Center:** Opcję
+
+**Odpowiedzialność:** Udostępniać
+
+### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
+**Wskazówki:** Funkcje identyfikacji, klasyfikacji i zapobiegania utracie danych nie są jeszcze dostępne dla Azure DevTest Labs. Wystąpienia tagów zawierające poufne informacje jako takie i Implementuj rozwiązanie innych firm, jeśli jest to niezbędne do celów zgodności.
+
+W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
+
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+
+**Monitorowanie Azure Security Center:** Obecnie niedostępne
+
+**Odpowiedzialność:** Dział
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
+**Wskazówki:** Użyj usługi Azure Active Directory (Azure AD) kontroli dostępu opartej na rolach (RBAC), aby kontrolować dostęp do laboratoriów w programie Azure DevTest Labs.
+
+- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Informacje o rolach w DevTest Labs](devtest-lab-add-devtest-user.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
+**Wskazówki:** Jeśli jest to niezbędne do zgodności zasobów obliczeniowych utworzonych w ramach DevTest Labs, zaimplementuj narzędzie innej firmy, takie jak automatyczne rozwiązanie do ochrony przed utratą danych oparte na hoście, aby wymusić kontrolę dostępu do danych, nawet jeśli dane są kopiowane poza system.
+
+W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
+
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Nie dotyczy
+
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
+**Wskazówki:** Azure DevTest Labs przechowuje następujące dane klienta:
+
+- [Wyniki artefaktów](add-artifact-vm.md) , które obejmują dzienniki wdrożenia i rozszerzenia wygenerowane na podstawie zastosowania artefaktów
+- [Dokumenty formuł](devtest-lab-manage-formulas.md) , które są używane do tworzenia maszyn wirtualnych z formuł
+- System operacyjny i dyski danych dla maszyn wirtualnych laboratorium 
+
+Wyniki artefaktów i dokumenty formuł są wysyłane do konta usługi Azure Storage, które jest tworzone w ramach każdego wdrożenia laboratorium. Dane w usłudze Azure Storage są szyfrowane i odszyfrowywane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego szyfrowania AES, jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Nie można wyłączyć szyfrowania usługi Azure Storage. Możesz polegać na kluczach zarządzanych przez firmę Microsoft na potrzeby szyfrowania konta magazynu lub można zarządzać szyfrowaniem przy użyciu własnych kluczy. Aby uzyskać więcej informacji, zobacz [szyfrowanie dla konta magazynu laboratorium](encrypt-storage.md).
+
+Domyślnie wszystkie dyski systemu operacyjnego i danych programu Lab są szyfrowane za pomocą klucza zarządzanego platformy. Wszystkie dyski zarządzane, migawki, obrazy i dane zapisywane na istniejących dyskach zarządzanych są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę. Jako właściciel laboratorium można skonfigurować dyski systemu operacyjnego laboratorium do szyfrowania przy użyciu klucza zarządzanego przez klienta. Szyfrowanie przy użyciu klucza zarządzanego przez klienta dla dysków danych laboratorium nie jest obecnie konfigurowalne za pośrednictwem laboratorium. Jednak administrator subskrypcji może skonfigurować to ustawienie dla dysków laboratorium w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz artykuł [szyfrowanie dysków systemu operacyjnego w środowisku Lab DevTest Labs przy użyciu kluczy zarządzanych przez klienta](encrypt-disks-customer-managed-keys.md).
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Udostępniać
+
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
+**Wskazówki:** Użyj Azure Monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą wystąpień DevTest Labs i innych krytycznych lub powiązanych zasobów.
+
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności DevTest Labs](create-alerts.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
@@ -421,7 +525,7 @@ Zobacz następujące artykuły:
 
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: przechowywanie spisu zatwierdzonych tytułów oprogramowania
-**Wskazówki:** Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe rozwiązanie od Azure Security Center, które pomaga kontrolować, które aplikacje mogą być uruchamiane na maszynach z platformą Azure i poza platformą Azure (Windows i Linux), hostowane w DevTest Labs. Pamiętaj, że musisz być administratorem subskrypcji, aby móc skonfigurować to ustawienie dla zasobów obliczeniowych hostowanych w DevTest Labs. Zaimplementuj rozwiązanie innych firm, jeśli to ustawienie nie spełnia wymagań organizacji.
+**Wskazówki:** Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe rozwiązanie od Azure Security Center, które pomaga kontrolować, które aplikacje mogą być uruchamiane na maszynach z platformą Azure i poza platformą Azure (Windows i Linux), hostowane w DevTest Labs. Pamiętaj, że musisz być administratorem subskrypcji, aby skonfigurować to ustawienie dla bazowych zasobów obliczeniowych hostowanych w DevTest Labs. Zaimplementuj rozwiązanie innych firm, jeśli to ustawienie nie spełnia wymagań organizacji.
 
 - [Jak używać Azure Security Center adaptacyjnych kontroli aplikacji](../security-center/security-center-adaptive-application.md)
 
@@ -461,6 +565,156 @@ Zobacz następujące artykuły:
 - [Przewodnik po decyzjach związanych z subskrypcjami](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Monitorowanie Azure Security Center:** Niedostępne
+
+**Odpowiedzialność:** Dział
+
+## <a name="secure-configuration"></a>Bezpieczna konfiguracja
+**Aby uzyskać więcej informacji, zobacz Kontrola zabezpieczeń: bezpieczna konfiguracja.**
+
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
+**Wskazówki:** Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji zasobów platformy Azure utworzonych w ramach DevTest Labs. Możesz również użyć wbudowanych definicji Azure Policy.
+
+Ponadto Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Object Notation (JSON), który powinien zostać sprawdzony, aby upewnić się, że konfiguracje spełniają/przekroczą wymagania dotyczące zabezpieczeń organizacji.
+
+Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii bazowej konfiguracji dla zasobów platformy Azure.
+
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
+- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
+**Wskazówki:** Użyj zaleceń Azure Security Center, aby zachować konfiguracje zabezpieczeń dla wszystkich podstawowych zasobów obliczeniowych utworzonych w ramach DevTest Labs. Ponadto możesz użyć niestandardowych obrazów systemu operacyjnego lub Azure Automation konfiguracji stanu lub artefaktów DevTest Labs, aby określić konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.
+
+- [Jak monitorować zalecenia dotyczące Azure Security Center](../security-center/security-center-recommendations.md)
+- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Przegląd konfiguracji stanu Azure Automation](../automation/automation-dsc-overview.md)
+- [Przekazywanie wirtualnego dysku twardego i używanie go do tworzenia nowych maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/upload-generalized-managed.md)
+- [Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure](../virtual-machines/linux/upload-vhd.md)
+- [Tworzenie i dystrybuowanie obrazów niestandardowych do wielu DevTest Labs](image-factory-save-distribute-custom-images.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Nie dotyczy
+
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
+**Wskazówki:** Użyj Azure Policy **Odmów** i **Wdróż, jeśli nie istnieją** reguły, aby wymusić bezpieczne ustawienia dla zasobów platformy Azure utworzonych w ramach usługi DevTest Labs. Ponadto, możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację.
+
+- [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
+- [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../governance/policy/tutorials/create-and-manage.md)
+- [Przegląd szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
+**Wskazówki:** Postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach w Twoich źródłowych zasobach obliczeniowych platformy Azure utworzonych w ramach laboratorium. Ponadto można użyć szablonów Azure Resource Manager, niestandardowych obrazów systemu operacyjnego lub konfiguracji stanu Azure Automation, aby zachować konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację. Możesz również użyć rozwiązania fabryki obrazów, które jest rozwiązaniem typu "Konfiguracja jako kod", które automatycznie kompiluje i dystrybuuje obrazy na bieżąco ze wszystkimi wymaganymi konfiguracjami.
+
+Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketplace obrazy maszyn wirtualnych opublikowane przez firmę Microsoft.
+
+- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Przegląd konfiguracji stanu Azure Automation](../automation/automation-dsc-overview.md)
+- [Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Jak utworzyć fabrykę obrazów w DevTest Labs](image-factory-create.md)
+
+**Monitorowanie Azure Security Center:** Opcję
+
+**Odpowiedzialność:** Udostępniać
+
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
+**Wskazówki:** Za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, i zarządzaj nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps.
+
+- [Samouczek usługi git Azure Repos](/devops/repos/git/gitworkflow?view=azure-devops)
+- [Informacje o uprawnieniach i grupach](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Integracja między Azure DevTest Labs i przepływem pracy usługi Azure DevOps](devtest-lab-dev-ops.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
+**Wskazówki:** W przypadku używania obrazów niestandardowych należy użyć kontroli dostępu opartej na rolach (RBAC), aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom. Za pomocą udostępnionej galerii obrazów możesz udostępnić swoje obrazy do określonych laboratoriów, które ich potrzebują. W przypadku obrazów kontenerów Zapisz je w Azure Container Registry i użyj RBAC, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
+
+- [Zrozumienie RBAC na platformie Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Konfigurowanie udostępnionej galerii obrazów dla DevTest Labs](configure-shared-image-gallery.md)
+- [Opis RBAC dla Container Registry](../container-registry/container-registry-roles.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją systemu
+**Wskazówki:** Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów platformy Azure przy użyciu Azure Policy. Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci zasobów platformy Azure utworzonych w ramach DevTest Labs. Mogą również korzystać z wbudowanych definicji zasad związanych z konkretnymi zasobami. Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji.
+
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją systemu dla systemów operacyjnych
+**Wskazówki:** Azure Automation konfiguracja stanu to usługa zarządzania konfiguracją dla węzłów konfiguracji żądanego stanu (DSC) w dowolnym chmurze lub lokalnym centrum danych. Można łatwo dołączać maszyny, przypisywać do nich konfiguracje deklaracyjne i wyświetlać raporty pokazujące zgodność poszczególnych maszyn z wybranym określonym stanem. Możesz również napisać niestandardowy artefakt, który może zostać zainstalowany na każdej maszynie laboratoryjnej, aby upewnić się, że są one zgodne z zasadami organizacji. 
+
+- [Dołączanie maszyn w celu zarządzania przez Azure Automation konfigurację stanu](../automation/automation-dsc-onboarding.md)
+- [Tworzenie niestandardowych artefaktów dla maszyn wirtualnych z DevTest Labs](devtest-lab-artifact-author.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla usług platformy Azure
+**Wskazówki:** Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla zasobów platformy Azure utworzonych w ramach DevTest Labs. Ponadto należy używać Azure Policy do powiadamiania i inspekcji konfiguracji zasobów platformy Azure.
+
+- [Jak skorygować zalecenia w Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+ 
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
+**Wskazówki:** Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla ustawień systemu operacyjnego i platformy Docker dla kontenerów.
+
+- [Omówienie rekomendacji dotyczących kontenera usługi Azure Security Center](../security-center/security-center-container-recommendations.md)
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
+
+**Odpowiedzialność:** Dział
+
+### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
+**Wskazówki:** Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby uprościć i zabezpieczyć tajne Zarządzanie aplikacjami w chmurze.
+
+- [Konfigurowanie tożsamości zarządzanej do wdrażania środowisk Azure Resource Manager w usłudze DevTest Labs](use-managed-identities-environments.md)
+- [Konfigurowanie tożsamości zarządzanej do wdrażania maszyn wirtualnych w usłudze DevTest Labs](enable-managed-identities-lab-vms.md)
+- [Jak utworzyć magazyn kluczy](../key-vault/quick-create-portal.md)
+- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/managed-identity.md)
+
+**Monitorowanie Azure Security Center:** Opcję
+
+**Odpowiedzialność:** Dział
+
+### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
+**Wskazówki:** Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure AD. Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
+
+- [Konfigurowanie tożsamości zarządzanej do wdrażania środowisk Azure Resource Manager w usłudze DevTest Labs](use-managed-identities-environments.md)
+- [Konfigurowanie tożsamości zarządzanej do wdrażania maszyn wirtualnych w usłudze DevTest Labs](enable-managed-identities-lab-vms.md)
+ 
+**Monitorowanie Azure Security Center:** Opcję
+
+**Odpowiedzialność:** Dział
+
+### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
+**Wskazówki:** Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+
+- Jak skonfigurować skaner poświadczeń
+
+**Monitorowanie Azure Security Center:** Nie dotyczy
 
 **Odpowiedzialność:** Dział
 
@@ -561,7 +815,7 @@ Jeśli używasz usługi Azure Disk Encryption, możesz przywrócić maszynę wir
 
 - [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 - [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
-- [Skorzystaj z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Skorzystaj z przewodnika obsługi zdarzeń zabezpieczeń komputera NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 

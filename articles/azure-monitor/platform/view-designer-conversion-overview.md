@@ -5,26 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289118"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759431"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
-[Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. Ten artykuł zawiera omówienie procesu konwertowania istniejących widoków do skoroszytów.
+[Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Zostały one przenoszone do skoroszytów, aby zapewnić elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w Azure Portal. Ten artykuł pomaga w wprowadzeniu przejścia z projektanta widoku do skoroszytów. 
 
-## <a name="retirement-schedule"></a>Harmonogram wycofania
-
-| Zmiana | Co to oznacza | Oczekiwana data |
-|:---|:---|:---|
-| Wyłącz tworzenie nowych widoków utworzonych za pomocą projektanta widoków. | Nie będzie już można tworzyć i zapisywać nowych widoków niestandardowych w Azure Portal.| Listopad 2020 |
-| Wyłącz funkcję Edytuj dla istniejących widoków z projektantem widoku. | Nie będzie już można modyfikować ani zapisywać zmian w istniejących niestandardowych widokach. | Listopad 2020 |
-| Wyłącz wdrażanie widoków do Log Analytics obszarów roboczych | Nie będzie już można wdrażać widoków niestandardowych przy użyciu usługi ARM do Log Analytics obszarów roboczych. | Marzec 2021 |
-| Projektant widoków nie jest już dostępny w Azure Portal | Środowisko portalu nie będzie już obsługiwało projektanta widoków. | Czerwiec 2021 |
-| Niestandardowe widoki usunięte z obszaru roboczego podsumowania | Dostęp do danych widoku niestandardowego nie będzie już możliwy. | Grudzień 2021 |
 
 ## <a name="workbooks-overview"></a>Przegląd skoroszytów
 [Skoroszyty](../insights/vminsights-workbooks.md) łączą tekst, [kwerendy dzienników](../log-query/query-language.md), metryki i parametry w rozbudowanych raportach interaktywnych. Członkowie zespołu mający ten sam dostęp do zasobów platformy Azure mogą również edytować skoroszyty.

@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529229"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759074"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity platform i przepływ poświadczeń klienta OAuth 2,0
 
@@ -64,19 +64,11 @@ Zamiast używać list ACL, można użyć interfejsów API, aby uwidocznić zesta
 * Wyślij wiadomość e-mail jako dowolny użytkownik
 * Odczyt danych katalogu
 
-Aby uzyskać więcej informacji o uprawnieniach aplikacji, zapoznaj się z [dokumentacją dotyczącą zgody i uprawnień](v2-permissions-and-consent.md#permission-types).
+Aby korzystać z uprawnień aplikacji przy użyciu własnego interfejsu API (w przeciwieństwie do Microsoft Graph), należy najpierw [uwidocznić interfejs API](quickstart-configure-app-expose-web-apis.md) przez definiowanie zakresów w rejestracji aplikacji interfejsu API w Azure Portal. Następnie [Skonfiguruj dostęp do interfejsu API](quickstart-configure-app-access-web-apis.md) , wybierając te uprawnienia w rejestracji aplikacji w aplikacji klienckiej. Jeśli nie zostały ujawnione żadne zakresy w rejestracji aplikacji interfejsu API, nie będzie można określić uprawnień aplikacji dla tego interfejsu API w ramach rejestracji aplikacji w aplikacji klienckiej w Azure Portal.
 
-Aby użyć uprawnień aplikacji w aplikacji, wykonaj kroki opisane w następnych sekcjach.
+W przypadku uwierzytelniania jako aplikacji (w przeciwieństwie do użytkownika) nie można używać *delegowanych uprawnień* — zakresów przyznanych przez użytkownika. Musisz użyć uprawnień aplikacji, znanych również jako role, które są udzielane przez administratora aplikacji lub przez internetowy interfejs API.
 
-> [!NOTE]
-> W przypadku uwierzytelniania jako aplikacji, w przeciwieństwie do użytkownika, nie można używać "uprawnień delegowanych" (zakresy, które są udzielane przez użytkownika).  Należy użyć "uprawnień aplikacji", znanych także jako "role", które są udzielane przez administratora aplikacji (lub przez internetowy interfejs API).
-
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Zażądaj uprawnień w portalu rejestracji aplikacji
-
-1. Zarejestruj i Utwórz aplikację za pomocą nowego [środowiska rejestracje aplikacji (wersja zapoznawcza)](quickstart-register-app.md).
-2. Przejdź do swojej aplikacji w środowisku Rejestracje aplikacji (wersja zapoznawcza). Przejdź do sekcji **certyfikaty &** wpisy tajne i Dodaj **Nowy wpis tajny klienta**, ponieważ potrzebujesz co najmniej jednego klucza tajnego klienta, aby zażądać tokenu.
-3. Znajdź sekcję **uprawnienia interfejsu API** , a następnie Dodaj **uprawnienia aplikacji** wymagane przez aplikację.
-4. **Zapisz** rejestrację aplikacji.
+Aby uzyskać więcej informacji o uprawnieniach aplikacji, zobacz [uprawnienia i wyrażanie zgody](v2-permissions-and-consent.md#permission-types).
 
 #### <a name="recommended-sign-the-user-into-your-app"></a>Zalecane: Podpisz użytkownika w aplikacji
 

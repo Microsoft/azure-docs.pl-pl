@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 107b1103b5662decd8da0937ac84e0e8bab3f8eb
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307067"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760774"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
 
@@ -142,7 +142,7 @@ Poniższy przykład pokazuje, jak używać pakietu atrakcyjności do przekazywan
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Metryki uczciwego obliczania.
@@ -152,7 +152,7 @@ Poniższy przykład pokazuje, jak używać pakietu atrakcyjności do przekazywan
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ Poniższy przykład pokazuje, jak używać pakietu atrakcyjności do przekazywan
 
     Aby dowiedzieć się więcej na temat pulpitu nawigacyjnego wizualizacji i jego zawartości, zobacz [Podręcznik użytkownika](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)programu Fairlearn.
 
-s # # Przekaż wgląd w szczegółowe dane dla wielu modeli
+## <a name="upload-fairness-insights-for-multiple-models"></a>Przekazywanie szczegółowych informacji dotyczących wielu modeli
 
 Jeśli interesuje Cię porównanie wielu modeli i dowiesz się, jak ich oceny uczciwości są różne, możesz przekazać więcej niż jeden model do pulpitu nawigacyjnego wizualizacji i przejść do ich wydajności.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498053"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798124"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -119,9 +119,9 @@ Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania.
 ## <a name="storefront-marketing-details"></a>Szczegóły marketingu w sklepie
 | Ustawienie witryny sklepu | Najlepsze rozwiązanie |
 |:--- |:--- |  
-| Logo oferty (format PNG, 48 &nbsp; &times; &nbsp; 48): Strona wyszukiwania | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony wyszukiwania oferty. |
-| Logo oferty (format PNG, 216 &nbsp; &times; &nbsp; 216): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. |
-| "Dowiedz się więcej" | Uwzględnij dodatkowe zasoby sprzedaży i marketingu w obszarze "Dowiedz się więcej", Oto kilka przykładów: <ul> <li> Oficjalne dokumenty, </li> <li> broszury, </li> <li> listy kontrolne lub </li> <li> Prezentacje programu PowerPoint.</li> </ul>Zapisz wszystkie pliki w formacie PDF. Celem tego celu jest zaplanowanie klientów, a nie ich sprzedawanie. <br><br>Dodaj link do strony docelowej aplikacji do wszystkich dokumentów i Dodaj parametry adresu URL, aby ułatwić Ci śledzenie odwiedzających i prób. |
+| Logo oferty (format PNG, między 216 × 216 i 350 x 350 pikseli): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. Centrum partnerskie zmieni rozmiar na wymagane rozmiary logo. |
+| Logo oferty (format PNG, 48 × 48 pikseli): Strona wyszukiwania | Centrum partnerskie spowoduje wygenerowanie tego logo z poziomu przesłanego dużego logo. Opcjonalnie można zastąpić ten obraz innym. |
+| "Dowiedz się więcej" | Uwzględnij dodatkowe zasoby sprzedaży i marketingu w obszarze "Dowiedz się więcej", Oto kilka przykładów:<ul><li>Oficjalne dokumenty</li><li> broszury</li><li>listy kontrolne lub</li><li> Prezentacje programu PowerPoint</li></ul><br>Zapisz wszystkie pliki w formacie PDF. Celem tego celu jest zaplanowanie klientów, a nie ich sprzedawanie.<br><br>Dodaj link do strony docelowej aplikacji do wszystkich dokumentów i Dodaj parametry adresu URL, aby ułatwić Ci śledzenie odwiedzających i prób. |
 | Wideo: AppSource, usługi konsultingowe i oferty SaaS | Najmocne wideo komunikuje wartość oferty w formie narracji:<ul> <li> Utwórz klienta, a nie jego firmę, Hero historię. </li> <li> Film wideo powinien dotyczyć najważniejszych wyzwań i celów klienta docelowego. </li> <li> Zalecana długość: 60-90 sekund.</li> <li> Uwzględnij słowa kluczowe wyszukiwania, które używają nazwy wideo. </li> <li> Rozważ dodanie dodatkowych filmów wideo, takich jak instrukcje, wprowadzenie lub Opinie klientów. </li> </ul> |
 | Zrzuty ekranu (1280 &nbsp; &times; &nbsp; 720) | Dodaj maksymalnie pięć zrzutów ekranu:<br>Uwzględnij słowa kluczowe wyszukiwania w nazwach plików. |
 

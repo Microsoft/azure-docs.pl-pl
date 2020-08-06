@@ -1,5 +1,5 @@
 ---
-title: Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?
+title: Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?
 description: Zapoznaj się z omówieniem kontroli dostępu opartej na rolach (Azure RBAC). Sterowanie dostępem do zasobów platformy Azure za pomocą przypisań ról.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: azuread-video-2020
+ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171566"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761131"
 ---
-# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?
 
 Zarządzanie dostępem do zasobów w chmurze to kluczowa funkcja dla każdej organizacji korzystającej z chmury. Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie, kto ma dostęp do zasobów platformy Azure, co można zrobić z tymi zasobami i jakie obszary mają do nich dostęp.
 
@@ -136,7 +137,6 @@ Poniżej przedstawiono ogólne kroki używane przez usługę Azure RBAC do okre�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki Start: wyświetlanie dostępu użytkownika do zasobów platformy Azure](check-access.md)
 - [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
 - [Omówienie różnych ról](rbac-and-directory-admin-roles.md)
 - [Struktura wdrażania chmury: zarządzanie dostępem do zasobów na platformie Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559308"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760094"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
 
@@ -59,15 +59,7 @@ Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20
 
 ### <a name="wildcard-values"></a>Wartości symboli wieloznacznych
 
-Tekst interpretowany jako wartość symbol wieloznaczny przypisuje dodatkowe znaczenie do znaków specjalnych. W poniższej tabeli opisano sposób interpretacji określonych znaków specjalnych w aparacie standardowych reguł:
-
-Znak | Opis
-----------|------------
-\ | Ukośnik odwrotny jest używany do ucieczki znaków określonych w tej tabeli. Ukośnik odwrotny musi być określony bezpośrednio przed znakiem specjalnym, który powinien zostać zmieniony. Na przykład następująca składnia wyprowadza gwiazdkę:`\*`
-% | Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20` ).
-\* | Gwiazdka jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków.
-spacje | Znak spacji wskazuje, że warunek dopasowania może być spełniony przez jedną z określonych wartości lub wzorców.
-znaki pojedynczego cudzysłowu | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw znaków pojedynczego cudzysłowu wskazuje, że wartość powinna być traktowana jako wartość literału. Znaki pojedynczego cudzysłowu mogą być używane w następujący sposób:<ul><li>Aby zezwolić na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <ul><li>/Business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Aby zezwolić na określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie znaków pojedynczego cudzysłowu ( `' '` lub `'<sample value>'` ).</li><li>, Aby umożliwić określenie pustej wartości. Określ wartość pustą, określając zestaw znaków pojedynczego cudzysłowu (**' '**).</li></ul>**Ważne**:<br /><ul><li>Jeśli określona wartość nie zawiera symbolu wieloznacznego, wartość zostanie automatycznie uznana za wartość literału. Nie trzeba określać zestawu znaków pojedynczego cudzysłowu dla wartości literału.</li><li>Jeśli ukośnik odwrotny nie jest używany do ucieczki innego znaku w tej tabeli, ukośnik odwrotny jest ignorowany, gdy jest określony w zestawie znaków pojedynczego cudzysłowu.</li><li>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego ( `\` ).</li></ul>
+Obecnie obsługujemy symbol wieloznaczny w **warunku URLPath Match** w aparacie reguł standardowych. \*Znak jest gwiazdką, która reprezentuje jeden lub więcej znaków. 
 
 ## <a name="next-steps"></a>Następne kroki
 

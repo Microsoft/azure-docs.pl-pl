@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9404232533ae86e14f9b87c65fdd086f84e8aebb
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414007"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760978"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
 
@@ -123,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 W przypadku tego wywołania zwrotnego i po przetworzeniu `returnObject` (odpowiedzi z żądania do serwera) wywołanie zwrotne musi zostać wywołane, `next` Jeśli istnieje, aby kontynuować przetwarzanie innych filtrów, lub po prostu wywołać w `finalCallback` przeciwnym razie zakończenie wywołania usługi.
 
-Dwa filtry, które implementują logikę ponowień, są dołączone do zestawu Azure SDK dla Node.js, `ExponentialRetryPolicyFilter** and ` LinearRetryPolicyFilter `. The following creates a ` TableService ` object that uses the ` ExponentialRetryPolicyFilter ':
+Dwa filtry, które implementują logikę ponowień, są dołączone do zestawu Azure SDK dla Node.js `ExponentialRetryPolicyFilter` i `LinearRetryPolicyFilter` . Poniższy element tworzy `TableService` obiekt, który używa `ExponentialRetryPolicyFilter` :
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();

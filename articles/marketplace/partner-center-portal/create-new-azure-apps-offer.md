@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326680"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797898"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty apl
 
 Przed opublikowaniem nowej oferty aplikacji platformy Azure [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga znajomości technicznej platformy Azure i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien znać następujące technologie firmy Microsoft:
 
@@ -38,7 +38,7 @@ Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji pl
 
 * Przewodniki Szybki start:
 
-    * [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
     * [Przewodnik po najlepszych rozwiązaniach dotyczących szablonów platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publikowanie definicji aplikacji](../../managed-applications/publish-service-catalog-app.md)
     * [Wdrażanie aplikacji katalogu usług](../../managed-applications/deploy-service-catalog-quickstart.md)
@@ -247,14 +247,15 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj pliki PNG logo oferty w następujących trzech rozmiarach:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
+
+Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
 - **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duże** (216 x 216)
-- **Szeroki** (255 x 115)
+- **Duże** (od 216 x 216 do 350 x 350)
 
-Wszystkie trzy logo są wymagane i są używane w różnych miejscach na liście.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
@@ -512,7 +513,7 @@ Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiw
 
 **Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../../role-based-access-control/overview.md).
+Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Mimo że użytkownik może dodać do 100 autoryzacji na chmurę, łatwiej jest utworzyć Active Directory grupę użytkowników i określić jej identyfikator w "Identyfikator podmiotu zabezpieczeń". Pozwoli to na dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie potrzeb aktualizacji planu tylko w celu dodania większej liczby autoryzacji.

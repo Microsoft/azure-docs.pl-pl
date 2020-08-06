@@ -2,7 +2,7 @@
 title: Dodaj niestandardową domenę Azure Active Directory | Microsoft Docs
 description: Instrukcje dotyczące sposobu dodawania domeny niestandardowej przy użyciu Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8035744cd7ff7bb3d8347a7d26796531a666bbd
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603965"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796815"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Dodaj niestandardową nazwę domeny przy użyciu portalu Azure Active Directory
 
@@ -54,7 +54,7 @@ Po utworzeniu katalogu możesz dodać swoją niestandardową nazwę domeny.
 
     ![Strona niestandardowe nazwy domen z pokazaną opcją Dodaj domenę niestandardową](media/add-custom-domain/add-custom-domain.png)
 
-1. W polu **nazwa domeny niestandardowej**wprowadź nową nazwę organizacji, w tym przykładzie *contoso.com*. Wybierz opcję **Add domain** (Dodaj domenę).
+1. W polu **nazwa domeny niestandardowej**wprowadź nową nazwę organizacji, w tym przykładzie *contoso.com*. Wybierz pozycję **Dodaj domenę**.
 
     ![Strona niestandardowe nazwy domen, z dodawaniem strony domeny niestandardowej](media/add-custom-domain/add-custom-domain-blade.png)
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538901"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797989"
 ---
 # <a name="enable-infiniband"></a>Włączanie standardu InfiniBand
 
@@ -42,11 +42,12 @@ Aby dodać rozszerzenie maszyny wirtualnej do maszyny wirtualnej, można użyć 
 [Sterowniki Mellanox OpenFabrics (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) można instalować ręcznie na maszynach wirtualnych z [obsługą wirtualizacji SR-IOV](../../sizes-hpc.md#rdma-capable-instances) [i](../../sizes-hpc.md) [serii N](../../sizes-gpu.md) .
 
 ### <a name="linux"></a>Linux
-[Sterowniki OFED dla systemu Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) można zainstalować przy użyciu poniższego przykładu. Ten przykład jest przeznaczony dla RHEL/CentOS, ale czynności są ogólne i mogą być używane dla dowolnego zgodnego systemu operacyjnego Linux, takiego jak Ubuntu (16,04, 18,04 19,04, 20,04) i SLES (12 SP4 i 15). Sterowniki skrzynki odbiorczej działają również, ale sterowniki Mellanox OFED zapewniają więcej funkcji.
+[Sterowniki OFED dla systemu Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) można zainstalować przy użyciu poniższego przykładu. Ten przykład jest przeznaczony dla RHEL/CentOS, ale czynności są ogólne i mogą być używane dla dowolnego zgodnego systemu operacyjnego Linux, takiego jak Ubuntu (16,04, 18,04 19,04, 20,04) i SLES (12 SP4 i 15). Więcej przykładów dla innych dystrybucje znajduje się w [repozytorium azhpc-images](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). Sterowniki skrzynki odbiorczej także działają również, ale sterowniki Mellanox OFED zapewniają więcej funkcji.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
-# Optinally verify checksum
+# Optionally verify checksum
+wget --retry-connrefused --tries=3 --waitretry=5 $MLNX_OFED_DOWNLOAD_URL
 tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )

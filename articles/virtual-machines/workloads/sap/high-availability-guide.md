@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5b105bf6fea8b78a11f77d73918376670be9ac5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf483d5a9b6a75ccad48908701d89d1c40206208
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052566"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759873"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure
 
@@ -1449,7 +1449,7 @@ Musisz dodać nowy parametr profilu. Parametr profil uniemożliwia zamknięcie p
 
 Aby zmodyfikować profil SAP wystąpienia ASCS/SCS:
 
-1. Dodaj ten parametr profilu do profilu wystąpienia SAP ASCS/SCS:
+1. Dodaj ten parametr profilu do profilu wystąpienia SAP ASCS/SCS, jeśli używasz ENSA1:
 
    ```
    enque/encni/set_so_keepalive = true
@@ -1461,6 +1461,8 @@ Aby zmodyfikować profil SAP wystąpienia ASCS/SCS:
    Na przykład, do profilu wystąpienia SAP SCS i odpowiedniej ścieżki:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+
+   W przypadku programów ENSA1 i ENSA2 upewnij się, że `keepalive` parametry systemu operacyjnego zostały ustawione zgodnie z opisem w temacie SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
 2. Aby zastosować zmiany, uruchom ponownie wystąpienie SAP ASCS/SCS.
 

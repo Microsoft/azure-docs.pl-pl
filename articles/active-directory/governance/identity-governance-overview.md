@@ -3,7 +3,7 @@ title: Zarządzanie tożsamościami — Azure Active Directory | Microsoft Docs
 description: Azure Active Directory Identity Governance pozwala zrównoważyć potrzebę organizacji dla bezpieczeństwa i produktywności pracowników przy użyciu odpowiednich procesów i widoczności.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65cd11f61c25af205fa1b6400a8243382673e47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077872"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796781"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Co to jest usługa Azure AD Identity Governance?
 
@@ -88,7 +88,7 @@ Chociaż nie ma doskonałego rozwiązania lub rekomendacji dla każdego klienta,
 
 Najlepszym rozwiązaniem jest użycie roli najniższych uprawnień do wykonywania zadań administracyjnych w ramach nadzoru tożsamości. Zalecamy użycie usługi Azure AD PIM do uaktywnienia roli w razie potrzeby w celu wykonania tych zadań. Poniżej wymieniono najmniej uprzywilejowane role katalogu w celu skonfigurowania funkcji zarządzania tożsamościami:
 
-| Cecha | Najmniejsza rola uprzywilejowana |
+| Cechy | Najmniejsza rola uprzywilejowana |
 | ------- | --------------------- |
 | Zarządzanie upoważnieniami | Administrator użytkowników (z wyjątkiem dodawania witryn usługi SharePoint Online do wykazów, które wymagają administratora globalnego) |
 | Przeglądy dostępu | Administrator użytkowników (z wyjątkiem przeglądów dostępu dotyczących ról platformy Azure lub usługi Azure AD, które wymagają uprzywilejowanego administratora roli) |

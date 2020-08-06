@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4c501368dfbeb95be1c5d2af9ff7aae3850257b3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087830"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761148"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD
 
@@ -111,7 +111,7 @@ W Azure Portal można zobaczyć listę ról usługi Azure AD w bloku **role i Ad
 
 Na wysokim poziomie role platformy Azure kontrolują uprawnienia do zarządzania zasobami platformy Azure, podczas gdy role usługi Azure AD kontrolują uprawnienia do zarządzania zasobami Azure Active Directory. W poniższej tabeli porównano niektóre różnice.
 
-| Role platformy Azure | Role usługi Azure AD |
+| Role platformy Azure | Role usługi Azure Active Directory |
 | --- | --- |
 | Zarządzanie dostępem do zasobów platformy Azure | Zarządzanie dostępem do zasobów usługi Azure Active Directory |
 | Obsługa ról niestandardowych | Obsługa ról niestandardowych |
@@ -128,7 +128,6 @@ Kilka ról usługi Azure AD obejmuje usługę Azure AD i Microsoft Office 365, t
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](overview.md)
+- [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](overview.md)
 - [Uprawnienia ról administratorów w usłudze Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Klasyczni administratorzy subskrypcji platformy Azure](classic-administrators.md)
-- [Struktura wdrażania chmury: zarządzanie dostępem do zasobów na platformie Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

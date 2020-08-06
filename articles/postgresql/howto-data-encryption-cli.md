@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 94c5ee53b48aa1e373099614d1637d4b6da0088b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502022"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797818"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for PostgreSQL jednego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -93,6 +93,25 @@ Po zaszyfrowaniu pojedynczego serwera Azure Database for PostgreSQL z kluczem za
 * [Tworzenie serwera repliki odczytu](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Po przywróceniu serwera ponownie Zweryfikuj szyfrowanie danych na przywróconym serwerze
+
+*   Przypisywanie tożsamości dla serwera repliki
+```azurecli-interactive
+az postgres server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*   Pobierz istniejący klucz, który ma być używany dla serwera przywróconego/repliki
+
+```azurecli-interactive
+az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*   Ustawianie zasad dla nowej tożsamości serwera przywrócenia/repliki
+
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Ponowne Weryfikowanie przywróconego serwera/repliki przy użyciu klucza szyfrowania
 
 ```azurecli-interactive
 az postgres server key create –name  <server name> -g <resource_group> --kid <key url>

@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80803147"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760145"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
@@ -28,12 +28,12 @@ Biblioteki zarządzania funkcjami platformy .NET Core poszerzają platformę Dzi
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Menedżer** > funkcji **+ Dodaj** , aby dodać flagę `Beta`funkcji o nazwie.
+6. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)
 
-    Dla `label` tej pory pozostaw niezdefiniowane. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
+    `label`Dla tej pory pozostaw niezdefiniowane. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
@@ -49,14 +49,14 @@ Użyj [interfejsu wiersza polecenia platformy .NET Core (CLI)](https://docs.micr
 
 ## <a name="add-secret-manager"></a>Dodawanie narzędzia Secret Manager
 
-Aby użyć Menedżera wpisów tajnych, `UserSecretsId` Dodaj element do pliku *. csproj* .
+Aby użyć Menedżera wpisów tajnych, Dodaj `UserSecretsId` element do pliku *. csproj* .
 
 1. Otwórz plik *. csproj* .
 
 1.  Dodaj `UserSecretsId` element, jak pokazano tutaj. Możesz użyć tego samego identyfikatora GUID lub można zastąpić tę wartość własną.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .net Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -99,7 +99,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Dodaj odwołanie do `Microsoft.Azure.AppConfiguration.AspNetCore` i pakiety `Microsoft.FeatureManagement.AspNetCore` NuGet, uruchamiając następujące polecenia:
+1. Dodaj odwołanie do `Microsoft.Azure.AppConfiguration.AspNetCore` i `Microsoft.FeatureManagement.AspNetCore` pakiety NuGet, uruchamiając następujące polecenia:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -129,7 +129,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 1. W programie *program.cs*zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration()` metody.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .net Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -171,7 +171,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     using Microsoft.FeatureManagement;
     ```
 
-1. Zaktualizuj `ConfigureServices` metodę, aby dodać obsługę flagi funkcji przez wywołanie `services.AddFeatureManagement()` metody. Opcjonalnie możesz dołączyć dowolny filtr, który ma być używany z flagami funkcji przez `services.AddFeatureFilter<FilterType>()`wywołanie:
+1. Zaktualizuj `ConfigureServices` metodę, aby dodać obsługę flagi funkcji przez wywołanie `services.AddFeatureManagement()` metody. Opcjonalnie możesz dołączyć dowolny filtr, który ma być używany z flagami funkcji przez wywołanie `services.AddFeatureFilter<FilterType>()` :
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
     ```csharp
@@ -186,7 +186,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddFeatureManagement();
+        services.AddSingleton(Configuration).AddFeatureManagement();
     }
 
     ---
@@ -288,7 +288,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Otwórz *_Layout. cshtml* w*udostępnionym* katalogu *widoki*\\i Zastąp kod `<nav>` `<body>`  >  `<header>` kreskowy poniżej następującym kodem:
+1. Otwórz *_Layout. cshtml* w *Views* \\ *udostępnionym* katalogu widoki i Zastąp `<nav>` kod kreskowy poniżej `<body>`  >  `<header>` następującym kodem:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -343,7 +343,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     dotnet run
     ```
 
-1. Otwórz okno przeglądarki i przejdź do `https://localhost:5000`, który jest domyślnym adresem URL aplikacji sieci Web hostowanej lokalnie.
+1. Otwórz okno przeglądarki i przejdź do `https://localhost:5000` , który jest domyślnym adresem URL aplikacji sieci Web hostowanej lokalnie.
     Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk *Podgląd sieci Web* , a następnie pozycję *Konfiguruj*.  Po wyświetleniu monitu wybierz pozycję port 5000.
 
     ![Znajdź przycisk Podgląd sieci Web](./media/quickstarts/cloud-shell-web-preview.png)
@@ -355,7 +355,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
 1. Wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** na **włączone**.
 
-1. Wróć do wiersza polecenia i Anuluj uruchomiony `dotnet` proces przez naciśnięcie klawisza. `Ctrl-C`  Uruchom ponownie aplikację przy `dotnet run`użyciu programu.
+1. Wróć do wiersza polecenia i Anuluj uruchomiony `dotnet` proces przez naciśnięcie klawisza `Ctrl-C` .  Uruchom ponownie aplikację przy użyciu programu `dotnet run` .
 
 1. Odśwież stronę przeglądarki, aby zobaczyć nowe ustawienia konfiguracji.
 

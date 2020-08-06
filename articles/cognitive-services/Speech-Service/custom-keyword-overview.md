@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044869"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760553"
 ---
 # <a name="what-is-a-keyword"></a>Co to jest słowo kluczowe?
 
@@ -35,6 +35,23 @@ Za pomocą funkcji dostosowywania, wydajności i integracji niestandardowego sł
 
 * Zapoznaj się z [niestandardowymi słowami kluczowymi](custom-keyword-basics.md) dotyczącymi podstawowych zastosowań i wzorców projektu.
 * Jak [głosować produkt za pomocą zestawu Speech SDK przy użyciu języka C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="choose-an-effective-keyword"></a>Wybierz efektywne słowo kluczowe
+
+Tworzenie efektywnego słowa kluczowego jest niezbędne do zapewnienia spójnej i dokładnej reakcji urządzenia. Dostosowanie słowa kluczowego jest skutecznym sposobem na odróżnienie urządzenia i wzmocnienie oznakowania. Podczas wybierania słowa kluczowego należy wziąć pod uwagę następujące wytyczne:
+
+> [!div class="checklist"]
+> * Słowo kluczowe powinno być słowem lub frazą w języku angielskim.
+> * Nie może upłynąć dłużej niż dwa sekundy.
+> * Słowa z 4 do 7 sylab działają najlepiej. Na przykład "Hej, Computer" jest dobrym słowem kluczowym. Tylko "Hej" jest słabo.
+> * Słowa kluczowe powinny być zgodne z typowymi regułami wymowy w języku angielskim
+> * Unikatowy lub nawet utworzony wyraz, który jest zgodny z typowymi regułami wymowy w języku angielskim, może obniżyć liczbę fałszywie dodatnich. Na przykład "computerama" może być dobrym słowem kluczowym.
+> * Nie wybieraj wspólnego wyrazu. Na przykład "Eat" i "go" są słowami, które ludzie często mówią w zwykłych konwersacjach. Mogą to być fałszywe wyzwalacze dla Twojego urządzenia.
+> * Unikaj używania słowa kluczowego, które może mieć alternatywne wymowy. Użytkownicy będą musieli znać wymowę "Right", aby uzyskać odpowiedzi na swoje urządzenia. Na przykład "509" może być wymawiane "5 0 9", "5 0 9" lub "509". "R.E.I." może być wymawiany "r-e-i" lub "ray". "Na żywo" może być wymawiane "/līv/" lub "/Liv/".
+> * Nie należy używać znaków specjalnych, symboli ani cyfr. Na przykład "go #" i "20 + koty" mogą być problematycznymi słowami kluczowymi. Jednak może się zdarzyć, że "nie tylko" lub "dwadzieścia i koty". Można nadal używać symboli w znakowaniu i korzystać z marketingu i dokumentacji, aby wzmocnić odpowiednią wymowę.
+
+> [!NOTE]
+> Jeśli wybierzesz słowo znakowe jako słowo kluczowe, upewnij się, że jesteś właścicielem tego znaku towarowego lub że masz uprawnienia od właściciela znaku towarowego do korzystania z tego słowa. Firma Microsoft nie ponosi odpowiedzialności za wszelkie problemy prawne, które mogą wystąpić przy wyborze słowa kluczowego.
 
 ## <a name="see-samples-on-github"></a>Zobacz przykłady w witrynie GitHub
 
