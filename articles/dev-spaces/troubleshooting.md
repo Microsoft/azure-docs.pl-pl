@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534400"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835701"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -267,7 +267,7 @@ Ten błąd występuje, ponieważ Azure Dev Spaces nie obsługuje obecnie kompila
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Ruch sieciowy nie jest przekazywany do klastra AKS podczas nawiązywania połączenia z maszyną deweloperskią
 
-W przypadku korzystania z [Azure dev Spaces do łączenia klastra AKS z maszyną deweloperskią](how-to/local-process-kubernetes-vs-code.md)może wystąpić problem polegający na tym, że ruch sieciowy nie jest przekazywany między komputerem deweloperskim i klastrem AKS.
+W przypadku korzystania z [Azure dev Spaces do łączenia klastra AKS z maszyną deweloperskią](https://code.visualstudio.com/docs/containers/local-process-kubernetes)może wystąpić problem polegający na tym, że ruch sieciowy nie jest przekazywany między komputerem deweloperskim i klastrem AKS.
 
 Podczas łączenia komputera deweloperskiego z klastrem usługi AKS Azure Dev Spaces przekazuje ruch sieciowy między klastrem AKS i komputerem deweloperskim, modyfikując plik maszyny deweloperskiej `hosts` . Azure Dev Spaces tworzy wpis w polu `hosts` z adresem usługi Kubernetes, która jest zastępowana jako nazwa hosta. Ten wpis jest używany z przekazywaniem portów do bezpośredniego ruchu sieciowego między komputerem deweloperskim i klastrem AKS. Jeśli usługa na komputerze deweloperskim jest w konflikcie z portem usługi Kubernetes, która jest zastępowana, Azure Dev Spaces nie może przekazywać ruchu sieciowego dla usługi Kubernetes. Na przykład usługa *Windows BranchCache* jest zwykle powiązana z *0.0.0.0:80*, co spowoduje konflikty dla portu 80 na wszystkich lokalnych adresach IP.
 

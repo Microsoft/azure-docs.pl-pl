@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131059"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832811"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -233,7 +233,7 @@ Platforma Azure oferuje dwa sposoby zarządzania aplikacjami i usługami z pozio
 
 -   [Azure PowerShell](../../powershell-install-configure.md): zawiera zestaw modułów z poleceniami cmdlet, które umożliwiają zarządzanie zasobami platformy Azure przy użyciu programu Windows PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 [Azure Portal](https://portal.azure.com) jest aplikacją opartą na sieci Web. Za pomocą Azure Portal można tworzyć i usuwać zasoby i usługi platformy Azure oraz zarządzać nimi. Obejmuje:
 
@@ -285,7 +285,7 @@ A także Definiowanie indywidualnych tożsamości konta platformy Azure, nazywan
 
 ### <a name="manage-your-subscriptions"></a>Zarządzanie subskrypcjami
 
-Subskrypcja to logiczna Grupa usług platformy Azure, która jest połączona z kontem platformy Azure. Pojedyncze konto platformy Azure może zawierać wiele subskrypcji. Rozliczanie usług platformy Azure odbywa się na podstawie subskrypcji. Aby uzyskać listę dostępnych ofert subskrypcji według typu, zobacz [Microsoft Azure Szczegóły oferty](https://azure.microsoft.com/support/legal/offer-details/). Subskrypcje platformy Azure mają administratora konta, który ma pełną kontrolę nad subskrypcją. Mają także administratora usługi, który ma kontrolę nad wszystkimi usługami w ramach subskrypcji. Aby uzyskać informacje na temat klasycznych administratorów subskrypcji, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Indywidualnym kontom można udzielić szczegółowej kontroli nad zasobami platformy Azure przy użyciu [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md).
+Subskrypcja to logiczna Grupa usług platformy Azure, która jest połączona z kontem platformy Azure. Pojedyncze konto platformy Azure może zawierać wiele subskrypcji. Rozliczanie usług platformy Azure odbywa się na podstawie subskrypcji. Aby uzyskać listę dostępnych ofert subskrypcji według typu, zobacz [Microsoft Azure Szczegóły oferty](https://azure.microsoft.com/support/legal/offer-details/). Subskrypcje platformy Azure mają administratora konta, który ma pełną kontrolę nad subskrypcją. Mają także administratora usługi, który ma kontrolę nad wszystkimi usługami w ramach subskrypcji. Aby uzyskać informacje na temat klasycznych administratorów subskrypcji, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Indywidualnym kontom można udzielić szczegółowej kontroli nad zasobami platformy Azure przy użyciu [kontroli dostępu opartej na rolach (RBAC) platformy Azure](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Grupy zasobów
 

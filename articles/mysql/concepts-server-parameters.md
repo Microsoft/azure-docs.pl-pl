@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963210"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835990"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -110,8 +110,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -159,8 +159,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -184,8 +184,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|* * Wartość maksymalna * *|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -198,14 +198,29 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 |Optymalizacja pod kątem pamięci|16|0|0|134217728|
 |Optymalizacja pod kątem pamięci|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+Lower_case_table_name jest domyślnie ustawiona na 1, a ten parametr można zaktualizować w programie MySQL 5,6 i MySQL 5,7
+
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) , aby dowiedzieć się więcej o tym parametrze.
+
+> [!NOTE]
+> W programie MySQL 8,0 lower_case_table_name jest domyślnie ustawiona na 1 i nie można go zmienić.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Jeśli zostanie wyświetlony komunikat o błędzie podobny do "rozmiar wiersza jest zbyt duży (> 8126)", możesz chcieć wyłączyć **innodb_strict_mode**parametru. **Innodb_strict_mode** parametru serwera nie można modyfikować globalnie na poziomie serwera, ponieważ jeśli rozmiar danych wierszy jest większy niż 8k, dane zostaną obcięte bez błędu prowadzącego do potencjalnej utraty danych. Zalecamy zmodyfikowanie schematu w celu dopasowania go do limitu rozmiaru strony. 
+
+Ten parametr można ustawić na poziomie sesji przy użyciu `init_connect` . Aby ustawić **innodb_strict_mode** na poziomie sesji, zapoznaj się z [parametrem ustawienia nie](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)ma na liście.
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) , aby dowiedzieć się więcej o tym parametrze.
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -224,8 +239,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|

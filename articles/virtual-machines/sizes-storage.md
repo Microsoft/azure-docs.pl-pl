@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 8e99ebfe53763811a86c04c53381c502cb1c25a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5af7b3373993dce1939ecd7534140e58db688579
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421080"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835582"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem magazynu
 
@@ -37,4 +37,4 @@ Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) moż
 
 Dowiedz się, jak zoptymalizować wydajność maszyn wirtualnych z serii Lsv2 dla [systemu Windows](windows/storage-performance.md) lub [Linux](linux/storage-performance.md).
 
-Aby uzyskać więcej informacji na temat nazw maszyn wirtualnych platformy Azure, zobacz [konwencje nazewnictwa maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+Aby uzyskać więcej informacji na temat nazw maszyn wirtualnych platformy Azure, zobacz [konwencje nazewnictwa maszyn wirtualnych platformy Azure](./vm-naming-conventions.md).

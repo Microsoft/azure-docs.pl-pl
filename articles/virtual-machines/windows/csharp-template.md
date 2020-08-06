@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: b649a1b3c3dc0d8dd5f7056f36714f831509b82d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 908c258dab5625cda7f2fa020257b08e68102a1d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266864"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835565"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu języka C# i szablonu Menedżer zasobów
 
@@ -326,4 +326,4 @@ Ukończenie działania tej aplikacji konsolowej od początku do końca trwa oko�
 ## <a name="next-steps"></a>Następne kroki
 
 * Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-* Dowiedz się, jak wdrożyć maszynę wirtualną i jej zasoby pomocnicze, przeglądając artykuł [Wdrażanie maszyny wirtualnej platformy Azure przy użyciu języka C#](csharp.md).
+* Dowiedz się, jak wdrożyć maszynę wirtualną i jej zasoby pomocnicze, przeglądając artykuł [Wdrażanie maszyny wirtualnej platformy Azure przy użyciu języka C#](../../azure-resource-manager/templates/deploy-rest.md).

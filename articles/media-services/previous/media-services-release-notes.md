@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: b360e58c9349bf98e8c89fcb75a46eedea1bb8fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5348b4cfb1961bdada7c32f3c437cdb2819ef6d0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000503"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833032"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -32,7 +32,7 @@ Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu proble
 ## <a name="known-issues"></a><a name="issues"></a>Znane problemy
 ### <a name="media-services-general-issues"></a><a name="general_issues"></a>Problemy ogólne Media Services
 
-| Problem | Opis |
+| Problem | Description |
 | --- | --- |
 | W interfejsie API REST nie są dostępne kilka typowych nagłówków HTTP. |W przypadku tworzenia aplikacji Media Services przy użyciu interfejsu API REST można stwierdzić, że niektóre typowe pola nagłówka HTTP (w tym identyfikator żądania klienta, identyfikator żądania i identyfikator klienta żądania) nie są obsługiwane. Nagłówki zostaną dodane w przyszłej aktualizacji. |
 | Procent — kodowanie nie jest dozwolone. |Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters` ). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości Name nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto dla rozszerzenia nazwy pliku może istnieć tylko jeden ".". |
@@ -569,7 +569,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->
@@ -580,8 +580,8 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 [Microsoft Q&A question page for Azure Media Services]: /answers/topics/azure-media-services.html
 [Dokumentacja interfejsu API REST Azure Media Services]: /rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
-[Metadane wejściowe]: /azure/media-services/previous/media-services-input-metadata-schema
-[Metadane wyjściowe]: /azure/media-services/previous/media-services-output-metadata-schema
+[Metadane wejściowe]: ./media-services-input-metadata-schema.md
+[Metadane wyjściowe]: ./media-services-output-metadata-schema.md
 [Deliver content]: /previous-versions/azure/hh973618(v=azure.100)
 [Index media files with the Azure Media Indexer]: /previous-versions/azure/dn783455(v=azure.100)
 [StreamingEndpoint]: /rest/api/media/operations/streamingendpoint
@@ -595,7 +595,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 [Dynamiczne tworzenie pakietów]: /previous-versions/azure/jj889436(v=azure.100)
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: /previous-versions/azure/dn189154(v=azure.100)
-[Logika ponawiania w zestawie Media Services SDK dla platformy .NET]: /azure/media-services/previous/media-services-retry-logic-in-dotnet-sdk
+[Logika ponawiania w zestawie Media Services SDK dla platformy .NET]: ./media-services-retry-logic-in-dotnet-sdk.md
 [Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: /previous-versions/azure/dn303341(v=azure.100)
 [Create overlays]: /previous-versions/azure/dn640496(v=azure.100)

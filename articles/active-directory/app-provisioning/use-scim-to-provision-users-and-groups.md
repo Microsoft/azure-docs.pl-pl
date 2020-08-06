@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051524"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829700"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -55,7 +55,7 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 |loginName|userName|userPrincipalName|
 |firstName|Nazwa. imię|givenName|
 |lastName|Nazwa. lastName|lastName|
-|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Poczta|
+|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
 |manager|manager|manager|
 |tag|urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtension: tag|extensionAttribute1|
 |status|aktywne|isSoftDeleted (obliczona wartość nie jest przechowywana na użytkowniku)|
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |title |
+| Stanowiska |tytuł |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -224,7 +224,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-user"></a>Utwórz użytkownika
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 
 *Opublikuj/users*
 ```json
@@ -282,7 +282,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user"></a>Pobieranie użytkownika
 
-###### <a name="request"></a><a name="request-1"></a>Request
+###### <a name="request"></a><a name="request-1"></a>Żądanie
 *Pobierz/users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Odpowiedź (znaleziono użytkownika)
@@ -312,7 +312,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 *Pobierz/users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Odpowiedź (nie znaleziono użytkownika. Należy zauważyć, że szczegóły nie są wymagane, tylko stan.)
@@ -329,7 +329,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query"></a>Pobierz użytkownika według zapytania
 
-##### <a name="request"></a><a name="request-2"></a>Request
+##### <a name="request"></a><a name="request-2"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -370,7 +370,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query---zero-results"></a>Pobierz użytkownika według zapytania — wyniki zerowe
 
-##### <a name="request"></a><a name="request-3"></a>Request
+##### <a name="request"></a><a name="request-3"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
@@ -390,7 +390,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-multi-valued-properties"></a>Aktualizowanie użytkownika [właściwości wielowartościowe]
 
-##### <a name="request"></a><a name="request-4"></a>Request
+##### <a name="request"></a><a name="request-4"></a>Żądanie
 
 *Poprawka/users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -441,7 +441,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-single-valued-properties"></a>Aktualizowanie użytkownika [właściwości pojedynczej wartości]
 
-##### <a name="request"></a><a name="request-5"></a>Request
+##### <a name="request"></a><a name="request-5"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -486,7 +486,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="disable-user"></a>Wyłączanie użytkownika
 
-##### <a name="request"></a><a name="request-14"></a>Request
+##### <a name="request"></a><a name="request-14"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -540,7 +540,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ```
 #### <a name="delete-user"></a>Usuń użytkownika
 
-##### <a name="request"></a><a name="request-6"></a>Request
+##### <a name="request"></a><a name="request-6"></a>Żądanie
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -557,7 +557,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-group"></a>Tworzenie grupy
 
-##### <a name="request"></a><a name="request-7"></a>Request
+##### <a name="request"></a><a name="request-7"></a>Żądanie
 
 */Groups HTTP/1.1*
 ```json
@@ -592,7 +592,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group"></a>Pobieranie grupy
 
-##### <a name="request"></a><a name="request-8"></a>Request
+##### <a name="request"></a><a name="request-8"></a>Żądanie
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
@@ -614,7 +614,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group-by-displayname"></a>Pobierz grupowanie według displayName
 
-##### <a name="request"></a><a name="request-9"></a>Request
+##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Odpowiedź
@@ -643,7 +643,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-non-member-attributes"></a>Aktualizacja grupy [atrybuty niebędące elementami członkowskimi]
 
-##### <a name="request"></a><a name="request-10"></a>Request
+##### <a name="request"></a><a name="request-10"></a>Żądanie
 
 *Poprawka/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -663,7 +663,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="update-group-add-members"></a>Grupa aktualizacji [Dodaj członków]
 
-##### <a name="request"></a><a name="request-11"></a>Request
+##### <a name="request"></a><a name="request-11"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -686,7 +686,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-remove-members"></a>Grupa aktualizacji [usuwanie członków]
 
-##### <a name="request"></a><a name="request-12"></a>Request
+##### <a name="request"></a><a name="request-12"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -709,7 +709,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="delete-group"></a>Usuń grupę
 
-##### <a name="request"></a><a name="request-13"></a>Request
+##### <a name="request"></a><a name="request-13"></a>Żądanie
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -745,7 +745,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning może obecnie działać w ramach dowolnego zakresu adresów IP platformy Azure. Trwa konsolidacja zestawu zakresów adresów IP, na których działa usługa. Ten dokument zostanie zaktualizowany po skonsolidowaniu listy zakresów adresów IP. 
+Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory i AzureActiveDirectoryDomainServices, jak wymieniono w [tym miejscu](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Trwa wykonywanie zadań konsolidacji do tylko zakresów adresów IP w obszarze usługi azureactivedirectory. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 

@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności opartej na agentach w ocenie serwera 
 description: W tym artykule opisano sposób konfigurowania analizy zależności opartej na agentach w ramach oceny serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321211"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829921"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurowanie wizualizacji zależności
 
@@ -104,7 +104,7 @@ Aby zainstalować MMA na komputerze z systemem Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Dowiedz się więcej](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) na temat sposobu instalowania agenta zależności za pomocą skryptów.
+- [Dowiedz się więcej](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) na temat sposobu instalowania agenta zależności za pomocą skryptów.
 - [Dowiedz się więcej](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) o systemach operacyjnych obsługiwanych przez agenta zależności.
 
 
@@ -208,5 +208,3 @@ VMConnection
 ## <a name="next-steps"></a>Następne kroki
 
 [Utwórz ocenę](how-to-create-assessment.md) dla grupy.
-
-

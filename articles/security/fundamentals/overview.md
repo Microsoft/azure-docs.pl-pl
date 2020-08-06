@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543830"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835939"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -239,10 +239,10 @@ Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między r
 
 Aplikacja oferuje wiele funkcji kontrolera dostarczania aplikacji (ADC), w tym Równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, [odciążanie protokołu TLS](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), niestandardowe sondy kondycji, obsługę wielu witryn i wiele innych.
 
-### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a>Web Application Firewall
 Zapora aplikacji sieci Web to funkcja [platformy Azure Application Gateway](../../application-gateway/overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają usługi Application Gateway do standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji internetowej realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach w Internecie OWASP.
 
-![Zapora aplikacji internetowej](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-fig1.png)
 
 -   Ochrona przed atakami polegającymi na iniekcji SQL
 
@@ -288,7 +288,7 @@ Następujące kategorie dzienników diagnostycznych można włączyć dla siecio
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/security-center-recommendations.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji w tym obszarze oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="antimalware--antivirus"></a>Złośliwe oprogramowanie & antywirusowe
@@ -336,7 +336,7 @@ Firma Microsoft używa wielu rozwiązań w zakresie zabezpieczeń i usług w cel
 
 -   [Uwierzytelnianie oparte na tokenach](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) umożliwia uwierzytelnianie za pośrednictwem Azure Active Directory.
 
--   [Kontrola dostępu oparta na rolach (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) umożliwia udzielanie dostępu na podstawie przypisanej roli użytkownika, dzięki czemu użytkownicy będą mogli uzyskać dostęp tylko do tych użytkowników, których potrzebują do wykonywania swoich obowiązków. Można dostosować RBAC na model biznesowy organizacji i tolerancję ryzyka.
+-   [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) umożliwia udzielanie dostępu na podstawie przypisanej roli użytkownika, dzięki czemu użytkownicy mogą łatwo przydzielać użytkownikom tylko te dane, których potrzebują do wykonywania swoich zadań. Można dostosować RBAC na model biznesowy organizacji i tolerancję ryzyka.
 
 -   [Zintegrowana usługa zarządzania tożsamościami (tożsamość hybrydowa)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) pozwala zachować kontrolę dostępu użytkowników w wewnętrznych centrach danych i na platformach w chmurze, tworząc pojedynczą tożsamość użytkownika w celu uwierzytelniania i autoryzacji do wszystkich zasobów.
 

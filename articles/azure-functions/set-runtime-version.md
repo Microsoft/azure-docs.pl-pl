@@ -3,12 +3,12 @@ title: Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 description: Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego aplikacji funkcji hostowanej na platformie Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079659"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830873"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 
@@ -16,12 +16,12 @@ Aplikacja funkcji jest uruchamiana w określonej wersji środowiska uruchomienio
 
 ## <a name="automatic-and-manual-version-updates"></a>Aktualizacje automatyczne i ręczne
 
-Azure Functions umożliwia kierowanie do określonej wersji środowiska uruchomieniowego przy użyciu `FUNCTIONS_EXTENSION_VERSION` Ustawienia aplikacji w aplikacji funkcji. Aplikacja funkcji jest przechowywana w określonej wersji głównej, dopóki użytkownik nie zdecyduje się na przejście do nowej wersji.
+Azure Functions umożliwia kierowanie do określonej wersji środowiska uruchomieniowego przy użyciu `FUNCTIONS_EXTENSION_VERSION` Ustawienia aplikacji w aplikacji funkcji. Aplikacja funkcji jest przechowywana w określonej wersji głównej, dopóki użytkownik nie zdecyduje się na przejście do nowej wersji. Jeśli określisz tylko wersję główną, aplikacja funkcji zostanie automatycznie zaktualizowana do nowej wersji pomocniczej środowiska uruchomieniowego, gdy staną się dostępne. Nowe wersje pomocnicze nie powinny wprowadzać drobnych zmian. 
 
-Jeśli określisz tylko wersję główną, aplikacja funkcji zostanie automatycznie zaktualizowana do nowej wersji pomocniczej środowiska uruchomieniowego, gdy staną się dostępne. Nowe wersje pomocnicze nie powinny wprowadzać drobnych zmian. W przypadku określenia wersji pomocniczej (na przykład "2.0.12345") aplikacja funkcji jest przypięta do tej konkretnej wersji, dopóki nie zostanie ona jawnie zmieniona.
+W przypadku określenia wersji pomocniczej (na przykład "2.0.12345") aplikacja funkcji jest przypięta do tej konkretnej wersji, dopóki nie zostanie ona jawnie zmieniona. Starsze wersje pomocnicze są regularnie usuwane ze środowiska produkcyjnego. Po takim wystąpieniu aplikacja funkcji jest uruchamiana w najnowszej wersji, a nie w wersji ustawionej w programie `FUNCTIONS_EXTENSION_VERSION` . W związku z tym należy szybko rozwiązać wszelkie problemy z aplikacją funkcji wymagającą określonej wersji pomocniczej, aby można było użyć wersji głównej. Usuwanie wersji pomocniczej są ogłaszane w [anonsach App Service](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
-> Jeśli przywrócisz do określonej wersji Azure Functions, a następnie spróbujesz opublikować ją na platformie Azure przy użyciu programu Visual Studio, zostanie wyświetlone okno dialogowe z monitem o aktualizację do najnowszej wersji lub anulowanie publikacji. Aby tego uniknąć, należy dodać `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` Właściwość w `.csproj` pliku.
+> Jeśli przywrócisz do określonej wersji głównej Azure Functions, a następnie spróbujesz opublikować ją na platformie Azure przy użyciu programu Visual Studio, zostanie wyświetlone okno dialogowe z monitem o aktualizację do najnowszej wersji lub anulowanie publikacji. Aby tego uniknąć, należy dodać `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` Właściwość w `.csproj` pliku.
 
 Gdy nowa wersja jest publicznie dostępna, w portalu zostanie wyświetlony monit o przeniesienie do tej wersji. Po przejściu do nowej wersji zawsze możesz użyć `FUNCTIONS_EXTENSION_VERSION` Ustawienia aplikacji, aby wrócić do poprzedniej wersji.
 

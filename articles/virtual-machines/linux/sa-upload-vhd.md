@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292258"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830312"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-Docelowe konto magazynu musi być takie samo, jak miejsce przekazania dysku wirtualnego. Należy również określić lub odpowiedzieć na pytanie, wszystkie dodatkowe parametry wymagane przez polecenie **AZ VM Create** , takie jak sieć wirtualna, publiczny adres IP, nazwa użytkownika i klucze SSH. Więcej informacji na temat [dostępnych klasycznych parametrów Menedżer zasobów interfejsu wiersza polecenia](../azure-cli-arm-commands.md#virtual-machines)można znaleźć w artykule.
+Docelowe konto magazynu musi być takie samo, jak miejsce przekazania dysku wirtualnego. Należy również określić lub odpowiedzieć na pytanie, wszystkie dodatkowe parametry wymagane przez polecenie **AZ VM Create** , takie jak sieć wirtualna, publiczny adres IP, nazwa użytkownika i klucze SSH. Więcej informacji na temat [dostępnych klasycznych parametrów Menedżer zasobów interfejsu wiersza polecenia](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines)można znaleźć w artykule.
 
 ## <a name="requirements"></a>Wymagania
 Aby wykonać następujące kroki, potrzebne są:

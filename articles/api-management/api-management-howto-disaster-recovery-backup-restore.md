@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250465"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830261"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Jak zaimplementować odzyskiwanie po awarii przy użyciu funkcji tworzenia i przywracania kopii zapasowych w usłudze Azure API Management
 
@@ -169,19 +169,24 @@ Ustaw wartość `Content-Type` nagłówka żądania na `application/json` .
 
 Kopia zapasowa to długotrwała operacja, która może trwać dłużej niż minutę. Jeśli żądanie zakończyło się pomyślnie, a proces tworzenia kopii zapasowej został rozpoczęty, otrzymasz `202 Accepted` kod stanu odpowiedzi z `Location` nagłówkiem. Utwórz żądania "GET" na adres URL w `Location` nagłówku, aby sprawdzić stan operacji. Gdy trwa wykonywanie kopii zapasowej, nadal otrzymujesz kod stanu "202 zaakceptowany". Kod odpowiedzi `200 OK` wskazuje pomyślne zakończenie operacji tworzenia kopii zapasowej.
 
-Podczas wykonywania żądania utworzenia kopii zapasowej lub przywracania należy uwzględnić następujące ograniczenia:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Ograniczenia podczas tworzenia kopii zapasowej lub przywracania
 
 -   **Kontener** określony w treści żądania **musi istnieć**.
 -   Gdy trwa wykonywanie kopii zapasowej, należy **unikać zmian w usłudze** , takich jak uaktualnianie lub obniżanie poziomu jednostki SKU, zmiana nazwy domeny i nie tylko.
 -   Przywracanie **kopii zapasowej jest gwarantowane tylko przez 30 dni** od momentu jego utworzenia.
--   **Dane użycia** używane do tworzenia raportów analitycznych **nie są uwzględnione** w kopii zapasowej. Użyj [interfejsu API REST usługi Azure API Management][azure api management rest api] , aby okresowo pobierać raporty analityczne w celu zabezpieczenia.
--   Ponadto następujące elementy nie są częścią danych kopii zapasowej: niestandardowe domeny protokołu TLS/SSL i wszystkie certyfikaty pośrednich lub głównych przekazane przez klienta, zawartość portalu deweloperów i ustawienia integracji sieci wirtualnej.
--   Częstotliwość wykonywania kopii zapasowych usługi ma wpływ na cel punktu odzyskiwania. Aby zminimalizować, zalecamy wdrożenie zwykłych kopii zapasowych i wykonywanie kopii zapasowych na żądanie po wprowadzeniu zmian w usłudze API Management.
 -   **Zmiany** wprowadzone w konfiguracji usługi (na przykład dotyczące interfejsów API, zasad i wyglądu portalu deweloperów), gdy operacja tworzenia kopii zapasowej jest w toku, **mogą zostać wykluczone z kopii zapasowej i zostaną utracone**.
--   **Zezwalaj na** dostęp z płaszczyzny kontroli do konta usługi Azure Storage, jeśli ma on włączoną [zaporę][azure-storage-ip-firewall] . Klient powinien otworzyć zestaw [adresów IP płaszczyzny kontroli usługi Azure API Management][control-plane-ip-address] na swoim koncie magazynu na potrzeby tworzenia kopii zapasowych lub przywracania. 
+-   **Zezwalaj na** dostęp z płaszczyzny kontroli do konta usługi Azure Storage, jeśli ma on włączoną [zaporę][azure-storage-ip-firewall] . Klient powinien otworzyć zestaw [adresów IP płaszczyzny kontroli usługi Azure API Management][control-plane-ip-address] na swoim koncie magazynu na potrzeby tworzenia kopii zapasowych lub przywracania. Wynika to z faktu, że żądania kierowane do usługi Azure Storage nie są podłączony do publicznego adresu IP z > obliczeniowych (płaszczyzna kontroli usługi Azure API Management). Żądanie magazynu między regionami zostanie podłączony.
 
-> [!NOTE]
-> Jeśli podjęto próbę wykonania kopii zapasowej/przywrócenia z/do usługi API Management przy użyciu konta magazynu z włączoną [zaporą][azure-storage-ip-firewall] , w tym samym regionie platformy Azure nie będzie to możliwe. Wynika to z faktu, że żądania kierowane do usługi Azure Storage nie są podłączony do publicznego adresu IP z > obliczeniowych (płaszczyzna kontroli usługi Azure API Management). Żądanie magazynu między regionami zostanie podłączony.
+#### <a name="what-is-not-backed-up"></a>Co nie jest kopią zapasową
+-   **Dane użycia** używane do tworzenia raportów analitycznych **nie są uwzględnione** w kopii zapasowej. Użyj [interfejsu API REST usługi Azure API Management][azure api management rest api] , aby okresowo pobierać raporty analityczne w celu zabezpieczenia.
+-   [Niestandardowe certyfikaty protokołu TLS/SSL dla domeny](configure-custom-domain.md)
+-   [Niestandardowy certyfikat urzędu certyfikacji](api-management-howto-ca-certificates.md) obejmujący certyfikaty pośrednie lub główne przekazane przez klienta
+-   Ustawienia integracji [sieci wirtualnej](api-management-using-with-vnet.md) .
+-   Konfiguracja [tożsamości zarządzanej](api-management-howto-use-managed-service-identity.md) .
+-   [Diagnostyka Azure monitor](api-management-howto-use-azure-monitor.md) Skonfigurować.
+-   [Protokoły i ustawienia szyfrowania](api-management-howto-manage-protocols-ciphers.md) .
+
+Częstotliwość wykonywania kopii zapasowych usługi ma wpływ na cel punktu odzyskiwania. Aby zminimalizować, zalecamy wdrożenie zwykłych kopii zapasowych i wykonywanie kopii zapasowych na żądanie po wprowadzeniu zmian w usłudze API Management.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Przywracanie usługi API Management
 

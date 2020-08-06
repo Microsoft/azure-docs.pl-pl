@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 3f7d08e2290291dfcd931ed5609e30d5fec9f973
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835650"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
-Centrum zabezpieczeń Azure używa [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/role-assignments-portal.md), która zapewnia [wbudowane role](../role-based-access-control/built-in-roles.md), które można przypisać do użytkowników, grup i usług Azure.
+Azure Security Center używa [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), która udostępnia [wbudowane role](../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure.
 
 Security Center ocenia konfigurację zasobów w celu zidentyfikowania problemów i luk w zabezpieczeniach. W Security Center widoczne są tylko informacje związane z zasobem, gdy przypiszesz rolę właściciela, współautora lub czytelnika dla subskrypcji lub grupy zasobów, do której należy zasób.
 

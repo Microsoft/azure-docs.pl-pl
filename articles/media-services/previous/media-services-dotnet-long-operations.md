@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7298e935da8b4c81bfb0a7b07d9f94f7c100b2b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038787"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831740"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Dostarczanie przesyłania strumieniowego na żywo za pomocą Azure Media Services
 
@@ -27,7 +27,7 @@ ms.locfileid: "87038787"
 
 Microsoft Azure Media Services oferuje interfejsy API, które wysyłają żądania Media Services do uruchamiania operacji (na przykład: Tworzenie, uruchamianie, zatrzymywanie lub usuwanie kanału). Te operacje są długotrwałe.
 
-Zestaw Media Services .NET SDK udostępnia interfejsy API, które wysyłają żądanie i oczekują na ukończenie operacji (wewnętrznie interfejsy API są sondowane w przypadku postępów operacji w określonych odstępach czasu). Na przykład po wywołaniu kanału. Start () — Metoda zwraca po uruchomieniu kanału. Można również użyć wersji asynchronicznej: await kanału. StartAsync () (Aby uzyskać informacje na temat wzorca asynchronicznego opartego na zadaniach, zobacz [TAP](/azure/media-services/previous/media-services-mes-schema)). Interfejsy API, które wysyłają żądanie operacji, a następnie sondowania stanu do momentu zakończenia operacji, są nazywane "metodami sondowania". Te metody (szczególnie wersja Async) są zalecane w przypadku rozbudowanych aplikacji klienckich i/lub usług stanowych.
+Zestaw Media Services .NET SDK udostępnia interfejsy API, które wysyłają żądanie i oczekują na ukończenie operacji (wewnętrznie interfejsy API są sondowane w przypadku postępów operacji w określonych odstępach czasu). Na przykład po wywołaniu kanału. Start () — Metoda zwraca po uruchomieniu kanału. Można również użyć wersji asynchronicznej: await kanału. StartAsync () (Aby uzyskać informacje na temat wzorca asynchronicznego opartego na zadaniach, zobacz [TAP](./media-services-mes-schema.md)). Interfejsy API, które wysyłają żądanie operacji, a następnie sondowania stanu do momentu zakończenia operacji, są nazywane "metodami sondowania". Te metody (szczególnie wersja Async) są zalecane w przypadku rozbudowanych aplikacji klienckich i/lub usług stanowych.
 
 Istnieją scenariusze, w których aplikacja nie może czekać na długotrwałe żądanie HTTP i chce przeprowadzić ręczne sondowanie postępu operacji. Typowym przykładem jest przeglądarka korzystająca z bezstanowej usługi sieci Web: gdy przeglądarka żąda utworzenia kanału, usługa sieci Web inicjuje długotrwałą operację i zwraca identyfikator operacji do przeglądarki. Przeglądarka może następnie poprosił usługi sieci Web o uzyskanie stanu operacji na podstawie identyfikatora. Zestaw SDK Media Services platformy .NET udostępnia interfejsy API, które są przydatne w tym scenariuszu. Te interfejsy API są nazywane "metodami niesondowania".
 "Metody, które nie są sondowane" mają następujący wzorzec nazewnictwa:*sendname operacji (* na przykład SendCreateOperation). Metody*operacji sendname*zwracają obiekt **IOperation** ; zwrócony obiekt zawiera informacje, które mogą być używane do śledzenia operacji. Metody*sendname*OperationAsync zwracają **zadanie \<IOperation> **.
@@ -213,5 +213,5 @@ Console.WriteLine(channelId);
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

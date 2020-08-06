@@ -3,12 +3,12 @@ title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385725"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829887"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -169,7 +169,7 @@ Nie, nie można wyeksportować raportu wizualizacji zależności w wizualizacji 
 
 Dla wizualizacji zależności opartej na agentach:
 
-- [Zainstaluj agenta zależności](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)przy użyciu skryptu.
+- [Zainstaluj agenta zależności](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent)przy użyciu skryptu.
 - W przypadku MMA należy [użyć wiersza polecenia lub automatyzacji](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)lub użyć [skryptu](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Oprócz skryptów można użyć narzędzi wdrażania, takich jak Microsoft Endpoint Configuration Manager i [Intigua](https://www.intigua.com/intigua-for-azure-migration) , aby wdrożyć agentów.
 

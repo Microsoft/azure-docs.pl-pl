@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319239"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832981"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
@@ -48,7 +48,7 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
 1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza.
 
    > [!NOTE]
-   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Ten przykład wybiera kalendarz sprawdzany przez wyzwalacz, na przykład:
 
@@ -81,7 +81,7 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
 
    > [!NOTE]
-   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Ten przykład wybiera folder Kontakty, w którym akcja tworzy nowy kontakt, na przykład:
 

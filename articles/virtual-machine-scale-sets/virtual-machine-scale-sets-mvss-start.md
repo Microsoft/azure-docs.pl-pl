@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503051"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831502"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informacje o szablonach zestawu skalowania maszyn wirtualnych
 [Szablony usługi Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) to doskonały sposób wdrażania grup powiązanych zasobów. W tej serii samouczków pokazano, jak utworzyć podstawowy szablon zestawu skalowania i jak zmodyfikować ten szablon w celu dopasowania do różnych scenariuszy. Wszystkie przykłady pochodzą z tego [repozytorium GitHub](https://github.com/gatneil/mvss).
@@ -115,7 +115,7 @@ W takim przypadku na liście znajduje się tylko jeden element sieci wirtualnej 
 ## <a name="specify-scale-set-properties"></a>Określ właściwości zestawu skalowania
 Zestawy skalowania mają wiele właściwości do dostosowywania maszyn wirtualnych w zestawie skalowania. Aby zapoznać się z pełną listą tych właściwości, zobacz [odwołanie do szablonu](/azure/templates/microsoft.compute/virtualmachinescalesets). Na potrzeby tego samouczka są ustawiane tylko kilka najczęściej używanych właściwości.
 ### <a name="supply-vm-size-and-capacity"></a>Określanie rozmiaru i pojemności maszyny wirtualnej
-Zestaw skalowania musi wiedzieć, jaki rozmiar maszyny wirtualnej utworzyć ("Nazwa jednostki SKU") oraz liczbę takich maszyn wirtualnych do utworzenia ("pojemność jednostki SKU"). Aby sprawdzić, które rozmiary maszyn wirtualnych są dostępne, zobacz [dokumentację dotyczącą rozmiarów maszyn wirtualnych](../virtual-machines/windows/sizes.md).
+Zestaw skalowania musi wiedzieć, jaki rozmiar maszyny wirtualnej utworzyć ("Nazwa jednostki SKU") oraz liczbę takich maszyn wirtualnych do utworzenia ("pojemność jednostki SKU"). Aby sprawdzić, które rozmiary maszyn wirtualnych są dostępne, zobacz [dokumentację dotyczącą rozmiarów maszyn wirtualnych](../virtual-machines/sizes.md).
 
 ```json
        "sku": {

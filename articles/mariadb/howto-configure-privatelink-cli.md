@@ -7,19 +7,19 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 794f9feaaa201ade6c824852e3609be6489a8513
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8f94c34281adbe274ad70425850e2ade4dc94ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833219"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. W tym artykule dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć maszynę wirtualną w usłudze Azure Virtual Network i na serwerze Azure Database for MariaDB za pomocą prywatnego punktu końcowego platformy Azure.
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MariaDB obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -187,7 +187,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 Gdy nie jest już potrzebne, można użyć polecenie AZ Group Delete, aby usunąć grupę zasobów i wszystkie jej zasoby: 
 
 ```azurecli-interactive

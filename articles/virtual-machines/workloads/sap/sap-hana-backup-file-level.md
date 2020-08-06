@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035744"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833389"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup na poziomie pliku
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035744"
 
 Ten artykuł zawiera pokrewny artykuł dotyczący [podręcznika tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines](./sap-hana-backup-guide.md), który oferuje przegląd oraz informacje na temat rozpoczynania pracy i dalszych szczegółowych informacji na temat Azure Backup migawek usług i magazynów. 
 
-Różne typy maszyn wirtualnych na platformie Azure umożliwiają dołączenie innej liczby wirtualnych dysków twardych. Dokładne szczegóły są udokumentowane w [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md). W przypadku testów, do których odwołuje się ta dokumentacja, używana jest maszyna wirtualna platformy Azure GS5, która umożliwia 64 dołączonych dysków danych. W przypadku większych systemów SAP HANA można już wykonać znaczną liczbę dysków dla plików danych i dziennika, prawdopodobnie w połączeniu z rozłożeniem oprogramowania w celu zapewnienia optymalnej przepływności we/wy dysku. Aby uzyskać więcej informacji na temat sugerowanych konfiguracji dysków dla wdrożeń SAP HANA na maszynach wirtualnych platformy Azure, zapoznaj się z artykułem [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Zalecenia zawarte w programie obejmują również zalecenia dotyczące miejsca na dysku dla lokalnych kopii zapasowych.
+Różne typy maszyn wirtualnych na platformie Azure umożliwiają dołączenie innej liczby wirtualnych dysków twardych. Dokładne szczegóły są udokumentowane w [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md). W przypadku testów, do których odwołuje się ta dokumentacja, używana jest maszyna wirtualna platformy Azure GS5, która umożliwia 64 dołączonych dysków danych. W przypadku większych systemów SAP HANA można już wykonać znaczną liczbę dysków dla plików danych i dziennika, prawdopodobnie w połączeniu z rozłożeniem oprogramowania w celu zapewnienia optymalnej przepływności we/wy dysku. Aby uzyskać więcej informacji na temat sugerowanych konfiguracji dysków dla wdrożeń SAP HANA na maszynach wirtualnych platformy Azure, zapoznaj się z artykułem [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Zalecenia zawarte w programie obejmują również zalecenia dotyczące miejsca na dysku dla lokalnych kopii zapasowych.
 
 Standardową metodą zarządzania wykonywaniem kopii zapasowych/przywracania na poziomie plików jest tworzenie kopii zapasowej opartej na plikach za pośrednictwem SAP HANA Studio lub SAP HANA instrukcji SQL. Aby uzyskać więcej informacji, zapoznaj się z artykułem [SAP HANA Dokumentacja usługi SQL i widoki systemowe](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 

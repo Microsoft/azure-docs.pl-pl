@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 2667ff571070b2e62dcfa4af6e202f1851aa3e80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525776"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835548"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią z wieloma kartami sieciowymi
-Maszyny wirtualne na platformie Azure mogą mieć dołączone do nich wiele kart interfejsów sieci wirtualnej (nic). Typowym scenariuszem jest posiadanie różnych podsieci na potrzeby łączności frontonu i zaplecza. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej, do której dołączono wiele kart sieciowych. Dowiesz się również, jak dodawać i usuwać karty sieciowe z istniejącej maszyny wirtualnej. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej.
+Maszyny wirtualne na platformie Azure mogą mieć dołączone do nich wiele kart interfejsów sieci wirtualnej (nic). Typowym scenariuszem jest posiadanie różnych podsieci na potrzeby łączności frontonu i zaplecza. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej, do której dołączono wiele kart sieciowych. Dowiesz się również, jak dodawać i usuwać karty sieciowe z istniejącej maszyny wirtualnej. Różne [rozmiary maszyn wirtualnych](../sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 Zwykle należy również utworzyć [sieciową grupę zabezpieczeń](../../virtual-network/security-overview.md) w celu przefiltrowania ruchu sieciowego do maszyny wirtualnej i [modułu równoważenia obciążenia](../../load-balancer/load-balancer-overview.md) w celu dystrybucji ruchu między wieloma maszynami wirtualnymi.
 
 ### <a name="create-the-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny wirtualnej ma limit łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych z systemem Windows](sizes.md).
+Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny wirtualnej ma limit łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md).
 
 1. Skonfiguruj poświadczenia maszyny wirtualnej do `$cred` zmiennej w następujący sposób:
 
@@ -119,7 +119,7 @@ Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny 
 6. Aby dodać trasy dla pomocniczych kart sieciowych do systemu operacyjnego, wykonaj kroki opisane w temacie [Konfigurowanie systemu operacyjnego dla wielu kart sieciowych](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Dodawanie karty sieciowej do istniejącej maszyny wirtualnej
-Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofnij przydział maszyny wirtualnej, Dodaj wirtualną kartę sieciową, a następnie uruchom maszynę wirtualną. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej. W razie konieczności można [zmienić rozmiar maszyny wirtualnej](resize-vm.md).
+Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofnij przydział maszyny wirtualnej, Dodaj wirtualną kartę sieciową, a następnie uruchom maszynę wirtualną. Różne [rozmiary maszyn wirtualnych](../sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej. W razie konieczności można [zmienić rozmiar maszyny wirtualnej](resize-vm.md).
 
 1. Cofnij przydział maszyny wirtualnej za pomocą [stop-AzVM](/powershell/module/az.compute/stop-azvm). Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
 
@@ -288,4 +288,4 @@ Platforma Azure przypisuje bramę domyślną do pierwszego (podstawowego) interf
     Trasa wymieniona przy użyciu *192.168.1.1* w obszarze **brama**jest trasą domyślną dla podstawowego interfejsu sieciowego. Trasa z *192.168.2.1* w obszarze **brama**jest dodaną trasą.
 
 ## <a name="next-steps"></a>Następne kroki
-Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych. 
+Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych. 

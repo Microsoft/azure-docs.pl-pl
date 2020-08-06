@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9e67dc0da7f81f73d8237769e7aea90f9bc1585
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771295"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833423"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -40,7 +40,7 @@ W zależności od rozmiaru i struktury organizacji wiele osób oraz zespołów m
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Przykład:
+Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Na przykład:
 
 **Jan (właściciel obciążenia)**
 
@@ -69,7 +69,7 @@ Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązkó
 * Bada ataki
 * Praca z właścicielem obciążenia chmury w celu zastosowania rozwiązania
 
-Usługa Security Center używa [kontroli dostępu opartej na rolach](../role-based-access-control/role-assignments-portal.md) udostępniającej [wbudowane role](../role-based-access-control/built-in-roles.md), które można przypisać do użytkowników, grup i usług na platformie Azure. Gdy użytkownik otwiera usługę Security Center, widzi tylko informacje dotyczące zasobów, do których ma dostęp. Oznacza to, że użytkownik ma przypisaną rolę właściciela, współautora lub czytelnika subskrypcji albo grupy zasobów, do której należy zasób. Oprócz tych ról istnieją dwie określone role usługi Security Center:
+Security Center używa [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), która udostępnia [wbudowane role](../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure. Gdy użytkownik otwiera usługę Security Center, widzi tylko informacje dotyczące zasobów, do których ma dostęp. Oznacza to, że użytkownik ma przypisaną rolę właściciela, współautora lub czytelnika subskrypcji albo grupy zasobów, do której należy zasób. Oprócz tych ról istnieją dwie określone role usługi Security Center:
 
 - **Czytelnik zabezpieczeń**: użytkownik, który należy do tej roli, może wyświetlać tylko konfiguracje usługi Security Center, co obejmuje zalecenia, alerty, zasady i kondycję, ale nie może wprowadzać zmian.
 - **Administrator zabezpieczeń**: użytkownik ma takie same uprawnienia, jak w przypadku roli Czytelnik zabezpieczeń, ale ma również możliwość aktualizowania zasad zabezpieczeń oraz odrzucania zaleceń i alertów.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367405"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835905"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -195,7 +195,7 @@ Organizacje, które nie dodawaj dodatkowych warstw ochrony tożsamości, takich 
 
 ## <a name="use-role-based-access-control"></a>Korzystanie z kontroli dostępu opartej na rolach
 
-Zarządzanie dostępem do zasobów w chmurze ma kluczowe znaczenie dla każdej organizacji korzystającej z chmury. [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)ułatwia zarządzanie, kto ma dostęp do zasobów platformy Azure, co można zrobić z tymi zasobami i jakie obszary mają do nich dostęp.
+Zarządzanie dostępem do zasobów w chmurze ma kluczowe znaczenie dla każdej organizacji korzystającej z chmury. [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)umożliwia zarządzanie, kto ma dostęp do zasobów platformy Azure, co można zrobić z tymi zasobami i jakie obszary mają do nich dostęp.
 
 Wyznaczanie grup lub poszczególnych ról odpowiadających określonym funkcjom na platformie Azure pomaga uniknąć nieporozumień, które mogą prowadzić do błędów ludzi i automatyzacji, które tworzą zagrożenia bezpieczeństwa. Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych.
 

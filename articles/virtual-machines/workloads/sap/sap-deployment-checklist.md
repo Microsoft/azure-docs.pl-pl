@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495662"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836347"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -63,7 +63,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
         - W oparciu o RTO i cel punktu odzyskiwania należy określić, co ma być podobne do potrzeb.
         - Aby zapewnić wysoką dostępność w ramach strefy, sprawdź, co wymaga system DBMS do zaoferowania na platformie Azure. Większość pakietów systemu DBMS oferuje synchroniczną metodę synchronicznej rezerwy gorącą, którą zalecamy dla systemów produkcyjnych. Zapoznaj się również z dokumentacją dotyczącą oprogramowania SAP dla różnych baz danych, rozpoczynając od [uwagi dotyczącej wdrożenia systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md) i powiązanych dokumentów.
            Używanie klastra trybu failover systemu Windows Server z konfiguracją dysku udostępnionego dla warstwy DBMS, na przykład [opisanej dla SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), nie jest obsługiwane. Zamiast tego należy używać rozwiązań, takich jak:
-           - [Opcja Zawsze włączone programu SQL Server](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [Opcja Zawsze włączone programu SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Replikacja systemu HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - W przypadku odzyskiwania po awarii w regionach platformy Azure Zapoznaj się z rozwiązaniami oferowanymi przez różnych dostawców systemów DBMS. Większość z nich obsługuje replikację asynchroniczną lub wysyłanie dzienników.
@@ -103,8 +103,8 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
         - Zapoznaj się z informacjami w temacie Informacje o pomocy technicznej SAP, w katalogu sprzętu SAP HANA i w usłudze PAM SAP ponownie. Upewnij się, że nie ma żadnych zmian na obsługiwanych maszynach wirtualnych platformy Azure, obsługiwanych wersjach systemu operacyjnego dla tych typów maszyn wirtualnych oraz obsługiwanych wersjach oprogramowania SAP i DBMS.
         - Sprawdź ponownie rozmiar aplikacji oraz infrastrukturę wdrażaną na platformie Azure. Jeśli przenosisz istniejące aplikacje, możesz często korzystać z niezbędnych punktów SAP z infrastruktury, z której korzystasz, oraz na [stronie internetowej test porównawczy SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) i porównać ją z numerami punktów SAP wymienionymi w temacie [pomoc techniczna SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Zadbaj również [o klasyfikację punktów SAP w tym artykule](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) .
         - Oceń i przetestuj rozmiary maszyn wirtualnych platformy Azure w odniesieniu do maksymalnej przepustowości magazynu i przepływności sieci dla typów maszyn wirtualnych wybranych podczas fazy planowania. Dane można znaleźć tutaj:
-           -  [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
-           -  [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
+           -  [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
+           -  [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
    2. Pamięć.
         - Za pomocą [usługi Azure SSD w warstwie Standardowa Storage](../../windows/disks-types.md#standard-ssd) można korzystać w przypadku maszyn wirtualnych, które reprezentują warstwy aplikacji SAP, oraz wdrażania systemów DBMS, które nie są wrażliwe na wydajność.
         - Ogólnie rzecz biorąc nie zalecamy używania [dysków HDD w warstwie Standardowa platformy Azure](../../windows/disks-types.md#standard-hdd).
@@ -207,8 +207,8 @@ W tej fazie zwykle wdrażane są systemy deweloperskie, systemy testowania jedno
 11. Upewnij się, że maszyny wirtualne są wdrożone w poprawnej [grupie umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md), zgodnie z opisem w [grupach umieszczania usługi Azure zbliżeniowe w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md)
 11. Przed zastosowaniem obciążenia należy wykonać wszystkie pozostałe kontrole wymienione na etapie fazy koncepcji.
 12. W miarę jak obowiązuje obciążenie, należy zarejestrować użycie zasobów przez systemy na platformie Azure. Porównaj to użycie z rekordami ze starej platformy. Dostosuj rozmiary maszyn wirtualnych w przyszłych wdrożeniach, Jeśli zobaczysz, że masz duże różnice. Należy pamiętać, że w przypadku, gdy Downsize, magazyn i przepustowość sieci maszyn wirtualnych zostaną również zredukowane.
-    - [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    - [Sizes for Linux virtual machines in Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure) 
+    - [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure) 
 13. Eksperymentowanie z funkcją i procesami kopiowania systemu. Celem jest ułatwienie kopiowania systemu deweloperskiego lub systemu testowego, dzięki czemu zespoły projektu mogą szybko uzyskiwać nowe systemy. Rozważ użycie [oprogramowania SAP Lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) do wykonywania tych zadań.
 14. Zoptymalizuj i stworzyć właściwy zespół oparty na rolach, uprawnienia i procesy platformy Azure, aby upewnić się, że masz Rozdzielenie obowiązków. W tym samym czasie upewnij się, że wszystkie zespoły mogą wykonywać swoje zadania w infrastrukturze platformy Azure.
 15. Ćwiczenia, testowanie i dokumentowanie procedur wysokiej dostępności i odzyskiwania po awarii, aby umożliwić pracownikom wykonywanie tych zadań. Zidentyfikuj niedoskonałości i Dostosuj nowe funkcje platformy Azure, które są integrowane ze wdrożeniami.

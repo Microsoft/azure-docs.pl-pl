@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce2fbe8c706870250973974c7a73a3964dedd04a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091797"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831893"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM 
 
@@ -99,11 +99,11 @@ Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy 
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Tak|Tak|Przykład 1|
 |AMS|AMS|Inne firmy|Tak|Tak|Przykład 2|
-|AMS|Inne firmy|AMS|Yes|Nie|Przykład 3|
+|AMS|Inne firmy|AMS|Tak|Nie|Przykład 3|
 |AMS|Inne firmy|Dział|Nie|Nie|Przykład 4|
-|Inne firmy|Inne firmy|AMS|Yes|Nie|    
+|Inne firmy|Inne firmy|AMS|Tak|Nie|    
 
-W tych przykładach ochrona PlayReady działa w przypadku obu KRESek i płynnego przesyłania strumieniowego. Adresy URL wideo poniżej to płynne adresy URL przesyłania strumieniowego. Aby uzyskać odpowiednie KRESKi URL, po prostu Dołącz wartość "(format = MPD-Time-CSF)". Możesz użyć [odtwarzacza testowego multimediów Azure](https://aka.ms/amtest) do testowania w przeglądarce. Umożliwia skonfigurowanie używanego protokołu przesyłania strumieniowego, w którym należy przeprowadzić techniczne. IE11 i Microsoft Edge w systemie Windows 10 obsługują oprogramowanie PlayReady w EME. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o narzędziu testowym](/azure/media-services/previous/offline-playready-streaming-windows-10).
+W tych przykładach ochrona PlayReady działa w przypadku obu KRESek i płynnego przesyłania strumieniowego. Adresy URL wideo poniżej to płynne adresy URL przesyłania strumieniowego. Aby uzyskać odpowiednie KRESKi URL, po prostu Dołącz wartość "(format = MPD-Time-CSF)". Możesz użyć [odtwarzacza testowego multimediów Azure](https://aka.ms/amtest) do testowania w przeglądarce. Umożliwia skonfigurowanie używanego protokołu przesyłania strumieniowego, w którym należy przeprowadzić techniczne. IE11 i Microsoft Edge w systemie Windows 10 obsługują oprogramowanie PlayReady w EME. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o narzędziu testowym](./offline-playready-streaming-windows-10.md).
 
 ### <a name="sample-1"></a>Przykład 1
 
@@ -140,5 +140,5 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

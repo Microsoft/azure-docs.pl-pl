@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Azure Data Lake Storage Gen2
-description: Wprowadzenie do interfejsu wiersza polecenia systemu HDFS dla Data Lake Storage Gen2
+description: Użyj interfejsu wiersza polecenia rozproszony system plików Hadoop (HDFS) dla Azure Data Lake Storage Gen2. Utwórz kontener, uzyskaj listę plików lub katalogów i nie tylko.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109454"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836313"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2
 

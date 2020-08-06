@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835888"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -21,7 +21,7 @@ Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest po�
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
+| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
 
@@ -51,7 +51,7 @@ Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguracja Site Recovery nie powiodła się (151196)
 
 > [!NOTE]
-> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365, takich jak `login.microsoftonline.com` . Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365, takich jak `login.microsoftonline.com` . Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
@@ -82,7 +82,7 @@ Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń
 
 1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji docelowej:
 
-   | Location | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
+   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
    | Central US | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ Na potrzeby tego przykładu reguły sieciowej grupy zabezpieczeń są wymagane, 
 
 1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji źródłowej:
 
-   | Location | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
+   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
    | East US | 13.82.88.226 | 104.45.147.24 |
 

@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 4e35772e81329e112aac361b6a533c559154f03f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284697"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831230"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Omówienie typowych komunikatów o błędach występujących podczas zarządzania maszynami wirtualnymi na platformie Azure
 
@@ -176,7 +176,7 @@ W tej sekcji wymieniono typowe komunikaty o błędach, które można napotkać p
 |  OSProvisioningClientError  |  Nazwa użytkownika określona dla maszyny wirtualnej jest nieprawidłowa dla tej dystrybucji systemu Linux. Szczegóły błędu: {0} .  |
 |  OSProvisioningInternalError  |  Inicjowanie obsługi systemu operacyjnego nie powiodło się dla maszyny wirtualnej " {0} " z powodu błędu wewnętrznego.  |
 |  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Obsługa administracyjna może nadal zakończyć się pomyślnie. Sprawdź stan aprowizacji później.  |
-|  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Obsługa administracyjna może nadal zakończyć się pomyślnie. Sprawdź stan aprowizacji później. Upewnij się również, że obraz został prawidłowo przygotowany (uogólniony).   <ul><li>Instrukcje dla [systemu Windows]( ../windows/upload-image.md).</li><li> Instrukcje dotyczące systemu [Linux](../linux/capture-image.md)</li></ul>  |
+|  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Obsługa administracyjna może nadal zakończyć się pomyślnie. Sprawdź stan aprowizacji później. Upewnij się również, że obraz został prawidłowo przygotowany (uogólniony).   <ul><li>Instrukcje dla [systemu Windows]( ../windows/upload-generalized-managed.md).</li><li> Instrukcje dotyczące systemu [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Jednak wykryto agenta gościa maszyny wirtualnej. Sugeruje to, że system operacyjny gościa nie został poprawnie przygotowany do użycia jako obraz maszyny wirtualnej (z opcją with Option = FromImage). Aby rozwiązać ten problem, użyj wirtualnego dysku twardego w postaci z opcją with nooption = Attach lub przygotuj go prawidłowo do użycia jako obraz:   <ul><li>Instrukcje dla systemu Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrukcje dotyczące systemu Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Wymagany rozmiar maszyny wirtualnej nie jest obecnie dostępny w wybranej lokalizacji.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Nie można teraz zaktualizować zasobu z powodu trwającej aktualizacji platformy. Spróbuj ponownie później.  |

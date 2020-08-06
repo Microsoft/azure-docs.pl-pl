@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525538"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836160"
 ---
 # <a name="visual-studio-images-on-azure"></a>Obrazy programu Visual Studio na platformie Azure
 Korzystanie z programu Visual Studio we wstępnie skonfigurowanej maszynie wirtualnej platformy Azure jest szybkim i łatwym sposobem na przechodzenie od niczego do środowiska deweloperskiego. Obrazy systemu z różnymi konfiguracjami programu Visual Studio są dostępne w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -31,7 +31,7 @@ Obrazy dla najnowszych wersji głównych, Visual Studio 2019, Visual Studio 2017
 | Wersja wydania                                                                                                                                                | Wersje              | Wersja produktu   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Najnowsze (wersja 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, społeczność | 16.5.4 wersja    |
-| Visual Studio 2019: RTW                         | Enterprise | 16.0.13 wersja    |
+| Visual Studio 2019: RTW                         | Przedsiębiorstwa | 16.0.13 wersja    |
 | Visual Studio 2017: Najnowsze (wersja 15,9)           | Enterprise, społeczność | 15.9.22 wersja   |
 | Visual Studio 2017: RTW                             | Enterprise, społeczność | 15.0.28 wersja  |
 | Visual Studio 2015: Najnowsze (Aktualizacja Update 3)               | Enterprise, społeczność | 14.0.25431.01 wersja |
@@ -77,7 +77,7 @@ Platforma Azure oferuje szeroką gamę rozmiarów maszyn wirtualnych. Ponieważ 
    * Standard_D2S_v2
    * Standardowa_D3_v2
     
-Aby uzyskać więcej informacji na temat najnowszych rozmiarów maszyn, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](./sizes.md).
+Aby uzyskać więcej informacji na temat najnowszych rozmiarów maszyn, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../sizes.md).
 
 Na platformie Azure możesz ponownie zrównoważyć początkowy wybór, zmieniając rozmiar maszyny wirtualnej. Można udostępnić nową maszynę wirtualną z bardziej odpowiednim rozmiarem lub zmienić rozmiar istniejącej maszyny wirtualnej na inny, podstawowy sprzęt. Aby uzyskać więcej informacji, zobacz [Zmienianie rozmiaru maszyny wirtualnej z systemem Windows](./resize-vm.md).
 

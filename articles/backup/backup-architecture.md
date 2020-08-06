@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532496"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835735"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -42,7 +42,7 @@ Recovery Services magazyny mają następujące funkcje:
 - Magazyny ułatwiają organizowanie danych kopii zapasowej, przy jednoczesnym zminimalizowaniu obciążeń związanych z zarządzaniem.
 - W każdej subskrypcji platformy Azure można utworzyć maksymalnie 500 magazynów.
 - Możesz monitorować elementy kopii zapasowej w magazynie, w tym maszyn wirtualnych platformy Azure i maszynach lokalnych.
-- Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (RBAC) na](../role-based-access-control/role-assignments-portal.md)platformie Azure.
+- Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Określ sposób replikowania danych w magazynie w celu zapewnienia nadmiarowości:
   - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md).
   - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327280"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829513"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
 [Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
@@ -796,7 +796,7 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](./resource-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
 
 > [!IMPORTANT]
-> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](/azure/azure-monitor/platform/resource-logs-blob-format) .
+> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](./resource-logs-blob-format.md) .
 
 
 | Właściwości schematu dzienników zasobów | Właściwość schematu interfejsu API REST dziennika aktywności | Uwagi |
@@ -885,4 +885,3 @@ Poniżej znajduje się przykład zdarzenia korzystającego z tego schematu.
 ## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o dzienniku aktywności](platform-logs-overview.md)
 * [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](diagnostic-settings.md)
-

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 585dfcd437357c638a3544a4cb74ad386f8cb218
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b99e744fb949f707467286c3d79de0f4e76a49c6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085201"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835514"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (duże wystąpienia)
 
@@ -148,7 +148,7 @@ Domyślnie Routing przechodni nie działa w następujących scenariuszach:
 Istnieją trzy sposoby włączania routingu przechodniego w tych scenariuszach:
 
 - Zwrotny serwer proxy do przesyłania danych do i z. Na przykład F5 BIG-IP, NGINX z Traffic Manager wdrożoną w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi jako wirtualną zaporą/rozwiązaniem routingu ruchu.
-- Używanie [reguł dołączenie iptables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) na maszynie wirtualnej z systemem Linux w celu włączenia routingu między lokalizacjami lokalnymi i jednostkami dużej instancji Hana lub między jednostkami dużych wystąpień usługi Hana w różnych regionach. Maszyna wirtualna z systemem dołączenie iptables musi zostać wdrożona w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi. Należy odpowiednio zmienić rozmiar maszyny wirtualnej, dzięki czemu przepustowość sieci maszyny wirtualnej jest wystarczająca dla oczekiwanego ruchu sieciowego. Aby uzyskać szczegółowe informacje dotyczące przepustowości sieci maszyn wirtualnych, sprawdź [rozmiary artykułów maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Używanie [reguł dołączenie iptables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) na maszynie wirtualnej z systemem Linux w celu włączenia routingu między lokalizacjami lokalnymi i jednostkami dużej instancji Hana lub między jednostkami dużych wystąpień usługi Hana w różnych regionach. Maszyna wirtualna z systemem dołączenie iptables musi zostać wdrożona w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi. Należy odpowiednio zmienić rozmiar maszyny wirtualnej, dzięki czemu przepustowość sieci maszyny wirtualnej jest wystarczająca dla oczekiwanego ruchu sieciowego. Aby uzyskać szczegółowe informacje dotyczące przepustowości sieci maszyn wirtualnych, sprawdź [rozmiary artykułów maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [Zapora platformy Azure](https://azure.microsoft.com/services/azure-firewall/) to inne rozwiązanie umożliwiające bezpośrednie przesyłanie ruchu między jednostkami dużych wystąpień lokalnych i Hana. 
 
 Cały ruch tych rozwiązań jest kierowany za pośrednictwem sieci wirtualnej platformy Azure. w związku z tym ten ruch może być dodatkowo ograniczony przez urządzenia miękkie używane lub przez grupy zabezpieczeń sieci platformy Azure, dzięki czemu niektóre adresy IP lub zakresy adresów IP z lokalnego programu mogą być blokowane lub jawnie dozwolone dostęp do dużych wystąpień usługi HANA. 

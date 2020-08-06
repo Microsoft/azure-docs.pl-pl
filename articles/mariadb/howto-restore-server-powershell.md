@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46ea77b26bb0c31a10cfac11c389ea5a21a8f4ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502543"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833253"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MariaDB przy użyciu programu PowerShell
 
@@ -133,4 +133,4 @@ Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi si
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie parametrów serwera Azure Database for MariaDB przy użyciu programu PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Jak wygenerować parametry połączenia Azure Database for MariaDB przy użyciu programu PowerShell](howto-connection-string-powershell.md)

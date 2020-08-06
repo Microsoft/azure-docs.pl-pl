@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 31979854ad3f6bd6d1cf4e73fc3c993520ac423d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432679"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832250"
 ---
 # <a name="resize-a-windows-vm"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Windows
 
-W tym artykule pokazano, jak przenieść maszynę wirtualną do innego [rozmiaru maszyny wirtualnej](sizes.md).
+W tym artykule pokazano, jak przenieść maszynę wirtualną do innego [rozmiaru maszyny wirtualnej](../sizes.md).
 
 Po utworzeniu maszyny wirtualnej można skalować ją w górę lub w dół, zmieniając rozmiar maszyny wirtualnej. W niektórych przypadkach należy najpierw cofnąć alokację maszyny wirtualnej. Może się tak zdarzyć, jeśli nowy rozmiar nie jest dostępny w klastrze sprzętowym hostującym maszynę wirtualną.
 

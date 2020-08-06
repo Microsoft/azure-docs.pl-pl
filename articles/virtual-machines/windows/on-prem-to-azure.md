@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870278"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835492"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrowanie z Amazon Web Services (AWS) i innych platform do Managed Disks na platformie Azure
 
@@ -55,7 +55,7 @@ Wybierz lokalizację, w której usługa Azure Managed Disks jest dostępna. W pr
 
 ### <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
 
-W przypadku migrowania do Managed Disks w warstwie Premium należy zaktualizować rozmiar maszyny wirtualnej w celu Premium Storage dostępnej w regionie, w którym znajduje się maszyna wirtualna. Przejrzyj rozmiary maszyn wirtualnych, które są Premium Storage obsługują. Specyfikacje rozmiaru maszyny wirtualnej platformy Azure są wymienione w obszarze [rozmiary maszyn wirtualnych](sizes.md).
+W przypadku migrowania do Managed Disks w warstwie Premium należy zaktualizować rozmiar maszyny wirtualnej w celu Premium Storage dostępnej w regionie, w którym znajduje się maszyna wirtualna. Przejrzyj rozmiary maszyn wirtualnych, które są Premium Storage obsługują. Specyfikacje rozmiaru maszyny wirtualnej platformy Azure są wymienione w obszarze [rozmiary maszyn wirtualnych](../sizes.md).
 Zapoznaj się z charakterystyką wydajności maszyn wirtualnych, które działają z Premium Storage i wybierz najbardziej odpowiedni rozmiar maszyny wirtualnej, który najlepiej odpowiada Twojemu obciążeniu. Upewnij się, że na maszynie wirtualnej jest dostępna wystarczająca przepustowość do obsługi ruchu na dysku.
 
 ### <a name="disk-sizes"></a>Rozmiary dysków

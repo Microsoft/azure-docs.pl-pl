@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: ayshak
-ms.openlocfilehash: 7732f83dfd44cbf686e2d076c665c980962b19d5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292358"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831451"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Izolacja maszyny wirtualnej na platformie Azure
 
@@ -59,12 +59,12 @@ Odp **.:** nie
 Odp **.: będziemy**podawać przypomnienia 12 miesięcy przed oficjalnym wyizolowanym rozmiarem.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Pytanie: jestem klientem Service Fabricm na platformie Azure, opierając się na warstwach trwałości Silver lub Gold. Czy ta zmiana wpłynie na mnie?
-Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) będą nadal działać nawet po tej zmianie. Jeśli wymagana jest izolacja sprzętowa fizycznego z innych powodów, może być konieczne wykonanie jednej z opisanych powyżej czynności. 
+Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) będą nadal działać nawet po tej zmianie. Jeśli wymagana jest izolacja sprzętowa fizycznego z innych powodów, może być konieczne wykonanie jednej z opisanych powyżej czynności. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Jakie są punkty kontrolne na potrzeby wycofania D15_v2 lub odDS15_v2nia izolacji? 
 Odp **.:** 
  
-| Data | Akcja |
+| Date | Akcja |
 |---|---| 
 | 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) | 
 | 14 maja 2020 | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 

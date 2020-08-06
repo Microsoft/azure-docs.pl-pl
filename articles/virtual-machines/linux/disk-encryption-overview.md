@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1551bd3a6caedb61750b28120c222a57b491640e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372624"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830448"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -34,7 +34,7 @@ Podstawowe informacje o Azure Disk Encryption dla systemu Linux można uzyskać 
 
 ### <a name="supported-vms"></a>Obsługiwane maszyny wirtualne
 
-Maszyny wirtualne z systemem Linux są dostępne w [różnych rozmiarach](sizes.md). Azure Disk Encryption nie jest dostępna na [podstawowych maszynach wirtualnych serii A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)lub na maszynach wirtualnych, które nie spełniają minimalnych wymagań dotyczących pamięci:
+Maszyny wirtualne z systemem Linux są dostępne w [różnych rozmiarach](../sizes.md). Azure Disk Encryption nie jest dostępna na [podstawowych maszynach wirtualnych serii A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)lub na maszynach wirtualnych, które nie spełniają minimalnych wymagań dotyczących pamięci:
 
 | Maszyna wirtualna | Minimalne wymagania dotyczące pamięci |
 |--|--|
@@ -56,7 +56,7 @@ Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux
 
 Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platformę Azure, nie obsługują Azure Disk Encryption; z tych, które są zatwierdzone, obsługiwane są tylko następujące dystrybucje i wersje Azure Disk Encryption:
 
-| Publisher | Oferta | Jednostka SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
+| Publisher | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18,04 – LTS | Kanoniczny: UbuntuServer: 18.04-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | Canonical | Ubuntu 18.04 | 18,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 18.04-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |

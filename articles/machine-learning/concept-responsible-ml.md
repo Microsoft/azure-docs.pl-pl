@@ -1,36 +1,39 @@
 ---
-title: Machine Learning odpowiedzialny (ML) wersja zapoznawcza
+title: Co to jest odpowiedzialne Uczenie maszynowe (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, co to jest właściwa ML i jak używać jej w Azure Machine Learning
+description: Dowiedz się, co to jest uczenie maszynowe i jak korzystać z niego w Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829394"
 ---
-# <a name="responsible-machine-learning-ml-preview"></a>Machine Learning odpowiedzialny (ML) wersja zapoznawcza
+# <a name="what-is-responsible-machine-learning-preview"></a>Jakie są osoby odpowiedzialne za uczenie maszynowe? (wersja zapoznawcza)
 
-W tym artykule dowiesz się, co odpowiada dana ML i jak można je wdrożyć w ćwiczeniu z Azure Machine Learning.
+Ten artykuł zawiera informacje o tym, co jest odpowiedzialne za uczenie maszynowe (ML) i sposobach ich używania do Azure Machine Learning.
 
-W trakcie opracowywania i używania systemów AI zaufanie musi znajdować się na poziomie podstawowym. Relacje zaufania z platformą, procesem i modelami. W firmie Microsoft odpowiedzialność za ML obejmuje następujące wartości i zasady:
+## <a name="responsible-machine-learning-principles"></a>Odpowiedzialne zasady uczenia maszynowego
+
+W trakcie opracowywania i używania systemów AI zaufanie musi znajdować się na poziomie podstawowym. Relacje zaufania z platformą, procesem i modelami. W firmie Microsoft odpowiedzialność za uczenie maszynowe obejmuje następujące wartości i zasady:
 
 - Informacje o modelach uczenia maszynowego
   - Interpretuj i wyjaśnij zachowanie modelu
   - Ocenianie i łagodzenie nieuczciwych modeli
 - Ochrona osób i ich danych
-  - Zapobiegaj narażeniu danych z różnicową prywatność  
+  - Zapobiegaj narażeniu danych z różnicową prywatność
+  - Współpraca z zaszyfrowanymi danymi przy użyciu szyfrowania homomorphic
 - Sterowanie kompleksowym procesem uczenia maszynowego
   - Udokumentowanie cyklu życia uczenia maszynowego za pomocą arkuszy danych
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Odpowiedzialne filary ML":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Odpowiedzialne filary ML — interpretowanie, różnicowa prywatność, szyfrowanie homomorphic, śledzenie inspekcji — Azure Machine Learning":::
 
 Ponieważ sztuczna inteligencja i autonomiczne systemy integrują się z siecią szkieletową, ważne jest, aby aktywnie podejmować wysiłki w celu przewidzenia i ograniczenia nieoczekiwanych konsekwencji tych technologii.
 
@@ -40,7 +43,7 @@ Trudne do wyjaśnienia i nieprzezroczyste systemy mogą być problematyczne, pon
 
 Aby utworzyć interpretowane systemy AI, użyj [InterpretML](https://github.com/interpretml/interpret), pakietu open source utworzonego przez firmę Microsoft. [InterpretML można używać wewnątrz Azure Machine Learning](how-to-machine-learning-interpretability.md) do [interpretacji i wyjaśnienia modeli uczenia maszynowego](how-to-machine-learning-interpretability-aml.md), w tym [zautomatyzowanych modeli uczenia maszynowego](how-to-machine-learning-interpretability-automl.md).
 
-## <a name="assess-and-mitigate-model-unfairness"></a>Ocenianie i łagodzenie nieuczciwych modeli
+## <a name="mitigate-fairness-in-machine-learning-models"></a>Eliminowanie godziwości modeli uczenia maszynowego
 
 Ponieważ systemy AI stają się coraz bardziej związane z codziennym podejmowaniem decyzji, jest to bardzo ważne, aby te systemy działały w sposób atrakcyjny dla wszystkich użytkowników.
 
@@ -64,6 +67,16 @@ Implementacja różnicowych systemów prywatnych jest trudna. [WhiteNoise](https
 > [!NOTE]
 > Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
 
+## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Pracuj z zaszyfrowanymi danymi przy użyciu szyfrowania homomorphic
+
+W tradycyjnych rozwiązaniach magazynu i obliczeń w chmurze chmura musi mieć niezaszyfrowaną dostęp do danych klienta w celu ich obliczenia. Ten dostęp udostępnia dane operatorom chmury. Prywatność danych opiera się na zasadach kontroli dostępu wdrożonych przez chmurę i zaufanych przez klienta.
+
+Szyfrowanie Homomorphic pozwala na przeprowadzanie obliczeń na zaszyfrowanych danych bez konieczności uzyskiwania dostępu do klucza tajnego (odszyfrowywania). Wyniki obliczeń są szyfrowane i mogą być ujawnione tylko przez właściciela klucza tajnego. Przy użyciu szyfrowania homomorphic operatory w chmurze nigdy nie będą miały niezaszyfrowanego dostępu do danych przechowywanych i przetwarzanych przez te osoby. Obliczenia są wykonywane bezpośrednio na zaszyfrowanych danych. Prywatność danych opiera się na najnowocześniejszej kryptografii, a właściciel danych kontroluje wszystkie wersje informacji. Aby uzyskać więcej informacji na temat szyfrowania homomorphic firmy Microsoft, zobacz [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+Aby rozpocząć korzystanie z szyfrowania homomorphic w Azure Machine Learning, użyj [zaszyfrowanego](https://pypi.org/project/encrypted-inference/) powiązania języka Python dla [programu Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL to biblioteka szyfrowania homomorphic typu open source, która umożliwia dodawanie i mnożenie w przypadku szyfrowanych liczb całkowitych lub liczb rzeczywistych. Aby dowiedzieć się więcej o programie Microsoft SEAL, zapoznaj się z tematem [centrum architektury platformy Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) lub [stronę projektu Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+
+Zapoznaj się z poniższym przykładem, aby dowiedzieć się, [jak wdrożyć zaszyfrowaną usługę sieci Web inferencing w Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Udokumentowanie cyklu życia uczenia maszynowego za pomocą arkuszy danych
 
 Dokumentowanie właściwych informacji w procesie uczenia maszynowego jest kluczem do podejmowania właściwych decyzji na każdym etapie. Arkusze danych to sposób dokumentowania zasobów uczenia maszynowego, które są używane i tworzone w ramach cyklu życia uczenia maszynowego.
@@ -83,5 +96,5 @@ Zapoznaj się z poniższym przykładem, aby dowiedzieć się, jak zaimplementowa
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- Użyj szyfrowania homomorphic, aby [wdrożyć zaszyfrowaną usługę sieci Web inferencing](how-to-homomorphic-encryption-seal.md).
+- Aby uzyskać więcej informacji, zobacz [odpowiedzialny zestaw narzędzi do innowacji](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) , aby poznać najlepsze rozwiązania.
 - Dowiedz się więcej o zestawie wskazówek [dotyczących informacji dotyczących](https://www.partnershiponai.org/about-ml/) systemu uczenia maszynowego.

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: juliako
-ms.openlocfilehash: ab775e8d93111f7494d2bf321216e2725c438fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c47488915997f054487d8343c7c3c032135dcdb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828503"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833083"
 ---
 # <a name="azure-media-services-v3-community"></a>Społeczność Azure Media Services v3  
 
@@ -28,7 +28,7 @@ Ta strona społeczności Azure Media Services omawia różne sposoby zadawania p
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Dyskusji
+## <a name="discussion"></a>Dyskusja
 
 ### <a name="twitter"></a>Twitter
 
@@ -40,7 +40,7 @@ Poniższe fora mogą służyć do zadawania pytań dotyczących bieżących prod
 
 Obecnie Witryna MSDN jest Media Services głównym forum społeczności zespołu.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
+[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 Zespół monitoruje również pytania otagowane Stack Overflow z "Azure-Media-Services".
 

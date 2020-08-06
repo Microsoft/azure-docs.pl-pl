@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553465"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831026"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenariusz: niestandardowa izolacja dla sieci wirtualnych
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W niestandardowym scenariuszu izolacji dla sieci wirtualnych celem jest uniemożliwienie konkretnego zestawu sieci wirtualnych z możliwością uzyskania dostępu do innego określonego zestawu sieci wirtualnych. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (sieci VPN/ER/użytkownika). Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="scenario-design"></a><a name="design"></a>Projekt scenariusza
+## <a name="design"></a><a name="design"></a>Projektowanie
 
 Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łączności. W tym scenariuszu będzie wyglądać podobnie do poniższego, gdzie każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna):
 
@@ -53,7 +53,7 @@ Gałęzie muszą poznać prefiksy z czerwonych i niebieskich sieci wirtualnych, 
 
 Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>Przepływ pracy scenariusza
+## <a name="workflow"></a><a name="architecture"></a>Przepływ pracy
 
 Na **rysunku 1**znajdują się niebieskie i czerwone połączenia sieci wirtualnej.
 

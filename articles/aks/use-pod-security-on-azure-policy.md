@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830227"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Zabezpieczanie zasobników z Azure Policy (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ W tym dokumencie założono, że masz następujące elementy, które zostały wd
 
 W klastrze AKS kontroler przyjmowania jest używany do przechwytywania żądań do serwera interfejsu API, gdy zasób zostanie utworzony i zaktualizowany. Kontroler przyjmowania danych może następnie *sprawdzić poprawność* żądania zasobu względem zestawu reguł, czy należy go utworzyć.
 
-Wcześniej [zasady zabezpieczeń funkcji (wersja zapoznawcza)](use-pod-security-policies.md) zostały włączone w projekcie Kubernetes, aby ograniczyć, jakie elementy można wdrożyć. Ta funkcja nie jest już aktywnym programowaniem z projektu Kubernetes.
+Wcześniej [zasady zabezpieczeń funkcji (wersja zapoznawcza)](use-pod-security-policies.md) zostały włączone w projekcie Kubernetes, aby ograniczyć, jakie elementy można wdrożyć.
 
 Za pomocą dodatku Azure Policy, klaster AKS może używać wbudowanych zasad platformy Azure, które zabezpieczają te i inne zasoby Kubernetes podobne do zasad zabezpieczeń na poziomie. Dodatek Azure Policy dla AKS instaluje zarządzane wystąpienie [strażnika](https://github.com/open-policy-agent/gatekeeper), sprawdzając kontroler dopuszczenia. Azure Policy dla Kubernetes jest oparty na otwartym agencie "open source", który opiera się na [języku zasad rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 

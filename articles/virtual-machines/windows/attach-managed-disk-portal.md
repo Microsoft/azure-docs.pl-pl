@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b100676cd8cfbffd273ea6ad50b63545f2d6037a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657164"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836228"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Dołączanie zarządzanego dysku danych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
 
-W tym artykule opisano sposób dołączania nowego zarządzanego dysku danych do maszyny wirtualnej z systemem Windows za pomocą Azure Portal. Rozmiar maszyny wirtualnej określa liczbę dysków z danymi, które można dołączyć. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](sizes.md).
+W tym artykule opisano sposób dołączania nowego zarządzanego dysku danych do maszyny wirtualnej z systemem Windows za pomocą Azure Portal. Rozmiar maszyny wirtualnej określa liczbę dysków z danymi, które można dołączyć. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](../sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Dodawanie dysku z danymi

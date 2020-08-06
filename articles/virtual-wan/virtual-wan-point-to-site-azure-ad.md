@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077474"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832522"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurowanie uwierzytelniania Azure Active Directory dla sieci VPN użytkownika
 
@@ -23,13 +23,13 @@ Ten typ połączenia wymaga skonfigurowania klienta na komputerze klienckim. Aby
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Tworzenie sieci WAN
-> * Tworzenie koncentratora
-> * Tworzenie konfiguracji P2S
-> * Pobieranie profilu klienta VPN
-> * Stosowanie konfiguracji P2S do koncentratora
-> * Łączenie sieci wirtualnej z koncentratorem
-> * Pobieranie i stosowanie konfiguracji klienta sieci VPN
+> * Tworzenie wirtualnej sieci WAN
+> * Tworzenie koncentratora wirtualnego
+> * Tworzenie konfiguracji sieci VPN użytkownika
+> * Pobieranie profilu sieci VPN użytkownika wirtualnego sieci WAN
+> * Stosowanie konfiguracji sieci VPN użytkownika do koncentratora wirtualnego
+> * Łączenie sieci wirtualnej z koncentratorem wirtualnym
+> * Pobieranie i stosowanie konfiguracji klienta sieci VPN użytkownika
 > * Wyświetlanie wirtualnej sieci WAN
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
@@ -81,9 +81,9 @@ Przejdź w przeglądarce do witryny [Azure Portal](https://portal.azure.com) i z
 3. Kliknij pozycję **Przejrzyj i utwórz**.
 4. Na stronie **Walidacja została przeniesiona** kliknij przycisk **Utwórz**.
 
-## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Utwórz nową konfigurację P2S
+## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>Utwórz nową konfigurację sieci VPN użytkownika
 
-Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalnymi.
+Konfiguracja sieci VPN użytkownika definiuje parametry połączenia klientów zdalnych.
 
 1. W obszarze wirtualnej sieci WAN wybierz pozycję **konfiguracje sieci VPN użytkownika**.
 
@@ -93,7 +93,16 @@ Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalny
 
    ![Nowa konfiguracja](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Wprowadź informacje i kliknij przycisk **Utwórz** .
+3. Wprowadź informacje i kliknij przycisk **Utwórz**.
+
+   * **Nazwa konfiguracji** — wprowadź nazwę, dla której chcesz wywołać konfigurację sieci VPN użytkownika.
+   * **Typ tunelu** — wybierz pozycję OpenVPN.
+   * **Metoda uwierzytelniania** — wybierz Azure Active Directory.
+   * Typ **odbiorcy** w identyfikatorze aplikacji aplikacji [sieci VPN platformy Azure](openvpn-azure-ad-tenant.md) zarejestrowanej w dzierżawie usługi Azure AD. 
+   * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
+   * **Dzierżawa usługi AAD** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
 
    ![Nowa konfiguracja](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
@@ -111,7 +120,7 @@ Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalny
 6. Kliknij pozycję **Potwierdź**.
 7. Wykonanie operacji może potrwać do 30 minut.
 
-## <a name="download-vpn-profile"></a><a name="device"></a>Pobieranie profilu sieci VPN
+## <a name="download-user-vpn-profile"></a><a name="device"></a>Pobierz profil sieci VPN użytkownika
 
 Użyj profilu sieci VPN, aby skonfigurować klientów.
 
@@ -188,13 +197,12 @@ Użyj tego [linku](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt
 2. Na stronie Przegląd każdy punkt na mapie przedstawia koncentrator.
 3. W sekcji dotyczącej koncentratorów i połączeń możesz wyświetlić stan koncentratora, lokację, region, stan połączenia sieci VPN oraz bajty przychodzące i wychodzące.
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
-
-Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
+Jeśli te zasoby nie są już potrzebne, możesz usunąć grupę zasobów i wszystkie zawarte w niej zasoby, używając polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688285"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836109"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 
@@ -77,7 +77,7 @@ Tworzenie nowego połączenia TCP dla każdej operacji HTTP (nazywanej również
 
 _**Rozwiązanie:**_ Skaluj łączność wychodzącą w następujący sposób:
 
-| Scenariusz | Świadectwa |Środki zaradcze |
+| Scenariusz | Świadectwa |Ograniczanie ryzyka |
 |---|---|---|
 | Wystąpiła rywalizacja o porty i wyczerpanie portów przydziałów adresów sieciowych w okresach o wysokim poziomie użycia. | Kategoria "Niepowodzenie" dla [metryki](nat-metrics.md) połączeń protokołu wiązania w Azure monitor pokazuje przejściowe lub trwałe błędy w porównaniu z ilością czasu i dużym połączeniem.  | Ustal, czy można dodać dodatkowe zasoby publicznego adresu IP lub zasobów prefiksu publicznego adresu IP. Spowoduje to dodanie maksymalnie 16 adresów IP do bramy translatora adresów sieciowych. To dodanie spowoduje udostępnienie większej ilości zasobów dla dostępnych portów (64 000 na adres IP) i pozwala na dalsze skalowanie scenariusza.|
 | Podano już 16 adresów IP, a nadal wystąpiły wyczerpanie portów. | Próba dodania dodatkowego adresu IP kończy się niepowodzeniem. Łączna liczba adresów IP z zasobów publicznych adresów IP lub zasobów prefiksu publicznego adresu IP przekracza całkowitą liczbę 16. | Dystrybuuj środowisko aplikacji w wielu podsieciach i podaj zasób bramy NAT dla każdej podsieci.  Ponownie Oceń wzorce projektu, aby zoptymalizować je w oparciu o wcześniejsze [wskazówki](#design-patterns). |
@@ -195,6 +195,14 @@ _**Narzędzie**_
 Nie jest konieczne ponowne uruchomienie maszyny wirtualnej w celu skonfigurowania podsieci dla zasobu bramy translatora adresów sieciowych.  Jeśli jednak maszyna wirtualna jest ponownie uruchamiana, stan połączenia jest opróżniany.  Gdy stan połączenia został opróżniony, wszystkie połączenia rozpoczną korzystanie z adresów IP (y) zasobów bramy translatora adresów sieciowych.  Jest to jednak efekt uboczny maszyny wirtualnej, która jest uruchamiana ponownie, a nie wskaźnik, że wymagane jest ponowne uruchomienie.
 
 Jeśli nadal występują problemy, otwórz sprawę pomocy technicznej, aby uzyskać dalsze Rozwiązywanie problemów.
+
+### <a name="connection-setup-time"></a>Czas konfiguracji połączenia
+
+Ponieważ Load Balancer reguły ruchu wychodzącego statycznie przypisuje pule portów protokołu przesyłania strumieniowego do określonych maszyn wirtualnych, tworzenie nowych przepływów wychodzących jest szybsze niż przy użyciu Virtual Network NAT. W związku z tym po przełączeniu się z Load Balancer regułami wychodzącymi może wystąpić zwiększone opóźnienie podczas tworzenia nowego połączenia wychodzącego. Jak wyjaśniono wcześniej, aby zmaksymalizować wydajność aplikacji, należy użyć przepływów długotrwałych (na przykład ponownego użycia połączeń TCP).
+
+_**Narzędzie**_
+
+Jeśli jesteś głównie zainteresowani minimalnym opóźnieniem instalacji połączenia, użyj Load Balancer reguł ruchu wychodzącego.
 
 ## <a name="next-steps"></a>Następne kroki
 

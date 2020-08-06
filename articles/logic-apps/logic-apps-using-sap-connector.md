@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086612"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833899"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -128,7 +128,7 @@ Te wymagania wstępne są stosowane, gdy aplikacje logiki działają w środowis
 
 * Domyślnie Instalator SAP umieszcza pliki zestawu w domyślnym folderze instalacji. Należy skopiować te pliki zestawu do innej lokalizacji w zależności od scenariusza w następujący sposób:
 
-  W przypadku aplikacji logiki, które są uruchamiane w ISE, wykonaj kroki opisane w sekcji [wymagania wstępne dotyczące środowiska usługi integracji](#sap-ise). W przypadku aplikacji logiki, które działają na platformie Azure z wieloma dzierżawcami i korzystają z lokalnej bramy danych, skopiuj pliki zestawu z domyślnego folderu instalacji do folderu instalacji usługi Data Gateway. Jeśli wystąpią problemy z bramą danych, zapoznaj się z następującymi problemami:
+  * W przypadku aplikacji logiki, które są uruchamiane w ISE, wykonaj kroki opisane w sekcji [wymagania wstępne dotyczące środowiska usługi integracji](#sap-ise). W przypadku aplikacji logiki, które działają na platformie Azure z wieloma dzierżawcami i korzystają z lokalnej bramy danych, skopiuj pliki zestawu z domyślnego folderu instalacji do folderu instalacji usługi Data Gateway. Jeśli wystąpią problemy z bramą danych, zapoznaj się z następującymi problemami:
 
   * Należy zainstalować 64-bitową wersję dla biblioteki klienta SAP, ponieważ Brama danych działa tylko w systemach 64-bitowych. W przeciwnym razie zostanie wyświetlony komunikat o błędzie "zły obraz", ponieważ usługa hosta bramy danych nie obsługuje zestawów 32-bitowych.
 
@@ -532,7 +532,7 @@ Aby wysłać IDocs z oprogramowania SAP do aplikacji logiki, wymagana jest nast�
 
 1. Zapisz zmiany.
 
-1. Aby przetestować połączenie, wybierz pozycję **Testuj połączenie** .
+1. Aby przetestować połączenie, wybierz pozycję **Testuj połączenie**.
 
 #### <a name="create-receiver-port"></a>Utwórz port odbiornika
 
@@ -606,7 +606,7 @@ W przypadku środowisk produkcyjnych należy utworzyć dwa profile partnerskie. 
 
 1. Aby otworzyć **Narzędzie testowe dla ustawień przetwarzania IDOC** , w interfejsie SAP Użyj kodu transakcji **WE19** (T-Code) z prefiksem **/n** .
 
-1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz pozycję **Utwórz**.
+1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz przycisk **Utwórz**.
 
 1. Potwierdź, **który typ IDOC?** komunikat, wybierając pozycję **Kontynuuj**.
 
@@ -727,7 +727,10 @@ Poniższy przykład to wywołanie RFC z parametrem tabeli, który ma pole anonim
 
 ```
 
-Poniższy przykład zawiera prefiksy dla przestrzeni nazw. Można zadeklarować wszystkie prefiksy jednocześnie lub można zadeklarować dowolną liczbę prefiksów jako atrybuty węzła. Alias przestrzeni nazw RFC `ns0` jest używany jako element główny i parametry dla typu podstawowego. Należy zauważyć, że typy złożone są deklarowane pod inną przestrzenią nazw dla typów RFC z aliasem `ns3` zamiast zwykłej przestrzeni nazw RFC z aliasem `ns0` .
+Poniższy przykład zawiera prefiksy dla przestrzeni nazw. Można zadeklarować wszystkie prefiksy jednocześnie lub można zadeklarować dowolną liczbę prefiksów jako atrybuty węzła. Alias przestrzeni nazw RFC `ns0` jest używany jako element główny i parametry dla typu podstawowego.
+
+> [!NOTE]
+> typy złożone są deklarowane pod inną przestrzenią nazw dla typów RFC o aliasie `ns3` zamiast zwykłej przestrzeni nazw RFC z aliasem `ns0` .
 
 ```xml
 
@@ -883,7 +886,7 @@ Poniższy przykład to Przykładowy rekord danych z zwykłymi segmentami. W tym 
 
 ```
 
-Poniższy przykład jest rekordem danych z zgrupowanymi segmentami. Obejmuje to węzeł nadrzędny grupy, `E2EDKT1002GRP` i wiele węzłów podrzędnych, w tym `E2EDKT1002` i `E2EDKT2001` . 
+Poniższy przykład jest rekordem danych z zgrupowanymi segmentami. Rekord zawiera węzeł nadrzędny grupy, `E2EDKT1002GRP` i wiele węzłów podrzędnych, w tym `E2EDKT1002` i `E2EDKT2001` . 
 
 ```xml
 
@@ -900,7 +903,7 @@ Poniższy przykład jest rekordem danych z zgrupowanymi segmentami. Obejmuje to 
 
 ```
 
-Zalecaną metodą jest utworzenie identyfikatora IDoc do użycia z tRFC. Można ustawić ten identyfikator transakcji, `tid` używając [operacji wysyłania IDOC](https://docs.microsoft.com/connectors/sap/#send-idoc) w interfejsie API łącznika SAP.
+Zalecaną metodą jest utworzenie identyfikatora IDoc do użycia z tRFC. Można ustawić ten identyfikator transakcji, `tid` używając [operacji wysyłania IDOC](/connectors/sap/#send-idoc) w interfejsie API łącznika SAP.
 
 Poniższy przykład jest alternatywną metodą ustawiania identyfikatora transakcji lub `tid` . W tym przykładzie ostatni węzeł segmentu rekordu danych i węzeł danych IDoc są zamknięte. Następnie identyfikator GUID, `guid` , jest używany jako identyfikator tRFC do wykrywania duplikatów. 
 

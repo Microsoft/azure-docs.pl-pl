@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491803"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832641"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -40,6 +40,11 @@ Jeśli chcesz, aby wystąpienia w zestawie skalowania w miejscu były usuwane po
 
 Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
 
+## <a name="placement-groups"></a>Grupy umieszczania
+Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azure z własnymi domenami błędów i domenami uaktualnienia. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli wywołana Właściwość zestawu skalowania `singlePlacementGroup` ma *wartość FAŁSZ*, zestaw skalowania może składać się z wielu grup umieszczania i ma zakres 0 – 1000 maszyn wirtualnych. 
+
+> [!IMPORTANT]
+> Jeśli nie korzystasz z funkcji InfiniBand z HPC, zdecydowanie zalecamy ustawienie dla właściwości zestawu skalowania `singlePlacementGroup` *wartości false* , aby umożliwić lepsze skalowanie w obrębie regionu lub strefy. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Wdrażanie maszyn wirtualnych w zestawach skalowania
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 Proces tworzenia zestawu skalowania, który korzysta z maszyn wirtualnych, jest taki sam jak szczegółowy w artykule wprowadzenie do systemu [Linux](quick-create-template-linux.md) lub [Windows](quick-create-template-windows.md). 
 
-W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019-03-01"` lub nowszego. Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do `"virtualMachineProfile":` sekcji w szablonie: 
+W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019-03-01"` lub nowszego. 
+
+Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do sekcji `"virtualMachineProfile":` oraz `"singlePlacementGroup": false,` Właściwość do `"Microsoft.Compute/virtualMachineScaleSets"` sekcji w szablonie:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .

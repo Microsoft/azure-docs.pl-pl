@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507883"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835531"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehostowanie komputera mainframe na maszynach wirtualnych platformy Azure
 
@@ -72,7 +72,7 @@ Aby rozpocząć:
 
 Aby rozpocząć, zobacz temat [IBM DB2 pureScale na platformie Azure](../../linux/ibm-db2-purescale-azure.md).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas migrowania obciążeń programu mainframe do infrastruktury platformy Azure jako usługi (IaaS) można wybrać spośród kilku typów skalowalnych zasobów obliczeniowych na żądanie, w tym maszyn wirtualnych platformy Azure. Platforma Azure oferuje wiele maszyn wirtualnych z [systemami](../../windows/overview.md) [Linux](../../linux/overview.md) i Windows.
 
@@ -90,15 +90,15 @@ Dzięki platformie Azure IaaS, takiej jak maszyna wirtualna, konkretne funkcje s
 
 ### <a name="scalability"></a>Skalowalność
 
-Komputery mainframe zazwyczaj skalują w górę, a środowiska chmury skalują w poziomie. Platforma Azure oferuje wiele rozmiarów systemów [Linux](../../linux/sizes.md) i [Windows](../../windows/sizes.md) spełniających Twoje potrzeby. Chmura również skaluje się w górę lub w dół, aby dopasować dokładne specyfikacje użytkownika. [Skalowanie](/azure/architecture/best-practices/auto-scaling) mocy obliczeniowej, magazynu i usług na żądanie w ramach modelu rozliczania opartego na użyciu.
+Komputery mainframe zazwyczaj skalują w górę, a środowiska chmury skalują w poziomie. Platforma Azure oferuje wiele rozmiarów systemów [Linux](../../sizes.md) i [Windows](../../sizes.md) spełniających Twoje potrzeby. Chmura również skaluje się w górę lub w dół, aby dopasować dokładne specyfikacje użytkownika. [Skalowanie](/azure/architecture/best-practices/auto-scaling) mocy obliczeniowej, magazynu i usług na żądanie w ramach modelu rozliczania opartego na użyciu.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 W chmurze masz szereg elastycznych, skalowalnych opcji magazynu i płacisz tylko za to, czego potrzebujesz. Usługa [Azure Storage](../../../storage/common/storage-introduction.md) oferuje wysoce skalowalny magazyn obiektów dla obiektów danych, usługę systemu plików dla chmury, niezawodny magazyn komunikatów i Magazyn NoSQL. W przypadku maszyn wirtualnych dyski zarządzane i niezarządzane zapewniają trwały, bezpieczny magazyn dyskowy.
 
 Dowiedz się, jak [przenieść magazyn mainframe na platformę Azure](./concepts/mainframe-storage-azure.md).
 
-### <a name="backup-and-recovery"></a>Tworzenie kopii zapasowej i odzyskiwanie
+### <a name="backup-and-recovery"></a>Tworzenie i przywracanie kopii zapasowych
 
 Utrzymywanie własnej witryny odzyskiwania po awarii może być kosztowne. Platforma Azure oferuje łatwe w implementacji i ekonomiczne opcje [tworzenia kopii zapasowych](../../../backup/backup-overview.md), [odzyskiwania](../../../site-recovery/site-recovery-overview.md)i [nadmiarowości](../../../storage/common/storage-redundancy.md) na poziomach lokalnym lub regionalnym lub za pośrednictwem nadmiarowości geograficznej.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542895"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835922"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 
@@ -38,7 +38,7 @@ Zespół ds. operacyjnych jest odpowiedzialny za zarządzanie infrastrukturą, a
 
 Dane można skonsolidować z różnych źródeł i połączyć dane z usług platformy Azure z istniejącym środowiskiem lokalnym. Dzienniki Azure Monitor również wyraźnie oddzielają kolekcję danych od akcji podjętej na tych danych, dzięki czemu wszystkie akcje są dostępne dla wszystkich rodzajów danych.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 [Azure Automation](/azure/automation/automation-intro) zapewnia sposób automatyzacji ręcznych, długotrwałych, podatnych na błędy i często powtarzanych zadań, które są często wykonywane w chmurze i środowisku przedsiębiorstwa. Oszczędza czas i zwiększa niezawodność zadań administracyjnych. Program planuje również automatyczne wykonywanie tych zadań w regularnych odstępach czasu. Procesy można zautomatyzować za pomocą elementów Runbook lub automatyzując zarządzanie konfiguracją przy użyciu konfiguracji żądanego stanu.
 
@@ -87,7 +87,7 @@ Dzięki Azure Active Directory wszystkie aplikacje publikowane dla partnerów i 
 - Walidacja szyfrowania dysku.
 - Ataki sieciowe.
 
-Security Center używa [Access Control opartego na rolach (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC zawiera [wbudowane role](../../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure.
+Security Center używa [kontroli dostępu opartej na rolach (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC zawiera [wbudowane role](../../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure.
 
 Security Center ocenia konfigurację zasobów w celu zidentyfikowania problemów i luk w zabezpieczeniach. W Security Center informacje dotyczące zasobu są wyświetlane tylko wtedy, gdy przypiszesz rolę właściciela, współautora lub czytelnika dla subskrypcji lub grupy zasobów, do której należy zasób.
 

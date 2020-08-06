@@ -3,12 +3,12 @@ title: Zarządzane tożsamości dla zasobów platformy Azure z Service Bus
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu do Azure Service Bus jednostek (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cdb4329f00138c51826ced1627ff316fc5fd4619
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2e1c6127f3705adbf05cbfd8a92740651efe9048
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835667"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
@@ -29,7 +29,7 @@ Aplikacje natywne i aplikacje sieci Web, które wysyłają żądania do Service 
 
 
 ## <a name="assigning-azure-roles-for-access-rights"></a>Przypisywanie ról platformy Azure na potrzeby praw dostępu
-Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md). Azure Service Bus definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do jednostek Service Bus, a także definiuje role niestandardowe na potrzeby uzyskiwania dostępu do danych.
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md). Azure Service Bus definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do jednostek Service Bus, a także definiuje role niestandardowe na potrzeby uzyskiwania dostępu do danych.
 
 Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów lub przestrzeni nazw Service Bus. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub zarządzaną tożsamością dla zasobów platformy Azure.
 

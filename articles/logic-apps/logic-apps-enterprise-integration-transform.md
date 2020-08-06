@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072432"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832743"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Tworzenie map, które przekształcają kod XML między formatami w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
@@ -36,7 +36,7 @@ Po przekazaniu przekształcenia/mapy do konta integracji można użyć go do utw
 
 Teraz, po pobraniu wymagań wstępnych, należy utworzyć aplikację logiki:  
 
-1. Utwórz aplikację logiki i [Połącz ją z kontem integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md "Dowiedz się, jak połączyć konto integracji z aplikacją logiki") zawierającym mapę.
+1. Utwórz aplikację logiki i [Połącz ją z kontem integracji](./logic-apps-enterprise-integration-create-integration-account.md "Dowiedz się, jak połączyć konto integracji z aplikacją logiki") zawierającym mapę.
 2. Dodawanie wyzwalacza **żądania** do aplikacji logiki  
    ![Zrzut ekranu przedstawiający listę rozwijaną "Pokaż zarządzane interfejsy API firmy Microsoft" z wybranym wyzwalaczem żądania. Lista rozwijana znajduje się w aplikacji logiki utworzonej przy użyciu zestawu SDK integracji Visual Studio Enterprise.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Dodaj akcję **Przekształć XML** , wybierając najpierw pozycję **Dodaj akcję** .   
@@ -133,7 +133,6 @@ Domyślnie odpowiedź z transformacji zaczyna się od znacznika kolejności bajt
 
 
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej informacji
 * [Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw")  
 * [Dowiedz się więcej o mapach](../logic-apps/logic-apps-enterprise-integration-maps.md "Dowiedz się więcej na temat map integracji przedsiębiorstwa")  
-

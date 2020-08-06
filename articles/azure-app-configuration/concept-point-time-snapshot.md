@@ -8,51 +8,53 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b706b5d5ec68daa10fd6eac237b7b7416764167b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523664"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830113"
 ---
 # <a name="point-in-time-snapshot"></a>Migawka punktu w czasie
 
-Konfiguracja aplikacji platformy Azure przechowuje rekord zmian wprowadzonych w parach klucz-wartość. Ten rekord zawiera oś czasu zmian klucza i wartości. Można odtworzyć historię dowolnej wartości klucza i w dowolnym momencie podać jej wartość przeszłą w ciągu ostatnich siedmiu dni. Korzystając z tej funkcji, możesz "podróż czasowa" do tyłu i pobrać starą wartość klucza. Można na przykład odzyskać ustawienia konfiguracji używane przed ostatnim wdrożeniem, aby przywrócić poprzednią konfigurację aplikacji.
+Konfiguracja aplikacji platformy Azure zachowuje rejestr zmian wprowadzonych w wartościach klucza. Ten rekord zawiera oś czasu zmian klucza i wartości. Można odtworzyć historię dowolnej wartości klucza i w dowolnym momencie podać jej wartość przeszłą w okresie historii kluczy (7 dni dla magazynów w warstwie Bezpłatna lub 30 dni dla magazynów w warstwie Standardowa). Korzystając z tej funkcji, możesz "podróż czasowa" do tyłu i pobrać starą wartość klucza. Można na przykład odzyskać ustawienia konfiguracji używane przed ostatnim wdrożeniem, aby przywrócić poprzednią konfigurację aplikacji.
 
 ## <a name="key-value-retrieval"></a>Pobieranie wartości klucza
 
-Za pomocą Azure PowerShell można pobrać przeszłe wartości klucza.  Użyj `az appconfig revision list` , dodając odpowiednie parametry, aby pobrać wymagane wartości.  Określ wystąpienie konfiguracji aplikacji platformy Azure, podając nazwę magazynu ( `--name {app-config-store-name}` ) lub korzystając z parametrów połączenia ( `--connection-string {your-connection-string}` ). Ogranicz dane wyjściowe, określając określony punkt w czasie ( `--datetime` ) i określając maksymalną liczbę elementów do zwrócenia ( `--top` ).
+Za pomocą Azure Portal lub interfejsu wiersza polecenia można pobrać przeszłe wartości klucza. W interfejsie wiersza polecenia platformy Azure Użyj `az appconfig revision list` , dodając odpowiednie parametry, aby pobrać wymagane wartości.  Określ wystąpienie konfiguracji aplikacji platformy Azure, podając nazwę magazynu ( `--name <app-config-store-name>` ) lub korzystając z parametrów połączenia ( `--connection-string <your-connection-string>` ). Ogranicz dane wyjściowe, określając określony punkt w czasie ( `--datetime` ) i określając maksymalną liczbę elementów do zwrócenia ( `--top` ).
+
+Jeśli nie masz zainstalowanego lokalnie interfejsu wiersza polecenia platformy Azure, możesz użyć Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Pobierz wszystkie zapisane zmiany wartości kluczy.
 
-```azurepowershell
-az appconfig revision list --name {your-app-config-store-name}.
+```azurecli-interactive
+az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Pobierz wszystkie zarejestrowane zmiany klucza `environment` oraz etykiet `test` i `prod` .
 
-```azurepowershell
-az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
+```azurecli-interactive
+az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Pobierz wszystkie zarejestrowane zmiany w hierarchicznym obszarze klucza `environment:prod` .
 
-```azurepowershell
-az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
+```azurecli-interactive
+az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Pobierz wszystkie zarejestrowane zmiany klucza `color` w określonym punkcie w czasie.
 
-```azurepowershell
-az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
+```azurecli-interactive
+az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
-Pobranie ostatnich 10 zarejestrowanych zmian do wartości kluczy i zwrócenie tylko wartości dla `key` , `label` i `last-modified` sygnatury czasowej.
+Pobranie ostatnich 10 zarejestrowanych zmian do wartości kluczy i zwrócenie tylko wartości dla `key` , `label` i `last_modified` sygnatury czasowej.
 
-```azurepowershell
-az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified
+```azurecli-interactive
+az appconfig revision list --name <your-app-config-store-name> --top 10 --fields key label last_modified
 ```
 
 ## <a name="next-steps"></a>Następne kroki

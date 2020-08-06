@@ -5,12 +5,12 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373423"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830533"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Linux
 Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w przypadku wysokiej wydajności zestawienia maszyn wirtualnych platformy Azure z systemem Ubuntu. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -469,6 +469,5 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 Numery systemu Linux zostały obliczone przez uruchomienie [w systemie Ubuntu](https://www.eembc.org/coremark/faq.php) . Dla opcji inuwaga została skonfigurowana liczba wątków ustawionych na liczbę wirtualnych procesorów CPU, a współbieżność ustawiona na PThreads. Docelowa liczba iteracji została skorygowana na podstawie oczekiwanej wydajności, aby zapewnić środowisko uruchomieniowe co najmniej 20 sekund (zwykle znacznie dłużej). Końcowy wynik przedstawia liczbę iteracji zakończonych podziałem przez liczbę sekund trwania testu. Każdy test był uruchamiany co najmniej siedem razy na każdej maszynie wirtualnej. Pokazane powyżej daty przebiegu testu. Testy są uruchamiane na wielu maszynach wirtualnych w publicznych regionach platformy Azure, a maszyna wirtualna była obsługiwana w dniu uruchomienia. Seria podstawowa A i B (z możliwością szeregowania) nie jest wyświetlana, ponieważ wydajność jest zmienna. Seria N nie jest pokazywana, ponieważ są skoncentrowane na procesorach GPU i nie mierzy wydajności procesora GPU.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Aby móc uruchamiać skrypty programu do uwagi na maszynach wirtualnych z systemem Linux, Pobierz [pakiet skryptów](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)programu.
-

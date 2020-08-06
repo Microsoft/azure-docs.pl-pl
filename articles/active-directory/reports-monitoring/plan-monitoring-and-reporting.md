@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829634"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planowanie wdrożenia Azure Active Directory raportowanie i monitorowanie
 
@@ -149,7 +149,7 @@ Następujące role mogą odczytywać raporty usługi Azure AD:
 
 * Czytelnik zabezpieczeń
 
-* Czytelnik raportu
+* Czytelnik raportów
 
 Dowiedz się więcej na temat [ról administracyjnych usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
@@ -193,6 +193,4 @@ W zależności od decyzji podjętych wcześniej przy użyciu powyższych wytyczn
 
 Rozważ zaimplementowanie [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Rozważ zaimplementowanie [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Rozważ zaimplementowanie [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)

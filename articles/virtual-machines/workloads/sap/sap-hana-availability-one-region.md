@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035863"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833321"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA dostępność w ramach jednego regionu świadczenia usługi Azure
 W tym artykule opisano kilka scenariuszy dostępności w ramach jednego regionu świadczenia usługi Azure. Platforma Azure ma wiele regionów, rozmieszczonych na całym świecie. Aby zapoznać się z listą regionów świadczenia usługi Azure, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/). Do wdrażania SAP HANA na maszynach wirtualnych w ramach jednego regionu świadczenia usługi Azure firma Microsoft oferuje wdrożenie pojedynczej maszyny wirtualnej z wystąpieniem platformy HANA. Aby zwiększyć dostępność, można wdrożyć dwie maszyny wirtualne z dwoma wystąpieniami HANA w ramach [zestawu dostępności platformy Azure](../../windows/tutorial-availability-sets.md) korzystającego z replikacji systemu Hana w celu zapewnienia dostępności. 
@@ -82,7 +82,7 @@ Architektura wygląda następująco:
 
 Ten Instalator nie jest dobrze dostosowany do osiągnięcia doskonałego celu punktu odzyskiwania (RPO) i celu czasu odzyskiwania (RTO). W szczególności RTO się z powodu konieczności pełnego przywrócenia kompletnej bazy danych przy użyciu skopiowanych kopii zapasowych. Ta konfiguracja jest jednak przydatna do odzyskiwania z niezamierzonych usunięć danych w głównych wystąpieniach. Za pomocą tej konfiguracji można w dowolnym momencie przywrócić do określonego punktu w czasie, wyodrębnić dane i zaimportować usunięte dane do wystąpienia głównego. W związku z tym warto używać metody kopiowania kopii zapasowych w połączeniu z innymi funkcjami wysokiej dostępności. 
 
-Podczas kopiowania kopii zapasowych może być możliwe użycie mniejszej maszyny wirtualnej niż główna maszyna wirtualna, na której działa wystąpienie SAP HANA. Pamiętaj, że możesz dołączyć mniejszą liczbę wirtualnych dysków twardych do mniejszych maszyn wirtualnych. Aby uzyskać informacje na temat limitów poszczególnych typów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md).
+Podczas kopiowania kopii zapasowych może być możliwe użycie mniejszej maszyny wirtualnej niż główna maszyna wirtualna, na której działa wystąpienie SAP HANA. Pamiętaj, że możesz dołączyć mniejszą liczbę wirtualnych dysków twardych do mniejszych maszyn wirtualnych. Aby uzyskać informacje na temat limitów poszczególnych typów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md).
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replikacja systemu SAP HANA bez automatycznej pracy awaryjnej
 

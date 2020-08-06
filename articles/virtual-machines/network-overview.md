@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 054838d9e2c6dcc0bb021fdbf818db95922697f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835616"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Sieci wirtualne i maszyny wirtualne na platformie Azure 
 
@@ -47,7 +47,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia inte
 
 | Metoda | Opis |
 | ------ | ----------- |
-| Witryna Azure Portal | Interfejs sieciowy jest tworzony automatycznie podczas tworzenia maszyny wirtualnej w witrynie Azure Portal (nie można użyć oddzielnie utworzonej karty sieciowej). Maszyna wirtualna utworzona w portalu może mieć tylko jedną kartę sieciową. Jeśli chcesz utworzyć maszynę wirtualną zawierającą więcej niż jedną kartę sieciową, musisz użyć innej metody. |
+| Azure Portal | Interfejs sieciowy jest tworzony automatycznie podczas tworzenia maszyny wirtualnej w witrynie Azure Portal (nie można użyć oddzielnie utworzonej karty sieciowej). Maszyna wirtualna utworzona w portalu może mieć tylko jedną kartę sieciową. Jeśli chcesz utworzyć maszynę wirtualną zawierającą więcej niż jedną kartę sieciową, musisz użyć innej metody. |
 | [Azure PowerShell](./windows/multiple-nics.md) | Użyj parametru [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) z parametrem **-PublicIpAddressId** , aby podać identyfikator wcześniej utworzonego publicznego adresu IP. |
 | [Interfejs wiersza polecenia platformy Azure](./linux/multiple-nics.md) | Aby podać identyfikator utworzonego wcześniej publicznego adresu IP, użyj [AZ Network nic Create](/cli/azure/network/nic) z parametrem **--Public-IP-Address** . |
 | [Szablon](../virtual-network/template-samples.md) | Przewodnik [Interfejs sieciowy w sieci wirtualnej z publicznym adresem IP](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) ułatwia wdrożenie interfejsu sieciowego przy użyciu szablonu. |
@@ -93,7 +93,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia siec
 | [Witryna Azure Portal](../virtual-network/quick-create-portal.md) | Jeśli wybierzesz opcję utworzenia sieci wirtualnej podczas tworzenia maszyny wirtualnej na platformie Azure, nazwa sieci wirtualnej będzie składać się z nazwy grupy zasobów zawierającej sieć wirtualną i ciągu **-vnet**. Przestrzeń adresowa to 10.0.0.0/24, wymagana nazwa podsieci to **domyślna**, a zakres adresów podsieci to 10.0.0.0/24. |
 | [Azure PowerShell](../virtual-network/quick-create-powershell.md) | Do utworzenia podsieci i sieci wirtualnej służy funkcja [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) i [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) . Można również użyć [Add-AzVirtualNetworkSubnetConfig](/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) , aby dodać podsieć do istniejącej sieci wirtualnej. |
 | [Interfejs wiersza polecenia platformy Azure](../virtual-network/quick-create-cli.md) | Podsieć i sieć wirtualna są tworzone jednocześnie. Użyj polecenia [az network vnet create](/cli/azure/network/vnet) z parametrem **--subnet-name**, podając nazwę podsieci. |
-| Template | Najprostszym sposobem utworzenia sieci wirtualnej i podsieci jest pobranie istniejącego szablonu, takiego jak [Virtual Network z dwiema podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), i zmodyfikowanie go w zależności od potrzeb. |
+| Szablon | Najprostszym sposobem utworzenia sieci wirtualnej i podsieci jest pobranie istniejącego szablonu, takiego jak [Virtual Network z dwiema podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), i zmodyfikowanie go w zależności od potrzeb. |
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 
@@ -118,7 +118,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia siec
 
 ## <a name="load-balancers"></a>Moduły równoważenia obciążenia
 
-Usługa [Azure Load Balancer](../load-balancer/load-balancer-overview.md) zapewnia aplikacjom wysoką dostępność i wydajność sieci. Moduł równoważenia obciążenia można skonfigurować pod kątem [równoważenia przychodzącego ruchu internetowego](../load-balancer/load-balancer-internet-overview.md) do maszyn wirtualnych lub [równoważenia ruchu między maszynami wirtualnymi w sieci wirtualnej](../load-balancer/load-balancer-internal-overview.md). Moduł równoważenia obciążenia umożliwia również równoważenie ruchu między komputerami lokalnymi i maszynami wirtualnymi w sieci obejmującej różne lokalizacje oraz przekazywanie ruchu zewnętrznego do określonej maszyny wirtualnej.
+Usługa [Azure Load Balancer](../load-balancer/load-balancer-overview.md) zapewnia aplikacjom wysoką dostępność i wydajność sieci. Moduł równoważenia obciążenia można skonfigurować pod kątem [równoważenia przychodzącego ruchu internetowego](../load-balancer/components.md#frontend-ip-configurations) do maszyn wirtualnych lub [równoważenia ruchu między maszynami wirtualnymi w sieci wirtualnej](../load-balancer/components.md#frontend-ip-configurations). Moduł równoważenia obciążenia umożliwia również równoważenie ruchu między komputerami lokalnymi i maszynami wirtualnymi w sieci obejmującej różne lokalizacje oraz przekazywanie ruchu zewnętrznego do określonej maszyny wirtualnej.
 
 Moduł równoważenia obciążenia mapuje ruch przychodzący i wychodzący między publicznym adresem IP i portem modułu równoważenia obciążenia a prywatnym adresem IP i portem maszyny wirtualnej.
 
@@ -129,29 +129,29 @@ Podczas tworzenia modułu równoważenia obciążenia należy również wziąć 
 - **[Przekazywanie portów](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** — definiuje sposób przepływu ruchu przychodzącego za pomocą adresu IP frontonu i dystrybuowania do adresu IP zaplecza wykorzystującego reguły NAT dla ruchu przychodzącego.
 - **Reguły modułu równoważenia obciążenia** — mapują dany adres IP frontonu i kombinację portów na zestaw adresów IP zaplecza i kombinację portów. Moduł równoważenia obciążenia może mieć różne reguły równoważenia obciążenia. Każda reguła zawiera kombinację adresu IP frontonu i portu oraz adresu IP zaplecza i portu, które są powiązane z maszynami wirtualnymi.
 - **[Sondy](../load-balancer/load-balancer-custom-probe-overview.md)** — monitorują kondycję maszyn wirtualnych. Jeśli sonda nie odpowiada, moduł równoważenia obciążenia zaprzestaje inicjowania nowych połączeń z maszyną wirtualną o złej kondycji. Nie ma to wpływu na istniejące połączenia. Nowe połączenia są inicjowane z maszynami wirtualnymi o prawidłowej kondycji.
-- **[Reguły ruchu wychodzącego](../load-balancer/load-balancer-outbound-rules-overview.md)** — Reguła ruchu wychodzącego konfiguruje wychodzące translację adresów sieciowych (NAT) dla wszystkich maszyn wirtualnych lub wystąpień identyfikowanych przez pulę zaplecza usługa Load Balancer w warstwie Standardowa, które mają zostać przetłumaczone na fronton.
+- **[Reguły ruchu wychodzącego](../load-balancer/load-balancer-outbound-connections.md#outboundrules)** — Reguła ruchu wychodzącego konfiguruje wychodzące translację adresów sieciowych (NAT) dla wszystkich maszyn wirtualnych lub wystąpień identyfikowanych przez pulę zaplecza usługa Load Balancer w warstwie Standardowa, które mają zostać przetłumaczone na fronton.
 
 Poniższa tabela zawiera listę metod, których można użyć do utworzenia modułu równoważenia obciążenia dostępnego z Internetu.
 
 | Metoda | Opis |
 | ------ | ----------- |
-| Witryna Azure Portal |  Można [równoważyć obciążenie ruchem internetowym do maszyn wirtualnych przy użyciu Azure Portal](../load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
-| [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Aby podać identyfikator utworzonego wcześniej publicznego adresu IP, użyj polecenie [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) z parametrem **-PublicIpAddress** . Użyj [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) , aby utworzyć konfigurację puli adresów zaplecza. Użyj [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) , aby utworzyć reguły NAT dla ruchu przychodzącego skojarzone z utworzoną konfiguracją adresów IP frontonu. Użyj [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) , aby utworzyć sondy, które są potrzebne. Użyj [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) , aby utworzyć konfigurację modułu równoważenia obciążenia. Użyj [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) , aby utworzyć moduł równoważenia obciążenia.|
-| [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md) | Użyj polecenia [az network lb create](/cli/azure/network/lb), aby utworzyć początkową konfigurację modułu równoważenia obciążenia. Użyj polecenia [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip), aby dodać wcześniej utworzony publiczny adres IP. Użyj polecenia [az network lb address-pool create](/cli/azure/network/lb/address-pool), aby dodać konfigurację puli adresów zaplecza. Użyj polecenia [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule), aby dodać reguły NAT. Użyj polecenia [az network lb rule create](/cli/azure/network/lb/rule), aby dodać reguły modułu równoważenia obciążenia. Użyj polecenia [az network lb probe create](/cli/azure/network/lb/probe), aby dodać sondy. |
+| Azure Portal |  Można [równoważyć obciążenie ruchem internetowym do maszyn wirtualnych przy użyciu Azure Portal](../load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
+| [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Aby podać identyfikator utworzonego wcześniej publicznego adresu IP, użyj polecenie [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) z parametrem **-PublicIpAddress** . Użyj [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) , aby utworzyć konfigurację puli adresów zaplecza. Użyj [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) , aby utworzyć reguły NAT dla ruchu przychodzącego skojarzone z utworzoną konfiguracją adresów IP frontonu. Użyj [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) , aby utworzyć sondy, które są potrzebne. Użyj [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) , aby utworzyć konfigurację modułu równoważenia obciążenia. Użyj [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) , aby utworzyć moduł równoważenia obciążenia.|
+| [Interfejs wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | Użyj polecenia [az network lb create](/cli/azure/network/lb), aby utworzyć początkową konfigurację modułu równoważenia obciążenia. Użyj polecenia [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip), aby dodać wcześniej utworzony publiczny adres IP. Użyj polecenia [az network lb address-pool create](/cli/azure/network/lb/address-pool), aby dodać konfigurację puli adresów zaplecza. Użyj polecenia [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule), aby dodać reguły NAT. Użyj polecenia [az network lb rule create](/cli/azure/network/lb/rule), aby dodać reguły modułu równoważenia obciążenia. Użyj polecenia [az network lb probe create](/cli/azure/network/lb/probe), aby dodać sondy. |
 | [Szablon](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Przewodnik [Moduł równoważenia obciążenia z dwiema maszynami wirtualnymi oraz konfiguracja reguł NAT w module równoważenia obciążenia](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) ułatwia wdrożenie modułu równoważenia obciążenia przy użyciu szablonu. |
     
 Poniższa tabela zawiera listę metod, których można użyć do utworzenia wewnętrznego modułu równoważenia obciążenia.
 
 | Metoda | Opis |
 | ------ | ----------- |
-| Witryna Azure Portal | [W Azure Portal można zrównoważyć obciążenie ruchem wewnętrznym przy użyciu modułu równoważenia obciążenia](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
+| Azure Portal | [W Azure Portal można zrównoważyć obciążenie ruchem wewnętrznym przy użyciu modułu równoważenia obciążenia](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Aby podać prywatny adres IP w podsieci sieciowej, użyj polecenie [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) z parametrem **-PrivateIpAddress** . Użyj [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) , aby utworzyć konfigurację puli adresów zaplecza. Użyj [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) , aby utworzyć reguły NAT dla ruchu przychodzącego skojarzone z utworzoną konfiguracją adresów IP frontonu. Użyj [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) , aby utworzyć sondy, które są potrzebne. Użyj [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) , aby utworzyć konfigurację modułu równoważenia obciążenia. Użyj [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) , aby utworzyć moduł równoważenia obciążenia.|
 | [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Użyj polecenia [az network lb create](/cli/azure/network/lb), aby utworzyć początkową konfigurację modułu równoważenia obciążenia. Użyj polecenia [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) z parametrem **--private-ip-address**, aby zdefiniować prywatny adres IP. Użyj polecenia [az network lb address-pool create](/cli/azure/network/lb/address-pool), aby dodać konfigurację puli adresów zaplecza. Użyj polecenia [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule), aby dodać reguły NAT. Użyj polecenia [az network lb rule create](/cli/azure/network/lb/rule), aby dodać reguły modułu równoważenia obciążenia. Użyj polecenia [az network lb probe create](/cli/azure/network/lb/probe), aby dodać sondy.|
 | [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Przewodnik [Moduł równoważenia obciążenia z dwiema maszynami wirtualnymi oraz konfiguracja reguł NAT w module równoważenia obciążenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) ułatwia wdrożenie modułu równoważenia obciążenia przy użyciu szablonu. |
 
 ### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 
-Aby uzyskać więcej informacji na temat modułu równoważenia obciążenia i zestawów skalowania maszyn wirtualnych, zobacz [sieci dla zestawów skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
+Aby uzyskać więcej informacji na temat modułu równoważenia obciążenia i zestawów skalowania maszyn wirtualnych, zobacz [sieci dla zestawów skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ## <a name="vms"></a>Maszyny wirtualne
 
@@ -179,4 +179,3 @@ Dostępne są również samouczki dotyczące równoważenia obciążenia maszyn 
 - Dowiedz się, jak skonfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Dowiedz się, jak [rozwiązywać problemy z trasami](../virtual-network/diagnose-network-routing-problem.md).
 - Dowiedz się więcej o [przepustowości sieci maszyn wirtualnych](../virtual-network/virtual-machine-network-throughput.md).
-

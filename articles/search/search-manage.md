@@ -9,18 +9,18 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421896"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835956"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
 > [!div class="op_single_selector"]
 >
-> * [Program PowerShell](search-manage-powershell.md)
+> * [PowerShell](search-manage-powershell.md)
 > * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
@@ -56,7 +56,7 @@ W przypadku dostępu do punktu końcowego każda osoba mająca dostęp do adresu
 * Dostęp tylko do odczytu do usługi to prawa do zapytania, zwykle przyznawane aplikacji klienckiej przez nadanie jej adresu URL i klucza zapytania API-Key.
 * Uprawnienia do odczytu i zapisu umożliwiają dodawanie, usuwanie i modyfikowanie obiektów serwera, w tym kluczy API, indeksów, indeksatorów, źródeł danych i harmonogramów. Dostęp do odczytu i zapisu jest przyznawany przez podanie adresu URL, klucza interfejsu API administratora.
 
-Prawa do aparatu aprowizacji usług są udzielane za pomocą przypisań ról. [Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. 
+Prawa do aparatu aprowizacji usług są udzielane za pomocą przypisań ról. [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. 
 
 W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy Azure](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 

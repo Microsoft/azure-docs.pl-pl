@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie wystąpienia i uwierzytelniania (CLI)
+title: Konfigurowanie wystąpienia i uwierzytelniania (interfejs wiersza polecenia)
 titleSuffix: Azure Digital Twins
 description: Zobacz jak skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsu wiersza polecenia
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408352"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832358"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (CLI)
 
@@ -46,7 +46,7 @@ Użyj tych wartości w poniższym poleceniu, aby utworzyć wystąpienie:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Weryfikowanie sukcesu
+### <a name="verify-success-and-collect-important-values"></a>Weryfikowanie sukcesu i zbieranie ważnych wartości
 
 Jeśli wystąpienie zostało utworzone pomyślnie, wynik w Cloud Shell będzie wyglądać podobnie do podania informacji o utworzonym zasobie:
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.
 
-> [!TIP]
-> Jeśli zostanie wyświetlony komunikat o błędzie *400: nieprawidłowego żądania* , uruchom następujące polecenie, aby uzyskać identyfikator *objectid* dla użytkownika:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Następnie powtórz polecenie przypisania roli, używając *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail.
+> [!NOTE]
+> Jeśli to polecenie zwróci błąd informujący, że interfejs wiersza polecenia **nie może odnaleźć nazwy głównej użytkownika lub usługi w usłudze Graph Database**:
+>
+> Użyj *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail. Może się tak zdarzyć w przypadku użytkowników korzystających z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account). 
+>
+> Użyj [Azure Portal stronie Azure Active Directory użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) , aby wybrać konto użytkownika i otworzyć jego szczegóły. Skopiuj *Identyfikator obiektu użytkownika:*
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu "Identyfikator obiektu"" lightbox="media/includes/user-id.png":::
+>
+> Następnie powtórz polecenie listy przypisywania ról przy użyciu *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail.
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 
@@ -117,7 +121,7 @@ Przejdź do *manifest.js* po utworzeniu i naciśnij pozycję "Otwórz".
 Następnie uruchom następujące polecenie, aby utworzyć rejestrację aplikacji (zastępując symbole zastępcze w razie potrzeby):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Poniżej znajduje się fragment danych wyjściowych tego polecenia, przedstawiający informacje o utworzonej rejestracji:

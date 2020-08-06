@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289711"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831298"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -80,7 +80,7 @@ Każdy procesor GPU w wystąpieniach NVv2 zawiera licencję siatki. Ta licencja 
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>Starsze generacji rozmiarów maszyn wirtualnych
 
-Ta sekcja zawiera informacje dotyczące starszych generacji rozmiarów maszyn wirtualnych. Te rozmiary są nadal obsługiwane, ale nie będą otrzymywać dodatkowej pojemności. Istnieją również nowsze lub alternatywne rozmiary, które są ogólnie dostępne. Zapoznaj się z [rozmiarem maszyn wirtualnych z systemem Linux na platformie Azure](linux/sizes.md) , aby wybrać rozmiary maszyn wirtualnych, które najlepiej pasują do Twoich potrzeb.  
+Ta sekcja zawiera informacje dotyczące starszych generacji rozmiarów maszyn wirtualnych. Te rozmiary są nadal obsługiwane, ale nie będą otrzymywać dodatkowej pojemności. Istnieją również nowsze lub alternatywne rozmiary, które są ogólnie dostępne. Zapoznaj się z [rozmiarem maszyn wirtualnych z systemem Linux na platformie Azure](./sizes.md) , aby wybrać rozmiary maszyn wirtualnych, które najlepiej pasują do Twoich potrzeb.  
 
 Aby uzyskać więcej informacji na temat zmiany rozmiaru maszyny wirtualnej z systemem Linux, zobacz [zmiana rozmiaru maszyny wirtualnej z systemem Linux](linux/change-vm-size.md).  
 

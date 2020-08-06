@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3265e70159cd4c27f698d00d85dce7d4cb49b95
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286159"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836245"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption z usługą Azure AD dla maszyn wirtualnych z systemem Windows (poprzednia wersja)
 
@@ -74,7 +74,7 @@ W tym scenariuszu można włączyć szyfrowanie przy użyciu szablonu, poleceń 
 
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a>Włącz szyfrowanie na istniejących lub uruchomionych maszynach wirtualnych za pomocą Azure PowerShell 
-Użyj polecenia cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) , aby włączyć szyfrowanie na działającej maszynie wirtualnej IaaS na platformie Azure. Aby uzyskać informacje na temat włączania szyfrowania przy użyciu Azure Disk Encryption za pomocą poleceń cmdlet programu PowerShell, zobacz wpisy w blogu [eksplorowanie Azure Disk Encryption z Azure PowerShell-część 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) i [Eksplorowanie Azure Disk Encryption z Azure PowerShell — część 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx).
+Użyj polecenia cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) , aby włączyć szyfrowanie na działającej maszynie wirtualnej IaaS na platformie Azure. Aby uzyskać informacje na temat włączania szyfrowania przy użyciu Azure Disk Encryption za pomocą poleceń cmdlet programu PowerShell, zobacz wpisy w blogu [eksplorowanie Azure Disk Encryption z Azure PowerShell-część 1](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell) i [Eksplorowanie Azure Disk Encryption z Azure PowerShell — część 2](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell-part-2).
 
 -  **Szyfrowanie uruchomionej maszyny wirtualnej przy użyciu klucza tajnego klienta:** Poniższy skrypt inicjuje zmienne i uruchamia polecenie cmdlet Set-AzVMDiskEncryptionExtension. Grupa zasobów, maszyna wirtualna, Magazyn kluczy, aplikacja usługi AAD i klucz tajny klienta powinny zostać już utworzone jako wymagania wstępne. Zastąp wartości MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, my-AAD-Client-ID i my-AAD-Client-Secret wartościami.
      ```azurepowershell

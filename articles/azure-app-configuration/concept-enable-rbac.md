@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: d399a9f51eca6298cc829001a2da3b85ba001f27
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528990"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830075"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoryzuj dostęp do konfiguracji aplikacji platformy Azure przy użyciu Azure Active Directory
 Oprócz używania kod uwierzytelniania wiadomości opartego na skrótach (HMAC) Konfiguracja aplikacji platformy Azure obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań do wystąpień konfiguracji aplikacji.  Usługa Azure AD umożliwia korzystanie z kontroli dostępu opartej na rolach (RBAC) do przyznawania uprawnień podmiotowi zabezpieczeń.  Podmiotem zabezpieczeń może być użytkownik, [tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) lub nazwa [główna usługi aplikacji](../active-directory/develop/app-objects-and-service-principals.md).  Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -26,7 +26,7 @@ Krok uwierzytelniania wymaga, aby żądanie aplikacji zawierało token dostępu 
 Krok autoryzacji wymaga, aby co najmniej jedna rola platformy Azure była przypisana do podmiotu zabezpieczeń. Usługa Azure App Configuration oferuje role platformy Azure, które obejmują zestawy uprawnień dla zasobów konfiguracji aplikacji. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia podane do podmiotu. Aby uzyskać więcej informacji na temat ról platformy Azure, zobacz [wbudowane role platformy Azure dla usługi Azure App Configuration](#azure-built-in-roles-for-azure-app-configuration). 
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Przypisywanie ról platformy Azure na potrzeby praw dostępu
-Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md).
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 
 Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp jest objęty zakresem do zasobu konfiguracji aplikacji. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem lub główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 

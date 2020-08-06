@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4d43311ece7cb72e9f4abb3f8a18f3550fe48f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797580e00c1ec36a2ed79d1b3a6fc73da1322aed
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660697"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831128"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aktualizowanie typu magazynu na dysku zarządzanym
 
@@ -29,7 +29,7 @@ Ta funkcja nie jest obsługiwana w przypadku dysków niezarządzanych. Można je
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Przełączanie wszystkich dysków zarządzanych maszyny wirtualnej między warstwami Premium i Standard
 
-Ten przykład pokazuje, jak przekonwertować wszystkie dyski maszyny wirtualnej ze standardu do magazynu w warstwie Premium lub Premium do magazynu w warstwie Standardowa. Aby można było korzystać z dysków zarządzanych w warstwie Premium, maszyna wirtualna musi używać [rozmiaru maszyny wirtualnej](sizes.md) obsługującego usługę Premium Storage. Ten przykład umożliwia przełączenie na rozmiar obsługujący usługę Premium Storage:
+Ten przykład pokazuje, jak przekonwertować wszystkie dyski maszyny wirtualnej ze standardu do magazynu w warstwie Premium lub Premium do magazynu w warstwie Standardowa. Aby można było korzystać z dysków zarządzanych w warstwie Premium, maszyna wirtualna musi używać [rozmiaru maszyny wirtualnej](../sizes.md) obsługującego usługę Premium Storage. Ten przykład umożliwia przełączenie na rozmiar obsługujący usługę Premium Storage:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -73,7 +73,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Przełączanie poszczególnych dysków zarządzanych między warstwami standardowa i Premium
 
-W przypadku obciążeń związanych z tworzeniem i testowaniem możesz potrzebować różnych dysków w warstwach Standardowa i Premium, aby zmniejszyć koszty. Można uaktualnić tylko te dyski, które potrzebują lepszej wydajności. Ten przykład pokazuje, jak przekonwertować pojedynczy dysk maszyny wirtualnej ze standardu do magazynu w warstwie Premium lub Premium do magazynu w warstwie Standardowa. Aby można było korzystać z dysków zarządzanych w warstwie Premium, maszyna wirtualna musi używać [rozmiaru maszyny wirtualnej](sizes.md) obsługującego usługę Premium Storage. Ten przykład pokazuje również, jak przełączyć się do rozmiaru, który obsługuje usługę Premium Storage:
+W przypadku obciążeń związanych z tworzeniem i testowaniem możesz potrzebować różnych dysków w warstwach Standardowa i Premium, aby zmniejszyć koszty. Można uaktualnić tylko te dyski, które potrzebują lepszej wydajności. Ten przykład pokazuje, jak przekonwertować pojedynczy dysk maszyny wirtualnej ze standardu do magazynu w warstwie Premium lub Premium do magazynu w warstwie Standardowa. Aby można było korzystać z dysków zarządzanych w warstwie Premium, maszyna wirtualna musi używać [rozmiaru maszyny wirtualnej](../sizes.md) obsługującego usługę Premium Storage. Ten przykład pokazuje również, jak przełączyć się do rozmiaru, który obsługuje usługę Premium Storage:
 
 ```azurepowershell-interactive
 

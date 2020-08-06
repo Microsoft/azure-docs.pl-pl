@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 1714fac465531a2d3a5829e7080132510ccd1ec4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2f10a6915a3edf673316ae9151b6052442678ef9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407478"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832357"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -24,7 +24,18 @@ Poziom uprawnień można sprawdzić, uruchamiając następujące polecenie w Clo
 az role assignment list --assignee <your-Azure-email>
 ```
 
-Jeśli jesteś właścicielem, `roleDefinitionName` wartość w danych wyjściowych jest *właścicielem*:
+> [!NOTE]
+> Jeśli to polecenie zwróci błąd informujący, że interfejs wiersza polecenia **nie może odnaleźć nazwy głównej użytkownika lub usługi w usłudze Graph Database**:
+>
+> Użyj *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail w pozostałej części tego artykułu. Może się tak zdarzyć w przypadku użytkowników korzystających z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account). 
+>
+> Użyj [Azure Portal stronie Azure Active Directory użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) , aby wybrać konto użytkownika i otworzyć jego szczegóły. Kopiuj *Identyfikator obiektu użytkownika*:
+>
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu "Identyfikator obiektu"" lightbox="../articles/digital-twins/media/includes/user-id.png":::
+>
+> Następnie powtórz polecenie listy przypisywania ról, używając *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail.
+
+Po uruchomieniu polecenia listy przypisywania ról, jeśli jesteś właścicielem, `roleDefinitionName` wartość w danych wyjściowych jest *właścicielem*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/cloud-shell/owner-role.png" alt-text="Okno Cloud Shell pokazujące dane wyjściowe polecenia AZ role przypisania list":::
 

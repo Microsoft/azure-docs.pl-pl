@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 907ea5c600202b65195ef61cf740b5711928225d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07b9e3e7529aa867a4baf51ffe5c4bbf23599d32
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499402"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836194"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Windows i dystrybuowanie go do galerii obrazów udostępnionych 
 
@@ -219,7 +219,7 @@ Szablon musi zostać przesłany do usługi. spowoduje to pobranie wszelkich arte
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -api-version "2019-05-01-preview" `
+   -apiversion "2019-05-01-preview" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -298,7 +298,7 @@ dir c:\
 Powinien zostać wyświetlony katalog o nazwie `buildActions` , który został utworzony podczas dostosowywania obrazu.
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli chcesz teraz spróbować ponownie dostosować wersję obrazu, aby utworzyć nową wersję tego samego obrazu, **Pomiń ten krok** i przejdź do, aby [użyć usługi Azure Image Builder do utworzenia innej wersji obrazu](image-builder-gallery-update-image-version.md).
 
 

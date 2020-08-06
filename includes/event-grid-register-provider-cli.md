@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b48e5e28b15d17796138d493a7d9c628791df2e6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182913"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830136"
 ---
-## <a name="enable-event-grid-resource-provider"></a>Włączanie dostawcy zasobów usługi Event Grid
+## <a name="enable-the-event-grid-resource-provider"></a>Włączanie dostawcy zasobów Event Grid
 
-Jeśli usługa Event Grid nie była wcześniej używana w subskrypcji platformy Azure, może być konieczne zarejestrowanie dostawcy zasobów usługi Event Grid. Uruchom następujące polecenie, aby zarejestrować dostawcę:
+Jeśli w ramach subskrypcji platformy Azure nie użyto wcześniej Event Grid, może być konieczne zarejestrowanie Event Grid dostawcy zasobów. Uruchom następujące polecenie, aby zarejestrować dostawcę:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid

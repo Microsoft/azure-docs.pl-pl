@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8553a809173d955a21e6730de35c70de5b69e81b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136261"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836075"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ ms.locfileid: "87136261"
 Metryki wirtualnego poziomu zasobów sieci WAN są zbierane i prezentowane za pośrednictwem wstępnie spakowanego skoroszytu metryk wirtualnych sieci WAN, który pokazuje metryki na poziomie wirtualnej sieci WAN, centrum, bramy i połączenia. W tym artykule przedstawiono kroki umożliwiające używanie Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN do wyświetlania topologii wirtualnej sieci WAN i metryk wszystkich w jednym miejscu.
 
 > [!NOTE]
-> W przypadku tej wersji zapoznawczej menu szczegółowych informacji jest w toku.
+> Opcja menu Insights w portalu wirtualnej sieci WAN jest w trakcie wdrażania. Podczas wycofywania menu Insights dla wirtualnej sieci WAN można bezpośrednio uzyskać dostęp do dostępnej topologii i skoroszytu sieci WAN przy użyciu platformy Azure dla sieci. Zobacz [Azure monitor Insights](../azure-monitor/insights/network-insights-overview.md) , aby uzyskać więcej informacji. 
 >
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem

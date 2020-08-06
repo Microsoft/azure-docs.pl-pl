@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051849"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832267"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
 
@@ -359,9 +359,9 @@ Zdecydowanie zalecamy korzystanie z [usługi Azure Managed disks](../../windows/
 
 Dyski sieciowe lub udziały zdalne, takie jak usługi plików platformy Azure, nie są obsługiwane w przypadku plików Oracle Database. Aby uzyskać więcej informacji, zobacz:
 
-- [Introducing Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Wprowadzenie do usługi plików platformy Microsoft Azure)
+- [Introducing Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service) (Wprowadzenie do usługi plików platformy Microsoft Azure)
 
-- [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 
 Jeśli używasz dysków opartych na usłudze Azure Page BLOB Storage lub Managed Disks, instrukcje w temacie [zagadnienia dotyczące wdrażania platformy azure Virtual Machines DBMS dla obciążenia SAP](dbms_guide_general.md) dotyczą również wdrożeń z Oracle Database.
@@ -450,9 +450,9 @@ Zdecydowanie zaleca się używanie [usługi Azure Managed disks](../../windows/m
 
 Dyski sieciowe lub udziały zdalne, takie jak usługi plików platformy Azure, nie są obsługiwane w przypadku plików Oracle Database. Aby uzyskać więcej informacji, zobacz następujące tematy: 
 
-- [Introducing Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Wprowadzenie do usługi plików platformy Microsoft Azure)
+- [Introducing Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service) (Wprowadzenie do usługi plików platformy Microsoft Azure)
 
-- [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 Jeśli używasz dysków opartych na usłudze Azure Page BLOB Storage lub Managed Disks, instrukcje dotyczące [wdrażania platformy azure Virtual Machines DBMS dla obciążenia SAP](dbms_guide_general.md) dotyczą również wdrożeń z Oracle Database.
 

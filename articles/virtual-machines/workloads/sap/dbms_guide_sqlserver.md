@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1771b0b55301fe4beaf2049859ebf3b9642fdd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077347"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831060"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
 
@@ -336,7 +336,7 @@ Zgodnie z ogólnym opisem SQL Server pliki wykonywalne powinny być zlokalizowan
 
 
 * Wszystkie typy maszyn wirtualnych z certyfikatem SAP (patrz Uwaga: [1928533]), z wyjątkiem maszyn wirtualnych serii a, danych tempdb i plików dziennika, można umieścić na nieutrwalonym D:\ litera. 
-* Niemniej jednak zaleca się używanie wielu plików danych tempdb. D:\ woluminy dysków różnią się w zależności od typu maszyny wirtualnej. Dokładne rozmiary D:\ na dysku różnych maszyn wirtualnych Sprawdź [rozmiary artykułów dla maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md).
+* Niemniej jednak zaleca się używanie wielu plików danych tempdb. D:\ woluminy dysków różnią się w zależności od typu maszyny wirtualnej. Dokładne rozmiary D:\ na dysku różnych maszyn wirtualnych Sprawdź [rozmiary artykułów dla maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md).
 
 Te konfiguracje umożliwiają bazie danych tempdb zużywanie większej ilości miejsca niż dysk systemowy. Nietrwały D:\ dysk oferuje również lepsze opóźnienia we/wy i przepływność (z wyjątkiem maszyn wirtualnych serii A). Aby określić odpowiedni rozmiar bazy danych tempdb, można sprawdzić rozmiary tempdb w istniejących systemach. 
 
@@ -379,7 +379,7 @@ SQL Server 2014 i nowsze wersje otwierają możliwość przechowywania plików b
 
 * Używane konto magazynu musi znajdować się w tym samym regionie świadczenia usługi Azure, który jest używany do wdrożenia maszyny wirtualnej SQL Server jest uruchomiony w systemie.
 * Wymienione wcześniej zagadnienia dotyczące dystrybucji dysków VHD za pośrednictwem różnych kont usługi Azure Storage dotyczą również tej metody wdrożeń. Oznacza liczbę operacji we/wy względem limitów konta usługi Azure Storage.
-* Zamiast obsłużyć limit przydziału operacji we/wy magazynu maszyny wirtualnej, ruch związany z obiektami blob magazynu reprezentującymi SQL Server plików danych i dziennika będzie uwzględniać przepustowość sieci maszyny wirtualnej określonego typu maszyny wirtualnej. Aby uzyskać przepustowość sieci i magazynu dla określonego typu maszyny wirtualnej, zapoznaj się z artykułem [rozmiary dotyczące maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md).
+* Zamiast obsłużyć limit przydziału operacji we/wy magazynu maszyny wirtualnej, ruch związany z obiektami blob magazynu reprezentującymi SQL Server plików danych i dziennika będzie uwzględniać przepustowość sieci maszyny wirtualnej określonego typu maszyny wirtualnej. Aby uzyskać przepustowość sieci i magazynu dla określonego typu maszyny wirtualnej, zapoznaj się z artykułem [rozmiary dotyczące maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md).
 * W wyniku wypchnięcia operacji we/wy na plikach przez przydziały sieci nastąpi przekroczenie limitu przydziału pamięci masowej i przy użyciu ogólnej przepustowości maszyny wirtualnej tylko częściowo.
 * Cele operacji we/wy i przepływności wydajności operacji wejścia/wyjścia, które nie są już stosowane dla systemu Azure Premium Storage dla różnych rozmiarów dysków. Nawet jeśli utworzone obiekty blob znajdują się na platformie Azure Premium Storage. Cele są udokumentowane w artykule [o wysokiej wydajności Premium Storage i dyskach zarządzanych dla maszyn wirtualnych](../../windows/disks-types.md#premium-ssd). W wyniku umieszczania plików danych SQL Server i plików dziennika bezpośrednio w obiektach Blob przechowywanych w usłudze Azure Premium Storage charakterystyki wydajności mogą być różne w porównaniu z dyskami VHD w Premium Storage platformy Azure.
 * Buforowanie oparte na hoście jako dostępne dla dysków usługi Azure Premium Storage nie jest dostępne podczas umieszczania SQL Server plików danych bezpośrednio w obiektach Blob platformy Azure.

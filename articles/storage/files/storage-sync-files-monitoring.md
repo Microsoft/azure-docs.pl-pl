@@ -4,15 +4,15 @@ description: Jak monitorować Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515208"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832624"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -20,7 +20,11 @@ Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azur
 
 W tym artykule opisano sposób monitorowania wdrożenia Azure File Sync przy użyciu Azure Monitor, usługi synchronizacji magazynu i systemu Windows Server.
 
-Obecnie dostępne są następujące opcje monitorowania.
+Następujące scenariusze zostały omówione w tym przewodniku: 
+- Wyświetl metryki Azure File Sync w Azure Monitor.
+- Twórz alerty w Azure Monitor, aby aktywnie powiadamiać o kluczowych warunkach.
+- Monitoruj kondycję wdrożenia Azure File Sync przy użyciu Azure Portal.
+- Jak używać dzienników zdarzeń i liczników wydajności na serwerach z systemem Windows do monitorowania kondycji wdrożenia Azure File Sync. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -48,7 +52,19 @@ Następujące metryki dla Azure File Sync są dostępne w Azure Monitor:
 
 ### <a name="alerts"></a>Alerty
 
-Aby skonfigurować alerty w Azure Monitor, wybierz usługę synchronizacji magazynu, a następnie wybierz [metrykę Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) , która ma być używana dla tego alertu.  
+Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+**Jak utworzyć alerty dla Azure File Sync**
+
+- Przejdź do **usługi synchronizacji magazynu** w **Azure Portal**. 
+- W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
+- Kliknij pozycję **Wybierz warunek** i podaj następujące informacje dotyczące alertu: 
+    - **Metryka**
+    - **Nazwa wymiaru**
+    - **Logika alertu**
+- Kliknij pozycję **Wybierz grupę akcji** i Dodaj grupę akcji (wiadomości e-mail, wiadomości SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+- Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+- Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.  
 
 W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowania i właściwej metryki do użycia w ramach alertu:
 
@@ -58,8 +74,6 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 | Synchronizowanie plików z serwerem lub punktem końcowym w chmurze nie powiodło się | Pliki, których nie należy synchronizować |
 | Serwer zarejestrowany nie może komunikować się z usługą synchronizacji magazynu | Stan online serwera |
 | Rozmiar odwołania do warstwy chmury przekroczył 500GiB w ciągu dnia  | Rozmiar odwołania do warstw w chmurze |
-
-Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="storage-sync-service"></a>Usługa synchronizacji magazynu
 
@@ -148,6 +162,6 @@ Następujące liczniki wydajności dla Azure File Sync są dostępne w Monitorze
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
 - [Rozważ użycie ustawień zapory i serwera proxy](storage-sync-files-firewall-and-proxy.md)
-- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)

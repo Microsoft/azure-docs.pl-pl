@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079812"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833338"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure
 Projektowanie architektury SAP NetWeaver, Business One `Hybris` lub S/4HANA system na platformie Azure otwiera wiele różnych możliwości dla różnych architektur i narzędzi, które mogą być używane do skalowalnego, wydajnego i wysokiej dostępności wdrożenia. Jednak zależnie od używanego systemu operacyjnego lub DBMS istnieją ograniczenia. Ponadto nie wszystkie scenariusze, które są obsługiwane lokalnie, są obsługiwane w taki sam sposób na platformie Azure. Ten dokument przeprowadzi Cię przez obsługiwane konfiguracje bez wysokiej dostępności i konfiguracje wysokiej dostępności oraz architektury korzystające wyłącznie z maszyn wirtualnych platformy Azure. W przypadku scenariuszy obsługiwanych z [dużymi wystąpieniami Hana](./hana-overview-architecture.md)zapoznaj się z artykułem [obsługiwane scenariusze dotyczące dużych wystąpień platformy Hana](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ Jest obsługiwane, aby użyć mniejszej maszyny wirtualnej jako wystąpienia doc
 - Zmiana rozmiarów w różnych rodzinach maszyn wirtualnych może być problemem, gdy różne maszyny wirtualne są zbierane w jednym zestawie dostępności platformy Azure lub gdy zmiana rozmiarów ma miejsce między rodziną serii M i rodziną maszyn wirtualnych Mv2
 - Użycie procesora CPU i pamięci dla wystąpienia bazy danych może odbierać strumień zmian z minimalnym opóźnieniem i wystarczającą ilością zasobów procesora i pamięci, aby zastosować te zmiany z minimalnym opóźnieniem danych  
 
-Więcej szczegółowych informacji na temat ograniczeń dotyczących różnych rozmiarów maszyn wirtualnych można znaleźć [tutaj](../../linux/sizes.md) 
+Więcej szczegółowych informacji na temat ograniczeń dotyczących różnych rozmiarów maszyn wirtualnych można znaleźć [tutaj](../../sizes.md) 
 
 Inna obsługiwana metoda wdrażania obiektu docelowego odzyskiwania po awarii polega na tym, że na maszynie wirtualnej uruchomionej nieprodukcyjnego wystąpienia SAP nie jest zainstalowane drugie wystąpienie systemu DBMS. Może to być nieco bardziej trudne, ponieważ należy ustalić, jakie zasoby dotyczące pamięci, zasobów procesora, przepustowości sieci i magazynu są potrzebne dla konkretnych wystąpień docelowych, które powinny działać jako główne wystąpienie w scenariuszu odzyskiwania po awarii. Szczególnie w przypadku platformy HANA zdecydowanie zaleca się skonfigurowanie wystąpienia, które działa jako element docelowy odzyskiwania po awarii na hoście udostępnionym, dzięki czemu dane nie są wstępnie załadowane do wystąpienia docelowego odzyskiwania po awarii.
 

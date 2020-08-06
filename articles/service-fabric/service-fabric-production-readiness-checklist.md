@@ -3,12 +3,12 @@ title: Lista kontrolna gotowości produkcyjnej platformy Azure Service Fabric
 description: Zapoznaj się z Service Fabric aplikacji i środowiska produkcyjnego klastra, wykonując następujące najlepsze rozwiązania.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282062"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835871"
 ---
 # <a name="production-readiness-checklist"></a>Lista kontrolna gotowości do produkcji
 
@@ -35,7 +35,7 @@ Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? U
 1. Ustanów cel punktu odzyskiwania dla usługi i skonfiguruj [proces odzyskiwania po awarii](service-fabric-disaster-recovery.md) i przetestuj go.
 1. Planuj ręcznie lub programowo [skalować](service-fabric-cluster-scaling.md) klaster.
 1. Zaplanuj [stosowanie poprawek](service-fabric-patch-orchestration-application.md) do węzłów klastra. 
-1. Ustanów potok ciągłej integracji/ciągłego dostarczania, aby najnowsze zmiany były stale testowane. Na przykład przy użyciu [usługi Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Ustanów potok ciągłej integracji/ciągłego dostarczania, aby najnowsze zmiany były stale testowane. Na przykład przy użyciu [usługi Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Przetestuj & tworzenia klastrów przejściowych w ramach obciążenia z [usługą analizy błędów](service-fabric-testability-overview.md) i wywołujące kontrolowane [chaos](service-fabric-controlled-chaos.md). 
 1. Zaplanuj [skalowanie](service-fabric-concepts-scalability.md) aplikacji. 
 

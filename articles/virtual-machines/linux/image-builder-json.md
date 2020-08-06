@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543609"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830346"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -116,7 +116,7 @@ Tej opcjonalnej sekcji można użyć, aby upewnić się, że zależności zosta�
     "dependsOn": [],
 ```
 
-Aby uzyskać więcej informacji, zobacz [Definiowanie zależności zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+Aby uzyskać więcej informacji, zobacz [Definiowanie zależności zasobów](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Tożsamość
 
@@ -137,8 +137,8 @@ Obsługa konstruktora obrazów dla tożsamości przypisanej do użytkownika:
 * Obsługuje tylko jedną tożsamość
 * Nie obsługuje niestandardowych nazw domen
 
-Aby dowiedzieć się więcej, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Aby uzyskać więcej informacji na temat wdrażania tej funkcji, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Aby dowiedzieć się więcej, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
+Aby uzyskać więcej informacji na temat wdrażania tej funkcji, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## <a name="properties-source"></a>Właściwości: Źródło
 
@@ -151,10 +151,10 @@ Interfejs API wymaga elementu "SourceType", który definiuje Źródło dla kompi
 
 
 > [!NOTE]
-> W przypadku korzystania z istniejących obrazów niestandardowych systemu Windows można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows, aby uzyskać więcej informacji, zobacz dokumentację programu [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
+> W przypadku korzystania z istniejących obrazów niestandardowych systemu Windows można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows, aby uzyskać więcej informacji, zobacz dokumentację programu [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
 
 ### <a name="platformimage-source"></a>Źródło PlatformImage 
-Usługa Azure Image Builder obsługuje obrazy systemu Windows Server i klienta, a w systemie Linux Azure Marketplace — zobacz [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) , aby zapoznać się z pełną listą. 
+Usługa Azure Image Builder obsługuje obrazy systemu Windows Server i klienta, a w systemie Linux Azure Marketplace — zobacz [tutaj](../windows/image-builder-overview.md#os-support) , aby zapoznać się z pełną listą. 
 
 ```json
         "source": {
@@ -373,7 +373,7 @@ Dostosuj właściwości:
 - **validExitCodes** — opcjonalne, prawidłowe kody, które mogą być zwracane z skryptu/polecenia wbudowanego, pozwoli to uniknąć zgłaszanego błędu skryptu/polecenia wbudowanego.
 - **runElevated** — opcjonalne, wartość logiczna, obsługa uruchamiania poleceń i skryptów z podniesionymi uprawnieniami.
 - **sha256Checksum** — wartość sumy kontrolnej SHA256 pliku, wygenerowana lokalnie, a następnie Konstruktor obrazów będzie obliczać sumę kontrolną i sprawdzać poprawność.
-    * Aby wygenerować sha256Checksum przy użyciu programu PowerShell w systemie Windows [Get-hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * Aby wygenerować sha256Checksum przy użyciu programu PowerShell w systemie Windows [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
 
 
 ### <a name="file-customizer"></a>Konfigurator plików
@@ -567,7 +567,7 @@ Udostępniona Galeria obrazów składa się z:
 - Definicje obrazów — grupowanie koncepcji dla obrazów. 
 - Wersje obrazu — ten typ obrazu służy do wdrażania maszyny wirtualnej lub zestawu skalowania. Wersje obrazu mogą być replikowane do innych regionów, w których należy wdrożyć maszyny wirtualne.
  
-Przed rozpoczęciem dystrybucji do galerii obrazów należy utworzyć galerię i definicję obrazu, zobacz [obrazy udostępnione](shared-images.md). 
+Przed rozpoczęciem dystrybucji do galerii obrazów należy utworzyć galerię i definicję obrazu, zobacz [obrazy udostępnione](../shared-images-cli.md). 
 
 ```json
 {

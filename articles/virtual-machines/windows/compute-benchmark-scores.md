@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 019c627743c344fc0f07c8954ebdfdf2eca0437b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ccaf44f733958bff461e954c78196f7376a59771
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267051"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836211"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Windows
 Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dla wybranych maszyn wirtualnych platformy Azure z systemem Windows Server. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -389,5 +389,4 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 Numery systemu Windows zostały obliczone przez uruchomienie [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint został uruchomiony przy użyciu opcji stawki bazowej (SPECint_rate2006) z jedną kopią na vCPU. SPECint składa się z 12 oddzielnych testów, każdy przebiega trzy razy, pobierając wartość mediany z każdego testu i ważoną ich w celu utworzenia złożonego wyniku. Te testy zostały następnie uruchomione na wielu maszynach wirtualnych, aby zapewnić średnią liczbę wyświetlanych wyników.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318389"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829598"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -42,7 +42,7 @@ Eksplorowanie metryk wymaga dostawcy zasobów *Microsoft.Insights* zarejestrowan
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Nie masz wystarczających praw dostępu do zasobu
 
-Na platformie Azure dostęp do metryk jest kontrolowany za pomocą [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md). Aby eksplorować metryki dla dowolnego zasobu, musisz być członkiem roli [Czytelnik monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader), [Współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [Współautor](../../role-based-access-control/built-in-roles.md#contributor).
+Na platformie Azure dostęp do metryk jest kontrolowany przez funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md). Aby eksplorować metryki dla dowolnego zasobu, musisz być członkiem roli [Czytelnik monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader), [Współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [Współautor](../../role-based-access-control/built-in-roles.md#contributor).
 
 **Rozwiązanie:** Upewnij się, że masz wystarczające uprawnienia do zasobu, z którego są eksplorowani metryki.
 
@@ -118,4 +118,3 @@ Domyślnie metryki systemu operacyjnego gościa są przechowywane na koncie usł
 * [Dowiedz się więcej na temat zaawansowanych funkcji Eksploratora metryk](metrics-charts.md)
 * [Zobacz listę dostępnych metryk dla usług platformy Azure](metrics-supported.md)
 * [Zobacz przykłady skonfigurowanych wykresów](metric-chart-samples.md)
-
