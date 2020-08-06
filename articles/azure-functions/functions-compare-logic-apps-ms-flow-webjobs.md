@@ -4,12 +4,12 @@ description: 'Porównanie usług w chmurze firmy Microsoft, które są zoptymali
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 1e6d1462a4f94db424081ea1567e5926806d3e81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083008"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809973"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Wybieranie odpowiednich usług integracji i automatyzacji na platformie Azure
 
@@ -54,10 +54,10 @@ Można mieszać i dopasowywać usługi podczas tworzenia aranżacji, wywołując
 |  | Trwałe funkcje | Logic Apps |
 | --- | --- | --- |
 | **Opracowywanie zawartości** | Najpierw kod (imperatywne) | Najpierw projektant (deklaratywne) |
-| **Połączenia** | [Informacje o dziesiątych typach powiązań wbudowanych](functions-triggers-bindings.md#supported-bindings), napisać kod dla powiązań niestandardowych | [Duża kolekcja łączników](../connectors/apis-list.md), [pakiet INTEGRACYJNY dla przedsiębiorstw dla scenariuszy B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [Tworzenie łączników niestandardowych](../logic-apps/custom-connector-overview.md) |
+| **Łączność** | [Informacje o dziesiątych typach powiązań wbudowanych](functions-triggers-bindings.md#supported-bindings), napisać kod dla powiązań niestandardowych | [Duża kolekcja łączników](../connectors/apis-list.md), [pakiet INTEGRACYJNY dla przedsiębiorstw dla scenariuszy B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [Tworzenie łączników niestandardowych](../logic-apps/custom-connector-overview.md) |
 | **Akcje** | Każde działanie jest funkcją platformy Azure; pisanie kodu dla funkcji działań |[Duża kolekcja gotowych do użycia akcji](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Monitorowanie** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [dzienniki Azure monitor](../logic-apps/monitor-logic-apps.md)|
-| **Zarządzanie** | [Interfejs API REST](durable/durable-functions-http-api.md), [program Visual Studio](/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [interfejs API REST](/rest/api/logic/), program [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
+| **Zarządzanie** | [Interfejs API REST](durable/durable-functions-http-api.md), [program Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2019) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [interfejs API REST](/rest/api/logic/), program [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Kontekst wykonywania** | Może działać [lokalnie](functions-runtime-overview.md) lub w chmurze | Działa tylko w chmurze|
 
 <a name="function"></a>

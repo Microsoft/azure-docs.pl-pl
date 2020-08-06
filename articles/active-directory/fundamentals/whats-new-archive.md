@@ -2,7 +2,7 @@
 title: Co nowego w Azure Active Directory? | Microsoft Docs
 description: Informacje o nowościach wersji w sekcji przegląd tego zestawu zawartości zawierają 6 miesięcy aktywności. Po 6 miesiącach elementy zostaną usunięte z głównego artykułu i umieszczone w tym artykule archiwum.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483913"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799144"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -1813,7 +1813,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- E-mail
+- Poczta e-mail
 
 - Połączenie telefoniczne
 

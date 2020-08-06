@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1687224e796043af1f7c3d1ee6f0417465fb4959
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c464e26419648d396b39718f357bcef7e4fa5552
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317691"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800302"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 
@@ -207,11 +207,14 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Udostępniaj pliki PNG logo swojej oferty w dwóch rozmiarach pikseli:
-- **Mały** (48 x 48)
-- **Duże** (216 x 216)
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małego** logo (48 x 48 pikseli) rozmiaru. Opcjonalnie można zastąpić ten obraz innym.
 
-Oba logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
+Oba rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+
+- **Mały** (48 x 48)
+- **Duże** (od 216 x 216 do 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

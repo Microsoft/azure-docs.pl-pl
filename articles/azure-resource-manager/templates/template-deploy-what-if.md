@@ -3,23 +3,23 @@ title: Template deployment co zrobić (wersja zapoznawcza)
 description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888752"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810075"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
 
-Przed wdrożeniem szablonu Azure Resource Manager (ARM) można wyświetlić podgląd zmian, które zostaną wykonane. Azure Resource Manager zapewnia operację działania warunkowego, która pozwala zobaczyć, jak zasoby zmienią się w przypadku wdrożenia szablonu. Operacja działania warunkowego nie wprowadza żadnych zmian w istniejących zasobach. Zamiast tego przewiduje zmiany w przypadku wdrożenia określonego szablonu.
+Przed wdrożeniem szablonu Azure Resource Manager (szablon ARM) można wyświetlić podgląd zmian, które zostaną wykonane. Azure Resource Manager zapewnia operację działania warunkowego, która pozwala zobaczyć, jak zasoby zmienią się w przypadku wdrożenia szablonu. Operacja działania warunkowego nie wprowadza żadnych zmian w istniejących zasobach. Zamiast tego przewiduje zmiany w przypadku wdrożenia określonego szablonu.
 
 > [!NOTE]
 > Operacja działania warunkowego jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami wskazywać, że zasób ulegnie zmianie, gdy nie zostanie wykonana żadna zmiana. Pracujemy nad zmniejszeniem tych problemów, ale potrzebujemy pomocy. Zgłoś te problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST. Co jest obsługiwane w przypadku wdrożeń grup zasobów i na poziomie subskrypcji.
+Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST. Co to jest obsługiwane dla wdrożeń grupy zasobów, subskrypcji, grupy zarządzania i na poziomie dzierżawy.
 
 ## <a name="install-azure-powershell-module"></a>Zainstaluj moduł Azure PowerShell
 
@@ -125,20 +125,23 @@ Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawd
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj [AZ Deployment Group IF-IF](/cli/azure/deployment/group#az-deployment-group-what-if) lub [AZ Deployment sub-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj:
 
-* `az deployment group what-if`dla wdrożeń grup zasobów
-* `az deployment sub what-if`w przypadku wdrożeń na poziomie subskrypcji
+* [AZ Deployment Group to-If](/cli/azure/deployment/group#az-deployment-group-what-if) dla wdrożeń grupy zasobów
+* [AZ Deployment sub-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) w przypadku wdrożeń na poziomie subskrypcji
+* [AZ Deployment mg-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) for Management Group Deployments
+* [AZ Deployment dzierżawca-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) for dzierżawca
 
-Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c` ), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia. Dodaj ten przełącznik do [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) lub [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
+Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c` ), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia. Dodaj ten przełącznik do:
 
-* `az deployment group create --confirm-with-what-if`lub `-c` dla wdrożeń grup zasobów
-* `az deployment sub create --confirm-with-what-if`lub `-c` w przypadku wdrożeń na poziomie subskrypcji
+* [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create)
+* [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt JSON, który można programowo sprawdzić pod kątem zmian, użyj:
+Na przykład użyj `az deployment group create --confirm-with-what-if` lub `-c` dla wdrożeń grup zasobów.
 
-* `az deployment group what-if --no-pretty-print`dla wdrożeń grup zasobów
-* `az deployment sub what-if --no-pretty-print`w przypadku wdrożeń na poziomie subskrypcji
+Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt JSON, który można programowo sprawdzić pod kątem zmian, użyj `--no-pretty-print` przełącznika. Na przykład w `az deployment group what-if --no-pretty-print` przypadku wdrożeń grup zasobów.
 
 Jeśli chcesz zwrócić wyniki bez kolorów, Otwórz plik [konfiguracji interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-configuration) . Ustaw wartość **no_color** na **tak**.
 
@@ -147,7 +150,9 @@ Jeśli chcesz zwrócić wyniki bez kolorów, Otwórz plik [konfiguracji interfej
 W przypadku interfejsu API REST wykonaj następujące czynności:
 
 * [Wdrożenia — What If](/rest/api/resources/deployments/whatif) do wdrożeń grup zasobów
-* [Wdrożenia — What If w zakresie subskrypcji](/rest/api/resources/deployments/whatifatsubscriptionscope) dla wdrożeń na poziomie subskrypcji
+* [Wdrożenia — What If w zakresie subskrypcji](/rest/api/resources/deployments/whatifatsubscriptionscope) dla wdrożeń subskrypcji
+* [Wdrożenia — What If w zakresie grupy zarządzania](/rest/api/resources/deployments/whatifatmanagementgroupscope) dla wdrożeń grup zarządzania
+* [Wdrożenia — What If w zakresie dzierżawy](/rest/api/resources/deployments/whatifattenantscope) dla wdrożeń dzierżawy.
 
 ## <a name="change-types"></a>Zmień typy
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Zwróć uwagę na początku, że kolory są zdefiniowane, aby wskazać typ zmian.
 
-W dolnej części danych wyjściowych widać, że właściciel tagu został usunięty. Prefiks adresu został zmieniony z 10.0.0.0/16 na 10.0.0.0/15. Podsieć o nazwie subnet001 została usunięta. Pamiętaj, że te zmiany nie zostały faktycznie wdrożone. Zobaczysz Podgląd zmian, które nastąpią w przypadku wdrożenia szablonu.
+W dolnej części danych wyjściowych widać, że właściciel tagu został usunięty. Prefiks adresu został zmieniony z 10.0.0.0/16 na 10.0.0.0/15. Podsieć o nazwie subnet001 została usunięta. Pamiętaj, że te zmiany nie zostały wdrożone. Zobaczysz Podgląd zmian, które nastąpią w przypadku wdrożenia szablonu.
 
 Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zmianie. Właściwości mogą być nieprawidłowo zgłaszane jako usunięte, jeśli nie znajdują się w szablonie, ale są automatycznie ustawiane podczas wdrażania jako wartości domyślne. Ten wynik jest uznawany za "szum" w odpowiedzi "co jeśli". Ostatecznie wdrożony zasób będzie miał wartości ustawione dla właściwości. Zgodnie z oczekiwaniami, te właściwości zostaną odfiltrowane z wyniku.
 
@@ -320,7 +325,7 @@ Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zm
 
 Teraz można programowo oszacować wyniki działania warunkowego, ustawiając polecenie na zmienną.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `

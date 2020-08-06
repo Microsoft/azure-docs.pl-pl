@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037512"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800374"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -161,6 +161,21 @@ Podczas migrowania istniejących mikrousług w chmurze wiosny do chmury wiosenne
 * Zalecamy używanie oficjalnych, stabilnych bibliotek sprężyny Pivot. Wersje nieoficjalne, beta lub rozwidlenia z nieoficjalnymi wersjami bibliotek sprężynowych nie są objęte umową dotyczącą poziomu usług.
 
 Po migracji Monitoruj metryki procesora/pamięci RAM i ruch sieciowy, aby upewnić się, że wystąpienia aplikacji są odpowiednio skalowane.
+
+## <a name="trouble-shooting"></a>Rozwiązywanie problemów
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Jaki wpływ na rejestr usługi jest sporadycznie niedostępny?
+
+W niektórych rzadko występujących scenariuszach mogą pojawić się pewne błędy, takie jak 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+z dzienników aplikacji. Ten problem wprowadzono przez strukturę sprężynową z bardzo niską szybkością spowodowaną niestabilnością sieci lub innymi problemami z siecią. 
+
+Nie powinno mieć żadnych wpływów na środowisko użytkownika, Eureka klient ma zarówno puls, jak i zasady ponawiania prób, aby zadbać o to. Można to rozważyć jako jeden błąd przejściowy i pominąć go bezpiecznie.
+
+Poprawimy tę część i unikamy tego błędu z aplikacji użytkowników w krótkim przyszłości.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503229"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799178"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w portalu Azure Marketplace
 
@@ -195,14 +195,15 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
- Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
+
+Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
 - **Mały** (48 x 48)
-- **Średni** (90 X 90)
-- **Duże** (216 x 216)
-- **Szeroki** (255 X 115)
+- **Średni** (90 x 90)
+- **Duże** (od 216 x 216 do 350 x 350)
 
-Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 

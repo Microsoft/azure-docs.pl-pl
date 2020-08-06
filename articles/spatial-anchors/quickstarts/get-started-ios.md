@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 99f3b5bc763c6ffb43fd143cf394be9157b2c83f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2df66979d1e8f400f2630f5e531cd201244fdc6d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460273"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809990"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Szybki Start: Tworzenie aplikacji dla systemu iOS z zakotwiczeniami przestrzennymi platformy Azure w postaci SWIFT lub w celu-C
 
@@ -58,7 +58,7 @@ Przejdź do adresu `iOS/Swift/`.
 cd ./iOS/Swift/
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
 
 Przejdź do adresu `iOS/Objective-C/`.
 
@@ -81,7 +81,7 @@ Następnie otwórz plik `.xcworkspace` w programie Xcode.
 open ./SampleSwift.xcworkspace
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
 
 ```bash
 open ./SampleObjC.xcworkspace
@@ -101,9 +101,9 @@ Znajdź pole `spatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `spatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
-Znajdź `startSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `cloudSession!.configuration.accountDomain = "MyAccountDomain";` .
+Znajdź `spatialAnchorsAccountDomain` pole i Zastąp `Set me` je domeną konta.
 
-# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
 
 Otwórz plik `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
@@ -111,7 +111,7 @@ Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
-Znajdź `startSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";` .
+Znajdź `SpatialAnchorsAccountDomain` pole i Zastąp `Set me` je domeną konta.
 
 ---
 

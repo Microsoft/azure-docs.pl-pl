@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223911"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808239"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Usuwanie aplikacji z dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -44,9 +43,15 @@ Aby usunąć aplikację z dzierżawy usługi Azure AD:
 1. W sekcji **Zarządzanie** w okienku po lewej stronie wybierz pozycję **Właściwości**.
 1. Wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak** , aby potwierdzić, że chcesz usunąć aplikację z dzierżawy usługi Azure AD.
 
+> [!TIP]
+> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Po zakończeniu pracy z tą serią szybki start Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji zostało omówione w tym przewodniku Szybki Start.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Najlepsze rozwiązania dotyczące zarządzania aplikacjami](application-management-fundamentals.md)
-- [Typowe scenariusze zarządzania aplikacjami](common-scenarios.md)
-- [Widoczność i kontrola zarządzania aplikacjami](cloud-app-security.md)
+Ukończono serię szybkiego startu! Następnym krokiem jest zapoznanie się z najlepszymi rozwiązaniami w zakresie zarządzania aplikacjami.
+> [!div class="nextstepaction"]
+> [Najlepsze rozwiązania dotyczące zarządzania aplikacjami](application-management-fundamentals.md)

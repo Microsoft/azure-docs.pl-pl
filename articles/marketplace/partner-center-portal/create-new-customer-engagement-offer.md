@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 650210ab965936de6e48b2ace3f2042857760053
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121932"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800011"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
@@ -195,10 +195,14 @@ Podaj logo i obrazy oferty. Wszystkie obrazy muszą mieć format PNG.
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj logo swojej oferty na trzy rozmiary pikseli:
-- **Mały** (wymagany; 48 x 48)
-- **Duże** (wymagane; 216 x 216)
-- **Szeroki** (opcjonalnie; 255 x 115)
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małego** logo (48 x 48 pikseli) rozmiaru. Opcjonalnie można zastąpić ten obraz innym.
+
+Oba rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+
+- **Mały** (48 x 48)
+- **Duże** (od 216 x 216 do 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
@@ -290,7 +294,7 @@ Przekaż plik PDF, który zawiera listę scenariuszy użycia klucza oferty. Wszy
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

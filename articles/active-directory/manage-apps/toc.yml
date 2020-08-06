@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Konfigurowanie połączonego logowania
           href: configure-linked-sign-on.md
-        - name: Automatyzowanie logowania jednokrotnego opartego na protokole SAML przy użyciu interfejsów API programu MS Graph
-          href: application-saml-sso-configure-api.md
     - name: Przypisywanie użytkowników i zarządzanie dostępem do aplikacji
       items:
         - name: Konfigurowanie zgody użytkownika

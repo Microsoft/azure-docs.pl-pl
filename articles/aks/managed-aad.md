@@ -2,16 +2,15 @@
 title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
 services: container-service
-manager: gwallace
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: 896986775f0132ef08b17bdfefc00e5e06cf3d9f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448135"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799861"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -36,11 +35,6 @@ Integracja Azure Active Directory zarządzanej przez AKS jest dostępna w region
 * klastry z włączonymi innymi niż RBAC nie są obsługiwane w przypadku integracji usługi AAD zarządzanej przez AKS
 * Zmiana dzierżawy usługi Azure AD skojarzonej z integracją z usługą AAD zarządzaną przez AKS nie jest obsługiwana
 
-> [!IMPORTANT]
-> Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej: 
-> - [Zasady pomocy technicznej AKS](support-policies.md) 
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
@@ -57,22 +51,6 @@ kubectl version --client
 ```
 
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
-
-```azurecli-interactive 
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService    
-``` 
-
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) : 
-
-```azurecli-interactive 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"    
-``` 
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :    
-
-```azurecli-interactive 
-az provider register --namespace Microsoft.ContainerService 
-``` 
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem

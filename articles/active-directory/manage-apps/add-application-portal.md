@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338031"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808443"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -58,8 +57,15 @@ Aby dodać aplikację do dzierżawy usługi Azure AD:
 
 Ukończono dodawanie aplikacji. W następnym przewodniku szybki start pokazano, jak zmienić logo i edytować inne właściwości aplikacji.
 
+> [!TIP]
+> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Jeśli nie chcesz kontynuować korzystania z serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie aplikacji](add-application-portal-configure.md)
-- [Konfigurowanie logowania jednokrotnego](add-application-portal-setup-sso.md)
-- [Usuwanie aplikacji](delete-application-portal.md)
+Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować aplikację.
+> [!div class="nextstepaction"]
+> [Konfigurowanie aplikacji](add-application-portal-configure.md)

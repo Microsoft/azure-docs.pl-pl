@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - tracking-python
 - devx-track-azurecli
-ms.openlocfilehash: dfc7cf0a0d3b46020d94e86a3158b1e0cbf6ea5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485290"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799468"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -31,6 +31,9 @@ W tym samouczku użyjesz interfejsu wiersza polecenia platformy Azure, aby wykon
 > * Zaktualizuj kod i Wdróż ponownie
 > * Wyświetlanie dzienników diagnostycznych
 > * Zarządzanie aplikacją internetową w Azure Portal
+
+Możesz również użyć [wersji Azure Portal tego samouczka](/azure/developer/python/tutorial-python-postgresql-app-portal).
+
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 
@@ -403,7 +406,7 @@ Domyślnie w portalu jest wyświetlana strona **omówienia** aplikacji, która z
 
 ![Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz zachować aplikację lub przejść do następnego samouczka, przejdź do [sekcji Następne kroki](#next-steps). W przeciwnym razie, aby uniknąć ponoszenia opłat, możesz usunąć grupę zasobów utworzoną dla tego samouczka:
 

@@ -3,7 +3,7 @@ title: Przeglądanie dostępu do pakietu dostępu w usłudze Azure AD uprawnieni
 description: Dowiedz się, jak przeprowadzić przegląd dostępu do pakietów dostępu do zarządzania prawami w Azure Active Directory przeglądy dostępu (wersja zapoznawcza).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4de2ac3ee74d60eb532bd469b20523fa937db0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078574"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798601"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Przeglądanie dostępu do pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -30,7 +30,7 @@ Zarządzanie prawami usługi Azure AD upraszcza zarządzanie dostępem do grup, 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby przejrzeć przypisania aktywnego pakietu dostępu użytkowników, musisz spełnić wymagania wstępne, aby przeprowadzić przegląd dostępu:
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 - Administrator globalny
 - Wyznaczeni administrator, właściciel katalogu lub Menedżer pakietów dostępu
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974657"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808664"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
@@ -76,25 +76,25 @@ W poniższej tabeli opisano minimalne i zalecane alokacje zasobów dla każdego 
 
 # <a name="speech-to-text"></a>[Zamiana mowy na tekst](#tab/stt)
 
-| Kontener | Minimalne | Zalecane |
+| Kontener | Minimum | Zalecane |
 |-----------|---------|-------------|
 | Zamiana mowy na tekst | 2 rdzeń, 2 GB pamięci | 4 rdzenie, 4 GB pamięci |
 
 # <a name="custom-speech-to-text"></a>[Custom Speech do tekstu](#tab/cstt)
 
-| Kontener | Minimalne | Zalecane |
+| Kontener | Minimum | Zalecane |
 |-----------|---------|-------------|
 | Custom Speech do tekstu | 2 rdzeń, 2 GB pamięci | 4 rdzenie, 4 GB pamięci |
 
 # <a name="text-to-speech"></a>[Zamiana tekstu na mowę](#tab/tts)
 
-| Kontener | Minimalne | Zalecane |
+| Kontener | Minimum | Zalecane |
 |-----------|---------|-------------|
 | Zamiana tekstu na mowę | 1 rdzeń, 2 GB pamięci | 2 rdzeń, 3 GB pamięci |
 
 # <a name="custom-text-to-speech"></a>[Niestandardowa Zamiana tekstu na mowę](#tab/ctts)
 
-| Kontener | Minimalne | Zalecane |
+| Kontener | Minimum | Zalecane |
 |-----------|---------|-------------|
 | Niestandardowa Zamiana tekstu na mowę | 1 rdzeń, 2 GB pamięci | 2 rdzeń, 3 GB pamięci |
 
@@ -354,7 +354,7 @@ ApiKey={API_KEY}
 To polecenie:
 
 * Uruchamia kontener *zamiany tekstu na mowę* z obrazu kontenera.
-* Przydziela 2 rdzenie procesora CPU i jeden gigabajt (GB) pamięci.
+* Przypisuje 1 rdzeń procesora CPU i 2 gigabajty (GB) pamięci.
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
 
@@ -394,7 +394,7 @@ ApiKey={API_KEY}
 To polecenie:
 
 * Uruchamia *niestandardowy kontener zamiany tekstu na mowę* z obrazu kontenera.
-* Przydziela 2 rdzenie procesora CPU i jeden gigabajt (GB) pamięci.
+* Przypisuje 1 rdzeń procesora CPU i 2 gigabajty (GB) pamięci.
 * Ładuje *niestandardowy model zamiany tekstu na mowę* z instalacji wejścia woluminu, na przykład *C:\CustomVoice*.
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera.
 * Pobiera model `ModelId` (jeśli nie został znaleziony w instalacji woluminu).
@@ -406,7 +406,7 @@ To polecenie:
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
 > [!NOTE]
 > Użyj unikatowego numeru portu, jeśli korzystasz z wielu kontenerów.

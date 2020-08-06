@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97bda09870949846e333cc2845286512fd5d6386
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063226"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809905"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Samouczek: Konfigurowanie aprowizacji oprogramowania SAP SuccessFactors w usłudze Azure AD (wersja zapoznawcza)
-Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia danych procesu roboczego od SuccessFactors pracowników centralnych do Azure Active Directory z opcjonalnym zapisem adresu e-mail do SuccessFactors. Ta integracja jest dostępna w publicznej wersji zapoznawczej i obsługuje pobieranie ponad [70 atrybutów użytkownika](../app-provisioning/sap-successfactors-attribute-reference.md) z SuccessFactors Employee Central. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie aprowizacji oprogramowania SAP SuccessFactors w usłudze Azure AD
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia danych procesu roboczego od SuccessFactors pracowników centralnych do Azure Active Directory z opcjonalnym zapisem adresu e-mail do SuccessFactors. 
 
 >[!NOTE]
 >Skorzystaj z tego samouczka, jeśli użytkownicy, którym chcesz zainicjować obsługę administracyjną SuccessFactors, są użytkownikami tylko w chmurze, którzy nie potrzebują lokalnego konta usługi AD. Jeśli użytkownicy wymagają tylko lokalnego konta usługi AD lub konta usług AD i Azure AD, zapoznaj się z samouczkiem dotyczącym [konfigurowania oprogramowania SAP SuccessFactors, aby Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) Inicjowanie obsługi użytkowników. 
@@ -79,7 +79,7 @@ Konfigurowanie obsługi administracyjnej użytkowników w chmurze opartej na us�
 * Przekształcenie atrybutu 
 * Filtry określania zakresu
 
-Zapoznaj się z [planem wdrożenia usługi Cloud HR](../app-provisioning/plan-cloud-hr-provision.md) , aby uzyskać wyczerpujące wytyczne dotyczące tych tematów. 
+Zapoznaj się z [planem wdrożenia usługi Cloud HR](../app-provisioning/plan-cloud-hr-provision.md) , aby uzyskać wyczerpujące wytyczne dotyczące tych tematów. Zapoznaj się z dokumentacją dotyczącą [integracji oprogramowania SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) , aby poznać obsługiwane jednostki, szczegóły przetwarzania oraz sposób dostosowywania integracji dla różnych scenariuszy kadr. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Konfigurowanie SuccessFactors na potrzeby integracji
 

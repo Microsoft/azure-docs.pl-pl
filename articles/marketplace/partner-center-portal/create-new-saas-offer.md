@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317733"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800358"
 ---
 # <a name="create-a-saas-offer"></a>Tworzenie oferty SaaS
 
@@ -282,12 +282,16 @@ To pole jest wymagane.
 #### <a name="files-and-images"></a>Pliki i obrazy
 
 - **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF — co najmniej jeden i maksymalnie trzy dokumenty na ofertę.
-- **Obrazy** (opcjonalnie) — istnieje wiele miejsc, w których obrazy logo oferty mogą pojawić się w całej witrynie Marketplace, wymagając następujących rozmiarów pikseli w formacie PNG:
+- **Obrazy** (wymagane) — istnieje wiele miejsc, w których obrazy logo oferty mogą pojawić się w całym portalu Marketplace. Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami. Dodawanie **szerokiego** logo jest opcjonalne.
 
-  - **Mały** (48 x 48, wymagane)
-  - **Średni** (90 x 90, wymagane)
-  - **Duże** (216 x 216, wymagane)
-  - **Szeroki** (255 x 115)
+    Trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście; jeden jest opcjonalny:
+
+    - **Mały** (48 x 48)
+    - **Średni** (90 x 90)
+    - **Duże** (od 216 x 216 do 350 x 350)
+    - **Szeroki** (255 x 115), *Opcjonalnie*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Zrzuty ekranu** (wymagane) — Dodaj maksymalnie pięć zrzutów ekranu pokazujących Twoją ofertę o rozmiarze 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
 - **Wideo** (opcjonalnie) — umożliwia dodanie linków do filmów wideo pokazujących Twoją ofertę. Możesz używać linków do filmów wideo w usłudze YouTube i/lub Vimeo, które są wyświetlane wraz z ofertą dla klientów. Należy również wprowadzić obraz miniatury wideo o rozmiarach do 1280 x 720 pikseli w formacie PNG. Możesz wyświetlić maksymalnie cztery wideo dla każdej oferty.

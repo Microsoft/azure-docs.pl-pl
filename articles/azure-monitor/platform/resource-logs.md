@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077065"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800504"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
 Dzienniki zasobów platformy Azure to [dzienniki platformy](platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
 
-Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](diagnostic-settings.md) w celu uzyskania szczegółowych informacji na temat tworzenia ustawień diagnostycznych i [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](deploy-scale.md) , aby uzyskać szczegółowe informacje na temat używania Azure Policy do automatycznego tworzenia ustawień diagnostycznych dla każdego tworzonego zasobu platformy Azure.
+Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](diagnostic-settings.md) w celu uzyskania szczegółowych informacji na temat tworzenia ustawień diagnostycznych i [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md) , aby uzyskać szczegółowe informacje na temat używania Azure Policy do automatycznego tworzenia ustawień diagnostycznych dla każdego tworzonego zasobu platformy Azure.
 
 ## <a name="send-to-log-analytics-workspace"></a>Wysyłanie do obszaru roboczego usługi Log Analytics
  Wyślij dzienniki zasobów do obszaru roboczego Log Analytics, aby włączyć funkcje [dzienników Azure monitor](data-platform-logs.md) , które obejmują następujące elementy:

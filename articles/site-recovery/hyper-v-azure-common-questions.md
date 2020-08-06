@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii funkcji Hyper-
 description: W tym artykule podsumowano typowe pytania dotyczące konfigurowania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu witryny Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132657"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799892"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Często zadawane pytania — odzyskiwanie po awarii z funkcji Hyper-V do platformy Azure
 
@@ -157,6 +157,10 @@ W przypadku replikacji na platformę Azure ruch związany z replikacją dociera 
 
 W przypadku replikacji na maszynie wirtualnej funkcji Hyper-V musi być uruchomiony obsługiwany system operacyjny. Ponadto maszyna wirtualna musi spełniać wymagania dotyczące maszyn wirtualnych platformy Azure. [Dowiedz się więcej](hyper-v-azure-support-matrix.md#replicated-vms) w macierzy obsługi.
 
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>Dlaczego jest wymagane dodatkowe konto magazynu w przypadku replikowania dysków maszyny wirtualnej do magazynu w warstwie Premium?
+
+W przypadku replikowania lokalnych maszyn wirtualnych i serwerów fizycznych do magazynu w warstwie Premium wszystkie dane znajdujące się na dyskach chronionej maszyny są replikowane do konta magazynu w warstwie Premium. Do przechowywania dzienników replikacji jest wymagane dodatkowe konto magazynu w warstwie Standardowa. Po zakończeniu początkowej fazy replikacji danych dyskowych wszystkie zmiany danych z dysku lokalnego są śledzone w sposób ciągły i przechowywane jako dzienniki replikacji na tym dodatkowym koncie magazynu.
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Jak często mogę przeprowadzić replikację do platformy Azure?
 
 Maszyny wirtualne funkcji Hyper-V mogą być replikowane co 30 sekund (z wyjątkiem magazynu Premium Storage) lub 5 minut.
@@ -192,7 +196,7 @@ Site Recovery nie instaluje jawnie żadnych elementów na maszynach wirtualnych 
 
 
 
-## <a name="failover-and-failback"></a>Praca w trybie failover i powrót po awarii
+## <a name="failover-and-failback"></a>Przechodzenie w tryb failover i powrót po awarii
 
 
 ### <a name="how-do-i-fail-over-to-azure"></a>Jak mogę przełączenia w tryb failover na platformę Azure?

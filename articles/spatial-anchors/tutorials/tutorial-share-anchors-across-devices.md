@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77615496"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810183"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Samouczek: udostępnianie kotwic przestrzennych platformy Azure między sesjami i urządzeniami
 
@@ -34,7 +34,7 @@ Omawiane tematy:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Warto zauważyć, że chociaż w tym samouczku będzie używany aparat Unity i aplikacja internetowa platformy ASP.NET Core, ma to na celu jedynie zaprezentowanie przykładu udostępniania identyfikatorów kotwic usługi Azure Spatial Anchors innym urządzeniom. Możesz użyć innych języków i technologii zaplecza, aby osiągnąć ten sam cel. Ponadto aplikacja internetowa platformy ASP.NET Core używana w tym samouczku zależy od zestawu .NET Core 2.2 SDK. Działa poprawnie w normalnej usłudze Azure Web Apps (dla systemu Windows), ale obecnie nie będzie działać w usłudze Azure Web Apps dla systemu Linux.
+Warto zauważyć, że chociaż w tym samouczku będzie używany aparat Unity i aplikacja internetowa platformy ASP.NET Core, ma to na celu jedynie zaprezentowanie przykładu udostępniania identyfikatorów kotwic usługi Azure Spatial Anchors innym urządzeniom. Możesz użyć innych języków i technologii zaplecza, aby osiągnąć ten sam cel.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -44,7 +44,7 @@ Warto zauważyć, że chociaż w tym samouczku będzie używany aparat Unity i a
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Wdrażanie usługi do udostępniania kotwic
 
-## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Program Visual Studio](#tab/VS)
 
 Otwórz program Visual Studio i otwórz projekt w folderze `Sharing\SharingServiceSample`.
 
@@ -54,7 +54,7 @@ Otwórz program Visual Studio i otwórz projekt w folderze `Sharing\SharingServi
 
 Przed wdrożeniem usługi w programie VS Code należy utworzyć grupę zasobów i plan App Service.
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> i zaloguj się do subskrypcji platformy Azure.
 
@@ -82,19 +82,13 @@ W oknie dialogowym **Konfiguruj plan hostingu** Użyj następujących ustawień:
 
 Wybierz przycisk **OK**.
 
-Otwórz Visual Studio Code i Otwórz projekt w `Sharing\SharingServiceSample` folderze. Postępuj zgodnie z <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">tym samouczkiem</a> , aby wdrożyć usługę udostępniania za pomocą Visual Studio Code. Wykonaj kroki opisane w sekcji "Otwórz za pomocą Visual Studio Code". Nie należy tworzyć innego projektu MVC, jak wyjaśniono w powyższym kroku, ponieważ istnieje już projekt, który należy wdrożyć i opublikować — SharingServiceSample.
+Otwórz Visual Studio Code i Otwórz projekt w `Sharing\SharingServiceSample` folderze. Postępuj zgodnie z <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">tym samouczkiem</a> , aby wdrożyć usługę udostępniania za pomocą Visual Studio Code. Wykonaj kroki opisane w sekcji "Otwórz za pomocą Visual Studio Code". Nie należy tworzyć innego projektu ASP.NET, jak wyjaśniono w powyższym kroku, ponieważ istnieje już projekt, który należy wdrożyć i opublikować — SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Wdrażanie przykładowej aplikacji
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-### <a name="unity-20193"></a>Unity 2019,3
-
-Ze względu na istotne zmiany, środowisko Unity 2019,3 nie jest obecnie obsługiwane. Użyj aparatu Unity 2019,1 lub 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

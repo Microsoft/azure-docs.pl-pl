@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061751"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800419"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -300,7 +300,7 @@ Odpowiednie powiadomienie (jeśli synchronicznie wykonywane przez usługę, taki
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak tworzyć punkty końcowe i trasy do dostarczania zdarzeń:
-* [*Instrukcje: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes.md)
+* [*Instrukcje: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes-apis-cli.md)
 
 Lub Dowiedz się więcej na temat interfejsów API Digital bliźniaczych reprezentacji i opcji zestawu SDK usługi Azure:
 * [*Instrukcje: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md)

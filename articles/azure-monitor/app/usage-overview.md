@@ -3,16 +3,18 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323557"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800215"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
 Które funkcje aplikacji sieci Web lub mobilnej są najbardziej popularne? Czy użytkownicy uzyskują swoje cele przy użyciu swojej aplikacji? Czy są one porzucane w określonych punktach i są zwracane później?  [Usługa Azure Application Insights](./app-insights-overview.md) pozwala uzyskać zaawansowane informacje dotyczące sposobu korzystania z aplikacji przez użytkowników. Za każdym razem, gdy aktualizujesz aplikację, możesz ocenić, jak dobrze działa dla użytkowników. Korzystając z tej wiedzy, można podejmować decyzje oparte na danych dotyczące kolejnych cykli tworzenia oprogramowania.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>Wysyłanie danych telemetrycznych z aplikacji
 
@@ -174,7 +176,7 @@ Wszystkie nowe TelemetryClients automatycznie dodają określoną wartość wła
    - [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
    - [Lejki](usage-funnels.md)
    - [Przechowywanie](usage-retention.md)
-   - [Przepływy użytkowników](usage-flows.md)
+   - [Przepływy użytkownika](usage-flows.md)
    - [Skoroszyty](../platform/workbooks-overview.md)
    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

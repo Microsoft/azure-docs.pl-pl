@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak za pomocą usługi Azure Kubernetes Service (AKS) używać uwierzytelniania RBAC platformy Azure dla Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498110"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799365"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -33,29 +33,25 @@ Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożli
 
 ### <a name="prerequisites"></a>Wymagania wstępne 
 - Utwórz konto w wersji zapoznawczej <https://aka.ms/aad-rbac-sign-up-form> .
+- Upewnij się, że masz interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
 - Upewnij się, że `EnableAzureRBACPreview` Flaga funkcji jest włączona.
-- Upewnij się, że `AAD-V2` Flaga funkcji jest włączona.
 - Upewnij się, że jest `aks-preview` zainstalowany [interfejs wiersza polecenia][az-extension-add] w wersji 0.4.55 lub nowszej
 - Upewnij się, że zainstalowano [polecenia kubectl v 1.18.3 +][az-aks-install-cli].
 
-#### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Rejestrowanie `EnableAzureRBACPreview` i `AAD-V2` Podgląd funkcji
+#### <a name="register-enableazurerbacpreview-preview-feature"></a>Funkcja rejestracji w `EnableAzureRBACPreview` wersji zapoznawczej
 
-Aby utworzyć klaster AKS, który używa usługi Azure RBAC do autoryzacji Kubernetes, należy włączyć `EnableAzureRBACPreview` flagi i `AAD-V2` funkcji w subskrypcji.
+Aby utworzyć klaster AKS, który używa usługi Azure RBAC do autoryzacji Kubernetes, należy włączyć `EnableAzureRBACPreview` flagę funkcji w ramach subskrypcji.
 
-Zarejestruj `EnableAzureRBACPreview` flagi i `AAD-V2` funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+Zarejestruj `EnableAzureRBACPreview` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
 Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register] [AZ-Provider-Register]:

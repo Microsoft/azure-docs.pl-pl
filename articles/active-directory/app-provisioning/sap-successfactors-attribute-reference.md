@@ -2,36 +2,37 @@
 title: Odwołanie do atrybutu SAP SuccessFactors
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781552"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808511"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
 
 W tym artykule znajdziesz informacje na temat:
 
-- [Obsługiwane jednostki i atrybuty SuccessFactors](#supported-successfactors-entities-and-attributes)
+- [SuccessFactors obiektów i atrybutów](#supported-successfactors-entities-and-attributes)
 - [Domyślne mapowanie atrybutów](#default-attribute-mapping)
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>Obsługiwane jednostki i atrybuty SuccessFactors
 
-W poniższej tabeli przechwycono listę atrybutów SuccessFactors obsługiwanych przez następujące dwie aplikacje aprowizacji:
+W poniższej tabeli przechwycono listę atrybutów SuccessFactors uwzględnionych domyślnie w następujących dwóch aplikacjach aprowizacji:
 
 - [SuccessFactors Active Directory aprowizacji użytkowników](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors do aprowizacji użytkowników usługi Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+Zapoznaj się z informacjami dotyczącymi [integracji oprogramowania SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) , aby zwiększyć schemat dodatkowych atrybutów. 
 
 | \# | Jednostka SuccessFactors                  | SuccessFactors — atrybut     | Typ operacji |
 |----|----------------------------------------|------------------------------|----------------|

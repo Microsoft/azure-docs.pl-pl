@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320038"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808715"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -50,9 +50,9 @@ Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków w
 
 Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
-- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
-- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval))
+- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
+- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval)
 - Jeśli nie ukończono wylogowania wydawcy — [Anuluj publikowanie.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
@@ -199,14 +199,15 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
 
-- **Mały (48 x 48)**
-- **Średni (90 x 90)**
-- **Duże (216 x 216)**
-- **Szeroki (255 x 115)**
+Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
 
-Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
+- **Mały** (48 x 48)
+- **Średni** (90 x 90)
+- **Duże** (od 216 x 216 do 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 

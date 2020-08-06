@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: 4aac13bf34394c359837ecd7a85abd78495bc4b4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283116"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808460"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Jak Azure Active Directory aprowizacji integruje się z usługą SAP SuccessFactors 
 
@@ -33,7 +33,7 @@ Usługa Azure AD Provisioning używa uwierzytelniania podstawowego do łączenia
 Aby dodatkowo zabezpieczyć łączność między usługą Azure AD Provisioning i SuccessFactors, możesz dodać zakresy adresów IP usługi Azure AD na liście dozwolonych adresów IP SuccessFactors przy użyciu kroków opisanych poniżej:
 
 1. Pobierz [najnowsze zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=56519) dla chmury publicznej platformy Azure 
-1. Otwórz plik i Wyszukaj Tagi **usługi azureactivedirectory** i **AzureActiveDirectoryDomainServices** 
+1. Otwórz plik i Wyszukaj tag **usługi azureactivedirectory** 
 
    >[!div class="mx-imgBorder"] 
    >![Zakres adresów IP usługi Azure AD](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

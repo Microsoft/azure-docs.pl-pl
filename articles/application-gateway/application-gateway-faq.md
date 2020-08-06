@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506574"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810007"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -466,30 +466,6 @@ Tak. Jeśli konfiguracja pasuje do poniższego scenariusza, w dziennikach przep�
 - Wdrożono Application Gateway v2
 - Masz sieciowej grupy zabezpieczeń w podsieci bramy aplikacji
 - Włączono dzienniki przepływu sieciowej grupy zabezpieczeń na tym sieciowej grupy zabezpieczeń
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Jak mogę używać Application Gateway v2 tylko z prywatnym adresem IP frontonu?
-
-Application Gateway v2 obecnie nie obsługuje trybu prywatnego adresu IP. Obsługuje następujące kombinacje
-* Prywatny adres IP i publiczny adres IP
-* Tylko publiczny adres IP
-
-Jeśli jednak chcesz używać Application Gateway v2 tylko z prywatnym adresem IP, możesz wykonać poniższe czynności:
-1. Utwórz Application Gateway z publicznym i prywatnym adresem IP frontonu
-2. Nie twórz żadnych odbiorników dla publicznego adresu IP frontonu. Application Gateway nie nasłuchuje ruchu na publicznym adresie IP, jeśli dla niego nie zostały utworzone żadne odbiorniki.
-3. Utwórz i Dołącz [grupę zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview) dla podsieci Application Gateway z następującą konfiguracją w kolejności priorytetu:
-    
-    a. Zezwalaj na ruch ze źródła jako tag usługi **gatewaymanager** i miejsce docelowe jako **dowolny** port docelowy AS **65200-65535**. Ten zakres portów jest wymagany w przypadku komunikacji infrastruktury platformy Azure. Te porty są chronione (zablokowane) przez uwierzytelnianie przy użyciu certyfikatu. Jednostki zewnętrzne, w tym Administratorzy użytkowników bramy, nie mogą inicjować zmian w tych punktach końcowych bez odpowiednich certyfikatów
-    
-    b. Zezwalaj na ruch ze źródła jako tag usługi **AzureLoadBalancer** i port docelowy jako **dowolne**
-    
-    c. Odrzuć cały ruch przychodzący ze źródła jako tag usługi **internetowej** i port docelowy jako **dowolny**. Nadaj tej regule *minimalny priorytet* w regułach ruchu przychodzącego
-    
-    d. Zachowaj domyślne reguły, takie jak Zezwalanie na VirtualNetwork przychodzące, aby dostęp do prywatnego adresu IP nie był zablokowany
-    
-    e. Nie można zablokować wychodzącej łączności z Internetem. W przeciwnym razie będziesz mieć problemy z rejestrowaniem, metrykami i tak dalej.
-
-Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adresu IP: ![ Application Gateway v2 sieciowej grupy zabezpieczeń Konfiguracja tylko dla prywatnego dostępu do adresu IP](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Następne kroki
 

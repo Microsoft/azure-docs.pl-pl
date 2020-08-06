@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171316"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799842"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -22,7 +22,7 @@ W tym artykule opisano kroki konfigurowania Azure Active Directory dostępu za p
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Ustawianie użytkownika administratora usługi Azure AD
 
-Tylko użytkownik administrator usługi Azure AD może tworzyć/włączać użytkowników w ramach uwierzytelniania opartego na usłudze Azure AD. Aby utworzyć użytkownika i administratora usługi Azure AD, wykonaj następujące czynności.
+Tylko użytkownik administrator usługi Azure AD może tworzyć/włączać użytkowników w ramach uwierzytelniania opartego na usłudze Azure AD. Aby utworzyć użytkownika administratora usługi Azure AD, wykonaj następujące czynności.
 
 1. W Azure Portal wybierz wystąpienie Azure Database for MySQL, które chcesz włączyć dla usługi Azure AD.
 2. W obszarze Ustawienia wybierz pozycję Administrator Active Directory:

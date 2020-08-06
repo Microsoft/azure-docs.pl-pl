@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324237"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799994"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Szybki start: tworzenie aplikacji języka Java w usłudze Azure App Service w systemie Windows
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurowanie wtyczki Maven
 
-Proces wdrażania w celu Azure App Service może uzyskać poświadczenia platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, wtyczka Maven zarejestruje Cię przy użyciu logowania OAuth lub urządzenia. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) .
+Proces wdrażania do Azure App Service może pobrać swoje poświadczenia platformy Azure automatycznie z interfejsu wiersza polecenia platformy Azure. Wtyczka Maven zaloguje się przy użyciu uwierzytelniania OAuth lub urządzenia, jeśli interfejs wiersza polecenia platformy Azure nie zostanie zainstalowany lokalnie. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) .
 
-Można uruchomić następujące polecenie Maven w wierszu polecenia, aby skonfigurować wdrożenie, wybrać **"2"** dla **systemu operacyjnego Windows** w pierwszym kroku, a następnie zaakceptować konfigurację domyślną, naciskając klawisz **Enter** do momentu uzyskania monitu o **potwierdzenie (t/N)** , a następnie nacisnąć klawisz **"Y"** i konfigurację. 
-
+Aby skonfigurować wdrożenie, można uruchomić poniższe polecenie Maven
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+Zostanie wyświetlony monit o wybranie 
+* **System operacyjny (domyślnie: `linux` )**
+* **Wersja języka Java (domyślnie: `1.8` )**
+* **Kontener sieci Web (domyślnie: `tomcat 8.5` )** 
+
+Należy zachować ostrożność, **`2`** Aby wybrać **system operacyjny Windows** w pierwszym kroku. Pozostałe konfiguracje można pozostawić domyślnie przez naciśnięcie klawisza **Enter**. Na koniec naciśnij pozycję **`Y`** **Potwierdź (t/N)** , aby zakończyć konfigurację.
 
 Przykładowy proces wygląda następująco:
 
@@ -135,7 +141,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > W tym artykule pracujemy tylko z aplikacjami w języku Java umieszczonych w pakietach w postaci plików WAR. Wtyczka obsługuje również aplikacje internetowe JAR. Odwiedź stronę [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) (Wdrażanie pliku JAR języka Java SE do usługi App Service w systemie Linux), aby wypróbować tę funkcję.
 
-Otwórz do `pom.xml` , aby wyświetlić zaktualizowaną konfigurację.
+Otwórz `pom.xml` , aby wyświetlić zaktualizowaną konfigurację.
 
 ```bash
 code pom.xml
@@ -153,8 +159,11 @@ W razie potrzeby można modyfikować konfiguracje dla App Service bezpośrednio 
 `<runtime>` | true | Konfiguracja środowiska uruchomieniowego, w [tym miejscu](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)można zobaczyć szczegóły. | 0.1.0 +
 `<deployment>` | true | W konfiguracji wdrożenia można zobaczyć szczegóły [tutaj](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 
+Należy zachować ostrożność w przypadku wartości `<appName>` i `<resourceGroup>` ( `helloworld-1590394316693` i `helloworld-1590394316693-rg` odpowiednio w demonstracji), które będą używane później.
+
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>Wdrażanie aplikacji
 
@@ -169,13 +178,14 @@ Następnie możesz wdrożyć aplikację Java na platformie Azure przy użyciu na
 mvn package azure-webapp:deploy
 ```
 
-Po zakończeniu wdrażania w przeglądarce internetowej przejdź do wdrożonej aplikacji, używając następującego adresu URL, na przykład `http://<webapp>.azurewebsites.net/`.
+Po zakończeniu wdrażania aplikacja będzie gotowa w wersji `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` w wersji demonstracyjnej). Otwórz adres URL z lokalną przeglądarką internetową, aby zobaczyć
 
 ![Przykładowa aplikacja działająca w Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Gratulacje!** Twoja pierwsza aplikacja Java została wdrożona w celu App Service w systemie Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

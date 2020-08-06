@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 77b4336fd9430b523f4f9fa288b7451117f7e0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016976"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809956"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Samouczek: Konfigurowanie oprogramowania SAP SuccessFactors do Active Directory aprowizacji użytkowników (wersja zapoznawcza)
-Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. Ta integracja jest dostępna w publicznej wersji zapoznawczej i obsługuje pobieranie ponad [70 atrybutów użytkownika](../app-provisioning/sap-successfactors-attribute-reference.md) z SuccessFactors Employee Central.
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Samouczek: Konfigurowanie programu SAP SuccessFactors do Active Directory aprowizacji użytkowników 
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. 
 
 >[!NOTE]
 >Skorzystaj z tego samouczka, jeśli użytkownicy, którym chcesz zainicjować obsługę administracyjną SuccessFactors, potrzebują lokalnego konta usługi AD i opcjonalnie konta usługi Azure AD. Jeśli użytkownicy z SuccessFactors potrzebują tylko konta usługi Azure AD (tylko użytkownicy w chmurze), zapoznaj się z samouczkiem dotyczącym [konfigurowania usługi SAP SuccessFactors w usłudze Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) . 
@@ -82,7 +82,7 @@ Konfigurowanie obsługi administracyjnej użytkowników w chmurze opartej na us�
 * Liczba SuccessFactors do wdrożenia aplikacji do aprowizacji użytkowników usługi AD
 * Dopasowywanie identyfikatora, Mapowanie atrybutów, przekształcenie i określanie zakresu filtrów
 
-Zapoznaj się z [planem wdrożenia usługi Cloud HR](../app-provisioning/plan-cloud-hr-provision.md) , aby uzyskać wyczerpujące wytyczne dotyczące tych tematów. 
+Zapoznaj się z [planem wdrożenia usługi Cloud HR](../app-provisioning/plan-cloud-hr-provision.md) , aby uzyskać wyczerpujące wytyczne dotyczące tych tematów. Zapoznaj się z dokumentacją dotyczącą [integracji oprogramowania SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) , aby poznać obsługiwane jednostki, szczegóły przetwarzania oraz sposób dostosowywania integracji dla różnych scenariuszy kadr. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Konfigurowanie SuccessFactors na potrzeby integracji
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338048"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808409"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -56,12 +56,12 @@ Aby edytować właściwości aplikacji:
        |---|---|---|---|---|
        | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
        | Tak | Tak | Tak | Tak | Tak  |
-       | Tak | Tak | Nie  | Yes | Nie   |
-       | Yes | Nie  | Tak | Tak | Tak  |
-       | Tak | Nie  | Nie  | Yes | Nie   |
+       | Tak | Tak | Nie  | Tak | Nie   |
+       | Tak | Nie  | Tak | Tak | Tak  |
+       | Tak | Nie  | Nie  | Tak | Nie   |
        | Nie  | Tak | Tak | Nie  | Nie   |
-       | Nie  | Yes | Nie  | Nie  | Nie   |
-       | Nie  | Nie  | Yes | Nie  | Nie   |
+       | Nie  | Tak | Nie  | Nie  | Nie   |
+       | Nie  | Nie  | Tak | Nie  | Nie   |
        | Nie  | Nie  | Nie  | Nie  | Nie   |
 
    - Zachowanie w przypadku użytkowników *nieprzypisanych*:
@@ -71,11 +71,11 @@ Aby edytować właściwości aplikacji:
        | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy nieprzypisani użytkownicy mogą się logować? | Czy nieprzypisani użytkownicy widzą aplikację?* |
        | Tak | Tak | Tak | Nie  | Nie   |
        | Tak | Tak | Nie  | Nie  | Nie   |
-       | Yes | Nie  | Tak | Tak | Nie   |
-       | Yes | Nie  | Nie  | Yes | Nie   |
+       | Tak | Nie  | Tak | Tak | Nie   |
+       | Tak | Nie  | Nie  | Tak | Nie   |
        | Nie  | Tak | Tak | Nie  | Nie   |
-       | Nie  | Yes | Nie  | Nie  | Nie   |
-       | Nie  | Nie  | Yes | Nie  | Nie   |
+       | Nie  | Tak | Nie  | Nie  | Nie   |
+       | Nie  | Nie  | Tak | Nie  | Nie   |
        | Nie  | Nie  | Nie  | Nie  | Nie   |
 
      *Czy użytkownik widzi aplikację w panelu dostępu i narzędziu do uruchamiania aplikacji usługi Office 365?
@@ -95,9 +95,17 @@ Aby użyć logo niestandardowego:
    > [!NOTE]
    > Miniatura wyświetlana w tym okienku **Właściwości** nie jest natychmiast aktualizowana. Możesz zamknąć i ponownie otworzyć okienko **Właściwości** , aby wyświetlić zaktualizowaną ikonę.
 
+
+> [!TIP]
+> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Jeśli nie chcesz kontynuować korzystania z serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po skonfigurowaniu właściwości aplikacji, można kontynuować konfigurowanie rejestracji jednokrotnej.
-
-- [Konfigurowanie logowania jednokrotnego](add-application-portal-setup-sso.md)
-- [Usuwanie aplikacji](delete-application-portal.md)
+Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować Logowanie jednokrotne dla aplikacji.
+> [!div class="nextstepaction"]
+> [Konfigurowanie logowania jednokrotnego](add-application-portal-setup-sso.md)

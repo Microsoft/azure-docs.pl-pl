@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537520"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800470"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * `endpoint-name`Identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
 
-Obiekt trasy zdarzenia przeszedł do `EventRoutes.Add` również przyjmuje parametr [ **filtru** ](./how-to-manage-routes.md#filter-events), który może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą.
+Obiekt trasy zdarzenia przeszedł do `EventRoutes.Add` również przyjmuje parametr [ **filtru** ](./how-to-manage-routes-apis-cli.md#filter-events), który może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą.
 
 Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Różne typy zdarzeń w IoT Hub i Azure Digital bliźniaczych reprezentacji twor
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz jak skonfigurować trasę zdarzeń i zarządzać nią:
-* [*Instrukcje: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes.md)
+* [*Instrukcje: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes-apis-cli.md)
 
 Lub zapoznaj się z tematem jak używać Azure Functions do kierowania zdarzeń w usłudze Azure Digital bliźniaczych reprezentacji:
 * [*Porada: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md)

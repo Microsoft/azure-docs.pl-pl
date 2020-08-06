@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505180"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799960"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -58,7 +58,7 @@ Wszystkie miejsca docelowe dla ustawienia diagnostyki muszą zostać utworzone z
 [Utwórz nowy obszar roboczy](../learn/quick-create-workspace.md) , jeśli jeszcze go nie masz. Obszar roboczy nie musi znajdować się w tej samej subskrypcji co zasób wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji.
 
 ### <a name="event-hub"></a>Centrum zdarzeń
-[Utwórz centrum zdarzeń](../../event-hubs/event-hubs-create.md) , jeśli jeszcze go nie masz. Przestrzeń nazw Event Hubs nie musi znajdować się w tej samej subskrypcji co subskrypcja, która emituje dzienniki, pod warunkiem, że użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji i obie subskrypcje są w tej samej dzierżawie usługi AAD.
+[Utwórz centrum zdarzeń](../../event-hubs/event-hubs-create.md) , jeśli jeszcze go nie masz. Przestrzeń nazw Event Hubs nie musi znajdować się w tej samej subskrypcji co subskrypcja, która emituje dzienniki, pod warunkiem, że użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji i obie subskrypcje są w tej samej dzierżawie.
 
 Zasady dostępu współdzielonego dla przestrzeni nazw określają uprawnienia, które ma mechanizm przesyłania strumieniowego. Przesyłanie strumieniowe do Event Hubs wymaga uprawnień do zarządzania, wysyłania i nasłuchiwania. Zasady dostępu współdzielonego można utworzyć lub zmodyfikować w Azure Portal na karcie Konfiguracja dla Event Hubs przestrzeni nazw. Aby zaktualizować ustawienie diagnostyczne w celu uwzględnienia przesyłania strumieniowego, musisz mieć uprawnienie ListKey dla tej reguły autoryzacji Event Hubs. 
 
@@ -182,7 +182,7 @@ Zobacz [przykłady Menedżer zasobów szablonów dla ustawień diagnostycznych w
 Zobacz [Ustawienia diagnostyczne](/rest/api/monitor/diagnosticsettings) , aby utworzyć lub zaktualizować ustawienia diagnostyczne przy użyciu [interfejsu API REST Azure monitor](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Utwórz za pomocą Azure Policy
-Ponieważ dla każdego zasobu platformy Azure należy utworzyć ustawienie diagnostyczne, Azure Policy może służyć do automatycznego tworzenia ustawień diagnostycznych podczas tworzenia poszczególnych zasobów. Aby uzyskać szczegółowe informacje, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](deploy-scale.md) .
+Ponieważ dla każdego zasobu platformy Azure należy utworzyć ustawienie diagnostyczne, Azure Policy może służyć do automatycznego tworzenia ustawień diagnostycznych podczas tworzenia poszczególnych zasobów. Aby uzyskać szczegółowe informacje, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md) .
 
 
 ## <a name="next-steps"></a>Następne kroki
