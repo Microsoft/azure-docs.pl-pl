@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1676815e1b5614a1e9aa33a1dc5ce471601bde76
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289088"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759329"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -105,7 +105,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Europa Północna         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Norwegia Wschodnia          | 51.120.96.0        |
 | Norwegia Zachodnia          | 51.120.216.0       |
-| Północna Republika Południowej Afryki   | 102.133.152.0      |
+| Północna Republika Południowej Afryki   | 102.133.152.0, 102.133.120.2       |
 | Zachodnia Republika Południowej Afryki    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Azja Południowo-Wschodnia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
@@ -115,7 +115,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Północne Zjednoczone Emiraty Arabskie            | 65.52.248.0        |
 | Południowe Zjednoczone Królestwo             | 51.140.184.11      |
 | Zachodnie Zjednoczone Królestwo              | 51.141.8.11        |
-| Zachodnio-środkowe stany USA      | 13.78.145.25       |
+| Zachodnio-środkowe stany USA      | 13.78.145.25, 13.78.248.43        |
 | West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | Zachodnie stany USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533346"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760298"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
 
@@ -197,7 +197,7 @@ Aby zautomatyzować tworzenie i wdrażanie zasobów platformy Azure, takich jak 
 
 * `identity`Obiekt z `type` właściwością ustawioną na wartość`UserAssigned`
 
-* Obiekt podrzędny `userAssignedIdentities` , który określa identyfikator zasobu tożsamości, który jest innym obiektem podrzędnym, który ma `principalId` `clientId` właściwości i.
+* Obiekt podrzędny `userAssignedIdentities` określający przypisaną przez użytkownika zasób i nazwę
 
 Ten przykład przedstawia definicję zasobu aplikacji logiki dla żądania HTTP PUT i zawiera niesparametryzowanego `identity` obiektu. Odpowiedź na żądanie PUT i kolejna operacja pobrania również mają ten `identity` obiekt:
 
@@ -215,10 +215,7 @@ Ten przykład przedstawia definicję zasobu aplikacji logiki dla żądania HTTP 
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
-                  "principalId": "<principal-ID>",
-                  "clientId": "<client-ID>"
-               }
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
             }
          },
          "properties": {
@@ -231,12 +228,6 @@ Ten przykład przedstawia definicję zasobu aplikacji logiki dla żądania HTTP 
    "outputs": {}
 }
 ```
-
-| Właściwość (JSON) | Wartość | Opis |
-|-----------------|-------|-------------|
-| `principalId` | <*Identyfikator podmiotu zabezpieczeń*> | Unikatowy identyfikator globalny (GUID) dla tożsamości zarządzanej przypisanej przez użytkownika w dzierżawie usługi Azure AD |
-| `clientId` | <*Identyfikator klienta*> | Unikatowy identyfikator globalny (GUID) dla nowej tożsamości aplikacji logiki, która jest używana do wywoływania w czasie wykonywania |
-||||
 
 Jeśli szablon zawiera również definicję zasobu tożsamości zarządzanej, można Sparametryzuj `identity` obiekt. Ten przykład pokazuje, jak `userAssignedIdentities` obiekt podrzędny odwołuje się do zmiennej zdefiniowanej `userAssignedIdentity` w sekcji szablonu `variables` . Ta zmienna odwołuje się do identyfikatora zasobu dla tożsamości przypisanej do użytkownika.
 
@@ -281,22 +272,11 @@ Jeśli szablon zawiera również definicję zasobu tożsamości zarządzanej, mo
          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
          "name": "[parameters('Template_UserAssignedIdentityName')]",
          "location": "[resourceGroup().location]",
-         "properties": {
-            "tenantId": "<tenant-ID>",
-            "principalId": "<principal-ID>",
-            "clientId": "<client-ID>"
-         }
+         "properties": {}
       }
   ]
 }
 ```
-
-| Właściwość (JSON) | Wartość | Opis |
-|-----------------|-------|-------------|
-| `tenantId` | <*Azure-AD-dzierżawca-ID*> | Unikatowy identyfikator globalny (GUID) reprezentujący dzierżawę usługi Azure AD, w której tożsamość przypisana przez użytkownika jest teraz członkiem. W ramach dzierżawy usługi Azure AD jednostka nazwy jest taka sama jak nazwa tożsamości przypisanej do użytkownika. |
-| `principalId` | <*Identyfikator podmiotu zabezpieczeń*> | Unikatowy identyfikator globalny (GUID) dla tożsamości zarządzanej przypisanej przez użytkownika w dzierżawie usługi Azure AD |
-| `clientId` | <*Identyfikator klienta*> | Unikatowy identyfikator globalny (GUID) dla nowej tożsamości aplikacji logiki, która jest używana do wywoływania w czasie wykonywania |
-||||
 
 <a name="access-other-resources"></a>
 
@@ -382,9 +362,9 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
    |----------|----------|-------------|
    | **Metoda** | Tak | Metoda HTTP, która jest używana przez operację, którą chcesz uruchomić |
    | **URI** | Tak | Adres URL punktu końcowego służący do uzyskiwania dostępu do docelowego zasobu lub jednostki platformy Azure. Składnia identyfikatora URI zwykle zawiera [Identyfikator zasobu](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) dla usługi lub zasobu platformy Azure. |
-   | **Nagłówki** | Nie | Wszystkie wartości nagłówka, które są potrzebne lub które mają zostać uwzględnione w żądaniu wychodzącym, takie jak typ zawartości. |
+   | **Nagłówka** | Nie | Wszystkie wartości nagłówka, które są potrzebne lub które mają zostać uwzględnione w żądaniu wychodzącym, takie jak typ zawartości. |
    | **Zapytania** | Nie | Wszystkie parametry zapytania, które są potrzebne lub które mają zostać uwzględnione w żądaniu, takie jak parametr określonej operacji lub wersja interfejsu API dla operacji, którą chcesz uruchomić |
-   | **Authentication** | Tak | Typ uwierzytelniania używany do uwierzytelniania dostępu do zasobu lub jednostki docelowej |
+   | **Uwierzytelnianie** | Tak | Typ uwierzytelniania używany do uwierzytelniania dostępu do zasobu lub jednostki docelowej |
    ||||
 
    Na przykład załóżmy, że chcesz uruchomić [operację tworzenia migawek obiektów](/rest/api/storageservices/snapshot-blob) BLOB na obiekcie BLOB na koncie usługi Azure Storage, na którym wcześniej skonfigurowano dostęp do Twojej tożsamości. Jednak [Łącznik usługi Azure Blob Storage](/connectors/azureblob/) nie oferuje obecnie tej operacji. Zamiast tego można uruchomić tę operację za pomocą [akcji http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) lub innej [operacji interfejsu API REST usługi BLOB Service](/rest/api/storageservices/operations-on-blobs).
@@ -398,7 +378,7 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
    |----------|----------|---------------|-------------|
    | **Metoda** | Tak | `PUT`| Metoda HTTP, której używa operacja obiektu BLOB Snapshot |
    | **URI** | Tak | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Identyfikator zasobu dla pliku Blob Storage platformy Azure w środowisku globalnym (publicznym) platformy Azure, który używa tej składni |
-   | **Nagłówki** | Tak, w przypadku usługi Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | `x-ms-blob-type` `x-ms-version` Wartości nagłówka i, które są wymagane dla operacji usługi Azure Storage. <p><p>**Ważne**: w wychodzących wyzwalaczach http i żądaniach akcji dla usługi Azure Storage nagłówek wymaga `x-ms-version` właściwości i wersji interfejsu API dla operacji, która ma zostać uruchomiona. <p>Więcej informacji można znaleźć w następujących tematach: <p><p>- [Nagłówki żądań — obiekt BLOB migawek](/rest/api/storageservices/snapshot-blob#request) <br>- [Przechowywanie wersji usług Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Nagłówka** | Tak, w przypadku usługi Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | `x-ms-blob-type` `x-ms-version` Wartości nagłówka i, które są wymagane dla operacji usługi Azure Storage. <p><p>**Ważne**: w wychodzących wyzwalaczach http i żądaniach akcji dla usługi Azure Storage nagłówek wymaga `x-ms-version` właściwości i wersji interfejsu API dla operacji, która ma zostać uruchomiona. <p>Więcej informacji można znaleźć w następujących tematach: <p><p>- [Nagłówki żądań — obiekt BLOB migawek](/rest/api/storageservices/snapshot-blob#request) <br>- [Przechowywanie wersji usług Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Zapytania** | Tak, dla tej operacji | `comp` = `snapshot` | Nazwa parametru kwerendy i wartość dla operacji migawki obiektu BLOB. |
    |||||
 
@@ -508,7 +488,7 @@ Zarządzana tożsamość jest teraz wyłączona w aplikacji logiki.
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Wyłącz tożsamość zarządzaną w szablonie Azure Resource Manager
 
-Jeśli utworzono tożsamość zarządzaną aplikacji logiki przy użyciu szablonu Azure Resource Manager, ustaw `identity` `type` Właściwość podrzędną obiektu na `None` . W przypadku tożsamości zarządzanej przez system ta akcja spowoduje również usunięcie identyfikatora podmiotu zabezpieczeń z usługi Azure AD.
+Jeśli utworzono tożsamość zarządzaną aplikacji logiki przy użyciu szablonu Azure Resource Manager, ustaw `identity` `type` Właściwość podrzędną obiektu na `None` .
 
 ```json
 "identity": {

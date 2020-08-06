@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263368"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761199"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Możesz użyć ``%%sql`` polecenia Magic, aby uruchomić [zapytanie SQL](sql-que
 - Zamień ``{database_id}`` i ``{container_id}`` na nazwę bazy danych i kontenera na koncie Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu.
 
-Przykład: 
+Na przykład: 
 ```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -51,7 +51,7 @@ Uruchom ```%%sql?``` w komórce, aby wyświetlić dokumentację pomocy dla polec
 
 ## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>Uruchamianie zapytania SQL i danych wyjściowych do Pandas Frame
 
-Wyniki zapytania można wyprowadzać ``%%sql`` w [Pandas Dataframe](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Użyj składni: 
+Wyniki zapytania można wyprowadzać ``%%sql`` w [Pandas Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Użyj składni: 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
@@ -61,7 +61,7 @@ Wyniki zapytania można wyprowadzać ``%%sql`` w [Pandas Dataframe](https://pand
 - Zamień ``{outputDataFrameVar}`` na nazwę zmiennej Dataframe, która będzie zawierać wyniki.
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu. 
 
-Przykład:
+Na przykład:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -108,7 +108,7 @@ Możesz użyć ``%%upload`` polecenia Magic, aby przekazać dane z pliku JSON do
 - Zastąp wartości ``{database_id}`` i ``{container_id}`` nazwą bazy danych i kontenera na koncie usługi Azure Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Zamień ``{url_location_of_file}`` na lokalizację pliku JSON. Plik musi być tablicą prawidłowych obiektów JSON i powinien być dostępny za pośrednictwem publicznego Internetu.
 
-Przykład:
+Na przykład:
 
 ```python
 %%upload --database databaseName --container containerName --url 
@@ -147,7 +147,7 @@ Wersja 4 [Azure Cosmos DB zestawu SDK języka Python dla interfejsu API SQL](htt
 
 Użyj wbudowanego ``cosmos_client`` wystąpienia do uruchomienia dowolnej operacji zestawu SDK. 
 
-Przykład:
+Na przykład:
 
 ```python
 ## Import modules as needed

@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636329"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760825"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -20,7 +20,7 @@ W Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają spo
 W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania*i dołączając lub wykluczając *ścieżki właściwości*.
 
 > [!NOTE]
-> Metoda aktualizacji zasad indeksowania opisana w tym artykule ma zastosowanie tylko do interfejsu API SQL (Core) Azure Cosmos DB.
+> Metoda aktualizacji zasad indeksowania opisana w tym artykule ma zastosowanie tylko do interfejsu API SQL (Core) Azure Cosmos DB. Dowiedz się więcej na temat indeksowania w [interfejsie API Azure Cosmos DB MongoDB](mongodb-indexing.md)
 
 ## <a name="indexing-mode"></a>Tryb indeksowania
 
@@ -36,7 +36,7 @@ Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
 
-Niestandardowe zasady indeksowania mogą określać ścieżki właściwości, które są jawnie dołączone lub wykluczone z indeksowania. Przez optymalizację liczby indeksowanych ścieżek można obniżyć ilość miejsca używanego przez kontener i poprawić opóźnienia operacji zapisu. Te ścieżki są zdefiniowane po [metodzie opisanej w sekcji Omówienie indeksowania](index-overview.md#from-trees-to-property-paths) z następującymi dodatkami:
+Niestandardowe zasady indeksowania mogą określać ścieżki właściwości, które są jawnie dołączone lub wykluczone z indeksowania. Przez optymalizację liczby indeksowanych ścieżek można znacznie ograniczyć opóźnienia i obciążenie RU operacji zapisu. Te ścieżki są zdefiniowane po [metodzie opisanej w sekcji Omówienie indeksowania](index-overview.md#from-trees-to-property-paths) z następującymi dodatkami:
 
 - ścieżka prowadząca do wartości skalarnej (ciąg lub Number) ma koniec`/?`
 - elementy z tablicy są rozłączone za pośrednictwem `/[]` notacji (zamiast `/0` `/1` itp.)
@@ -101,7 +101,7 @@ Zapoznaj się z [tą sekcją](how-to-manage-indexing-policy.md#indexing-policy-e
 
 Jeśli zawarte ścieżki i wykluczone ścieżki mają konflikt, pierwszeństwo ma dokładniejszą ścieżkę.
 
-Przykład:
+Oto przykład:
 
 **Ścieżka uwzględniona**:`/food/ingredients/nutrition/*`
 
@@ -129,7 +129,7 @@ Podczas definiowania ścieżki przestrzennej w zasadach indeksowania należy okr
 
 * LineString
 
-Domyślnie Azure Cosmos DB nie utworzy żadnych indeksów przestrzennych. Jeśli chcesz używać przestrzennych funkcji języka SQL, należy utworzyć indeks przestrzenny dla wymaganych właściwości. Zobacz [tę sekcję](geospatial.md) , aby zapoznać się z przykładami zasad indeksowania służącymi do dodawania indeksów przestrzennych.
+Domyślnie Azure Cosmos DB nie utworzy żadnych indeksów przestrzennych. Jeśli chcesz używać przestrzennych funkcji języka SQL, należy utworzyć indeks przestrzenny dla wymaganych właściwości. Zobacz [tę sekcję](sql-query-geospatial-index.md) , aby zapoznać się z przykładami zasad indeksowania służącymi do dodawania indeksów przestrzennych.
 
 ## <a name="composite-indexes"></a>Indeksy złożone
 
@@ -259,16 +259,23 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 
 ## <a name="modifying-the-indexing-policy"></a>Modyfikowanie zasad indeksowania
 
-Zasady indeksowania kontenera można aktualizować w dowolnym momencie przy [użyciu Azure Portal lub jednego z obsługiwanych zestawów SDK](how-to-manage-indexing-policy.md). Aktualizacja zasad indeksowania wyzwala transformację ze starego indeksu do nowego, który jest wykonywany w trybie online i w miejscu (dlatego w trakcie operacji nie jest używane dodatkowe miejsce do magazynowania). Stary indeks zasad jest efektywnie przekształcany w nowe zasady bez wpływu na dostępność zapisu lub przepływność zainicjowaną w kontenerze. Przekształcanie indeksów jest operacją asynchroniczną i czas potrzebny do ukończenia zależy od przepływności, liczby elementów i ich rozmiaru.
+Zasady indeksowania kontenera można aktualizować w dowolnym momencie przy [użyciu Azure Portal lub jednego z obsługiwanych zestawów SDK](how-to-manage-indexing-policy.md). Aktualizacja zasad indeksowania wyzwala transformację ze starego indeksu do nowego, który jest wykonywany w trybie online i w miejscu (dlatego w trakcie operacji nie jest używane dodatkowe miejsce do magazynowania). Stary indeks zasad jest efektywnie przekształcany w nowe zasady bez wpływu na dostępność zapisu, dostępność odczytu lub przepływność zainicjowaną w kontenerze. Przekształcanie indeksów jest operacją asynchroniczną i czas potrzebny do ukończenia zależy od przepływności, liczby elementów i ich rozmiaru.
 
 > [!NOTE]
-> Podczas dodawania zakresu lub indeksu przestrzennego zapytania mogą nie zwracać wszystkich pasujących wyników i nie będą zwracać żadnych błędów. Oznacza to, że wyniki zapytania mogą nie być spójne do momentu zakończenia transformacji indeksu. Istnieje możliwość śledzenia postępu transformacji indeksu przy [użyciu jednego z zestawów SDK](how-to-manage-indexing-policy.md).
+> Istnieje możliwość śledzenia postępu transformacji indeksu przy [użyciu jednego z zestawów SDK](how-to-manage-indexing-policy.md).
 
-Jeśli nowy tryb zasad indeksowania jest ustawiony na spójne, nie można zastosować żadnej innej zmiany zasad indeksowania, gdy trwa przekształcanie indeksu. Uruchomioną transformację indeksu można anulować, ustawiając tryb zasad indeksowania na brak (co spowoduje natychmiastowe porzucenie indeksu).
+Nie ma to wpływu na zapisywanie dostępności podczas przekształcania indeksów. Przekształcenie indeksu używa zainicjowanego jednostek ru, ale ma niższy priorytet niż operacje CRUD lub zapytania.
+
+Podczas dodawania nowego indeksu nie ma wpływu na dostępność. Zapytania będą korzystać tylko z nowych indeksów po zakończeniu przekształcania indeksu. Podczas przekształcania indeksu aparat zapytań będzie kontynuował korzystanie z istniejących indeksów, więc zobaczysz podobną wydajność odczytu podczas transformacji indeksowania do zaobserwowanego przed zainicjowaniem zmiany indeksowania. Przy dodawaniu nowych indeksów nie jest również ryzykowne żadne niekompletne lub niespójne wyniki zapytania.
+
+W przypadku usuwania indeksów i natychmiastowego uruchamiania zapytań, które odfiltrują się do usuniętych indeksów, nie istnieje gwarancja spójnych lub pełnych wyników zapytania. W przypadku usunięcia wielu indeksów i przeprowadzenia tej operacji w ramach jednej pojedynczej zmiany zasad indeksowania aparat zapytań gwarantuje spójne i kompletne wyniki w trakcie przekształcania indeksu. Jeśli jednak usuniesz indeksy przy użyciu wielu zmian zasad indeksowania, aparat zapytań nie gwarantuje spójnych ani pełnych wyników do momentu zakończenia wszystkich przekształceń indeksu. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje uruchomić zapytania, które używają tych indeksów, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
+
+> [!NOTE]
+> Jeśli to możliwe, zawsze należy próbować grupować wiele zmian indeksowania w jedną modyfikację pojedynczej zasady indeksowania
 
 ## <a name="indexing-policies-and-ttl"></a>Zasady indeksowania i czas wygaśnięcia
 
-[Funkcja czasu wygaśnięcia (TTL, Time-to-Live)](time-to-live.md) wymaga, aby indeksowanie było aktywne w kontenerze, w którym jest włączona. Oznacza to, że:
+Korzystanie z [funkcji Time-to-Live (TTL)](time-to-live.md) wymaga indeksowania. Oznacza to, że:
 
 - nie można aktywować czasu wygaśnięcia w kontenerze, w którym tryb indeksowania jest ustawiony na none.
 - nie można ustawić trybu indeksowania na brak w kontenerze, w którym jest aktywowany czas wygaśnięcia.
