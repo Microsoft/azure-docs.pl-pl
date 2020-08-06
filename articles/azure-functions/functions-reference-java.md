@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372420"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810092"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -19,7 +19,7 @@ Jeśli jesteś deweloperem języka Java, jeśli jesteś nowym do Azure Functions
 
 | Wprowadzenie | Pojęcia| 
 | -- | -- |  
-| <ul><li>[Funkcja języka Java używająca Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Funkcja Java/Maven z terminalem/wierszem polecenia](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Funkcja języka Java używająca Gradle](functions-create-first-java-gradle.md)</li><li>[Funkcja języka Java wykorzystująca przezaćmienie](functions-create-maven-eclipse.md)</li><li>[Funkcja języka Java używająca POMYSŁu IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> |
+| <ul><li>[Funkcja języka Java używająca Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Funkcja Java/Maven z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Funkcja języka Java używająca Gradle](functions-create-first-java-gradle.md)</li><li>[Funkcja języka Java wykorzystująca przezaćmienie](functions-create-maven-eclipse.md)</li><li>[Funkcja języka Java używająca POMYSŁu IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Podstawowe funkcje języka Java
 
@@ -173,7 +173,7 @@ W poniższych przykładach przedstawiono ustawienia dla języka Java 8 w odpowie
 
 Maven umożliwia również określenie systemu operacyjnego, w którym aplikacja funkcji działa na platformie Azure. Użyj `os` elementu, aby wybrać system operacyjny. 
 
-| Element |  Windows | Linux | Platforma Docker |
+| Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
 | **`os`** | windows | System | Docker |
 

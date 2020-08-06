@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554043"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810284"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -26,22 +26,38 @@ ms.locfileid: "87554043"
 
 ## <a name="what-is-a-database-backup"></a>Co to jest kopia zapasowa bazy danych?
 
-Kopie zapasowe bazy danych są istotną częścią strategii ciągłości działania i odzyskiwania po awarii, ponieważ chronią dane przed uszkodzeniem lub usunięciem.
+Kopie zapasowe bazy danych są istotną częścią strategii ciągłości działania i odzyskiwania po awarii, ponieważ chronią dane przed uszkodzeniem lub usunięciem. Te kopie zapasowe umożliwiają przywracanie bazy danych do punktu w czasie w skonfigurowanym okresie przechowywania. Jeśli reguły ochrony danych wymagają, aby kopie zapasowe były dostępne przez dłuższy czas (do 10 lat), można skonfigurować [długoterminowe przechowywanie](long-term-retention-overview.md) zarówno dla baz danych o pojedynczej, jak i w puli.
+
+### <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
 
 Zarówno SQL Database, jak i wystąpienie zarządzane SQL używają technologii SQL Server do tworzenia [pełnych kopii zapasowych](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) co tydzień, [różnicowych kopii zapasowych](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) co 12-24 godzin i [kopii zapasowych dziennika transakcji](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) co 5 – 10 minut. Częstotliwość tworzenia kopii zapasowych dziennika transakcji zależy od rozmiaru obliczeń i liczby działań związanych z bazą danych.
 
 Podczas przywracania bazy danych usługa określa, które pełne, różnicowe i transakcyjne kopie zapasowe dziennika muszą zostać przywrócone.
 
-Te kopie zapasowe umożliwiają przywracanie bazy danych do punktu w czasie w skonfigurowanym okresie przechowywania. Kopie zapasowe są przechowywane jako [obiekty blob magazynu RA-GRS](../../storage/common/storage-redundancy.md) , które są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md) w celu ochrony przed awariami magazynu kopii zapasowych w regionie podstawowym. 
+### <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
 
-Jeśli reguły ochrony danych wymagają, aby kopie zapasowe były dostępne przez dłuższy czas (do 10 lat), można skonfigurować [długoterminowe przechowywanie](long-term-retention-overview.md) zarówno dla baz danych o pojedynczej, jak i w puli.
+> [!IMPORTANT]
+> Konfigurowalna nadmiarowość magazynu dla kopii zapasowych jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL i może być określona tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
+
+Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczność wyboru między obiektami BLOB (LRS), strefami nadmiarowymi (ZRS) lub geograficznie nadmiarowymi (RA-GRS) [magazynu](../../storage/common/storage-redundancy.md). Mechanizmy nadmiarowości magazynu przechowują wiele kopii danych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami. Ta funkcja jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL.
+
+Obiekty blob magazynu RA-GRS są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md) w celu ochrony przed awariami magazynu kopii zapasowych w regionie podstawowym i umożliwiają przywrócenie serwera do innego regionu w przypadku awarii. 
+
+Z kolei obiekty blob magazynu LRS i ZRS zapewniają, że dane pozostają w tym samym regionie, w którym wdrożono SQL Database lub wystąpienie zarządzane SQL. Magazyn strefowo nadmiarowy (ZRS) jest obecnie dostępny tylko w [niektórych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+
+> [!IMPORTANT]
+> W wystąpieniu zarządzanym SQL konfiguracja nadmiarowości kopii zapasowej jest stosowana zarówno do krótkoterminowych ustawień przechowywania kopii zapasowych, które są używane do przywracania do punktu w czasie (kopie), jak i długoterminowego przechowywania kopii zapasowych używanych do długoterminowych kopii zapasowych (LTR).
+
+### <a name="backup-usage"></a>Użycie kopii zapasowej
 
 Tych kopii zapasowych można użyć w następujących celach:
 
-- [Przywracanie istniejącej bazy danych do punktu w czasie w przeszłości w](recovery-using-backups.md#point-in-time-restore) okresie przechowywania przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. W przypadku baz danych z jedną i pulą ta operacja spowoduje utworzenie nowej bazy danych na tym samym serwerze, na którym znajduje się oryginalna baza danych, ale pod inną nazwą, aby uniknąć zastąpienia oryginalnej bazy danych. Po zakończeniu przywracania możesz usunąć oryginalną bazę danych lub [zmienić jej nazwę](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) i zmienić nazwę przywróconej bazy danych tak, aby była oryginalna. W wystąpieniu zarządzanym ta operacja może w podobny sposób utworzyć kopię bazy danych w tym samym lub innym wystąpieniu zarządzanym w ramach tej samej subskrypcji i w tym samym regionie.
-- [Przywracanie usuniętej bazy danych do czasu usunięcia](recovery-using-backups.md#deleted-database-restore) lub do dowolnego punktu w czasie w okresie przechowywania. Usuniętą bazę danych można przywrócić tylko na tym samym serwerze lub wystąpieniu zarządzanym, w którym została utworzona oryginalna baza danych. Podczas usuwania bazy danych usługa pobiera ostateczną kopię zapasową dziennika transakcji przed usunięciem, aby zapobiec utracie danych.
-- [Przywracanie bazy danych do innego regionu geograficznego](recovery-using-backups.md#geo-restore). Funkcja przywracania geograficznego umożliwia odzyskanie sprawności po awarii geograficznej, gdy nie można uzyskać dostępu do bazy danych lub kopii zapasowych w regionie podstawowym. Tworzy nową bazę danych na dowolnym istniejącym serwerze lub wystąpieniu zarządzanym w dowolnym regionie świadczenia usługi Azure.
-- [Przywracanie bazy danych z określonej długoterminowej kopii zapasowej](long-term-retention-overview.md) pojedynczej bazy danych lub bazy danych w puli, jeśli baza danych została skonfigurowana z użyciem długoterminowych zasad przechowywania. LTR umożliwia przywrócenie starej wersji bazy danych za pomocą [Azure Portal](long-term-backup-retention-configure.md#using-the-azure-portal) lub [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) w celu spełnienia żądania zgodności lub w celu uruchomienia starej wersji aplikacji. Aby uzyskać więcej informacji, zobacz [Długoterminowe przechowywanie](long-term-retention-overview.md).
+- **Przywracanie do punktu w czasie istniejącej bazy danych**  -  [Przywracanie istniejącej bazy danych do punktu w czasie w przeszłości w](recovery-using-backups.md#point-in-time-restore) okresie przechowywania przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. W przypadku SQL Database ta operacja tworzy nową bazę danych na tym samym serwerze, na którym znajduje się oryginalna baza danych, ale używa innej nazwy, aby uniknąć zastąpienia oryginalnej bazy danych. Po zakończeniu przywracania można usunąć oryginalną bazę danych. Alternatywnie można [zmienić](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) nazwę oryginalnej bazy danych, a następnie zmienić nazwę przywróconej bazy danych na oryginalną. Podobnie w przypadku wystąpienia zarządzanego SQL ta operacja tworzy kopię bazy danych w tym samym lub innym wystąpieniu zarządzanym w ramach tej samej subskrypcji i tego samego regionu.
+- **Przywracanie do punktu w czasie usuniętej bazy danych**  -  [Przywracanie usuniętej bazy danych do czasu usunięcia](recovery-using-backups.md#deleted-database-restore) lub do dowolnego punktu w czasie w okresie przechowywania. Usuniętą bazę danych można przywrócić tylko na tym samym serwerze lub wystąpieniu zarządzanym, w którym została utworzona oryginalna baza danych. Podczas usuwania bazy danych usługa pobiera ostateczną kopię zapasową dziennika transakcji przed usunięciem, aby zapobiec utracie danych.
+- **Przywracanie geograficzne**  -  [Przywracanie bazy danych do innego regionu geograficznego](recovery-using-backups.md#geo-restore). Funkcja przywracania geograficznego umożliwia odzyskanie sprawności po awarii geograficznej, gdy nie można uzyskać dostępu do bazy danych lub kopii zapasowych w regionie podstawowym. Tworzy nową bazę danych na dowolnym istniejącym serwerze lub wystąpieniu zarządzanym w dowolnym regionie świadczenia usługi Azure.
+   > [!IMPORTANT]
+   > Przywracanie geograficzne jest dostępne tylko dla zarządzanych wystąpień ze skonfigurowanym geograficznie nadmiarowym magazynem kopii zapasowych (RA-GRS).
+- **Przywracanie z długoterminowej kopii zapasowej**  -  [Przywracanie bazy danych z określonej długoterminowej kopii zapasowej](long-term-retention-overview.md) pojedynczej bazy danych lub bazy danych w puli, jeśli baza danych została skonfigurowana z użyciem długoterminowych zasad przechowywania. LTR umożliwia przywrócenie starej wersji bazy danych za pomocą [Azure Portal](long-term-backup-retention-configure.md#using-the-azure-portal) lub [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) w celu spełnienia żądania zgodności lub w celu uruchomienia starej wersji aplikacji. Aby uzyskać więcej informacji, zobacz [Długoterminowe przechowywanie](long-term-retention-overview.md).
 
 Aby wykonać przywracanie, zobacz [przywracanie bazy danych z kopii zapasowych](recovery-using-backups.md).
 
@@ -50,13 +66,13 @@ Aby wykonać przywracanie, zobacz [przywracanie bazy danych z kopii zapasowych](
 
 Operacje konfiguracji i przywracania kopii zapasowej można wypróbować przy użyciu następujących przykładów:
 
-| | Witryna Azure Portal | Azure PowerShell |
+| Operacja | Azure Portal | Azure PowerShell |
 |---|---|---|
-| **Zmień przechowywanie kopii zapasowych** | [Pojedyncza baza danych](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Pojedyncza baza danych](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Zmiana długoterminowego przechowywania kopii zapasowych** | [Pojedyncza baza danych](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane — nie dotyczy  | [Pojedyncza baza danych](long-term-backup-retention-configure.md)<br/>Wystąpienie zarządzane — nie dotyczy  |
-| **Przywracanie bazy danych od punktu w czasie** | [Pojedyncza baza danych](recovery-using-backups.md#point-in-time-restore) | [Pojedyncza baza danych](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Przywracanie usuniętej bazy danych** | [Pojedyncza baza danych](recovery-using-backups.md) | [Pojedyncza baza danych](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Przywracanie bazy danych z usługi Azure Blob Storage** | Pojedyncza baza danych — nie dotyczy <br/>Wystąpienie zarządzane — nie dotyczy  | Pojedyncza baza danych — nie dotyczy <br/>[Wystąpienie zarządzane](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Zmień przechowywanie kopii zapasowych** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Zmiana długoterminowego przechowywania kopii zapasowych** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane SQL — nie dotyczy  | [SQL Database](long-term-backup-retention-configure.md)<br/>[Wystąpienie zarządzane SQL](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Przywracanie bazy danych od punktu w czasie** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[Wystąpienie zarządzane SQL](../managed-instance/point-in-time-restore.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Przywracanie usuniętej bazy danych** | [SQL Database](recovery-using-backups.md)<br>[Wystąpienie zarządzane SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Przywracanie bazy danych z usługi Azure Blob Storage** | SQL Database-N/A <br/>Wystąpienie zarządzane SQL — nie dotyczy  | SQL Database-N/A <br/>[Wystąpienie zarządzane SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Planowanie kopii zapasowych
 
@@ -98,6 +114,7 @@ Użycie magazynu kopii zapasowej do maksymalnego rozmiaru danych dla bazy danych
 - W przypadku dużych operacji ładowania danych należy rozważyć użycie [klastrowanych indeksów magazynu kolumn](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) oraz pokrewnych [najlepszych](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)rozwiązań i/lub zmniejszenie liczby indeksów nieklastrowanych.
 - W Ogólnego przeznaczenia warstwie usług zainicjowany magazyn danych jest tańszy niż cena magazynu kopii zapasowych. Jeśli masz ciągle wysokie koszty magazynowania kopii zapasowych, możesz rozważyć zwiększenie ilości miejsca do magazynowania danych w magazynie kopii zapasowych.
 - Należy używać bazy danych TempDB zamiast trwałych tabel w logice aplikacji do przechowywania tymczasowych wyników i/lub danych przejściowych.
+- Użyj lokalnie nadmiarowego magazynu kopii zapasowych zawsze wtedy, gdy jest to możliwe (na przykład środowiska deweloperskie/testowe)
 
 ## <a name="backup-retention"></a>Przechowywanie kopii zapasowych
 
@@ -112,15 +129,13 @@ Przechowywanie kopii zapasowych dla celów kopie w ciągu ostatnich 1-35 dni jes
 
 ### <a name="long-term-retention"></a>Długoterminowe przechowywanie
 
-W przypadku baz danych o pojedynczej i puli i wystąpieniach zarządzanych można skonfigurować długoterminowe przechowywanie (LTR) dla pełnych kopii zapasowych w okresie do 10 lat w usłudze Azure Blob Storage. W przypadku włączenia zasad LTR, cotygodniowe pełne kopie zapasowe są automatycznie kopiowane do innego kontenera magazynu RA-GRS. Aby spełnić różne wymagania dotyczące zgodności, można wybrać różne okresy przechowywania dla cotygodniowych, comiesięcznych i/lub corocznych kopii zapasowych. Użycie magazynu zależy od wybranej częstotliwości wykonywania kopii zapasowych LTR oraz okresu przechowywania lub okresów. Możesz użyć [kalkulatora cen ltr](https://azure.microsoft.com/pricing/calculator/?service=sql-database) , aby oszacować koszt magazynu ltr.
-
-Podobnie jak w przypadku kopii zapasowych kopie, kopie zapasowe są chronione za pomocą magazynu geograficznie nadmiarowego. Aby uzyskać więcej informacji, zobacz [Nadmiarowość usługi Azure Storage](../../storage/common/storage-redundancy.md).
+W przypadku wystąpienia zarządzanego zarówno SQL Database, jak i SQL można skonfigurować pełną kopię zapasową długoterminowego przechowywania (LTR) przez maksymalnie 10 lat w usłudze Azure Blob Storage. Po skonfigurowaniu zasad "LTR" pełne kopie zapasowe są automatycznie kopiowane do innego kontenera magazynu co tydzień. Aby spełnić różne wymagania dotyczące zgodności, można wybrać różne okresy przechowywania dla cotygodniowych, comiesięcznych i/lub corocznych kopii zapasowych. Użycie magazynu zależy od wybranej częstotliwości i okresów przechowywania kopii zapasowych LTR. Możesz użyć [kalkulatora cen ltr](https://azure.microsoft.com/pricing/calculator/?service=sql-database) , aby oszacować koszt magazynu ltr.
 
 Aby uzyskać więcej informacji na temat LTR, zobacz [długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md).
 
 ## <a name="storage-costs"></a>Koszty magazynowania
 
-Cena magazynu kopii zapasowych jest różna w zależności od tego, czy używasz modelu DTU, czy modelu rdzeń wirtualny, a także w Twoim regionie. W magazynie kopii zapasowych jest naliczana opłata za GB/miesiąc zużyte. Cennik można znaleźć na stronie [Azure SQL Database cennika](https://azure.microsoft.com/pricing/details/sql-database/single/) oraz na stronie [cennika wystąpienia zarządzanego usługi Azure SQL](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
+Cena magazynu kopii zapasowych jest różna i zależy od modelu zakupu (DTU lub rdzeń wirtualny), wybranej opcji nadmiarowości magazynu kopii zapasowych, a także w Twoim regionie. W magazynie kopii zapasowych jest naliczana opłata za GB/miesiąc zużyte. Cennik można znaleźć na stronie [Azure SQL Database cennika](https://azure.microsoft.com/pricing/details/sql-database/single/) oraz na stronie [cennika wystąpienia zarządzanego usługi Azure SQL](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
 
 ### <a name="dtu-model"></a>Model jednostki DTU
 
@@ -153,6 +168,18 @@ Teraz bardziej skomplikowany przykład. Załóżmy, że ta sama bezczynna baza d
 Rzeczywiste Scenariusze rozliczania kopii zapasowych są bardziej skomplikowane. Ze względu na to, że częstotliwość zmian w bazie danych zależy od obciążenia i jest zmienna w czasie, rozmiar poszczególnych różnic i kopii zapasowych dziennika będzie również różny, co oznacza, że zużycie godzinowe magazynu kopii zapasowych jest odpowiednio zmieniane. Ponadto każda różnicowa kopia zapasowa zawiera wszystkie zmiany dokonane w bazie danych od momentu ostatniej pełnej kopii zapasowej, w związku z czym łączny rozmiar wszystkich różnicowych kopii zapasowych stopniowo rośnie w ciągu tygodnia, a następnie gwałtownie maleje po starszym zestawie pełnych, różnicowych i dzienników kopii zapasowych. Na przykład jeśli duże działanie zapisu, takie jak ponowne kompilowanie indeksu, zostało uruchomione zaraz po zakończeniu pełnej kopii zapasowej, modyfikacje wprowadzone w ramach odbudowywania indeksu zostaną uwzględnione w kopiach zapasowych dziennika transakcji wykonanych w czasie trwania odbudowy, w następnej różnicowej kopii zapasowej i w każdej różnicowej kopii zapasowej wykonanej do następnej pełnej kopii zapasowej. W tym ostatnim scenariuszu w większych bazach danych optymalizacja w usłudze tworzy pełną kopię zapasową zamiast różnicowej kopii zapasowej, jeśli różnicowe kopie zapasowe byłyby nadmiernie duże w inny sposób. Pozwala to zmniejszyć rozmiar wszystkich różnicowych kopii zapasowych do następującej pełnej kopii zapasowej.
 
 Można monitorować całkowite użycie magazynu kopii zapasowych dla każdego typu kopii zapasowej (pełny, różnicowa, dziennik transakcji) w czasie, zgodnie z opisem w temacie [użycie monitorowania](#monitor-consumption).
+
+### <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
+
+Nadmiarowość magazynu kopii zapasowych ma wpływ na koszty tworzenia kopii zapasowych w następujący sposób:
+- LRS cena = x
+- Cena ZRS = 1,25 x
+- RA-GRS Price = 2x
+
+Aby uzyskać więcej informacji na temat cennika usługi Backup Storage, Azure SQL Database odwiedź stronę [cennika](https://azure.microsoft.com/pricing/details/sql-database/single/) i [Cennik wystąpienia zarządzanego usługi Azure SQL](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> Konfigurowalna nadmiarowość magazynu dla kopii zapasowych jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL i może być określona tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
 
 ### <a name="monitor-costs"></a>Monitorowanie kosztów
 
@@ -300,6 +327,54 @@ Kod stanu: 200
 ```
 
 Aby uzyskać więcej informacji, zobacz [interfejs API REST przechowywania kopii zapasowych](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+#### <a name="sample-request"></a>Przykładowe żądanie
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+
+#### <a name="request-body"></a>Treść żądania
+
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
+
+#### <a name="sample-response"></a>Przykładowa odpowiedź
+
+Kod stanu: 200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+Aby uzyskać więcej informacji, zobacz [interfejs API REST przechowywania kopii zapasowych](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+## <a name="configure-backup-storage-redundancy"></a>Konfigurowanie nadmiarowości magazynu kopii zapasowych
+
+> [!NOTE]
+> Konfigurowalna nadmiarowość magazynu dla kopii zapasowych jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL i może być określona tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
+
+Nadmiarowość magazynu kopii zapasowych wystąpienia zarządzanego można ustawić tylko podczas tworzenia wystąpienia. Wartość domyślna to magazyn Geograficznie nadmiarowy (RA-GRS). W przypadku różnic cen między lokalnie nadmiarowy (LRS), strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy (RA-GRS) magazyn kopii zapasowych odwiedź [stronę z cennikiem wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Konfigurowanie nadmiarowości magazynu kopii zapasowych przy użyciu Azure Portal
+
+W Azure Portal opcja zmiany nadmiarowości magazynu kopii zapasowych znajduje się w bloku **obliczenia + magazyn** dostępnego z poziomu opcji **Konfiguruj wystąpienie zarządzane** na karcie **podstawowe** podczas tworzenia wystąpienia zarządzanego SQL.
+![Otwórz przystawkę Konfiguracja obliczeń i magazynu — blok](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+Znajdź opcję wyboru opcji nadmiarowości magazynu kopii zapasowych w bloku **obliczenia + magazyn** .
+![Konfigurowanie nadmiarowości magazynu kopii zapasowych](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
