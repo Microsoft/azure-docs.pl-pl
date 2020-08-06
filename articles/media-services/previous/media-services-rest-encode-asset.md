@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9cf5a65c664df321e8cee1c867e637a4718c9ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999976"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837333"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodować element zawartości przy użyciu Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86999976"
 
 Aby zapewnić cyfrowe wideo przez Internet, należy skompresować multimedia. Cyfrowe pliki wideo są duże i mogą być zbyt duże, aby można je było dostarczać przez Internet lub aby urządzenia klientów były wyświetlane prawidłowo. Kodowanie to proces kompresowania wideo i audio, dzięki czemu klienci mogą wyświetlać multimedia.
 
-Zadania kodowania są jedną z najczęstszych operacji przetwarzania w Azure Media Services. Tworzysz zadania kodowania, aby przekonwertować pliki multimedialne z jednego kodowania na inne. Podczas kodowania można użyć wbudowanego kodera Media Services (Media Encoder Standard). Można również użyć kodera dostarczonego przez partnera Media Services. Kodery innych firm są dostępne w portalu Azure Marketplace. Można określić szczegóły zadań kodowania przy użyciu wstępnie ustawionych ciągów zdefiniowanych dla kodera lub przy użyciu wstępnie ustawionych plików konfiguracji. Aby wyświetlić dostępne typy ustawień wstępnych, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
+Zadania kodowania są jedną z najczęstszych operacji przetwarzania w Azure Media Services. Tworzysz zadania kodowania, aby przekonwertować pliki multimedialne z jednego kodowania na inne. Podczas kodowania można użyć wbudowanego kodera Media Services (Media Encoder Standard). Można również użyć kodera dostarczonego przez partnera Media Services. Kodery innych firm są dostępne w portalu Azure Marketplace. Można określić szczegóły zadań kodowania przy użyciu wstępnie ustawionych ciągów zdefiniowanych dla kodera lub przy użyciu wstępnie ustawionych plików konfiguracji. Aby wyświetlić dostępne typy ustawień wstępnych, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](./media-services-mes-presets-overview.md).
 
 Każde zadanie może mieć jedno lub więcej zadań w zależności od typu przetwarzania, które chcesz wykonać. Za pomocą interfejsu API REST można tworzyć zadania i powiązane z nimi zadania na jeden z dwóch sposobów:
 
@@ -65,7 +65,7 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API us
 >
 >
 
-Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. W przypadku kodowania przy użyciu Media Encoder Standard można użyć ustawień domyślnych konfiguracji zadania określonych w [tym miejscu](/azure/media-services/previous/media-services-mes-presets-overview).
+Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. W przypadku kodowania przy użyciu Media Encoder Standard można użyć ustawień domyślnych konfiguracji zadania określonych w [tym miejscu](./media-services-mes-presets-overview.md).
 
 Żądanie:
 
@@ -286,11 +286,11 @@ HTTP/1.1 201 Created
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy wiesz już, jak utworzyć zadanie kodowania elementu zawartości, zobacz [Jak sprawdzić postęp zadania w Media Services](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Pobierz procesory multimedialne](media-services-rest-get-media-processor.md)

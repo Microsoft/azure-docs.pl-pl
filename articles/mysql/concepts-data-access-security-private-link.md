@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509325"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837293"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Prywatny link do Azure Database for MySQL
 
@@ -20,7 +20,7 @@ Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na 
 Aby uzyskać listę PaaS usług, które obsługują funkcję linku prywatnego, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/private-link/index)linku prywatnego. Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) i podsieci.
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MySQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
 ## <a name="data-exfiltration-prevention"></a>Ochrona danych eksfiltracji
 
@@ -57,7 +57,7 @@ Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do p
 
 Prywatne punkty końcowe są wymagane do włączenia prywatnego linku. Można to zrobić, korzystając z poniższych przewodników.
 
-* [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
+* [Witryna Azure Portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Proces zatwierdzania

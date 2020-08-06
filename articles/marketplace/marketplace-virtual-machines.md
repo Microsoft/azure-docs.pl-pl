@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065648"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837348"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Przewodnik publikowania dla ofert maszyn wirtualnych
 
@@ -29,7 +29,7 @@ Aby przygotować się do przetestowania oferty przez użytkowników, uzyskaj dos
 
 Można wdrożyć co najmniej jedną maszynę wirtualną za pomocą aplikacji infrastruktury jako usługi (IaaS) lub oprogramowania jako usługi (SaaS). Zaletą opcji publikowania *dysku testowego* jest zautomatyzowana konfiguracja maszyny wirtualnej lub całego rozwiązania, które zostało obsłużone z przewodnikiem obsługiwanym przez partnera. Stacja testowa umożliwia klientom ocenę maszyn wirtualnych bez dodatkowych kosztów. Klient nie musi być istniejącym klientem platformy Azure, aby mieć możliwość korzystania z wersji próbnej. 
 
-Aby rozpocząć, skontaktuj się z nami za pomocą wiadomości e-mail w witrynie [amp-testdrive](mailto:amp-testdrive@microsoft.com). 
+Aby uzyskać więcej informacji na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md)
 
 |Wymagania  |Szczegóły |
 |---------|---------|

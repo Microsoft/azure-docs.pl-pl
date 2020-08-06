@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 8c6b6dcf748b0c6ef6162e9f20726123673abb33
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 86910ece57d8fb72ade0c67a9e6787023c4283f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283269"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836925"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu wielu kart interfejsu sieciowego
 
@@ -79,7 +79,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Tworzenie maszyny wirtualnej i dołączanie kart sieciowych
-Podczas tworzenia maszyny wirtualnej należy określić karty sieciowe, które zostały utworzone za pomocą programu `--nics` . Należy również zadbać o to, aby wybrać rozmiar maszyny wirtualnej. Istnieją limity dla łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux](sizes.md).
+Podczas tworzenia maszyny wirtualnej należy określić karty sieciowe, które zostały utworzone za pomocą programu `--nics` . Należy również zadbać o to, aby wybrać rozmiar maszyny wirtualnej. Istnieją limity dla łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux](../sizes.md).
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*:
 
@@ -97,7 +97,7 @@ az vm create \
 Dodaj tabele routingu do systemu operacyjnego gościa, wykonując kroki opisane w temacie [Konfigurowanie systemu operacyjnego gościa dla wielu kart sieciowych](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Dodawanie karty sieciowej do maszyny wirtualnej
-W poprzednich krokach utworzono maszynę wirtualną z wieloma kartami sieciowymi. Możesz również dodać karty sieciowe do istniejącej maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej. W razie konieczności można [zmienić rozmiar maszyny wirtualnej](change-vm-size.md).
+W poprzednich krokach utworzono maszynę wirtualną z wieloma kartami sieciowymi. Możesz również dodać karty sieciowe do istniejącej maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure. Różne [rozmiary maszyn wirtualnych](../sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej. W razie konieczności można [zmienić rozmiar maszyny wirtualnej](change-vm-size.md).
 
 Utwórz kolejną kartę [sieciową za pomocą AZ Network nic Create](/cli/azure/network/nic). Poniższy przykład tworzy kartę sieciową o nazwie *myNic3* połączony z podsiecią zaplecza i sieciową grupą zabezpieczeń utworzoną w poprzednich krokach:
 
@@ -242,6 +242,6 @@ ping bing.com -c 4 -I eth1
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Sprawdź [rozmiary maszyn wirtualnych z systemem Linux](sizes.md) podczas próby utworzenia maszyny wirtualnej z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych.
+Sprawdź [rozmiary maszyn wirtualnych z systemem Linux](../sizes.md) podczas próby utworzenia maszyny wirtualnej z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych.
 
 Aby dodatkowo zabezpieczyć maszyny wirtualne, użyj dostępu just in Time do maszyny wirtualnej. Ta funkcja otwiera reguły sieciowej grupy zabezpieczeń dla ruchu SSH w razie potrzeby i przez określony czas. Aby uzyskać więcej informacji, zobacz [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Zarządzanie dostępem maszyny wirtualnej przy użyciu funkcji „dokładnie na czas”).

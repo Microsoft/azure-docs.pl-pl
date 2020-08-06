@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f63bcbb26752dc787d508260cce0b0518cdc7c38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080407"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837163"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -244,7 +244,7 @@ Przykładowe dane wyjściowe z witryny [Azure Resource Explorer](https://resourc
 Z każdą kartą sieciową dołączoną do maszyny wirtualnej w zestawie skalowania może być skojarzona co najmniej jedna konfiguracja adresu IP. Każdej konfiguracji jest przypisany jeden prywatny adres IP. Każda konfiguracja może mieć również skojarzony jeden zasób publicznego adresu IP. Aby zrozumieć, jak wiele adresów IP można przypisać do karty sieciowej i jak wielu publicznych adresów IP można używać w subskrypcji platformy Azure, zapoznaj się z [informacjami o limitach na platformie Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Wiele kart sieciowych dla każdej maszyny wirtualnej
-Zależnie od rozmiaru maszyny wirtualnej każda z nich może mieć do 8 kart sieciowych. Maksymalna liczba kart sieciowych na maszynę jest podana w [artykule poświęconym rozmiarom maszyn wirtualnych](../virtual-machines/windows/sizes.md). Wszystkie karty sieciowe podłączone do wystąpienia maszyny wirtualnej muszą łączyć się z tą samą siecią wirtualną. Karty sieciowe mogą łączyć się z różnymi podsieciami, ale wszystkie podsieci muszą należeć do tej samej sieci wirtualnej.
+Zależnie od rozmiaru maszyny wirtualnej każda z nich może mieć do 8 kart sieciowych. Maksymalna liczba kart sieciowych na maszynę jest podana w [artykule poświęconym rozmiarom maszyn wirtualnych](../virtual-machines/sizes.md). Wszystkie karty sieciowe podłączone do wystąpienia maszyny wirtualnej muszą łączyć się z tą samą siecią wirtualną. Karty sieciowe mogą łączyć się z różnymi podsieciami, ale wszystkie podsieci muszą należeć do tej samej sieci wirtualnej.
 
 Poniższej przedstawiono przykład profilu sieciowego zestawu skalowania z wieloma wpisami kart sieciowych oraz wieloma publicznymi adresami IP związanymi z poszczególnymi maszynami wirtualnymi:
 

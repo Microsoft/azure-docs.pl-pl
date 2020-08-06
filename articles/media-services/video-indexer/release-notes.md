@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042626"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837313"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,28 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="july-2020"></a>Lipiec 2020 r.
+
+### <a name="ga-for-multi-language-identification"></a>GA dla identyfikacji wielu języków
+
+Identyfikacja w wielu językach jest przenoszona z wersji zapoznawczej na GA i gotowa do wydajnego użycia.
+
+Nie ma wpływu na ceny związane z przejściem "wersja zapoznawcza do wersji zapoznawczej".
+
+### <a name="video-indexer-website-improvements"></a>Udoskonalenia Video Indexer witryny sieci Web
+
+#### <a name="adjustments-in-the-video-gallery"></a>Korekty w galerii wideo
+
+Dodano nowy pasek wyszukiwania dla wyszukiwania głębokiego wglądu z dodatkowymi możliwościami filtrowania. Wyniki wyszukiwania zostały również udoskonalone.
+
+Nowy widok listy z możliwością sortowania i zarządzania archiwum wideo z wieloma plikami.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Nowy panel ułatwiający wybór i konfigurację
+
+Dodano panel boczny w celu ułatwienia wyboru i konfiguracji użytkownika, co umożliwia proste i szybkie tworzenie i udostępnianie kont oraz Konfigurowanie ustawień.
+
+Panel boczny jest również używany w preferencjach i pomocy użytkownika.
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 

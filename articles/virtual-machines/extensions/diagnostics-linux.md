@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085694"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837044"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -580,7 +580,7 @@ Przy założeniu, że chronione ustawienia znajdują się w pliku ProtectedSetti
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-W poleceniu przyjęto założenie, że używasz trybu zarządzania zasobami platformy Azure (ARM) interfejsu wiersza polecenia platformy Azure. Aby skonfigurować LAD dla maszyn wirtualnych z modelem wdrożenia klasycznego (ASM), przełącz się do trybu "ASM" ( `azure config mode asm` ) i Pomiń nazwę grupy zasobów w poleceniu. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia dla wielu platform](/azure/xplat-cli-connect).
+W poleceniu przyjęto założenie, że używasz trybu zarządzania zasobami platformy Azure dla interfejsu wiersza polecenia platformy Azure. Aby skonfigurować LAD dla maszyn wirtualnych z modelem wdrożenia klasycznego (ASM), przełącz się do trybu "ASM" ( `azure config mode asm` ) i Pomiń nazwę grupy zasobów w poleceniu. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia dla wielu platform](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### <a name="powershell"></a>PowerShell
 

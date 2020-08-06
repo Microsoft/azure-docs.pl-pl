@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206447"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836483"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu portalu i zarządzanie nim
 
@@ -20,9 +20,9 @@ Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MariaDB obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure
@@ -39,7 +39,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | ------- | ----- |
     | Nazwa | Wprowadź *MyVirtualNetwork*. |
     | Przestrzeń adresowa | Wprowadź adres *10.1.0.0/16*. |
-    | Subscription | Wybierz subskrypcję.|
+    | Subskrypcja | Wybierz subskrypcję.|
     | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
     | Lokalizacja | Wybierz pozycję **Europa Zachodnia**.|
     | Podsieć — nazwa | Wprowadź nazwę moja *podsieć*. |
@@ -56,13 +56,13 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **SZCZEGÓŁY PROJEKTU** | |
-    | Subscription | Wybierz subskrypcję. |
+    | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -91,7 +91,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     |||
 
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
@@ -106,7 +106,7 @@ W tej sekcji utworzysz serwer Azure Database for MariaDB na platformie Azure.
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
-    | Subscription | Wybierz subskrypcję. |
+    | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | **Szczegóły serwera** |  |
     |Nazwa serwera  | Wprowadź *tekst*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
@@ -118,7 +118,7 @@ W tej sekcji utworzysz serwer Azure Database for MariaDB na platformie Azure.
     |||
 
 7. Wybierz przycisk **OK**. 
-8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
 
@@ -140,7 +140,7 @@ W tej sekcji utworzysz prywatny punkt końcowy do serwera MariaDB.
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
-    | Subscription | Wybierz subskrypcję. |
+    | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | **Szczegóły wystąpienia** |  |
     | Nazwa | Wprowadź *myPrivateEndpoint*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
@@ -152,7 +152,7 @@ W tej sekcji utworzysz prywatny punkt końcowy do serwera MariaDB.
     | Ustawienie | Wartość |
     | ------- | ----- |
     |Metoda połączenia  | Wybierz pozycję Połącz z zasobem platformy Azure w moim katalogu.|
-    | Subscription| Wybierz subskrypcję. |
+    | Subskrypcja| Wybierz subskrypcję. |
     | Typ zasobu | Wybierz pozycję **Microsoft. DBforMariaDB/serwery**. |
     | Zasób |Wybierz *pozycję* Wyznacz|
     |Docelowy zasób podrzędny |Wybierz *mariadbServer*|
@@ -173,7 +173,7 @@ W tej sekcji utworzysz prywatny punkt końcowy do serwera MariaDB.
     > [!Note] 
     > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub podaj nazwę preferowanego strefy DNS. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
 
     ![Utworzono link prywatny](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
@@ -242,7 +242,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 7. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera MariaDB i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
 1. Wprowadź *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów *myResourceGroup*   z wyników wyszukiwania.

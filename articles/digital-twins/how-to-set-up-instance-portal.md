@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie wystąpienia i uwierzytelniania (Portal)
+title: Konfigurowanie wystąpienia i uwierzytelniania (portal)
 titleSuffix: Azure Digital Twins
 description: Zobacz jak skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji przy użyciu Azure Portal
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408413"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836942"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -62,7 +62,7 @@ Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej
 
 Po zakończeniu wybierz pozycję _Przegląd + Utwórz_. Spowoduje to przejście do strony podsumowania, na której można przejrzeć wprowadzone informacje o wystąpieniu i przycisk _Utwórz_. 
 
-### <a name="verify-success"></a>Weryfikowanie sukcesu
+### <a name="verify-success-and-collect-important-values"></a>Weryfikowanie sukcesu i zbieranie ważnych wartości
 
 Po wypchnięciu polecenia *Create*można wyświetlić stan wdrożenia wystąpienia w obszarze powiadomień platformy Azure na pasku ikon portalu. Powiadomienie będzie wskazywać, kiedy wdrożenie zakończyło się pomyślnie, i będzie można wybrać przycisk _Przejdź do zasobu_ , aby wyświetlić utworzone wystąpienie.
 

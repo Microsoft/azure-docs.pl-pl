@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037192"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836806"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -54,11 +54,15 @@ Azure Security Center integruje się z usługami platformy Azure w celu monitoro
 
     Gdy usługa Microsoft Defender ATP wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany na pulpicie nawigacyjnym Security Center. Z poziomu pulpitu nawigacyjnego można przestawiać do konsoli usługi Microsoft Defender ATP i przeprowadzić szczegółowe badanie w celu odzyskania zakresu ataku. Aby uzyskać więcej informacji o usłudze Microsoft Defender ATP, zobacz Dołączanie [serwerów do usługi Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* Wykrywanie ataków bezplikowych **Fileless attack detection** <a name="windows-fileless"></a> — Ataki bezplikowe ukierunkowane na punkty końcowe są wspólne. Aby uniknąć wykrywania, ataki bez plików wsuwają złośliwe ładunki do pamięci. Ładunki osoby atakującej pozostają w dużej ilości zagrożonych procesów i wykonują szeroką gamę złośliwych działań.
+* Wykrywanie ataków bezplikowych **Fileless attack detection** <a name="windows-fileless"></a> — Ataki bez plików wsuwają złośliwe ładunki do pamięci, aby uniknąć wykrywania przez techniki skanowania oparte na dyskach. Ładunek osoby atakującej będzie nadal utrzymywać się w pamięci procesów objętych naruszeniem i wykonuje szeroką gamę złośliwych działań.
 
-    W przypadku wykrywania ataków bez plików, zautomatyzowane metody śledczej pamięci identyfikują narzędzia, techniki i zachowania ataku bez plików. To rozwiązanie okresowo skanuje maszynę w czasie wykonywania i wyodrębnia informacje bezpośrednio z pamięci procesów krytycznych dla zabezpieczeń.
+    W przypadku wykrywania ataków bez plików, zautomatyzowane metody śledczej pamięci identyfikują narzędzia, techniki i zachowania ataku bez plików. To rozwiązanie okresowo skanuje maszynę w czasie wykonywania i wyodrębnia informacje bezpośrednio z pamięci procesów. Szczegółowe informacje dotyczące systemu Linux obejmują: 
 
-    Pozwala znaleźć dowód wykorzystania, iniekcję kodu i wykonywanie złośliwych ładunków. Wykrywanie ataków bezplikowych generuje szczegółowe alerty zabezpieczeń, które przyspieszają Klasyfikacja alertów, korelację i czas odpowiedzi podrzędnej. To podejście uzupełnia oparte na zdarzeniach rozwiązania EDR, co zapewnia większe pokrycie wykrywania.
+    - Dobrze znane zestawy narzędzi i oprogramowanie do wyszukiwania kryptograficznego 
+    - Wykryto kod powłoki, który jest niewielkim fragmentem kodu zwykle używanym jako ładunek w trakcie wykorzystywania luki w zabezpieczeniach oprogramowania.
+    - Wstrzykiwano złośliwy plik wykonywalny w pamięci procesu
+
+    Wykrywanie ataków bez plików generuje szczegółowe alerty zabezpieczeń zawierające opisy z dodatkowymi metadanymi procesów, takimi jak aktywność sieciowa. Przyspiesza to klasyfikacja alertu, korelację i czas odpowiedzi podrzędnej. Takie podejście uzupełnia rozwiązania EDR oparte na zdarzeniach i zapewnia zwiększony zakres wykrywania.
 
     Aby uzyskać szczegółowe informacje o alertach dotyczących wykrywania ataków bez plików, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-windows).
 

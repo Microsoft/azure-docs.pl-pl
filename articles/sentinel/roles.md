@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534009"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836772"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
 
-Wskaźnik platformy Azure używa [Access Control opartej na rolach (RBAC)](../role-based-access-control/role-assignments-portal.md) , aby udostępnić [wbudowane role](../role-based-access-control/built-in-roles.md),   które można przypisać do użytkowników, grup i usług na platformie Azure.
+W przypadku korzystania z funkcji [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) na platformie Azure wskaźnik na platformie Azure obejmuje [wbudowane role](../role-based-access-control/built-in-roles.md),   które można przypisać do użytkowników, grup i usług w systemie.
 
 Za pomocą funkcji RBAC można tworzyć i przypisywać role w zespole operacji zabezpieczeń, aby udzielać odpowiedniego dostępu do platformy Azure. Różne role zapewniają szczegółową kontrolę nad tym, co widzą Użytkownicy platformy Azure. Role platformy Azure można przypisywać bezpośrednio w obszarze roboczym Azure wskaźnikowym (patrz Uwaga poniżej) lub w subskrypcji lub grupie zasobów, do której należy ten obszar roboczy, który będzie dziedziczyć na platformie Azure.
 
@@ -76,7 +76,7 @@ Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontro
 
 Poniższa tabela zawiera Podsumowanie ról i dozwolonych akcji na platformie Azure — wskaźnik. 
 
-| Role | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Rola | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |

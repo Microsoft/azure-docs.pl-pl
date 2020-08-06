@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003427"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836585"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Często zadawane pytania dotyczące rozwiązania Azure VMware (automatyczna wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić e
 
 **Gdzie obecnie jest dostępna automatyczna synchronizacja?**
 
-W wersji zapoznawczej, jest dostępna w regionie Wschodnie stany USA w Ameryka Północna i w Amsterdam w Europie Zachodniej.
+Usługa jest ciągle dodawana do nowych regionów. Aby uzyskać więcej informacji, zobacz [najnowsze informacje o dostępności usługi](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) . 
 
 **Czy usługa może obciążać działające w ramach rozwiązania Azure VMware (Automatyczna synchronizacja) zużywa lub integruje się z usługami platformy Azure?**
 
@@ -89,7 +89,7 @@ Każdy host ESXi ma dwie sieci vSAN diskgroups z warstwą wydajności wynosząc�
 
 **Jaka przepustowość sieci jest dostępna na każdym hoście ESXi?**
 
-Hosty ESXi obsługują przepustowość połączenia do 25 GB/s.
+Każdy host ESXi ma taką samą konfigurację synchronizacji z kartami sieciowymi 4 25 GB/s, z dwiema kartami sieciowymi obsługującymi ruch systemowy ESXi i dwie karty sieciowe obsługiwane dla ruchu obciążeń. 
 
 **Czy dane są przechowywane w magazynach danych sieci vSAN szyfrowanych w spoczynku?**
 
@@ -197,11 +197,11 @@ Rozliczenia na potrzeby automatycznej synchronizacji w wersji zapoznawczej są c
 
 **W jaki sposób Cennik będzie miał strukturę w trakcie korzystania z wersji zapoznawczej automatycznej synchronizacji?**
 
-Aby uzyskać ogólne pytania dotyczące cen, zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/azure-vmware) rozwiązań VMware platformy Azure. Cennik wersji zapoznawczej jest dostępny na żądanie, skontaktuj się z zespołem ds. kont lub Skorzystaj z linku na stronie cennika, aby skontaktować się z firmą.
+Aby uzyskać ogólne pytania dotyczące cen, zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/azure-vmware) rozwiązań VMware platformy Azure. Cennik wersji zapoznawczej jest dostępny na żądanie, skontaktuj się z zespołem ds. kont lub Skorzystaj z linku na stronie cennika, aby skontaktować się z firmą
 
 **Kto obsługuje funkcję automatycznej synchronizacji?**
 
-Pomoc techniczna dotycząca automatycznej synchronizacji jest dostarczana przez firmę Microsoft. Pamiętaj, że zgodnie z naszymi wskazówkami dotyczącymi wersji zapoznawczej firma Microsoft zapewnia pomoc techniczną w godzinach od 9 do 5 PM PST w poniedziałek w piątek. Możesz zgłosić bilet pomocy technicznej z [tego linku](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Pomoc techniczna dotycząca automatycznej synchronizacji jest dostarczana przez firmę Microsoft. Pamiętaj, że zgodnie z naszymi wskazówkami dotyczącymi wersji zapoznawczej firma Microsoft zapewnia pomoc techniczną w godzinach od 9 do 5 PM PST w piątek (poniedziałek). Możesz zgłosić bilet pomocy technicznej z [tego linku](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **Jakie konta są potrzebne do utworzenia chmury prywatnej do automatycznej synchronizacji?**
 

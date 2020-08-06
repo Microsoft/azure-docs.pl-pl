@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508849"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836534"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
@@ -20,7 +20,7 @@ Link prywatny umożliwia tworzenie prywatnych punktów końcowych dla Azure Data
 Aby uzyskać listę PaaS usług, które obsługują funkcję linku prywatnego, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/private-link/index)linku prywatnego. Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) i podsieci.
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MariaDB obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
 ## <a name="data-exfiltration-prevention"></a>Ochrona danych eksfiltracji
 
@@ -57,7 +57,7 @@ Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do p
 
 Prywatne punkty końcowe są wymagane do włączenia prywatnego linku. Można to zrobić, korzystając z poniższych przewodników.
 
-* [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Witryna Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Proces zatwierdzania

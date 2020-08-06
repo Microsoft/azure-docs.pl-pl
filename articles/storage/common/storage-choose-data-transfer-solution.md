@@ -1,6 +1,6 @@
 ---
 title: Wybierz rozwiązanie platformy Azure na potrzeby transferu danych | Microsoft Docs
-description: Dowiedz się, jak wybrać rozwiązanie platformy Azure na potrzeby transferu danych w oparciu o rozmiary danych i dostępną przepustowość sieci w danym środowisku
+description: Dowiedz się, jak wybrać rozwiązanie platformy Azure na potrzeby transferu danych w oparciu o rozmiary danych i dostępną przepustowość sieci w danym środowisku.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,14 +8,14 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836602"
 ---
-# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybierz rozwiązanie platformy Azure na potrzeby transferu danych
+# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybieranie rozwiązania platformy Azure do transferu danych
 
 Ten artykuł zawiera omówienie niektórych typowych rozwiązań do transferu danych na platformie Azure. Artykuł zawiera również instrukcje dotyczące zalecanych opcji w zależności od przepustowości sieci w danym środowisku oraz wielkości danych, które mają być transferowane.
 

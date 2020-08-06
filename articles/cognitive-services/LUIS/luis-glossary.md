@@ -3,12 +3,12 @@ title: Słownik — LUIS
 description: Słownik objaśnia warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056382"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836415"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
 W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
@@ -67,12 +67,12 @@ W testach wsadowych punkty danych przedstawiają wyrażenia długości, w który
 
 W testach wsadowych punkty danych reprezentują wyrażenia długości, w których aplikacja niepoprawnie przewidywalna istnienie docelowego celu/jednostki.
 
-### <a name="precision"></a>Dokładność
+### <a name="precision"></a>Precyzja
 W testach wsadowych precyzja (zwana również dodatnią wartością predykcyjną) jest częścią odpowiednich wyrażenia długości wśród pobranego wyrażenia długościu.
 
 Przykładem testu partii zwierząt jest liczba owiec przewidzianych przez łączną liczbę zwierząt (owiec i nieowiec).
 
-### <a name="recall"></a>Kompletność
+### <a name="recall"></a>Recall
 
 W testach wsadowych funkcja odwoływania (znana także jako czułość) jest LUIS do uogólniania.
 
@@ -94,11 +94,11 @@ Klasyfikator to komputerowy model, który przewiduje, jakie kategorie lub klasy 
 
 ## <a name="collaborator"></a>Współpracownik
 
-Współpracownik jest koncepcyjnie taki sam jak [współautor](#contributor). Współpracownikowi uzyskuje się dostęp, gdy właściciel dodaje adres e-mail współpracownika do aplikacji, która nie jest kontrolowana przez dostęp oparty na rolach (RBAC). Jeśli nadal używasz współpracowników, należy przeprowadzić migrację konta usługi LUIS i użyć zasobów tworzenia LUIS do zarządzania współautorami za pomocą RBAC.
+Współpracownik jest koncepcyjnie taki sam jak [współautor](#contributor). Współpracownikowi uzyskuje się dostęp, gdy właściciel dodaje adres e-mail współpracownika do aplikacji, która nie jest kontrolowana przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Jeśli nadal używasz współpracowników, należy przeprowadzić migrację konta usługi LUIS i użyć zasobów tworzenia LUIS do zarządzania współautorami za pomocą RBAC.
 
 ## <a name="contributor"></a>Współautor
 
-Współautor nie jest [właścicielem](#owner) aplikacji, ale ma takie same uprawnienia, aby dodawać, edytować i usuwać intencje, jednostki, wyrażenia długości. Współautor zapewnia dostęp oparty na rolach (RBAC) do aplikacji LUIS.
+Współautor nie jest [właścicielem](#owner) aplikacji, ale ma takie same uprawnienia, aby dodawać, edytować i usuwać intencje, jednostki, wyrażenia długości. Współautor udostępnia funkcję kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure do aplikacji LUIS.
 
 Zobacz też:
 * [Jak](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) dodać współautorów
@@ -107,11 +107,11 @@ Zobacz też:
 
 Deskryptor jest terminem wcześniej używanym dla [funkcji](#features)uczenia maszynowego.
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domena
 
 W kontekście LUIS domena jest obszarem wiedzy. Twoja domena jest specyficzna dla Twojego scenariusza. Różne domeny używają określonego języka i terminologii mającej znaczenie w kontekście domeny. Na przykład, jeśli tworzysz aplikację do odtwarzania muzyki, aplikacja będzie miała warunki i język specyficzne dla utworów muzycznych — słowa takie jak "utwór, śledzenie, album, teksty, b, wykonawca". Przykłady domen można znaleźć w temacie [prebudowane domeny](#prebuilt-domain).
 
-## <a name="endpoint"></a>Endpoint
+## <a name="endpoint"></a>Punkt końcowy
 
 ### <a name="authoring-endpoint"></a>Punkt końcowy tworzenia
 
@@ -174,7 +174,7 @@ Wymagana funkcja jest sposobem ograniczenia danych wyjściowych modelu LUIS. Gdy
 
 Rozważmy przykład, w którym masz wbudowaną funkcję, która została oznaczona jako wymagana w jednostce ilości dla kolejności menu bot. Gdy bot widzi `I want a bajillion large pizzas?` , bajillion nie będzie przewidywane jako ilość, niezależnie od kontekstu, w którym występuje. Bajillion nie jest prawidłową liczbą i nie będzie przewidywany przez numer wstępnie skompilowanej jednostki.
 
-## <a name="intent"></a>Intencja
+## <a name="intent"></a>Zamiar
 
 [Cel](luis-concept-intent.md) reprezentuje zadanie lub akcję, które użytkownik chce wykonać. Jest to cel lub cel wyrażony w danych wejściowych użytkownika, na przykład w ramach rezerwacji lub płacenia rachunku. W LUIS, element wypowiedź jako całość jest sklasyfikowany jako cel, ale części wypowiedź są wyodrębniane jako jednostki
 
@@ -228,7 +228,7 @@ Wstępnie utworzona jednostka to LUIS jednostki zapewniające wspólne typy info
 
 Prebudowany zamiara to LUIS, który oferuje popularne typy informacji i ma własne przykładowe etykiety wyrażenia długości.
 
-## <a name="prediction"></a>Prediction (Prognoza)
+## <a name="prediction"></a>Przewidywanie
 
 Prognoza to żądanie REST do usługi predykcyjnej Azure LUIS, która przyjmuje nowe dane (użytkownik wypowiedź), i stosuje przeszkolone i opublikowane aplikacje do tych danych, aby określić, jakie intencje i jednostki są dostępne.
 
@@ -254,7 +254,7 @@ Na przykład Utwórz model, który służy do identyfikowania, czy część teks
 
 Zmieniono nazwę [klucza tworzenia](#authoring-key).
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 [Opublikowanie](luis-how-to-publish-app.md) oznacza, że dostępna jest Luis aktywna wersja na etapie przejściowym [lub produkcyjnym](#endpoint).
 
@@ -283,9 +283,9 @@ W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizow
 
 |Nomalized wartość| Synonimy|
 |--|--|
-|Mały| nieco jeden, 8 uncji|
+|Mała| nieco jeden, 8 uncji|
 |Średniaa| regularne, 12 uncji|
-|Duży| Big, 16 uncji|
+|Duża| Big, 16 uncji|
 |Xtra duże| największy jeden, 24 uncje|
 
 Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.
@@ -305,7 +305,7 @@ Zobacz [Zmiana strefy czasowej prekompilowanej jednostki datetimeV2](luis-concep
 
 W przypadku **języka angielskiego**token jest ciągłym zakresem (bez spacji i znaków interpunkcyjnych) liter i cyfr. Spacja nie jest tokenem.
 
-|R40|Liczba tokenów|Objaśnienie|
+|Fraza|Liczba tokenów|Objaśnienie|
 |--|--|--|
 |`Dog`|1|Pojedynczy wyraz bez znaków interpunkcyjnych ani spacji.|
 |`RMT33W`|1|Numer lokalizatora rekordu. Może zawierać cyfry i litery, ale nie ma żadnych znaków interpunkcyjnych.|

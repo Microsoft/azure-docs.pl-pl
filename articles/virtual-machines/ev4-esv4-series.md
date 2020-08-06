@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 28bde63bb9972b8e8de6261282007c1762fd6818
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: aa7e773cb45ea23d0e091ce12cc8488114ddfbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269312"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837061"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
@@ -97,7 +97,7 @@ dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni](./windows/constrained-v
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Następne kroki

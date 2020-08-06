@@ -8,12 +8,12 @@ ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498739"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837299"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -133,4 +133,4 @@ Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi si
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie parametrów serwera Azure Database for MySQL przy użyciu programu PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Jak wygenerować parametry połączenia Azure Database for MySQL przy użyciu programu PowerShell](howto-connection-string-powershell.md)

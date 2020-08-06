@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: d4beec60a2cd705884ee79296c9afab2afc08c2e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 09b6bf6db5927c49950fc5b2a6d1753d53364380
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534502"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836653"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -170,7 +170,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Domyślnie obsługiwane są ws
 
 **Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej 2 rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/windows/sizes.md).
+Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej 2 rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/sizes.md).
 Zestawy dostępności | Obsługiwane | Jeśli włączysz replikację dla maszyny wirtualnej platformy Azure z opcjami domyślnymi, zestaw dostępności zostanie utworzony automatycznie na podstawie ustawień regionu źródłowego. Te ustawienia można modyfikować.
 Strefy dostępności | Obsługiwane |
 Korzyść użycia hybrydowego (centrum) | Obsługiwane | Jeśli źródłowa maszyna wirtualna ma włączoną licencję centrum, testowej pracy w trybie failover lub maszyny wirtualnej przełączonej do sieci również korzysta z licencji centrum.
@@ -205,7 +205,7 @@ Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej]
 Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z replikacji.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md).
 Maksymalny rozmiar dysku danych | 8192 GB dla dysków zarządzanych<br></br>4095 GB dla dysków niezarządzanych|
 Minimalny rozmiar dysku danych | Brak ograniczeń dla dysków niezarządzanych. 2 GB dla dysków zarządzanych |
-Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/windows/sizes.md) o rozmiarach maszyn wirtualnych.
+Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/sizes.md) o rozmiarach maszyn wirtualnych.
 Szybkość zmian dysku danych | Maksymalnie 20 MB/s na dysk dla usługi Premium Storage. Maksymalnie 2 MB/s na dysk w przypadku magazynu w warstwie Standardowa. | Jeśli średnia szybkość zmian danych na dysku jest ciągle wyższa niż wartość maksymalna, replikacja nie zostanie wystawiona.<br/><br/>  Jeśli jednak maksimum zostanie przekroczone sporadycznie, replikacja może zostać wyświetlona, ale może wystąpić nieco opóźnione punkty odzyskiwania.
 Dysk danych — standardowe konto magazynu | Obsługiwane |
 Dysk danych — konto magazynu w warstwie Premium | Obsługiwane | Jeśli maszyna wirtualna ma rozłożone dyski w warstwie Premium i w warstwie Standardowa, możesz wybrać inne docelowe konto magazynu dla każdego dysku, aby mieć pewność, że konfiguracja magazynu jest taka sama w regionie docelowym.
@@ -219,7 +219,7 @@ Szyfrowanie w spoczynku (SSE) | Obsługiwane | Funkcja SSE jest domyślnym ustaw
 Szyfrowanie w spoczynku (CMK) | Obsługiwane | Obsługiwane są zarówno oprogramowanie, jak i klucze HSM dla dysków zarządzanych
 Podwójne szyfrowanie w spoczynku | Obsługiwane | Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/windows/disk-encryption.md) i [Linux](../virtual-machines/linux/disk-encryption.md)
 Azure Disk Encryption (ADE) dla systemu operacyjnego Windows | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. |
-Azure Disk Encryption (ADE) dla systemu operacyjnego Linux | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. <br><br> Znany problem dotyczący włączania replikacji. [Dowiedz się więcej.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137) |
+Azure Disk Encryption (ADE) dla systemu operacyjnego Linux | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. <br><br> Znany problem dotyczący włączania replikacji. [Dowiedz się więcej.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Obrót klucza SAS | Nieobsługiwane | Jeśli klucz sygnatury dostępu współdzielonego dla kont magazynu zostanie obrócony, klient musi wyłączyć i ponownie włączyć replikację. |
 Dodawanie gorące    | Obsługiwane | W przypadku maszyn wirtualnych korzystających z dysków zarządzanych można włączyć replikację dla dysku danych dodawanego do zreplikowanej maszyny wirtualnej platformy Azure. <br/><br/> Tylko jeden dysk można dodać do maszyny wirtualnej platformy Azure jednocześnie. Równoległe Dodawanie wielu dysków nie jest obsługiwane. |
 Gorąca usuwanie dysku    | Nieobsługiwane | Jeśli usuniesz dysk z danymi na maszynie wirtualnej, musisz wyłączyć replikację i ponownie włączyć replikację dla maszyny wirtualnej.
@@ -290,4 +290,3 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Obsługiwane | [Dowi
 
 - Odczytaj [wskazówki dotyczące sieci](./azure-to-azure-about-networking.md) dotyczące replikacji maszyn wirtualnych platformy Azure.
 - Wdróż odzyskiwanie po awarii przez [replikowanie maszyn wirtualnych platformy Azure](./azure-to-azure-quickstart.md).
-

@@ -11,17 +11,17 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 6a49497cbe71dddb8ab6e76be9b3679dd62b0cee
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449031"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836551"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
+W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
 
 ## <a name="default-roles"></a>Role domyślne
 

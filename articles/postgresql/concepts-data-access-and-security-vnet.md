@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: f473a4621c6b2214717b5036eae5abeaa564fb72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 544fabf9a32eaa7ef7457fc26ae9212b9fce9872
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076618"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837214"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -86,7 +86,7 @@ Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usł
 
 Role administratora sieci i administratora bazy danych mają więcej możliwości niż jest to konieczne do zarządzania regułami sieci wirtualnej. Wymagany jest tylko podzestaw ich możliwości.
 
-Istnieje możliwość korzystania z [kontroli dostępu opartej na rolach (RBAC)][rbac-what-is-813s] na platformie Azure w celu utworzenia jednej roli niestandardowej, która ma tylko niezbędny podzbiór funkcji. Rola niestandardowa może być używana zamiast obejmuje administratora sieci lub administratora bazy danych. Powierzchnia obszaru ekspozycji zabezpieczeń jest niższa w przypadku dodania użytkownika do roli niestandardowej, a nie dodania użytkownika do innych dwóch głównych ról administratora.
+Możesz skorzystać z funkcji [kontroli dostępu opartej na rolach (Azure RBAC)][rbac-what-is-813s] na platformie Azure, aby utworzyć pojedynczą rolę niestandardową, która ma tylko niezbędny podzbiór funkcji. Rola niestandardowa może być używana zamiast obejmuje administratora sieci lub administratora bazy danych. Powierzchnia obszaru ekspozycji zabezpieczeń jest niższa w przypadku dodania użytkownika do roli niestandardowej, a nie dodania użytkownika do innych dwóch głównych ról administratora.
 
 > [!NOTE]
 > W niektórych przypadkach Azure Database for PostgreSQL i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:

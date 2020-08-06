@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284867"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836890"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalowanie bazy danych MySQL na maszynie wirtualnej z systemem OpenSUSE Linux na platformie Azure
 
@@ -32,7 +32,7 @@ Najpierw utwórz grupę zasobów. W tym przykładzie grupa zasobów ma nazwę *m
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Utwórz maszynę wirtualną. W tym przykładzie maszyna wirtualna ma nazwę *myVM* , a rozmiar maszyny wirtualnej to *Standard_D2s_v3*, ale należy wybrać [rozmiar maszyny wirtualnej](sizes.md) , która jest najbardziej odpowiednia dla obciążenia.
+Utwórz maszynę wirtualną. W tym przykładzie maszyna wirtualna ma nazwę *myVM* , a rozmiar maszyny wirtualnej to *Standard_D2s_v3*, ale należy wybrać [rozmiar maszyny wirtualnej](../sizes.md) , która jest najbardziej odpowiednia dla obciążenia.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -157,7 +157,3 @@ quit
 
 ## <a name="next-steps"></a>Następne kroki
 Szczegółowe informacje o programie MySQL można znaleźć w [dokumentacji programu MySQL](https://dev.mysql.com/doc).
-
-
-
-

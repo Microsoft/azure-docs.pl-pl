@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: bf55c1f7de751f03fb804eb263cf0810a48378e1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 32efde2cb2497fb8aab415d09a1063ff07c6b0f0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494891"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837197"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choosing the right number of fault domains for virtual machine scale set (Wybieranie odpowiedniej liczby domen błędów dla zestawu skalowania maszyn wirtualnych)
 Zestawy skalowania maszyn wirtualnych są tworzone z pięcioma domenami błędów domyślnie w regionach platformy Azure bez stref. W przypadku regionów obsługujących wdrożenie strefowe zestawów skalowania maszyn wirtualnych i wybrania tej opcji wartość domyślna liczby domen błędów wynosi 1 dla każdej z tych stref. Demon = 1 w tym przypadku oznacza, że wystąpienia maszyn wirtualnych należące do zestawu skalowania będą rozłożone w wielu stojakach na podstawie najlepszego wysiłku.
@@ -41,4 +41,4 @@ az vmss create \
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [funkcjach dostępności i nadmiarowości](../virtual-machines/windows/availability.md) dla środowisk platformy Azure.
+- Dowiedz się więcej o [funkcjach dostępności i nadmiarowości](../virtual-machines/availability.md) dla środowisk platformy Azure.

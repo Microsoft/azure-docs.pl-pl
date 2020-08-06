@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric
 description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Service Fabric platformy Azure. Zawiera dodatkowe Omówienie Service Fabric i sposobu tworzenia mikrousług.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 8d578d6b3e0232d0733097d68bac22af566b2083
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d09d774ed32c98222b71423ca733f1b4294957ef
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246264"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836704"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
@@ -87,7 +87,7 @@ Service Fabric integruje się z [ASP.NET Core](service-fabric-reliable-services-
 ## <a name="application-lifecycle"></a>Cykl życia aplikacji
 Podobnie jak w przypadku innych platform, aplikacja na Service Fabric zwykle przechodzi przez następujące fazy: projektowanie, programowanie, testowanie, wdrażanie, uaktualnianie, konserwacja i usuwanie. Service Fabric zapewnia obsługę pierwszej klasy dla pełnego cyklu życia aplikacji w chmurze, od projektowania przez wdrażanie, codzienne zarządzanie i konserwację do ostatecznego wycofania. Model usług umożliwia wielu różnym rolom uczestnictwo niezależnie w cyklu życia aplikacji. [Cykl życia aplikacji Service Fabric](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i ich użycia przez różne role w fazie cyklu życia aplikacji Service Fabric. 
 
-Cały cykl życia aplikacji można zarządzać przy użyciu poleceń [cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [poleceń interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/overview/azure/servicefabric)i [interfejsów API REST](/rest/api/servicefabric/). Możesz również skonfigurować potoki ciągłej integracji/ciągłego wdrażania przy użyciu narzędzi, takich jak [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Cały cykl życia aplikacji można zarządzać przy użyciu poleceń [cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [poleceń interfejsu wiersza polecenia](service-fabric-sfctl.md), interfejsów API języka [C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/overview/azure/servicefabric)i [interfejsów API REST](/rest/api/servicefabric/). Możesz również skonfigurować potoki ciągłej integracji/ciągłego wdrażania przy użyciu narzędzi, takich jak [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
 ## <a name="test-applications-and-services"></a>Testowanie aplikacji i usług
 Aby stworzyć prawdziwą usługę w skali chmury, należy sprawdzić, czy aplikacje i usługi mogą wytrzymywać rzeczywiste błędy. Usługa błędów analizy jest przeznaczona do testowania usług, które są oparte na Service Fabric. Za pomocą [usługi błędów analizy](service-fabric-testability-overview.md)można wywołać znaczące błędy i uruchamiać kompletne scenariusze testów dla aplikacji. Te usterki i scenariusze wykonują działania oraz weryfikują liczne Stany i przejścia, które usługa będzie w całym okresie istnienia, w sposób kontrolowany, bezpieczny i spójny.
@@ -110,7 +110,7 @@ Aby stworzyć prawdziwą usługę w skali chmury, należy sprawdzić, czy aplika
 Klastry Service Fabric można tworzyć na maszynach wirtualnych lub fizycznych z systemem Windows Server lub Linux. Można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku, w którym istnieje zestaw połączonych komputerów z systemem Windows Server lub Linux: lokalnie, na Microsoft Azure lub w dowolnym dostawcy chmury.
 
 ### <a name="clusters-on-azure"></a>Klastry na platformie Azure
-Uruchamianie Service Fabric klastrów na platformie Azure zapewnia integrację z innymi funkcjami i usługami platformy Azure, dzięki czemu operacje i zarządzanie klastrem są łatwiejsze i bardziej niezawodne. Klaster jest zasobem Azure Resource Manager, dzięki czemu można modelować klastry podobne do innych zasobów na platformie Azure. Menedżer zasobów umożliwia również łatwe zarządzanie wszystkimi zasobami używanymi przez klaster jako pojedynczą jednostką. Klastry na platformie Azure są zintegrowane z usługą Azure Diagnostics i dziennikami Azure Monitor. Typy węzłów klastra to [zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/index), więc funkcja skalowania automatycznego jest wbudowana.
+Uruchamianie Service Fabric klastrów na platformie Azure zapewnia integrację z innymi funkcjami i usługami platformy Azure, dzięki czemu operacje i zarządzanie klastrem są łatwiejsze i bardziej niezawodne. Klaster jest zasobem Azure Resource Manager, dzięki czemu można modelować klastry podobne do innych zasobów na platformie Azure. Menedżer zasobów umożliwia również łatwe zarządzanie wszystkimi zasobami używanymi przez klaster jako pojedynczą jednostką. Klastry na platformie Azure są zintegrowane z usługą Azure Diagnostics i dziennikami Azure Monitor. Typy węzłów klastra to [zestawy skalowania maszyn wirtualnych](../virtual-machine-scale-sets/index.yml), więc funkcja skalowania automatycznego jest wbudowana.
 
 Możesz utworzyć klaster na platformie Azure za pośrednictwem [Azure Portal](service-fabric-cluster-creation-via-portal.md), z [szablonu](service-fabric-cluster-creation-via-arm.md)lub z [programu Visual Studio](./service-fabric-cluster-creation-via-arm.md).
 

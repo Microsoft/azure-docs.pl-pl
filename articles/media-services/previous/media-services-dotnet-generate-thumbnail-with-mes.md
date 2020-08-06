@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052845"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836449"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET 
 
@@ -282,7 +282,7 @@ Zwróć uwagę na użycie makra {Solution} w nazwie pliku; wskazuje, że koder m
 Chociaż wszystkie powyższe przykłady zostały omówione w tym, jak można przesłać zadanie kodowania, które tworzy tylko obrazy, można także połączyć kodowanie wideo/audio z generowaniem miniatur. Poniższe ustawienia wstępne JSON i XML poinformują **Media Encoder Standard** o wygenerowaniu miniatury podczas kodowania.
 
 ### <a name="json-preset"></a><a id="json"></a>Ustawienia wstępne JSON
-Aby uzyskać informacje o schemacie, zobacz [ten](/azure/media-services/previous/media-services-mes-schema) artykuł.
+Aby uzyskać informacje o schemacie, zobacz [ten](./media-services-mes-schema.md) artykuł.
 
 ```json
     {
@@ -347,7 +347,7 @@ Aby uzyskać informacje o schemacie, zobacz [ten](/azure/media-services/previous
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Ustawienia wstępne XML
-Aby uzyskać informacje o schemacie, zobacz [ten](/azure/media-services/previous/media-services-mes-schema) artykuł.
+Aby uzyskać informacje o schemacie, zobacz [ten](./media-services-mes-schema.md) artykuł.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -571,7 +571,7 @@ Obowiązują następujące zastrzeżenia:
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

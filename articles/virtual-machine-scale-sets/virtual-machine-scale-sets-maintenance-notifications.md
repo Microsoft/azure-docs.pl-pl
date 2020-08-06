@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837180"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
 
@@ -181,7 +181,7 @@ Odp **.:** Chociaż większość aktualizacji i uaktualnień na platformie Azure
 
 Odp **.:** Maszyny wirtualne wdrożone w zestawie dostępności lub w zestawach skalowania maszyn wirtualnych używają domen aktualizacji. Podczas przeprowadzania konserwacji platforma Azure uznaje ograniczenie domeny aktualizacji i nie uruchamia ponownie maszyn wirtualnych z innej domeny aktualizacji (w ramach tego samego zestawu dostępności). Platforma Azure czeka także przez co najmniej 30 minut przed przejściem do następnej grupy maszyn wirtualnych. 
 
-Aby uzyskać więcej informacji o wysokiej dostępności, zobacz [regiony i dostępność maszyn wirtualnych na platformie Azure](../virtual-machines/windows/availability.md).
+Aby uzyskać więcej informacji o wysokiej dostępności, zobacz [regiony i dostępność maszyn wirtualnych na platformie Azure](../virtual-machines/availability.md).
 
 **P: Jak mogę otrzymywać powiadomienia o planowanej konserwacji?**
 

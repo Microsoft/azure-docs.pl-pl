@@ -1,6 +1,6 @@
 ---
 title: Monitorowanie usługi Azure Storage | Microsoft Docs
-description: Dowiedz się, jak monitorować wydajność i dostępność usługi Azure Storage.
+description: Dowiedz się, jak monitorować wydajność i dostępność usługi Azure Storage. Monitoruj dane usługi Azure Storage, Poznaj konfigurację i analizuj dane dotyczące metryk i dzienników.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182716"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836670"
 ---
 # <a name="monitor-azure-storage"></a>Monitorowanie usługi Azure Storage
 
@@ -74,7 +74,7 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 
 Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Aby proces tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -86,9 +86,9 @@ Należy również określić kategorie operacji, dla których mają być zbieran
 
 | Kategoria | Opis |
 |:---|:---|
-| StorageRead | Operacje odczytu w obiektach Blob. |
-| StorageWrite | Operacje zapisu w obiektach Blob. |
-| StorageDelete | Operacje usuwania obiektów BLOB. |
+| StorageRead | Operacje odczytu na obiektach. |
+| StorageWrite | Operacje zapisu w obiektach. |
+| StorageDelete | Operacje usuwania obiektów. |
 
 ## <a name="analyze-metric-data"></a>Analizowanie danych metryki
 
@@ -120,7 +120,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym u
 > [!TIP]
 > Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 

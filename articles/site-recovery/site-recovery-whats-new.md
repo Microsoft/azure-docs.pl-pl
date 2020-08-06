@@ -3,12 +3,12 @@ title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089519"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836636"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -46,7 +46,7 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
 
 > [!NOTE]
-> Pakiet zbiorczy aktualizacji 48 ma znany problem dotyczący włączania replikacji dla maszyn z systemem Linux zaszyfrowanych przy użyciu systemu ADE. [Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
+> Pakiet zbiorczy aktualizacji 48 ma znany problem dotyczący włączania replikacji dla maszyn z systemem Linux zaszyfrowanych przy użyciu systemu ADE. [Dowiedz się więcej](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Pakiet zbiorczy aktualizacji 47
 
@@ -437,7 +437,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 --- | ---
 **Obsługa systemu Linux** |  Dodano pomoc techniczną dla Oracle Linux 6,8, Oracle Linux 6,9 i Oracle Linux 7,0 z jądrem zgodnym z systemem Red Hat oraz dla jądra w wersji 5 dla przedsiębiorstw (UEK).
 **LVM** | Dodano obsługę dla woluminów LVM i LVM2.<br/><br/> Katalog/Boot na partycji dysku i na woluminach LVM jest teraz obsługiwany.
-**Katalogi** | Dodano obsługę tych katalogów jako osobne partycje lub systemy plików, które nie znajdują się na tym samym dysku systemowym:<br/><br/> /(root),/Boot,/usr,/usr/local,/var,/etc.
+**Katalogu** | Dodano obsługę tych katalogów jako osobne partycje lub systemy plików, które nie znajdują się na tym samym dysku systemowym:<br/><br/> /(root),/Boot,/usr,/usr/local,/var,/etc.
 **Windows Server 2008** | Dodano obsługę dla dysków dynamicznych.
 **Tryb failover** | Ulepszony czas pracy w trybie failover dla maszyn wirtualnych VMware, gdzie storvsc i vsbus nie są sterownikami rozruchowymi
 **Obsługa interfejsu UEFI** | Maszyny wirtualne platformy Azure nie obsługują typu rozruchu UEFI. Teraz można migrować lokalne serwery fizyczne z interfejsem UEFI do platformy Azure za pomocą Site Recovery. Site Recovery migruje serwer, konwertując typ rozruchu na system BIOS przed migracją. Site Recovery poprzednio obsługiwać tę konwersję tylko dla maszyn wirtualnych. Pomoc techniczna jest dostępna dla serwerów fizycznych z systemem Windows Server 2012 lub nowszym.

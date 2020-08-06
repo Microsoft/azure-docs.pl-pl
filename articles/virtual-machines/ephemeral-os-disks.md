@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387731"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837112"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
 
@@ -51,7 +51,7 @@ Możesz wdrożyć maszyny wirtualne i obrazy wystąpień o rozmiarze do rozmiaru
 Dyski tymczasowe wymagają również, aby rozmiar maszyny wirtualnej obsługiwał usługę Premium Storage. Rozmiary zwykle (ale nie zawsze) mają `s` nazwę, taką jak DSv2 i EsV3. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych platformy Azure](sizes.md) , aby uzyskać szczegółowe informacje o tym, które rozmiary obsługują usługę Premium Storage.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Wersja zapoznawcza — dyski z systemem operacyjnym mogą być teraz przechowywane na dyskach tymczasowych
-Tymczasowe dyski systemu operacyjnego mogą teraz być przechowywane na dysku tymczasowym/zasobów maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. W związku z tym teraz można używać tymczasowych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub ma niewystarczającą pamięć podręczną, ale ma dysk temp/Resource do przechowywania tymczasowego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i tymczasową, można teraz określić miejsce przechowywania tymczasowego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [Zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Tymczasowe dyski systemu operacyjnego mogą teraz być przechowywane na dysku tymczasowym/zasobów maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. W związku z tym teraz można używać tymczasowych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub ma niewystarczającą pamięć podręczną, ale ma dysk temp/Resource do przechowywania tymczasowego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i tymczasową, można teraz określić miejsce przechowywania tymczasowego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [Zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

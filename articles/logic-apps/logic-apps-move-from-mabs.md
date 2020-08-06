@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078204"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837384"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migruj swoje aplikacje i rozwiązania z BizTalk Services do Azure Logic Apps
 
@@ -35,7 +35,7 @@ Ta tabela mapuje BizTalk Services możliwości Logic Apps.
 | BizTalk Services   | Logic Apps            | Przeznaczenie                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Łącznik          | Łącznik             | Wyślij i Odbierz dane   |
-| Mostek             | Aplikacja logiki             | Procesor potoku           |
+| Bridge             | Aplikacja logiki             | Procesor potoku           |
 | Weryfikuj etap     | Akcja walidacji kodu XML | Sprawdzanie poprawności dokumentu XML względem schematu | 
 | Etap wzbogacania       | Tokeny danych           | Podwyższanie poziomu właściwości do komunikatów lub dla decyzji dotyczących routingu |
 | Przekształć etap    | Akcja przekształcenia      | Konwertowanie komunikatów XML z jednego formatu na inny |
@@ -79,7 +79,7 @@ W BizTalk Services można odbierać różne typy komunikatów XML i określać p
 
 Logic Apps oferuje podobne funkcje. Użytkownik otrzymuje plik prosty za pośrednictwem różnych protokołów przy użyciu różnych wyzwalaczy łączników (systemu plików, FTP, HTTP i tak dalej), a następnie używa akcji [dekodowania pliku prostego](../logic-apps/logic-apps-enterprise-integration-flatfile.md) do konwersji danych przychodzących do formatu XML. Istniejące płaskie schematy plików można przenieść bezpośrednio do Logic Apps bez wprowadzania żadnych zmian, a następnie przekazać schematy do konta integracji.
 
-### <a name="validation"></a>Walidacja
+### <a name="validation"></a>Weryfikacja
 
 Po przekonwertowaniu danych przychodzących na kod XML (lub jeśli w kodzie XML był otrzymany format wiadomości), sprawdzanie poprawności przebiega w celu ustalenia, czy komunikat jest zgodny ze schematem XSD. Aby wykonać to zadanie w Logic Apps, użyj akcji [walidacji kodu XML](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) . Możesz użyć tych samych schematów z BizTalk Services bez wprowadzania żadnych zmian.
 
@@ -103,7 +103,7 @@ W trakcie przetwarzania BizTalk Services na etapie wzbogacania są dodawane wła
 
 ### <a name="run-custom-code"></a>Uruchamianie kodu niestandardowego
 
-BizTalk Services umożliwia [Uruchamianie kodu niestandardowego](/previous-versions/azure/dn232389(v=azure.100)) , który jest przekazywany we własnych zestawach. Ta funkcja jest implementowana przez interfejs [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs) . Każdy etap w mostku zawiera dwie właściwości (na karcie Enter i w Inspektorze zakończenia), który udostępnia utworzony typ .NET, który implementuje ten interfejs. Kod niestandardowy umożliwia wykonywanie bardziej złożonego przetwarzania danych i umożliwia ponowne użycie istniejącego kodu w zestawach, które wykonują wspólną logikę biznesową. 
+BizTalk Services umożliwia [Uruchamianie kodu niestandardowego](/previous-versions/azure/dn232389(v=azure.100)) , który jest przekazywany we własnych zestawach. Ta funkcja jest implementowana przez interfejs [IMessageInspector]() . Każdy etap w mostku zawiera dwie właściwości (na karcie Enter i w Inspektorze zakończenia), który udostępnia utworzony typ .NET, który implementuje ten interfejs. Kod niestandardowy umożliwia wykonywanie bardziej złożonego przetwarzania danych i umożliwia ponowne użycie istniejącego kodu w zestawach, które wykonują wspólną logikę biznesową. 
 
 Logic Apps oferuje dwa podstawowe sposoby wykonywania kodu niestandardowego: Azure Functions i API Apps. Azure Functions można tworzyć i wywoływać z aplikacji logiki. Zobacz [Dodawanie i uruchamianie niestandardowego kodu dla aplikacji logiki za Azure Functions](../logic-apps/logic-apps-azure-functions.md). Użyj API Apps, część Azure App Service, aby utworzyć własne wyzwalacze i akcje. Dowiedz się więcej o [tworzeniu niestandardowego interfejsu API, który ma być używany z Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 
