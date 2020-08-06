@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553958"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829292"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -127,7 +127,7 @@ Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników n
 
 ## <a name="administrative-rights"></a>Prawa administracyjne
 
-[Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania ról platformy Azure określają, kto może wykonywać te zadania, niezależnie od tego, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania ról platformy Azure określają, kto może wykonywać te zadania, niezależnie od tego, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak możliwość tworzenia lub usuwania indeksu, są nałożone przez klucze interfejsu API zgodnie z opisem w [poprzedniej sekcji](#index-access).
 
@@ -144,7 +144,7 @@ Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzan
 
 W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja. Służy do rejestrowania diagnostycznego. Za pomocą tego wbudowanego programu można przypisać zasady, które identyfikują dowolną usługę wyszukiwania, w której brakuje rejestrowania diagnostycznego, a następnie włącza ją. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)
