@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2de7bb81726bcb4aa1943b3f1816d6171f6ac97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a778675bade3b381907a823e74f07ab4e7f96581
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554619"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926879"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie IDEO na potrzeby automatycznego aprowizacji użytkowników
 
@@ -110,11 +110,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |aktywne|Boolean|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
+   |userName|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |aktywne|Wartość logiczna|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do ideo**.
    
@@ -122,7 +122,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
+      |displayName|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -145,7 +145,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="change-log"></a>Dziennik zmian

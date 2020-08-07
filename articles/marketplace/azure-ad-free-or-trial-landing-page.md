@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: d360b890023c1a14f80d9fc8efc703abd7544710
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328506"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921388"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową oferty bezpłatnej usługi SaaS lub wersji próbnej na komercyjnej platformie Marketplace
 
@@ -53,7 +53,7 @@ Aby rozpocząć, postępuj zgodnie z instrukcjami dotyczącymi [rejestrowania no
 
 Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Po wybraniu uprawnień interfejsu API dla tej aplikacji domyślna wartość **User. Read** jest wystarczająca do zebrania podstawowych informacji o użytkowniku, aby proces dołączania był bezproblemowy i automatyczny. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora**, ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
 
-Jeśli użytkownik wymaga podniesionych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, należy rozważyć użycie funkcji [przyrostowej zgody](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) usługi Azure AD, aby wszyscy użytkownicy, którzy otrzymali z portalu Marketplace, mogli początkowo interaktywnie korzystać ze strony docelowej.
+Jeśli użytkownik wymaga podniesionych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, należy rozważyć użycie funkcji [przyrostowej zgody](https://aka.ms/incremental-consent) usługi Azure AD, aby wszyscy użytkownicy, którzy otrzymali z portalu Marketplace, mogli początkowo interaktywnie korzystać ze strony docelowej.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Użyj przykładu kodu jako punktu początkowego
 

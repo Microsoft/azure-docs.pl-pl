@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169616"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927440"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169616"
 
 ## <a name="configure-registry-authentication"></a>Konfigurowanie uwierzytelniania rejestru
 
-W scenariuszu produkcyjnym, w którym zapewniasz dostęp do "bezobsługowego" usług i aplikacji, zaleca się skonfigurowanie dostępu do rejestru przy użyciu [nazwy głównej usługi](../container-registry/container-registry-auth-service-principal.md). Jednostka usługi umożliwia zapewnienie [kontroli dostępu opartej na rolach](../container-registry/container-registry-roles.md) dla obrazów kontenerów. Na przykład można skonfigurować jednostkę usługi z dostępem tylko do ściągania do rejestru.
+W scenariuszu produkcyjnym, w którym zapewniasz dostęp do "bezobsługowego" usług i aplikacji, zaleca się skonfigurowanie dostępu do rejestru przy użyciu [nazwy głównej usługi](../container-registry/container-registry-auth-service-principal.md). Jednostka usługi umożliwia udostępnianie obrazów kontenerów za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../container-registry/container-registry-roles.md) . Na przykład można skonfigurować jednostkę usługi z dostępem tylko do ściągania do rejestru.
 
 Azure Container Registry zapewnia dodatkowe [Opcje uwierzytelniania](../container-registry/container-registry-authentication.md).
 

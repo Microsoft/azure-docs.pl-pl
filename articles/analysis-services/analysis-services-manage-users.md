@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361493"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926182"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
 
@@ -68,7 +68,7 @@ Użytkownicy programu Excel mogą łączyć się z serwerem przy użyciu konta s
 
 ![Kontrola dostępu w Azure Portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Role na tym poziomie dotyczą użytkowników lub kont wymagających wykonywania zadań, które można wykonać w portalu lub za pomocą szablonów Azure Resource Manager. Aby dowiedzieć się więcej, zobacz [Access Control oparte na rolach](../role-based-access-control/overview.md). 
+Role na tym poziomie dotyczą użytkowników lub kont wymagających wykonywania zadań, które można wykonać w portalu lub za pomocą szablonów Azure Resource Manager. Aby dowiedzieć się więcej, zobacz [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Role bazy danych
 
@@ -81,4 +81,4 @@ Role na tym poziomie dotyczą użytkowników lub kont wymagających wykonywania 
 [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Zarządzanie rolami i użytkownikami bazy danych](analysis-services-database-users.md)  
 [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)  
-[Access Control oparte na rolach](../role-based-access-control/overview.md)  
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)  

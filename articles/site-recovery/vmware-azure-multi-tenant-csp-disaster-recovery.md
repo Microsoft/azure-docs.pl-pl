@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292842"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924584"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurowanie odzyskiwania po awarii oprogramowania VMware w środowisku wielodostępnym za pomocą programu Cloud Solution Provider (CSP)
 
@@ -98,7 +98,7 @@ Istnieją trzy główne modele z wieloma dzierżawcami:
 Konfigurując subskrypcje dzierżawców zgodnie z opisem w tym artykule, można szybko rozpocząć Włączanie klientów w dowolnym z odpowiednich modeli wielodostępnych. Więcej informacji o różnych modelach wielodostępnych i włączeniu lokalnych kontroli dostępu można znaleźć [tutaj](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej na temat [kontroli dostępu opartej na rolach](site-recovery-role-based-linked-access-control.md) , aby zarządzać wdrożeniami Azure Site Recovery.
+- Dowiedz się więcej na temat [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](site-recovery-role-based-linked-access-control.md) , aby zarządzać wdrożeniami Azure Site Recovery.
 - Dowiedz się więcej o [architekturze replikacji](vmware-azure-architecture.md)oprogramowania VMware do platformy Azure.
 - [Zapoznaj się z samouczkiem](vmware-azure-tutorial.md) dotyczącym replikowania maszyn wirtualnych VMware na platformę Azure.
 Dowiedz się więcej o [środowiskach wielodostępnych](vmware-azure-multi-tenant-overview.md) służących do replikowania maszyn wirtualnych VMware na platformę Azure.

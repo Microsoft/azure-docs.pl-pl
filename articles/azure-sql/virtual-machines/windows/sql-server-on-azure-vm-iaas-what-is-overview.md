@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f1786123808371601467926c2a114c676e898330
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668631"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926696"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest SQL Server w usłudze Azure Virtual Machines (system Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +74,7 @@ Aby wyświetlić dostępne SQL Server on Linux obrazy maszyn wirtualnych, zobacz
 > [!NOTE]
 > Teraz można zmienić model licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za użycie na własną licencję. Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring your own license
+### <a name="bring-your-own-license"></a><a id="BYOL"></a>Bring your own license
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server.  Użycie własnej licencji może w dłuższym okresie przynieść oszczędności w przypadku ciągłych obciążeń produkcyjnych. Wymagania dotyczące korzystania z tej opcji zawiera artykuł [Pricing guidance for SQL Server Azure VMs (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server)](pricing-guidance.md#byol).
 
 Aby zapewnić własną licencję, możesz przekonwertować istniejącą maszynę wirtualną z opcją płatność za użycie SQL Server lub wdrożyć obraz z prefiksem **{BYOL}**. Aby uzyskać więcej informacji na temat przełączania modelu licencjonowania między opcją płatność za użycie i BYOL, zobacz [jak zmienić model licencjonowania dla maszyny wirtualnej SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
@@ -124,7 +124,7 @@ Po wybraniu **+ Dodaj**Wyświetl dodatkowe informacje o różnych opcjach, wybie
 Aby uzyskać szczegółowe informacje, zobacz:
 
 - [Tworzenie pojedynczej bazy danych](../../database/single-database-create-quickstart.md)
-- [Tworzenie puli elastycznej](../../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Tworzenie elastycznej puli](../../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
 - [Tworzenie wystąpienia zarządzanego](../../managed-instance/instance-create-quickstart.md)
 - [Tworzenie maszyny wirtualnej SQL Server](sql-vm-create-portal-quickstart.md)
 
@@ -132,7 +132,7 @@ Aby uzyskać szczegółowe informacje, zobacz:
 Platforma Azure utrzymuje tylko jeden obraz maszyny wirtualnej dla każdego połączenia obsługiwanego systemu operacyjnego, wersji i wydania. Oznacza to, że z czasem obrazy będą odświeżane, a ich starsze wersje usuwane. Aby uzyskać więcej informacji, zobacz sekcję **Obrazy** w temacie [Często zadawane pytania dotyczące maszyn wirtualnych programu SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta
-Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachowania poufności informacji programu SQL Server](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
+Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachowania poufności informacji programu SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Powiązane produkty i usługi
 ### <a name="windows-virtual-machines"></a>Maszyny wirtualne z systemem Windows

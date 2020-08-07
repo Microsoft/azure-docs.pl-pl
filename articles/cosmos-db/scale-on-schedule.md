@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503739"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923659"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skalowanie przepływności Azure Cosmos DB przy użyciu wyzwalacza Azure Functions czasomierza
 
@@ -23,7 +23,7 @@ Przepływność można ustawić za pomocą [szablonów Azure Resource Manager](r
 
 Aby uprościć proces skalowania Azure Cosmos DB według harmonogramu utworzyliśmy przykładowy projekt o nazwie [harmonogram przepływności usługi Azure Cosmos](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Ten projekt jest aplikacją Azure Functionsą z dwoma wyzwalaczami czasomierza — "ScaleUpTrigger" i "ScaleDownTrigger". Wyzwalacze uruchamiają skrypt programu PowerShell, który ustawia przepływność dla każdego zasobu, zgodnie z definicją w `resources.json` pliku w każdym wyzwalaczu. ScaleUpTrigger jest skonfigurowany do uruchamiania w godzinach 8 czasu UTC, a ScaleDownTrigger jest skonfigurowany do uruchamiania o godzinie 6 godzin UTC, a czasy te można łatwo aktualizować w `function.json` pliku dla każdego wyzwalacza.
 
-Można sklonować ten projekt lokalnie, zmodyfikować go w celu określenia zasobów Azure Cosmos DB do skalowania w górę i w dół oraz harmonogramu do uruchomienia. Później możesz wdrożyć go w ramach subskrypcji platformy Azure i zabezpieczyć przy użyciu tożsamości usługi zarządzanej z uprawnieniami [Access Control opartych na rolach](role-based-access-control.md) (RBAC) z rolą "operator Azure Cosmos DB", aby ustawić przepływność na kontach usługi Azure Cosmos.
+Można sklonować ten projekt lokalnie, zmodyfikować go w celu określenia zasobów Azure Cosmos DB do skalowania w górę i w dół oraz harmonogramu do uruchomienia. Później możesz wdrożyć go w ramach subskrypcji platformy Azure i zabezpieczyć przy użyciu tożsamości usługi zarządzanej z uprawnieniami [kontroli dostępu opartej na rolach (Azure RBAC)](role-based-access-control.md) z rolą "Azure Cosmos DB operator", aby ustawić przepływność na kontach usługi Azure Cosmos.
 
 ## <a name="next-steps"></a>Następne kroki
 

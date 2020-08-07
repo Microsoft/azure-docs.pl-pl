@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041318"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921218"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Możesz użyć Azure Portal, aby znaleźć zalecenia dotyczące wydajności, kt�
 
 ## <a name="viewing-recommendations"></a>Wyświetlanie zaleceń
 
-Aby wyświetlać i stosować zalecenia dotyczące wydajności, potrzebne są odpowiednie uprawnienia [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) na platformie Azure. Aby można było wykonać wszystkie **akcje, wymagane**są uprawnienia współautora bazy danych **SQL** do wyświetlania zaleceń i **właściciel** **bazy danych SQL** . Utwórz lub upuść indeksy i Anuluj tworzenie indeksu.
+Aby wyświetlić i zastosować zalecenia dotyczące wydajności, musisz mieć odpowiednie uprawnienia [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) na platformie Azure. Aby można było wykonać wszystkie **akcje, wymagane**są uprawnienia współautora bazy danych **SQL** do wyświetlania zaleceń i **właściciel** **bazy danych SQL** . Utwórz lub upuść indeksy i Anuluj tworzenie indeksu.
 
 Wykonaj następujące kroki, aby znaleźć zalecenia dotyczące wydajności Azure Portal:
 
@@ -43,7 +43,7 @@ Zalecenia są sortowane według ich potencjalnego wpływu na wydajność na nast
 |:--- |:--- |
 | Wysoki |Zalecenia o dużym wpływie powinny zapewnić najbardziej znaczący wpływ na wydajność. |
 | Średniaa |Zalecenia dotyczące średniego wpływu powinny poprawić wydajność, ale nie w znaczący sposób. |
-| Małe |Zalecenia dotyczące niskiego wpływu powinny zapewnić lepszą wydajność niż bez, ale ulepszenia mogą nie być znaczące. |
+| Niski |Zalecenia dotyczące niskiego wpływu powinny zapewnić lepszą wydajność niż bez, ale ulepszenia mogą nie być znaczące. |
 
 > [!NOTE]
 > Azure SQL Database musi monitorować działania co najmniej dziennie, aby zidentyfikować pewne zalecenia. Azure SQL Database można łatwiej zoptymalizować pod kątem spójnych wzorców zapytań niż w przypadku losowych rozerwania aktywności. Jeśli rekomendacje nie są obecnie dostępne, na stronie **zalecenia dotyczące wydajności** zostanie wyświetlony komunikat z wyjaśnieniem dlaczego.
@@ -133,7 +133,7 @@ Zastosowanie zalecenia może nie być chwilowo wykonywane. Portal zawiera szczeg
 | Operacji |Zalecenie jest stosowane. |
 | Ponownego |Zalecenie zostało pomyślnie zastosowane i usługa mierzy korzyści. |
 | Powodzenie |Zalecenie zostało pomyślnie zastosowane i korzyści zostały zmierzone. |
-| Błąd |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
+| Error |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
 | Przywracanie |Zalecenie zostało zastosowane, ale zostało uznane za niewykonane i jest automatycznie przywracane. |
 | Przywrócono |Zalecenie zostało cofnięte. |
 
@@ -172,4 +172,4 @@ Monitoruj swoje rekomendacje i Kontynuuj ich stosowanie w celu udoskonalenia wyd
 
 * [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Kontrola dostępu oparta na rolach](../../role-based-access-control/overview.md)
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md)

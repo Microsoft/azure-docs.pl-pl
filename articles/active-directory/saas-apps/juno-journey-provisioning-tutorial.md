@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1a516374e0ac478b24fa1c3ced1627c4814f9bbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538902897d088c8ce271487b3f30698af0bb1eb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367601"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926556"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podróży usługi Juno na potrzeby automatycznego aprowizacji użytkowników
 
@@ -103,32 +103,32 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Zmienna|Typ|
    |---|---|
-   |userName|String|
-   |externalId|String|
-   |displayName|String|
-   |tytuł|String|
-   |aktywne|Boolean|
-   |preferredLanguage|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |Name. middleName|String|
-   |Nazwa. sformatowana|String|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
-   |numer telefonu [typ EQ "Mobile"]. Value|String|
-   |numer telefonu [typ EQ "Work"]. wartość|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |userName|Ciąg|
+   |externalId|Ciąg|
+   |displayName|Ciąg|
+   |tytuł|Ciąg|
+   |aktywne|Wartość logiczna|
+   |preferredLanguage|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Name. middleName|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -151,7 +151,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 * Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie sieci VPN łączącej sieci wirtualne | Microsoft Docs
-description: Konfigurowanie sieci VPN typu lokacja-lokacja.
+description: Ten skrypt programu PowerShell łączy dwie sieci wirtualne platformy Azure przy użyciu typu połączenia Sieć wirtualna-sieć VNet. Dowiedz się więcej na temat wszystkich poleceń cmdlet w skrypcie.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 5a69df3893a3bf32ca2af1be62744991346ee048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f35f4e097f6b7848c19d1d926e0896d870f3f64
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068370"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926972"
 ---
 # <a name="use-powershell-to-configure-a-vnet-to-vnet-vpn-gateway-connection"></a>Konfigurowanie połączenia bramy sieci VPN typu sieć wirtualna-sieć wirtualna za pomocą programu PowerShell
 

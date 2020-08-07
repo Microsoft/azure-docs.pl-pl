@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych baz danych programu SQL Server na platformie A
 description: W tym artykule opisano sposób tworzenia kopii zapasowych SQL Server na platformie Azure. W artykule objaśniono również proces odzyskiwania programu SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513782"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922901"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -40,7 +40,7 @@ To rozwiązanie wykorzystuje natywne interfejsy API SQL do wykonywania kopii zap
 Przed rozpoczęciem Sprawdź, czy:
 
 1. Upewnij się, że masz wystąpienie programu SQL Server uruchomione na platformie Azure. Możesz [szybko utworzyć wystąpienie programu SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) w witrynie Marketplace.
-2. Zapoznaj się z [zagadnieniami](sql-support-matrix.md#feature-consideration-and-limitations) [dotyczącymi funkcji i scenariuszem](sql-support-matrix.md#scenario-support).
+2. Zapoznaj się z [zagadnieniami](sql-support-matrix.md#feature-considerations-and-limitations) [dotyczącymi funkcji i scenariuszami](sql-support-matrix.md#scenario-support).
 3. [Przejrzyj często zadawane pytania](faq-backup-sql-server.md) dotyczące tego scenariusza.
 
 ## <a name="set-vm-permissions"></a>Ustawianie uprawnień maszyny wirtualnej

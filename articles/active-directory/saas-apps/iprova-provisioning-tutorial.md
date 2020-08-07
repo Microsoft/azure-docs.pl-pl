@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 799713c237d8a528b7e458da1e26695484ca1080
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448821"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923173"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie iProva na potrzeby automatycznego aprowizacji użytkowników
 
@@ -123,33 +123,33 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |Atrybut|Typ|
    |---|---|
    |aktywne|Wartość logiczna|
-   |displayName|String|
-   |tytuł|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |preferredLanguage|String|
-   |userName|String|
-   |addresss [Type EQ "Work"]. Country|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [Type EQ "Other"]. sformatowane|String|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |Nazwa. sformatowana|String|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
-   |numer telefonu [typ EQ "Mobile"]. Value|String|
-   |numer telefonu [typ EQ "Work"]. wartość|String|
-   |externalId|String|
-   |role [podstawowa EQ "true"]. Display|String|
-   |role [podstawowa EQ "true"]. Type|String|
-   |role [podstawowa EQ "true"]. Value|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |displayName|Ciąg|
+   |tytuł|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |preferredLanguage|Ciąg|
+   |userName|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |externalId|Ciąg|
+   |role [podstawowa EQ "true"]. Display|Ciąg|
+   |role [podstawowa EQ "true"]. Type|Ciąg|
+   |role [podstawowa EQ "true"]. Value|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
 
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do iProva**.
@@ -158,7 +158,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
+      |displayName|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -182,14 +182,14 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="change-log"></a>Dziennik zmian
 
 * 06/17/2020 — atrybut rozszerzenia przedsiębiorstwa "Manager" został usunięty.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

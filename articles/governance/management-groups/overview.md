@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529351"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920164"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -25,7 +25,7 @@ Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w celu o
 
 Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lokalizacje maszyn wirtualnych do regionu Zachodnie stany USA w grupie o nazwie „Produkcja”. Te zasady będą dziedziczyły wszystkie subskrypcje Umowa Enterprise (EA), które są elementami podrzędnymi tej grupy zarządzania i będą miały zastosowanie do wszystkich maszyn wirtualnych w ramach tych subskrypcji. Te zasady zabezpieczeń nie mogą zostać zmienione przez właściciela zasobu lub subskrypcji, co zapewnia ulepszony nadzór.
 
-Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie użytkownikom dostępu do wielu subskrypcji. Przenosząc wiele subskrypcji do tej grupy zarządzania, można utworzyć jedno przypisanie [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) do grupy zarządzania, które będzie dziedziczyło ten dostęp do wszystkich subskrypcji. Jedno przypisanie grupy zarządzania może zapewnić użytkownikom dostęp do wszystkiego, czego potrzebują, bez konieczności tworzenia skryptów RBAC dla wielu subskrypcji.
+Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie użytkownikom dostępu do wielu subskrypcji. Przenosząc wiele subskrypcji w ramach tej grupy zarządzania, można utworzyć jedno [przypisanie roli platformy Azure](../../role-based-access-control/overview.md) w grupie zarządzania, co spowoduje dziedziczenie dostępu do wszystkich subskrypcji. Jedno przypisanie grupy zarządzania może zapewnić użytkownikom dostęp do wszystkiego, czego potrzebują, bez konieczności tworzenia skryptów RBAC dla wielu subskrypcji.
 
 ### <a name="important-facts-about-management-groups"></a>Ważne fakty dotyczące grup zarządzania
 
@@ -87,7 +87,7 @@ Te uprawnienia są dziedziczone do zasobów podrzędnych, które istnieją w hie
 
 Na poniższym wykresie przedstawiono listę ról i obsługiwane akcje na grupach zarządzania.
 
-| Nazwa roli platformy Azure             | Przycisk Utwórz | Zmień nazwę | Przenieś\*\* | Usuń | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
+| Nazwa roli platformy Azure             | Utwórz | Zmień nazwę | Przenieś\*\* | Usuń | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Właściciel                       | X      | X      | X        | X      | X             | X             | X     |
 |Współautor                 | X      | X      | X        | X      |               |               | X     |

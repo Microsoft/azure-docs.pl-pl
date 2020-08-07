@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903531"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922938"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -72,10 +72,12 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 
 | Scenariusz | Metryka do użycia dla alertu |
 |-|-|
-| Kondycja punktu końcowego serwera w portalu = błąd | Wynik synchronizacji sesji |
+| Kondycja punktu końcowego serwera przedstawia błąd w portalu | Wynik synchronizacji sesji |
 | Synchronizowanie plików z serwerem lub punktem końcowym w chmurze nie powiodło się | Pliki, których nie należy synchronizować |
 | Serwer zarejestrowany nie może komunikować się z usługą synchronizacji magazynu | Stan online serwera |
 | Rozmiar odwołania do warstwy chmury przekroczył 500GiB w ciągu dnia  | Rozmiar odwołania do warstw w chmurze |
+
+Aby uzyskać instrukcje dotyczące sposobu tworzenia alertów dla tych scenariuszy, zobacz sekcję [przykłady alertów](#alert-examples) .
 
 ## <a name="storage-sync-service"></a>Usługa synchronizacji magazynu
 
@@ -110,7 +112,7 @@ Aby wyświetlić zarejestrowane kondycje serwera, kondycja punktu końcowego ser
 
 ## <a name="windows-server"></a>Windows Server
 
-W systemie Windows Server można wyświetlać warstwy w chmurze, zarejestrowane serwery i kondycję synchronizacji.
+Na serwerze z systemem Windows, na którym zainstalowano agenta Azure File Sync, można wyświetlić warstwowe usługi w chmurze, zarejestrowane serwery i kondycję synchronizacji.
 
 ### <a name="event-logs"></a>Dzienniki zdarzeń
 
@@ -162,6 +164,100 @@ Następujące liczniki wydajności dla Azure File Sync są dostępne w Monitorze
 | Pliki synchronizacji Operations\Downloaded synchronizacji AFS/s | Liczba pobranych plików na sekundę. |
 | Pliki synchronizacji Operations\Uploaded synchronizacji AFS/s | Liczba przekazanych plików na sekundę. |
 | Operacje pliku synchronizacji Operations\Total synchronizacji AFS/s | Łączna liczba synchronizowanych plików (przekazywania i pobierania). |
+
+## <a name="alert-examples"></a>Przykłady alertów
+Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
+
+  > [!Note]  
+  > Jeśli tworzysz alert i jest zbyt dużo szumu, Dostosuj wartość progową i logikę alertu.
+  
+### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Jak utworzyć alert, jeśli kondycja punktu końcowego serwera pokazuje błąd w portalu
+
+1. W **Azure Portal**przejdź do odpowiedniej **usługi synchronizacji magazynu**. 
+2. Przejdź do sekcji **monitorowanie** , a następnie kliknij pozycję **alerty**. 
+3. Kliknij pozycję **+ Nowa reguła alertu** , aby utworzyć nową regułę alertu. 
+4. Skonfiguruj warunek, klikając **pozycję Wybierz warunek**.
+5. W bloku **Konfiguruj logikę sygnału** kliknij pozycję **Synchronizuj wynik sesji** w obszarze Nazwa sygnału.  
+6. Wybierz następującą konfigurację wymiaru: 
+    - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
+    - Zakład**=** 
+    - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
+7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
+    - Próg ustawiony na **statyczny** 
+    - Operator: **mniejsze niż** 
+    - Typ agregacji: **maksimum**  
+    - Wartość progowa: **1** 
+    - Oceniane na podstawie: stopień szczegółowości agregacji = **24 godziny** | Częstotliwość oceny = **co godzinę** 
+    - Kliknij przycisk **gotowe.** 
+8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+10. Kliknij pozycję **Utwórz regułę alertu**. 
+
+### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>Jak utworzyć alert, jeśli synchronizacja plików z serwerem lub punktem końcowym w chmurze kończy się niepowodzeniem
+
+1. W **Azure Portal**przejdź do odpowiedniej **usługi synchronizacji magazynu**. 
+2. Przejdź do sekcji **monitorowanie** , a następnie kliknij pozycję **alerty**. 
+3. Kliknij pozycję **+ Nowa reguła alertu** , aby utworzyć nową regułę alertu. 
+4. Skonfiguruj warunek, klikając **pozycję Wybierz warunek**.
+5. W bloku **Konfigurowanie logiki sygnału** kliknij pozycję **pliki** , które nie są synchronizowane w obszarze Nazwa sygnału.  
+6. Wybierz następującą konfigurację wymiaru: 
+     - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
+     - Zakład**=** 
+     - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
+7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
+     - Próg ustawiony na **statyczny** 
+     - Operator: **większe niż** 
+     - Typ agregacji: **łącznie**  
+     - Wartość progowa: **100** 
+     - Oceniane na podstawie: stopień szczegółowości agregacji = **5 minut** | Częstotliwość oceny = **co 5 minut** 
+     - Kliknij przycisk **gotowe.** 
+8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+10. Kliknij pozycję **Utwórz regułę alertu**. 
+
+### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>Jak utworzyć alert, jeśli zarejestrowany serwer nie może komunikować się z usługą synchronizacji magazynu
+
+1. W **Azure Portal**przejdź do odpowiedniej **usługi synchronizacji magazynu**. 
+2. Przejdź do sekcji **monitorowanie** , a następnie kliknij pozycję **alerty**. 
+3. Kliknij pozycję **+ Nowa reguła alertu** , aby utworzyć nową regułę alertu. 
+4. Skonfiguruj warunek, klikając **pozycję Wybierz warunek**.
+5. W bloku **Konfigurowanie logiki sygnału** kliknij pozycję **serwer online stan** w obszarze Nazwa sygnału.  
+6. Wybierz następującą konfigurację wymiaru: 
+     - Nazwa wymiaru: **Nazwa serwera**  
+     - Zakład**=** 
+     - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
+7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
+     - Próg ustawiony na **statyczny** 
+     - Operator: **mniejsze niż** 
+     - Typ agregacji: **maksimum**  
+     - Wartość progowa (w bajtach): **1** 
+     - Oceniane na podstawie: stopień szczegółowości agregacji = **1 godzina** | Częstotliwość oceny = **co 30 minut** 
+     - Kliknij przycisk **gotowe.** 
+8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+10. Kliknij pozycję **Utwórz regułę alertu**. 
+
+### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>Jak utworzyć alert, jeśli rozmiar odwołania warstwowego w chmurze przekroczył 500GiB w ciągu dnia
+
+1. W **Azure Portal**przejdź do odpowiedniej **usługi synchronizacji magazynu**. 
+2. Przejdź do sekcji **monitorowanie** , a następnie kliknij pozycję **alerty**. 
+3. Kliknij pozycję **+ Nowa reguła alertu** , aby utworzyć nową regułę alertu. 
+4. Skonfiguruj warunek, klikając **pozycję Wybierz warunek**.
+5. W bloku **Konfiguruj logikę sygnału** kliknij pozycję **warstwa chmury rozmiar odwołania** w obszarze Nazwa sygnału.  
+6. Wybierz następującą konfigurację wymiaru: 
+     - Nazwa wymiaru: **Nazwa serwera**  
+     - Zakład**=** 
+     - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
+7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
+     - Próg ustawiony na **statyczny** 
+     - Operator: **większe niż** 
+     - Typ agregacji: **łącznie**  
+     - Wartość progowa (w bajtach): **67108864000** 
+     - Oceniane na podstawie: stopień szczegółowości agregacji = **24 godziny** | Częstotliwość oceny = **co godzinę** 
+    - Kliknij przycisk **gotowe.** 
+8. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu grupę akcji (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+9. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+10. Kliknij pozycję **Utwórz regułę alertu**. 
 
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

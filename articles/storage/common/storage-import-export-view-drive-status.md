@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905724"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923615"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Wyświetlanie stanu zadań importu/eksportu platformy Azure
 
@@ -63,7 +63,7 @@ W poniższej tabeli opisano Stany awarii stacji i akcje podejmowane dla każdego
 | Stan dysku | Zdarzenie | Rozwiązanie/następny krok |
 |:--- |:--- |:--- |
 | NeverReceived | Dysk oznaczony jako **NeverReceived** (ponieważ nie został odebrany jako część wysyłki zadania) dociera do innej wysyłki. | Zespół operacyjny przenosi dysk do **odbierania**. |
-| Brak | Dysk, który nie jest częścią żadnego zadania, dociera do centrum danych jako część innego zadania. | Dysk jest oznaczony jako dodatkowy dysk i jest zwracany do użytkownika, gdy zostanie zakończone zadanie skojarzone z oryginalnym pakietem. |
+| Nie dotyczy | Dysk, który nie jest częścią żadnego zadania, dociera do centrum danych jako część innego zadania. | Dysk jest oznaczony jako dodatkowy dysk i jest zwracany do użytkownika, gdy zostanie zakończone zadanie skojarzone z oryginalnym pakietem. |
 
 ## <a name="time-to-process-job"></a>Czas przetwarzania zadania
 Czas przetwarzania zadania importu/eksportu zależy od wielu czynników, takich jak:
@@ -73,7 +73,7 @@ Czas przetwarzania zadania importu/eksportu zależy od wielu czynników, takich 
 -  Typ zadania i rozmiar kopiowanych danych
 -  Liczba dysków w zadaniu. 
 
-Usługa Import/Export nie ma umowy SLA, ale usługa dokłada starań, aby zakończyć kopię w dniach od 7 do 10 dni po odebraniu dysków. Oprócz stanu opublikowanego w witrynie Azure Portal interfejsy API REST mogą służyć do śledzenia postępów zadań. Parametr procent ukończenia w wywołaniu interfejsu API operacji [listy zadań](/previous-versions/azure/dn529083(v=azure.100)) zapewnia procentowy postęp kopiowania.
+Usługa Import/Export nie ma umowy SLA, ale usługa dokłada starań, aby zakończyć kopię w dniach od 7 do 10 dni po odebraniu dysków. Oprócz stanu opublikowanego Azure Portal interfejsy API REST mogą służyć do śledzenia postępów zadań. Parametr procent ukończenia w wywołaniu interfejsu API operacji [listy zadań](/previous-versions/azure/dn529083(v=azure.100)) zapewnia procentowy postęp kopiowania.
 
 
 ## <a name="next-steps"></a>Następne kroki

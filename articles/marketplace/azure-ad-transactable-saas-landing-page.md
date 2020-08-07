@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328482"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921270"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace
 
@@ -56,7 +56,7 @@ Aby rozpocząć, postępuj zgodnie z instrukcjami dotyczącymi [rejestrowania no
 
 Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Po wybraniu uprawnień interfejsu API dla tej aplikacji wartość domyślna **User. Read** jest wystarczająca, aby zebrać podstawowe informacje o kupującym, które mają być bezproblemowo i automatyczne. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora**, ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
 
-Jeśli potrzebujesz podwyższonych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, rozważ użycie funkcji [przyrostowej zgody](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) usługi Azure AD, aby wszyscy kupujący z portalu Marketplace mogli interaktywnie korzystać ze strony docelowej.
+Jeśli potrzebujesz podwyższonych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, rozważ użycie funkcji [przyrostowej zgody](https://aka.ms/incremental-consent) usługi Azure AD, aby wszyscy kupujący z portalu Marketplace mogli interaktywnie korzystać ze strony docelowej.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Użyj przykładu kodu jako punktu początkowego
 
@@ -90,16 +90,7 @@ Aby uwierzytelnić aplikację przy użyciu interfejsów API realizacji SaaS, pot
 
 ### <a name="call-the-resolve-endpoint"></a>Wywoływanie punktu końcowego rozpoznawania
 
-Interfejsy API realizacji SaaS implementują [rozwiązanie](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) punktu końcowego, który może zostać wywołany w celu potwierdzenia ważności tokenu portalu Marketplace i zwrócenia informacji o subskrypcji, w tym wartości podanych w tej tabeli.
-
-| Wartość | Opis |
-| ------------ | ------------- |
-| Id | Unikatowy identyfikator (GUID) dla tej subskrypcji. Ta wartość będzie potrzebna w przyszłych wywołaniach interfejsów API realizacji SaaS. |
-| subscriptionName | Nazwa subskrypcji, która została ustawiona podczas dodawania oferty do Centrum partnerskiego. |
-| offerId | Identyfikator określonej oferty (ustawiany podczas dodawania oferty). |
-| Identyfikator planu | Identyfikator określonego planu dla oferty (ustawiany podczas dodawania oferty). |
-| Ilość | Ilość danych wejściowych przez Kupującego podczas zakupu. |
-|||
+Interfejsy API realizacji SaaS implementują [rozwiązanie](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) punktu końcowego, który można wywołać w celu potwierdzenia ważności tokenu portalu Marketplace i zwrócenia informacji o subskrypcji.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Odczytaj informacje z oświadczeń zakodowanych w tokenie identyfikatora
 

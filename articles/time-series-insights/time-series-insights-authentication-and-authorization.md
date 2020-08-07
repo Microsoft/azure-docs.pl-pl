@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3441a540cb00dc9b85de54543484b1723fa4226e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080775"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922646"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja na potrzeby interfejsu API usługi Azure Time Series Insights
 
@@ -84,7 +84,7 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 
    1. W języku C# Poniższy kod może uzyskać token w imieniu aplikacji. Aby zapoznać się z kompletnym przykładem na temat wykonywania zapytań dotyczących danych ze środowiska Gen1, Przeczytaj [dane zapytania przy użyciu języka C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
+        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
 
    1. Token można następnie przesłać do `Authorization` nagłówka, gdy aplikacja wywoła interfejs API Azure Time Series Insights.
 
@@ -98,7 +98,7 @@ W tej sekcji opisano typowe nagłówki i parametry żądań HTTP służące do w
 > [!TIP]
 > Przeczytaj informacje o [interfejsie API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/) , aby dowiedzieć się więcej na temat korzystania z interfejsów API REST, wykonywania żądań HTTP i obsługi odpowiedzi HTTP.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Aby wykonać uwierzytelnione zapytania dotyczące [Azure Time Series Insights interfejsów API REST](https://docs.microsoft.com/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#).
 

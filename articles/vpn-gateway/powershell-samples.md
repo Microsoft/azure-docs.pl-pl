@@ -1,22 +1,22 @@
 ---
 title: Przykłady programu Azure PowerShell dla bramy sieci VPN
-description: Przykłady programu Azure PowerShell dla bramy sieci VPN.
+description: Za pomocą tych skryptów Azure PowerShell można tworzyć bramy sieci VPN oparte na trasach, połączenia między firmami i pobierać szablon urządzeń sieci VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: fcae37da3ef9c5b2b7633db1dd16cec247a782af
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c92e3bad0e8e49ff07997dd37ed7098087c39d5e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203825"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921558"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Przykłady programu Azure PowerShell dla bramy sieci VPN
 
-Poniższa tabela zawiera linki do skryptów programu Azure PowerShell:
+Poniższa tabela zawiera linki do skryptów Azure PowerShell:
 
 | Skrypt | Opis |
 |----|----|

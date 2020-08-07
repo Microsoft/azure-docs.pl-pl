@@ -1,19 +1,19 @@
 ---
 title: 'Tworzenie bramy sieci VPN opartej na trasach: Portal'
 titleSuffix: Azure VPN Gateway
-description: Tworzenie VPN Gateway opartej na trasach przy użyciu Azure Portal
+description: Dowiedz się, jak utworzyć bramę sieci VPN opartej na trasach przy użyciu Azure Portal. Połącz się z siecią lokalną za pomocą bramy sieci VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4409df576c23e0dbc3e663cc348b45bc23ad5460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d78dff60c08a67305824139ba11f336380b0a018
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987719"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923378"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal
 

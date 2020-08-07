@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0bed20dfd087783e865dd2e68897870ad56507c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294643"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924040"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie szkolenia w zakresie zabezpieczeń programu Webroot dla automatycznej aprowizacji użytkowników
 
@@ -65,7 +65,7 @@ Aby połączyć swoją lokację z usługą Azure AD, musisz uzyskać **token taj
 
 4. Skopiuj i Zapisz **token tajny**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji szkoleniowej dotyczącej świadomości zabezpieczeń w programie Webroot w Azure Portal.
 
-5. Kliknij pozycję **Gotowe**.
+5. Kliknij przycisk **Gotowe**.
 
     ![Kopiuj token tajny](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -120,10 +120,10 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
    |---|---|---|
-   |externalId|String|&check;|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |externalId|Ciąg|&check;|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
 
@@ -131,9 +131,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
       |---|---|---|
-      |displayName|String|&check;|
+      |displayName|Ciąg|&check;|
       |elementy członkowskie|Dokumentacja|
-      |externalId|String|
+      |externalId|Ciąg|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,7 +155,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

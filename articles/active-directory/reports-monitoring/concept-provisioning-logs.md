@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113376"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924034"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -118,7 +118,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystko
+- Wszyscy
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -245,7 +245,7 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Sprawdź stan aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Sprawdź stan aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

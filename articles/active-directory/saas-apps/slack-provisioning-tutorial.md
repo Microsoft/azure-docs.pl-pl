@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016338"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924550"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapasu czasu dla automatycznej aprowizacji użytkowników
 
@@ -107,35 +107,35 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Boolean (wartość logiczna)|
-   |externalId|String (ciąg)|
-   |displayName|String (ciąg)|
-   |Nazwa. rodzina|String (ciąg)|
-   |Nazwa. imię|String (ciąg)|
-   |title|String (ciąg)|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String (ciąg)|
-   |userName|String (ciąg)|
-   |Pseudonim|String (ciąg)|
-   |adresy [typ EQ "untyped"]. streetAddress|String (ciąg)|
-   |adresy [Type EQ "untyped"]. locale|String (ciąg)|
-   |adresy [Type EQ "untyped"]. region|String (ciąg)|
-   |adresy [Type EQ "untyped"]. KodPocztowy|String (ciąg)|
-   |adresy [Type EQ "untyped"]. Country|String (ciąg)|
-   |numer telefonu [typ EQ "Mobile"]. Value|String (ciąg)|
-   |numer telefonu [typ EQ "Work"]. wartość|String (ciąg)|
-   |role [podstawowa EQ "true"]. Value|String (ciąg)|
-   |locale|String (ciąg)|
-   |Name. honorificPrefix|String (ciąg)|
-   |fotografie [typ EQ "Fotografia"]. wartość|String (ciąg)|
-   |profileUrl|String (ciąg)|
-   |TimeZone|String (ciąg)|
-   |userType|String (ciąg)|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|String (ciąg)|
+   |aktywne|Wartość logiczna|
+   |externalId|Ciąg|
+   |displayName|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |tytuł|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |userName|Ciąg|
+   |Pseudonim|Ciąg|
+   |adresy [typ EQ "untyped"]. streetAddress|Ciąg|
+   |adresy [Type EQ "untyped"]. locale|Ciąg|
+   |adresy [Type EQ "untyped"]. region|Ciąg|
+   |adresy [Type EQ "untyped"]. KodPocztowy|Ciąg|
+   |adresy [Type EQ "untyped"]. Country|Ciąg|
+   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |role [podstawowa EQ "true"]. Value|Ciąg|
+   |locale|Ciąg|
+   |Name. honorificPrefix|Ciąg|
+   |fotografie [typ EQ "Fotografia"]. wartość|Ciąg|
+   |profileUrl|Ciąg|
+   |TimeZone|Ciąg|
+   |userType|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|Ciąg|
    |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Manager|Dokumentacja|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|String (ciąg)|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|String (ciąg)|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|String (ciąg)|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|String (ciąg)|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|Ciąg|
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do zapasu czasu**.
 
@@ -143,7 +143,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String (ciąg)|
+      |displayName|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 14. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -166,7 +166,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów

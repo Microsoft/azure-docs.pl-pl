@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539265"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922732"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla Azure Monitor
 
@@ -49,7 +49,7 @@ az deployment group create \
 - Alerty
   - [Reguły alertów dziennika](resource-manager-alerts-log.md) — alerty z zapytań dzienników i dziennika aktywności platformy Azure.
   - [Reguły alertów dotyczących metryk](resource-manager-alerts-metric.md) — alerty z metryk przy użyciu różnych rodzajów logiki.
-- Application Insights — wkrótce.
+- [Application Insights](resource-manager-app-resource.md)
 - [Ustawienia diagnostyczne](resource-manager-diagnostic-settings.md) — umożliwia tworzenie ustawień diagnostycznych w celu przekazywania dzienników i metryk z różnych typów zasobów.
 - [Zapytania dziennika](resource-manager-log-queries.md) — Twórz zapisane zapytania dziennika w obszarze roboczym log Analytics.
 - [Log Analytics obszarze roboczym](resource-manager-workspace.md) — tworzenie log Analytics obszaru roboczego i Konfigurowanie kolekcji różnych źródeł danych z poziomu agenta programu log Analytics.

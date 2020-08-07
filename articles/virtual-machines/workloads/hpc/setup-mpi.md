@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1b2d707569221a79ad53f04bcc379f5067ed9b04
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 210b2935cd2df81b0ff079c9a1c945fe770933f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905537"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926522"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Skonfiguruj interfejs przekazywania komunikatów dla HPC
 
@@ -95,11 +95,24 @@ Sprawdź swój klucz partycji, jak wspomniano powyżej.
 
 ## <a name="intel-mpi"></a>Intel MPI
 
-[Pobierz procesor Intel MPI](https://software.intel.com/mpi-library/choose-download).
+Pobierz wybraną wersję platformy [Intel MPI](https://software.intel.com/mpi-library/choose-download). Zmień zmienną środowiskową I_MPI_FABRICS w zależności od wersji. W przypadku procesora Intel MPI 2018 Użyj programu `I_MPI_FABRICS=shm:ofa` i dla 2019, użyj `I_MPI_FABRICS=shm:ofi` .
 
-Zmień zmienną środowiskową I_MPI_FABRICS w zależności od wersji. W przypadku procesora Intel MPI 2018 Użyj programu `I_MPI_FABRICS=shm:ofa` i dla 2019, użyj `I_MPI_FABRICS=shm:ofi` .
+### <a name="non-sr-iov-vms"></a>Maszyny wirtualne bez wirtualizacji SR-IOV
+W przypadku maszyn wirtualnych z wirtualizacją SR-IOV przykładem pobierania [wersji ewaluacyjnej](https://registrationcenter.intel.com/en/forms/?productid=1740) programu 5. x w środowisku uruchomieniowym jest następująca:
+```bash
+wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
+```
+Kroki instalacji można znaleźć w [podręczniku instalacji biblioteki MPI firmy Intel](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+Opcjonalnie można włączyć ptrace dla niegłównych procesów niezwiązanych z debugerem (wymaganych przez najnowsze wersje technologii Intel MPI).
+```bash
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+```
 
-Przypinanie procesów działa prawidłowo domyślnie dla 15, 30 i 60 PPN.
+### <a name="suse-linux"></a>SUSE Linux
+W przypadku SUSE Linux Enterprise Server wersji obrazu maszyny wirtualnej — SLES 12 SP3 dla HPC, SLES 12 SP3 dla HPC (Premium), SLES 12 SP1 dla HPC, SLES 12 SP1 dla HPC (Premium), SLES 12 SP4 i SLES 15, Sterowniki RDMA są instalowane i pakiety Intel MPI są dystrybuowane na maszynie wirtualnej. Zainstaluj procesor Intel MPI, uruchamiając następujące polecenie:
+```bash
+sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+```
 
 ## <a name="mpich"></a>MPICH
 

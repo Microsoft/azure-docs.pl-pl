@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531884"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922320"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -32,7 +32,7 @@ W poniższej tabeli opisano funkcje magazynów Recovery Services:
 **Funkcja** | **Szczegóły**
 --- | ---
 **Magazyny w subskrypcji** | Do 500 magazynów usługi Recovery Services w ramach jednej subskrypcji.
-**Maszyny w magazynie** | Do 1 000 maszyn wirtualnych platformy Azure w jednym magazynie.<br/><br/> Do 50 serwerów serwera usługi MAB można zarejestrować w pojedynczym magazynie.
+**Maszyny w magazynie** | Do 2000 źródeł danych we wszystkich obciążeniach (takich jak maszyny wirtualne platformy Azure, SQL Server VM, serwery serwera usługi MAB itd.) można chronić w jednym magazynie.<br><br>Do 1 000 maszyn wirtualnych platformy Azure w jednym magazynie.<br/><br/> Do 50 serwerów serwera usługi MAB można zarejestrować w pojedynczym magazynie.
 **Źródła danych** | Maksymalny rozmiar pojedynczego [źródła danych](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) wynosi 54 400 GB. Ten limit nie dotyczy kopii zapasowych maszyny wirtualnej platformy Azure. Żadne limity nie mają zastosowania do łącznej ilości danych, których kopię zapasową można utworzyć w magazynie.
 **Wykonywanie kopii zapasowych w magazynie** | **Maszyny wirtualne platformy Azure:** Raz dziennie.<br/><br/>**Maszyny chronione przez program DPM/serwera usługi MAB:** Dwa razy dziennie.<br/><br/> **Maszyny z kopią zapasową bezpośrednio przy użyciu agenta Mars:** Trzy razy dziennie.
 **Kopie zapasowe między magazynami** | Kopia zapasowa znajduje się w regionie.<br/><br/> Potrzebujesz magazynu w każdym regionie świadczenia usługi Azure, który zawiera maszyny wirtualne, dla których chcesz utworzyć kopię zapasową. Nie można utworzyć kopii zapasowej w innym regionie.
@@ -85,7 +85,7 @@ W tym miejscu nowości są obsługiwane, jeśli chcesz utworzyć kopię zapasow�
 
 ## <a name="daylight-saving-time-support"></a>Obsługa czasu letniego
 
-Azure Backup nie obsługuje automatycznego dostosowania zegara w przypadku czasu letniego dla kopii zapasowych maszyny wirtualnej platformy Azure. Nie przesuwa ona godziny tworzenia kopii zapasowej do przodu lub do tyłu. Aby zapewnić, że kopia zapasowa jest uruchamiana w żądanym czasie, należy ręcznie zmodyfikować zasady kopii zapasowej zgodnie z wymaganiami.
+Azure Backup nie obsługuje automatycznego dostosowania zegara w przypadku czasu letniego dla kopii zapasowych maszyny wirtualnej platformy Azure. Nie zmienia ona godziny tworzenia kopii zapasowej do przodu lub do tyłu. Aby zapewnić, że kopia zapasowa jest uruchamiana w żądanym czasie, należy ręcznie zmodyfikować zasady kopii zapasowej zgodnie z wymaganiami.
 
 ## <a name="disk-deduplication-support"></a>Obsługa deduplikacji dysków
 
@@ -115,7 +115,7 @@ Azure Backup obsługuje szyfrowanie danych w trakcie przesyłania i w czasie spo
 --- | --- | ---
 **Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS** | ![Tak][green] | ![Tak][green]
 **Maszyny wirtualne platformy Azure** | ![Tak][green] | ![Tak][green]
-**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Tak][green] | ![Tak][green]
+**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Yes][green] | ![Tak][green]
 **Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z usługą serwera usługi MAB** | ![Tak][green] | ![Tak][green]
 
 ## <a name="compression-support"></a>Obsługa kompresji
@@ -150,9 +150,9 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne platformy Azure.  |
-| Agent MARS/lokalnie | Nie                                                           | Brak               |
-| SQL/SAP HANA          | Nie                                                           | Brak               |
-| AFS                    | Nie                                                           | Brak               |
+| Agent MARS/lokalnie | Nie                                                           | Nie dotyczy               |
+| SQL/SAP HANA          | Nie                                                           | Nie dotyczy               |
+| AFS                    | Nie                                                           | Nie dotyczy               |
 
 ## <a name="next-steps"></a>Następne kroki
 

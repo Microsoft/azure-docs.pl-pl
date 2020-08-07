@@ -3,12 +3,12 @@ title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
 description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054585"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921150"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure
 
@@ -30,6 +30,7 @@ Przed przystąpieniem do przywracania bazy danych należy zwrócić uwagę na na
 - Można przywrócić bazę danych do wystąpienia programu SQL Server w tym samym regionie platformy Azure.
 - Serwer docelowy musi być zarejestrowany w tym samym magazynie co źródło.
 - Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- Bazy danych z włączoną funkcją [przechwytywania](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
 - Przed przystąpieniem do przywracania bazy danych "Master" uruchom wystąpienie SQL Server w trybie jednego użytkownika przy użyciu opcji Start **-m AzureWorkloadBackup**.
   - Wartość parametru **-m** to nazwa klienta.
   - Połączenie może otworzyć tylko określona nazwa klienta.

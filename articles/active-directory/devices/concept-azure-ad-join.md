@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058091"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923734"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
 
@@ -28,14 +28,14 @@ Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chm
 | **Odbiorcy podstawowe** | Odpowiednie dla organizacji tylko w chmurze i hybrydowych. |
 |   | Dotyczy wszystkich użytkowników w organizacji |
 | **Własność urządzeń** | Organizacja |
-| **Systemy operacyjne** | Wszystkie urządzenia z systemem Windows 10 |
+| **Systemy operacyjne** | Wszystkie urządzenia z systemem Windows 10 z wyjątkiem systemu Windows 10 Home |
 |   | [System Windows Server 2019 Virtual Machines uruchomiony na platformie Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core nie jest obsługiwany) |
 | **Inicjowanie obsługi** | Samoobsługowe: OOBE lub ustawienia systemu Windows |
 |   | Rejestrowanie zbiorcze |
 |   | Windows Autopilot |
 | **Opcje logowania urządzenia** | Konta organizacyjne przy użyciu: |
 |   | Hasło |
-|   | Windows Hello for Business |
+|   | Windows Hello dla firm |
 |   | Klucze zabezpieczeń FIDO 2.0 (wersja zapoznawcza) |
 | **Zarządzanie urządzeniami** | Zarządzanie urządzeniami przenośnymi (przykład: Microsoft Intune) |
 |   | Współzarządzanie z Microsoft Intune i Microsoft Endpoint Configuration Manager |
@@ -62,7 +62,7 @@ Chociaż dołączanie do usługi Azure AD jest przeznaczone głównie dla organi
 - Chcesz zarządzać grupą użytkowników w usłudze Azure AD zamiast w usłudze Active Directory. Ten scenariusz może dotyczyć na przykład pracowników sezonowych, wykonawców lub studentów.
 - Chcesz zapewnić możliwość dołączania pracownikom w odległych oddziałach z ograniczoną infrastrukturą lokalną.
 
-Funkcję urządzeń dołączonych do usługi Azure AD możesz skonfigurować w przypadku urządzeń z systemem Windows 10.
+Urządzenia przyłączone do usługi Azure AD można skonfigurować dla wszystkich urządzeń z systemem Windows 10 z wyjątkiem systemu Windows 10 Home.
 
 Celem urządzeń dołączonych do usługi Azure AD jest uproszczenie następujących kwestii:
 

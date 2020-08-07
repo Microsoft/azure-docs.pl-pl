@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401041"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921422"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Co to jest konwersacja na wiele urządzeń (wersja zapoznawcza)?
 
@@ -60,7 +60,7 @@ Transkrypcja i tłumaczenie w czasie rzeczywistym mogą pomóc w udostępnieniu 
 Możesz również udostępnić napisy dla prezentacji i wykładów zarówno na ekranie, jak i na urządzeniach należących do odbiorców. Po dołączeniu do kodu konwersacji odbiorcy mogą zobaczyć transkrypcję w preferowanym języku na swoim własnym urządzeniu.
 
 > [!NOTE]
-> Aby zapoznać się z przykładem, zapoznaj się z tematem [tłumaczenie prezentacji](https://www.microsoft.com/translator/apps/presentation-translator/)— dodatek programu PowerPoint, który używa usługi konwersacji obejmującej wiele urządzeń. Można go pobrać [tutaj](https://www.microsoft.com/download/details.aspx?id=55024).
+> Aby zapoznać się z przykładem, zapoznaj się z tematem [tłumaczenie prezentacji](https://www.microsoft.com/translator/apps/presentation-translator/)— dodatek programu PowerPoint, który używa usługi konwersacji obejmującej wiele urządzeń. Można go pobrać [tutaj](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Jak to działa
 

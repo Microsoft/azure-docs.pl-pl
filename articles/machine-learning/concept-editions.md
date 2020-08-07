@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555541"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927423"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Wersje Enterprise i Basic Azure Machine Learning 
 
@@ -31,13 +31,13 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości                     | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Etykietowanie: [Tworzenie i zarządzanie projektami etykietowania](tutorial-labeling.md) w programie Studio (sieć Web)                                                | Wszystko                     |
-| Etykietowanie: Labeler w Studio (sieć Web)                                    | Wszystko                     |
-| Etykietowanie: korzystanie z pracowników prywatnych                               | Wszystko                     |
+| Etykietowanie: [Tworzenie i zarządzanie projektami etykietowania](tutorial-labeling.md) w programie Studio (sieć Web)                                                | Wszyscy                     |
+| Etykietowanie: Labeler w Studio (sieć Web)                                    | Wszyscy                     |
+| Etykietowanie: korzystanie z pracowników prywatnych                               | Wszyscy                     |
 | Etykietowanie: [Klasyfikacja obrazu wspieranego przez ml i wykrywanie obiektów](how-to-label-images.md)                  | Tylko wersja Enterprise |
-| Zestawy danych + datastores: Tworzenie i zarządzanie w języku Python                       | Wszystko                     |
-| Zestawy danych + datastores: Tworzenie i zarządzanie w programie Studio (sieć Web)                         | Wszystko                     |
-| Dryf: wyświetlanie monitorów zestawu danych i zarządzanie nimi w języku Python                           | Wszystko                     |
+| Zestawy danych + datastores: Tworzenie i zarządzanie w języku Python                       | Wszyscy                     |
+| Zestawy danych + datastores: Tworzenie i zarządzanie w programie Studio (sieć Web)                         | Wszyscy                     |
+| Dryf: wyświetlanie monitorów zestawu danych i zarządzanie nimi w języku Python                           | Wszyscy                     |
 | Dryf: wyświetlanie monitorów zestawu danych i zarządzanie nimi w programie Studio (sieć Web)                            | Tylko wersja Enterprise |
 
 
@@ -48,7 +48,7 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości    | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Twórz i uruchamiaj [eksperymenty AutoML w notesach](how-to-configure-auto-train.md)               | Wszystko                     |
+| Twórz i uruchamiaj [eksperymenty AutoML w notesach](how-to-configure-auto-train.md)               | Wszyscy                     |
 | Twórz i uruchamiaj [eksperymenty AutoML w programie Studio (sieć Web)](how-to-use-automated-ml-for-ml-models.md)   | Tylko wersja Enterprise |
 | Wiodące w branży funkcje prognozowania AutoML             | Tylko wersja Enterprise |
 | Pomoc techniczna w zakresie uczenia głębokiego i innych zaawansowanych informacji | Tylko wersja Enterprise |
@@ -62,10 +62,10 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości    | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| [Wyjaśnienie modelu](how-to-machine-learning-interpretability-automl.md)                                              | Wszystko                     |
-| [Różnicowa Ochrona prywatności](how-to-differential-privacy.md)                          | Wszystko                     |
-| Niestandardowe znaczniki do implementowania arkuszy danych    | Wszystko                     |
-| Integracja z programem Azure                                      | Wszystko                     |
+| [Wyjaśnienie modelu](how-to-machine-learning-interpretability-automl.md)                                              | Wszyscy                     |
+| [Różnicowa Ochrona prywatności](how-to-differential-privacy.md)                          | Wszyscy                     |
+| Niestandardowe znaczniki do implementowania arkuszy danych    | Wszyscy                     |
+| Integracja z programem Azure                                      | Wszyscy                     |
 
 <br/>
 <br/>
@@ -75,19 +75,19 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości    | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Integracja Visual Studio Code                                                     | Wszystko                     |
-| Uczenie wzmacniające                                                             | Wszystko                     |
-| Interfejs użytkownika eksperymentowania                                                                 | Wszystko                     |
-| Jupyter, integracja z JupyterLab                                                    | Wszystko                     |
-| Obsługa zestawu SDK języka Python                                                                 | Wszystko                     |
-| Obsługa zestawu SDK języka R                                                                      | Wszystko                     |
-| Potoki ML: Tworzenie, uruchamianie i publikowanie w języku Python                           | Wszystko                     |
-| Potoki ML: Tworzenie, edytowanie i usuwanie zaplanowanych uruchomień potoków w języku Python| Wszystko                     |
-| Potoki ML: Tworzenie punktów końcowych potoku w zestawie SDK języka Python                                   | Wszystko                     |
-| Potoki ML: Wyświetl szczegóły przebiegu w programie Studio (sieć Web)                                              | Wszystko                     |
+| Integracja Visual Studio Code                                                     | Wszyscy                     |
+| Uczenie wzmacniające                                                             | Wszyscy                     |
+| Interfejs użytkownika eksperymentowania                                                                 | Wszyscy                     |
+| Jupyter, integracja z JupyterLab                                                    | Wszyscy                     |
+| Obsługa zestawu SDK języka Python                                                                 | Wszyscy                     |
+| Obsługa zestawu SDK języka R                                                                      | Wszyscy                     |
+| Potoki ML: Tworzenie, uruchamianie i publikowanie w języku Python                           | Wszyscy                     |
+| Potoki ML: Tworzenie, edytowanie i usuwanie zaplanowanych uruchomień potoków w języku Python| Wszyscy                     |
+| Potoki ML: Tworzenie punktów końcowych potoku w zestawie SDK języka Python                                   | Wszyscy                     |
+| Potoki ML: Wyświetl szczegóły przebiegu w programie Studio (sieć Web)                                              | Wszyscy                     |
 | Potoki ML: Tworzenie, uruchamianie, wizualizowanie i publikowanie w projektancie                  | Tylko wersja Enterprise |
 | Potoki ML: Tworzenie punktów końcowych potoku w projektancie | Tylko wersja Enterprise |
-| Zarządzane wystąpienia obliczeniowe dla zintegrowanych notesów                                 | Wszystko                     |
+| Zarządzane wystąpienia obliczeniowe dla zintegrowanych notesów                                 | Wszyscy                     |
 
 
 <br/>
@@ -97,13 +97,13 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości                            | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Rozszerzenie DevOps platformy Azure dla Machine Learning i Azure ML CLI                 | Wszystko                     |
-| [Integracja z usługą Event Grid](how-to-use-event-grid.md)                                                             | Wszystko                     |
-| Integracja Azure Stream Analytics z usługą Azure Machine Learning                       | Wszystko                     |
-| Tworzenie potoków ML w zestawie SDK                                                         | Wszystko                     |
-| Inferencing Batch                                                                  | Wszystko                     |
-| Modele z przyspieszaniem sprzętowym oparte na FPGA                                             | Wszystko                     |
-| Profilowanie modelu                                                                    | Wszystko                     |
+| Rozszerzenie DevOps platformy Azure dla Machine Learning i Azure ML CLI                 | Wszyscy                     |
+| [Integracja z usługą Event Grid](how-to-use-event-grid.md)                                                             | Wszyscy                     |
+| Integracja Azure Stream Analytics z usługą Azure Machine Learning                       | Wszyscy                     |
+| Tworzenie potoków ML w zestawie SDK                                                         | Wszyscy                     |
+| Inferencing Batch                                                                  | Wszyscy                     |
+| Modele z przyspieszaniem sprzętowym oparte na FPGA                                             | Wszyscy                     |
+| Profilowanie modelu                                                                    | Wszyscy                     |
 
 <br/>
 <br/>
@@ -112,10 +112,10 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 
 | Możliwości     | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Obsługa [Access Control opartej na rolach](how-to-assign-roles.md) (RBAC)                                           | Wszystko                     |
-| Obsługa [Virtual Network (VNET)](how-to-enable-virtual-network.md) dla obliczeń                                         | Wszystko                     |
-| Ocenianie uwierzytelniania punktu końcowego                                                    | Wszystko                     |
-| [Prywatny link obszaru roboczego](how-to-configure-private-link.md)                                                            | Wszystko                     |
+| Obsługa [kontroli dostępu opartej na rolach (Azure RBAC)](how-to-assign-roles.md)                                           | Wszyscy                     |
+| Obsługa [Virtual Network (VNET)](how-to-enable-virtual-network.md) dla obliczeń                                         | Wszyscy                     |
+| Ocenianie uwierzytelniania punktu końcowego                                                    | Wszyscy                     |
+| [Prywatny link obszaru roboczego](how-to-configure-private-link.md)                                                            | Wszyscy                     |
 | [Zarządzanie przydziałami](how-to-manage-quotas.md) w różnych obszarach roboczych                                                 | Tylko wersja Enterprise |
 
 ## <a name="next-steps"></a>Następne kroki

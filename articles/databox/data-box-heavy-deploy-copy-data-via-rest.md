@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: kopiowanie danych do Azure Data Box magazynu obiektów BLOB za pośrednictwem interfejsów API REST'
-description: Dowiedz się, jak kopiować dane do Azure Data Box Heavy magazynu obiektów BLOB za pośrednictwem interfejsów API REST
+description: W tym samouczku dowiesz się, jak nawiązać połączenie z usługą Azure Data Box BLOB Storage, używając interfejsów API REST za pośrednictwem protokołu HTTP lub https, a następnie skopiuj dane z Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849429"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921167"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Samouczek: kopiowanie danych do Azure Data Box magazynu obiektów BLOB za pośrednictwem interfejsów API REST  
 
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [Samouczek: konfigurowanie Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Ukończono [Samouczek: Konfigurowanie urządzenia Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Urządzenie Data Box Heavy zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Znasz [wymagania systemowe magazynu obiektów blob usługi Data Box](data-box-system-requirements-rest.md) oraz obsługiwane wersje interfejsów API, zestawów SDK i narzędzi.
 4. Masz dostęp do komputera-hosta zawierającego dane, do których chcesz skopiować Data Box Heavy. Na komputerze hosta wymagane jest:

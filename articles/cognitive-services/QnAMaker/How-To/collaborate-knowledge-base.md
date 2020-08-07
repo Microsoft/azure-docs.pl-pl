@@ -3,12 +3,12 @@ title: Współpraca z bazą wiedzy — QnA Maker
 description: QnA Maker umożliwia wielu osobom współpracę w bazie wiedzy. Ta funkcja jest dostępna w ramach kontroli dostępu opartej na rolach platformy Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 86c8d919618b37223e51a23635a1322a4e0d780c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837435"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926851"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Współpraca z autorami i edytorami
 
@@ -16,7 +16,7 @@ Na poziomie zasobów QnA Maker jest dostępna współpraca umożliwiająca ogran
 
 ## <a name="add-azure-role-based-access-control-azure-rbac-to-your-qna-maker-resource"></a>Dodawanie kontroli dostępu opartej na rolach (Azure RBAC) do zasobu QnA Maker
 
-QnA Maker umożliwia wielu osobom współpracę nad wszystkimi bazami wiedzy w tym samym QnA Maker zasobach. Ta funkcja jest dostępna z [Access Control opartych na rolach](../../../active-directory/role-based-access-control-configure.md)platformy Azure.
+QnA Maker umożliwia wielu osobom współpracę nad wszystkimi bazami wiedzy w tym samym QnA Maker zasobach. Ta funkcja jest dostępna w ramach [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../../../active-directory/role-based-access-control-configure.md).
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>Dostęp na poziomie zasobów QnA Maker
 

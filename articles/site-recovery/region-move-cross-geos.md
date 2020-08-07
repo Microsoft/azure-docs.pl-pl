@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ca6e7fa6e02ff6c5e49185c2fb02f9bc5a16d9c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134027"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927304"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Przenoszenie maszyn wirtualnych platformy Azure między usługą Azure Government i regionami publicznymi 
 
@@ -53,7 +53,7 @@ W tym samouczku pokazano, jak przenieść maszyny wirtualne platformy Azure mię
 Upewnij się, że Twoje konto platformy Azure ma uprawnienia do replikacji maszyn wirtualnych na platformę Azure.
 
 - Przejrzyj [uprawnienia](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) wymagane do replikowania maszyn na platformę Azure.
-- Weryfikowanie i modyfikowanie uprawnień [dostępu opartych na rolach](../role-based-access-control/role-assignments-portal.md) . 
+- Weryfikowanie i modyfikowanie uprawnień platformy [Azure kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/role-assignments-portal.md) . 
 
 ### <a name="set-up-an-azure-network"></a>Konfiguracja sieci platformy Azure
 
@@ -163,7 +163,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 2. Określ docelowy model wdrażania.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
-   ![Środowisko docelowe](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Cel](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ### <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji

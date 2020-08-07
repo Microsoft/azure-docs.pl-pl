@@ -12,17 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504071"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920130"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Replikacja transakcyjna to funkcja wystąpienia zarządzanego usługi Azure SQL i SQL Server, które umożliwiają replikację danych z tabeli w wystąpieniu zarządzanym usługi Azure SQL lub wystąpienia SQL Server do tabel umieszczonych w zdalnych bazach danych. Ta funkcja pozwala synchronizować wiele tabel w różnych bazach danych.
+Replikacja transakcyjna to funkcja wystąpienia zarządzanego usługi Azure SQL i SQL Server, które umożliwiają replikację danych z tabeli w wystąpieniu zarządzanym usługi Azure SQL lub wystąpienia SQL Server do tabel umieszczonych w zdalnych bazach danych. Ta funkcja pozwala synchronizować wiele tabel w różnych bazach danych. 
+
+Replikacja transakcyjna jest obecnie dostępna w publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL. 
 
 ## <a name="overview"></a>Omówienie
 
@@ -43,9 +45,9 @@ Kluczowymi składnikami replikacji transakcyjnej są **Wydawca**, **dystrybutor*
 
 | Rola | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| **Publisher** | Nie | Yes |
+| **Publisher** | Nie | Tak |
 | **Dystrybutor** | Nie | Yes|
-| **Subskrybent ściągania** | Nie | Yes|
+| **Subskrybent ściągania** | Nie | Tak|
 | **Wypychanie subskrybenta**| Tak | Tak|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -72,11 +74,11 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak |
-| [**Zdjęcie**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
+| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Yes |
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Yes|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Równorzędny**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
-| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Yes|
+| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
 | [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
 

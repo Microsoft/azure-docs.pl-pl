@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 26dba14baa95a91c12e9ccd277731b91207b4a4c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9995b82c1dc437cdaa2f9f987abba3e9681454a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533261"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926760"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -126,7 +126,7 @@ Musimy autoryzować następujące operacje dla naszych ról:
 
 Poniższa tabela zawiera podsumowanie uprawnień dostępu dla naszych ról i aplikacji.
 
-| Role | Uprawnienia do płaszczyzny zarządzania | Uprawnienia do płaszczyzny danych |
+| Rola | Uprawnienia do płaszczyzny zarządzania | Uprawnienia do płaszczyzny danych |
 | --- | --- | --- |
 | Zespół ds. zabezpieczeń | Współautor Key Vault | Klucze: wykonywanie kopii zapasowej, tworzenie, usuwanie, pobieranie, importowanie, wyświetlanie, przywracanie<br>Wpisy tajne: wszystkie operacje |
 | Deweloperzy i &nbsp; operatorzy | Uprawnienie do wdrażania Key Vault<br><br> **Uwaga**: to uprawnienie umożliwia wdrożonym maszynom wirtualnym pobieranie wpisów tajnych z magazynu kluczy. | Brak |
@@ -197,7 +197,7 @@ Zalecamy skonfigurowanie dodatkowego bezpiecznego dostępu do magazynu kluczy pr
 
 ## <a name="resources"></a>Zasoby
 
-* [Kontrola RBAC w usłudze Azure AD](../../role-based-access-control/role-assignments-portal.md)
+* [Kontrola RBAC platformy Azure](../../role-based-access-control/role-assignments-portal.md)
 
 * [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)
 

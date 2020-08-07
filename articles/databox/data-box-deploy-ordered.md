@@ -1,6 +1,6 @@
 ---
 title: Samouczek przedstawiający kolejność Azure Data Box | Microsoft Docs
-description: Informacje o wymaganiach wstępnych dotyczących wdrażania oraz sposobie zamawiania urządzenia Azure Data Box
+description: W tym samouczku dowiesz się, jak Azure Data Box, rozwiązanie hybrydowe, które umożliwia importowanie danych lokalnych na platformę Azure oraz kolejność Azure Data Box.
 services: databox
 author: priestlg
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: v-grpr
-ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007391"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926369"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -89,7 +89,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Zainstaluj rozszerzenie interfejsu wiersza polecenia Azure Data Box**
 
-Aby można było użyć poleceń interfejsu wiersza polecenia Azure Data Box, należy zainstalować rozszerzenie. Rozszerzenia interfejsu wiersza polecenia platformy Azure umożliwiają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze wysłane jako część podstawowego interfejsu wiersza polecenia. Aby uzyskać więcej informacji na temat rozszerzeń, zobacz [Korzystanie z rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+Aby można było użyć poleceń interfejsu wiersza polecenia Azure Data Box, należy zainstalować rozszerzenie. Rozszerzenia interfejsu wiersza polecenia platformy Azure dają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze dostarczone jako część podstawowego interfejsu wiersza polecenia. Aby uzyskać więcej informacji na temat rozszerzeń, zobacz [Korzystanie z rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
 
 Aby zainstalować rozszerzenie dla Azure Data Box, uruchom następujące `az extension add --name databox` polecenie:
 

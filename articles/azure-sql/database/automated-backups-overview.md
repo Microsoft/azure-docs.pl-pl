@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810284"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921949"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -111,7 +111,7 @@ Użycie magazynu kopii zapasowej do maksymalnego rozmiaru danych dla bazy danych
 
 - Skrócenie [okresu przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) do minimum możliwego dla Twoich potrzeb.
 - Unikaj wykonywania dużych operacji zapisu, takich jak rekompilacje indeksów, częściej niż jest to konieczne.
-- W przypadku dużych operacji ładowania danych należy rozważyć użycie [klastrowanych indeksów magazynu kolumn](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) oraz pokrewnych [najlepszych](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)rozwiązań i/lub zmniejszenie liczby indeksów nieklastrowanych.
+- W przypadku dużych operacji ładowania danych należy rozważyć użycie [klastrowanych indeksów magazynu kolumn](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) oraz pokrewnych [najlepszych](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)rozwiązań i/lub zmniejszenie liczby indeksów nieklastrowanych.
 - W Ogólnego przeznaczenia warstwie usług zainicjowany magazyn danych jest tańszy niż cena magazynu kopii zapasowych. Jeśli masz ciągle wysokie koszty magazynowania kopii zapasowych, możesz rozważyć zwiększenie ilości miejsca do magazynowania danych w magazynie kopii zapasowych.
 - Należy używać bazy danych TempDB zamiast trwałych tabel w logice aplikacji do przechowywania tymczasowych wyników i/lub danych przejściowych.
 - Użyj lokalnie nadmiarowego magazynu kopii zapasowych zawsze wtedy, gdy jest to możliwe (na przykład środowiska deweloperskie/testowe)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901746"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927219"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -305,27 +305,27 @@ Aby rozwiązać ten problem, należy dostosować wartość rejestru **DirectoryC
  
 Na przykład można ustawić 0x100000 i sprawdzić, czy wydajność staje się lepsza.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Błąd AadDsTenantNotFound podczas włączania uwierzytelniania Azure Active Directory Domain Service (AAD DS) dla Azure Files "nie można zlokalizować aktywnych dzierżawców z identyfikatorem dzierżawy AAD-dzierżawca"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Wystąpił błąd AadDsTenantNotFound podczas włączania uwierzytelniania Azure Active Directory Domain Service (Azure AD DS) dla Azure Files "nie można zlokalizować aktywnych dzierżawców z IDENTYFIKATORem dzierżawy AAD-dzierżawca"
 
 ### <a name="cause"></a>Przyczyna
 
-AadDsTenantNotFound Wystąpił błąd podczas próby [włączenia uwierzytelniania Azure Active Directory Domain Services (Azure AD DS) na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) na koncie magazynu, w którym [Usługa domeny usługi AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) nie zostanie utworzona w dzierżawie w usłudze AAD skojarzonej subskrypcji.  
+AadDsTenantNotFound Wystąpił błąd podczas próby [włączenia uwierzytelniania Azure Active Directory Domain Services (azure AD DS) na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) na koncie magazynu, w którym [usługa Azure AD Domain Service (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) nie została utworzona w dzierżawie usługi Azure AD skojarzonej subskrypcji.  
 
 ### <a name="solution"></a>Rozwiązanie
 
-Włącz usługi AAD DS w dzierżawie AAD subskrypcji, w której wdrożono konto magazynu. Do utworzenia domeny zarządzanej wymagane są uprawnienia administratora dzierżawy usługi AAD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [włączyć Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Włącz usługę Azure AD DS w dzierżawie usługi Azure AD subskrypcji, w której wdrożono konto magazynu. Do utworzenia domeny zarządzanej wymagane są uprawnienia administratora dzierżawy usługi Azure AD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [włączyć Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Wystąpił błąd "System Error 1359. Wystąpił błąd wewnętrzny "odebrany za pośrednictwem protokołu SMB do udziałów plików z włączonym uwierzytelnianiem Azure Active Directory Domain Service (AAD DS)
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Wystąpił błąd "System Error 1359. Wystąpił błąd wewnętrzny "odebrany za pośrednictwem protokołu SMB do udziałów plików z włączonym uwierzytelnianiem Azure Active Directory Domain Service (Azure AD DS)
 
 ### <a name="cause"></a>Przyczyna
 
-Wystąpił błąd "System Error 1359. Błąd wewnętrzny "występuje podczas próby nawiązania połączenia z udziałem plików z włączonym uwierzytelnianiem usługi AAD DS dla usługi AAD DS z nazwą DNS domeny rozpoczynającą się od znaku numerycznego. Jeśli na przykład nazwa DNS domeny usługi AAD DS to "1domain", ten błąd wystąpi podczas próby zainstalowania udziału plików przy użyciu poświadczeń usługi AAD. 
+Wystąpił błąd "System Error 1359. Błąd wewnętrzny "występuje podczas próby nawiązania połączenia z udziałem plików przy użyciu usługi Azure AD DS Authentication na platformie Azure AD DS z nazwą DNS domeny rozpoczynającą się od znaku numerycznego. Na przykład jeśli nazwa DNS domeny AD DS platformy Azure to "1domain", ten błąd wystąpi podczas próby zainstalowania udziału plików przy użyciu poświadczeń usługi Azure AD. 
 
 ### <a name="solution"></a>Rozwiązanie
 
-Obecnie można rozważyć ponowne wdrożenie usługi AAD DS przy użyciu nowej nazwy DNS domeny, która jest stosowana z poniższymi regułami:
+Obecnie można rozważyć ponowne wdrożenie AD DS platformy Azure przy użyciu nowej nazwy DNS domeny, która stosuje się do poniższych reguł:
 - Nazwy nie mogą rozpoczynać się od znaku numerycznego.
 - Nazwy muszą mieć długość od 3 do 63 znaków.
 

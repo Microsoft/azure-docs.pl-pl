@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z usługą Azure Data Box Disk | Microsoft Docs
-description: W tym artykule opisano sposób rozwiązywania problemy z usługą Azure Data Box Disk.
+description: Informacje o sposobach korzystania z dzienników w celu rozwiązywania problemów z walidacją, które mogą wystąpić podczas wdrażania Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564996"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925546"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Korzystanie z dzienników w celu rozwiązywania problemów ze sprawdzaniem poprawności w Azure Data Box Disk
 

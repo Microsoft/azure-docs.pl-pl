@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5752715b447965c2aad99e170217bc0adce94a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbed26bc6175b464b59fc48c733b15e6fecc7fc1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367635"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924942"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 15Five na potrzeby automatycznego aprowizacji użytkowników
 
@@ -123,17 +123,17 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Boolean|
-   |tytuł|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |userName|String|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |externalId|String|
+   |aktywne|Wartość logiczna|
+   |tytuł|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |userName|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |externalId|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: Location|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: startDate|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: Location|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: startDate|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do 15Five**.
 
@@ -141,8 +141,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |externalId|String|
-      |displayName|String|
+      |externalId|Ciąg|
+      |displayName|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -165,7 +165,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
     
 ## <a name="connector-limitations"></a>Ograniczenia łącznika

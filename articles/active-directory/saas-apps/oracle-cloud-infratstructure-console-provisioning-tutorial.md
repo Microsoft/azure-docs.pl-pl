@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94f5be93d95cc1c524e6db464cac68879ed0b0e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81378953"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926794"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
@@ -126,28 +126,28 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
-      |userName|String|
-      |aktywne|Boolean|
-      |tytuł|String|
-      |wiadomości e-mail [Type EQ "Work"]. Value|String|
-      |preferredLanguage|String|
-      |Nazwa. imię|String|
-      |Nazwa. rodzina|String|
-      |adresy [typ EQ "Work"]. sformatowane|String|
-      |adresy [typ EQ "Work"]. locale|String|
-      |addresss [Type EQ "Work"]. region|String|
-      |addresss [Type EQ "Work"]. KodPocztowy|String|
-      |addresss [Type EQ "Work"]. Country|String|
-      |adresy [typ EQ "Work"]. streetAddress|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
+      |displayName|Ciąg|
+      |userName|Ciąg|
+      |aktywne|Wartość logiczna|
+      |tytuł|Ciąg|
+      |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+      |preferredLanguage|Ciąg|
+      |Nazwa. imię|Ciąg|
+      |Nazwa. rodzina|Ciąg|
+      |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+      |adresy [typ EQ "Work"]. locale|Ciąg|
+      |addresss [Type EQ "Work"]. region|Ciąg|
+      |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+      |addresss [Type EQ "Work"]. Country|Ciąg|
+      |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Wartość logiczna|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Wartość logiczna|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do konsoli infrastruktury w chmurze firmy Oracle**.
 
@@ -155,9 +155,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
-      |externalId|String|
-      |elementy członkowskie|Odwołanie|
+      |displayName|Ciąg|
+      |externalId|Ciąg|
+      |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -179,10 +179,10 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 * Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1057bb908e973c74b6dfb70931469e27f77512de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 902dfc924fdac28c0aed46745604c5d4d19f084b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292660"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920334"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights Gen2 przy użyciu języka C #
 
@@ -65,13 +65,13 @@ Przykładowy kod zawiera kilka wymaganych zależności, które można wyświetli
 
 Pobierz pakiety w programie Visual Studio 2019, wybierając opcję **Kompiluj**  >  **kompilację rozwiązania** . 
 
-Alternatywnie możesz dodać każdy pakiet przy użyciu narzędzia [NuGet 2.12 +](https://www.nuget.org/). Na przykład:
+Alternatywnie możesz dodać każdy pakiet przy użyciu narzędzia [NuGet 2.12 +](https://www.nuget.org/). Przykład:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
 ## <a name="c-sample-code"></a>Przykładowy kod w języku C#
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
+[!code-csharp[csharpquery-example](~/samples-tsi/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
 > * Przykładowy kod można wykonać bez zmiany domyślnych zmiennych środowiskowych.

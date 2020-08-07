@@ -3,16 +3,16 @@ title: Role i uprawnienia platformy Azure
 description: Użyj kontroli dostępu opartej na rolach (Azure RBAC) i zarządzania tożsamościami i dostępem (IAM), aby zapewnić szczegółowe uprawnienia do zasobów w usłudze Azure Container Registry.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533312"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920079"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry ról i uprawnień
 
-Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach](../role-based-access-control/index.yml) (RBAC) na platformie Azure można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą korzystać z rejestru. 
+Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą korzystać z rejestru. 
 
 | Rola/uprawnienie       | [Menedżer zasobów dostępu](#access-resource-manager) | [Utwórz/usuń rejestr](#create-and-delete-registry) | [Obraz wypychany](#push-image) | [Obraz ściągania](#pull-image) | [Usuń dane obrazu](#delete-image-data) | [Zmień zasady](#change-policies) |   [Podpisz obrazy](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |

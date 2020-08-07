@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
-ms.openlocfilehash: b621b16d789e16a6f44536a6e8c18b5aa3690d74
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a2a860a2ff96c74f9d19fe7abfd845bbae8023cd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905452"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922272"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Azure.Search.Documents
 
 Użyj nowej [biblioteki klientaAzure.Search.Documents (wersja 11)](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) do utworzenia aplikacji konsolowej .NET Core w języku C#, która tworzy, ładuje i bada indeks wyszukiwania.
 
-[Pobierz kod źródłowy](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart-v11) , aby rozpocząć pracę z gotowym projektem, lub wykonaj kroki opisane w tym artykule, aby utworzyć własne.
+[Pobierz kod źródłowy](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) , aby rozpocząć pracę z gotowym projektem, lub wykonaj kroki opisane w tym artykule, aby utworzyć własne.
 
 > [!NOTE]
 > Szukasz wcześniejszej wersji? Zobacz [Tworzenie indeksu wyszukiwania przy użyciu programu Microsoft. Azure. Search v10](search-get-started-dotnet-v10.md) zamiast tego.
@@ -183,13 +183,17 @@ Podczas przekazywania dokumentów należy użyć obiektu [IndexDocumentsBatch](h
 
     Console.WriteLine("{0}", "Loading index...\n");
     qryclient.IndexDocuments(batch, idxoptions);
+    ```
 
+    Po zainicjowaniu obiektu [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) można wysłać go do indeksu, wywołując [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) na obiekcie [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) .
+
+1. Ponieważ jest to Aplikacja konsolowa, która uruchamia wszystkie polecenia sekwencyjnie, należy dodać 2-sekundowy czas oczekiwania między indeksowaniem a zapytaniami.
+
+    ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
     Console.WriteLine("Waiting for indexing...\n");
     System.Threading.Thread.Sleep(2000);
     ```
-
-    Po zainicjowaniu obiektu [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) można wysłać go do indeksu, wywołując [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) na obiekcie [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) .
 
     2-sekundowe opóźnienie kompensuje indeksowanie, które jest asynchroniczne, tak aby wszystkie dokumenty mogły być indeksowane przed wykonaniem zapytań. Kodowanie w opóźnieniu jest zwykle wymagane tylko w pokazach, testach i przykładowych aplikacjach.
 
@@ -275,7 +279,7 @@ Naciśnij klawisz F5, aby ponownie skompilować aplikację i uruchomić program 
 
 Dane wyjściowe zawierają komunikaty z [konsoli. WriteLIne](https://docs.microsoft.com/dotnet/api/system.console.writeline)z dodaniem informacji o zapytaniu i wyników.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

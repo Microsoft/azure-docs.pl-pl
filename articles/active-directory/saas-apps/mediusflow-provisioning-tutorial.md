@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724068950153e6bc4687679892edf55ab89f3bf2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482415"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927406"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -70,7 +70,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 2. Sprawdź połączenie z usługą MediusFlow.
 
-    ![Weryfikuj](./media/mediusflow-provisioning-tutorial/2-verify-connection.png)
+    ![Weryfikacja](./media/mediusflow-provisioning-tutorial/2-verify-connection.png)
 
 3. Podaj identyfikator dzierżawy usługi Azure AD.
 
@@ -161,14 +161,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |Nazwa. displayName|String|
-   |aktywne|Boolean|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |Nazwa. sformatowana|String|
-   |externalID|String|
+   |userName|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |Nazwa. displayName|Ciąg|
+   |aktywne|Wartość logiczna|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
+   |externalID|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
@@ -178,8 +178,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
-      |externalID|String|
+      |displayName|Ciąg|
+      |externalID|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -202,7 +202,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

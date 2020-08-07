@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d80502480e0536cb85ad9bd08344c8082f59d85
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77370687"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926998"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie PureCloud przez Genesys w celu automatycznego aprowizacji użytkowników
 
@@ -106,14 +106,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
      |Atrybut|Typ|
      |---|---|
-     |userName|String|
-     |aktywne|Boolean|
-     |displayName|String|
-     |wiadomości e-mail [Type EQ "Work"]. Value|String|
-     |tytuł|String|
-     |numer telefonu [typ EQ "Mobile"]. Value|String|
-     |numer telefonu [typ EQ "Work"]. wartość|String|
-     |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+     |userName|Ciąg|
+     |aktywne|Wartość logiczna|
+     |displayName|Ciąg|
+     |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+     |tytuł|Ciąg|
+     |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+     |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+     |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do PureCloud przez Genesys**.
@@ -122,8 +122,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|Ciąg|
+      |externalId|Ciąg|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -146,7 +146,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 * Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 3fbf869e371f385a335e4a154bc811a6fc8cab97
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321755"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922527"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -27,7 +27,6 @@ W przypadku zasad platformy Azure Użyj:
 W przypadku kontroli dostępu opartej na rolach należy użyć:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 W przypadku szablonów zagnieżdżonych wdrażanych w grupach zarządzania, subskrypcjach lub grupach zasobów należy użyć:
 

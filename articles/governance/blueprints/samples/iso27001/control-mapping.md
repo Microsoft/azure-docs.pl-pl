@@ -3,12 +3,12 @@ title: Przykładowe kontrolki ISO 27001
 description: Sterowanie mapowaniem przykładu planu ISO 27001. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: d6a8b1c1f08b6eed54e27e5027e2e9bce1bafc10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ae720bd5be9d80d8e1be8315d2aea88a99dc54e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006827"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927270"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu ISO 27001
 
@@ -34,7 +34,7 @@ Posiadanie tylko jednego właściciela subskrypcji platformy Azure nie pozwala n
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A. 9.1.2 dostęp do sieci i usług sieciowych
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../../../../role-based-access-control/overview.md) (RBAC) w celu zarządzania dostępem do zasobów platformy Azure. Ten plan ułatwia kontrolowanie dostępu do zasobów platformy Azure przez przypisanie siedmiu [Azure Policy](../../../policy/overview.md) definicji. Te zasady przeprowadzają inspekcję użycia typów zasobów i konfiguracji, które mogą zezwalać na dostęp do zasobów.
+Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure w celu zarządzania dostępem do zasobów platformy Azure. Ten plan ułatwia kontrolowanie dostępu do zasobów platformy Azure przez przypisanie siedmiu [Azure Policy](../../../policy/overview.md) definicji. Te zasady przeprowadzają inspekcję użycia typów zasobów i konfiguracji, które mogą zezwalać na dostęp do zasobów.
 Informacje o zasobach, które naruszają te zasady, mogą pomóc w podejmowaniu działań naprawczych w celu zapewnienia dostępu do zasobów platformy Azure tylko autoryzowanym użytkownikom.
 
 - Wdróż wymagania wstępne, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Linux, które mają konta bez hasła
@@ -69,7 +69,7 @@ Ten plan przypisuje trzy definicje [Azure Policy](../../../policy/overview.md) d
 
 ## <a name="a925-review-of-user-access-rights"></a>A. 9.2.5 Przegląd praw dostępu użytkownika
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../../../../role-based-access-control/overview.md) (RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje cztery [Azure Policy](../../../policy/overview.md) definicje do kont inspekcji, dla których należy określić priorytety dla przeglądu, w tym konta z amortyzacją i konta zewnętrzne z podniesionymi uprawnieniami.
+Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure, która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje cztery [Azure Policy](../../../policy/overview.md) definicje do kont inspekcji, dla których należy określić priorytety dla przeglądu, w tym konta z amortyzacją i konta zewnętrzne z podniesionymi uprawnieniami.
 
 - Przestarzałe konta powinny zostać usunięte z subskrypcji
 - Przestarzałe konta z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
@@ -78,7 +78,7 @@ Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../.
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A. 9.2.6 usunięcie lub dostosowanie praw dostępu
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../../../../role-based-access-control/overview.md) (RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Korzystając z [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) i RBAC, można aktualizować role użytkowników, aby odzwierciedlały zmiany organizacyjne. W razie potrzeby konta mogą być blokowane przed zalogowaniem (lub usunięciem), które natychmiast usuwa prawa dostępu do zasobów platformy Azure. Ten plan przypisuje dwie [Azure Policy](../../../policy/overview.md) definicje do inspekcji konta amortyzowanego, które należy wziąć pod uwagę podczas usuwania.
+Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure, która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Korzystając z [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) i RBAC, można aktualizować role użytkowników, aby odzwierciedlały zmiany organizacyjne. W razie potrzeby konta mogą być blokowane przed zalogowaniem (lub usunięciem), które natychmiast usuwa prawa dostępu do zasobów platformy Azure. Ten plan przypisuje dwie [Azure Policy](../../../policy/overview.md) definicje do inspekcji konta amortyzowanego, które należy wziąć pod uwagę podczas usuwania.
 
 - Przestarzałe konta powinny zostać usunięte z subskrypcji
 - Przestarzałe konta z uprawnieniami właściciela powinny zostać usunięte z subskrypcji

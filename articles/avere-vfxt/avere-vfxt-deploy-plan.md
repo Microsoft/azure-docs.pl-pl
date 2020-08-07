@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754392"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922680"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planowanie systemu Avere vFXT
 
@@ -103,7 +103,7 @@ Maszyny wirtualne służące jako węzły klastra określają przepływność ż
 
 Każdy węzeł vFXT będzie identyczny. Oznacza to, że jeśli utworzysz klaster z trzema węzłami, będziesz mieć trzy maszyny wirtualne o tym samym typie i rozmiarze.
 
-| Typ wystąpienia | Procesory wirtualne | Memory (Pamięć)  | Lokalny magazyn SSD  | Maks. liczba dysków danych | Przepływność dysku w pamięci podręcznej | Karta sieciowa (licznik) |
+| Typ wystąpienia | Procesory wirtualne | Pamięć  | Lokalny magazyn SSD  | Maks. liczba dysków danych | Przepływność dysku w pamięci podręcznej | Karta sieciowa (licznik) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | LICZBA OPERACJI WE/WY 51 200 <br/> 768 MB/s | 16 000 MB/s (8)  |
 
@@ -166,7 +166,7 @@ Podczas tworzenia klastra można określić, czy ma zostać utworzony publiczny 
 
 ## <a name="vm-access-roles"></a>Role dostępu do maszyny wirtualnej
 
-Platforma Azure używa [kontroli dostępu opartej na rolach](../role-based-access-control/index.yml) (RBAC) do autoryzacji maszyn wirtualnych klastra do wykonywania określonych zadań. Na przykład kontroler klastra wymaga autoryzacji do tworzenia i konfigurowania maszyn wirtualnych węzłów klastra. Węzły klastra muszą mieć możliwość przypisywania lub ponownego przypisywania adresów IP do innych węzłów klastra.
+Platforma Azure używa [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) na platformie Azure w celu autoryzowania maszyn wirtualnych klastra do wykonywania określonych zadań. Na przykład kontroler klastra wymaga autoryzacji do tworzenia i konfigurowania maszyn wirtualnych węzłów klastra. Węzły klastra muszą mieć możliwość przypisywania lub ponownego przypisywania adresów IP do innych węzłów klastra.
 
 W przypadku maszyn wirtualnych avere vFXT są używane dwie wbudowane role platformy Azure:
 

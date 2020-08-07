@@ -5,22 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119311"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920436"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Poziomy spójności i interfejsy API usługi Azure Cosmos DB
 
-Azure Cosmos DB zapewnia natywną obsługę interfejsów API zgodnych z protokołem przewodowym dla popularnych baz danych. Obejmują one MongoDB, Apache Cassandra, Gremlin i Azure Table Storage. Te bazy danych nie oferują precyzyjnie zdefiniowanych modeli spójności ani gwarancji objętych umową SLA dla poziomów spójności. Zwykle zapewniają tylko podzestaw pięciu modeli spójności oferowanych przez Azure Cosmos DB. 
+Azure Cosmos DB zapewnia natywną obsługę interfejsów API zgodnych z protokołem przewodowym dla popularnych baz danych. Obejmują one MongoDB, Apache Cassandra, Gremlin i Azure Table Storage. Te bazy danych nie oferują precyzyjnie zdefiniowanych modeli spójności ani gwarancji objętych umową SLA dla poziomów spójności. Zwykle zapewniają tylko podzestaw pięciu modeli spójności oferowanych przez Azure Cosmos DB.
 
 W przypadku korzystania z interfejsu API SQL, interfejsu API Gremlin i interfejs API tabel, używany jest domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos. 
 
 W przypadku korzystania z interfejsu API interfejs API Cassandra lub Azure Cosmos DB dla MongoDB aplikacje uzyskają pełny zestaw poziomów spójności oferowanych przez Apache Cassandra i MongoDB, a nawet silniejsze gwarancje spójności i trwałości. W tym dokumencie przedstawiono odpowiednie Azure Cosmos DB poziomów spójności dla poziomów spójności Apache Cassandra i MongoDB.
+
+> [!NOTE]
+> Domyślny model spójności dla Azure Cosmos DB jest sesją. Sesja jest modelem spójności zorientowanym na klienta, który nie jest natywnie obsługiwany przez Cassandra lub MongoDB. Aby uzyskać więcej informacji o tym, który model spójności wybrać, zobacz [poziomy spójności w Azure Cosmos DB](consistency-levels.md)
 
 ## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Mapowanie między Cassandra Apache i Azure Cosmos DB poziomów spójności
 
@@ -36,14 +39,14 @@ W poniższej tabeli przedstawiono, jak natywne poziomy spójności Cassandra są
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapowanie między MongoDB i Azure Cosmos DB poziomów spójności
 
-W przeciwieństwie do Azure Cosmos DB, natywny MongoDB nie zapewnia precyzyjnie zdefiniowanych gwarancji spójności. Zamiast tego natywny MongoDB umożliwia użytkownikom skonfigurowanie następujących gwarancji spójności: uwagi dotyczące zapisu, Odczyt i dyrektywa IsMaster — aby skierować operacje odczytu do replik podstawowych lub pomocniczych w celu osiągnięcia żądanego poziomu spójności. 
+W przeciwieństwie do Azure Cosmos DB, natywny MongoDB nie zapewnia precyzyjnie zdefiniowanych gwarancji spójności. Zamiast tego natywny MongoDB umożliwia użytkownikom skonfigurowanie następujących gwarancji spójności: uwagi dotyczące zapisu, Odczyt i dyrektywa IsMaster — aby skierować operacje odczytu do replik podstawowych lub pomocniczych w celu osiągnięcia żądanego poziomu spójności.
 
 W przypadku korzystania z interfejsu API Azure Cosmos DB dla MongoDB, sterownik MongoDB traktuje region zapisu jako replikę podstawową i wszystkie pozostałe regiony są odczytywane z repliki. Możesz wybrać region skojarzony z kontem usługi Azure Cosmos jako replikę podstawową. 
 
 Podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
 * Problem dotyczący zapisu jest mapowany na domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos.
- 
+
 * Azure Cosmos DB dynamicznie mapuje problem odczytu określony przez sterownik klienta MongoDB na jeden z Azure Cosmos DB poziomów spójności skonfigurowanych dynamicznie na żądanie odczytu.  
 
 * Można dodać adnotacje do określonego regionu skojarzonego z kontem usługi Azure Cosmos jako "Master", tworząc region jako pierwszy zapisywalny region. 
