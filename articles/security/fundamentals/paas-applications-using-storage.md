@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371383"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925808"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu usługi Azure Storage
 W tym artykule omówiono zbiór najlepszych rozwiązań z zakresu bezpieczeństwa usługi Azure Storage na potrzeby zabezpieczania aplikacji internetowych i mobilnych platformy jako usługi (PaaS). Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z platformą Azure i klientami.
@@ -56,7 +56,7 @@ Sygnatura dostępu współdzielonego umożliwia udostępnianie zawartości w tak
 Aby dowiedzieć się więcej na temat sygnatury dostępu współdzielonego, zobacz [Używanie sygnatur dostępu współdzielonego](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 ## <a name="use-role-based-access-control"></a>Korzystanie z kontroli dostępu opartej na rolach
-Innym sposobem zarządzania dostępem jest użycie [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) (RBAC). Dzięki RBAC można skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień w oparciu o konieczność znajomości i najniższych zasad zabezpieczeń. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. Kontrola RBAC pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem na platformie Azure. Jest to konieczne w przypadku organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych.
+Innym sposobem zarządzania dostępem jest użycie [kontroli dostępu opartej na rolach (Azure RBAC)](/azure/role-based-access-control/overview). Dzięki RBAC można skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień w oparciu o konieczność znajomości i najniższych zasad zabezpieczeń. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. Kontrola RBAC pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem na platformie Azure. Jest to konieczne w przypadku organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych.
 
 Do przypisywania uprawnień użytkownikom można używać wbudowanych ról platformy Azure na platformie Azure. Na przykład współautor konta magazynu dla operatorów chmury, które muszą zarządzać kontami magazynu i rolą współautor klasycznego konta magazynu, aby zarządzać kontami klasycznego magazynu. W przypadku operatorów chmury, które muszą zarządzać maszynami wirtualnymi, ale nie z siecią wirtualną lub kontem magazynu, z którym są połączone, można je dodać do roli współautor maszyny wirtualnej.
 
@@ -65,7 +65,7 @@ Organizacje, które nie wymuszają kontroli dostępu do danych za pomocą funkcj
 Aby dowiedzieć się więcej na temat RBAC, zobacz:
 
 - [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](/azure/role-based-access-control/role-assignments-portal)
-- [Wbudowane role platformy Azure](/azure/role-based-access-control/built-in-roles)
+- [Role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide) (Przewodnik po zabezpieczeniach usługi Azure Storage) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Korzystanie z szyfrowania po stronie klienta dla danych o wysokiej wartości

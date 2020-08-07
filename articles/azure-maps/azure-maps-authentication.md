@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285836"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922255"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
 
@@ -80,7 +80,7 @@ Informacje o wyświetlaniu identyfikatora klienta znajdują się w temacie [Wyś
 
 ## <a name="authorization-with-role-based-access-control"></a>Autoryzacja za pomocą kontroli dostępu opartej na rolach
 
-Azure Maps obsługuje dostęp do wszystkich typów podmiotów dla [kontroli dostępu opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview) na platformie Azure, w tym: indywidualnych użytkowników, grup, aplikacji, zasobów platformy Azure AD i tożsamości zarządzanych przez platformę Azure. Typy główne mają przyznany zestaw uprawnień, nazywany także definicją roli. Definicja roli zapewnia uprawnienia do akcji interfejsu API REST. Stosowanie dostępu do co najmniej jednego konta Azure Maps jest znane jako zakres. W przypadku stosowania podmiotu zabezpieczeń, definicji roli i zakresu zostanie utworzone przypisanie roli. 
+Azure Maps obsługuje dostęp do wszystkich typów podmiotów dla [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) , w tym: indywidualnych użytkowników, grup, aplikacji platformy Azure AD i tożsamości zarządzanych przez platformę Azure. Typy główne mają przyznany zestaw uprawnień, nazywany także definicją roli. Definicja roli zapewnia uprawnienia do akcji interfejsu API REST. Stosowanie dostępu do co najmniej jednego konta Azure Maps jest znane jako zakres. W przypadku stosowania podmiotu zabezpieczeń, definicji roli i zakresu zostanie utworzone przypisanie roli. 
 
 W następnych sekcjach omówiono koncepcje i składniki Azure Maps integracji z kontrolą dostępu opartą na rolach usługi Azure AD. W ramach procesu konfigurowania konta Azure Maps katalog usługi Azure AD jest skojarzony z subskrypcją platformy Azure, w której znajduje się konto Azure Maps. 
 

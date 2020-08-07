@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 125b70b389809c576d17d1c8de35290c1c402c4a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852892"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927242"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal
 
@@ -133,7 +133,7 @@ Aby utworzyć regułę modułu równoważenia obciążenia:
 
 ## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
 
-W tej sekcji utworzysz usługę link prywatny za usługą równoważenia obciążenia w warstwie Standardowa.
+W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
 1. W lewym górnym rogu strony w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatne centrum linków (wersja zapoznawcza)**. Możesz również użyć pola wyszukiwania portalu, aby wyszukać link prywatny.
 
@@ -171,9 +171,9 @@ W tej sekcji utworzysz usługę link prywatny za usługą równoważenia obcią�
 
 1. Przejrzyj informacje, a następnie wybierz pozycję **Utwórz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy skończysz korzystać z usługi link prywatny, Usuń grupę zasobów, aby wyczyścić zasoby używane w tym przewodniku Szybki Start.
+Po zakończeniu korzystania z usługi link prywatny Usuń grupę zasobów, aby wyczyścić zasoby używane w tym przewodniku Szybki Start.
 
 1. Wprowadź **myResourceGroupLB** w polu wyszukiwania w górnej części portalu, a następnie wybierz pozycję **myResourceGroupLB** w wynikach wyszukiwania.
 1. Wybierz pozycję **Usuń grupę zasobów**.

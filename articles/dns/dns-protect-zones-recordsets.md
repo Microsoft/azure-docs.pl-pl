@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131535"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920504"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Jak chronić strefy i rekordy DNS
 
@@ -20,7 +20,7 @@ ms.locfileid: "87131535"
 
 Strefy i rekordy DNS są istotnymi zasobami. Usunięcie strefy DNS lub pojedynczego rekordu DNS może spowodować awarię usługi. Należy pamiętać, że strefy i rekordy DNS są chronione przed nieautoryzowanymi lub przypadkowymi zmianami.
 
-W tym artykule wyjaśniono, jak Azure DNS umożliwia ochronę prywatnych stref DNS i rekordów przed takimi zmianami.  Stosujemy dwie zaawansowane funkcje zabezpieczeń zapewniane przez Azure Resource Manager: [kontroli dostępu opartej na rolach](../role-based-access-control/overview.md) i [blokad zasobów](../azure-resource-manager/management/lock-resources.md).
+W tym artykule wyjaśniono, jak Azure DNS umożliwia ochronę prywatnych stref DNS i rekordów przed takimi zmianami.  Stosujemy dwie zaawansowane funkcje zabezpieczeń zapewniane przez Azure Resource Manager: [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) i [blokady zasobów](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 

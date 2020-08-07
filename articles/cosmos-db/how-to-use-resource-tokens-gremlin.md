@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211dce8a2810d9eb07bf0f388753afd50add4945
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263565"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87919960"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
 
@@ -102,5 +102,5 @@ Za pomocą jednego konta Gremlin można wydać nieograniczoną liczbę tokenów.
 Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()*, *. addE ()*, *. Drop ()*, lub *. Property ()*.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kontrola dostępu oparta na rolach](role-based-access-control.md) w Azure Cosmos DB
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](role-based-access-control.md) w Azure Cosmos DB
 * [Dowiedz się, jak zabezpieczyć dostęp do danych](secure-access-to-data.md) w Azure Cosmos DB

@@ -4,12 +4,12 @@ description: Zalecenia dotyczące zabezpieczania obrazów i wpisów tajnych Azur
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907027"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922238"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Zagadnienia dotyczące zabezpieczeń Azure Container Instances
 
@@ -40,7 +40,7 @@ Rozwiązania do monitorowania zabezpieczeń i skanowania obrazów, takie jak [za
 
 ### <a name="protect-credentials"></a>Ochrona poświadczeń
 
-Kontenery mogą być rozłożone między kilka klastrów i regionów świadczenia usługi Azure. W związku z tym należy zabezpieczyć poświadczenia wymagane do logowania lub dostępu do interfejsu API, takie jak hasła lub tokeny. Upewnij się, że tylko użytkownicy uprzywilejowani mogą uzyskiwać dostęp do tych kontenerów podczas przesyłania i przechowywania. Wszystkie wpisy tajne poświadczeń, a następnie wymagają, aby deweloperzy korzystali z nowych narzędzi do zarządzania kluczami tajnymi, które są przeznaczone dla platform kontenerów.  Upewnij się, że Twoje rozwiązanie obejmuje zaszyfrowane bazy danych, szyfrowanie TLS dla danych tajnych w tranzycie oraz [kontrolę dostępu opartą na rolach](../role-based-access-control/overview.md)najniższymi uprawnieniami. [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne (takie jak certyfikaty, parametry połączeń i hasła) dla aplikacji kontenerowych. Ponieważ te dane są poufne i mają krytyczne znaczenie dla działania firmy, bezpieczny dostęp do magazynów kluczy, tak aby tylko autoryzowane aplikacje i użytkownicy mieli do nich dostęp.
+Kontenery mogą być rozłożone między kilka klastrów i regionów świadczenia usługi Azure. W związku z tym należy zabezpieczyć poświadczenia wymagane do logowania lub dostępu do interfejsu API, takie jak hasła lub tokeny. Upewnij się, że tylko użytkownicy uprzywilejowani mogą uzyskiwać dostęp do tych kontenerów podczas przesyłania i przechowywania. Wszystkie wpisy tajne poświadczeń, a następnie wymagają, aby deweloperzy korzystali z nowych narzędzi do zarządzania kluczami tajnymi, które są przeznaczone dla platform kontenerów.  Upewnij się, że rozwiązanie obejmuje zaszyfrowane bazy danych, szyfrowanie TLS w celu przesyłania danych tajnych oraz najniższy poziom [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne (takie jak certyfikaty, parametry połączeń i hasła) dla aplikacji kontenerowych. Ponieważ te dane są poufne i mają krytyczne znaczenie dla działania firmy, bezpieczny dostęp do magazynów kluczy, tak aby tylko autoryzowane aplikacje i użytkownicy mieli do nich dostęp.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Zagadnienia dotyczące ekosystemu kontenerów
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042887"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926403"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Szczegółowe informacje o wydajności zapytań Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Szczegółowe informacje o wydajności zapytań wymaga, aby [Magazyn zapytań](h
 
 ## <a name="permissions"></a>Uprawnienia
 
-Do korzystania z Szczegółowe informacje o wydajności zapytań są wymagane następujące uprawnienia [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) :
+Do korzystania z Szczegółowe informacje o wydajności zapytań potrzebne są następujące uprawnienia [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) :
 
 * Aby wyświetlić najpopularniejsze zapytania i wykresy, wymagane są uprawnienia **czytelnika**, **właściciel**, **współautor**, współautor **bazy danych SQL**lub **SQL Server współautor** .
 * Do wyświetlania tekstu zapytania wymagane są uprawnienia **właściciel**, **współautor**, **współautor bazy danych SQL**lub współautor **SQL Server** .

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/03/2020
-ms.openlocfilehash: de1e00d92661c3768efa49e5809751bf4f2327d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61d08426ca11f219e0bea6f3095a6849a04db4df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267872"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925978"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Usługi i narzędzia dostępne dla scenariuszy migracji danych
 
@@ -29,7 +29,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 
 ## <a name="business-justification-phase"></a>Faza uzasadnienia biznesowego
 
-| Element źródłowy | Środowisko docelowe | Odnajdywanie<br/>Zapasy | Cel i jednostka SKU<br/>zaleca | TCO/zwrot z inwestycji i<br/>Przypadek biznesowy |
+| Element źródłowy | Cel | Odnajdywanie<br/>Stan zapasów | Cel i jednostka SKU<br/>zaleca | TCO/zwrot z inwestycji i<br/>Przypadek biznesowy |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [Zestaw narzędzi mapy](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize](https://www.cloudamize.com/) | [Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) | [Kalkulator TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
  SQL Server | Baza danych Azure SQL | [Zestaw narzędzi mapy](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize](https://www.cloudamize.com/) | [Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) | [Kalkulator TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -54,7 +54,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 
 ## <a name="pre-migration-phase"></a>Faza przed migracją
 
-| Element źródłowy | Środowisko docelowe | Dostęp do danych aplikacji<br/>Ocena warstwy | baza danych<br/>Ocena | Wydajność<br/>Ocena |
+| Element źródłowy | Cel | Dostęp do danych aplikacji<br/>Ocena warstwy | baza danych<br/>Ocena | Wydajność<br/>Ocena |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [Dostęp DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize](https://www.cloudamize.com/) |
 | SQL Server | Baza danych Azure SQL | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [Dostęp DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize](https://www.cloudamize.com/) |
@@ -79,7 +79,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 
 ## <a name="migration-phase"></a>Faza migracji
 
-| Element źródłowy | Środowisko docelowe | Schemat | Dane<br/>Stanie | Dane<br/>Sieci |
+| Element źródłowy | Cel | Schemat | Dane<br/>Stanie | Dane<br/>Sieci |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | Baza danych Azure SQL | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -89,8 +89,8 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 | Oracle | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | MAGAZYN DANYCH SQL | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | Azure DB dla PostgreSQL —<br/>Pojedynczy serwer | [Ispirer*](https://www.ispirer.com/solutions) | [Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/) |
-| MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Cassandra | Cosmos DB | [Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Dane Imanis *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
+| MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize](https://www.cloudamize.com/)<br/>[Dane Imanis *](https://www.imanisdata.com/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| Cassandra | Cosmos DB | [Dane Imanis *](https://www.imanisdata.com/) | [Dane Imanis *](https://www.imanisdata.com/) | [Dane Imanis *](https://www.imanisdata.com/) |
 | MySQL | Baza danych Azure SQL, MI, maszyna wirtualna | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [ASYSTENCIE migracji](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | Azure DB dla MySQL | [Zrzut MySQL *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS MySQL | Azure DB dla MySQL | [Zrzut MySQL *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -104,7 +104,7 @@ W poniższych tabelach zidentyfikowano usługi i narzędzia, których można uż
 
 ## <a name="post-migration-phase"></a>Faza po migracji
 
-| Element źródłowy | Środowisko docelowe | Optymalizacja |
+| Element źródłowy | Cel | Optymalizacja |
 | --- | --- | --- |
 | SQL Server | Azure SQL DB | [Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) |
 | SQL Server | Baza danych Azure SQL | [Atlas w chmurze *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize](https://www.cloudamize.com/) |

@@ -3,16 +3,16 @@ title: Uprawnienia w Azure Advisor
 description: Uprawnienia usługi Advisor oraz sposób, w jaki mogą blokować możliwość konfigurowania subskrypcji lub odroczenia lub odrzucania zaleceń.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057593"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927389"
 ---
 # <a name="permissions-in-azure-advisor"></a>Uprawnienia w Azure Advisor
 
-Azure Advisor zapewnia zalecenia na podstawie użycia i konfiguracji zasobów i subskrypcji platformy Azure. W usłudze Advisor są używane [wbudowane role](../role-based-access-control/built-in-roles.md) udostępniane przez [Access Control oparte na rolach](../role-based-access-control/overview.md) (RBAC) w celu zarządzania dostępem do zaleceń i funkcji usługi Advisor. 
+Azure Advisor zapewnia zalecenia na podstawie użycia i konfiguracji zasobów i subskrypcji platformy Azure. Usługa Advisor korzysta z [wbudowanych ról](../role-based-access-control/built-in-roles.md) udostępnianych przez funkcję [kontroli dostępu opartej na ROLACH (Azure RBAC)](../role-based-access-control/overview.md) w celu zarządzania dostępem do zaleceń i funkcji usługi Advisor. 
 
 ## <a name="roles-and-their-access"></a>Role i ich dostęp
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Używanie GitOps z Helm dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, ARC, AKS, usługa Azure Kubernetes, kontenery
-ms.openlocfilehash: f6a30dd66ccf476da0293bdebf9054b6781a6bf6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44803338a27fc492f4dc896a0edb398b2ce486ea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049937"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926131"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie wykresów Helm przy użyciu GitOps na łuku z włączoną obsługą klastra Kubernetes (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Helm to narzędzie do tworzenia pakietów typu "open source", które ułatwia In
 
 W tym artykule opisano sposób konfigurowania i używania Helm z usługą Azure ARC z włączonym Kubernetes.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący Kubernetes połączony klaster usługi Azure Arc. Jeśli potrzebny jest podłączony klaster, zobacz temat [łączenie się z klastrem szybki start](./connect-cluster.md).
 
@@ -156,7 +156,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="validate-application"></a>Weryfikuj aplikację
 
-Uruchom następujące polecenie i przejdź do lokalizacji [localhost: 3000](http://localhost:3000) w przeglądarce, aby sprawdzić, czy aplikacja jest uruchomiona.
+Uruchom następujące polecenie i przejdź do `localhost:3000` przeglądarki, aby sprawdzić, czy aplikacja jest uruchomiona.
 
 ```bash
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80

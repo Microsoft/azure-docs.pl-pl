@@ -3,12 +3,12 @@ title: Opcje uwierzytelniania rejestru
 description: Opcje uwierzytelniania dla prywatnego rejestru kontenerów platformy Azure, w tym logowanie za pomocą tożsamości Azure Active Directory, korzystanie z jednostek usługi i używanie opcjonalnych poświadczeń administratora.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760587"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926324"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Uwierzytelnianie przy użyciu usługi Azure Container Registry
 
@@ -44,7 +44,7 @@ Gdy logujesz się za pomocą `az acr login` programu, interfejs wiersza poleceni
 
 W przypadku dostępu do rejestru token używany przez program `az acr login` jest ważny przez **3 godziny**, dlatego zalecamy, aby zawsze logować się do rejestru przed uruchomieniem `docker` polecenia. Jeśli token wygaśnie, możesz go odświeżyć za pomocą `az acr login` polecenia ponownie, aby przeprowadzić ponowną próbę uwierzytelnienia. 
 
-Używanie `az acr login` z tożsamościami platformy Azure zapewnia [dostęp oparty na rolach](../role-based-access-control/role-assignments-portal.md). W przypadku niektórych scenariuszy możesz zalogować się do rejestru przy użyciu własnej tożsamości w usłudze Azure AD lub skonfigurować innych użytkowników platformy Azure z określonymi [rolami i uprawnieniami RBAC](container-registry-roles.md). W przypadku scenariuszy obejmujących wiele usług lub do obsługi potrzeb grupy roboczej lub przepływu pracy programistycznej, w której nie chcesz zarządzać indywidualnym dostępem, możesz także zalogować się przy użyciu [tożsamości zarządzanej dla zasobów platformy Azure](container-registry-authentication-managed-identity.md).
+Używanie `az acr login` z tożsamościami platformy Azure zapewnia [kontrolę dostępu opartą na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). W przypadku niektórych scenariuszy możesz zalogować się do rejestru przy użyciu własnej tożsamości w usłudze Azure AD lub skonfigurować innych użytkowników platformy Azure z określonymi [rolami i uprawnieniami platformy Azure](container-registry-roles.md). W przypadku scenariuszy obejmujących wiele usług lub do obsługi potrzeb grupy roboczej lub przepływu pracy programistycznej, w której nie chcesz zarządzać indywidualnym dostępem, możesz także zalogować się przy użyciu [tożsamości zarządzanej dla zasobów platformy Azure](container-registry-authentication-managed-identity.md).
 
 ### <a name="az-acr-login-with---expose-token"></a>AZ ACR login with--uwidacznia-token
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Jednostka usługi
 
-Jeśli przypiszesz jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md) do rejestru, aplikacja lub usługa może jej używać do bezobsługowego uwierzytelniania. Jednostki usług umożliwiają [dostęp oparty na rolach](../role-based-access-control/role-assignments-portal.md) do rejestru i można przypisać wiele jednostek usługi do rejestru. Wiele jednostek usługi pozwala definiować różne prawa dostępu dla różnych aplikacji.
+Jeśli przypiszesz jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md) do rejestru, aplikacja lub usługa może jej używać do bezobsługowego uwierzytelniania. Jednostki usługi umożliwiają [kontrolę dostępu opartą na rolach na platformie Azure (RBAC)](../role-based-access-control/role-assignments-portal.md) do rejestru i można przypisać wiele jednostek usługi do rejestru. Wiele jednostek usługi pozwala definiować różne prawa dostępu dla różnych aplikacji.
 
 Dostępne role dla rejestru kontenerów obejmują:
 
@@ -97,7 +97,7 @@ Konto administratora jest obecnie wymagane w niektórych scenariuszach do wdroż
 > Konto administratora jest przeznaczone dla jednego użytkownika, aby uzyskać dostęp do rejestru, głównie do celów testowych. Nie zaleca się udostępniania poświadczeń konta administratora między wieloma użytkownikami. Wszyscy użytkownicy uwierzytelniani przy użyciu konta administratora są wyświetlani jako pojedynczy użytkownik z dostępem wypychanym i ściąganiem do rejestru. Zmiana lub wyłączenie tego konta powoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników korzystających z jego poświadczeń. Indywidualna tożsamość jest zalecana dla użytkowników i jednostek usługi dla scenariuszy bezobsługowych.
 >
 
-Konto administratora jest dostarczane z dwoma hasłami, które mogą być ponownie generowane. Dwa hasła umożliwiają zachowanie połączenia z rejestrem przy użyciu jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, można przekazać nazwę użytkownika i hasło do `docker login` polecenia po wyświetleniu monitu o uwierzytelnienie podstawowe w rejestrze. Na przykład:
+Konto administratora jest dostarczane z dwoma hasłami, które mogą być ponownie generowane. Dwa hasła umożliwiają zachowanie połączenia z rejestrem przy użyciu jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, można przekazać nazwę użytkownika i hasło do `docker login` polecenia po wyświetleniu monitu o uwierzytelnienie podstawowe w rejestrze. Przykład:
 
 ```
 docker login myregistry.azurecr.io 

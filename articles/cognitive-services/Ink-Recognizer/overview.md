@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448151"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927457"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Co to jest interfejs API rozpoznawania pisma odręcznego?
 
@@ -28,7 +28,7 @@ Usługa poznawczego rozpoznawania pisma odręcznego zapewnia oparty na chmurze i
 
 Za pomocą interfejsu API rozpoznawania pisma odręcznego można łatwo rozpoznać zawartość odręczną w aplikacjach. 
 
-|Funkcja  |Opis  |
+|Cechy  |Opis  |
 |---------|---------|
 | Rozpoznawanie pisma ręcznego | Rozpoznawanie zawartości napisanej ręcznie w [językach 63 i lokalnych](language-support.md). | 
 | Rozpoznawanie układu | Uzyskaj informacje strukturalne na temat zawartości cyfrowego atramentu. Podziel zawartość na pisanie regionów, akapitów, linii, wyrazów, list punktowanych. Aplikacje mogą następnie używać informacji o układzie do tworzenia dodatkowych funkcji, takich jak automatyczne formatowanie listy i wyrównania kształtu. |
@@ -43,14 +43,14 @@ Interfejs API rozpoznawania atramentu to usługa sieci Web RESTful, ułatwiając
 
 Po zarejestrowaniu:
 
-1. Wypełnij dane pociągnięcia odręcznego i [sformatuj je](concepts/send-ink-data.md#sending-ink-data) w prawidłowym formacie JSON.
+1. Wypełnij dane pociągnięcia odręcznego i [sformatuj je](concepts/send-ink-data.md#sending-ink-data) w prawidłowym formacie JSON. Interfejs API akceptuje do 1500 pociągnięć odręcznych na żądanie. 
 1. Wyślij żądanie do interfejsu API rozpoznawania pisma odręcznego z danymi.
 1. Przetwórz odpowiedź interfejsu API, analizując zwrócony komunikat JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Wypróbuj szybki start w następujących językach, aby rozpocząć wywoływanie interfejsu API rozpoznawania pisma odręcznego.
-* [S #](quickstarts/csharp.md)
+* [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
 * [JavaScript](quickstarts/javascript.md)
 

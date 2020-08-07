@@ -10,15 +10,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532530"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920147"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+Replikacja transakcyjna umożliwia replikowanie danych z jednej bazy danych do innej hostowanej na SQL Server lub [wystąpieniu zarządzanym usługi Azure SQL](sql-managed-instance-paas-overview.md). Wystąpienie zarządzane SQL może być wydawcą, dystrybutorem lub subskrybentem w topologii replikacji. Zobacz [konfiguracje replikacji transakcyjnej](replication-transactional-overview.md#common-configurations) dla dostępnych konfiguracji. 
+
+Replikacja transakcyjna jest obecnie dostępna w publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -30,11 +34,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ![Replikacja między wydawcą wystąpienia zarządzanego, dystrybutorem wystąpienia zarządzanego i subskrybentem SQL Server](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Ten samouczek jest przeznaczony dla doświadczonych odbiorców i zakłada, że użytkownik zna wdrażanie i nawiązywanie połączenia z zarówno wystąpieniami zarządzanymi, jak i SQL Server maszynami wirtualnymi na platformie Azure. W związku z tym niektóre kroki tego samouczka są w sposób błyszczący.
+Ten samouczek jest przeznaczony dla doświadczonych odbiorców i zakłada, że użytkownik zna wdrażanie i nawiązywanie połączenia z zarówno wystąpieniami zarządzanymi, jak i SQL Server maszynami wirtualnymi na platformie Azure. 
 
-Aby dowiedzieć się więcej, zobacz [Omówienie wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md) i artykuły dotyczące [replikacji transakcyjnej SQL](replication-transactional-overview.md) .
 
-Aby skonfigurować replikację między wydawcą wystąpienia zarządzanego i subskrybentem wystąpienia zarządzanego, zobacz [Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi](replication-between-two-instances-configure-tutorial.md).
+> [!NOTE]
+> W tym artykule opisano sposób korzystania z [replikacji transakcyjnej](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) w wystąpieniu zarządzanym usługi Azure SQL. Nie jest on związany z [grupami trybu failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), funkcja wystąpienia zarządzanego Azure SQL, która umożliwia tworzenie kompletnych możliwych do odczytu replik poszczególnych wystąpień. Podczas konfigurowania [replikacji transakcyjnej przy użyciu grup trybu failover](replication-transactional-overview.md#with-failover-groups)należy uwzględnić dodatkowe zagadnienia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -142,7 +146,7 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
 ### <a name="create-a-private-dns-zone"></a>Tworzenie prywatnej strefy DNS
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Utwórz zasób** , aby utworzyć nowy zasób platformy Azure.
 1. Wyszukaj `private dns zone` w witrynie Azure Marketplace.
 1. Wybierz zasób **strefy prywatna strefa DNS** Opublikowany przez firmę Microsoft, a następnie wybierz pozycję **Utwórz** , aby utworzyć strefę DNS.

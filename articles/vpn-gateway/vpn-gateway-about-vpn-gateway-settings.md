@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: ustawienia konfiguracji'
-description: Dowiedz się więcej o VPN Gateway ustawieniach dla bram sieci wirtualnej platformy Azure.
+description: Dowiedz się więcej o konfigurowaniu połączenia bramy sieci VPN na platformie Azure, które opiera się na wielu zasobach, z których każdy zawiera konfigurowalne ustawienia.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708148"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926930"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
 
@@ -169,7 +169,7 @@ Czasami trzeba zmodyfikować ustawienia bramy sieci lokalnej. Na przykład po do
 
 Aby uzyskać dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST, poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla konfiguracji VPN Gateway, zobacz następujące strony:
 
-| **Klasyczny** | **Resource Manager** |
+| **Motyw** | **Resource Manager** |
 | --- | --- |
 | [Program PowerShell](/powershell/module/az.network/#networking) |[Program PowerShell](/powershell/module/az.network#vpn) |
 | [Interfejs API REST](https://msdn.microsoft.com/library/jj154113) |[Interfejs API REST](/rest/api/network/virtualnetworkgateways) |

@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: Włączanie dzienników diagnostycznych
           href: troubleshoot-diagnostics.md
+        - name: Włączanie alertów
+          href: troubleshoot-alerts.md
         - name: Znane problemy
           href: troubleshoot-known-issues.md
         - name: Rozwiązywanie problemów

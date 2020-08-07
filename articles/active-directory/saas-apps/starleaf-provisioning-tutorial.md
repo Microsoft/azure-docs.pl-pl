@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064295"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920691"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie StarLeaf na potrzeby automatycznego aprowizacji użytkowników
 
@@ -36,7 +36,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w S
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD.
-* [Dzierżawa StarLeaf](https://www.starleaf.com/solutions/).
+* [Dzierżawa StarLeaf](https://starleaf.com/).
 * Konto użytkownika w StarLeaf z uprawnieniami administratora.
 
 ## <a name="assign-users-to-starleaf"></a>Przypisywanie użytkowników do StarLeaf

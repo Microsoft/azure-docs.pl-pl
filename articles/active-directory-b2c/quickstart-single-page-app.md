@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875889"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921762"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Szybki start: konfigurowanie logowania dla aplikacji jednostronicowej przy użyciu usługi Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Azure Active Directory B2C (Azure AD B2C) umożliwia zarządzanie tożsamościam
     npm start
     ```
 
-    Serwer uruchomiony przez *serwer. js* wyświetla port, na którym nasłuchuje:
+    Serwer uruchomiony przez *server.js* wyświetla port, na którym nasłuchuje:
 
     ```console
     Listening on port 6420...
@@ -75,6 +75,10 @@ Wybierz pozycję **interfejs API wywołania** , aby nazwa wyświetlana została 
 ![Przykładowa aplikacja w przeglądarce pokazująca odpowiedź interfejsu API sieci Web](./media/quickstart-single-page-app/call-api-spa.png)
 
 Przykładowa aplikacja jednostronicowa dołącza token dostępu do żądania wysłanego do chronionego zasobu internetowego interfejsu API.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli planujesz wypróbować inne przewodniki Szybki start lub samouczki usługi Azure AD B2C, możesz użyć swojej dzierżawy usługi Azure AD B2C. Możesz [usunąć dzierżawę usługi Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant), gdy nie będzie już potrzebna.
 
 ## <a name="next-steps"></a>Następne kroki
 

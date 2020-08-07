@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529980"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926284"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Zabezpieczenia w Azure Data Lake Storage Gen1
 
@@ -39,7 +39,7 @@ Każdą subskrypcję platformy Azure można skojarzyć z wystąpieniem Azure Act
 
 Po Azure Active Directory uwierzytelnia użytkownika, tak aby użytkownik mógł uzyskać dostęp do Data Lake Storage Gen1, autoryzacja kontroluje uprawnienia dostępu do Data Lake Storage Gen1. Data Lake Storage Gen1 oddziela autoryzację dla działań związanych z kontem i danymi w następujący sposób:
 
-* [Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) na potrzeby zarządzania kontami
 * Lista ACL POSIX do uzyskiwania dostępu do danych w sklepie
 
 ### <a name="rbac-for-account-management"></a>RBAC do zarządzania kontami
@@ -50,10 +50,10 @@ Cztery role podstawowe są domyślnie zdefiniowane dla Data Lake Storage Gen1. R
 
 Należy pamiętać, że chociaż role są przypisane do zarządzania kontami, niektóre role mają wpływ na dostęp do danych. Aby kontrolować dostęp do operacji, które użytkownik może wykonywać w systemie plików, należy użyć list ACL. W poniższej tabeli przedstawiono podsumowanie praw zarządzania i praw dostępu do danych dla ról domyślnych.
 
-| Role | Prawa do zarządzania | Prawa dostępu do danych | Wyjaśnienie |
+| Role | Prawa do zarządzania | Prawa dostępu do danych | Objaśnienie |
 | --- | --- | --- | --- |
 | Nie przypisano żadnej roli |Brak |Regulowane przez listę kontroli dostępu |Użytkownik nie może użyć poleceń cmdlet Azure Portal lub Azure PowerShell do przeglądania Data Lake Storage Gen1. Użytkownik może używać tylko narzędzi wiersza polecenia. |
-| Właściciel |Wszystkie |Wszystkie |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
+| Właściciel |Wszyscy |Wszyscy |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
 | Czytelnik |Tylko odczyt |Regulowane przez listę kontroli dostępu |Rola czytelnik może wyświetlać wszystko dotyczące zarządzania kontami, na przykład tego, który użytkownik jest przypisany do danej roli. Rola czytelnik nie może wprowadzać żadnych zmian. |
 | Współautor |Wszystkie z wyjątkiem dodawania i usuwania ról |Regulowane przez listę kontroli dostępu |Rola współautor może zarządzać niektórymi aspektami konta, takimi jak wdrożenia i tworzenie alertów oraz zarządzanie nimi. Rola współautor nie może dodawać ani usuwać ról. |
 | Administrator dostępu użytkowników |Dodawanie i usuwanie ról |Regulowane przez listę kontroli dostępu |Rola Administrator dostępu użytkowników może zarządzać dostępem użytkowników do kont. |

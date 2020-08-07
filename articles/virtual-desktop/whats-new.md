@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7fc1655b94689808eb9855340ef20bb816ad515e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291244"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922544"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -41,7 +41,7 @@ Oto, co to jest ta zmiana:
 
 - Przed tą aktualizacją można publikować tylko usługi RemoteApp i pulpity dla poszczególnych użytkowników. Za pomocą Azure Resource Manager można teraz publikować zasoby w Azure Active Directory grupach.
 
-- Starsza wersja pulpitu wirtualnego systemu Windows ma cztery wbudowane role administracyjne, które można przypisać do dzierżawy lub puli hostów. Role te działają teraz w [kontroli dostępu opartej na rolach](../role-based-access-control/overview.md)platformy Azure. Te role można zastosować do każdego obiektu Azure Resource Manager pulpitu wirtualnego systemu Windows, który umożliwia posiadanie pełnego, rozbudowanego modelu delegowania.
+- Starsza wersja pulpitu wirtualnego systemu Windows ma cztery wbudowane role administracyjne, które można przypisać do dzierżawy lub puli hostów. Role te działają teraz w [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/overview.md). Te role można zastosować do każdego obiektu Azure Resource Manager pulpitu wirtualnego systemu Windows, który umożliwia posiadanie pełnego, rozbudowanego modelu delegowania.
 
 - W ramach tej aktualizacji nie jest już konieczne wielokrotne uruchamianie szablonu Azure Marketplace lub GitHub, aby rozszerzyć pulę hostów. Wystarczy rozszerzyć pulę hostów, aby przejść do puli hostów w Azure Portal i wybrać pozycję **+ Dodaj** , aby wdrożyć dodatkowe hosty sesji.
 

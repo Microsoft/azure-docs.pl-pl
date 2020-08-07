@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609116"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924499"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal
 
@@ -32,7 +32,7 @@ W tym artykule, korzystając z programu PowerShell, dowiesz się, jak wykonywać
 
 - Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zapoznaj się z [sekcją przegląd](overview.md).
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
-- Aby wykonać operacje zarządzania w tym artykule, Twoje konto musi mieć następujące przypisania kontroli dostępu oparte na rolach na platformie Azure:
+- Aby wykonać operacje zarządzania w tym artykule, Twoje konto wymaga następujących przypisań ról platformy Azure:
 
     > [!NOTE]
     > Nie są wymagane żadne dodatkowe przypisania ról w katalogu usługi Azure AD.
@@ -105,5 +105,3 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
 ## <a name="next-steps"></a>Następne kroki
 
 - Korzystając z Azure Portal, nadaj zestawowi skalowania maszyn wirtualnych platformy Azure [dostęp do tożsamości zarządzanej do innego zasobu platformy Azure](howto-assign-access-portal.md).
-
-

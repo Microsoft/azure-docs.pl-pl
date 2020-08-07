@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/06/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e974fb51ac36083e6ed8934afaa7a3e36ab8c08e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533063"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923870"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Dynamiczna zmiana poziomu usługi woluminu
 
@@ -33,8 +33,7 @@ Pula pojemności, do której ma zostać przeniesiony wolumin, musi już istnieć
 
 * Po przeniesieniu woluminu do innej puli pojemności nie będziesz mieć już dostępu do poprzednich dzienników aktywności woluminu i metryk woluminów. Wolumin rozpocznie pracę od nowych dzienników aktywności i metryk w ramach nowej puli pojemności.
 
-* W przypadku przenoszenia woluminu do puli pojemności wyższego poziomu usługi (na przykład przechodzenia z warstwy *standardowa* do *Premium* lub *Ultra* Service Level), należy odczekać co najmniej siedem dni, zanim będzie można ponownie przenieść wolumin do puli pojemności niższego poziomu usługi (na przykład przechodzenie od wersji *Ultra* do *Premium* lub *Standard*).  
-Ten okres oczekiwania nie ma zastosowania, Jeśli przenosisz wolumin do puli pojemności, która ma ten sam poziom usług lub niższy poziom usług.
+* W przypadku przenoszenia woluminu do puli pojemności wyższego poziomu usługi (na przykład przechodzenia z warstwy *standardowa* do *Premium* lub *Ultra* Service Level) należy odczekać co najmniej siedem dni, zanim będzie można *ponownie* przenieść ten wolumin do puli pojemności niższego poziomu usługi (na przykład przechodzenie między *wersjami*od *Ultra* do *Premium* lub standard).  
 
 ## <a name="register-the-feature"></a>Rejestrowanie funkcji
 

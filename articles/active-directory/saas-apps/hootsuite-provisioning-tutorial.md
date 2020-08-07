@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1adbb0961ab610db936107f2fff210f4acecf2ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c31aabb57a9e1f4b29f535271691e17ea4f8559
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83883100"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924108"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie HootSuite na potrzeby automatycznego aprowizacji użytkowników
 
@@ -106,14 +106,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |aktywne|Boolean|
-   |displayName|String|
-   |preferredLanguage|String|
-   |TimeZone|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: organizationIds|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: teamIds|String|
+   |userName|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |aktywne|Wartość logiczna|
+   |displayName|Ciąg|
+   |preferredLanguage|Ciąg|
+   |TimeZone|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: organizationIds|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: teamIds|Ciąg|
 
 10. Aby włączyć usługę Azure AD Provisioning dla HootSuite, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
@@ -133,7 +133,7 @@ Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
 * Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 

@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503535"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927168"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (RBAC)
 
@@ -43,7 +43,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 
 | **Typ zasobu** | **Model wdrażania** | **Uprawnienie** |
 | --- | --- | --- |
-| Wystąpienia obliczeniowe | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
+| Compute | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Write |
 |  |  | Microsoft. COMPUTE/virtualMachines/Delete |
@@ -53,7 +53,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 |  |  | Microsoft. ClassicCompute/virtualMachines/odczyt |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Write |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Delete |
-| Sieć | Resource Manager | Microsoft. Network/networkInterfaces/odczyt |
+| Network | Resource Manager | Microsoft. Network/networkInterfaces/odczyt |
 |  |  | Microsoft. Network/networkInterfaces/Write |
 |  |  | Microsoft. Network/networkInterfaces/Delete |
 |  |  | Microsoft. Network/networkInterfaces/Join/Action |
@@ -72,7 +72,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 Rozważ użycie [wbudowanych ról](../role-based-access-control/built-in-roles.md) "Współautor maszyny wirtualnej" i "Współautor klasycznej maszyny wirtualnej" dla Menedżer zasobów i klasycznych modeli wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Access Control oparte na rolach](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli RBAC w Azure Portal.
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli rbac w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:
   * [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)

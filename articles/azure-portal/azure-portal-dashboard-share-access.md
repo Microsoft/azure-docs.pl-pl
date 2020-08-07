@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131705"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923887"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu kontroli dostępu opartej na rolach
 
-Po skonfigurowaniu pulpitu nawigacyjnego można go opublikować i udostępnić innym użytkownikom w organizacji. Możesz umożliwić innym osobom wyświetlanie pulpitu nawigacyjnego za pomocą [Access Control opartego na rolach](../role-based-access-control/role-assignments-portal.md) (RBAC) na platformie Azure. Przypisz użytkownika lub grupę użytkowników do roli. Ta rola określa, czy użytkownicy mogą wyświetlać i modyfikować opublikowane pulpity nawigacyjne.
+Po skonfigurowaniu pulpitu nawigacyjnego można go opublikować i udostępnić innym użytkownikom w organizacji. Możesz zezwolić innym osobom na wyświetlanie pulpitu nawigacyjnego za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Przypisz użytkownika lub grupę użytkowników do roli. Ta rola określa, czy użytkownicy mogą wyświetlać i modyfikować opublikowane pulpity nawigacyjne.
 
 Wszystkie opublikowane pulpity nawigacyjne są implementowane jako zasoby platformy Azure. Istnieją one jako elementy do zarządzania w ramach subskrypcji i są zawarte w grupie zasobów. Z perspektywy kontroli dostępu pulpity nawigacyjne nie różnią się od innych zasobów, takich jak maszyna wirtualna lub konto magazynu.
 

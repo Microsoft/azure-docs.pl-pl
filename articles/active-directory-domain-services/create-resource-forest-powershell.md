@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505772"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922000"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Utwórz Las zasobów Azure Active Directory Domain Services i zaufanie lasu wychodzącego do domeny lokalnej przy użyciu Azure PowerShell
 
@@ -148,8 +148,8 @@ Przed rozpoczęciem upewnij się, że rozumiesz [zagadnienia i zalecenia dotycz�
 
 1. Utwórz połączenie hybrydowe z siecią lokalną na platformie Azure przy użyciu połączenia sieci VPN platformy Azure lub usługi Azure ExpressRoute. Konfiguracja sieci hybrydowej znajduje się poza zakresem tej dokumentacji i może już istnieć w Twoim środowisku. Aby uzyskać szczegółowe informacje dotyczące konkretnych scenariuszy, zobacz następujące artykuły:
 
-    * [Sieć VPN typu lokacja-lokacja](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Omówienie usługi Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Sieć VPN typu lokacja-lokacja](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Omówienie usługi Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Jeśli połączenie zostanie utworzone bezpośrednio do sieci wirtualnej domeny zarządzanej, należy użyć oddzielnej podsieci bramy. Nie należy tworzyć bramy w podsieci domeny zarządzanej.

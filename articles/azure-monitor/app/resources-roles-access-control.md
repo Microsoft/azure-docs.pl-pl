@@ -3,16 +3,16 @@ title: Zasoby, role i kontrola dostępu na platformie Azure Application Insights
 description: Właściciele, współautorzy i czytelnicy w sprawie wglądu w dane organizacji.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325699"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926505"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Zasoby, role i kontrola dostępu w Application Insights
 
-Za pomocą [kontroli dostępu opartej na rolach w Microsoft Azure](../../role-based-access-control/role-assignments-portal.md)można kontrolować, kto ma dostęp do danych w usłudze Azure [Application Insights][start].
+Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)można kontrolować, kto ma uprawnienia do odczytu i aktualizowania danych w usłudze Azure [Application Insights][start].
 
 > [!IMPORTANT]
 > Przypisz dostęp do użytkowników w **grupie zasobów lub subskrypcji** , do której należy zasób aplikacji, a nie z samego zasobu. Przypisz rolę **współautora składnika Application Insights** . Zapewnia to jednolitą kontrolę dostępu do testów i alertów sieci Web wraz z zasobem aplikacji. [Dowiedz się więcej](#access).
@@ -101,7 +101,7 @@ Jeśli użytkownik, którego potrzebujesz, nie znajduje się w katalogu, możesz
 
 ## <a name="related-content"></a>Zawartość pokrewna
 
-* [Kontrola dostępu oparta na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Zapytanie programu PowerShell w celu określenia przynależności do roli
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: wymagania kryptograficzne'
-description: W tym artykule omówiono wymagania kryptograficzne i bramy sieci VPN platformy Azure
+description: Dowiedz się, jak skonfigurować bramy sieci VPN platformy Azure w celu spełnienia wymagań kryptograficznych dla wielu lokalizacji tuneli VPN S2S i połączeń między sieciami wirtualnymi w ramach platformy Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b591baa3fd942eb46cc7351a15c8849c44fe0d12
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75902823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926965"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje
 

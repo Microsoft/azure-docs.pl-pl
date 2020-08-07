@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003221"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926709"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Wykonaj pakiet SSIS w usłudze Azure Data Factory
 
@@ -97,7 +97,7 @@ Na karcie **Ustawienia** działania wykonaj pakiet SSIS wykonaj następujące cz
 
 **SSISDB** jako lokalizację pakietu jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez Azure SQL Database Server/Managed instance lub można wybrać ją samodzielnie. Jeśli jest wybrana, wykonaj następujące czynności.
 
-   1. Jeśli Azure-SSIS IR jest uruchomiona, a pole wyboru **wpisy ręczne** jest wyczyszczone, Przeglądaj i wybierz istniejące foldery, projekty, pakiety i środowiska z SSISDB. Wybierz pozycję **Odśwież** , aby pobrać nowo dodane foldery, projekty, pakiety lub środowiska z SSISDB, aby były dostępne do przeglądania i wyboru. Aby przeglądać i wybierać środowiska dla wykonań pakietów, musisz wcześniej skonfigurować projekty, aby dodać te środowiska jako odwołania z tych samych folderów w obszarze SSISDB. Aby uzyskać więcej informacji, zobacz [Tworzenie i mapowanie środowisk SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Jeśli Azure-SSIS IR jest uruchomiona, a pole wyboru **wpisy ręczne** jest wyczyszczone, Przeglądaj i wybierz istniejące foldery, projekty, pakiety i środowiska z SSISDB. Wybierz pozycję **Odśwież** , aby pobrać nowo dodane foldery, projekty, pakiety lub środowiska z SSISDB, aby były dostępne do przeglądania i wyboru. Aby przeglądać i wybierać środowiska dla wykonań pakietów, musisz wcześniej skonfigurować projekty, aby dodać te środowiska jako odwołania z tych samych folderów w obszarze SSISDB. Aby uzyskać więcej informacji, zobacz [Tworzenie i mapowanie środowisk SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. W obszarze **poziom rejestrowania**Wybierz wstępnie zdefiniowany zakres rejestrowania dla wykonywania pakietu. Zaznacz pole wyboru **dostosowany** , jeśli chcesz wprowadzić zamiast niej dostosowanej nazwy rejestrowania. 
 
@@ -269,7 +269,7 @@ Na karcie **Zastępowanie właściwości** działania wykonaj pakiet SSIS wykona
 
    1. Wprowadź ścieżki istniejących właściwości w wybranym pakiecie po jednym przez jedną, aby ręcznie przypisać do nich wartości. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: `\Package.Variables[User::<variable name>].Value` . 
 
-      Możesz uzyskać poprawną **ścieżkę właściwości** dla dowolnej właściwości pakietu, otwierając pakiet, który zawiera go w SSDT. Po otwarciu pakietu zaznacz właściwość przepływ sterowania i **konfiguracje** w oknie **Właściwości** SSDT. Następnie wybierz przycisk wielokropka (**...**) obok właściwości **konfiguracje** , aby otworzyć **organizatora konfiguracje pakietów** , która jest zwykle używana do [tworzenia konfiguracji pakietów w modelu wdrażania pakietów](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      Możesz uzyskać poprawną **ścieżkę właściwości** dla dowolnej właściwości pakietu, otwierając pakiet, który zawiera go w SSDT. Po otwarciu pakietu zaznacz właściwość przepływ sterowania i **konfiguracje** w oknie **Właściwości** SSDT. Następnie wybierz przycisk wielokropka (**...**) obok właściwości **konfiguracje** , aby otworzyć **organizatora konfiguracje pakietów** , która jest zwykle używana do [tworzenia konfiguracji pakietów w modelu wdrażania pakietów](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Pobierz właściwości pakietu z właściwości SSDT-Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

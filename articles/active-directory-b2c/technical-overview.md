@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281926"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921677"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Dowiedz się więcej o przepływach użytkowników w [przepływach użytkownikó
 
 Zasady niestandardowe blokują dostęp do pełnego potencjału aparatu aranżacji programu Identity Experience Framework (IEF). Za pomocą zasad niestandardowych można korzystać z IEF w celu kompilowania niemal wszelkich możliwości uwierzytelniania, rejestracji użytkowników lub edytowania profilów, które można wyobrazić.
 
-Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Na przykład:
+Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Przykład:
 
 * Sfederować z innymi dostawcami tożsamości
 * Wyzwania uwierzytelniania wieloskładnikowego (MFA) w pierwszej kolejności i innej firmy
@@ -164,7 +164,7 @@ W Azure AD B2C możesz postawić swoją tożsamość użytkowników, tak aby str
 
 Informacje o dostosowywaniu interfejsu użytkownika znajdują [się w temacie Informacje o dostosowywaniu interfejsów użytkowników w Azure Active Directory B2C](customize-ui-overview.md).
 
-## <a name="localization"></a>Localization
+## <a name="localization"></a>Lokalizacja
 
 Dostosowanie języka w Azure AD B2C pozwala dostosowywać różne języki do potrzeb klientów. Firma Microsoft udostępnia tłumaczenia dla języków 36, ale można również udostępniać własne tłumaczenia w dowolnym języku. Nawet jeśli środowisko użytkownika jest dostarczane tylko dla jednego języka, można dostosować dowolny tekst na stronach.
 
@@ -262,7 +262,4 @@ Dowiedz się więcej o analizie użycia w temacie [śledzenie zachowania użytko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zapoznajesz się z funkcjami i aspektami technicznymi Azure Active Directory B2C, zacznij korzystać z usługi, tworząc dzierżawę B2C:
-
-> [!div class="nextstepaction"]
-> [Samouczek: Tworzenie dzierżawy Azure Active Directory B2C >](tutorial-create-tenant.md)
+Teraz, gdy znasz już funkcje i aspekty techniczne Azure Active Directory B2C, Rozpocznij pracę z naszym [samouczkiem dotyczącym tworzenia dzierżawy Azure Active Directory B2C](tutorial-create-tenant.md).

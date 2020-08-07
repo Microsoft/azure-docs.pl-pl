@@ -1,6 +1,6 @@
 ---
 title: Samouczek do kopiowania danych do Azure Data Box za pomocą systemu plików NFS | Microsoft Docs
-description: Dowiedz się, jak skopiować dane na urządzenie Azure Data Box za pośrednictwem systemu plików NFS
+description: W tym samouczku dowiesz się, jak nawiązać połączenie i skopiować dane z komputera hosta do Azure Data Box przy użyciu systemu plików NFS z lokalnym interfejsem użytkownika sieci Web.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 590a0a1ce474d48e95163081dcdcacb52233badf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960529"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926080"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box za pośrednictwem systemu plików NFS
 
@@ -48,7 +48,7 @@ W obszarze udziałów blokowych obiektów blob i stronicowych obiektów blob jed
 
 W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Data Box i adres URL ścieżki w usłudze Azure Storage, pod który przekazywane są dane. Ostateczny adres URL w usłudze Azure Storage można uzyskać ze ścieżki udziału UNC.
  
-| Typ magazynu usługi Azure Storage| urządzenie Data Box udziały                                       |
+| Typ magazynu usługi Azure Storage| Udziały urządzenia Data Box                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blokowe obiekty blob platformy Azure | <li>Ścieżka UNC do udziałów: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Stronicowe obiekty blob platformy Azure  | <li>Ścieżka UNC do udziałów: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -139,17 +139,17 @@ W przypadku korzystania z opcji rsync na potrzeby kopiowania wielowątkowego nal
 > [!IMPORTANT]
 > Następujące typy plików systemu Linux nie są obsługiwane: linki symboliczne, pliki znaków, pliki blokowe, gniazda i potoki. Te typy plików spowodują błędy podczas kroku **przygotowanie do wysłania** .
 
-Jeśli wystąpią błędy, w trakcie procesu kopiowania zostanie wyświetlone powiadomienie.
+Jeśli podczas kopiowania wystąpią błędy, zostanie wyświetlone powiadomienie.
 
-![Pobieranie i wyświetlanie błędów podczas nawiązywania połączenia i kopiowania](media/data-box-deploy-copy-data/view-errors-1.png)
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Wybierz pozycję **Pobierz listę problemów**.
 
-![Pobieranie i wyświetlanie błędów podczas nawiązywania połączenia i kopiowania](media/data-box-deploy-copy-data/view-errors-2.png)
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Otwórz listę, aby wyświetlić szczegóły błędu, a następnie wybierz adres URL rozwiązania, aby wyświetlić zalecane rozwiązanie.
 
-![Pobieranie i wyświetlanie błędów podczas nawiązywania połączenia i kopiowania](media/data-box-deploy-copy-data/view-errors-3.png)
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
 

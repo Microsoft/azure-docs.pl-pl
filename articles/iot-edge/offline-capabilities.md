@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725248"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926658"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informacje o rozszerzonych możliwościach trybu offline dla urządzeń IoT Edge, modułów i urządzeń podrzędnych
 
@@ -20,7 +20,7 @@ Azure IoT Edge obsługuje rozszerzone operacje offline na urządzeniach IoT Edge
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Gdy urządzenie IoT Edge przejdzie w tryb offline, centrum IoT Edge przyjmuje trzy role. Najpierw przechowuje wszystkie komunikaty, które byłyby nadrzędne i zapisuje je do momentu ponownego nawiązania połączenia z urządzeniem. Następnie działa w imieniu IoT Hub do uwierzytelniania modułów i urządzeń podrzędnych, aby mogły nadal działać. Po trzecie umożliwia komunikację między urządzeniami podrzędnymi, które zwykle przechodzą przez IoT Hub.
+Gdy urządzenie IoT Edge przejdzie w tryb offline, centrum IoT Edge przyjmuje trzy role. Najpierw przechowuje wszystkie komunikaty, które byłyby nadrzędne i zapisuje je do momentu ponownego nawiązania połączenia z urządzeniem. Pod drugie działa w imieniu usługi IoT Hub w celu uwierzytelniania modułów i urządzeń podrzędnych, aby mogły nadal działać. Po trzecie umożliwia komunikację między urządzeniami podrzędnymi, które zwykle przechodzą przez usługę IoT Hub.
 
 Poniższy przykład pokazuje, jak scenariusz IoT Edge działa w trybie offline:
 
@@ -95,7 +95,7 @@ Możesz zmodyfikować [zapytanie](../iot-hub/iot-hub-devguide-query-language.md)
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Opcja 3: korzystanie z zestawu SDK usługi IoT Hub
 
-Na koniec można zarządzać nadrzędnymi relacjami podrzędnymi za pomocą języka C#, Java lub Node.js IoT Hub usługi SDK. Oto [przykład przypisywania urządzenia podrzędnego](https://aka.ms/set-child-iot-device-c-sharp) przy użyciu zestawu C# SDK.
+Na koniec można zarządzać nadrzędnymi relacjami podrzędnymi za pomocą języka C#, Java lub Node.js IoT Hub usługi SDK. Oto [przykład przypisywania urządzenia podrzędnego](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) przy użyciu zestawu C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Skonfiguruj urządzenie nadrzędne jako bramę
 

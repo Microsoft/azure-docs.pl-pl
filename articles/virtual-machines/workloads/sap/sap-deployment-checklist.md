@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836347"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924431"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -74,7 +74,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
 4.  Projektowanie usług Foundation Services. Ten projekt powinien zawierać następujące elementy:
     - Projektowanie Active Directory i DNS.
     - Topologia sieci na platformie Azure i przypisywanie różnych systemów SAP.
-    - Struktura [dostępu oparta na rolach](../../../role-based-access-control/overview.md) dla zespołów zarządzających infrastrukturą i aplikacjami SAP na platformie Azure.
+    - Struktura [kontroli dostępu opartej na rolach (Azure RBAC)](../../../role-based-access-control/overview.md) dla zespołów zarządzających infrastrukturą i aplikacjami SAP na platformie Azure.
     - Topologia grupy zasobów.
     - [Strategia tagowania](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Konwencje nazewnictwa dla maszyn wirtualnych i innych składników infrastruktury i/lub nazw logicznych.

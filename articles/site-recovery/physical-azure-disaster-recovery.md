@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500435"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927287"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych serwerów fizycznych
 
@@ -59,7 +59,7 @@ Pobierz [konto platformy Microsoft Azure](https://azure.microsoft.com/).
 Upewnij się, że Twoje konto platformy Azure ma uprawnienia do replikacji maszyn wirtualnych na platformę Azure.
 
 - Przejrzyj [uprawnienia](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) wymagane do replikowania maszyn na platformę Azure.
-- Weryfikowanie i modyfikowanie uprawnień [dostępu opartych na rolach](../role-based-access-control/role-assignments-portal.md) . 
+- Weryfikowanie i modyfikowanie uprawnień platformy [Azure kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/role-assignments-portal.md) . 
 
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087054"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924125"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -109,7 +109,7 @@ Tak. Podsieci można dodać do sieci wirtualnych w dowolnym momencie, o ile zakr
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Czy mogę zmienić rozmiar podsieci po utworzeniu?
 Tak. Możesz dodawać, usuwać, rozszerzać lub zmniejszać podsieć, jeśli nie wdrożono w niej żadnych maszyn wirtualnych ani usług.
 
-### <a name="can-i-modify-subnets-after-i-created-them"></a>Czy mogę modyfikować podsieci po ich utworzeniu?
+### <a name="can-i-modify-vnet-after-i-created-them"></a>Czy mogę zmodyfikować sieć wirtualną po jej utworzeniu?
 Tak. Bloki CIDR używane przez sieć wirtualną można dodawać, usuwać i modyfikować.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>Czy w przypadku korzystania z usług w sieci wirtualnej można nawiązać połączenie z Internetem?
@@ -414,7 +414,7 @@ Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci 
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Centrum zdarzeń Azure|   128|
-|Azure Service Bus| 128|
+|Usługa Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

@@ -1,6 +1,6 @@
 ---
 title: Tworzenie strefowo nadmiarowej bramy sieci wirtualnej w Strefy dostępności platformy Azure
-description: Wdróż VPN Gateway i bram ExpressRoute w Strefy dostępności
+description: Dowiedz się, jak wdrażać bramy sieci VPN i ExpressRoute w Strefy dostępności platformy Azure, zwiększając elastyczność, skalowalność i wyższą dostępność do bram sieci wirtualnej.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cd0b2f31af187d881fe650c0829bb28e353dcbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccb6050ae4d56d2f8e57b4a590d01fb6acd9bd8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987621"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925160"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Tworzenie strefowo nadmiarowej bramy sieci wirtualnej w Strefy dostępności platformy Azure
 
 Bramy sieci VPN i ExpressRoute można wdrożyć w Strefy dostępności platformy Azure. Zapewni to elastyczność, skalowalność i większą dostępność bram sieci wirtualnej. Wdrażanie bram w strefach dostępności platformy Azure fizycznie i logicznie dzieli bramy w danym regionie, chroniąc jednocześnie lokalną łączność sieci z platformą Azure przed błędami na poziomie strefy. Aby uzyskać więcej informacji, zobacz [about Zone-nadmiarowe bramy sieci wirtualnej](about-zone-redundant-vnet-gateways.md) i [Informacje o strefy dostępności platformy Azure](../availability-zones/az-overview.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 

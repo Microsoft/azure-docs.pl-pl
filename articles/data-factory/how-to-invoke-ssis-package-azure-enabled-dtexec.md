@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414324"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927083"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Uruchamianie pakietów SQL Server Integration Services za pomocą narzędzia dtexec z obsługą platformy Azure
 
@@ -87,7 +87,7 @@ Wywołanie AzureDTExec oferuje podobne opcje jako wywołanie dtexec. Aby uzyska�
 - **/F [Iku]**: ładuje pakiet, który jest przechowywany w systemie plików, udziale plików lub Azure Files. Jako wartość tej opcji można określić ścieżkę UNC do pliku pakietu w systemie plików, udziale plików lub Azure Files z rozszerzeniem dtsx. Jeśli określona ścieżka UNC zawiera spację, należy umieścić znaki cudzysłowu wokół całej ścieżki.
 - **/Conf [igFile]**: Określa plik konfiguracji, z którego mają zostać wyodrębnione wartości. Korzystając z tej opcji, można ustawić konfigurację wykonawczą dla pakietu, która różni się od określonej w czasie projektowania. Można przechowywać różne ustawienia w pliku konfiguracji XML, a następnie ładować je przed wykonaniem pakietu. Aby uzyskać więcej informacji, zobacz [konfiguracje pakietów usług SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Aby określić wartość dla tej opcji, użyj ścieżki UNC do pliku konfiguracji w systemie plików, udziale plików lub Azure Files z rozszerzeniem dtsConfig. Jeśli określona ścieżka UNC zawiera spację, należy umieścić znaki cudzysłowu wokół całej ścieżki.
 - **/Conn [zenia]**: określa parametry połączenia dla istniejących menedżerów połączeń w pakiecie. Za pomocą tej opcji można ustawić parametry połączenia w czasie wykonywania dla istniejących menedżerów połączeń w pakiecie, które różnią się od określonych w czasie projektowania. Określ wartość dla tej opcji w następujący sposób: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` .
-- **/Set**: zastępuje konfigurację parametru, zmiennej, właściwości, kontenera, dostawcy dziennika, modułu wyliczającego foreach lub połączenia w pakiecie. Tę opcję można określić wiele razy. Określ wartość dla tej opcji w następujący sposób: `property_path;value` . Na przykład `\package.variables[counter].Value;1` zastępuje wartość `counter` zmiennej jako 1. Możesz użyć kreatora **konfiguracji pakietu** , aby znaleźć, skopiować i wkleić wartość `property_path` dla elementów w pakiecie, których wartość ma zostać przesłonięta. Aby uzyskać więcej informacji, zobacz [Kreator konfiguracji pakietu](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: zastępuje konfigurację parametru, zmiennej, właściwości, kontenera, dostawcy dziennika, modułu wyliczającego foreach lub połączenia w pakiecie. Tę opcję można określić wiele razy. Określ wartość dla tej opcji w następujący sposób: `property_path;value` . Na przykład `\package.variables[counter].Value;1` zastępuje wartość `counter` zmiennej jako 1. Możesz użyć kreatora **konfiguracji pakietu** , aby znaleźć, skopiować i wkleić wartość `property_path` dla elementów w pakiecie, których wartość ma zostać przesłonięta. Aby uzyskać więcej informacji, zobacz [Kreator konfiguracji pakietu](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De [Crypt]**: ustawia hasło odszyfrowywania dla pakietu, który jest skonfigurowany przy użyciu poziomu ochrony **EncryptAllWithPassword** / **EncryptSensitiveWithPassword** .
 
 > [!NOTE]

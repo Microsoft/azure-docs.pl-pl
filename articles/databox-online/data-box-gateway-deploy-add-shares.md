@@ -1,6 +1,6 @@
 ---
 title: Transfer danych za pomocą usługi Azure Data Box Gateway | Microsoft Docs
-description: Dowiedz się, jak dodawać udziały i łączyć się z nimi na urządzeniu usługi Data Box Gateway.
+description: Dowiedz się, jak dodawać udziały i łączyć się z nimi w Azure Data Box Gateway, a następnie urządzenie Data Box Gateway może przesyłać dane na platformę Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561717"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923479"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Samouczek: przesyłanie danych za pomocą Azure Data Box Gateway
 
@@ -107,7 +107,7 @@ Na kliencie z systemem Windows Server podłączonym do Data Box Gateway Połącz
 
 
 2. Na klawiaturze wybierz pozycję Windows + R. 
-3. W oknie **uruchamiania** Określ wartość `\\<device IP address>` , a następnie wybierz przycisk **OK**. Zostanie otwarty Eksplorator plików. Teraz utworzone przez Ciebie udziały powinny być widoczne jako foldery. W Eksploratorze plików kliknij dwukrotnie udział (folder) w celu wyświetlenia jego zawartości.
+3. W oknie **uruchamiania** Określ wartość, `\\<device IP address>` a następnie wybierz przycisk **OK**. Zostanie otwarty Eksplorator plików. Teraz utworzone przez Ciebie udziały powinny być widoczne jako foldery. W Eksploratorze plików kliknij dwukrotnie udział (folder) w celu wyświetlenia jego zawartości.
  
     ![Łączenie z udziałem SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
