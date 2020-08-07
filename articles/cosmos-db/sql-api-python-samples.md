@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 05/20/2020
 ms.author: sngun
-ms.custom: tracking-python
-ms.openlocfilehash: c52651e15f648bede419501f516392acbc266e8a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 6602d757e210837aadadd431b27bb7cf76f06715
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558005"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873351"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Przykłady kodu Python dla usługi Azure Cosmos DB
 
@@ -81,7 +81,7 @@ Przykład w języku Python [item_management. PR](https://github.com/Azure/azure-
 | [Wykonywanie zapytania dotyczącego elementu według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78) |kontener. query_items |
 | [Zastąp element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L81-L88) |kontener. replace_items |
 | [Upsert element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L91-L98) |kontener. upsert_item |
-| [Usuń element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |kontener. delete_item |
+| [Usuwanie elementu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |kontener. delete_item |
 | [Pobierz kanał informacyjny zmiany elementów w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |kontener. query_items_change_feed |
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania

@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.custom: tracking-python
-ms.openlocfilehash: 211da48a08db948daac0257ff86f2c0b325efce9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559810"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873045"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -83,7 +83,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku *App.py* i używają parame
     todos = db.todo #Select the collection
     ```
 
-* Tworzymy aplikację.
+* Tworzenie aplikacji
 
     ```Python
     app = Flask(__name__)
@@ -91,7 +91,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku *App.py* i używają parame
     heading = "ToDo Reminder"
     ```
     
-## <a name="run-the-web-app"></a>Uruchamianie aplikacji internetowej
+## <a name="run-the-web-app"></a>Uruchom aplikację internetową
 
 1. Upewnij się, że emulator usługi Azure Cosmos DB działa.
 
@@ -125,7 +125,7 @@ Aby przetestować kod na koncie usługi Live Azure Cosmos DB, Pobierz informacje
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. Możesz ją uruchomić tak jak wcześniej.
 
-## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
+## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
 Aby wdrożyć tę aplikację, możesz utworzyć nową aplikację internetową na platformie Azure i włączyć ciągłe wdrażanie z rozwidleniem tego repozytorium GitHub. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) , aby skonfigurować ciągłe wdrażanie za pomocą usługi GitHub na platformie Azure.
 

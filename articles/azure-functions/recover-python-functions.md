@@ -5,13 +5,13 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
 ms.author: hazeng
-ms.custom: tracking-python
-ms.openlocfilehash: e5155d426a57a306b00860285be18c2f8fc9b18d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: devx-track-python
+ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567923"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846041"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Rozwiązywanie problemów z błędami języka Python w Azure Functions
 

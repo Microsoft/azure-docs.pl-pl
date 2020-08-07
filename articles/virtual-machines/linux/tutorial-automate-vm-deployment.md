@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f1d439569f15d7680d54b35e7ec1c52ca7843af7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433013"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828969"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Samouczek — dostosowywanie maszyny wirtualnej z systemem Linux na platformie Azure podczas pierwszego rozruchu za pomocą pakietu cloud-init
 
@@ -41,7 +41,7 @@ Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie 
 
 Wraz z partnerami pracujemy nad tym, aby pakiet cloud-init był uwzględniany i uruchamiany w obrazach, których dostarczają na platformie Azure. W poniższej tabeli przedstawiono bieżącą dostępność pakietu cloud-init w obrazach na platformie Azure:
 
-| Publisher | Oferta | Jednostka SKU | Wersja | Cloud-init gotowe |
+| Publisher | Oferta | SKU | Wersja | Cloud-init gotowe |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18,04 – LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |16.04-LTS |najnowsza |tak | 
@@ -57,7 +57,7 @@ Aby zobaczyć pakiet cloud-init w akcji, utwórz maszynę wirtualną instalując
 
 W wierszu polecenia bash lub w Cloud Shell Utwórz plik o nazwie *cloud-init.txt* i wklej następującą konfigurację. Na przykład wpisz, `sensible-editor cloud-init.txt` Aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
-```bash
+```yaml
 #cloud-config
 package_upgrade: true
 packages:

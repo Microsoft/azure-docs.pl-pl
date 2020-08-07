@@ -58,6 +58,10 @@
       href: remote-work-support.md
     - name: Nazwa FQDN w regułach sieci
       href: fqdn-filtering-network-rules.md
+    - name: Pojęcia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie przy użyciu programu Azure PowerShell

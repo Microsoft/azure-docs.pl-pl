@@ -1,6 +1,6 @@
 ---
 title: Buforowanie niestandardowe w usłudze Azure API Management
-description: Dowiedz się, jak buforować elementy według klucza na platformie Azure API Management
+description: Dowiedz się, jak buforować elementy według klucza w usłudze Azure API Management. Klucz można zmodyfikować przy użyciu nagłówków żądania.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249720"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903446"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Buforowanie niestandardowe w usłudze Azure API Management
-Usługa Azure API Management Service ma wbudowaną obsługę [buforowania odpowiedzi HTTP](api-management-howto-cache.md) przy użyciu adresu URL zasobu jako klucza. Klucz może być modyfikowany przez nagłówki żądań przy użyciu `vary-by` właściwości. Jest to przydatne w przypadku buforowania całych odpowiedzi HTTP (aliasów), ale czasami warto tylko przetworzyć pamięć podręczną części reprezentacji. Nowe zasady [pamięci podręcznej — wyszukiwanie](./api-management-caching-policies.md#GetFromCacheByKey) i [przechowywanie w pamięci podręcznej](./api-management-caching-policies.md#StoreToCacheByKey) zapewniają możliwość przechowywania i pobierania dowolnych danych z definicji zasad. Ta możliwość dodaje również wartość do wcześniej wprowadzonych zasad [wysyłania żądania](./api-management-advanced-policies.md#SendRequest) , ponieważ teraz można buforować odpowiedzi z usług zewnętrznych.
+Usługa Azure API Management Service ma wbudowaną obsługę [buforowania odpowiedzi HTTP](api-management-howto-cache.md) przy użyciu adresu URL zasobu jako klucza. Klucz może być modyfikowany przez nagłówki żądań przy użyciu `vary-by` właściwości. Jest to przydatne w przypadku buforowania całych odpowiedzi HTTP (znanych także jako reprezentacje), ale czasami warto tylko buforować część reprezentacji. Nowe zasady [pamięci podręcznej — wyszukiwanie](./api-management-caching-policies.md#GetFromCacheByKey) i [przechowywanie w pamięci podręcznej](./api-management-caching-policies.md#StoreToCacheByKey) zapewniają możliwość przechowywania i pobierania dowolnych danych z definicji zasad. Ta możliwość dodaje również wartość do wcześniej wprowadzonych zasad [wysyłania żądania](./api-management-advanced-policies.md#SendRequest) , ponieważ teraz można buforować odpowiedzi z usług zewnętrznych.
 
 ## <a name="architecture"></a>Architektura
 Usługa API Management używa udostępnionej pamięci podręcznej danych dla dzierżawy, aby podczas skalowania do wielu jednostek nadal uzyskać dostęp do tych samych danych w pamięci podręcznej. Jednak podczas pracy z wdrożeniem wieloregionowym w każdym z regionów są niezależne pamięci podręczne. Ważne jest, aby nie traktować pamięci podręcznej jako magazynu danych, gdzie jest to jedyne źródło informacji. Jeśli wcześniej zadecydowano o skorzystaniu z wdrożenia obejmującego wiele regionów, klienci z użytkownikami, którzy podróżują, mogą utracić dostęp do tych danych w pamięci podręcznej.

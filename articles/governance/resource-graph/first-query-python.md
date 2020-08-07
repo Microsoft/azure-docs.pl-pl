@@ -3,13 +3,13 @@ title: 'Szybki Start: pierwsze zapytanie w języku Python'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie biblioteki grafu zasobów dla języka Python i uruchomienie pierwszego zapytania.
 ms.date: 07/15/2020
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: f7ca6ce5fab687e26007949898ad72c75d036782
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511925"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873674"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu języka Python
 
@@ -125,7 +125,7 @@ Dzięki bibliotekom języka Python dodanych do wybranego środowiska można wypr
 
 Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz usunąć zainstalowane biblioteki ze środowiska języka Python, możesz to zrobić za pomocą następującego polecenia:
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.custom: tracking-python
-ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 46512d61238c45936e7ebed4310993159cb43d34
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509646"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845446"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Develop for Azure Files with Python (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

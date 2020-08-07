@@ -2,18 +2,18 @@
 title: Obsługiwane funkcje FHIR na platformie Azure — interfejs API platformy Azure dla FHIR
 description: W tym artykule wyjaśniono, które funkcje specyfikacji FHIR wdrożone w interfejsie API platformy Azure dla FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808033"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843508"
 ---
 # <a name="features"></a>Funkcje
 
@@ -35,21 +35,21 @@ Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
 | Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| delete                         | Tak       | Tak       | Tak       |                                                     |
+| usunięcie                         | Tak       | Tak       | Tak       |                                                     |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
 | Utwórz (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz poniżej                                           |
-| Wyszukiwanie łańcuchowe                 | Nie        | Yes       | Nie        |                                           |
+| Wyszukiwanie łańcuchowe                 | Nie        | Tak       | Nie        |                                           |
 | Wyszukiwanie w łańcuchu wstecznym         | Nie        | Nie        | Nie        |                                            |
 | możliwości                   | Tak       | Tak       | Tak       |                                                     |
 | partia                          | Tak       | Tak       | Tak       |                                                     |
-| Transaction                    | Nie        | Yes       | Nie        |                                                     |
+| Transaction                    | Nie        | Tak       | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self`i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -57,12 +57,12 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |-----------------------|-----------|-----------|-----------|---------|
 | Liczba                | Tak       | Tak       | Tak       |         |
 | Data/godzina         | Tak       | Tak       | Tak       |         |
-| String                | Tak       | Tak       | Tak       |         |
+| Ciąg                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
 | Dokumentacja             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
 | Liczba              | Tak       | Tak       | Tak       |         |
-| Identyfikator URI                   | Tak       | Tak       | Tak       |         |
+| URI                   | Tak       | Tak       | Tak       |         |
 | Jako               | Nie        | Nie        | Nie        |         |
 
 
@@ -77,7 +77,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |`:above`klucza       | Nie        | Nie        | Nie        |         |
 |`:not-in`klucza      | Nie        | Nie        | Nie        |         |
 |`:[type]`odwoła  | Nie        | Nie        | Nie        |         |
-|`:below`adresu         | Tak       | Tak       | Yes       |         |
+|`:below`adresu         | Tak       | Tak       | Tak       |         |
 |`:not`                 | Nie        | Nie        | Nie        |         |
 |`:above`adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
 
@@ -102,7 +102,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_score`                | Nie        | Nie        | Nie        |         |
 | `_count`                | Tak       | Tak       | Tak       |         |
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count`jest obsługiwana |
-| `_include`              | Nie        | Yes       | Nie        |         |
+| `_include`              | Nie        | Tak       | Nie        |         |
 | `_revinclude`           | Nie        | Nie        | Nie        |         |
 | `_contained`            | Nie        | Nie        | Nie        |         |
 | `_elements`             | Nie        | Nie        | Nie        |         |

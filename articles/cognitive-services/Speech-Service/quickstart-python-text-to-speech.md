@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.custom: tracking-python
-ms.openlocfilehash: 525417bd83a1d30479fd3effbce690ed04d9af73
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c5469aba87fe06afc7308d6bd1e52cd4d87f22a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608008"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873487"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Konwertowanie zamiany tekstu na mowę przy użyciu języka Python
 
@@ -169,7 +169,7 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 > [!div class="nextstepaction"]
 > [Poznaj przykłady dla języka Python w serwisie GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Konwertowanie zamiany tekstu na mowę przy użyciu języka Python i zestawu Speech SDK](quickstarts/speech-to-text-from-microphone.md)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f91e130bfa83c6a9b116c05d7293aa70945e2dc2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259859"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903548"
 ---
 # <a name="linux-support"></a>Obsługa systemu Linux
 
-Partnerzy mogą korzystać z zestawu SDK dla systemu Linux dla klasycznego pulpitu wirtualnego systemu Windows. Można go również użyć do włączenia obsługi pulpitu wirtualnego systemu Windows w aplikacji klienckiej. Ten krótki przewodnik wyjaśnia, co to jest zestaw Linux SDK i jak zacząć z niego korzystać.
+Można uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń z systemem Linux z następującymi obsługiwanymi klientami dostarczonymi przez naszych partnerów klientów z systemem Linux. Pracujemy z wieloma partnerami, aby umożliwić obsługę klientów klasycznych systemu Windows w większej liczbie systemów operacyjnych i urządzeń z systemem Linux. Jeśli chcesz, aby obsługa pulpitu wirtualnego systemu Windows była obsługiwana na platformie z systemem Linux, która nie jest wymieniona w tym miejscu, poinformuj nas o naszej [stronie usługi UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Nawiązywanie połączenia z urządzeniem z systemem Linux
 
@@ -29,14 +29,7 @@ Następujący partnerzy mają zatwierdzonych klientów pulpitu wirtualnego syste
 
 ## <a name="what-is-the-linux-sdk"></a>Co to jest zestaw SDK systemu Linux?
 
-Za pomocą interfejsów API zestawu SDK można pobierać źródła zasobów, łączyć się z sesjami pulpitu lub aplikacji zdalnych oraz korzystać z wielu przekierowań, które obsługują Klienci pierwszej firmy.
-
-> [!NOTE]
-> Zestaw SDK jest obecnie w trakcie opracowywania. Zaktualizujemy ten dokument przy użyciu instrukcji, aby uzyskać dostęp do zestawu SDK, gdy jest on ogólnie dostępny.
-
-### <a name="supported-linux-distributions"></a>Obsługiwane dystrybucje systemu Linux
-
-Zestaw SDK jest zgodny z większością systemów operacyjnych opartych na systemie Ubuntu 18,04 lub nowszym. Jeśli korzystasz z innej dystrybucji systemu Linux, możemy współpracować z nim, aby dowiedzieć się, jak najlepiej obsługiwać Twoje potrzeby.
+Partnerzy dla klientów z systemem Linux mogą używać interfejsów API zestawu Windows Virtual Desktop Linux SDK do pobierania źródeł zasobów, łączenia się z sesjami aplikacji klasycznych i zdalnych oraz korzystać z wielu przekierowań obsługiwanych przez naszych klientów pierwszej firmy. Zestaw SDK jest zgodny z większością systemów operacyjnych opartych na systemie Ubuntu 18,04 lub nowszym.
 
 ### <a name="feature-support"></a>Obsługa funkcji
 
@@ -57,13 +50,6 @@ Zestaw SDK obsługuje wiele połączeń do sesji pulpitu i aplikacji zdalnych. O
 Zestaw SDK obsługuje również wiele konfiguracji wyświetlania monitorów, o ile monitory wybrane dla sesji są ciągłe.
 
 Ten dokument zostanie zaktualizowany w miarę dodawania obsługi nowych funkcji i przekierowań. Jeśli chcesz zasugerować nowe funkcje i inne ulepszenia, odwiedź naszą [stronę usługi UserVoice](https://go.microsoft.com/fwlink/?linkid=2116523).
-
-## <a name="get-started-with-the-linux-sdk"></a>Wprowadzenie do zestawu SDK dla systemu Linux
-
-Przed rozpoczęciem opracowywania klienta systemu Linux dla pulpitu wirtualnego z systemem Windows należy wykonać następujące czynności:
-
-1. Kompiluj i wdrażaj środowisko pulpitu wirtualnego systemu Windows na potrzeby testowania lub użycia produkcyjnego.
-2. Przetestuj dostępnych klientów pierwszej firmy, aby zapoznać się z interfejsem użytkownika pulpitu wirtualnego systemu Windows.
 
 ## <a name="next-steps"></a>Następne kroki
 

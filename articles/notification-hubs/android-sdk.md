@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: 292f7b65528c13d23d4f2b72467538c43c6ad75e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172494"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829530"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu SDK Firebase w wersji 1.0.0-zestawu
 
@@ -71,7 +71,7 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
    2. Wybierz pozycję **zarejestruj aplikację**.
 
-4. Wybierz pozycję **Pobierz Google-Services. JSON**, Zapisz plik w folderze **aplikacji**   projektu, a następnie wybierz przycisk **dalej**.
+4. Wybierz pozycję **pobierz google-services.jsna**, Zapisz plik w folderze **aplikacji**   projektu, a następnie wybierz przycisk **dalej**.
 
    :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Pobierz usługę Google":::
 
@@ -79,7 +79,7 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
    :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Ustawienia projektu":::
 
-6. Jeśli plik **Google-Services. JSON** nie został pobrany do folderu **App**   projektu Android Studio, można to zrobić na tej stronie.
+6. Jeśli nie pobrano **google-services.js** pliku do folderu **aplikacji**   projektu Android Studio, można to zrobić na tej stronie.
 
 7. Przejdź do karty usługi **Cloud Messaging**   .
 
@@ -228,7 +228,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą Firebas
    }
    ```
 
-3. W Android Studio na pasku menu wybierz pozycję **kompilacja**, a następnie wybierz pozycję **Skompiluj projekt**,   Aby upewnić się, że w kodzie nie ma błędów. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący ikony **ic_launcher**   , Usuń następujące instrukcje z pliku pliku AndroidManifest. XML:
+3. W Android Studio na pasku menu wybierz pozycję **kompilacja**, a następnie wybierz pozycję **Skompiluj projekt**,   Aby upewnić się, że w kodzie nie ma błędów. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący ikony **ic_launcher**   , Usuń następujące instrukcje z pliku AndroidManifest.xml:
 
    ```xml
    android:icon="@mipmap/ic_launcher"
@@ -278,7 +278,7 @@ W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiado
 
 Poniżej znajduje się lista innych samouczków dotyczących wysyłania powiadomień:
 
-- Azure Mobile Apps: Aby zapoznać się z przykładem wysyłania powiadomień z Mobile Apps zaplecza zintegrowanego z usługą Notification Hubs, zobacz [Dodawanie powiadomień wypychanych do aplikacji systemu iOS](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps: Aby zapoznać się z przykładem wysyłania powiadomień z Mobile Apps zaplecza zintegrowanego z usługą Notification Hubs, zobacz [Dodawanie powiadomień wypychanych do aplikacji systemu iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 - ASP.NET: [użyj Notification Hubs, aby wysyłać powiadomienia wypychane do użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 

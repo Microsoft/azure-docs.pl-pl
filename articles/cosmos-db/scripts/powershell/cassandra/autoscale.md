@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 06aa80e7a0aa379c8e7a622752fc203b58b2d2c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6df0a428fce88556ec4d6bd7616736cc1a67f30
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506934"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760706"
 ---
 # <a name="create-a-keyspace-and-table-with-autoscale-for-azure-cosmos-db---cassandra-api"></a>Utwórz przestrzeń kluczy i tabelę z funkcją automatycznego skalowania dla Azure Cosmos DB-interfejs API Cassandra
 
@@ -42,7 +42,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Tworzy konto Cosmos DB. |
 | [New-AzCosmosDBCassandraKeyspace](/powershell/module/az.cosmosdb/new-azcosmosdbcassandrakeyspace) | Tworzy Cosmos DB interfejs API Cassandra przestrzeni kluczy. |
 | [New-AzCosmosDBCassandraClusterKey](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Tworzy interfejs API Cassandra klucza klastra Cosmos DB. |
-| [New-AzCosmosDBCassandraColumn](/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Tworzy kolumnę interfejs API Cassandra Cosmos DB. |
+| [New-AzCosmosDBCassandraColumn](/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Tworzy kolumnę interfejs API Cassandra Cosmos DB. |
 | [New-AzCosmosDBCassandraSchema](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Tworzy schemat interfejs API Cassandra Cosmos DB. |
 | [New-AzCosmosDBCassandraTable](/powershell/module/az.cosmosdb/new-azcosmosdbcassandratable) | Tworzy tabelę interfejs API Cassandra Cosmos DB. |
 |**Grupy zasobów platformy Azure**| |

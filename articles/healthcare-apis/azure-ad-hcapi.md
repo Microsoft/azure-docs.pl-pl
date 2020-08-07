@@ -3,18 +3,18 @@ title: Azure Active Directory konfigurację tożsamości dla interfejsu API plat
 description: Poznaj zasady tożsamości, uwierzytelniania i autoryzacji dla serwerów usługi Azure FHIR.
 services: healthcare-apis
 author: caitlinv39
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
-ms.openlocfilehash: 53adf974a3af4a2cc3e5c89156fe4b50571c7b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871729"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846024"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Azure Active Directory konfigurację tożsamości dla interfejsu API platformy Azure dla FHIR
 

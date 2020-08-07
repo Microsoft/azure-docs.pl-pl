@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa76f68be2f886ead16bd718cbeb8d14c78fe6d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731991"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828663"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Niestandardowe role administratorów w Azure Active Directory (wersja zapoznawcza)
 
@@ -34,7 +34,7 @@ Przyznawanie uprawnień przy użyciu niestandardowych ról usługi Azure AD to d
 
 Po utworzeniu definicji roli można przypisać ją do użytkownika, tworząc przypisanie roli. Przypisanie roli przyzna użytkownikowi uprawnienia w definicji roli w określonym zakresie. Ten dwuetapowy proces umożliwia utworzenie pojedynczej definicji roli i przypisanie jej wiele razy w różnych zakresach. Zakres definiuje zbiór zasobów usługi Azure AD, do których członek roli ma dostęp. Najbardziej typowym zakresem jest zakres całej organizacji (w całej sieci). Rolę niestandardową można przypisać w zakresie całej organizacji, co oznacza, że członek roli ma uprawnienia roli do wszystkich zasobów w organizacji. Rolę niestandardową można także przypisać do zakresu obiektu. Przykładem zakresu obiektu jest pojedyncza aplikacja. Tę samą rolę można przypisać do jednego użytkownika przez wszystkie aplikacje w organizacji, a następnie do innego użytkownika z zakresem tylko dla aplikacji Contoso wydatków.  
 
-Wbudowana i niestandardowa rola usługi Azure AD działa w oparciu o koncepcje podobne do [kontroli dostępu opartej na rolach na platformie Azure](../../role-based-access-control/overview.md). [Różnica między tymi dwoma systemami kontroli dostępu oparta na rolach](../../role-based-access-control/rbac-and-directory-admin-roles.md) polega na tym, że usługa Azure RBAC kontroluje dostęp do zasobów platformy Azure, takich jak maszyny wirtualne lub magazyn przy użyciu usługi Azure Resource Management, i role niestandardowe usługi Azure AD kontrolują dostęp do zasobów usługi Azure AD za pomocą interfejs API programu Graph. Oba systemy wykorzystują koncepcję definicji ról i przypisań ról.
+Wbudowana i niestandardowa rola usługi Azure AD działa w oparciu o koncepcje podobne do [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md). [Różnica między tymi dwoma systemami kontroli dostępu oparta na rolach](../../role-based-access-control/rbac-and-directory-admin-roles.md) polega na tym, że usługa Azure RBAC kontroluje dostęp do zasobów platformy Azure, takich jak maszyny wirtualne lub magazyn przy użyciu usługi Azure Resource Management, i role niestandardowe usługi Azure AD kontrolują dostęp do zasobów usługi Azure AD za pomocą interfejs API programu Graph. Oba systemy wykorzystują koncepcję definicji ról i przypisań ról.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Jak usługa Azure AD decyduje o tym, czy użytkownik ma dostęp do zasobu
 

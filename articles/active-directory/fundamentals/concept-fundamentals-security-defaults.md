@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554523"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873725"
 ---
 # <a name="what-are-security-defaults"></a>Co to są wartości domyślne zabezpieczeń?
 
@@ -145,9 +145,9 @@ Za pomocą dostępu warunkowego można skonfigurować zasady podobne do domyśln
 
 Poniżej przedstawiono przewodnik krok po kroku dotyczący sposobu konfigurowania równoważnych zasad przy użyciu dostępu warunkowego dla tych zasad włączonych przez domyślne ustawienia zabezpieczeń:
 
-- [Wymagaj uwierzytelniania wieloskładnikowego dla administratorów](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Wymaganie uwierzytelniania wieloskładnikowego dla administratorów](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Wymaganie uwierzytelniania wieloskładnikowego do zarządzania platformą Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Blokuj starsze uwierzytelnianie](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Blokowanie starszego uwierzytelniania](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Wymagaj rejestracji w usłudze Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) — wymaga Azure AD Identity Protection części Azure AD — wersja Premium P2.
 

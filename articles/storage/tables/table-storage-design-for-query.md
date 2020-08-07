@@ -1,6 +1,6 @@
 ---
 title: Projektowanie usługi Azure Table Storage na potrzeby zapytań | Microsoft Docs
-description: Projektowanie tabel dla zapytań w usłudze Azure Table Storage.
+description: Projektowanie tabel dla zapytań w usłudze Azure Table Storage. Wybierz odpowiedni klucz partycji, Optymalizuj zapytania i Sortuj dane dla Table service.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457648"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903208"
 ---
 # <a name="design-for-querying"></a>Projektowanie pod kątem wykonywania zapytań
 Rozwiązania Table service mogą być bardzo czasochłonne, duże ilościowe lub mieszane. Ten artykuł koncentruje się na zagadnieniach, które należy wziąć pod uwagę podczas projektowania Table service w celu wydajnej obsługi operacji odczytu. Zwykle projekt obsługujący operacje odczytu wydajnie jest również wydajny w przypadku operacji zapisu. Istnieją jednak dodatkowe zagadnienia, które należy wziąć pod uwagę podczas projektowania programu w celu obsługi operacji zapisu, omówione w artykule [projektowanie artykułu na potrzeby modyfikacji danych](table-storage-design-for-modification.md).
@@ -37,12 +37,12 @@ W poniższych przykładach przyjęto założenie, że usługa Table Service zapi
 
 | *Nazwa kolumny* | *Typ danych* |
 | --- | --- |
-| **PartitionKey** (Nazwa działu) |String |
-| **RowKey** (identyfikator pracownika) |String |
-| **Imię** |String |
-| **Nazwisko** |String |
-| **Wiek** |Integer |
-| **EmailAddress** |String |
+| **PartitionKey** (Nazwa działu) |Ciąg |
+| **RowKey** (identyfikator pracownika) |Ciąg |
+| **FirstName (Imię)** |Ciąg |
+| **LastName (Nazwisko)** |Ciąg |
+| **Wiek** |Liczba całkowita |
+| **EmailAddress (Adres e-mail)** |Ciąg |
 
 Artykuł [Omówienie usługi Azure Table Storage](table-storage-overview.md) zawiera opis niektórych kluczowych funkcji usługi Azure Table Service, które mają bezpośredni wpływ na projektowanie zapytań. Poniżej przedstawiono ogólne wytyczne dotyczące projektowania zapytań Table service. Należy zauważyć, że składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST Table service, aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

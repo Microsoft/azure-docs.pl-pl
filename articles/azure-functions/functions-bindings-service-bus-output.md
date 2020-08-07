@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079727"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844086"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -276,7 +276,7 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `ServiceBus` atrybutu.
 
@@ -384,7 +384,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 
 Jeśli `isSessionsEnabled` ustawiono `true` opcję, `sessionHandlerOptions` zostanie uznane.  Jeśli `isSessionsEnabled` ustawiono `false` opcję, `messageHandlerOptions` zostanie uznane.
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |prefetchCount|0|Pobiera lub ustawia liczbę komunikatów, które może jednocześnie wysłać odbiorca wiadomości.|
 |maxAutoRenewDuration|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|
