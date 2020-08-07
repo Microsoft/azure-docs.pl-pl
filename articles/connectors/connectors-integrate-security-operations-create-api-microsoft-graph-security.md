@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 337ecc6069211942a809f2bf3d793c5bccc08387
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277234"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986372"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Poprawa ochrony przed zagrożeniami przez integrację operacji zabezpieczeń z Microsoft Graph & zabezpieczeń Azure Logic Apps
 
@@ -93,10 +93,10 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
    | Właściwość | Właściwość (JSON) | Wymagany | Typ | Opis |
    |----------|-----------------|----------|------|-------------|
-   | **Interwał** | `interval` | Tak | Integer | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
-   | **Częstotliwość** | `frequency` | Tak | String | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
-   | **Strefa czasowa** | `timeZone` | Nie | String | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
-   | **Godzina rozpoczęcia** | `startTime` | Nie | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p><p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>-lub- <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Interwał** | `interval` | Yes | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
+   | **Częstotliwość** | `frequency` | Yes | Ciąg | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
+   | **Strefa czasowa** | `timeZone` | Nie | Ciąg | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
+   | **Godzina rozpoczęcia** | `startTime` | Nie | Ciąg | Podaj datę i godzinę rozpoczęcia w tym formacie: <p><p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>-lub- <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji na temat zapytań, których można użyć z tym 
 
 Microsoft Graph obsługuje [*subskrypcje*](/graph/api/resources/subscription)lub elementy [*webhook*](/graph/api/resources/webhooks). Aby uzyskać, zaktualizować lub usunąć subskrypcje, podaj [parametry zapytania OData obsługiwane przez Microsoft Graph](/graph/query-parameters) do konstrukcji Microsoft Graph Entity, a `security/alerts` następnie Dołącz zapytanie OData. *Nie dołączaj* podstawowego adresu URL, na przykład `https://graph.microsoft.com/v1.0` . Zamiast tego należy użyć formatu w tym przykładzie:
 
-`security/alerts?$filter=status eq 'New'`
+`security/alerts?$filter=status eq 'NewAlert'`
 
 | Akcja | Opis |
 |--------|-------------|

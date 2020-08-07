@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w kl
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517726"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986869"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
 Przy użyciu szyfrowania opartego na hoście dane przechowywane na hoście maszyny wirtualnej maszyn wirtualnych węzłów agenta AKS są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Oznacza to, że dyski tymczasowe są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę. Pamięć podręczna systemu operacyjnego i dysków z danymi jest szyfrowana przy użyciu kluczy zarządzanych przez platformę lub kluczy zarządzanych przez klienta w zależności od typu szyfrowania ustawionego na tych dyskach. Domyślnie w przypadku korzystania z AKS, dyski systemu operacyjnego i danych są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę, co oznacza, że pamięć podręczna dla tych dysków jest również domyślnie szyfrowana w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę.  Możesz określić własne klucze zarządzane, aby przystąpić [do własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service](azure-disk-customer-managed-keys.md). Pamięć podręczna dla tych dysków zostanie również zaszyfrowana przy użyciu klucza określonego w tym kroku.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
@@ -57,11 +57,7 @@ az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
->
-> - [Zasady pomocy technicznej AKS](support-policies.md)
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 

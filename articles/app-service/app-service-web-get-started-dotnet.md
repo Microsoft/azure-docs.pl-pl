@@ -3,14 +3,14 @@ title: 'Szybki Start: Tworzenie aplikacji ASP.NET Core w języku C#'
 description: Dowiedz się, jak uruchamiać aplikacje sieci Web w Azure App Service, wdrażając domyślny szablon aplikacji sieci Web w języku C# ASP.NET Core z poziomu programu Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77ff1e907b15b129ef03d7ce799631d6d0a9671d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506795"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986189"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -80,7 +80,7 @@ Wykonaj następujące kroki, aby utworzyć App Service i opublikować aplikację
    | Ustawienie  | Sugerowana wartość | Opis |
    | -------- | --------------- | ----------- |
    | **Plan hostingu**  | *myFirstAzureWebAppPlan* | Nazwa planu usługi App Service. |
-   | **Lokalizacja**      | *Europa Zachodnia* | Centrum danych, w którym hostowana jest aplikacja internetowa. |
+   | **Lokalizacja**      | *West Europe* | Centrum danych, w którym hostowana jest aplikacja internetowa. |
    | **Rozmiar**          | *Bezpłatna* | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) określa funkcje hostowania. |
    
    ![Utwórz nowy plan hostingu](./media/app-service-web-get-started-dotnet/create-new-hosting-plan-vs2019.png)

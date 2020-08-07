@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985885"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -204,14 +204,7 @@ Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrz
 
 ## <a name="validating-models"></a>Sprawdzanie poprawności modeli
 
-> [!TIP]
-> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-
-Dostępny jest przykład niezależny od języka do sprawdzania poprawności dokumentów modelu, aby upewnić się, że DTDL jest poprawna. Znajduje się tutaj: [**DTDL moduł sprawdzania poprawności**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-Przykład modułu sprawdzania DTDL jest oparty na bibliotece analizatora oprogramowania .NET DTDL, która jest dostępna w NuGet jako biblioteka po stronie klienta: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Możesz również bezpośrednio korzystać z biblioteki, aby zaprojektować własne rozwiązanie do sprawdzania poprawności. W przypadku korzystania z biblioteki parserów upewnij się, że używasz wersji zgodnej z wersją, którą obsługuje usługa Azure Digital bliźniaczych reprezentacji. W trakcie okresu zapoznawczego jest to wersja *3.7.0*.
-
-Więcej informacji o bibliotece analizatorów, w tym przykłady użycia, można znaleźć w temacie [*How to: Parse and Validate models*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

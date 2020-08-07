@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć i skonfigurować Ultra disks w klastrz
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926743"
+ms.locfileid: "87986835"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -49,11 +49,7 @@ Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
->
-> - [Zasady pomocy technicznej AKS](support-policies.md)
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
@@ -95,9 +91,8 @@ Jeśli chcesz utworzyć klastry bez obsługi Ultra Disk, możesz to zrobić, pom
 
 Można włączyć opcję Ultra disks w istniejących klastrach, dodając do klastra nową pulę węzłów, która obsługuje Ultra Disks. Skonfiguruj nową pulę węzłów do korzystania z szyfrowania opartego na hoście przy użyciu `--aks-custom-headers` flagi.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Jeśli chcesz utworzyć nowe pule węzłów bez obsługi dla Ultra disks, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.

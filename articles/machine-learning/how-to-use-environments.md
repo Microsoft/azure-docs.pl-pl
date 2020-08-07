@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08e36f8ef31114b18a166e7a14d6d7ad8385582c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850376"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985907"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -320,6 +320,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > Jeśli zainstalowano niektóre zależności języka Python w obrazie platformy Docker i zapomnisz ustawić user_managed_dependencies = true, te pakiety nie będą istniały w środowisku wykonywania w taki sposób, aby powodowały błędy środowiska uruchomieniowego. Domyślnie platforma Azure ML utworzy środowisko Conda z określonymi zależnościami i wykona przebieg w tym środowisku, zamiast korzystać z bibliotek języka Python zainstalowanych na podstawowym obrazie.
 
+### <a name="retrieve-image-details"></a>Pobierz szczegóły obrazu
+
+W przypadku zarejestrowanego środowiska można pobrać szczegóły obrazu przy użyciu następującego kodu, gdzie `details` jest wystąpieniem [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (azure Python SDK >= 1,11) i zawiera wszystkie informacje o obrazie środowiska, takie jak pliku dockerfile, rejestr i nazwa obrazu.
+
+```python
+details = environment.get_image_details()
+```
+
 ## <a name="use-environments-for-training"></a>Używanie środowisk do szkolenia
 
 Aby przesłać przebieg szkolenia, należy połączyć środowisko, [obiekt docelowy obliczeń](concept-compute-target.md)i Twój szkoleniowy skrypt w języku Python do konfiguracji uruchomieniowej. Ta konfiguracja jest obiektem otoki używanym do przesyłania przebiegów.
@@ -376,12 +384,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### <a name="retrieve-dockerfile-from-a-run"></a>Pobierz pliku dockerfile z przebiegu
-
-Użyj poniższego kodu, aby uzyskać pliku dockerfile dla uruchomienia z obsługą platformy Docker.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>Używanie środowisk do wdrażania usług sieci Web

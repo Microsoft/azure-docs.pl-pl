@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c60c0324b04bca0a8115f4ac884704012e8e1d8c
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995177"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986852"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Dostęp warunkowy: Wymagaj zgodnych urządzeń
 
@@ -40,11 +40,11 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać, aby
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
    1. Jeśli musisz wykluczyć określone aplikacje z zasad, możesz je wybrać z karty **Wyklucz** w obszarze **Wybierz wykluczone aplikacje w chmurze** i wybierz **pozycję Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
+   1. Kliknij **Gotowe**.
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)**  >  **Wybierz aplikacje klienckie, do których te zasady będą stosowane**, pozostaw wszystkie wybrane wartości domyślne i wybierz pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Grant**wybierz pozycję **Wymagaj, aby urządzenie było oznaczone jako zgodne**.
    1. Wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.

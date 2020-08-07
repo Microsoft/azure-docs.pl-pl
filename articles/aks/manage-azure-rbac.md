@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799365"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986631"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -21,15 +21,11 @@ Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i po
 
 W tym dokumencie opisano nowe podejście, które pozwala na ujednolicone zarządzanie i kontrolę dostępu między zasobami platformy Azure, AKS i zasobami Kubernetes.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
-> [!IMPORTANT]
-> Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
->
-> - [Zasady pomocy technicznej AKS](support-policies.md)
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Wymagania wstępne 
 - Utwórz konto w wersji zapoznawczej <https://aka.ms/aad-rbac-sign-up-form> .

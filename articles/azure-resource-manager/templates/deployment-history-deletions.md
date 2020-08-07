@@ -2,24 +2,22 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248989"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986512"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
 Przy każdym wdrożeniu szablonu informacje o wdrożeniu są zapisywane w historii wdrażania. Każda grupa zasobów jest ograniczona do 800 wdrożeń w swojej historii wdrażania.
 
-Azure Resource Manager wkrótce rozpocznie automatyczne usuwanie wdrożeń z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów. **Ta funkcja nie została jeszcze dodana do platformy Azure. Powiadamiamy Cię o tej nadchodzącej zmianie, w przypadku której chcesz zrezygnować.**
+Azure Resource Manager automatycznie usuwa wdrożenia z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów. **Ta zmiana została wprowadzona w dniu 6 sierpnia 2020.**
 
 > [!NOTE]
 > Usunięcie wdrożenia z historii nie ma wpływu na żadne wdrożone zasoby.
->
-> Jeśli masz [blokadę CanNotDelete](../management/lock-resources.md) w grupie zasobów, nie można usunąć wdrożeń dla tej grupy zasobów. Należy usunąć blokadę, aby skorzystać z automatycznych usunięć w historii wdrażania.
 
 ## <a name="when-deployments-are-deleted"></a>Po usunięciu wdrożeń
 
@@ -35,6 +33,24 @@ Wdrożenia są usuwane z historii, gdy osiągniesz 775 lub więcej wdrożeń. Az
 Oprócz wdrożeń wyzwalacze są również wyzwalane po uruchomieniu [operacji działania warunkowego](template-deploy-what-if.md) lub weryfikacji wdrożenia.
 
 Jeśli nastąpi wdrożenie o takiej samej nazwie jak jedna w historii, zresetuj jej miejsce w historii. Wdrożenie przechodzi do ostatniego miejsca w historii. Należy również zresetować miejsce wdrożenia po [wycofaniu tego wdrożenia](rollback-on-error.md) po wystąpieniu błędu.
+
+## <a name="remove-locks-that-block-deletions"></a>Usuń blokady blokujące operacje usuwania
+
+Jeśli masz [blokadę CanNotDelete](../management/lock-resources.md) w grupie zasobów, nie można usunąć wdrożeń dla tej grupy zasobów. Należy usunąć blokadę, aby skorzystać z automatycznych usunięć w historii wdrażania.
+
+Aby usunąć blokadę przy użyciu programu PowerShell, uruchom następujące polecenia:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Aby usunąć blokadę przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom następujące polecenia:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rezygnacja z automatycznego usuwania
 

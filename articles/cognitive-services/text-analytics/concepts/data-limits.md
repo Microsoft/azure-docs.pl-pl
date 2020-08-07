@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142371"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986818"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
@@ -32,16 +32,13 @@ Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umo�
 | Limit | Wartość |
 |------------------------|---------------|
 | Maksymalny rozmiar pojedynczego dokumentu | 5 120 znaków mierzona przez [StringInfo. lengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maksymalny rozmiar całego żądania | 1 MB |
+| Maksymalny rozmiar całego żądania | 1 MB |
 
 Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żądania, będzie zależeć od używanej wersji interfejsu API i funkcji.
 
 #### <a name="version-3"></a>[Wersja 3](#tab/version-3)
 
-> [!NOTE]
-> Jeśli żądanie interfejsu API v3 przekracza te limity, ale znajduje się w granicach v2, w odpowiedzi interfejsu API zostanie zwrócone ostrzeżenie. Począwszy od 7/15/2020, zamiast tego zostanie zwrócony kod błędu 400. 
-
-W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniższych limitów spowoduje wygenerowanie ostrzeżenia w odpowiedzi interfejsu API.
+W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniższych limitów spowoduje wygenerowanie kodu błędu HTTP 400.
 
 
 | Cechy | Maksymalna liczba dokumentów na żądanie | 

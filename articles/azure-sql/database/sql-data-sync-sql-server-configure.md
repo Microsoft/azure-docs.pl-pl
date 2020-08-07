@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963958"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987345"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Samouczek: Konfigurowanie SQL Data Sync między bazami danych w Azure SQL Database i SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync znajdują
    | ------------------------------ | ------------------------------------------------- |
    | **Nazwa grupy synchronizacji** | Wprowadź nazwę nowej grupy synchronizacji. Ta nazwa różni się od nazwy samej bazy danych. |
    | **Baza danych metadanych synchronizacji** | Wybierz opcję utworzenia bazy danych (zalecane) lub użycia istniejącej bazy danych.<br/><br/>W przypadku wybrania opcji **Nowa baza danych**wybierz pozycję **Utwórz nową bazę danych.** Następnie na stronie **SQL Database** Nadaj nazwę i skonfiguruj nową bazę danych, a następnie wybierz **przycisk OK**.<br/><br/>Jeśli wybierzesz opcję **Użyj istniejącej bazy danych**, wybierz bazę danych z listy. |
-   | **Automatyczna synchronizacja** | Wybierz opcję **włączone** lub **wyłączone**.<br/><br/>W przypadku wybrania opcji **włączone**wprowadź liczbę, a następnie wybierz pozycję **sekundy**, **minuty**, **godziny**lub **dni** w sekcji **częstotliwość synchronizacji** . |
+   | **Automatyczna synchronizacja** | Wybierz opcję **włączone** lub **wyłączone**.<br/><br/>W przypadku wybrania opcji **włączone**wprowadź liczbę, a następnie wybierz pozycję **sekundy**, **minuty**, **godziny**lub **dni** w sekcji **częstotliwość synchronizacji** .<br/> Pierwsza synchronizacja rozpocznie się po wybranym okresie interwału, który upłynie od momentu zapisania konfiguracji.|
    | **Rozwiązywanie konfliktów** | Wybierz pozycję **centrum win** lub **element członkowski win**.<br/><br/>**Centrum win** oznacza, gdy występują konflikty, dane w centralnej bazie danych zastępują dane powodujące konflikt w bazie danych elementu członkowskiego.<br/><br/>**Członek win** oznacza, gdy występują konflikty, dane w bazie danych elementu zastępują dane powodujące konflikt w bazie danych centrum. |
 
    > [!NOTE]

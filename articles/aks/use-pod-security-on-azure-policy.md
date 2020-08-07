@@ -5,24 +5,20 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830227"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987362"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Zabezpieczanie zasobników z Azure Policy (wersja zapoznawcza)
 
 Aby zwiększyć bezpieczeństwo klastra AKS, można kontrolować, jakie funkcje są przyznawane i czy wszystkie są uruchomione względem zasad firmy. Ten dostęp jest definiowany za pomocą wbudowanych zasad udostępnianych przez [dodatek Azure Policy dla AKS][kubernetes-policy-reference]. Dzięki zapewnieniu dodatkowej kontroli nad aspektami zabezpieczeń w zakresie specyfikacji, takich jak uprawnienia główne, zapewnia ściślejszy poziom bezpieczeństwa i wgląd w to, co jest wdrażane w klastrze. Jeśli pod warunkiem nie spełniają warunków określonych w zasadach, Azure Policy może nie zezwalać na uruchamianie lub Flagowanie naruszenia. W tym artykule opisano sposób użycia Azure Policy w celu ograniczenia wdrożenia w programie AKS.
 
-> [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
->
-> * [Zasady pomocy technicznej AKS][aks-support-policies]
-> * [Pomoc techniczna platformy Azure — często zadawane pytania][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -83,9 +79,9 @@ Obie wbudowane inicjatywy są zbudowane z definicji używanych w ramach [zasad z
 |---|---|---|---|
 |Nie Zezwalaj na uruchamianie uprzywilejowanych kontenerów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| Tak | Tak
 |Nie Zezwalaj na udostępnianie przestrzeni nazw hostów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Tak | Tak
-|Ogranicz użycie sieci i portów hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Tak | Tak
-|Ogranicz użycie systemu plików hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Tak | Tak
-|Ogranicz możliwości systemu Linux do [zestawu domyślnego](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Tak | Tak
+|Ogranicz użycie sieci i portów hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Yes | Tak
+|Ogranicz użycie systemu plików hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Yes | Tak
+|Ogranicz możliwości systemu Linux do [zestawu domyślnego](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Tak
 |Ograniczanie użycia zdefiniowanych typów woluminów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Tak — dozwolone typy woluminów to `configMap` , `emptyDir` ,,, `projected` `downwardAPI``persistentVolumeClaim`|
 |Eskalacja uprawnień do elementu głównego|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Tak |
 |Ograniczanie identyfikatorów użytkowników i grup kontenera|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Tak|
@@ -283,7 +279,7 @@ Poniżej znajduje się podsumowanie zachowania zmian między zasadami zabezpiecz
 |Instalacja|Włącz funkcję zasad zabezpieczeń pod |Włącz dodatek Azure Policy
 |Wdrażanie zasad| Wdróż zasób zasad zabezpieczeń| Przypisz zasady platformy Azure do zakresu subskrypcji lub grupy zasobów. Dodatek Azure Policy jest wymagany dla aplikacji zasobów Kubernetes.
 | Zasady domyślne | Po włączeniu zasad zabezpieczeń na platformie AKS są stosowane domyślne zasady uprzywilejowane i nieograniczone. | Nie są stosowane żadne zasady domyślne, włączając dodatek Azure Policy. Należy jawnie włączyć zasady w Azure Policy.
-| Kto może tworzyć i przypisywać zasady | Administrator klastra tworzy zasób pod kątem zasad zabezpieczeń | Użytkownicy muszą mieć minimalną rolę uprawnień "właściciel" lub "Współautor zasad zasobów" w grupie zasobów klastra AKS. -Za pomocą interfejsu API użytkownicy mogą przypisywać zasady w zakresie zasobów klastra AKS. Użytkownik powinien mieć co najmniej uprawnienia "właściciel" lub "Współautor zasad zasobów" w zasobie klastra AKS. — W witrynie Azure Portal zasady można przypisywać na poziomie grupy zarządzania/subskrypcji/grupy zasobów.
+| Kto może tworzyć i przypisywać zasady | Administrator klastra tworzy zasób pod kątem zasad zabezpieczeń | Użytkownicy muszą mieć minimalną rolę uprawnień "właściciel" lub "Współautor zasad zasobów" w grupie zasobów klastra AKS. -Za pomocą interfejsu API użytkownicy mogą przypisywać zasady w zakresie zasobów klastra AKS. Użytkownik powinien mieć co najmniej uprawnienia "właściciel" lub "Współautor zasad zasobów" w zasobie klastra AKS. -W Azure Portal zasady można przypisywać na poziomie grupy zarządzania/subskrypcji/grupy zasobów.
 | Autoryzowanie zasad| Konta użytkowników i usług wymagają jawnych uprawnień do używania zasad zabezpieczeń usługi. | Do autoryzacji zasad nie jest wymagane żadne dodatkowe przypisanie. Po przypisaniu zasad na platformie Azure wszyscy użytkownicy klastrów mogą korzystać z tych zasad.
 | Zastosowanie zasad | Użytkownik administracyjny pomija wymuszanie zasad zabezpieczeń pod. | Wszyscy użytkownicy (administrator & nie administrator) widzą te same zasady. Nie ma żadnej specjalnej wielkości liter na podstawie użytkowników. Aplikacje zasad mogą być wykluczone na poziomie przestrzeni nazw.
 | Zakres zasad | Zasady zabezpieczeń pod nie są obszarami nazw | Szablony ograniczeń używane przez Azure Policy nie są obszarami nazw.

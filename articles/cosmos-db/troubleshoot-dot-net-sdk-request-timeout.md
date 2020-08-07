@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów dotyczących Azure Cosmos DB HTTP 408 lub probl
 description: Jak zdiagnozować i naprawić wyjątek limitu czasu żądania zestawu SDK platformy .NET
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417611"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987413"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB limit czasu żądania zestawu SDK platformy .NET
 Błąd HTTP 408 występuje, jeśli zestaw SDK nie mógł wykonać żądania przed upływem limitu czasu.
@@ -45,9 +45,12 @@ Aplikacja kliencka korzystająca z zestawu SDK powinna być skalowana w górę/w
 W przypadku uruchamiania na platformie Azure klienci korzystający z zestawu SDK platformy .NET mogą osiągać wyczerpanie portów z użyciem usługi Azure translatora adresów sieciowych.
 
 #### <a name="solution-1"></a>Rozwiązanie 1.
-Postępuj zgodnie z [przewodnikiem wyczerpania portów](troubleshoot-dot-net-sdk.md#snat).
+Jeśli używasz programu na maszynach wirtualnych platformy Azure, postępuj zgodnie z [przewodnikiem wyczerpania portów](troubleshoot-dot-net-sdk.md#snat).
 
 #### <a name="solution-2"></a>Rozwiązanie 2.
+Jeśli używasz programu na Azure App Service, postępuj zgodnie z [przewodnikiem rozwiązywania problemów z błędami połączenia](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) i [korzystaj z diagnostyki App Service](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### <a name="solution-3"></a>Rozwiązanie 3:
 W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie SDK `ConnectionPolicy` .
 W przeciwnym razie nastąpiły problemy z połączeniem.
 

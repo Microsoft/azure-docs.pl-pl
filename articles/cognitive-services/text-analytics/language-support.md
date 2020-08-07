@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/29/2020
 ms.author: aahi
-ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413335"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986172"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -23,7 +23,7 @@ ms.locfileid: "85413335"
 > Wersja 3. x interfejs API analizy tekstu jest obecnie niedostępna w następujących regionach: Indie Środkowe, Zjednoczone Emiraty Arabskie, Chiny Północne 2, Chiny Wschodnie.
 
 
-#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment-analysis)
+#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
 
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
@@ -34,11 +34,11 @@ ms.locfileid: "85413335"
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                            |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt`również zaakceptowane |
@@ -71,12 +71,12 @@ ms.locfileid: "85413335"
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
 | Japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| koreański                |     `ko`      |     ✓      |            |                                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb`również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt`również zaakceptowane |
@@ -94,10 +94,10 @@ ms.locfileid: "85413335"
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb`również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`również zaakceptowane |
@@ -123,6 +123,6 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)   

@@ -4,12 +4,12 @@ description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą P
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015582"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987277"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -22,13 +22,9 @@ ms.locfileid: "87015582"
 
 Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zaplanować. Nie można uruchomić z nich zasobników, które żądają niedozwolonych zasobów w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń pod. W tym artykule pokazano, jak za pomocą zasad zabezpieczeń w programie ograniczyć wdrażanie zasobników w AKS.
 
-> [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
->
-> * [Zasady pomocy technicznej AKS][aks-support-policies]
-> * [Pomoc techniczna platformy Azure — często zadawane pytania][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 

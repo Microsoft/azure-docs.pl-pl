@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857792"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985618"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Używanie interfejsu API REST konwersji modelu
 
@@ -45,7 +45,7 @@ Usługa konwersji oferuje trzy punkty końcowe interfejsu API REST:
 ### <a name="start-conversion-using-a-linked-storage-account"></a>Rozpocznij konwersję przy użyciu połączonego konta magazynu
 Twoje konto renderowania zdalnego platformy Azure musi mieć dostęp do podanego konta magazynu, wykonując czynności opisane w sekcji jak [połączyć konta magazynu](../create-an-account.md#link-storage-accounts).
 
-| Endpoint | Metoda |
+| Punkt końcowy | Metoda |
 |-----------|:-----------|
 | /V1/accounts/**accountID**/conversions/Create | POST |
 
@@ -53,6 +53,8 @@ Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola
 
 #### <a name="request-body"></a>Treść żądania
 
+> [!NOTE]
+> Wszystkie elementy w obszarze `input.folderPath` zostaną pobrane w celu przeprowadzenia konwersji na platformie Azure. Jeśli `input.folderPath` nie jest określony, cała zawartość kontenera zostanie pobrana. Wszystkie obiekty blob i foldery pobrane do pobrania muszą mieć [prawidłowe nazwy plików systemu Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -75,11 +77,11 @@ Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola
 ### <a name="start-conversion-using-provided-shared-access-signatures"></a>Rozpocznij konwersję przy użyciu dostarczonych sygnatur dostępu współdzielonego
 Jeśli konto ARR nie jest połączone z kontem magazynu, ten interfejs REST umożliwia uzyskanie dostępu przy użyciu *sygnatur dostępu współdzielonego (SAS)*.
 
-| Endpoint | Metoda |
+| Punkt końcowy | Metoda |
 |-----------|:-----------|
 | /V1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to "conversionId".
+Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to `conversionId` .
 
 #### <a name="request-body"></a>Treść żądania
 
@@ -88,6 +90,8 @@ Treść żądania jest taka sama jak w przypadku wywołania Create REST powyżej
 > [!NOTE]
 > Te tokeny URI sygnatury dostępu współdzielonego to ciągi zapytania, a nie pełny identyfikator URI. 
 
+> [!NOTE]
+> Wszystkie elementy w obszarze `input.folderPath` zostaną pobrane w celu przeprowadzenia konwersji na platformie Azure. Jeśli `input.folderPath` nie jest określony, cała zawartość kontenera zostanie pobrana. Wszystkie obiekty blob i foldery pobrane do pobrania muszą mieć [prawidłowe nazwy plików systemu Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -114,7 +118,7 @@ Treść żądania jest taka sama jak w przypadku wywołania Create REST powyżej
 Stan trwającej konwersji rozpoczętej z jednym z powyższych wywołań REST można zbadać przy użyciu następującego interfejsu:
 
 
-| Endpoint | Metoda |
+| Punkt końcowy | Metoda |
 |-----------|:-----------|
 | /V1/accounts/**accountID**/conversions/**conversionId** | GET |
 

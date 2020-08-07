@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141821"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986461"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Przykładowe scenariusze użytkowników dla interfejs API analizy tekstu
 
@@ -29,7 +29,7 @@ Uzyskiwanie szczegółowych informacji z wyników ankiety klienta i pracownika p
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizowanie zarejestrowanych przychodzących wywołań klienta
 
-Wyodrębnij szczegółowe informacje z wywołań usług Customer Services przy użyciu zamiana tekstu na mowę, analiza tonacji i wyodrębnianie kluczowych fraz. Wyświetl wyniki w Power BI pulpicie nawigacyjnym lub w portalu, aby lepiej zrozumieć klientów, wyróżnić trendy usług klienta i zwiększyć zaangażowanie klientów. Wysyłaj żądania interfejsu API jako partię do raportowania lub w czasie rzeczywistym na potrzeby interwencji. Zapoznaj się z przykładowym kodem [w serwisie GitHub](https://github.com/rlagh2/callcenteranalytics).
+Wyodrębnij szczegółowe informacje z wywołań usług Customer Services przy użyciu funkcji zamiany mowy na tekst, analiza tonacji i wyodrębnianie kluczowych fraz. Wyświetl wyniki w Power BI pulpicie nawigacyjnym lub w portalu, aby lepiej zrozumieć klientów, wyróżnić trendy usług klienta i zwiększyć zaangażowanie klientów. Wysyłaj żądania interfejsu API jako partię do raportowania lub w czasie rzeczywistym na potrzeby interwencji. Zapoznaj się z przykładowym kodem [w serwisie GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Obraz przedstawiający sposób automatyzowania uzyskiwania szczegółowych informacji z wywołań obsługi klienta przy użyciu analizy tonacji](media/use-cases/azure-inbound.svg)
 

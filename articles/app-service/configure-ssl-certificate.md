@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146425"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987175"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -64,6 +64,7 @@ Bezpłatny App Service certyfikat zarządzany to rozwiązanie, które umożliwia
 - Nie obsługuje certyfikatów symboli wieloznacznych.
 - Nie obsługuje domen niedozwolonych.
 - Nie jest możliwy do eksportu.
+- Nie jest obsługiwane w App Service Environment (ASE)
 - Nie obsługuje rekordów. Na przykład automatyczne odnawianie nie działa z rekordami.
 
 > [!NOTE]

@@ -4,18 +4,18 @@ description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyj
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d4f7842330862013644cf961f5bd8e079d097069
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499623"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985851"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
 Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać [klucze zarządzane przez klienta][customer-managed-keys] , które będą używane do szyfrowania dla dysków systemu operacyjnego i danych dla klastrów AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * W tym artykule przyjęto założenie, że tworzysz *nowy klaster AKS*.
 
@@ -23,11 +23,7 @@ Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczy
 
 * Potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.79 lub nowszej oraz rozszerzenia AKS-Preview 0.4.26
 
-> [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby dowiedzieć się więcej, zobacz następujące artykuły pomocy technicznej:
->
-> * [Zasady pomocy technicznej AKS](support-policies.md)
-> * [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>Zainstaluj rozszerzenie najnowszej wersji zapoznawczej interfejsu wiersza polecenia AKS
 

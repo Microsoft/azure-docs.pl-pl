@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850262"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987260"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -107,7 +107,7 @@ W przypadku uruchamiania w protokole TCP klient optymalizuje się pod kątem op�
 
 W scenariuszach, w których masz dostęp rozrzedzony i jeśli zauważysz wyższą liczbę połączeń w porównaniu z dostępem do trybu bramy, możesz:
 
-* Skonfiguruj Właściwość [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .net core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
+* Skonfiguruj Właściwość [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .NET Core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
 * Należy skonfigurować właściwość [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) , która nie może być większa niż 10 minut. Zalecane wartości są z zakresu od 20 minut do 24 godzin.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ Podczas pracy nad Azure Functions wystąpienia powinny również postępować zg
 
 **Wyłącz odpowiedź zawartości przy operacjach zapisu**
 
-W przypadku obciążeń, które mają Heave Utwórz ładunki, ustaw dla opcji żądania EnableContentResponseOnWrite wartość false. Usługa nie zwróci już utworzonego lub zaktualizowanego zasobu do zestawu SDK. Zwykle aplikacja ma tworzony obiekt, więc nie potrzebuje usługi do zwrócenia. Wartości nagłówka są nadal dostępne, na przykład opłata za żądanie. Może to poprawić wydajność, ponieważ zestaw SDK nie będzie już musiał przydzielić pamięci lub serializować treści odpowiedzi. Zmniejsza to również wykorzystanie przepustowości sieci, aby zwiększyć wydajność.  
+W przypadku obciążeń, które mają duże ilości tworzenia ładunków, dla opcji żądania EnableContentResponseOnWrite ustaw wartość false. Usługa nie zwróci już utworzonego lub zaktualizowanego zasobu do zestawu SDK. Zwykle aplikacja ma tworzony obiekt, więc nie potrzebuje usługi do zwrócenia. Wartości nagłówka są nadal dostępne, na przykład opłata za żądanie. Może to poprawić wydajność, ponieważ zestaw SDK nie będzie już musiał przydzielić pamięci lub serializować treści odpowiedzi. Zmniejsza to również wykorzystanie przepustowości sieci, aby zwiększyć wydajność.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };

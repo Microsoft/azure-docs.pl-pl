@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281365"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987328"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -67,9 +67,7 @@ Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpita
 
 ### <a name="validate-syntax"></a>Weryfikuj składnię
 
-Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. 
-
-Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [*How to: Parse and Validate models*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="manage-models-with-apis"></a>Zarządzanie modelami za pomocą interfejsów API.
 
@@ -86,7 +84,7 @@ W poniższych sekcjach pokazano, jak wykonać różne operacje zarządzania mode
 Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 > [!TIP]
-> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-use-parser.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
+> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-parse-models.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
 
 Gdy wszystko jest gotowe do przekazania modelu, można użyć następującego fragmentu kodu:
 
@@ -115,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Na przykład:
+Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Przykład:
 
 ```json
 [

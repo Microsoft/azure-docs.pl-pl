@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/22/2020
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: fd0f295fbc47a8e461885916dbe48f7604e182c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7d8cb89b1187bb15e7b361e1b6b9505400c612b5
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854656"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986321"
 ---
 # <a name="quickstart-configure-nsg-flow-logs-from-arm-template"></a>Szybki Start: Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń z poziomu szablonu ARM
 
@@ -69,6 +69,7 @@ Jeśli używasz szablonów Azure Resource Manager po raz pierwszy, możesz dowie
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
 * [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
 
 Poniższy przykład pełnego szablonu to najprostsza wersja z minimalnymi parametrami przekazaną do skonfigurowania dzienników przepływów sieciowej grupy zabezpieczeń. Aby uzyskać więcej przykładów, przejdź do tego [linku](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager).
 

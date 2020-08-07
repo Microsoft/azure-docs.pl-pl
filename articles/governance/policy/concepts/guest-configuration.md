@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnych
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921694"
+ms.locfileid: "87987107"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -35,8 +35,9 @@ Aby można było korzystać z konfiguracji gościa, należy zarejestrować dosta
 Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone, a komputer musi mieć tożsamość zarządzaną przez system. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji. Tożsamość służy do uwierzytelniania maszyny podczas odczytywania i zapisywania w usłudze konfiguracji gościa. Rozszerzenie nie jest wymagane dla maszyn połączonych z łukiem, ponieważ znajduje się w agencie połączonej maszyny.
 
 > [!IMPORTANT]
-> Do inspekcji maszyn wirtualnych platformy Azure wymagane jest rozszerzenie konfiguracji gościa i zarządzana tożsamość. Aby > rozszerzenie konfiguracji gościa jest wymagane do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące inicjatywy zasad: > Wdróż rozszerzenie na dużą skalę, przypisz następujące definicje zasad: 
->  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> Do inspekcji maszyn wirtualnych platformy Azure wymagane jest rozszerzenie konfiguracji gościa i zarządzana tożsamość. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące inicjatywy zasad:
+> 
+> - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limity ustawione dla rozszerzenia
 
@@ -99,7 +100,7 @@ Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Az
 
 ## <a name="managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej
 
-Zasady z inicjatywy [wdrażające wymagania wstępne dotyczące włączania zasad konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) włączają tożsamość zarządzaną przypisaną przez system, jeśli taka nie istnieje. W ramach inicjatywy, która zarządza tworzeniem tożsamości, istnieją dwa definicje zasad. Warunki IF w definicjach zasad zapewniają poprawne zachowanie na podstawie bieżącego stanu zasobu maszyny na platformie Azure.
+Definicje zasad w ramach inicjatywy [wdrażanie wymagań wstępnych dotyczących włączania zasad konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) umożliwiają zarządzanie tożsamościami zarządzanymi przez system, jeśli taka nie istnieje. W ramach inicjatywy, która zarządza tworzeniem tożsamości, istnieją dwa definicje zasad. Warunki IF w definicjach zasad zapewniają poprawne zachowanie na podstawie bieżącego stanu zasobu maszyny na platformie Azure.
 
 Jeśli na komputerze nie ma obecnie żadnych tożsamości zarządzanych, obowiązujące zasady będą: [ \[ wersja zapoznawcza \] : Dodawanie tożsamości zarządzanej przypisanej przez system do włączania przypisań konfiguracji gościa na maszynach wirtualnych bez tożsamości](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -201,8 +202,8 @@ Wbudowane zasady konfiguracji gościa są dostępne w następujących lokalizacj
 
 - Dowiedz się, jak wyświetlić szczegóły poszczególnych ustawień z [widoku zgodności konfiguracji gościa](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
-- Przejrzyj temat [Struktura definicji zasad Azure Policy](definition-structure.md).
-- Przejrzyj [wyjaśnienie działania zasad](effects.md).
+- Przejrzyj temat [Struktura definicji zasad Azure Policy](./definition-structure.md).
+- Przejrzyj [wyjaśnienie działania zasad](./effects.md).
 - Dowiedz się, jak [programowo utworzyć zasady](../how-to/programmatically-create.md).
 - Dowiedz się, jak [uzyskać dane zgodności](../how-to/get-compliance-data.md).
 - Dowiedz się, jak [skorygować niezgodne zasoby](../how-to/remediate-resources.md).

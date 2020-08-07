@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6000bffb80c83ffce58605bcc7e5bfaf404329da
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537426"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986684"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -174,7 +174,7 @@ W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazw
 > Jeśli używasz programu Visual Studio na potrzeby tego samouczka, możesz chcieć wybrać nowo utworzony plik JSON i ustawić właściwość *Kopiuj do katalogu wyjściowego* w Inspektorze właściwości, aby *skopiować w przypadku, gdy nowszy* lub *Kopiuj zawsze*. Umożliwi to programowi Visual Studio znalezienie pliku JSON z domyślną ścieżką podczas uruchamiania programu przy użyciu klawisza **F5** w pozostałej części tego samouczka.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-use-parser.md).
+> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-parse-models.md).
 
 Następnie Dodaj więcej kodu do *program.cs* , aby przekazać model, który został właśnie utworzony w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 

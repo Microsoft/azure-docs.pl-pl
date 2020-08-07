@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534774"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987141"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby u
 Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **konta magazynu Azure Portal-> Storage-> sygnatura dostęp współdzielony-> skonfigurować uprawnienia-> generować sygnatury SAS i parametry połączenia.**
 
 > [!IMPORTANT]
-> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Na przykład:
+> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Przykład:
 >
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
@@ -81,12 +81,13 @@ W poniższej tabeli znajdują się dostępne typy autoryzacji:
 
 Można użyć następujących kombinacji typów autoryzacji i usługi Azure Storage:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Typ autoryzacji  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SYGNATUR*               | Obsługiwane      | Nieobsługiwane   | Obsługiwane     |
-| *Tożsamość zarządzana* | Obsługiwane      | Obsługiwane        | Obsługiwane     |
-| *Tożsamość użytkownika*    | Obsługiwane      | Obsługiwane        | Obsługiwane     |
+| [SYGNATUR](?tabs=shared-access-signature#supported-storage-authorization-types)    | Obsługiwane\*      | Nieobsługiwane   | Obsługiwane\*     |
+| [Tożsamość zarządzana](?tabs=managed-identity#supported-storage-authorization-types) | Obsługiwane      | Obsługiwane        | Obsługiwane     |
+| [Tożsamość użytkownika](?tabs=user-identity#supported-storage-authorization-types)    | Obsługiwane\*      | Obsługiwane\*        | Obsługiwane\*     |
 
+\*Token sygnatury dostępu współdzielonego i tożsamość usługi Azure AD mogą być używane do uzyskiwania dostępu do magazynu, który nie jest chroniony za pomocą zapory.
 
 > [!IMPORTANT]
 > Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można używać tylko tożsamości zarządzanej. Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli platformy Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
@@ -177,27 +178,46 @@ Poświadczenia w zakresie bazy danych umożliwiają dostęp do usługi Azure Sto
 
 Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli ma ona co najmniej jedną `Storage Blob Data Owner` `Storage Blob Data Contributor` `Storage Blob Data Reader` rolę. Użytkownicy usługi Azure AD nie potrzebują poświadczeń w celu uzyskania dostępu do magazynu.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytelniania usługi Azure AD.
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
-Poniższy skrypt tworzy poświadczenie, które jest używane do uzyskiwania dostępu do plików w magazynie przy użyciu tokenu SAS określonego w poświadczeniu.
+Poniższy skrypt tworzy poświadczenie, które jest używane do uzyskiwania dostępu do plików w magazynie przy użyciu tokenu SAS określonego w poświadczeniu. Skrypt utworzy przykładowe zewnętrzne źródło danych, które używa tego tokenu SAS do uzyskiwania dostępu do magazynu.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
-Poniższy skrypt tworzy poświadczenia w zakresie bazy danych, które mogą służyć do personifikacji bieżącego użytkownika usługi Azure AD jako tożsamości zarządzanej usługi. 
+Poniższy skrypt tworzy poświadczenia w zakresie bazy danych, które mogą służyć do personifikacji bieżącego użytkownika usługi Azure AD jako tożsamości zarządzanej usługi. Skrypt utworzy przykładowe zewnętrzne źródło danych korzystające z tożsamości obszaru roboczego w celu uzyskania dostępu do magazynu.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 Poświadczenia w zakresie bazy danych nie muszą być zgodne z nazwą konta magazynu, ponieważ zostaną jawnie użyte w źródle danych, które definiuje lokalizację magazynu.
@@ -206,6 +226,11 @@ Poświadczenia w zakresie bazy danych nie muszą być zgodne z nazwą konta maga
 
 Poświadczenia w zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [Źródło danych bez poświadczeń w zakresie bazy danych](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) , aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Poświadczenia w zakresie bazy danych są używane w zewnętrznych źródłach danych w celu określenia metody uwierzytelniania, która będzie używana w celu uzyskania dostępu do tego magazynu:

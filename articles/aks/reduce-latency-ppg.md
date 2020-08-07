@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056592"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986716"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
 
@@ -26,13 +26,9 @@ Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn
 * Pula węzłów musi używać Virtual Machine Scale Sets, aby skojarzyć grupę umieszczania sąsiedztwa.
 * Pula węzłów może skojarzyć grupę umieszczania bliskości w puli węzłów tylko do tworzenia czasu.
 
-> [!IMPORTANT]
-> Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
->
-> - [Zasady pomocy technicznej AKS](support-policies.md)
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wymagane są następujące zasoby:
 

@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374614"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987294"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Wersja zapoznawcza — Dodawanie puli węzłów dodatkowych do klastra usługi Azure Kubernetes Service (AKS)
 
@@ -28,15 +28,11 @@ Ta funkcja jest obecnie w wersji zapoznawczej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Podczas tworzenia klastra w celu używania puli węzłów dodatkowych, ten klaster musi również używać Virtual Machine Scale Sets dla pul węzłów i usługi równoważenia obciążenia w *warstwie Standardowa* . Należy również dodać dodatkową pulę węzłów po utworzeniu klastra do używania puli węzłów dodatkowych. Dodawanie dodatkowej puli węzłów jest omówione w późniejszym kroku, ale najpierw musisz włączyć funkcję w wersji zapoznawczej.
 
-> [!IMPORTANT]
-> Funkcje AKS w wersji zapoznawczej to samoobsługowe i niezgodne. Są one dostarczane w celu zebrania opinii i usterek z naszej społeczności. W wersji zapoznawczej te funkcje nie są przeznaczone do użytku produkcyjnego. Funkcje w publicznej wersji zapoznawczej są objęte wsparciem "najlepsze wysiłki". Pomoc dla zespołów pomocy technicznej AKS jest dostępna w godzinach pracy w czasie pracy (PST). Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
->
-> * [Zasady pomocy technicznej AKS][aks-support-policies]
-> * [Pomoc techniczna platformy Azure — często zadawane pytania][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Rejestrowanie funkcji spotpoolpreview w wersji zapoznawczej
 
@@ -60,7 +56,7 @@ Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="install-aks-preview-cli-extension"></a>Zainstaluj rozszerzenie interfejsu wiersza polecenia AKS-Preview
+### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
 Aby utworzyć klaster AKS, który używa puli węzłów dodatkowych, wymagany jest interfejs wiersza polecenia *AKS-Preview* w wersji 0.4.32 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
@@ -85,7 +81,7 @@ Podczas tworzenia klastrów AKS i zarządzania nimi za pomocą puli węzłów do
 * Pula węzłów dodatkowych będzie miała etykietę *Kubernetes.Azure.com/scalesetpriority:Spot*, *Kubernetes.Azure.com/scalesetpriority=Spot:NoSchedule*i zasobniki systemowe będą mieć antykoligacje.
 * Musisz dodać [odpowiednie tolerowanie][spot-toleration] , aby zaplanować obciążenia w puli węzłów dodatkowych.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Dodawanie puli węzłów dodatkowych do klastra AKS
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Dodawanie puli węzłów typu spot do klastra usługi AKS
 
 Należy dodać pulę węzłów dodatkowych do istniejącego klastra z włączonymi wieloma pulami węzłów. Więcej szczegółowych informacji na temat tworzenia klastra AKS z wieloma pulami węzłów można znaleźć [tutaj][use-multiple-node-pools].
 

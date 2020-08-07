@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373474"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986903"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -90,7 +90,7 @@ Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/
 > [!NOTE]
 > Przy użyciu aplikacji sieci Web platformy Azure automatycznie otrzymasz domenę w postaci`<appservice_name>.azurewebsites.net`
 
-Uruchom ten skrypt programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Web App for Containers przy użyciu subskrypcji i obrazu kontenera za pośrednictwem protokołu HTTPS. Poczekaj na zakończenie wykonywania skryptu (około 20 minut) przed przesłaniem pierwszego żądania.
+Uruchom ten skrypt programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Web App for Containers przy użyciu subskrypcji i obrazu kontenera za pośrednictwem protokołu HTTPS. Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -120,7 +120,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 Możesz również użyć wystąpienia kontenera platformy Azure (ACI), aby ułatwić wdrażanie. ACI to zasób, który umożliwia uruchamianie kontenerów platformy Docker na żądanie w zarządzanym, bezserwerowym środowisku platformy Azure. 
 
-Zapoznaj się z tematem [jak używać Azure Container Instances](text-analytics-how-to-use-container-instances.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 20 minut) przed przesłaniem pierwszego żądania.
+Zapoznaj się z tematem [jak używać Azure Container Instances](text-analytics-how-to-use-container-instances.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.  Ze względu na limit maksymalnej liczby procesorów CPU na ACI zasób nie należy zaznaczać tej opcji, jeśli oczekuje się przesłania więcej niż 5 dużych dokumentów (około 5000 znaków) na żądanie.
+Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regionalnej ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) . 
 
 > [!NOTE] 
 > Azure Container Instances nie Uwzględniaj obsługi protokołu HTTPS dla domen wbudowanych. Jeśli potrzebujesz protokołu HTTPS, konieczne będzie jego ręczne skonfigurowanie, w tym utworzenie certyfikatu i zarejestrowanie domeny. Instrukcje można znaleźć w NGINX poniżej.
@@ -143,7 +144,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487806"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986566"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -750,6 +750,32 @@ Aby uniknąć tego problemu, zalecamy zastosowanie jednej z następujących meto
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Sieć wirtualna nie jest połączona z prywatną strefą DNS
+
+Podczas tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego szablon tworzy strefę Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__. __Łącze sieci wirtualnej__ jest automatycznie dodawane do tej prywatnej strefy DNS. Łącze jest dodawane tylko do pierwszego obszaru roboczego i prywatnego punktu końcowego tworzonego w grupie zasobów. w przypadku utworzenia innej sieci wirtualnej i obszaru roboczego z prywatnym punktem końcowym w tej samej grupie zasobów druga sieć wirtualna może nie zostać dodana do prywatnej strefy DNS.
+
+Aby wyświetlić linki sieci wirtualnej, które już istnieją dla prywatnej strefy DNS, użyj następującego polecenia platformy Azure:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+Aby dodać sieć wirtualną, która zawiera inny obszar roboczy i prywatny punkt końcowy, wykonaj następujące czynności:
+
+1. Aby znaleźć identyfikator sieci wirtualnej dla sieci, która ma zostać dodana, użyj następującego polecenia:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    To polecenie zwraca wartość podobną do ""/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet "". Zapisz tę wartość i użyj jej w następnym kroku.
+
+2. Aby dodać łącze sieci wirtualnej do strefy Prywatna strefa DNS privatelink.api.azureml.ms, użyj następującego polecenia. Dla `--virtual-network` parametru Użyj danych wyjściowych poprzedniego polecenia:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Następne kroki

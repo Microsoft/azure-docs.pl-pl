@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371128"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986302"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
 
-## <a name="july-2020"></a>Lipiec 2020 r.
+## <a name="august-2020"></a>2020 sierpnia
+
+* Wersja modelu `2020-07-01` dla `/keyphrases` `/pii` `/languages` punktów końcowych v3 i, które dodaje:
+    * Dodatkowe [Kategorie jednostek](named-entity-types.md?tabs=personal) dla instytucji rządowych i poszczególnych krajów dla nazwanego rozpoznawania jednostek.
+* W przypadku żądań interfejsu API v3, które przekraczają opublikowane [limity danych](concepts/data-limits.md), zostanie teraz zwrócony błąd HTTP 400. 
+
+## <a name="july-2020"></a>Lipiec 2020 r. 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Analiza tekstu dla kontenera kondycji — publiczna wersja zapoznawcza
 
-Analiza tekstu dla kontenera kondycji jest teraz w publicznej wersji zapoznawczej, która umożliwia wyodrębnienie informacji z tekstu języka angielskiego bez struktury w dokumentach klinicznych, takich jak: formularze przyjmowania pacjentów, notatki lekarza, dokumenty badawcze i podsumowania zrzutów. Obecnie nie są naliczane opłaty za użycie kontenera kondycji analiza tekstu. 
+Analiza tekstu dla kontenera kondycji jest teraz w publicznej wersji zapoznawczej, która umożliwia wyodrębnienie informacji z tekstu języka angielskiego bez struktury w dokumentach klinicznych, takich jak: formularze przyjmowania pacjentów, notatki lekarza, dokumenty badawcze i podsumowania zrzutów. Obecnie nie są naliczane opłaty za użycie kontenera kondycji analiza tekstu.
 
 Kontener oferuje następujące funkcje:
 
@@ -101,8 +107,8 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
-    * Produkt
-    * Wydarzenie
+    * Product (Produkt)
+    * Zdarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 

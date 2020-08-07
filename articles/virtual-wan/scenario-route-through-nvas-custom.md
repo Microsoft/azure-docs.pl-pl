@@ -6,20 +6,82 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3fcad59bcfb75b8de6af14eae7e0bcb4962b17eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569265"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987214"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS — niestandardowy (wersja zapoznawcza)
 
-Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS (sieciowe urządzenie wirtualne) celem jest kierowanie ruchu przez urządzenie WUS dla gałęzi wirtualnej <-> i używanie innego urządzenie WUS dla ruchu związanego z Internetem. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS (sieciowe urządzenie wirtualne) celem jest kierowanie ruchu przez urządzenie WUS w celu komunikacji między sieci wirtualnych i gałęziami oraz użycie innego urządzenie WUS dla ruchu związanego z Internetem. Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Architektura scenariusza
+## <a name="design"></a><a name="design"></a>Projektowanie
+
+W tym scenariuszu będziemy używać konwencji nazewnictwa:
+
+* "Sieć wirtualna usług" dla sieci wirtualnych, w których użytkownicy wdrażają urządzenie WUS (Sieć wirtualna 4 na **rysunku 1**) w celu sprawdzenia ruchu niepochodzącego od Internetu.
+* "Sieć wirtualna strefy DMZ" dla sieci wirtualnych, w których użytkownicy wdrażają urządzenie WUS do użycia w celu sprawdzenia ruchu powiązanego z Internetem (Sieć wirtualna 5 na **rysunku 1**).
+* "Urządzenie WUS szprych" dla sieci wirtualnych połączonych z siecią wirtualną urządzenie WUS (Sieć wirtualna 1, Sieć wirtualna 2 i Sieć wirtualna 3 na **rysunku 1**).
+* "Centra" dla wirtualnych centrów sieci WAN zarządzanych przez firmę Microsoft.
+
+Następująca macierz łączności podsumowuje przepływy obsługiwane w tym scenariuszu:
+
+**Macierz łączności**
+
+| Źródło          | Do:|*URZĄDZENIE WUS szprychy*|*Sieć wirtualna usługi*|*Sieć wirtualna strefy DMZ*|*Statyczne gałęzie*|
+|---|---|---|---|---|---|
+| **URZĄDZENIE WUS szprychy**| &#8594;|      X |            X |   Komunikacja równorzędna |    Statyczny    |
+| **Sieć wirtualna usługi**| &#8594;|    X |            X |      X    |      X       |
+| **Sieć wirtualna strefy DMZ** | &#8594;|       X |            X |      X    |      X       |
+| **Gałęzie** | &#8594;|  Statyczny |            X |      X    |      X       |
+
+Każda komórka w macierzy łączności zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu. Przejdźmy szczegółowo do różnych wierszy:
+
+* URZĄDZENIE WUS szprych:
+  * Szprychy docierają do innych szprych bezpośrednio za pośrednictwem wirtualnych centrów sieci WAN.
+  * Szprychy będą łączyć się z gałęziami za pośrednictwem trasy statycznej wskazującej na sieć wirtualną usługi. Nie powinny uczyć się określonych prefiksów z gałęzi (w przeciwnym razie byłyby bardziej szczegółowe i zastąpią podsumowanie).
+  * Szprychy będą wysyłać ruch internetowy do sieci obwodowej DMZ za pośrednictwem bezpośredniej sieci równorzędnej.
+* Gałęzi
+  * Rozgałęzienia będą współdziałać za pośrednictwem routingu statycznego wskazującego na sieć wirtualną usługi. Nie powinni uczyć się określonych prefiksów sieci wirtualnych, które zastępują Podsumowanie trasy statycznej.
+* Sieć wirtualna usługi będzie podobna do sieci wirtualnej usług udostępnionych, która musi być osiągalna z każdej sieci wirtualnej i każdej gałęzi.
+* Sieć wirtualna strefy DMZ nie musi mieć łączności za pośrednictwem wirtualnej sieci WAN, ponieważ jedyny ruch, który będzie obsługiwał, będzie przekroczyć bezpośrednie połączenia równorzędne sieci wirtualnej. Jednak użyjemy tego samego modelu łączności dla sieci wirtualnej DMZ, aby uprościć konfigurację.
+
+Dlatego nasza macierz łączności daje nam trzy odrębne wzorce łączności, które tłumaczy na trzy tabele tras. Skojarzenia z różnymi sieci wirtualnychami będą następujące:
+
+* URZĄDZENIE WUS szprych:
+  * Skojarzona tabela tras: **RT_V2B**
+  * Propagowanie do tabel tras: **RT_V2B** i **RT_SHARED**
+* URZĄDZENIE WUS sieci wirtualnych (wewnętrzny i internetowy):
+  * Skojarzona tabela tras: **RT_SHARED**
+  * Propagowanie do tabel tras: **RT_SHARED**
+* Gałęzi
+  * Skojarzona tabela tras: **Domyślna**
+  * Propagowanie do tabel tras: **RT_SHARED** i **domyślnych**
+
+Potrzebujemy tych tras statycznych, aby upewnić się, że ruch między sieciami wirtualnymi i gałęzią jest kierowany przez urządzenie WUS w sieci wirtualnej usługi (Sieć wirtualna 4):
+
+| Opis | Tabela tras | Trasa statyczna              |
+| ----------- | ----------- | ------------------------- |
+| Gałęzie    | RT_V2B      | 10.2.0.0/16 — > vnet4conn  |
+| URZĄDZENIE WUS szprychy  | Domyślny     | 10.1.0.0/16 — > vnet4conn  |
+
+Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń.
+
+| Opis | Połączenie | Trasa statyczna            |
+| ----------- | ---------- | ----------------------- |
+| VNet2Branch | vnet4conn  | 10.2.0.0/16 — > 10.4.0.5 |
+| Branch2VNet | vnet4conn  | 10.1.0.0/16 — > 10.4.0.5 |
+
+W tym momencie wszystko powinno być stosowane.
+
+Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Architektura
 
 Na **rysunku 1**znajduje się jedno centrum, **Hub 1**.
 
@@ -33,11 +95,11 @@ Na **rysunku 1**znajduje się jedno centrum, **Hub 1**.
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Rysunek 1":::
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Przepływ pracy scenariusza
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstawiono kroki, które należy wziąć pod uwagę:
 
-1. Aby ruch związany z Internetem przeszedł przez sieci VNET5, potrzebne są sieci wirtualnych 1, 2 i 3 do bezpośredniego połączenia za pośrednictwem komunikacji równorzędnej sieci wirtualnej z siecią wirtualną 5. Wymagany jest również UDR skonfigurowany w sieci wirtualnych dla 0.0.0.0/0 i następnego skoku 10.5.0.5. Obecnie wirtualna sieć WAN nie zezwala na urządzenie WUS następnego skoku w koncentratorze wirtualnym dla 0.0.0.0/0.
+1. Aby ruch związany z Internetem przeszedł przez sieć wirtualną 5, potrzebne są sieci wirtualnych 1, 2 i 3 do bezpośredniego połączenia za pośrednictwem komunikacji równorzędnej sieci wirtualnej z siecią wirtualną 5. Wymagany jest również UDR skonfigurowany w sieci wirtualnych dla 0.0.0.0/0 i następnego skoku 10.5.0.5. Obecnie wirtualna sieć WAN nie zezwala na urządzenie WUS następnego skoku w koncentratorze wirtualnym dla 0.0.0.0/0.
 
 1. W Azure Portal przejdź do centrum wirtualnego i Utwórz niestandardową tabelę tras **RT_Shared** , która będzie uczyć się tras za pośrednictwem propagacji ze wszystkich połączeń sieci wirtualnych i gałęzi. Na **rysunku 2**przedstawiono to pustą tabelę tras niestandardowych **RT_Shared**.
 
@@ -53,7 +115,7 @@ Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstaw
 
    * **Skojarzenie:** Zaznacz wszystkie sieci wirtualnych 1, 2 i 3. Oznacza to, że połączenia sieci wirtualnej 1, 2 i 3 będą skojarzone z tą tabelą tras i będą mogły uczyć się tras (statyczne i dynamiczne za pośrednictwem propagacji) w tej tabeli tras.
 
-   * **Propagacja:** Połączenia propagują trasy do tabel tras. Wybranie sieci wirtualnych 1, 2 i 3 umożliwi propagację tras z sieci wirtualnych 1, 2 i 3 do tej tabeli tras. Nie ma potrzeby propagowania tras z połączeń gałęzi do RT_V2B, ponieważ ruch sieci wirtualnej gałęzi przechodzi przez urządzenie WUS w sieci VNET4.
+   * **Propagacja:** Połączenia propagują trasy do tabel tras. Wybranie sieci wirtualnych 1, 2 i 3 umożliwi propagację tras z sieci wirtualnych 1, 2 i 3 do tej tabeli tras. Nie ma potrzeby propagowania tras z połączeń gałęzi do RT_V2B, ponieważ ruch sieci wirtualnej gałęzi odbywa się za pośrednictwem urządzenie WUS w sieci wirtualnej 4.
   
 1. Edytuj domyślną tabelę tras **DefaultRouteTable**.
 
@@ -67,7 +129,7 @@ Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstaw
 
 **Rysunek 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Rysunek 2":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Rysunek 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

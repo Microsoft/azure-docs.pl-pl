@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 0e660678f33f36b75147c2513c77d3085136127d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8c5c4a6e5d8b2997d80c7263ba17a705d3846ed8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563207"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987396"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 *Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla mnie odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. AKS używa typów zarządzanych tożsamości przypisanych do systemu i przypisanych przez użytkownika. Te tożsamości są obecnie niezmienne. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Musisz mieć zainstalowany następujący zasób:
 
@@ -108,11 +108,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Przesuwanie własnej płaszczyzny kontroli MI (wersja zapoznawcza)
 Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Pozwala to na takie scenariusze, jak używanie niestandardowej sieci wirtualnej lub niepowiązanego typu UDR z tożsamością zarządzaną.
 
-> [!IMPORTANT]
-> Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
->
-> - [Zasady pomocy technicznej AKS](support-policies.md)
-> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Wymagane są następujące zasoby:
 - Interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
