@@ -3,13 +3,13 @@ title: 'Szybki Start: Tworzenie aplikacji w języku Python dla systemu Linux'
 description: Zacznij korzystać z aplikacji systemu Linux na Azure App Service, wdrażając pierwszą aplikację w języku Python w kontenerze systemu Linux w App Service.
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.custom: seo-python-october2019, cli-validate, tracking-python
-ms.openlocfilehash: 1411c6ccc5228aa9248d5185bf44ecbfd496ed1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.openlocfilehash: 804ed6084454a70fa6fc4edff9a0579e43a3a872
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042356"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853487"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -33,7 +33,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -98,7 +98,7 @@ export FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Najpierw Utwórz środowisko wirtualne i Zainstaluj zależności:
 
@@ -228,7 +228,7 @@ Wybranie aplikacji spowoduje otwarcie jej strony **Przegląd** , na której moż
 
 Menu App Service zawiera różne strony służące do konfigurowania aplikacji.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli używasz jednostki SKU App Service innej niż bezpłatna warstwa F1, te zasoby ponoszą bieżące koszty (zobacz [App Service Cennik](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 

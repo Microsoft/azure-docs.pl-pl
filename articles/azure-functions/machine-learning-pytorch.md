@@ -5,13 +5,13 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.custom: tracking-python
-ms.openlocfilehash: bbb784a1245ecc8d6f3d3aee45b729984568fc6c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ebedb7f205553f91e38e3976a02b0912cbee1fb0
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852433"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Samouczek: Wdrażanie wstępnie nauczonego modelu klasyfikacji obrazów do Azure Functions za pomocą PyTorch
 
@@ -73,7 +73,7 @@ Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -144,7 +144,7 @@ Aby zmodyfikować `classify` funkcję do klasyfikowania obrazu na podstawie jego
     cp ../resources/labels.txt classify
     ```
 
-    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     copy ..\resources\predict.py classify
@@ -230,7 +230,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     python -m http.server
     ```
 
-    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
@@ -254,7 +254,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
 
     Jeśli przeglądarka zgłosi błąd podczas przesyłania adresu URL obrazu, sprawdź Terminal, w którym jest uruchomiona aplikacja funkcji. Jeśli zobaczysz błąd, na przykład "nie znaleziono modułu" PIL "", być może uruchomiono aplikację funkcji w folderze *startowym* bez wcześniejszego aktywowania środowiska wirtualnego utworzonego wcześniej. Jeśli nadal występują błędy, uruchom `pip install -r requirements.txt` ponownie z aktywowanym środowiskiem wirtualnym i Wyszukaj błędy.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Ponieważ w całości z tego samouczka działa lokalnie na komputerze, nie ma żadnych zasobów ani usług platformy Azure do oczyszczenia.
 

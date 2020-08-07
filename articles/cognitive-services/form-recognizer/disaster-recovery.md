@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028231"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903344"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -54,7 +54,7 @@ Otrzymasz `201\Created` odpowiedź z `modelId` wartością w treści. Ten ciąg 
 ```
 HTTP/1.1 201 Created
 Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## <a name="start-copy-operation"></a>Rozpocznij operację kopiowania
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 Poniższe żądanie HTTP uruchamia operację kopiowania dla zasobu źródłowego. Musisz wprowadzić punkt końcowy i klucz zasobu źródłowego jako nagłówki. Należy zauważyć, że adres URL żądania zawiera identyfikator modelu źródłowego, który ma zostać skopiowany.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -72,7 +72,7 @@ Treść żądania musi mieć następujący format. Należy wprowadzić identyfik
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
 
@@ -88,7 +88,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Typowe błędy
 
-|Błąd|Rozwiązanie|
+|Error|Rozwiązanie|
 |:--|:--|
 | 400/złe żądanie z`"code:" "1002"` | Wskazuje błąd walidacji lub nieprawidłowo sformułowane żądanie kopiowania. Typowe problemy obejmują: a) nieprawidłowy lub zmodyfikowany `copyAuthorization` ładunek. b) wygasła wartość `expirationDateTimeTicks` tokenu ( `copyAuhtorization` ładunek jest ważny przez 24 godziny). c) jest nieprawidłowy lub nieobsługiwany `targetResourceRegion` . d) nieprawidłowy lub źle sformułowany `targetResourceId` ciąg.
 |
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Typowe błędy
 
-|Błąd|Rozwiązanie|
+|Error|Rozwiązanie|
 |:--|:--|
 |"błędy": [{"Code": "AuthorizationError",<br>"Message": "niepowodzenie autoryzacji z powodu <br>brakujące lub nieprawidłowe oświadczenia autoryzacji. "}]   | Występuje, gdy `copyAuthorization` ładunek lub zawartość są modyfikowane na podstawie tego, co zostało zwrócone przez `copyAuthorization` interfejs API. Upewnij się, że ładunek jest identyczny z dokładną zawartością, która została zwrócona z wcześniejszego `copyAuthorization` wywołania.|
 |"błędy": [{"Code": "AuthorizationError",<br>"komunikat": "nie można pobrać autoryzacji <br>metadane. Jeśli ten problem będzie nadal występował, użyj innego <br>Model docelowy do kopiowania. "}] | Wskazuje, że `copyAuthorization` ładunek jest ponownie używany z żądaniem kopiowania. Żądanie Copy, które powiodło się, nie będzie zezwalać na żadne dalsze żądania, które używają tego samego `copyAuthorization` ładunku. Jeśli zostanie zgłoszony oddzielny błąd (taki jak wymienione poniżej), a następnie ponów próbę kopiowania z tym samym ładunkiem autoryzacji, ten błąd zostanie wygenerowany. Rozwiązanie to wygenerowanie nowego `copyAuthorization` ładunku, a następnie ponowne wydanie żądania kopiowania.|

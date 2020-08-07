@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0cde9caa2f2b68b1e75eac635a81865cc4b6b33c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352839"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905860"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Samouczek: łączenie przykładowej aplikacji IoT Plug and Play w wersji zapoznawczej do IoT Hub (Python)
 
@@ -86,26 +86,26 @@ Otwórz plik *pnp_temp_controller_with_thermostats. PR* w wybranym edytorze. Kod
 
 1. Importy `pnp_helper_preview_refresh.py` , aby uzyskać dostęp do metod pomocnika.
 
-1. Definiuje dwa identyfikatory modelu cyfrowej przędzy (DTMIs), które jednoznacznie reprezentują dwa różne interfejsy zdefiniowane w modelu DTDL. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. Te DTMIs muszą być znane użytkownikowi i różnią się w zależności od scenariusza implementacji urządzenia. W przypadku bieżącego przykładu te dwa interfejsy reprezentują:
+2. Definiuje dwa identyfikatory modelu cyfrowej przędzy (DTMIs), które jednoznacznie reprezentują dwa różne interfejsy zdefiniowane w modelu DTDL. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. Te DTMIs muszą być znane użytkownikowi i różnią się w zależności od scenariusza implementacji urządzenia. W przypadku bieżącego przykładu te dwa interfejsy reprezentują:
 
   - Termostat
   - Informacje o urządzeniu opracowane przez platformę Azure.
 
-. Definiuje DTMI `model_id` dla zaimplementowanego urządzenia. DTMI jest zdefiniowany przez użytkownika i musi być zgodny z DTMI w pliku modelu DTDL.
+3. Definiuje DTMI `model_id` dla zaimplementowanego urządzenia. DTMI jest zdefiniowany przez użytkownika i musi być zgodny z DTMI w pliku modelu DTDL.
 
-1. Definiuje nazwy nadawane składnikom w pliku DTDL. W DTDL i jednym składniku informacji o urządzeniu znajdują się dwa termostaty. Stała wywołana `serial_number` jest również zdefiniowana w interfejsie głównym. `serial_number`Nie można zmienić urządzenia.
+4. Definiuje nazwy nadawane składnikom w pliku DTDL. W DTDL i jednym składniku informacji o urządzeniu znajdują się dwa termostaty. Stała wywołana `serial_number` jest również zdefiniowana w interfejsie głównym. `serial_number`Nie można zmienić urządzenia.
 
-1. Definiuje implementacje programu obsługi poleceń. Definiują to, jakie urządzenie ma wykonać po odebraniu żądania polecenia.
+5. Definiuje implementacje programu obsługi poleceń. Definiują to, jakie urządzenie ma wykonać po odebraniu żądania polecenia.
 
-1. Definiuje funkcje do tworzenia odpowiedzi polecenia. Określają one, jak urządzenie reaguje na żądania polecenia. Tworzysz funkcje odpowiedzi polecenia, jeśli polecenie musi wysłać odpowiedź niestandardową z powrotem do centrum IoT Hub. Jeśli nie podano funkcji odpowiedzi dla polecenia, zostanie wysłana ogólna odpowiedź. W tym przykładzie tylko polecenie **getMaxMinReport** ma niestandardową odpowiedź.
+6. Definiuje funkcje do tworzenia odpowiedzi polecenia. Określają one, jak urządzenie reaguje na żądania polecenia. Tworzysz funkcje odpowiedzi polecenia, jeśli polecenie musi wysłać odpowiedź niestandardową z powrotem do centrum IoT Hub. Jeśli nie podano funkcji odpowiedzi dla polecenia, zostanie wysłana ogólna odpowiedź. W tym przykładzie tylko polecenie **getMaxMinReport** ma niestandardową odpowiedź.
 
-1. Definiuje funkcję do wysyłania danych telemetrycznych z tego urządzenia. Zarówno termostaty, jak i interfejs główny wysyłają dane telemetryczne. Ta funkcja przyjmuje opcjonalny parametr nazwy składnika, aby umożliwić mu zidentyfikowanie składnika, który wysłał dane telemetryczne.
+7. Definiuje funkcję do wysyłania danych telemetrycznych z tego urządzenia. Zarówno termostaty, jak i interfejs główny wysyłają dane telemetryczne. Ta funkcja przyjmuje opcjonalny parametr nazwy składnika, aby umożliwić mu zidentyfikowanie składnika, który wysłał dane telemetryczne.
 
-1. Definiuje odbiornik dla żądań poleceń.
+8. Definiuje odbiornik dla żądań poleceń.
 
-1. Definiuje odbiornik do aktualizowania żądanych właściwości.
+9. Definiuje odbiornik do aktualizowania żądanych właściwości.
 
-1. Zawiera `main` funkcję, która:
+10. Zawiera `main` funkcję, która:
 
     1. Program używa zestawu SDK urządzenia do utworzenia klienta urządzenia i nawiązania połączenia z Centrum IoT Hub. Urządzenie wysyła do programu, `model_id` że Centrum IoT może identyfikować urządzenie jako urządzenie Plug and Play IoT.
 

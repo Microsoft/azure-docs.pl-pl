@@ -2,7 +2,7 @@
 title: Zarządzanie dostępem do zasobów & aplikacji przy użyciu grup — Azure AD
 description: Dowiedz się więcej na temat zarządzania dostępem do aplikacji w chmurze w organizacji, lokalnych aplikacjach i zasobów przy użyciu grup Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982603"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797311"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Zarządzanie dostępem do aplikacji i zasobów za pomocą grup usługi Azure Active Directory
 Azure Active Directory (Azure AD) umożliwia używanie grup do zarządzania dostępem do aplikacji w chmurze, aplikacji lokalnych i zasobów. Twoje zasoby mogą być częścią organizacji usługi Azure AD, np. uprawnieniami do zarządzania obiektami za pomocą ról w usłudze Azure AD lub spoza organizacji, na przykład w przypadku aplikacji oprogramowania jako usługi (SaaS), usług platformy Azure, witryn programu SharePoint i zasobów lokalnych.

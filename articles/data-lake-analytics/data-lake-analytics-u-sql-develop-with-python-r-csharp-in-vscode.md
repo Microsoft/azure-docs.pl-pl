@@ -6,13 +6,13 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/22/2017
-ms.custom: tracking-python
-ms.openlocfilehash: bdb40fee95c018cbdebac7c28aa131c98e3ee4c3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-python
+ms.openlocfilehash: 673c8db0b7c6d3d8658d2d3b6cfd7e00f3d7d986
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129870"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876210"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Opracowywanie języka U-SQL przy użyciu języków Python, R i C# dla Azure Data Lake Analytics w Visual Studio Code
 Dowiedz się, jak za pomocą Visual Studio Code (programu vscode) napisać kod w języku Python, R i C# za pomocą języka U-SQL i przesłać zadania do usługi Azure Data Lake. Aby uzyskać więcej informacji o Azure Data Lake narzędziach programu vscode, zobacz [Korzystanie z kodu Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -23,7 +23,7 @@ Przed zapisaniem niestandardowego kodu związanego z kodem należy otworzyć fol
 ## <a name="prerequisites-for-python-and-r"></a>Wymagania wstępne dotyczące języków Python i R
 Zarejestruj zestawy rozszerzeń języka Python i rozszerzenia R dla konta usługi ADL. 
 1. Otwórz swoje konto w portalu.
-   - Wybierz pozycję **Przegląd**. 
+   - Wybierz pozycję **Omówienie**. 
    - Kliknij pozycję **przykładowy skrypt**.
 2. Kliknij pozycję **Więcej**.
 3. Wybierz pozycję **Zainstaluj rozszerzenia U-SQL**. 

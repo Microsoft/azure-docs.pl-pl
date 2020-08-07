@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306115"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836007"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -85,7 +85,7 @@ Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprze
 
 Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej.
 
-**Gotowość** | **State** | **Szczegóły**
+**Gotowość** | **Stan** | **Szczegóły**
 --- | --- | ---
 Gotowa na platformę Azure | Brak problemów ze zgodnością. Maszynę można migrować na platformę Azure i uruchamiać ją na platformie Azure z pełną pomocą techniczną platformy Azure. | W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure.
 Warunkowo gotowa na platformę Azure | Komputer może przeprowadzić rozruch na platformie Azure, ale może nie mieć pełnej pomocy technicznej platformy Azure. Na przykład maszyna ze starszą wersją systemu Windows Server, która nie jest obsługiwana na platformie Azure. | Azure Migrate objaśnia problemy z gotowością i zawiera czynności zaradcze.
@@ -101,7 +101,7 @@ Gotowość uwzględnia wiele właściwości maszyn wirtualnych, aby określić, 
 --- | --- | ---
 **Typ rozruchu** | Obsługiwane przez system BIOS. Interfejs UEFI nie jest obsługiwany. | Warunkowo gotowe, jeśli typ rozruchu to UEFI.
 **Rdzenie** | Komputery Core <= Maksymalna liczba rdzeni (128) obsługiwana przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie.<br/>Jeśli czynnik komfortu jest określony w ustawieniach oceny, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni, bez zastosowania współczynnika komfortu. | Gotowe, jeśli jest mniejsze lub równe limitom.
-**Pamięć** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m &nbsp; <sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](../virtual-machines/windows/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
+**Pamięć** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m &nbsp; <sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](../virtual-machines/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
 **Dysk magazynu** | Przydzielony rozmiar dysku musi mieć wartość 4 TB (4096 GB) lub mniejszą.<br/><br/> Liczba dysków dołączonych do maszyny musi być 65 lub mniejsza, łącznie z dyskiem systemu operacyjnego. | Gotowe, jeśli w ramach limitów.
 **Sieć** | Maszyna musi mieć dołączoną 32 lub mniej kart sieciowych. | Gotowe, jeśli w ramach limitów.
 
@@ -263,7 +263,7 @@ W przypadku maszyn monitorowanych przez program System Center Operations Manager
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Dowiedz się więcej o [obsłudze agentów zależności](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) dla systemów operacyjnych Windows i Linux.
-- [Dowiedz się więcej](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) na temat sposobu instalowania agenta zależności za pomocą skryptów.
+- [Dowiedz się więcej](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) na temat sposobu instalowania agenta zależności za pomocą skryptów.
 
 >[!NOTE]
 > Artykuł Azure Monitor dla maszyn wirtualnych, do którego odwołuje się opis wymagań wstępnych systemu oraz metod wdrażania agenta zależności, dotyczą także rozwiązania Service Map.

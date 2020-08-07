@@ -1,5 +1,5 @@
 ---
-title: Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10
+title: Uaktualnianie do zestawu .NET SDK w wersji 10
 titleSuffix: Azure Cognitive Search
 description: Migruj kod do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10 ze starszych wersji. Dowiedz się, co nowego i jakie zmiany w kodzie są wymagane.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562384"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905785"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10
 
@@ -111,7 +111,7 @@ var webApiSkill = new WebApiSkill(
 
 Umiejętność kształtu może teraz zezwalać na konsolidację danych wejściowych z kontekstów zagnieżdżonych. Aby włączyć tę zmianę, należy ją zmodyfikować, `InputFieldMappingEntry` Aby można było utworzyć jej wystąpienie przez określenie tylko właściwości `Source` lub `SourceContext` `Inputs` właściwości i.
 
-Najprawdopodobniej nie musisz wprowadzać żadnych zmian w kodzie; należy jednak zauważyć, że dozwolone są tylko jedną z tych dwóch kombinacji. Składają się na to następujące elementy:
+Najprawdopodobniej nie musisz wprowadzać żadnych zmian w kodzie; należy jednak zauważyć, że dozwolone są tylko jedną z tych dwóch kombinacji. Oznacza to:
 
 - Tworzenie elementu, `InputFieldMappingEntry` gdzie `Source` jest inicjowany, jest prawidłowe.
 - Tworzenie elementu `InputFieldMappingEntry` Where `SourceContext` i `Inputs` -initializes jest prawidłowy.

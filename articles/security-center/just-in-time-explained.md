@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420842"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833457"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)
 
@@ -44,7 +44,7 @@ Po włączeniu dostępu just in Time do maszyny wirtualnej można wybrać porty 
 
 Jeśli istnieją już inne reguły dla wybranych portów, te istniejące reguły mają pierwszeństwo przed nowym regułą "Odmów całego ruchu przychodzącego". Jeśli nie ma żadnych istniejących reguł na wybranych portach, nowe reguły mają najwyższy priorytet w sieciowej grupy zabezpieczeń i zaporze platformy Azure.
 
-Gdy użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdza, czy użytkownik ma uprawnienia [Access Control na podstawie ról (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) dla tej maszyny wirtualnej. Jeśli żądanie zostało zatwierdzone, Security Center konfiguruje Zaporę sieciowych grup zabezpieczeń i platformy Azure tak, aby zezwalała na ruch przychodzący do wybranych portów z odpowiedniego adresu IP (lub zakresu) przez określony czas. Po upływie tego czasu program Security Center Przywraca poprzedni stan sieciowych grup zabezpieczeń. Połączenia, które zostały już ustanowione, nie są przerywane.
+Gdy użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdza, czy użytkownik ma uprawnienia do [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) dla tej maszyny wirtualnej. Jeśli żądanie zostało zatwierdzone, Security Center konfiguruje Zaporę sieciowych grup zabezpieczeń i platformy Azure tak, aby zezwalała na ruch przychodzący do wybranych portów z odpowiedniego adresu IP (lub zakresu) przez określony czas. Po upływie tego czasu program Security Center Przywraca poprzedni stan sieciowych grup zabezpieczeń. Połączenia, które zostały już ustanowione, nie są przerywane.
 
 > [!NOTE]
 > Kompilator JIT nie obsługuje maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](https://docs.microsoft.com/azure/firewall-manager/overview).

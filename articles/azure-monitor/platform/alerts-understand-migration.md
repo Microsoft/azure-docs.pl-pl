@@ -1,44 +1,33 @@
 ---
-title: Opis narzędzia do migracji dla alertów Azure Monitor
-description: Informacje o sposobie działania narzędzia migracji alertów i rozwiązywaniu problemów.
+title: Informacje o migracji Azure Monitor alertów
+description: Informacje na temat działania migracji alertów i rozwiązywania problemów.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564099"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852399"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Informacje o sposobie działania narzędzia do migracji
+# <a name="understand-migration-options-to-newer-alerts"></a>Omówienie opcji migracji do nowszych alertów
 
-Zgodnie z [dotychczas ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane 31 sierpnia 2019 (pierwotnie 30 czerwca 2019). Narzędzie do migracji jest dostępne w Azure Portal do klientów korzystających z klasycznych reguł alertów i którzy chcą wyzwolić migrację.
+Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Nowa data zostanie ogłoszona wkrótce w przypadku migracji pozostałych alertów, [Azure Government chmury](../../azure-government/documentation-government-welcome.md)i [platformy Azure w Chinach](https://docs.azure.cn/).
 
-W tym artykule wyjaśniono, jak działa narzędzie do migracji dobrowolnej. Opisano w nim również sposoby rozwiązywania niektórych typowych problemów.
-
-> [!NOTE]
-> Z powodu opóźnienia w wycofywaniu narzędzia migracji Data wycofania migracji klasycznych alertów została [rozszerzona do 31 sierpnia 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) od pierwotnie ogłoszonej daty 30 czerwca 2019.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Klasyczne reguły alertów, które nie są migrowane
+W tym artykule wyjaśniono, jak działa ręczne migrowanie i dobrowolne narzędzie do migracji, które zostanie użyte do migracji pozostałych reguł alertów. Opisano w nim również sposoby rozwiązywania niektórych typowych problemów.
 
 > [!IMPORTANT]
 > Migracja nie ma wpływu na alerty dziennika aktywności (w tym alerty kondycji usługi) i alerty dziennika. Migracja dotyczy tylko klasycznych reguł alertów opisanych [tutaj](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
-Mimo że narzędzie może migrować niemal wszystkie [klasyczne reguły alertów](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), istnieją pewne wyjątki. Następujące reguły alertów nie zostaną zmigrowane przy użyciu narzędzia (lub podczas automatycznej migracji od września 2019):
-
-- Klasyczne reguły alertów na metrykach gościa maszyn wirtualnych (zarówno w systemie Windows, jak i Linux). Zapoznaj się ze [wskazówkami dotyczącymi ponownego tworzenia reguł alertów w nowych alertach metryk](#guest-metrics-on-virtual-machines) w dalszej części tego artykułu.
-- Klasyczne reguły alertów na klasycznych metrykach magazynu. Zapoznaj się ze [wskazówkami dotyczącymi monitorowania klasycznych kont magazynu](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Klasyczne reguły alertów na niektórych metrykach konta magazynu. Zobacz [szczegóły](#storage-account-metrics) w dalszej części tego artykułu.
-- Reguły klasycznego alertu dotyczące niektórych metryk Cosmos DB. Zobacz [szczegóły](#cosmos-db-metrics) w dalszej części tego artykułu.
-- Klasyczne reguły alertów dla wszystkich klasycznych maszyn wirtualnych i metryk usług Cloud Services (Microsoft. ClassicCompute/virtualMachines i Microsoft. ClassicCompute/domainNames/Slots/role). Zobacz [szczegóły](#classic-compute-metrics) w dalszej części tego artykułu.
-
-Jeśli Twoja subskrypcja ma takie reguły klasyczne, należy przeprowadzić migrację ręcznie. Ze względu na to, że nie możemy zapewnić automatycznej migracji, wszystkie istniejące, klasyczne alerty metryk tego typu będą nadal działały do 2020 czerwca. To rozszerzenie zapewnia czas na przejście do nowych alertów. Możesz również nadal tworzyć nowe alerty klasyczne na powyższych wymienionych wyjątkach do czerwca 2020. Jednak dla wszystkiego innego nie można utworzyć nowych alertów klasycznych po 2019 sierpnia.
-
 > [!NOTE]
-> Poza wymienionymi wyjątkami, jeśli klasyczne reguły alertów są nieprawidłowe, tj. na [przestarzałe metryki](#classic-alert-rules-on-deprecated-metrics) lub zasoby, które zostały usunięte, nie zostaną zmigrowane i nie będą dostępne po wycofaniu usługi.
+> Jeśli klasyczne reguły alertów są nieprawidłowe, tj. znajdują się na [przestarzałych metrykach](#classic-alert-rules-on-deprecated-metrics) lub zasobach, które zostały usunięte, nie zostaną zmigrowane i nie będą dostępne po wycofaniu usługi.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Ręczne Migrowanie alertów klasycznych do nowszych alertów
+
+Klienci, którzy chcą ręcznie migrować pozostałe alerty, mogą już skorzystać z następujących sekcji. Te sekcje również definiują metryki, które zostały wycofane przez dostawcę zasobów i nie mogą być bezpośrednio migrowane.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Metryki gościa na maszynach wirtualnych
 

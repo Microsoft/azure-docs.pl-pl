@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1ece80ce5337304d1b0d51e5e334cd64cc133619
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: dc6ec5f440efef153273f8678bd1a55400a1235b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84984419"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835429"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Szybki Start: analizowanie obrazu lokalnego przy użyciu interfejsu API REST przetwarzanie obrazów i języka C #
 
@@ -42,7 +42,7 @@ Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynnoś
     1. Wybierz pozycję **Newtonsoft.Jsna**, a następnie kliknij pole wyboru obok nazwy projektu i **Zainstaluj**.
 1. Skopiuj/wklej przykładowy fragment kodu poniżej, do pliku Program.cs. Dostosuj nazwę przestrzeni nazw, jeśli różni się od utworzonej przez siebie.
 1. Dodaj obraz wyboru do folderu bin/debug/netcoreappX. X, a następnie Dodaj nazwę obrazu (z rozszerzeniem) do zmiennej "imageFilePath".
-1. Uruchom program.
+1. Uruchomisz program.
 
 ```csharp
 using Newtonsoft.Json.Linq;

@@ -2,19 +2,19 @@
 title: 'Interfejs wiersza polecenia platformy Azure: Wdrażanie serwera Open Source FHIR Server dla platformy Azure — Azure API for Azure'
 description: Ten przewodnik Szybki Start wyjaśnia, jak wdrożyć program Microsoft FHIR Server dla platformy Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc65bedc8b008d9628d09ef3e4bfc7cc6ea12e95
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 10af71afd8843e75d5df3be57c909c56a7abca01
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495254"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843583"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-cli"></a>Szybki Start: Wdrażanie serwera FHIR Open Source przy użyciu interfejsu wiersza polecenia platformy Azure
 

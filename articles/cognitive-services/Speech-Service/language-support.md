@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554060"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902049"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 |Regionalne  | Język            | Płeć | Nazwa głosu | Obsługa stylu |
 |--|--|--|--|--|
 | `ar-EG` | Arabski (Egipt)                  | Kobiety | `ar-EG-SalmaNeural`      | Ogólne |
-| `ar-SA` | Arabski (Arabia Saudyjska)           | Kobiety | `ar-SA-ZariyahNeura`     | Ogólne |
+| `ar-SA` | Arabski (Arabia Saudyjska)           | Kobiety | `ar-SA-ZariyahNeural`    | Ogólne |
 | `ca-ES` | Kataloński                 | Kobiety | `ca-ES-AlbaNeural`       | Ogólne |
 | `da-DK` | Duński (Dania)                | Kobiety | `da-DK-ChristelNeural`   | Ogólne |
 | `de-DE` | Niemiecki (Niemcy)                | Kobiety | `de-DE-KatjaNeural`      | Ogólne |
@@ -147,7 +147,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `hi-IN` | Hindi (Indie)                   | Kobiety | `hi-IN-SwaraNeural`      | Ogólne |
 | `it-IT` | Włoski (Włochy)                 | Kobiety | `it-IT-ElsaNeural`       | Ogólne |
 | `ja-JP` | Japoński                        | Kobiety | `ja-JP-NanamiNeural`     | Ogólne |
-| `ko-KR` | Koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
+| `ko-KR` | koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
 | `nb-NO` | Norweski                       | Kobiety | `nb-NO-IselinNeural`     | Ogólne |
 | `nl-NL` | Holenderski (Netherland)              | Kobiety | `nl-NL-ColetteNeural`    | Ogólne |
 | `pl-PL` | Polski (Polska)                 | Kobiety | `pl-PL-ZofiaNeural`      | Ogólne |
@@ -229,7 +229,7 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 | `ja-JP` | Japoński | Kobiety |  "ja-JP-Ayumi-Apollo" |
 |  |  | Mężczyźni | "ja-JP-Ichiro-Apollo" |
 |  |  | Kobiety |  "ja-JP-HarukaRUS" |
-| `ko-KR` | Koreański | Kobiety | "ko-KR-HeamiRUS" |
+| `ko-KR` | koreański | Kobiety | "ko-KR-HeamiRUS" |
 | `ms-MY` | Malajski | Mężczyźni |  "MS-MY-Rizwan" |
 | `nb-NO` | Norweski | Kobiety |  "NB-NO-HuldaRUS" |
 | `nl-NL` | Niderlandzki | Kobiety |  "NL-NL-HannaRUS" |
@@ -317,7 +317,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| Koreański                  | `ko`          |
+| koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |

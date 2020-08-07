@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604698"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852790"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu języka Python
 
@@ -194,7 +194,7 @@ Gdy zachowanie funkcji jest zadowalające, można je opublikować.
 
 1. Wybierz lokalizację nowego zasobu (na przykład zachodnie stany USA 2).
 
-W tym momencie niezbędne zasoby zostaną utworzone w ramach subskrypcji platformy Azure w celu hostowania nowej funkcji platformy Azure na platformie Azure. Zaczekaj na zakończenie wdrożenia. W oknie danych wyjściowych zostanie wyświetlony stan procesu wdrożenia.
+W tym momencie niezbędne zasoby zostaną utworzone w ramach subskrypcji platformy Azure w celu hostowania nowej funkcji platformy Azure na platformie Azure. Zaczekaj na zakończenie wdrażania. W oknie danych wyjściowych zostanie wyświetlony stan procesu wdrożenia.
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do **wszystkich zasobów** i Wyszukaj funkcję opublikowaną przez nazwę. Jeśli została wybrana opcja **złączer**, wybierz zasób.
 

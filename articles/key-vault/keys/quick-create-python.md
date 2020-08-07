@@ -7,13 +7,13 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: fe88cfc71959cfa0e78c9e6129853afee248fd37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c590fea274900f580a5c8415f6b04c2f9108f74f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060987"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876941"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki Start: Biblioteka klienta kluczy Azure Key Vault dla języka Python
 
@@ -186,7 +186,7 @@ Możesz sprawdzić, czy klucz został usunięty za pomocą polecenia [AZ Key mag
 az keyvault key show --vault-name <your-unique-keyvault-name> --name myKey
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

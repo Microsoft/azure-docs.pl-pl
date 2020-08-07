@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808715"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876635"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -199,15 +199,14 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
+Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
 
-Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+- **Mały (48 x 48)**
+- **Średni (90 x 90)**
+- **Duże (216 x 216)**
+- **Szeroki (255 x 115)**
 
-- **Mały** (48 x 48)
-- **Średni** (90 x 90)
-- **Duże** (od 216 x 216 do 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 061d6d1088358e5da0cb590fad5ed0a4cd9e422a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403467"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834222"
 ---
 # <a name="what-is-the-azure-face-service"></a>Co to jest usługa Azure Front?
 
@@ -51,7 +51,7 @@ Obrazy te są następujące:
 
 ![Pięć obrazów uśmiechniętych osób. Obrazy a i b przedstawiają tę samą osobę.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Aby znaleźć cztery podobne twarze, tryb matchPerson zwraca a i b, które przedstawiają tę samą osobę co tarczę docelową. Tryb matchFace zwraca cztery kandydatów, b, c i d&mdash;, nawet jeśli niektórzy nie są tej samej osoby, co obiekt docelowy lub mają niską podobieństwo. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący pojęć dotyczących [rozpoznawania](concepts/face-recognition.md) i dokumentacji dotyczącej [ZNAJDOWANIA podobnych interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
+Aby znaleźć cztery podobne twarze, tryb matchPerson zwraca a i b, które przedstawiają tę samą osobę co tarczę docelową. Tryb matchFace zwraca cztery kandydatów, b, c i d, &mdash; nawet jeśli niektórzy nie są tej samej osoby, co obiekt docelowy lub mają niską podobieństwo. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący pojęć dotyczących [rozpoznawania](concepts/face-recognition.md) i dokumentacji dotyczącej [ZNAJDOWANIA podobnych interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
 
 ## <a name="face-grouping"></a>Grupowanie twarzy
 
@@ -61,7 +61,7 @@ Interfejs API grupowania dzieli zestaw nieznanych twarzy na kilka grup na podsta
 
 Identyfikuj interfejs API służy do identyfikowania wykrytej na bazie danych osób. Ta funkcja może być przydatna w przypadku automatycznego tagowania obrazów w oprogramowaniu do zarządzania fotografiami. Baza danych jest tworzona z góry i można ją edytować w miarę upływu czasu.
 
-Na poniższej ilustracji przedstawiono przykład bazy danych o nazwie `"myfriends"`. Każda grupa może zawierać maksymalnie 1 000 000 różnych obiektów osób. Dla każdego obiektu osoby może być zarejestrowanych maksymalnie 248 twarzy.
+Na poniższej ilustracji przedstawiono przykład bazy danych o nazwie `"myfriends"` . Każda grupa może zawierać maksymalnie 1 000 000 różnych obiektów osób. Dla każdego obiektu osoby może być zarejestrowanych maksymalnie 248 twarzy.
 
 ![Siatka z trzema kolumnami dla różnych osób, z których każdy ma trzy wiersze obrazów](./Images/person.group.clare.jpg)
 

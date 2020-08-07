@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090862"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903990"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: tłumaczenie
 
@@ -136,7 +136,7 @@ Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON 
 Obowiązują następujące ograniczenia:
 
 * Tablica może zawierać maksymalnie 100 elementów.
-* Cały tekst zawarty w żądaniu nie może zawierać więcej niż 5 000 znaków, w tym spacji.
+* Cały tekst zawarty w żądaniu nie może zawierać więcej niż 10 000 znaków, w tym spacji.
 
 ## <a name="response-body"></a>Treść odpowiedzi
 

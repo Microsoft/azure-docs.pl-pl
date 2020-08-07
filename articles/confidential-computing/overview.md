@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773283"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835820"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
@@ -52,7 +52,7 @@ Enclaves są zabezpieczonymi częściami procesora sprzętowego i pamięci. Nie 
 
 Podczas tworzenia aplikacji można używać [narzędzi programowych](#oe-sdk) do osłony fragmentów kodu i danych w enklawy. Narzędzia te zapewniają, że kod i dane nie mogą być wyświetlane ani modyfikowane przez żadną osobę spoza zaufanego środowiska. 
 
-Zasadniczo należy traktować enklawy jako czarną ramkę. W polu należy umieścić zaszyfrowany kod i dane. Od zewnątrz pola nie są wyświetlane żadne elementy. Enklawy klucz do odszyfrowania danych, dane są następnie przetwarzane i szyfrowane ponownie przed wysłaniem z enklawy.
+Zasadniczo należy traktować enklawy jako zabezpieczone pole. W polu należy umieścić zaszyfrowany kod i dane. Od zewnątrz pola nie są wyświetlane żadne elementy. Enklawy klucz do odszyfrowania danych, dane są następnie przetwarzane i szyfrowane ponownie przed wysłaniem z enklawy.
 
 ### <a name="attestation"></a>Zaświadczania o
 
@@ -67,7 +67,7 @@ Zaświadczanie należy zaimplementować przy użyciu bezpiecznej usługi zaświa
 
 Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych w środowisku zwirtualizowanym. Możesz teraz używać narzędzi, oprogramowania i infrastruktury chmurowej do kompilowania na bezpiecznym sprzęcie. 
 
-### <a name="virtual-machines"></a>Maszyny wirtualne
+### <a name="virtual-machines"></a>Virtual Machines
 
 Platforma Azure to pierwszy dostawca usług w chmurze, który oferuje poufne dane obliczeniowe w środowisku zwirtualizowanym. Opracowano maszyny wirtualne, które działają jako warstwa abstrakcji między sprzętem a aplikacją. Obciążenia można uruchamiać w odpowiedniej skali i z opcjami nadmiarowości i dostępności.  
 

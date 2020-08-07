@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: a6805fc686d0bc5bd0e2357828d59d40ba05f248
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84872605"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852926"
 ---
 # <a name="testing-the-fhir-api"></a>Testowanie interfejsu API FHIR
 W poprzednich dwóch krokach wdrożono interfejs API platformy Azure dla FHIR i zarejestrowano aplikację kliencką. Teraz można przystąpić do testowania, czy interfejs API platformy Azure dla usługi FHIR został skonfigurowany za pomocą aplikacji klienckiej. 
@@ -22,11 +22,11 @@ W poprzednich dwóch krokach wdrożono interfejs API platformy Azure dla FHIR i 
 ## <a name="retrieve-capability-statement"></a>Pobierz instrukcję możliwości
 Najpierw otrzymamy instrukcję możliwości dla interfejsu API platformy Azure dla FHIR. 
 1. Otwórz notkę
-1. Pobierz instrukcję możliwości, wykonując czynności GET https:// \< FHIR-Server-NAME>. azurehealthcareapis.com/Metadata. Na obrazie poniżej nazwy serwera FHIR jest **fhirserver**.
+1. Pobierz instrukcję możliwości, pobierając https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com/Metadata. Na obrazie poniżej nazwy serwera FHIR jest **fhirserver**.
 
 ![Instrukcja możliwości](media/tutorial-web-app/postman-capability-statement.png)
 
-Następnie Podejmiemy próbę pobrania pacjenta. Aby pobrać pacjenta, wprowadź GET https:// \< FHIR-Server-NAME>. azurehealthcareapis.com/Patient. Zostanie wyświetlony komunikat o błędzie 401 nieautoryzowany. Ten błąd jest spowodowany tym, że nie sprawdzono, czy użytkownik powinien mieć dostęp do danych pacjenta.
+Następnie Podejmiemy próbę pobrania pacjenta. Aby pobrać pacjenta, wprowadź GET https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com/Patient. Zostanie wyświetlony komunikat o błędzie 401 nieautoryzowany. Ten błąd jest spowodowany tym, że nie sprawdzono, czy użytkownik powinien mieć dostęp do danych pacjenta.
 
 ## <a name="get-patient-from-fhir-server"></a>Pobierz pacjenta z serwera FHIR
 ![Niepowodzenie pacjenta](media/tutorial-web-app/postman-patient-authorization-failed.png)
@@ -41,11 +41,11 @@ Aby uzyskać dostęp, wymagany jest token dostępu.
 |Nazwa tokenu           |Nazwa tokenu                                               |
 |Typ udzielenia           |Kod autoryzacji                                                  |
 |Adres URL wywołania zwrotnego         |https://www.getpostman.com/oauth2/callback                          |
-|Adres URL uwierzytelniania             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
+|Adres URL uwierzytelniania             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/OAuth2/? Resource = https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com|
 |Adres URL tokenu dostępu     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/token|
 |Identyfikator klienta            |Identyfikator klienta skopiowany podczas poprzednich kroków             |
-|Klucz tajny klienta        |\<PUSTE>                                                            |
-|Zakres                |\<PUSTE>                                                            |
+|Klucz tajny klienta        |\<BLANK>                                                            |
+|Zakres                |\<BLANK>                                                            |
 |Stan                |1234                                                                |
 |Uwierzytelnianie klienta|Wyślij poświadczenia klienta w treści                                     |
 

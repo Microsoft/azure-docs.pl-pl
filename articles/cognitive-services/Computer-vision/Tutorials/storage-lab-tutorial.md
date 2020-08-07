@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 43172cb08bb1e31c8cff891628ca6ef85cb8c864
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404407"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834698"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Samouczek: generowanie metadanych obrazu w usłudze Azure Storage za pomocą przetwarzanie obrazów
 
@@ -31,7 +31,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Dołączanie metadanych do obrazów usługi Azure Storage
 > * Sprawdzanie metadanych obrazów za pomocą Eksploratora usługi Azure Storage
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,7 +59,7 @@ Musisz utworzyć zasób przetwarzanie obrazów dla konta platformy Azure; Ten za
 
 ## <a name="add-computer-vision-credentials"></a>Dodawanie poświadczeń przetwarzania obrazów
 
-Następnie dodasz wymagane poświadczenia do aplikacji, aby mogły uzyskiwać dostęp do przetwarzanie obrazów zasobów
+Następnie dodasz wymagane poświadczenia do aplikacji, aby mogły uzyskiwać dostęp do zasobów przetwarzanie obrazów.
 
 Otwórz aplikację internetową platformy ASP.NET w programie Visual Studio i przejdź do pliku **Web.config** w folderze głównym projektu. Dodaj następujące instrukcje do `<appSettings>` sekcji pliku, zastępując `VISION_KEY` klucz skopiowany w poprzednim kroku, a `VISION_ENDPOINT` następnie z adresem URL zapisanym w kroku przed.
 

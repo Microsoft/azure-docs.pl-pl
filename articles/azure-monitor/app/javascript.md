@@ -2,14 +2,14 @@
 title: Application Insights platformy Azure dla aplikacji sieci Web w języku JavaScript
 description: Pobierz liczbę wyświetlanych stron i sesji, dane klienta sieci Web, aplikacje jednostronicowe (SPA) i śledź wzorce użycia. Wykrywanie wyjątków i problemów z wydajnością na stronach sieci Web w języku JavaScript.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531323"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905829"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -107,10 +107,10 @@ Dostępne opcje konfiguracji to
 | Nazwa | Typ | Opis
 |------|------|----------------
 | src | ciąg **[wymagany]** | Pełny adres URL, z którego ma zostać załadowany zestaw SDK. Ta wartość jest używana dla atrybutu "src" dynamicznie dodanego &lt; skryptu/ &gt; tagu. Możesz użyć publicznej lokalizacji usługi CDN lub własnej, hostowanej prywatnie.
-| name | ciąg *[opcjonalny]* | Globalna nazwa dla zainicjowanego zestawu SDK, domyślnie appInsights. W związku z ```window.appInsights``` tym będzie to odwołanie do zainicjowanego wystąpienia. Uwaga: Jeśli podano wartość nazwy lub poprzednie wystąpienie zostanie przydzielone (za pośrednictwem nazwy globalnej appInsightsSDK), ta wartość nazwy również będzie zdefiniowana w globalnej przestrzeni nazw jako ```window.appInsightsSDK=<name value>``` , jest to wymagane przez kod inicjalizacji zestawu SDK, aby upewnić się, że inicjuje i aktualizuje poprawność szkieletu i metody proxy.
+| name | ciąg *[opcjonalny]* | Globalna nazwa dla zainicjowanego zestawu SDK, domyślnie `appInsights` . W związku z ```window.appInsights``` tym będzie to odwołanie do zainicjowanego wystąpienia. Uwaga: Jeśli podano wartość nazwy lub poprzednie wystąpienie zostanie przydzielone (za pośrednictwem nazwy globalnej appInsightsSDK), ta wartość nazwy również będzie zdefiniowana w globalnej przestrzeni nazw jako ```window.appInsightsSDK=<name value>``` , jest to wymagane przez kod inicjalizacji zestawu SDK, aby upewnić się, że inicjuje i aktualizuje poprawność szkieletu i metody proxy.
 | LD | Liczba w MS *[opcjonalne]* | Definiuje opóźnienie ładowania oczekiwania przed próbą załadowania zestawu SDK. Wartość domyślna to 0ms, a każda wartość ujemna natychmiast doda tag skryptu do &lt; &gt; regionu głównego strony, co spowoduje zablokowanie zdarzenia ładowania strony do momentu załadowania skryptu (lub niepowodzenia).
 | useXhr | wartość logiczna *[opcjonalnie]* | To ustawienie jest używane tylko w przypadku błędów ładowania zestawu SDK raportowania. Funkcja raportowania najpierw podejmie próbę użycia opcji Pobierz (), jeśli jest dostępna, a następnie powraca do XHR, co spowoduje, że ustawienie tej wartości na true spowoduje jedynie Pominięcie sprawdzania pobierania. Użycie tej wartości jest wymagane tylko wtedy, gdy aplikacja jest używana w środowisku, w którym pobieranie nie powiedzie się.
-| crossOrigin | ciąg *[opcjonalny]* | Dołączając to ustawienie, tag skryptu dodany do pobrania zestawu SDK będzie zawierać atrybut crossOrigin o tej wartości ciągu. Gdy nie jest zdefiniowany (wartość domyślna), nie jest dodawany atrybut crossOrigin. Zalecane wartości nie są zdefiniowane (wartość domyślna); ""; lub "anonimowe" (dla wszystkich prawidłowych wartości zobacz [HTML Attribute: crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) Documentation)
+| crossOrigin | ciąg *[opcjonalny]* | Dołączając to ustawienie, tag skryptu dodany do pobrania zestawu SDK będzie zawierać atrybut crossOrigin o tej wartości ciągu. Gdy nie jest zdefiniowany (wartość domyślna), nie jest dodawany atrybut crossOrigin. Zalecane wartości nie są zdefiniowane (wartość domyślna); ""; lub "Anonymous" (dla wszystkich prawidłowych wartości zobacz [HTML Attribute `crossorigin` :](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) Documentation)
 | cfg | Obiekt **[wymagany]** | Konfiguracja przeniesiona do Application Insights SDK podczas inicjowania.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
@@ -150,10 +150,10 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey` .
 
-| Nazwa | Domyślne | Opis |
+| Nazwa | Domyślny | Opis |
 |------|---------|-------------|
 | instrumentationKey | wartość null | **Wymagane**<br>Klucz Instrumentacji uzyskany w Azure Portal. |
 | accountId | wartość null | Opcjonalny identyfikator konta, jeśli aplikacja grupuje użytkowników na kontach. Bez spacji, przecinków, średników, równości lub pionowych słupków |
@@ -195,9 +195,9 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | enableResponseHeaderTracking | fałsz | W przypadku wartości true są śledzone nagłówki odpowiedzi żądania pobrania & AJAX, wartość domyślna to false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Ustawia tryb śledzenia rozproszonego. Jeśli ustawiono tryb AI_AND_W3C lub tryb W3C, nagłówki kontekstowe śledzenia W3C (traceparent/tracestate) zostaną wygenerowane i uwzględnione we wszystkich żądaniach wychodzących. AI_AND_W3C jest zapewniana pod kątem zgodności z poprzednimi wersjami Application Insights usługi Instrumentacji. Zobacz przykład [tutaj](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | fałsz | Wartość domyślna to false. W przypadku wartości true Uwzględnij tekst danych błędu odpowiedzi w zdarzeniu zależności dla żądań AJAX zakończonych niepowodzeniem.
-| enableAjaxPerfTracking | fałsz | Wartość domyślna to false. Flaga umożliwiająca wyszukiwanie i Dołączanie dodatkowego okna przeglądarki. czasy wydajności w raportowanych metrykach AJAX (XHR i Fetch) raportowane.
+| enableAjaxPerfTracking | fałsz | Wartość domyślna to false. Flaga umożliwiająca wyszukiwanie i Dołączanie dodatkowego okna przeglądarki. czasy wydajności w raportowanych `ajax` (XHR i Fetch) metrykach raportowanych.
 | maxAjaxPerfLookupAttempts | 3 | Wartość domyślna to 3. Maksymalna liczba przypadków, w których należy szukać okna. chronometraż wydajności (jeśli jest dostępny), jest to wymagane, ponieważ nie wszystkie przeglądarki wypełniają okno. wydajność przed zgłoszeniem końca żądania XHR oraz żądania pobrania dodane po zakończeniu.
-| ajaxPerfLookupDelay | 25 | Wartość domyślna to 25 MS. Czas oczekiwania przed ponowną próbą znalezienia systemu Windows. chronometraż wydajności dla żądania AJAX, godzina w milisekundach i jest przenoszona bezpośrednio do setTimeout ().
+| ajaxPerfLookupDelay | 25 | Wartość domyślna to 25 MS. Czas oczekiwania przed ponowną próbą znalezienia systemu Windows. chronometraż wydajności dla `ajax` żądania, czas jest w milisekundach i jest przesyłany bezpośrednio do setTimeout ().
 | enableUnhandledPromiseRejectionTracking | fałsz | W przypadku wartości true nieobsłużone odrzucania obietnic są automatycznie zbierane i raportowane jako błąd JavaScript. Gdy disableExceptionTracking ma wartość true (nie Śledź wyjątków), wartość konfiguracji zostanie zignorowana, a nieobsłużone odrzucenia obietnic nie zostaną zgłoszone.
 
 ## <a name="single-page-applications"></a>Aplikacje jednostronicowe
@@ -219,6 +219,38 @@ Przez ustawienie `autoTrackPageVisitTime: true` czas, przez jaki użytkownik sp�
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="correlation"></a>Korelacja
+
+Korelacja klienta po stronie serwera jest obsługiwana dla:
+
+- Żądania XHR/AJAX 
+- Żądania pobrania 
+
+Korelacja klienta z serwerem nie jest **obsługiwana** w przypadku `GET` `POST` żądań i.
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Włączenie korelacji między składnikami klienta i żądań serwera
+
+Aby włączyć `CORS` korelację, klient musi wysłać dwa dodatkowe nagłówki żądań `Request-Id` i `Request-Context` , a po stronie serwera musi mieć możliwość akceptowania połączeń z obecnymi nagłówkami. Wysyłanie tych nagłówków jest włączone przez ustawienie `enableCorsCorrelation: true` w konfiguracji zestawu SDK języka JavaScript. 
+
+W zależności od `Access-Control-Allow-Headers` konfiguracji po stronie serwera często konieczne jest przeprowadzenie listy po stronie serwera przez ręczne dodanie `Request-Id` i `Request-Context` .
+
+Access-Control-Allow-Headers: `Request-Id` , `Request-Context` ,`<your header>`
+
+Jeśli którykolwiek z serwerów innych firm, z którym komunikuje się klient, nie może zaakceptować `Request-Id` `Request-Context` nagłówków i i nie można zaktualizować ich konfiguracji, należy umieścić je w liście wykluczeń za pośrednictwem `correlationHeaderExcludeDomains` właściwości konfiguracja. Ta właściwość obsługuje symbole wieloznaczne.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>Eksplorowanie danych po stronie przeglądarki i klienta
 

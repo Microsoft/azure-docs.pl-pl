@@ -9,14 +9,14 @@ ms.custom: devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 15b9c78a1ca24077ce88c77759519cc08076abd5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 00b77b913f300f3a02c56553f8fc0f7fa349dcaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834001"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i środowiska JavaScript
 

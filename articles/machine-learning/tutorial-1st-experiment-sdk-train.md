@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 821b11dc89a3479f7310770db84d0947390a3109
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520548"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852705"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Samouczek: uczenie swojego pierwszego modelu ML
 
@@ -198,7 +198,7 @@ Wywołaj `download()` obiekt Run, określając nazwę pliku modelu do pobrania. 
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Nie wykonuj tej sekcji, jeśli planujesz Uruchamianie innych samouczków Azure Machine Learning.
 

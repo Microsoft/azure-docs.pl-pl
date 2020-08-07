@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3e83781a5ac8270cef37346b5850edd95a102f6a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404225"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834409"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Samouczek: Moderowanie wideo i transkrypcji
 
@@ -42,9 +42,9 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 ## <a name="enter-credentials"></a>Wprowadź poświadczenia
 
-Edytuj `App.config` plik i Dodaj Active Directory nazwę dzierżawy, punkty końcowe usługi i klucze subskrypcji wskazane przez `#####`. Potrzebne są następujące informacje:
+Edytuj `App.config` plik i dodaj Active Directory nazwę dzierżawy, punkty końcowe usługi i klucze subskrypcji wskazane przez `#####` . Potrzebne są następujące informacje:
 
-|Key|Opis|
+|Klucz|Opis|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Punkt końcowy interfejsu API platformy Azure Media Services (AMS)|
 |`ClientSecret`|Klucz subskrypcji dla platformy Azure Media Services|
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku opisano konfigurowanie aplikacji, która pozwala na umiarkowaną zawartość&mdash;wideo, w&mdash;tym transkrypcję zawartości i tworzenie przeglądów w narzędziu do przeglądu. Następnie Dowiedz się więcej na temat szczegółów moderowania wideo.
+W tym samouczku opisano konfigurowanie aplikacji, która pozwala na umiarkowaną zawartość wideo, &mdash; w tym transkrypcję zawartości &mdash; i tworzenie przeglądów w narzędziu do przeglądu. Następnie Dowiedz się więcej na temat szczegółów moderowania wideo.
 
 > [!div class="nextstepaction"]
 > [Moderowanie filmów wideo](./video-moderation-human-review.md)

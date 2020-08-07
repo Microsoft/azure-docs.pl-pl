@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047305"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904500"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Dostosowywanie modelu osoby za pomocą witryny sieci Web Video Indexer
 
@@ -126,9 +126,20 @@ Aby przyjrzeć się zawartości dowolnego z modeli osób, wybierz strzałkę obo
 
 ### <a name="manage-a-person"></a>Zarządzanie osobą
 
-Jeśli wybierzesz pozycję **Zarządzaj**, zobaczysz wszystkie powierzchnie, z których jest szkolony ten model osoby. Te powierzchnie pochodzą z wystąpień tej osoby w wideo korzystających z tego modelu osoby lub z obrazów, które zostały ręcznie przekazane.
+Jeśli wybierzesz pozycję **Zarządzaj**, zobaczysz okno **szczegóły osoby** ze wszystkimi powierzchniami, z których jest szkolony ten model osoby. Te powierzchnie pochodzą z wystąpień tej osoby w wideo korzystających z tego modelu osoby lub z obrazów, które zostały ręcznie przekazane.
+
+> [!TIP]
+> Aby przejść do okna **szczegóły osoby** , kliknij nazwę osoby lub kliknij pozycję **Zarządzaj**, jak pokazano powyżej.
+
+#### <a name="add-a-face"></a>Dodawanie kroju
 
 Możesz dodać więcej twarzy do osoby, wybierając pozycję **Dodaj obrazy**.
+
+#### <a name="delete-a-face"></a>Usuwanie kroju
+
+Wybierz obraz, który chcesz usunąć, a następnie kliknij przycisk **Usuń**.
+
+#### <a name="rename-and-delete-the-person"></a>Zmiana nazwy i usuwanie osoby 
 
 Możesz użyć okienka zarządzanie, aby zmienić nazwę osoby i usunąć osobę z modelu osoby.
 

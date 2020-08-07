@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420691"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904092"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Samouczek: łączenie przykładowej aplikacji IoT Plug and Play w wersji zapoznawczej do IoT Hub (Node.js)
 
@@ -98,29 +98,29 @@ Otwórz plik *pnpTemperatureController.js* w wybranym edytorze kodu. Przykładow
 
 1. Zdefiniuj, `modelId` który jest DTMI dla zaimplementowanego urządzenia. Ten DTMI jest zdefiniowany przez użytkownika i musi być zgodny z DTMIem [kontrolera temperatury DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-1. Zaimplementuj składniki zdefiniowane w modelu DTDL kontrolera temperatury. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. W tym przykładzie dwa interfejsy:
+2. Zaimplementuj składniki zdefiniowane w modelu DTDL kontrolera temperatury. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. W tym przykładzie dwa interfejsy:
   - Sterownika
   - Informacje o urządzeniu opracowane przez platformę Azure
 
-1. Zdefiniuj nazwy składników. Ten przykład ma dwa termostaty i jeden składnik informacji o urządzeniu.
+3. Zdefiniuj nazwy składników. Ten przykład ma dwa termostaty i jeden składnik informacji o urządzeniu.
 
-1. Zdefiniuj nazwę polecenia. Są to polecenia, na które urządzenie reaguje.
+4. Zdefiniuj nazwę polecenia. Są to polecenia, na które urządzenie reaguje.
 
-1. Zdefiniuj `serialNumber` stałą. `serialNumber`To urządzenie zostało naprawione.
+5. Zdefiniuj `serialNumber` stałą. `serialNumber`To urządzenie zostało naprawione.
 
-1. Zdefiniuj programy obsługi poleceń.
+6. Zdefiniuj programy obsługi poleceń.
 
-1. Zdefiniuj funkcje do wysyłania odpowiedzi na polecenia.
+7. Zdefiniuj funkcje do wysyłania odpowiedzi na polecenia.
 
-1. Zdefiniuj funkcje pomocnika do rejestrowania żądań polecenia.
+8. Zdefiniuj funkcje pomocnika do rejestrowania żądań polecenia.
 
-1. Zdefiniuj funkcję pomocnika, aby utworzyć właściwości.
+9. Zdefiniuj funkcję pomocnika, aby utworzyć właściwości.
 
-1. Zdefiniuj odbiornik do aktualizacji właściwości.
+10. Zdefiniuj odbiornik do aktualizacji właściwości.
 
-1. Zdefiniuj funkcję do wysyłania danych telemetrycznych z tego urządzenia. Oba termostaty i składnik główny wysyłają dane telemetryczne. Ta funkcja otrzymuje nazwę składnika jako parametr.
+11. Zdefiniuj funkcję do wysyłania danych telemetrycznych z tego urządzenia. Oba termostaty i składnik główny wysyłają dane telemetryczne. Ta funkcja otrzymuje nazwę składnika jako parametr.
 
-1. Zdefiniuj `main` funkcję, która:
+12. Zdefiniuj `main` funkcję, która:
 
     1. Program używa zestawu SDK urządzenia do utworzenia klienta urządzenia i nawiązania połączenia z Centrum IoT Hub. Urządzenie dostarcza, `modelId` dzięki czemu IoT Hub mogą identyfikować urządzenie jako urządzenie Plug and Play IoT.
 
