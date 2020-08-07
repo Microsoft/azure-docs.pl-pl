@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446537"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925791"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md).
@@ -122,11 +122,19 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
  - Ubuntu, Debian:`apt-get install -y python2`
  - SZŁO`zypper install -y python2`
 
-Plik wykonywalny python2 musi mieć alias "Python" przy użyciu następującego polecenia:
+Plik wykonywalny python2 musi mieć alias do języka *Python* przy użyciu następującej procedury:
 
-```
-alternatives --set python `which python2`
-```
+1. Uruchom następujące polecenie, aby wyświetlić dowolny bieżący alias języka Python (jeśli taki istnieje). Jeśli tak, zwróć uwagę na priorytet dla następnego kroku.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Uruchom następujące polecenie. Zamień *\<priority\>* na liczbę większą od istniejącego priorytetu linku lub 1, jeśli nie ma żadnych linków.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>Obsługiwane dystrybucje
 
@@ -189,12 +197,12 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory,
 
 |Zasób agenta|Porty |Kierunek |Obejście inspekcji HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |port 443 |Wychodzący|Tak |  
-|*.oms.opinsights.azure.com |port 443 |Wychodzący|Tak |  
-|*.blob.core.windows.net |port 443 |Wychodzący|Tak |
-|*.azure-automation.net |port 443 |Wychodzący|Tak |
+|*.ods.opinsights.azure.com |port 443 |Outbound|Tak |  
+|*.oms.opinsights.azure.com |port 443 |Outbound|Yes |  
+|*.blob.core.windows.net |port 443 |Outbound|Yes |
+|*.azure-automation.net |port 443 |Outbound|Yes |
 
-Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

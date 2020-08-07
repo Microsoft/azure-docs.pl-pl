@@ -3,18 +3,18 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538721"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926488"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z bazami danych SQL Server uruchomionymi na maszynach wirtualnych platformy Azure.
 
-Aby uzyskać więcej informacji na temat procesu i ograniczeń tworzenia kopii zapasowej, zobacz [Informacje o SQL Server kopii zapasowych na maszynach wirtualnych platformy Azure](sql-support-matrix.md#feature-consideration-and-limitations).
+Aby uzyskać więcej informacji na temat procesu i ograniczeń tworzenia kopii zapasowej, zobacz [Informacje o SQL Server kopii zapasowych na maszynach wirtualnych platformy Azure](sql-support-matrix.md#feature-considerations-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Uprawnienia SQL Server
 

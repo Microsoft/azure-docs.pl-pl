@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9a03b5636af4a60c4abf563e073e22c970b8a02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921781"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Porównanie Azure Data Lake Storage Gen1 i platformy Azure Blob Storage
 
@@ -33,7 +33,7 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Operacje na danych — autoryzacja |Listy Access Control POSIX (ACL).  Listy ACL oparte na tożsamościach Azure Active Directory można ustawić na poziomie plików i folderów. |W przypadku autoryzacji na poziomie konta — Użyj [kluczy dostępu do konta](../storage/common/storage-account-keys-manage.md)<br>Dla konta, kontenera lub autoryzacji obiektów BLOB — Użyj [kluczy sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operacje na danych — Inspekcja |Udostępnione. Aby [uzyskać więcej informacji](data-lake-store-diagnostic-logs.md) , zobacz. |Dostępne |
 | Szyfrowanie danych w spoczynku |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w usłudze Azure Keys</li></ul></ul> |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w magazynie kluczy platformy Azure (wersja zapoznawcza)</li></ul><li>Szyfrowania po stronie klienta</li></ul> |
-| Operacje zarządzania (na przykład tworzenie konta) |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |
+| Operacje zarządzania (na przykład tworzenie konta) |[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) na potrzeby zarządzania kontami |[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) na potrzeby zarządzania kontami |
 | Zestawy SDK dla deweloperów |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, go, Android, iOS |
 | Wydajność obciążeń analitycznych |Zoptymalizowana wydajność dla obciążeń równoległych analizy. Wysoka przepływność i operacje we/wy. |Zoptymalizowana wydajność dla obciążeń równoległych analizy. |
 | Limity rozmiaru |Brak limitów rozmiarów kont, rozmiarów plików ani liczby plików |Aby uzyskać określone limity, zobacz [elementy docelowe skalowalności dla standardowych kont magazynu](../storage/common/scalability-targets-standard-account.md) i [skalowalności oraz docelowych wydajności dla usługi BLOB Storage](../storage/blobs/scalability-targets.md). Większe limity konta dostępne przez skontaktowanie się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/) |
@@ -41,5 +41,3 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Stan usługi |Ogólnie dostępne |Ogólnie dostępne |
 | Dostępność regionalna |Zobacz [tutaj](https://azure.microsoft.com/regions/#services) |Dostępne we wszystkich regionach świadczenia usługi Azure |
 | Cena |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/storage/) |
-
-

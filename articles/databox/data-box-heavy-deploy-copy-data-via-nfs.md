@@ -1,6 +1,6 @@
 ---
 title: Samouczek do kopiowania danych do Azure Data Box Heavy za pomocą systemu plików NFS | Microsoft Docs
-description: Dowiedz się, jak kopiować dane do Azure Data Box Heavy za pośrednictwem systemu plików NFS
+description: W tym samouczku dowiesz się, jak nawiązać połączenie i skopiować dane z komputera hosta do Azure Data Box Heavy przy użyciu systemu plików NFS z lokalnym interfejsem użytkownika sieci Web.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 047c4649da298e1dcb74ec1910a49353d8be534a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8199039ea803d5919e168edccaaa03c18985725
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206657"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921031"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box Heavy za pośrednictwem systemu plików NFS
 

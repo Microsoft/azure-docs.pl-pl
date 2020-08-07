@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315449"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921096"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -40,7 +40,7 @@ Istnieją dwa sposoby, które Administratorzy dostawcy usług mogą uzyskać dos
 
 Zalety architektury rozproszonej są następujące:
 
-* Klient może potwierdzić określone poziomy uprawnień za pośrednictwem funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)lub zarządzać dostępem do dzienników przy użyciu własnego [dostępu opartego na rolach](../../role-based-access-control/overview.md).
+* Klient może potwierdzić określone poziomy uprawnień za pośrednictwem funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)lub zarządzać dostępem do dzienników przy użyciu własnej [kontroli dostępu opartej na ROLACH (Azure RBAC)](../../role-based-access-control/overview.md).
 * Dzienniki mogą być zbierane z wszystkich typów zasobów, a nie tylko z danych maszyn wirtualnych opartych na agentach. Na przykład dzienniki inspekcji platformy Azure.
 * Każdy klient może mieć różne ustawienia dla swojego obszaru roboczego, takie jak przechowywanie danych i ich limit.
 * Izolacja klientów na potrzeby regulacji i zgodności.
@@ -90,4 +90,3 @@ Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 * Generowanie raportów podsumowujących przy użyciu [Power BI](./powerbi.md)
 
 * Dołączanie klientów do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
-

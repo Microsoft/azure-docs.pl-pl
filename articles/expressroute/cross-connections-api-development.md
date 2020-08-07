@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187025"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921626"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Programowanie i Integracja interfejsu API ExpressRoute CrossConnnections
 
@@ -24,13 +24,13 @@ Zasób expressRouteCrossConnections jest zasobem w tle do obwodu ExpressRoute. G
 
 ExpressRoute partnerzy zarządzają konfiguracją warstwy 2 i warstwy 3, wydając operacje REST względem zasobu expressRouteCrossConnections.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Zalety przejścia do zasobu expressRouteCrossConnections:
 
 * Wszelkie przyszłe ulepszenia dla partnerów ExpressRoute zostaną udostępnione w ramach zasobu ExpressRouteCrossConnection.
 
-* Partnerzy mogą stosować [Access Control oparte na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview) dla zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
+* Partnerzy mogą zastosować [kontrolę dostępu opartą na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
 * Zasób expressRouteCrossConnection udostępnia interfejsy API, które mogą być pomocne podczas rozwiązywania problemów z połączeniami ExpressRoute. Obejmuje to tabelę ARP, podsumowanie tabeli tras BGP i szczegóły tabeli tras BGP. Ta funkcja nie jest obsługiwana przez klasyczne interfejsy API wdrażania.
 

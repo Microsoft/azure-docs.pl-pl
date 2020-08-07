@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Tworzenie dzierżawy Azure Active Directory B2C
-description: Dowiedz się, jak przygotować się do rejestracji aplikacji, tworząc dzierżawę Azure Active Directory B2C przy użyciu Azure Portal.
+description: Postępuj zgodnie z tym samouczkiem, aby dowiedzieć się, jak przygotować się do rejestracji aplikacji, tworząc dzierżawę Azure Active Directory B2C przy użyciu Azure Portal.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806854"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922198"
 ---
-# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: tworzenie dzierżawy usługi Azure Active Directory B2C
+# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: Tworzenie dzierżawy usługi Azure Active Directory B2C
 
 Aby aplikacje mogły korzystać z Azure Active Directory B2C (Azure AD B2C), należy je zarejestrować w dzierżawie, którą zarządzasz.
 
@@ -30,6 +30,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Dodaj zasób Azure AD B2C jako **ulubiony** w Azure Portal
 
 Dowiesz się, jak zarejestrować aplikację w następnym samouczku.
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -60,7 +62,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     ![Utwórz formularz dzierżawy przy użyciu przykładowych wartości w Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Wybierz pozycję **Przegląd + utwórz**.
-1. Przejrzyj ustawienia katalogu. Następnie wybierz pozycję **Utwórz**.
+1. Przejrzyj ustawienia katalogu. Następnie wybierz przycisk **Utwórz**.
 
 Możesz połączyć wiele dzierżawców Azure AD B2C z pojedynczą subskrypcją platformy Azure na potrzeby rozliczeń. Aby połączyć dzierżawcę, musisz być administratorem w dzierżawie Azure AD B2C i mieć przypisaną co najmniej rolę współautor w ramach subskrypcji platformy Azure. Aby dowiedzieć się, jak [połączyć dzierżawę Azure AD B2C z subskrypcją](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

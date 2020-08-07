@@ -1,19 +1,19 @@
 ---
 title: Konfigurowanie tunelu VPN Always-On
 titleSuffix: Azure VPN Gateway
-description: Procedura konfigurowania zawsze włączone tunel VPN dla VPN Gateway
+description: Dowiedz się, jak skonfigurować opcję zawsze włączone, która utrzymuje połączenie sieci VPN oparte na wyzwalaczach, takie jak logowanie użytkownika, zmiana stanu sieci lub aktywny ekran urządzenia.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24043576fca4910631ccddb3924303dd642c6842
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983125"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927065"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Konfigurowanie tunelu zawsze włączonego urządzenia sieci VPN
 

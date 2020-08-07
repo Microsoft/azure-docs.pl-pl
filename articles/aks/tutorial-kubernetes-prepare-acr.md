@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
-ms.openlocfilehash: 991123b4373332503eff242315e1596a091473c1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 197e5c7bed569e67376f9c28fe0d2e050016cce8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243668"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922408"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Samouczek: wdrażanie usługi Azure Container Registry i korzystanie z niej
 
@@ -24,7 +24,7 @@ Usługa Azure Container Registry (ACR) to prywatny rejestr obrazów kontenera. P
 
 W dodatkowych samouczkach to wystąpienie usługi ACR zostanie zintegrowane z klastrem Kubernetes w usłudze AKS, a aplikacja zostanie wdrożona na podstawie obrazu.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W [poprzednim samouczku ][aks-tutorial-prepare-app] utworzono obraz kontenera na potrzeby prostej aplikacji do głosowania platformy Azure. Jeśli obraz aplikacji do głosowania platformy Azure nie został utworzony, wróć do artykułu [Samouczek 1 — Tworzenie obrazów kontenerów][aks-tutorial-prepare-app].
 
@@ -60,9 +60,12 @@ Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
 
 Aby wyświetlić listę bieżących obrazów lokalnych, użyj polecenia [docker images][docker-images]:
 
-```
+```azurecli
 $ docker images
+```
+Powyższe dane wyjściowe polecenia pokazują listę bieżących obrazów lokalnych:
 
+```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -83,11 +86,15 @@ Teraz Oznacz lokalny obraz z systemem *Azure — do głosowania —* z adresem *
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Aby sprawdzić, czy tagi zostały zastosowane, ponownie uruchom polecenie [docker images][docker-images]. Obraz jest tagowany za pomocą adresu wystąpienia usługi ACR i numeru wersji.
+Aby sprawdzić, czy tagi zostały zastosowane, ponownie uruchom polecenie [docker images][docker-images]. 
+
+```azurecli
+$ docker images
+```
+
+Obraz jest tagowany za pomocą adresu wystąpienia usługi ACR i numeru wersji.
 
 ```
-$ docker images
-
 REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB

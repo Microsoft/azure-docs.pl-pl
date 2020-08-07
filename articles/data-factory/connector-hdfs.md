@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087762"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926811"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera HDFS przy użyciu Azure Data Factory
+
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-hdfs-connector.md)
 > * [Bieżąca wersja](connector-hdfs.md)
@@ -59,9 +60,9 @@ Dla połączonej usługi HDFS są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość *Type* musi być ustawiona na system plików *HDFS*. | Tak |
-| url |Adres URL systemu plików HDFS |Tak |
-| authenticationType | Dozwolone wartości to *anonimowe* lub *Windows*. <br><br> Aby skonfigurować środowisko lokalne, zobacz sekcję [używanie uwierzytelniania Kerberos w przypadku łącznika HDFS](#use-kerberos-authentication-for-the-hdfs-connector) . |Tak |
+| typ | Właściwość *Type* musi być ustawiona na system plików *HDFS*. | Yes |
+| url |Adres URL systemu plików HDFS |Yes |
+| authenticationType | Dozwolone wartości to *anonimowe* lub *Windows*. <br><br> Aby skonfigurować środowisko lokalne, zobacz sekcję [używanie uwierzytelniania Kerberos w przypadku łącznika HDFS](#use-kerberos-authentication-for-the-hdfs-connector) . |Yes |
 | userName |Nazwa użytkownika dla uwierzytelniania systemu Windows. W przypadku uwierzytelniania Kerberos Określ ** \<username> @ \<domain> . com**. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | hasło |Hasło do uwierzytelniania systemu Windows. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). |Tak (w przypadku uwierzytelniania systemu Windows) |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Aby dowiedzieć się więcej, zobacz sekcję [wymagania wstępne](#prerequisites) . Jeśli środowisko Integration Runtime nie jest określone, usługa używa Azure Integration Runtime domyślnego. |Nie |
@@ -253,10 +254,10 @@ Aby użyć pomocą distcp do kopiowania plików z programu z systemu plików HDF
 
 * Usługi MapReduce i PRZĘDZy są włączone.  
 * Wersja PRZĘDZy to 2,5 lub nowsza.  
-* Serwer HDFS jest zintegrowany z docelowym magazynem danych: Azure Blob Storage lub Azure Data Lake Store:  
+* Serwer HDFS jest zintegrowany z docelowym magazynem danych: **Azure Blob Storage** lub **Azure Data Lake Store (ADLS Gen1)**: 
 
     - System plików obiektów blob platformy Azure jest natywnie obsługiwany od wersji Hadoop 2,7. Wystarczy określić ścieżkę JAR w konfiguracji środowiska Hadoop.
-    - System plików Azure Data Lake Store jest spakowany od platformy Hadoop 3.0.0-alpha1. Jeśli wersja klastra usługi Hadoop jest wcześniejsza niż ta wersja, należy ręcznie zaimportować pakiety JAR powiązane z Azure Data Lake Storage Gen2 (Azure-datalake-Store. jar) do klastra z tego [miejsca](https://hadoop.apache.org/releases.html)i określić ścieżkę pliku JAR w konfiguracji środowiska Hadoop.
+    - System plików Azure Data Lake Store jest spakowany od platformy Hadoop 3.0.0-alpha1. Jeśli wersja klastra usługi Hadoop jest wcześniejsza niż ta wersja, należy ręcznie zaimportować pakiety JAR powiązane z Azure Data Lake Store (Azure-datalake-Store. jar) do klastra z tego [miejsca](https://hadoop.apache.org/releases.html)i określić ścieżkę pliku JAR w konfiguracji środowiska Hadoop.
 
 * Przygotuj folder tymczasowy w systemie plików HDFS. Ten folder tymczasowy służy do przechowywania skryptu powłoki pomocą distcp, dzięki czemu będzie zajmował przestrzeń na poziomie KB.
 * Upewnij się, że konto użytkownika, które jest podane w połączonej usłudze HDFS, ma uprawnienia do:
@@ -483,7 +484,7 @@ Aby uzyskać informacje o właściwościach działania wyszukiwania, zobacz [akt
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość *Type* źródła działania Copy musi być ustawiona na wartość *HdfsSource*. |Tak |
+| typ | Właściwość *Type* źródła działania Copy musi być ustawiona na wartość *HdfsSource*. |Yes |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na *wartość true* , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie zostanie skopiowany ani utworzony w ujścia.<br/>Dozwolone wartości to *true* (wartość domyślna) i *false*. | Nie |
 | distcpSettings | Grupa właściwości, gdy jest używany system HDFS pomocą distcp. | Nie |
 | resourceManagerEndpoint | Punkt końcowy Menedżer zasobów PRZĘDZy | Tak, jeśli używasz pomocą distcp |
