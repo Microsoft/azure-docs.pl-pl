@@ -3,13 +3,13 @@ title: Tworzenie aplikacji kontenera Service Fabric platformy Azure w systemie L
 description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłudze Azure Service Fabric. Zbuduj obraz Docker za pomocą własnej aplikacji, wypchnij obraz do rejestru kontenerów, skompiluj i wdróż aplikację kontenera usługi Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083841"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847537"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -373,7 +373,7 @@ W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w t
 Aby dodać kolejną usługę kontenera do aplikacji utworzonej już przy użyciu narzędzia Yeoman, wykonaj następujące czynności:
 
 1. Zmień katalog na katalog główny istniejącej aplikacji. Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
-2. Należy uruchomić polecenie `yo azuresfcontainer:AddService`
+2. Uruchom polecenie `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

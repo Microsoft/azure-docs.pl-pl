@@ -10,14 +10,14 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 42205f87e2025fa7f4492cb76aeb44a1fbf46eb6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5e73744f3d467d08944d0e8800dd6d8824857abd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542803"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846993"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,7 +74,7 @@ Obsługa wdrażania na brzegu jest w wersji zapoznawczej. Aby uzyskać więcej i
 * [Rozwiązywanie problemów z niepowodzeniem wdrożenia](how-to-troubleshoot-deployment.md)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
-* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
+* [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)

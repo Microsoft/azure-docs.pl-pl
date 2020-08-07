@@ -3,19 +3,19 @@ title: Dokumentacja interfejsu API zamiany mowy na tekst (REST) — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak używać interfejsu API REST zamiany mowy na tekst. Ten artykuł zawiera informacje o opcjach autoryzacji, opcjach zapytań, sposobach tworzenia struktury żądania i otrzymywaniu odpowiedzi.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: yinhew
-ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: trbye
+ms.openlocfilehash: 4b1548efe942cbef842498035d6e0b0d11a91d00
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537973"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905248"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -60,7 +60,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany mowy na tekst.
 
-|Nagłówek| Opis | Wymagane/opcjonalne |
+|Header| Opis | Wymagane/opcjonalne |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |

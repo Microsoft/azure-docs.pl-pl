@@ -3,7 +3,7 @@ title: Co to jest Licencjonowanie oparte na grupach — Azure Active Directory |
 description: Dowiedz się więcej na temat Azure Active Directory licencjonowania opartego na grupach, w tym sposobu działania i najlepszych rozwiązań.
 services: active-directory
 keywords: Zarządzanie licencjonowaniem w usłudze Azure AD
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eec896e6cccaf58c83820161c54c4f10cfadadd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77561565"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797274"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?
 

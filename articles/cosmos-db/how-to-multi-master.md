@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 37200983389f73cf733969b4b30dcc04efc3227c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 2cf6d2c02beff93553944474138bee3a2a316aa9
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422185"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874354"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurowanie wielu wzorców w aplikacjach korzystających z Azure Cosmos DB
 

@@ -5,19 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765442"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903599"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
 
 W tym artykule pokazano, jak utworzyć ExpressRoute bezpośrednio przy użyciu Azure Portal.
 Usługa ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft przy użyciu lokalizacji komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Aby uzyskać więcej informacji, zobacz [About ExpressRoute Direct (Usługa ExpressRoute Direct)](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+
+Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w Twojej subskrypcji. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów.
+
+1. Uzyskaj dostęp do ustawień subskrypcji zgodnie z opisem w temacie [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md).
+1. W ramach subskrypcji dla **dostawców zasobów**Sprawdź, czy dostawca **Microsoft. Network** wskazuje **zarejestrowany** stan. Jeśli dostawcy zasobów Microsoft. Network nie ma na liście zarejestrowanych dostawców, Dodaj go.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Utwórz ExpressRoute bezpośrednie
 
@@ -56,7 +63,7 @@ Usługa ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia 
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Przejrzyj i utwórz":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Zmień stan administratora linków
 
@@ -100,7 +107,7 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
    :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Przejrzyj i utwórz":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

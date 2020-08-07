@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890571"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874269"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
 Po [uzyskaniu tokenu](msal-acquire-cache-tokens.md)zostanie on zbuforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji powinien próbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu przez inną metodę.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Pamięć podręczna tokenów dla aplikacji sieci Web (poufne aplikacje klienckie)
 
-W obszarze aplikacje sieci Web lub interfejsy API sieci Web pamięć podręczna może korzystać z sesji, pamięci podręcznej Redis lub bazy danych.
+W przypadku aplikacji sieci Web lub interfejsów API sieci Web pamięć podręczna może korzystać z sesji, pamięci podręcznej Redis lub bazy danych. Należy zachować jedną pamięć podręczną tokenów dla każdego konta w aplikacjach sieci Web lub API sieci Web. 
 
-W obszarze aplikacje sieci Web lub interfejsy API sieci Web Zachowaj jedną pamięć podręczną tokenów dla każdego konta.  W przypadku usługi Web Apps bufor tokenów powinien być poprzedzony IDENTYFIKATORem konta.  W przypadku interfejsów API sieci Web konto powinno być poprzedzone przez skrót tokenu używanego do wywoływania interfejsu API. MSAL.NET zapewnia serializowaną niestandardową pamięć podręczną tokenów w ramach podplatform .NET Framework i .NET Core. Zdarzenia są wywoływane podczas uzyskiwania dostępu do pamięci podręcznej, aplikacje mogą wybrać, czy należy serializować czy zdeserializować pamięci podręcznej. Poufne aplikacje klienckie, które obsługują użytkowników (aplikacje sieci Web, które logują użytkowników i wywołują interfejsy API sieci Web, oraz interfejsy API sieci Web wywołujące podrzędne interfejsy API sieci Web), mogą być wielu użytkowników i są przetwarzane równolegle. Ze względu na bezpieczeństwo i wydajność nasze zalecenia polegają na serializacji jednej pamięci podręcznej na użytkownika. Zdarzenia serializacji obliczają klucz pamięci podręcznej na podstawie tożsamości przetworzonego użytkownika i serializacji/deserializacji pamięci podręcznej tokenów dla tego użytkownika.
+W przypadku usługi Web Apps bufor tokenów powinien być poprzedzony IDENTYFIKATORem konta.
+
+W przypadku interfejsów API sieci Web konto powinno być poprzedzone przez skrót tokenu używanego do wywoływania interfejsu API.
+
+MSAL.NET zapewnia serializowaną niestandardową pamięć podręczną tokenów w ramach podplatform .NET Framework i .NET Core. Zdarzenia są wywoływane podczas uzyskiwania dostępu do pamięci podręcznej, aplikacje mogą wybrać, czy należy serializować czy zdeserializować pamięci podręcznej. Poufne aplikacje klienckie, które obsługują użytkowników (aplikacje sieci Web, które logują użytkowników i wywołują interfejsy API sieci Web, oraz interfejsy API sieci Web wywołujące podrzędne interfejsy API sieci Web), mogą być wielu użytkowników i są przetwarzane równolegle. Ze względu na bezpieczeństwo i wydajność nasze zalecenia polegają na serializacji jednej pamięci podręcznej na użytkownika. Zdarzenia serializacji obliczają klucz pamięci podręcznej na podstawie tożsamości przetworzonego użytkownika i serializacji/deserializacji pamięci podręcznej tokenów dla tego użytkownika.
 
 Biblioteka [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web) oferuje wersję zapoznawczą pakietu NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zawierający serializacji pamięci podręcznej tokenu:
-
 
 | Metoda rozszerzenia | Podrzędna przestrzeń nazw Microsoft. Identity. Web | Opis  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ Biblioteka [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-ident
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | Pamięć podręczna tokenów jest powiązana z sesją użytkownika. Ta opcja nie jest idealnym rozwiązaniem, jeśli token identyfikatora zawiera wiele oświadczeń, ponieważ plik cookie staje się zbyt duży.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Pamięć podręczna tokenów jest kartą z `IDistributedCache` implementacją ASP.NET Core, co umożliwia wybranie między pamięcią podręczną pamięci rozproszonej, pamięci podręcznej Redis, rozproszonego NCache lub pamięci podręcznej SQL Server. Aby uzyskać szczegółowe informacje na temat `IDistributedCache` implementacji, zobacz https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
-Prosty przypadek przy użyciu pamięci podręcznej w pamięci:
+Oto przykład użycia pamięci podręcznej w pamięci w metodzie [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) klasy [startowej](/aspnet/core/fundamentals/startup) w aplikacji ASP.NET Core:
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ Prosty przypadek przy użyciu pamięci podręcznej w pamięci:
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 Przykłady możliwych rozproszonej pamięci podręcznej:
 

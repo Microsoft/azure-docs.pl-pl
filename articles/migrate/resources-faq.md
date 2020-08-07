@@ -3,12 +3,12 @@ title: Azure Migrate często zadawane pytania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090012"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847469"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: typowe pytania
 
@@ -29,7 +29,13 @@ Użyj Azure Migrate, aby odnajdywać, oceniać i migrować lokalną infrastruktu
 
 [Azure Migrate](migrate-services-overview.md) udostępnia scentralizowane centrum oceny i migracji na platformę Azure. 
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) to rozwiązanie odzyskiwania po awarii. 
+- Używanie Azure Migrate zapewnia współdziałanie i przyszłą rozszerzalność przy użyciu narzędzi Azure Migrate, innych usług platformy Azure i narzędzi innych firm.
+- Azure Migrate: Narzędzie migracji serwera jest przeznaczone do migracji serwera na platformę Azure. Jest zoptymalizowany pod kątem migracji. Nie musisz uczyć się o pojęciach i scenariuszach, które nie są bezpośrednio związane z migracją. 
+- Nie są naliczane opłaty za użycie narzędzi do migracji przez 180 dni od momentu uruchomienia replikacji dla maszyny wirtualnej. Zapewnia to czas na ukończenie migracji. Płacisz tylko za zasoby magazynowe i sieciowe używane podczas replikacji oraz opłaty za obliczenia używane podczas migracji testowej.
+- Azure Migrate obsługuje wszystkie scenariusze migracji obsługiwane przez Site Recovery. Ponadto w przypadku maszyn wirtualnych VMware Azure Migrate zapewnia opcję migracji bez wykorzystania agentów.
+- Są dostępne priorytety nowych funkcji migracji dla Azure Migrate: tylko narzędzie migracji serwera. Te funkcje nie są przeznaczone do Site Recovery.
+
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) należy używać tylko w przypadku odzyskiwania po awarii.
 
 Azure Migrate: Narzędzie do migracji serwera używa funkcji Site Recovery zaplecza do migracji niektórych maszyn lokalnych.
 

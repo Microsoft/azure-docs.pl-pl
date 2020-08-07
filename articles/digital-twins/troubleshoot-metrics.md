@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: cc270ebb12b27c6461b00a4f7042bc3c829d02ef
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812303"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905209"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -32,9 +32,14 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 
     Na tej stronie są wyświetlane metryki wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Widoki niestandardowe metryk można również utworzyć, wybierając te, które mają zostać wyświetlone na liście.
     
-3. Możesz wysłać dane metryk do punktu końcowego Event Hubs lub konta usługi Azure Storage, klikając pozycję **Ustawienia diagnostyczne** z menu, a następnie **Dodaj ustawienie diagnostyczne**.
+3. Możesz wysłać dane metryk do punktu końcowego Event Hubs lub konta usługi Azure Storage, wybierając z menu pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
+
+    Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
+
+4. Możesz skonfigurować alerty dla danych metryk, wybierając pozycję **alerty** z menu, a następnie **+ Nowa reguła alertu**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania":::
 
     Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
 

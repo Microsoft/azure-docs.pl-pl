@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c967e32836586c39131069407fc4808a5f91ae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9db22c6876294c9ffba33eab3d27900bf294e886
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609135"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873844"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu wywołań interfejsu API REST
 
@@ -84,7 +84,7 @@ Aby można było utworzyć maszynę wirtualną platformy Azure z włączoną to�
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
    
    **Treść żądania**
 
@@ -162,7 +162,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    > Aby upewnić się, że nie usunięto żadnych istniejących tożsamości zarządzanych przypisanych przez użytkownika, które są przypisane do maszyny wirtualnej, należy listę zarządzanych tożsamości przypisanych przez użytkownika za pomocą tego polecenia ZWINIĘCIE: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Jeśli do maszyny wirtualnej są przypisane skojarzone tożsamości przypisane przez użytkownika, które zostały określone w `identity` wartości odpowiedzi, przejdź do kroku 3, który pokazuje, jak zachować tożsamość zarządzaną przez użytkownika podczas włączania zarządzanej tożsamości przypisanej do systemu na maszynie wirtualnej.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -173,7 +173,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
    
    **Treść żądania**
     
@@ -194,7 +194,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    **INTERFEJS API W WERSJI 2018-06-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -205,7 +205,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -228,7 +228,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    **INTERFEJS API W WERSJI 2017-12-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -240,7 +240,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -272,7 +272,7 @@ Aby wyłączyć tożsamość zarządzaną przypisaną przez system na maszynie w
    > Aby upewnić się, że nie usunięto żadnych istniejących tożsamości zarządzanych przypisanych przez użytkownika, które są przypisane do maszyny wirtualnej, należy listę zarządzanych tożsamości przypisanych przez użytkownika za pomocą tego polecenia ZWINIĘCIE: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Jeśli do maszyny wirtualnej są przypisane skojarzone tożsamości przypisane przez użytkownika, które zostały określone w `identity` wartości odpowiedzi, przejdź do kroku 3, który pokazuje, jak zachować tożsamości zarządzane przez użytkownika podczas wyłączania tożsamości zarządzanej przypisanej przez system na maszynie wirtualnej.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -283,7 +283,7 @@ Aby wyłączyć tożsamość zarządzaną przypisaną przez system na maszynie w
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -342,7 +342,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -423,7 +423,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -513,7 +513,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.
 
     Jeśli masz przypisane tożsamości zarządzane przez użytkownika lub system do maszyny wirtualnej zgodnie z opisem w `identity` wartości w odpowiedzi, przejdź do kroku 5, w którym pokazano, jak zachować tożsamość zarządzaną przypisaną przez system podczas dodawania tożsamości zarządzanej przypisanej przez użytkownika na maszynie wirtualnej.
 
@@ -524,7 +524,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    **INTERFEJS API W WERSJI 2018-06-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -535,7 +535,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
  
    **Treść żądania**
 
@@ -555,7 +555,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    **INTERFEJS API W WERSJI 2017-12-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -567,7 +567,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -591,7 +591,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    Jeśli na przykład masz tożsamość zarządzaną przez system i tożsamość zarządzaną przypisaną przez użytkownika, która jest `ID1` aktualnie przypisana do maszyny wirtualnej i chcesz dodać do niej tożsamość zarządzaną przez użytkownika `ID2` :
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -603,7 +603,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -630,7 +630,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    Jeśli na przykład masz tożsamość zarządzaną przez system i tożsamość zarządzaną przypisaną przez użytkownika, która jest `ID1` aktualnie przypisana do maszyny wirtualnej i chcesz dodać do niej tożsamość zarządzaną przez użytkownika `ID2` : 
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -642,7 +642,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -683,7 +683,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.
  
    Jeśli masz zarządzane tożsamości przypisane do maszyny wirtualnej, są one wyświetlane w odpowiedzi w `identity` wartości.
 
@@ -694,7 +694,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
    Dodaj `null` do tożsamości zarządzanej przypisanej przez użytkownika, którą chcesz usunąć:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -706,7 +706,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -726,7 +726,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
    Przechowuj tylko tożsamości zarządzane przypisane przez użytkownika, które chcesz przechowywać w `identityIds` tablicy:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -738,7 +738,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
+   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        | 
 
    **Treść żądania**
 
@@ -756,7 +756,7 @@ Aby usunąć tożsamość przypisaną przez użytkownika do maszyny wirtualnej, 
 Jeśli maszyna wirtualna ma zarządzane tożsamości przypisane do systemu i przypisane przez użytkownika, możesz usunąć wszystkie zarządzane tożsamości przypisane przez użytkownika, przełączając do używania tylko tożsamości zarządzanej przypisanej do systemu przy użyciu następującego polecenia:
 
 ```bash
-curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
 ```
 
 ```HTTP
@@ -768,7 +768,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
 
 **Treść żądania**
 
@@ -795,7 +795,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.| 
+|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.| 
 
 **Treść żądania**
 

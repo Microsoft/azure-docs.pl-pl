@@ -1,18 +1,18 @@
 ---
 title: Monitoruj Azure File Sync | Microsoft Docs
-description: Jak monitorować Azure File Sync.
+description: Zapoznaj się z tematem monitorowanie wdrożenia Azure File Sync przy użyciu Azure Monitor, usługi synchronizacji magazynu i systemu Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832624"
+ms.locfileid: "87903531"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób monitorowania wdrożenia Azure File Sync przy uż
 Następujące scenariusze zostały omówione w tym przewodniku: 
 - Wyświetl metryki Azure File Sync w Azure Monitor.
 - Twórz alerty w Azure Monitor, aby aktywnie powiadamiać o kluczowych warunkach.
-- Monitoruj kondycję wdrożenia Azure File Sync przy użyciu Azure Portal.
+- Wyświetl kondycję wdrożenia Azure File Sync przy użyciu Azure Portal.
 - Jak używać dzienników zdarzeń i liczników wydajności na serwerach z systemem Windows do monitorowania kondycji wdrożenia Azure File Sync. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -34,7 +34,9 @@ Użyj [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) ,
 
 Metryki dla Azure File Sync są domyślnie włączone i są wysyłane do Azure Monitor co 15 minut.
 
-Aby wyświetlić metryki Azure File Sync w Azure Monitor, wybierz typ zasobu **usługi synchronizacji magazynu** .
+**Jak wyświetlić metryki Azure File Sync w Azure Monitor**
+- Przejdź do **usługi synchronizacji magazynu** w **Azure Portal** a następnie kliknij pozycję **metryki**.
+- Kliknij listę rozwijaną **Metryka** i wybierz metrykę, którą chcesz wyświetlić.
 
 Następujące metryki dla Azure File Sync są dostępne w Azure Monitor:
 
@@ -82,7 +84,7 @@ Aby wyświetlić zarejestrowane kondycje serwera, kondycja punktu końcowego ser
 ### <a name="registered-server-health"></a>Zarejestrowana kondycja serwera
 
 - Jeśli **zarejestrowany stan serwera** jest w **trybie online**, serwer pomyślnie komunikuje się z usługą.
-- Jeśli **zarejestrowany stan serwera** jest **wyświetlany w trybie offline**, sprawdź, czy na serwerze działa proces Monitor synchronizacji magazynu (AzureStorageSyncMonitor.exe). Jeśli serwer znajduje się za zaporą lub serwerem proxy, zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) , aby skonfigurować zaporę i serwer proxy.
+- Jeśli **zarejestrowany stan serwera** jest **wyświetlany w trybie offline**, proces monitora synchronizacji magazynu (AzureStorageSyncMonitor.exe) nie jest uruchomiony lub serwer nie może uzyskać dostępu do usługi Azure File Sync. Wskazówki można znaleźć w dokumentacji dotyczącej [rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) .
 
 ### <a name="server-endpoint-health"></a>Kondycja punktu końcowego serwera
 
@@ -121,11 +123,13 @@ Kondycja synchronizacji:
   > [!Note]  
   > Czasami sesje synchronizacji kończą się niepowodzeniem lub mają niezerową PerItemErrorCount. Jednak nadal trwają postęp, a niektóre pliki są synchronizowane pomyślnie. Można to sprawdzić w zastosowanych polach, takich jak AppliedFileCount, AppliedDirCount, AppliedTombstoneCount i AppliedSizeBytes. Te pola zawierają informacje o tym, ile sesji zakończyło się pomyślnie. Jeśli w wierszu wystąpi awaria wielu sesji synchronizacji i zostanie osiągnięty wzrost liczby zastosowanych, należy podać czas synchronizacji, aby ponowić próbę przed otwarciem biletu pomocy technicznej.
 
+- Identyfikator zdarzenia 9121 jest rejestrowany dla każdego błędu dla każdego elementu po zakończeniu sesji synchronizacji. To zdarzenie służy do określenia liczby plików, które nie są synchronizowane z tym błędem (**PersistentCount** i **TransientCount**). Należy zbadać błędy trwałe dla elementów, zobacz [Jak mogę sprawdzić, czy istnieją określone pliki lub foldery, które nie są synchronizowane?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+
 - Zdarzenie o IDENTYFIKATORze 9302 jest rejestrowane co 5 – 10 minut, jeśli istnieje aktywna sesja synchronizacji. To zdarzenie służy do określenia, czy bieżąca sesja synchronizacji powoduje postęp (**AppliedItemCount > 0**). Jeśli synchronizacja nie jest w toku, sesja synchronizacji powinna ostatecznie zakończyć się niepowodzeniem, a identyfikator zdarzenia 9102 zostanie zarejestrowany z powodu błędu. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą postępu synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Zarejestrowana kondycja serwera:
 
-- Zdarzenie o IDENTYFIKATORze 9301 jest rejestrowane co 30 sekund, gdy serwer wysyła zapytanie do usługi dla zadań. Jeśli GetNextJob zakończy się **stanem = 0**, serwer może komunikować się z usługą. Jeśli GetNextJob kończy się z błędem, zapoznaj się z [dokumentacją rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) , aby uzyskać wskazówki.
+- Zdarzenie o IDENTYFIKATORze 9301 jest rejestrowane co 30 sekund, gdy serwer wysyła zapytanie do usługi dla zadań. Jeśli GetNextJob zakończy się **stanem = 0**, serwer może komunikować się z usługą. Jeśli GetNextJob kończy się z błędem, zapoznaj się z [dokumentacją rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) , aby uzyskać wskazówki.
 
 Kondycja warstw chmury:
 

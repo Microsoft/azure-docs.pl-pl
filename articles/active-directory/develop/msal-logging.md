@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558671"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846228"
 ---
 # <a name="logging-in-msal-applications"></a>Logowanie w aplikacjach MSAL
 
@@ -156,7 +156,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-c"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 ## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL dla systemu iOS i rejestrowania macOS — ObjC
 
@@ -177,7 +177,7 @@ Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je d
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-Przykład:
+Na przykład:
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -218,7 +218,7 @@ Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla sy
 | `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
-Przykład:
+Na przykład:
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
@@ -228,7 +228,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
 Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-Przykład:
+Na przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
@@ -255,7 +255,7 @@ Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je d
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-Przykład:
+Na przykład:
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -295,7 +295,7 @@ Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla sy
 | `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
-Przykład:
+Na przykład:
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
@@ -305,7 +305,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-Przykład:
+Na przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 

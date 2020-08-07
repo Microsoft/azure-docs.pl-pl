@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do Eksplorator usługi Storage | Microsoft Docs
-description: Zarządzanie zasobami usługi Azure Storage za pomocą Eksplorator usługi Storage
+description: Rozpocznij zarządzanie zasobami usługi Azure Storage za pomocą Eksplorator usługi Storage. Pobierz i zainstaluj Eksplorator usługi Azure Storage, Połącz się z kontem magazynu lub usługą i nie tylko.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975269"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905350"
 ---
 # <a name="get-started-with-storage-explorer"></a>Wprowadzenie do Eksploratora usługi Storage
 
@@ -76,7 +76,7 @@ Eksplorator usługi Storage oferuje kilka sposobów nawiązywania połączenia z
 * [Zaloguj się do platformy Azure, aby uzyskać dostęp do subskrypcji i ich zasobów](#sign-in-to-azure)
 * [Dołącz określony magazyn lub zasób CosmosDB](#attach-a-specific-resource)
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 > [!NOTE]
 > Aby w pełni uzyskać dostęp do zasobów po zalogowaniu, Eksplorator usługi Storage wymaga zarówno uprawnień do zarządzania (Azure Resource Manager), jak i warstwy danych. Oznacza to, że potrzebne są uprawnienia Azure Active Directory (Azure AD), które zapewniają dostęp do konta magazynu, kontenerów na koncie i danych w kontenerach. Jeśli masz uprawnienia tylko w warstwie danych, rozważ [dodanie zasobu za pomocą usługi Azure AD](#add-a-resource-via-azure-ad). Aby uzyskać więcej informacji na temat Eksplorator usługi Storage wymaganych uprawnień, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
@@ -133,7 +133,7 @@ Istnieje kilka sposobów dołączenia do zasobu w Eksplorator usługi Storage:
 
 Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **Storage Accounts**  >  **(Attached Containers)**  >  **kontenery obiektów BLOB**(dołączone kontenery). Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-connection-string"></a>Użyj parametrów połączenia
+#### <a name="use-a-connection-string"></a>Używanie parametrów połączenia
 
 1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
 
@@ -147,7 +147,7 @@ Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który
 
 Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**. Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-shared-access-signature-uri"></a>Użyj identyfikatora URI sygnatury dostępu współdzielonego
+#### <a name="use-a-shared-access-signature-uri"></a>Używanie identyfikatora URI sygnatury dostępu współdzielonego
 
 1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
 
@@ -161,7 +161,7 @@ Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który
 
 Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**  >  **(dołączone kontenery)**  >  *węzeł usługi dla typu dołączonego kontenera*. Jeśli nie można dodać połączenia Eksplorator usługi Storage, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Zapoznaj się z przewodnikiem rozwiązywania problemów, jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia.
 
-#### <a name="use-a-name-and-key"></a>Użyj nazwy i klucza
+#### <a name="use-a-name-and-key"></a>Używanie nazwy i klucza
 
 1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
 
@@ -179,7 +179,7 @@ Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który
 
 Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**. Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="attach-to-a-local-emulator"></a>Dołącz do lokalnego emulatora
+#### <a name="attach-to-a-local-emulator"></a>Dołączanie do emulatora lokalnego
 
 Eksplorator usługi Storage obecnie obsługuje dwa oficjalne emulatory magazynu:
 

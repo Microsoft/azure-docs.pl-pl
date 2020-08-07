@@ -10,13 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: 33a4e31be04e5a205322bb3040d3694525c4515c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: e6f132db9b4c0f0310496b2e22579e18359e1573
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605990"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847231"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka Python
 
@@ -196,6 +196,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)

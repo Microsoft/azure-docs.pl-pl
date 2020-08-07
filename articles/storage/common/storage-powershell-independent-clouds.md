@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176213"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904330"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Zarządzanie magazynem w chmurach niezależnych platformy Azure przy użyciu programu PowerShell
 
@@ -112,6 +112,7 @@ Wyniki są podobne do następujących:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 Aby pobrać tylko Właściwość sufiksu punktu końcowego magazynu, Pobierz określoną chmurę i podawaj tylko jedną właściwość.
 
 ```powershell
@@ -154,7 +155,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Teraz można używać programu PowerShell do zarządzania kontami magazynu i dostępu do danych obiektów blob, kolejek, plików i tabel. Aby uzyskać więcej informacji, zobacz [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli utworzono nową grupę zasobów i konto magazynu dla tego ćwiczenia, można usunąć oba elementy zawartości, usuwając grupę zasobów. Usunięcie grupy zasobów spowoduje usunięcie wszystkich zasobów w tej grupie.
 

@@ -3,7 +3,7 @@ title: Typowe scenariusze związane z zarządzaniem prawami — Azure AD
 description: Zapoznaj się z ogólnymi krokami, które należy wykonać w przypadku typowych scenariuszy w Azure Active Directory Zarządzanie uprawnieniami.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a9dc504edac01654fb21ec3386a596e03492c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19bf54e6289472fe36dbf6b029f959545a65d1c8
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077791"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796612"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Typowe scenariusze zarządzania prawami w usłudze Azure AD
 

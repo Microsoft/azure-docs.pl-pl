@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c5990faab1e06961a2c3d577a4677d2e1d504699
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553935"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904068"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -31,7 +31,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.DocBiblioteka kliencka uments](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Zestaw Azure SDK dla platformy .NET | Biblioteka kliencka platformy .NET wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta platformy .NET. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania-Version = 2020-06-30, ale jeszcze nie obsługuje sklepu z bazami danych, filtrów geograficznych ani [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Ogólnie dostępna. </br> Zainstaluj [pakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) z narzędzia NuGet. |
+| [Azure.Search.DocBiblioteka kliencka uments](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Zestaw Azure SDK dla platformy .NET | Biblioteka kliencka platformy .NET wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta platformy .NET. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania-Version = 2020-06-30, ale nie obsługuje jeszcze sklepu z bazami danych, typów geoprzestrzennych ani [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie indeksu](search-get-started-dotnet.md) i [uaktualnianie do Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Ogólnie dostępna. </br> Zainstaluj [pakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) z narzędzia NuGet. |
 | [azure.search.docBiblioteka kliencka uments](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Zestaw Azure SDK dla środowiska Python| Biblioteka klienta języka Python wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta języka Python. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [pakiet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) z PyPI. |
 | [@azure/search-documentsBiblioteka kliencka](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Zestaw Azure SDK dla języka JavaScript | Biblioteka kliencka języka JavaScript wydana przez zespół zestawu Azure SDK, zaprojektowana pod kątem spójności z innymi bibliotekami klientów JavaScript. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [ @azure/search-documents pakiet](https://www.npmjs.com/package/@azure/search-documents) z npm. |
 

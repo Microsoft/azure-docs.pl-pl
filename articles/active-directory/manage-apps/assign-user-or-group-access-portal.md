@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763741"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799506"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory
 
@@ -26,6 +26,9 @@ W tym artykule opisano sposób przypisywania użytkowników lub grup do aplikacj
 Aby uzyskać większą kontrolę, niektóre typy aplikacji korporacyjnych można skonfigurować tak, aby [wymagały przypisania użytkownika](#configure-an-application-to-require-user-assignment). 
 
 Aby [przypisać użytkownika lub grupę do aplikacji dla przedsiębiorstw](#assign-users-or-groups-to-an-app-via-the-azure-portal), należy zalogować się jako Administrator globalny, administrator aplikacji, administrator aplikacji w chmurze lub przypisany właściciel aplikacji przedsiębiorstwa.
+
+> [!IMPORTANT]
+> Po przypisaniu grupy do aplikacji tylko użytkownicy w grupie będą mieli dostęp. Przypisanie nie jest kaskadowe do grup zagnieżdżonych.
 
 > [!NOTE]
 > Przypisanie oparte na grupach wymaga Azure Active Directory — wersja Premium wersji P1 lub P2. Przypisanie oparte na grupach jest obsługiwane tylko dla grup zabezpieczeń. Członkostwa w grupach zagnieżdżonych i grupy Office 365 nie są obecnie obsługiwane. Aby uzyskać więcej informacji o wymaganiach dotyczących licencjonowania funkcji omówionych w tym artykule, zobacz [stronę z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 

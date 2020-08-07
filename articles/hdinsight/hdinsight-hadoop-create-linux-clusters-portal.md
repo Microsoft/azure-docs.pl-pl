@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083376"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874031"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal
 
@@ -39,7 +39,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Wybierz pozycję **Analiza**  >  **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
 
-## <a name="basics"></a>Informacje podstawowe
+## <a name="basics"></a>Podstawy
 
 ![Podstawowe informacje dotyczące tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Tworzenie nowego klastra w Azure Portal")
 
@@ -61,7 +61,7 @@ Na karcie **podstawowe** podaj następujące informacje:
 
 Wybierz pozycję **Dalej: >>magazynu** , aby przejść do następnej karty.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 > [!WARNING] 
 > Od 15 czerwca 2020 klienci nie będą mogli utworzyć nowej jednostki usługi za pomocą usługi HDInsight. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) przy użyciu Azure Active Directory.
@@ -85,6 +85,9 @@ Opcjonalne: wybierz pozycję **Dodaj usługę Azure Storage** , aby uzyskać dod
 ### <a name="metastore-settings"></a>Ustawienia magazynu metadanych
 
 Opcjonalnie: Określ istniejące SQL Database, aby zapisać w metadanych Apache Hive, Apache Oozie i Apache Ambari poza klastrem. Azure SQL Database, który jest używany dla magazynu metadanych, musi zezwalać na łączność z innymi usługami platformy Azure, w tym usługą Azure HDInsight. Podczas tworzenia magazynu metadanych nie należy nazwać bazy danych za pomocą łączników ani łączników. Te znaki mogą spowodować niepowodzenie procesu tworzenia klastra.
+
+> [!IMPORTANT]
+> W przypadku kształtów klastra obsługujących magazyny metadanych domyślny magazyn metadanych zapewnia Azure SQL Database z **limitem jednostek DTU warstwy Podstawowa 5 (nie można uaktualnić).** Odpowiednie dla podstawowych celów testowych. W przypadku obciążeń dużych lub produkcyjnych zalecamy Migrowanie do zewnętrznego magazynu metadanych.
 
 Wybierz pozycję **Dalej: zabezpieczenia i sieć >>** , aby przejść do następnej karty.
 
@@ -121,7 +124,7 @@ Na karcie **Konfiguracja i Cennik** podaj następujące informacje:
 
 Wybierz pozycję **Przegląd + utwórz >>** , aby sprawdzić poprawność konfiguracji klastra, a następnie przejdź do ostatniej karty.
 
-## <a name="review--create"></a>Przegląd + tworzenie
+## <a name="review--create"></a>Przeglądanie i tworzenie
 
 ![Podsumowanie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Określ liczbę węzłów klastra")
 

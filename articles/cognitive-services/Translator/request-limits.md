@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903411"
 ---
 # <a name="request-limits-for-translator"></a>Limity żądań dla translatora
 
@@ -23,18 +23,18 @@ Ten artykuł zawiera limity ograniczania dla translatora. Usługi obejmują tłu
 
 ## <a name="character-and-array-limits-per-request"></a>Limity liczby znaków i tablic na żądanie
 
-Każde żądanie tłumaczenia jest ograniczone do 5 000 znaków, we wszystkich językach docelowych, do których są tłumaczone. Na przykład wysłanie żądania tłumaczenia o 1 500 znaków do przetłumaczenia na 3 różne języki spowoduje, że rozmiar żądania wynosi 1, 500x3 = 4 500 znaków, który spełnia limit żądań. Opłata jest naliczana za znak, a nie przez liczbę żądań. Zaleca się wysyłanie krótszych żądań.
+Każde żądanie tłumaczenia jest ograniczone do 10 000 znaków, we wszystkich językach docelowych, do których są tłumaczone. Na przykład wysłanie żądania tłumaczenia o 3 000 znaków do przetłumaczenia na 3 różne języki powoduje, że rozmiar żądania 3000x3 = 9 000 znaków, który spełnia limit żądań. Opłata jest naliczana za znak, a nie przez liczbę żądań. Zaleca się wysyłanie krótszych żądań.
 
 W poniższej tabeli wymieniono limity elementów tablicy i znaków dla każdej operacji translatora.
 
 | Operacja | Maksymalny rozmiar elementu tablicy |    Maksymalna liczba elementów tablicy |    Maksymalny rozmiar żądania (znaki) |
 |:----|:----|:----|:----|
-| Tłumaczenie | 5000    | 100    | 5000 |
-| Transliteracja | 5000    | 10    | 5000 |
-| Wykrywanie | 10 000 |    100 |    50 000 |
-| BreakSentence | 10 000    | 100 |    50 000 |
-| Wyszukiwanie w słowniku| 100 |    10    | 1000 |
-| Przykłady słowników | 100 dla tekstu i 100 dla tłumaczenia (łącznie 200)| 10|    2000 |
+| Tłumaczenie | 10 000    | 100   | 10 000 |
+| Transliteracja | 5000 | 10    | 5000 |
+| Wykrywanie | 10 000 | 100 |   50 000 |
+| BreakSentence | 50 000    | 100 | 50 000 |
+| Wyszukiwanie w słowniku| 100 |  10  | 1000 |
+| Przykłady słowników | 100 dla tekstu i 100 dla tłumaczenia (łącznie 200)| 10|   2000 |
 
 ## <a name="character-limits-per-hour"></a>Limity znaków na godzinę
 
@@ -67,7 +67,7 @@ W przypadku korzystania z funkcji [BreakSentence](https://docs.microsoft.com/azu
 | Język | Kod | Limit znaków |
 |----------|------|-----------------|
 | Chiński | zh | 166 |
-| Niemiecki | de | 800 |
+| niemiecki | de | 800 |
 | Włoski | it | 800 |
 | Japoński | ja | 166 |
 | Portugalski | pkt. | 800 |

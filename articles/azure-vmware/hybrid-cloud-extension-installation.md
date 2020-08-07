@@ -3,18 +3,18 @@ title: Zainstaluj rozszerzenie chmury hybrydowej (HCX)
 description: Skonfiguruj rozwiązanie VMware hybrydowego Extension (HCX) dla chmury prywatnej dla rozwiązania Azure VMware (Automatyczna synchronizacja)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475451"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904997"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
 W tym artykule omówiono procedury konfigurowania rozwiązania VMWare hybrydowego Extension (HCX) dla chmury prywatnej (Automatyczna synchronizacja) rozwiązania VMWare. HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury oraz inne połączone Lokacje za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX.
 
-HCX Advanced, instalacja domyślna obsługuje maksymalnie trzy vCenter. Jeśli wymagane są więcej niż trzy, klienci mają możliwość włączenia dodatku HCX Enterprise przez pomoc techniczną. Instalacja przedsiębiorstwa HCX obejmuje dodatkowe opłaty dla klientów po ogólnym udostępnieniu usługi, ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced — instalacja domyślna obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze do chmury). Jeśli wymagane są więcej niż trzy połączenia z lokacją, klienci mają możliwość włączenia dodatku HCX Enterprise w ramach pomocy technicznej, która jest obecnie dostępna w wersji zapoznawczej. Firma HCX Enterprise wykonuje dodatkowe opłaty dla klientów po ogólnej dostępności (GA), ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 [Przed rozpoczęciem](#before-you-begin)należy dokładnie zapoznać się z [wymaganiami dotyczącymi wersji oprogramowania](#software-version-requirements)i [wymaganiami wstępnymi](#prerequisites) . 
@@ -22,7 +22,7 @@ HCX Advanced, instalacja domyślna obsługuje maksymalnie trzy vCenter. Jeśli w
 Następnie przeprowadzimy przez wszystkie niezbędne procedury, aby:
 
 > [!div class="checklist"]
-> * Wdróż lokalne komórki jajowe HCX
+> * Wdróż lokalne HCX komórki jajowe (łącznik)
 > * Aktywuj i Konfiguruj HCX
 > * Skonfiguruj pasmo sieci i siatkę usług
 > * Ukończ instalację, sprawdzając stan urządzenia
@@ -36,11 +36,14 @@ Po zakończeniu instalacji możesz wykonać czynności opisane w kolejnych kroka
 * Przejrzyj dokumentację oprogramowania VMware [migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Zapoznaj się z [zaleceniami dotyczącymi wdrażania programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Zapoznaj VMware vSphere się z tematem "HCX", na przykład z [serii blogów](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) w witrynie HCX. 
-* Zamów aktywację automatycznej synchronizacji HCX Enterprise za pomocą kanałów pomocy technicznej dotyczącej automatycznej synchronizacji.
+* Zażądaj automatycznej synchronizacji wersji HCX Enterprise za pomocą kanałów pomocy technicznej dotyczącej automatycznej synchronizacji.
 
-Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania podczas przygotowywania do korzystania z rozwiązania do automatycznej synchronizacji w chmurze prywatnej HCX. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej.   
+Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania podczas przygotowywania do korzystania z rozwiązania do automatycznej synchronizacji w chmurze prywatnej HCX. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej. 
+
+Możesz również zmienić rozmiar obciążeń, wykonując ocenę automatycznej synchronizacji w portalu Azure Migrate ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
 
 ## <a name="software-version-requirements"></a>Wymagania dotyczące wersji oprogramowania
+
 Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną. 
                                                          
 | Typ składnika    | Wymagania dotyczące środowiska źródłowego    | Wymagania środowiska docelowego   |

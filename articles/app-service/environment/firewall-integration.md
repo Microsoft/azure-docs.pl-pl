@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e5c909dfebf9c2073ac1809e0a1b7dcbcc7a297
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073751"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874201"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blokowanie App Service Environment
 
@@ -61,7 +61,7 @@ Kroki umożliwiające zablokowanie ruchu wychodzącego z istniejącego środowis
    
    ![Dodawanie reguły aplikacji][1]
    
-1. Z poziomu interfejsu użytkownika zapory platformy Azure > reguł > kolekcji reguł sieciowych wybierz pozycję Dodaj kolekcję reguł sieci. Podaj nazwę, priorytet i ustaw wartość Zezwalaj. W sekcji reguły w obszarze adresy IP Podaj nazwę, **Wybierz pozycję ptocol, ustaw**wartość * na adres źródłowy i docelowy, a następnie ustaw porty na 123. Ta reguła umożliwia systemowi wykonywanie synchronizacji zegara przy użyciu protokołu NTP. Utwórz inną regułę w taki sam sposób, jak w przypadku portu 12000, aby pomóc w Klasyfikacja wszelkich problemów z systemem. 
+1. Z poziomu interfejsu użytkownika zapory platformy Azure > reguł > kolekcji reguł sieciowych wybierz pozycję Dodaj kolekcję reguł sieci. Podaj nazwę, priorytet i ustaw wartość Zezwalaj. W sekcji reguły w obszarze adresy IP Podaj nazwę, wybierz protokół **any**, Ustaw * jako adres źródłowy i docelowy, a następnie ustaw porty na 123. Ta reguła umożliwia systemowi wykonywanie synchronizacji zegara przy użyciu protokołu NTP. Utwórz inną regułę w taki sam sposób, jak w przypadku portu 12000, aby pomóc w Klasyfikacja wszelkich problemów z systemem. 
 
    ![Dodaj regułę sieci NTP][3]
    

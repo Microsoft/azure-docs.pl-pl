@@ -998,7 +998,7 @@
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
                     - name: Tworzenie klastra trybu failover (FCI) za pomocą
                       items:
-                        - name: Dyski udostępnione platformy Azure (SQL2019+)
+                        - name: Dyski udostępnione platformy Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
                         - name: Bezpośrednie miejsca do magazynowania (Win2016+)
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md

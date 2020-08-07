@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9274e147bcaec4b3e63a6720e369946d64e94628
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809888"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905231"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -104,11 +104,11 @@ W przykładach w tej sekcji użyto zestawu SDK języka C#.
 Trasy zdarzeń są definiowane przy użyciu interfejsów API płaszczyzny danych. 
 
 Definicja trasy może zawierać następujące elementy:
-* Identyfikator trasy, który ma być używany
+* Nazwa trasy, która ma być używana
 * Nazwa punktu końcowego, który ma być używany
 * Filtr określający, które zdarzenia są wysyłane do punktu końcowego. 
 
-Jeśli nie ma identyfikatora trasy, żadne komunikaty nie są kierowane poza usługę Azure Digital bliźniaczych reprezentacji. Jeśli istnieje identyfikator trasy i filtr jest `true` , wszystkie komunikaty są kierowane do punktu końcowego. Jeśli istnieje identyfikator trasy i zostanie dodany inny filtr, komunikaty będą filtrowane zgodnie z filtrem.
+Jeśli nie ma nazwy trasy, żadne komunikaty nie są kierowane poza usługę Azure Digital bliźniaczych reprezentacji. Jeśli istnieje Nazwa trasy i filtr jest `true` , wszystkie komunikaty są kierowane do punktu końcowego. Jeśli istnieje Nazwa trasy i zostanie dodany inny filtr, komunikaty będą filtrowane zgodnie z filtrem.
 
 Jedna trasa powinna zezwalać na wybranie wielu powiadomień i typów zdarzeń. 
 

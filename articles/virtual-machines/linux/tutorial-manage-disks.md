@@ -15,12 +15,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 2c55f288631ae77541ad957aeeb26cfc44b29f37
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 48d9c51c5d008bf652e782573c891cb0e0580f8c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483183"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831315"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Samouczek — zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -62,7 +62,7 @@ Dyski w warstwie Premium są wspierane przez oparty na technologii SSD dysk o wy
 ### <a name="premium-disk-performance"></a>Wydajność dysku w warstwie Premium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sekundę na dysk, ale wyższą wydajność można osiągnąć przez stosowanie wielu dysków z danymi. Na przykład maszyna wirtualna Standard_GS5 może osiągnąć maksymalnie 80 000 operacji we/wy na sekundę Aby uzyskać szczegółowe informacje na temat maksymalnej liczby operacji we/wy na sekundę na maszynę wirtualną, zobacz [Rozmiary maszyn wirtualnych z systemem Linux](sizes.md).
+W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sekundę na dysk, ale wyższą wydajność można osiągnąć przez stosowanie wielu dysków z danymi. Na przykład maszyna wirtualna Standard_GS5 może osiągnąć maksymalnie 80 000 operacji we/wy na sekundę Aby uzyskać szczegółowe informacje na temat maksymalnej liczby operacji we/wy na sekundę na maszynę wirtualną, zobacz [Rozmiary maszyn wirtualnych z systemem Linux](../sizes.md).
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 

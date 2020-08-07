@@ -1,6 +1,6 @@
 ---
 title: Tworzenie udziału plików platformy Azure w warstwie Premium
-description: W tym artykule dowiesz się, jak utworzyć udział plików platformy Azure w warstwie Premium.
+description: W tym artykule dowiesz się, jak utworzyć udział plików platformy Azure w warstwie Premium przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5bdfbbc505f6abe4fee021df014e32d3ccae074
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adeb1635489441b30c15fee69922e3abef0a53f9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497634"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903820"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
 Udziały plików w warstwie Premium są oferowane na nośnikach magazynowania SSD i są przydatne w przypadku obciążeń intensywnie korzystających z operacji we/wy, w tym hostingu baz danych i obliczeń o wysokiej wydajności (HPC). Udziały plików w warstwie Premium są hostowane w specjalnym rodzaju koncie magazynu o nazwie konto FileStorage. Udziały plików w warstwie Premium są przeznaczone dla aplikacji o wysokiej wydajności i skalowania w przedsiębiorstwie, zapewniając spójne małe opóźnienia, duże liczby operacji we/wy i duże przepływność.
@@ -26,7 +26,7 @@ Aby uzyskać dostęp do zasobów platformy Azure, w tym udziałów plików Premi
 
 ## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Tworzenie udziału plików w warstwie Premium przy użyciu Azure Portal
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 

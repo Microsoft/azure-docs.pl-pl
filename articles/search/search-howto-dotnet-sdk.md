@@ -1,26 +1,29 @@
 ---
-title: Korzystanie z usługi Azure Wyszukiwanie poznawcze w środowisku .NET
+title: Korzystanie z Microsoft. Azure. Search (v10) w programie .NET
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak używać platformy Azure Wyszukiwanie poznawcze w aplikacji platformy .NET przy użyciu języka C# i zestawu .NET SDK. Zadania oparte na kodzie obejmują łączenie się z usługą, indeksowanie zawartości i wykonywanie zapytań względem indeksu.
+description: Dowiedz się, jak tworzyć obiekty wyszukiwania i zarządzać nimi za pomocą języka C# i w wersji 10 zestawu SDK platformy .NET. Fragmenty kodu przedstawiają łączenie się z usługą, Tworzenie indeksów i zapytań.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 929241d7bc5db5476bab84d00fde90d4db55aedc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 08/05/2020
+ms.openlocfilehash: 820ce3078b642f2cc672cd6906895f818c06f5b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146916"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905427"
 ---
-# <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET
+# <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Jak używać programu Microsoft. Azure. Search (v10) w aplikacji .NET
 
-Ten artykuł zawiera wskazówki ułatwiające rozpoczęcie pracy z [zestawem SDK platformy Azure wyszukiwanie poznawcze .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search). Korzystając z zestawu SDK platformy .NET, można zaimplementować bogate środowisko wyszukiwania w aplikacji przy użyciu usługi Azure Wyszukiwanie poznawcze.
+W tym artykule wyjaśniono, jak tworzyć obiekty wyszukiwania i zarządzać nimi za pomocą języka C# i [zestawu .net Wyszukiwanie poznawcze (v10) platformy Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search). Wersja 10 to Ostatnia wersja pakietu Microsoft. Azure. Search. Po przeniesieniu do przodu nowe funkcje zostaną rozprowadzone w [Azure.Search.Documents](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) z zespołu zestawu Azure SDK.
 
-## <a name="whats-in-the-azure-cognitive-search-sdk"></a>Co znajduje się w zestawie SDK usługi Azure Wyszukiwanie poznawcze
+Jeśli masz istniejące lub numerów porządkowych określających projekty deweloperskie, nadal używaj wersji 10. W przypadku nowych projektów lub do korzystania z nowych funkcji należy przenieść istniejące rozwiązanie wyszukiwania do nowej biblioteki.
+
+## <a name="whats-in-version-10"></a>Wersja 10
+
 Zestaw SDK składa się z kilku bibliotek klienckich, które umożliwiają zarządzanie indeksami, źródłami danych, indeksatorami i mapami synonimów, a także przekazywaniem i zarządzaniem dokumentami oraz wykonywanie zapytań, bez konieczności zajmowania się szczegółowymi informacjami dotyczącymi protokołu HTTP i JSON. Te biblioteki klienckie są dystrybuowane jako pakiety NuGet.
 
 Głównym pakietem NuGet jest `Microsoft.Azure.Search` , czyli Meta-pakiet, który zawiera wszystkie pozostałe pakiety jako zależności. Użyj tego pakietu, jeśli dopiero zaczynasz pracę lub wiesz, że aplikacja będzie potrzebować wszystkich funkcji usługi Azure Wyszukiwanie poznawcze.

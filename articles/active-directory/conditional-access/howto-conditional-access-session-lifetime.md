@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552117"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874779"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -107,8 +107,6 @@ Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licen
 
 Na zarejestrowanych urządzeniach z systemem Windows w usłudze Azure AD Zaloguj się na urządzeniu jako monit. Jeśli na przykład skonfigurowano częstotliwość logowania na 24 godziny dla aplikacji pakietu Office, użytkownicy usługi Azure AD zarejestrowane urządzenia z systemem Windows będą spełniać zasady częstotliwości logowania, logując się na urządzeniu i nie będą monitowani ponownie podczas otwierania aplikacji pakietu Office.
 
-Jeśli skonfigurowano inną częstotliwość logowania dla różnych aplikacji sieci Web, które są uruchomione w tej samej sesji przeglądarki, najwyższe zasady zostaną zastosowane do obu aplikacji, ponieważ wszystkie aplikacje uruchomione w tej samej sesji przeglądarki współdzielą token sesji.
-
 ### <a name="policy-2-persistent-browser-session"></a>Zasady 2: nietrwała sesja przeglądarki
 
 1. Utwórz nowe zasady
@@ -126,7 +124,7 @@ Jeśli skonfigurowano inną częstotliwość logowania dla różnych aplikacji s
 > [!NOTE]
 > Trwała konfiguracja sesji przeglądarki w usłudze Azure AD dostęp warunkowy spowoduje zastąpienie "pozostać zalogowanym?" ustawienie w okienku znakowanie firmowe w Azure Portal dla tego samego użytkownika, jeśli skonfigurowano obie zasady.
 
-## <a name="validation"></a>Walidacja
+## <a name="validation"></a>Weryfikacja
 
 Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika do aplikacji docelowej i innych warunków w zależności od sposobu skonfigurowania zasad. Kontrolki zarządzanie sesjami uwierzytelniania są wyświetlane w wyniku tego narzędzia.
 
