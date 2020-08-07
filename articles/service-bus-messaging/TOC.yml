@@ -7,13 +7,15 @@
     - name: Porównanie usług obsługi wiadomości
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: Używanie usługi Service Bus z usługą Java Message Service (JMS) 2.0 (wersja zapoznawcza)
+      href: how-to-use-java-message-service-20.md
 - name: Przewodniki Szybki start
   items:
     - name: Kolejki usługi Service Bus
       items:
         - name: Tworzenie kolejki usługi Service Bus
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -127,6 +129,8 @@
           items:
             - name: 'Kolejki, tematy i subskrypcje'
               href: service-bus-queues-topics-subscriptions.md
+            - name: Jednostki usługi Java Message Service (JMS) 2.0 (wersja zapoznawcza)
+              href: java-message-service-20-entities.md
             - name: 'Komunikaty, ładunki i serializacja'
               href: service-bus-messages-payloads.md
             - name: 'Transferowanie, blokady i uzgadnianie komunikatów'

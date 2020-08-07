@@ -209,14 +209,14 @@
       items:
         - name: Wizualne tworzenie fabryk danych
           href: author-visually.md
+        - name: Debugowanie i programowanie iteracyjne
+          href: iterative-development-debugging.md
         - name: Centrum zarządzania
           href: author-management-hub.md
         - name: Kontrola źródła
           href: source-control.md
         - name: Ciągła integracja i ciągłe dostarczanie
           href: continuous-integration-deployment.md
-        - name: Debugowanie i programowanie iteracyjne
-          href: iterative-development-debugging.md
     - name: Łączniki
       items:
         - name: Omówienie łączników
@@ -562,6 +562,8 @@
       items:
         - name: Parametryzacja połączonych usług
           href: parameterize-linked-services.md
+        - name: Parametry globalne
+          href: author-global-parameters.md
         - name: Język wyrażeń
           href: control-flow-expression-language-functions.md
         - name: Zmienne systemu

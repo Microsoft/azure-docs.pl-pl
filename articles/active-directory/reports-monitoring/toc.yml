@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Przesyłanie strumieniowe dzienników do centrum zdarzeń
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Kreator usługi Log Analytics
+      href: tutorial-log-analytics-wizard.md
 - name: Pojęcia
   items:
     - name: Planowanie wdrożenia raportowania i monitorowania

@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Pojęcia
   items:
-    - name: Magazyn wartości klucza
+    - name: Klucze i wartości
       href: concept-key-value.md
     - name: Migawka punktu w czasie
       href: concept-point-time-snapshot.md
@@ -147,7 +147,7 @@
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Zasoby
   items:
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: Filmy wideo
       items:

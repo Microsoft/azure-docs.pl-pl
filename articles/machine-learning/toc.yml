@@ -229,7 +229,7 @@
         - name: Ustawianie katalogów wejściowych i wyjściowych
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Debugowanie interaktywne
+        - name: Visual Studio Code
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
         - name: Integracja z usługą Git
@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Wyzwalanie potoku
           href: how-to-trigger-published-pipeline.md
+        - name: Projektant (przeciągnij i upuść)
+          items:
+            - name: Metryki dzienników
+              displayName: 'designer, logging'
+              href: how-to-track-designer-experiments.md
+            - name: Przekształcanie danych
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Ponowne trenowanie przy użyciu opublikowanych potoków
+              displayName: 'retrain, designer, published pipeline'
+              href: how-to-retrain-designer.md
+            - name: Przewidywania dla partii
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Wykonywanie kodu w języku Python
+              displayName: 'feature extraction, feature engineering'
+              href: how-to-designer-python.md
         - name: Debugowanie potoków i rozwiązywanie związanych z nimi problemów
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Debugowanie potoków w usłudze Application Insights
           href: how-to-debug-pipelines-application-insights.md
-        - name: Metryki dzienników projektanta
-          displayName: 'designer, logging'
-          href: how-to-track-designer-experiments.md
-        - name: Projektant — przekształcanie danych
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Projektant — ponowne trenowanie przy użyciu opublikowanych potoków
-          displayName: 'retrain, designer, published pipeline'
-          href: how-to-retrain-designer.md
-        - name: Prognozy partii projektanta
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Projektant — wykonywanie kodu języka Python
-          displayName: 'feature extraction, feature engineering'
-          href: how-to-designer-python.md
         - name: Używanie kroku przebiegu równoległego
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +477,9 @@
     - name: Zarządzanie zasobami w programie VS Code
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
+    - name: Debugowanie interaktywne w programie VS Code
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
     - name: Eksportowanie i usuwanie danych
       displayName: GDPR
       href: how-to-export-delete-data.md

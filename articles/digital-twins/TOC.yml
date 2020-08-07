@@ -70,8 +70,6 @@
           href: how-to-create-azure-function.md
         - name: Wykonywanie zapytań o graf bliźniaczych reprezentacji
           href: how-to-query-graph.md
-        - name: Wyświetlanie metryk w usłudze Azure Monitor
-          href: how-to-view-metrics.md
     - name: Łączenie danych wejściowych
       items:
         - name: Pozyskiwanie danych telemetrycznych z usługi IoT Hub
@@ -79,13 +77,19 @@
     - name: Łączenie danych wyjściowych
       items:
         - name: Zarządzanie punktami końcowymi i trasami
-          href: how-to-manage-routes.md
+          items:
+            - name: Wersja interfejsu wiersza polecenia i interfejsów API
+              href: how-to-manage-routes-apis-cli.md
+            - name: Wersja dla portalu
+              href: how-to-manage-routes-portal.md
         - name: Integracja z usługą Azure Maps
           href: how-to-integrate-maps.md
         - name: Integracja z usługą Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
     - name: Rozwiązywanie problemów
       items:
+        - name: Wyświetlanie metryk w usłudze Azure Monitor
+          href: troubleshoot-metrics.md
         - name: Włączanie dzienników diagnostycznych
           href: troubleshoot-diagnostics.md
         - name: Znane problemy

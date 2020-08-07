@@ -59,6 +59,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Firewall
+      href: ../../firewall/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
       href: ../../azure-functions/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Policy
@@ -83,6 +85,8 @@
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Data Lake Analytics
       href: ../../data-lake-analytics/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi DDoS Protection
+      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi ExpressRoute
@@ -95,6 +99,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Punkt odniesienia usługi Security Center
+      href: ../../security-center/security-baseline.md
     - name: Punkt odniesienia usługi Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics

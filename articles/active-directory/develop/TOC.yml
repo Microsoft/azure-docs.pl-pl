@@ -13,10 +13,10 @@
       items:
         - name: Rejestracja aplikacji
           href: quickstart-register-app.md
-        - name: Konfigurowanie aplikacji pod kątem uzyskiwania dostępu do internetowych interfejsów API
-          href: quickstart-configure-app-access-web-apis.md
-        - name: Konfigurowanie aplikacji pod kątem uwidaczniania internetowych interfejsów API
+        - name: Konfigurowanie aplikacji pod kątem uwidaczniania internetowego interfejsu API
           href: quickstart-configure-app-expose-web-apis.md
+        - name: Konfigurowanie aplikacji pod kątem uzyskiwania dostępu do internetowego interfejsu API
+          href: quickstart-configure-app-access-web-apis.md
         - name: Modyfikowanie kont obsługiwanych przez aplikację
           href: quickstart-modify-supported-accounts.md
         - name: Usuwanie aplikacji

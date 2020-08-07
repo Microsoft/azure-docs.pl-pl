@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii CAF Foundation
 description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) dla usługi Azure Foundation z przykładem.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852348"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Omówienie przykładowej strategii Microsoft Cloud Adoption Framework for Azure Foundation
 
@@ -35,7 +35,7 @@ Ta implementacja obejmuje kilka usług platformy Azure służących do udostępn
   - Wymagania szyfrowania bezpiecznego transferu konta magazynu platformy Azure
   - Odrzucania typów zasobów (wybierz podczas wdrażania)  
 - Inicjatyw
-  - Włączania monitorowania w usłudze Azure Security Center (89 zasad)
+  - Włączanie monitorowania w usłudze Azure Security Center (ponad 100 definicji zasad)
 
 Wszystkie te elementy są zgodne ze sprawdzonymi rozwiązaniami opublikowanymi na stronie [Centrum architektury platformy Azure — architektury referencyjne](/azure/architecture/reference-architectures/).
 

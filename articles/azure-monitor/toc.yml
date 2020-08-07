@@ -171,10 +171,14 @@
         - name: Monitorowanie maszyn wirtualnych platformy Azure
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Wdrażanie
+      items:
+        - name: Wdrażanie usługi Azure Monitor
+          href: deploy.md
+        - name: Wdrażanie w dużej skali
+          href: deploy-scale.md
     - name: Zarządzanie i konfigurowanie
       items:
-        - name: Wdrażanie w dużej skali
-          href: platform/deploy-scale.md
         - name: Uprawnienia ról i bezpieczeństwo
           href: platform/roles-permissions-security.md
         - name: Adresy IP

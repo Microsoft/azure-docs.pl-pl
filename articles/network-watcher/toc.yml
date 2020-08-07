@@ -7,6 +7,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
+    - name: Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu usługi ARM
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: Diagnozowanie problemu z filtrowaniem ruchu na maszynie wirtualnej — portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnozowanie problemu z filtrowaniem ruchu na maszynie wirtualnej — PowerShell
@@ -73,7 +75,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnozowanie problemów z połączeniami wychodzącymi
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

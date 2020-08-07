@@ -312,9 +312,15 @@
         - name: Lista funkcji w wersji zapoznawczej
           href: search-api-preview.md
         - name: Programowanie na platformie .NET
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Korzystanie z pakietu Microsoft.Azure.Search (w wersji 10)
+              href: search-howto-dotnet-sdk.md
+            - name: Wprowadzenie (wersja 10)
+              href: search-get-started-dotnet-v10.md
         - name: Uaktualnianie zestawu SDK
           items:
+            - name: .NET SDK 11.0
+              href: search-dotnet-sdk-migration-version-11.md
             - name: .NET SDK 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -349,7 +355,7 @@
           items:
             - name: Filtry zabezpieczeń
               href: search-security-trimming-for-azure-search.md
-            - name: Filtrowanie według tożsamości usługi AAD
+            - name: Filtrowanie tożsamości użytkowników
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: Zarządzanie
       items:

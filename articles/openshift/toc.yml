@@ -28,6 +28,12 @@
           href: configure-azure-ad-cli.md
         - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (portal)
           href: configure-azure-ad-ui.md
+    - name: Tworzenie kopii zapasowej i przywracanie aplikacji za pomocą narzędzia Velero
+      items:
+        - name: Tworzenie kopii zapasowej aplikacji klastra za pomocą narzędzia Velero
+          href: howto-create-a-backup.md
+        - name: Tworzenie przywracania aplikacji klastra za pomocą narzędzia Velero
+          href: howto-create-a-restore.md
     - name: Monitorowanie i rejestrowanie dla usługi Azure Red Hat OpenShift 4
       items:
         - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 4 (wersja zapoznawcza)
