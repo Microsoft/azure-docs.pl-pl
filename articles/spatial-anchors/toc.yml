@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Odnajdywanie kotwic w pobliżu za pomocą zgrubnej ponownej lokalizacji
       items:
-        - name: 'W środowisku C#/Unity'
+        - name: W środowisku C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: W języku Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md
@@ -72,6 +72,12 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: W języku C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Konfiguracja projektu
+      items:
+        - name: C++/WinRT
+          href: how-tos/setup-cpp-winrt-project.md
+        - name: Unity
+          href: how-tos/setup-unity-project.md
 - name: Samples
   items:
     - name: Przykłady dla usługi Azure Spatial Anchors (GitHub)

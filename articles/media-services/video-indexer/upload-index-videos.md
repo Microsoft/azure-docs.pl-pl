@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052493"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904262"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -58,6 +58,13 @@ W tym artykule przedstawiono sposób przekazywania i indeksowania wideo przy uż
 
 Listę formatów plików, których można używać z Video Indexer, zawiera artykuł [dane wejściowe dotyczące formatów kontenerów i plików](../latest/media-encoder-standard-formats.md#input-containerfile-formats) .
 
+## <a name="video-files-storage"></a>Magazyn plików wideo
+
+- Korzystając z płatnego konta Video Indexer, utworzysz konto Video Indexer, które jest połączone z subskrypcją platformy Azure i kontem Azure Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Video Indexer połączonego z platformą Azure](connect-to-azure.md).
+- Pliki wideo są przechowywane w usłudze Azure Storage przez Azure Media Services. Nie ma ograniczeń czasowych.
+- Można zawsze usunąć pliki wideo i audio, a także wszelkie metadane i szczegółowe informacje wyodrębnione z nich przez Video Indexer. Po usunięciu pliku z Video Indexer plik oraz jego metadane i szczegółowe dane zostaną trwale usunięte z Video Indexer. Jeśli jednak wdrożono własne rozwiązanie do tworzenia kopii zapasowych w usłudze Azure Storage, plik pozostanie w usłudze Azure Storage.
+- Utrwalenie filmu wideo jest taka sama, niezależnie od tego, czy przekazywanie zostanie wykonane w witrynie sieci Web Video Indexer, czy za pomocą interfejsu API przekazywania.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Przekazywanie i indeksowanie wideo przy użyciu witryny sieci Web Video Indexer
 
 > [!NOTE]
@@ -141,6 +148,9 @@ Parametr **priority** jest obsługiwany tylko w przypadku płatnych kont.
 Po przekazaniu pliku wideo usługa Video Indexer opcjonalnie koduje ten plik. Następnie przechodzi do indeksowania i analizowania pliku wideo. Po zakończeniu analizowania przez usługę Video Indexer otrzymasz powiadomienie z identyfikatorem pliku wideo.  
 
 W przypadku korzystania z interfejsu API [przekazywania pliku wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub [ponownego indeksowania pliku wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) jednym z parametrów opcjonalnych jest `streamingPreset`. W razie ustawienia dla parametru `streamingPreset` wartości `Default`, `SingleBitrate` lub `AdaptiveBitrate` wywoływany jest proces kodowania. Po zakończeniu zadań indeksowania i kodowania plik wideo jest publikowany, aby można go było również przesyłać strumieniowo. Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać plik wideo, musi mieć stan **Uruchomiony**.
+
+W przypadku SingleBitrate koszt usługi Encoder w warstwie Standardowa będzie stosowany na dane wyjściowe. Jeśli wysokość filmu wideo jest większa lub równa 720, Video Indexer koduje ją jako 1280x720. W przeciwnym razie 640x468.
+Ustawieniem domyślnym jest [kodowanie z uwzględnieniem zawartości](../latest/content-aware-encoding.md).
 
 Aby można było uruchomić zadania indeksowania i kodowania, dla [konta usługi Azure Media Services połączonego z kontem usługi Video Indexer](connect-to-azure.md) wymagane są jednostki zarezerwowane. Aby uzyskać więcej informacji, zobacz [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Skalowanie przetwarzania multimediów). Ponieważ te zadania wymagają intensywnego przetwarzania, zdecydowanie zaleca się typ jednostki S3. Liczba jednostek zarezerwowanych określa maksymalną liczbę zadań, które mogą działać równolegle. Zalecenie dotyczące planu bazowego to 10 jednostek zarezerwowanych S3. 
 

@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e04b2c63f782a4fcbb64273c08511ecb0bbc2bc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977779"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809633"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą usługi Azure ARC dla serwerów (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ Funkcjonalność rozszerzenia maszyny wirtualnej jest dostępna tylko na liście
 
 W tej wersji zapoznawczej obsługiwane są następujące rozszerzenia maszyn wirtualnych na komputerach z systemem Windows i Linux.
 
-|Wewnętrzny |System operacyjny |Publisher |Dodatkowe informacje |
+|Rozszerzenie |System operacyjny |Publisher |Dodatkowe informacje |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Rozszerzenie niestandardowego skryptu systemu Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Rozszerzenie DSC środowiska Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
@@ -727,6 +727,6 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)i wiele więcej.
+- Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
 
 - Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).

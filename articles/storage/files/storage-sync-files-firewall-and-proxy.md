@@ -1,18 +1,18 @@
 ---
 title: Azure File Sync lokalne ustawienia zapory i serwera proxy | Microsoft Docs
-description: Azure File Sync konfigurację sieci lokalnej
+description: Informacje na temat Azure File Sync lokalnych ustawień serwera proxy i zapory. Przejrzyj szczegóły konfiguracji portów, sieci i połączeń specjalnych z platformą Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515289"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903718"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -111,31 +111,31 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 
 | Chmura  | Region | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
-| Public |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
-| Public | Brazylia Południowa | https: \/ /brazilsouth01.AFS.Azure.NET | Południowo-środkowe stany USA | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
-| Public | Kanada Środkowa | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.one.Microsoft.com |
-| Public | Kanada Wschodnia | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.one.Microsoft.com |
-| Public | Indie Środkowe | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-CIN.one.Microsoft.com | Indie Południowe | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CIN.one.Microsoft.com |
-| Public | Środkowe stany USA | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.one.Microsoft.com |
-| Public | Azja Wschodnia | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.one.Microsoft.com | Azja Południowo-Wschodnia | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.one.Microsoft.com |
-| Public | Wschodnie stany USA | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.one.Microsoft.com | Zachodnie stany USA | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.one.Microsoft.com |
-| Public | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Środkowe stany USA | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
-| Public | Japonia Wschodnia | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
-| Public | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japonia Wschodnia | https: \/ /TM-japanwest01.AFS.Azure.NET |
-| Public | Korea Środkowa | https: \/ /koreacentral01.AFS.Azure.NET/ | Korea Południowa | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
-| Public | Korea Południowa | https: \/ /koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
-| Public | Północno-środkowe stany USA | https: \/ /northcentralus01.AFS.Azure.NET | Południowo-środkowe stany USA | https: \/ /TM-northcentralus01.AFS.Azure.NET |
-| Public | Europa Północna | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.one.Microsoft.com | Europa Zachodnia | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.one.Microsoft.com |
-| Public | Południowo-środkowe stany USA | https: \/ /southcentralus01.AFS.Azure.NET | Północno-środkowe stany USA | https: \/ /TM-southcentralus01.AFS.Azure.NET |
-| Public | Indie Południowe | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-Sin.one.Microsoft.com | Indie Środkowe | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Sin.one.Microsoft.com |
-| Public | Azja Południowo-Wschodnia | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.one.Microsoft.com | Azja Wschodnia | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.one.Microsoft.com |
-| Public | Południowe Zjednoczone Królestwo | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.one.Microsoft.com | Zachodnie Zjednoczone Królestwo | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.one.Microsoft.com |
-| Public | Zachodnie Zjednoczone Królestwo | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.one.Microsoft.com | Południowe Zjednoczone Królestwo | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.one.Microsoft.com |
-| Public | Zachodnio-środkowe stany USA | https: \/ /westcentralus01.AFS.Azure.NET | Zachodnie stany USA 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
-| Public | Europa Zachodnia | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.one.Microsoft.com | Europa Północna | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.one.Microsoft.com |
-| Public | Zachodnie stany USA | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.one.Microsoft.com | Wschodnie stany USA | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.one.Microsoft.com |
-| Public | Zachodnie stany USA 2 | https: \/ /westus201.AFS.Azure.NET | Zachodnio-środkowe stany USA | https: \/ /TM-westus201.AFS.Azure.NET |
+| Publiczny |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
+| Publiczny |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
+| Publiczny | Brazil South | https: \/ /brazilsouth01.AFS.Azure.NET | South Central US | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
+| Publiczny | Kanada Środkowa | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.one.Microsoft.com |
+| Publiczny | Kanada Wschodnia | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.one.Microsoft.com |
+| Publiczny | Indie Środkowe | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-CIN.one.Microsoft.com | Indie Południowe | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CIN.one.Microsoft.com |
+| Publiczny | Central US | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.one.Microsoft.com |
+| Publiczny | Azja Wschodnia | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.one.Microsoft.com | Southeast Asia | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.one.Microsoft.com |
+| Publiczny | East US | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.one.Microsoft.com | Zachodnie stany USA | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.one.Microsoft.com |
+| Publiczny | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Central US | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
+| Publiczny | Japan East | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Publiczny | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japan East | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Publiczny | Korea Środkowa | https: \/ /koreacentral01.AFS.Azure.NET/ | Korea Południowa | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
+| Publiczny | Korea Południowa | https: \/ /koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
+| Publiczny | Północno-środkowe stany USA | https: \/ /northcentralus01.AFS.Azure.NET | South Central US | https: \/ /TM-northcentralus01.AFS.Azure.NET |
+| Publiczny | Europa Północna | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.one.Microsoft.com | West Europe | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.one.Microsoft.com |
+| Publiczny | South Central US | https: \/ /southcentralus01.AFS.Azure.NET | Północno-środkowe stany USA | https: \/ /TM-southcentralus01.AFS.Azure.NET |
+| Publiczny | Indie Południowe | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-Sin.one.Microsoft.com | Indie Środkowe | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Sin.one.Microsoft.com |
+| Publiczny | Southeast Asia | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.one.Microsoft.com | Azja Wschodnia | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.one.Microsoft.com |
+| Publiczny | Południowe Zjednoczone Królestwo | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.one.Microsoft.com | Zachodnie Zjednoczone Królestwo | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.one.Microsoft.com |
+| Publiczny | Zachodnie Zjednoczone Królestwo | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.one.Microsoft.com | Południowe Zjednoczone Królestwo | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.one.Microsoft.com |
+| Publiczny | Zachodnio-środkowe stany USA | https: \/ /westcentralus01.AFS.Azure.NET | Zachodnie stany USA 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
+| Publiczny | West Europe | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.one.Microsoft.com | Europa Północna | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.one.Microsoft.com |
+| Publiczny | Zachodnie stany USA | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.one.Microsoft.com | East US | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.one.Microsoft.com |
+| Publiczny | Zachodnie stany USA 2 | https: \/ /westus201.AFS.Azure.NET | Zachodnio-środkowe stany USA | https: \/ /TM-westus201.AFS.Azure.NET |
 | Instytucje rządowe | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.us | US Gov Teksas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
 | Instytucje rządowe | US Gov Teksas | https: \/ /usgovtexas01.AFS.Azure.us | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
 
@@ -281,5 +281,5 @@ Skonfigurowanie ograniczania dostępu do domeny reguły zapory może być miarą
 
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

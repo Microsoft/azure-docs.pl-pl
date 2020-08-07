@@ -3,14 +3,14 @@ title: 'Szybki start: tworzenie bazy wiedzy — REST, Python — QnA Maker'
 description: Ten oparty na protokole REST przewodnik Szybki start dla języka Python zawiera omówienie programowego tworzenia przykładowej bazy wiedzy usługi QnA Maker, która będzie wyświetlana na pulpicie nawigacyjnym platformy Azure w ramach konta interfejsu API usługi Cognitive Services.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: 5facd58553a1a66d2c7986a0b7629f8a36b5c972
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: eea54d493a27373a682b361ab7138ae1fa527362
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608523"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873062"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Szybki start: tworzenie bazy wiedzy w usłudze QnA Maker przy użyciu języka Python
 
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Środowisko Python w wersji 3.7](https://www.python.org/downloads/)
+* [Python 3.7](https://www.python.org/downloads/)
 * Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
 
 ## <a name="create-a-knowledge-base-python-file"></a>Tworzenie pliku Python bazy wiedzy

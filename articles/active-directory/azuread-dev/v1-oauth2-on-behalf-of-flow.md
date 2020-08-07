@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/5/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551672"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845463"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Wywołania między usługami, które korzystają z delegowanej tożsamości użytkownika w ramach przepływu w imieniu
 
@@ -59,10 +59,10 @@ Zarejestruj zarówno usługę warstwy środkowej, jak i aplikację kliencką w u
 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 1. Ustaw identyfikator URI przekierowania na podstawowy adres URL.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
-1. Przed zamknięciem Azure Portal Wygeneruj klucz tajny klienta.
 1. W Azure Portal wybierz aplikację, a następnie wybierz pozycję **certyfikaty & wpisy tajne**.
 1. Wybierz pozycję **nowy klucz tajny klienta** i Dodaj klucz tajny o czasie trwania jednego roku lub dwóch lat.
 1. Po zapisaniu tej strony Azure Portal zostanie wyświetlona wartość klucza tajnego. Skopiuj i Zapisz wartość klucza tajnego w bezpiecznej lokalizacji.
+1. Utwórz zakres aplikacji na stronie **Uwidacznianie interfejsu API** dla aplikacji, a następnie kliknij pozycję "Dodaj zakres".  Portal może wymagać również utworzenia identyfikatora URI aplikacji. 
 
 > [!IMPORTANT]
 > Klucz tajny jest wymagany do skonfigurowania ustawień aplikacji w implementacji. Ta wartość klucza tajnego nie jest ponownie wyświetlana i nie można jej pobrać w żaden inny sposób. Zapisz go, gdy tylko będzie widoczny w Azure Portal.
@@ -79,7 +79,7 @@ Zarejestruj zarówno usługę warstwy środkowej, jak i aplikację kliencką w u
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Skonfiguruj uprawnienia dla aplikacji. W obszarze **uprawnienia interfejsu API**wybierz pozycję **Dodaj uprawnienie** , a następnie **Moje interfejsy API**.
 1. W polu tekstowym wpisz nazwę usługi warstwy środkowej.
-1. Wybierz **pozycję Wybierz uprawnienia** , a następnie wybierz pozycję **dostęp \<service name> **.
+1. Wybierz **pozycję Wybierz uprawnienia** , a następnie wybierz zakres utworzony w ostatnim kroku rejestracji warstwy środkowej.
 
 ### <a name="configure-known-client-applications"></a>Skonfiguruj znane aplikacje klienckie
 

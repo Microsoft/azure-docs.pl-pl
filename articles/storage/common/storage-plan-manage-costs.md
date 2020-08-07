@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543099"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760740"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Blob Storage
 
 Ten artykuł ułatwia planowanie i zarządzanie kosztami usługi Azure Blob Storage. Najpierw Oszacuj koszty przy użyciu kalkulatora cen platformy Azure. Po utworzeniu konta magazynu Zoptymalizuj konto, aby płacisz tylko za to, czego potrzebujesz. Funkcje zarządzania kosztami umożliwiają ustawianie budżetów i monitorowanie kosztów. Możesz również sprawdzić przewidywane koszty i monitorować trendy wydatków, aby identyfikować obszary, w których może być konieczne działanie.
 
-Należy pamiętać, że koszty usługi Azure Storage to tylko część miesięcznych kosztów rachunku na korzystanie z platformy Azure. Chociaż w tym artykule wyjaśniono, jak oszacować i zarządzać kosztami usługi Azure Storage, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. Po zapoznaniu się z zarządzaniem kosztami usługi Azure Storage możesz zastosować podobne metody, aby zarządzać kosztami wszystkich usług platformy Azure używanych w ramach subskrypcji.
+Należy pamiętać, że koszty usługi BLOB Storage są jedynie częścią miesięcznych kosztów rachunku na korzystanie z platformy Azure. Chociaż w tym artykule wyjaśniono, jak oszacować koszty magazynu obiektów blob i zarządzać nimi, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. Po zapoznaniu się z zarządzaniem kosztami usługi BLOB Storage możesz zastosować podobne metody, aby zarządzać kosztami wszystkich usług platformy Azure używanych w ramach subskrypcji.
 
 ## <a name="estimate-costs"></a>Szacowanie kosztów
 
