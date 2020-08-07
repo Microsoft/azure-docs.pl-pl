@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553176"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832998"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -83,7 +83,7 @@ Na poniższym diagramie przedstawiono kompleksowy przepływ pracy służący do 
 
 ![Diagram przepływu pracy usługi AD](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Tożsamości używane do uzyskiwania dostępu do udziałów plików platformy Azure muszą zostać zsynchronizowane z usługą Azure AD w celu wymuszenia uprawnień do pliku na poziomie udziału za pośrednictwem modelu [kontroli dostępu opartego na rolach (RBAC)](../../role-based-access-control/overview.md) . [Listy DACL w stylu systemu Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) dotyczące plików/katalogów przeprowadzonych z istniejących serwerów plików zostaną zachowane i wymuszone. Zapewnia to bezproblemową integrację ze środowiskiem AD DS przedsiębiorstwa. Gdy zastąpisz Premium serwery plików z udziałami plików platformy Azure, istniejący użytkownicy mogą uzyskiwać dostęp do udziałów plików platformy Azure od ich bieżących klientów przy użyciu funkcji logowania jednokrotnego, bez wprowadzania żadnych zmian w poświadczeniach w użyciu.  
+Tożsamości używane do uzyskiwania dostępu do udziałów plików platformy Azure muszą zostać zsynchronizowane z usługą Azure AD, aby wymusić uprawnienia do pliku na poziomie udziału za pośrednictwem modelu [kontroli dostępu opartego na rolach (Azure RBAC)](../../role-based-access-control/overview.md) . [Listy DACL w stylu systemu Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) dotyczące plików/katalogów przeprowadzonych z istniejących serwerów plików zostaną zachowane i wymuszone. Zapewnia to bezproblemową integrację ze środowiskiem AD DS przedsiębiorstwa. Gdy zastąpisz Premium serwery plików z udziałami plików platformy Azure, istniejący użytkownicy mogą uzyskiwać dostęp do udziałów plików platformy Azure od ich bieżących klientów przy użyciu funkcji logowania jednokrotnego, bez wprowadzania żadnych zmian w poświadczeniach w użyciu.  
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849023"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Tworzenie klasycznego alertu metryki za pomocą szablonu usługi Resource Manager
+
 > [!WARNING]
-> 
-> W tym artykule opisano tworzenie **klasycznych alertów metryk** przy użyciu szablonów Menedżer zasobów. Alerty klasyczne zostały wycofane w sierpniu 2019 i ustawione jako całkowicie przestarzałe w czerwcu 2020. Nie możesz tworzyć nowych alertów klasycznych na platformie Azure. Niektóre regionalne wersje platformy Azure mogą nadal korzystać z tej opcji, ale sugerujemy utworzenie [nowszych alertów metryk](./alerts-metric-near-real-time.md) przy użyciu szablonów, jeśli jest to możliwe. [Ten artykuł](alerts-metric-create-templates.md) zawiera szczegółowe informacje.
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów.
 >
 
 W tym artykule pokazano, jak można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) w celu skonfigurowania alertów dotyczących klasycznych metryk platformy Azure. Pozwala to na automatyczne Konfigurowanie alertów dotyczących zasobów podczas ich tworzenia w celu zapewnienia poprawnego monitorowania wszystkich zasobów.

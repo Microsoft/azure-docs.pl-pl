@@ -1,6 +1,6 @@
 ---
 title: Zasady zaawansowane platformy Azure API Management | Microsoft Docs
-description: Dowiedz się więcej na temat zaawansowanych zasad dostępnych do użycia w usłudze Azure API Management.
+description: Dowiedz się więcej na temat zaawansowanych zasad dostępnych do użycia w usłudze Azure API Management. Zobacz przykłady i wyświetlanie dodatkowych dostępnych zasobów.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243736"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851685"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
@@ -250,7 +250,7 @@ Te zasady poziomu operacji nie przesyłają dalej żądań do usługi wewnętrzn
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślne |
+| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślny |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Timeout = "Integer"                             | Czas (w sekundach) oczekiwania na zwrócenie nagłówków odpowiedzi HTTP przez usługę zaplecza przed podjęciem błędu limitu czasu. Wartość minimalna to 0 s. Wartości większe niż 240 sekund mogą nie być honorowane, ponieważ źródłowa infrastruktura sieciowa może porzucić bezczynne połączenia po tym czasie. | Nie       | Brak    |
 | Postępuj zgodnie z przekierowaniami = "false &#124; true"          | Określa, czy przekierowania z usługi wewnętrznej bazy danych następuje przez bramę, czy zwracane do obiektu wywołującego.                                                                                                                                                                                                    | Nie       | fałsz   |
@@ -302,10 +302,10 @@ W poniższym przykładzie pokazano, jak ograniczyć liczbę żądań przesyłany
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                        | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                        | Wymagane | Domyślny |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Nie dotyczy     |
-| Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Nie dotyczy     |
+| key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Brak     |
+| Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Brak     |
 
 ### <a name="usage"></a>Użycie
 
@@ -400,7 +400,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut    | Opis                                                                                           | Wymagane | Domyślne |
+| Atrybut    | Opis                                                                                           | Wymagane | Domyślny |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | stan — kod  | Określa kod stanu odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu.                 | Nie       | 200     |
 | Typ zawartości | Określa `Content-Type` wartość nagłówka odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu. | Nie       | Brak    |
@@ -459,13 +459,13 @@ W poniższym przykładzie przekazanie żądania jest ponawiane do dziesięciu ra
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślne |
+| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślny |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Nie dotyczy     |
-| count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Nie dotyczy     |
-| interval         | Dodatnia liczba sekund określająca interwał oczekiwania między ponownymi próbami.                                                                 | Tak      | Nie dotyczy     |
-| Max — interwał     | Dodatnia liczba sekund określająca maksymalny interwał oczekiwania między ponownymi próbami. Służy do implementowania algorytmu ponowień wykładniczych. | Nie       | Nie dotyczy     |
-| powstanie            | Dodatnia liczba sekund określająca przyrost interwału oczekiwania. Służy do implementowania algorytmów ponawiania liniowego i wykładniczego.             | Nie       | Nie dotyczy     |
+| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Brak     |
+| count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Brak     |
+| interval         | Dodatnia liczba sekund określająca interwał oczekiwania między ponownymi próbami.                                                                 | Tak      | Brak     |
+| Max — interwał     | Dodatnia liczba sekund określająca maksymalny interwał oczekiwania między ponownymi próbami. Służy do implementowania algorytmu ponowień wykładniczych. | Nie       | Brak     |
+| powstanie            | Dodatnia liczba sekund określająca przyrost interwału oczekiwania. Służy do implementowania algorytmów ponawiania liniowego i wykładniczego.             | Nie       | Brak     |
 | pierwszy — szybko ponów próbę | Jeśli jest ustawiona na `true` , pierwsza próba ponowienia zostanie wykonana natychmiast.                                                                                  | Nie       | `false` |
 
 > [!NOTE]
@@ -591,10 +591,10 @@ Te przykładowe zasady przedstawiają przykład użycia `send-one-way-request` z
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
+| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String" | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
-| name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
+| name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Brak      |
 | Istnieje — akcja | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
 ### <a name="usage"></a>Użycie
@@ -675,13 +675,13 @@ Ten przykład pokazuje jeden ze sposobów na zweryfikowanie tokenu odwołania z 
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
+| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String"                   | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
-| odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Nie dotyczy      |
+| odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Brak      |
 | Timeout = "Integer"               | Interwał limitu czasu (w sekundach), po którym wywołanie adresu URL nie powiedzie się.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nie       | 60       |
 | Ignoruj-błąd                    | Jeśli wartość jest równa true, a żądanie powoduje błąd:<br /><br /> -Jeśli określono odpowiedź-Variable-Name, będzie zawierać wartość null.<br />-Jeśli odpowiedź-Zmienna-name nie została określona, Context. Żądanie nie zostanie zaktualizowane.                                                                                                                                                                                                                                                                                                                                                                                   | Nie       | fałsz    |
-| name                            | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
+| name                            | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Brak      |
 | Istnieje — akcja                   | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
 ### <a name="usage"></a>Użycie
@@ -720,11 +720,11 @@ Zwróć uwagę na użycie [Właściwości](api-management-howto-properties.md) j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut         | Opis                                            | Wymagane | Domyślne |
+| Atrybut         | Opis                                            | Wymagane | Domyślny |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Nie dotyczy     |
-| username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
-| Password = "String" | Hasło, które ma być używane na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
+| URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Brak     |
+| username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Brak     |
+| Password = "String" | Hasło, które ma być używane na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Brak     |
 
 ### <a name="usage"></a>Użycie
 
@@ -826,10 +826,10 @@ Ten przykład pokazuje, jak zwrócić odpowiedź 401, jeśli token autoryzacji j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut       | Opis                                                | Wymagane | Domyślne |
+| Atrybut       | Opis                                                | Wymagane | Domyślny |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Nie dotyczy     |
-| Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Nie dotyczy     |
+| Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Brak     |
+| Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Brak     |
 
 ### <a name="usage"></a>Użycie
 
@@ -867,7 +867,7 @@ Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące.
 | Atrybut | Opis                                                              | Wymagane |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nazwa zmiennej.                                                | Tak      |
-| wartość     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
+| value     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
 
 ### <a name="usage"></a>Użycie
 
@@ -950,12 +950,12 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                               | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                                               | Wymagane | Domyślny |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
+| source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Brak     |
 | ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
-| name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
-| wartość     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
+| name      | Nazwa właściwości.                                                                                                     | Tak      | Brak     |
+| value     | Wartość właściwości.                                                                                                    | Tak      | Brak     |
 
 ### <a name="usage"></a>Użycie
 
@@ -1023,7 +1023,7 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
+| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślny |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all`-Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 

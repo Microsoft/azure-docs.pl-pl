@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830686"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Troubleshooting autoscale with Virtual Machine Scale Sets (Rozwiązywanie problemów ze skalowaniem automatycznym przy użyciu zestawów skalowania maszyn wirtualnych)
 **Problem** — utworzono infrastrukturę skalowania automatycznego w Azure Resource Manager przy użyciu zestawów skalowania maszyn wirtualnych — na przykład przez wdrożenie szablonu takiego jak ten: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale — masz zdefiniowane reguły skalowania i działają doskonale, bez względu na to, ile obciążeń zostało umieszczonych na maszynach wirtualnych, nie jest to automatyczne skalowanie.
@@ -23,7 +23,7 @@ ms.locfileid: "87029437"
 Oto kilka rzeczy, które należy wziąć pod uwagę:
 
 * Ile procesorów wirtualnych vCPU każdej maszyny wirtualnej, i czy ładujesz każdy vCPU?
-  Poprzedni przykładowy szablon szybkiego startu platformy Azure zawiera skrypt do_work. php, który ładuje pojedyncze vCPU. Jeśli używasz maszyny wirtualnej o rozmiarze większym niż vCPU maszyn wirtualnych, takiej jak Standard_A1 lub D1, musisz uruchomić to obciążenie wiele razy. Sprawdź, ile procesorów wirtualnych vCPU dla maszyn wirtualnych, przeglądając [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  Poprzedni przykładowy szablon szybkiego startu platformy Azure zawiera skrypt do_work. php, który ładuje pojedyncze vCPU. Jeśli używasz maszyny wirtualnej o rozmiarze większym niż vCPU maszyn wirtualnych, takiej jak Standard_A1 lub D1, musisz uruchomić to obciążenie wiele razy. Sprawdź, ile procesorów wirtualnych vCPU dla maszyn wirtualnych, przeglądając [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Ile maszyn wirtualnych w zestawie skalowania maszyn wirtualnych jest wykonywanych na każdym z nich?
   
     Zdarzenie skalowania w poziomie odbywa się tylko wtedy, gdy średni czas CPU we **wszystkich** maszynach wirtualnych w zestawie skalowania przekracza wartość progową, w odniesieniu do czasu wewnętrznego zdefiniowanego w regułach skalowania automatycznego.

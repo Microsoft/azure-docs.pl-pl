@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7d34b54349a681061f80798a19ce65d2266f589d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 441575a33e7c3d54de7b25c06f7a839805f8ac1b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559468"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875289"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -23,7 +23,7 @@ W tym artykule można dowiedzieć się, jak potoki Azure Machine Learning ułatw
 + Zapewni
 + Szybkość
 + Powtarzalność
-+ Elastyczność
++ Wiele możliwości wyboru
 + Przechowywanie wersji i śledzenie
 + Modułowość 
 + Kontrola jakości
@@ -42,7 +42,7 @@ Chmura systemu Azure udostępnia kilka innych potoków, z których każdy ma inn
 
 | Scenariusz | Podstawowa osoba | Oferta platformy Azure | Oferta OSS | Rura kanoniczna | Zalety | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
-| Aranżacja modelu (Uczenie maszynowe) | Analityk danych | Potoki Azure Machine Learning | Potoki Kubeflow | Model > danych | Dystrybucja, buforowanie, kod — pierwsze, ponowne użycie | 
+| Aranżacja modelu (Uczenie maszynowe) | Mistrz danych | Potoki Azure Machine Learning | Potoki Kubeflow | Model > danych | Dystrybucja, buforowanie, kod — pierwsze, ponowne użycie | 
 | Aranżacja danych (przygotowanie danych) | Inżynier danych | [Potoki usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Przepływ dla oprogramowania Apache | Dane > danych | Przemieszczenie silnie wpisane. Działania zorientowane na dane. |
 | Aranżacja aplikacji kodu & (CI/CD) | Deweloper aplikacji/Ops | [Potoki usługi Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model — > App/Service | Większość otwartych i elastycznych obsługi działań, kolejek zatwierdzania, faz z kontroli | 
 

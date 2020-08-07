@@ -1,0 +1,58 @@
+---
+title: Konfigurowanie alertów
+titleSuffix: Azure Digital Twins
+description: Zobacz, jak włączyć alerty dotyczące metryk usługi Azure Digital bliźniaczych reprezentacji.
+author: baanders
+ms.author: baanders
+ms.date: 7/28/2020
+ms.topic: troubleshooting
+ms.service: digital-twins
+ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87909867"
+---
+# <a name="troubleshooting-azure-digital-twins-alerts"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: alerty
+
+Usługa Azure Digital bliźniaczych reprezentacji zbiera [metryki](troubleshoot-metrics.md) dla wystąpienia usługi, które zawierają informacje o stanie zasobów. Za pomocą tych metryk można ocenić ogólną kondycję usługi Azure Digital bliźniaczych reprezentacji i połączone z nią zasoby.
+
+**Alerty** z wyprzedzeniem powiadamiają użytkownika o znalezieniu w danych metryk ważnych warunków. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Więcej informacji na temat alertów można znaleźć w temacie [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+
+## <a name="turn-on-alerts"></a>Włącz alerty
+
+Poniżej przedstawiono sposób włączania alertów dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Można go znaleźć, wpisując jego nazwę na pasku wyszukiwania portalu. 
+
+2. Z menu wybierz opcję **alerty** , a następnie pozycję **+ Nowa reguła alertu**.
+
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania. Nie skonfigurowano jeszcze żadnych alertów" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
+
+3. Na stronie *Tworzenie reguły alertu* , która znajduje się poniżej, można postępować zgodnie z monitami, aby zdefiniować warunki, akcje, które mają być wyzwalane, oraz szczegóły alertu.     
+    * Szczegóły **zakresu** powinny być wypełniane automatycznie przy użyciu szczegółów dla danego wystąpienia.
+    * Zdefiniuj **warunek** i szczegóły **grupy akcji** , aby dostosować wyzwalacze i odpowiedzi alertów.
+
+    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku i grupy akcji" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Poniżej przedstawiono kilka przykładów, które będą wyglądały tak, jak w przypadku usługi Azure Digital bliźniaczych reprezentacji.
+
+Poniżej znajduje się fragment z procesu *SELECT Condition* pokazujący typy sygnałów alertów, które są dostępne dla usługi Azure Digital bliźniaczych reprezentacji. Na tej stronie można filtrować typ sygnału i wybrać żądany sygnał z listy.
+
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Zrzut ekranu przedstawiający stronę Pierwsza konfiguracja logiki sygnału. Wyróżnienie pola Typ sygnału umożliwia wybranie metryk lub dzienników aktywności oraz listę metryk poniżej, które mogą być wybrane.":::
+
+Po wybraniu sygnału zostanie wyświetlony monit o skonfigurowanie logiki alertu. Można filtrować według wymiaru, ustawiać wartość progową dla alertu i ustawić częstotliwość sprawdzania dla warunku. Poniżej znajduje się przykład konfigurowania alertu w przypadku, gdy Metryka dotycząca średniego współczynnika błędów routingu spadnie powyżej 5%.
+
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak "średnia jest większa niż 5"":::
+ 
+Po skonfigurowaniu alertów zostaną one wyświetlone na stronie *alerty* dla danego wystąpienia.
+ 
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania. Skonfigurowano jeden alert" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+
+
+## <a name="next-steps"></a>Następne kroki
+
+* Aby uzyskać więcej informacji na temat alertów z Azure Monitor, zobacz [*Omówienie alertów w programie Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* Aby uzyskać informacje na temat metryk bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*Rozwiązywanie problemów: wyświetlanie metryk z Azure monitor*](troubleshoot-metrics.md).
+* Aby dowiedzieć się, jak włączyć rejestrowanie diagnostyczne dla metryk, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).

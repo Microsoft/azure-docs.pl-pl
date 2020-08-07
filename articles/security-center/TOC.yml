@@ -63,6 +63,8 @@
           href: security-center-policy-definitions.md
         - name: Używanie zaleceń w celu ulepszania zabezpieczeń
           href: security-center-using-recommendations.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Ochrona przed zagrożeniami i alerty zabezpieczeń
       items:
         - name: Omówienie ochrony przed zagrożeniami w centrum zabezpieczeń

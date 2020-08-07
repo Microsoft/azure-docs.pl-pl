@@ -1,6 +1,6 @@
 ---
 title: Jak używać nazwanych wartości w zasadach usługi Azure API Management
-description: Dowiedz się, jak używać nazwanych wartości w zasadach usługi Azure API Management.
+description: Dowiedz się, jak używać nazwanych wartości w zasadach usługi Azure API Management. Nazwane wartości mogą zawierać ciągi literałów i wyrażenia zasad.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243481"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852195"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Jak używać nazwanych wartości w zasadach usługi Azure API Management
 
@@ -29,7 +29,7 @@ Każde wystąpienie usługi API Management ma kolekcję par klucz/wartość, kt�
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | ciąg          | Służy do odwoływania się do nazwanej wartości w zasadach. Ciąg od jednego do 256 znaków. Dozwolone są tylko litery, cyfry, kropki i kreski. |
 | `Value`        | ciąg          | Wartość rzeczywista. Nie może być pusty ani zawierać tylko odstępów. Maksymalnie 4096 znaków.                                        |
-| `Secret`       | wartość logiczna         | Określa, czy wartość jest kluczem tajnym i powinna być szyfrowana, czy nie.                                                               |
+| `Secret`       | boolean         | Określa, czy wartość jest kluczem tajnym i powinna być szyfrowana, czy nie.                                                               |
 | `Tags`         | tablica ciągów | Służy do filtrowania listy nazwanych wartości. Do 32 tagów.                                                                                    |
 
 ![Nazwane wartości](./media/api-management-howto-properties/named-values.png)

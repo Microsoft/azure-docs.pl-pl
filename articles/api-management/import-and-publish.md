@@ -1,6 +1,6 @@
 ---
 title: Importowanie i publikowanie pierwszego interfejsu API na platformie Azure API Management
-description: Dowiedz się, jak zaimportować interfejs API specyfikacji OpenAPI do platformy Azure API Management i przetestować interfejs API w Azure Portal.
+description: Dowiedz się, jak zaimportować interfejs API specyfikacji OpenAPI do usługi Azure API Management, a następnie przetestować interfejs API w Azure Portal.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 71a239393c61dccf39ed505aa2b08d7612b7e370
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206272"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905554"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importowanie i publikowanie pierwszego interfejsu API
 
@@ -62,14 +62,14 @@ W tej sekcji przedstawiono sposób importowania i publikowania interfejsu API za
    |**Schemat adresu URL**|**HTTPS**|Protokołów, które mogą być używane do uzyskiwania dostępu do interfejsu API.|
    |**Sufiks adresu URL interfejsu API**|*conference*|Sufiks dołączany do podstawowego adresu URL usługi API Management. API Management odróżnia interfejsy API według ich sufiksów, więc sufiks musi być unikatowy dla każdego interfejsu API dla danego wydawcy.|
    |**Tagi**| |Tagi służące do organizowania interfejsów API do wyszukiwania, grupowania lub filtrowania.|
-   |**Produkty**|**Nieograniczona liczba**|Skojarzenie jednego lub więcej interfejsów API. Każde wystąpienie API Management zawiera dwa przykładowe produkty: **Starter** i **nieograniczone**. Interfejs API jest publikowany przez skojarzenie interfejsu API z produktem, **nieograniczoną** w tym przykładzie.<br/>Możesz dołączyć kilka interfejsów API w produkcie i zaoferować je deweloperom za pomocą portalu dla deweloperów. Aby dodać ten interfejs API do innego produktu, wpisz lub wybierz nazwę produktu. Powtórz ten krok, aby dodać interfejs API do wielu produktów. Możesz również dodać interfejsy API do produktów później ze strony **ustawień** .<br/>Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania uzyskują klucz subskrypcji dobry dla każdego interfejsu API w tym produkcie. <br/>Jeśli utworzono wystąpienie API Management, jesteś już administratorem, więc subskrybujesz każdy produkt w wystąpieniu.|
+   |**Wyrobów**|**Nieograniczona liczba**|Skojarzenie jednego lub więcej interfejsów API. Każde wystąpienie API Management zawiera dwa przykładowe produkty: **Starter** i **nieograniczone**. Interfejs API jest publikowany przez skojarzenie interfejsu API z produktem, **nieograniczoną** w tym przykładzie.<br/>Możesz dołączyć kilka interfejsów API w produkcie i zaoferować je deweloperom za pomocą portalu dla deweloperów. Aby dodać ten interfejs API do innego produktu, wpisz lub wybierz nazwę produktu. Powtórz ten krok, aby dodać interfejs API do wielu produktów. Możesz również dodać interfejsy API do produktów później ze strony **ustawień** .<br/>Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania uzyskują klucz subskrypcji dobry dla każdego interfejsu API w tym produkcie. <br/>Jeśli utworzono wystąpienie API Management, jesteś już administratorem, więc subskrybujesz każdy produkt w wystąpieniu.|
    |**Bramy**|**Zarządzany**|Bramy interfejsu API, które uwidaczniają interfejs API. To pole jest dostępne tylko w ramach usług dla **deweloperów** i warstwy **Premium** .<br/>Brama **zarządzana** wskazuje bramę wbudowaną w usługę API Management i obsługiwaną przez firmę Microsoft na platformie Azure. Inne bramy są [bramami samoobsługowymi](self-hosted-gateway-overview.md) i są dostępne tylko w warstwach usług premium i developer. Można je wdrożyć w środowisku lokalnym lub w innych chmurach.<br/>Jeśli nie wybrano żadnych bram, interfejs API nie będzie dostępny i żądania interfejsu API nie powiodą się.|
    |**Czy chcesz utworzyć wersję tego interfejsu API?**|Zaznacz lub usuń zaznaczenie|Aby uzyskać więcej informacji na temat przechowywania wersji, zobacz [Publikowanie wielu wersji interfejsu API](api-management-get-started-publish-versions.md).|
 
    > [!NOTE]
    > Aby opublikować interfejs API dla odbiorców interfejsu API, należy skojarzyć go z produktem.
 
-2. Wybierz pozycję **Utwórz**.
+2. Wybierz przycisk **Utwórz**.
 
 Jeśli masz problemy z importowaniem definicji interfejsu API, zobacz [listę znanych problemów i ograniczeń](api-management-api-import-restrictions.md).
 

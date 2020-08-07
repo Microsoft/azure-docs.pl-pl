@@ -3,13 +3,13 @@ title: Konfigurowanie i zarządzanie Azure Notebooks wersja zapoznawcza
 description: Dowiedz się, jak zarządzać metadanymi projektu, plikami projektu, środowiskiem projektu i instrukcjami konfiguracji za pośrednictwem interfejsu użytkownika Azure Notebooks i bezpośredniego dostępu do terminalu.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834084"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852807"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
 

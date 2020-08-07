@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie kontami deweloperów przy użyciu grup w usłudze Azure API Management
 titleSuffix: Azure API Management
-description: Dowiedz się, jak zarządzać kontami deweloperów przy użyciu grup w usłudze Azure API Management
+description: Dowiedz się, jak zarządzać kontami deweloperów przy użyciu grup w usłudze Azure API Management. Utwórz grupy, a następnie skojarz je z produktami lub programistami.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 16ab72a67a021338bd8e186c32015c271240d224
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250536"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851226"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Jak tworzyć grupy do zarządzania kontami deweloperów w usłudze Azure API Management i jak z nich korzystać
 

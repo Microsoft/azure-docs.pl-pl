@@ -1,6 +1,6 @@
 ---
 title: Zasady usługi Azure API Management | Microsoft Docs
-description: Dowiedz się więcej o zasadach dostępnych do użycia w usłudze Azure API Management.
+description: Dowiedz się więcej o zasadach dostępnych do użycia w usłudze Azure API Management. Zasady umożliwiają wydawcy zmianę zachowania interfejsu API za pomocą konfiguracji.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252857"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905673"
 ---
 # <a name="api-management-policies"></a>API Management policies
 Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](api-management-howto-policies.md).  

@@ -82,11 +82,9 @@
     - name: Dokumentacja interfejsu wiersza polecenia usługi Service Fabric Mesh
       href: /cli/azure/ext/mesh
     - name: Interfejsy API REST zasobów klienta usługi Service Fabric
-      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+      href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
     - name: Dokumentacja interfejsu wiersza polecenia Maven usługi Service Fabric
       href: service-fabric-mesh-reference-maven.md
-    - name: Szablon usługi Resource Manager
-      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Zasoby
   items:
     - name: Często zadawane pytania

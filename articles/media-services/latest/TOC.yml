@@ -174,7 +174,7 @@
     - name: Azure Media Player
       items:
         - name: Omówienie usługi Azure Media Player
-          href: 'https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview'
+          href: ../azure-media-player/azure-media-player-overview.md
     - name: Programowanie z użyciem interfejsów API w wersji 3
       items:
         - name: Omówienie
@@ -362,7 +362,7 @@
     - name: Korzystanie z odtwarzaczy multimediów
       items:
         - name: Pełna konfiguracja usługi Azure Media Player
-          href: 'https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup'
+          href: ../azure-media-player/azure-media-player-full-setup.md
         - name: Korzystanie z odtwarzacza Video.js
           href: how-to-video-js-player.md
         - name: Korzystanie z odtwarzacza wideo Shaka
@@ -373,7 +373,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/media/'
+      href: /rest/api/media/
     - name: Interfejs wiersza polecenia platformy Azure
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: Zestawy SDK
@@ -386,7 +386,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

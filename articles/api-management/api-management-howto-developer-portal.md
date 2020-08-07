@@ -1,7 +1,7 @@
 ---
 title: Omówienie portalu dla deweloperów platformy Azure API Management
 titleSuffix: Azure API Management
-description: Dowiedz się więcej o portalu dla deweloperów w API Management.
+description: Dowiedz się więcej o portalu dla deweloperów w API Management. Portal dla deweloperów to miejsce, w którym konsumenci mogą znaleźć interfejsy API.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373151"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852161"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 

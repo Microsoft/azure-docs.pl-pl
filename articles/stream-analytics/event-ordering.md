@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044570"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901695"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurowanie zasad określania kolejności zdarzeń dla Azure Stream Analytics
 
@@ -75,6 +75,11 @@ Gdy wiele partycji z tego samego strumienia wejściowego jest połączonych, tol
 Ten komunikat informujący o tym, że co najmniej jedna partycja w danych wejściowych jest pusta i będzie opóźniać dane wyjściowe przez próg późnego przybycia. W celu przezwyciężenia zalecane jest:  
 1. Upewnij się, że wszystkie partycje centrum zdarzeń/IoT Hub odbierają dane wejściowe. 
 2. W zapytaniu Użyj klauzuli Partition by PartitionID. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Dlaczego widzę opóźnienie 5 sekund nawet wtedy, gdy zasady późnego przybycia mają wartość 0?
+Dzieje się tak, gdy istnieje partycja wejściowa, która nigdy nie otrzymała żadnych danych wejściowych. Aby sprawdzić to zachowanie, można zweryfikować metryki danych wejściowych według partycji. 
+
+Gdy partycja nie ma żadnych danych przekraczających skonfigurowany próg późnego przybycia, usługa Stream Analytics zaawansowana sygnatura czasowa aplikacji, zgodnie z opisem w sekcji Uwagi dotyczące porządkowania zdarzeń. Wymaga to szacowanego czasu odbioru. Jeśli partycja nigdy nie zawierała żadnych danych, program Stream Analytics szacuje czas przybycia jako *czas lokalny — 5 sekund*. Ze względu na to, że te partycje, które nigdy nie miały żadnych danych, nie mogą pokazać opóźnienia w ciągu 5 sekund.  
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zagadnienia dotyczące obsługi czasu](stream-analytics-time-handling.md)
