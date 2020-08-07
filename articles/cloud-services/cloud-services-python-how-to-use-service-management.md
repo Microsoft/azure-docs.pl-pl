@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
-ms.custom: tracking-python
-ms.openlocfilehash: 311d882814c45b3b001fde2a4f3f9027e879f29c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-python
+ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919887"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851515"
 ---
 # <a name="use-service-management-from-python"></a>Używanie zarządzania usługami w języku Python
 W tym przewodniku pokazano, jak programowo wykonywać typowe zadania związane z zarządzaniem usługami z poziomu języka Python. Klasa **ServiceManagementService** w [zestawie Azure SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python) obsługuje programistyczny dostęp do większości funkcji związanych z zarządzaniem usługami, które są dostępne w [Azure Portal][management-portal]. Ta funkcja służy do tworzenia, aktualizowania i usuwania usług w chmurze, wdrożeń, usług zarządzania danymi i maszyn wirtualnych. Ta funkcja może być przydatna podczas tworzenia aplikacji, które potrzebują dostępu programistycznego do zarządzania usługami.
@@ -116,18 +116,18 @@ for location in result:
 
 Podczas tworzenia usługi w chmurze lub usługi magazynu należy podać prawidłową lokalizację. Metoda ** \_ lokalizacji listy** zawsze zwraca aktualną listę aktualnie dostępnych lokalizacji. W przypadku tego zapisu dostępne są następujące lokalizacje:
 
-* Europa Zachodnia
+* West Europe
 * Europa Północna
 * Azja Południowo-Wschodnia
 * Azja Wschodnia
-* Środkowe stany USA
+* Central US
 * Północno-środkowe stany USA
-* Południowo-środkowe stany USA
+* South Central US
 * Zachodnie stany USA
-* Wschodnie stany USA
+* East US
 * Japonia Wschodnia
 * Japonia Zachodnia
-* Brazylia Południowa
+* Brazil South
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
 
@@ -364,7 +364,7 @@ sms.create_virtual_machine_deployment(service_name=name,
     role_size='Small')
 ```
 
-## <a name="delete-a-virtual-machine"></a><a name="DeleteVM"> </a>Usuwanie maszyny wirtualnej
+## <a name="delete-a-virtual-machine"></a><a name="DeleteVM"> </a>Usuwa maszynę wirtualną
 Aby usunąć maszynę wirtualną, należy najpierw usunąć wdrożenie przy użyciu metody **usuwania \_ wdrożenia** .
 
 ```python

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327399"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799926"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 
@@ -79,9 +79,9 @@ Na stronie właściwości można zdefiniować kategorie i branże używane do gr
 Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wyświetlania listy ofert w portalu Marketplace. 
 
 | **Nazwa pola**    | **Uwagi**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Nazwa  | Wymagane, maks. 50 znaków. |
-| Podsumowanie  | Wymagane, maks. 100 znaków. | 
+| Podsumowanie  | Wymagane, maks. 100 znaków. |
 | Opis  | Wymagane, maks. 3000 znaków. |
 | Instrukcje Wprowadzenie  | Wymagane, maks. 3000 znaków. |
 | Instrukcje Wprowadzenie  | Wymagane, maks. 3000 znaków. |
@@ -91,7 +91,7 @@ Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wy�
 | Przydatne linki tytuł + adres URL  | Opcjonalny. |
 | Dokument pomocniczy tytuł + plik  | Wymagane, minimum 1 i 3. Musi być formatem pliku PDF. |
 | Zrzuty ekranu  | Wymagany, minimalny 1 zrzut ekranu i maksymalnie 5; co najmniej cztery zalecane. Musi mieć 1280 X 720 w formacie PNG. |
-| Logo Sklepu (małe, średnie, duże, szerokie)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115). Musi być w. Format PNG. |
+| Logo Sklepu (mały, średni, duży)  | Jest wymagane duże logo (216 x 216). Centrum partnerskie będzie używać tego do tworzenia małych (48 x 48 pikseli) i średniego rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami. Logo musi być w formacie PNG. |
 | Nazwa wideo + URL + miniatura  | Opcjonalne, zalecane, maksymalnie 4 wideo. Miniatura musi mieć 1280 x 720 w formacie PNG. Wideo musi być hostowane w serwisie YouTube lub Vimeo. |
 | Kontakty (program CSP, inżynieria, pomoc techniczna)  | Wymagana osoba kontaktu inżynieryjnego i pomocy technicznej (nazwisko, adres e-mail i numer telefonu); Program CSP kontaktuje się z opcjonalnym, ale zalecanym. |
 | Adres URL pomocy technicznej  | Wymagany. |
@@ -100,11 +100,11 @@ Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wy�
 
 Na stronie wersji zapoznawczej można określić odbiorców w celu uzyskania dostępu do wersji zapoznawczej oferty, aby upewnić się, że oferta spełnia wszystkie wymagania, zanim będzie ona aktywna. 
 
-| **Nazwa pola**    | **Uwagi**   | 
-| :---------------- | :-----------| 
+| **Nazwa pola**    | **Uwagi**   |
+| :---------------- | :-----------|
 | Wiadomości e-mail w usłudze AAD/MSA i opis | Wymagane, minimum 1 i maks. 10, jeśli zostało wprowadzone ręcznie, lub do 20 w przypadku przekazywania pliku CSV. |
 
-## <a name="technical-configuration-page"></a>Strona konfiguracji technicznej 
+## <a name="technical-configuration-page"></a>Strona konfiguracji technicznej
 
 Na stronie Konfiguracja techniczna można określić szczegóły techniczne używane przez firmę Microsoft do nawiązania połączenia z ofertą. Ta strona nie jest widoczna dla Ciebie, jeśli zdecydujesz się nie sprzedawać w firmie Microsoft.
 

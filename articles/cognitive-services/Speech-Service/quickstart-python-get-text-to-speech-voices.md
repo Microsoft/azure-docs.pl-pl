@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.custom: tracking-python
-ms.openlocfilehash: ec1b03bf0b3cf95f65013bddbc54e15ab985198e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: b19c7f92b38d68b1f072b1bf66f23f1ddeddc197
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608005"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876278"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Pobieranie listy głosów zamiany tekstu na mowę przy użyciu języka Python
 
@@ -133,7 +133,7 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 > [!div class="nextstepaction"]
 > [Poznaj przykłady dla języka Python w serwisie GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md)

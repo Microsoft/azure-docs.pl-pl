@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: c6a9f17d46ef8feb571c0ecc7a0a93a169f74725
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d669874040b04af089b4d57333869fe34066720e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285558"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841943"
 ---
-Najprostszym sposobem uwierzytelniania aplikacji w języku Python opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](/azure/key-vault/general/managed-identity) . 
+Najprostszym sposobem uwierzytelniania aplikacji opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](/azure/key-vault/general/managed-identity) . 
 
 W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Nazwa główna usługi wymaga unikatowej nazwy w formacie "http:// &lt; My-Unique-Service-Principal-Name &gt; ".
 

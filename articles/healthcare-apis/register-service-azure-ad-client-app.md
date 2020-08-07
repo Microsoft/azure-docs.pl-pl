@@ -2,18 +2,18 @@
 title: Rejestrowanie aplikacji usługi w usłudze Azure AD — Azure API for FHIR
 description: Dowiedz się, jak zarejestrować aplikację klienta usługi w Azure Active Directory, która może służyć do uwierzytelniania i uzyskiwania tokenów.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 83514ea13ca51e6980a1b4b60d4555974db5a240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 34eec3ad0d2fc193744898b6f08cbe50c261c945
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871848"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853028"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Rejestrowanie aplikacji klienckiej usługi w Azure Active Directory
 

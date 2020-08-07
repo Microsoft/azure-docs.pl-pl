@@ -2,14 +2,14 @@
 title: Monitorowanie wydajności usługi Azure App Services | Microsoft Docs
 description: Monitorowanie wydajności aplikacji dla usług Azure App Services. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373168"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876397"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -377,7 +377,7 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
-|Wartość problemu|Wyjaśnienie|Wprowadzanie poprawek
+|Wartość problemu|Objaśnienie|Wprowadzanie poprawek
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` lub`Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|
@@ -396,6 +396,12 @@ Jeśli używasz APPINSIGHTS_JAVASCRIPT_ENABLED = true w przypadkach, w których 
 Jest to spowodowane tym, że ustawienie aplikacji APPINSIGHTS_JAVASCRIPT_ENABLED ma wartość true, a Kodowanie zawartości jest obecne w tym samym czasie. Ten scenariusz nie jest jeszcze obsługiwany. Obejście polega na usunięciu APPINSIGHTS_JAVASCRIPT_ENABLED z ustawień aplikacji. Niestety, to oznacza, że jeśli Instrumentacja JavaScript klienta/przeglądarki jest nadal wymagana, ręczne odwołania do zestawu SDK są wymagane dla stron sieci Web. Postępuj zgodnie z [instrukcjami](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) dotyczącymi ręcznego Instrumentacji przy użyciu zestawu JavaScript SDK.
 
 Aby uzyskać najnowsze informacje na temat Application Insights agenta/rozszerzenia, zapoznaj się z [informacjami o wersji](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Domyślna witryna internetowa wdrożona przy użyciu usługi Web Apps nie obsługuje automatycznego monitorowania po stronie klienta
+
+Podczas tworzenia aplikacji sieci Web za pomocą programu `ASP.NET` lub `.NET Core` środowiska uruchomieniowego na platformie Azure App Services wdrażana jest pojedyncza statyczna strona HTML jako początkowa witryna sieci Web. Statyczna Strona sieci Web ładuje również zarządzane składniki sieci .NET w usługach IIS. Pozwala to na testowanie bezkodowego monitorowania po stronie serwera, ale nie obsługuje automatycznego monitorowania po stronie klienta.
+
+Jeśli chcesz przetestować monitorowanie po stronie serwera i klienta dla ASP.NET lub ASP.NET Core w aplikacji sieci Web App Services platformy Azure, zalecamy wykonanie oficjalnych przewodników związanych z [tworzeniem aplikacji internetowej ASP.NET Core](../../app-service/app-service-web-get-started-dotnet.md) i [Tworzenie aplikacji sieci Web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) , a następnie użyj instrukcji w bieżącym artykule, aby włączyć monitorowanie.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP i WordPress nie są obsługiwane
 

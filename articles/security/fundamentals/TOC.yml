@@ -58,6 +58,8 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
+    - name: Punkt odniesienia usługi DDoS Protection
+      href: ddos-protection-security-baseline.md
     - name: Zawieszone rekordy DNS i przejmowanie poddomen
       href: subdomain-takeover.md
     - name: Bezpieczna hybrydowa architektura sieci

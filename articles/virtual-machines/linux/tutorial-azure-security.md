@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830414"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Linux za pomocą usługi Azure Security Center
 
@@ -133,4 +133,4 @@ W tym samouczku skonfigurowano usługę Azure Security Center, a następnie spra
 Przejdź do następnego samouczka, aby dowiedzieć się więcej o tworzeniu potoku ciągłej integracji/ciągłego dostarczania za pomocą platform Jenkins, GitHub i Docker.
 
 > [!div class="nextstepaction"]
-> [Tworzenie infrastruktury ciągłej integracji/ciągłego dostarczania za pomocą platform Jenkins, GitHub i Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
+> [Tworzenie infrastruktury ciągłej integracji/ciągłego dostarczania za pomocą platform Jenkins, GitHub i Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)

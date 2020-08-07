@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085909"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873096"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight
 
@@ -38,10 +38,10 @@ Domyślnie Usługa HDInsight tworzy magazyn metadanych dla każdego typu klastra
 
 * Nie można udostępnić domyślnego magazynu metadanych w innych klastrach.
 
-* Domyślny magazyn metadanych używa podstawowego Azure SQL Database, który ma pięć jednostek DTU (jednostki transakcji bazy danych).
-Ten domyślny magazyn metadanych jest zazwyczaj używany dla relatywnie prostych obciążeń. Obciążenia, które nie wymagają wielu klastrów i nie wymagają metadanych zachowywanych poza cyklem życia klastra.
+* Domyślnym magazynem metadanych zaleca się tylko w przypadku prostych obciążeń. Obciążenia, które nie wymagają wielu klastrów i nie wymagają metadanych zachowywanych poza cyklem życia klastra.
 
-* W przypadku obciążeń produkcyjnych zalecamy przeprowadzenie migracji do zewnętrznego magazynu metadanych. Aby uzyskać szczegółowe informacje, zobacz poniższą sekcję.
+> [!IMPORTANT]
+> Domyślny magazyn metadanych zawiera Azure SQL Database z **limitem jednostek DTU warstwy Podstawowa 5 (bez uaktualnienia).** Odpowiednie dla podstawowych celów testowych. W przypadku obciążeń dużych lub produkcyjnych zalecamy Migrowanie do zewnętrznego magazynu metadanych.
 
 ## <a name="custom-metastore"></a>Niestandardowy magazyn metadanych
 
@@ -81,9 +81,8 @@ Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym
 
 ## <a name="hive-metastore-guidelines"></a>Wskazówki dotyczące magazyn metadanych Hive
 
-* W miarę możliwości używaj niestandardowego magazynu metadanych, aby pomóc w oddzieleniu zasobów obliczeniowych (uruchomiony klaster) i metadanych (przechowywanych w magazynie Metadata).
-
-* Zacznij od warstwy S2, która zapewnia 50 jednostek DTU i 250 GB miejsca w magazynie. Jeśli widzisz wąskie gardło, możesz skalować bazę danych w górę.
+> [!NOTE]
+> W miarę możliwości używaj niestandardowego magazynu metadanych, aby pomóc w oddzieleniu zasobów obliczeniowych (uruchomiony klaster) i metadanych (przechowywanych w magazynie Metadata). Zacznij od warstwy S2, która zapewnia 50 jednostek DTU i 250 GB miejsca w magazynie. Jeśli widzisz wąskie gardło, możesz skalować bazę danych w górę.
 
 * Jeśli zamierzasz korzystać z wielu klastrów usługi HDInsight, aby uzyskać dostęp do oddzielnych danych, użyj oddzielnej bazy danych dla magazynu metadanych w każdym klastrze. W przypadku udostępniania magazynu metadanych w wielu klastrach usługi HDInsight oznacza to, że w klastrach są używane te same metadane i bazowe pliki danych użytkownika.
 

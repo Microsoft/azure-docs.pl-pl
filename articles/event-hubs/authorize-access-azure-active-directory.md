@@ -3,12 +3,12 @@ title: Autoryzacja dostępu za pomocą usługi Azure Active Directory
 description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu do zasobów Event Hubs przy użyciu Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: af9278d801dfd858ce8bba5ec5786d521f72218c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534570"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831842"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory
 Usługa Azure Event Hubs obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Event Hubs zasobów. Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -26,7 +26,7 @@ Krok autoryzacji wymaga, aby co najmniej jedna rola platformy Azure była przypi
 Aplikacje natywne i aplikacje sieci Web, które wysyłają żądania do Event Hubs mogą również autoryzować się z usługą Azure AD. Aby dowiedzieć się, jak zażądać tokenu dostępu i używać go do autoryzacji żądań dotyczących zasobów Event Hubs, zobacz temat [uwierzytelnianie dostępu do usługi azure Event Hubs za pomocą usługi Azure AD z poziomu aplikacji](authenticate-application.md). 
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Przypisywanie ról platformy Azure na potrzeby praw dostępu
-Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md). Usługa Azure Event Hubs definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych centrum zdarzeń, a także definiuje role niestandardowe do uzyskiwania dostępu do danych.
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md). Usługa Azure Event Hubs definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych centrum zdarzeń, a także definiuje role niestandardowe do uzyskiwania dostępu do danych.
 
 Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, przestrzeni nazw Event Hubs lub dowolnego zasobu w ramach tego elementu. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem lub główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: be4211d793c593dac50d5764d7a15e7daa21c3f4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320157"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849662"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Skorzystaj z poniższych sekcji, aby skonfigurować te elementy docelowe oblicze
 
 * [Komputer lokalny](#local)
 * [Azure Machine Learning klaster obliczeniowy](#amlcompute)
-* [Wystąpienie obliczeniowe Azure Machine Learning](#instance)
+* [Wystąpienie obliczeniowe usługi Azure Machine Learning](#instance)
 * [Zdalne maszyny wirtualne](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -151,7 +151,7 @@ Użyj dowolnego z tych metod, aby określić maszynę wirtualną o niskim priory
 
 
 
-### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Wystąpienie obliczeniowe Azure Machine Learning
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Wystąpienie obliczeniowe usługi Azure Machine Learning
 
 [Wystąpienie obliczeniowe Azure Machine Learning](concept-compute-instance.md) to infrastruktura obliczeń zarządzanych, która umożliwia łatwe tworzenie pojedynczej maszyny wirtualnej. Obliczenia są tworzone w regionie obszaru roboczego, ale w przeciwieństwie do klastra obliczeniowego wystąpienie nie może być współużytkowane z innymi użytkownikami w obszarze roboczym. Również wystąpienie nie jest automatycznie skalowane w dół.  Aby uniknąć bieżących opłat, należy zatrzymać zasób.
 

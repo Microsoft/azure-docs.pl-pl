@@ -10,13 +10,13 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 3c247e5aebde7bd10be092c358320348645e2172
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564065"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852943"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037073"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903191"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
 
@@ -24,7 +24,7 @@ W tym artykule opisano typowe problemy związane z Azure Stream Analytics połą
 1. Sprawdź łączność z danymi wyjściowymi przy użyciu przycisku **Testuj połączenie** dla każdego elementu wyjściowego.
 1. Sprawdź [metryki monitorowania](stream-analytics-monitoring.md) na karcie **monitorowanie** . Ponieważ wartości są agregowane, metryki są opóźnione o kilka minut.
 
-   * Jeśli wartość **zdarzeń wejściowych** jest większa od zera, zadanie może odczytać dane wejściowe. Jeśli wartość **zdarzeń wejściowych** nie jest większa od zera, wystąpił problem z danymi wejściowymi zadania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z połączeniami wejściowymi](stream-analytics-troubleshoot-input.md) .
+   * Jeśli wartość **zdarzeń wejściowych** jest większa od zera, zadanie może odczytać dane wejściowe. Jeśli wartość **zdarzeń wejściowych** nie jest większa od zera, wystąpił problem z danymi wejściowymi zadania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z połączeniami wejściowymi](stream-analytics-troubleshoot-input.md) . Jeśli zadanie ma referencyjne dane wejściowe, Zastosuj podział według nazwy logicznej podczas wyszukiwania metryk **zdarzeń wejściowych** . Jeśli nie ma żadnych zdarzeń wejściowych z danych referencyjnych, prawdopodobnie oznacza to, że to źródło danych wejściowych nie zostało prawidłowo skonfigurowane do pobrania odpowiedniego zestawu danych referencyjnych.
    * Jeśli wartość **błędów konwersji danych** jest większa niż zero i wspinanie się, zobacz [Azure Stream Analytics błędy danych](data-errors.md) , aby uzyskać szczegółowe informacje na temat błędów konwersji danych.
    * Jeśli wartość **błędów środowiska uruchomieniowego** jest większa od zera, zadanie odbiera dane, ale generuje błędy podczas przetwarzania zapytania. Aby znaleźć błędy, przejdź do [dzienników inspekcji](../azure-resource-manager/management/view-activity-logs.md), a następnie odfiltruj w stanie **Niepowodzenie** .
    * Jeśli wartość **zdarzeń wejściowych** jest większa od zera, a wartość **zdarzeń wyjściowych** jest równa zero, jedna z następujących instrukcji jest prawdziwa:
@@ -87,7 +87,7 @@ Podczas konfigurowania IGNORE_DUP_KEY dla kilku typów indeksów należy zwróci
 
 W przypadku używania oryginalnego poziomu zgodności (1,0) Azure Stream Analytics zmienia nazwy kolumn na małe litery. Takie zachowanie zostało rozwiązane na późniejszych poziomach zgodności. Aby zachować sprawność, przejdź do poziomu zgodności 1,1 lub nowszego. Aby uzyskać więcej informacji, zobacz [poziom zgodności zadań Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

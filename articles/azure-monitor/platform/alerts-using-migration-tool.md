@@ -6,19 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114267"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852127"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Migrowanie klasycznych reguł alertów za pomocą narzędzia do migracji dobrowolnej
 
-Zgodnie z [dotychczas ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane we wrześniu 2019 (wersja była pierwotnie 2019 lipca). Narzędzie do migracji jest dostępne w Azure Portal do klientów korzystających z klasycznych reguł alertów i którzy chcą wyzwolić migrację. W tym artykule wyjaśniono, jak za pomocą narzędzia migracji dobrowolnie przeprowadzić migrację klasycznych reguł alertów przed rozpoczęciem automatycznej migracji we wrześniu 2019.
-
-> [!NOTE]
-> Z powodu opóźnienia w wycofywaniu narzędzia migracji Data wycofania migracji klasycznych alertów została [rozszerzona do 31 sierpnia 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) od pierwotnie ogłoszonej daty 30 czerwca 2019.
+Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Narzędzie do migracji było dostępne w Azure Portal do klientów, którzy korzystali z klasycznych reguł alertów i którzy chcą wyzwolić migrację. W tym artykule wyjaśniono, jak używać tego narzędzia do migracji, które będzie również używane do pozostałych alertów oczekujących na dalsze ogłoszenie.
 
 ## <a name="benefits-of-new-alerts"></a>Zalety nowych alertów
 
@@ -37,7 +34,7 @@ Proces migracji umożliwia konwertowanie klasycznych reguł alertów na nowe, r�
 
 - Zarówno format ładunku, jak i interfejsy API służące do tworzenia nowych reguł alertów i zarządzania nimi, różnią się od tych reguł, ponieważ obsługują one więcej funkcji. [Dowiedz się, jak przygotować się do migracji](alerts-prepare-migration.md).
 
-- Niektórych klasycznych reguł alertów nie można migrować za pomocą narzędzia. [Dowiedz się, których reguł nie można migrować i co należy zrobić z nimi](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Niektórych klasycznych reguł alertów nie można migrować za pomocą narzędzia. [Dowiedz się, których reguł nie można migrować i co należy zrobić z nimi](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > Proces migracji nie ma wpływu na ocenę klasycznych reguł alertów. Będą oni nadal uruchamiać i wysyłać alerty, dopóki nie zostaną zmigrowane i zaczną obowiązywać nowe reguły alertów.

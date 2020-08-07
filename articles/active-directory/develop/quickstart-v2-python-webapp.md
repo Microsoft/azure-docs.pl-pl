@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, tracking-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0a2867b9b39634000366ec2a92f936a4e419e859
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
+ms.openlocfilehash: 0a03ca76bd1414548102dc5eb2ed160b44bd92e8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558619"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846330"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
@@ -57,7 +57,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `python-webapp`.
 >      - W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
->      - Wybierz pozycję **Zarejestruj**.
+>      - Wybierz pozycję **Rejestruj**.
 >      - Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web** . Dodaj `http://localhost:5000/getAToken` jako **identyfikatory URI przekierowania**.

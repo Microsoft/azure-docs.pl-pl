@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: e30096e84c31f9e73e0ce02daa5765e98bdcd192
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: d67a08d97a24d492b07f6a8b91dc20a4d7f16979
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085099"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848455"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Wyzwalacz Azure Cosmos DB dla Azure Functions 2. x i wyższych
 
@@ -213,7 +213,7 @@ W [bibliotece środowiska uruchomieniowego usługi Java Functions](/java/api/ove
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `CosmosDBTrigger` atrybutu.
 

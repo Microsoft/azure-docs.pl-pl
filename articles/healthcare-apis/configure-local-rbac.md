@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie lokalnej kontroli dostępu opartej na rolach (Local RBAC) dla interfejsu API platformy Azure dla usługi FHIR
 description: W tym artykule opisano sposób konfigurowania usługi Azure API for FHIR w celu używania zewnętrznej dzierżawy usługi Azure AD na potrzeby płaszczyzny danych
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: mihansen
-ms.openlocfilehash: 11e7d31385140206070e3b415224ccca725d110f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: matjazl
+ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446903"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847010"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Konfigurowanie lokalnego RBAC dla FHIR 
 

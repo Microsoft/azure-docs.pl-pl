@@ -6,13 +6,13 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.custom: tracking-python
-ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-python
+ms.openlocfilehash: ac7569a48e4bab25d4db17f2fc6dd92b31afcab5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322554"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850053"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -43,7 +43,7 @@ Zestaw SDK używa trzech Azure Monitor eksportujących do wysyłania różnych t
 
 Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy danych telemetrycznych, które są widoczne w Azure Monitor.
 
-| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Wyjaśnienie                                         |
+| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Objaśnienie                                         |
 |-------------------------|------------------------------------|-----------------------------------------------------|
 | Dzienniki                    | Ślady, wyjątki, customEvents   | Dane telemetryczne dziennika, telemetrię wyjątku, telemetria zdarzeń |
 | Metryki                 | customMetrics, liczniki wydajności | Liczniki wydajności niestandardowych metryk                |

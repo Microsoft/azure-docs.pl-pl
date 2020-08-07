@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: erhopf
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 48e5f6d453e69dcbafd9aefe283eb2c880d4b48e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 2b3f7934a24f67992d6b80ac359c29ebe2a40b09
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406643"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849560"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -31,7 +31,7 @@ Wszystkie Cognitive Services punkty końcowe uwidocznione za pośrednictwem prot
 
 W przypadku użytkowników platformy .NET należy wziąć pod uwagę <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security najlepszych <span class="docon docon-navigate-external x-hidden-focus"></span> </a>rozwiązań.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Podczas omawiania uwierzytelniania istnieje kilka typowych nielicznych koncepcji. Uwierzytelnianie i autoryzacja są często mylone ze sobą. Tożsamość jest również głównym składnikiem zabezpieczeń. Tożsamość to zbiór informacji o <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">podmiotu zabezpieczeń <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Dostawcy tożsamości (dostawcy tożsamości) dostarczają tożsamości do usług uwierzytelniania. Uwierzytelnianie jest czynnością weryfikowania tożsamości użytkownika. Autoryzacja to specyfikacja praw dostępu i uprawnień do zasobów dla danej tożsamości. Niektóre oferty Cognitive Services obejmują kontrolę dostępu opartą na rolach (RBAC). RBAC może służyć do uproszczenia niektórych procedury związanych z ręcznym zarządzaniem podmiotami zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach dla zasobów platformy Azure](../role-based-access-control/overview.md).
 
@@ -67,7 +67,7 @@ W nowym wystąpieniu **wiersza polecenia**Przeczytaj zmienną środowiskową.
 echo %ENVIRONMENT_VARIABLE_KEY%
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Utwórz i przypisz utrwaloną zmienną środowiskową, uwzględniając wartość.
 
@@ -183,7 +183,7 @@ import os
 value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objective-c)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
