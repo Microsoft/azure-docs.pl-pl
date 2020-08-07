@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534587"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849985"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight
 
@@ -39,9 +39,9 @@ Utwórz tożsamość zarządzaną przypisaną przez użytkownika, jeśli jeszcze
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu kliknij pozycję **Utwórz zasób**.
 1. W polu wyszukiwania wpisz przypisane przez **użytkownika** , a następnie kliknij pozycję **tożsamość zarządzana przypisana przez użytkownika**.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Wprowadź nazwę tożsamości zarządzanej, wybierz odpowiednią subskrypcję, grupę zasobów i lokalizację.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych w usłudze Azure HDInsight, zobacz [zarządzane tożsamości w usłudze Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -54,7 +54,7 @@ Utwórz konto usługi Azure Data Lake Storage Gen2.
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu kliknij pozycję **Utwórz zasób**.
 1. W polu wyszukiwania wpisz **Storage** i kliknij pozycję **konto magazynu**.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Na ekranie **Tworzenie konta magazynu** :
     1. Wybierz prawidłową subskrypcję i grupę zasobów.
     1. Wprowadź nazwę konta Data Lake Storage Gen2.
@@ -106,6 +106,7 @@ Możesz [pobrać przykładowy plik szablonu](https://github.com/Azure-Samples/hd
 | `<RESOURCEGROUPNAME>` | Grupa zasobów, w której ma zostać utworzony nowy klaster i konto magazynu. |
 | `<MANAGEDIDENTITYNAME>` | Nazwa tożsamości zarządzanej, która będzie mieć uprawnienia na koncie Azure Data Lake Storage Gen2. |
 | `<STORAGEACCOUNTNAME>` | Nowe konto Azure Data Lake Storage Gen2, które zostanie utworzone. |
+| `<FILESYSTEMNAME>`  | Nazwa systemu plików, który ma być używany przez ten klaster na koncie magazynu. |
 | `<CLUSTERNAME>` | Nazwa klastra usługi HDInsight. |
 | `<PASSWORD>` | Wybrane hasło do logowania się do klastra przy użyciu protokołu SSH i pulpitu nawigacyjnego Ambari. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Następnie zaloguj się do portalu. Dodaj nową tożsamość zarządzaną przez użytkownika do roli **współautor danych obiektów blob magazynu** na koncie magazynu. Ten krok jest opisany w kroku 3 w sekcji [Korzystanie z Azure Portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-Po przypisaniu roli do tożsamości zarządzanej przypisanej przez użytkownika należy wdrożyć szablon przy użyciu poniższego fragmentu kodu.
+ > [!IMPORTANT]
+ > Upewnij się, że konto magazynu ma tożsamość przypisaną przez użytkownika z uprawnieniami roli **współautor danych obiektów BLOB** , w przeciwnym razie Tworzenie klastra zakończy się niepowodzeniem.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

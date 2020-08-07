@@ -4,16 +4,30 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562943"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905129"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
-Do wdrożenia kodu projektu Azure Functions na platformie Azure można użyć kilku różnych technologii. Ten artykuł zawiera wyczerpującą listę tych technologii, opis technologii, które są dostępne dla których typów funkcji, wyjaśnia, co się dzieje w przypadku korzystania z każdej metody, i zawiera zalecenia dotyczące najlepszej metody do użycia w różnych scenariuszach. Różne narzędzia obsługujące wdrażanie w Azure Functions są dostrojone do właściwej technologii w oparciu o ich kontekst. Ogólnie rzecz biorąc, wdrożenie zip jest zalecaną technologią wdrażania dla Azure Functions.
+Do wdrożenia kodu projektu Azure Functions na platformie Azure można użyć kilku różnych technologii. Ten artykuł zawiera omówienie dostępnych metod wdrażania i zaleceń dotyczących najlepszej metody do użycia w różnych scenariuszach. Zawiera również wyczerpującą listę i kluczowe szczegóły dotyczące technologii wdrażania underlyng. 
+
+## <a name="deployment-methods"></a>Metody wdrażania
+
+Technologia wdrażania używana do publikowania kodu na platformie Azure jest ogólnie określana w sposób, w jaki publikujesz aplikację. Odpowiednia metoda wdrażania jest określana zgodnie z konkretnymi potrzebami i punktem w cyklu programowania. Na przykład podczas tworzenia i testowania można wdrożyć program bezpośrednio z poziomu narzędzia programistycznego, takiego jak Visual Studio Code. Gdy aplikacja jest w środowisku produkcyjnym, najprawdopodobniej publikuje się w sposób ciągły z kontroli źródła lub przy użyciu automatycznego potoku publikowania, który obejmuje dodatkowe sprawdzanie poprawności i testowanie.  
+
+W poniższej tabeli opisano dostępne metody wdrażania dla projektu funkcji.
+
+| &nbsp;Typ wdrożenia | Metody | Najlepsze dla... |
+| -- | -- | -- |
+| Oparte na narzędziach | &bull;&nbsp;[&nbsp; &nbsp; Publikowanie kodu w programie Visual Studio &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publikowanie w programie Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publikowanie podstawowych narzędzi](functions-run-local.md#publish) | Wdrożenia podczas opracowywania i inne wdrożenia usługi AD-Hock. Wdrożenia są zarządzane lokalnie przez narzędzia. | 
+| App Service zarządzane| &bull;&nbsp;[&nbsp;Centrum wdrażania &nbsp; (Ci/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Wdrożenia kontenerów &nbsp;](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Ciągłe wdrażanie (CI/CD) z kontroli źródła lub z rejestru kontenerów. Wdrożenia są zarządzane przez platformę App Service (kudu).|
+| Potoki zewnętrzne|&bull;&nbsp;[Potoki DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Akcje GitHub](functions-how-to-github-actions.md) | Potoki produkcyjne i DevOps, które obejmują dodatkowe sprawdzanie poprawności, testowanie i inne akcje, są uruchamiane w ramach zautomatyzowanego wdrożenia. Wdrożenia są zarządzane przez potok. |
+
+Podczas gdy określone funkcje wdrożenia korzystają z najlepszej technologii na podstawie ich kontekstu, większość metod wdrażania jest oparta na [rozmieszczeniu zip](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Dostępność technologii wdrażania
 

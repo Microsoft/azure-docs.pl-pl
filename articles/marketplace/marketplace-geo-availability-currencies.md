@@ -6,15 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 01/29/2020
-ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 07/29/2020
+ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387442"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902103"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
+
+## <a name="supported-geographic-locations"></a>Obsługiwane lokalizacje geograficzne
 
 Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograficzne zgodnie z definicją podaną przez adres rozliczeniowy klienta, a transakcje można wykonać w 17 walutach. Poniższa tabela zawiera listę wszystkich obsługiwanych lokalizacji geograficznych, jej [ISO 3166 2-cyfrowy kod alfa](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)i przypisaną walutę.
 
@@ -167,3 +169,34 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 \*W przypadku klientów w Brazylii Portal Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
 
 \** Tylko bezpłatne i BYOL obrazy maszyn wirtualnych.
+
+## <a name="how-we-convert-currency"></a>Jak przekonwertować walutę
+
+W przypadku wszystkich płatnych typów ofert dostawcy ISV mają możliwość wprowadzenia cen w cenie USD lub przekazanie cen w walucie lokalnej. Ceny wprowadzone w USD są automatycznie konwertowane na walutę lokalną po zapisaniu strony. Opłaty za korzystanie z Centrum partnerskiego są aktualizowane codziennie. Niezależni dostawcy oprogramowania mogą eksportować ceny i przeglądać przekonwertowane odpowiedniki.
+
+Aby dostosować cenę przed opublikowaniem, po prostu wyeksportuj arkusz cen, zmodyfikuj go i przekaż go ze zmianami.
+
+> [!NOTE]
+> Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
+
+## <a name="rate-changes"></a>Zmiany stawki
+
+Stawki używane do obliczania cen lokalnych są aktualizowane codziennie. To obliczenie jest wykonywane, gdy dostawca ISV zapisuje stronę i mogą przeglądać wszystkie stawki poprzez eksportowanie i przeglądanie cen przed opublikowaniem.
+
+### <a name="retrieving-currency-information-by-api"></a>Pobieranie informacji o walucie według interfejsu API
+
+Indywidualne ceny (w zależności od tego, jak zostały one ustawione) mogą być pobierane za pomocą interfejsu API, na które miały wpływ kursy wymiany w dniu, w którym zostały zapisane). nie można uzyskać informacji o walucie.
+
+Aby uzyskać szczegółowe informacje na temat wprowadzania cen dla określonych typów ofert, zobacz następujące artykuły:
+
+- [Tworzenie oferty aplikacji platformy Azure](partner-center-portal/create-new-azure-apps-offer.md)
+- [Tworzenie oferty kontenera platformy Azure](partner-center-portal/create-azure-container-offer.md)
+- [Tworzenie oferty maszyny wirtualnej platformy Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Tworzenie oferty usługi konsultingowej](partner-center-portal/create-consulting-service-offer.md)
+- [Tworzenie oferty usługi Dynamics 365 dla klientów & usługi PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Tworzenie oferty Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
+- [Tworzenie oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
+- [Tworzenie oferty modułu usługi IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Tworzenie oferty usługi zarządzanej](partner-center-portal/create-new-managed-service-offer.md)
+- [Tworzenie aplikacji Power BI](partner-center-portal/create-power-bi-app-offer.md)
+- [Tworzenie oferty SaaS](partner-center-portal/create-new-saas-offer.md)

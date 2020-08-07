@@ -6,13 +6,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: komammas
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 165f688233ef03a390e8e1d5cccf2b2e45218c43
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407461"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853317"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 

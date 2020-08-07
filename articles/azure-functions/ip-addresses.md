@@ -3,12 +3,12 @@ title: Adresy IP w Azure Functions
 description: Dowiedz się, jak znaleźć przychodzące i wychodzące adresy IP dla aplikacji funkcji i co powoduje ich zmianę.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656782"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874082"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresy IP w Azure Functions
 
@@ -49,12 +49,13 @@ Alternatywnym sposobem znalezienia dostępnych wychodzących adresów IP jest u�
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> Gdy aplikacja funkcji uruchamiana w ramach [planu zużycia](functions-scale.md#consumption-plan) jest skalowana, można przypisać nowy zakres wychodzących adresów IP. W przypadku korzystania z planu zużycia może być konieczne dozwolonych całego centrum danych.
+> Gdy aplikacja funkcji uruchamiana w ramach [planu zużycia](functions-scale.md#consumption-plan) jest skalowana, można przypisać nowy zakres wychodzących adresów IP. Po uruchomieniu planu zużycia może być konieczne dodanie całego centrum danych do listy dozwolonych.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Wychodzące adresy IP centrum danych
 
-Jeśli trzeba dozwolonych wychodzące adresy IP używane przez aplikacje funkcji, kolejną opcją jest dozwolonych centrum danych aplikacji funkcji (region platformy Azure). Można [pobrać plik JSON zawierający listę adresów IP dla wszystkich centrów danych platformy Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Następnie Znajdź fragment JSON dotyczący regionu, w którym działa aplikacja funkcji.
+Jeśli musisz dodać wychodzące adresy IP używane przez aplikacje funkcji do listy dozwolonych, inna opcja polega na dodaniu centrum danych aplikacji funkcji (regionu platformy Azure) do listy dozwolonych. Można [pobrać plik JSON zawierający listę adresów IP dla wszystkich centrów danych platformy Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Następnie Znajdź fragment JSON dotyczący regionu, w którym działa aplikacja funkcji.
 
 Na przykład jest to fragment kodu JSON Europa Zachodnia, który może wyglądać następująco:
 

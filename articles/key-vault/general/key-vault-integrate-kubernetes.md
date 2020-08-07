@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921559"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902001"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -71,7 +71,7 @@ Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączen
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId**, **clientId**, identyfikator **subskrypcji**i **nodeResourceGroup** do późniejszego użycia.
+1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId**, **clientId**, identyfikator **subskrypcji**i **nodeResourceGroup** do późniejszego użycia. Jeśli klaster zaproszony nie został utworzony z włączonymi tożsamościami zarządzanymi, **principalId** i **clientId** będą mieć wartość null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ Na poniższej ilustracji przedstawiono dane wyjściowe konsoli dla polecenia **A
 
 ### <a name="assign-a-service-principal"></a>Przypisywanie nazwy głównej usługi
 
-Jeśli używasz nazwy głównej usługi, Udziel uprawnień do uzyskiwania dostępu do magazynu kluczy i Pobierz wpisy tajne. Przypisz rolę *czytelnika* i Udziel uprawnienia nazwy głównej usługi, aby *uzyskać* wpisy tajne z magazynu kluczy, wykonując następujące czynności:
+Jeśli używasz nazwy głównej usługi, Udziel uprawnień do uzyskiwania dostępu do magazynu kluczy i Pobierz wpisy tajne. Przypisz rolę *czytelnika* i przyznaj uprawnienia nazwy głównej usługi, aby *uzyskać* wpisy tajne z magazynu kluczy, wykonując następujące polecenie:
 
 1. Przypisz jednostkę usługi do istniejącego magazynu kluczy. **$AZURE _CLIENT_ID** parametr jest **identyfikatorem AppID** skopiowanym po utworzeniu nazwy głównej usługi.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzonego klastra AKS. 
 
-1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [współautor tożsamości zarządzanej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes.
+1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [operatora tożsamości zarządzanej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes. Zakres będzie objęty usługą subskrypcji platformy Azure, w odniesieniu do grupy zasobów węzła, która została utworzona podczas tworzenia klastra AKS. Ten zakres zapewni, że tylko zasoby w tej grupie mają wpływ role przypisane poniżej. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

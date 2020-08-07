@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072814"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901984"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -74,7 +74,26 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w
 
 Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez zasady konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Wymagania dotyczące sieci rozszerzenia konfiguracji gościa
+## <a name="network-requirements"></a>Wymagania dotyczące sieci
+
+Maszyny wirtualne na platformie Azure mogą używać lokalnej karty sieciowej lub prywatnego linku do komunikowania się z usługą konfiguracji gościa.
+
+Usługa Azure Arc Machines nawiązuje połączenie przy użyciu lokalnej infrastruktury sieciowej w celu uzyskania dostępu do usług platformy Azure i zgłoszenia stanu zgodności.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Komunikacja za pośrednictwem sieci wirtualnych na platformie Azure
+
+Maszyny wirtualne korzystające z sieci wirtualnych do komunikacji będą wymagały dostępu wychodzącego do centrów danych platformy Azure na porcie `443` . Jeśli używasz prywatnej sieci wirtualnej na platformie Azure, która nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami sieciowych grup zabezpieczeń. Tag usługi "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
+
+### <a name="communicate-over-private-link-in-azure"></a>Komunikacja za pośrednictwem prywatnego linku na platformie Azure
+
+Maszyny wirtualne mogą używać [prywatnego linku](../../../private-link/private-link-overview.md) do komunikacji z usługą konfiguracji gościa. Zastosuj tag o nazwie `EnablePrivateNeworkGC` i wartości, `TRUE` Aby włączyć tę funkcję. Tag można zastosować przed lub po zastosowaniu zasad konfiguracji gościa na komputerze.
+
+Ruch jest kierowany przy użyciu [wirtualnego adresu IP](../../../virtual-network/what-is-ip-address-168-63-129-16.md) platformy Azure w celu nawiązania bezpiecznego, uwierzytelnionego kanału z zasobami platformy Azure.
+
+### <a name="azure-arc-connected-machines"></a>Maszyny połączone z usługą Azure Arc
+
+Węzły zlokalizowane poza platformą Azure, które są połączone za pomocą usługi Azure ARC, wymagają łączności z usługą konfiguracji gościa.
+Szczegółowe informacje o wymaganiach dotyczących sieci i serwera proxy dostępne w [dokumentacji usługi Azure Arc](../../../azure-arc/servers/overview.md).
 
 Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
 

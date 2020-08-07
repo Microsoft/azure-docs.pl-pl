@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797898"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904518"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -56,12 +56,12 @@ Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji pl
 
 [Tworzenie szablonów rozwiązań wideo i aplikacji zarządzanych dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) zapewnia kompleksowe wprowadzenie do typu oferty aplikacji platformy Azure:
 
-* Jakie typy ofert są dostępne;
-* Jakie zasoby techniczne są wymagane;
-* Jak utworzyć szablon Azure Resource Manager;
-* Tworzenie i testowanie interfejsu użytkownika aplikacji;
-* Jak opublikować ofertę aplikacji;
-* Proces przeglądu aplikacji.
+* Jakie typy ofert są dostępne
+* Jakie zasoby techniczne są wymagane
+* Jak utworzyć szablon Azure Resource Manager
+* Opracowywanie i testowanie interfejsu użytkownika aplikacji
+* Jak opublikować ofertę aplikacji
+* Proces przeglądu aplikacji
 
 ### <a name="suggested-tools"></a>Sugerowane narzędzia
 
@@ -247,15 +247,14 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
-
-Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+Podaj pliki PNG logo oferty w następujących trzech rozmiarach:
 
 - **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duże** (od 216 x 216 do 350 x 350)
+- **Duże** (216 x 216)
+- **Szeroki** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Wszystkie trzy logo są wymagane i są używane w różnych miejscach na liście.
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
@@ -283,7 +282,7 @@ Odbiorca w wersji zapoznawczej jest identyfikowany przez identyfikatory GUID sub
 Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure — pojedynczo (do 10) lub przekazując plik CSV (do 100). Dodając te identyfikatory subskrypcji, można zdefiniować, kto może wyświetlać podgląd oferty przed opublikowaniem jej na żywo. Jeśli Twoja oferta jest już aktywna, możesz nadal zdefiniować odbiorcę w wersji zapoznawczej w celu przetestowania zmian lub aktualizacji oferty.
 
 > [!NOTE]
-> Odbiorca w wersji zapoznawczej różni się od odbiorców prywatnych. Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo na rynku. Mogą oni wyświetlać i sprawdzać wszystkie plany, w tym te, które będą dostępne tylko dla odbiorców prywatnych po opublikowaniu oferty w portalu Marketplace. Prywatni odbiorcy (zdefiniowani na karcie **ceny i dostępność** ) mają wyłączny dostęp do konkretnego planu.
+> Odbiorca w wersji zapoznawczej różni się od odbiorców prywatnych. Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty *przed* opublikowaniem jej na żywo na rynku. Mogą oni wyświetlać i sprawdzać wszystkie plany, w tym te, które będą dostępne tylko dla odbiorców prywatnych po opublikowaniu oferty w portalu Marketplace. Prywatni odbiorcy (zdefiniowani na karcie **ceny i dostępność** ) mają wyłączny dostęp do konkretnego planu.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -335,7 +334,7 @@ Wybierz typ planu dla oferty. Plan **szablonu rozwiązania** jest zarządzany ca
 
 #### <a name="re-use-technical-configuration"></a>Ponowne używanie konfiguracji technicznej
 
-Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie używa pakietów z innego planu**.  Po wybraniu tej opcji będziesz mieć możliwość wybrania jednego z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów z programu. 
+Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie używa pakietów z innego planu**.  Po wybraniu tej opcji będziesz mieć możliwość wybrania jednego z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów z programu.
 
 >[!Note]
 >Po ponownym użyciu pakietów z innego planu cała karta konfiguracja techniczna zostanie usunięta z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje wprowadzone w przyszłości, zostaną użyte również dla tego planu.<br><br>Tego ustawienia nie można zmienić po opublikowaniu tego planu.
@@ -416,9 +415,9 @@ Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz 
 
 Podaj cenę za miesiąc dla tego planu.  Ta cena jest uzupełnieniem usługi Azure Infrastructure lub kosztów związanych z płatność zgodnie z rzeczywistym użyciem w przypadku zasobów wdrożonych w ramach tego rozwiązania.
 
-Oprócz ceny za miesiąc można także ustawić ceny za użycie jednostek niestandardowych przy użyciu [rozliczeń naliczanych](./azure-app-metered-billing.md).  Cena za miesiąc można ustawić na zero, a opłaty za korzystanie wyłącznie z naliczanych opłat. 
+Oprócz ceny za miesiąc można także ustawić ceny za użycie jednostek niestandardowych przy użyciu [rozliczeń naliczanych](./azure-app-metered-billing.md).  Cena za miesiąc można ustawić na zero, a opłaty za korzystanie wyłącznie z naliczanych opłat.
 
-Ceny ustawione w USD (USD = Stany Zjednoczone dolara) są konwertowane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany przy zapisywaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny z cennikiem i sprawdzając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na indywidualnym rynku, zmodyfikuj i zaimportuj arkusz cen. 
+Ceny ustawione w USD (USD = Stany Zjednoczone dolara) są konwertowane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany przy zapisywaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny z cennikiem i sprawdzając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na indywidualnym rynku, zmodyfikuj i zaimportuj arkusz cen.
 
 >[!Note]
 >Najpierw musisz zapisać zmiany cen, aby włączyć eksportowanie danych cen.
@@ -442,8 +441,7 @@ W przypadku wybrania planu jako prywatnego wprowadź **Identyfikator subskrypcji
 >[!Note]
 >Oferty prywatne nie są obsługiwane w przypadku subskrypcji platformy Azure ustanowionych przez odsprzedawcę programu dostawcy rozwiązań w chmurze (CSP).
 
-
-### <a name="technical-configuration"></a>Konfiguracja techniczna 
+### <a name="technical-configuration"></a>Konfiguracja techniczna
 
 Na tej karcie można przekazać pakiet wdrożeniowy, który umożliwi klientom wdrożenie planu.
 
@@ -501,15 +499,15 @@ Określ punkt końcowy elementu webhook HTTPS, aby otrzymywać powiadomienia o w
 
 #### <a name="customize-allowed-customer-actions"></a>Dostosuj dozwolone akcje klienta
 
-Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji " `*/read` ", które są dostępne domyślnie. 
+Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji " `*/read` ", które są dostępne domyślnie.
 
-Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](../../role-based-access-control/deny-assignments.md).  Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
+Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](../../role-based-access-control/deny-assignments.md). Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalna Chmura platformy Azure/Azure Government
 
-Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiwanej chmurze. Użytkownicy, grupy lub aplikacje, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów, są identyfikowane przy użyciu tożsamości usługi Azure Active Directory (AAD).
+Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiwanej chmurze. Użytkownicy, grupy lub aplikacje, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów, są identyfikowane przy użyciu tożsamości Azure Active Directory (AD).
 
-**Azure Active Directory identyfikator dzierżawy** — identyfikator dzierżawy usługi AAD (znany również jako identyfikator katalogu) zawierający tożsamości użytkowników, grup lub aplikacji, do których chcesz udzielić uprawnień. Identyfikator dzierżawy usługi AAD można znaleźć na Azure Portal w obszarze [właściwości Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+**Azure Active Directory identyfikator dzierżawy** — identyfikator dzierżawy usługi Azure AD (znany również jako identyfikator katalogu) zawierający tożsamości użytkowników, grup lub aplikacji, do których chcesz udzielić uprawnień. Identyfikator dzierżawy usługi Azure AD można znaleźć na Azure Portal w obszarze [właściwości Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 **Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -581,7 +579,7 @@ Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj
 Przejrzyj stan ukończenia dla każdej sekcji oferty.
     - *Nie uruchomiono* — oznacza, że sekcja nie została dotknięcia i należy ją ukończyć.
     - *Niekompletne* — oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
-    - *Gotowe* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
+    - *Zakończone* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 
 Jeśli ta oferta jest publikowana po raz pierwszy, możesz dostarczyć instrukcje dotyczące testowania do zespołu certyfikacji, aby upewnić się, że aplikacja zostanie prawidłowo przetestowana, a także dowolnych dodatkowych notatek przydatnych w zrozumieniu aplikacji.
 

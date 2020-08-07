@@ -45,9 +45,9 @@
     - name: 13 — Zarządzanie zabezpieczeniami maszyn wirtualnych
       href: tutorial-azure-security.md
     - name: 14a — Kompilowanie za pomocą usługi Jenkins
-      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 14b — Integrowanie rozwiązania Jenkins z usługą Azure DevOps
-      href: ../../jenkins/tutorial-build-deploy-jenkins.md
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
     - name: 15a — Konfigurowanie strategii wdrażania stopniowego
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b — Konfigurowanie strategii wdrażania kanarkowego
@@ -190,7 +190,7 @@
     - name: Typy i rozmiary maszyn wirtualnych
       items:
         - name: Rozmiary maszyn wirtualnych
-          href: sizes.md
+          href: ../sizes.md
         - name: Maszyny wirtualne generacji 2
           href: generation-2.md
         - name: Zastosowania ogólne
@@ -806,13 +806,13 @@
                 - name: Omówienie włączania monitorowania
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Włączanie obsługi pojedynczej maszyny wirtualnej platformy Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Włączanie obsługi usługi Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Włączanie obsługi programu Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Włączanie obsługi środowiska hybrydowego
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Mapowanie zależności
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Monitorowanie wydajności
@@ -850,11 +850,11 @@
         - name: Ansible
           items:
             - name: Instalowanie i konfigurowanie
-              href: ansible-install-configure.md
+              href: /azure/developer/ansible/install-on-linux-vm
             - name: Tworzenie maszyny wirtualnej z systemem Linux
-              href: ansible-create-vm.md
+              href: /azure/developer/ansible/vm-configure
             - name: Zarządzanie maszyną wirtualną z systemem Linux
-              href: ansible-manage-linux-vm.md
+              href: /azure/developer/ansible/vm-manage
         - name: Terraform
           items:
             - name: Instalowanie i konfigurowanie

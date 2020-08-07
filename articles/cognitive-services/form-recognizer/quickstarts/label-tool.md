@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141895"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903480"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -26,7 +26,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
-- Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage.
+- Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -43,7 +43,7 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
 
    Komputer hosta musi spełniać następujące wymagania sprzętowe:
 
-    | Kontener | Minimalne | Zalecane|
+    | Kontener | Minimum | Zalecane|
     |:--|:--|:--|
     |Przykładowe narzędzie do etykietowania|2 rdzeń, 4 GB pamięci|4 rdzenie, 8 GB pamięci|
 
@@ -61,7 +61,7 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do witryny `http://localhost:3000`.
+   To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do adresu `http://localhost:3000`.
 
 > [!NOTE]
 > Możesz także oznaczyć dokumenty i pouczenie modeli przy użyciu interfejsu API REST aparatu rozpoznawania formularzy. Aby nauczyć się i analizować za pomocą interfejsu API REST, zobacz [uczenie się z etykietami przy użyciu interfejsu API REST i języka Python](./python-labeled-data.md).
@@ -133,7 +133,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
    1. Kliknij **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
    1. Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij i przeciągnij, aby wybrać jedno lub wiele wyrazów z wyróżnionych elementów tekstowych.
+1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych.
 1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
     > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.
@@ -170,7 +170,7 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 > [!NOTE]
 > Zobacz te reguły formatowania dat:
 > 
-> Jako ograniczników dat DMY można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Przykład:
+> Jako ograniczników dat DMY można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Na przykład:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -192,7 +192,7 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 
 Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkolenia. Następnie kliknij przycisk **uczenie** , aby rozpocząć uczenie modelu. Po zakończeniu procesu szkolenia zostaną wyświetlone następujące informacje:
 
-* **Identyfikator modelu** — Identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkoleniowe tworzy nowy model z własnym IDENTYFIKATORem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będzie ona potrzebna, jeśli chcesz wykonywać wywołania prognoz za pomocą interfejsu API REST.
+* **Identyfikator modelu** — Identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkoleniowe tworzy nowy model z własnym IDENTYFIKATORem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będzie ona potrzebna, jeśli chcesz wykonywać wywołania prognoz za pomocą [interfejsu API REST](./curl-train-extract.md) lub [biblioteki klienckiej](./client-library.md).
 * **Średnia dokładność** — średnia dokładność modelu. Możesz poprawić dokładność modelu przez etykietowanie dodatkowych formularzy i szkoleń, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy zgodnie z wymaganiami.
 * Lista tagów i Szacowana dokładność na tag.
 

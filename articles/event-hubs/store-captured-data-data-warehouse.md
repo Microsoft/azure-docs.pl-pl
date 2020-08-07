@@ -4,12 +4,12 @@ description: 'Samouczek: w tym samouczku pokazano, jak przechwytywać dane z cen
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1a7030014a8926b1db11ad99ba031e51194ddfd9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039501"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833729"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do SQL Data Warehouse przy użyciu Event Grid i Azure Functions
 
@@ -142,7 +142,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
 
    ![Dodawanie subskrypcji](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz pozycję **Utwórz**.
+1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz przycisk **Utwórz**.
 
    ![Tworzenie subskrypcji](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
@@ -178,4 +178,4 @@ Po kilku minutach wyślij zapytanie do tabeli w magazynie danych SQL. Zauważysz
 ## <a name="next-steps"></a>Następne kroki 
 Aby uzyskać praktyczne informacje, możesz użyć zaawansowanych narzędzi do wizualizacji danych w magazynie danych.
 
-W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
+W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

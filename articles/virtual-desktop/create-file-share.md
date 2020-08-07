@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027396"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842913"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -39,7 +39,7 @@ Aby skonfigurować konto magazynu:
 
 4. Wprowadź następujące informacje na stronie **Tworzenie konta magazynu** :
 
-    - Utwórz nową grupę zasobów.
+    - Tworzenie nowej grupy zasobów
     - Wprowadź unikatową nazwę konta magazynu.
     - W przypadku **lokalizacji**zalecamy wybranie tej samej lokalizacji co Pula hostów pulpitów wirtualnych systemu Windows.
     - W obszarze **Wydajność** wybierz opcję **Standardowa**. (W zależności od wymagań IOPS. Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla kontenerów profilów FSLogix na pulpicie wirtualnym systemu Windows](store-fslogix-profile.md).
@@ -62,7 +62,7 @@ Aby utworzyć udział plików:
 
 3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 ## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
@@ -181,7 +181,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      - Zastąp <literę dysku zainstalowana> literą dysku użytego do zmapowania dysku.
      - Zastąp <User-e-mail> nazwą UPN grupy użytkowników lub Active Directory zawierającą użytkowników, którzy będą potrzebować dostępu do udziału.
 
-     Przykład:
+     Na przykład:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -189,8 +189,6 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Wybierz przycisk **Zastosuj**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurowanie FSLogix na maszynach wirtualnych hosta sesji
 

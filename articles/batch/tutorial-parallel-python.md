@@ -4,13 +4,13 @@ description: Samouczek — Równoległe przetwarzanie plików multimedialnych pr
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 1d9f84d90c8c06cd00999b0764419fdb1c4cbe95
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853334"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API Python
 
@@ -206,7 +206,7 @@ job = batch.models.JobAddParameter(
 batch_service_client.job.add(job)
 ```
 
-### <a name="create-tasks"></a>Tworzenie zadań podrzędnych
+### <a name="create-tasks"></a>Tworzenie zadań
 
 Aplikacja tworzy zadania podrzędne w ramach zadania przy użyciu wywołania funkcji `add_tasks`. Ta zdefiniowana funkcja tworzy listę obiektów zadań podrzędnych przy użyciu klasy [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Każde zadanie podrzędne uruchamia narzędzie ffmpeg w celu przetworzenia wejściowego obiektu `resource_files` za pomocą parametru `command_line`. Narzędzie ffmpeg zostało już zainstalowane na wszystkich węzłach podczas tworzenia puli. Tutaj wiersz polecenia jest używany do uruchomienia narzędzia ffmpeg w celu przekonwertowania każdego z plików wejściowych w formacie MP4 (wideo) na format MP3 (audio).
 
@@ -260,7 +260,7 @@ while datetime.datetime.now() < timeout_expiration:
 ...
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po wykonaniu zadań podrzędnych aplikacja automatycznie usuwa utworzony wejściowy kontener magazynu, a opcjonalnie także pulę i zadanie usługi Batch. Dla obu klas [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) i [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) klienta BatchClient istnieją metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie. Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wejściowe i wyjściowe pozostają jednak na koncie magazynu.
 

@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874065"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dzienników w Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
 
 > [!NOTE]
-> Można to zrobić w Twoim środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, użyj naszego [środowiska demonstracyjnego](https://portal.loganalytics.io/demo), co obejmuje wiele przykładowych danych.  Jeśli wiesz już, jak wykonywać zapytania w usłudze KQL, ale wystarczy szybko utworzyć przydatne zapytania w oparciu o typy zasobów, zobacz [okienko zapisane przykładowe zapytania](saved-queries.md).
+> Można to zrobić w Twoim środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, użyj naszego [środowiska demonstracyjnego](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), co obejmuje wiele przykładowych danych.  Jeśli wiesz już, jak wykonywać zapytania w usłudze KQL, ale wystarczy szybko utworzyć przydatne zapytania w oparciu o typy zasobów, zobacz [okienko zapisane przykładowe zapytania](saved-queries.md).
 
 W tym samouczku dowiesz się, jak pisać zapytania dzienników w Azure Monitor. Pouczysz się, jak:
 
@@ -111,8 +111,8 @@ Podczas pisania warunków filtrowania można użyć następujących wyrażeń:
 |:---|:---|:---|
 | == | Sprawdź równość<br>(z uwzględnieniem wielkości liter) | `Level == 8` |
 | =~ | Sprawdź równość<br>(bez uwzględniania wielkości liter) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =,  <> | Sprawdzanie nierówności<br>(oba wyrażenia są identyczne) | `Level != 4` |
-| *i* *lub* | Wymagane między warunkami| `Level == 16 or CommandLine != ""` |
+| !=, <> | Sprawdzanie nierówności<br>(oba wyrażenia są identyczne) | `Level != 4` |
+| *oraz*, *lub* | Wymagane między warunkami| `Level == 16 or CommandLine != ""` |
 
 Aby filtrować według wielu warunków, można użyć **i**:
 

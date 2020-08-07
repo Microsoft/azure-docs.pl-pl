@@ -7,14 +7,14 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 89ac56655b7f844689fa3d948141ad0190da02b4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 8912d8786ec746d11c8afaef838085744a5b69be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406042"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876346"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk"></a>Szybki Start: Tworzenie projektu klasyfikacji obrazów przy użyciu zestawu SDK Custom Vision
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68988206"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873419"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Co to jest funkcja monitorowania usługi Azure Active Directory?
 
@@ -33,6 +33,8 @@ Obecnie dzienniki można przekierowywać do następujących lokalizacji:
 - Konto usługi Azure Storage.
 - Centrum zdarzeń platformy Azure, aby możliwe było zintegrowanie z wystąpieniami usług Splunk i Sumologic.
 - Obszar roboczy usługi Azure Log Analytics, w którym można przeanalizować dane oraz utworzyć pulpit nawigacyjny i alert dla określonych zdarzeń
+
+**Rola wymagana wstępnie**: Administrator globalny
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 

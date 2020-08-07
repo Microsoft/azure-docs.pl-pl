@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie domeny niestandardowej | Microsoft Docs
-description: Przykładowy skrypt programu Azure PowerShell — konfigurowanie domeny niestandardowej
+description: Dowiedz się, jak skonfigurować domenę niestandardową na serwerze proxy lub punkty końcowe portalu usługi API Management. Zobacz przykładowe skrypty i Wyświetl dodatkowe dostępne zasoby.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: fedeb9fd1b2dd3bd47f3d950d506e2b2854bfd82
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16da7891b5321006708dc59ec8d482754beb7d9e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008792"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853282"
 ---
 # <a name="set-up-custom-domain"></a>Konfigurowanie domeny niestandardowej
 
@@ -33,7 +33,7 @@ Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten 
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-custom-domain/setup_custom_domain.ps1 "Set up custom domain")]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do magazynu obiektów BLOB (Object)
 titleSuffix: Azure Storage
-description: Magazyn obiektów Blob Azure przechowuje olbrzymie ilości danych obiektów niestrukturalnych, takich jak dane tekstowe lub binarne. Magazyn obiektów Blob Azure jest wysoce skalowalny i dostępny. Klienci mają dostęp do obiektów danych w magazynie obiektów Blob za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure, w sposób programistyczny za pomocą bibliotek klienta magazynu Azure lub przy użyciu interfejsu REST.
+description: Usługa Azure Blob Storage umożliwia przechowywanie dużych ilości danych obiektów bez struktury, takich jak dane tekstowe lub binarne. Magazyn obiektów Blob Azure jest wysoce skalowalny i dostępny.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0d05e85a06ae1e893d5d7faa7e5389da78ad6389
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 55059f4edea19a1e559ea1ad99d9e7e60756cc96
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85559533"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836381"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Wprowadzenie do usługi Azure Blob Storage
 
@@ -44,7 +44,7 @@ http://mystorageaccount.blob.core.windows.net
 
 Aby utworzyć konto magazynu, zobacz temat [Tworzenie konta magazynu](../common/storage-account-create.md). Aby dowiedzieć się więcej o kontach magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="containers"></a>Kontenery
+### <a name="containers"></a>Containers
 
 Kontener porządkuje zestaw obiektów blob, pełniąc funkcję podobną do katalogu w systemie plików. Konto magazynu może zawierać nieograniczoną liczbę kontenerów, a każdy kontener może zawierać nieograniczoną liczbę obiektów blob.
 

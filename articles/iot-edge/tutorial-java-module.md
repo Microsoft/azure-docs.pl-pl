@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 86c2bc86a4eeea8b04c4f22c20edade2eac2a811
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439034"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829989"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
 
@@ -62,7 +62,7 @@ Aby utworzyć moduł IoT Edge w języku Java, Zainstaluj następujące dodatkowe
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
-   >Zmienne środowiskowe dla języka Java i Maven zostaną dodane podczas ich procesów instalacji. Konieczne będzie ponowne uruchomienie wszystkich wystąpień Visual Studio Code terminalu, programu PowerShell lub wiersza polecenia, które zostały otwarte podczas dodawania tych zmiennych środowiskowych. Zapewni to, że polecenia Java i Maven są rozpoznawane przez te narzędzia do przodu.
+   >Procesy instalacji języka Java i Maven dodają zmienne środowiskowe do systemu. Po zakończeniu instalacji uruchom ponownie wszystkie otwarte Visual Studio Code Terminal, PowerShell lub wiersza polecenia. Ten krok zapewnia, że te narzędzia mogą rozpoznać polecenia języka Java i Maven, które przechodzą do przodu.
 
 ## <a name="create-a-module-project"></a>Tworzenie projektu modułu
 

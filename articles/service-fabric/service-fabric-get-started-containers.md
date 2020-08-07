@@ -3,13 +3,13 @@ title: Tworzenie aplikacji kontenera Service Fabric platformy Azure
 description: Utwórz pierwszą aplikację kontenera systemu Windows w usłudze Azure Service Fabric. Tworzenie obrazu platformy Docker za pomocą aplikacji w języku Python, wypchnięcie obrazu do rejestru kontenerów, a następnie skompilowanie i wdrożenie kontenera na platformie Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.custom: tracking-python
-ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247408"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844443"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 
@@ -127,7 +127,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 Przed wypchnięciem obrazu do rejestru kontenerów należy lokalnie sprawdzić jego działanie. 
 
 Uruchom aplikację:

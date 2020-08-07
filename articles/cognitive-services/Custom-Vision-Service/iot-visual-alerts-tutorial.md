@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: d94f557ddd946d20020825e2bbb6babbd67d3af3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5016191bb4f647c0bbfa71144bb4b4b554b080f4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734335"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834341"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: używanie Custom Vision z urządzeniem IoT do zgłaszania Stanów wizualnych
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby uzyskać dostęp do aplikacji alertów wizualny
     1. W skrypcie _IoTHub\IotHubWrapper.cs_ zaktualizuj `s_connectionString` zmienną o prawidłowe parametry połączenia dla Twojego urządzenia. 
     1. Na Azure Portal Załaduj wystąpienie IoT Hub, kliknij pozycję **urządzenia IoT** w obszarze **Explorer**, wybierz urządzenie docelowe (lub utwórz je w razie konieczności) i Znajdź parametry połączenia w obszarze **podstawowe parametry połączenia**. Ciąg będzie zawierać nazwę IoT Hub, identyfikator urządzenia i klucz dostępu współdzielonego. ma następujący format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Jeśli aplikacja jest uruchamiana na komputerze, wybierz pozycję **komputer lokalny** dla urządzenia docelowego w programie Visual Studio, a następnie wybierz opcję **x64** lub **x86** dla platformy docelowej. Naciśnij klawisz F5, aby uruchomić program. Aplikacja powinna uruchomić i wyświetlić kanał informacyjny na żywo z aparatu i komunikatu o stanie.
 
@@ -128,7 +128,7 @@ W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych
 
 Jeśli aplikacja jest uruchamiana na urządzeniu i należy ponownie pobrać adres IP (w celu nawiązania połączenia zdalnego za pomocą [zdalnego klienta usługi Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)), można wywołać `GetIpAddress` metodę za pomocą IoT Hub.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Usuń projekt Custom Vision, jeśli nie chcesz już go obsługiwać. W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz, który można obsłużyć w nowym projekcie.
 

@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1ae627a7ee1a7e2a704cc17cc8ec9ccc9846c109
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119603"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829309"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Tworzenie użytkowników w Azure Database for PostgreSQL — pojedynczy serwer
 
 W tym artykule opisano, jak można tworzyć użytkowników w ramach serwera Azure Database for PostgreSQL.
 
-Jeśli chcesz dowiedzieć się, jak tworzyć użytkowników subskrypcji platformy Azure i zarządzać nimi, możesz odwiedzić [artykuł kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/built-in-roles.md) lub zapoznać [się z tematem jak dostosować role](../role-based-access-control/custom-roles.md).
+Jeśli chcesz dowiedzieć się, jak tworzyć użytkowników subskrypcji platformy Azure i zarządzać nimi, możesz odwiedzić [artykuł kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/built-in-roles.md) lub zapoznać [się z tematem jak dostosować role](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Konto administratora serwera
 
@@ -70,7 +70,7 @@ Przy użyciu konta administratora serwera można utworzyć dodatkowych użytkown
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. Korzystając z konta administratora, może być konieczne przyznanie dodatkowych uprawnień do zabezpieczania obiektów w bazie danych. Więcej informacji na temat ról i uprawnień bazy danych znajduje się w [dokumentacji PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Przykład:
+4. Korzystając z konta administratora, może być konieczne przyznanie dodatkowych uprawnień do zabezpieczania obiektów w bazie danych. Więcej informacji na temat ról i uprawnień bazy danych znajduje się w [dokumentacji PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Na przykład:
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

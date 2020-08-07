@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323026"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832760"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -156,7 +156,7 @@ Grupa zasobów platformy Azure to kontener, który zawiera powiązane zasoby dla
 
 Szablon Azure Resource Manager to plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablony Menedżer zasobów zostały omówione bardziej szczegółowo w dalszej części tego przewodnika.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 Oprócz tworzenia i usuwania zasobów oraz zarządzania nimi przy użyciu Azure Portal można zautomatyzować te działania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -178,7 +178,7 @@ Administratorzy mogą uzyskać dostęp do Azure PowerShell i interfejsu wiersza 
 
 ## <a name="azure-subscriptions"></a>Subskrypcje platformy Azure
 
-Subskrypcja to logiczna Grupa usług platformy Azure, która jest połączona z kontem platformy Azure. Pojedyncze konto platformy Azure może zawierać wiele subskrypcji. Rozliczanie usług platformy Azure odbywa się na podstawie subskrypcji. Subskrypcje platformy Azure mają administratora konta, który ma pełną kontrolę nad subskrypcją, oraz administratora usługi, który ma kontrolę nad wszystkimi usługami w ramach subskrypcji. Aby uzyskać informacje na temat klasycznych administratorów subskrypcji, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Oprócz administratorów do poszczególnych kont można udzielić szczegółowej kontroli nad zasobami platformy Azure przy użyciu [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md).
+Subskrypcja to logiczna Grupa usług platformy Azure, która jest połączona z kontem platformy Azure. Pojedyncze konto platformy Azure może zawierać wiele subskrypcji. Rozliczanie usług platformy Azure odbywa się na podstawie subskrypcji. Subskrypcje platformy Azure mają administratora konta, który ma pełną kontrolę nad subskrypcją, oraz administratora usługi, który ma kontrolę nad wszystkimi usługami w ramach subskrypcji. Aby uzyskać informacje na temat klasycznych administratorów subskrypcji, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Oprócz administratorów do poszczególnych kont można udzielić szczegółowej kontroli nad zasobami platformy Azure przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Wybieranie i włączanie subskrypcji platformy Azure
 
@@ -388,7 +388,7 @@ Ponieważ udział magazynu plików jest standardowym udziałem plików SMB, apli
 
 Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../../storage/files/storage-how-to-use-files-windows.md) lub [jak korzystać z usługi Azure File Storage z systemem Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
-#### <a name="table-storage"></a>Table Storage
+#### <a name="table-storage"></a>Magazyn tabel
 
 Magazyn tabel Azure to usługa, która przechowuje dane strukturalne NoSQL w chmurze. Magazyn tabel jest magazynem kluczy/atrybutów z projektem bez schematu. Ponieważ magazyn tabel jest mniejszy od schematu, można łatwo dostosować dane w miarę rozwoju aplikacji. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji. Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 
