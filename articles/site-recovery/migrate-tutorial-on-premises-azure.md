@@ -1,18 +1,17 @@
 ---
-title: Migrowanie maszyn lokalnych przy użyciu Azure Site Recovery
-description: W tym artykule opisano sposób migrowania maszyn lokalnych na platformę Azure przy użyciu usługi Azure Site Recovery.
-author: rayne-wiselman
+title: Migrowanie maszyn lokalnych przy użyciu Azure Migrate
+description: W tym artykule opisano sposób migrowania maszyn lokalnych na platformę Azure i zaleca się Azure Migrate.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
-ms.openlocfilehash: 3c421845d4e15ef13ce98d0de111270159f564fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285360"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847316"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrowanie maszyn lokalnych do platformy Azure
 
@@ -20,7 +19,7 @@ W tym artykule opisano opcje migrowania maszyn lokalnych na platformę Azure.
 
 ## <a name="migrate-with-azure-migrate"></a>Migrowanie z Azure Migrate
 
-Zalecamy Migrowanie maszyn na platformę Azure przy użyciu usługi [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate udostępnia scentralizowany centrum do oceny i migracji maszyn lokalnych na platformę Azure przy użyciu Azure Migrate, innych usług platformy Azure i narzędzi innych firm.
+Zalecamy Migrowanie maszyn na platformę Azure przy użyciu usługi [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate jest przeznaczony dla migracji serwera. Azure Migrate udostępnia scentralizowany centrum do odnajdywania, oceniania i migracji maszyn lokalnych na platformę Azure.
 
 Wykonaj następujące linki, aby przeprowadzić migrację za pomocą Azure Migrate:
 

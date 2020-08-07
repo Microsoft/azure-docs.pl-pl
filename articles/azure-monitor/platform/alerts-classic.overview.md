@@ -4,17 +4,17 @@ description: Alerty klasyczne są przestarzałe. Alerty umożliwiają monitorowa
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 56dd601e8d961d65ec21eefcc2dd5fed5c75f9fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322367"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844117"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>What are classic alerts in Microsoft Azure? (Czym są alerty klasyczne na platformie Microsoft Azure?)
 
 > [!NOTE]
-> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. 
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów.
 >
 
 Alerty umożliwiają konfigurowanie warunków dla danych i otrzymywanie powiadomień, gdy warunki są zgodne z najnowszymi danymi monitorowania.

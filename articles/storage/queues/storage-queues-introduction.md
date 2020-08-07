@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do kolejek platformy Azure — Azure Storage
-description: Wprowadzenie do kolejek platformy Azure
+description: Zobacz Wprowadzenie do kolejek platformy Azure — usługi do przechowywania dużej liczby komunikatów. Usługa kolejki zawiera format adresu URL, konto magazynu, kolejkę i komunikat.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/18/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: 678ab8a3f3dace17671c242939c20cb5499b2e39
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805125"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826504"
 ---
 # <a name="what-are-azure-queues"></a>Czym są kolejki platformy Azure?
 

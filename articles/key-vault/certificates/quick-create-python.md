@@ -7,13 +7,13 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: abbe07d96daf5848d01cd1f4943d4969fe1e59d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 86ce2b95cce82bd6d6877f83c3bc0b0496804c83
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043724"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875340"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Szybki Start: Biblioteka klienta Azure Key Vault Certificates dla języka Python
 
@@ -187,7 +187,7 @@ Możesz sprawdzić, czy certyfikat został usunięty za pomocą polecenia [AZ we
 az keyvault certifcate show --vault-name <your-unique-keyvault-name> --name myCertificate
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

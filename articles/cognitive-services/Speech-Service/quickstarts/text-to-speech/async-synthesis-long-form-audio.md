@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.custom: tracking-python
-ms.openlocfilehash: 95959ceceb9ebcc0b9ec2b4613e6ffd086f9c11e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 330bd3593ea10e4a4a03e430025b8acf1f7ab21a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609220"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875391"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Szybki Start: synteza asynchroniczna dla długich form audio w języku Python (wersja zapoznawcza)
 
@@ -78,7 +78,7 @@ if args.voices:
         print ("Name: %s, Description: %s, Id: %s, Locale: %s, Gender: %s, PublicVoice: %s, Created: %s" % (voice['name'], voice['description'], voice['id'], voice['locale'], voice['gender'], voice['isPublicVoice'], voice['created']))
 ```
 
-### <a name="test-your-code"></a>testowanie kodu
+### <a name="test-your-code"></a>Testowanie kodu
 
 Przetestujmy to, co zostało zrobione dotąd. Musisz zaktualizować kilka elementów w żądaniu poniżej:
 
@@ -172,7 +172,7 @@ if args.submit:
         time.sleep(10)
 ```
 
-### <a name="test-your-code"></a>testowanie kodu
+### <a name="test-your-code"></a>Testowanie kodu
 
 Utwórzmy żądanie syntezy tekstu przy użyciu pliku wejściowego jako źródła. Musisz zaktualizować kilka elementów w żądaniu poniżej:
 
@@ -248,7 +248,7 @@ if args.delete:
     deleteSynthesis(args.synthesisId)
 ```
 
-### <a name="test-your-code"></a>testowanie kodu
+### <a name="test-your-code"></a>Testowanie kodu
 
 Teraz sprawdźmy, czy żądania zostały wcześniej przesłane. Przed kontynuowaniem należy zaktualizować kilka rzeczy w ramach tego żądania:
 

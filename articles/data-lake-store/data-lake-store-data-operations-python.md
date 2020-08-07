@@ -7,13 +7,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: tracking-python
-ms.openlocfilehash: b6c5abe6dc267795fc2fc4c5e3371a93414e21b9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-python
+ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985106"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872246"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje systemu plików na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ pip install azure-datalake-store
 
 3. Zapisz zmiany w aplikacji mysample.py.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 W tej sekcji omówione zostaną różne sposoby uwierzytelniania w usłudze Azure AD. Dostępne opcje:
 

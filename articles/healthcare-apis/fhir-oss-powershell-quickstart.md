@@ -2,18 +2,18 @@
 title: 'PowerShell: Wdrażanie serwera FHIR na platformie Azure — Azure API for FHIR'
 description: Ten przewodnik Szybki Start wyjaśnia, jak wdrożyć serwer Microsoft Open Source FHIR przy użyciu programu PowerShell.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: f959b884f67f354599b99bb6dd24918b28d13382
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: matjazl
+ms.openlocfilehash: c133a309cc85ffcfb69be2ae7bbb614cbb540f2e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "84820180"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847146"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-powershell"></a>Szybki Start: Wdrażanie serwera FHIR Open Source przy użyciu programu PowerShell
 
@@ -52,7 +52,7 @@ $metadata.RawContent
 
 Potrwa to chwilę, zanim serwer zacznie reagować po raz pierwszy.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń grupę zasobów, wykonując następujące czynności:
 

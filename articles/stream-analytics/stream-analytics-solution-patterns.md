@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999300"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903327"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
 
@@ -86,17 +86,12 @@ W przypadku zaawansowanych użytkowników, którzy chcą włączyć szkolenie on
 
 ![Aplikacja Machine Learning ASA](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## <a name="near-real-time-data-warehousing"></a>Magazynowanie danych niemal w czasie rzeczywistym
+## <a name="real-time-data-warehousing"></a>Magazynowanie danych w czasie rzeczywistym
 
-Innym typowym wzorcem jest magazynowanie danych w czasie rzeczywistym, nazywane również magazynem danych przesyłania strumieniowego. Oprócz zdarzeń, które docierają do Event Hubs i IoT Hub z aplikacji, [Azure Stream Analytics działające na IoT Edge](stream-analytics-edge.md) mogą służyć do zaspokojenia czyszczenia danych, zmniejszenia danych i przechowywania danych oraz potrzeby przesyłania dalej. Stream Analytics uruchomione na IoT Edge mogą bezpiecznie obsługiwać ograniczenia przepustowości i problemy z łącznością w systemie. Karta wyjściowa SQL może służyć do wyprowadzania danych do SQL Data Warehouse; Maksymalna przepływność jest jednak ograniczona do 10 MB/s.
+Innym typowym wzorcem jest magazynowanie danych w czasie rzeczywistym, nazywane również magazynem danych przesyłania strumieniowego. Oprócz zdarzeń, które docierają do Event Hubs i IoT Hub z aplikacji, [Azure Stream Analytics działające na IoT Edge](stream-analytics-edge.md) mogą służyć do zaspokojenia czyszczenia danych, zmniejszenia danych i przechowywania danych oraz potrzeby przesyłania dalej. Stream Analytics uruchomione na IoT Edge mogą bezpiecznie obsługiwać ograniczenia przepustowości i problemy z łącznością w systemie. Stream Analytics może obsługiwać przepływność 200 MB na sekundę podczas zapisywania do usługi Azure Synapse Analytics.
 
 ![Magazynowanie danych ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-Jednym ze sposobów na zwiększenie przepływności z pewnym kompromisem opóźnień jest zarchiwizowanie zdarzeń w usłudze Azure Blob Storage, a następnie [zaimportowanie ich do SQL Data Warehouse za pomocą bazy](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)danych. Musisz ręcznie połączyć dane wyjściowe z Stream Analytics z magazynem obiektów blob i dane wejściowe z magazynu obiektów BLOB do SQL Data Warehouse, [archiwizując dane przez sygnaturę czasową](stream-analytics-custom-path-patterns-blob-storage-output.md) i importując okresowo.
-
-W tym wzorcu użycia Azure Stream Analytics jest używany w odniesieniu do aparatu ETL niemal w czasie rzeczywistym. Nowo przychodzące zdarzenia są ciągle przekształcane i przechowywane w celu użycia usługi analizy podrzędnej.
-
-![Magazyn danych o wysokiej przepływności](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Archiwizowanie danych w czasie rzeczywistym na potrzeby analiz
 

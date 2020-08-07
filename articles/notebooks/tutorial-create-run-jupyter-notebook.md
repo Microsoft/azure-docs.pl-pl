@@ -3,13 +3,13 @@ title: Samouczek — Tworzenie i uruchamianie notesu Jupyter Azure Notebooks —
 description: Dowiedz się, jak utworzyć i uruchomić Notes Jupyter Azure Notebooks w wersji zapoznawczej, który pokazuje proces regresji liniowej w nauce danych.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834135"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846916"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Samouczek: Tworzenie i uruchamianie notesu Jupyter przy użyciu języka Python
 
@@ -154,7 +154,7 @@ Grupy poleceń menu są następujące:
 
 | Menu | Opis |
 | --- | --- |
-| Plik | Polecenia służące do zarządzania plikiem notesu, w tym polecenia do tworzenia i kopiowania notesów, wyświetlania podglądu wydruku i pobierania notesu w różnych formatach. |
+| File | Polecenia służące do zarządzania plikiem notesu, w tym polecenia do tworzenia i kopiowania notesów, wyświetlania podglądu wydruku i pobierania notesu w różnych formatach. |
 | Edytuj | Typowe polecenia służące do wycinania, kopiowania i wklejania komórek, znajdowania i zamieniania wartości, zarządzania załącznikami komórek i wstawiania obrazów.  |
 | Widok | Polecenia służące do sterowania widocznością różnych części interfejsu użytkownika Jupyter. |
 | Insert | Polecenia służące do wstawiania nowej komórki powyżej lub poniżej bieżącej komórki. Te polecenia są często używane podczas tworzenia notesu. |

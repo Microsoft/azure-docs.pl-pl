@@ -8,13 +8,13 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: cd0cf3bb7df8efc944fabb8e236f32adb38749d4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python
+ms.openlocfilehash: 0e106f3ea8a5de80f4961a1d591d31abdbe2ca86
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424136"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876295"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Szybki start: Uruchamianie przepływu za pośrednictwem usługi Microsoft Genomics
 
@@ -38,7 +38,7 @@ Skonfiguruj konto usługi Genomics w sposób pokazany na wcześniejszej ilustrac
  |Subskrypcja         | Nazwa subskrypcji użytkownika|Jest to jednostka rozliczeniowa usług platformy Azure — aby uzyskać szczegółowe informacje o subskrypcji, zobacz [Subskrypcje](https://account.azure.com/Subscriptions) |      
  |Grupa zasobów       | MyResourceGroup       |  Grupy zasobów umożliwiają grupowanie wielu zasobów platformy Azure (konto magazynu, konto usługi Genomics itp.) w jednej grupie, co upraszcza zarządzanie. Aby uzyskać więcej informacji, zobacz [Grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Prawidłowe nazwy grup zasobów opisano w artykule [Reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Nazwa konta         | MyGenomicsAccount     |Wybierz unikatowy identyfikator konta. Aby uzyskać informacje o prawidłowych nazwach, zobacz [Reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
- |Location                   | Zachodnie stany USA 2                    |    Usługa jest dostępna w regionach: Zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-Wschodnia |
+ |Lokalizacja                   | Zachodnie stany USA 2                    |    Usługa jest dostępna w regionach: Zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-Wschodnia |
 
 Możesz wybrać opcję **powiadomienia** na górnym pasku menu, aby monitorować proces wdrażania.
 
@@ -97,7 +97,7 @@ Skonfiguruj konto magazynu przy użyciu następujących informacji, jak pokazano
  |Subskrypcja         | Twoja subskrypcja platformy Azure |Aby uzyskać szczegółowe informacje o subskrypcji, zobacz [Subskrypcje](https://account.azure.com/Subscriptions) |      
  |Grupa zasobów       | MyResourceGroup       |  Możesz wybrać tę samą grupę zasobów, która jest taka sama jak konto genomika. W przypadku prawidłowych nazw grup zasobów zobacz [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Nazwa konta magazynu         | MyStorageAccount     |Wybierz unikatowy identyfikator konta. Poprawne nazwy można znaleźć w temacie [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
- |Location                  | Zachodnie stany USA 2                  | Użyj tej samej lokalizacji co lokalizacja konta genomika, aby zmniejszyć opłaty za ruch wychodzący i skrócić opóźnienia.  | 
+ |Lokalizacja                  | Zachodnie stany USA 2                  | Użyj tej samej lokalizacji co lokalizacja konta genomika, aby zmniejszyć opłaty za ruch wychodzący i skrócić opóźnienia.  | 
  |Wydajność                  | Standardowa                   | Wartość domyślna to Standardowa. Aby uzyskać więcej informacji na temat kont magazynu w warstwach Standardowa i Premium, zobacz [wprowadzenie do usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Rodzaj konta       | BlobStorage       |  Magazyn obiektów blob może być 2–5 razy szybszy od konta ogólnego przeznaczenia w przypadku pobierania i przekazywania. |
  |Replikacja                  | Magazyn lokalnie nadmiarowy                  | Magazyn lokalnie nadmiarowy replikuje dane w centrum danych w regionie, w którym utworzono konto magazynu. Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |

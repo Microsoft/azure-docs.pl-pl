@@ -8,16 +8,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116951"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799569"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
 Skoroszyty zapewniają elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w ramach Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. 
+
+Oto przewodnik wideo dotyczący tworzenia skoroszytów.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## <a name="data-sources"></a>Źródła danych
 

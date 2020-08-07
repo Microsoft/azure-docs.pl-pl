@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075340"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874235"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
 
@@ -32,7 +32,7 @@ Szczegółowy samouczek dotyczący pisania zapytań dzienników znajduje się [w
 ## <a name="open-log-analytics"></a>Otwórz Log Analytics
 Aby korzystać z Log Analytics, musisz zalogować się do konta platformy Azure. Jeśli nie masz konta platformy Azure, [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Aby wykonać większość kroków z tego samouczka, możesz użyć [tego środowiska demonstracyjnego](https://portal.loganalytics.io/demo), obejmującego wiele przykładowych danych. W środowisku demonstracyjnym nie będzie można zapisywać zapytań ani przypinać wyników do pulpitu nawigacyjnego.
+Aby wykonać większość kroków z tego samouczka, możesz użyć [tego środowiska demonstracyjnego](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), obejmującego wiele przykładowych danych. W środowisku demonstracyjnym nie będzie można zapisywać zapytań ani przypinać wyników do pulpitu nawigacyjnego.
 
 Możesz również użyć własnego środowiska, jeśli używasz Azure Monitor do zbierania danych dziennika na co najmniej jednym zasobie platformy Azure. Aby otworzyć obszar roboczy Log Analytics, w obszarze Azure Monitor nawigacji po lewej stronie wybierz pozycję **dzienniki**. 
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760400"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905600"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -130,6 +130,22 @@ AND R.reportedCondition = 'clean'
 ```
 
 W powyższym przykładzie Zwróć uwagę na to, jak *reportedCondition* jest właściwością relacji *SERVICEDBY* (a nie z nieruchomą dwuosiową z relacją *servicedBy* ).
+
+### <a name="query-with-multiple-joins"></a>Zapytanie z wieloma sprzężeniami
+
+Obecnie w wersji zapoznawczej, do pięciu `JOIN` s są obsługiwane w jednym zapytaniu. Umożliwia to jednoczesne przechodzenie między różnymi poziomami relacji.
+
+Oto przykład zapytania z wielosprzężeniem, które pobiera wszystkie żarówki zawarte w panelach lekkich w pokojach 1 i 2.
+
+```sql
+SELECT LightBulb 
+FROM DIGITALTWINS Room 
+JOIN LightPanel RELATED Room.contains 
+JOIN LightBulb RELATED LightPanel.contains 
+WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
+AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
+AND Room.$dtId IN [‘room1’, ‘room2’] 
+```
 
 ## <a name="run-queries-with-an-api-call"></a>Uruchom zapytania z wywołaniem interfejsu API
 

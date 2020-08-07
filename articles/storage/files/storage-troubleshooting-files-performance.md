@@ -1,18 +1,18 @@
 ---
 title: Przewodnik rozwiązywania problemów dotyczących wydajności Azure Files
-description: Znane problemy z wydajnością związane z udziałami plików platformy Azure i związanymi z nimi obejściami.
+description: Rozwiązywanie znanych problemów z wydajnością przy użyciu udziałów plików platformy Azure. Odkryj potencjalne przyczyny i powiązane obejścia w przypadku napotkania tych problemów.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511957"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905018"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
 

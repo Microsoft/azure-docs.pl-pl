@@ -10,22 +10,19 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808120"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873640"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
-W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure do użycia z obszarem roboczym Azure Machine Learning.
+W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure w celu kontrolowania dostępu do obszaru roboczego Azure Machine Learning i publicznego Internetu.   Aby dowiedzieć się więcej na temat zabezpieczania Azure Machine Learning, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-enterprise-security.md)
 
-> [!IMPORTANT]
-> Informacje zawarte w tym dokumencie opierają się na korzystaniu z zapory platformy Azure, dlatego można z nich korzystać z innych produktów zapory. Jeśli masz pytania dotyczące sposobu zezwalania na komunikację za pośrednictwem zapory, zapoznaj się z dokumentacją używanej zapory.
-
-Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning, które są opisane w tym artykule.
+Informacje zawarte w tym dokumencie opierają się na korzystaniu z [zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md), dlatego można z nich korzystać z innych produktów zapory. Jeśli masz pytania dotyczące sposobu zezwalania na komunikację za pośrednictwem zapory, zapoznaj się z dokumentacją używanej zapory.
 
 ## <a name="network-rules"></a>Reguły sieci
 
@@ -37,6 +34,8 @@ Na zaporze Utwórz regułę sieci zezwalającą na ruch do i z adresów w tym ar
 > Aby uzyskać więcej informacji na temat konfigurowania zapory platformy Azure, zobacz [wdrażanie i Konfigurowanie zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Hosty firmy Microsoft
+
+Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning.
 
 Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do prawidłowego działania obszaru roboczego.
 
@@ -58,6 +57,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 | **your-acr-server-name.azurecr.io** | Wymagany tylko wtedy, gdy Azure Container Registry znajduje się za siecią wirtualną. W tej konfiguracji link prywatny jest tworzony ze środowiska firmy Microsoft do wystąpienia usługi ACR w ramach subskrypcji. Użyj nazwy serwera ACR dla obszaru roboczego Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Wymagany przez notesy w programie Azure Machine Learning Studio. |
+
 ## <a name="python-hosts"></a>Hosty języka Python
 
 Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wymagane podczas opracowywania, uczenia i wdrażania. 
@@ -79,7 +79,7 @@ Hosty w tej sekcji służą do instalowania pakietów języka R. Są one wymagan
 | ---- | ---- |
 | **cloud.r-project.org** | Używane podczas instalowania pakietów CRAN. |
 
-Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
-* [[Wdrażanie i Konfigurowanie zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md)]
+* [Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)
 * [Zabezpieczanie zadań eksperymentowania i wnioskowania usługi Azure ML w ramach Virtual Network platformy Azure](how-to-enable-virtual-network.md)

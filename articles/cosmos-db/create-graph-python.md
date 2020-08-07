@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.custom: tracking-python
-ms.openlocfilehash: 0f96cbd86921428a85aa69f3561252aeb7fd67b5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-python
+ms.openlocfilehash: b927a0a64256283536a73002cc5915bcaddd2efc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118223"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873147"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Szybki Start: Tworzenie bazy danych grafu w Azure Cosmos DB przy użyciu języka Python i Azure Portal
 
@@ -44,7 +44,7 @@ Przed utworzeniem bazy danych grafów musisz utworzyć konto bazy danych Gremlin
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Dodawanie grafu
+## <a name="add-a-graph"></a>Dodawanie wykresu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -186,7 +186,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
 
 5. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
 
-    key|wartość|Uwagi
+    key|value|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
@@ -204,7 +204,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
 
 9. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości:
 
-    key|wartość|Uwagi
+    key|value|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
@@ -235,7 +235,7 @@ Na tym kończy się część tego samouczka poświęcona tworzeniu zasobów. Mo�
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

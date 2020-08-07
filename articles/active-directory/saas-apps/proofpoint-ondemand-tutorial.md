@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34bdd8561b30358e3cb5c9a64ed4405ba8d94588
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db496ac504a48398ef7ab656cc5a6a890f882bab
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160142"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Samouczek: integracja Azure Active Directory z usługą Proofpoint na żądanie
 
@@ -33,7 +33,7 @@ Integracja aplikacji Proofpoint on Demand z usługą Azure AD oferuje następuj�
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,6 +41,9 @@ Do skonfigurowania integracji usługi Azure AD z aplikacją Proofpoint on Demand
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
 * Subskrypcja aplikacji Proofpoint on Demand z obsługą logowania jednokrotnego
+
+> [!NOTE]
+> Jeśli używasz uwierzytelniania MFA lub bez hasła w usłudze Azure AD, wyłącz wartość AuthnContext w żądaniu SAML. W przeciwnym razie usługa Azure AD zgłosi błąd w przypadku niezgodności AuthnContext i nie wyśle tokenu z powrotem do aplikacji.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -151,12 +154,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -200,5 +203,5 @@ Po kliknięciu kafelka Proofpoint on Demand w panelu dostępu powinno nastąpić
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

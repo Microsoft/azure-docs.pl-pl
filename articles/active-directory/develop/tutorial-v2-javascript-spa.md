@@ -1,6 +1,7 @@
 ---
-title: Samouczek dotyczący jednostronicowej aplikacji JavaScript — Microsoft Identity platform | Azure
-description: Jak aplikacje SPA w języku JavaScript mogą wywołać interfejs API, który wymaga tokenów dostępu przez punkt końcowy Azure Active Directory v 2.0
+title: Samouczek dotyczący jednostronicowej aplikacji JavaScript | Azure
+titleSuffix: Microsoft identity platform
+description: W tym samouczku dowiesz się, jak aplikacje jednostronicowe języka JavaScript (aplikacji jednostronicowych) mogą wywołać interfejs API, który wymaga tokenów dostępu wystawionych przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 745132284ee48270b46b6bd2f785d8bec19404fb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 303caf36b613e4bcd6a5c48317710b69a3ffbc0a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129682"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875221"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji JavaScript jednostronicowej (SPA)
 
@@ -25,8 +26,8 @@ W tym przewodniku przedstawiono sposób, w jaki aplikacja obsługująca skrypty 
 - Uzyskiwanie tokenu dostępu
 - Wywołaj interfejs API Microsoft Graph lub inne interfejsy API, które wymagają tokenów dostępu z *punktu końcowego platformy tożsamości firmy Microsoft*
 
->[!NOTE]
-> Jeśli dopiero zaczynasz korzystać z platformy tożsamości firmy Microsoft, zalecamy rozpoczęcie od [użytkowników logowania i uzyskanie tokenu dostępu za pomocą przewodnika Szybki Start dotyczącego języka JavaScript](quickstart-v2-javascript.md).
+>[!TIP]
+> W tym samouczku użyto MSAL.js v1. x, które jest ograniczone do użycia niejawnego przepływu dotacji dla aplikacji jednostronicowych. Zalecamy używanie wszystkich nowych aplikacji zamiast [MSAL.js 2. x i przepływu kodu autoryzacji z obsługą PKCE i CORS](tutorial-v2-javascript-auth-code.md) .
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Jak działa Przykładowa aplikacja generowana przez ten przewodnik
 
@@ -415,7 +416,7 @@ SPA wygenerowane przez ten przewodnik wywołuje `acquireTokenSilent` i/lub `acqu
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady:
+Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady obejmują:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.

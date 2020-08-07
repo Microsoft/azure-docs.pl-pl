@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083920"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827660"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej Ubuntu Linux przy użyciu szablonu ARM
 
@@ -21,7 +21,7 @@ W tym przewodniku szybki start pokazano, jak wdrożyć Ubuntu Linux maszynę wir
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
@@ -31,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
 
@@ -65,7 +65,7 @@ W szablonie zdefiniowano kilka zasobów:
     - **Prefiks etykiety DNS**: wprowadź unikatowy identyfikator, który ma być używany jako część etykiety DNS.
     - **Ubuntu wersja systemu operacyjnego**: Wybierz wersję Ubuntu, która ma być uruchamiana na maszynie wirtualnej.
     - **Lokalizacja**: domyślnie jest to ta sama lokalizacja, w której znajduje się grupa zasobów, jeśli już istnieje.
-    - **Rozmiar maszyny wirtualnej**: Wybierz [rozmiar](sizes.md) , który ma być używany przez maszynę wirtualną.
+    - **Rozmiar maszyny wirtualnej**: Wybierz [rozmiar](../sizes.md) , który ma być używany przez maszynę wirtualną.
     - **Nazwa Virtual Network**: nazwa, która ma być używana dla sieci wirtualnej.
     - **Nazwa podsieci**: Nazwa podsieci, która powinna być używana przez maszynę wirtualną.
     - **Nazwa grupy zabezpieczeń sieci**: nazwa dla sieciowej grupy zabezpieczeń.
@@ -79,7 +79,7 @@ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal mo�
 Za pomocą Azure Portal można sprawdzić maszynę wirtualną i inne utworzone zasoby. Po zakończeniu wdrażania wybierz pozycję **Przejdź do grupy zasobów** , aby wyświetlić maszynę wirtualną i inne zasoby.
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po usunięciu grupy zasobów, która usunie maszynę wirtualną i wszystkie zasoby w grupie zasobów, nie są już potrzebne. 
 

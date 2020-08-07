@@ -1,26 +1,26 @@
 ---
-title: 'Szybki Start: wdrażanie łącznika IoT (wersja zapoznawcza) przy użyciu Azure Portal'
-description: W tym przewodniku szybki start dowiesz się, jak wdrażać, konfigurować i korzystać z funkcji łącznika IoT usługi Azure API for FHIR przy użyciu Azure Portal.
+title: 'Szybki Start: wdrażanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) przy użyciu Azure Portal'
+description: W tym przewodniku szybki start dowiesz się, jak wdrażać, konfigurować i używać łącznika usługi Azure IoT dla funkcji FHIR w interfejsie API platformy Azure dla FHIR przy użyciu Azure Portal.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 08/04/2020
 ms.author: punagpal
-ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 55d072492a1d90c6964935f2a79f73aacdceff21
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446801"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826776"
 ---
-# <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika IoT (wersja zapoznawcza) przy użyciu Azure Portal
+# <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) przy użyciu Azure Portal
 
-Łącznik IoT to opcjonalna funkcja interfejsu API platformy Azure dla usługi FHIR, która zapewnia możliwość pozyskiwania danych z urządzeń z Internetu (IoMT). W fazie zapoznawczej Funkcja łącznika IoT jest dostępna bezpłatnie. W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
-- Wdrażanie i Konfigurowanie łącznika IoT przy użyciu Azure Portal
-- Wysyłanie danych do łącznika IoT za pomocą symulowanego urządzenia
-- Wyświetlanie zasobów utworzonych przez łącznik IoT w usłudze Azure API for FHIR
+Łącznik usługi Azure IoT dla FHIR * to opcjonalna funkcja interfejsu API platformy Azure dla FHIR, która zapewnia możliwość pozyskiwania danych z Internetu (IoMT) urządzeń. W fazie zapoznawczej Funkcja łącznika usługi Azure IoT dla FHIR jest dostępna bezpłatnie. W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
+- Wdrażanie i Konfigurowanie łącznika usługi Azure IoT dla FHIR przy użyciu Azure Portal
+- Wysyłanie danych do łącznika usługi Azure IoT dla FHIR za pomocą symulowanego urządzenia
+- Wyświetlanie zasobów utworzonych przez łącznik usługi Azure IoT dla FHIR w interfejsie API platformy Azure dla FHIR
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,7 +29,7 @@ ms.locfileid: "87446801"
 
 ## <a name="go-to-azure-api-for-fhir-resource"></a>Przejdź do interfejsu API platformy Azure dla zasobu FHIR
 
-Otwórz [Azure Portal](https://portal.azure.com) i przejdź do zasobu **Azure API for FHIR** , dla którego chcesz utworzyć funkcję łącznika IoT.
+Otwórz [Azure Portal](https://portal.azure.com) i przejdź do zasobu **Azure API for FHIR** , dla którego chcesz utworzyć łącznik usługi Azure IoT dla funkcji FHIR.
 
 [![Interfejs API platformy Azure dla zasobu FHIR](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg)](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg#lightbox)
 
@@ -37,13 +37,13 @@ W menu nawigacji po lewej stronie kliknij pozycję **Łącznik IoT (wersja zapoz
 
 [![Funkcja łącznika IoT](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg#lightbox)
 
-## <a name="create-new-iot-connector-preview"></a>Tworzenie nowego łącznika IoT (wersja zapoznawcza)
+## <a name="create-new-azure-iot-connector-for-fhir-preview"></a>Tworzenie nowego łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)
 
 Kliknij przycisk **Dodaj** , aby otworzyć stronę **Tworzenie łącznika IoT** .
 
 [![Dodawanie łącznika IoT](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg#lightbox)
 
-Wprowadź ustawienia dla nowego łącznika usługi IoT. Kliknij przycisk **Utwórz** , a następnie zaczekaj na wdrożenie łącznika IoT.
+Wprowadź ustawienia dla nowego łącznika usługi Azure IoT dla FHIR. Kliknij przycisk **Utwórz** , a następnie zaczekaj na wdrożenie łącznika usługi Azure IoT dla FHIR.
 
 > [!NOTE]
 > Należy wybrać opcję **Utwórz** jako wartość dla listy rozwijanej **Typ rozwiązania** dla tej instalacji. 
@@ -52,20 +52,20 @@ Wprowadź ustawienia dla nowego łącznika usługi IoT. Kliknij przycisk **Utwó
 
 |Ustawienie|Wartość|Opis |
 |---|---|---|
-|Nazwa łącznika|Unikatowa nazwa|Wprowadź nazwę identyfikującą łącznik IoT. Ta nazwa powinna być unikatowa w ramach interfejsu API platformy Azure dla zasobu FHIR. Nazwa może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zaczynać się i kończyć literą lub cyfrą, a musi mieć długość od 3-24 znaków.|
-|Typ rozwiązania|Odnośnik lub Utwórz|Wybierz pozycję **Wyszukaj** , jeśli masz proces poza pasmem, aby utworzyć zasoby FHIR [urządzenia](https://www.hl7.org/fhir/device.html) i [pacjenta](https://www.hl7.org/fhir/patient.html) w interfejsie API platformy Azure dla FHIR. Łącznik IoT będzie używać odwołań do tych zasobów podczas tworzenia zasobu [obserwacji](https://www.hl7.org/fhir/observation.html) FHIR do reprezentowania danych urządzenia. Wybierz pozycję **Utwórz** , jeśli chcesz, aby łącznik IoT utworzył urządzenie bez systemu operacyjnego i zasoby pacjenta w interfejsie API platformy Azure dla FHIR przy użyciu odpowiednich wartości identyfikatora znajdujących się w danych urządzenia.|
+|Nazwa łącznika|Unikatowa nazwa|Wprowadź nazwę identyfikującą łącznik usługi Azure IoT dla FHIR. Ta nazwa powinna być unikatowa w ramach interfejsu API platformy Azure dla zasobu FHIR. Nazwa może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zaczynać się i kończyć literą lub cyfrą, a musi mieć długość od 3-24 znaków.|
+|Typ rozwiązania|Odnośnik lub Utwórz|Wybierz pozycję **Wyszukaj** , jeśli masz proces poza pasmem, aby utworzyć zasoby FHIR [urządzenia](https://www.hl7.org/fhir/device.html) i [pacjenta](https://www.hl7.org/fhir/patient.html) w interfejsie API platformy Azure dla FHIR. Łącznik usługi Azure IoT dla FHIR będzie używać odwołań do tych zasobów podczas tworzenia [obserwacyjnego](https://www.hl7.org/fhir/observation.html) zasobu FHIR do reprezentowania danych urządzenia. Wybierz pozycję **Utwórz** , jeśli chcesz, aby usługa Azure IoT Connector FHIR tworzenie urządzeń bez systemu operacyjnego i zasobów pacjenta w interfejsie API platformy Azure dla FHIR przy użyciu odpowiednich wartości identyfikatora zawartych w danych urządzenia.|
 
-Po zakończeniu instalacji zostanie wyświetlony nowo utworzony łącznik IoT na stronie **Łączniki IoT** .
+Po zakończeniu instalacji zostanie wyświetlony nowo utworzony łącznik usługi Azure IoT dla FHIR na stronie **Łączniki IoT** .
 
 [![Utworzono łącznik IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg#lightbox)
 
-## <a name="configure-iot-connector-preview"></a>Konfigurowanie łącznika IoT (wersja zapoznawcza)
+## <a name="configure-azure-iot-connector-for-fhir-preview"></a>Konfigurowanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
 
-Łącznik IoT potrzebuje dwóch szablonów mapowania do przekształcenia komunikatów urządzenia w FHIRe zasoby na podstawie: **Mapowanie urządzeń** i **Mapowanie FHIR**. Łącznik IoT nie jest w pełni funkcjonalny, dopóki nie zostaną przekazane te mapowania.
+Łącznik usługi Azure IoT dla FHIR potrzebuje dwóch szablonów mapowania do przekształcania komunikatów urządzenia w następujące zasoby: **Mapowanie urządzeń** i **FHIR**. Łącznik usługi Azure IoT dla programu FHIR nie jest w pełni funkcjonalny do momentu przekazania tych mapowań.
 
 [![Brak mapowań łącznika IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg#lightbox)
 
-Aby przekazać szablony mapowania, kliknij nowo wdrożony łącznik IoT, aby przejść do strony **Łącznik IoT** .
+Aby przekazać szablony mapowania, kliknij nowo wdrożony łącznik usługi Azure IoT dla programu FHIR, aby przejść do strony **Łącznik IoT** .
 
 [![Łącznik IoT — kliknij](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg#lightbox)
 
@@ -101,7 +101,6 @@ Na stronie **Mapowanie urządzenia** Dodaj następujący skrypt do edytora JSON,
 ```
 
 [![Mapowanie urządzeń łącznika IoT](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg#lightbox)
-
 
 #### <a name="fhir-mapping"></a>Mapowanie FHIR
 
@@ -142,7 +141,7 @@ Na stronie **Mapowanie FHIR** Dodaj następujący skrypt do edytora JSON i klikn
 
 ## <a name="generate-a-connection-string"></a>Generowanie parametrów połączenia
 
-Urządzenie IoMT wymaga parametrów połączenia w celu nawiązania połączenia i wysłania komunikatów do łącznika usługi IoT. Na stronie **Łącznik usługi IoT** dla nowo wdrożonego łącznika IoT wybierz przycisk **Zarządzaj połączeniami klienta** . 
+Urządzenie IoMT wymaga parametrów połączenia w celu nawiązania połączenia i wysłania komunikatów do łącznika usługi Azure IoT dla FHIR. Na stronie **Łącznik IoT** dla nowo wdrożonego łącznika usługi Azure IoT dla FHIR wybierz pozycję **Zarządzaj połączeniami klientów** . 
 
 [![Łącznik IoT — zarządzanie połączeniami klienta](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
@@ -169,40 +168,42 @@ Wdróż [szablon aplikacji do monitorowania ciągłego pacjenta](https://docs.mi
 > [!NOTE]
 > Za każdym razem, gdy prawdziwe urządzenia są gotowe, możesz użyć tej samej IoT Central aplikacji do dołączenia [urządzeń](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) i zamienić symulatory urządzeń. Dane urządzenia zostaną automatycznie uruchomione i przepływają do FHIR. 
 
-## <a name="connect-your-iot-data-with-the-iot-connector-preview"></a>Łączenie danych IoT z łącznikiem IoT (wersja zapoznawcza)
-Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika IoT. Aby wyeksportować dane IoT do łącznika IoT, należy [skonfigurować ciągły eksport danych w ramach IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). Na stronie Eksport danych ciągłych:
+## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Łączenie danych IoT z łącznikiem usługi Azure IoT dla FHIR (wersja zapoznawcza)
+Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika usługi Azure IoT dla FHIR. Aby wyeksportować dane IoT do łącznika usługi Azure IoT dla programu FHIR, należy [skonfigurować ciągły eksport danych w ramach IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). Na stronie Eksport danych ciągłych:
 - Wybierz pozycję *Azure Event Hubs* jako miejsce docelowe eksportowania.
 - Zaznacz pole wyboru *Użyj wartości parametrów połączenia* dla **Event Hubs przestrzeni nazw** .
-- Podaj parametry połączenia łącznika IoT uzyskane w poprzednim kroku dla pola **parametrów połączenia** .
+- Udostępnij łącznik usługi Azure IoT dla parametrów połączenia FHIR uzyskanych w poprzednim kroku dla pola **Parametry połączenia** .
 - Zachowaj opcję **telemetrii** *dla* **danych do wyeksportowania** .
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Wyświetlanie danych urządzenia w usłudze Azure API for FHIR
 
-Można wyświetlić FHIR widoczne zasoby utworzone przez łącznik IoT w interfejsie API platformy Azure dla FHIR przy użyciu programu Poster. Skonfiguruj swoje [ogłoszenie, aby uzyskać dostęp do interfejsu API platformy Azure dla usługi FHIR](access-fhir-postman-tutorial.md) , a następnie `GET` Wyślij żądanie, aby `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` wyświetlić obserwacje zasobów FHIR z wartością współczynnika serca. 
+Można wyświetlić FHIR widoczne zasoby utworzone przez łącznik usługi Azure IoT dla FHIR w interfejsie API platformy Azure dla FHIR przy użyciu programu Poster. Skonfiguruj swoje [ogłoszenie, aby uzyskać dostęp do interfejsu API platformy Azure dla usługi FHIR](access-fhir-postman-tutorial.md) , a następnie `GET` Wyślij żądanie, aby `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` wyświetlić obserwacje zasobów FHIR z wartością współczynnika serca. 
 
 > [!TIP]
 > Upewnij się, że użytkownik ma odpowiednie uprawnienia dostępu do interfejsu API platformy Azure dla FHIRej płaszczyzny danych. Aby przypisać wymagane role płaszczyzny danych, użyj [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](configure-azure-rbac.md) .
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, można usunąć wystąpienie łącznika IoT, usuwając skojarzoną grupę zasobów lub skojarzony interfejs API platformy Azure dla usługi FHIR lub sam wystąpienie łącznika IoT. 
+Gdy nie jest już potrzebne, można usunąć wystąpienie łącznika usługi Azure IoT dla FHIR, usuwając skojarzoną grupę zasobów lub skojarzoną usługę Azure API for FHIR lub łącznik usługi Azure IoT dla samego wystąpienia FHIR. 
 
-Aby bezpośrednio usunąć wystąpienie łącznika usługi IoT, wybierz wystąpienie ze strony **Łączniki IoT** , aby przejść do strony **Łącznik usługi IoT** , a następnie kliknij przycisk **Usuń** . Wybierz pozycję **tak** po wyświetleniu monitu o potwierdzenie. 
+Aby bezpośrednio usunąć wystąpienie usługi Azure IoT Connector for FHIR, zaznacz wystąpienie na stronie **Łączniki IoT** , aby przejść do strony **Łącznik IoT** , a następnie kliknij przycisk **Usuń** . Wybierz pozycję **tak** po wyświetleniu monitu o potwierdzenie. 
 
 [![Usuń wystąpienie łącznika IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start wdrożono funkcję łącznika IoT w interfejsie API platformy Azure dla zasobu FHIR. Wybierz spośród kolejnych kroków, aby dowiedzieć się więcej o łączniku IoT:
+W tym przewodniku szybki start wdrożono funkcję łącznika usługi Azure IoT for FHIR w interfejsie API platformy Azure dla zasobu FHIR. Wybierz spośród kolejnych kroków, aby dowiedzieć się więcej o łączniku usługi Azure IoT dla FHIR:
 
-Poznaj różne etapy przepływu danych w ramach łącznika IoT.
+Poznaj różne etapy przepływu danych w ramach łącznika usługi Azure IoT dla FHIR.
 
 >[!div class="nextstepaction"]
->[Przepływ danych łącznika IoT](iot-data-flow.md)
+>[Łącznik usługi Azure IoT dla przepływu danych FHIR](iot-data-flow.md)
 
 Dowiedz się, jak skonfigurować łącznik usługi IoT przy użyciu szablonów mapowania urządzeń i FHIR.
 
 >[!div class="nextstepaction"]
->[Szablony mapowania łącznika IoT](iot-mapping-templates.md)
+>[Łącznik usługi Azure IoT dla szablonów mapowania FHIR](iot-mapping-templates.md)
+
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
 
 FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.

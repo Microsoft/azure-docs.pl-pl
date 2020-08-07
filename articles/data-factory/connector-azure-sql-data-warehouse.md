@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: caa132475df6481db7228a1ef7e18026b12cf38f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/05/2020
+ms.openlocfilehash: eb4d79d2d51312e0850a84123790cf0cb5957e5a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534332"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847299"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) za pomocą Azure Data Factory
 
@@ -41,14 +41,14 @@ Ten łącznik usługi Azure Synapse Analytics jest obsługiwany dla następując
 W przypadku działania kopiowania ten łącznik usługi Azure Synapse Analytics obsługuje te funkcje:
 
 - Kopiowanie danych przy użyciu uwierzytelniania SQL i usługi Azure Active Directory (Azure AD) uwierzytelnianie tokenu aplikacji przy użyciu nazwy głównej usług lub zarządzanych tożsamości dla zasobów platformy Azure.
-- Jako źródło Pobierz dane przy użyciu zapytania SQL lub procedury składowanej.
+- Jako źródło Pobierz dane przy użyciu zapytania SQL lub procedury składowanej. Możesz również wybrać opcję kopiowania równoległego ze źródła analizy usługi Azure Synapse, aby uzyskać szczegółowe informacje, zobacz sekcję [copy Parallel from Synapse Analytics](#parallel-copy-from-synapse-analytics) .
 - Jako ujścia Załaduj dane przy użyciu instrukcji [Base](#use-polybase-to-load-data-into-azure-sql-data-warehouse) lub [copy](#use-copy-statement) (wersja zapoznawcza) lub Wstaw zbiorczo. Zalecamy użycie instrukcji Base lub COPY (wersja zapoznawcza) w celu uzyskania lepszej wydajności kopiowania. Łącznik obsługuje również automatyczne tworzenie tabeli docelowej, jeśli nie istnieje na podstawie schematu źródłowego.
 
 > [!IMPORTANT]
 > W przypadku kopiowania danych przy użyciu Integration Runtime Azure Data Factory należy skonfigurować [regułę zapory na poziomie serwera](../azure-sql/database/firewall-configure.md) , tak aby usługi platformy Azure mogły uzyskiwać dostęp do [serwera logicznego SQL](../azure-sql/database/logical-servers.md).
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z usługą Azure Synapse Analytics.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 > [!TIP]
 > Aby uzyskać najlepszą wydajność, należy użyć bazy danych na platformie Azure Synapse Analytics. [Aby załadować dane do usługi Azure Synapse Analytics, należy wykonać](#use-polybase-to-load-data-into-azure-sql-data-warehouse) szczegóły. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -68,6 +68,7 @@ Następujące właściwości są obsługiwane dla połączonej usługi Azure Syn
 | servicePrincipalId  | Określ identyfikator klienta aplikacji.                         | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
 | dzierżaw              | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego jest zarejestrowana aplikacja usługi AAD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia          | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie                                                           |
 
 W przypadku różnych typów uwierzytelniania zapoznaj się z poniższymi sekcjami dotyczącymi wymagań wstępnych i próbek JSON odpowiednio:
@@ -255,6 +256,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="azure-synapse-analytics-as-the-source"></a>Usługa Azure Synapse Analytics jako źródło
 
+>[!TIP]
+>Aby efektywnie ładować dane z usługi Azure Synapse Analytics przy użyciu partycjonowania danych, Dowiedz się więcej z [kopii równoległej z Synapse Analytics](#parallel-copy-from-synapse-analytics).
+
 Aby skopiować dane z usługi Azure Synapse Analytics, ustaw właściwość **Type** w źródle działania Copy na **SqlDWSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość                     | Opis                                                  | Wymagane |
@@ -264,6 +268,12 @@ Aby skopiować dane z usługi Azure Synapse Analytics, ustaw właściwość **Ty
 | sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie       |
 | storedProcedureParameters    | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie       |
 | isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED**, **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Jeśli nie zostanie określony, używany jest domyślny poziom izolacji bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nie |
+| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z usługi Azure Synapse Analytics. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable** i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z usługi Azure Synapse Analytics jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
+| partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
+| ***W obszarze `partitionSettings` :*** | | |
+| partitionColumnName | Określ nazwę kolumny źródłowej **w postaci typu Integer lub Data/DateTime** , która będzie używana przez partycjonowanie zakresu do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfDynamicRangePartitionCondition ` w klauzuli WHERE. Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-synapse-analytics) . | Nie |
+| partitionUpperBound | Maksymalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.  <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-synapse-analytics) . | Nie |
+| partitionLowerBound | Minimalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-synapse-analytics) . | Nie |
 
 **Przykład: użycie zapytania SQL**
 
@@ -391,6 +401,54 @@ Aby skopiować dane do Azure SQL Data Warehouse, ustaw typ ujścia w działaniu 
         "rejectValue": 10.0,
         "rejectSampleValue": 100,
         "useTypeDefault": true
+    }
+}
+```
+
+## <a name="parallel-copy-from-synapse-analytics"></a>Równoległa kopia z Synapse Analytics
+
+Łącznik usługi Azure Synapse Analytics w działaniu Copy zapewnia wbudowane Partycjonowanie danych, które umożliwia równoległe kopiowanie danych. Opcje partycjonowania danych można znaleźć na karcie **Źródło** działania kopiowania.
+
+![Zrzut ekranu przedstawiający opcje partycji](./media/connector-sql-server/connector-sql-partition-options.png)
+
+Po włączeniu kopiowania partycjonowanego działanie Copy uruchamia zapytania równoległe względem źródła usługi Azure Synapse Analytics w celu załadowania danych przez partycje. Stopień równoległy jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. Jeśli na przykład ustawisz `parallelCopies` cztery, Data Factory współbieżnie generuje i uruchamia cztery zapytania w oparciu o określoną opcję partycji i ustawienia, a każde zapytanie pobiera część danych z usługi Azure Synapse Analytics.
+
+Przed załadowaniem dużej ilości danych z usługi Azure Synapse Analytics zaleca się włączenie kopiowania równoległego przy użyciu partycjonowania danych. Poniżej przedstawiono sugerowane konfiguracje dla różnych scenariuszy. Podczas kopiowania danych do magazynu danych opartego na plikach zaleca się zapisanie do folderu jako wielu plików (określenie tylko nazwy folderu), w którym to przypadku wydajność jest lepsza niż zapis do pojedynczego pliku.
+
+| Scenariusz                                                     | Sugerowane ustawienia                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Pełne ładowanie z dużej tabeli z partycjami fizycznymi.        | **Opcja partycji**: partycje fizyczne tabeli. <br><br/>Podczas wykonywania Data Factory automatycznie wykrywa partycje fizyczne i kopiuje dane przez partycje. |
+| Pełne ładowanie z dużej tabeli bez partycji fizycznych, z kolumną typu Integer lub DateTime na potrzeby partycjonowania danych. | **Opcje partycji**: dynamiczna partycja zakresu.<br>**Kolumna partycji** (opcjonalnie): określ kolumnę używaną do partycjonowania danych. Jeśli nie zostanie określony, zostanie użyta kolumna indeks lub klucz podstawowy.<br/>**Górną granicę partycji** i * * dolna granica partycji * * (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w tabeli zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określony, działanie Copy automatycznie wykrywa wartości.<br><br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. |
+| Załaduj dużą ilość danych przy użyciu niestandardowego zapytania, bez partycji fizycznych, z kolumną liczb całkowitych lub dat/DateTime na potrzeby partycjonowania danych. | **Opcje partycji**: dynamiczna partycja zakresu.<br>**Zapytanie**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Kolumna partycji**: określ kolumnę używaną do partycjonowania danych.<br>**Górna** granica partycji i **Dolna granica partycji** (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w wyniku zapytania zostaną partycjonowane i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br><br>Podczas wykonywania Data Factory zastępowane `?AdfRangePartitionColumnName` rzeczywistą nazwą kolumny i zakresem wartości dla każdej partycji i wysyła do usługi Azure Synapse Analytics. <br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. |
+
+Najlepsze rozwiązania dotyczące ładowania danych za pomocą opcji partycji:
+
+1. Wybierz kolumnę odróżniającą jako kolumnę partycji (na przykład klucz podstawowy lub unikatowy klucz), aby uniknąć pochylenia danych. 
+2. Jeśli tabela zawiera wbudowaną partycję, użyj opcji partycji "partycje fizyczne tabeli", aby uzyskać lepszą wydajność.
+3. W przypadku używania Azure Integration Runtime do kopiowania danych można ustawić większe wartości "[Data Integration units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4), aby użyć więcej zasobów obliczeniowych. Sprawdź odpowiednie scenariusze.
+4. "[Stopień równoległości kopiowania](copy-activity-performance-features.md#parallel-copy)" kontrolowanie numerów partycji, ustawienie zbyt dużej liczby jest nadmiernie pogarsza wydajność, zaleca się ustawienie tej liczby jako (DIU lub liczby samodzielnych węzłów IR) * (od 2 do 4).
+5. Uwaga Usługa Azure Synapse Analytics może jednocześnie wykonywać maksymalnie 32 zapytań, co oznacza, że ustawienie "stopień równoległości kopiowania" jest zbyt duże, co może spowodować problem z ograniczeniami Synapse.
+
+**Przykład: pełne ładowanie z dużej tabeli z partycjami fizycznymi**
+
+```json
+"source": {
+    "type": "SqlDWSource",
+    "partitionOption": "PhysicalPartitionsOfTable"
+}
+```
+
+**Przykład: zapytanie z dynamiczną partycją zakresu**
+
+```json
+"source": {
+    "type": "SqlDWSource",
+    "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column (optional) to decide the partition stride, not as data filter>",
+        "partitionLowerBound": "<lower_value_of_partition_column (optional) to decide the partition stride, not as data filter>"
     }
 }
 ```

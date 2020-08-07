@@ -3,13 +3,13 @@ title: Dostęp do danych w notesach Jupyter Azure Notebooks — wersja zapoznawc
 description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API REST, baz danych i różnych zasobów usługi Azure Storage z notesu Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833489"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846619"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Dostęp do danych z chmury w notesie
 

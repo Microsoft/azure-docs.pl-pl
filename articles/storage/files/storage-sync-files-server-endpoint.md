@@ -1,18 +1,18 @@
 ---
 title: Dodawanie/Usuwanie punktu końcowego serwera Azure File Sync | Microsoft Docs
-description: Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia Azure Files.
+description: Dowiedz się, jak dodać lub usunąć punkt końcowy serwera z Azure File Sync. Punkt końcowy serwera to określona lokalizacja na zarejestrowanym serwerze, taka jak folder na woluminie serwera.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509476"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905061"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Dodawanie/Usuwanie punktu końcowego serwera Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Robi to poprzez transformowanie serwerów z systemem Windows do szybkiej pamięci podręcznej udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.

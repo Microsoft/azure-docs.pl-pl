@@ -4,15 +4,19 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 7e7825e8247e78cbc0c0e9e22bdbd9326939e0a8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 43e64dadc5e339d174d08788cc7a98506841ee88
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998042"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810182"
 ---
-Następnym krokiem jest skonfigurowanie aplikacji w taki sposób, aby korzystała z identyfikatora konta i klucza konta. Skopiowano je do edytora tekstu podczas [konfigurowania zasobów kotwic przestrzennych](#create-a-spatial-anchors-resource).
+## <a name="configure-the-account-information"></a>Skonfiguruj informacje o koncie
 
-W okienku **projekt** przejdź do `Assets\AzureSpatialAnchors.SDK\Resources` . Wybierz pozycję `SpatialAnchorConfig`. Następnie w okienku **Inspektor** wprowadź `Account Key` wartość dla `Spatial Anchors Account Key` i `Account ID` jako wartość parametru `Spatial Anchors Account Id` .
+W okienku **projekt** przejdź do `Assets/AzureSpatialAnchors.Examples/Scenes` pliku sceny i otwórz go `AzureSpatialAnchorsBasicDemo.unity` .
 
-Następnie otwórz program `SpatialAnchorManager.cs` . Znajdź `CreateSessionAsync()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `session.Configuration.AccountDomain = "MyAccountDomain";` . Możesz dodać ten wiersz bezpośrednio przed tym komentarzem `// Configure authentication` .
+Następnym krokiem jest skonfigurowanie aplikacji w taki sposób, aby korzystała z informacji o koncie. Skopiowano je do edytora tekstu podczas [konfigurowania zasobów kotwic przestrzennych](#create-a-spatial-anchors-resource).
+
+W okienku **projekt** przejdź do `Assets\AzureSpatialAnchors.SDK\Resources` . Wybierz pozycję `SpatialAnchorConfig`. Następnie w okienku **Inspektor** wprowadź `Account Key` wartość dla `Spatial Anchors Account Key` , jako wartość parametru `Account ID` `Spatial Anchors Account Id` , i `Account Domain` jako wartość dla `Spatial Anchors Account Domain` .
+
+Zapisz scenę, wybierając pozycję **plik**  >  **Zapisz**.

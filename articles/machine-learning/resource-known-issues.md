@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373695"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905500"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -131,7 +131,7 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 
     Alternatywnie można użyć skryptów init w przypadku, gdy występują problemy z instalacją w języku Python. Takie podejście nie jest oficjalnie obsługiwane. Aby uzyskać więcej informacji, zobacz [skrypty init z zakresem klastra](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Błąd importowania danych: nie można zaimportować nazwy "Timedelta" z "Pandas. _libs. tslibs"**: Jeśli ten błąd wystąpi podczas korzystania z automatycznego uczenia maszynowego, Uruchom dwa następujące wiersze w notesie:
+* **Błąd importowania danych: nie można zaimportować nazwy `Timedelta` z `pandas._libs.tslibs` **: Jeśli ten błąd wystąpi podczas korzystania z zautomatyzowanej usługi Machine Learning, Uruchom dwa następujące wiersze w notesie:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -219,7 +219,7 @@ Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
     | Podzielone na kategorie | String, bool, int, float | Liczba unikatowych wartości w funkcji jest mniejsza niż 100 i mniejsza niż 5% liczby wierszy. | Wartość null jest traktowana jako jej własna Kategoria. | 
     | Porządkow | int, float | Wartości w funkcji mają typ danych liczbowych i nie spełniają warunku funkcji kategorii. | Funkcja została porzucona, jeśli >15% wartości ma wartość null. | 
 
-* Po [utworzeniu monitora datadryfu](how-to-monitor-datasets.md) , ale nie można wyświetlić danych na stronie **Monitory zestawu danych** w programie Azure Machine Learning Studio, spróbuj wykonać poniższe czynności.
+* Po [utworzeniu monitora dryfowania danych](how-to-monitor-datasets.md) , ale nie na stronie **Monitory zestawu danych** w programie Azure Machine Learning Studio, spróbuj wykonać poniższe czynności.
 
     1. Sprawdź, czy w górnej części strony wybrano prawy zakres dat.  
     1. Na karcie **Monitory zestawu danych** wybierz łącze eksperyment, aby sprawdzić stan uruchomienia.  Ten link znajduje się po prawej stronie tabeli.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
-* **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować tensorflow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj tensorflow = = 1.12.0 za pośrednictwem CondaDependecies. 
+* **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -307,7 +307,7 @@ time.sleep(600)
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Błąd  | Rozwiązanie  |
+|Error  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |
@@ -382,5 +382,5 @@ Zobacz więcej artykułów do rozwiązywania problemów dotyczących Azure Machi
 * [Rozwiązywanie problemów z wdrażaniem platformy Docker przy użyciu Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debuguj potoki uczenia maszynowego](how-to-debug-pipelines.md)
 * [Debugowanie klasy ParallelRunStep z zestawu SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
-* [Interaktywne debugowanie wystąpienia obliczeniowego uczenia maszynowego przy użyciu VS Code](how-to-set-up-vs-code-remote.md)
+* [Interaktywne debugowanie wystąpienia obliczeniowego uczenia maszynowego przy użyciu VS Code](how-to-debug-visual-studio-code.md)
 * [Używanie Application Insights do debugowania potoków uczenia maszynowego](how-to-debug-pipelines-application-insights.md)

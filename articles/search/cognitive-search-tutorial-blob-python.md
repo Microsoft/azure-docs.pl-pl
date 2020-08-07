@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 0cb266f512875f588c5bf95e31b207b9c49e4e96
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-python
+ms.openlocfilehash: 5dfa105b7af146086da6b72dd55f6fe679832f44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85552612"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845055"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -545,7 +545,7 @@ Wreszcie zawiesz się, jak przetestować wyniki i zresetować system pod kątem 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

@@ -1,6 +1,6 @@
 ---
 title: Edytowanie interfejsu API przy użyciu witryny Azure Portal | Microsoft Docs
-description: Ten samouczek przedstawia sposób użycia usługi API Management (APIM) do edytowania interfejsu API.
+description: Dowiedz się, jak za pomocą API Management (APIM) edytować interfejs API. Dodaj, Usuń lub Zmień nazwę operacji w wystąpieniu APIM lub Edytuj strukturę Swagger interfejsu API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70072151"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905163"
 ---
 # <a name="edit-an-api"></a>Edytowanie interfejsu API
 
@@ -64,5 +64,5 @@ Możesz zaktualizować interfejs API zaplecza w witrynie Azure Portal, wykonują
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przykłady zasad APIM](policy-samples.md)
-> [przekształcają i chronią opublikowany interfejs API](transform-api.md)
+> [Przykłady](policy-samples.md) 
+>  zasad APIM [Przekształcanie i ochrona opublikowanego interfejsu API](transform-api.md)

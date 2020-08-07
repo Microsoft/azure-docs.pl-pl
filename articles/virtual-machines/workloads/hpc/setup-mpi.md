@@ -10,24 +10,32 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/04/2020
 ms.author: amverma
-ms.openlocfilehash: 3ca9a21d105be6f17c1aa40ae1a0ab7f01c38184
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 1b2d707569221a79ad53f04bcc379f5067ed9b04
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905537"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Skonfiguruj interfejs przekazywania komunikatów dla HPC
 
-Obciążenia interfejsu przekazywania komunikatów (MPI) są znaczną częścią tradycyjnych obciążeń HPC. Rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure zezwalają na użycie niemal wszystkich wersji MPI. 
+[Interfejs przekazywania komunikatów (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) to otwarta biblioteka i de-facto Standard dla przetwarzanie równoległe pamięci rozproszonej. Jest on często używany w wielu obciążeniach HPC. Obciążenia HPC w [seriach H](../../sizes-hpc.md) z [obsługą funkcji RDMA](../../sizes-hpc.md#rdma-capable-instances) i maszyn wirtualnych [serii N](../../sizes-gpu.md) mogą używać MPI do komunikacji za pośrednictwem sieci InfiniBand o małym opóźnieniu i wysokiej przepustowości.
 
-Uruchamianie zadań MPI na maszynach wirtualnych wymaga skonfigurowania kluczy partycji (p-Keys) w dzierżawie. Postępuj zgodnie z instrukcjami w sekcji [odnajdywanie kluczy partycji](#discover-partition-keys) , aby uzyskać szczegółowe informacje na temat określania wartości p-Key.
+Rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure (HBv2, HB, HC, Seria NCV3, NDv2) pozwalają na używanie niemal wszelkich wersji MPI do użycia z Mellanox OFED. W przypadku maszyn wirtualnych z obsługą funkcji SR-IOV obsługiwane implementacje MPI używają interfejsu Microsoft Network Direct (ND) do komunikacji między maszynami wirtualnymi. W związku z tym obsługiwane są tylko programy Microsoft MPI (MS-MPI) 2012 R2 lub nowsze i Intel MPI 5. x. Nowsze wersje (2017, 2018) biblioteki środowiska uruchomieniowego Intel MPI mogą być niezgodne ze sterownikami usługi Azure RDMA.
+
+W przypadku [maszyn wirtualnych](../../sizes-hpc.md#rdma-capable-instances)obsługujących funkcję SR-IOV z obsługą funkcji RDMA, [CentOS-HPC w wersji 7,6 lub nowszej](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) wersji obrazów maszyn wirtualnych w portalu Marketplace są zoptymalizowane i wstępnie załadowane przy użyciu sterowników OFED dla funkcji RDMA i różnych często używanych bibliotek MPI oraz naukowych pakietów obliczeniowych i są najprostszym sposobem na rozpoczęcie pracy.
+
+Przykładowe przykłady dotyczą RHEL/CentOS, ale czynności są ogólne i mogą być używane w przypadku dowolnego zgodnego systemu operacyjnego Linux, takiego jak Ubuntu (16,04, 18,04 19,04, 20,04) i SLES (12 SP4 i 15). Więcej przykładów konfigurowania innych implementacji MPI na innych dystrybucje znajduje się w [repozytorium azhpc-images](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
+
+> [!NOTE]
+> Uruchamianie zadań MPI na maszynach wirtualnych z obsługą funkcji SR-IOV wymaga skonfigurowania kluczy partycji (p-Keys) w dzierżawie na potrzeby izolacji i zabezpieczeń. Postępuj zgodnie z instrukcjami w sekcji [odnajdywanie kluczy partycji](#discover-partition-keys) , aby uzyskać szczegółowe informacje na temat określania wartości p-Key i ustawiania ich prawidłowo dla zadania MPI.
 
 ## <a name="ucx"></a>UCX
 
-[UCX](https://github.com/openucx/ucx) oferuje najlepszą wydajność w systemie IB i współpracuje z MPICH i OpenMPI.
+[Ujednolicona komunikacja X (UCX)](https://github.com/openucx/ucx) to struktura interfejsów API komunikacji dla HPC. Jest zoptymalizowany pod kątem komunikacji MPI przez InfiniBand i współpracuje z wieloma implementacjami MPI, takimi jak OpenMPI i MPICH.
 
 ```bash
 wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
@@ -37,9 +45,30 @@ cd ucx-1.4.0
 make -j 8 && make install
 ```
 
+## <a name="hpc-x"></a>HPC-X
+
+[Zestaw narzędzi HPC-X oprogramowania](https://www.mellanox.com/products/hpc-x-toolkit) zawiera UCX i HCOLL.
+
+```bash
+HPCX_VERSION="v2.6.0"
+HPCX_DOWNLOAD_URL=https://azhpcstor.blob.core.windows.net/azhpc-images-store/hpcx-v2.6.0-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
+get --retry-connrefused --tries=3 --waitretry=5 $HPCX_DOWNLOAD_URL
+tar -xvf hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
+mv hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64 ${INSTALL_PREFIX}
+HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64
+```
+
+Uruchom HPC-X
+
+```bash
+${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
+```
+
 ## <a name="openmpi"></a>OpenMPI
 
-Zainstaluj UCX, jak opisano wcześniej.
+Zainstaluj UCX zgodnie z powyższym opisem. HCOLL jest częścią [zestawu narzędzi HPC-X oprogramowania](https://www.mellanox.com/products/hpc-x-toolkit) i nie wymaga specjalnej instalacji.
+
+Zainstaluj OpenMPI z pakietów dostępnych w repozytorium.
 
 ```bash
 sudo yum install –y openmpi
@@ -48,39 +77,46 @@ sudo yum install –y openmpi
 Kompilacja OpenMPI.
 
 ```bash
-wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.gz
-tar -xvf openmpi-4.0.0.tar.gz
-cd openmpi-4.0.0
-./configure --with-ucx=<ucx-install-path> --prefix=<ompi-install-path>
-make -j 8 && make install
+OMPI_VERSION="4.0.3"
+OMPI_DOWNLOAD_URL=https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-${OMPI_VERSION}.tar.gz
+wget --retry-connrefused --tries=3 --waitretry=5 $OMPI_DOWNLOAD_URL
+tar -xvf openmpi-${OMPI_VERSION}.tar.gz
+cd openmpi-${OMPI_VERSION}
+./configure --prefix=${INSTALL_PREFIX}/openmpi-${OMPI_VERSION} --with-ucx=${UCX_PATH} --with-hcoll=${HCOLL_PATH} --enable-mpirun-prefix-by-default --with-platform=contrib/platform/mellanox/optimized && make -j$(nproc) && make install
 ```
 
 Uruchom OpenMPI.
 
 ```bash
-<ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
+${INSTALL_PREFIX}/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
 ```
 
 Sprawdź swój klucz partycji, jak wspomniano powyżej.
 
+## <a name="intel-mpi"></a>Intel MPI
+
+[Pobierz procesor Intel MPI](https://software.intel.com/mpi-library/choose-download).
+
+Zmień zmienną środowiskową I_MPI_FABRICS w zależności od wersji. W przypadku procesora Intel MPI 2018 Użyj programu `I_MPI_FABRICS=shm:ofa` i dla 2019, użyj `I_MPI_FABRICS=shm:ofi` .
+
+Przypinanie procesów działa prawidłowo domyślnie dla 15, 30 i 60 PPN.
+
 ## <a name="mpich"></a>MPICH
 
-Zainstaluj UCX, jak opisano wcześniej.
-
-Kompilacja MPICH.
+Zainstaluj UCX zgodnie z powyższym opisem. Kompilacja MPICH.
 
 ```bash
 wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
 tar -xvf mpich-3.3.tar.gz
 cd mpich-3.3
-./configure --with-ucx=<ucx-install-path> --prefix=<mpich-install-path> --with-device=ch4:ucx
+./configure --with-ucx=${UCX_PATH} --prefix=${INSTALL_PREFIX} --with-device=ch4:ucx
 make -j 8 && make install
 ```
 
 Uruchamianie MPICH.
 
 ```bash
-<mpich-install-path>/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency
+${INSTALL_PREFIX}/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency
 ```
 
 Sprawdź swój klucz partycji, jak wspomniano powyżej.
@@ -93,14 +129,14 @@ Kompilacja MVAPICH2.
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.tar.gz
 tar -xv mvapich2-2.3.tar.gz
 cd mvapich2-2.3
-./configure --prefix=<mvapich2-install-path>
+./configure --prefix=${INSTALL_PREFIX}
 make -j 8 && make install
 ```
 
 Uruchamianie MVAPICH2.
 
 ```bash
-<mvapich2-install-path>/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=48 ./osu_latency
+${INSTALL_PREFIX}/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=48 ./osu_latency
 ```
 
 ## <a name="platform-mpi-community-edition"></a>Platforma MPI Community Edition
@@ -116,17 +152,9 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 Postępuj zgodnie z procesem instalacji.
 
-## <a name="intel-mpi"></a>Intel MPI
-
-[Pobierz procesor Intel MPI](https://software.intel.com/mpi-library/choose-download).
-
-Zmień zmienną środowiskową I_MPI_FABRICS w zależności od wersji. W przypadku procesora Intel MPI 2018 Użyj programu `I_MPI_FABRICS=shm:ofa` i dla 2019, użyj `I_MPI_FABRICS=shm:ofi` .
-
-Przypinanie procesów działa prawidłowo domyślnie dla 15, 30 i 60 PPN.
-
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI — testy porównawcze
 
-[Pobierz testy OSU MPI](http://mvapich.cse.ohio-state.edu/benchmarks/) i untar.
+Pobierz [testy OSU MPI](http://mvapich.cse.ohio-state.edu/benchmarks/) i untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -164,7 +192,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Użyj partycji innej niż domyślna (0x7FFF). UCX wymaga wyczyszczenia MSBu p-Key. Na przykład ustaw UCX_IB_PKEY jako 0x000b dla 0x800b.
 
-Należy również pamiętać, że dopóki dzierżawa (AVSet lub VMSS) istnieje, PKEYs pozostaje taka sama. Jest to prawdziwe nawet po dodaniu lub usunięciu węzłów. Nowi dzierżawcy uzyskują różne PKEYs.
+Należy również pamiętać, że o ile istnieje dzierżawca (zestaw dostępności lub zestaw skalowania maszyn wirtualnych), PKEYs pozostaje taka sama. Jest to prawdziwe nawet po dodaniu lub usunięciu węzłów. Nowi dzierżawcy uzyskują różne PKEYs.
 
 
 ## <a name="set-up-user-limits-for-mpi"></a>Konfigurowanie limitów użytkowników dla MPI
@@ -179,7 +207,6 @@ cat << EOF | sudo tee -a /etc/security/limits.conf
 *               soft    nofile          65535
 EOF
 ```
-
 
 ## <a name="set-up-ssh-keys-for-mpi"></a>Konfigurowanie kluczy SSH dla MPI
 
@@ -200,4 +227,7 @@ Powyższa składnia zakłada, że udostępniony katalog macierzysty, w przeciwny
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [HPC](/azure/architecture/topics/high-performance-computing/) na platformie Azure.
+- Dowiedz się więcej na temat maszyn wirtualnych z [obsługą](../../sizes-hpc.md#rdma-capable-instances) urządzeń z serii [H](../../sizes-hpc.md) i [serii N](../../sizes-gpu.md)
+- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
+- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

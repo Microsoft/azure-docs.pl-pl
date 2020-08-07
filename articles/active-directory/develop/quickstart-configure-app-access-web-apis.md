@@ -1,6 +1,7 @@
 ---
-title: 'Szybki Start: dostęp do interfejsów API sieci Web dla aplikacji App-Microsoft Identity platform | Azure'
-description: W tym przewodniku szybki start Skonfiguruj aplikację zarejestrowaną na platformie tożsamości firmy Microsoft w celu uwzględnienia identyfikatorów URI przekierowania, poświadczeń lub uprawnień dostępu do interfejsów API sieci Web.
+title: 'Szybki Start: Konfigurowanie aplikacji do uzyskiwania dostępu do internetowego interfejsu API | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start skonfigurujesz aplikację zarejestrowaną na platformie tożsamości firmy Microsoft w celu uwzględnienia identyfikatorów URI przekierowania, poświadczeń lub uprawnień dostępu do interfejsów API sieci Web.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c91c3dfc23c0a8a9dffb38788f3a8fea08096f5c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82082326"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825059"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskiwania dostępu do interfejsów API sieci Web
+# <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API
 
 W tym przewodniku szybki start dowiesz się, jak dodać identyfikatory URI przekierowania, poświadczenia lub uprawnienia, aby uzyskać dostęp do interfejsów API sieci Web aplikacji. Sieć Web lub poufna aplikacja kliencka musi ustanowić bezpieczne poświadczenia do udziału w przepływie przydzielenia autoryzacji, który wymaga uwierzytelniania. Domyślną metodą uwierzytelniania obsługiwaną w witrynie Azure Portal jest użycie identyfikatora klienta i klucza tajnego. Aplikacja uzyskuje token dostępu w trakcie tego procesu.
 
@@ -27,15 +28,14 @@ Aby klient mógł uzyskać dostęp do internetowego interfejsu API uwidocznioneg
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Kończenie [przewodnika Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
-* Przegląd [uprawnień i zgody w punkcie końcowym platformy tożsamości firmy Microsoft](v2-permissions-and-consent.md).
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Kończenie [szybkiego startu: Skonfiguruj aplikację, aby uwidocznić internetowy interfejs API](quickstart-configure-app-expose-web-apis.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logowanie do witryny Azure Portal i wybranie aplikacji
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Skonfiguruj sesję portalu do dzierżawy usługi Azure AD, której chcesz użyć.
-1. Wyszukaj i wybierz pozycję **Azure Active Directory**. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Znajdź i wybierz aplikację do skonfigurowania. Po wybraniu aplikacji zostanie wyświetlona strona **Omówienie** lub główna Rejestracja aplikacji.
 
 Poniższe procedury służą do konfigurowania aplikacji w celu uzyskiwania dostępu do interfejsów API sieci Web.
@@ -50,7 +50,7 @@ Do aplikacji można dodawać niestandardowe identyfikatory URI przekierowań ora
 1. Podaj identyfikator URI przekierowania dla aplikacji.
 
    * Dla aplikacji internetowych podaj podstawowy adres URL aplikacji. Na przykład ciąg `http://localhost:31544` może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą używać tego adresu URL, aby zalogować się do internetowej aplikacji klienckiej.
-   * W przypadku aplikacji publicznych podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Wprowadź wartość specyficzną dla Twojej aplikacji, na przykład: `https://MyFirstApp`.
+   * W przypadku aplikacji publicznych podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Wprowadź wartość specyficzną dla Twojej aplikacji, na przykład: `https://MyFirstApp` .
 1. Wybierz pozycję **Zapisz**.
 
 Aby wybrać spośród sugerowanych identyfikatorów URI przekierowań dla klientów publicznych, wykonaj następujące czynności:
@@ -109,11 +109,11 @@ Aby skonfigurować ustawienia aplikacji zależnie od platformy lub urządzenia, 
    |-------------------------|-----------------------------------|
    | **Sieć Web**              | Wprowadź **Identyfikator URI przekierowania** dla aplikacji. |
    | **iOS/macOS**              | Wprowadź **Identyfikator pakietu**aplikacji, który można znaleźć w Xcode w oknie info. plist lub ustawienia kompilacji. Dodanie identyfikatora pakietu powoduje automatyczne utworzenie identyfikatora URI przekierowania dla aplikacji. |
-   | **Android**          | Podaj **nazwę pakietu**aplikacji, którą można znaleźć w pliku pliku AndroidManifest. XML.<br/>Generowanie i wprowadzanie **skrótu podpisu**. Dodanie skrótu podpisu powoduje automatyczne utworzenie identyfikatora URI przekierowania dla aplikacji.  |
-   | **Aplikacje mobilne i klasyczne**  | Opcjonalny. Wybierz jeden z zalecanych **sugerowanych identyfikatorów URI przekierowania** , jeśli tworzysz aplikacje dla komputerów stacjonarnych i urządzeń.<br/>Opcjonalny. Wprowadź **niestandardowy identyfikator URI przekierowania**, który jest używany jako lokalizacja, w której usługa Azure AD będzie przekierowywać użytkowników w odpowiedzi na żądania uwierzytelniania. Na przykład w przypadku aplikacji .NET Core, w których chcesz współdziałać, użyj `http://localhost`programu. |
+   | **Android**          | Podaj **nazwę pakietu**aplikacji, którą można znaleźć w pliku AndroidManifest.xml.<br/>Generowanie i wprowadzanie **skrótu podpisu**. Dodanie skrótu podpisu powoduje automatyczne utworzenie identyfikatora URI przekierowania dla aplikacji.  |
+   | **Aplikacje mobilne i klasyczne**  | Opcjonalny. Wybierz jeden z zalecanych **sugerowanych identyfikatorów URI przekierowania** , jeśli tworzysz aplikacje dla komputerów stacjonarnych i urządzeń.<br/>Opcjonalny. Wprowadź **niestandardowy identyfikator URI przekierowania**, który jest używany jako lokalizacja, w której usługa Azure AD będzie przekierowywać użytkowników w odpowiedzi na żądania uwierzytelniania. Na przykład w przypadku aplikacji .NET Core, w których chcesz współdziałać, użyj programu `http://localhost` . |
 
    > [!NOTE]
-   > Na Active Directory Federation Services (AD FS) i Azure AD B2C należy również określić numer portu.  Na przykład: `http://localhost:1234`. 
+   > Na Active Directory Federation Services (AD FS) i Azure AD B2C należy również określić numer portu.  Przykład: `http://localhost:1234`.
 
    > [!IMPORTANT]
    > W przypadku aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie używają brokera, należy skonfigurować identyfikatory URI przekierowania dla tych aplikacji na **komputerach stacjonarnych i urządzeniach**.
@@ -200,16 +200,7 @@ Monit o zgodę zapewnia opcję **akceptacji** lub **anulowania**. Wybierz pozycj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak uwidocznić interfejsy API sieci Web.
+Przejdź do następnego przewodnika Szybki Start w serii, aby dowiedzieć się, jak skonfigurować typy kont, które mogą uzyskiwać dostęp do aplikacji. Na przykład możesz chcieć ograniczyć dostęp tylko do tych użytkowników w organizacji (z jedną dzierżawą) lub zezwolić użytkownikom w innych dzierżawach usługi Azure AD (z wieloma dzierżawcami) oraz z osobistymi kontami Microsoft (MSA).
+
 > [!div class="nextstepaction"]
-> [Szybki Start: Konfigurowanie aplikacji do udostępniania interfejsów API sieci Web](quickstart-configure-app-expose-web-apis.md)
-
-* Aby dowiedzieć się więcej na temat dwóch obiektów usługi Azure AD, które reprezentują zarejestrowaną aplikację i związek między nimi, zobacz [Application objects and service principal objects](app-objects-and-service-principals.md) (Obiekty aplikacji i obiekty jednostek usługi).
-
-* Aby dowiedzieć się więcej o wytycznych dotyczących oznaczania marką, które należy stosować podczas opracowywania aplikacji przy użyciu usługi Azure Active Directory, zobacz [Wytyczne dotyczące oznaczania aplikacji marką](howto-add-branding-in-azure-ad-apps.md).
-
-* [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
-
-* [Szybki Start: modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md)
-
-* [Szybki Start: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft](quickstart-remove-app.md)
+> [Modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md)

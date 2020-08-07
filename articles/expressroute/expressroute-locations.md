@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/30/2020
+ms.date: 08/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0aac3d7a4bc2eb8bb83405155b345360f5d2c699
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 48178c2c0e4028cb913b2a07448652719a1f616d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407357"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844732"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partnerzy łączności ExpressRoute i lokalizacje komunikacji równorzędnej
 
@@ -44,7 +44,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | --- | --- | --- |
 | **Australia — instytucje rządowe** |Australia Środkowa, Australia Środkowa 2 |Canberra, Canberra2 |
 | **Europa** | Francja środkowa, Francja Południowa, Niemcy Północne, Niemcy Środkowo-Zachodnie, Europa Północna, Norwegia Wschodnia, Norwegia Zachodnia, Szwajcaria Północna, Szwajcaria Zachodnia, Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Zachodnia |Amsterdam, Amsterdam2, Berlin, Kopenhaga, Dublin, Menem, Genewa, Londyn, London2, Marsylii, Mediolan, Monachium, Newport (Walia), Oslo, Paryż, Stavanger, Sztokholm, Zurych |
-| **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Zachodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Zachodnio-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Minneapolis, Nowy Jork, Queretaro (Meksyk), San Antonio, Seattle, Dolina Krzemowa, krzem Valley2, Waszyngton DC, Waszyngton DC2, Montrealu, Quebec City, Toronto, Vancouver |
+| **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Zachodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Zachodnio-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Nowy Jork, Queretaro (Meksyk), San Antonio, Seattle, Dolina Krzemowa, krzem Valley2, Waszyngton |
 | **Azja** | Azja Wschodnia, Azja Południowo-Wschodnia | Bangkok, Hongkong SAR, Hongkong Kong2, Dżakarta, Kuala Lumpur, Singapur, Singapur2, Tajpej |
 | **Indie** | Indie Zachodnie, Indie Środkowe, Indie Południowe |Chennai, Chennai2, Mumbaj, Mumbaj2 |
 | **Japonia** | Japońska Zachodnia, Japonia Wschodnia |Osaka, Tokio, Tokyo2 |
@@ -105,7 +105,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **du datamena** |Obsługiwane |Obsługiwane | Dubai2 |
 | **eir** |Obsługiwane |Obsługiwane |Dublin|
 | **[Epsilon — komunikacja globalna](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Obsługiwane |Obsługiwane |Singapur, Singapur2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Obsługiwane |Obsługiwane |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Menem, Genewa, Hongkong SAR, Londyn, London2, Los Angeles, Melbourne, Miami, Mediolan, Nowy Jork, Osaka, Paryż, Wyspy świętegoia krzemu, Singapur, Sztokholm, Sydney, Tokio, Toronto, Waszyngton |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Obsługiwane |Obsługiwane |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Menem, Genewa, Hongkong SAR, Londyn, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Mediolan, Nowy Jork, Osaka, Paryż, Wyspy świętegoł, Seattle, Dolina Krzemowa, Singapur, Sztokholm, Sydney, Tokio, Toronto, Waszyngton |
 | **Etisalat Zjednoczone Emiraty Arabskie** |Obsługiwane |Obsługiwane |Dubaj|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Obsługiwane |Obsługiwane |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londyn |
 | **FarEasTone** |Obsługiwane |Obsługiwane |Tajpej|

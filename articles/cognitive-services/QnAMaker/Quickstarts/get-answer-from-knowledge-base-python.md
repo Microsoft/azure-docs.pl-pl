@@ -3,14 +3,14 @@ title: 'Szybki start: uzyskiwanie odpowiedzi z bazy wiedzy — środowisko REST,
 description: W tym samouczku Szybki start opartym na protokole REST i języku Python opisano sposób programowego uzyskiwania odpowiedzi z bazy wiedzy.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2d693a63360890b9f658baa1a37d251f311d5617
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610138"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875017"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Szybki Start: uzyskiwanie odpowiedzi na pytanie z bazy wiedzy przy użyciu języka Python
 

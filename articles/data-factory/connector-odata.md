@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 08/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 12a858364fc58972894f9fb365955496f8832246
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10121243961d4c81ecc67d7453019c26743fe610
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987802"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845769"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiowanie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,7 +45,7 @@ W przypadku tego łącznika OData obsługuje:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -69,6 +69,7 @@ Dla połączonej usługi OData są obsługiwane następujące właściwości:
 | servicePrincipalEmbeddedCertPassword | Określ hasło certyfikatu, jeśli certyfikat jest zabezpieczony hasłem. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).  | Nie|
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz go, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Nie |
 | aadResourceId | Określ zasób usługi AAD, którego żądasz do autoryzacji.| Nie |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego jest zarejestrowana aplikacja usługi AAD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 **Przykład 1: korzystanie z uwierzytelniania anonimowego**
@@ -207,7 +208,7 @@ Aby skopiować dane z protokołu OData, ustaw właściwość **Type** zestawu da
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **ODataResource**. | Tak |
-| ścieżka | Ścieżka do zasobu OData. | Tak |
+| path | Ścieżka do zasobu OData. | Tak |
 
 **Przykład**
 
@@ -298,7 +299,7 @@ Podczas kopiowania danych z protokołu OData następujące mapowania są używan
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | EDM. | Int16 |
-| Edm.String | String |
+| Edm.String | Ciąg |
 | EDM. Time | przedział_czasu |
 | Edm.DateTimeOffset | DateTimeOffset |
 

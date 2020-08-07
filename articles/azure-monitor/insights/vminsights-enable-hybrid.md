@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417118"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828408"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Włącz Azure Monitor dla maszyn wirtualnych dla hybrydowej maszyny wirtualnej
 W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej poza platformą Azure, w tym w środowiskach lokalnych i innych.
@@ -92,7 +92,7 @@ Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, 
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| Files | Location |
+| Files | Lokalizacja |
 |:--|:--|
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -158,7 +158,7 @@ Jeśli instalacja agenta zależności zakończyła się pomyślnie, ale nie widz
 
     **Linux**: poszukaj uruchomionego procesu "Microsoft-Dependency-Agent".
 
-2. Czy korzystasz z [warstwy cenowej bezpłatna log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Plan bezpłatny pozwala na maksymalnie pięć unikatowych komputerów. Wszystkie kolejne komputery nie będą widoczne na mapie, nawet jeśli poprzednie pięć nie wyśle już danych.
+2. Czy korzystasz z [warstwy cenowej bezpłatna log Analytics](./solutions.md)? Plan bezpłatny pozwala na maksymalnie pięć unikatowych komputerów. Wszystkie kolejne komputery nie będą widoczne na mapie, nawet jeśli poprzednie pięć nie wyśle już danych.
 
 3. Czy komputer wysyła dane dziennika i wydajności do dzienników Azure Monitor? Wykonaj następujące zapytanie dotyczące komputera:
 

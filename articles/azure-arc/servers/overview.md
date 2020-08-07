@@ -7,14 +7,15 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482194"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905622"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Co to jest usługa Azure ARC dla serwerów (wersja zapoznawcza)?
 
@@ -28,10 +29,15 @@ Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą 
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-Usługa Azure ARC dla serwerów (wersja zapoznawcza) obsługuje następujące scenariusze z połączonymi maszynami:
+Po nawiązaniu połączenia między maszyną a usługą Azure ARC dla serwerów (wersja zapoznawcza) umożliwia ona wykonywanie następujących zadań zarządzania konfiguracją:
 
 - Przypisanie [Azure Policy konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) przy użyciu tego samego środowiska co przypisanie zasad dla maszyn wirtualnych platformy Azure.
-- Dane dziennika zebrane przez agenta Log Analytics, przechowywane w obszarze roboczym Log Analytics zarejestrowano maszynę. Dane dziennika z maszyny hybrydowej zawierają teraz właściwości specyficzne dla maszyny, takie jak identyfikator zasobu, który może służyć do obsługi dostępu do dziennika [kontekstu zasobów](../../azure-monitor/platform/design-logs-deployment.md#access-mode) .
+
+- Monitoruj wydajność systemu operacyjnego gościa połączonej maszyny i odnajduj składniki aplikacji, aby monitorować ich procesy i zależności z innymi zasobami, z którymi aplikacja komunikuje się za pomocą [Azure monitor dla maszyn wirtualnych](../../azure-monitor/insights/vminsights-overview.md).
+
+- Uprość wdrażanie za pomocą innych usług platformy Azure, takich jak konfiguracja stanu Azure Automation i Azure Monitor obszar roboczy Log Analytics, korzystając z obsługiwanych [rozszerzeń maszyny wirtualnej platformy Azure](manage-vm-extensions.md) dla maszyn z systemem Windows lub Linux. Obejmuje to przeprowadzanie konfiguracji po wdrożeniu lub instalację oprogramowania przy użyciu niestandardowego rozszerzenia skryptu.
+
+Dane dziennika zbierane i przechowywane w obszarze roboczym Log Analytics z maszyny hybrydowej zawierają teraz właściwości specyficzne dla maszyny, takie jak identyfikator zasobu. Może służyć do obsługi dostępu do dziennika [kontekstu zasobów](../../azure-monitor/platform/design-logs-deployment.md#access-mode) .
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -42,7 +48,7 @@ Usługa Azure ARC dla serwerów (wersja zapoznawcza) obsługuje tylko niektóre 
 - WestEurope
 - SoutheastAsia
 
-W większości przypadków lokalizacja wybrana podczas tworzenia skryptu instalacji powinna być regionem platformy Azure geograficznie najbliżej lokalizacji maszyny. Dane przechowywane w obszarze geograficznym platformy Azure zawierają określony region, co może również mieć wpływ na wybór regionu, jeśli istnieją wymagania dotyczące danych znajdujących się na miejscu. Jeśli do regionu platformy Azure, z którym jest połączona dana maszyna, ma wpływ awaria, nie ma to wpływ na przyłączoną maszynę, ale nie można ukończyć operacji zarządzania przy użyciu platformy Azure. W celu uzyskania odporności w przypadku awarii regionalnej, jeśli masz wiele lokalizacji, które zapewniają geograficznie nadmiarową usługę, najlepszym rozwiązaniem jest połączenie maszyn w każdej lokalizacji z innym regionem świadczenia usługi Azure.
+W większości przypadków lokalizacja wybrana podczas tworzenia skryptu instalacji powinna być regionem platformy Azure geograficznie najbliżej lokalizacji maszyny. Dane przechowywane w obszarze geograficznym platformy Azure zawierają określony region, co może również mieć wpływ na wybór regionu, jeśli istnieją wymagania dotyczące danych znajdujących się na miejscu. Jeśli do regionu platformy Azure, z którym jest połączona dana maszyna, ma wpływ awaria, nie ma to wpływ na przyłączoną maszynę, ale nie można ukończyć operacji zarządzania przy użyciu platformy Azure. W przypadku awarii regionalnej, jeśli masz wiele lokalizacji, które zapewniają geograficznie nadmiarową usługę, najlepiej połączyć maszyny w każdej lokalizacji z innym regionem platformy Azure.
 
 ### <a name="agent-status"></a>Stan agenta
 
