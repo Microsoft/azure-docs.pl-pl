@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904194"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -49,9 +49,9 @@ Klucz tajny w systemie Red Hat umożliwia klastrowi dostęp do rejestrów konten
 
    Musisz zalogować się do swojego konta Red Hat lub utworzyć nowe konto Red Hat przy użyciu firmowej poczty e-mail i zaakceptować warunki i postanowienia.
 
-2. **Kliknij pozycję Pobierz klucz tajny ściągania.**
+2. Jeśli tworzysz klaster po raz pierwszy, przejdź na [**stronę produktu OpenShift**](https://developers.redhat.com/products/codeready-containers) . Po rejestracji przejdź do [**strony Menedżer klastra Red Hat OpenShift**](https://cloud.redhat.com/openshift/), na której można kliknąć pozycję **Pobierz klucz tajny** i pobrać klucz tajny do użycia z klastrem ARO.
 
-Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu — będzie on używany podczas tworzenia klastra.
+Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu. Plik będzie używany podczas tworzenia klastra, jeśli trzeba utworzyć klaster zawierający przykłady lub operatorów dla systemów Red Hat lub certyfikowanych partnerów.
 
 Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajnego ściągnięcia przy użyciu `--pull-secret @pull-secret.txt` parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie Zamień `@pull-secret.txt` na `@<path-to-my-pull-secret-file>` .
 

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure API Management
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla API Management platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla API Management platformy Azure. Te wbudowane definicje zasad udostępniają podejścia do zarządzania zasobami platformy Azure.
 ms.date: 07/10/2020
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 02e3dacef17e02d25819aaeab6c0add2c20fc6ff
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 518813ae870285b7cf51936abae117c649bee040
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275596"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902494"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Azure Policy wbudowane definicje zasad dla platformy Azure API Management
 
@@ -20,7 +20,7 @@ Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowa
 
 Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
-## <a name="azure-api-management"></a>Azure API Management
+## <a name="azure-api-management"></a>Usługa Azure API Management
 
 [!INCLUDE [azure-policy-samples-rp-apimanagement](../../includes/policy/samples/byrp/microsoft.apimanagement.md)]
 

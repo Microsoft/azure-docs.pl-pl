@@ -2,18 +2,18 @@
 title: Rejestrowanie poufnej aplikacji klienckiej w usłudze Azure AD — Azure API for FHIR
 description: Zarejestruj poufną aplikację kliencką w Azure Active Directory, która uwierzytelnia się w imieniu użytkownika i żąda dostępu do aplikacji zasobów.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 6642adf5f51be1f4f54c538624829fe9004d3907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 756645d2df22f1222c3004a44e5a46c7a3bc1a2f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871876"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852552"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Rejestrowanie poufnej aplikacji klienckiej w Azure Active Directory
 

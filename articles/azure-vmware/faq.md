@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836585"
+ms.locfileid: "87872331"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Często zadawane pytania dotyczące rozwiązania Azure VMware (automatyczna wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ Konkretne integracje i przypadki użycia mogą być oceniane w zależności od w
 
 **Czy można migrować maszyny wirtualne vSphere z lokalnych środowisk do automatycznej synchronizacji chmur prywatnych?**
 
-Tak. Migracje maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszyn wirtualnych do chmury prywatnej, jeśli zostały spełnione standardowe krzyżowe usługi vCenter [vMotion] [ https://kb.vmware.com/s/article/210695 ].
+Tak. Migracja maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszyn wirtualnych do chmury prywatnej, jeśli są spełnione standardowe wymagania programu vCenter [vMotion](https://kb.vmware.com/s/article/210695) .
 
 **Czy określona wersja vSphere jest wymagana w środowiskach lokalnych?**
 

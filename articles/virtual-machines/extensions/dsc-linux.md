@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494789"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876720"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Rozszerzenie DSC dla systemu Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -29,25 +29,17 @@ Konfiguracja żądanego stanu (DSC) to platforma zarządzania, za pomocą które
 
 Rozszerzenie DSCForLinux jest publikowane i obsługiwane przez firmę Microsoft. Rozszerzenie instaluje agenta OMI i DSC na maszynach wirtualnych platformy Azure. Rozszerzenie DSC może również wykonywać następujące czynności:
 
-
 - Zarejestruj maszynę wirtualną z systemem Linux na koncie Azure Automation, aby ściągnąć konfiguracje z usługi Azure Automation (Register ExtensionAction).
 - Wypchnij konfiguracje MOF do maszyny wirtualnej z systemem Linux (wypychanie ExtensionAction).
 - Zastosuj konfigurację meta MOF do maszyny wirtualnej z systemem Linux, aby skonfigurować serwer ściągania w celu ściągnięcia konfiguracji węzła (ściągania ExtensionAction).
 - Instalowanie niestandardowych modułów DSC na maszynie wirtualnej z systemem Linux (Install ExtensionAction).
 - Usuń niestandardowe moduły DSC z maszyny wirtualnej z systemem Linux (Usuń ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie DSC Linux obsługuje wszystkie [dystrybucje systemu Linux zatwierdzone na platformie Azure](../linux/endorsed-distros.md) z wyjątkiem:
-
-| Dystrybucja | Wersja |
-|---|---|
-| Debian | Wszystkie wersje |
-| Ubuntu| 18,04 |
+W przypadku węzłów z systemem Linux rozszerzenie DSC Linux obsługuje wszystkie dystrybucje systemu Linux wymienione w [dokumentacji DSC programu PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 

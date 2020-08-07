@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148093"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876584"
 ---
-# <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych Cognitive Services platformy Azure
+# <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
-Usługa Azure Cognitive Services udostępnia model zabezpieczeń warstwowych. Ten model umożliwia Zabezpieczanie kont Cognitive Services w określonym podzestawie sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta. Można ograniczyć dostęp do zasobów za pomocą filtrowania żądań. Zezwalanie tylko na żądania pochodzące z określonych adresów IP, zakresów adresów IP lub z listy podsieci w [sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-overview.md). Jeśli interesuje Cię ofertę, musisz [zażądać dostępu do wersji zapoznawczej](https://aka.ms/cog-svc-vnet-signup).
+Usługa Azure Cognitive Services udostępnia model zabezpieczeń warstwowych. Ten model umożliwia zabezpieczanie kont usług Cognitive Services w określonym podzestawie sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta. Można ograniczyć dostęp do zasobów za pomocą filtrowania żądań. Zezwalanie tylko na żądania pochodzące z określonych adresów IP, zakresów adresów IP lub z listy podsieci w [sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-overview.md).
 
 Aplikacja, która uzyskuje dostęp do zasobu Cognitive Services, gdy reguły sieciowe są stosowane, wymagają autoryzacji. Autoryzacja jest obsługiwana z poświadczeniami [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) lub z prawidłowym kluczem interfejsu API.
 
 > [!IMPORTANT]
 > Włączenie reguł zapory dla konta Cognitive Services domyślnie blokuje przychodzące żądania dla danych. Aby można było zezwolić na żądania w programie, należy spełnić jeden z następujących warunków:
+
 > * Żądanie powinno pochodzić z usługi działającej w ramach platformy Azure Virtual Network (VNet) na liście dozwolonych podsieci docelowego konta Cognitive Services. Punkt końcowy w żądaniach pochodzących z sieci wirtualnej musi być ustawiony jako [niestandardową poddomeną](cognitive-services-custom-subdomains.md) konta Cognitive Services.
 > * Lub żądanie powinno pochodzić z listy dozwolonych adresów IP.
 >
@@ -39,39 +40,39 @@ Reguły sieciowe są wymuszane dla wszystkich protokołów sieciowych na platfor
 
 ## <a name="supported-regions-and-service-offerings"></a>Obsługiwane regiony i oferty usług
 
-Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ograniczona do *centralnych stanów USA*, *Południowo-środkowe*stany USA, *wschodniej USA*, *zachodnie*stany USA 2, *Europa Północna*, *Północna Republika Południowej Afryki*, *Europa zachodnia*, *Indie Środkowe*, *Australia Wschodnia*, *zachodnie stany USA*i *US gov Wirginiae* regiony platformy Azure. Jeśli oferta usługi nie jest wymieniona w tym miejscu, nie obsługuje sieci wirtualnych.
+Cognitive Services wymienione poniżej obsługują sieci wirtualne w chmurze komercyjnej i w chmurze US Gov. Jeśli usługa nie jest wymieniona w tym miejscu, nie obsługuje jeszcze sieci wirtualnych.
 
 > [!div class="checklist"]
+
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Niestandardowe przetwarzanie obrazów](./custom-vision-service/index.yml)
 > * [Rozpoznawanie twarzy](./face/index.yml)
 > * [Rozpoznawanie formularzy](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Usługa Language Understanding](./luis/index.yml)
 > * [Personalizacja](./personalizer/index.yml)
-> * [analiza tekstu](./text-analytics/index.yml)
+> * [Analiza tekstu](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-
-Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ograniczona do regionu *środkowe stany USA*, *Południowo-środkowe*stany USA, *Wschodnie stany*US USA, *zachodnie stany USA 2*, *globalne*i *US gov Wirginia* regiony platformy Azure.
-> [!div class="checklist"]
 > * [Tłumaczenie tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tagi usługi
-Oprócz obsługi punktów końcowych usługi sieci wirtualnej dla powyższych usług Cognitive Services obsługuje także tag usługi dla konfiguracji reguł sieci wychodzącej. Poniższe usługi są zawarte w tagu usługi CognitiveServicesManagement.
+
+Cognitive Services obsługuje Tagi usług dla konfiguracji reguł sieci. Wymienione poniżej usługi znajdują się w tagu usługi **CognitiveServicesManagement** .
 > [!div class="checklist"]
+
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Niestandardowe przetwarzanie obrazów](./custom-vision-service/index.yml)
 > * [Rozpoznawanie twarzy](./face/index.yml)
 > * [Rozpoznawanie formularzy](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding (LUIS)](./luis/index.yml)
 > * [Personalizacja](./personalizer/index.yml)
-> * [analiza tekstu](./text-analytics/index.yml)
+> * [Analiza tekstu](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator](./translator/index.yml)
-> * [Usługa rozpoznawania mowy](./speech-service/index.yml)
+> * [Usługa mowy](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Zmienianie domyślnej reguły dostępu do sieci
 
@@ -84,7 +85,7 @@ Domyślnie zasoby Cognitive Services akceptują połączenia od klientów w dowo
 
 Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -99,7 +100,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitiv
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -186,7 +187,7 @@ Zasób Cognitive Services i sieci wirtualne z udzielonym dostępem mogą znajdow
 
 Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -221,7 +222,7 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -330,6 +331,7 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -361,7 +363,7 @@ Jeśli używasz [ExpressRoute](../expressroute/expressroute-introduction.md) lok
 
 Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -379,7 +381,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -491,13 +493,13 @@ Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint
 
 Prywatne punkty końcowe dla zasobów Cognitive Services pozwalają:
 
-- Zabezpiecz zasób Cognitive Services, konfigurując zaporę do blokowania wszystkich połączeń w publicznym punkcie końcowym usługi Cognitive Services.
-- Zwiększ bezpieczeństwo sieci wirtualnej, umożliwiając zablokowanie eksfiltracji danych z sieci wirtualnej.
-- Bezpiecznie łącz się z zasobami Cognitive Services z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Usługa expressroutes](../expressroute/expressroute-locations.md) z prywatną komunikację równorzędną.
+* Zabezpiecz zasób Cognitive Services, konfigurując zaporę do blokowania wszystkich połączeń w publicznym punkcie końcowym usługi Cognitive Services.
+* Zwiększ bezpieczeństwo sieci wirtualnej, umożliwiając zablokowanie eksfiltracji danych z sieci wirtualnej.
+* Bezpiecznie łącz się z zasobami Cognitive Services z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Usługa expressroutes](../expressroute/expressroute-locations.md) z prywatną komunikację równorzędną.
 
 ### <a name="conceptual-overview"></a>Omówienie pojęć
 
-Prywatny punkt końcowy jest specjalnym interfejsem sieciowym dla usługi platformy Azure w sieci [wirtualnej](../virtual-network/virtual-networks-overview.md). Po utworzeniu prywatnego punktu końcowego dla zasobu Cognitive Services zapewnia on bezpieczną łączność między klientami w sieci wirtualnej a zasobem. Do prywatnego punktu końcowego jest przypisany adres IP z zakresu adresów IP sieci wirtualnej. Połączenie między prywatnym punktem końcowym a usługą Cognitive Services używa bezpiecznego linku prywatnego.
+Prywatny punkt końcowy jest specjalnym interfejsem sieciowym dla zasobu platformy Azure w sieci [wirtualnej](../virtual-network/virtual-networks-overview.md). Utworzenie prywatnego punktu końcowego dla zasobu Cognitive Services zapewnia bezpieczną łączność między klientami w sieci wirtualnej a zasobem. Do prywatnego punktu końcowego jest przypisany adres IP z zakresu adresów IP sieci wirtualnej. Połączenie między prywatnym punktem końcowym a usługą Cognitive Services używa bezpiecznego linku prywatnego.
 
 Aplikacje w sieci wirtualnej mogą bezproblemowo łączyć się z usługą za pośrednictwem prywatnego punktu końcowego, używając tych samych parametrów połączenia i mechanizmów autoryzacji, które mogą być używane w inny sposób. Wyjątkiem jest usługa mowy, która wymaga oddzielnego punktu końcowego. Zapoznaj się z sekcją dotyczącą [prywatnych punktów końcowych za pomocą usługi Speech](#private-endpoints-with-the-speech-service). Prywatnych punktów końcowych można używać ze wszystkimi protokołami obsługiwanymi przez zasób Cognitive Services, w tym REST.
 
@@ -509,11 +511,11 @@ Właściciele zasobów Cognitive Services mogą zarządzać żądaniami zgody i 
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
-Podczas tworzenia prywatnego punktu końcowego należy określić zasób Cognitive Services, z którym jest nawiązywane połączenie. Aby uzyskać więcej informacji na temat tworzenia prywatnego punktu końcowego, zapoznaj się z następującymi artykułami:
+Podczas tworzenia prywatnego punktu końcowego należy określić zasób Cognitive Services, z którym jest nawiązywane połączenie. Aby uzyskać więcej informacji na temat tworzenia prywatnego punktu końcowego, zobacz:
 
-- [Utwórz prywatny punkt końcowy przy użyciu prywatnego centrum linków w Azure Portal](../private-link/create-private-endpoint-portal.md)
-- [Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](../private-link/create-private-endpoint-cli.md)
-- [Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Utwórz prywatny punkt końcowy przy użyciu prywatnego centrum linków w Azure Portal](../private-link/create-private-endpoint-portal.md)
+* [Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](../private-link/create-private-endpoint-cli.md)
+* [Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Nawiązywanie połączenia z prywatnymi punktami końcowymi
 
@@ -523,7 +525,7 @@ Utworzymy [prywatną strefę DNS](../dns/private-dns-overview.md) dołączoną d
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Prywatne punkty końcowe z usługą mowy
 
-W przypadku korzystania z prywatnych punktów końcowych z usługą mowy należy użyć niestandardowego punktu końcowego do wywołania interfejsu API usługi mowy. Nie można użyć globalnego punktu końcowego. Należy użyć punktu końcowego w postaci {account}. {monitora STT | TTS | Voice | DLS}. Speech. Microsoft. com.
+W przypadku korzystania z prywatnych punktów końcowych z usługą mowy należy użyć niestandardowego punktu końcowego do wywołania usługi mowy. Nie można użyć globalnego punktu końcowego. Punkt końcowy musi następować po tym wzorcu: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
 
 ### <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
 
@@ -531,17 +533,17 @@ Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla zasob
 
 W przypadku rozpoznania adresu URL punktu końcowego spoza sieci wirtualnej przy użyciu prywatnego punktu końcowego jest on rozpoznawany jako publiczny punkt końcowy zasobu Cognitive Services. Po rozwiązaniu problemu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego jest rozpoznawany jako adres IP prywatnego punktu końcowego.
 
-Takie podejście umożliwia dostęp do Cognitive Services zasobu przy użyciu tych samych parametrów połączenia dla klientów w sieci wirtualnej, które obsługują prywatne punkty końcowe, a także klientów spoza sieci wirtualnej.
+Takie podejście umożliwia dostęp do Cognitive Services zasobu przy użyciu tych samych parametrów połączenia dla klientów w sieci wirtualnej, w których znajdują się prywatne punkty końcowe i klienci spoza sieci wirtualnej.
 
-Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą być w stanie rozpoznać w pełni kwalifikowaną nazwę domeny (FQDN) dla punktu końcowego zasobu Cognitive Services na adres IP prywatnego punktu końcowego. Należy skonfigurować serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej.
+Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą być w stanie rozpoznać w pełni kwalifikowaną nazwę domeny (FQDN) dla punktu końcowego zasobu Cognitive Services na adres IP prywatnego punktu końcowego. Skonfiguruj serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej.
 
 > [!TIP]
 > W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS, aby rozpoznawał Cognitive Services nazwę zasobu w poddomenie "privatelink" do prywatnego adresu IP punktu końcowego. Można to zrobić przez delegowanie poddomeny "privatelink" do prywatnej strefy DNS sieci wirtualnej lub skonfigurowanie strefy DNS na serwerze DNS oraz dodanie rekordu A usługi DNS.
 
 Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do obsługi prywatnych punktów końcowych, zapoznaj się z następującymi artykułami:
 
-- [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Konfiguracja DNS dla prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+* [Konfiguracja DNS dla prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Cennik
 

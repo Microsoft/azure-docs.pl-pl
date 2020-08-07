@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążen
 description: Wprowadzenie do tworzenia kopii zapasowych baz danych SQL Server przy użyciu usługi Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876312"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążenia programu DPM
 
@@ -21,6 +21,9 @@ Aby utworzyć kopię zapasową bazy danych SQL Server na platformie Azure i odzy
 1. Tworzenie zasad tworzenia kopii zapasowych w celu ochrony baz danych SQL Server na platformie Azure.
 1. Tworzenie kopii zapasowych na żądanie na platformie Azure.
 1. Odzyskaj bazę danych z platformy Azure.
+
+>[!NOTE]
+>Program DPM 2019 UR2 obsługuje SQL Server wystąpienia klastra trybu failover (FCI) przy użyciu udostępnionych woluminów klastra (CSV).
 
 ## <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
 
@@ -88,7 +91,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
    >
    >
 
-1. Wybierz przycisk **Dalej**. Program DPM pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
+1. Wybierz pozycję **Dalej**. Program DPM pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
 
     ![Konfigurowanie przydziału dysku](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -176,7 +179,7 @@ Aby odzyskać chronioną jednostkę, taką jak baza danych SQL Server, z platfor
 1. Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz polecenie **Odzyskaj**.
 
     ![Odzyskiwanie bazy danych z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz przycisk **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz przycisk **Dalej**.
+1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz pozycję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz przycisk **Dalej**.
 
     ![Odzyskiwanie bazy danych do jej oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 

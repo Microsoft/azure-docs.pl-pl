@@ -1,6 +1,6 @@
 ---
 title: Przekazywanie certyfikatu zarządzania usługami platformy Azure | Microsoft Docs
-description: Dowiedz się, jak przekazać certyfikat zarządzania usługą dla Azure Portal.
+description: Dowiedz się, jak przekazać certyfikat zarządzania usługą dla Azure Portal. Certyfikaty zarządzania umożliwiają uwierzytelnianie przy użyciu klasycznego modelu wdrażania.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace
@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d2436b524ba6df68b12206bcb545e54a405b731
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78329123"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848557"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Przekazywanie certyfikatu zarządzania usługami platformy Azure
 Certyfikaty zarządzania umożliwiają uwierzytelnianie przy użyciu klasycznego modelu wdrażania dostarczonego przez platformę Azure. Wiele programów i narzędzi (takich jak program Visual Studio lub zestaw Azure SDK) używa tych certyfikatów do zautomatyzowania konfigurowania i wdrażania różnych usług platformy Azure. 

@@ -3,16 +3,16 @@ title: Nawiązywanie połączenia z usługą Azure Event Hubs
 description: Twórz zautomatyzowane zadania i przepływy pracy, które monitorują zdarzenia i zarządzają nimi przy użyciu usługi Azure Event Hubs i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284102"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848847"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorowanie, odbieranie i wysyłanie zdarzeń za pomocą usług Azure Event Hubs i Azure Logic Apps
 
@@ -62,6 +62,9 @@ W Azure Logic Apps każda aplikacja logiki musi rozpoczynać się od [wyzwalacza
 
 Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do centrum zdarzeń są wysyłane nowe zdarzenia. 
 
+> [!NOTE]
+> Wszystkie wyzwalacze centrum zdarzeń są wyzwalaczami *długotrwałych* , co oznacza, że wyzwalacz przetwarza wszystkie zdarzenia, a następnie czeka 30 sekund na partycję, aby więcej zdarzeń pojawiło się w centrum zdarzeń. Tak więc, jeśli wyzwalacz jest skonfigurowany z czterema partycjami, to opóźnienie może trwać do dwóch minut, zanim wyzwalacz zakończy sondowanie wszystkich partycji. Jeśli żadne zdarzenia nie są odbierane w tym opóźnieniu, uruchomienie wyzwalacza zostanie pominięte. W przeciwnym razie wyzwalacz kontynuuje odczytywanie zdarzeń do momentu, gdy centrum zdarzeń jest puste. Sonda następnego wyzwalacza odbywa się na podstawie interwału cyklu określonego we właściwościach wyzwalacza.
+
 1. W Azure Portal lub Visual Studio Utwórz pustą aplikację logiki, która otwiera Logic Apps projektanta. Ten przykład używa Azure Portal.
 
 1. W polu wyszukiwania wprowadź "Centra zdarzeń" jako filtr. Z listy Wyzwalacze wybierz ten wyzwalacz: **gdy zdarzenia są dostępne w centrum zdarzeń — Event Hubs**
@@ -100,11 +103,6 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 1. Teraz Kontynuuj dodawanie co najmniej jednej akcji do aplikacji logiki w celu wykonywania zadań, które chcesz wykonać z wynikami wyzwalacza. 
 
    Na przykład, aby filtrować zdarzenia na podstawie określonej wartości, takiej jak kategoria, można dodać warunek, aby Akcja **Wyślij zdarzenie** wysyła tylko zdarzenia, które spełniają warunek. 
-
-> [!NOTE]
-> Wszystkie wyzwalacze centrum zdarzeń są wyzwalaczami *długotrwałych* , co oznacza, że podczas uruchamiania wyzwalacza wyzwalacz przetwarza wszystkie zdarzenia, a następnie czeka 30 sekund, aby więcej zdarzeń pojawiło się w centrum zdarzeń.
-> Jeśli żadne zdarzenia nie są odbierane w ciągu 30 sekund, uruchomienie wyzwalacza zostanie pominięte. W przeciwnym razie wyzwalacz kontynuuje odczytywanie zdarzeń do momentu, gdy centrum zdarzeń jest puste.
-> Sonda następnego wyzwalacza odbywa się na podstawie interwału cyklu określonego we właściwościach wyzwalacza.
 
 <a name="add-action"></a>
 

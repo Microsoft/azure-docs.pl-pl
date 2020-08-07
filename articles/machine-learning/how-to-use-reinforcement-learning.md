@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7a9c367c1669aab18da5a7cb1f7d732f9b8aee9e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319069"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847639"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -40,7 +40,7 @@ Ten artykuł jest oparty na [przykładu RLlib Pong](https://aka.ms/azureml-rl-po
 
 Uruchom ten kod w dowolnym z następujących środowisk. Zalecamy wypróbowanie Azure Machine Learning wystąpienia obliczeniowego w celu uzyskania najszybszego uruchomienia. Przykładowe notesy wzmacniania są dostępne do szybkiego klonowania i uruchamiania na Azure Machine Learning wystąpienia obliczeniowe.
 
- - Wystąpienie obliczeniowe Azure Machine Learning
+ - Wystąpienie obliczeniowe usługi Azure Machine Learning
 
      - Dowiedz się, jak sklonować przykładowe notesy w [samouczku: Instalacja środowiska i obszaru roboczego](tutorial-1st-experiment-sdk-setup.md).
          - Klonowanie folderu " **jak do użycia"** zamiast **samouczków**

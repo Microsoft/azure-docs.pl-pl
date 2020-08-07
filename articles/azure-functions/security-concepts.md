@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502685"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850716"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -70,6 +70,18 @@ Poniższa tabela zawiera porównanie użycia różnych rodzajów kluczy dostępu
 <sup>2</sup> Określone nazwy ustawione przez rozszerzenie.
 
 Aby dowiedzieć się więcej na temat kluczy dostępu, zobacz artykuł dotyczący [powiązań wyzwalacza http](functions-bindings-http-webhook-trigger.md#obtaining-keys).
+
+
+#### <a name="secret-repositories"></a>Repozytoria tajne
+
+Domyślnie klucze są przechowywane w kontenerze magazynu obiektów BLOB na koncie udostępnianym przez `AzureWebJobsStorage` ustawienie. Możesz użyć określonych ustawień aplikacji, aby przesłonić to zachowanie i przechowywać klucze w innej lokalizacji.
+
+|Lokalizacja  |Ustawienie | Wartość | Opis  |
+|---------|---------|---------|---------|
+|Inne konto magazynu     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Przechowuje klucze w magazynie obiektów BLOB na drugim koncie magazynu na podstawie podanego adresu URL sygnatury dostępu współdzielonego. Klucze są szyfrowane przed przechowywaniem przy użyciu klucza tajnego unikatowego dla aplikacji funkcji. |
+|System plików   | `AzureWebJobsSecretStorageType`   |  `files`       | Klucze są utrwalane w systemie plików, szyfrowane przed magazynem przy użyciu klucza tajnego unikatowego dla aplikacji funkcji. |
+|W usłudze Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Magazyn musi mieć zasady dostępu odpowiadające tożsamości zarządzanej przypisanej do systemu zasobu hostingu. Zasady dostępu powinny udzielić tożsamości następujących uprawnień tajnych: `Get` , `Set` , `List` , i `Delete` . <br/>W przypadku uruchamiania lokalnego jest używana tożsamość dewelopera, a ustawienia muszą znajdować się w [local.settings.jspliku](functions-run-local.md#local-settings-file). | 
+|Wpisy tajne usługi Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (opcjonalnie) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Obsługiwane tylko w przypadku uruchamiania środowiska uruchomieniowego Functions w Kubernetes. Gdy `AzureWebJobsKubernetesSecretName` nie jest ustawiona, repozytorium jest uznawane za tylko do odczytu. W takim przypadku wartości muszą zostać wygenerowane przed wdrożeniem. Azure Functions Core Tools automatycznie generuje wartości podczas wdrażania do Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Uwierzytelnianie/autoryzacja
 

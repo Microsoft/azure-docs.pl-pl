@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 0337abedbc5b592a0ae48fabd5bc7ecbb484def9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132793"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836881"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą wydawania informacji, wideo, wpisów w blogu i innych typów. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 Dowiedz się, co nowego w QnA Maker.
 
@@ -35,7 +35,7 @@ Dowiedz się, co nowego w QnA Maker.
 
 ### <a name="may-2020"></a>Maj 2020 r.
 
-* [Kontrola dostępu oparta na rolach (RBAC)](concepts/role-based-access-control.md)
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](concepts/role-based-access-control.md)
 * [Edytowanie tekstu sformatowanego](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) na potrzeby odpowiedzi
 
 ### <a name="march-2020"></a>Marzec 2020 r.

@@ -1,18 +1,18 @@
 ---
 title: Korzystanie z udziału plików platformy Azure w systemie Windows | Microsoft Docs
-description: Dowiedz się, jak używać udziału plików platformy Azure w systemach Windows i Windows Server.
+description: Dowiedz się, jak używać udziałów plików platformy Azure w systemach Windows i Windows Server. Używaj udziałów plików platformy Azure z protokołem SMB 3,0 w instalacjach systemu Windows działających lokalnie lub na maszynach wirtualnych platformy Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509782"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905758"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -30,8 +30,8 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 | Windows 8.1 | SMB 3.0 | Tak | Tak |
 | Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Tak | Tak |
 | Windows Server 2012 | SMB 3.0 | Tak | Tak |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
+| Windows 7<sup>3</sup> | SMB 2.1 | Tak | Nie |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Tak | Nie |
 
 <sup>1</sup> Windows 10, wersje 1507, 1607, 1709, 1803, 1809, 1903 i 1909.  
 <sup>2</sup> System Windows Server, wersje 1809, 1903 i 1909.  
@@ -59,12 +59,12 @@ Aby uzyskać ten skrypt:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Przejdź do konta magazynu zawierającego udział plików, który chcesz zainstalować.
-1. Wybierz **udziały plików**.
+1. Wybierz pozycję **Udziały plików**.
 1. Wybierz udział plików, który chcesz zainstalować.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="przyklad":::
 
-1. Wybierz pozycję **Połącz**.
+1. Wybierz polecenie **Połącz**.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę połączenia dla udziału plików.":::
 
@@ -87,7 +87,7 @@ Udział plików platformy Azure został już zainstalowany.
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Na przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
@@ -129,9 +129,9 @@ W poniższej tabeli zebrano szczegółowe informacje dotyczące stanu protokołu
 
 | Wersja systemu Windows                           | Domyślny stan protokołu SMB 1 | Metoda wyłączenia lub usunięcia       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Disabled (Wyłączony)             | Usunięcie za pomocą funkcji systemu Windows |
-| Windows Server w wersjach 1709+            | Disabled (Wyłączony)             | Usunięcie za pomocą funkcji systemu Windows |
-| Windows 10 w wersjach 1709+                | Disabled (Wyłączony)             | Usunięcie za pomocą funkcji systemu Windows |
+| Windows Server 2019                       | Disabled             | Usunięcie za pomocą funkcji systemu Windows |
+| Windows Server w wersjach 1709+            | Disabled             | Usunięcie za pomocą funkcji systemu Windows |
+| Windows 10 w wersjach 1709+                | Disabled             | Usunięcie za pomocą funkcji systemu Windows |
 | Windows Server 2016                       | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows |
 | Windows 10 w wersjach 1507, 1607 i 1703 | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows |
 | Windows Server 2012 z dodatkiem R2                    | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows | 
@@ -200,6 +200,6 @@ Po utworzeniu tego klucza rejestru należy ponownie uruchomić serwer, aby wył�
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
-- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 - [Często zadawane pytania](../storage-files-faq.md)
 - [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      

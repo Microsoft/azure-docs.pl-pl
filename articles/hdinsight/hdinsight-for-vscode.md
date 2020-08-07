@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087133"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876788"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -331,34 +331,34 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
 
     **Opublikuj/Batches** Treść żądania
 
-    | name | description | typ |
+    | name | description (opis) | typ |
     | --- | --- | --- |
     |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
-    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | String |
-    | Nazwą | Aplikacja Java/Spark klasy głównej | String |
+    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
+    | Nazwą | Aplikacja Java/Spark klasy głównej | Ciąg |
     | args | Argumenty wiersza polecenia dla aplikacji | Lista ciągów |
     | jars | Jars do użycia w tej sesji | Lista ciągów | 
     | pyFiles | Pliki języka Python, które mają być używane w tej sesji | Lista ciągów |
     | files | Pliki, które mają być używane w tej sesji | Lista ciągów |
-    | driverMemory | Ilość pamięci do użycia w procesie sterownika | String |
+    | driverMemory | Ilość pamięci do użycia w procesie sterownika | Ciąg |
     | driverCores | Liczba rdzeni do użycia w procesie sterownika | int |
-    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | String |
+    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | Ciąg |
     | executorCores | Liczba rdzeni do użycia dla każdego wykonawcy | int |
     | numExecutors | Liczba uruchomień do uruchomienia dla tej sesji | int |
     | archiwizowan | Archiwa, które mają być używane w tej sesji | Lista ciągów |
-    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| String |
-    | name | Nazwa tej sesji | String |
+    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| Ciąg |
+    | name | Nazwa tej sesji | Ciąg |
     | produkt | Właściwości konfiguracji platformy Spark | Mapa klucza = Val |
 
     Treść odpowiedzi utworzonego obiektu wsadowego.
 
-    | name | description | typ |
+    | name | description (opis) | typ |
     | --- | ---| --- |
     | ID | Identyfikator sesji | int |
-    | appId | Identyfikator aplikacji dla tej sesji | String |
+    | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
     | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
     | Dziennik | Wiersze dziennika | Lista ciągów |
-    | state |Stan partii | String |
+    | state |Stan partii | Ciąg |
 
     > [!NOTE]
     > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.

@@ -3,14 +3,14 @@ title: Tworzenie Azure Functions w systemie Linux przy użyciu obrazu niestandar
 description: Informacje o sposobie tworzenia usługi Azure Functions działającej w niestandardowym obrazie systemu Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d6061cd449a33ccf1bb461ada090c0412d1e94ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 43ca0a01cd56d63113824eccd6d9c37b225d4134
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485222"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852586"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -36,7 +36,7 @@ Ten samouczek można wykonać na dowolnym komputerze z systemem Windows, macOS l
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
-+ [Platforma Docker](https://docs.docker.com/install/)  
++ [Docker](https://docs.docker.com/install/)  
 
 + [Identyfikator platformy Docker](https://hub.docker.com/signup)
 
@@ -513,7 +513,7 @@ W przeglądarce Użyj tego samego adresu URL, co wcześniej, aby wywołać funkc
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz kontynuować pracę z funkcją platformy Azure przy użyciu zasobów utworzonych w tym samouczku, możesz pozostawić wszystkie te zasoby na miejscu. Ze względu na to, że został utworzony plan Premium dla Azure Functions, ponosisz jeden lub dwa USD dziennie.
 

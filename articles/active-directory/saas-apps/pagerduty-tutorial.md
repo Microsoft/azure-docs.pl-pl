@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 99d9988a02b046562c2517df8a81b8ef5c778ef2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 330066a950165d3424ca7900493ac89ce746b309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81683516"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi PagerDuty
 
@@ -38,6 +38,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi PagerDuty.
+
+> [!NOTE]
+> Jeśli używasz uwierzytelniania MFA lub bez hasła w usłudze Azure AD, wyłącz wartość AuthnContext w żądaniu SAML. W przeciwnym razie usługa Azure AD zgłosi błąd w przypadku niezgodności AuthnContext i nie wyśle tokenu z powrotem do aplikacji.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -107,9 +110,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -139,7 +142,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Kliknij pozycję **Logowanie jednokrotne**.
 
-    ![Rejestracja jednokrotna](./media/pagerduty-tutorial/ic778536.png "Rejestracja jednokrotna")
+    ![Rejestracja jednokrotna](./media/pagerduty-tutorial/ic778536.png "Logowanie jednokrotne")
 
 4. Na stronie **Włącz** Logowanie jednokrotne wykonaj następujące czynności:
 
@@ -180,7 +183,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze usługi
 
     a. Wpisz **imię i nazwisko** użytkownika, np. **B. Simon**. 
    
-    b. Wprowadź adres **e-mail** użytkownika, na przykład **b.\@Simon contoso.com**.
+    b. Wprowadź adres **e-mail** użytkownika, na przykład **b. Simon \@ contoso.com**.
    
     c. Kliknij przycisk **Dodaj**, a następnie kliknij przycisk **Wyślij zaproszenia**.
    
@@ -199,7 +202,7 @@ Po kliknięciu kafelka usługi PagerDuty w panelu dostępu należy automatycznie
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługi PagerDuty z usługą Azure AD](https://aad.portal.azure.com/)
 
