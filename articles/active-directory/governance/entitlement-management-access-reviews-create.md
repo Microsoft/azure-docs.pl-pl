@@ -3,7 +3,7 @@ title: Tworzenie przeglądu dostępu do pakietu dostępu w usłudze Azure AD upr
 description: Dowiedz się, jak utworzyć zasady przeglądu dostępu dla pakietów dostępu do zarządzania prawami w Azure Active Directory przeglądy dostępu (wersja zapoznawcza).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aed942058a922fc8da504fe14c5ad8e0bed59a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078592"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798515"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Tworzenie przeglądu dostępu do pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -30,7 +30,7 @@ Aby zmniejszyć ryzyko nieaktualnego dostępu, należy włączyć okresowe przeg
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby włączyć przeglądy pakietów dostępu, musisz spełnić wymagania wstępne dotyczące tworzenia pakietu dostępu:
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 - Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 
 Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](entitlement-management-overview.md#license-requirements).

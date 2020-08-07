@@ -2,7 +2,7 @@
 title: Dodaj informacje o ochronie prywatności organizacji — Azure Active Directory | Microsoft Docs
 description: Instrukcje dotyczące sposobu dodawania informacji o ochronie prywatności organizacji do obszaru właściwości Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830642"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797397"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Dodaj informacje o ochronie prywatności w organizacji za pomocą Azure Active Directory
 W tym artykule wyjaśniono, jak Administrator dzierżawy może dodać do dzierżawy usługi Azure Active Directory (Azure AD) informacje związane z prywatnością, korzystając z Azure Portal.

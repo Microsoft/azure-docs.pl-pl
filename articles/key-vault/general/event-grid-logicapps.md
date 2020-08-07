@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53e8586486d9a9ebf870de350d5607f58977c0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 340fcd723442a53ca72d3af0461226be737eb7a5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423277"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844205"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Użyj Logic Apps do otrzymywania wiadomości e-mail o zmianach stanu wpisów tajnych magazynu kluczy
 
@@ -26,8 +26,9 @@ Omówienie integracji Azure Key Vault/Azure Event Grid można znaleźć w temaci
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Azure Logic Apps (na przykład Office 365 Outlook). To konto e-mail służy do wysyłania powiadomień o zdarzeniach. Aby uzyskać pełną listę łączników obsługiwanych przez usługę Logic Apps, zobacz [Omówienie łączników](/connectors).
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Magazyn kluczy w ramach subskrypcji platformy Azure. Nowy magazyn kluczy można szybko utworzyć, wykonując kroki z [zestawu i pobierając klucz tajny z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md).
+- Zarejestrowano Event Grid jako dostawcę zasobów, zobacz [rejestracje dostawców zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Tworzenie aplikacji logiki za pomocą Event Grid
 
@@ -58,8 +59,8 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
    ![Projektant aplikacji logiki — Dodawanie poczty e-mail](../media/eventgrid-logicappdesigner3.png)
 
 1. Kompiluj szablon wiadomości e-mail:
-    - **Do:** Wprowadź adres e-mail, aby otrzymywać wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, które nadaje się do celów testowych.
-    - **Temat** i **Treść**: wpisz tekst wiadomości e-mail. Za pomocą narzędzia do wybierania wybierz właściwości JSON w celu dołączenia zawartości dynamicznej opartej na danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}`.
+    - **Do:** Wprowadź adres e-mail, aby otrzymywać wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, do którego masz dostęp, w celach testowych.
+    - **Temat** i **Treść**: wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}` .
 
     Twój szablon wiadomości e-mail może wyglądać podobnie do tego przykładu.
 

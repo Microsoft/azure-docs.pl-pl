@@ -1,23 +1,23 @@
 ---
-title: Migrowanie serwerów i maszyn wirtualnych na platformę Azure za pomocą Azure Site Recovery
-description: Opisuje sposób migrowania maszyn wirtualnych lokalnych i Azure IaaS na platformę Azure przy użyciu usługi Azure Site Recovery.
+title: Porównanie Azure Migrate i Site Recovery migracji na platformę Azure
+description: Podsumowuje zalety używania Azure Migrate do migracji, a nie Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.author: raynew
-ms.openlocfilehash: aaf01dcd63c21e4741456f4f7fccaf22b8fbfffc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 358efaa1493aa08fb76c9bb83e0e4289950e0969
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281314"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844324"
 ---
-# <a name="about-migration"></a>Informacje o migracji
+# <a name="migrating-to-azure"></a>Migracja na platformę Azure
 
-Usługa Azure Migrate służy do migrowania maszyn wirtualnych i serwerów na platformę Azure, a nie usługi Azure Site Recovery. [Dowiedz się więcej](../migrate/migrate-services-overview.md) o Azure Migrate.
+W przypadku migracji zalecamy użycie usługi Azure Migrate do migrowania maszyn wirtualnych i serwerów na platformę Azure, a nie usługi Azure Site Recovery. [Dowiedz się więcej](../migrate/migrate-services-overview.md) o Azure Migrate.
 
 
 ## <a name="why-use-azure-migrate"></a>Dlaczego warto używać usługi Azure Migrate?
@@ -29,8 +29,8 @@ Używanie Azure Migrate do migracji zapewnia wiele zalet:
 - Używanie Azure Migrate zapewnia współdziałanie i przyszłą rozszerzalność przy użyciu narzędzi Azure Migrate, innych usług platformy Azure i narzędzi innych firm.
 - Azure Migrate: Narzędzie migracji serwera jest przeznaczone do migracji serwera na platformę Azure. Jest zoptymalizowany pod kątem migracji. Nie musisz uczyć się o pojęciach i scenariuszach, które nie są bezpośrednio związane z migracją. 
 - Nie są naliczane opłaty za użycie narzędzi do migracji przez 180 dni od momentu uruchomienia replikacji dla maszyny wirtualnej. Zapewnia to czas na ukończenie migracji. Płacisz tylko za zasoby magazynowe i sieciowe używane podczas replikacji oraz opłaty za obliczenia używane podczas migracji testowej.
-- W przypadku maszyn wirtualnych VMware Azure Migrate zapewnia migrację bez wykorzystania agentów, a także migrację opartą na agentach.
-- Są dostępne priorytety nowych funkcji migracji dla Azure Migrate: tylko narzędzie migracji serwera.
+- Azure Migrate obsługuje wszystkie scenariusze migracji obsługiwane przez Site Recovery. Ponadto w przypadku maszyn wirtualnych VMware Azure Migrate zapewnia opcję migracji bez wykorzystania agentów.
+- Są dostępne priorytety nowych funkcji migracji dla Azure Migrate: tylko narzędzie migracji serwera. Te funkcje nie są przeznaczone do Site Recovery.
 
 ## <a name="when-to-use-site-recovery"></a>Kiedy używać Site Recovery?
 

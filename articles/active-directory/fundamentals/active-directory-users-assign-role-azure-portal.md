@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a468b5f43e8b024dd1da6e382049f8cce6de295
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797369"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902358"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Przypisywanie ról administratorów i niebędących administratorami do użytkowników z Azure Active Directory
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji na temat dostępnych ról usługi Azure AD, zoba
 
 ## <a name="assign-roles"></a>Przypisywanie ról
 
-Typowym sposobem przypisywania ról usługi Azure AD do użytkownika jest strona **przypisane role** dla użytkownika. Można również uzyskać podwyższony poziom uprawnień w czasie do roli przy użyciu Privileged Identity Management (PIM). Aby uzyskać więcej informacji na temat korzystania z usługi PIM, zobacz [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Typowym sposobem przypisywania ról usługi Azure AD do użytkownika jest strona **przypisane role** dla użytkownika. Możesz również skonfigurować uprawnienia użytkownika do podniesienia uprawnień w czasie do roli przy użyciu Privileged Identity Management (PIM). Aby uzyskać więcej informacji na temat korzystania z usługi PIM, zobacz [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
 > Jeśli masz plan licencji Azure AD — wersja Premium P2 i już korzystasz z programu PIM, wszystkie zadania związane z zarządzaniem rolami są wykonywane w [Privileged Identity Management środowisku](../users-groups-roles/directory-manage-roles-portal.md).

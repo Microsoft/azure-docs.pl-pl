@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160089"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808784"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 
 W tym samouczku przedstawiono, jak włączyć protokół HTTPS dla niestandardowej domeny skojarzonej z usługą Front Door w sekcji hostów frontonu. Dzięki użyciu protokołu HTTPS w domenie niestandardowej (na przykład https:\//www.contoso.com) zyskujesz pewność, że poufne dane są bezpiecznie dostarczane za pośrednictwem szyfrowania TLS/SSL, gdy są wysyłane przez Internet. Gdy przeglądarka internetowa łączy się z witryną internetową za pośrednictwem protokołu HTTPS, weryfikuje, czy certyfikat zabezpieczeń witryny internetowej jest poprawny i czy został wystawiony przez autentyczny urząd certyfikacji. Ten proces zapewnia bezpieczeństwo i chroni aplikacje internetowe przed atakami.
 
-Drzwi frontonu platformy Azure domyślnie obsługują protokół HTTPS w domyślnej nazwie hosta dla drzwi. Na przykład, jeśli utworzysz drzwi tylne (na `https://contoso.azurefd.net`przykład), protokół HTTPS jest automatycznie włączany dla żądań wysyłanych `https://contoso.azurefd.net`do usługi. Jednak gdy dodasz domenę niestandardową „www.contoso.com”, musisz dodatkowo włączyć protokół HTTPS dla tego hosta frontonu.   
+Drzwi frontonu platformy Azure domyślnie obsługują protokół HTTPS w domyślnej nazwie hosta dla drzwi. Na przykład, jeśli utworzysz drzwi tylne (na przykład `https://contoso.azurefd.net` ), protokół HTTPS jest automatycznie włączany dla żądań wysyłanych do usługi `https://contoso.azurefd.net` . Jednak gdy dodasz domenę niestandardową „www.contoso.com”, musisz dodatkowo włączyć protokół HTTPS dla tego hosta frontonu.   
 
 Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
@@ -68,6 +68,9 @@ Aby włączyć protokół HTTPS w domenie niestandardowej, wykonaj następujące
 4. Kliknij pozycję Zapisz.
 
 5. Przejdź do kroku [Weryfikowanie domeny](#validate-the-domain).
+
+> [!NOTE]
+> W przypadku certyfikatów zarządzanych przez program AFD jest wymuszany limit znaków 64 DigiCert. Sprawdzanie poprawności zakończy się niepowodzeniem w przypadku przekroczenia tego limitu.
 
 
 ### <a name="option-2-use-your-own-certificate"></a>Opcja 2: użycie własnego certyfikatu

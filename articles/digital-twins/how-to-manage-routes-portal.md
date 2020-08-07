@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836970"
+ms.locfileid: "87902209"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -129,44 +129,49 @@ Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacj
 
 ### <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń 
 
-Definicja trasy zdarzeń może zawierać następujące elementy:
-* Identyfikator trasy, który ma być używany
+Definicja trasy zdarzeń zawiera następujące elementy:
+* Nazwa trasy, która ma być używana
 * Nazwa punktu końcowego, który ma być używany
 * Filtr określający, które zdarzenia są wysyłane do punktu końcowego.
+    - Aby wyłączyć trasę, aby nie były wysyłane żadne zdarzenia, użyj wartości filtru`false`
+    - Aby włączyć trasę, która nie ma określonego filtrowania, użyj wartości filtru`true`
+    - Aby uzyskać szczegółowe informacje na temat dowolnego innego typu filtru, zobacz sekcję [*filtrowanie zdarzeń*](#filter-events) poniżej.
 
-Jeśli nie ma identyfikatora trasy, żadne komunikaty nie są kierowane poza usługę Azure Digital bliźniaczych reprezentacji.
-Jeśli istnieje identyfikator trasy i filtr jest `true` , wszystkie komunikaty są kierowane do punktu końcowego.
-Jeśli istnieje identyfikator trasy i zostanie dodany inny filtr, komunikaty będą filtrowane zgodnie z filtrem.
-
-Jedna trasa powinna zezwalać na wybranie wielu powiadomień i typów zdarzeń.
+Pojedyncza trasa może zezwalać na wybranie wielu powiadomień i typów zdarzeń.
 
 Aby utworzyć trasę zdarzeń, przejdź do strony szczegółów wystąpienia usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https://portal.azure.com) (można znaleźć wystąpienie, wprowadzając jego nazwę na pasku wyszukiwania portalu).
 
 Z menu wystąpienie wybierz pozycję _trasy zdarzeń_. Następnie na poniższej stronie *trasy zdarzeń* wybierz pozycję *+ Utwórz trasę zdarzenia*. 
 
-Na stronie *Tworzenie trasy zdarzenia* , która zostanie otwarta, wybierz co najmniej nazwę trasy w polu _Nazwa_ , a następnie wybierz _punkt końcowy_ , którego chcesz użyć do utworzenia trasy z listy rozwijanej.
+Na stronie *Tworzenie trasy zdarzenia* , która zostanie otwarta, wybierz co najmniej:
+* Nazwa trasy w polu _Nazwa_
+* _Punkt końcowy_ , którego chcesz użyć do utworzenia trasy 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń dla danego wystąpienia.":::
+Aby można było włączyć trasę, należy również **dodać filtr trasy zdarzeń** o wartości co najmniej `true` . (Pozostawienie wartości domyślnej `false` spowoduje utworzenie trasy, ale żadne zdarzenia nie będą wysyłane do niego). W tym celu Przełącz przełącznik dla _edytora zaawansowanego_ , aby go włączyć, i wpisz `true` w polu *filtru* .
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń dla danego wystąpienia." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Po zakończeniu kliknij przycisk _Zapisz_ , aby utworzyć trasę zdarzenia.
 
 ### <a name="filter-events"></a>Filtrowanie zdarzeń
 
-Bez filtrowania punkty końcowe otrzymują wiele zdarzeń z usługi Azure Digital bliźniaczych reprezentacji:
+Jak opisano powyżej, trasy mają pole **filtru** . Jeśli wartość filtru w marszrucie to `false` ., żadne zdarzenia nie będą wysyłane do punktu końcowego. 
+
+Po włączeniu minimalnego filtru `true` , punkty końcowe będą otrzymywać różne zdarzenia z usługi Azure Digital bliźniaczych reprezentacji:
 * Dane telemetryczne wywoływane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji platformy Azure
 * Powiadomienia o zmianie właściwości przędzy, generowane dla zmian właściwości dla dowolnej przędzy w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
 * Zdarzenia cyklu życiowego, wywoływane podczas tworzenia lub usuwania bliźniaczych reprezentacji lub relacji
 * Zdarzenia zmiany modelu, wywoływane po dodaniu lub usunięciu [modeli](concepts-models.md) skonfigurowanych w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
 
-Można ograniczyć wysyłane zdarzenia, dodając **Filtr** dla punktu końcowego do trasy zdarzenia.
+Można ograniczyć typy wysyłanych zdarzeń, definiując filtr bardziej specyficzny.
 
-Aby dodać filtr podczas tworzenia trasy zdarzeń, użyj sekcji _Dodawanie filtru trasy zdarzeń_ na stronie *Tworzenie trasy zdarzeń* . 
+Aby dodać filtr zdarzeń podczas tworzenia trasy zdarzeń, użyj sekcji _Dodawanie filtru trasy zdarzeń_ na stronie *Tworzenie trasy zdarzeń* . 
 
 Możesz wybrać jedną z podstawowych opcji standardowych filtrów lub użyć zaawansowanych opcji filtru, aby napisać własne filtry niestandardowe.
 
 #### <a name="use-the-basic-filters"></a>Korzystanie z filtrów podstawowych
 
-Aby użyć filtrów podstawowych, rozwiń opcję _typy zdarzeń_ i zaznacz pola wyboru odpowiadające zdarzeniom, które chcesz filtrować. 
+Aby użyć filtrów podstawowych, rozwiń opcję _typy zdarzeń_ i zaznacz pola wyboru odpowiadające zdarzeniom, które chcesz wysłać do punktu końcowego. 
 
 :::row:::
     :::column:::

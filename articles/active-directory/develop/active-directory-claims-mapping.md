@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428014"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902477"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -261,13 +261,15 @@ Aby kontrolować, jakie oświadczenia są emitowane i skąd pochodzą dane, uży
 **Typ danych:** Obiekt BLOB JSON z co najmniej jednym wpisem schematu roszczeń
 
 **Podsumowanie:** Ta właściwość określa, które oświadczenia są obecne w tokenach, których dotyczą zasady, oprócz podstawowego zestawu oświadczeń i podstawowego zestawu oświadczeń.
-Niektóre informacje są wymagane dla każdego wpisu schematu roszczeń zdefiniowanego w tej właściwości. Określ miejsce, z którego pochodzą dane (para**wartości** lub **źródła/identyfikatora**), a które są emitowane jako (**Typ zgłoszenia**).
+Niektóre informacje są wymagane dla każdego wpisu schematu roszczeń zdefiniowanego w tej właściwości. Określ miejsce, z którego pochodzą dane (para**wartości**, **źródła/identyfikatora**lub **para Source/ExtensionID**), a które są emitowane jako (**Typ zgłoszenia**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementy wpisów schematu roszczeń
 
 **Wartość:** Element Value definiuje wartość statyczną jako dane, które mają być emitowane w ramach tego żądania.
 
-**Para Source/ID:** Elementy source i ID definiują lokalizację, z której pochodzą dane. 
+**Para Source/ID:** Elementy source i ID definiują lokalizację, z której pochodzą dane.  
+
+**Para Source/ExtensionID:** Elementy source i ExtensionID definiują atrybut rozszerzenia schematu katalogu, z którego pochodzą dane z tego żądania. Aby uzyskać więcej informacji, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).
 
 Ustaw element source na jedną z następujących wartości: 
 
@@ -284,7 +286,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: prawidłowe wartości identyfikatorów na Źródło
 
-| Element źródłowy | ID | Opis |
+| Źródło | ID | Opis |
 |-----|-----|-----|
 | Użytkownik | surname | Nazwa rodziny |
 | Użytkownik | givenname | Imię |
@@ -321,7 +323,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | othermail | Inna poczta |
 | Użytkownik | country | Kraj/region |
 | Użytkownik | city | Miasto |
-| Użytkownik | state | State |
+| Użytkownik | state | Stan |
 | Użytkownik | stanowiska | Stanowisko |
 | Użytkownik | employeeid | Identyfikator pracownika |
 | Użytkownik | facsimiletelephonenumber | Numer telefonu faksu |
@@ -385,7 +387,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atrybuty dozwolone jako źródło danych dla elementu SAML NameID
 
-|Element źródłowy|ID|Opis|
+|Źródło|ID|Opis|
 |-----|-----|-----|
 | Użytkownik | mail (poczta)|Adres e-mail|
 | Użytkownik | userPrincipalName|Nazwa główna użytkownika|
@@ -528,7 +530,7 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
 - Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

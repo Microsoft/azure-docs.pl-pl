@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować usługę Azure CNI (Advanced) Netw
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416855"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872433"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service (AKS)
 
@@ -73,7 +73,7 @@ Jeśli nie określisz maxPods podczas tworzenia nowych pul węzłów, otrzymasz 
 
 Minimalna wartość dla maksymalnej liczby zasobników na węzeł jest wymuszana w celu zagwarantowania ilości miejsca dla systemu w przypadku kondycji klastra o krytycznym znaczeniu. Minimalną wartością, którą można ustawić dla maksymalnej liczby zasobników na węzeł, jest 10, jeśli i tylko wtedy, gdy konfiguracja każdej puli węzłów ma miejsce na co najmniej 30 zasobników. Na przykład ustawienie maksymalnej liczby zasobników na węzeł na wartość minimalną 10 wymaga, aby każda pula węzłów była mieć co najmniej 3 węzły. To wymaganie jest stosowane dla każdej nowej puli węzłów, tak więc jeśli 10 jest zdefiniowana jako maksymalna liczba zasobników na węzeł, każda kolejna dodana Pula węzłów musi mieć co najmniej 3 węzły.
 
-| Networking | Minimalne | Maksimum |
+| Networking | Minimum | Maksimum |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
 | Korzystającą wtyczki kubenet | 10 | 110 |
@@ -87,7 +87,7 @@ Minimalna wartość dla maksymalnej liczby zasobników na węzeł jest wymuszana
 
 ### <a name="configure-maximum---existing-clusters"></a>Skonfiguruj maksymalną liczbę istniejących klastrów
 
-Ustawienie maxPod na węzeł można zdefiniować podczas tworzenia nowej puli węzłów. Jeśli musisz zwiększyć ustawienia maxPod na węzeł istniejącego klastra, Dodaj nową pulę węzłów z nową żądaną liczbą maxPod. Po przeprowadzeniu migracji do nowej puli, Usuń starszą pulę. Aby usunąć starszą pulę w klastrze, należy się upewnić, że są ustawiane tryby puli węzłów, jak zdefiniowano w węźle systemowy Pula węzłów system[-Pule].
+Ustawienie maxPod na węzeł można zdefiniować podczas tworzenia nowej puli węzłów. Jeśli musisz zwiększyć ustawienia maxPod na węzeł istniejącego klastra, Dodaj nową pulę węzłów z nową żądaną liczbą maxPod. Po przeprowadzeniu migracji do nowej puli, Usuń starszą pulę. Aby usunąć wszystkie starsze pule w klastrze, należy się upewnić, że są ustawiane tryby puli węzłów, zgodnie z definicją w [dokumencie pule węzłów systemowych][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parametry wdrożenia
 
@@ -214,4 +214,4 @@ Klastry Kubernetes utworzone za pomocą aparatu AKS obsługują zarówno wtyczki
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[pule węzłów systemu]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 2c292ee601114a58e38b9e509efa53be2d3c93d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328375"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799806"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy
 W tym artykule wyjaśniono, jak włączyć Azure Monitor dla maszyn wirtualnych dla maszyn wirtualnych platformy Azure lub hybrydowej maszyny wirtualnej połączonej z usługą Azure ARC (wersja zapoznawcza) przy użyciu Azure Policy. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów dla Azure Monitor dla maszyn wirtualnych w środowisku platformy Azure i automatyczne włączenie monitorowania maszyn wirtualnych podczas tworzenia każdej maszyny wirtualnej. Azure Monitor dla maszyn wirtualnych udostępnia funkcję, która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Użyj tej funkcji zamiast bezpośrednio pracować z Azure Policy.
 
-Jeśli nie znasz Azure Policy, zapoznaj się z krótkim wprowadzeniem do [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../platform/deploy-scale.md).
+Jeśli nie znasz Azure Policy, zapoznaj się z krótkim wprowadzeniem do [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> Aby używać Azure Policy z zestawami skalowania maszyn wirtualnych platformy Azure lub korzystać z Azure Policy bezpośrednio do włączania maszyn wirtualnych platformy Azure, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms-and-virtual-machine-agents).
+> Aby używać Azure Policy z zestawami skalowania maszyn wirtualnych platformy Azure lub korzystać z Azure Policy bezpośrednio do włączania maszyn wirtualnych platformy Azure, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - [Utwórz i skonfiguruj obszar roboczy log Analytics](vminsights-configure-workspace.md).

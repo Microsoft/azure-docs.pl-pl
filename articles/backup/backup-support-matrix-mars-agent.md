@@ -3,12 +3,12 @@ title: Macierz obsługi dla agenta MARS
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej podczas tworzenia kopii zapasowej maszyn, na których jest uruchomiony agent Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538653"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872416"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
 
@@ -54,7 +54,7 @@ Zmiany lokalizacji | Można zmienić lokalizację pamięci podręcznej, zatrzymu
 
 Agent MARS musi mieć dostęp do tych adresów URL:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
@@ -90,6 +90,16 @@ Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRo
 >[!NOTE]
 >Publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
 
+### <a name="private-endpoint-support"></a>Obsługa prywatnego punktu końcowego
+
+Możesz teraz używać prywatnych punktów końcowych do bezpiecznego tworzenia kopii zapasowych danych z serwerów w magazynie Recovery Services. Ponieważ Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych, adresy IP i nazwy FQDN wymagane dla Azure Active Directory muszą mieć dozwolony dostęp wychodzący osobno.
+
+W przypadku korzystania z agenta MARS do tworzenia kopii zapasowych zasobów lokalnych upewnij się, że sieć lokalna (zawierająca zasoby, których kopia zapasowa ma zostać utworzona), jest równorzędna z siecią wirtualną platformy Azure, która zawiera prywatny punkt końcowy magazynu. Następnie można nadal zainstalować agenta MARS i skonfigurować kopię zapasową. Należy jednak upewnić się, że cała komunikacja w ramach kopii zapasowej odbywa się tylko za pomocą sieci równorzędnej.
+
+Jeśli usuniesz prywatne punkty końcowe dla magazynu po zarejestrowaniu agenta MARS, należy ponownie zarejestrować kontener z magazynem. Nie musisz zatrzymać ochrony dla nich.
+
+Przeczytaj więcej [na temat prywatnych punktów końcowych dla Azure Backup](private-endpoints.md).
+
 ### <a name="throttling-support"></a>Obsługa ograniczania przepustowości
 
 **Funkcja** | **Szczegóły**
@@ -117,7 +127,7 @@ Windows 8 (Enterprise, Pro) | Tak | Nie | Sprawdź odpowiednią wersję serwera 
 Windows Server 2016 (wersje Standard, Datacenter, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (wersje Standard, Datacenter, Foundation, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (wersje Standard, Datacenter, Foundation) | Tak | Tak |— .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0 <br> — Obsługa i zarządzanie obrazami wdrażania (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (standard, Grupa robocza) | Yes | Nie | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
+Windows Storage Server 2016/2012 R2/2012 (standard, Grupa robocza) | Tak | Nie | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (wersje Standard, Datacenter, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 
 Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne serwera usługi MAB i DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -128,13 +138,13 @@ Następujące systemy operacyjne mają na koniec wsparcie i zdecydowanie zaleca 
 
 Jeśli istniejące zobowiązania uniemożliwiają uaktualnienie systemu operacyjnego, należy rozważyć Migrowanie serwerów z systemem Windows do maszyn wirtualnych platformy Azure i korzystanie z kopii zapasowych maszyn wirtualnych platformy Azure w celu kontynuowania ochrony. Odwiedź [stronę migracji tutaj](https://azure.microsoft.com/migration/windows-server/) , aby uzyskać więcej informacji na temat migrowania systemu Windows Server.
 
-W przypadku środowisk lokalnych lub hostowanych, w których nie można uaktualnić systemu operacyjnego ani migrować do platformy Azure, Aktywuj rozszerzone aktualizacje zabezpieczeń dla maszyn, aby nadal były chronione i obsługiwane. Należy zauważyć, że tylko określone wersje kwalifikują się do aktualizacji zabezpieczeń rozszerzonych. Odwiedź [stronę często zadawanych pytań](https://www.microsoft.com/windows-server/extended-security-updates) , aby dowiedzieć się więcej.
+W przypadku środowisk lokalnych lub hostowanych, w których nie można uaktualnić systemu operacyjnego lub migracji na platformę Azure, Aktywuj rozszerzone aktualizacje zabezpieczeń dla maszyn, aby nadal były chronione i obsługiwane. Należy zauważyć, że tylko określone wersje kwalifikują się do aktualizacji zabezpieczeń rozszerzonych. Odwiedź [stronę często zadawanych pytań](https://www.microsoft.com/windows-server/extended-security-updates) , aby dowiedzieć się więcej.
 
 | **System operacyjny**                                       | **Pliki/foldery** | **Stan systemu** | **Wymagania dotyczące oprogramowania/modułu**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | Nie                 | Sprawdź odpowiednią wersję serwera pod kątem wymagań dotyczących oprogramowania/modułu |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Tak               | Nie                 | Sprawdź odpowiednią wersję serwera pod kątem wymagań dotyczących oprogramowania/modułu |
 | Windows Server 2008 R2 (wersje Standard, Enterprise, Datacenter, Foundation) | Tak               | Tak                | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM.exe) |
-| Windows Server 2008 z dodatkiem SP2 (wersje Standard, Datacenter, Foundation)  | Yes               | Nie                 | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM.exe) <br>  -Virtual Server 2005 Base + KB KB948515 |
+| Windows Server 2008 z dodatkiem SP2 (wersje Standard, Datacenter, Foundation)  | Tak               | Nie                 | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM.exe) <br>  -Virtual Server 2005 Base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limity kopii zapasowych
 
