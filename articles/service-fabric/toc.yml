@@ -635,7 +635,7 @@
             - name: Konfigurowanie ciągłej integracji z użyciem usługi Azure Pipelines
               href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Wdrażanie aplikacji systemu Linux przy użyciu narzędzia Jenkins
-              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+              href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
     - name: Instalowanie i konfigurowanie zwrotnego serwera proxy
       items:
         - name: Instalowanie i konfigurowanie zwrotnego serwera proxy

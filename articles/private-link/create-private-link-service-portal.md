@@ -8,18 +8,18 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 125b70b389809c576d17d1c8de35290c1c402c4a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78252548"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852892"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal
 
 Usługa łącza prywatnego platformy Azure odnosi się do własnej usługi, która jest zarządzana przez link prywatny. Możesz dać prywatny link do usługi lub zasobu, który działa za usługa Load Balancer w warstwie Standardowa platformy Azure. Konsumenci Twojej usługi mogą uzyskać do nich dostęp prywatnie z własnych sieci wirtualnych. W tym przewodniku szybki start dowiesz się, jak utworzyć usługę linku prywatnego przy użyciu Azure Portal.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -37,12 +37,12 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupLB |
-| **\<Nazwa sieci wirtualnej>** | myVNet          |
-| **\<Nazwa regionu>**          | Wschodnie stany USA 2      |
-| **\<Adresy IPv4>miejsca**   | 10.3.0.0 \ 16          |
-| **\<>nazwy podsieci**          | myBackendSubnet        |
-| **\<>zakresu adresów podsieci** | 10.3.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Wschodnie stany USA 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -50,7 +50,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 Użyj portalu do utworzenia standardowego wewnętrznego modułu równoważenia obciążenia. Określona nazwa i adres IP są automatycznie konfigurowane jako fronton modułu równoważenia obciążenia.
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 
 1. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje:
 
@@ -61,7 +61,7 @@ Użyj portalu do utworzenia standardowego wewnętrznego modułu równoważenia o
     | **Nazwa**                   | Wprowadź **myLoadBalancer**.                                   |
     | **Region**         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
     | **Typ**          | wybierz pozycję **Wewnętrzny**.                                        |
-    | **Magazyn**           | Wybierz pozycję **Standardowy**.                          |
+    | **SKU**           | Wybierz pozycję **Standardowy**.                          |
     | **Sieć wirtualna**           | Wybierz pozycję **myVNet**.                          |
     | **Przypisanie adresu IP**              | Wybierz wartość **Statyczny**.   |
     | **Prywatny adres IP**|Wprowadź adres znajdujący się w przestrzeni adresowej sieci wirtualnej i podsieci. Przykładem jest 10.3.0.7.  |
@@ -135,9 +135,9 @@ Aby utworzyć regułę modułu równoważenia obciążenia:
 
 W tej sekcji utworzysz usługę link prywatny za usługą równoważenia obciążenia w warstwie Standardowa.
 
-1. W lewym górnym rogu strony w Azure Portal wybierz pozycję **Utwórz zasób** > **Sieć** > **prywatne centrum linków (wersja zapoznawcza)**. Możesz również użyć pola wyszukiwania portalu, aby wyszukać link prywatny.
+1. W lewym górnym rogu strony w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatne centrum linków (wersja zapoznawcza)**. Możesz również użyć pola wyszukiwania portalu, aby wyszukać link prywatny.
 
-1. W **centrum linków prywatnych — Omówienie** > **udostępniania własnej usługi, aby inne osoby mogły nawiązać połączenie**, wybierz pozycję **Uruchom**.
+1. W **centrum linków prywatnych — Omówienie**  >  **udostępniania własnej usługi, aby inne osoby mogły nawiązać połączenie**, wybierz pozycję **Uruchom**.
 
 1. W obszarze **Tworzenie usługi link prywatny — podstawowe**wprowadź lub wybierz następujące informacje:
 
@@ -156,7 +156,7 @@ W tej sekcji utworzysz usługę link prywatny za usługą równoważenia obcią�
 
     | Ustawienie                           | Wartość                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Moduł równoważenia obciążenia**                     | Wybierz pozycję **myLoadBalancer**.                                                           |
+    | **Load Balancer**                     | Wybierz pozycję **myLoadBalancer**.                                                           |
     | **Load Balancer adres IP frontonu** | Wybierz adres IP frontonu **myLoadBalancer**.                                |
     | **Źródłowa sieć wirtualna translatora adresów sieciowych**        | Wybierz pozycję **myVNet**.                                                                   |
     | **Źródłowa podsieć NAT**                 | Wybierz pozycję **myBackendSubnet**.                                                          |
@@ -167,7 +167,7 @@ W tej sekcji utworzysz usługę link prywatny za usługą równoważenia obcią�
 
 1. W obszarze **Tworzenie usługi link prywatny — zabezpieczenia dostępu**wybierz pozycję **widoczność**, a następnie wybierz pozycję **Kontrola dostępu oparta na rolach**.
   
-1. Wybierz pozycję **Dalej: przegląd tagów** > **+ Utwórz** lub wybierz kartę **Recenzja + tworzenie** w górnej części strony.
+1. Wybierz pozycję **Dalej:**  >  **Przegląd tagów + Utwórz** lub wybierz kartę **Recenzja + tworzenie** w górnej części strony.
 
 1. Przejrzyj informacje, a następnie wybierz pozycję **Utwórz**.
 

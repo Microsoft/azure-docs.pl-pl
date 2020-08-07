@@ -2,18 +2,18 @@
 title: 'Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu programu PowerShell'
 description: W tym przewodniku szybki start dowiesz się, jak wdrożyć usługę Azure API for FHIR przy użyciu programu PowerShell.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: mihansen
-ms.openlocfilehash: d7156543a66cdf50d7cfddec27e685429324f9e6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.author: matjazl
+ms.openlocfilehash: 4b2772b449b3c398c8c8932db58b7078b7501824
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84820240"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852008"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu programu PowerShell
 
@@ -58,7 +58,7 @@ $metadata = Invoke-WebRequest -Uri "https://nameoffhirservice.azurehealthcareapi
 $metadata.RawContent
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń grupę zasobów, wykonując następujące czynności:
 

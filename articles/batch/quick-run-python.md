@@ -6,13 +6,13 @@ ms.date: 11/27/2018
 ms.custom:
 - seo-python-october2019
 - mvc
-- tracking-python
-ms.openlocfilehash: 5c4f8a90a43d19f3bc94da04681d9d690dc33e70
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+- devx-track-python
+ms.openlocfilehash: 7cef08c81a4122fcbfcc18160ad8e6602f335569
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561793"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852569"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Szybki Start: korzystanie z interfejsu API języka Python w celu uruchomienia zadania Azure Batch
 
@@ -60,7 +60,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Aby zobaczyć przepływ pracy usługi Batch w akcji, uruchom skrypt:
 
@@ -167,7 +167,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-batch-job"></a>Tworzenie zadania usługi Batch
+### <a name="create-a-batch-job"></a>Utworzenie zadania usługi Batch
 
 Zadanie usługi Batch to logiczna grupa zawierająca co najmniej jedno zadanie podrzędne. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Aplikacja tworzy zadanie w puli za pomocą klasy [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter). Metoda [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) dodaje zadanie do określonego konta wsadowego. Początkowo zadanie nie zawiera zadań podrzędnych.
 
@@ -178,7 +178,7 @@ job = batch.models.JobAddParameter(
 batch_service_client.job.add(job)
 ```
 
-### <a name="create-tasks"></a>Tworzenie zadań podrzędnych
+### <a name="create-tasks"></a>Tworzenie zadań
 
 Aplikacja tworzy listę obiektów zadań podrzędnych przy użyciu klasy [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Każde zadanie podrzędne przetwarza wejściowy obiekt `resource_files` przy użyciu parametru `command_line`. W tym przykładzie wiersz polecenia uruchamia polecenie `cat` powłoki Bash, aby wyświetlić plik tekstowy. To polecenie to prosty przykład dla celów demonstracyjnych. Podczas korzystania z usługi Batch aplikację lub skrypt określa się w wierszu polecenia. Usługa Batch udostępnia kilka sposobów wdrażania aplikacji i skryptów w węzłach obliczeniowych.
 

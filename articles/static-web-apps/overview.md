@@ -1,5 +1,5 @@
 ---
-title: Co to jest usługa Azure Static Web Apps?
+title: Co to jest Azure Static Web Apps?
 description: Najważniejsze funkcje i funkcje statycznej Web Apps platformy Azure.
 services: static-web-apps
 author: craigshoemaker
@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488923"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835786"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
@@ -22,11 +22,11 @@ Azure static Web Apps to usługa, która automatycznie kompiluje i wdraża aplik
 
 Przepływ pracy Web Apps statycznej platformy Azure jest dostosowany do codziennego przepływu pracy dewelopera. Aplikacje są kompilowane i wdrażane w oparciu o interakcje w serwisie GitHub.
 
-Po utworzeniu zasobu statycznego Web Apps platformy Azure usługa Azure skonfiguruje przepływ pracy akcji GitHub w repozytorium kodu źródłowego aplikacji, które monitoruje rozgałęzienie. Za każdym razem, gdy wypychanie zatwierdzeń lub zaakceptowanie żądań ściągnięcia do rozgałęzienia obserwowane, Akcja GitHub automatycznie kompiluje i wdraża aplikację oraz jej interfejs API na platformie Azure.
+Po utworzeniu zasobu usługi Azure Static Web Apps platforma Azure skonfiguruje przepływ pracy funkcji GitHub Actions w repozytorium kodu źródłowego aplikacji, które monitoruje wybraną przez Ciebie gałąź. Za każdym razem, gdy wypychanie zatwierdzeń lub zaakceptowanie żądań ściągnięcia do rozgałęzienia obserwowane, Akcja GitHub automatycznie kompiluje i wdraża aplikację oraz jej interfejs API na platformie Azure.
 
-Statyczne aplikacje sieci Web są często kompilowane przy użyciu bibliotek i platform, takich jak kątowy, reaguje, Svelte lub Vue. Te aplikacje obejmują pliki HTML, CSS, JavaScript i Image, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
+Statyczne aplikacje internetowe są często kompilowane przy użyciu bibliotek i struktur, takich jak Angular, React, Svelte lub Vue. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
 
-W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego serwera sieci Web i zamiast tego są obsługiwane z punktów geograficznie rozmieszczonych na całym świecie. Ta dystrybucja sprawia, że pliki są znacznie szybsze, ponieważ pliki są fizycznie bliżej użytkowników końcowych. Ponadto punkty końcowe interfejsu API są hostowane przy użyciu [architektury bezserwerowej](../azure-functions/functions-overview.md), co pozwala uniknąć konieczności pełnego serwera zaplecza.
+W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego serwera sieci Web i zamiast tego są obsługiwane z punktów geograficznie rozmieszczonych na całym świecie. Takie rozproszenie sprawia, że pliki są obsługiwane znacznie szybciej, ponieważ znajdują się fizycznie bliżej użytkowników końcowych. Ponadto punkty końcowe interfejsu API są hostowane przy użyciu [architektury bezserwerowej](../azure-functions/functions-overview.md), co pozwala uniknąć konieczności pełnego serwera zaplecza.
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
@@ -44,9 +44,9 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Co możesz zrobić za pomocą Web Apps statycznej
 
-- **Twórz nowoczesne aplikacje języka JavaScript** za pomocą platform i bibliotek, takich jak [kątowy](https://angular.io/), [reaguje](https://reactjs.org/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/) [Azure Functions](https://azure.microsoft.com/services/functions/) z zapleczem.
+- **Twórz nowoczesne aplikacje języka JavaScript** za pomocą platform i bibliotek, takich jak [kątowy](getting-started.md#tabpanel_CeZOj-G++Q_angular), [reaguje](getting-started.md#tabpanel_CeZOj-G++Q_react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) [Azure Functions](apis.md) z zapleczem.
 - **Publikuj Lokacje statyczne** przy użyciu struktur takich jak [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
-- **Wdrażaj aplikacje sieci Web** za pomocą platform, takich jak [Next. js](deploy-nextjs.md) i [Nuxt. js](deploy-nuxtjs.md).
+- **Wdrażaj aplikacje sieci Web** za pomocą platform, takich jak [Next.js](deploy-nextjs.md) i [Nuxt.js](deploy-nuxtjs.md).
 
 \*Rejestracje domeny Apex nie są obsługiwane w trakcie okresu zapoznawczego.
 

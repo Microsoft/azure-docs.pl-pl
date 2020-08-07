@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131756"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827388"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
 
@@ -95,6 +95,20 @@ Następnym krokiem jest skonfigurowanie [aplikacji Azure Functions](../azure-fun
 
 W tej sekcji zostanie opublikowana wstępnie zapisana aplikacja funkcji i upewnij się, że aplikacja funkcji może uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, przypisując jej tożsamość Azure Active Directory (Azure AD). Wykonanie tych kroków umożliwi pozostałej części samouczka Korzystanie z funkcji wewnątrz aplikacji funkcji. 
 
+Wróć do okna programu Visual Studio, w którym projekt _**AdtE2ESample**_ jest otwarty, aplikacja funkcji znajduje się w pliku projektu _**SampleFunctionsApp**_ . Można go wyświetlić w okienku *Eksplorator rozwiązań* .
+
+### <a name="update-dependencies"></a>Aktualizowanie zależności
+
+Przed opublikowaniem aplikacji dobrym pomysłem jest upewnienie się, że Twoje zależności są aktualne, aby upewnić się, że masz najnowszą wersję wszystkich dołączonych pakietów.
+
+W okienku *Eksplorator rozwiązań* rozwiń pozycję *SampleFunctionsApp > zależności*. Wybierz pozycję *pakiety* , a następnie wybierz pozycję *Zarządzaj pakietami NuGet.*...
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Zarządzanie pakietami NuGet dla projektu SampleFunctionsApp" border="false":::
+
+Spowoduje to otwarcie Menedżera pakietów NuGet. Wybierz kartę *aktualizacje* , a jeśli istnieją pakiety do zaktualizowania, zaznacz pole wyboru *wszystkie pakiety*. Następnie kliknij przycisk *Aktualizuj*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: wybieranie, aby zaktualizować wszystkie pakiety w Menedżerze pakietów NuGet":::
+
 ### <a name="publish-the-app"></a>Publikowanie aplikacji
 
 Wróć do okna programu Visual Studio, w którym otwarty jest projekt _**AdtE2ESample**_ , w okienku *Eksplorator rozwiązań* kliknij prawym przyciskiem myszy plik projektu _**SampleFunctionsApp**_ i wybierz polecenie **Publikuj**.
@@ -134,19 +148,21 @@ W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: publikowanie":::
 
 > [!NOTE]
-> Może pojawić się okno podręczne podobne do tego: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: publikowanie poświadczeń" border="false":::
-> Jeśli tak, wybierz pozycję **próba pobrania poświadczeń z platformy Azure** i **Zapisz**.
+> Jeśli zobaczysz podręczny ekran podobny do tego: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: publikowanie poświadczeń" border="false":::
+> Wybierz pozycję **próba pobrania poświadczeń z platformy Azure** i **Zapisz**.
 >
-> Jeśli zostanie wyświetlone ostrzeżenie, że *wersja środowiska uruchomieniowego funkcji nie jest zgodna z wersją działającą na platformie Azure*, postępuj zgodnie z monitami, aby przeprowadzić uaktualnienie do najnowszej wersji środowiska uruchomieniowego Azure Functions. Ten problem może wystąpić, jeśli używasz starszej wersji programu Visual Studio niż zalecana w sekcji *wymagania wstępne* na początku tego samouczka.
+> Jeśli zostanie wyświetlone ostrzeżenie, aby *uaktualnić wersję funkcji na platformie Azure* lub że *wersja środowiska uruchomieniowego funkcji jest niezgodna z wersją działającą na platformie Azure*:
+>
+> Postępuj zgodnie z monitami, aby przeprowadzić uaktualnienie do najnowszej wersji środowiska uruchomieniowego Azure Functions. Ten problem może wystąpić, jeśli używasz starszej wersji programu Visual Studio niż zalecana w sekcji *wymagania wstępne* na początku tego samouczka.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
 
-Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tego uprawnienia *właściciela* tożsamości w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tej tożsamości roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md).
 
-W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do Twojego wystąpienia Digital bliźniaczych reprezentacji.
+W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole *principalId* w danych wyjściowych.
@@ -155,7 +171,7 @@ Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez s
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Użyj wartości *principalId* w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela* dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Użyj wartości *principalId* z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)* dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ Możesz również sprawdzić, czy tworzenie punktu końcowego zakończyło się 
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Poszukaj `provisioningState` pola w danych wyjściowych i sprawdź, czy wartość to "powodzenie".
+Poszukaj `provisioningState` pola w danych wyjściowych i sprawdź, czy wartość to "powodzenie". Może również powiedzieć "Inicjowanie obsługi", co oznacza, że punkt końcowy jest nadal tworzony. W takim przypadku poczekaj kilka sekund i ponownie uruchom polecenie, aby sprawdzić, czy zakończyło się pomyślnie.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Wynik zapytania punktu końcowego, który pokazuje punkt końcowy z provisioningStateem zakończonym powodzeniem":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 Danymi wyjściowymi tego polecenia są pewne informacje o tworzonej trasie.
+
+>[!NOTE]
+>Aby można było skonfigurować trasę zdarzeń, która używa tych punktów końcowych (z poprzedniego kroku), należy zakończyć Inicjowanie obsługi. Jeśli Tworzenie trasy nie powiedzie się, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
 
 #### <a name="connect-the-function-to-event-grid"></a>Połącz funkcję z Event Grid
 

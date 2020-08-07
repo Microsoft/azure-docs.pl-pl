@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 5dd5cd1ac0463c6c07496e4ea49edd08178a5a54
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987863"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834392"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Samouczek: Rozpoznawanie logo usługi platformy Azure w obrazach aparatu fotograficznego
 
@@ -67,7 +67,7 @@ W okienku po lewej stronie ustaw przełącznik **Tags (Tagi)** w pozycji **Tagge
 
 ![Custom Vision witrynie sieci Web na karcie obrazy szkoleniowe. Na tym zrzucie ekranu przycisk uczenia jest wyróżniony](media/azure-logo-tutorial/train-model.png)
 
-## <a name="get-the-prediction-url"></a>Pobieranie adresu URL prognozy
+## <a name="get-the-prediction-url"></a>Pobieranie adresu URL przewidywania
 
 Po wytrenowaniu modelu można już zintegrować go z Twoją aplikacją. Musisz uzyskać adres URL punktu końcowego (adres modelu, do którego aplikacja będzie wysyłać zapytania) oraz klucz prognozowania (aby udzielić aplikacji dostępu do żądań prognozowania). Na karcie **Performance (Wydajność)** naciśnij przycisk **Prediction URL (Adres URL przewidywania)** u góry strony.
 
@@ -135,7 +135,7 @@ Zanotuj wartości `clientId` i `tenantId`. Dodaj je do odpowiednich pól w pliku
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 W tym momencie został przez Ciebie udzielony aplikacji dostęp do:
 
@@ -171,7 +171,7 @@ Wykonaj następujące kroki, aby uruchomić aplikację:
 
     ![Ekran aplikacji przedstawiający pola dla regionu wdrożenia i grupy zasobów](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli wykonasz już wszystkie kroki w tym scenariuszu i użyjesz aplikacji do wdrażania usług platformy Azure na swoim koncie, przejdź do witryny [Azure Portal](https://ms.portal.azure.com/). Anuluj tam usługi, których nie chcesz używać.
 

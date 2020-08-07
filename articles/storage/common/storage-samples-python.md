@@ -7,13 +7,13 @@ ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: tracking-python
-ms.openlocfilehash: 439e645369cd063e3084b5d975b3d1672e20a73e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554012"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848190"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 Python
 
@@ -24,7 +24,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="blob-samples"></a>Przykłady obiektów BLOB
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 :::row:::
    :::column span="":::
@@ -170,7 +170,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 :::row:::
    :::column span="":::
-      [Przesyłanie obiektów blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_hello_world.py#L68)
+      [Przekazywanie obiektu blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_hello_world.py#L68)
    :::column-end:::
    :::column span="":::
       [Pobieranie obiektu blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_hello_world.py#L74)
@@ -283,7 +283,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="azure-files-samples"></a>Przykłady Azure Files
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 :::row:::
    :::column span="":::
@@ -427,7 +427,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="queue-samples"></a>Przykładowe kolejki
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 :::row:::
    :::column span="":::
@@ -502,7 +502,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Komunikat
+### <a name="message"></a>Wiadomość
 
 :::row:::
    :::column span="":::
@@ -593,5 +593,5 @@ Aby uzyskać informacje na temat przykładów dla innych języków:
 
 * .NET: [przykłady usługi Azure Storage korzystające z platformy .NET](storage-samples-dotnet.md)
 * Java: [przykłady usługi Azure Storage korzystające z języka Java](storage-samples-java.md)
-* JavaScript/Node. js: [przykłady usługi Azure Storage przy użyciu języka JavaScript](storage-samples-javascript.md)
+* JavaScript/Node.js: [przykłady usługi Azure Storage korzystające z języka JavaScript](storage-samples-javascript.md)
 * Wszystkie inne języki: [przykłady usługi Azure Storage](storage-samples.md)
