@@ -1,6 +1,6 @@
 ---
 title: Rejestracja na platformie Azure przy użyciu konta platformy Microsoft 365
-description: Dowiedz się, jak utworzyć subskrypcję platformy Azure przy użyciu konta platformy Microsoft 365
+description: Dowiedz się, jak utworzyć subskrypcję platformy Azure przy użyciu konta platformy Microsoft 365. Możesz także skojarzyć istniejące konta platform Azure i Microsoft 365 ze sobą.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 2d3711e33a5fa9b95ce43b4d2f4730517df0a449
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: a0fa0ea6500cad03e4c41c8139f0bd0d7e80d4e4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810299"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461327"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Rejestracja przy użyciu konta platformy Microsoft 365 w celu uzyskania subskrypcji platformy Azure
 

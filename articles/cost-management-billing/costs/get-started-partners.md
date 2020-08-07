@@ -3,17 +3,17 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372148"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563946"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -140,7 +140,7 @@ Jeśli zasady są ustawione na **Nie**, usługa Azure Cost Management jest niedo
 
 Gdy zasady kosztów zostaną ustawione na wartość **Tak**, użytkownicy subskrypcji powiązani z dzierżawą klienta mogą zobaczyć opłaty za użycie w ramach stawek płatności zgodnie z rzeczywistym użyciem.
 
-Po włączeniu zasad widoczności kosztów wszystkie usługi mające użycie subskrypcji wykazują koszty według stawek płatności zgodnie z rzeczywistym użyciem. Użycie rezerwacji jest wyświetlane z zerowymi opłatami za rzeczywiste i amortyzowane koszty. Zakupy i upoważnienia nie są skojarzone z konkretną subskrypcją. W związku z tym zakupy nie są wyświetlane w zakresie subskrypcji.
+Po włączeniu zasad widoczności kosztów wszystkie usługi mające użycie subskrypcji wykazują koszty według stawek płatności zgodnie z rzeczywistym użyciem. Użycie rezerwacji jest wyświetlane z zerowymi opłatami za rzeczywiste i amortyzowane koszty. Zakupy i upoważnienia nie są skojarzone z konkretną subskrypcją. W związku z tym zakupy nie są wyświetlane w zakresie subskrypcji. Administrator globalny / agent administracyjny bezpośredniego partnera lub dostawcy pośredniego może również użyć funkcji [Zaktualizuj interfejs API klienta](/rest/api/billing/2019-10-01-preview/policies/updatecustomer), aby ustawić zasady widoczności kosztów każdego klienta na dużą skalę.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Wyświetlanie kosztów subskrypcji w dzierżawie klienta
 

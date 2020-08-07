@@ -1,18 +1,18 @@
 ---
 title: Rabaty za wystąpienia zarezerwowane w przypadku usługi Azure App Service
-description: Dowiedz się, jak są stosowane rabaty za wystąpienia zarezerwowane w przypadku sygnatur izolowanej usługi Azure App Service.
+description: Dowiedz się, jak są stosowane rabaty za wystąpienia zarezerwowane w przypadku sygnatur izolowanej usługi Azure App Service. Rabaty są automatycznie stosowane do opłaty jednostkowej w danym regionie.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 97a0b63200951a30d1b5576fddbb5aa044a91a62
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a4229d60a31d61caf050dabf632c8718ef3c9f3
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200337"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460341"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Jak są stosowane rabaty za wystąpienia zarezerwowane w przypadku sygnatur izolowanej usługi Azure App Service
 
@@ -45,10 +45,10 @@ W poniższych przykładach pokazano, jak w zależności od wdrożenia jest stoso
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz [Zarządzanie rejestracjami platformy Azure](manage-reserved-vm-instance.md).
+- Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz temat [Manage Azure Reservations](manage-reserved-vm-instance.md) (Zarządzanie wystąpieniami zarezerwowanymi na platformie Azure).
 - Aby dowiedzieć się więcej na temat wcześniejszego zakupu wydajności rezerwowej w ramach opłaty jednostkowej za korzystanie z usługi App Service w środowisku izolowanym, zobacz temat [Prepay for Azure App Service Isolated Stamp Fee with reserved capacity](prepay-app-service-isolated-stamp.md) (Uiszczanie z góry opłaty jednostkowej za korzystanie z usługi Azure App Service w środowisku izolowanym z wydajnością rezerwową).
-- Aby dowiedzieć się więcej na temat usługi Azure Reservations, zobacz następujące artykuły:
+- Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
   - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
-  - [Zarządzanie rejestracjami platformy Azure](manage-reserved-vm-instance.md)
+  - [Zarządzanie rezerwacjami na platformie Azure](manage-reserved-vm-instance.md)
   - [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](understand-reserved-instance-usage.md)
   - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](understand-reserved-instance-usage-ea.md)

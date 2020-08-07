@@ -1,17 +1,17 @@
 ---
 title: Przeglądanie danych rozliczeń subskrypcji platformy Azure za pomocą interfejsu API REST
-description: Dowiedz się, jak używać interfejsów API REST platformy Azure do przeglądania szczegółów rozliczeń subskrypcji.
+description: Dowiedz się, jak używać interfejsów API REST platformy Azure do przeglądania szczegółów rozliczeń subskrypcji. Możesz dostosować wyniki przy użyciu filtrów.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 7b80bd57906515ffeb0ff9e8ac52cf7178f5ccd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac5bbc1d93347654cea118ea9521d6074a9af7c8
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202811"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461837"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Przegląd rozliczeń subskrypcji przy użyciu interfejsów API REST
 
@@ -102,4 +102,4 @@ Inne kody stanu wskazują na błędy. W takich przypadkach obiekt odpowiedzi wyj
 ## <a name="next-steps"></a>Następne kroki
 - Przejrzyj temat [Przegląd raportowania korporacyjnego](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Zapoznaj się z tematem [Interfejs API REST rozliczania korporacyjnego](https://docs.microsoft.com/rest/api/billing/)
-- [Rozpoczynanie pracy z interfejsem API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/)
+- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](https://docs.microsoft.com/rest/api/azure/)

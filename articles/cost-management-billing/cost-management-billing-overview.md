@@ -1,23 +1,36 @@
 ---
-title: Omówienie funkcji Zarządzanie kosztami i rozliczenia na platformie Azure | Microsoft Docs
+title: Omówienie funkcji Zarządzanie kosztami i rozliczenia na platformie Azure
 description: Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure umożliwia wykonywanie zadań administracyjnych dotyczących rozliczeń oraz pozwala zarządzać dostępem do rozliczeń w celu śledzenia kosztów. Ponadto funkcja ta umożliwia monitorowanie i kontrolowanie wydatków na platformie Azure oraz optymalizowanie użycia zasobów platformy Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 07/29/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 76121dd8126922de2843e430a4e01cae1c7c0d53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879092"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413004"
 ---
-# <a name="what-is-azure-cost-management-and-billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
+# <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
-W przypadku produktów i usług platformy Azure płaci się wyłącznie za użyte zasoby. W miarę tworzenia i używania zasobów platformy Azure są za nie naliczane opłaty. Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure umożliwia wykonywanie zadań administracyjnych dotyczących rozliczeń oraz pozwala zarządzać dostępem do rozliczeń w celu śledzenia kosztów. Ponadto funkcja ta umożliwia monitorowanie i kontrolowanie wydatków na platformie Azure oraz optymalizowanie użycia zasobów platformy Azure.
+Korzystając z chmury firmy Microsoft, możesz znacząco poprawić techniczną wydajność obciążeń biznesowych. Może ona również zmniejszyć koszty i obciążenie wymagane do zarządzania zasobami organizacji. Jednak możliwości biznesowe stanowią ryzyko ze względu na potencjalne marnotrawstwo i nieefektywność, które są wprowadzane do wdrożeń w chmurze. Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure to zestaw narzędzi udostępnianych przez firmę Microsoft, które ułatwiają analizowanie i optymalizowanie kosztów obciążeń oraz zarządzanie nimi. Używanie tego zestawu pomaga zapewnić, że organizacja korzysta z zalet chmury.
+
+Obciążenia platformy Azure można traktować jak światła w domu. Kiedy wychodzisz z domu, zostawiasz światła włączone? Czy możesz użyć innych, bardziej wydajnych żarówek, dzięki którym obniżysz rachunek za energię elektryczną? Czy w danym pokoju masz więcej świateł, niż potrzeba? Za pomocą funkcji Zarządzanie kosztami i rozliczenia na platformie Azure możesz zastosować ten proces myślowy do obciążeń używanych przez Twoją organizację.
+
+W przypadku produktów i usług platformy Azure płaci się wyłącznie za użyte zasoby. W miarę tworzenia i używania zasobów platformy Azure są za nie naliczane opłaty. Ze względu na łatwość wdrażania nowych zasobów koszty obciążeń mogą znacznie się zwiększyć bez odpowiedniej analizy i monitorowania. Przy użyciu funkcji Zarządzanie kosztami i rozliczenia na platformie Azure można wykonywać następujące czynności:
+
+- Wykonywanie zadań administracyjnych dotyczących rozliczeń takich jak opłacanie rachunków
+- Zarządzanie dostępem do rozliczeń i kosztów
+- Pobieranie danych dotyczących kosztów i użycia, na podstawie których wygenerowano fakturę miesięczną
+- Proaktywne stosowanie analizy danych do kosztów
+- Ustawianie progów wydatków
+- Identyfikowanie możliwości zmian w obciążeniach, które mogą zoptymalizować wydatki
+
+Aby dowiedzieć się więcej na temat podejścia do zarządzania kosztami w organizacji, zapoznaj się z artykułem [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) (Najlepsze rozwiązania w usłudze Azure Cost Management).
 
 ## <a name="understand-azure-billing"></a>Informacje na temat rozliczeń na platformie Azure
 
@@ -29,7 +42,7 @@ Konto rozliczeniowe jest tworzone podczas rejestrowania się w celu korzystania 
 
 W witrynie Azure Portal są obecnie obsługiwane następujące typy kont rozliczeniowych:
 
-- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub jako [subskrybent programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub jako [subskrybent programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 - **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje [umowę Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) w celu korzystania z platformy Azure.
 
@@ -45,7 +58,6 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 |Konto billingowe     | Reprezentuje pojedynczego właściciela (administratora konta) co najmniej jednej subskrypcji platformy Azure. Administrator konta jest autoryzowany do wykonywania różnych zadań rozliczeniowych, takich jak tworzenie subskrypcji, wyświetlanie faktur lub zmiana rozliczeń dla subskrypcji.  |
 |Subskrypcja     |  Reprezentuje zgrupowanie zasobów platformy Azure. W zakresie subskrypcji są generowane faktury. Ma swoje formy płatności za faktury.|
 
-
 #### <a name="enterprise-agreement"></a>Enterprise Agreement
 
 |Zakres  |Definicja  |
@@ -53,7 +65,6 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 |Konto billingowe    | Reprezentuje rejestrację umów Enterprise Agreement. W zakresie konta rozliczeniowego są generowane faktury. W skład jego struktury wchodzą działy i konta rejestracji.  |
 |Dział     |  Opcjonalne zgrupowanie kont rejestracji.      |
 |Konto rejestracji     |  Reprezentuje pojedynczego właściciela konta. W zakresie konta rejestracji są tworzone subskrypcje platformy Azure.  |
-
 
 #### <a name="microsoft-customer-agreement"></a>Umowa klienta firmy Microsoft
 
@@ -63,19 +74,17 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 |Profil rozliczeniowy     |  Reprezentuje fakturę i formy płatności za nią. W tym zakresie jest generowana faktura. Profil rozliczeniowy może zawierać wiele sekcji faktur.      |
 |Sekcja faktury     |   Reprezentuje grupę kosztów na fakturze. Z zakresem sekcji faktury są skojarzone subskrypcje i inne zakupy.    |
 
-
 ## <a name="understand-azure-cost-management"></a>Omówienie usługi Azure Cost Management
-Zarządzanie kosztami to proces efektywnego planowania i kontrolowania kosztów związanych z działalnością. Zadania zarządzania kosztami są zazwyczaj wykonywane przez zespoły ds. finansów, zarządzania i aplikacji. Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure pomaga organizacjom w planowaniu z uwzględnieniem kosztów. Ułatwia ona również efektywne analizowanie kosztów i podejmowanie działań mających na celu optymalizację wydatków dotyczących chmury. Aby dowiedzieć się więcej na temat podejścia do zarządzania kosztami w organizacji, zapoznaj się z artykułem [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) (Najlepsze rozwiązania w usłudze Azure Cost Management).
-
-Obejrzyj [wideo z przeglądem usługi Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0), aby zapoznać się z krótkim omówieniem, jak usługa Azure Cost Management może pomóc w zaoszczędzeniu pieniędzy na platformie Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Mimo że te czynności są powiązane, rozliczanie różni się od zarządzania kosztami. Rozliczanie jest procesem fakturowania klientów za towary lub usługi oraz zarządzania relacjami komercyjnymi.
 
 Usługa Cost Management przedstawia koszty i wzorce użycia w organizacji za pomocą zaawansowanej analizy. Raporty w usłudze Cost Management pokazują koszty użycia usług platformy Azure i ofert innych firm z portalu Marketplace. Koszty są oparte na wynegocjowanych cenach i współczynniku rezerwacji oraz uwzględniają rabaty z tytułu Korzyści użycia hybrydowego platformy Azure. Zbiorczo raporty przedstawiają wewnętrzne i zewnętrzne koszty użycia i opłat w witrynie Azure Marketplace. Inne opłaty, takie jak zakupy rezerwacji, pomoc techniczna i podatki, nie są jeszcze uwzględniane w raportach. Raporty pomagają w zrozumieniu wydatków i użycia zasobów, a także ułatwiają wyszukiwanie nietypowych wydatków. Dostępna jest również analiza predykcyjna. Usługa Cost Management używa grup zarządzania, budżetów i rekomendacji platformy Azure, aby w czytelny sposób przedstawić, jak wydatki są zorganizowane i jak można zmniejszyć koszty.
 
 Witryny Azure Portal i różnych interfejsów API można używać do automatyzacji eksportu w celu zintegrowania danych kosztów z procesami i systemami zewnętrznymi. Dostępna jest również funkcja zautomatyzowanego eksportu danych rozliczeń oraz raporty zaplanowane.
+
+Obejrzyj [wideo z przeglądem usługi Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0), aby zapoznać się z krótkim omówieniem, jak usługa Azure Cost Management może pomóc w zaoszczędzeniu pieniędzy na platformie Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 ### <a name="plan-and-control-expenses"></a>Planowanie i kontrolowanie kosztów
 
@@ -106,10 +115,9 @@ Platforma Azure oferuje inne narzędzia, które nie są częścią zestawu funkc
 - [Usługa Azure Advisor](../advisor/advisor-overview.md) — umożliwia zidentyfikowanie nieużywanych maszyn wirtualnych i zapoznanie się z rekomendacjami w zakresie zakupów wystąpień zarezerwowanych platformy Azure.
 - [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) — umożliwia oszczędzanie dzięki użyciu bieżących licencji systemu Windows Server lub programu SQL Server dla maszyn wirtualnych na platformie Azure.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już funkcje Zarządzanie kosztami i rozliczenia na platformie Azure, następnym krokiem jest rozpoczęcie pracy z tą usługą.
+Teraz, gdy znasz już funkcje Zarządzanie kosztami i rozliczenia, następnym krokiem jest rozpoczęcie pracy z tą usługą.
 
 - Zacznij korzystać z usługi Azure Cost Management, aby [analizować koszty](./costs/quick-acm-cost-analysis.md).
 - Możesz również dowiedzieć się więcej na temat [najlepszych rozwiązań w usłudze Azure Cost Management](./costs/cost-mgt-best-practices.md).

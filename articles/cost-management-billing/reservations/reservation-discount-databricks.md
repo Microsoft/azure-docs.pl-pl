@@ -1,18 +1,18 @@
 ---
 title: W jaki sposób jest stosowany rabat za wcześniejszy zakup usługi Azure Databricks
-description: Dowiedz się, w jaki sposób rabat za wcześniejszy zakup usługi Azure Databricks zostanie zastosowany do Twojego użycia.
+description: Dowiedz się, w jaki sposób rabat za wcześniejszy zakup usługi Azure Databricks zostanie zastosowany do Twojego użycia. Tych usług Databricks można używać w dowolnym czasie w okresie zakupu.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200320"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460324"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>W jaki sposób jest stosowany rabat za wcześniejszy zakup usługi Azure Databricks
 
@@ -50,8 +50,8 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 - Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz temat [Manage Azure Reservations](manage-reserved-vm-instance.md) (Zarządzanie wystąpieniami zarezerwowanymi na platformie Azure).
 - Aby dowiedzieć się więcej na temat oszczędności związanych z wcześniejszym zakupem usługi Azure Databricks, zobacz [Optymalizowanie kosztów usługi Azure Databricks dzięki wcześniejszemu zakupowi](prepay-databricks-reserved-capacity.md).
-- Aby dowiedzieć się więcej na temat rezerwacji na platformie Azure, zobacz następujące artykuły:
+- Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
   - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
-  - [Zarządzanie rejestracjami platformy Azure](manage-reserved-vm-instance.md)
+  - [Zarządzanie rezerwacjami na platformie Azure](manage-reserved-vm-instance.md)
   - [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](understand-reserved-instance-usage.md)
   - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](understand-reserved-instance-usage-ea.md)

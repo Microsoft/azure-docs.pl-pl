@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 6c4fe563057e8d7fedbd68280bc8059867d997ed
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d96a2ed9f0aab03a0073519e08cf03d43d7ac2b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120249"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503161"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Rozwiązywanie problemów z widokami kosztów przedsiębiorstwa
 
-W ramach rejestracji przedsiębiorstwa istnieje kilka ustawień, które mogą powodować, że użytkownicy w ramach rejestracji nie będą widzieć kosztów.  Te ustawienia są zarządzane przez administratora rejestracji. Jeśli rejestracja nie zostanie zakupiona bezpośrednio od firmy Microsoft, te ustawienia są zarządzane przez partnera.  W tym artykule wyjaśniono działanie tych ustawień oraz ich wpływ na rejestrację. Te ustawienia są niezależne od ról kontroli dostępu opartej na rolach (RBAC) platformy Azure.
+W ramach rejestracji przedsiębiorstwa istnieje kilka ustawień, które mogą powodować, że użytkownicy w ramach rejestracji nie będą widzieć kosztów.  Te ustawienia są zarządzane przez administratora rejestracji. Jeśli rejestracja nie zostanie zakupiona bezpośrednio od firmy Microsoft, te ustawienia są zarządzane przez partnera.  W tym artykule wyjaśniono działanie tych ustawień oraz ich wpływ na rejestrację. Te ustawienia są niezależne od ról na platformie Azure.
 
 ## <a name="enable-access-to-costs"></a>Włączanie dostępu do kosztów
 

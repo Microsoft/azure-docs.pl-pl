@@ -1,6 +1,6 @@
 ---
 title: Opłacanie rachunku za korzystanie z platformy Microsoft Azure | Microsoft Docs
-description: W tym artykule opisano, jak opłacić fakturę w witrynie Azure Portal
+description: Dowiedz się, jak opłacić fakturę w witrynie Azure Portal. Aby móc uiszczać opłaty w portalu, musisz być właścicielem, współautorem lub menedżerem faktur dla profilu rozliczeniowego.
 keywords: rozliczenie, zaległe, saldo, zapłać teraz,
 author: banders
 ms.reviewer: judupont
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 8db50a25d98f5e4dc2ae96c708a5da49709f9ed5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bb3c9686ca734bb800f090af44f56643e07c6833
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459304"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Jak zapłacić rachunek za korzystanie z platformy Microsoft Azure
 
@@ -39,5 +39,5 @@ Aby opłacać faktury w witrynie Azure Portal, musisz być właścicielem, wspó
 
 W bloku faktur stan faktury zostanie zmieniony na opłacony.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do Umowy klienta firmy Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

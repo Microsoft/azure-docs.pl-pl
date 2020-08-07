@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126129"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530014"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
@@ -33,7 +33,7 @@ Aby uzyskać więcej informacji, zobacz [Porównanie usługi Azure Resource Mana
 
 ## <a name="assign-a-subscription-administrator"></a>Przypisywanie administratora subskrypcji
 
-Aby nadać użytkownikowi uprawnienia administratora subskrypcji platformy Azure, istniejący administrator przypisuje mu rolę [Właściciel](../../role-based-access-control/built-in-roles.md#owner) (rolę RBAC) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełen dostęp do wszystkich zasobów w subskrypcji, w tym prawo do przydzielania dostępu innym osobom. Te kroki są takie same jak w przypadku innych przypisań ról.
+Aby nadać użytkownikowi uprawnienia administratora subskrypcji platformy Azure, istniejący administrator przypisuje mu rolę [Właściciel](../../role-based-access-control/built-in-roles.md#owner) (rolę na platformie Azure) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełen dostęp do wszystkich zasobów w subskrypcji, w tym prawo do przydzielania dostępu innym osobom. Te kroki są takie same jak w przypadku innych przypisań ról.
 
 Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniższe kroki, aby to sprawdzić.
 

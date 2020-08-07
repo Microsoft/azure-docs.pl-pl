@@ -1,6 +1,6 @@
 ---
 title: Uaktualnianie konta platformy Azure
-description: Opisuje, jak można uaktualnić konto platformy Azure.
+description: Dowiedz się jak, uaktualnić bezpłatne konto platformy Azure lub konto subskrypcji Microsoft Azure for Students Starter. Zobacz dodatkowe informacje o planach pomocy technicznej platformy Azure.
 keywords: zmiana planu na płatność zgodnie z rzeczywistym użyciem
 author: bandersmsft
 ms.reviewer: sasrin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29454bc5edb02ff571e06be3e9f203792d473aed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 596fd166153f9d1a319d428b3fe44388acc48efa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199453"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460596"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Uaktualnianie bezpłatnego konta platformy Azure lub konto subskrypcji Microsoft Azure for Students Starter
 

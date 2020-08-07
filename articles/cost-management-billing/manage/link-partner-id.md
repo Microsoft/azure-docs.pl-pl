@@ -7,28 +7,28 @@ ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281790"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529918"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Łączenie identyfikatora partnera z kontami platformy Azure
 
 Partnerzy firmy Microsoft oferują usługi, które pomagają klientom osiągać cele biznesowe i ogólne przy użyciu produktów firmy Microsoft. Podejmując działania w imieniu klienta podczas konfigurowania i obsługiwania usług platformy Azure oraz zarządzania nimi, użytkownicy partnera będą musieli uzyskać dostęp do środowiska klienta. Korzystając z linku administratora partnera, partnerzy mogą powiązać identyfikator sieci partnera z poświadczeniami używanymi do dostarczania usług.
 
-Link administratora partnera pozwala firmie Microsoft identyfikować i rozpoznawać partnerów, którzy prowadzą do sukcesu klientów platformy Azure. Firma Microsoft może przypisywać wpływ i przychody użyte przez platformę Azure w organizacji na podstawie uprawnień konta (rola RBAC) i zakresu (subskrypcja, grupa zasobów, zasób).
+Link administratora partnera pozwala firmie Microsoft identyfikować i rozpoznawać partnerów, którzy prowadzą do sukcesu klientów platformy Azure. Firma Microsoft może przypisywać wpływ i przychody użyte przez platformę Azure w organizacji na podstawie uprawnień konta (rola na platformie Azure) i zakresu (subskrypcja, grupa zasobów, zasób).
 
 ## <a name="get-access-from-your-customer"></a>Uzyskanie dostępu od klienta
 
 Przed połączeniem identyfikatora partnera klient musi zapewnić dostęp do swoich zasobów platformy Azure, korzystając z jednego z następujących rozwiązań:
 
-- **Użytkownik-gość**: Klient może dodać Cię jako użytkownika-gościa i przypisać role kontroli dostępu na podstawie ról (RBAC). Aby uzyskać więcej informacji, zobacz temat [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (Dodawanie użytkowników-gości z innego katalogu).
+- **Użytkownik-gość**: Klient może dodać Cię jako użytkownika-gościa i przypisać dowolne role na platformie Azure. Aby uzyskać więcej informacji, zobacz temat [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (Dodawanie użytkowników-gości z innego katalogu).
 
-- **Konto katalogu**: Klient może utworzyć dla Ciebie konto użytkownika w swoim własnym katalogu i przypisać dowolną rolę RBAC.
+- **Konto katalogu**: Klient może utworzyć dla Ciebie konto użytkownika w swoim własnym katalogu i przypisać dowolną rolę na platformie Azure.
 
-- **Jednostka usługi**: Klient może dodać aplikację lub skrypt z organizacji w swoim katalogu i przypisać dowolną rolę RBAC. Tożsamość aplikacji lub skryptu jest znana jako nazwa główna usługi.
+- **Jednostka usługi**: Klient może dodać aplikację lub skrypt z organizacji w swoim katalogu i przypisać dowolną rolę na platformie Azure. Tożsamość aplikacji lub skryptu jest znana jako nazwa główna usługi.
 
 - **Azure Lighthouse**: Klient może delegować subskrypcję (lub grupę zasobów), aby Twoi użytkownicy mogli z niej korzystać z poziomu Twojej dzierżawy. Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami delegowanymi na platformie Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
@@ -168,9 +168,8 @@ Link administratora partnera pozwala firmie Microsoft identyfikować i rozpoznaw
 
 **Jakie dane są zbierane przez link administratora partnera?**
 
-Skojarzenie linku administratora partnera z istniejącymi poświadczeniami nie udostępnia żadnych nowych danych klienta firmie Microsoft. Po prostu udostępnia dane telemetryczne firmie Microsoft, gdy partner aktywnie uczestniczy w środowisku platformy Azure klienta. Firma Microsoft może przypisywać wpływ i przychody użyte przez platformę Azure ze środowiska klienta do organizacji partnera na podstawie uprawnień konta (rola RBAC) i zakresu (grupa zarządzania, subskrypcja, grupa zasobów, zasób) udostępnionego partnerowi przez klienta. 
+Skojarzenie linku administratora partnera z istniejącymi poświadczeniami nie udostępnia żadnych nowych danych klienta firmie Microsoft. Po prostu udostępnia dane telemetryczne firmie Microsoft, gdy partner aktywnie uczestniczy w środowisku platformy Azure klienta. Firma Microsoft może przypisywać wpływ i przychody użyte przez platformę Azure ze środowiska klienta do organizacji partnera na podstawie uprawnień konta (rola na platformie Azure) i zakresu (grupa zarządzania, subskrypcja, grupa zasobów, zasób) udostępnionego partnerowi przez klienta. 
 
 **Czy ma to wpływ na bezpieczeństwo środowiska platformy Azure klienta?**
 
-Skojarzenie linku administratora partnera dodaje tylko identyfikator MPN partnera do już ustanowionych poświadczeń i nie zmienia żadnych uprawnień (roli RBAC) ani nie udostępnia dodatkowych danych usługi platformy Azure partnerowi lub firmie Microsoft. 
-
+Skojarzenie linku administratora partnera dodaje tylko identyfikator MPN partnera do już ustanowionych poświadczeń i nie zmienia żadnych uprawnień (roli na platformie Azure) ani nie udostępnia dodatkowych danych usługi platformy Azure partnerowi lub firmie Microsoft. 

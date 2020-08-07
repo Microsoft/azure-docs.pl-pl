@@ -1,6 +1,6 @@
 ---
 title: Interpretacja szczegółów użycia i opłat | Microsoft Docs
-description: Dowiedz się, jak odczytywać i interpretować szczegółowe informacje dotyczące użycia i opłat
+description: Dowiedz się, jak odczytywać i interpretować szczegółowe informacje dotyczące użycia i opłat. Wyświetl listę warunków i opisów używanych w pliku.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b53869c9ef90dd0edf3ab9a3120e65db8f16e8a
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065640"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460290"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Interpretacja terminów w pliku Użycie i opłaty platformy Azure
 
@@ -23,9 +23,9 @@ W poniższej tabeli przedstawiono opłaty za poszczególne typy kont.
 
 Typ konta | Użycie platformy Azure | Użycie portalu Marketplace | Zakupy | Zwroty
 --- | --- | --- | --- | ---
-Enterprise Agreement (EA) | Yes | Yes | Yes | Nie
-Umowa klienta firmy Microsoft (MCA) | Yes | Yes | Yes | Yes
-Płatność zgodnie z rzeczywistym użyciem | Yes | Yes | Nie | Nie
+Enterprise Agreement (EA) | Yes | Yes | Tak | Nie
+Umowa klienta firmy Microsoft (MCA) | Yes | Yes | Yes | Tak
+Płatność zgodnie z rzeczywistym użyciem | Yes | Tak | Nie | Nie
 
 Aby dowiedzieć się więcej o zamówieniach w witrynie Marketplace (znanych również jako usługi zewnętrzne), zobacz temat [Understand your Azure external service charges](understand-azure-marketplace-charges.md) (Omówienie opłat za usługi zewnętrzne platformy Azure).
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 9e5657211e640c741dbf1bf2b5473a3ea5e10487
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287298"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759901"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Określanie odpowiedniej rezerwacji do kupienia
 
@@ -91,6 +91,8 @@ Pamiętaj o następujących kwestiach:
 Zakupy rezerwacji obliczane przez aparat zaleceń są wyświetlane na karcie **Zalecane** w witrynie [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Oto przykładowa ilustracja.
 
 ![Obraz przedstawiający zalecenia](./media/determine-reservation-purchase/select-product-ri.png)
+
+Dowiedz się więcej o [zaleceniach](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Zalecenia w aplikacji Power BI usługi Cost Management
 

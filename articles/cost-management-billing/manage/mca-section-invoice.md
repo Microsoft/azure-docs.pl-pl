@@ -1,24 +1,24 @@
 ---
 title: Organizowanie faktury zgodnie z własnymi potrzebami — Azure
-description: Dowiedz się, jak zorganizować koszty na fakturze.
+description: Dowiedz się, jak zorganizować koszty na fakturze. Możesz dostosować konto rozliczeniowe, tworząc profile rozliczeniowe i sekcje faktury.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553263ebac3c64e27a7711b4407a7d4ba573998c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200748"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460035"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizowanie kosztów przez dostosowanie konta rozliczeniowego
 
 Konto rozliczeniowe dla Umowy z Klientem Microsoft zapewnia elastyczność organizowania kosztów w zależności od potrzeb: według działu, projektu lub środowiska programistycznego.
 
-W tym artykule opisano, jak można zorganizować koszty za pomocą witryny Azure Portal. Ten artykuł dotyczy konta rozliczeniowego dla Umowy z Klientem Microsoft. [Sprawdź, czy masz dostęp do Umowy klienta firmy Microsoft](#check-access-to-a-microsoft-customer-agreement).
+W tym artykule opisano, jak można zorganizować koszty za pomocą witryny Azure Portal. Ten artykuł dotyczy konta rozliczeniowego dla Umowy z Klientem Microsoft. [Sprawdź, czy masz dostęp do umowy klienta firmy Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Przygotowanie struktury konta za pomocą profilów rozliczeniowych i sekcji faktury
 
@@ -70,7 +70,7 @@ W tej sekcji opisano typowe scenariusze organizowania kosztów i właściwe dla 
 
 Aby utworzyć sekcję faktury, musisz być **właścicielem profilu rozliczeniowego** lub **współautorem profilu rozliczeniowego**. Aby uzyskać więcej informacji, zobacz [Zarządzanie sekcjami faktury dla profilu rozliczeniowego](understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
@@ -98,7 +98,7 @@ Aby utworzyć profil rozliczeniowy, musisz być **właścicielem konta rozliczen
 >
 > Utworzenie dodatkowych profilów rozliczeniowych może mieć wpływ na całkowity koszt. Aby uzyskać więcej informacji, zobacz [Kwestie do rozważenia podczas dodawania nowych profilów rozliczeniowych](#things-to-consider-when-adding-new-billing-profiles).
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
@@ -118,7 +118,7 @@ Aby utworzyć profil rozliczeniowy, musisz być **właścicielem konta rozliczen
 
     |Pole  |Definicja  |
     |---------|---------|
-    |Name (Nazwa)     | Nazwa wyświetlana ułatwiająca znajdowanie profilu rozliczeniowego w witrynie Azure Portal.  |
+    |Nazwa     | Nazwa wyświetlana ułatwiająca znajdowanie profilu rozliczeniowego w witrynie Azure Portal.  |
     |Numer zamówienia zakupu    | Opcjonalny numer zamówienia zakupu. Numer zamówienia zakupu będzie pokazywany na fakturach wygenerowanych dla profilu rozliczeniowego. |
     |Adres do faktury   | Adres rozliczeniowy będzie pokazywany na fakturach wygenerowanych dla profilu rozliczeniowego. |
     |Wysyłanie faktury pocztą e-mail   | Zaznacz pole wysyłania faktury pocztą e-mail, aby otrzymywać faktury dla tego profilu rozliczeniowego za pośrednictwem poczty e-mail. Jeśli nie zdecydujesz się na to, możesz wyświetlać i pobierać faktury w witrynie Azure Portal.|
@@ -131,7 +131,7 @@ Po dostosowaniu konta rozliczeniowego do własnych potrzeb możesz połączyć s
 
 ### <a name="link-a-new-subscription"></a>Łączenie nowej subskrypcji
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Subskrypcje**.
 
@@ -151,7 +151,7 @@ Po dostosowaniu konta rozliczeniowego do własnych potrzeb możesz połączyć s
 
 7. Wybierz plan platformy Azure, a następnie wprowadź przyjazną nazwę subskrypcji.
 
-9. Kliknij przycisk **Utwórz**.  
+9. Kliknij pozycję **Utwórz**.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>Łączenie istniejących subskrypcji i produktów
 
@@ -161,7 +161,7 @@ Jeśli masz istniejące subskrypcje platformy Azure lub inne produkty, takie jak
 >
 > Subskrypcje i inne produkty można przenosić tylko między sekcjami faktury, które należą do tego samego profilu rozliczeniowego. Przenoszenie subskrypcji i produktów między sekcjami faktury w różnych profilach rozliczeniowych nie jest obsługiwane.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
@@ -229,7 +229,7 @@ Rezerwacje platformy Azure z zakresem współużytkowanym są stosowane do subsk
 
 Na ilustracji powyżej firma Contoso ma dwie subskrypcje. Korzyść z rezerwacji platformy Azure jest stosowana inaczej zależnie od struktury konta rozliczeniowego. W scenariuszu po lewej stronie korzyść z rezerwacji jest stosowana do obu subskrypcji, które są rozliczane w ramach profilu rozliczeniowego działu inżynierii. W scenariuszu po prawej stronie korzyść z rezerwacji zostanie zastosowana tylko do subskrypcji 1, ponieważ jest to jedyna subskrypcja rozliczana w ramach profilu rozliczeniowego działu inżynierii.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do Umowy klienta firmy Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną

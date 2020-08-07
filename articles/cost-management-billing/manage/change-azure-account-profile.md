@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286601"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553482"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Zmienianie informacji kontaktowych na koncie platformy Azure
 
@@ -24,7 +24,7 @@ Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące Twojego 
 
 *Adres płatnika* — adres płatnika to adres oraz informacje kontaktowe organizacji lub osoby odpowiedzialnej za faktury wygenerowane dla konta rozliczeniowego. W przypadku konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft jest jeden adres płatnika, widoczny na wszystkich fakturach generowanych dla tego konta. W przypadku konta rozliczeniowego umowy z klientem firmy Microsoft każdy profil rozliczeniowy ma swój adres płatnika, widoczny na fakturze generowanej dla tego profilu rozliczeniowego.
 
-*Kontaktowy adres e-mail dla wiadomości email dotyczących usług i marketingu* — możesz określić adres e-mail inny niż adres e-mail, za pomocą którego się logujesz, aby otrzymywać ważne powiadomienia dotyczące rozliczeń, usług i rekomendacji dotyczących Twojego konta platformy Azure.  
+*Kontaktowy adres e-mail dla wiadomości email dotyczących usług i marketingu* — możesz określić adres e-mail inny niż adres e-mail, za pomocą którego się logujesz, aby otrzymywać ważne powiadomienia dotyczące rozliczeń, usług i rekomendacji dotyczących Twojego konta platformy Azure. Wiadomości e-mail z powiadomieniami o usłudze, takimi jak pilne problemy z zabezpieczeniami, zmiany cen lub zmiany powodujące niezgodność usług używanych przez Twoje konto, są zawsze wysyłane na Twój adres logowania.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Aktualizowanie adresu konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft
 

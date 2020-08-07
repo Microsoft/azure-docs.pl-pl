@@ -1,6 +1,6 @@
 ---
 title: Wyświetlanie i pobieranie informacji o użyciu i opłatach platformy Azure
-description: Opisuje sposób pobierania lub wyświetlania danych dziennego użycia i opłat platformy Azure.
+description: Dowiedz się, jak pobrać lub wyświetlić dane dziennego użycia i opłat platformy Azure oraz wyświetlić dodatkowe dostępne zasoby.
 keywords: rozliczanie użycia, opłaty za użycie, pobieranie danych użycia, wyświetlanie użycia, faktura platformy azure, użycie platformy azure
 author: bandersmsft
 ms.author: banders
@@ -8,12 +8,12 @@ tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322038"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460511"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Wyświetlanie i pobieranie danych na temat użycia i opłat na platformie Azure
 

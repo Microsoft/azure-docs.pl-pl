@@ -3,16 +3,16 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537803"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563487"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
@@ -20,7 +20,7 @@ W tym artykule opisano możliwy wpływ umów EA platformy Azure i ich poprawek n
 
 ## <a name="enrollment-provisioning-status"></a>Stan aprowizacji rejestracji
 
-Data rozpoczęcia nowej przedpłaty za platformę Azure zależy od daty przetworzenia jej w regionalnym centrum operacyjnym. Ponieważ przedpłaty za platformę Azure wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoja przedpłata za platformę Azure wynikająca z zamówień zakupów została przetworzona w innym regionie. Data rozpoczęcia obsługi w zamówieniu dostępnym pod adresem https://www.explore.ms wskazuje datę rozpoczęcia przedpłaty za platformę Azure. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia przedpłaty za platformę Azure w witrynie Azure EA Portal.
+Data rozpoczęcia nowej przedpłaty za platformę Azure zależy od daty przetworzenia jej w regionalnym centrum operacyjnym. Ponieważ przedpłaty za platformę Azure wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoja przedpłata za platformę Azure wynikająca z zamówień zakupów została przetworzona w innym regionie. Data rozpoczęcia obsługi w zamówieniu wskazuje datę rozpoczęcia przedpłaty za platformę Azure. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia przedpłaty za platformę Azure w witrynie Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Pomoc techniczna dla klientów korporacyjnych
 
@@ -43,7 +43,7 @@ Rejestracja może mieć jedną z następujących wartości stanu. Każda wartoś
 
 **Wygasły** — rejestracja EA wygasa w dniu zakończenia umowy Enterprise Agreement. Klient z umową EA zrezygnował z przedłużenia umowy i wszystkie usługi zostały wyłączone.
 
-Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w witrynie [Azure Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera pod adresem https://www.explore.ms. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
+Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w witrynie [Azure Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
 
 **Przeniesiona** — ten stan jest stosowany do rejestracji, z których konta i usługi zostały przeniesione do nowej rejestracji. Rejestracje nie są przenoszone automatycznie w przypadku wygenerowania nowego numeru rejestracji podczas odnawiania. Aby nastąpiło automatyczne przeniesienie, należy uwzględnić poprzedni numer rejestracji w żądaniu odnowienia klienta.
 

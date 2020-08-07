@@ -1,18 +1,18 @@
 ---
 title: Wprowadzenie do konta rozliczeniowego w ramach Umowy klienta firmy Microsoft — Azure
-description: Omówienie konta rozliczeniowego w ramach Umowy klienta firmy Microsoft
+description: Dowiedz się więcej o koncie rozliczeniowym dla Umowy z Klientem Microsoft, w tym o profilach rozliczeniowych i formach płatności za faktury.
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbb8f9aae7eb05ac3c4955beb71dba003ddacd0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371004"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461905"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Wprowadzenie do konta rozliczeniowego w ramach Umowy klienta firmy Microsoft
 

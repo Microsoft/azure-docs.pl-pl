@@ -1,18 +1,18 @@
 ---
 title: Monitorowanie i śledzenie użycia bezpłatnej usługi platformy Azure
-description: Dowiedz się, jak sprawdzić użycie bezpłatnej usługi w witrynie Azure Portal.
+description: Dowiedz się, jak sprawdzić użycie bezpłatnej usługi w witrynie Azure Portal. Za usługi dostępne w ramach bezpłatnego konta nie są naliczane opłaty, chyba że zostanie przekroczony limit usług.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0a62deecc6f70bb21059ae3ddda9eea173de65fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03efb7e4d0aa06e4c33a94f15621d58330e52e50
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199810"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461871"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Sprawdzanie użycia bezpłatnej usługi działającej w ramach bezpłatnego konta platformy Azure
 
@@ -38,9 +38,9 @@ Za korzystanie z bezpłatnych usług działających w ramach bezpłatnego konta 
 * **Użycie/limit:** Użycie i limit dla miernika w bieżącym miesiącu.
 * **Stan:** Stan użycia usługi. Na podstawie użycia jest określany jeden z następujących stanów:
   * **Nieużywany:** Nie użyto miernika lub użycie miernika nie dotarło do systemu rozliczeń.
-  * **Przekroczono \<data>:** Przekroczono limit miernika dnia \<data>.
+  * **Przekroczono \<Date>:** Przekroczono limit miernika dnia \<Date>.
   * **Małe prawdopodobieństwo przekroczenia:** Przekroczenie limitu dla miernika jest mało prawdopodobne.
-  * **Przekracza \<data>:** Prawdopodobnie nastąpi przekroczenie limitu dla miernika dnia \<data>.
+  * **Przekracza \<Date>:** Prawdopodobnie nastąpi przekroczenie limitu dla miernika dnia \<Date>.
 
 > [!IMPORTANT]
 >

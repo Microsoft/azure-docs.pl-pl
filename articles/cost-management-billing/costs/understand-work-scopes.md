@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077162"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501529"
 ---
 # <a name="understand-and-work-with-scopes"></a>Opis zakresów i praca z nimi
 
@@ -93,8 +93,8 @@ Chociaż zakresy nadzoru są powiązane z pojedynczym katalogiem, zakresy rozlic
 
 Zakresy rozliczeniowe umowy EA obsługują następujące role:
 
-- **Administrator przedsiębiorstwa** — może zarządzać ustawieniami konta rozliczeniowego i dostępem, może wyświetlać wszystkie koszty i może zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Zakres rozliczeniowy umowy EA działa tak samo jak [rola Cost Management — współautor funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Użytkownik przedsiębiorstwa tylko do odczytu** — może wyświetlać ustawienia kont rozliczeniowych, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Zakres rozliczeniowy umowy EA działa tak samo jak [rola Cost Management — czytelnik funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrator przedsiębiorstwa** — może zarządzać ustawieniami konta rozliczeniowego i dostępem, może wyświetlać wszystkie koszty i może zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Zakres rozliczeniowy umowy EA działa tak samo jak [rola Cost Management — współautor funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Użytkownik przedsiębiorstwa tylko do odczytu** — może wyświetlać ustawienia kont rozliczeniowych, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Zakres rozliczeniowy umowy EA działa tak samo jak [rola Cost Management — czytelnik funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrator działu** — może zarządzać ustawieniami działu, takimi jak centrum kosztów, może uzyskiwać dostęp do wszystkich kosztów i wyświetlać je oraz zarządzać konfiguracją kosztów. Przykład: budżety i eksporty.  Aby administratorzy działów i użytkownicy tylko do odczytu mogli wyświetlać koszty, musi być włączone ustawienie konta rozliczeniowego **Wyświetlanie opłat przez administratora działu**. Jeśli ustawienie **Wyświetlanie opłat przez administratora działu** jest wyłączone, użytkownicy działu nie widzą kosztów na żadnym poziomie, nawet jeśli są właścicielami konta lub subskrypcji.
 - **Użytkownik działu tylko do odczytu** — może wyświetlać ustawienia działu, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Jeśli ustawienie **Wyświetlanie opłat przez administratora działu** jest wyłączone, użytkownicy działu nie widzą kosztów na żadnym poziomie, nawet jeśli są właścicielami konta lub subskrypcji.
 - **Właściciel konta** — może zarządzać ustawieniami konta rejestracji (na przykład centrum kosztów), wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów (na przykład budżetami i eksportami) dla konta rejestracji. Aby właściciele kont i użytkownicy RBAC mogli wyświetlać koszty, musi być włączone ustawienie konta rozliczeniowego **Wyświetlanie opłat przez właściciela konta**.
@@ -141,10 +141,10 @@ Zakresy rozliczeniowe umowy klienta nie dotyczą partnerów. Role i uprawnienia 
 
 Zakresy rozliczeniowe umowy klienta obsługują następujące role:
 
-- **Właściciel** — może zarządzać ustawieniami rozliczeń i dostępem, wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — współautor funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Współautor** — może zarządzać ustawieniami rozliczeń z wyjątkiem dostępu, wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — współautor funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Czytelnik** — może wyświetlać ustawienia rozliczeń, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — czytelnik funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Menedżer faktur** — może wyświetlać i opłacać faktury oraz może wyświetlać konfigurację i dane dotyczące kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — czytelnik funkcji RBAC na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Właściciel** — może zarządzać ustawieniami rozliczeń i dostępem, wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — współautor funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Współautor** — może zarządzać ustawieniami rozliczeń z wyjątkiem dostępu, wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — współautor funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Czytelnik** — może wyświetlać ustawienia rozliczeń, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — czytelnik funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Menedżer faktur** — może wyświetlać i opłacać faktury oraz może wyświetlać konfigurację i dane dotyczące kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak [rola Cost Management — czytelnik funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Kreator subskrypcji platformy Azure** — może tworzyć subskrypcje platformy Azure, wyświetlać koszty i zarządzać konfiguracją kosztów. Przykład: budżety i eksporty. Ten zakres rozliczeniowy umowy klienta działa tak samo jak rola właściciela konta rejestracji umowy EA.
 
 Subskrypcje platformy Azure są zagnieżdżone w sekcjach faktury, podobnie jak w przypadku kont rejestracji umowy EA. Użytkownicy rozliczeń mają dostęp do danych dotyczących kosztów dla subskrypcji i grup zasobów, które znajdują się w odpowiednich, należących do nich zakresach. Jednak nie mają dostępu do wyświetlania zasobów w witrynie Azure Portal ani zarządzania nimi. Użytkownicy rozliczeń mogą wyświetlać koszty, przechodząc do pozycji **Zarządzanie kosztami i rozliczenia** na liście usług witryny Azure Portal. Następnie filtrują koszty, aby uzyskać dostęp do określonych subskrypcji i grup zasobów, których potrzebują do raportowania.

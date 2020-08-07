@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 70408a3ed6638ec76af113c24cc3c8190a44f55c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385787"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445989"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Szybki start: Tworzenie budżetu przy użyciu szablonu usługi ARM
 
@@ -33,7 +33,7 @@ Jeśli masz nową subskrypcję, nie możesz od razu tworzyć budżetu ani korzys
 
 Budżety są obsługiwane dla następujących typów kont i zakresów platformy Azure:
 
-- Zakresy kontroli dostępu opartej na rolach na platformie Azure
+- Zakresy kontroli dostępu opartej na rolach na platformie Azure (Azure RBAC)
     - Grupy zarządzania
     - Subskrypcja
 - Zakresy umowy Enterprise Agreement
