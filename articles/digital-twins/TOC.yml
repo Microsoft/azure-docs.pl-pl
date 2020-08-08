@@ -55,7 +55,7 @@
         - name: Zarządzanie modelami niestandardowymi
           href: how-to-manage-model.md
         - name: Analizowanie i weryfikowanie modeli
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
         - name: Dodawanie tagów
           href: how-to-use-tags.md
     - name: Korzystanie ze środowiska wykonywania na żywo

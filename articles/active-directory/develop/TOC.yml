@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: Publiczne aplikacje klienckie z jednym kontem i wieloma kontami
               href: single-multi-account.md
+            - name: Obsługa błędów i wyjątków
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: Rejestrowanie
               href: msal-logging.md?tabs=android
         - name: iOS i macOS
@@ -460,7 +463,7 @@
       items:
         - name: Omówienie
           href: authentication-national-cloud.md
-        - name: Uwierzytelnianie
+        - name: Authentication
           href: msal-national-cloud.md
     - name: Automatyczna aprowizacja użytkowników (SCIM)
       items:
