@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107142"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010263"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -46,7 +46,7 @@ W przypadku klastrów zintegrowanych z usługą Azure AD w programie AKS tworzys
 
 Aby utworzyć klaster AKS, który używa usługi Azure AD, zobacz [integrowanie Azure Active Directory z usługą AKS][aks-aad].
 
-## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Używanie kontroli dostępu opartej na rolach Kubernetes (RBAC)
+## <a name="use-kubernetes-role-based-access-control-rbac"></a>Użyj kontroli dostępu opartej na rolach (RBAC) Kubernetes
 
 **Wskazówki dotyczące najlepszych** rozwiązań — Użyj Kubernetes RBAC, aby zdefiniować uprawnienia, które użytkownicy lub grupy mają do zasobów w klastrze. Utwórz role i powiązania, które przypisują najmniej wymagane uprawnienia. Integruj z usługą Azure AD, aby wszelkie zmiany stanu użytkownika lub członkostwa w grupie były automatycznie aktualizowane, a dostęp do zasobów klastra jest aktualny.
 
@@ -95,7 +95,7 @@ Istnieją dwa poziomy dostępu, które są konieczne, aby w pełni obsługiwać 
 1. Uzyskaj dostęp do zasobu AKS w ramach subskrypcji platformy Azure. Ten poziom dostępu pozwala kontrolować skalowanie lub Uaktualnianie klastra przy użyciu interfejsów API AKS oraz ściąganie kubeconfig.
 Aby dowiedzieć się, jak kontrolować dostęp do zasobu AKS i kubeconfig, zobacz [ograniczanie dostępu do pliku konfiguracji klastra](control-kubeconfig-access.md).
 
-2. Dostęp do interfejsu API Kubernetes. Ten poziom dostępu jest kontrolowany przez [KUBERNETES RBAC](#use-kubernetes-role-based-access-controls-rbac) (tradycyjnie) lub przez integrację usługi Azure RBAC z usługą AKS dla autoryzacji Kubernetes.
+2. Dostęp do interfejsu API Kubernetes. Ten poziom dostępu jest kontrolowany przez [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-rbac) (tradycyjnie) lub przez integrację usługi Azure RBAC z usługą AKS dla autoryzacji Kubernetes.
 Aby dowiedzieć się, jak szczegółowo udzielić uprawnień do interfejsu API Kubernetes przy użyciu funkcji RBAC platformy Azure, zobacz [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](manage-azure-rbac.md).
 
 ## <a name="use-pod-identities"></a>Użyj tożsamości pod

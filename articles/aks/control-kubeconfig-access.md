@@ -4,20 +4,20 @@ description: Dowiedz się, jak kontrolować dostęp do pliku Kubernetes Configur
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501631"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009294"
 ---
-# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
+# <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
-Za pomocą narzędzia można korzystać z klastrów Kubernetes `kubectl` . Interfejs wiersza polecenia platformy Azure udostępnia łatwy sposób uzyskiwania poświadczeń dostępu i informacji o konfiguracji w celu łączenia się z klastrami AKS przy użyciu programu `kubectl` . Aby ograniczyć liczbę użytkowników, którzy mogą uzyskać informacje o konfiguracji usługi Kubernetes (*kubeconfig*) i ograniczyć uprawnienia do nich, możesz użyć kontroli dostępu opartej na ROLACH (RBAC) platformy Azure.
+Za pomocą narzędzia można korzystać z klastrów Kubernetes `kubectl` . Interfejs wiersza polecenia platformy Azure udostępnia łatwy sposób uzyskiwania poświadczeń dostępu i informacji o konfiguracji w celu łączenia się z klastrami AKS przy użyciu programu `kubectl` . Aby ograniczyć liczbę użytkowników, którzy mogą uzyskać informacje o konfiguracji usługi Kubernetes (*kubeconfig*) i ograniczyć uprawnienia do nich, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC).
 
 W tym artykule opisano sposób przypisywania ról RBAC, które ograniczają, kto może uzyskać informacje o konfiguracji dla klastra AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -27,7 +27,7 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 Podczas pracy z klastrem AKS przy użyciu `kubectl` narzędzia jest używany plik konfiguracji, który definiuje informacje o połączeniu z klastrem. Ten plik konfiguracji jest zwykle przechowywany w *~/.Kube/config*. W tym pliku *kubeconfig* można zdefiniować wiele klastrów. Można przełączać się między klastrami przy użyciu polecenia [polecenia kubectl config use-Context][kubectl-config-use-context] .
 
-Polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] pozwala uzyskać poświadczenia dostępu do klastra AKS i scalić je z plikiem *kubeconfig* . Za pomocą kontroli dostępu opartej na rolach (RBAC) platformy Azure można kontrolować dostęp do tych poświadczeń. Te role platformy Azure umożliwiają zdefiniowanie osób, które mogą pobrać plik *kubeconfig* i jakie mają uprawnienia w klastrze.
+Polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] pozwala uzyskać poświadczenia dostępu do klastra AKS i scalić je z plikiem *kubeconfig* . Aby kontrolować dostęp do tych poświadczeń, można użyć kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure. Te role platformy Azure umożliwiają zdefiniowanie osób, które mogą pobrać plik *kubeconfig* i jakie mają uprawnienia w klastrze.
 
 Dwie wbudowane role to:
 

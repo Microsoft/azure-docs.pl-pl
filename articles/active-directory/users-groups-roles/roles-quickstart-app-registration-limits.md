@@ -8,29 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed15f8096cae3113af3f9c65ccca8873ef6c0e2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: fdaf80f7b493c0979f1d353b7d740a41035a87bc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905690"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003317"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Szybki Start: Przyznawanie uprawnień do tworzenia nieograniczonej rejestracji aplikacji
 
-W tym przewodniku szybki start utworzysz rolę niestandardową z uprawnieniem do tworzenia nieograniczonej liczby rejestracji aplikacji, a następnie przypiszesz tę rolę użytkownikowi. Przypisany użytkownik może następnie użyć portalu usługi Azure AD, programu Azure AD PowerShell lub interfejsu API Microsoft Graph, aby utworzyć rejestracje aplikacji. W przeciwieństwie do wbudowanej roli Deweloper aplikacji ta rola niestandardowa umożliwia tworzenie nieograniczonej liczby rejestracji aplikacji. Rola dewelopera aplikacji zapewnia możliwość, ale całkowita liczba utworzonych obiektów jest ograniczona do 250, aby zapobiec wykorzystaniu [limitu przydziału obiektów całego katalogu](directory-service-limits-restrictions.md).
+W tym przewodniku szybki start utworzysz rolę niestandardową z uprawnieniem do tworzenia nieograniczonej liczby rejestracji aplikacji, a następnie przypiszesz tę rolę do użytkownika. Przypisany użytkownik może następnie użyć portalu usługi Azure AD, programu Azure AD PowerShell lub interfejsu API Microsoft Graph, aby utworzyć rejestracje aplikacji. W przeciwieństwie do wbudowanej roli Deweloper aplikacji ta rola niestandardowa umożliwia tworzenie nieograniczonej liczby rejestracji aplikacji. Rola dewelopera aplikacji zapewnia możliwość, ale całkowita liczba utworzonych obiektów jest ograniczona do 250, aby zapobiec wykorzystaniu [limitu przydziału obiektów całego katalogu](directory-service-limits-restrictions.md). Najmniej uprzywilejowana rola wymagana do tworzenia i przypisywania ról niestandardowych usługi Azure AD jest administratorem roli uprzywilejowanej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisite"></a>Wymaganie wstępne
-
-Najmniej uprzywilejowana rola wymagana do tworzenia i przypisywania ról niestandardowych usługi Azure AD jest administratorem roli uprzywilejowanej.
-
-## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Tworzenie nowej roli niestandardowej przy użyciu portalu usługi Azure AD
+## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Tworzenie roli niestandardowej przy użyciu portalu usługi Azure AD
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com)   przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
 1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **role i Administratorzy**, a następnie wybierz pozycję **Nowa rola niestandardowa**.
@@ -47,7 +43,7 @@ Najmniej uprzywilejowana rola wymagana do tworzenia i przypisywania ról niestan
 
 1. Na karcie **Recenzja + tworzenie** Przejrzyj uprawnienia i wybierz pozycję **Utwórz**.
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Przypisywanie roli do użytkownika przy użyciu portalu usługi Azure AD
+### <a name="assign-the-role-in-the-azure-ad-portal"></a>Przypisywanie roli w portalu usługi Azure AD
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com)   przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
 1. Wybierz pozycję **Azure Active Directory** a następnie wybierz pozycję **role i Administratorzy**.
@@ -66,9 +62,9 @@ Dostępne są dwa uprawnienia do przyznawania możliwości tworzenia rejestracji
 - Microsoft. Directory/Applications/createAsOwner: przypisanie wyników tego uprawnienia do twórcy dodawanego jako pierwszy właściciel utworzonej rejestracji aplikacji, a rejestracja utworzonej aplikacji będzie liczona względem przydziału 250 obiektów utworzonych przez twórcę.
 - Microsoft. Directory/applicationPolicies/Create: przypisanie wyników tego uprawnienia do twórcy nie jest dodawany jako pierwszy właściciel utworzonej rejestracji aplikacji, a rejestracja utworzonej aplikacji nie będzie liczona względem przydziału 250 obiektów utworzonych przez twórcę. Należy dokładnie użyć tego uprawnienia, ponieważ nie ma możliwości uniemożliwienia sobie tworzenia rejestracji aplikacji, dopóki nie zostanie osiągnięty limit przydziału na poziomie katalogu. Jeśli przypisane są oba uprawnienia, ma to pierwszeństwo.
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Przypisywanie roli niestandardowej przy użyciu programu Azure AD PowerShell
+## <a name="create-a-custom-role-in-azure-ad-powershell"></a>Tworzenie roli niestandardowej w programie Azure AD PowerShell
 
-#### <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
+### <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
 
 Najpierw zainstaluj moduł Azure AD PowerShell z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Następnie zaimportuj moduł programu Azure AD PowerShell w wersji zapoznawczej przy użyciu następującego polecenia:
 
@@ -85,7 +81,7 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
 ```
 
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Tworzenie roli niestandardowej przy użyciu programu Azure AD PowerShell
+### <a name="create-the-custom-role-in-azure-ad-powershell"></a>Tworzenie roli niestandardowej w programie Azure AD PowerShell
 
 Utwórz nową rolę przy użyciu następującego skryptu programu PowerShell:
 
@@ -108,7 +104,7 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customRole = New-AzureAdMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role"></a>Przypisywanie roli niestandardowej
+### <a name="assign-the-role-in-azure-ad-powershell"></a>Przypisywanie roli w programie Azure AD PowerShell
 
 Przypisz rolę przy użyciu następującego skryptu programu PowerShell:
 
@@ -124,7 +120,7 @@ $resourceScope = '/'
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="create-a-custom-role-using-microsoft-graph-api"></a>Tworzenie roli niestandardowej przy użyciu interfejsu API Microsoft Graph
+## <a name="create-a-custom-role-in-the-microsoft-graph-api"></a>Tworzenie roli niestandardowej w interfejsie API Microsoft Graph
 
 Żądanie HTTP, aby utworzyć rolę niestandardową.
 
@@ -160,7 +156,7 @@ Treść
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Przypisywanie roli niestandardowej przy użyciu interfejsu API Microsoft Graph
+### <a name="assign-the-role-in-the-microsoft-graph-api"></a>Przypisywanie roli w interfejsie API Microsoft Graph
 
 Przypisanie roli łączy Identyfikator podmiotu zabezpieczeń (który może być podmiotem użytkownika lub usługi), IDENTYFIKATORem roli (roli) i zakresem zasobów usługi Azure AD.
 
@@ -185,5 +181,5 @@ Treść
 ## <a name="next-steps"></a>Następne kroki
 
 - Podziel się z nami na [forum ról administracyjnych usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-- Aby uzyskać więcej informacji o rolach i przypisaniu roli administratora, zobacz [Przypisywanie ról administratorów](directory-assign-admin-roles.md).
-- Domyślne uprawnienia użytkownika można znaleźć w [porównaniu z domyślnymi uprawnieniami gościa i użytkownika](../fundamentals/users-default-permissions.md).
+- Aby uzyskać więcej informacji o przypisaniach ról usługi Azure AD, zobacz [Przypisywanie ról administratorów](directory-assign-admin-roles.md).
+- Aby uzyskać więcej informacji o domyślnych uprawnieniach użytkownika, zobacz [porównanie domyślnych uprawnień użytkowników-Gości i członków](../fundamentals/users-default-permissions.md).

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507564"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011010"
 ---
 Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom polecenie powodujące niepowodzenie ponownie w trybie debugowania. Tryb debugowania jest aktywowany przez przekazanie `--debug` przełącznika przy użyciu interfejsu wiersza polecenia i `-Debug` przełącznika przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
 
@@ -88,7 +88,7 @@ Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę 
 
 ## <a name="unable-to-share-resources"></a>Nie można udostępnić zasobów
 
-Udostępnianie galerii obrazów udostępnionych, definicji obrazu oraz zasobów wersji obrazu w ramach subskrypcji jest włączone przy użyciu [Access Control opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Funkcja [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)na platformie Azure umożliwia udostępnianie galerii obrazów udostępnionych, definicji obrazu oraz zasobów wersji obrazu w różnych subskrypcjach. 
 
 ## <a name="replication-is-slow"></a>Replikacja jest powolna
 

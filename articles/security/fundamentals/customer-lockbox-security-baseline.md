@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485672"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007883"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Podstawowa usługa Azure Security dla Skrytka klienta dla Microsoft Azure
 
@@ -222,13 +222,13 @@ Dołącz dzienniki aktywności wygenerowane przez Skrytka klienta do centrum kon
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do żądań skrytka klienta. Aby skonfigurować kontrolę dostępu opartą na rolach (RBAC), można użyć okienka tożsamości i kontroli dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Azure Active Directory.
+**Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do żądań skrytka klienta. Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskrypcji możesz skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Azure Active Directory.
 
 W organizacji klienta użytkownik, który ma rolę właściciela dla subskrypcji platformy Azure, otrzymuje wiadomość e-mail od firmy Microsoft w celu powiadomienia o wszelkich oczekujących żądaniach dostępu. W przypadku żądań Skrytka klienta ta osoba jest Wyznaczeni osoby zatwierdzającej.
 
 * [Informacje o rolach niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Jak skonfigurować RBAC dla skoroszytów](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Jak skonfigurować usługę Azure RBAC dla skoroszytów](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Informacje o uprawnieniach żądania dostępu w Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -527,7 +527,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 * [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Omówienie kontroli dostępu opartej na rolach na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Omówienie kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

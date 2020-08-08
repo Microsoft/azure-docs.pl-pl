@@ -1,19 +1,17 @@
 ---
 title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — Azure
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291440"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002664"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -61,7 +59,7 @@ Aby rozpocząć tworzenie nowej puli hostów:
 6. Wprowadź unikatową nazwę puli hostów.
 
 7. W polu Lokalizacja wybierz region, w którym chcesz utworzyć pulę hostów z menu rozwijanego.
-   
+
    W obszarze geograficznym platformy Azure skojarzonym z wybranymi regionami są przechowywane metadane dla tej puli hostów i powiązanych z nią obiektów. Upewnij się, że wybierasz regiony wewnątrz obszaru geograficznego, w którym mają być przechowywane metadane usługi.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu strony grupy zabezpieczeń, w którym jest wyświetlana lista dostępnych portów w menu rozwijanym.](media/available-ports.png)
-    
+
     W przypadku wybrania opcji **Zaawansowane**wybierz istniejącą grupę zabezpieczeń sieci, która została już skonfigurowana.
 
 10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Możesz również dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne.
@@ -153,7 +151,7 @@ Dzięki temu jesteśmy gotowi do rozpoczęcia następnej fazy konfigurowania pul
 
 ## <a name="workspace-information"></a>Informacje o obszarze roboczym
 
-Proces instalacji puli hostów domyślnie tworzy grupę aplikacji klasycznych. Aby Pula hostów działała zgodnie z założeniami, należy opublikować tę grupę aplikacji dla użytkowników lub grup użytkowników, a grupa aplikacji musi zostać zarejestrowana w obszarze roboczym. 
+Proces instalacji puli hostów domyślnie tworzy grupę aplikacji klasycznych. Aby Pula hostów działała zgodnie z założeniami, należy opublikować tę grupę aplikacji dla użytkowników lub grup użytkowników, a grupa aplikacji musi zostać zarejestrowana w obszarze roboczym.
 
 Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
 
@@ -167,10 +165,10 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
 
     W tym miejscu możesz dodać tagi, aby można było grupować obiekty za pomocą metadanych, aby ułatwić administratorom wykonywanie zadań.
 
-4. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**. 
+4. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**.
 
      >[!NOTE]
-     >Proces przegląd + tworzenie weryfikacji nie sprawdza, czy hasło spełnia standardy zabezpieczeń lub czy architektura jest poprawna, dlatego należy sprawdzić ewentualne problemy z jednym z tych elementów. 
+     >Proces przegląd + tworzenie weryfikacji nie sprawdza, czy hasło spełnia standardy zabezpieczeń lub czy architektura jest poprawna, dlatego należy sprawdzić ewentualne problemy z jednym z tych elementów.
 
 5. Przejrzyj informacje o wdrożeniu, aby upewnić się, że wszystko wygląda poprawnie. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**. Spowoduje to uruchomienie procesu wdrażania, który tworzy następujące obiekty:
 

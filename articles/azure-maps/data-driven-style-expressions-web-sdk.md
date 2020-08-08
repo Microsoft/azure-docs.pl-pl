@@ -1,6 +1,6 @@
 ---
 title: Wyrażenia stylów oparte na danych w zestawie SDK sieci Web Azure Maps | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat używania wyrażeń stylów opartych na danych w Microsoft Azure Maps Web SDK.
+description: Dowiedz się więcej na temat wyrażeń stylów opartych na danych. Zobacz, jak używać tych wyrażeń w zestawie SDK sieci Web Azure Maps do dostosowywania stylów w programie Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285717"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009141"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
 
@@ -85,11 +85,11 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Pobiera element z tablicy. |
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
-| `['get', string]` | wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['get', string, object]` | wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string]` | value | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string, object]` | value | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['has', string]` | boolean | Określa, czy właściwości funkcji mają określoną właściwość. |
 | `['has', string, object]` | boolean | Określa, czy właściwości obiektu mają określoną właściwość. |
-| `['id']` | wartość | Pobiera identyfikator funkcji, jeśli ma. |
+| `['id']` | value | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
 | `['in', boolean | string | number, array]` | boolean | Określa, czy element istnieje w tablicy |
 | `['in', substring, string]` | boolean | Określa, czy podciąg istnieje w ciągu |

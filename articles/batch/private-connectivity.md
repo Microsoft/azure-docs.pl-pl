@@ -2,13 +2,14 @@
 title: Używanie prywatnych punktów końcowych z kontami usługi Azure Batch
 description: Dowiedz się, jak połączyć się prywatnie z kontem Azure Batch przy użyciu prywatnych punktów końcowych.
 ms.topic: how-to
-ms.date: 06/12/2020
-ms.openlocfilehash: 04f52c8c58668b2978b38c65a94533a38c593888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.custom: references_regions
+ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754483"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004252"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Używanie prywatnych punktów końcowych z kontami usługi Azure Batch
 
@@ -16,16 +17,11 @@ Domyślnie [konta Azure Batch](accounts.md) mają publiczny punkt końcowy i są
 
 Za pomocą [prywatnego linku platformy Azure](../private-link/private-link-overview.md)można nawiązać połączenie z kontem Azure Batch za pośrednictwem [prywatnego punktu końcowego](../private-link/private-endpoint-overview.md). Prywatny punkt końcowy to zestaw prywatnych adresów IP w podsieci w sieci wirtualnej. Następnie możesz ograniczyć dostęp do konta Azure Batch za pośrednictwem prywatnych adresów IP.
 
-Link prywatny umożliwia użytkownikom dostęp do konta Azure Batch z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+Link prywatny umożliwia użytkownikom dostęp do konta Azure Batch z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Można nawiązać połączenie z kontem Azure Batch skonfigurowanym za pomocą linku prywatnego przy użyciu [metody zatwierdzania automatyczne lub ręczne](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Można nawiązać połączenie z kontem Azure Batch skonfigurowanym za pomocą linku prywatnego przy użyciu [metody zatwierdzania automatyczne lub ręczne](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna w następujących regionach platformy Azure: zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona, Azja Wschodnia, Francja i Południowe Zjednoczone Królestwo.
 
 W tym artykule opisano kroki tworzenia prywatnego konta usługi Batch i uzyskiwania dostępu do niego przy użyciu prywatnego punktu końcowego.
-
-> [!IMPORTANT]
-> Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej w regionach zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia i US Gov Arizona.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-portal"></a>Azure Portal
 

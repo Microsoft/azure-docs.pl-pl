@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857001"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004325"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla Redis
 Import/Export to pamięć podręczna platformy Azure do Redis operacji zarządzania danymi, która umożliwia importowanie danych do usługi Azure cache dla Redis lub eksportowanie danych z pamięci podręcznej platformy Azure dla Redis przez zaimportowanie i eksportowanie pamięci podręcznej platformy Azure dla migawki bazy danych Redis Database (RDB) z pamięci podręcznej Premium do obiektu BLOB na koncie usługi Azure Storage.
@@ -24,7 +24,7 @@ Usługa Import/Export umożliwia Migrowanie między różnymi pamięciami podrę
 Ten artykuł zawiera Przewodnik dotyczący importowania i eksportowania danych za pomocą usługi Azure cache for Redis i zawiera odpowiedzi na często zadawane pytania.
 
 > [!IMPORTANT]
-> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) .
+> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-overview.md#service-tiers) .
 >
 >
 
@@ -152,6 +152,6 @@ Aby rozwiązać ten problem, zainicjuj operację importowania lub eksportowania 
 Eksport działa tylko w przypadku plików RDB przechowywanych jako stronicowe obiekty blob. Inne typy obiektów BLOB nie są obecnie obsługiwane, w tym konta magazynu obiektów blob z warstwami gorąca i chłodna. Aby uzyskać więcej informacji, zobacz [Omówienie konta magazynu platformy Azure](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak korzystać z większej liczby funkcji pamięci podręcznej Premium.
+Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-* [Wprowadzenie do usługi Azure cache dla warstwy Redis Premium](cache-premium-tier-intro.md)
+* [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)

@@ -3,16 +3,16 @@ title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321772"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002781"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
-Aby uprościć zarządzanie zasobami, możesz użyć szablonu Azure Resource Manager (szablon ARM) do wdrażania zasobów na poziomie subskrypcji platformy Azure. Na przykład można wdrożyć [zasady](../../governance/policy/overview.md) i [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) w ramach subskrypcji, która stosuje je w ramach subskrypcji. Możesz również utworzyć grupy zasobów w ramach subskrypcji i wdrożyć zasoby w grupach zasobów w ramach subskrypcji.
+Aby uprościć zarządzanie zasobami, możesz użyć szablonu Azure Resource Manager (szablon ARM) do wdrażania zasobów na poziomie subskrypcji platformy Azure. Na przykład można wdrożyć [zasady](../../governance/policy/overview.md) i [kontrolę dostępu opartą na ROLACH (Azure RBAC)](../../role-based-access-control/overview.md) w ramach subskrypcji, która stosuje je w ramach subskrypcji. Możesz również utworzyć grupy zasobów w ramach subskrypcji i wdrożyć zasoby w grupach zasobów w ramach subskrypcji.
 
 > [!NOTE]
 > Można wdrożyć do 800 różnych grup zasobów w ramach wdrożenia na poziomie subskrypcji.
@@ -54,7 +54,7 @@ Aby zarządzać subskrypcją, użyj:
 
 * [budżetów](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tabliczk](/azure/templates/microsoft.resources/tags)
+* [tags](/azure/templates/microsoft.resources/tags)
 
 Inne obsługiwane typy to:
 
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu usług RBAC i Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+Aby dowiedzieć się więcej o przypisywaniu ról, zobacz [Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 
 Poniższy przykład tworzy grupę zasobów, stosuje do niej blokadę i przypisuje rolę do podmiotu zabezpieczeń.
 

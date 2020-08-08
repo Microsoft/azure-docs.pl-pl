@@ -1,19 +1,17 @@
 ---
 title: Omówienie rozwiązywania problemów z pulpitem wirtualnym systemu Windows (klasycznym) — Azure
 description: Przegląd rozwiązywania problemów podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows (klasycznego).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: efcdc203884a5aaff3b02e730f1dddb7fff66e95
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7b2220ffe92446338e1b9db9b329847d93830334
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289827"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005435"
 ---
 #  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Omówienie rozwiązywania problemów z pulpitem wirtualnym systemu Windows (klasycznym), opinie i pomoc techniczna
 
@@ -22,7 +20,7 @@ ms.locfileid: "87289827"
 
 Ten artykuł zawiera omówienie problemów, które mogą wystąpić podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows i zapewnia sposoby rozwiązania problemów.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 

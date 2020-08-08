@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184977"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003706"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
@@ -24,7 +24,7 @@ Replikacja geograficzna zapewnia mechanizm łączenia dwóch pamięci podręczne
 
 Aby skonfigurować replikację geograficzną między dwiema pamięciami podręcznymi, należy spełnić następujące wymagania wstępne:
 
-- Obie pamięci podręczne są pamięcią podręczną [warstwy Premium](cache-premium-tier-intro.md) .
+- Obie pamięci podręczne są pamięcią podręczną [warstwy Premium](cache-overview.md#service-tiers) .
 - Obie pamięci podręczne są w tej samej subskrypcji platformy Azure.
 - Pomocnicza połączony bufor ma ten sam rozmiar pamięci podręcznej lub większy rozmiar pamięci podręcznej niż w przypadku podstawowej połączonej pamięci podręcznej.
 - Obie pamięci podręczne są tworzone i w stanie uruchomienia.
@@ -186,5 +186,6 @@ Automatyczne przełączanie w tryb failover w regionach platformy Azure nie jest
 Aby uruchomić tryb failover zainicjowany przez klienta, najpierw Odłącz pamięci podręczne. Następnie zmień klienta programu Redis tak, aby używał punktu końcowego połączenia (dawniej połączony) pomocniczej pamięci podręcznej. Po odłączeniu dwóch pamięci podręcznych pomocnicza pamięć podręczna jest ponownie regularna w pamięci podręcznej odczytu i zapisu oraz akceptuje żądania bezpośrednio od klientów Redis.
 
 ## <a name="next-steps"></a>Następne kroki
+Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-Dowiedz się więcej o [warstwie usługi Azure cache for Redis Premium](cache-premium-tier-intro.md).
+* [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)

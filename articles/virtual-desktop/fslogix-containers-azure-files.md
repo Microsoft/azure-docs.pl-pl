@@ -1,19 +1,17 @@
 ---
 title: Pliki kontenerów profilu FSLogix pulpitu wirtualnego systemu Windows — Azure
 description: W tym artykule opisano kontenery profilu FSLogix w ramach usług pulpitu wirtualnego systemu Windows i usługi Azure Files.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611980"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002400"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Kontenery profili FSLogix i pliki platformy Azure
 
@@ -49,15 +47,15 @@ W poniższej tabeli przedstawiono zalety i ograniczenia dotyczące wcześniejszy
 
 | Technologia | Ustawienia nowoczesne | Ustawienia Win32 | Ustawienia systemu operacyjnego | Dane użytkowników | Obsługiwane w jednostce SKU serwera | Magazyn zaplecza na platformie Azure | Magazyn zaplecza lokalnego | Obsługa wersji | Kolejny czas logowania |Uwagi|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dyski profilu użytkownika (UPD)** | Tak | Tak | Tak | Tak | Tak | Nie | Yes | Win 7 + | Tak | |
-| **Profil użytkownika mobilnego (RUP), tryb konserwacji** | Nie | Tak | Tak | Tak | Tak| Nie | Yes | Win 7 + | Nie | |
-| **Enterprise State Roaming (ESR)** | Yes | Nie | Yes | Nie | Zobacz uwagi | Yes | Nie | Win 10 | Nie | Funkcje w jednostce SKU serwera, ale bez interfejsu użytkownika pomocniczego |
-| **Wirtualizacja środowiska użytkownika (UE-V)** | Tak | Tak | Tak | Nie | Yes | Nie | Yes | Win 7 + | Nie |  |
-| **Pliki w chmurze w usłudze OneDrive** | Nie | Nie | Nie | Yes | Zobacz uwagi | Zobacz uwagi  | Zobacz uwagi | Win 10 RS3 | Nie | Nie przetestowano w jednostce SKU serwera. Magazyn zaplecza na platformie Azure zależy od klienta synchronizacji. Magazyn zaplecza Premium wymaga klienta synchronizacji. |
+| **Dyski profilu użytkownika (UPD)** | Tak | Tak | Tak | Tak | Yes | Nie | Tak | Win 7 + | Tak | |
+| **Profil użytkownika mobilnego (RUP), tryb konserwacji** | Nie | Tak | Tak | Tak | Tak| Nie | Tak | Win 7 + | Nie | |
+| **Enterprise State Roaming (ESR)** | Tak | Nie | Tak | Nie | Zobacz uwagi | Tak | Nie | Win 10 | Nie | Funkcje w jednostce SKU serwera, ale bez interfejsu użytkownika pomocniczego |
+| **Wirtualizacja środowiska użytkownika (UE-V)** | Tak | Tak | Tak | Nie | Tak | Nie | Tak | Win 7 + | Nie |  |
+| **Pliki w chmurze w usłudze OneDrive** | Nie | Nie | Nie | Tak | Zobacz uwagi | Zobacz uwagi  | Zobacz uwagi | Win 10 RS3 | Nie | Nie przetestowano w jednostce SKU serwera. Magazyn zaplecza na platformie Azure zależy od klienta synchronizacji. Magazyn zaplecza Premium wymaga klienta synchronizacji. |
 
 #### <a name="performance"></a>Wydajność
 
-UPD wymaga [bezpośrednie miejsca do magazynowania (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) , aby rozwiązać wymagania dotyczące wydajności. UPD używa protokołu SMB (Server Message Block). Kopiuje profil do maszyny wirtualnej, w której użytkownik jest rejestrowany. UPD z funkcją S2D to rozwiązanie, które zalecamy dla pulpitu wirtualnego systemu Windows.  
+UPD wymaga [bezpośrednie miejsca do magazynowania (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) , aby rozwiązać wymagania dotyczące wydajności. UPD używa protokołu SMB (Server Message Block). Kopiuje profil do maszyny wirtualnej, w której użytkownik jest rejestrowany. UPD z funkcją S2D to rozwiązanie, które zalecamy dla pulpitu wirtualnego systemu Windows.
 
 #### <a name="cost"></a>Koszty
 

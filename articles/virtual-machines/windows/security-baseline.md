@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4e62fd43c062d9d33292eac36a16d809bc926c98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445204"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009838"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Windows Virtual Machines
 
@@ -556,11 +556,11 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: korzystanie z kontroli dostępu opartej na ROLACH (RBAC) umożliwia rozdzielenie obowiązków w zespole i udzielanie użytkownikom tylko dostępu do tych maszyn wirtualnych, których potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure, orAzure PowerShell.
+**Wskazówki**: korzystanie z funkcji kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure umożliwia rozdzielenie obowiązków w zespole i udzielanie użytkownikom tylko dostępu do tych maszyn wirtualnych, których potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure, orAzure PowerShell.
 
-* [Kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../../role-based-access-control/overview.md)
+* [Kontrola RBAC platformy Azure](../../role-based-access-control/overview.md)
 
 * [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -913,11 +913,11 @@ W przypadku większości scenariuszy szablony maszyn wirtualnych firmy Microsoft
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
-**Wskazówki**: Jeśli używasz obrazów niestandardowych (np. wirtualnego dysku twardego), użyj kontroli dostępu opartej na rolach platformy Azure, aby upewnić się, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do obrazów.
+**Wskazówki**: Jeśli używasz obrazów niestandardowych (np. wirtualnego dysku twardego), użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
 
-* [Zrozumienie RBAC na platformie Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Opis kontroli RBAC platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Jak skonfigurować RBAC na platformie Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Jak skonfigurować usługę Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 

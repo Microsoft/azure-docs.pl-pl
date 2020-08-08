@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542080"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002676"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
 
@@ -41,7 +41,7 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 * Logowanie jednokrotne
 * Zwrotny serwer proxy
 * Multi-Factor Authentication
-* Kontrola dostępu oparta na rolach (RBAC)
+* Kontrola dostępu oparta na rolach (Azure RBAC)
 * Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 * Zarządzanie tożsamościami i dostępem klientów
 * Rejestracja urządzenia
@@ -87,9 +87,9 @@ Więcej informacji:
 * [Co to jest usługa Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="rbac"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-rbac"></a>Kontrola RBAC platformy Azure
 
-Kontrola dostępu oparta na rolach stanowi system autoryzacji oparty na usłudze Azure Resource Manager, umożliwiający szczegółowe zarządzanie dostępem do zasobów platformy Azure. RBAC pozwala na szczegółowe kontrolowanie poziomu dostępu, który ma użytkownicy. Można na przykład ograniczyć użytkownika do zarządzania sieciami wirtualnymi i innym użytkownikom w celu zarządzania wszystkimi zasobami w grupie zasobów. Na platformie Azure można korzystać z kilku ról wbudowanych. Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
+Azure RBAC to system autoryzacji oparty na Azure Resource Manager, który zapewnia precyzyjne zarządzanie dostępem do zasobów na platformie Azure. Usługa Azure RBAC umożliwia precyzyjne sterowanie poziomem dostępu dostępnym dla użytkowników. Można na przykład ograniczyć użytkownika do zarządzania sieciami wirtualnymi i innym użytkownikom w celu zarządzania wszystkimi zasobami w grupie zasobów. Na platformie Azure można korzystać z kilku ról wbudowanych. Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
 
 - [Właściciel](/azure/role-based-access-control/built-in-roles#owner) — ma pełny dostęp do wszystkich zasobów, w tym prawo do delegowania dostępu do innych osób. 
 - [Współautor](/azure/role-based-access-control/built-in-roles#contributor) — można tworzyć wszystkie typy zasobów platformy Azure i zarządzać nimi, ale nie mogą przyznawać dostępu innym osobom.

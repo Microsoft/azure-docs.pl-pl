@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062695"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011058"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 
@@ -17,7 +17,7 @@ ms.locfileid: "86062695"
 > 1. Obecnie **tylko** interfejs API przetwarzania obrazów, interfejs API rozpoznawania twarzy, interfejs API analizy tekstu, czytniki immersyjny, aparat rozpoznawania nietypowego wykrywania i wszystkie usługi Bing, z wyjątkiem wyszukiwanie niestandardowe Bing obsługa uwierzytelniania przy użyciu Azure Active Directory (AAD).
 > 2. Uwierzytelnianie w usłudze AAD musi być zawsze używane razem z niestandardową nazwą domeny podrzędnej zasobu platformy Azure. [Regionalne punkty końcowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) nie obsługują uwierzytelniania usługi AAD.
 
-W poprzednich sekcjach pokazano, jak uwierzytelniać się w usłudze Azure Cognitive Services przy użyciu pojedynczego lub wielousługowego klucza subskrypcji. Chociaż te klucze zapewniają szybką i łatwą ścieżkę do rozpoczęcia programowania, są one krótkie w bardziej złożonych scenariuszach, które wymagają kontroli dostępu opartej na rolach. Spójrzmy na to, co jest wymagane do uwierzytelniania za pomocą usługi Azure Active Directory (AAD).
+W poprzednich sekcjach pokazano, jak uwierzytelniać się w usłudze Azure Cognitive Services przy użyciu pojedynczego lub wielousługowego klucza subskrypcji. Chociaż te klucze zapewniają szybką i łatwą ścieżkę do rozpoczęcia opracowywania, są coraz bardziej złożone scenariusze, które wymagają kontroli dostępu opartej na rolach (Azure RBAC). Spójrzmy na to, co jest wymagane do uwierzytelniania za pomocą usługi Azure Active Directory (AAD).
 
 W poniższych sekcjach użyjesz środowiska Azure Cloud Shell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć poddomenę, przypisać role i uzyskać token okaziciela w celu wywołania Cognitive Services platformy Azure. W przypadku zablokowania linki są dostępne w każdej sekcji ze wszystkimi dostępnymi opcjami dla każdego polecenia w Azure Cloud Shell/interfejs wiersza polecenia platformy Azure.
 
@@ -45,7 +45,7 @@ Pierwszym krokiem jest utworzenie niestandardowej domeny podrzędnej. Jeśli chc
 Teraz, gdy masz niestandardową poddomenę skojarzoną z zasobem, musisz przypisać rolę do jednostki usługi.
 
 > [!NOTE]
-> Należy pamiętać, że propagowanie przypisań ról usługi AAD może potrwać do 5 minut.
+> Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut.
 
 1. Najpierw Zarejestrujmy [aplikację usługi AAD](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 

@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856323"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004776"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować klastrowanie Redis dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. W tym artykule opisano sposób konfigurowania klastrowania w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis.
-
-Aby uzyskać informacje na temat innych funkcji Premium pamięci podręcznej, zobacz [wprowadzenie do usługi Azure cache for Redis w warstwie Premium](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>Co to jest klaster Redis?
 Usługa Azure cache for Redis oferuje klaster Redis jako [zaimplementowany w Redis](https://redis.io/topics/cluster-tutorial). W przypadku klastra Redis uzyskasz następujące korzyści: 
@@ -26,7 +24,7 @@ Usługa Azure cache for Redis oferuje klaster Redis jako [zaimplementowany w Red
 * Większa przepływność: przepływność wzrasta liniowo w miarę zwiększania liczby fragmentów. 
 * Więcej pamięci: zwiększa się liniowo w miarę zwiększania liczby fragmentów.  
 
-Klastrowanie nie zwiększa liczby połączeń dostępnych dla klastrowanej pamięci podręcznej. Aby uzyskać więcej informacji o rozmiarze, przepływności i przepustowości z pamięcią podręczną Premium, zobacz, [w jaki sposób usługa Azure cache dla oferty Redis i rozmiar należy użyć?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Klastrowanie nie zwiększa liczby połączeń dostępnych dla klastrowanej pamięci podręcznej. Aby uzyskać więcej informacji o rozmiarze, przepływności i przepustowości z pamięcią podręczną Premium, zobacz [Wybieranie odpowiedniej warstwy](cache-overview.md#choosing-the-right-tier)
 
 Na platformie Azure klaster Redis jest oferowany jako model podstawowy/repliki, gdzie każdy fragmentu ma parę podstawowa/repliki z replikacją, w której replikacja jest zarządzana przez usługę Azure cache for Redis. 
 
@@ -91,7 +89,7 @@ Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usług
   Aby uzyskać więcej informacji, zobacz temat [Redis Cluster Specification-zaimplementowany podzestaw](https://redis.io/topics/cluster-spec#implemented-subset).
 * Jeśli używasz [stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/), musisz użyć 1.0.481 lub nowszego. Łączysz się z pamięcią podręczną przy użyciu tych samych [punktów końcowych, portów i kluczy](cache-configure.md#properties) , które są używane podczas nawiązywania połączenia z pamięcią podręczną, w której nie włączono obsługi klastrowania. Jedyną różnicą jest to, że wszystkie operacje odczytu i zapisu należy wykonać w bazie danych 0.
   
-  * Inni klienci mogą mieć inne wymagania. Zobacz [czy wszyscy klienci Redis obsługują klastrowanie?](#do-all-redis-clients-support-clustering)
+  Inni klienci mogą mieć inne wymagania. Zobacz [czy wszyscy klienci Redis obsługują klastrowanie?](#do-all-redis-clients-support-clustering)
 * Jeśli aplikacja używa wielu operacji wsadowych w pojedynczym poleceniu, wszystkie klucze muszą znajdować się w tym samym fragmentu. Aby zlokalizować klucze w tym samym fragmentu, zobacz [jak klucze są dystrybuowane w klastrze?](#how-are-keys-distributed-in-a-cluster)
 * Jeśli używasz dostawcy stanu sesji Redis ASP.NET, musisz użyć wersji 2.0.1 lub nowszej. Zobacz [, czy można używać klastrowania z Redisem sesji ASP.NET i dostawcy buforowania danych wyjściowych?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -156,9 +154,9 @@ Klastrowanie jest dostępne tylko dla pamięci podręcznych w warstwie Premium.
 Jeśli używasz StackExchange. Redis i odbierasz `MOVE` wyjątki podczas korzystania z klastrowania, upewnij się, że używasz [stackexchange. Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) lub nowszego. Aby uzyskać instrukcje dotyczące konfigurowania aplikacji .NET do korzystania z StackExchange. Redis, zobacz [Konfigurowanie klientów pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak korzystać z większej liczby funkcji pamięci podręcznej Premium.
+Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-* [Wprowadzenie do usługi Azure cache dla warstwy Redis Premium](cache-premium-tier-intro.md)
+* [Pamięć podręczna systemu Azure dla warstw usługi Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

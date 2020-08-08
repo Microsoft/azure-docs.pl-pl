@@ -1,19 +1,17 @@
 ---
 title: Łączenie z pulpitem wirtualnym systemu Windows (klasyczny) z macOS — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta macOS.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a4aac80f7e4ef93b6503398c225b2aeffe566dbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270570"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008444"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z klientem macOS
 

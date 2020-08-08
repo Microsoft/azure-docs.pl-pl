@@ -5,27 +5,24 @@ documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienia wypychane, komunikaty wypychane, powiadomienia wypychane systemu Android
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-java
-ms.openlocfilehash: 3f31c9786a8310779d71ab0c54bddc4687f765be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f2d5d618fabbe7400ce825f984ace1622a524f05
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325240"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004024"
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych za pomocą usługi Azure Notification Hubs
+# <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych za pomocą usługi Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Aplikacje uniwersalne systemu Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -43,28 +40,28 @@ Ze względu na ograniczenia prawne lub zabezpieczenia czasami aplikacja może ch
 
 Na wysokim poziomie przepływ jest następujący:
 
-1. Zaplecze aplikacji:
-   * Przechowuje bezpieczny ładunek w bazie danych zaplecza.
-   * Wysyła identyfikator tego powiadomienia do urządzenia z systemem Android (żadne zabezpieczone informacje nie są wysyłane).
-2. Aplikacja na urządzeniu podczas otrzymywania powiadomienia:
-   * Urządzenie z systemem Android nawiązuje połączenie z zapleczem bezpiecznym.
-   * Aplikacja może wyświetlać ładunek jako powiadomienie na urządzeniu.
+- Zaplecze aplikacji:
+  * Przechowuje bezpieczny ładunek w bazie danych zaplecza.
+  * Wysyła identyfikator tego powiadomienia do urządzenia z systemem Android (żadne zabezpieczone informacje nie są wysyłane).
+- Aplikacja na urządzeniu podczas otrzymywania powiadomienia:
+  * Urządzenie z systemem Android nawiązuje połączenie z zapleczem bezpiecznym.
+  * Aplikacja może wyświetlać ładunek jako powiadomienie na urządzeniu.
 
 Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) zakłada się, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Takie podejście gwarantuje bezproblemowe działanie, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po odebraniu powiadomienia wypychanego powinna wyświetlić ogólne powiadomienie z monitem użytkownika o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomienia.
 
-W tym samouczku pokazano, jak wysyłać bezpieczne powiadomienia wypychane. Jest ona oparta na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , dlatego należy wykonać kroki opisane w tym samouczku, jeśli jeszcze tego nie zrobiono.
+W tym samouczku pokazano, jak wysyłać bezpieczne powiadomienia wypychane. Jest ona oparta na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
 
 > [!NOTE]
-> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w [wprowadzenie z Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w artykule wprowadzenie [do Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Modyfikuj projekt systemu Android
 
-Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* powiadomienia wypychanego należy zmienić aplikację dla systemu Android w taki sposób, aby obsługiwała to powiadomienie, i wywoływać zaplecze w celu pobrania bezpiecznej wiadomości do wyświetlenia.
+Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko identyfikatora powiadomienia wypychanego należy zmienić aplikację dla systemu Android w taki sposób, aby obsługiwała to powiadomienie, i wywoływać ją ponownie w celu pobrania bezpiecznej wiadomości do wyświetlenia.
 Aby osiągnąć ten cel, należy się upewnić, że aplikacja dla systemu Android wie, jak uwierzytelnić się w zapleczu po odebraniu powiadomień wypychanych.
 
-Teraz zmodyfikuj przepływ *logowania* w celu zapisania wartości nagłówka uwierzytelniania w preferencjach udostępnionych aplikacji. Analogiczne mechanizmy mogą służyć do przechowywania dowolnego tokenu uwierzytelniania (na przykład tokenów OAuth), którego aplikacja musi używać, bez poświadczeń użytkownika.
+Teraz zmodyfikuj przepływ logowania w celu zapisania wartości nagłówka uwierzytelniania w preferencjach udostępnionych aplikacji. Analogiczne mechanizmy mogą służyć do przechowywania dowolnego tokenu uwierzytelniania (na przykład tokenów OAuth), którego aplikacja musi używać, bez poświadczeń użytkownika.
 
 1. W projekcie aplikacji systemu Android Dodaj następujące stałe w górnej części `MainActivity` klasy:
 
@@ -72,6 +69,7 @@ Teraz zmodyfikuj przepływ *logowania* w celu zapisania wartości nagłówka uwi
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
+
 2. W `MainActivity` klasie należy zaktualizować metodę tak, `getAuthorizationHeader()` aby zawierała następujący kod:
 
     ```java
@@ -87,6 +85,7 @@ Teraz zmodyfikuj przepływ *logowania* w celu zapisania wartości nagłówka uwi
         return basicAuthHeader;
     }
     ```
+
 3. Dodaj następujące `import` instrukcje w górnej części `MainActivity` pliku:
 
     ```java
@@ -104,6 +103,7 @@ Teraz zmień procedurę obsługi, która jest wywoływana po odebraniu powiadomi
         retrieveNotification(secureMessageId);
     }
     ```
+
 2. Następnie Dodaj `retrieveNotification()` metodę, zastępując symbol zastępczy `{back-end endpoint}` punktem końcowym, który został uzyskany podczas wdrażania zaplecza:
 
     ```java

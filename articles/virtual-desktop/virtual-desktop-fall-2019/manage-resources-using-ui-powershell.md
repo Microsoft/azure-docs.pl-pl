@@ -1,19 +1,17 @@
 ---
 title: Wdrażanie narzędzia do zarządzania dla pulpitu wirtualnego systemu Windows (klasycznego) przy użyciu nazwy głównej usługi platformy Azure
 description: Jak wdrożyć narzędzie do zarządzania dla pulpitu wirtualnego systemu Windows (klasyczny) przy użyciu programu PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284969"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005775"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu programu PowerShell
 

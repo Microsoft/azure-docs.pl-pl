@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/22/2020
-ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 08/07/2020
+ms.openlocfilehash: cc38210690c88fec826dc727775d01884dedd997
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132368"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008886"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Szybki start: Tworzenie automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps — Visual Studio
 
@@ -28,7 +28,7 @@ W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyci
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). Jeśli masz subskrypcję Azure Government, postępuj zgodnie z tymi dodatkowymi krokami, aby [skonfigurować program Visual Studio dla Azure Government Cloud](#azure-government).
 
 * Pobierz i zainstaluj te narzędzia, jeśli jeszcze ich nie masz:
 
@@ -51,12 +51,6 @@ W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyci
   
     Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Upewnij się, że po zakończeniu instalacji program Visual Studio zostanie ponownie uruchomiony.
 
-  * Aby skorzystać z subskrypcji Azure Government w programie Visual Studio, zobacz następujące tematy, aby uzyskać dodatkową konfigurację:
-
-    * Visual Studio 2019: [Szybki Start: łączenie się z Azure Government za pomocą programu Visual Studio](../azure-government/documentation-government-connect-vs.md)
-
-    * Visual Studio 2017: [wprowadzenie do rozszerzenia programu Visual Studio selektora środowiska platformy Azure](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), które można pobrać i zainstalować z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
-
 * Dostęp do Internetu podczas korzystania z osadzonego Projektanta aplikacji logiki
 
   Projektant wymaga połączenia internetowego do tworzenia zasobów na platformie Azure i odczytywania właściwości i danych z łączników w aplikacji logiki.
@@ -65,6 +59,34 @@ W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyci
 
   > [!IMPORTANT]
   > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+<a name="azure-government"></a>
+
+## <a name="set-up-visual-studio-for-azure-government"></a>Set up Visual Studio for Azure Government (Konfigurowanie programu Visual Studio na potrzeby usługi Azure Government)
+
+### <a name="visual-studio-2017"></a>Visual Studio 2017
+
+Można użyć [rozszerzenia środowiska Azure Environment Selector programu Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), które można pobrać i zainstalować z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
+### <a name="visual-studio-2019"></a>Visual Studio 2019
+
+Aby obejść Azure Government subskrypcje w Azure Logic Apps, musisz [dodać punkt końcowy odnajdywania dla chmury Azure Government do programu Visual Studio](../azure-government/documentation-government-connect-vs.md). Jednak *przed zalogowaniem się do programu Visual Studio przy użyciu konta Azure Government*należy zmienić nazwę pliku JSON, który jest generowany po dodaniu punktu końcowego odnajdywania, wykonując następujące czynności:
+
+1. Zamknij program Visual Studio.
+
+1. Znajdź wygenerowany plik JSON o nazwie `Azure U.S. Government-A3EC617673C6C70CC6B9472656832A26.Configuration` w tej lokalizacji:
+
+   `%localappdata%\.IdentityService\AadConfigurations`
+ 
+1. Zmień nazwę pliku JSON na `AadProvider.Configuration.json` .
+
+1. Uruchom ponownie program Visual Studio.
+
+1. Wykonaj kroki, aby zalogować się za pomocą konta Azure Government.
+
+Aby przywrócić tę konfigurację, usuń plik JSON w następującej lokalizacji i ponownie uruchom program Visual Studio:
+
+`%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
 
 <a name="create-resource-group-project"></a>
 
@@ -89,7 +111,7 @@ Aby rozpocząć, utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    Jeśli używasz programu Visual Studio 2019, wykonaj następujące kroki:
 
-   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz przycisk **Dalej**.
+   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz pozycję **Dalej**.
 
    1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz pozycję **Utwórz**.
 

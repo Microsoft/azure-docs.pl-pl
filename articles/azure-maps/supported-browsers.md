@@ -1,6 +1,6 @@
 ---
 title: Obsługiwane przeglądarki sieci Web SDK | Mapy Microsoft Azure
-description: W tym artykule omówiono obsługiwane przeglądarki Microsoft Azure Maps Web SDK i sposób sprawdzania, czy przeglądarka jest obsługiwaną przeglądarką.
+description: Dowiedz się, jak sprawdzić, czy zestaw SDK sieci Web Azure Maps obsługuje przeglądarkę. Wyświetl listę obsługiwanych przeglądarek. Dowiedz się, jak używać usług map ze starszymi przeglądarkami.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988791"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002934"
 ---
 # <a name="web-sdk-supported-browsers"></a>Przeglądarki obsługiwane przez zestaw Web SDK
 
@@ -63,7 +63,7 @@ W Node.js są również obsługiwane następujące moduły zestawu SDK sieci Web
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Docelowe starsze przeglądarki
 
-Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub które mają tylko ograniczoną obsługę. W takich przypadkach zalecamy używanie usług Azure Maps razem z kontrolką mapy typu "open source", taką jak [ulotka](https://leafletjs.com/). Przykład:
+Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub które mają tylko ograniczoną obsługę. W takich przypadkach zalecamy używanie usług Azure Maps razem z kontrolką mapy typu "open source", taką jak [ulotka](https://leafletjs.com/). Oto przykład:
 
 <br/>
 

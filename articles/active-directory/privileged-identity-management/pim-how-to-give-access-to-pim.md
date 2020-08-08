@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17847546ace558d367aed6d935db0fed6d817f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742202"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009566"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management
+# <a name="delegate-access-to-privileged-identity-management"></a>Delegowanie dostępu do Privileged Identity Management
 
-Administrator globalny, który umożliwia Privileged Identity Management (PIM) dla organizacji, automatycznie uzyskuje przypisania ról i dostęp do Privileged Identity Management. Nikt inny w organizacji Azure Active Directory (Azure AD) nie otrzymuje domyślnie dostępu do zapisu, w tym innych administratorów globalnych. Inni administratorzy globalni, administratorzy zabezpieczeń i czytelnicy zabezpieczeń mają dostęp tylko do odczytu do Privileged Identity Management. Aby udzielić dostępu do Privileged Identity Management, pierwszy użytkownik może przypisać inne osoby do roli **administrator ról uprzywilejowanych** .
+Aby delegować dostęp do Privileged Identity Management (PIM), Administrator globalny może przypisywać innych użytkowników do roli administrator ról uprzywilejowanych. Domyślnie administratorzy zabezpieczeń i czytelnicy zabezpieczeń mają dostęp tylko do odczytu do Privileged Identity Management. Aby udzielić dostępu do Privileged Identity Management, pierwszy użytkownik może przypisać inne osoby do roli **administrator ról uprzywilejowanych** . Rola Administrator ról uprzywilejowanych jest wymagana do zarządzania tylko rolami usługi Azure AD. Uprawnienia administratora roli uprzywilejowanej nie są wymagane do zarządzania ustawieniami zasobów platformy Azure.
 
 > [!NOTE]
-> Zarządzanie Privileged Identity Management wymaga platformy Azure Multi-Factor Authentication. Ponieważ konta Microsoft nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication, użytkownik, który zaloguje się przy użyciu konto Microsoft, nie może uzyskać dostępu do Privileged Identity Management.
+> Zarządzanie Privileged Identity Management wymaga platformy Azure Multi-Factor Authentication. Ponieważ konta Microsoft nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication, użytkownik, który zaloguje się za pomocą konto Microsoft, nie może uzyskać dostępu do Privileged Identity Management.
 
 Upewnij się, że w roli administratora roli uprzywilejowanej są zawsze co najmniej dwóch użytkowników, na wypadek gdy jeden użytkownik jest zablokowany lub jego konto zostanie usunięte.
 
-## <a name="grant-access-to-manage-pim"></a>Udzielanie dostępu do zarządzania usługą PIM
+## <a name="delegate-access-to-manage-pim"></a>Delegowanie dostępu do zarządzania usługą PIM
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -46,9 +46,9 @@ Upewnij się, że w roli administratora roli uprzywilejowanej są zawsze co najm
 
     ![Administrator ról uprzywilejowanych — członkowie](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Wybierz pozycję **Dodaj członka** , aby otworzyć okienko Dodawanie elementów zarządzanych.
+1. Wybierz pozycję **Dodaj członka** , aby otworzyć okienko **Dodawanie elementów zarządzanych** .
 
-1. Wybierz pozycję **Wybierz członków** , aby otworzyć okienko wybierz członków.
+1. Wybierz pozycję **Wybierz członków** , aby otworzyć okienko **Wybierz członków** .
 
     ![Administrator ról uprzywilejowanych — Wybieranie członków](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 

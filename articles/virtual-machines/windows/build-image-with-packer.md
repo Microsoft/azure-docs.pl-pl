@@ -1,24 +1,24 @@
 ---
-title: Jak tworzyć obrazy maszyn wirtualnych z systemem Windows przy użyciu programu Packer
-description: Dowiedz się, jak tworzyć obrazy maszyn wirtualnych z systemem Windows na platformie Azure przy użyciu programu Packer
+title: PowerShell — tworzenie obrazów maszyn wirtualnych przy użyciu programu Packer
+description: Dowiedz się, jak tworzyć obrazy maszyn wirtualnych na platformie Azure przy użyciu programu pakujący lub PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/22/2019
+ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 1597d249899756ac0d43d2dcd90019179b81bb3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 176aa925e4662731342ec3269e61ce9c7f71cf30
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284663"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003840"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Windows na platformie Azure
+# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
 
-Ten artykuł został ostatnio przetestowany w dniu 2/21/2019 przy użyciu polecenia [AZ PowerShell module](/powershell/azure/install-az-ps) Version 1.3.0 i [Packer](https://www.packer.io/docs/install) w wersji 1.3.4.
+Ten artykuł został ostatnio przetestowany w dniu 8/5/2020 przy użyciu programu [Packer](https://www.packer.io/docs/install) w wersji 1.6.1.
 
 > [!NOTE]
 > Platforma Azure ma teraz usługę, program Azure Image Builder (wersja zapoznawcza) służącą do definiowania i tworzenia własnych obrazów niestandardowych. Konstruktor obrazów platformy Azure jest oparty na programie Packer, dzięki czemu możesz nawet używać istniejących skryptów aprowizacji powłoki programu Packer. Aby rozpocząć pracę z konstruktorem obrazów platformy Azure, zobacz [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu Azure Image Builder](image-builder.md).
@@ -26,10 +26,10 @@ Ten artykuł został ostatnio przetestowany w dniu 2/21/2019 przy użyciu polece
 ## <a name="create-azure-resource-group"></a>Utwórz grupę zasobów platformy Azure
 W trakcie procesu kompilacji program Packer tworzy tymczasowe zasoby platformy Azure, ponieważ kompiluje źródłową maszynę wirtualną. Aby przechwycić źródłową maszynę wirtualną do użycia jako obraz, należy zdefiniować grupę zasobów. Dane wyjściowe procesu kompilacji programu Packer są przechowywane w tej grupie zasobów.
 
-Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myPackerGroup* w lokalizacji *Wschodnie* :
 
 ```azurepowershell
-$rgName = "myResourceGroup"
+$rgName = "myPackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -37,13 +37,12 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Tworzenie poświadczeń platformy Azure
 Pakiet Pack jest uwierzytelniany na platformie Azure przy użyciu nazwy głównej usługi. Jednostka usługi platformy Azure to tożsamość zabezpieczeń, której można używać z aplikacjami, usługami i narzędziami automatyzacji, takimi jak pakujący. Użytkownik kontroluje i definiuje uprawnienia do działania, które może wykonywać jednostka usługi na platformie Azure.
 
-Utwórz nazwę główną usługi przy użyciu [nowego AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) i przypisz uprawnienia dla jednostki usługi, aby tworzyć zasoby i zarządzać nimi za pomocą [nowego AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Wartość dla `-DisplayName` musi być unikatowa; Zastąp wartość własną wartością w razie potrzeby.  
+Utwórz nazwę główną usługi przy użyciu elementu [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). Wartość dla `-DisplayName` musi być unikatowa; Zastąp wartość własną wartością w razie potrzeby.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
+$sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
 $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
 Następnie dane wyjściowe hasła i identyfikatora aplikacji.
@@ -112,7 +111,6 @@ Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowad
     "inline": [
       "Add-WindowsFeature Web-Server",
       "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
-      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
       "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"

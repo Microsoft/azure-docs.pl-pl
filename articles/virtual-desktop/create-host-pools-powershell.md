@@ -1,19 +1,17 @@
 ---
 title: Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows PowerShell — Azure
 description: Jak utworzyć pulę hostów w programie Virtual Desktop systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a4ba5494cb65738f5443915c013571b98854a91
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543422"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002585"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell
 

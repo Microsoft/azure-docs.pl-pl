@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 554724c334cb6c51b8744de0eedd4d6815d707b5
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172611"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009583"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrowanie do usługi Azure Cache for Redis
 W tym artykule opisano szereg metod migracji istniejącej pamięci podręcznej Redis działającej lokalnie lub w innej usłudze w chmurze do usługi Azure cache dla Redis.
@@ -51,7 +51,7 @@ Ogólna procedura implementowania tej opcji to:
 
 ### <a name="export-data-to-an-rdb-file-and-import-it-into-azure-cache-for-redis"></a>Eksportuj dane do pliku RDB i zaimportuj je do usługi Azure cache for Redis
 
-Redis typu open source definiuje standardowy mechanizm tworzenia migawek zestawu danych pamięci podręcznej i zapisywania go w pliku. Ten plik o nazwie RDB może być odczytywany przez inną pamięć podręczną Redis. [Usługa Azure cache for Redis w warstwie Premium](cache-premium-tier-intro.md) obsługuje importowanie danych do wystąpienia pamięci podręcznej za pośrednictwem plików RDB. Plik RDB służy do transferowania danych z istniejącej pamięci podręcznej do usługi Azure cache for Redis.
+Redis typu open source definiuje standardowy mechanizm tworzenia migawek zestawu danych pamięci podręcznej i zapisywania go w pliku. Ten plik o nazwie RDB może być odczytywany przez inną pamięć podręczną Redis. [Usługa Azure cache for Redis w warstwie Premium](cache-overview.md#service-tiers) obsługuje importowanie danych do wystąpienia pamięci podręcznej za pośrednictwem plików RDB. Plik RDB służy do transferowania danych z istniejącej pamięci podręcznej do usługi Azure cache for Redis.
 
 > [!IMPORTANT]
 > Format pliku RDB może ulec zmianie między wersjami Redis i nie może zachować zgodności z poprzednimi wersjami. Wersja Redis pamięci podręcznej, z której eksportujesz, powinna być równa lub mniejsza niż wersja udostępniona przez pamięć podręczną platformy Azure dla Redis.
@@ -114,5 +114,5 @@ Ogólna procedura implementowania tej opcji to:
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-* [Wprowadzenie do usługi Azure cache dla warstwy Redis Premium](cache-premium-tier-intro.md)
+* [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)
 * [Importuj dane](cache-how-to-import-export-data.md#import)
