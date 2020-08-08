@@ -3,15 +3,15 @@ title: Konfiguracja klastra w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252015"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008801"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 Jeśli chcesz utworzyć regularne pule węzłów Gen1, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy.
 
+
+## <a name="ephemeral-os-preview"></a>Tymczasowych systemów operacyjnych (wersja zapoznawcza)
+
+Domyślnie dysk systemu operacyjnego maszyny wirtualnej platformy Azure jest automatycznie replikowany do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze udostępnianie węzłów i mniejsze opóźnienie odczytu/zapisu.
+
+Z kolei tymczasowe dyski systemu operacyjnego są przechowywane tylko na komputerze-hoście, podobnie jak dysk tymczasowy. Zapewnia to mniejsze opóźnienie odczytu/zapisu oraz szybsze skalowanie węzłów i uaktualnień klastra.
+
+Podobnie jak w przypadku dysku tymczasowego, tymczasowy dysk systemu operacyjnego jest dołączany do ceny maszyny wirtualnej, dzięki czemu nie są naliczane żadne dodatkowe koszty magazynowania.
+
+Zarejestruj `EnableEphemeralOSDiskPreview` funkcję:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Aby zainstalować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Używanie tymczasowych systemów operacyjnych w nowych klastrach (wersja zapoznawcza)
+
+Skonfiguruj klaster do używania tymczasowych dysków systemu operacyjnego podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić tymczasowych systemów operacyjnych jako typ dysku systemu operacyjnego dla nowego klastra.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjnego podłączonych do sieci, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy. Możesz również dodać więcej pul węzłów systemu operacyjnego z systemem operacyjnym poniżej.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Używanie tymczasowych systemów operacyjnych w istniejących klastrach (wersja zapoznawcza)
+Skonfiguruj nową pulę węzłów do używania tymczasowych dysków systemu operacyjnego. Użyj `--aks-custom-headers` flagi, aby ustawić jako typ dysku systemu operacyjnego jako typ dysku systemu operacyjnego dla tej puli węzłów.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> Za pomocą tymczasowej wersji systemu operacyjnego można wdrożyć maszyny wirtualne i wystąpienia obrazów o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 100GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 100 GiB. Domyślny Standard_DS2_v2 ma rozmiar pamięci podręcznej wynoszący 86 GiB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego za pomocą polecenia `--node-osdisk-size` . Minimalny rozmiar obrazów AKS to 30GiB. 
+
+Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, pomijając znacznik niestandardowy `--aks-custom-headers` .
+
 ## <a name="custom-resource-group-name"></a>Nazwa niestandardowej grupy zasobów
 
 Podczas wdrażania klastra usługi Azure Kubernetes na platformie Azure zostanie utworzona druga grupa zasobów dla węzłów procesu roboczego. Domyślnie AKS będzie nazwać grupę zasobów węzła `MC_resourcegroupname_clustername_location` , ale możesz również podać własną nazwę.
@@ -259,6 +320,7 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 - Zobacz [Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)](upgrade-cluster.md) , aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji Kubernetes.
 - Przeczytaj więcej na temat [ `containerd` i Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Zapoznaj się z listą [często zadawanych pytań dotyczących AKS](faq.md) , aby znaleźć odpowiedzi na niektóre często zadawane pytania dotyczące AKS.
+- Przeczytaj więcej na temat [tymczasowych dysków systemu operacyjnego](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->

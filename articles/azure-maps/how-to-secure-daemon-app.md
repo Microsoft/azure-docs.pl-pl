@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531375"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006642"
 ---
 # <a name="secure-a-daemon-application"></a>Zabezpieczanie aplikacji demona
 
 Poniższy przewodnik dotyczy procesów w tle, czasomierzy i zadań, które są hostowane w zaufanym i zabezpieczonym środowisku. Przykładami mogą być zadania sieci Web platformy Azure, aplikacje funkcji platformy Azure, usługi systemu Windows i inne niezawodne usługi w tle.
 
 > [!Tip]
-> Firma Microsoft zaleca wdrożenie Azure Active Directory (Azure AD) i kontroli dostępu opartej na rolach (RBAC) dla aplikacji produkcyjnych. Aby zapoznać się z omówieniem pojęć, zobacz [Azure Maps Authentication](./azure-maps-authentication.md).
+> Firma Microsoft zaleca wdrożenie Azure Active Directory (Azure AD) i kontroli dostępu opartej na rolach (RBAC) na platformie Azure dla aplikacji produkcyjnych. Aby zapoznać się z omówieniem pojęć, zobacz [Azure Maps Authentication](./azure-maps-authentication.md).
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -46,7 +46,7 @@ Poniższe kroki przedstawiają ten proces:
 > [!Tip]
 > Jeśli aplikacja jest hostowana w środowisku platformy Azure, należy zaimplementować zarządzaną tożsamość, aby zmniejszyć koszty i złożoność zarządzania wpisem tajnym w celu uwierzytelnienia w Azure Key Vault. [Aby nawiązać połączenie za pośrednictwem tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app), zobacz następujący samouczek Azure Key Vault.
 
-Aplikacja demona jest odpowiedzialna za pobieranie klucza wspólnego z bezpiecznego magazynu. Implementacja z Azure Key Vault wymaga uwierzytelniania za pomocą usługi Azure AD w celu uzyskania dostępu do klucza tajnego. Zamiast tego zachęcamy do bezpośredniego uwierzytelniania RBAC usługi Azure AD w celu Azure Maps w wyniku dodatkowych wymagań dotyczących złożoności i działania związanych z uwierzytelnianiem za pomocą klucza współużytkowanego.
+Aplikacja demona jest odpowiedzialna za pobieranie klucza wspólnego z bezpiecznego magazynu. Implementacja z Azure Key Vault wymaga uwierzytelniania za pomocą usługi Azure AD w celu uzyskania dostępu do klucza tajnego. Zamiast tego zachęcamy do bezpośredniego uwierzytelniania usługi Azure AD w celu Azure Maps w wyniku dodatkowych wymagań dotyczących złożoności i działania związanych z uwierzytelnianiem za pomocą klucza współużytkowanego.
 
 > [!IMPORTANT]
 > Aby uprościć ponowne generowanie kluczy, zalecamy korzystanie z jednego klucza w przypadku aplikacji. Aplikacje mogą następnie ponownie wygenerować nieużywany klucz i wdrożyć nowy ponownie wygenerowany klucz w zabezpieczonym magazynie tajnym, takim jak Azure Key Vault.
@@ -107,9 +107,9 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
         > [!div class="mx-imgBorder"]
         > ![Dodawanie klucza tajnego klienta](./media/how-to-manage-authentication/add-key.png)
 
-### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Przyznaj dostęp oparty na rolach dla aplikacji demona Azure Maps
+### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Udziel dostępu opartego na rolach dla aplikacji demona do Azure Maps
 
-*Kontrolę dostępu opartą na rolach* (RBAC) można przypisywać, przypisując utworzoną tożsamość zarządzaną lub jednostkę usługi do co najmniej jednej Azure Maps definicji ról kontroli dostępu. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
+*Kontrolę dostępu opartą na rolach na platformie Azure (RBAC)* można przypisywać do co najmniej jednej definicji roli Azure Maps utworzonej tożsamości zarządzanej lub nazwy głównej usługi. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl dostępne role](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -117,7 +117,7 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
 1. Przejdź do swojego **konta Azure Maps**. Wybierz pozycję **Kontrola dostępu (IAM)** > **Przypisania ról**.
 
     > [!div class="mx-imgBorder"]
-    > ![Przyznaj RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Na karcie **przypisania ról** **Dodaj** przypisanie roli. 
     

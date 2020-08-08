@@ -4,12 +4,12 @@ description: Kolekcja operatorów klastra i najlepszych rozwiązań dla dewelope
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77596321"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008784"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące operatorów i deweloperów do kompilowania aplikacji i zarządzania nimi w usłudze Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Te najlepsze rozwiązania i artykuły koncepcyjne zostały nadane w połączeniu
 
 Jako operator klastra współpracują z właścicielami i programistami aplikacji, aby zrozumieć ich potrzeby. W razie potrzeby można użyć następujących najlepszych rozwiązań w celu skonfigurowania klastrów AKS.
 
-**Wielodostęp**
+**Obsługa wielu dzierżawców**
 
 * [Najlepsze rozwiązania związane z izolacją klastra](operator-best-practices-cluster-isolation.md)
     * Zawiera podstawowe składniki i izolację logiczną z przestrzeni nazw.

@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483928"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008529"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Eksportowanie danych IoT do miejsc docelowych na platformie Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Eksportowanie danych IoT do miejsc docelowych na platformie Azure przy użyciu funkcji eksportu danych (starsza wersja)
 
-*Ten temat ma zastosowanie do administratorów.*
+> [!Note]
+> Istnieje nowy sposób eksportowania danych w IoT Central. Za pomocą nowego eksportu danych można filtrować i wzbogacać eksportowane dane oraz eksportować je do nowych miejsc docelowych, takich jak punkty końcowe elementu webhook. W [tym miejscu](./howto-use-data-export.md)możesz dowiedzieć się więcej na temat eksportowania danych. Aby dowiedzieć się więcej o różnicach między nowym eksportem danych i eksportowaniem starszej wersji, zobacz [tabelę porównania](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 W tym artykule opisano sposób korzystania z funkcji eksportu danych w usłudze Azure IoT Central. Ta funkcja umożliwia ciągłe eksportowanie danych do wystąpień **usługi azure Event Hubs**, **Azure Service Bus**lub **Azure Blob Storage** . Eksport danych korzysta z formatu JSON i może zawierać informacje telemetryczne, informacje o urządzeniu i szablon urządzenia. Użyj wyeksportowanych danych dla:
 
@@ -41,7 +42,7 @@ Jeśli nie masz istniejącej przestrzeni nazw Event Hubs do eksportowania do pro
 
 1. Utwórz [nową przestrzeń nazw Event Hubs w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Więcej informacji można znaleźć w witrynie [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
-2. wybierz subskrypcję. Dane można eksportować do innych subskrypcji, które nie znajdują się w tej samej subskrypcji, co aplikacja IoT Central. W tym przypadku łączysz się przy użyciu parametrów połączenia.
+2. Wybierz subskrypcję. Dane można eksportować do innych subskrypcji, które nie znajdują się w tej samej subskrypcji, co aplikacja IoT Central. W tym przypadku łączysz się przy użyciu parametrów połączenia.
 
 3. Utwórz centrum zdarzeń w przestrzeni nazw Event Hubs. Przejdź do obszaru nazw, a następnie wybierz pozycję **+ centrum zdarzeń** u góry, aby utworzyć wystąpienie centrum zdarzeń.
 
@@ -50,7 +51,7 @@ Jeśli nie masz istniejącej przestrzeni nazw Event Hubs do eksportowania do pro
 Jeśli nie masz istniejącej przestrzeni nazw Service Bus do eksportowania do programu, wykonaj następujące kroki:
 
 1. Utwórz [nową przestrzeń nazw Service Bus w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Więcej informacji można znaleźć w dokumentacji [Azure Service Bus](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. wybierz subskrypcję. Dane można eksportować do innych subskrypcji, które nie znajdują się w tej samej subskrypcji, co aplikacja IoT Central. W tym przypadku łączysz się przy użyciu parametrów połączenia.
+2. Wybierz subskrypcję. Dane można eksportować do innych subskrypcji, które nie znajdują się w tej samej subskrypcji, co aplikacja IoT Central. W tym przypadku łączysz się przy użyciu parametrów połączenia.
 
 3. Aby utworzyć kolejkę lub temat do eksportowania, przejdź do obszaru nazw Service Bus i wybierz pozycję **+ Queue** lub **+ temat**.
 

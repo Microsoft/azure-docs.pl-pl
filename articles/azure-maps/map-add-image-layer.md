@@ -1,6 +1,6 @@
 ---
 title: Dodawanie warstwy obrazu do mapy | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak nałożyć obraz na mapie przy użyciu zestawu Microsoft Azure Web SDK mapy.
+description: Dowiedz się, jak dodać obrazy do mapy. Zapoznaj się z tematem jak używać zestawu SDK sieci Web Azure Maps do dostosowywania warstw obrazu i obrazów nakładanych na stałe zestawy współrzędnych.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286963"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010229"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Dodawanie warstwy obrazu do mapy
 

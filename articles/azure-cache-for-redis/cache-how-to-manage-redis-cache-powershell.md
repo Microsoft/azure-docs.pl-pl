@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 74308ae79b899a55db4682474e3dcd9dab26db98
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856933"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004865"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
 > [!div class="op_single_selector"]
@@ -139,7 +139,7 @@ Aby uzyskać więcej informacji na temat Microsoft Azure (Niemcy), zobacz [Micro
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Właściwości używane dla usługi Azure cache for Redis PowerShell
 Poniższa tabela zawiera właściwości i opisy często używanych parametrów podczas tworzenia i zarządzania pamięcią podręczną platformy Azure dla wystąpień Redis przy użyciu Azure PowerShell.
 
-| Parametr | Opis | Domyślne |
+| Parametr | Opis | Domyślny |
 | --- | --- | --- |
 | Nazwa |Nazwa pamięci podręcznej | |
 | Lokalizacja |Lokalizacja pamięci podręcznej | |
@@ -655,7 +655,7 @@ W poniższym przykładzie nazwa pamięci podręcznej `myCache` jest usuwana.
 Dane można zaimportować do wystąpienia usługi Azure cache for Redis przy użyciu `Import-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
+> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-overview.md#service-tiers) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -719,7 +719,7 @@ Następujące polecenie importuje dane z obiektu blob określonego przez identyf
 Dane można eksportować z wystąpienia usługi Azure cache for Redis przy użyciu `Export-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
+> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-overview.md#service-tiers) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -784,7 +784,7 @@ Następujące polecenie eksportuje dane z wystąpienia usługi Azure cache for R
 Można uruchomić ponownie wystąpienie usługi Azure cache for Redis przy użyciu `Reset-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Ponowny rozruch jest dostępny tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat ponownego uruchamiania pamięci podręcznej, zobacz temat [Administrowanie pamięcią podręczną](cache-administration.md#reboot).
+> Ponowny rozruch jest dostępny tylko w przypadku pamięci podręcznych [warstwy Premium](cache-overview.md#service-tiers) . Aby uzyskać więcej informacji na temat ponownego uruchamiania pamięci podręcznej, zobacz temat [Administrowanie pamięcią podręczną](cache-administration.md#reboot).
 > 
 > 
 

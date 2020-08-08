@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828629"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008098"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ W tym przewodniku krok po kroku opisano sposób planowania wdrożenia programu P
 
 > [!TIP]
 > W tym artykule zobaczysz elementy oznaczone jako:
-> 
+>
 > : heavy_check_mark: **firma Microsoft zaleca**
-> 
+>
 > Są to ogólne zalecenia, które należy zaimplementować tylko w przypadku, gdy mają zastosowanie do konkretnych potrzeb przedsiębiorstwa.
 
 ## <a name="learn-about-privileged-identity-management"></a>Dowiedz się więcej o Privileged Identity Management
@@ -142,9 +142,9 @@ Wykonaj następujące kroki, aby wymusić zasadę najniższych uprawnień dla r�
 
 1. Zapoznaj się z szczegółowością ról, odczytując i opisując [dostępne role administratorów usługi Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Ty i Twój zespół powinien również odwoływać się do [ról administratorów według tożsamości w usłudze Azure AD](../users-groups-roles/roles-delegate-by-task.md), która objaśnia najmniejszą rolę uprzywilejowaną dla konkretnych zadań.
 
-1. Lista użytkowników, którzy mają role uprzywilejowane w organizacji. Możesz użyć [kreatora Privileged Identity Management](pim-security-wizard.md#run-the-wizard) , aby uzyskać dostęp do strony podobnej do następującej.
+1. Lista użytkowników, którzy mają role uprzywilejowane w organizacji. Możesz użyć [odnajdywania Privileged Identity Management i szczegółowych informacji (wersja zapoznawcza)](pim-security-wizard.md) , aby uzyskać dostęp do strony podobnej do następującej.
 
-    ![Okienko odnajdywanie ról uprzywilejowanych pokazujące, kto ma role uprzywilejowane](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Strona odnajdywanie i szczegółowe informacje (wersja zapoznawcza) w celu ograniczenia ekspozycji przez role uprzywilejowane](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Dla wszystkich administratorów globalnych w organizacji należy dowiedzieć się, dlaczego potrzebują roli. W oparciu o odczytywanie poprzedniej dokumentacji, jeśli zadanie osoby może być wykonywane przez jedną lub kilka szczegółowych ról administratora, należy usunąć je z roli administratora globalnego i przystąpić odpowiednio do Azure Active Directory (jako odwołanie: obecnie Firma Microsoft ma tylko około 10 administratorów z rolą administratora globalnego. Dowiedz się więcej na [temat sposobu korzystania z Privileged Identity Management przez firmę Microsoft](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 

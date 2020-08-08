@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: curtand
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 840357f51bbeeb877aba48fd8d04baad204cec1e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ba0791108878dada5088428ce40d1af672d1892a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010932"
 ---
 Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active
 | Panel dostępu |Nie ma żadnego limitu liczby aplikacji, które mogą być widoczne w panelu dostępu dla użytkownika niezależnie od przypisanych licencji.  |
 | Raporty | W dowolnym raporcie można wyświetlić lub pobrać maksymalnie 1000 wierszy. Dodatkowe dane są obcinane. |
 | Jednostki administracyjne | Zasób usługi Azure AD może być członkiem nie więcej niż 30 jednostek administracyjnych. |
-| Role i uprawnienia administratora | <ul><li>Nie można dodać grupy jako [właściciela](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Nie można przypisać grupy do [roli](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Możliwość odczytywania informacji o katalogu innych użytkowników nie może być ograniczona poza przełącznikiem całej organizacji usługi Azure AD, aby wyłączyć dostęp wszystkich użytkowników niebędących administratorami do wszystkich informacji katalogu (niezalecane). Więcej informacji o uprawnieniach domyślnych znajduje się w [tym miejscu](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Przed przystąpieniem do członkostwa w roli administratora może upłynąć do 15 minut lub wylogowanie/zalogowanie się.</li></ul> |
+| Role i uprawnienia administratora | <ul><li>Nie można dodać grupy jako [właściciela](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Możliwość odczytywania informacji o katalogu innych użytkowników nie może być ograniczona poza przełącznikiem całej organizacji usługi Azure AD, aby wyłączyć dostęp wszystkich użytkowników niebędących administratorami do wszystkich informacji katalogu (niezalecane). Więcej informacji o uprawnieniach domyślnych znajduje się w [tym miejscu](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Przed przystąpieniem do członkostwa w roli administratora może upłynąć do 15 minut lub wylogowanie/zalogowanie się.</li></ul> |

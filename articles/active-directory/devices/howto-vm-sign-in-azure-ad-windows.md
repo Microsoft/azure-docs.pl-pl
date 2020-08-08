@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529113"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005032"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -174,7 +174,7 @@ Po kilku chwilach podmiot zabezpieczeń ma przypisaną rolę w wybranym zakresie
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Korzystanie z Azure Cloud Shell
 
-Poniższy przykład używa [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby przypisać rolę logowania administratora maszyny wirtualnej do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure zostanie uzyskana za pomocą [AZ Account show](/cli/azure/account#az-account-show), a zakres jest USTAWIANY na maszynę wirtualną utworzoną w poprzednim kroku przy użyciu [AZ VM show](/cli/azure/vm#az-vm-show). Zakres może być również przypisany do grupy zasobów lub poziomu subskrypcji i obowiązują normalne uprawnienia dziedziczenia RBAC. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach](../../virtual-machines/linux/login-using-aad.md).
+Poniższy przykład używa [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby przypisać rolę logowania administratora maszyny wirtualnej do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure zostanie uzyskana za pomocą [AZ Account show](/cli/azure/account#az-account-show), a zakres jest USTAWIANY na maszynę wirtualną utworzoną w poprzednim kroku przy użyciu [AZ VM show](/cli/azure/vm#az-vm-show). Zakres może być również przypisany do grupy zasobów lub poziomu subskrypcji i obowiązują normalne uprawnienia dziedziczenia kontroli RBAC platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > Jeśli domena usługi AAD i nazwa użytkownika logowania nie są zgodne, należy określić identyfikator obiektu konta użytkownika `--assignee-object-id` , a nie tylko nazwę użytkownika dla `--assignee` . Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą elementu [AZ AD User list](/cli/azure/ad/user#az-ad-user-list).
 
-Aby uzyskać więcej informacji na temat używania RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat korzystania z usługi Azure RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz następujące artykuły:
 
-- [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Zarządzanie dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach i witryny Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
+- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Korzystanie z dostępu warunkowego
 

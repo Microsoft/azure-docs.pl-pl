@@ -1,19 +1,17 @@
 ---
 title: Najlepsze rozwiązania w zakresie zabezpieczeń pulpitu wirtualnego systemu Windows — Azure
 description: Najlepsze rozwiązania związane z utrzymywaniem bezpieczeństwa środowiska pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736676"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002286"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -36,7 +34,7 @@ Poniżej przedstawiono wymagania dotyczące zabezpieczeń, które są odpowiedzi
 |Zabezpieczenia aplikacji|Tak|
 |System operacyjny hosta sesji|Tak|
 |Konfiguracja wdrożenia|Tak|
-|Funkcje kontrolne sieci|Tak|
+|Funkcje kontrolne sieci|Yes|
 |Płaszczyzna kontroli wirtualizacji|Nie|
 |Hosty fizyczne|Nie|
 |Sieć fizyczna|Nie|
@@ -103,7 +101,7 @@ Hosty sesji są maszynami wirtualnymi, które działają w ramach subskrypcji pl
 
 ### <a name="enable-endpoint-protection"></a>Włącz program Endpoint Protection
 
-Aby chronić wdrożenie przed znanym złośliwym oprogramowaniem, zalecamy włączenie programu Endpoint Protection na wszystkich hostach sesji. Można użyć programu antywirusowego Windows Defender lub program innej firmy. Aby dowiedzieć się więcej, zobacz [Przewodnik wdrażania programu antywirusowego Windows Defender w środowisku infrastruktury VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Aby chronić wdrożenie przed znanym złośliwym oprogramowaniem, zalecamy włączenie programu Endpoint Protection na wszystkich hostach sesji. Można użyć programu antywirusowego Windows Defender lub program innej firmy. Aby dowiedzieć się więcej, zobacz [Przewodnik wdrażania programu antywirusowego Windows Defender w środowisku infrastruktury VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 W przypadku rozwiązań profilu, takich jak FSLogix lub inne rozwiązania instalujące pliki VHD, zalecamy wykluczenie rozszerzeń plików VHD.
 

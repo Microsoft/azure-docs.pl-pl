@@ -1,19 +1,17 @@
 ---
 title: Co to jest Windows Virtual Desktop? — Azure
 description: Omówienie pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386578"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002381"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop?
 
@@ -133,13 +131,13 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|
-|Wiele sesji systemu Windows 10, wersja 1809|Tak|Yes|Nie|Nie|
-|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Yes|
-|Windows 10 Enterprise, wersja 1809|Tak|Yes|Nie|Nie|
-|Windows 7 Enterprise|Tak|Yes|Nie|Nie|
-|Windows Server 2019|Tak|Yes|Nie|Nie|
-|Windows Server 2016|Tak|Tak|Tak|Yes|
-|Windows Server 2012 z dodatkiem R2|Tak|Yes|Nie|Nie|
+|Wiele sesji systemu Windows 10, wersja 1809|Tak|Tak|Nie|Nie|
+|Windows 10 Enterprise, wersja 1903|Tak|Tak|Yes|Tak|
+|Windows 10 Enterprise, wersja 1809|Tak|Tak|Nie|Nie|
+|Windows 7 Enterprise|Yes|Yes|Nie|Nie|
+|Windows Server 2019|Tak|Tak|Nie|Nie|
+|Windows Server 2016|Tak|Tak|Tak|Tak|
+|Windows Server 2012 z dodatkiem R2|Tak|Tak|Nie|Nie|
 
 ## <a name="next-steps"></a>Następne kroki
 

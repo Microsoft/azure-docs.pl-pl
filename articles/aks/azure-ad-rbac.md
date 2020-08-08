@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać członkostwa w grupach Azure Active Dire
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 646b1b5fb5079f0b959aaa2337c1dbab09ff4134
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057328"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006846"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z A
 
 W tym artykule pokazano, jak za pomocą członkostwa w grupach usługi Azure AD kontrolować dostęp do przestrzeni nazw i zasobów klastra przy użyciu Kubernetes RBAC w klastrze AKS. Przykładowe grupy i użytkownicy są tworzone w usłudze Azure AD, a następnie role i RoleBindings są tworzone w klastrze AKS w celu przyznania odpowiednich uprawnień do tworzenia i wyświetlania zasobów.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz włączony klaster AKS z integracją z usługą Azure AD. Jeśli potrzebujesz klastra AKS, zobacz [integrowanie Azure Active Directory z AKS][azure-ad-aks-cli].
 
@@ -410,5 +410,5 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

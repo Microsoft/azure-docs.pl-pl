@@ -1,20 +1,18 @@
 ---
 title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 08/07/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7fc1655b94689808eb9855340ef20bb816ad515e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922544"
+ms.locfileid: "88003525"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -27,13 +25,48 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
 
+## <a name="july-2020"></a>Lipiec 2020 r.  
+
+W lipcu była dostępna Ogólna dostępność usług pulpitu wirtualnego systemu Windows z integracją usługi Azure Resource Management.
+
+Poniżej przedstawiono zmiany w nowej wersji: 
+
+- Wartość "Jesień 2019 Release" jest teraz znana jako "pulpit wirtualny systemu Windows (klasyczny)", podczas gdy "2020 sprężynowe wydanie" jest teraz tylko "pulpitem wirtualnym systemu Windows". Aby uzyskać więcej informacji, zapoznaj się z [wpisem w blogu](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+
+Aby dowiedzieć się więcej o nowych funkcjach, zapoznaj się z [wpisem w blogu](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+### <a name="autoscaling-tool-update"></a>Aktualizacja narzędzia skalowania automatycznego
+
+Najnowsza wersja narzędzia skalowania automatycznego, która była w wersji zapoznawczej, jest teraz ogólnie dostępna. To narzędzie używa konta usługi Azure Automation i aplikacji logiki platformy Azure, aby automatycznie zamykać i ponownie uruchamiać maszyny wirtualne hosta sesji (VM) w puli hostów, zmniejszając koszty związane z infrastrukturą. Dowiedz się więcej na temat [skalowania hostów sesji przy użyciu Azure Automation](set-up-scaling-script.md).
+
+### <a name="azure-portal"></a>Azure Portal
+
+Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtualnym systemu Windows: 
+
+- Bezpośrednie przypisywanie użytkowników do osobistych hostów sesji usług pulpitu  
+- Zmień ustawienie środowiska weryfikacji dla pul hostów 
+
+### <a name="diagnostics"></a>Diagnostyka
+
+Opublikowano kilka nowych wstępnie skompilowanych zapytań dla obszaru roboczego Log Analytics. Aby uzyskać dostęp do zapytań, przejdź do pozycji **dzienniki** i w obszarze **kategoria**wybierz pozycję **pulpit wirtualny systemu Windows**. Dowiedz się więcej na temat [używania funkcji diagnostyki log Analytics](diagnostics-log-analytics.md).
+
+### <a name="update-for-remote-desktop-client-for-android"></a>Aktualizacja klienta Pulpit zdalny dla systemu Android
+
+[Klient pulpit zdalny dla systemu Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) obsługuje teraz połączenia pulpitu wirtualnego systemu Windows. Począwszy od wersji 10.0.7, klient systemu Android jest wyposażony w nowy interfejs użytkownika w celu ulepszenia środowiska użytkownika. Klient integruje się również z Microsoft Authenticator na urządzeniach z systemem Android w celu włączenia dostępu warunkowego podczas subskrybowania obszarów roboczych pulpitu wirtualnego systemu Windows.  
+
+Poprzednia wersja Pulpit zdalny Client jest teraz nazywana "Pulpit zdalny 8". Wszystkie istniejące połączenia w starszej wersji klienta zostaną bezproblemowo przeniesione do nowego klienta. Nowy klient został ponownie zapisany w tym samym podstawowym aparacie protokołu RDP jako klienci z systemem iOS i macOS, co pozwala na szybsze wydanie nowych funkcji na wszystkich platformach. 
+
+### <a name="teams-update"></a>Aktualizacja zespołów
+
+Wprowadziliśmy ulepszenia usługi Microsoft Teams dla pulpitu wirtualnego systemu Windows. Co najważniejsze, pulpit wirtualny systemu Windows obsługuje teraz optymalizację audio i wideo dla klienta klasycznego systemu Windows. Przekierowanie zwiększa czas oczekiwania przez tworzenie bezpośrednich ścieżek między użytkownikami, gdy używają dźwięku lub wideo w wywołaniach i spotkaniach. Mniejsza odległość oznacza mniejszą liczbę przeskoków, co sprawia, że wywołania wyglądają i wygładzają dźwięk. Dowiedz się więcej na [temat używania zespołów na pulpicie wirtualnym systemu Windows](teams-on-wvd.md).
+
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
 W ciągu ostatniego miesiąca wprowadziliśmy pulpit wirtualny systemu Windows z integracją Azure Resource Manager w wersji zapoznawczej. Ta aktualizacja ma wiele ciekawych nowych funkcji, które chcielibyśmy poznać. W tym miejscu nowości nowe dla tej wersji pulpitu wirtualnego systemu Windows.
 
-### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Pulpit wirtualny systemu Windows jest teraz zintegrowany z usługą Azure Resource Manager (wersja zapoznawcza)
+### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager"></a>Pulpit wirtualny systemu Windows jest teraz zintegrowany z usługą Azure Resource Manager
 
-Pulpit wirtualny systemu Windows jest teraz zintegrowany z usługą Azure Resource Manager. W najnowszej aktualizacji wszystkie obiekty pulpitu wirtualnego systemu Windows są teraz Azure Resource Manager zasoby. Ta aktualizacja jest również zintegrowana z kontrolą dostępu opartą na rolach (RBAC) na platformie Azure. Zobacz [co to jest Azure Resource Manager?](../azure-resource-manager/management/overview.md) , aby dowiedzieć się więcej.
+Pulpit wirtualny systemu Windows jest teraz zintegrowany z usługą Azure Resource Manager. W najnowszej aktualizacji wszystkie obiekty pulpitu wirtualnego systemu Windows są teraz Azure Resource Manager zasoby. Ta aktualizacja jest również zintegrowana z kontrolą dostępu opartą na rolach (Azure RBAC). Zobacz [co to jest Azure Resource Manager?](../azure-resource-manager/management/overview.md) , aby dowiedzieć się więcej.
 
 Oto, co to jest ta zmiana:
 
@@ -49,7 +82,7 @@ Oto, co to jest ta zmiana:
 
 - Funkcje monitorowania, które zostały użyte do wykonania za pomocą programu PowerShell lub aplikacji internetowej usługi diagnostycznej, zostały przeniesione do Log Analytics w Azure Portal. Dostępne są również dwie opcje wizualizacji raportów. Można uruchamiać zapytania Kusto i używać skoroszytów do tworzenia raportów wizualnych.
 
-- Nie musisz już wykonywać Azure Active Directory (Azure AD), aby wyrazić zgodę na korzystanie z pulpitu wirtualnego systemu Windows. W tej aktualizacji dzierżawa usługi Azure AD w ramach subskrypcji platformy Azure uwierzytelnia użytkowników i udostępnia formanty RBAC dla administratorów.
+- Nie musisz już wykonywać Azure Active Directory (Azure AD), aby wyrazić zgodę na korzystanie z pulpitu wirtualnego systemu Windows. W tej aktualizacji dzierżawa usługi Azure AD w ramach subskrypcji platformy Azure uwierzytelnia użytkowników i udostępnia kontrolki kontroli RBAC platformy Azure dla administratorów.
 
 
 ### <a name="powershell-support"></a>Obsługa programu PowerShell
@@ -60,7 +93,7 @@ Aby zainstalować moduł, postępuj zgodnie z instrukcjami podanymi w temacie [K
 
 Listę dostępnych poleceń można także znaleźć w [dokumentacji programu PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
-Aby uzyskać więcej informacji o nowych funkcjach, zapoznaj się z [naszym wpisem w blogu](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+Aby uzyskać więcej informacji o nowych funkcjach, zapoznaj się z [naszym wpisem w blogu](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
 ### <a name="additional-gateways"></a>Dodatkowe bramy
 

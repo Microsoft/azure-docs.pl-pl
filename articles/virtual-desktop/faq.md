@@ -1,19 +1,17 @@
 ---
 title: Pulpity wirtualne systemu Windows — często zadawane pytania — Azure
 description: Często zadawane pytania i najlepsze rozwiązania dla pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504419"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007492"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -25,7 +23,7 @@ Jeśli chcesz utworzyć pule hostów i inne obiekty, musisz mieć przypisaną ro
 
 Aby opublikować grupy aplikacji dla użytkowników lub grup użytkowników, musisz mieć przypisaną rolę administratora dostępu użytkowników w grupie aplikacji.
 
-Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak wysyłanie komunikatów do użytkowników, Wylogowywanie użytkowników i tak dalej, można utworzyć role niestandardowe. Na przykład: 
+Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak wysyłanie komunikatów do użytkowników, Wylogowywanie użytkowników i tak dalej, można utworzyć role niestandardowe. Przykład:
 
 ```powershell
 "actions": [
@@ -62,7 +60,7 @@ Obszary robocze muszą również znajdować się w tej samej lokalizacji co grup
 
 Po uruchomieniu polecenia cmdlet programu PowerShell zobaczysz tylko nazwę zasobu i lokalizację.
 
-Na przykład:
+Przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -74,7 +72,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Aby wyświetlić wszystkie właściwości zasobu, należy dodać albo `format-list` `fl` do końca polecenia cmdlet.
 
-Na przykład:
+Przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -82,7 +80,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Aby wyświetlić określone właściwości, należy dodać nazwy określonych właściwości po `format-list` lub `fl` .
 
-Na przykład:
+Przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -116,7 +114,7 @@ Po utworzeniu puli hostów nie można zmienić jej typu. Można jednak przenieś
 
 Ograniczenia lub limity przydziału w programie FSLogix zależą od sieci szkieletowej magazynu używanej do przechowywania plików wirtualnego dysku twardego (X) profilu użytkownika.
 
-W poniższej tabeli przedstawiono przykład sposobu, w jaki wszystkie zasoby muszą być obsługiwane przez profil FSLogix dla każdego użytkownika. Wymagania mogą się różnić w zależności od użytkownika, aplikacji i aktywności w każdym profilu. 
+W poniższej tabeli przedstawiono przykład sposobu, w jaki wszystkie zasoby muszą być obsługiwane przez profil FSLogix dla każdego użytkownika. Wymagania mogą się różnić w zależności od użytkownika, aplikacji i aktywności w każdym profilu.
 
 | Zasób | Wymaganie |
 |---|---|

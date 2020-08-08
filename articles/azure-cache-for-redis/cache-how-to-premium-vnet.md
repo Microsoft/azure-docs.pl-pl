@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: bf9ddc78caa1e19d35ad7e96af76dc0303a8a67c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184773"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004739"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. Sieć wirtualna jest siecią prywatną w chmurze. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej na potrzeby wystąpienia usługi Redis w warstwie Premium.
@@ -20,8 +20,6 @@ Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zap
 > Usługa Azure cache for Redis obsługuje zarówno klasyczne, jak i Menedżer zasobów sieci wirtualnych.
 > 
 > 
-
-Aby uzyskać informacje na temat innych funkcji Premium pamięci podręcznej, zobacz [wprowadzenie do usługi Azure cache for Redis w warstwie Premium](cache-premium-tier-intro.md).
 
 ## <a name="why-vnet"></a>Dlaczego sieć wirtualna?
 Wdrożenie [usługi azure Virtual Network (VNET)](https://azure.microsoft.com/services/virtual-network/) zapewnia ulepszone zabezpieczenia i izolację pamięci podręcznej platformy Azure dla usługi Redis, a także podsieci, zasady kontroli dostępu i inne funkcje w celu dodatkowego ograniczenia dostępu.
@@ -103,15 +101,15 @@ Istnieją dziewięć wymagań portu wychodzącego. Żądania wychodzące w tych 
 
 | Porty | Kierunek | Protokół transportu | Przeznaczenie | Lokalny adres IP | Zdalny adres IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Wychodzący |TCP |Redis zależności w usłudze Azure Storage/PKI (Internet) | (Podsieć Redis) |* |
-| 443 | Wychodzący | TCP | Redis zależność od Azure Key Vault | (Podsieć Redis) | AzureKeyVault <sup>1</sup> |
-| 53 |Wychodzący |TCP/UDP |Redis zależności w systemie DNS (Internet/Sieć wirtualna) | (Podsieć Redis) | 168.63.129.16 i 169.254.169.254 <sup>2</sup> oraz dowolny niestandardowy serwer DNS dla podsieci <sup>3</sup> |
-| 8443 |Wychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) | (Podsieć Redis) |
-| 10221-10231 |Wychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) | (Podsieć Redis) |
-| 20226 |Wychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
-| 13000-13999 |Wychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
-| 15000-15999 |Wychodzący |TCP |Komunikacja wewnętrzna Redis i replikacja geograficzna | (Podsieć Redis) |(Podsieć Redis) (Podsieć równorzędna repliki geograficznej) |
-| 6379-6380 |Wychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
+| 80, 443 |Outbound |TCP |Redis zależności w usłudze Azure Storage/PKI (Internet) | (Podsieć Redis) |* |
+| 443 | Outbound | TCP | Redis zależność od Azure Key Vault | (Podsieć Redis) | AzureKeyVault <sup>1</sup> |
+| 53 |Outbound |TCP/UDP |Redis zależności w systemie DNS (Internet/Sieć wirtualna) | (Podsieć Redis) | 168.63.129.16 i 169.254.169.254 <sup>2</sup> oraz dowolny niestandardowy serwer DNS dla podsieci <sup>3</sup> |
+| 8443 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) | (Podsieć Redis) |
+| 10221-10231 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) | (Podsieć Redis) |
+| 20226 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
+| 13000-13999 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
+| 15000-15999 |Outbound |TCP |Komunikacja wewnętrzna Redis i replikacja geograficzna | (Podsieć Redis) |(Podsieć Redis) (Podsieć równorzędna repliki geograficznej) |
+| 6379-6380 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 
 <sup>1</sup> możesz użyć znacznika usługi "AzureKeyVault" z grupami zabezpieczeń sieci Menedżer zasobów.
 
@@ -160,7 +158,7 @@ Po skonfigurowaniu wymagań dotyczących portów zgodnie z opisem w poprzedniej 
 
 - [Uruchom ponownie](cache-administration.md#reboot) wszystkie węzły pamięci podręcznej. Jeśli nie można uzyskać dostępu do wszystkich wymaganych zależności pamięci podręcznej (zgodnie z opisem w [wymaganiach dotyczących portów przychodzących](cache-how-to-premium-vnet.md#inbound-port-requirements) i [wymagań dotyczących portów wychodzących](cache-how-to-premium-vnet.md#outbound-port-requirements)), pamięć podręczna nie będzie mogła zostać pomyślnie ponownie uruchomiona.
 - Po ponownym uruchomieniu węzłów pamięci podręcznej (zgodnie z informacjami o stanie pamięci podręcznej w Azure Portal) można wykonać następujące testy:
-  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Na przykład:
+  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Przykład:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -183,7 +181,7 @@ Należy unikać używania adresu IP podobnego do następujących parametrów po�
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Na przykład:
+Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Przykład:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -237,9 +235,9 @@ Ogólne informacje dotyczące tras zdefiniowanych przez użytkownika są dostęp
 Aby uzyskać więcej informacji na temat ExpressRoute, zobacz [Omówienie techniczne ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak korzystać z większej liczby funkcji pamięci podręcznej Premium.
+Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-* [Wprowadzenie do usługi Azure cache dla warstwy Redis Premium](cache-premium-tier-intro.md)
+* [Pamięć podręczna systemu Azure dla warstw usługi Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

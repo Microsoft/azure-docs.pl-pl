@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: f07b71bf8996612798b87d32a21a15ec72db0b32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140943"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011043"
 ---
 Ta kategoria jednostki obejmuje informacje finansowe i oficjalne formy identyfikacji. Dostępne począwszy od wersji modelu `2019-10-01` . Poniżej znajdują się podtypy. 
 
@@ -39,28 +39,39 @@ Poniższe jednostki są pogrupowane i wyszczególnione według kraju:
 Argentyna
 * Numer tożsamości narodowej (DNI) Argentyna
 
+Austria
+* Karta tożsamości Austria
+* Austria numer identyfikacyjny podatku
+* Austria wartość dodana podatku (VAT)
+
 Australia
-* Numer paszportu Australii
-* Numer pliku podatku Australii
+* Numer konta bankowego Australii
+* Australijski numer firmy
+* Australijski numer firmy
 * Numer licencji sterownika Australii
 * Numer konta medycznego Australii
-* Numer konta bankowego Australii
+* Numer paszportu Australii
+* Numer pliku podatku Australii
 
 Belgia
 * Belgijski numer krajowy
+* Numer NIP dodany przez wartość Belgii
 
 Brazylia 
 * Numer podmiotu prawnego w Brazylii (numer CNPJ)
 * Numer numer CPF Brazylii
 * Krajowa karta IDENTYFIKACYJNa (RG)
 
+Bułgaria
+* Jednolity numer cywilny Bułgarii
+
 Kanada
-* Numer ubezpieczenia społecznego w Kanadzie
-* Numer licencji na sterownik Kanady
 * Numer konta bankowego Kanady
+* Numer licencji na sterownik Kanady
+* Numer Usługa kondycji Kanady
 * Numer paszportu Kanady
 * Osobisty numer identyfikacyjny kondycji Kanady (PHIN)
-* Numer Usługa kondycji Kanady
+* Numer ubezpieczenia społecznego w Kanadzie
 
 Chile
 * Numer karty tożsamości 
@@ -70,7 +81,12 @@ Chiny
 
 Chorwacja
 * Numer karty tożsamości Chorwacji
+* Numer krajowej karty IDENTYFIKACYJNej Chorwacji
 * Numer identyfikacji osobistej Chorwacji (OIB)
+
+Cypr
+* Numer karty Cypru Identity
+* Numer identyfikacji podatkowej na Cyprze
 
 Republika Czeska
 * Numer prywatnego numeru tożsamości
@@ -78,34 +94,49 @@ Republika Czeska
 Dania
 * Dania osobisty numer identyfikacyjny
 
+Estonia
+* Osobisty kod identyfikacyjny Estonii
+
 Unia Europejska (UE)
+* Numer karty debetowej UE
+* Numer licencji sterownika UE
 * Krajowy numer identyfikacyjny UE
 * Numer paszportu UE
-* Numer licencji sterownika UE
 * Numer ubezpieczenia społecznego (SSN) UE lub równoważny identyfikator
 * Numer identyfikacji podatkowej UE (NIP)
-* Numer karty debetowej UE
 
 Finlandia
+* Europejski numer ubezpieczenia dla zdrowia Finlandii
 * Identyfikator Narodowy Finlandii
 * Numer paszportu Finlandia
 
 Francja
-* Francja National ID Card (CNI)
-* Francja — numer ubezpieczenia społecznego (INSEE)
-* Numer paszportu Francji
 * Numer licencji sterownika Francja
+* Francja — numer ubezpieczenia zdrowotnego
+* Francja National ID Card (CNI)
+* Numer paszportu Francji
+* Francja — numer ubezpieczenia społecznego (INSEE)
+* Francja — numer identyfikacji podatkowej (numéro WWH).
+* Numer NIP dodany przez wartość Francja
 
 Niemcy
+* Numer licencji sterownika niemieckiego
 * Numer karty tożsamości (Niemcy)
 * Niemiecki numer paszportu
-* Numer licencji sterownika niemieckiego
+* Numer NIP (Niemcy)
+* Numer NIP dodany przez wartość Niemcy
 
 Grecja 
 * Numer krajowej karty IDENTYFIKACYJNej Grecji
+* Numer identyfikacji podatkowej Grecji
 
 Hongkong
 * Numer karty tożsamości Hongkong (HKID)
+
+Węgry
+* Numer identyfikacyjny narodowej Węgier
+* Numer identyfikacji podatkowej na Węgrzech
+* Wartość Węgier — dodany numer podatku
 
 Indie
 * Numer stałego konta Indie (PAN)
@@ -123,23 +154,47 @@ Izrael
 
 Włochy
 * Identyfikator licencji sterownika Włochy
+* Kod Obrachunkowy Włoch
+* Numer podatkowy dodany do wartości Włoch
 
 Japonia
+* Numer konta bankowego Japonii
+* Numer licencji sterownika Japonii
+* Japoński mój numer my
+* Japoński mój numer firmy
 * Numer rejestracji rezydenta Japonia
 * Numer karty zamieszkania japońskiego
-* Numer licencji sterownika Japonii
-* Numer ubezpieczenia społecznego (SIN)
+* Numer ubezpieczenia społecznego (Japonia)
 * Numer paszportu Japonia
-* Numer konta bankowego Japonii
+
+Łotwa
+* Łotwa — kod osobisty
+
+Litwa
+* Kod osobisty Litwa
+
+Luxemburg
+* Luxemburg Narodowy numer identyfikacyjny (osoby fizyczne)
+* Luxemburg Narodowy numer identyfikacyjny (osoby niebędące osobami naturalnymi)
 
 Malezja
 * Malezja — numer karty tożsamości
 
+Malta
+* Numer karty tożsamości Malty
+* Numer identyfikacji podatkowej Malty
+
 Holandia
 * Numer usługi BSN (Holandia)
+* Holandia numer identyfikacji podatkowej
+* Numer NIP dodany przez wartość Holandia
 
 Nowa Zelandia
+* Numer konta bankowego Nowej Zelandii
+* Numer licencji sterownika Nowej Zelandii
+* Numer przychodu w Nowej Zelandii
 * Numer Ministerstwa kondycji Nowej Zelandii
+* Numer opieki społecznej dla Nowej Zelandii
 
 Norwegia
 * Numer identyfikacyjny Norwegii
@@ -150,16 +205,33 @@ Filipiny
 Polska
 * Karta tożsamości Polska
 * Krajowy identyfikator Polski (PESEL)
-* Paszport Polski
+* Numer paszportu Polska
+* Numer REGON Polska
+* Numer identyfikacji podatkowej Polska
 
 Portugalia 
 * Numer karty obywatela Portugalia
+* Numer identyfikacji podatkowej Portugalii
+
+Rumunia
+* Osobisty kod liczbowy Rumunii (CNP)
+
+Rosja
+* Rosyjski numer paszportu (kraj)
+* Rosyjski numer paszportu (międzynarodowy)
 
 Arabia Saudyjska
 * Identyfikator Narodowy Arabii Saudyjskiej
 
 Singapur
 * Numer krajowej karty rejestracyjnej rejestracji (NRIC)
+
+Słowacja 
+* Numer osobisty w Słowacji
+
+Słowenia
+* Numer identyfikacji podatkowej Słowenii
+* Słowenia — unikatowy główny numer obywatela
 
 Republika Południowej Afryki
 * Numer identyfikacyjny Republiki Południowej Afryki
@@ -168,11 +240,17 @@ Korea Południowa
 * Numer rejestracji rezydenta Korea Południowa
 
 Hiszpania 
+* Hiszpania — DNI
 * Numer ubezpieczenia społecznego (SSN) w Hiszpanii
+* Numer identyfikacji podatkowej Hiszpania
 
 Szwecja
 * Narodowy identyfikator Szwecji
 * Szwecja numer paszportu
+* Szwecja numer identyfikacji podatkowej
+
+Szwajcaria
+* Szwajcarski numer ubezpieczenia społecznego AHV
 
 Tajwan 
 * Narodowy identyfikator Tajwanu
@@ -182,18 +260,25 @@ Tajwan
 Tajlandia
 * Kod identyfikacji populacji tajlandzkiej
 
+Turcja
+* Turecki Narodowy numer identyfikacyjny
+
+Ukraina
+* Numer paszportu Ukrainy (krajowe)
+* Numer paszportu Ukrainy (międzynarodowy)
+
 Zjednoczone Królestwo
-* Identyfikator paszportu
 * kwart Numer licencji sterownika
-* kwart Krajowy numer ubezpieczenia (NINO)
-* kwart Numer Usługa kondycji Narodowy
 * kwart Numer rzutowania wyborczyego
-* USA/ZJEDNOCZONE KRÓLESTWO Numer paszportu
+* kwart Numer Narodowy Usługa kondycji (NHS)
+* kwart Krajowy numer ubezpieczenia (NINO)
+* kwart Numer paszportu
+* kwart Unikatowy numer referencyjny podatnika
 
 Stany Zjednoczone
 * Numer ubezpieczenia społecznego USA (SSN)
 * Numer licencji sterownika USA
-* USA/ZJEDNOCZONE KRÓLESTWO Numer paszportu
+* Numer paszportu USA
 * Numer identyfikacji podatkowej w Stanach Zjednoczonych (ITIN)
-* Numer w agencji wymuszania narkotyków (DEA)
+* Liczba Stanów Zjednoczonych (DEA)
 * Numer konta bankowego USA

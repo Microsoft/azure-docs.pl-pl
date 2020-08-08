@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920713"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008988"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania kontroli dostępu opartej na rolach w akceleratorze rozwiązania do monitorowania zdalnego. Kontrola dostępu oparta na rolach umożliwia ograniczenie dostępu poszczególnych użytkowników do określonych funkcji w rozwiązaniu.
 
@@ -29,19 +29,19 @@ Każdy użytkownik w roli **administratora** ma pełny dostęp do rozwiązania, 
 | Uprawnienie            | Administrator | Tylko do odczytu |
 |----------------       |-------|-----------|
 | Wyświetl rozwiązanie         | Tak   | Tak       |
-| Aktualizuj alarmy         | Yes   | Nie        |
-| Usuń alarmy         | Yes   | Nie        |
-| Tworzenie urządzeń        | Yes   | Nie        |
-| Aktualizowanie urządzeń        | Yes   | Nie        |
-| Usuwanie urządzeń        | Yes   | Nie        |
-| Tworzenie grup urządzeń  | Yes   | Nie        |
-| Aktualizowanie grup urządzeń  | Yes   | Nie        |
-| Usuwanie grup urządzeń  | Yes   | Nie        |
-| Tworzenie reguł          | Yes   | Nie        |
-| Reguły aktualizacji          | Yes   | Nie        |
-| Usuwanie reguł          | Yes   | Nie        |
-| Tworzenie zadań           | Yes   | Nie        |
-| Aktualizowanie zarządzania SIM | Yes   | Nie        |
+| Aktualizuj alarmy         | Tak   | Nie        |
+| Usuń alarmy         | Tak   | Nie        |
+| Tworzenie urządzeń        | Tak   | Nie        |
+| Aktualizowanie urządzeń        | Tak   | Nie        |
+| Usuwanie urządzeń        | Tak   | Nie        |
+| Tworzenie grup urządzeń  | Tak   | Nie        |
+| Aktualizowanie grup urządzeń  | Tak   | Nie        |
+| Usuwanie grup urządzeń  | Tak   | Nie        |
+| Tworzenie reguł          | Tak   | Nie        |
+| Reguły aktualizacji          | Tak   | Nie        |
+| Usuwanie reguł          | Tak   | Nie        |
+| Tworzenie zadań           | Tak   | Nie        |
+| Aktualizowanie zarządzania SIM | Tak   | Nie        |
 
 Domyślnie użytkownik, który wdrożył rozwiązanie, ma automatycznie przypisaną rolę **administratora** i jest właścicielem aplikacji Azure Active Directory. Jako właściciel aplikacji można przypisać role do innych użytkowników za pomocą Azure Portal. Jeśli chcesz, aby inny użytkownik przypisał role w rozwiązaniu, należy również ustawić jako właściciela aplikacji w Azure Portal.
 
@@ -92,7 +92,7 @@ Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Acti
 
 1. Znajdź w Azure Portal **rejestrację aplikacji** dla Twojego rozwiązania. Nazwa aplikacji jest nazwą Twojego rozwiązania do monitorowania zdalnego. Na poniższym zrzucie ekranu nazwa wyświetlana rozwiązania i aplikacji to **contoso-RM4**.
 
-    ![Rejestrowanie aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
+    ![Rejestracja aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
 

@@ -3,21 +3,19 @@ title: Rozwiązywanie typowych błędów związanych z wdrażaniem
 description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażania zasobów na platformie Azure przy użyciu Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446595"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008172"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
 W tym artykule opisano niektóre typowe błędy wdrażania platformy Azure i przedstawiono informacje umożliwiające rozwiązanie tych błędów. Jeśli nie możesz znaleźć kodu błędu wdrażania, zobacz [Znajdowanie kodu błędu](#find-error-code).
 
 Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w tym artykule, powiadom nas o tym. W dolnej części tej strony możesz opuścić opinię. Opinie są śledzone za pomocą usługi GitHub.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Kody błędów
 
@@ -76,6 +74,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | StorageAccountAlreadyTaken | Podaj unikatową nazwę konta magazynu. | [Rozpoznawanie nazwy konta magazynu](error-storage-account-name.md) |
 | StorageAccountNotFound | Sprawdź subskrypcję, grupę zasobów i nazwę konta magazynu, którego próbujesz użyć. | |
 | SubnetsNotInSameVnet | Maszyna wirtualna może mieć tylko jedną sieć wirtualną. Podczas wdrażania kilku kart sieciowych upewnij się, że należą one do tej samej sieci wirtualnej. | [Wiele kart sieciowych](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | Nie można uzyskać dostępu do określonej subskrypcji dla wdrożenia. Może to być nieprawidłowy identyfikator subskrypcji, użytkownik wdrażający szablon nie ma wystarczających uprawnień do wdrożenia w ramach subskrypcji lub Identyfikator subskrypcji ma zły format. W przypadku wdrażania zagnieżdżonych wdrożeń w [różnych zakresach](cross-scope-deployment.md)podaj identyfikator GUID subskrypcji. | |
 | SubscriptionNotRegistered | Podczas wdrażania zasobów sieciowych dostawca zasobów Microsoft. Network jest automatycznie rejestrowany w subskrypcji. Czasami Rejestracja automatyczna nie kończy się w czasie. Aby uniknąć tego sporadycznego błędu, zarejestruj dostawcę zasobów Microsoft. Network przed wdrożeniem. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Usuń niepotrzebne zależności. | [Rozwiązywanie zależności cyklicznych](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrożenie między zakresami](cross-scope-deployment.md) |

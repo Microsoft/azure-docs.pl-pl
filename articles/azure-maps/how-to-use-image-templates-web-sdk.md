@@ -1,6 +1,6 @@
 ---
 title: Szablony obrazów w zestawie SDK sieci Web Azure Maps | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak używać szablonów obrazów ze znacznikami HTML i różnymi warstwami w Microsoft Azure Maps Web SDK.
+description: Dowiedz się, jak dodać ikony obrazu i wielokąty ze wzorkami do map przy użyciu zestawu SDK sieci Web Azure Maps. Wyświetl dostępne szablony obrazu i wypełnienia.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285683"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004654"
 ---
 # <a name="how-to-use-image-templates"></a>Jak używać szablonów obrazów
 
@@ -106,7 +106,7 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>znacznik HTML pióra p
 
 
 > [!TIP]
-> Szablony obrazów można używać poza mapą. GetImageTemplate ATANH zwraca ciąg SVG, który ma symbole zastępcze; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Zamień te wartości symboli zastępczych, aby utworzyć prawidłowy ciąg SVG. Następnie można dodać ciąg SVG bezpośrednio do modelu DOM HTML lub przekonwertować go na identyfikator URI danych i wstawić go do tagu obrazu. Na przykład:
+> Szablony obrazów można używać poza mapą. GetImageTemplate ATANH zwraca ciąg SVG, który ma symbole zastępcze; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Zamień te wartości symboli zastępczych, aby utworzyć prawidłowy ciąg SVG. Następnie można dodać ciąg SVG bezpośrednio do modelu DOM HTML lub przekonwertować go na identyfikator URI danych i wstawić go do tagu obrazu. Przykład:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);

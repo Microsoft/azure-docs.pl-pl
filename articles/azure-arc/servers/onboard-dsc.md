@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809616"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003891"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
@@ -49,7 +49,7 @@ Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](/
 
 Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonej maszyny platformy Azure. Uwzględniono również skrypt programu PowerShell, który znajduje się `AzureConnectedMachineAgent.ps1` w `AzureConnectedMachineDsc\examples` folderze. Używa zasobów społeczności do automatyzowania pobierania i instalacji oraz nawiązywania połączenia z usługą Azure Arc. Ten skrypt wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) .
 
-Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](onboard-portal.md#configure-the-agent-proxy-setting). Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` . Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
+Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](manage-agent.md#update-or-remove-proxy-settings). Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` . Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
 
 >[!NOTE]
 >Aby można było uruchomić DSC, system Windows musi być skonfigurowany do odbierania poleceń zdalnych programu PowerShell nawet w przypadku uruchamiania konfiguracji hosta lokalnego. Aby prawidłowo skonfigurować środowisko, po prostu uruchom `Set-WsManQuickConfig -Force` w terminalu programu PowerShell z podwyższonym poziomem uprawnień.

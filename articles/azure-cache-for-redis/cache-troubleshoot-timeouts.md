@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efe175e4086d5273471c1b0451e4cfb28449c236
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081903"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008937"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Rozwiązywanie problemów z limitami czasu usługi Azure Cache for Redis
 
@@ -120,5 +120,5 @@ Aby zbadać możliwe przyczyny główne, można wykonać następujące czynnośc
 
 - [Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie klienta](cache-troubleshoot-client.md)
 - [Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie serwera](cache-troubleshoot-server.md)
-- [Jak można sprawdzić i przetestować wydajność mojej pamięci podręcznej?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Jak można sprawdzić i przetestować wydajność mojej pamięci podręcznej?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Jak monitorować usługę Azure cache for Redis](cache-how-to-monitor.md)

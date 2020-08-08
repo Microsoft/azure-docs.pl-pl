@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c4f56cf4e04b9df31c8c4204d396ead8073ec526
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244212"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003063"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Podczas zarządzania klastrami w usłudze Azure Kubernetes Service (AKS), bezpie
 W tym artykule omówiono sposób zabezpieczania klastra AKS. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Używanie Azure Active Directory i kontroli dostępu opartej na rolach do zabezpieczania dostępu do serwera interfejsu API
+> * Używanie Azure Active Directory i kontroli dostępu opartej na rolach (RBAC) do bezpiecznego dostępu do serwera interfejsu API
 > * Bezpieczny dostęp do kontenera do zasobów węzła
 > * Uaktualnianie klastra AKS do najnowszej wersji Kubernetes
 > * Utrzymywanie Aktualności węzłów i automatyczne stosowanie poprawek zabezpieczeń
@@ -53,7 +53,7 @@ W taki sam sposób, w jaki należy udzielić użytkownikom lub grupom minimalnej
 Aby uzyskać bardziej szczegółową kontrolę nad akcjami kontenera, możesz również użyć wbudowanych funkcji zabezpieczeń systemu Linux, takich jak *AppArmor* i *seccomp*. Te funkcje są zdefiniowane na poziomie węzła, a następnie implementowane za pomocą manifestu pod. Wbudowane funkcje zabezpieczeń systemu Linux są dostępne tylko w węzłach i w systemach Linux.
 
 > [!NOTE]
-> Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *AppArmor*, *Seccomp*, na *zasadach zabezpieczeń*lub bardziej precyzyjnych kontroli dostępu opartej na rolach (RBAC) dla węzłów sprawiają trudniejsze luki w zabezpieczeniach. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
+> Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *AppArmor*, *Seccomp*, na *zasadach zabezpieczeń*lub bardziej precyzyjna kontrola dostępu oparta na rolach (RBAC) dla węzłów sprawia, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
 
 ### <a name="app-armor"></a>Ochrona aplikacji
 

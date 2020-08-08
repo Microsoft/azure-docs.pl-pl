@@ -1,19 +1,17 @@
 ---
 title: Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) Windows 10 lub 7 — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta pulpitu systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270332"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008364"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Nawiązywanie połączenia z komputerem stacjonarnym z systemem Windows (klasycznym)
 

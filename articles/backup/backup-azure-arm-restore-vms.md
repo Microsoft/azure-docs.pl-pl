@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809188"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006336"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -45,7 +45,7 @@ Niektóre szczegóły dotyczące kont magazynu:
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Aby przywrócić maszynę wirtualną (utworzyć nową maszynę wirtualną), upewnij się, że masz poprawne [uprawnienia](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) kontroli dostępu opartej na ROLACH (RBAC) dla operacji przywracania maszyny wirtualnej.
+Aby przywrócić maszynę wirtualną (utworzyć nową maszynę wirtualną), upewnij się, że masz odpowiednie [uprawnienia](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) kontroli dostępu opartej na rolach (Azure RBAC) dla operacji przywracania maszyny wirtualnej.
 
 Jeśli nie masz uprawnień, możesz [przywrócić dysk](#restore-disks), a następnie po przywróceniu dysku można [użyć szablonu](#use-templates-to-customize-a-restored-vm) , który został wygenerowany w ramach operacji przywracania, aby utworzyć nową maszynę wirtualną.
 
@@ -173,7 +173,7 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 >
 >- Po wyzwoleniu przywracania i fazie transferu danych nie można anulować zadania przywracania.
 >- Funkcja przywracania między regionami przywraca maszyny wirtualne platformy Azure, których kopie zapasowe są włączone w ramach CMK z włączonym magazynem Recovery Services, jako maszyn wirtualnych CMK z włączonymi w regionie pomocniczym.
->- Role RBAC (kontroli dostępu oparte na rolach), które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
+>- Role platformy Azure, które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorowanie zadań przywracania regionu pomocniczego
 
