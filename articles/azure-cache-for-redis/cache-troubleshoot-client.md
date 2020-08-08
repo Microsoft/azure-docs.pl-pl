@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506438"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008971"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie klienta
 
@@ -53,7 +53,7 @@ W powyższym wyjątku występuje kilka interesujących problemów:
 - Zwróć uwagę, że w `IOCP` sekcji i `WORKER` sekcji masz `Busy` wartość większą niż `Min` wartość. Różnica polega na tym, że Twoje `ThreadPool` Ustawienia wymagają dostosowania.
 - Możesz również zobaczyć `in: 64221` . Ta wartość wskazuje, że 64 211 bajtów została odebrana w warstwie gniazda jądra klienta, ale nie została odczytana przez aplikację. Ta różnica zwykle oznacza, że aplikacja (na przykład StackExchange. Redis) nie odczytuje danych z sieci tak szybko, jak serwer wysyła go do Ciebie.
 
-Można [skonfigurować `ThreadPool` Ustawienia](cache-faq.md#important-details-about-threadpool-growth) , aby upewnić się, że Pula wątków szybko skaluje się w ramach scenariuszy z serii.
+Można [skonfigurować `ThreadPool` Ustawienia](cache-management-faq.md#important-details-about-threadpool-growth) , aby upewnić się, że Pula wątków szybko skaluje się w ramach scenariuszy z serii.
 
 ## <a name="high-client-cpu-usage"></a>Duże użycie procesora CPU przez klienta
 
@@ -109,4 +109,4 @@ Rozwiązania dla dużych rozmiarów odpowiedzi są różne, ale obejmują:
 ## <a name="additional-information"></a>Dodatkowe informacje
 
 - [Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie serwera](cache-troubleshoot-server.md)
-- [Jak można sprawdzić i przetestować wydajność mojej pamięci podręcznej?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Jak można sprawdzić i przetestować wydajność mojej pamięci podręcznej?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

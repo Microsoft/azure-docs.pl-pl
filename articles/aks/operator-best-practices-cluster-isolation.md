@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra na pot
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077770"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003102"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z izolacją klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Z izolacją logiczną pojedynczy klaster AKS może być używany w wielu obcią�
 
 Logiczne rozdzielenie klastrów zwykle zapewnia wyższą gęstość pod względem klastra izolowanego. W klastrze jest mniej nadmiarowa pojemność obliczeniowa, która jest bezczynna. W połączeniu z automatycznym skalowaniem klastra Kubernetes można skalować liczbę węzłów w górę lub w dół w celu spełnienia wymagań. Takie najlepsze podejście do skalowania automatycznego umożliwia uruchamianie tylko wymaganej liczby węzłów i zminimalizowania kosztów.
 
-Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. W środowisku wielodostępnym wiele dzierżawców pracuje w wspólnej, udostępnionej infrastrukturze. W związku z tym jeśli wszyscy dzierżawcy nie będą Zaufani, musisz wykonać dodatkowe planowanie, aby uniknąć jednej dzierżawy wpływającej na bezpieczeństwo i usługę innej. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* i bardziej szczegółowe kontroli dostępu opartej na ROLACH (RBAC) dla węzłów sprawiają, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
+Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. W środowisku wielodostępnym wiele dzierżawców pracuje w wspólnej, udostępnionej infrastrukturze. W związku z tym jeśli wszyscy dzierżawcy nie będą Zaufani, musisz wykonać dodatkowe planowanie, aby uniknąć jednej dzierżawy wpływającej na bezpieczeństwo i usługę innej. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* i bardziej precyzyjna kontrola dostępu oparta na ROLACH (RBAC) dla węzłów sprawia, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
 
 ## <a name="physically-isolate-clusters"></a>Izolowanie klastrów
 

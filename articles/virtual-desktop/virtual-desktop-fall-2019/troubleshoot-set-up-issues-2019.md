@@ -1,19 +1,17 @@
 ---
 title: Tworzenie puli hostów dzierżawy usług pulpitu wirtualnego systemu Windows (klasycznej) — Azure
 description: Jak rozwiązywać problemy z dzierżawą i pulą hostów podczas instalacji środowiska dzierżawy pulpitu wirtualnego systemu Windows (klasycznego).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269601"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009260"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Tworzenie dzierżawy i puli hostów w systemie Windows Virtual Desktop (klasyczny)
 
@@ -22,7 +20,7 @@ ms.locfileid: "87269601"
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -43,9 +41,9 @@ Przykład nieprzetworzonego błędu:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Aby wyświetlić błąd w dzienniku aktywności:
 1. Wyjdź z bieżącej oferty wdrażania w portalu Azure Marketplace.
 2. Na górnym pasku wyszukiwania Wyszukaj i wybierz pozycję **Dziennik aktywności**.
 3. Znajdź działanie o nazwie **Weryfikuj wdrożenie** o stanie **Niepowodzenie** i wybierz działanie.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający działanie pojedynczego * * Weryfikuj wdrożenie * * aktywności z * * niepowodzeniem * * status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Wybierz pozycję JSON, a następnie przewiń w dół do dolnej części ekranu, dopóki nie zobaczysz pola "statusMessage".
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu działania zakończonego niepowodzeniem z czerwonym prostokątem wokół właściwości statusMessage tekstu JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Przykład nieprzetworzonego błędu:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

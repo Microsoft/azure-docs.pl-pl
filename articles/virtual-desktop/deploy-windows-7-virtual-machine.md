@@ -1,19 +1,17 @@
 ---
 title: Wdrażanie pulpitu wirtualnego systemu Windows w systemie Windows 7 — Azure
 description: Jak skonfigurować i wdrożyć maszynę wirtualną z systemem Windows 7 na pulpicie wirtualnym systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285158"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007577"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 w usłudze Windows Virtual Desktop
 
@@ -24,7 +22,7 @@ Proces wdrażania maszyny wirtualnej z systemem Windows 7 (VM) na pulpicie wirtu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md) w celu utworzenia puli hostów. Jeśli używasz portalu, postępuj zgodnie z instrukcjami podanymi w krokach od 1 do 9, aby [utworzyć pulę hostów przy użyciu Azure Portal](create-host-pools-azure-marketplace.md). Następnie wybierz pozycję **Przegląd + Utwórz** , aby utworzyć pustą pulę hostów. 
+Przed rozpoczęciem postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md) w celu utworzenia puli hostów. Jeśli używasz portalu, postępuj zgodnie z instrukcjami podanymi w krokach od 1 do 9, aby [utworzyć pulę hostów przy użyciu Azure Portal](create-host-pools-azure-marketplace.md). Następnie wybierz pozycję **Przegląd + Utwórz** , aby utworzyć pustą pulę hostów.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Konfigurowanie maszyny wirtualnej z systemem Windows 7
 
@@ -49,9 +47,9 @@ Aby skonfigurować MASZYNę wirtualną z systemem Windows 7 na pulpicie wirtualn
      ```
 
 12. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) , aby uzyskać token rejestracji.
-      
+
       - Jeśli wolisz używać Azure Portal, możesz również przejść do strony Przegląd puli hostów, do której chcesz dodać maszynę wirtualną, i utworzyć token w tym miejscu.
-  
+
 13. [Pobierz agenta pulpitu wirtualnego systemu Windows dla systemu Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Pobierz Menedżera agentów usług pulpitu wirtualnego systemu Windows dla systemu Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Otwórz instalatora agenta pulpitu wirtualnego systemu Windows i postępuj zgodnie z instrukcjami. Po wyświetleniu monitu podaj klucz rejestracji utworzony w kroku 12.

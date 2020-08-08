@@ -1,6 +1,6 @@
 ---
 title: Utwórz dostępną aplikację mapy z Azure Maps | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak utworzyć aplikację z funkcjami ułatwień dostępu przy użyciu map Microsoft Azure.
+description: Poznaj zagadnienia dotyczące ułatwień dostępu w Azure Maps. Zobacz, jakie funkcje są dostępne do udostępniania aplikacji mapy, i Wyświetl porady dotyczące ułatwień dostępu.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242376"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006217"
 ---
 # <a name="building-an-accessible-application"></a>Tworzenie dostępnej aplikacji
 
@@ -142,12 +142,12 @@ Poniżej znajdują się dodatkowe porady ułatwiające dostęp do aplikacji do m
     - Zaczekaj na zakończenie przesuwania mapy w celu zaktualizowania czytnika ekranu.
     - Ogranicz aktualizacje do co kilka sekund. 
     - Łączenie komunikatów w sposób logiczny. 
-- Unikaj przekazywania informacji tylko za pomocą koloru. Użyj tekstu, ikon lub wzorców, aby uzupełnić lub zastąpić kolor. Niektóre zagadnienia:
+- Unikaj przekazywania informacji tylko za pomocą koloru. Użyj tekstu, ikon lub wzorców, aby uzupełnić lub zastąpić kolor. Kwestie do rozważenia:
     - Jeśli używasz warstwy bąbelkowej do wyświetlania wartości względnej między punktami danych, rozważ skalowanie promienia każdego bąbelka, kolorowanie bąbelków lub obu. 
     - Rozważ użycie warstwy symbol z różnymi ikonami dla różnych kategorii metryk, takich jak trójkąty, gwiazdki i kwadraty. Warstwa symboli obsługuje również skalowanie rozmiaru ikony. Etykieta tekstowa może również być wyświetlana.
     - W przypadku wyświetlania danych liniowych szerokość może być używana do reprezentowania wagi lub rozmiaru. Wzorzec tablic kreskowych może służyć do reprezentowania różnych kategorii linii. Warstwa symboli może być używana w połączeniu z linią do nakładania ikon wzdłuż linii. Użycie ikony strzałki jest przydatne do wyświetlania przepływu lub kierunku linii.
     - W przypadku wyświetlania danych wielokątów wzorzec, taki jak paski, może być używany jako alternatywa dla koloru. 
-- Niektóre wizualizacje, takie jak map cieplnych, warstwy kafelków i warstwy obrazów, nie są dostępne dla użytkowników z upośledzeniem programu Vision. Niektóre zagadnienia:
+- Niektóre wizualizacje, takie jak map cieplnych, warstwy kafelków i warstwy obrazów, nie są dostępne dla użytkowników z upośledzeniem programu Vision. Kwestie do rozważenia:
     - Zapoznaj się z czytnikiem ekranu opisującym, co warstwa jest wyświetlana po dodaniu do mapy. Na przykład, jeśli zostanie wyświetlona warstwa kafelków radarowych, wówczas czytniki ekranu mówią, że dane radaru Pogoda są nakładane na mapie.
 - Ogranicz liczbę funkcji, które wymagają przesuwania wskaźnika myszy. Te funkcje będą niedostępne dla użytkowników korzystających z klawiatury lub urządzenia dotykowego do korzystania z aplikacji. Pamiętaj, że nadal dobrym sposobem jest posiadanie stylu aktywowany dla zawartości interaktywnej, takiej jak ikony, linki i przyciski.
 - Spróbuj przejść do aplikacji przy użyciu klawiatury. Upewnij się, że kolejność tabulacji jest logiczna.

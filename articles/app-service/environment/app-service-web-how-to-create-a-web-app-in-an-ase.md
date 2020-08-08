@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220698"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007067"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Tworzenie aplikacji sieci Web w App Service Environment v1
 
@@ -31,7 +31,7 @@ W tym samouczku przedstawiono sposób tworzenia aplikacji sieci Web i planów Ap
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym samouczku przyjęto założenie, że utworzono App Service Environment. Jeśli jeszcze tego nie zrobiono, zobacz [tworzenie App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
-## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
+## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
 1. W [witrynie Azure Portal](https://portal.azure.com/)kliknij pozycję **utwórz zasób > sieć Web + aplikacje mobilne > aplikacji sieci Web**. 
    
     ![Zrzut ekranu pokazujący, gdzie utworzyć aplikację sieci Web w Azure Portal.][1]
@@ -40,7 +40,7 @@ W tym samouczku przyjęto założenie, że utworzono App Service Environment. Je
     Jeśli masz wiele subskrypcji, które należy wziąć pod uwagę, aby utworzyć aplikację w App Service Environment, musisz użyć tej samej subskrypcji, która została użyta podczas tworzenia środowiska. 
 3. Wybierz lub utwórz grupę zasobów.
    
-    *Grupy zasobów* umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką i są przydatne podczas ustanawiania reguł *kontroli dostępu opartej na rolach* (RBAC) dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ResourceGroups]. 
+    *Grupy zasobów* umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką i są przydatne podczas ustanawiania reguł *kontroli dostępu opartej na ROLACH (Azure RBAC)* dla Twoich aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ResourceGroups]. 
 4. Wybierz lub utwórz plan usługi App Service.
    
     *Plany App Service* są zarządzanymi zestawami aplikacji sieci Web.  Zwykle w przypadku wybrania cennika opłata naliczana jest stosowana do planu App Service, a nie do poszczególnych aplikacji. W środowisku ASE płacisz za wystąpienia obliczeniowe przydzieloną do środowiska ASE, a nie elementy wyświetlane na stronie ASP.  Skalowanie w górę liczby wystąpień aplikacji sieci Web pozwala skalować wystąpienia planu App Service i ma wpływ na wszystkie aplikacje sieci Web w tym planie.  Niektóre funkcje, takie jak gniazda witryny lub Integracja z siecią wirtualną, mają także ograniczenia dotyczące ilości w ramach planu.  Aby uzyskać więcej informacji, zobacz [Azure App Service planów — Omówienie](../overview-hosting-plans.md)

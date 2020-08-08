@@ -1,19 +1,17 @@
 ---
 title: Zarządzanie grupami aplikacji dla systemu Windows Virtual Desktop Portal — Azure
 description: Jak zarządzać grupami aplikacji klasycznymi systemu Windows przy użyciu Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283405"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010093"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
@@ -49,16 +47,16 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
     > ![Zrzut ekranu przedstawiający kartę podstawowe w Azure Portal.](media/basics-tab.png)
 
 6. Jeśli chcesz dodać grupy aplikacji do puli hostów, wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
-   
+
     Następnie wybierz nazwę puli hostów, do której chcesz dodać grupy aplikacji.
-   
+
     Po wybraniu tej opcji wybierz pozycję **grupy aplikacji** z menu po lewej stronie ekranu, a następnie wybierz pozycję **+ Dodaj**.
 
     Na koniec wybierz grupę subskrypcji i grupę zasobów, w której chcesz utworzyć grupę aplikacji. Możesz wybrać nazwę istniejącej grupy zasobów z menu rozwijanego lub wybrać pozycję **Utwórz nową** , aby utworzyć nową.
 
       >[!NOTE]
       >Po dodaniu grup aplikacji do puli hostów Pula hostów, która jest powiązana z grupą aplikacji, jest już zaznaczona, ponieważ przejdziesz od niej.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![Zrzut ekranu przedstawiający kartę podstawowe z wybraną pulą hostów.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 
 12.  Wybierz kartę **aplikacje** , a następnie wybierz pozycję **+ Dodaj aplikacje**.
 
-13.  Aby dodać aplikację z menu Start: 
+13.  Aby dodać aplikację z menu Start:
 
       - Przejdź do pozycji **Źródło aplikacji** i wybierz **menu Start** z menu rozwijanego. Następnie przejdź do **aplikacji** i wybierz aplikację z menu rozwijanego.
 
@@ -111,7 +109,7 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 16.  Jeśli chcesz zarejestrować grupę aplikacji w obszarze roboczym, przejdź do pozycji **zarejestruj grupę aplikacji** i wybierz opcję **tak**. Jeśli wolisz zarejestrować grupę aplikacji w późniejszym czasie, wybierz pozycję **nie**.
 
 17.  Jeśli wybierzesz opcję **tak**, możesz wybrać istniejący obszar roboczy, aby zarejestrować grupę aplikacji.
-       
+
        >[!NOTE]
        >Grupę aplikacji można zarejestrować tylko w obszarach roboczych utworzonych w tej samej lokalizacji, w której znajduje się pula hostów. Być. Jeśli w obszarze roboczym została wcześniej zarejestrowana inna grupa aplikacji z tej samej puli, co Nowa grupa aplikacji, zostanie ona wybrana i nie będzie można jej edytować. Wszystkie grupy aplikacji z puli hostów muszą być zarejestrowane w tym samym obszarze roboczym.
 

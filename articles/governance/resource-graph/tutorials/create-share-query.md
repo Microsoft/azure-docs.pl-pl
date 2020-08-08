@@ -3,16 +3,16 @@ title: 'Samouczek: zarządzanie zapytaniami w Azure Portal'
 description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz nowe zapytanie innym osobom w Azure Portal.
 ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970590"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005180"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal
 
-Eksplorator usługi Azure Resource Graph umożliwia zapisywanie zapytań grafu zasobów bezpośrednio w Azure Portal. Istnieją dwa typy zapytań: _Private_ i _Shared_. Zapytanie prywatne zostanie zapisane w ustawieniach Azure Portal. Zapytanie udostępnione jest zasobem Azure Resource Manager, którym można zarządzać za pomocą kontroli dostępu opartej na rolach (RBAC) i chronionych przy użyciu blokad zasobów. Oba typy zapytań są szyfrowane w stanie spoczynku.
+Eksplorator usługi Azure Resource Graph umożliwia zapisywanie zapytań grafu zasobów bezpośrednio w Azure Portal. Istnieją dwa typy zapytań: _Private_ i _Shared_. Zapytanie prywatne zostanie zapisane w ustawieniach Azure Portal. Zapytanie udostępnione jest zasobem Azure Resource Manager, którym można zarządzać za pomocą kontroli dostępu opartej na rolach (Azure RBAC) i chronionej przy użyciu blokad zasobów. Oba typy zapytań są szyfrowane w stanie spoczynku.
 
 Zapisując zapytania w Azure Portal, można zaoszczędzić czas, w którym można szukać ulubionych lub często używanych zapytań. Po udostępnieniu zapytań można ułatwić zespołowi zrealizowanie celów spójności i wydajności poprzez powtarzanie.
 
@@ -60,7 +60,7 @@ Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. P
 
 ## <a name="create-a-shared-query"></a>Utwórz zapytanie udostępnione
 
-W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem Menedżer zasobów. Oznacza to, że zapytanie jest zapisywane w grupie zasobów, może być zarządzane i kontrolowane za pomocą RBAC, a nawet może być chronione przy użyciu blokad zasobów. Jako zasób, każdy, kto ma odpowiednie uprawnienia, może go zobaczyć i używać.
+W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem Menedżer zasobów. Oznacza to, że zapytanie jest zapisywane w grupie zasobów, można je zarządzać i kontrolować przy użyciu funkcji RBAC na platformie Azure i nawet być chronione przy użyciu blokad zasobów. Jako zasób, każdy, kto ma odpowiednie uprawnienia, może go zobaczyć i używać.
 Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
 1. W menu portalu wybierz pozycję **wszystkie usługi**lub użyj pola wyszukiwania Azure w górnej części wszystkich stron, aby wyszukać i wybrać pozycję **Eksplorator grafów zasobów**.

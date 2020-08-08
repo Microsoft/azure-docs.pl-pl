@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fde142c76c71aa7155fd39d90f7a6c8120538141
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008665"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs
 
@@ -102,6 +102,9 @@ Aby wysyłać powiadomienia wypychane do aplikacji systemu iOS, zarejestruj swoj
 4. Na stronie **certyfikaty, identyfikatory & profile**   w obszarze **identyfikatory**Znajdź element wiersza identyfikatora aplikacji, który został właśnie utworzony, a następnie wybierz jego wiersz w celu wyświetlenia ekranu **Edytowanie konfiguracji identyfikatora aplikacji**   .
 
 ## <a name="create-a-certificate-for-notification-hubs"></a>Utwórz certyfikat dla Notification Hubs
+
+> [!NOTE]
+> Ze względu na wersje systemu iOS 13 można odbierać tylko powiadomienia dyskretne przy użyciu uwierzytelniania opartego na tokenach. Jeśli używasz uwierzytelniania opartego na certyfikatach dla poświadczeń usługi APNS, musisz przełączyć się do korzystania z uwierzytelniania opartego na tokenach.
 
 Aby umożliwić centrum powiadomień współdziałanie z usługą **APNs**, wymagany jest certyfikat. Można to zrobić na jeden z dwóch sposobów:
 
@@ -260,7 +263,7 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
    > [!IMPORTANT]
    > Nie należy używać zasad **DefaultFullSharedAccessSignatureymi** w aplikacji. Jest to przeznaczone tylko do użycia w zapleczu.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Parametry połączenia":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Parametry połączeń":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Konfigurowanie centrum powiadomień przy użyciu informacji dotyczących usługi APNS
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 0376a57e3f2c1158e9da97fb291a28c99ce2463c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903967"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003579"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -38,6 +38,8 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
         - ModelsOperation
         - Queryoperation obiektu DataService
         - AllMetrics
+        
+        Aby uzyskać więcej informacji na temat tych opcji, zobacz sekcję [*szczegóły kategorii*](#category-details) poniżej.
      * **Szczegóły lokalizacji docelowej**: Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
         - Wysyłanie do usługi Log Analytics
         - Zarchiwizuj na koncie magazynu
@@ -50,6 +52,47 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym z powrotem na stronie **Ustawienia diagnostyczne** dla danego wystąpienia. 
+
+## <a name="category-details"></a>Szczegóły kategorii
+
+Poniżej znajdują się dodatkowe szczegóły dotyczące kategorii dziennika, które można wybrać w obszarze **szczegóły kategorii** podczas konfigurowania ustawień diagnostycznych.
+
+| Kategoria dziennika | Opis |
+| --- | --- |
+| ADTModelsOperation | Rejestruj wszystkie wywołania interfejsu API odnoszące się do modeli |
+| ADTQueryOperation | Rejestruj wszystkie wywołania interfejsu API odnoszące się do zapytań |
+| ADTEventRoutesOperation | Rejestruj wszystkie wywołania interfejsu API dotyczące tras zdarzeń oraz wychodzące zdarzenia z usługi Azure Digital bliźniaczych reprezentacji do usługi punktu końcowego, takiej jak Event Grid, Event Hubs i Service Bus |
+| ADTDigitalTwinsOperation | Rejestruj wszystkie wywołania interfejsu API związane z usługą Azure Digital bliźniaczych reprezentacji |
+
+Każda kategoria dziennika składa się z operacji zapisu, odczytu, usuwania i akcji.  Te mapy do wywołań interfejsu API REST są następujące:
+
+| Typ zdarzenia | Operacje interfejsu API REST |
+| --- | --- |
+| Zapisywanie | PUT i PATCH |
+| Odczyt | GET |
+| Usuń | DELETE |
+| Akcja | POST |
+
+Poniżej znajduje się kompleksowa Lista operacji i odpowiednich [wywołań interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/rest/api/azure-digitaltwins/) , które są rejestrowane w każdej kategorii. 
+
+>[!NOTE]
+> Każda kategoria dziennika zawiera kilka wywołań operacji/interfejsu API REST. W poniższej tabeli każda kategoria dziennika jest mapowana na wszystkie operacje/wywołania interfejsu API REST, dopóki nie zostanie wyświetlona Następna kategoria dziennika. 
+
+| Kategoria dziennika | Operacja | Wywołania interfejsu API REST i inne zdarzenia |
+| --- | --- | --- |
+| ADTModelsOperation | Microsoft. DigitalTwins/modele/zapis | Interfejs API aktualizacji modeli dwuosiowych |
+|  | Microsoft. DigitalTwins/modele/odczyt | Cyfrowe modele przędzy uzyskiwane według identyfikatorów i interfejsów API listy |
+|  | Microsoft. DigitalTwins/modele/usuwanie | Cyfrowe modele dwuosiowe — Usuwanie interfejsu API |
+|  | Microsoft. DigitalTwins/modele/akcja | Modele Digital bliźniaczy Add API |
+| ADTQueryOperation | Microsoft. DigitalTwins/kwerenda/akcja | Interfejs API bliźniaczych reprezentacji zapytań |
+| ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Dodawanie interfejsu API tras zdarzeń |
+|  | Microsoft. DigitalTwins/eventroutes/odczyt | Trasy zdarzeń Get według identyfikatorów i interfejsów API |
+|  | Microsoft. DigitalTwins/eventroutes/Delete | Interfejs API usuwania tras zdarzeń |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Wyjście zdarzenia do usługi punktu końcowego (nie wywołania interfejsu API) |
+| ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Digital bliźniaczych reprezentacji Add, Dodawanie relacji, aktualizowanie, aktualizowanie składnika |
+|  | Microsoft. DigitalTwins/DigitalTwins/odczyt | Digital bliźniaczych reprezentacji Get według identyfikatora, Pobierz składnik, uzyskaj relację według identyfikatora, Wyświetl listę relacji przychodzących, relacje list |
+|  | Microsoft. DigitalTwins/DigitalTwins/Delete | Digital bliźniaczych reprezentacji Delete, usuwanie relacji |
+|  | Microsoft. DigitalTwins/DigitalTwins/Action | Dane telemetryczne składnika Digital bliźniaczych reprezentacji Send, wysyłanie danych telemetrycznych |
 
 ## <a name="next-steps"></a>Następne kroki
 

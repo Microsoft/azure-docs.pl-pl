@@ -1,19 +1,17 @@
 ---
 title: Konfigurowanie usługi Azure Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows — Azure
 description: Jak skonfigurować usługę Azure Multi-Factor Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291382"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009464"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
 
@@ -59,7 +57,7 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
 
    >[!IMPORTANT]
    > Aplikacje klienckie pulpitu wirtualnego systemu Windows są używane dla klienta sieci Web. Nie należy jednak wybierać aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
-  
+
 1. Po wybraniu aplikacji wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
 
    > [!div class="mx-imgBorder"]

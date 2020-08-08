@@ -1,19 +1,17 @@
 ---
 title: Udział kontenera profilu FSLogix pulpitu wirtualnego systemu Windows — Azure
 description: Jak skonfigurować kontener profilu FSLogix dla puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu udziału plików opartego na maszynie wirtualnej.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211837"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002586"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Tworzenie kontenera profilu dla puli hostów za pomocą udziału plików
 

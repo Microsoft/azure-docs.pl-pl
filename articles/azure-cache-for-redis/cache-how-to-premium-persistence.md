@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80245280"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004805"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować trwałość danych dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. W tym artykule opisano sposób konfigurowania trwałości w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis.
-
-Aby uzyskać informacje na temat innych funkcji Premium pamięci podręcznej, zobacz [wprowadzenie do usługi Azure cache for Redis w warstwie Premium](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>Co to jest trwałość danych?
 [Trwałość Redis](https://redis.io/topics/persistence) umożliwia utrwalanie danych przechowywanych w Redis. Można również tworzyć migawki i tworzyć kopie zapasowe danych, które można ładować w przypadku awarii sprzętu. Jest to ogromna korzyść w porównaniu z warstwą podstawową lub standardową, w której wszystkie dane są przechowywane w pamięci i może istnieć potencjalna utrata danych w przypadku awarii, w której węzły pamięci podręcznej nie działają. 
@@ -179,9 +177,9 @@ Po ponownej operacji zapisu w magazynie istnieją dwa zestawy plików kopia zapa
 
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak korzystać z większej liczby funkcji pamięci podręcznej Premium.
+Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
-* [Wprowadzenie do usługi Azure cache dla warstwy Redis Premium](cache-premium-tier-intro.md)
+* [Pamięć podręczna systemu Azure dla warstw usługi Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

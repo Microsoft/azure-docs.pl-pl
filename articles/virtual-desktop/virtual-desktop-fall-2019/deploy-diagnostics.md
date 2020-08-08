@@ -1,19 +1,17 @@
 ---
 title: Wdrażanie narzędzia diagnostycznego dla pulpitu wirtualnego systemu Windows (klasyczny) — Azure
 description: Jak wdrożyć narzędzie do diagnostyki środowiska użytkownika dla pulpitu wirtualnego systemu Windows (klasyczny).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285105"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009192"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
@@ -193,7 +191,7 @@ Aby ustawić identyfikator URI przekierowania:
 4.  W lewym panelu w obszarze Zarządzaj wybierz pozycję **uwierzytelnianie**.
 5.  Wprowadź żądany identyfikator URI przekierowania do pola tekstowego **Identyfikator URI przekierowania** , a następnie wybierz pozycję **Zapisz** w lewym górnym rogu menu.
 6. W menu rozwijanym w obszarze Typ wybierz pozycję **Sieć Web** .
-7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Na przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Strona URI przekierowania](../media/redirect-uri-page.png)

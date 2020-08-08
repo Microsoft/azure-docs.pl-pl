@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a197c879e4c091c9b421c194e1f6a50b91d24bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101587"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007389"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z ruchem wychodzącym
 
@@ -45,7 +45,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Ruch wychodzący obsługuje usługę **SP i dostawcy tożsamości** zainicjowane Logowanie jednokrotne
 * Ruch wychodzący obsługuje funkcję aprowizacji użytkowników **just in Time**
-* Po skonfigurowaniu ruchu wychodzącego można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu ruchu wychodzącego można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-egress-from-the-gallery"></a>Dodawanie danych wyjściowych z galerii
 
@@ -130,7 +130,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wykonaj następujące czynności na poniższej stronie.
 
-    ![Konfiguracja ruchu wychodzącego](./media/egress-tutorial/configure1.PNG)
+    ![Konfiguracja ruchu wychodzącego](./media/egress-tutorial/configure-1.PNG)
 
     a. W menu po lewej stronie kliknij pozycję **Konfiguracja logowania jednokrotnego**.
 
@@ -150,11 +150,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Zaproś użytkowników** w menu po lewej stronie, a następnie kliknij pozycję **Zaproś pojedynczego użytkownika** , aby dodać użytkownika.
 
-    ![Tworzenie użytkownika testowego](./media/egress-tutorial/createuser1.PNG)
+    ![Tworzenie użytkownika testowego](./media/egress-tutorial/create-user-1.PNG)
 
 1. Wypełnij pola wymagane i kliknij pozycję **Zaproś**.
 
-    ![Tworzenie użytkownika testowego](./media/egress-tutorial/createuser2.PNG)
+    ![Tworzenie użytkownika testowego](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -162,7 +162,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ruchu wychodzącego w panelu dostępu należy automatycznie zalogować się do ruchu wychodzącego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -1,19 +1,17 @@
 ---
 title: Nawiązywanie połączenia z programem Windows Virtual Desktop (klasyczny) z systemu Android — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta systemu Android.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c83d243a24fb0cacdf032dfa77e9bb17fdf5e824
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0fadcc592f5dd52bf1b72dc9d5658866ffba7f4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383804"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008478"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows (klasycznym) przy użyciu klienta systemu Android
 

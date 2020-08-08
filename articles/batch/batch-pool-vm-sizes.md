@@ -2,14 +2,14 @@
 title: Wybierz rozmiary maszyn wirtualnych dla pul
 description: Jak wybierać dostępne rozmiary maszyn wirtualnych dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143524"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005138"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -35,12 +35,12 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | DC | Brak |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
-| Dav4<sup>1</sup> | Brak — nie jest jeszcze dostępna |
-| Dasv4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_D48as_v4, Standard_D64as_v4 Standard_D96as_v4 |
+| Dav4<sup>1</sup> | Wszystkie rozmiary |
+| Dasv4<sup>1</sup> | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Brak — nie jest jeszcze dostępna |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 i E64i_v3 |
-| Eav4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_E48a_v4, Standard_E64a_v4 Standard_E96a_v4 |
-| Easv4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_E48as_v4, Standard_E64as_v4 Standard_E96as_v4 |
+| Eav4<sup>1</sup> | Wszystkie rozmiary |
+| Easv4<sup>1</sup> | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Brak — nie jest jeszcze dostępna |
 | F, FS | Wszystkie rozmiary |
 | Fsv2 | Wszystkie rozmiary |
@@ -71,7 +71,7 @@ Pule wsadowe w konfiguracji usługi w chmurze obsługują wszystkie [rozmiary ma
 
 | Serie maszyn wirtualnych  | Nieobsługiwane rozmiary |
 |------------|-------------------|
-| Seria A   | Bardzo małe       |
+| Seria A   | Bardzo mała       |
 | Seria Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>Istotne zagadnienia dotyczące rozmiaru

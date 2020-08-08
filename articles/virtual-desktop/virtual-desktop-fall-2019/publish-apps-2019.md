@@ -1,19 +1,17 @@
 ---
 title: Publikowanie wbudowanych aplikacji w systemie Windows Virtual Desktop (klasyczny) — Azure
 description: Jak publikować aplikacje wbudowane w systemie Windows Virtual Desktop (klasyczny).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 80cd1a4c92441fb17ce0a66814ff0a39a92fb287
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284935"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005571"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publikowanie wbudowanych aplikacji w systemie Windows Virtual Desktop (klasyczny)
 

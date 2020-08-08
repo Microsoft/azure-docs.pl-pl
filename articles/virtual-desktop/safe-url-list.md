@@ -1,19 +1,17 @@
 ---
 title: Lista bezpiecznych adresów URL pulpitu wirtualnego systemu Windows — Azure
 description: Lista adresów URL, które należy odblokować, aby upewnić się, że wdrożenie pulpitu wirtualnego systemu Windows działa zgodnie z oczekiwaniami.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075618"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009481"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -69,12 +67,12 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
-|docs.microsoft.com|443|Dokumentacja|Wszystko|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszyscy|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszyscy|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszyscy|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszyscy|
+|docs.microsoft.com|443|Dokumentacja|Wszyscy|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszyscy|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]

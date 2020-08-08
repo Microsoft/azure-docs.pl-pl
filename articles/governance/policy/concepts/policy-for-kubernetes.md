@@ -1,14 +1,14 @@
 ---
 title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373763"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003520"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -130,10 +130,16 @@ Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure
 
   1. Na stronie głównej wybierz przycisk **Włącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Włącz Azure Policy dla dodatku AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Włącz Azure Policy dla dodatku AKS":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Jeśli przycisk **Włącz dodatek** jest wyszarzony, subskrypcja nie została jeszcze dodana do wersji zapoznawczej. Jeśli przycisk **Wyłącz dodatek** jest włączony i zostanie wyświetlony komunikat z ostrzeżeniem dotyczącym migracji do wersji 2, Gatekeepver v2 jest nadal zainstalowany i należy go usunąć.
+     > Jeśli przycisk **Włącz dodatek** jest wyszarzony, subskrypcja nie została jeszcze dodana do wersji zapoznawczej. Jeśli przycisk **Wyłącz dodatek** jest włączony i zostanie wyświetlony komunikat z ostrzeżeniem o migracji w wersji 2, zostanie zainstalowany dodatek V1 i należy go usunąć przed przypisaniem definicji zasad w wersji 2. _Przestarzały_ dodatek V1 zostanie automatycznie zastąpiony przez dodatek v2 od dnia 24 sierpnia 2020. Należy następnie przypisać nowe wersje systemu v2 definicji zasad. Aby przeprowadzić uaktualnienie teraz, wykonaj następujące kroki:
+     > 
+     > 1. Sprawdź, czy klaster AKS ma zainstalowany dodatek V1, odwiedzając stronę **zasady (wersja zapoznawcza)** w klastrze AKS i ma "bieżący klaster używa dodatku Azure Policy..." Komunikat.
+     > 1. [Usuń dodatek](#remove-the-add-on-from-aks).
+     > 1. Wybierz przycisk **Włącz dodatek** , aby zainstalować wersję v2 dodatku.
+     > 1. [Przypisywanie wersji systemu v2 wbudowanych definicji zasad w wersji 1](#assign-a-built-in-policy-definition)
 
 - Interfejs wiersza polecenia platformy Azure
 
@@ -405,7 +411,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_i _Azure-Arc_.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przegląd + utwórz**.
 
 Alternatywnie możesz znaleźć i przypisać zasady Kubernetes przy użyciu [przystawki przypisywanie zasad —](../assign-policy-portal.md) szybki start dla portalu. Wyszukaj definicję zasad Kubernetes zamiast przykładu "Inspekcja maszyn wirtualnych".
 

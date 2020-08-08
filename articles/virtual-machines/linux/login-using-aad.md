@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534740"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002319"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
@@ -35,7 +35,7 @@ Istnieje wiele zalet używania uwierzytelniania usługi Azure AD do logowania si
   - Aby dodatkowo zabezpieczyć logowanie do usługi Azure Virtual Machines, można skonfigurować uwierzytelnianie wieloskładnikowe.
   - Możliwość zalogowania się do maszyn wirtualnych systemu Linux przy użyciu Azure Active Directory również działa dla klientów korzystających z [usług federacyjnych](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Bezproblemowa współpraca:** Za pomocą Access Control opartej na rolach (RBAC) można określić, kto może logować się do danej maszyny wirtualnej jako zwykły użytkownik lub z uprawnieniami administratora. Gdy użytkownicy dołączają lub opuszczają Twój zespół, można zaktualizować zasady RBAC dla maszyny wirtualnej, aby udzielić dostępu zgodnie z potrzebami. To środowisko jest znacznie prostsze niż trzeba do szybkiej kontroli maszyn wirtualnych, aby usunąć zbędne klucze publiczne SSH. Gdy pracownicy opuszczają organizację, a ich konto użytkownika jest wyłączone lub usunięte z usługi Azure AD, nie mają już dostępu do zasobów.
+- **Bezproblemowa współpraca:** Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można określić, kto może logować się do danej maszyny wirtualnej jako zwykły użytkownik lub z uprawnieniami administratora. Gdy użytkownicy dołączają lub opuszczają Twój zespół, możesz zaktualizować zasady kontroli dostępu platformy Azure dla maszyny wirtualnej, aby przyznać im odpowiednie uprawnienia. To środowisko jest znacznie prostsze niż trzeba do szybkiej kontroli maszyn wirtualnych, aby usunąć zbędne klucze publiczne SSH. Gdy pracownicy opuszczają organizację, a ich konto użytkownika jest wyłączone lub usunięte z usługi Azure AD, nie mają już dostępu do zasobów.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Obsługiwane dystrybucje regionów platformy Azure i systemu Linux
 
@@ -121,7 +121,7 @@ Zasady kontroli dostępu opartej na rolach (RBAC) na platformie Azure określaj�
 > [!NOTE]
 > Aby umożliwić użytkownikowi logowanie się do maszyny wirtualnej za pośrednictwem protokołu SSH, należy przypisać rolę logowania *administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* . Użytkownik platformy Azure z rolami *właściciela* lub *współautora* przypisany do maszyny wirtualnej nie ma automatycznie uprawnień do logowania się do maszyny wirtualnej za pośrednictwem protokołu SSH.
 
-Poniższy przykład używa [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby przypisać rolę *logowania administratora maszyny wirtualnej* do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure zostanie uzyskana za pomocą [AZ Account show](/cli/azure/account#az-account-show), a *zakres* jest ustawiany na maszynę wirtualną utworzoną w poprzednim kroku przy użyciu [AZ VM show](/cli/azure/vm#az-vm-show). Zakres może być również przypisany do grupy zasobów lub poziomu subskrypcji i obowiązują normalne uprawnienia dziedziczenia RBAC. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach](../../role-based-access-control/overview.md)
+Poniższy przykład używa [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby przypisać rolę *logowania administratora maszyny wirtualnej* do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure zostanie uzyskana za pomocą [AZ Account show](/cli/azure/account#az-account-show), a *zakres* jest ustawiany na maszynę wirtualną utworzoną w poprzednim kroku przy użyciu [AZ VM show](/cli/azure/vm#az-vm-show). Zakres może być również przypisany do grupy zasobów lub poziomu subskrypcji i obowiązują normalne uprawnienia dziedziczenia kontroli RBAC platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure RBAC](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > Jeśli domena i nazwa użytkownika logowania w usłudze AAD nie są zgodne, należy określić identyfikator obiektu konta użytkownika z parametrem *--cesjonariusz-Object-ID*, a nie tylko nazwą użytkownika dla *--* przyłączania. Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą elementu [AZ AD User list](/cli/azure/ad/user#az-ad-user-list).
 
-Aby uzyskać więcej informacji na temat korzystania z funkcji RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz Korzystanie z [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)lub [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Aby uzyskać więcej informacji na temat korzystania z usługi Azure RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz Korzystanie z [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)lub [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Możesz również skonfigurować usługę Azure AD, aby wymagać uwierzytelniania wieloskładnikowego dla określonego użytkownika do logowania się do maszyny wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Multi-Factor Authentication w chmurze](../../active-directory/authentication/howto-mfa-getstarted.md).
 
@@ -185,7 +185,7 @@ Niektóre typowe błędy podczas próby połączenia SSH z poświadczeniami usł
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Odmowa dostępu: rola platformy Azure nie jest przypisana
 
-Jeśli w monicie SSH zostanie wyświetlony następujący błąd, sprawdź, czy skonfigurowano zasady RBAC dla maszyny wirtualnej, która przyznaje użytkownikowi uprawnienia do *logowania administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* :
+Jeśli widzisz następujący błąd w monicie SSH, sprawdź, czy skonfigurowano zasady kontroli dostępu platformy Azure dla maszyny wirtualnej, która udziela użytkownikowi uprawnienia do *logowania administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* :
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

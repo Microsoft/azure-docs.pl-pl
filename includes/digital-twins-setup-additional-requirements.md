@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 230304677b78f00b2d1288c846f8bf704cd8a497
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407473"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009667"
 ---
-Istnieje możliwość, aby organizacja wymagała dodatkowych akcji od właścicieli subskrypcji w celu pomyślnego skonfigurowania rejestracji aplikacji (i w ten sposób, aby zakończyć konfigurowanie użytecznego wystąpienia usługi Azure Digital bliźniaczych reprezentacji). Wymagane kroki mogą się różnić w zależności od ustawień określonych w organizacji.
+Istnieje możliwość, aby organizacja wymagała dodatkowych akcji od właścicieli/administratorów subskrypcji w celu pomyślnego skonfigurowania rejestracji aplikacji (i w ten sposób, aby zakończyć konfigurowanie użytecznego wystąpienia usługi Azure Digital bliźniaczych reprezentacji). Wymagane kroki mogą się różnić w zależności od ustawień określonych w organizacji.
 
-Poniżej przedstawiono niektóre typowe potencjalne działania, które może potrzebować właściciel. Te i inne operacje można wykonać na stronie [*rejestracje aplikacja usługi Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal.
-* Przyznaj zgodę administratora na rejestrację aplikacji. Twoja organizacja może mieć *zgodę administratora* , która została zadana globalnie włączona w usłudze Azure AD dla wszystkich rejestracji aplikacji w ramach subskrypcji. Jeśli tak, właściciel będzie musiał wybrać ten przycisk dla swojej firmy na stronie *uprawnień interfejsu API* rejestracji aplikacji, aby Rejestracja aplikacji była prawidłowa:
+Poniżej przedstawiono niektóre typowe potencjalne działania, które mogą być konieczne do wykonania przez właściciela/administratora. Te i inne operacje można wykonać na stronie [*rejestracje aplikacja usługi Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal.
+* Przyznaj zgodę administratora na rejestrację aplikacji. Twoja organizacja może mieć *zgodę administratora* , która została zadana globalnie włączona w usłudze Azure AD dla wszystkich rejestracji aplikacji w ramach subskrypcji. Jeśli tak, właściciel/administrator będzie musiał wybrać ten przycisk dla firmy na stronie *uprawnień interfejsu API* rejestracji aplikacji, aby Rejestracja aplikacji była prawidłowa:
 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Widok portalu przycisku "Udziel zgody administratora" w obszarze uprawnienia interfejsu API":::
   - Jeśli zgoda została udzielona pomyślnie, wpis na potrzeby usługi Azure Digital bliźniaczych reprezentacji powinien wskazywać wartość *stanu* _przyznany dla **(Twoja firma)** _

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010311"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009617"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -33,7 +33,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
 * [Omówienie](#overview)
 * [Dziennik aktywności](#activity-log)
 * [Kontrola dostępu (IAM)](#access-control-iam)
-* [Tagi](#tags)
+* [Tabliczk](#tags)
 * [Diagnozowanie i rozwiązywanie problemów](#diagnose-and-solve-problems)
 * [Ustawienia](#settings)
     * [Klawisze dostępu](#access-keys)
@@ -51,7 +51,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
     * [Skrypt usługi Automation](#automation-script)
 * Administracja
     * [Importuj dane](#importexport)
-    * [Eksportuj dane](#importexport)
+    * [Eksportowanie danych](#importexport)
     * [Ponowne uruchamianie](#reboot)
 * [Monitorowanie](#monitoring)
     * [Metryki Redis](#redis-metrics)
@@ -185,12 +185,12 @@ Każda warstwa cenowa ma różne limity dla połączeń klientów, pamięci i pr
 
 | Pamięć podręczna Azure dla metryki Redis | Więcej informacji |
 | --- | --- |
-| Użycie przepustowości sieci |[Przepustowość pamięci podręcznej dostępna dla wydajności](cache-faq.md#cache-performance) |
+| Użycie przepustowości sieci |[Przepustowość pamięci podręcznej dostępna dla wydajności](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Połączeni klienci |[Domyślna konfiguracja serwera Redis — MaxClients](#maxclients) |
 | Obciążenie serwera |[Wykresy użycia — obciążenie serwera Redis](cache-how-to-monitor.md#usage-charts) |
-| Użycie pamięci |[Wydajność pamięci podręcznej — rozmiar](cache-faq.md#cache-performance) |
+| Użycie pamięci |[Wydajność pamięci podręcznej — rozmiar](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
-Aby uaktualnić pamięć podręczną, kliknij pozycję **Uaktualnij teraz** , aby zmienić warstwę cenową i [skalować](#scale) pamięć podręczną. Aby uzyskać więcej informacji na temat wybierania warstwy cenowej, zobacz, w [jaki sposób usługa Azure cache for Redis i jakiej wielkości mam używać?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Aby uaktualnić pamięć podręczną, kliknij pozycję **Uaktualnij teraz** , aby zmienić warstwę cenową i [skalować](#scale) pamięć podręczną. Aby uzyskać więcej informacji na temat wybierania warstwy cenowej, zobacz [Wybieranie odpowiedniej warstwy](cache-overview.md#choosing-the-right-tier) .
 
 
 ### <a name="scale"></a>Skalowanie
@@ -291,7 +291,7 @@ Ustawienia w sekcji **Administracja** umożliwiają wykonywanie następujących 
 ![Administracja](./media/cache-configure/redis-cache-administration.png)
 
 * [Importuj dane](#importexport)
-* [Eksportuj dane](#importexport)
+* [Eksportowanie danych](#importexport)
 * [Ponowne uruchamianie](#reboot)
 
 
@@ -414,7 +414,7 @@ W nowej pamięci podręcznej platformy Azure dla wystąpień Redis są skonfigur
   * P4 (53 GB – 530 GB) — do 64 baz danych
   * Wszystkie pamięć podręczna Premium z włączonym klastrem Redis — klaster Redis obsługuje tylko Korzystanie z bazy danych 0, dlatego `databases` limit dla dowolnej pamięci podręcznej Premium z włączonym klastrem Redis jest skuteczny 1, a polecenie [SELECT](https://redis.io/commands/select) jest niedozwolone. Aby uzyskać więcej informacji, zobacz [Czy muszę wprowadzić zmiany w aplikacji klienckiej w celu korzystania z klastrowania?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są bazy danych Redis?](cache-faq.md#what-are-redis-databases)
+Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są bazy danych Redis?](cache-development-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > `databases`Ustawienie można skonfigurować tylko podczas tworzenia pamięci podręcznej i tylko przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych klientów zarządzania. Przykład konfigurowania `databases` podczas tworzenia pamięci podręcznej przy użyciu programu PowerShell można znaleźć w temacie [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -505,4 +505,4 @@ Możesz przenieść pamięć podręczną do nowej subskrypcji, klikając przycis
 Aby uzyskać informacje na temat przenoszenia zasobów z jednej grupy zasobów do innej i z jednej subskrypcji do drugiej, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać więcej informacji na temat pracy z poleceniami Redis, zobacz [jak można uruchomić polecenia Redis?](cache-faq.md#how-can-i-run-redis-commands)
+* Aby uzyskać więcej informacji na temat pracy z poleceniami Redis, zobacz [jak można uruchomić polecenia Redis?](cache-development-faq.md#how-can-i-run-redis-commands)

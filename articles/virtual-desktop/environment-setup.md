@@ -1,19 +1,17 @@
 ---
 title: Środowisko pulpitu wirtualnego systemu Windows — Azure
 description: Zapoznaj się z podstawowymi elementami środowiska pulpitu wirtualnego systemu Windows, takimi jak pule hostów i grupy aplikacji.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283422"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002613"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Środowisko usługi Windows Virtual Desktop
 
@@ -49,7 +47,7 @@ Aby opublikować zasoby dla użytkowników, należy przypisać je do grup aplika
 
 ## <a name="workspaces"></a>Obszary robocze
 
-Obszar roboczy to logiczna Grupa grup aplikacji w systemie Windows Virtual Desktop. Każda grupa aplikacji klasycznych systemu Windows musi być skojarzona z obszarem roboczym, aby użytkownicy mogli widzieć aplikacje zdalne i pulpity opublikowane na nich.  
+Obszar roboczy to logiczna Grupa grup aplikacji w systemie Windows Virtual Desktop. Każda grupa aplikacji klasycznych systemu Windows musi być skojarzona z obszarem roboczym, aby użytkownicy mogli widzieć aplikacje zdalne i pulpity opublikowane na nich.
 
 ## <a name="end-users"></a>Użytkownicy końcowi
 

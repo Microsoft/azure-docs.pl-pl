@@ -1,19 +1,17 @@
 ---
 title: Tworzenie dzierżawy w systemie Windows Virtual Desktop (klasyczny) — Azure
 description: Opisuje sposób konfigurowania dzierżawców klasycznego systemu Windows (klasyczny) w Azure Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286363"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005622"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie dzierżawy w systemie Windows Virtual Desktop (klasyczny)
 
@@ -82,12 +80,12 @@ Aby przypisać rolę aplikacji TenantCreator:
    > ![Zrzut ekranu przedstawiający wyszukiwanie aplikacji dla przedsiębiorstw w Azure Portal](../media/azure-portal-enterprise-applications.png)
 
 2. W obszarze **aplikacje dla przedsiębiorstw**Wyszukaj pozycję **pulpit wirtualny systemu Windows**. Zobaczysz dwie aplikacje, które podano w poprzedniej sekcji. Z tych dwóch aplikacji wybierz pozycję **pulpit wirtualny systemu Windows**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający wyniki wyszukiwania podczas wyszukiwania "pulpit wirtualny systemu Windows" w "aplikacje dla przedsiębiorstw". Aplikacja o nazwie "pulpit wirtualny systemu Windows" jest wyróżniona.](../media/tenant-enterprise-app.png)
 
 3. Wybierz pozycję **Użytkownicy i grupy**. Może się okazać, że administrator, który udzielił zgody na dostęp do aplikacji, znajduje się już na liście z domyślną przypisaną rolą **dostępu** . Nie jest to wystarczające, aby utworzyć dzierżawę pulpitu wirtualnego systemu Windows. Wykonaj poniższe instrukcje, aby dodać rolę **TenantCreator** do użytkownika.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu użytkowników i grup przypisanych do zarządzania aplikacją Enterprise "pulpit wirtualny systemu Windows". Zrzut ekranu zawiera tylko jedno przypisanie, które jest przeznaczone dla "dostępu domyślnego".](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Aby znaleźć identyfikator dzierżawy Azure Active Directory (lub **Identyfikat
 
 Aby znaleźć identyfikator subskrypcji platformy Azure:
 1. W tej samej sesji [Azure Portal](https://portal.azure.com) Wyszukaj i wybierz pozycję **subskrypcje**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający wyniki wyszukiwania dla "Azure Active Directory" w Azure Portal. Zostanie wyróżniony wynik wyszukiwania w obszarze "usługi".](../media/tenant-search-subscription.png)
 
 2. Wybierz subskrypcję platformy Azure, której chcesz używać do odbierania powiadomień usługi pulpitu wirtualnego systemu Windows.
 3. Poszukaj **identyfikatora subskrypcji**, a następnie umieść wskaźnik myszy nad wartością, dopóki nie zostanie wyświetlona ikona Schowka. Wybierz ikonę schowka i wklej ją w wygodnym miejscu, aby można było użyć jej później jako wartości **AzureSubscriptionId** .
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający właściwości subskrypcji platformy Azure. Wskaźnik myszy znajduje się nad ikoną schowka dla "Identyfikator subskrypcji", aby skopiować i wkleić.](../media/tenant-subscription-id.png)
 

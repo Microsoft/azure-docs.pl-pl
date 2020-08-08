@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024197"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002980"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL do grupy trybu failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Dodaj zarządzane wystąpienia wystąpienia zarządzanego usługi Azure SQL do g
   > [!NOTE]
   > - Korzystając z tego samouczka, należy się upewnić, że skonfigurowano zasoby z [wymaganiami wstępnymi dotyczącymi konfigurowania grup trybu failover dla wystąpienia zarządzanego SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Tworzenie wystąpienia zarządzanego może zająć dużo czasu. W związku z tym ten samouczek może trwać kilka godzin. Aby uzyskać więcej informacji na temat czasów udostępniania, zobacz [operacje zarządzania wystąpieniami zarządzanymi przez program SQL Server](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Wystąpienia zarządzane uczestniczące w grupie trybu failover wymagają [platformy Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub dwóch podłączonych bram sieci VPN. Ten samouczek zawiera instrukcje dotyczące tworzenia i łączenia bram sieci VPN. Pomiń te kroki, jeśli skonfigurowano już ExpressRoute. 
+  > - Wystąpienia zarządzane uczestniczące w grupie trybu failover wymagają [platformy Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub dwóch podłączonych bram sieci VPN. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana. Ten samouczek zawiera instrukcje dotyczące tworzenia i łączenia bram sieci VPN. Pomiń te kroki, jeśli skonfigurowano już ExpressRoute. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

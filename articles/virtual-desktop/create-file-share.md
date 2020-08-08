@@ -1,19 +1,17 @@
 ---
 title: Tworzenie Azure Files udziału plików z kontrolerem domeny — Azure
 description: Skonfiguruj kontener profilu FSLogix w udziale plików platformy Azure w istniejącej puli hostów Windows Virtual Desktop z domeną Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842913"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009226"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -31,7 +29,7 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
@@ -62,7 +60,7 @@ Aby utworzyć udział plików:
 
 3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 ## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
@@ -181,7 +179,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      - Zastąp <literę dysku zainstalowana> literą dysku użytego do zmapowania dysku.
      - Zastąp <User-e-mail> nazwą UPN grupy użytkowników lub Active Directory zawierającą użytkowników, którzy będą potrzebować dostępu do udziału.
 
-     Na przykład:
+     Przykład:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

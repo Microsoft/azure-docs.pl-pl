@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075075"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005127"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 
@@ -256,7 +256,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
-**Wskazówki**: Data Lake Analytics nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest dostarczane z Azure Active Directory i zabezpieczone przez kontrolę dostępu opartą na ROLACH (RBAC).
+**Wskazówki**: Data Lake Analytics nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest udostępniane Azure Active Directory i zabezpieczone przez kontrolę dostępu opartą na rolach (Azure RBAC).
 
 * [Przegląd Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 

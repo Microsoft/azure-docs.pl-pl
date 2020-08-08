@@ -1,19 +1,17 @@
 ---
 title: Tworzenie puli hostów środowiska pulpitu wirtualnego systemu Windows — Azure
 description: Rozwiązywanie problemów i rozwiązywanie problemów z pulą dzierżaw i hostów podczas instalacji środowiska pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292573"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006166"
 ---
 # <a name="host-pool-creation"></a>Tworzenie puli hostów
 
@@ -22,7 +20,7 @@ ms.locfileid: "87292573"
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -37,13 +35,13 @@ Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do 
 > [!div class="mx-imgBorder"]
 > ![Obraz przedstawiający Azure Portal wyświetlania komunikatu "Tworzenie bezpłatnego konta"](media/create-new-account.png)
 
-**Przyczyna**: nie ma aktywnych subskrypcji na koncie, które zostało zalogowane na platformie Azure za pomocą usługi, lub że konto nie ma uprawnień do wyświetlania subskrypcji. 
+**Przyczyna**: nie ma aktywnych subskrypcji na koncie, które zostało zalogowane na platformie Azure za pomocą usługi, lub że konto nie ma uprawnień do wyświetlania subskrypcji.
 
 **Poprawka**: Zaloguj się do subskrypcji, w której zostaną wdrożone maszyny wirtualne hosta sesji przy użyciu konta, które ma co najmniej dostęp na poziomie współautora.
 
 ### <a name="error-exceeding-quota-limit"></a>Błąd: "przekraczanie limitu przydziału"
 
-Jeśli operacja przekracza limit przydziału, można wykonać jedną z następujących czynności: 
+Jeśli operacja przekracza limit przydziału, można wykonać jedną z następujących czynności:
 
 - Utwórz nową pulę hostów z takimi samymi parametrami, ale mniejszą liczbę rdzeni maszyn wirtualnych i maszyn wirtualnych.
 
@@ -119,9 +117,9 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 Przykład nieprzetworzonego błędu:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Przykład nieprzetworzonego błędu:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Przykład nieprzetworzonego błędu:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

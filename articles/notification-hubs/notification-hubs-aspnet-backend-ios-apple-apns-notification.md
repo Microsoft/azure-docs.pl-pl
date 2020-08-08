@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530181"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004173"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych użytkowników przy użyciu usługi Azure Notification Hubs
 
@@ -50,7 +50,7 @@ Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj
 1. Otwórz aplikację widok jednej strony utworzoną w samouczku [wysyłanie powiadomień wypychanych do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md) .
 
    > [!NOTE]
-   > W tej sekcji założono, że projekt jest skonfigurowany z pustą nazwą organizacji. W przeciwnym razie musisz dołączać nazwę organizacji do wszystkich nazw klas.
+   > W tej sekcji założono, że projekt jest skonfigurowany z pustą nazwą organizacji. W przeciwnym razie poprzedź nazwę organizacji do wszystkich nazw klas.
 
 2. W `Main.storyboard` pliku Dodaj składniki widoczne na zrzucie ekranu z biblioteki obiektów.
 
@@ -66,7 +66,7 @@ Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj
 
      Niektóre składniki zostały dodane w samouczku [wysyłanie powiadomień wypychanych do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md) .
 
-3. **Przeciągnij ze** składników w widoku, aby `ViewController.h` i dodać te nowe możliwości.
+3. **Naciśnij klawisz Ctrl** i przeciągnij ze składników w widoku, aby `ViewController.h` i dodać te nowe możliwości:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. W programie `ViewController.h` Dodaj następujące elementy `#define` po instrukcjach importu. Zastąp `<Enter Your Backend Endpoint>` symbol zastępczy docelowym adresem URL użytym do wdrożenia zaplecza aplikacji w poprzedniej sekcji. Na przykład `http://your_backend.azurewebsites.net`.
+4. W programie `ViewController.h` Dodaj następujące elementy `#define` po instrukcjach importu. Zastąp `<Your backend endpoint>` symbol zastępczy docelowym adresem URL użytym do wdrożenia zaplecza aplikacji w poprzedniej sekcji. Na przykład `http://your_backend.azurewebsites.net` :
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. W projekcie Utwórz nową klasę dotyku kakao o nazwie `RegisterClient` do interfejsu z utworzonym zapleczem ASP.NET. Utwórz klasę, która dziedziczy z `NSObject` . Następnie Dodaj następujący kod w `RegisterClient.h` .
+5. W projekcie Utwórz nową klasę dotyku kakao o nazwie `RegisterClient` do interfejsu z utworzonym zapleczem ASP.NET. Utwórz klasę, która dziedziczy z `NSObject` . Następnie Dodaj następujący kod w `RegisterClient.h` :
 
     ```objc
     @interface RegisterClient : NSObject
@@ -494,7 +494,7 @@ Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób wysyłania powiadomień push do konkretnych użytkowników, którzy mają tagi skojarzone ze swoimi rejestracjami. Aby dowiedzieć się, jak wypychać powiadomienia oparte na lokalizacji, przejdź do następującego samouczka: 
+W tym samouczku przedstawiono sposób wysyłania powiadomień push do konkretnych użytkowników, którzy mają tagi skojarzone ze swoimi rejestracjami. Aby dowiedzieć się, jak wypychać powiadomienia oparte na lokalizacji, przejdź do następującego samouczka:
 
 > [!div class="nextstepaction"]
 >[Wypychanie powiadomień na podstawie lokalizacji](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

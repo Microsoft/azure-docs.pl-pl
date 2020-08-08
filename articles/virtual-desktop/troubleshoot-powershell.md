@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop PowerShell — Azure
 description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288731"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002281"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Program PowerShell dla usługi Windows Virtual Desktop
 
@@ -22,7 +20,7 @@ ms.locfileid: "87288731"
 
 W tym artykule opisano błędy i problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows. Aby uzyskać więcej informacji na Usługi pulpitu zdalnego PowerShell, zobacz [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -33,10 +31,10 @@ Ta sekcja zawiera listę poleceń programu PowerShell, które są zwykle używan
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Błąd: New-AzRoleAssignment: podane informacje nie są mapowane na identyfikator obiektu usługi AD.
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Przyczyna:** Nie można znaleźć użytkownika określonego przez parametr *-SignInName* w Azure Active Directory powiązanym ze środowiskiem pulpitu wirtualnego systemu Windows. 
+**Przyczyna:** Nie można znaleźć użytkownika określonego przez parametr *-SignInName* w Azure Active Directory powiązanym ze środowiskiem pulpitu wirtualnego systemu Windows.
 
 **Poprawka:** Pamiętaj o następujących kwestiach.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Błąd: New-AzRoleAssignment: "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji względem zakresu (kod: AuthorizationFailed)"
 
-**Przyczyna 1:** Używane konto nie ma uprawnień właściciela do subskrypcji. 
+**Przyczyna 1:** Używane konto nie ma uprawnień właściciela do subskrypcji.
 
 **Poprawka 1:** Użytkownik z uprawnieniami właściciela musi wykonać przypisanie roli. Alternatywnie użytkownik musi być przypisany do roli administratora dostępu użytkownika, aby przypisać użytkownika do grupy aplikacji.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Błąd: New-AzWvdHostPool--lokalizacja jest niedostępna dla typu zasobu
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Przyczyna: pulpit wirtualny systemu Windows obsługuje Wybieranie lokalizacji pul hostów, grup aplikacji i obszarów roboczych w celu przechowywania metadanych usługi w określonych lokalizacjach. Opcje są ograniczone do miejsca, w którym ta funkcja jest dostępna. Ten błąd oznacza, że funkcja nie jest dostępna w wybranej lokalizacji.

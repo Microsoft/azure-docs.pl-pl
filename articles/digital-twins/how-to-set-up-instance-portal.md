@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836942"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009670"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -24,27 +24,13 @@ W tej wersji tego artykułu przechodzą te kroki ręcznie, po jednym z nich przy
 * Aby wykonać te kroki ręcznie przy użyciu interfejsu wiersza polecenia, zobacz wersja interfejsu wiersza polecenia w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md).
 * Aby przeprowadzić instalację zautomatyzowaną za pomocą przykładowego skryptu wdrożenia, zobacz wersję skryptu w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (skrypty)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Następnie zaloguj się do [Azure Portal](https://ms.portal.azure.com/) przy użyciu swoich poświadczeń.
-
-## <a name="prerequisites-permission-requirements"></a>Warunki wstępne: wymagania dotyczące uprawnień
-
-Aby móc wykonać wszystkie kroki opisane w tym artykule, musisz być sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. 
-
-Poziom uprawnień można sprawdzić na [stronie Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w Azure Portal (można użyć tego linku lub wyszukać *subskrypcje* na pasku wyszukiwania portalu). Poszukaj nazwy używanej subskrypcji i Wyświetl jej rolę w kolumnie *My role* . Jeśli jesteś właścicielem, ta wartość jest *właścicielem*:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Widok strony subskrypcji w Azure Portal, który pokazuje użytkownika jako właściciela" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Jeśli okaże się, że wartość to *współautor* lub coś innego niż *właściciel*, można wykonać jedną z następujących czynności:
-* Skontaktuj się z właścicielem subskrypcji i poproś właściciela o wykonanie kroków opisanych w tym artykule w Twoim imieniu
-* Skontaktuj się z właścicielem subskrypcji lub osobą z rolą administratora dostępu użytkowników w ramach subskrypcji i poproś o podniesienie uprawnień do właściciela subskrypcji, aby móc kontynuować pracę. Niezależnie od tego, czy jest to odpowiednie, zależy od organizacji i Twojej roli.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Tworzenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
-W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji** przy użyciu Azure Portal.
+W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji** przy użyciu [Azure Portal](https://ms.portal.azure.com/). Przejdź do portalu i zaloguj się przy użyciu swoich poświadczeń.
 
-Po zalogowaniu się do [Azure Portal](https://ms.portal.azure.com/)Zacznij od wybrania pozycji _Utwórz zasób_ w menu strony głównej usług platformy Azure.
+W portalu Zacznij od wybrania pozycji _Utwórz zasób_ w menu strony głównej usług platformy Azure.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Wybieranie pozycji "Utwórz zasób" ze strony głównej Azure Portal":::
 
@@ -87,7 +73,7 @@ Najpierw otwórz stronę wystąpienia usługi Azure Digital bliźniaczych reprez
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Wybieranie, aby dodać przypisanie roli na stronie "kontrola dostępu (IAM)"":::
 
-Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zostać wykonane przez właściciela subskrypcji platformy Azure):
+Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zostać wykonane przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure):
 * **Rola**: wybierz pozycję *Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* z menu rozwijanego
 * **Przypisz dostęp do**: Wybierz *użytkownika, grupę lub jednostkę usługi Azure AD* z menu rozwijanego
 * **Wybierz**: Wyszukaj nazwę lub adres e-mail użytkownika do przypisania. Po wybraniu wyniku użytkownik zostanie wyświetlony w sekcji *wybrane elementy członkowskie* .

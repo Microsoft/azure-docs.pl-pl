@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 5b2a195e0a3145e97bf101b3354c2781fff15801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085977"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004419"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronizowanie użytkowników usługi Azure Active Directory z klastrem usługi HDInsight
 
-[Klastry usługi HDInsight z pakiet Enterprise Security (ESP)](hdinsight-domain-joined-introduction.md) mogą używać silnego uwierzytelniania z użytkownikami Azure Active Directory (Azure AD), a także używać zasad *kontroli dostępu opartej na rolach* (RBAC). Podczas dodawania użytkowników i grup do usługi Azure AD można synchronizować użytkowników, którzy potrzebują dostępu do klastra.
+[Klastry usługi HDInsight z pakiet Enterprise Security (ESP)](hdinsight-domain-joined-introduction.md) mogą używać silnego uwierzytelniania z użytkownikami Azure Active Directory (Azure AD), a także korzystać z zasad *kontroli dostępu opartej na ROLACH (Azure RBAC)* . Podczas dodawania użytkowników i grup do usługi Azure AD można synchronizować użytkowników, którzy potrzebują dostępu do klastra.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -146,7 +146,7 @@ Otwórz [interfejs użytkownika programu Apache Ambari Web](hdinsight-hadoop-man
 Gdy nowy użytkownik (lub inny użytkownik domeny) zaloguje się do usługi Ambari, użyje pełnej nazwy użytkownika i domeny usługi Azure AD.  Ambari wyświetla alias użytkownika, który jest nazwą wyświetlaną użytkownika w usłudze Azure AD.
 Nowy przykładowy użytkownik ma nazwę użytkownika `hiveuser3@contoso.com` . W programie Ambari ten nowy użytkownik jest wyświetlany, gdy `hiveuser3` użytkownik zaloguje się do Ambari jako `hiveuser3@contoso.com` .
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Konfigurowanie zasad Apache Hive w usłudze HDInsight przy użyciu protokołu ESP](hdinsight-domain-joined-run-hive.md)
 * [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](hdinsight-domain-joined-manage.md)

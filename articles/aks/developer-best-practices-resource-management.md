@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281569"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005316"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dla deweloperów aplikacji do zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji na temat pomiarów zasobów i przydziałów, zob
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Opracowywanie i debugowanie aplikacji w klastrze AKS
 
-**Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i debugować dla klastra AKS przy użyciu funkcji Spaces dev. Ten model programistyczny gwarantuje, że potrzeby kontroli dostępu opartej na rolach, sieci lub magazynu są implementowane przed wdrożeniem aplikacji w środowisku produkcyjnym.
+**Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i debugować dla klastra AKS przy użyciu funkcji Spaces dev. Ten model programistyczny zapewnia implementację kontroli dostępu opartej na rolach (RBAC), sieci lub magazynu przed wdrożeniem aplikacji w środowisku produkcyjnym.
 
 Dzięki Azure Dev Spaces można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla funkcji miejsca do użytku deweloperskiego, które udostępnia opcję uruchamiania i debugowania aplikacji w klastrze AKS.
 

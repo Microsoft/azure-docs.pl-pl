@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086340"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006795"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych
 
@@ -43,7 +43,7 @@ Aby dodać nowy plan w ramach istniejącej oferty, która została już opubliko
 
 1. Na stronie **Przegląd oferty** dla istniejącej oferty przejdź do strony **Przegląd planu** , a następnie wybierz pozycję **Utwórz nowy plan**.
 1. Utwórz nowy plan zgodnie z [wytycznymi](./create-new-saas-offer.md#plan-overview) , korzystając z **istniejącego modelu cen planów**.
-1. Po zmianie nazwy planu wybierz pozycję **Zapisz wersję roboczą** . 
+1. Po zmianie nazwy planu wybierz pozycję **Zapisz wersję roboczą** .
 1. Wybierz pozycję **Opublikuj** , gdy wszystko będzie gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](#review-and-publish-an-updated-offer)** , która zawiera informacje o stanie ukończenia aktualizacji.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Aktualizowanie planu w ramach istniejącej oferty
@@ -55,6 +55,24 @@ Aby wprowadzić zmiany w planie w ramach istniejącej oferty, która została ju
 1. Wybierz pozycję **Zapisz wersję roboczą** po wprowadzeniu wszelkich zmian w nazwie planu, opisie lub dostępności odbiorców.
 1. Wybierz pozycję **Przejrzyj i Opublikuj,** gdy wszystko jest gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](#review-and-publish-an-updated-offer)** , która zawiera informacje o stanie ukończenia aktualizacji.
 1. Prześlij zaktualizowany plan do opublikowania, wybierając pozycję **Publikuj**. Wyślemy wiadomość e-mail, gdy wersja zapoznawcza zaktualizowanej oferty będzie dostępna do przeglądu i wylogowania.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Oferowanie planu maszyny wirtualnej pod nową cenę
+
+Po opublikowaniu planu maszyny wirtualnej nie można zmienić jego ceny. Aby zaoferować ten sam plan przy użyciu innej ceny, należy ukryć plan i utworzyć nowy przy użyciu zaktualizowanej ceny. Najpierw Ukryj plan z ceną, którą chcesz zmienić:
+
+1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany**.
+1. Zaznacz pole wyboru **Ukryj plan** . Zapisz wersję roboczą przed kontynuowaniem.
+
+Teraz, gdy plan został ukryty przy użyciu starej ceny, Utwórz kopię tego planu przy użyciu zaktualizowanej ceny:
+
+1. W centrum partnerskim Wróć do **omówienia planu**.
+2. Wybierz pozycję **Utwórz nowy plan**. Wprowadź **identyfikator planu** i **nazwę planu**, a następnie wybierz pozycję **Utwórz**.
+1. Aby ponownie wykorzystać konfigurację techniczną z planu, który został ukryty, zaznacz pole wyboru **ponownie Użyj konfiguracji technicznej** . Zapoznaj się z [omówieniem planu](azure-vm-create-offer.md#plan-overview) , aby dowiedzieć się więcej.
+    > [!IMPORTANT]
+    > Jeśli wybierzesz opcję **ten plan ponownie używa konfiguracji technicznej z innego planu**, nie będzie można później przestać sprzedawać planu nadrzędnego. Nie używaj tej opcji, jeśli chcesz zrezygnować z sprzedaży planu nadrzędnego.
+3. Ukończ wszystkie wymagane sekcje dla nowego planu, w tym nową cenę.
+1. Wybierz pozycję **Zapisz wersję roboczą**.
+1. Po zakończeniu wszystkich wymaganych sekcji nowego planu wybierz pozycję **Przejrzyj i Opublikuj**. Spowoduje to przesłanie oferty do przeglądu i publikacji. Aby uzyskać więcej informacji, przeczytaj temat [przeglądanie i publikowanie oferty w portalu komercyjnym](../review-publish-offer.md) .
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Porównaj zmiany z ofertami w witrynie Marketplace
 

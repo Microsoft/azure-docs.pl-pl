@@ -1,19 +1,17 @@
 ---
 title: Microsoft Teams na pulpicie wirtualnym systemu Windows — Azure
 description: Jak korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372845"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006115"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 

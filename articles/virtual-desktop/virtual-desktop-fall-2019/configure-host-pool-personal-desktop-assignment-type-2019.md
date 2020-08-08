@@ -1,19 +1,17 @@
 ---
 title: Osobisty typ przypisania pulpitu wirtualnego systemu Windows (klasyczny) — Azure
 description: Jak skonfigurować typ przypisania dla puli hostów pulpitu wirtualnego systemu Windows (klasyczny).
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 669010d2de90498c98fc685fe931b084a11cd104
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271046"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008512"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego dla pulpitu wirtualnego systemu Windows (klasyczny)
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119739"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009532"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Przeglądanie i publikowanie oferty w portalu komercyjnym
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Przeglądanie i publikowanie oferty w portalu komercyjnym
 
 W tym artykule przedstawiono sposób użycia Centrum partnerskiego w celu przesłania oferty do wersji zapoznawczej, przejrzenia oferty, a następnie opublikowania jej w komercyjnym portalu Microsoft Marketplace. Omówiono również sposób sprawdzania stanu publikowania w trakcie wykonywania kroków publikacji. Musisz mieć już utworzoną ofertę, która ma zostać opublikowana.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>Przejdź do oferty w komercyjnej witrynie Marketplace
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Przejdź do oferty w komercyjnej witrynie Marketplace
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
@@ -53,13 +53,13 @@ W tym artykule przedstawiono sposób użycia Centrum partnerskiego w celu przes�
 
 Po wybraniu opcji **Publikuj**procesy weryfikacji i publikowania są wykonywane w pożądanej kolejności. W tej tabeli przedstawiono najbardziej typowy proces publikowania:
 
-| Etap | Działanie | 
+| Faza | Co się dzieje | 
 | ------------ | ------------- | ------------- |
 | Automatyczne sprawdzanie poprawności | Przetwarzamy zestaw zautomatyzowanych walidacji. | 
 | Certyfikacja | Przeprowadzamy ręczne walidacje. | 
 | Tworzenie podglądu | Strona aukcji dla wersji zapoznawczej oferty jest dostępna dla każdego, kto ma link do wersji zapoznawczej. Jeśli oferta będzie sprzedawana w firmie Microsoft (transacted), tylko odbiorcy określeni na stronie **odbiorca wersji zapoznawczej** oferty będą mogli kupować i uzyskiwać dostęp do oferty do testowania. | 
 | Wydawca przygotowania | Wyślemy do Ciebie wiadomość e-mail z prośbą o przeszukanie i zaakceptowanie oferty. | 
-| Publikowanie | Uruchamiamy serię kroków, aby sprawdzić, czy oferta wersji zapoznawczej została opublikowana na żywo na rynku komercyjnym. | 
+| Opublikuj | Uruchamiamy serię kroków, aby sprawdzić, czy oferta wersji zapoznawczej została opublikowana na żywo na rynku komercyjnym. | 
 |||
 
 ## <a name="automated-validation-phase"></a>Faza automatycznej weryfikacji

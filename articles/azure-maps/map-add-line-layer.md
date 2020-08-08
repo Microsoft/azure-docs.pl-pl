@@ -1,6 +1,6 @@
 ---
 title: Dodawanie warstwy liniowej do mapy | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak dodać warstwę linii do mapy przy użyciu zestawu Microsoft Azure Web SDK mapy.
+description: Dowiedz się, jak dodać wiersze do map. Zapoznaj się z przykładami korzystającymi z Azure Maps Web SDK, aby dodać warstwy liniowe do map i dostosowywać linie za pomocą symboli i gradientów kolorów.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 366de0d17a1cdd62b95d39b1ad04b9bc76bec52c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c834ae6061fce6f2fc2f4cd7c4d80e036775b156
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286931"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010212"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Dodawanie warstwy liniowej do mapy
 

@@ -1,19 +1,17 @@
 ---
 title: Rozwiązywanie problemów z hostem sesji usług pulpitu wirtualnego systemu Windows — Azure
 description: Jak rozwiązywać problemy podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286380"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005224"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -22,7 +20,7 @@ ms.locfileid: "87286380"
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -138,8 +136,8 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 **Poprawka:** Postępuj zgodnie z tymi instrukcjami, aby naprawić błąd rejestru agenta.
 
-1. Jeśli istnieje już token rejestracji, usuń go z poleceniem Remove-AzWvdRegistrationInfo. 
-2. Uruchom polecenie cmdlet **New-AzWvdRegistrationInfo** , aby wygenerować nowy token. 
+1. Jeśli istnieje już token rejestracji, usuń go z poleceniem Remove-AzWvdRegistrationInfo.
+2. Uruchom polecenie cmdlet **New-AzWvdRegistrationInfo** , aby wygenerować nowy token.
 3. Upewnij się, że parametr *-ExpriationTime* jest ustawiony na 3 dni.
 
 ### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Błąd: Agent pulpitu wirtualnego systemu Windows nie zgłasza pulsu podczas uruchamiania Get-AzWvdSessionHost
@@ -305,7 +303,7 @@ Jeśli zalogujesz się do wielosesyjnego systemu Windows 10 Enterprise przy uży
 
 W przypadku upływu limitu czasu zostanie wyświetlony komunikat o błędzie "Sesja zdalna została rozłączona, ponieważ dla tego komputera nie ma Pulpit zdalny licencji dostępu klienta".
 
-Jeśli zobaczysz jeden z tych komunikatów, oznacza to, że obraz nie ma zainstalowanych najnowszych aktualizacji systemu Windows lub że tryb licencjonowania Pulpit zdalny jest konfigurowany za pomocą zasad grupy. Postępuj zgodnie z instrukcjami w następnych sekcjach, aby sprawdzić ustawienia zasad grupy, zidentyfikuj wersję wielosesyjną systemu Windows 10 Enterprise i zainstaluj odpowiednią aktualizację.  
+Jeśli zobaczysz jeden z tych komunikatów, oznacza to, że obraz nie ma zainstalowanych najnowszych aktualizacji systemu Windows lub że tryb licencjonowania Pulpit zdalny jest konfigurowany za pomocą zasad grupy. Postępuj zgodnie z instrukcjami w następnych sekcjach, aby sprawdzić ustawienia zasad grupy, zidentyfikuj wersję wielosesyjną systemu Windows 10 Enterprise i zainstaluj odpowiednią aktualizację.
 
 >[!NOTE]
 >Pulpit wirtualny systemu Windows wymaga tylko licencji dostępu klienta RDS (CAL), gdy pula hostów zawiera hosty sesji systemu Windows Server. Aby dowiedzieć się, jak skonfigurować RDS CAL, zobacz [Licencjonowanie wdrożenia usług pulpitu zdalnego z licencjami dostępu klienta](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

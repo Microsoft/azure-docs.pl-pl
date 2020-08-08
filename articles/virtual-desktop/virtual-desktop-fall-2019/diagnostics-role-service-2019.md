@@ -1,19 +1,17 @@
 ---
 title: Diagnozowanie problemów z pulpitem wirtualnym systemu Windows (klasyczny) — Azure
 description: Jak zdiagnozować problemy przy użyciu funkcji diagnostyki pulpitu wirtualnego systemu Windows (klasycznego).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285054"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009345"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identyfikowanie i diagnozowanie problemów z pulpitem wirtualnym systemu Windows (klasyczny)
 
@@ -25,7 +23,7 @@ Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia
 * Działania dotyczące subskrypcji kanału informacyjnego: użytkownik końcowy wyzwala te działania przy każdej próbie połączenia się ze źródłem danych za pomocą aplikacji Pulpit zdalny Microsoft.
 * Działania połączenia: użytkownik końcowy wyzwala te działania przy każdej próbie połączenia się z pulpitem lub funkcją RemoteApp za pomocą aplikacji Pulpit zdalny Microsoft.
 * Działania związane z zarządzaniem: Administrator wyzwala te działania za każdym razem, gdy wykonują operacje zarządzania w systemie, takie jak tworzenie pul hostów, przypisywanie użytkowników do grup aplikacji i tworzenie przypisań ról.
-  
+
 Połączenia, które nie docierają do pulpitu wirtualnego systemu Windows, nie będą wyświetlane w wynikach diagnostyki, ponieważ sama usługa roli diagnostyki jest częścią pulpitu wirtualnego systemu Windows. Problemy z połączeniem pulpitu wirtualnego systemu Windows mogą wystąpić, gdy użytkownik końcowy napotyka problemy z łącznością sieciową.
 
 Aby rozpocząć, [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
@@ -39,7 +37,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Diagnostyka pulpitu wirtualnego systemu Windows używa tylko jednego polecenia cmdlet programu PowerShell, ale zawiera wiele opcjonalnych parametrów, aby pomóc w zawężaniu i izolowaniu problemów. Poniższe sekcje zawierają listę poleceń cmdlet, które można uruchomić w celu zdiagnozowania problemów. Większość filtrów można zastosować razem. Wartości wymienione w nawiasach, takie jak `<tenantName>` , powinny być zastępowane wartościami, które dotyczą danej sytuacji.
 
 >[!IMPORTANT]
->Funkcja diagnostyki służy do rozwiązywania problemów z jednym użytkownikiem. Wszystkie zapytania przy użyciu programu PowerShell muszą zawierać parametry *-username* lub *-ActivityId* . Aby uzyskać możliwości monitorowania, użyj Log Analytics. Aby uzyskać więcej informacji o sposobach wysyłania danych diagnostycznych do obszaru roboczego [, zobacz używanie log Analytics dla funkcji diagnostyki](diagnostics-log-analytics-2019.md) . 
+>Funkcja diagnostyki służy do rozwiązywania problemów z jednym użytkownikiem. Wszystkie zapytania przy użyciu programu PowerShell muszą zawierać parametry *-username* lub *-ActivityId* . Aby uzyskać możliwości monitorowania, użyj Log Analytics. Aby uzyskać więcej informacji o sposobach wysyłania danych diagnostycznych do obszaru roboczego [, zobacz używanie log Analytics dla funkcji diagnostyki](diagnostics-log-analytics-2019.md) .
 
 ### <a name="filter-diagnostic-activities-by-user"></a>Filtruj działania diagnostyczne według użytkownika
 

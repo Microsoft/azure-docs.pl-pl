@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836551"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002223"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -66,7 +66,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operacje Azure Machine Learning
 
-Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcami zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcą zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Tworzenie roli niestandardowej
 
@@ -382,9 +382,9 @@ Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypa
 Aby przypisać tożsamość przypisaną do użytkownika w klastrach Amlcompute, jeden musi mieć uprawnienia do zapisu do tworzenia obliczeń i mieć [rolę operatora tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aby uzyskać więcej informacji na temat RBAC z tożsamościami zarządzanymi, przeczytaj artykuł [jak zarządzać tożsamością przypisaną przez użytkownika](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>PYTANIE: Czy obsługujemy kontrolę dostępu opartą na rolach w portalu Studio?
+### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>PYTANIE: Czy obsługujemy kontrolę dostępu opartą na rolach w portalu Studio?
 
-Azure Machine Learning Studio obsługuje kontrole dostępu oparte na rolach. 
+Azure Machine Learning Studio obsługuje kontrolę dostępu opartą na rolach (Azure RBAC). 
 
 > [!IMPORTANT]
 > Po przypisaniu roli niestandardowej z określonymi uprawnieniami do Analityka danych w obszarze roboczym odpowiednie akcje (takie jak dodanie przycisku obliczeń) są automatycznie ukrywane dla użytkowników. Ukrycie tych elementów zapobiega ewentualnemu niepomyleniu kontroli, które zwracają nieautoryzowane powiadomienie o dostępie z usługi, gdy jest używana.

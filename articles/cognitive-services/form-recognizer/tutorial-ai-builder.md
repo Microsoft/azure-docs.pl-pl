@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ea1504f5cb3ae405ccd22774204f898484e6876
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987124"
+ms.locfileid: "88003365"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Samouczek: Tworzenie aplikacji do przetwarzania formularzy przy użyciu programu AI Builder
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zestaw składający się z co najmniej pięciu form tego samego typu do użycia na potrzeby szkoleń/testowania danych. Zobacz [Tworzenie zestawu danych szkoleniowych](./build-training-data-set.md) dla wskazówek i opcji tworzenia zestawu danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2128080).
-* [Licencjonowanie](https://go.microsoft.com/fwlink/?linkid=2085130)aplikacji lub pakietu do automatyzacji Licencja musi obejmować [usługę Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* [Licencjonowanie](https://go.microsoft.com/fwlink/?linkid=2085130)aplikacji lub pakietu do automatyzacji Licencja musi zawierać [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
 * [Dodatek lub wersja próbna](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409)programu AI Builder.
 
 

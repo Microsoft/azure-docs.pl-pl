@@ -4,12 +4,12 @@ description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rej
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259461"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009158"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
+W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
+Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -233,6 +233,8 @@ Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.js
 |pipelineResourceId     |  Identyfikator zasobu potoku eksportu.<br/>Przykład: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  Wybrana nazwa dla obiektu BLOB artefaktów wyeksportowanego do źródłowego konta magazynu, takiego jak *obiekt BLOB*
 |pojawia | Tablica artefaktów źródłowych do przetransferowania, jako Tagi lub skróty manifestu<br/>Przykład: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+
+W przypadku ponownego wdrażania zasobu PipelineRun z identycznymi właściwościami należy również użyć właściwości [forceUpdateTag](#redeploy-pipelinerun-resource) .
 
 Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób PipelineRun. Poniższy przykład nazywa *exportPipelineRun*wdrożenia.
 
@@ -291,6 +293,8 @@ Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.js
 |pipelineResourceId     |  Identyfikator zasobu potoku importu.<br/>Przykład: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Nazwa istniejącego obiektu BLOB dla eksportowanych artefaktów na koncie magazynu, takich jak *obiekt BLOB*
 
+W przypadku ponownego wdrażania zasobu PipelineRun z identycznymi właściwościami należy również użyć właściwości [forceUpdateTag](#redeploy-pipelinerun-resource) .
+
 Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby uruchomić zasób.
 
 ```azurecli
@@ -304,6 +308,23 @@ Po pomyślnym zakończeniu wdrożenia Sprawdź, czy zaimportowano artefakty, wy�
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>Wdróż ponownie zasób PipelineRun
+
+W przypadku ponownego wdrażania zasobu PipelineRun z *identycznymi właściwościami*należy użyć właściwości **forceUpdateTag** . Ta właściwość wskazuje, że zasób PipelineRun należy utworzyć ponownie, nawet jeśli konfiguracja nie została zmieniona. Upewnij się, że forceUpdateTag jest inna po każdym ponownym wdrożeniu zasobu PipelineRun. Poniższy przykład odtworzy PipelineRun do eksportu. Bieżąca data i godzina jest używana do ustawiania forceUpdateTag, co zapewnia, że ta właściwość zawsze jest unikatowa.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>Usuwanie zasobów potoku
